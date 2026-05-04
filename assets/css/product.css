@@ -1,0 +1,726 @@
+/* ==========================================================================
+   Awwwards-Tier Single Product Layout
+   Archetype: The Editorial Split & Double-Bezel
+   ========================================================================== */
+
+/* 1. Macro Layout & Editorial Split */
+.single-product div.product {
+    display: grid;
+    grid-template-columns: minmax(0, 52%) minmax(0, 48%);
+    gap: 5vw;
+    margin: 3vw auto 6vw;
+    max-width: 1500px;
+    padding: 0 4vw;
+    align-items: start;
+    /* Tabs & related must sit below gallery column, not overlap */
+    grid-template-rows: auto;
+}
+
+@media (max-width: 1024px) {
+    .single-product div.product {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 0 4vw;
+        margin-top: 4vw;
+    }
+}
+
+/* 2. The Product Gallery (Double-Bezel Architecture) */
+.woocommerce-product-gallery {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px;
+    border-radius: var(--vp-shop-radius-outer, 24px);
+    box-shadow: inset 0 0 0 1px var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+    /* position: sticky; */
+    /* top: 6rem; */
+    z-index: 10;
+    transition: transform 0.8s var(--vp-ease-spring, cubic-bezier(0.32, 0.72, 0, 1));
+}
+
+@media (max-width: 1024px) {
+    .woocommerce-product-gallery {
+        position: relative;
+        top: 0;
+    }
+}
+
+.woocommerce-product-gallery__wrapper {
+    background: #ffffff;
+    border-radius: calc(var(--vp-shop-radius-outer, 24px) - 10px);
+    overflow: hidden;
+    position: relative;
+    box-shadow:
+        inset 0 1px 1px var(--vp-shop-border-inner, rgba(255, 255, 255, 0.9)),
+        0 20px 40px -20px rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce-product-gallery__image {
+    margin: 0 !important;
+}
+
+.woocommerce-product-gallery__image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    transform-origin: center;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+}
+
+.woocommerce-product-gallery:hover .woocommerce-product-gallery__image img {
+    transform: scale(1.02);
+}
+
+/* Gallery Trigger (Magnifying Glass) */
+.woocommerce-product-gallery__trigger {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s var(--vp-ease-spring);
+    text-decoration: none;
+}
+
+.woocommerce-product-gallery__trigger:hover {
+    transform: scale(1.05) translateY(-2px);
+    background: #fff;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.woocommerce-product-gallery__trigger img {
+    width: 1.2rem;
+    height: 1.2rem;
+    opacity: 0.6;
+}
+
+/* Thumbs – horizontal scroll strip, fixed 72px wide each */
+.flex-control-thumbs {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 0.25rem 0.25rem 0.75rem;
+    list-style: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* Hide scrollbar but keep scroll functionality */
+    scrollbar-width: none;
+}
+
+.flex-control-thumbs::-webkit-scrollbar {
+    display: none;
+}
+
+.flex-control-thumbs li {
+    flex: 0 0 72px;
+    width: 72px;
+    height: 72px;
+    background: rgba(0, 0, 0, 0.02);
+    padding: 4px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+    cursor: pointer;
+    scroll-snap-align: start;
+    transition: all 0.5s var(--vp-ease-spring, cubic-bezier(0.32, 0.72, 0, 1));
+}
+
+.flex-control-thumbs li img {
+    opacity: 0.5;
+    border-radius: 8px;
+    transition: all 0.5s var(--vp-ease-spring, cubic-bezier(0.32, 0.72, 0, 1));
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flex-control-thumbs li:hover img,
+.flex-control-thumbs li img.flex-active {
+    opacity: 1;
+}
+
+.flex-control-thumbs li:hover,
+.flex-control-thumbs li:has(img.flex-active) {
+    transform: translateY(-3px);
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1), 0 8px 16px -8px rgba(0, 0, 0, 0.15);
+    background: #fff;
+}
+
+/* 3. The Summary Block (Massive Typography & Spacing) */
+.summary.entry-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2vw 0 4vw;
+    animation: fadeUp 1s var(--vp-ease-spring, cubic-bezier(0.32, 0.72, 0, 1)) both;
+}
+
+/* Eyebrow for single product */
+.product_meta .posted_in {
+    font-family: var(--vp-font-heading);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    color: var(--vp-shop-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: -1rem;
+    /* Pull it up closer to title */
+    order: -1;
+}
+
+.product_title.entry-title {
+    font-family: var(--vp-font-heading);
+    /* Reduced: was clamp(2rem, 3.5vw, 3.5rem) — too large at desktop */
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--vp-shop-text, #050505);
+    margin: 0;
+}
+
+.price {
+    font-family: var(--vp-font-heading);
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
+    font-weight: 400;
+    color: var(--vp-shop-text, #050505);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+}
+
+/* Variations Form */
+.variations_form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.variations {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.variations th {
+    text-align: left;
+    font-family: var(--vp-font-heading);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--vp-shop-text-muted, #6B6B6B);
+    padding: 1rem 0;
+    font-weight: 600;
+    vertical-align: middle;
+    width: 20%;
+}
+
+.variations td {
+    padding: 0.5rem 0;
+}
+
+.variations select {
+    appearance: none;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 4rem;
+    border: 1px solid var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+    background: transparent;
+    font-family: var(--vp-font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--vp-shop-text, #050505);
+    cursor: pointer;
+    transition: all 0.4s var(--vp-ease-spring, cubic-bezier(0.32, 0.72, 0, 1));
+}
+
+.variations select:hover,
+.variations select:focus {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+.reset_variations {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--vp-shop-text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.reset_variations:hover {
+    color: var(--vp-shop-text);
+}
+
+/* Add to Cart Area */
+.woocommerce-variation-add-to-cart {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.02);
+    padding: 0.5rem;
+    border-radius: 4rem;
+    box-shadow: inset 0 0 0 1px var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity input[type="number"] {
+    width: 4.5rem;
+    height: 3.5rem;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-family: var(--vp-font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--vp-shop-text, #050505);
+    -moz-appearance: textfield;
+}
+
+.quantity input[type="number"]::-webkit-outer-spin-button,
+.quantity input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Magnetic Button CTA */
+.single_add_to_cart_button {
+    flex: 1;
+    height: 3.5rem;
+    border-radius: 4rem;
+    background: var(--vp-shop-text, #050505);
+    color: var(--vp-shop-bg, #FDFBF7);
+    font-family: var(--vp-font-heading);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s var(--vp-ease-spring, cubic-bezier(0.32, 0.72, 0, 1));
+}
+
+.single_add_to_cart_button:hover:not(.disabled) {
+    transform: translateY(-2px) scale(0.99);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.3);
+    background: #000;
+}
+
+.single_add_to_cart_button:active:not(.disabled) {
+    transform: translateY(0) scale(0.97);
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.single_add_to_cart_button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--vp-shop-border-shell);
+    color: var(--vp-shop-text-muted);
+}
+
+/* Product Meta */
+.product_meta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: var(--vp-shop-text-muted, #6B6B6B);
+}
+
+.product_meta>span {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.product_meta a {
+    color: var(--vp-shop-text, #050505);
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 0.3rem 0.8rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    transition: all 0.4s var(--vp-ease-spring);
+}
+
+.product_meta a:hover {
+    background: rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+/* 4. The Tabs Architecture
+   IMPORTANT: .woocommerce-tabs and .related.products sit in the normal
+   document flow AFTER the 2-col grid (.product), so they span full width
+   automatically — no grid-column needed unless the parent is still a grid.
+   The sticky gallery (z-index:10) was covering them. Fix: ensure these
+   elements are outside / after the 2-col grid or have a higher z-index. */
+.single-product .woocommerce-tabs,
+.single-product .related.products {
+    /* Force full width below the 2-col product grid */
+    grid-column: 1 / -1;
+    display: block;
+}
+
+.woocommerce-tabs {
+    margin: 6vw auto;
+    max-width: 1200px;
+    padding: 0 4vw;
+    position: relative;
+    z-index: 20;
+    /* above sticky gallery z-index:10 */
+}
+
+.woocommerce-tabs ul.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4rem;
+    border-bottom: 1px solid var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+}
+
+@media (max-width: 768px) {
+    .woocommerce-tabs ul.tabs {
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+.woocommerce-tabs ul.tabs li {
+    margin: 0;
+}
+
+.woocommerce-tabs ul.tabs li a {
+    display: block;
+    padding: 1.5rem 0;
+    color: var(--vp-shop-text-muted, #6B6B6B);
+    text-decoration: none;
+    font-family: var(--vp-font-heading);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    transition: color 0.4s var(--vp-ease-spring);
+    position: relative;
+}
+
+.woocommerce-tabs ul.tabs li.active a {
+    color: var(--vp-shop-text, #050505);
+}
+
+.woocommerce-tabs ul.tabs li a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--vp-shop-text, #050505);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s var(--vp-ease-spring, cubic-bezier(0.32, 0.72, 0, 1));
+}
+
+.woocommerce-tabs ul.tabs li.active a::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.woocommerce-Tabs-panel {
+    font-family: var(--vp-font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--vp-shop-text-muted, #6B6B6B);
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeUp 0.8s var(--vp-ease-spring, cubic-bezier(0.32, 0.72, 0, 1));
+}
+
+.woocommerce-Tabs-panel h2 {
+    display: none;
+}
+
+.woocommerce-Tabs-panel p {
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-Tabs-panel ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Reviews Panel Setup */
+.woocommerce-Reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.woocommerce-Reviews-title {
+    font-family: var(--vp-font-heading);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--vp-shop-text);
+    margin-bottom: 2rem;
+    display: block !important;
+}
+
+#review_form_wrapper {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 3rem;
+    border-radius: var(--vp-shop-radius-outer, 24px);
+    box-shadow: inset 0 0 0 1px var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+}
+
+.comment-reply-title {
+    font-family: var(--vp-font-heading);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--vp-shop-text);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.comment-form p {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.comment-form label {
+    font-family: var(--vp-font-heading);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--vp-shop-text-muted);
+}
+
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form textarea {
+    background: #fff;
+    border: 1px solid var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+    padding: 1rem;
+    border-radius: 12px;
+    font-family: var(--vp-font-body);
+    font-size: 1rem;
+    color: var(--vp-shop-text);
+    transition: all 0.3s ease;
+}
+
+.comment-form input[type="text"]:focus,
+.comment-form input[type="email"]:focus,
+.comment-form textarea:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.comment-form .submit {
+    background: var(--vp-shop-text, #050505);
+    color: var(--vp-shop-bg, #FDFBF7);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4rem;
+    font-family: var(--vp-font-heading);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s var(--vp-ease-spring);
+    align-self: flex-start;
+}
+
+.comment-form .submit:hover {
+    background: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+/* 5. Related Products – full-width, 4-col grid matching shop.css */
+.related.products {
+    border-top: 1px solid var(--vp-shop-border-shell, rgba(5, 5, 5, 0.06));
+    padding: 6vw 4vw 8vw;
+    max-width: 1500px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 20;
+}
+
+.related.products>h2 {
+    font-family: var(--vp-font-heading);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: 3rem;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    color: var(--vp-shop-text-muted, #6B6B6B);
+}
+
+/* Fix related products grid – reuse shop.css columns-4 */
+.related.products .products.columns-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3vw 2vw;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 1280px) {
+    .related.products .products.columns-4 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .related.products .products.columns-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .related.products .products.columns-4 {
+        grid-template-columns: 1fr;
+        gap: 10vw;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   WooCommerce Cart Notification Banner
+   ========================================================================== */
+
+.woocommerce-message {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    color: #f0f0f0;
+    border: none;
+    border-left: 3px solid #c9a84c;
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin: 0 0 24px;
+    font-size: 0.88rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18), 0 1px 4px rgba(0, 0, 0, 0.10);
+    animation: slideInCart 0.38s cubic-bezier(0.32, 0.72, 0, 1) both;
+    position: relative;
+    overflow: hidden;
+}
+
+.woocommerce-message::before {
+    content: "✓";
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: #c9a84c;
+    color: #0a0a0a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.woocommerce-message a.button.wc-forward {
+    flex-shrink: 0;
+    margin-left: auto;
+    background: transparent;
+    color: #c9a84c;
+    border: 1.5px solid #c9a84c;
+    border-radius: 8px;
+    padding: 7px 18px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.woocommerce-message a.button.wc-forward:hover {
+    background: #c9a84c;
+    color: #0a0a0a;
+}
+
+@keyframes slideInCart {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 640px) {
+    .woocommerce-message {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 14px;
+        font-size: 0.82rem;
+    }
+
+    .woocommerce-message a.button.wc-forward {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+    }
+}

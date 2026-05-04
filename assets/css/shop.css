@@ -1,0 +1,471 @@
+/* ==========================================================================
+   Awwwards-Tier Shop Layout & Components
+   Archetype: Editorial Luxury + Double-Bezel Component Structure
+   ========================================================================== */
+
+:root {
+    --vp-shop-bg: #FDFBF7;
+    /* Warm cream/editorial luxury base */
+    --vp-shop-text: #050505;
+    /* Deepest OLED black instead of pure #000 */
+    --vp-shop-text-muted: #6B6B6B;
+    --vp-shop-border-shell: rgba(5, 5, 5, 0.06);
+    --vp-shop-border-inner: rgba(255, 255, 255, 0.9);
+
+    /* Double-Bezel Radii */
+    --vp-shop-radius-outer: 24px;
+    --vp-shop-radius-inner: calc(24px - 6px);
+
+    /* Kinetic Physics - No default linear/ease-in-out */
+    --vp-ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+    --vp-ease-fluid: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* High-end typography stack */
+    --vp-font-heading: "Geist", "Satoshi", "Cabinet Grotesk", system-ui, -apple-system, sans-serif;
+    --vp-font-body: "Geist", "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* --------------------------------------------------------------------------
+   Macro Layout & Spatial Rhythm
+   -------------------------------------------------------------------------- */
+.shop-layout {
+    font-family: var(--vp-font-body);
+    background-color: var(--vp-shop-bg);
+    color: var(--vp-shop-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Massive whitespace scaling */
+    padding: 8vw 4vw;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 6vw;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .shop-layout {
+        grid-template-columns: 1fr;
+        padding: 6vw 4vw;
+        gap: 3rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar & Widgets
+   -------------------------------------------------------------------------- */
+.shop-sidebar__sticky {
+    position: sticky;
+    top: 4rem;
+}
+
+.shop-sidebar__widget {
+    margin-bottom: 4rem;
+}
+
+/* Microscopic Eyebrow Tags */
+.shop-sidebar__title {
+    font-family: var(--vp-font-heading);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: 600;
+    color: var(--vp-shop-text-muted);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.shop-sidebar__title::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.4;
+}
+
+.shop-sidebar__categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.shop-sidebar__categories li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--vp-shop-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.25rem 0;
+    transition: transform 0.5s var(--vp-ease-spring), color 0.5s var(--vp-ease-spring);
+    position: relative;
+}
+
+/* Fluid underline effect */
+.shop-sidebar__categories li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--vp-shop-border-shell);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.6s var(--vp-ease-spring);
+}
+
+.shop-sidebar__categories li a:hover {
+    color: var(--vp-shop-text-muted);
+    transform: translateX(8px);
+}
+
+.shop-sidebar__categories li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.shop-sidebar__count {
+    font-size: 0.75rem;
+    color: var(--vp-shop-text-muted);
+    background: rgba(0, 0, 0, 0.03);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2rem;
+    font-weight: 400;
+    transition: background 0.4s ease;
+}
+
+.shop-sidebar__categories li a:hover .shop-sidebar__count {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+   Main Content & Toolbar
+   -------------------------------------------------------------------------- */
+.shop-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--vp-shop-border-shell);
+}
+
+.shop-toolbar__count {
+    font-family: var(--vp-font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.shop-filter-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    background: transparent;
+    border: 1px solid var(--vp-shop-border-shell);
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-family: var(--vp-font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s var(--vp-ease-spring);
+}
+
+.shop-filter-toggle:hover {
+    background: rgba(0, 0, 0, 0.03);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+    .shop-sidebar {
+        display: none;
+        /* In a real build, wire this to a fluid overlay menu */
+    }
+
+    .shop-filter-toggle {
+        display: inline-flex;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Product Grid
+   -------------------------------------------------------------------------- */
+.products.columns-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4vw 2.5vw;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 1280px) {
+    .products.columns-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Mobile Override: Single column stack, massive spacing */
+    .products.columns-3 {
+        grid-template-columns: 1fr;
+        gap: 12vw;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Product Card - "Double-Bezel" Nested Architecture
+   -------------------------------------------------------------------------- */
+.product-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.product-card__link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    outline: none;
+    /* Isolate hardware layer for animations */
+    transform: translateZ(0);
+}
+
+/* 1. Outer Shell (The Tray) */
+.product-card__shell {
+    background: rgba(0, 0, 0, 0.02);
+    padding: 6px;
+    border-radius: var(--vp-shop-radius-outer);
+    /* Hairline outer boundary */
+    box-shadow: inset 0 0 0 1px var(--vp-shop-border-shell);
+    transition: transform 0.8s var(--vp-ease-spring), box-shadow 0.8s var(--vp-ease-spring);
+    position: relative;
+    z-index: 1;
+}
+
+/* 2. Inner Core (The Content Plate) */
+.product-card__inner {
+    background: #ffffff;
+    border-radius: var(--vp-shop-radius-inner);
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4/5;
+    /* Complex internal refraction */
+    box-shadow:
+        inset 0 1px 1px var(--vp-shop-border-inner),
+        0 4px 20px -10px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. Media Presentation */
+.product-card__img-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #f3f3f3;
+}
+
+.product-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+}
+
+/* 4. "Button-in-Button" Floating CTA Overlay */
+.product-card__cta {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px) scale(0.9);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 10px 30px -10px rgba(0, 0, 0, 0.15),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.02);
+    padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+    border-radius: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transition: all 0.6s var(--vp-ease-spring);
+    z-index: 10;
+}
+
+.product-card__cta span {
+    font-family: var(--vp-font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--vp-shop-text);
+}
+
+.product-card__cta svg {
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    background: var(--vp-shop-text);
+    color: #fff;
+    border-radius: 50%;
+    transition: transform 0.6s var(--vp-ease-spring);
+}
+
+/* --------------------------------------------------------------------------
+   Kinetic Hover Physics
+   -------------------------------------------------------------------------- */
+.product-card:hover .product-card__shell {
+    transform: translateY(-8px) scale(0.99);
+    box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.08),
+        0 30px 60px -20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tactile Click Feedback */
+.product-card__link:active .product-card__shell {
+    transform: translateY(0) scale(0.97);
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.product-card:hover .product-card__img {
+    transform: scale(1.05);
+}
+
+.product-card:hover .product-card__cta {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+    transition-delay: 0.05s;
+}
+
+/* Internal tension on hover */
+.product-card__cta:hover svg {
+    transform: scale(1.1) translate(1px, -1px);
+}
+
+/* --------------------------------------------------------------------------
+   Product Meta (Typography & Spatial Tension)
+   -------------------------------------------------------------------------- */
+.product-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 0 0.5rem;
+    z-index: 2;
+}
+
+.product-card__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.product-card__cat {
+    font-family: var(--vp-font-heading);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    color: var(--vp-shop-text-muted);
+}
+
+.product-card__title {
+    font-family: var(--vp-font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--vp-shop-text);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.4s var(--vp-ease-fluid);
+}
+
+.product-card:hover .product-card__title {
+    color: var(--vp-shop-text-muted);
+}
+
+.product-card__price {
+    font-family: var(--vp-font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--vp-shop-text);
+    /* Ensures price naturally aligns with the baseline of multi-line titles */
+    padding-top: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Fluid Pagination Architecture
+   -------------------------------------------------------------------------- */
+.shop-pagination {
+    margin-top: 8vw;
+    padding-top: 4vw;
+    border-top: 1px solid var(--vp-shop-border-shell);
+    display: flex;
+    justify-content: center;
+}
+
+.woocommerce-pagination ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.02);
+    padding: 0.5rem;
+    border-radius: 4rem;
+    box-shadow: inset 0 0 0 1px var(--vp-shop-border-shell);
+}
+
+.woocommerce-pagination .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    height: 3rem;
+    padding: 0 0.5rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    color: var(--vp-shop-text-muted);
+    font-family: var(--vp-font-heading);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.5s var(--vp-ease-spring);
+}
+
+.woocommerce-pagination .page-numbers:hover {
+    color: var(--vp-shop-text);
+    background: rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.woocommerce-pagination .page-numbers.current {
+    background: var(--vp-shop-text);
+    color: #fff;
+    box-shadow: 0 8px 20px -5px rgba(0, 0, 0, 0.2);
+}

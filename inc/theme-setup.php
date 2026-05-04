@@ -1,0 +1,80 @@
+<?php
+add_action('after_setup_theme', 'dawp_setup');
+function dawp_setup() {
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('woocommerce');
+    add_theme_support('wc-product-gallery-zoom');
+    add_theme_support('wc-product-gallery-lightbox');
+    add_theme_support('wc-product-gallery-slider');
+}
+
+add_action('wp_enqueue_scripts', 'dawp_scripts');
+function dawp_scripts() {
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0');
+    
+    if ( class_exists( 'WooCommerce' ) ) {
+        if ( is_product() ) {
+            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0');
+        } elseif ( is_cart() ) {
+            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0');
+        } elseif ( is_checkout() ) {
+            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0');
+        } elseif ( is_woocommerce() ) {
+            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0');
+        }
+    }
+
+    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0', true);
+
+    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+}
+
+add_action( 'wp_enqueue_scripts', 'dawp_remove_styles', 100 );
+function dawp_remove_styles() {
+    wp_dequeue_style( 'wc-blocks-style' );
+    wp_dequeue_style( 'photoswipe-default-skin' );
+    wp_dequeue_style( 'wc-blocks-style' );
+    wp_dequeue_style( 'wc-blocks-vendors-style' );
+    wp_dequeue_style( 'wc-block-style' );
+    wp_dequeue_style( 'wc-blocks-packages-style' );
+
+    wp_deregister_style( 'wc-blocks-style' );
+    wp_deregister_style( 'wc-blocks-vendors-style' );
+    wp_deregister_style( 'wc-block-style' );
+    wp_deregister_style( 'wc-blocks-packages-style' );
+
+    wp_dequeue_style( 'wc-blocks-cart-block-style' );
+    wp_deregister_style( 'wc-blocks-cart-block-style' );
+    
+    // Một số version dùng handle khác:
+    wp_dequeue_style( 'wc-blocks-style-cart' );
+    wp_deregister_style( 'wc-blocks-style-cart' );
+    global $wp_styles;
+    
+    if ( ! is_object( $wp_styles ) ) return;
+    $blocked_files = array(
+        '/blocks/cart.css',
+        '/blocks/checkout.css',
+        '/blocks/all-products.css',
+        '/blocks/mini-cart.css',
+        '/blocks/active-filters.css',
+        '/blocks/price-filter.css',
+        '/blocks/attribute-filter.css',
+        '/blocks/stock-filter.css',
+        '/blocks/rating-filter.css',
+        '/blocks/featured-product.css',
+        '/blocks/featured-category.css',
+        '/blocks/product-categories.css',
+        '/blocks/reviews.css',
+    );
+    
+    foreach ( $wp_styles->registered as $handle => $style ) {
+        foreach ( $blocked_files as $file ) {
+            if ( strpos( $style->src, $file ) !== false ) {
+                wp_dequeue_style( $handle );
+                wp_deregister_style( $handle );
+            }
+        }
+    }
+}

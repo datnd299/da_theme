@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color - background: #FDFBF7;
+  --color - surface: #FFFFFF;
+  --color - foreground: #1A1512;
+  --color - muted: #8B9D83;
+
+  --font - sans: "Satoshi", sans - serif;
+  --font - heading: "Cabinet Grotesk", sans - serif;
+
+  --ease - fluid: cubic - bezier(0.32, 0.72, 0, 1);
+}

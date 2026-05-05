@@ -1,707 +1,416 @@
-<?php
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 font-['Be_Vietnam_Pro',sans-serif]">
+    <!-- Header Section -->
+    <div class="mb-16 md:mb-24">
+        <h2 class="text-sm uppercase tracking-widest text-neutral-500 font-semibold mb-4">Policy Documentation</h2>
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-neutral-900 mb-6">Shipping & <br/>Returns.</h1>
+        <p class="text-lg md:text-xl text-neutral-600 max-w-2xl leading-relaxed mb-8">
+            We're committed to getting your order packed, shipped, and into your hands as fast as possible. Read our full policy below.
+        </p>
+        <p class="text-sm text-neutral-500">Last Updated: April 28, 2026</p>
+    </div>
 
-?>
-
-<!-- Noise Overlay -->
-<div class="fixed inset-0 z-[50] pointer-events-none opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
-
-<main class="w-full bg-background min-h-screen overflow-hidden selection:bg-muted selection:text-background pb-32">
-
-    <!-- HERO SECTION -->
-    <section class="relative w-full flex flex-col items-start justify-end px-4 md:px-12 pt-20 md:pt-32 pb-12 md:pb-20 max-w-[1600px] mx-auto gap-6 md:gap-8">
-
-        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 animate-fade-up">
-            Policy Documentation
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 md:mb-24">
+        <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">Free</h3>
+            <p class="text-neutral-600 font-medium">USA Shipping</p>
+            <p class="text-sm text-neutral-500 mt-2">11–16 Business Days</p>
         </div>
-
-        <h1 class="font-heading text-[4rem] md:text-[7rem] lg:text-[9rem] leading-[0.88] tracking-[-0.04em] text-foreground animate-fade-up" style="animation-delay: 80ms;">
-            Shipping &amp; <br/>
-            <span class="italic font-serif text-muted opacity-80">Returns.</span>
-        </h1>
-
-        <div class="flex flex-col md:flex-row items-start md:items-end justify-between w-full gap-6 animate-fade-up" style="animation-delay: 160ms;">
-            <p class="text-base text-foreground/50 font-sans max-w-lg leading-relaxed">
-                We are committed to delivering your timepiece safely and ensuring your complete satisfaction. Please read our full policy below.
-            </p>
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="w-2 h-2 rounded-full bg-foreground/30"></div>
-                <span class="font-sans text-xs uppercase tracking-widest text-foreground/40">Last Updated: April 28, 2026</span>
-            </div>
+        <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">30 Days</h3>
+            <p class="text-neutral-600 font-medium">Return Window</p>
         </div>
-
-        <!-- Stats Bar -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 w-full animate-fade-up" style="animation-delay: 240ms;">
-            <div class="rounded-[1.5rem] bg-black/5 p-1.5 ring-1 ring-black/5">
-                <div class="rounded-[calc(1.5rem-0.375rem)] bg-surface px-4 py-4 md:px-6 md:py-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                    <p class="font-heading text-xl md:text-2xl text-foreground">Free</p>
-                    <p class="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-foreground/40 mt-1">USA Shipping</p>
-                </div>
-            </div>
-            <div class="rounded-[1.5rem] bg-black/5 p-1.5 ring-1 ring-black/5">
-                <div class="rounded-[calc(1.5rem-0.375rem)] bg-surface px-4 py-4 md:px-6 md:py-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                    <p class="font-heading text-xl md:text-2xl text-foreground">11–16</p>
-                    <p class="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-foreground/40 mt-1">Business Days</p>
-                </div>
-            </div>
-            <div class="rounded-[1.5rem] bg-black/5 p-1.5 ring-1 ring-black/5">
-                <div class="rounded-[calc(1.5rem-0.375rem)] bg-surface px-4 py-4 md:px-6 md:py-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                    <p class="font-heading text-xl md:text-2xl text-foreground">30 Days</p>
-                    <p class="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-foreground/40 mt-1">Return Window</p>
-                </div>
-            </div>
-            <div class="rounded-[1.5rem] bg-black/5 p-1.5 ring-1 ring-black/5">
-                <div class="rounded-[calc(1.5rem-0.375rem)] bg-surface px-4 py-4 md:px-6 md:py-5 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                    <p class="font-heading text-xl md:text-2xl text-foreground">100%</p>
-                    <p class="font-sans text-[9px] md:text-[10px] uppercase tracking-widest text-foreground/40 mt-1">Insured Orders</p>
-                </div>
-            </div>
+        <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+            <h3 class="text-xl font-bold text-neutral-900 mb-2">100%</h3>
+            <p class="text-neutral-600 font-medium">Insured Orders</p>
         </div>
+    </div>
 
-        <!-- Divider -->
-        <div class="w-full h-px bg-black/8 mt-4 animate-fade-up" style="animation-delay: 280ms;"></div>
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <section class="w-full px-4 md:px-12 max-w-[1600px] mx-auto">
-
-        <!-- Mobile TOC — horizontal scroll pills (hidden on lg+) -->
-        <div class="lg:hidden -mx-4 px-4 mb-6">
-            <div class="flex gap-2 overflow-x-auto pb-2" style="-ms-overflow-style:none;scrollbar-width:none;">
-                <a href="#shipping-info" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Shipping</a>
-                <a href="#destination" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Destination</a>
-                <a href="#cutoff" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Cut-off</a>
-                <a href="#carriers" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Carriers</a>
-                <a href="#tracking" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Tracking</a>
-                <a href="#address-policy" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Address</a>
-                <a href="#lost-stolen" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Lost &amp; Stolen</a>
-                <a href="#return-policy" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-foreground text-background ring-1 ring-foreground/10 whitespace-nowrap">Returns</a>
-                <a href="#eligibility" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Eligibility</a>
-                <a href="#how-to-return" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">How to Return</a>
-                <a href="#defective" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Defective</a>
-                <a href="#exchanges" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Exchanges</a>
-                <a href="#refunds" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Refunds</a>
-                <a href="#contact" class="flex-none rounded-full px-4 py-2 text-[10px] uppercase tracking-wider font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8 whitespace-nowrap">Contact</a>
-            </div>
-        </div>
-
-        <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
-
-            <!-- Sticky Table of Contents -->
-            <aside class="hidden lg:block lg:w-72 shrink-0 sticky top-8">
-                <div class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <p class="font-sans text-[10px] uppercase tracking-[0.2em] text-foreground/40 mb-6">Table of Contents</p>
-                        <nav class="flex flex-col gap-1" id="toc-nav">
-                            <a href="#shipping-info" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5">Shipping Information</a>
-                            <a href="#destination" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">Destination</a>
-                            <a href="#cutoff" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">Order Cut-off</a>
-                            <a href="#carriers" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">Carriers</a>
-                            <a href="#tracking" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">Order Tracking</a>
-                            <a href="#address-policy" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">Address Policy</a>
-                            <a href="#lost-stolen" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">Lost &amp; Stolen</a>
-                            <a href="#return-policy" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5">Return Policy</a>
-                            <a href="#eligibility" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">Eligibility</a>
-                            <a href="#how-to-return" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">How to Return</a>
-                            <a href="#defective" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5 pl-6">Damaged &amp; Defective</a>
-                            <a href="#exchanges" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5">Exchanges</a>
-                            <a href="#refunds" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5">Refunds</a>
-                            <a href="#contact" class="toc-link font-sans text-sm text-foreground/60 hover:text-foreground py-2 px-3 rounded-xl transition-colors duration-300 hover:bg-black/5">Contact</a>
-                        </nav>
-                    </div>
+    <!-- Main Content Layout with Sidebar -->
+    <div class="flex flex-col lg:flex-row gap-12 lg:gap-24">
+        
+        <!-- Sidebar Navigation (TOC) -->
+        <aside class="lg:w-1/4 hidden lg:block">
+            <div class="sticky top-24">
+                <h4 class="text-xs uppercase tracking-wider font-bold text-neutral-900 mb-6 border-b border-neutral-200 pb-4">Table of Contents</h4>
+                
+                <div class="mb-8">
+                    <h5 class="text-sm font-bold text-neutral-900 mb-4 uppercase tracking-wider">Part I — Shipping</h5>
+                    <ul class="space-y-3 text-sm text-neutral-600">
+                        <li><a href="#shipping-01" class="hover:text-black transition-colors">01. Destination</a></li>
+                        <li><a href="#shipping-02" class="hover:text-black transition-colors">02. Order Cut-off</a></li>
+                        <li><a href="#shipping-03" class="hover:text-black transition-colors">03. Carriers</a></li>
+                        <li><a href="#shipping-04" class="hover:text-black transition-colors">04. Order Tracking</a></li>
+                        <li><a href="#shipping-05" class="hover:text-black transition-colors">05. Address Policy</a></li>
+                        <li><a href="#shipping-06" class="hover:text-black transition-colors">06. Lost & Stolen</a></li>
+                    </ul>
                 </div>
-            </aside>
 
-            <!-- Content Body -->
-            <div class="flex-1 min-w-0 flex flex-col gap-6">
+                <div>
+                    <h5 class="text-sm font-bold text-neutral-900 mb-4 uppercase tracking-wider">Part II — Returns</h5>
+                    <ul class="space-y-3 text-sm text-neutral-600">
+                        <li><a href="#returns-07" class="hover:text-black transition-colors">07. Eligibility</a></li>
+                        <li><a href="#returns-08" class="hover:text-black transition-colors">08. How to Return</a></li>
+                        <li><a href="#returns-09" class="hover:text-black transition-colors">09. Damaged & Defective</a></li>
+                        <li><a href="#returns-10" class="hover:text-black transition-colors">10. Exchanges</a></li>
+                        <li><a href="#returns-11" class="hover:text-black transition-colors">11. Refunds</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
 
-                <!-- SHIPPING SECTION HEADER -->
-                <div id="shipping-info" class="rounded-[2rem] bg-foreground text-background p-1.5 ring-1 ring-foreground/10 scroll-reveal">
-                    <div class="relative rounded-[calc(2rem-0.375rem)] bg-foreground p-8 md:p-16 overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
-                        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-muted/15 rounded-full blur-3xl pointer-events-none"></div>
-                        <div class="relative z-10 w-full md:w-2/3">
-                            <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-white/10 text-background ring-1 ring-white/10 inline-block mb-5 md:mb-6">
-                                Part I &mdash; Shipping
-                            </div>
-                            <h2 class="font-heading text-[2rem] md:text-[4rem] leading-[1] tracking-[-0.03em] text-background mb-3 md:mb-4">
-                                From our store, <br/><span class="italic font-serif opacity-70">to your door.</span>
-                            </h2>
-                            <p class="font-sans text-background/60 text-sm md:text-base leading-relaxed max-w-md">
-                                Every watch is carefully packaged and fully insured during transit. All orders ship from Houston, TX.
-                            </p>
-                        </div>
-                        <div class="relative z-10 w-full md:w-auto grid grid-cols-2 md:flex md:flex-col gap-3 md:gap-4 shrink-0">
-                            <div class="rounded-[1.25rem] bg-white/10 p-4 md:p-5">
-                                <p class="font-heading text-2xl md:text-3xl text-background mb-1">6:00 PM</p>
-                                <p class="font-sans text-[10px] md:text-xs text-background/60 uppercase tracking-widest">CST Order Cut-off</p>
-                            </div>
-                            <div class="rounded-[1.25rem] bg-white/10 p-4 md:p-5">
-                                <p class="font-heading text-2xl md:text-3xl text-background mb-1">Insured</p>
-                                <p class="font-sans text-[10px] md:text-xs text-background/60 uppercase tracking-widest">Every Shipment</p>
-                            </div>
-                        </div>
+        <!-- Content Area -->
+        <div class="lg:w-3/4 space-y-24">
+            
+            <!-- Part I: Shipping -->
+            <section id="part-shipping">
+                <div class="mb-12 border-b border-neutral-200 pb-8">
+                    <h2 class="text-sm uppercase tracking-widest text-neutral-500 font-semibold mb-2">Part I — Shipping</h2>
+                    <h3 class="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 mb-6">From our store, <br/>to your door.</h3>
+                    <p class="text-lg text-neutral-600 mb-8 max-w-2xl">Every order is carefully packed and shipped with care. We process and dispatch orders within 1–2 business days.</p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-neutral-100 text-sm font-medium text-neutral-900">
+                            6:00 PM CST Order Cut-off
+                        </span>
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-neutral-100 text-sm font-medium text-neutral-900">
+                            Insured Every Shipment
+                        </span>
                     </div>
                 </div>
 
-                <!-- Destination -->
-                <div id="destination" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 md:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-6">
-                            01 &mdash; Shipping Destination
-                        </div>
-                        <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-foreground mb-4">
-                            United States only.
-                        </h2>
-                        <p class="font-sans text-base text-foreground/70 leading-relaxed mb-8">
-                            We currently ship exclusively within the United States. International shipping is not available at this time. We hope to expand our shipping destinations in the future.
-                        </p>
-                        <!-- Shipping info — mobile card (hidden on md+) -->
-                        <div class="md:hidden rounded-[1.25rem] ring-1 ring-black/8 overflow-hidden divide-y divide-black/5">
-                            <div class="bg-black/5 px-5 py-3">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40">Destination</p>
-                                <p class="font-sans text-sm text-foreground/80 font-medium mt-0.5">United States (contiguous)</p>
-                            </div>
-                            <div class="bg-surface flex items-center justify-between px-5 py-3">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40">Handling</p>
-                                <p class="font-sans text-sm text-foreground/70">5–6 Business Days</p>
-                            </div>
-                            <div class="bg-surface flex items-center justify-between px-5 py-3">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40">Transit</p>
-                                <p class="font-sans text-sm text-foreground/70">6–10 Business Days</p>
-                            </div>
-                            <div class="bg-surface flex items-center justify-between px-5 py-3">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40">Total</p>
-                                <p class="font-sans text-sm text-foreground/80 font-medium">11–16 Business Days</p>
-                            </div>
-                            <div class="bg-surface flex items-center justify-between px-5 py-3">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40">Cost</p>
-                                <span class="rounded-full px-3 py-1 text-[10px] uppercase tracking-widest font-medium bg-foreground text-background">Free</span>
-                            </div>
-                        </div>
-
-                        <!-- Shipping Table — desktop only (hidden on mobile) -->
-                        <div class="hidden md:block rounded-[1.25rem] ring-1 ring-black/8 overflow-hidden">
-                            <table class="w-full text-sm font-sans">
-                                <thead>
-                                    <tr class="bg-black/5 border-b border-black/8">
-                                        <th class="text-left px-6 py-4 text-[10px] uppercase tracking-widest text-foreground/40 font-medium">Destination</th>
-                                        <th class="text-left px-6 py-4 text-[10px] uppercase tracking-widest text-foreground/40 font-medium">Handling</th>
-                                        <th class="text-left px-6 py-4 text-[10px] uppercase tracking-widest text-foreground/40 font-medium">Transit</th>
-                                        <th class="text-left px-6 py-4 text-[10px] uppercase tracking-widest text-foreground/40 font-medium">Total</th>
-                                        <th class="text-left px-6 py-4 text-[10px] uppercase tracking-widest text-foreground/40 font-medium">Cost</th>
+                <div class="space-y-16">
+                    <!-- 01 Shipping Destination -->
+                    <div id="shipping-01" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">01 — Shipping Destination</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">United States only.</h5>
+                        <p class="text-base text-neutral-600 mb-6 leading-relaxed">We currently ship exclusively within the United States. International shipping is not available at this time. We hope to expand our shipping destinations in the future.</p>
+                        
+                        <div class="overflow-x-auto rounded-xl border border-neutral-200">
+                            <table class="w-full text-left text-sm text-neutral-600">
+                                <thead class="bg-neutral-50 text-neutral-900 font-semibold border-b border-neutral-200">
+                                    <tr>
+                                        <th class="px-6 py-4">Destination</th>
+                                        <th class="px-6 py-4">Handling</th>
+                                        <th class="px-6 py-4">Transit</th>
+                                        <th class="px-6 py-4">Total</th>
+                                        <th class="px-6 py-4 text-right">Cost</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-surface">
-                                        <td class="px-6 py-5 text-foreground/80 font-medium">United States (contiguous)</td>
-                                        <td class="px-6 py-5 text-foreground/60">5–6 Business Days</td>
-                                        <td class="px-6 py-5 text-foreground/60">6–10 Business Days</td>
-                                        <td class="px-6 py-5 text-foreground/80 font-medium">11–16 Business Days</td>
-                                        <td class="px-6 py-5">
-                                            <span class="rounded-full px-3 py-1 text-[10px] uppercase tracking-widest font-medium bg-foreground text-background">Free</span>
-                                        </td>
+                                    <tr class="divide-x divide-neutral-100">
+                                        <td class="px-6 py-4 font-medium text-neutral-900">United States (contiguous)</td>
+                                        <td class="px-6 py-4">5–6 Business Days</td>
+                                        <td class="px-6 py-4">6–10 Business Days</td>
+                                        <td class="px-6 py-4 font-medium text-neutral-900">11–16 Business Days</td>
+                                        <td class="px-6 py-4 text-right font-bold text-black">Free</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <p class="font-sans text-xs text-foreground/40 mt-4 leading-relaxed">
-                            Business days are Monday through Friday, excluding U.S. federal holidays. Delivery times are estimates and not guaranteed.
-                        </p>
+                        <p class="text-sm text-neutral-500 mt-4 italic">Business days are Monday through Friday, excluding U.S. federal holidays. Delivery times are estimates and not guaranteed.</p>
                     </div>
-                </div>
 
-                <!-- Cut-off + Carriers -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div id="cutoff" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                        <div class="w-full h-full rounded-[calc(2rem-0.375rem)] bg-surface p-8 flex flex-col justify-between md:min-h-[280px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                            <div class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center mb-6">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="rounded-full px-3 py-1 text-[9px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-4">02 &mdash; Order Cut-off</div>
-                                <h3 class="font-heading text-xl mb-3">Same-day processing.</h3>
-                                <p class="font-sans text-sm text-foreground/60 leading-relaxed">
-                                    Orders placed before <strong class="text-foreground font-medium">6:00 PM CST</strong> begin processing the same business day. Orders placed after this time begin processing the following business day.
-                                </p>
-                            </div>
+                    <!-- 02 Order Cut-off -->
+                    <div id="shipping-02" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">02 — Order Cut-off</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">Same-day processing.</h5>
+                        <p class="text-base text-neutral-600 leading-relaxed">Orders placed before 6:00 PM CST begin processing the same business day. Orders placed after this time begin processing the following business day.</p>
+                    </div>
+
+                    <!-- 03 Carriers -->
+                    <div id="shipping-03" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">03 — Carriers</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">Trusted logistics partners.</h5>
+                        <p class="text-base text-neutral-600 mb-6 leading-relaxed">We ship via FedEx, USPS, and UPS. Carrier selection depends on your location and order. P.O. Boxes and APO/FPO addresses are not supported.</p>
+                        <div class="flex gap-4">
+                            <span class="px-6 py-3 bg-neutral-50 border border-neutral-200 rounded-lg font-bold text-neutral-900">FedEx</span>
+                            <span class="px-6 py-3 bg-neutral-50 border border-neutral-200 rounded-lg font-bold text-neutral-900">USPS</span>
+                            <span class="px-6 py-3 bg-neutral-50 border border-neutral-200 rounded-lg font-bold text-neutral-900">UPS</span>
                         </div>
                     </div>
 
-                    <div id="carriers" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal" style="transition-delay: 100ms;">
-                        <div class="w-full h-full rounded-[calc(2rem-0.375rem)] bg-surface p-8 flex flex-col justify-between md:min-h-[280px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                            <div class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center mb-6">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
-                                </svg>
+                    <!-- 04 Order Tracking -->
+                    <div id="shipping-04" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">04 — Order Tracking</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">Track your order, every step.</h5>
+                        <p class="text-base text-neutral-600 mb-8 leading-relaxed">Once your order is dispatched, you will receive a shipping confirmation email with your tracking number. Monitor your delivery in real time on the carrier's website, or use our Track Your Order page.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div class="flex flex-col border-l-2 border-black pl-4">
+                                <span class="text-xl font-bold text-neutral-900">48h</span>
+                                <span class="text-sm text-neutral-600">Tracking Activation</span>
                             </div>
-                            <div>
-                                <div class="rounded-full px-3 py-1 text-[9px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-4">03 &mdash; Carriers</div>
-                                <h3 class="font-heading text-xl mb-3">Trusted logistics partners.</h3>
-                                <p class="font-sans text-sm text-foreground/60 leading-relaxed mb-4">
-                                    We ship via FedEx, USPS, and UPS. Carrier selection depends on your location and order. P.O. Boxes and APO/FPO addresses are not supported.
-                                </p>
-                                <div class="flex gap-2 flex-wrap">
-                                    <span class="rounded-full px-3 py-1 text-[9px] uppercase tracking-widest font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8">FedEx</span>
-                                    <span class="rounded-full px-3 py-1 text-[9px] uppercase tracking-widest font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8">USPS</span>
-                                    <span class="rounded-full px-3 py-1 text-[9px] uppercase tracking-widest font-medium bg-black/5 text-foreground/60 ring-1 ring-black/8">UPS</span>
-                                </div>
+                            <div class="flex flex-col border-l-2 border-black pl-4">
+                                <span class="text-xl font-bold text-neutral-900">Real-Time</span>
+                                <span class="text-sm text-neutral-600">Live Updates</span>
+                            </div>
+                            <div class="flex flex-col border-l-2 border-black pl-4">
+                                <span class="text-xl font-bold text-neutral-900">12 Days</span>
+                                <span class="text-sm text-neutral-600">Contact if Not Arrived</span>
+                            </div>
+                        </div>
+
+                        <!-- Track Order Mock Form -->
+                        <div class="bg-neutral-50 p-6 md:p-8 rounded-2xl border border-neutral-200">
+                            <h6 class="text-lg font-bold text-neutral-900 mb-2">Track My Order</h6>
+                            <p class="text-sm text-neutral-600 mb-6">Enter your Order ID and billing email — no account needed.</p>
+                            <form class="flex flex-col sm:flex-row gap-4" onsubmit="event.preventDefault();">
+                                <input type="text" placeholder="Order ID" class="flex-1 bg-white border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all">
+                                <input type="email" placeholder="Billing Email" class="flex-1 bg-white border border-neutral-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-black focus:ring-1 focus:ring-black transition-all">
+                                <button type="button" class="bg-black text-white px-8 py-3 rounded-lg text-sm font-bold uppercase hover:bg-neutral-800 transition-colors whitespace-nowrap">Track Your Order</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- 05 Shipping Address Policy -->
+                    <div id="shipping-05" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">05 — Shipping Address Policy</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">Your address, your responsibility.</h5>
+                        <p class="text-base text-neutral-600 mb-8 leading-relaxed">It is the buyer's sole responsibility to provide a complete and accurate shipping address at checkout. Please double-check your address before submitting, as changes cannot be guaranteed once processing has begun.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="p-6 border border-neutral-200 rounded-xl">
+                                <h6 class="text-lg font-bold text-neutral-900 mb-2">Incorrect Address</h6>
+                                <p class="text-neutral-600 text-sm leading-relaxed">We are not responsible for packages delivered to an incorrect address provided by the buyer. If returned to us, we will arrange a reship at your cost, or issue a refund minus the original shipping cost.</p>
+                            </div>
+                            <div class="p-6 border border-neutral-200 rounded-xl">
+                                <h6 class="text-lg font-bold text-neutral-900 mb-2">P.O. Boxes & APO/FPO</h6>
+                                <p class="text-neutral-600 text-sm leading-relaxed">We are unable to ship to P.O. Boxes or Military APO/FPO addresses. A valid physical street address is required. Orders with a P.O. Box address may be delayed or canceled.</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Order Tracking -->
-                <div id="tracking" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 md:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-6">
-                            04 &mdash; Order Tracking
-                        </div>
-                        <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-foreground mb-6">
-                            Watch your watch arrive.
-                        </h2>
-                        <p class="font-sans text-base text-foreground/70 leading-relaxed mb-8">
-                            Once your order is dispatched, you will receive a shipping confirmation email with your tracking number. Monitor your delivery in real time on the carrier's website, or use our Track Your Order page.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                            <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5 text-center">
-                                <p class="font-heading text-2xl text-foreground mb-2">48h</p>
-                                <p class="font-sans text-xs uppercase tracking-widest text-foreground/50">Tracking Activation</p>
+                    <!-- 06 Lost & Stolen Packages -->
+                    <div id="shipping-06" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">06 — Lost & Stolen Packages</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">We have you covered.</h5>
+                        <p class="text-base text-neutral-600 mb-8 leading-relaxed">All orders are fully insured during transit. In the rare event your package is lost or significantly delayed, we will work with the carrier to resolve the issue promptly.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="p-6 bg-neutral-50 border border-neutral-200 rounded-xl">
+                                <h6 class="font-bold text-neutral-900 mb-2">Confirmed Lost</h6>
+                                <p class="text-sm text-neutral-600 leading-relaxed">If a carrier confirms the package is lost and your address was correct, we will reship your order or issue a full refund.</p>
                             </div>
-                            <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5 text-center">
-                                <p class="font-heading text-2xl text-foreground mb-2">Real-Time</p>
-                                <p class="font-sans text-xs uppercase tracking-widest text-foreground/50">Live Updates</p>
+                            <div class="p-6 bg-neutral-50 border border-neutral-200 rounded-xl">
+                                <h6 class="font-bold text-neutral-900 mb-2">Wrong Address</h6>
+                                <p class="text-sm text-neutral-600 leading-relaxed">No replacement, refund, or credit will be issued for packages sent to an invalid address provided by the buyer.</p>
                             </div>
-                            <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5 text-center">
-                                <p class="font-heading text-2xl text-foreground mb-2">12 Days</p>
-                                <p class="font-sans text-xs uppercase tracking-widest text-foreground/50">Contact if Not Arrived</p>
-                            </div>
-                        </div>
-                        <!-- Track Order CTA -->
-                        <div class="rounded-[1.5rem] bg-foreground p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 md:gap-6">
-                            <div>
-                                <p class="font-heading text-xl text-background mb-1">Track My Order</p>
-                                <p class="font-sans text-sm text-background/50 leading-relaxed">Enter your Order ID and billing email — no account needed.</p>
-                            </div>
-                            <?php
-                            $track_page = get_page_by_path('track-my-order');
-                            $track_url  = $track_page ? get_permalink($track_page->ID) : home_url('/track-my-order/');
-                            ?>
-                            <a href="<?php echo esc_url($track_url); ?>" class="group flex items-center justify-between md:justify-start gap-4 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/15 px-6 md:px-8 py-4 transition-all duration-500 w-full md:w-auto shrink-0">
-                                <span class="font-sans font-medium text-background text-sm">Track Your Order</span>
-                                <div class="w-7 h-7 rounded-full bg-background/10 flex items-center justify-center transition-transform duration-500 group-hover:translate-x-1">
-                                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Address Policy + Lost & Stolen -->
-                <div id="address-policy" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 md:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-6">
-                            05 &mdash; Shipping Address Policy
-                        </div>
-                        <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-foreground mb-6">
-                            Your address, your responsibility.
-                        </h2>
-                        <p class="font-sans text-base text-foreground/70 leading-relaxed mb-8">
-                            It is the buyer's sole responsibility to provide a complete and accurate shipping address at checkout. Please double-check your address before submitting, as changes cannot be guaranteed once processing has begun.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-3">Incorrect Address</p>
-                                <p class="font-sans text-sm text-foreground/70 leading-relaxed">Goviloop is not responsible for packages delivered to an incorrect address provided by the buyer. If returned to us, we will arrange a reship at your cost, or issue a refund minus the original shipping cost.</p>
-                            </div>
-                            <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-3">P.O. Boxes &amp; APO/FPO</p>
-                                <p class="font-sans text-sm text-foreground/70 leading-relaxed">We are unable to ship to P.O. Boxes or Military APO/FPO addresses. A valid physical street address is required. Orders with a P.O. Box address may be delayed or canceled.</p>
+                            <div class="p-6 bg-neutral-50 border border-neutral-200 rounded-xl">
+                                <h6 class="font-bold text-neutral-900 mb-2">Stolen Package</h6>
+                                <p class="text-sm text-neutral-600 leading-relaxed">If tracking shows "Delivered" but the package is missing, check with neighbors and your local carrier, then contact us to file a claim.</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Lost & Stolen -->
-                <div id="lost-stolen" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 md:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-6">
-                            06 &mdash; Lost &amp; Stolen Packages
-                        </div>
-                        <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-foreground mb-6">
-                            We have you covered.
-                        </h2>
-                        <p class="font-sans text-base text-foreground/70 leading-relaxed mb-8">
-                            All Goviloop orders are insured during transit. In the rare event your package is lost or significantly delayed, we will work with the carrier to resolve the issue promptly.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                            <div class="flex items-start gap-4 rounded-[1.25rem] bg-black/3 p-5 ring-1 ring-black/5">
-                                <div class="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center shrink-0 mt-0.5">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                </div>
-                                <div>
-                                    <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-2">Confirmed Lost</p>
-                                    <p class="font-sans text-sm text-foreground/70 leading-relaxed">If a carrier confirms the package is lost and your address was correct, we will reship your order or issue a full refund.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 rounded-[1.25rem] bg-black/3 p-5 ring-1 ring-black/5">
-                                <div class="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center shrink-0 mt-0.5">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-                                </div>
-                                <div>
-                                    <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-2">Wrong Address</p>
-                                    <p class="font-sans text-sm text-foreground/70 leading-relaxed">No replacement, refund, or credit will be issued for packages sent to an invalid address provided by the buyer.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 rounded-[1.25rem] bg-black/3 p-5 ring-1 ring-black/5">
-                                <div class="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center shrink-0 mt-0.5">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                                </div>
-                                <div>
-                                    <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-2">Stolen Package</p>
-                                    <p class="font-sans text-sm text-foreground/70 leading-relaxed">If tracking shows "Delivered" but the package is missing, check with neighbors and your local carrier, then contact us to file a claim.</p>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Part II: Returns -->
+            <section id="part-returns">
+                <div class="mb-12 border-b border-neutral-200 pb-8 mt-12 md:mt-0">
+                    <h2 class="text-sm uppercase tracking-widest text-neutral-500 font-semibold mb-2">Part II — Returns</h2>
+                    <h3 class="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 mb-6">Not right? <br/>We will make it right.</h3>
+                    <p class="text-lg text-neutral-600 mb-8 max-w-2xl">Every item is carefully inspected before shipment. We accept returns within 30 days of delivery — quickly and without hassle.</p>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-neutral-100 text-sm font-medium text-neutral-900">
+                            30 Days Return Window
+                        </span>
+                        <span class="inline-flex items-center px-4 py-2 rounded-full bg-neutral-100 text-sm font-medium text-neutral-900">
+                            1–2 Days Review Time
+                        </span>
                     </div>
                 </div>
 
-                <!-- RETURNS HEADER -->
-                <div id="return-policy" class="rounded-[2rem] bg-foreground text-background p-1.5 ring-1 ring-foreground/10 scroll-reveal">
-                    <div class="relative rounded-[calc(2rem-0.375rem)] bg-foreground p-8 md:p-16 overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12">
-                        <div class="absolute -top-20 -right-20 w-96 h-96 bg-muted/10 rounded-full blur-3xl pointer-events-none"></div>
-                        <div class="relative z-10 w-full md:w-2/3">
-                            <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-white/10 text-background ring-1 ring-white/10 inline-block mb-5 md:mb-6">
-                                Part II &mdash; Returns
-                            </div>
-                            <h2 class="font-heading text-[2rem] md:text-[4rem] leading-[1] tracking-[-0.03em] text-background mb-3 md:mb-4">
-                                Not right? <br/><span class="italic font-serif opacity-70">We will make it right.</span>
-                            </h2>
-                            <p class="font-sans text-background/60 text-sm md:text-base leading-relaxed max-w-md">
-                                Every watch sold by Goviloop is carefully inspected before shipment. We accept returns within 30 days — quickly and without hassle.
-                            </p>
-                        </div>
-                        <div class="relative z-10 w-full md:w-auto grid grid-cols-2 md:flex md:flex-col gap-3 md:gap-4 shrink-0">
-                            <div class="rounded-[1.25rem] bg-white/10 p-4 md:p-5">
-                                <p class="font-heading text-2xl md:text-3xl text-background mb-1">30 Days</p>
-                                <p class="font-sans text-[10px] md:text-xs text-background/60 uppercase tracking-widest">Return Window</p>
-                            </div>
-                            <div class="rounded-[1.25rem] bg-white/10 p-4 md:p-5">
-                                <p class="font-heading text-2xl md:text-3xl text-background mb-1">1–2 Days</p>
-                                <p class="font-sans text-[10px] md:text-xs text-background/60 uppercase tracking-widest">Review Time</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Eligibility -->
-                <div id="eligibility" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 md:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-6">
-                            07 &mdash; Return Eligibility
-                        </div>
-                        <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-foreground mb-8">
-                            What we accept.
-                        </h2>
+                <div class="space-y-16">
+                    <!-- 07 Return Eligibility -->
+                    <div id="returns-07" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">07 — Return Eligibility</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-6">What we accept.</h5>
+                        
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                             <!-- Eligible -->
-                            <div>
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-4">Eligible for Return</p>
-                                <div class="flex flex-col gap-2">
-                                    <?php
-                                    $eligible = [
-                                        'Unworn and in unused condition (brief try-on only)',
-                                        'All original tags, stickers, and protective films intact',
-                                        'Original box with all accessories included',
-                                        'No signs of wear, scratches, dents, or alterations',
-                                        'Strap/bracelet not sized, shortened, or adjusted',
-                                        'Proof of purchase included',
-                                        'Return requested within 30 days of delivery',
-                                    ];
-                                    foreach ($eligible as $item): ?>
-                                    <div class="flex items-start gap-3 rounded-[1rem] bg-black/3 p-4 ring-1 ring-black/5">
-                                        <div class="w-5 h-5 rounded-full bg-foreground flex items-center justify-center shrink-0 mt-0.5">
-                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                                        </div>
-                                        <p class="font-sans text-sm text-foreground/70 leading-relaxed"><?php echo esc_html($item); ?></p>
-                                    </div>
-                                    <?php endforeach; ?>
-                                </div>
+                            <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+                                <h6 class="text-lg font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Eligible for Return
+                                </h6>
+                                <ul class="space-y-3 text-sm text-neutral-600">
+                                    <li class="flex gap-3"><span class="text-black shrink-0">•</span> Unworn and in unused condition (brief try-on only)</li>
+                                    <li class="flex gap-3"><span class="text-black shrink-0">•</span> All original tags still attached and intact</li>
+                                    <li class="flex gap-3"><span class="text-black shrink-0">•</span> Item returned in original packaging</li>
+                                    <li class="flex gap-3"><span class="text-black shrink-0">•</span> No signs of wear, stains, odors, or alterations</li>
+                                    <li class="flex gap-3"><span class="text-black shrink-0">•</span> Item not washed or altered in any way</li>
+                                    <li class="flex gap-3"><span class="text-black shrink-0">•</span> Proof of purchase included</li>
+                                    <li class="flex gap-3"><span class="text-black shrink-0">•</span> Return requested within 30 days of delivery</li>
+                                </ul>
                             </div>
+                            
                             <!-- Non-Returnable -->
-                            <div>
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-4">Non-Returnable Items</p>
-                                <div class="flex flex-col gap-2">
-                                    <?php
-                                    $non_eligible = [
-                                        'Watches that have been worn, sized, or altered',
-                                        'Custom, personalized, or engraved watches',
-                                        'Missing original box, warranty card, or accessories',
-                                        'Watches showing wear, scratches, or post-delivery damage',
-                                        'Final sale items, promotional items, and gift cards',
-                                        'Items returned more than 30 days after delivery',
-                                    ];
-                                    foreach ($non_eligible as $item): ?>
-                                    <div class="flex items-start gap-3 rounded-[1rem] bg-black/3 p-4 ring-1 ring-black/5">
-                                        <div class="w-5 h-5 rounded-full border border-black/15 flex items-center justify-center shrink-0 mt-0.5">
-                                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                                        </div>
-                                        <p class="font-sans text-sm text-foreground/50 leading-relaxed"><?php echo esc_html($item); ?></p>
-                                    </div>
-                                    <?php endforeach; ?>
-                                </div>
+                            <div class="bg-neutral-50 p-6 rounded-2xl border border-neutral-200">
+                                <h6 class="text-lg font-bold text-neutral-900 mb-4 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                    Non-Returnable Items
+                                </h6>
+                                <ul class="space-y-3 text-sm text-neutral-600">
+                                    <li class="flex gap-3"><span class="text-red-500 shrink-0">•</span> Items that have been worn, washed, or altered</li>
+                                    <li class="flex gap-3"><span class="text-red-500 shrink-0">•</span> Items with tags removed or original packaging missing</li>
+                                    <li class="flex gap-3"><span class="text-red-500 shrink-0">•</span> Items showing signs of wear, stains, or damage</li>
+                                    <li class="flex gap-3"><span class="text-red-500 shrink-0">•</span> Underwear, swimwear, and intimate items (hygiene)</li>
+                                    <li class="flex gap-3"><span class="text-red-500 shrink-0">•</span> Final sale items, promotional items, and gift cards</li>
+                                    <li class="flex gap-3"><span class="text-red-500 shrink-0">•</span> Items returned more than 30 days after delivery</li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5">
-                            <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-2">Condition Assessment</p>
-                            <p class="font-sans text-sm text-foreground/60 leading-relaxed">We reserve the right to assess the condition of any returned watch. Items that do not meet our return criteria will be sent back to you at your expense, and no refund will be issued. We recommend photographing your watch before shipping it back.</p>
+
+                        <div class="p-4 bg-neutral-100 rounded-lg text-sm text-neutral-600 border-l-4 border-black">
+                            <strong>Condition Assessment:</strong> We reserve the right to assess the condition of any returned item. Items that do not meet our return criteria will be sent back to you at your expense, and no refund will be issued. We recommend photographing your items before shipping them back.
                         </div>
                     </div>
-                </div>
 
-                <!-- How to Return — Steps -->
-                <div id="how-to-return" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 md:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-6">
-                            08 &mdash; How to Start a Return
-                        </div>
-                        <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-foreground mb-4">
-                            Four simple steps.
-                        </h2>
-                        <p class="font-sans text-base text-foreground/50 leading-relaxed mb-10">
-                            Do not ship any item back before receiving authorization — unauthorized returns will not be accepted.
-                        </p>
-                        <div class="flex flex-col gap-4">
-                            <?php
-                            $steps = [
-                                [
-                                    'num'   => '01',
-                                    'title' => 'Request a Return Authorization',
-                                    'body'  => 'Email info@goviloop.com within 30 days of delivery. Include your order number, the reason for the return, and clear photos of the watch and original packaging. We will review within 1–2 business days.',
-                                ],
-                                [
-                                    'num'   => '02',
-                                    'title' => 'Receive Authorization &amp; Label',
-                                    'body'  => 'Once approved, we will email you a Return Merchandise Authorization (RMA) number and a prepaid shipping label with full packaging instructions. Write the RMA number clearly on the outside of the package.',
-                                ],
-                                [
-                                    'num'   => '03',
-                                    'title' => 'Pack Your Watch Securely',
-                                    'body'  => 'Place the watch in its original inner box with all accessories, then pack inside a sturdy outer shipping box with adequate cushioning. Avoid placing the shipping label directly on the watch box.',
-                                ],
-                                [
-                                    'num'   => '04',
-                                    'title' => 'Ship to Our Returns Center',
-                                    'body'  => 'Drop off the package at any authorized carrier location. Keep your tracking number until your refund has been confirmed. Returns Address: Goviloop — Returns Dept., 2800 Post Oak Blvd, Suite 4100, Houston, TX 77056.',
-                                ],
-                            ];
-                            foreach ($steps as $i => $step): ?>
-                            <div class="flex items-start gap-6 rounded-[1.5rem] bg-black/3 p-6 ring-1 ring-black/5" style="transition-delay: <?php echo $i * 60; ?>ms;">
-                                <div class="font-heading text-[2.5rem] leading-none text-foreground/10 shrink-0 w-14 text-right"><?php echo $step['num']; ?></div>
-                                <div class="pt-1">
-                                    <h4 class="font-heading text-lg text-foreground mb-2"><?php echo $step['title']; ?></h4>
-                                    <p class="font-sans text-sm text-foreground/60 leading-relaxed"><?php echo $step['body']; ?></p>
+                    <!-- 08 How to Start a Return -->
+                    <div id="returns-08" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">08 — How to Start a Return</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-2">Four simple steps.</h5>
+                        <p class="text-sm text-red-500 font-medium mb-8">Do not ship any item back before receiving authorization — unauthorized returns will not be accepted.</p>
+                        
+                        <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-neutral-200 before:to-transparent">
+                            <!-- Step 1 -->
+                            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-black text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow font-bold text-sm z-10">01</div>
+                                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white border border-neutral-200 rounded-2xl">
+                                    <h6 class="font-bold text-neutral-900 mb-2">Request a Return Authorization</h6>
+                                    <p class="text-sm text-neutral-600 leading-relaxed">Email our support team within 30 days of delivery. Include your order number, the reason for the return, and clear photos of the items and original packaging. We will review within 1–2 business days.</p>
                                 </div>
                             </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Defective + Damaged -->
-                <div id="defective" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 md:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-6">
-                            09 &mdash; Damaged, Defective, or Incorrect Items
-                        </div>
-                        <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-foreground mb-6">
-                            We make it right, immediately.
-                        </h2>
-                        <p class="font-sans text-base text-foreground/70 leading-relaxed mb-8">
-                            We perform a thorough quality check on every watch before shipment. However, if your order arrives damaged, defective, or is not the item you ordered, please contact us <strong class="text-foreground">within 48 hours of delivery</strong>. Claims submitted after this window may not be eligible for resolution.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-3">What to Include</p>
-                                <p class="font-sans text-sm text-foreground/70 leading-relaxed">Email info@goviloop.com with: (1) your order number, (2) a description of the issue, and (3) clear photos of the watch, damage or defect, and outer packaging.</p>
-                            </div>
-                            <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5">
-                                <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-3">Packaging Damage</p>
-                                <p class="font-sans text-sm text-foreground/70 leading-relaxed">If the outer shipping box appears damaged upon delivery, photograph the packaging before opening and note the condition with the delivery driver if possible.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Exchanges -->
-                <div id="exchanges" class="rounded-[2rem] bg-foreground text-background p-1.5 ring-1 ring-foreground/10 scroll-reveal">
-                    <div class="relative rounded-[calc(2rem-0.375rem)] bg-foreground p-8 md:p-12 overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
-                        <div class="absolute -top-20 -right-20 w-80 h-80 bg-muted/10 rounded-full blur-3xl pointer-events-none"></div>
-                        <div class="relative z-10">
-                            <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-white/10 text-background ring-1 ring-white/10 inline-block mb-6">
-                                10 &mdash; Exchanges
-                            </div>
-                            <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-background mb-4">
-                                Want a different model?
-                            </h2>
-                            <p class="font-sans text-base text-background/60 leading-relaxed mb-8 max-w-xl">
-                                We do not process direct one-for-one exchanges. The fastest way to get the watch you want is a two-step process.
-                            </p>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="rounded-[1.5rem] bg-white/8 p-6 ring-1 ring-white/10">
-                                    <div class="font-heading text-[3rem] leading-none text-background/15 mb-4">01</div>
-                                    <h4 class="font-heading text-lg text-background mb-2">Return the Original Watch</h4>
-                                    <p class="font-sans text-sm text-background/60 leading-relaxed">Follow the return process above to send back your original purchase. Once approved and received, a refund will be processed.</p>
+                            <!-- Step 2 -->
+                            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-black text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow font-bold text-sm z-10">02</div>
+                                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white border border-neutral-200 rounded-2xl">
+                                    <h6 class="font-bold text-neutral-900 mb-2">Receive Authorization & Label</h6>
+                                    <p class="text-sm text-neutral-600 leading-relaxed">Once approved, we will email you a Return Merchandise Authorization (RMA) number and a prepaid shipping label with full packing instructions. Write the RMA number clearly on the outside of the package.</p>
                                 </div>
-                                <div class="rounded-[1.5rem] bg-white/8 p-6 ring-1 ring-white/10">
-                                    <div class="font-heading text-[3rem] leading-none text-background/15 mb-4">02</div>
-                                    <h4 class="font-heading text-lg text-background mb-2">Place a New Order</h4>
-                                    <p class="font-sans text-sm text-background/60 leading-relaxed">Place a fresh order on goviloop.com for the watch you want. This ensures the item is reserved and shipped as soon as possible.</p>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-black text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow font-bold text-sm z-10">03</div>
+                                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white border border-neutral-200 rounded-2xl">
+                                    <h6 class="font-bold text-neutral-900 mb-2">Pack Your Items Securely</h6>
+                                    <p class="text-sm text-neutral-600 leading-relaxed">Fold items neatly and place them in their original packaging with all tags attached. Pack securely in a sturdy outer shipping box. Avoid placing the shipping label directly on the product packaging.</p>
+                                </div>
+                            </div>
+                            <!-- Step 4 -->
+                            <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-black text-white shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow font-bold text-sm z-10">04</div>
+                                <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white border border-neutral-200 rounded-2xl">
+                                    <h6 class="font-bold text-neutral-900 mb-2">Ship to Our Returns Center</h6>
+                                    <p class="text-sm text-neutral-600 leading-relaxed">Drop off the package at any authorized carrier location. Keep your tracking number until your refund has been confirmed. Our returns team will process your item upon receipt.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Refunds -->
-                <div id="refunds" class="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5 scroll-reveal">
-                    <div class="rounded-[calc(2rem-0.375rem)] bg-surface p-8 md:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
-                        <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-black/5 text-foreground ring-1 ring-black/5 inline-block mb-6">
-                            11 &mdash; Refunds
+                    <!-- 09 Damaged & Defective -->
+                    <div id="returns-09" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">09 — Damaged, Defective, or Incorrect Items</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">We make it right, immediately.</h5>
+                        <p class="text-base text-neutral-600 mb-6 leading-relaxed">We perform a thorough quality check on every item before shipment. However, if your order arrives damaged, defective, or is not what you ordered, please contact us within 48 hours of delivery. Claims submitted after this window may not be eligible for resolution.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-6 bg-neutral-50 border border-neutral-200 rounded-xl border-l-4 border-l-black">
+                                <h6 class="font-bold text-neutral-900 mb-2">What to Include</h6>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Email our support team with: (1) your order number, (2) a description of the issue, and (3) clear photos of the item, the damage or defect, and the outer packaging.</p>
+                            </div>
+                            <div class="p-6 bg-neutral-50 border border-neutral-200 rounded-xl">
+                                <h6 class="font-bold text-neutral-900 mb-2">Packaging Damage</h6>
+                                <p class="text-sm text-neutral-600 leading-relaxed">If the outer shipping box appears damaged upon delivery, photograph the packaging before opening and note the condition with the delivery driver if possible.</p>
+                            </div>
                         </div>
-                        <h2 class="font-heading text-[2rem] md:text-[2.5rem] leading-[1] tracking-[-0.03em] text-foreground mb-4">
-                            Your refund, step by step.
-                        </h2>
-                        <p class="font-sans text-base text-foreground/50 leading-relaxed mb-10">
-                            Once we receive and inspect your returned watch, we will process your refund promptly.
-                        </p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                            <?php
-                            $refund_steps = [
-                                ['num' => '01', 'title' => 'Inspection Upon Arrival', 'body' => 'We inspect the returned watch within 1–2 business days. You will be notified by email of the outcome.'],
-                                ['num' => '02', 'title' => 'Refund Processing', 'body' => 'If approved, your refund is issued to your original payment method within 10 business days, minus applicable return shipping costs.'],
-                                ['num' => '03', 'title' => 'Refund Not Received?', 'body' => 'Timelines vary by bank. If more than 15 business days have passed since approval, contact us at info@goviloop.com with your order number.'],
-                            ];
-                            foreach ($refund_steps as $step): ?>
-                            <div class="rounded-[1.5rem] bg-black/3 p-6 ring-1 ring-black/5 flex flex-col gap-4">
-                                <div class="font-heading text-[3rem] leading-none text-foreground/10"><?php echo $step['num']; ?></div>
+                    </div>
+
+                    <!-- 10 Exchanges -->
+                    <div id="returns-10" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">10 — Exchanges</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">Want a different model?</h5>
+                        <p class="text-base text-neutral-600 mb-8 leading-relaxed">We do not process direct one-for-one exchanges. The fastest way to get the size or style you want is a two-step process.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-6 border border-neutral-200 rounded-2xl relative">
+                                <div class="absolute -top-4 left-6 bg-black text-white w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold shadow-md">01</div>
+                                <h6 class="font-bold text-neutral-900 mt-2 mb-2">Return the Original Item</h6>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Follow the return process above to send back your original purchase. Once approved and received, a refund will be processed.</p>
+                            </div>
+                            <div class="p-6 border border-neutral-200 rounded-2xl relative">
+                                <div class="absolute -top-4 left-6 bg-black text-white w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold shadow-md">02</div>
+                                <h6 class="font-bold text-neutral-900 mt-2 mb-2">Place a New Order</h6>
+                                <p class="text-sm text-neutral-600 leading-relaxed">Visit our store and place a new order for the size or style you want. This ensures the item is reserved and shipped as soon as possible.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11 Refunds -->
+                    <div id="returns-11" class="scroll-mt-24">
+                        <h4 class="text-xs text-neutral-500 font-semibold uppercase tracking-wider mb-2">11 — Refunds</h4>
+                        <h5 class="text-2xl font-bold text-neutral-900 mb-4">Your refund, step by step.</h5>
+                        <p class="text-base text-neutral-600 mb-8 leading-relaxed">Once we receive and inspect your returned item, we will process your refund promptly.</p>
+                        
+                        <div class="flex flex-col gap-4 mb-8">
+                            <div class="flex gap-4 p-5 bg-neutral-50 border border-neutral-200 rounded-xl items-start">
+                                <span class="bg-white text-black font-bold w-8 h-8 flex items-center justify-center rounded border border-neutral-200 shrink-0">01</span>
                                 <div>
-                                    <h4 class="font-heading text-lg text-foreground mb-2"><?php echo $step['title']; ?></h4>
-                                    <p class="font-sans text-sm text-foreground/60 leading-relaxed"><?php echo $step['body']; ?></p>
+                                    <h6 class="font-bold text-neutral-900">Inspection Upon Arrival</h6>
+                                    <p class="text-sm text-neutral-600 mt-1">We inspect returned items within 1–2 business days of receiving them. You will be notified by email of the outcome.</p>
                                 </div>
                             </div>
-                            <?php endforeach; ?>
+                            <div class="flex gap-4 p-5 bg-neutral-50 border border-neutral-200 rounded-xl items-start">
+                                <span class="bg-white text-black font-bold w-8 h-8 flex items-center justify-center rounded border border-neutral-200 shrink-0">02</span>
+                                <div>
+                                    <h6 class="font-bold text-neutral-900">Refund Processing</h6>
+                                    <p class="text-sm text-neutral-600 mt-1">If approved, your refund is issued to your original payment method within 10 business days, minus applicable return shipping costs.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-5 bg-neutral-50 border border-neutral-200 rounded-xl items-start">
+                                <span class="bg-white text-black font-bold w-8 h-8 flex items-center justify-center rounded border border-neutral-200 shrink-0">03</span>
+                                <div>
+                                    <h6 class="font-bold text-neutral-900">Refund Not Received?</h6>
+                                    <p class="text-sm text-neutral-600 mt-1">Timelines vary by bank. If more than 15 business days have passed since approval, contact us via email with your order number and we will look into it right away.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="rounded-[1.25rem] bg-black/3 p-6 ring-1 ring-black/5">
-                            <p class="font-sans text-[10px] uppercase tracking-widest text-foreground/40 mb-2">Partial Refunds</p>
-                            <p class="font-sans text-sm text-foreground/60 leading-relaxed">A partial refund may be issued if the returned watch shows signs of use, is missing accessories, or otherwise does not fully meet our return conditions. We will notify you of any deduction before processing.</p>
+
+                        <div class="p-4 bg-neutral-100 rounded-lg text-sm text-neutral-600 border-l-4 border-black">
+                            <strong>Partial Refunds:</strong> A partial refund may be issued if returned items show signs of wear, have missing tags, or otherwise do not fully meet our return conditions. We will notify you of any deduction before processing.
                         </div>
                     </div>
                 </div>
+            </section>
+        </div>
+    </div>
 
-                <!-- Contact CTA -->
-                <div id="contact" class="rounded-[2rem] bg-foreground text-background p-1.5 ring-1 ring-foreground/10 scroll-reveal">
-                    <div class="relative rounded-[calc(2rem-0.375rem)] bg-foreground p-8 md:p-16 overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 md:gap-12 z-10">
-                        <div class="absolute -top-20 -right-20 w-80 h-80 bg-muted/15 rounded-full blur-3xl pointer-events-none"></div>
-                        <div class="relative z-10 w-full md:w-1/2">
-                            <div class="rounded-full px-4 py-1.5 text-[10px] uppercase tracking-[0.2em] font-medium bg-white/10 text-background ring-1 ring-white/10 inline-block mb-5 md:mb-6">
-                                Questions?
-                            </div>
-                            <h2 class="font-heading text-[2rem] md:text-[3.5rem] leading-[1.05] tracking-[-0.02em] text-background mb-3 md:mb-4">
-                                We are here <br/> to help.
-                            </h2>
-                            <p class="font-sans text-background/70 text-sm md:text-base leading-relaxed">
-                                Our support team is available Monday – Friday and responds within 1 business day. Don't hesitate to reach out.
-                            </p>
-                        </div>
-                        <div class="relative z-10 w-full md:w-auto flex flex-col gap-3 md:gap-4 shrink-0">
-                            <a href="mailto:info@goviloop.com" class="group flex items-center justify-between gap-4 rounded-full bg-white/10 hover:bg-white/20 ring-1 ring-white/15 px-6 md:px-8 py-4 md:py-5 transition-all duration-500">
-                                <span class="font-sans font-medium text-background text-sm md:text-base truncate">info@goviloop.com</span>
-                                <div class="w-8 h-8 rounded-full bg-background/10 flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:translate-x-1">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </div>
-                            </a>
-                            <div class="rounded-[1.25rem] bg-white/5 ring-1 ring-white/10 px-6 md:px-8 py-4 md:py-5">
-                                <p class="font-sans text-xs text-background/40 uppercase tracking-widest mb-1">Address</p>
-                                <p class="font-sans text-sm text-background/80">2800 Post Oak Blvd, Suite 4100<br/>Houston, TX 77056, United States</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+    <!-- Contact & Footer Section -->
+    <div class="mt-24 pt-16 border-t border-neutral-200 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight text-neutral-900 mb-6">Questions?<br/>We are here to help.</h2>
+        <p class="text-lg text-neutral-600 mb-8 max-w-xl mx-auto">Our support team is available Monday – Friday and responds within 1 business day. Don't hesitate to reach out.</p>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 mb-16">
+            <div class="flex flex-col items-center">
+                <span class="w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </span>
+                <a href="mailto:support@werewear.co" class="text-lg font-bold text-black hover:underline">support@werewear.co</a>
+            </div>
+            
+            <div class="hidden md:block w-px h-16 bg-neutral-200"></div>
+            
+            <div class="flex flex-col items-center">
+                <span class="w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </span>
+                <span class="text-lg font-bold text-black">Monday – Friday</span>
+                <span class="text-sm text-neutral-500 mt-1">9:00 AM – 6:00 PM CST</span>
             </div>
         </div>
-    </section>
 
-    <!-- CLOSING STATEMENT -->
-    <section class="w-full py-20 md:py-48 flex items-center justify-center text-center px-4 scroll-reveal">
-        <h2 class="font-heading text-[3.5rem] md:text-[6rem] lg:text-[8rem] leading-[0.9] tracking-[-0.04em] text-foreground/10 hover:text-foreground transition-colors duration-[1.5s] ease-fluid cursor-default">
-            Delivered with <br/> <span class="italic font-serif">care.</span>
-        </h2>
-    </section>
-
-</main>
-
-<style>
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(4rem); filter: blur(8px); }
-    to   { opacity: 1; transform: translateY(0);    filter: blur(0);  }
-}
-.animate-fade-up {
-    animation: fadeUp 1s cubic-bezier(0.32, 0.72, 0, 1) forwards;
-    opacity: 0;
-}
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(4rem);
-    filter: blur(8px);
-    transition: all 1s cubic-bezier(0.32, 0.72, 0, 1);
-}
-.scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-}
-.toc-link.is-active {
-    background: rgba(0,0,0,0.05);
-    color: var(--color-foreground, #111);
-    font-weight: 500;
-}
-/* Hide scrollbar for mobile TOC strip */
-.scrollbar-none::-webkit-scrollbar { display: none; }
-.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { root: null, rootMargin: '0px', threshold: 0.1 });
-
-    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
-
-    const sections = document.querySelectorAll('[id]');
-    const tocLinks = document.querySelectorAll('.toc-link');
-
-    const tocObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                tocLinks.forEach(l => l.classList.remove('is-active'));
-                const active = document.querySelector('.toc-link[href="#' + entry.target.id + '"]');
-                if (active) active.classList.add('is-active');
-            }
-        });
-    }, { root: null, rootMargin: '-20% 0px -70% 0px', threshold: 0 });
-
-    sections.forEach(s => tocObserver.observe(s));
-});
-</script>
+        <p class="text-sm font-bold uppercase tracking-widest text-neutral-400">Delivered with care.</p>
+    </div>
+</section>

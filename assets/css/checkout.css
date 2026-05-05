@@ -1,0 +1,217 @@
+#content {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    padding-top: 80px;
+}
+.wp-block-woocommerce-checkout {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Override Text Colors & Borders */
+.wp-block-woocommerce-checkout .wc-block-components-text-input input,
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select {
+  border-color: var(--color-surface-alt) !important;
+  color: var(--color-foreground) !important;
+  border-radius: var(--radius-sm) !important;
+  background-color: transparent !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-text-input input:focus,
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus {
+  border-color: var(--color-foreground) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-text-input label,
+.wp-block-woocommerce-checkout .wc-blocks-components-select__label {
+  color: var(--color-foreground-muted) !important;
+}
+
+/* Override Place Order Button */
+.wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button {
+  background-color: var(--color-accent) !important;
+  color: var(--color-background) !important;
+  border-radius: var(--radius-sm) !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button:hover {
+  background-color: var(--color-foreground) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md) !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   THANK YOU PAGE (ORDER RECEIVED)
+   ============================================ */
+
+.woocommerce-order {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+/* Success Notice */
+.woocommerce-notice--success.woocommerce-thankyou-order-received {
+  background-color: rgba(0, 210, 106, 0.1);
+  color: var(--color-success);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 210, 106, 0.2);
+}
+
+/* Order Overview List */
+.woocommerce-order-overview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  margin-bottom: 2rem;
+}
+
+.woocommerce-order-overview li {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--color-foreground-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.woocommerce-order-overview li strong {
+  color: var(--color-foreground);
+  font-size: 1.125rem;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 600;
+}
+
+.woocommerce-order > p:not(.woocommerce-notice) {
+  margin-bottom: 2rem;
+  color: var(--color-foreground-muted);
+  font-size: 0.9375rem;
+}
+
+/* Order Details Table */
+.woocommerce-order-details__title,
+.woocommerce-column__title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--color-foreground);
+}
+
+.woocommerce-table--order-details {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 3rem;
+}
+
+.woocommerce-table--order-details th,
+.woocommerce-table--order-details td {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-surface-alt);
+  text-align: left;
+}
+
+.woocommerce-table--order-details thead th {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: var(--color-foreground-muted);
+  font-weight: 600;
+}
+
+.woocommerce-table--order-details tbody td {
+  font-size: 1rem;
+}
+
+.woocommerce-table--order-details tbody td a {
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.woocommerce-table--order-details tbody td a:hover {
+  text-decoration: underline;
+}
+
+.woocommerce-table--order-details .product-quantity {
+  color: var(--color-foreground-muted);
+  font-weight: normal;
+}
+
+.woocommerce-table--order-details tfoot th {
+  font-weight: normal;
+  color: var(--color-foreground-muted);
+}
+
+.woocommerce-table--order-details tfoot tr:last-child th,
+.woocommerce-table--order-details tfoot tr:last-child td {
+  border-bottom: none;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-foreground);
+}
+
+.woocommerce-table--order-details .product-total {
+  text-align: right;
+}
+
+/* Customer Details / Addresses */
+.woocommerce-customer-details {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.woocommerce-columns--addresses {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .woocommerce-columns--addresses {
+    flex-direction: row;
+  }
+  .woocommerce-columns--addresses .woocommerce-column {
+    flex: 1;
+  }
+}
+
+.woocommerce-customer-details address {
+  font-style: normal;
+  line-height: 1.6;
+  color: var(--color-foreground);
+}
+
+.woocommerce-customer-details--phone,
+.woocommerce-customer-details--email {
+  margin-top: 0.5rem;
+  color: var(--color-foreground-muted);
+  margin-bottom: 0;
+}

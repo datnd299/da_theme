@@ -3,3 +3,7 @@ npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw-home.
 npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw-terms.css --content "./template-parts/page-terms-conditions.php" --minify
 npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw-about.css --content "./template-parts/page-about.php" --minify
 npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw-404.css --content "./404.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw-main.css --content "./header.php,./footer.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw-privacy.css --content "./template-parts/page-privacy.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw-faq.css --content "./template-parts/page-faq.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw-contact.css --content "./template-parts/page-contact.php" --minify

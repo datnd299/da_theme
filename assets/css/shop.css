@@ -6,6 +6,7 @@
   color: var(--color-foreground);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  padding-top: 40px;
 }
 
 /* Container */
@@ -34,7 +35,7 @@
   padding: 3rem 0;
   text-align: center;
   border-bottom: 1px solid var(--color-surface-alt);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .shop-hero__eyebrow {
   margin-bottom: 1rem;
@@ -90,14 +91,86 @@
   }
 }
 
-/* Sidebar */
-.shop-sidebar {
-  width: 100%;
+/* Sidebar Drawer (Mobile) */
+.shop-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  backdrop-filter: blur(2px);
 }
+.shop-sidebar-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.shop-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 85%;
+  max-width: 320px;
+  height: 100vh;
+  background-color: var(--color-background);
+  z-index: 100;
+  padding: 1.5rem;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 0 24px rgba(0,0,0,0.1);
+}
+.shop-sidebar.is-open {
+  transform: translateX(0);
+}
+
+.shop-sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-surface-alt);
+}
+.shop-sidebar__mobile-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-foreground);
+}
+.shop-sidebar__close {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  margin: -0.5rem;
+  color: var(--color-foreground);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (min-width: 1024px) {
+  .shop-sidebar-overlay {
+    display: none;
+  }
+  .shop-sidebar__header {
+    display: none;
+  }
   .shop-sidebar {
+    position: static;
     width: 240px;
+    height: auto;
+    max-width: none;
+    transform: none;
+    padding: 0;
+    overflow-y: visible;
+    box-shadow: none;
     flex-shrink: 0;
+    transition: none;
+    z-index: auto;
   }
   .shop-sidebar__sticky {
     position: sticky;

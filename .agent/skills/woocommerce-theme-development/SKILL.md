@@ -4,6 +4,7 @@ description: Skill cho AI agent (Claude Code, Cursor, Windsurf...) phát triển
 ---
 
 # Skill: WooCommerce Theme Developer (Conversion-First, CSS Variables Only)
+Thông tin trang web đọc tại `.plans/site.md`
 
 ## 1. Cấu trúc dự án và phạm vi file
 

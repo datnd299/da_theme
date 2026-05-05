@@ -11,29 +11,38 @@ function dawp_setup() {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0');
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.2');
+
+    wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw-main.css', [], '1.0.2');
+
+    if ( is_front_page() ) {
+        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/home.css', [], '1.0.2');
+        dawp_remove_styles();
+    }
     
     if ( class_exists( 'WooCommerce' ) ) {
         if ( is_product() ) {
-            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0');
+            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.2');
+            dawp_remove_styles();
         } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0');
+            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.2');
+            dawp_remove_styles();
         } elseif ( is_checkout() ) {
-            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0');
-        } elseif ( is_woocommerce() ) {
-            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0');
+            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.2');
+        } elseif ( is_woocommerce()  ) {
+            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.2');
+            dawp_remove_styles();
         }
     }
 
-    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0', true);
+    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.2', true);
 
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
 }
 
-add_action( 'wp_enqueue_scripts', 'dawp_remove_styles', 100 );
 function dawp_remove_styles() {
     wp_dequeue_style( 'wc-blocks-style' );
-    wp_dequeue_style( 'photoswipe-default-skin' );
+    // wp_dequeue_style( 'photoswipe-default-skin' );
     wp_dequeue_style( 'wc-blocks-style' );
     wp_dequeue_style( 'wc-blocks-vendors-style' );
     wp_dequeue_style( 'wc-block-style' );

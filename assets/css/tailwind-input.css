@@ -1,13 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #FDFBF7;
-  --color-surface: #FFFFFF;
-  --color-foreground: #1A1512;
-  --color-muted: #8B9D83;
+  /* === COLORS === */
+  /* Background layers */
+  --color-background: #FFFFFF;
+  /* Nền chính */
+  --color-surface: #F5F5F5;
+  /* Card, modal, Secondary Background */
+  --color-surface-alt: #E5E5E5;
+  /* Nền phụ, hover state, Border */
 
-  --font-sans: "Satoshi", sans-serif;
-  --font-heading: "Cabinet Grotesk", sans-serif;
+  /* Text */
+  --color-foreground: #0A0A0A;
+  /* Text chính */
+  --color-foreground-muted: #737373;
+  /* Text phụ */
+  --color-muted: #737373;
+  /* Caption, placeholder */
 
-  --ease-fluid: cubic-bezier(0.32, 0.72, 0, 1);
+  /* Semantic */
+  --color-accent: #000000;
+  /* CTA */
+  --color-alert: #FF4D4D;
+  /* Sale, alert */
+  --color-success: #00D26A;
+  /* Success */
+
+  /* === TYPOGRAPHY === */
+  --font-sans: 'Be Vietnam Pro', sans-serif;
 }

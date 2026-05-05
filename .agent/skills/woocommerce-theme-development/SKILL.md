@@ -1,6 +1,6 @@
 ---
 name: woocommerce-theme-design
-description: Skill cho AI agent (Claude Code, Cursor, Windsurf...) phát triển một WooCommerce theme đơn giản tập trung vào bán hàng. Định nghĩa rõ phạm vi file được phép sửa, cách viết CSS thuần với CSS variables để style các class của WooCommerce, và pattern thiết kế trẻ trung năng động tối ưu cho conversion. Tuyệt đối không sửa file ngoài phạm vi cho phép.
+description: Skill cho AI agent (Claude Code, Cursor, Windsurf...) phát triển một WooCommerce theme đơn giản tập trung vào bán hàng thời trang/phụ kiện. Định nghĩa rõ phạm vi file được phép sửa, cách viết CSS thuần với CSS variables để style các class của WooCommerce, và pattern thiết kế trẻ trung năng động tối ưu cho conversion. Tuyệt đối không sửa file ngoài phạm vi cho phép.
 ---
 
 # Skill: WooCommerce Theme Developer (Conversion-First, CSS Variables Only)

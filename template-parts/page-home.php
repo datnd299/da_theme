@@ -1,376 +1,414 @@
 <?php
 /**
- * Template part for displaying the home page
- * Design System: Editorial Luxury x Soft Structuralism
- * Skill: High-End Visual Design (Awwwards-Tier)
+ * Template part for displaying the home page content
+ * 
+ * Đây là template trang chủ được thiết kế theo phong cách Urban Cool,
+ * tối ưu cho conversion dựa trên bản thiết kế .plans/home_plan.md
  */
 ?>
 
-<!-- Import Fonts: Clash Display & Satoshi -->
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
-<!-- Import Phosphor Icons -->
-<script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-<style>
-  :root {
-    --color-paper: #FAFAF7;
-    --color-ink: #0A0A0A;
-    --color-accent: #FF4D2E;
-    --color-lime: #D4FF3D;
-    
-    --font-display: 'Clash Display', sans-serif;
-    --font-body: 'Satoshi', sans-serif;
-    
-    --ease-spring: cubic-bezier(0.32,0.72,0,1);
-  }
-
-  body {
-    background-color: var(--color-paper);
-    color: var(--color-ink);
-    font-family: var(--font-body);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1, h2, h3, h4, .font-display {
-    font-family: var(--font-display);
-  }
-
-  /* Fixed Noise Overlay */
-  .noise-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 50;
-    pointer-events: none;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  /* Scroll Reveal Classes */
-  .reveal-up {
-    opacity: 0;
-    transform: translateY(4rem);
-    filter: blur(8px);
-    transition: all 800ms var(--ease-spring);
-    will-change: transform, opacity, filter;
-  }
-  .reveal-up.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
-
-  /* Custom Horizontal Scroll Bar hiding */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  /* Double Bezel Architecture */
-  .double-bezel-shell {
-    background: rgba(0, 0, 0, 0.03);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 0.5rem;
-    border-radius: 2rem;
-  }
-  .double-bezel-core {
-    background: var(--color-paper);
-    border-radius: calc(2rem - 0.5rem);
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
-    overflow: hidden;
-  }
-  
-  /* Marquee */
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
-  }
-</style>
-
-<div class="noise-overlay"></div>
-
-<!-- 1. HERO SECTION (The Hook) - The Editorial Split -->
-<section class="min-h-[100dvh] w-full flex flex-col md:flex-row relative px-4 md:px-8 py-8 md:py-12 pb-24" style="background-color: var(--color-paper);">
-  
-  <!-- Left: Massive Typography -->
-  <div class="w-full md:w-1/2 flex flex-col justify-center h-full pt-16 md:pt-0 pr-0 md:pr-12 reveal-up">
-    <!-- Eyebrow -->
-    <div class="inline-flex items-center rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium border border-black/10 w-max mb-6">
-      <span class="w-1.5 h-1.5 rounded-full bg-[#FF4D2E] mr-2"></span>
-      Issue 04 / Editorial
+<!-- Trust Strip -->
+<div class="bg-[#F5F5F5] border-b border-[#E5E5E5] py-2.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center gap-6 md:gap-10 text-[11px] md:text-xs font-semibold text-[#737373] uppercase tracking-wider">
+        <span class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-[#0A0A0A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg> 
+            Miễn phí ship > $50
+        </span>
+        <span class="hidden md:flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-[#0A0A0A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg> 
+            Đổi trả 7 ngày
+        </span>
+        <span class="hidden md:flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-[#0A0A0A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" /></svg> 
+            Thanh toán an toàn
+        </span>
     </div>
-    
-    <h1 class="font-display text-[12vw] md:text-[6vw] font-bold leading-[0.85] tracking-[-0.04em] mb-6 uppercase">
-      WEAR<br/>
-      WHAT<br/>
-      YOU<br/>
-      <span class="text-[#FF4D2E] italic font-medium">MEAN.</span>
-    </h1>
-    
-    <p class="text-lg md:text-xl text-black/60 max-w-md mb-12 leading-relaxed">
-      Not just a tee, it's a statement. Limited edition pieces for the bold.
-    </p>
-    
-    <!-- CTA: Button-in-Button -->
-    <div class="group relative inline-flex w-max cursor-pointer items-center rounded-full bg-[#0A0A0A] p-1.5 pr-2 transition-all duration-500 active:scale-[0.98] reveal-up" style="transition-delay: 150ms;">
-      <span class="pl-6 pr-4 py-3 text-sm font-medium tracking-wide text-white uppercase">Shop the Fit</span>
-      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-[1px] group-hover:translate-x-1">
-        <i class="ph-light ph-arrow-up-right text-white text-lg"></i>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Right: Image / Interactive -->
-  <div class="w-full md:w-1/2 h-[60vh] md:h-[calc(100vh-6rem)] mt-12 md:mt-0 relative double-bezel-shell reveal-up" style="transition-delay: 200ms;">
-    <div class="double-bezel-core w-full h-full relative group">
-      <img src="https://picsum.photos/seed/editorial-hero/1200/1600" class="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Editorial Hero Image" />
-      <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
-        <div class="backdrop-blur-md bg-white/30 p-4 rounded-2xl border border-white/20">
-          <p class="font-display font-medium text-lg text-black">"STILL LIFE" TEE</p>
-          <p class="text-sm text-black/70 font-medium tracking-wide">$48.00</p>
+</div>
+
+<!-- Hero Section -->
+<section class="relative w-full h-[75vh] min-h-[500px] flex items-center overflow-hidden bg-[#0A0A0A]">
+    <picture class="absolute inset-0 w-full h-full">
+        <!-- Desktop Image -->
+        <source media="(min-width: 768px)" srcset="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop">
+        <!-- Mobile Image -->
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop" 
+             alt="Summer Collection 2026" 
+             class="w-full h-full object-cover object-top"
+             fetchpriority="high" loading="eager">
+    </picture>
+    <!-- Overlay cho text -->
+    <div class="absolute inset-0 bg-black/40 md:bg-gradient-to-r md:from-black/70 md:to-transparent"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10 md:mt-0 text-center md:text-left">
+        <div class="max-w-xl text-white mx-auto md:mx-0">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight">SUMMER 2026<br><span class="text-3xl md:text-5xl lg:text-6xl text-white/90">UP TO 30% OFF</span></h1>
+            <p class="text-base md:text-lg mb-8 text-white/90 font-medium leading-relaxed">Khám phá bộ sưu tập mùa hè với những thiết kế tối giản, năng động và đầy cá tính. Nâng tầm phong cách cá nhân của bạn ngay hôm nay.</p>
+            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <a href="/shop?gender=women" class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-white text-[#0A0A0A] px-8 py-3.5 text-sm font-bold uppercase tracking-wide transition-all duration-200 hover:bg-[#F5F5F5] active:scale-[0.98]">
+                    Shop Nữ
+                </a>
+                <a href="/shop?gender=men" class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wide transition-all duration-200 hover:bg-white hover:text-[#0A0A0A] active:scale-[0.98]">
+                    Shop Nam
+                </a>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
-<!-- 2. QUICK NAV (The Shortcut) -->
-<section class="w-full py-8 md:py-12 border-y border-black/5 overflow-hidden">
-  <div class="flex flex-nowrap overflow-x-auto no-scrollbar gap-4 px-4 md:px-8 w-full reveal-up">
-    <?php
-    $categories = [
-      ['name' => 'Tees', 'icon' => 'ph-t-shirt'],
-      ['name' => 'Hoodies', 'icon' => 'ph-hoodie'],
-      ['name' => 'Accessories', 'icon' => 'ph-baseball-cap'],
-      ['name' => 'Best Sellers', 'icon' => 'ph-fire'],
-      ['name' => 'Sale', 'icon' => 'ph-tag'],
-    ];
-    foreach($categories as $cat) {
-    ?>
-    <a href="#" class="group flex items-center gap-3 px-6 py-4 rounded-full border border-black/10 hover:border-black/30 hover:bg-black/5 transition-colors duration-500 flex-shrink-0">
-      <i class="ph-light <?php echo $cat['icon']; ?> text-xl text-black"></i>
-      <span class="font-medium text-sm tracking-wide uppercase"><?php echo $cat['name']; ?></span>
-    </a>
-    <?php } ?>
-  </div>
+<!-- Category Shortcuts -->
+<section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="sr-only">Danh mục sản phẩm</h2>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            <!-- Item 1 -->
+            <a href="/product-category/ao" class="group relative block aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-[#F5F5F5]">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=800&auto=format&fit=crop" alt="Áo" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/20"></div>
+                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-center">
+                    <span class="inline-block w-full bg-white text-[#0A0A0A] px-4 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full shadow-sm">Áo</span>
+                </div>
+            </a>
+            <!-- Item 2 -->
+            <a href="/product-category/quan" class="group relative block aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-[#F5F5F5]">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=800&auto=format&fit=crop" alt="Quần" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/20"></div>
+                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-center">
+                    <span class="inline-block w-full bg-white text-[#0A0A0A] px-4 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full shadow-sm">Quần</span>
+                </div>
+            </a>
+            <!-- Item 3 -->
+            <a href="/product-category/phu-kien" class="group relative block aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-[#F5F5F5]">
+                <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?q=80&w=800&auto=format&fit=crop" alt="Phụ kiện" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/20"></div>
+                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-center">
+                    <span class="inline-block w-full bg-white text-[#0A0A0A] px-4 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full shadow-sm">Phụ Kiện</span>
+                </div>
+            </a>
+            <!-- Item 4 -->
+            <a href="/sale" class="group relative block aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-red-50">
+                <img src="https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?q=80&w=800&auto=format&fit=crop" alt="Sale" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
+                <div class="absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/20"></div>
+                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-center">
+                    <span class="inline-block w-full bg-[#FF4D4D] text-white px-4 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full shadow-sm">Sale Off</span>
+                </div>
+            </a>
+        </div>
+    </div>
 </section>
 
-<!-- 3. FEATURED COLLECTION (The Meat) - Asymmetrical Bento -->
-<section class="w-full py-24 md:py-32 px-4 md:px-8 max-w-[1600px] mx-auto">
-  <div class="flex justify-between items-end mb-16 md:mb-24 reveal-up">
-    <div>
-      <div class="inline-flex items-center rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium border border-black/10 mb-4">
-        Weekly Must-Cops
-      </div>
-      <h2 class="font-display text-4xl md:text-6xl font-bold tracking-tight">DROP 014</h2>
-    </div>
-    <a href="#" class="group hidden md:flex items-center gap-2 text-sm font-medium uppercase tracking-wide border-b border-black pb-1 hover:text-[#FF4D2E] hover:border-[#FF4D2E] transition-colors">
-      View All 
-      <i class="ph-light ph-arrow-right transition-transform group-hover:translate-x-1"></i>
-    </a>
-  </div>
-
-  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 auto-rows-[400px] md:auto-rows-[450px]">
-    
-    <!-- Bento Item 1: Large (Span 8) -->
-    <div class="col-span-1 md:col-span-8 row-span-1 md:row-span-2 double-bezel-shell reveal-up">
-      <div class="double-bezel-core relative w-full h-full group cursor-pointer bg-black/5">
-        <img src="https://picsum.photos/seed/product1-main/1200/1600" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:opacity-0" alt="Product" />
-        <img src="https://picsum.photos/seed/product1-hover/1200/1600" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:opacity-100" alt="Product Hover" />
-        
-        <!-- Badges -->
-        <div class="absolute top-6 left-6 z-10">
-          <span class="bg-[#D4FF3D] text-[#0A0A0A] px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider">New</span>
+<!-- Featured Products (Best Sellers) -->
+<section class="py-12 md:py-16 bg-[#F5F5F5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-end justify-between mb-8 md:mb-10">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-semibold text-[#0A0A0A] tracking-tight">Best Sellers</h2>
+                <p class="text-[#737373] text-sm md:text-base mt-1">Những sản phẩm được yêu thích nhất.</p>
+            </div>
+            <a href="/shop" class="hidden md:inline-flex text-sm font-bold uppercase tracking-wider text-[#0A0A0A] border-b-2 border-[#0A0A0A] pb-0.5 hover:text-[#737373] hover:border-[#737373] transition-colors">Xem tất cả</a>
         </div>
         
-        <!-- Info Panel -->
-        <div class="absolute bottom-6 left-6 right-6 flex justify-between items-end opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] z-10">
-          <div class="bg-white/90 backdrop-blur p-5 rounded-2xl border border-black/5 shadow-sm">
-            <h3 class="font-display font-medium text-xl text-black">"MIRAGE" HOODIE</h3>
-            <p class="text-[#FF4D2E] font-bold mt-1">$94.00</p>
-          </div>
-          <button class="w-12 h-12 rounded-full bg-black flex items-center justify-center text-white hover:scale-105 transition-transform duration-300 shadow-xl">
-            <i class="ph-light ph-plus text-xl"></i>
-          </button>
-        </div>
-      </div>
-    </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
+            <!-- Product 1 -->
+            <div class="group flex flex-col">
+                <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-white mb-3 md:mb-4">
+                    <span class="absolute top-2.5 left-2.5 z-10 bg-[#0A0A0A] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1.5 rounded shadow-sm">New</span>
+                    <a href="/product/ao-thun-basic-co-tron" class="block w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1550639525-c97d455acf70?q=80&w=800&auto=format&fit=crop" alt="Áo Thun Basic Cổ Tròn" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="eager">
+                    </a>
+                    <!-- Quick Add Button -->
+                    <button class="absolute bottom-3 left-3 right-3 translate-y-[120%] opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 ease-out bg-white/95 backdrop-blur-sm text-[#0A0A0A] font-bold text-sm py-3 rounded-full shadow-sm hover:bg-[#0A0A0A] hover:text-white flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        Thêm nhanh
+                    </button>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <a href="/product/ao-thun-basic-co-tron" class="text-sm md:text-base font-medium text-[#0A0A0A] line-clamp-1 mb-1.5 hover:text-[#737373] transition-colors">Áo Thun Basic Cổ Tròn</a>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-base md:text-lg font-bold text-[#0A0A0A]">299.000đ</span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Bento Item 2: Small (Span 4) -->
-    <div class="col-span-1 md:col-span-4 double-bezel-shell reveal-up" style="transition-delay: 100ms;">
-      <div class="double-bezel-core relative w-full h-full group cursor-pointer bg-white">
-        <img src="https://picsum.photos/seed/product2/800/1000" class="w-full h-full object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Product" />
-        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
-          <h3 class="font-display font-medium text-lg text-white">"STATIC" TEE</h3>
-          <p class="text-white/80 font-medium">$48.00</p>
-        </div>
-      </div>
-    </div>
+            <!-- Product 2 (Sale) -->
+            <div class="group flex flex-col">
+                <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-white mb-3 md:mb-4">
+                    <span class="absolute top-2.5 left-2.5 z-10 bg-[#FF4D4D] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1.5 rounded shadow-sm">-30%</span>
+                    <a href="/product/ao-croptop-tay-dai" class="block w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1594222634351-e12db0144fbb?q=80&w=800&auto=format&fit=crop" alt="Áo Croptop Tay Dài" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="eager">
+                    </a>
+                    <button class="absolute bottom-3 left-3 right-3 translate-y-[120%] opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 ease-out bg-white/95 backdrop-blur-sm text-[#0A0A0A] font-bold text-sm py-3 rounded-full shadow-sm hover:bg-[#0A0A0A] hover:text-white flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        Thêm nhanh
+                    </button>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <a href="/product/ao-croptop-tay-dai" class="text-sm md:text-base font-medium text-[#0A0A0A] line-clamp-1 mb-1.5 hover:text-[#737373] transition-colors">Áo Croptop Tay Dài</a>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-base md:text-lg font-bold text-[#FF4D4D]">250.000đ</span>
+                        <span class="text-sm text-[#737373] line-through">350.000đ</span>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Bento Item 3: Small (Span 4) -->
-    <div class="col-span-1 md:col-span-4 double-bezel-shell reveal-up" style="transition-delay: 200ms;">
-      <div class="double-bezel-core relative w-full h-full group cursor-pointer bg-white">
-        <img src="https://picsum.photos/seed/product3/800/1000" class="w-full h-full object-cover object-center transition-transform duration-1000 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105" alt="Product" />
-        <div class="absolute top-6 left-6 z-10">
-          <span class="bg-[#FF4D2E] text-white px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider">Limited</span>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
-          <h3 class="font-display font-medium text-lg text-white">"FIELD NOTES" TEE</h3>
-          <p class="text-white/80 font-medium">$52.00</p>
-        </div>
-      </div>
-    </div>
+            <!-- Product 3 -->
+            <div class="group flex flex-col">
+                <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-white mb-3 md:mb-4">
+                    <a href="/product/quan-jeans-ong-rong" class="block w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=800&auto=format&fit=crop" alt="Quần Jeans Ống Rộng" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="eager">
+                    </a>
+                    <button class="absolute bottom-3 left-3 right-3 translate-y-[120%] opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 ease-out bg-white/95 backdrop-blur-sm text-[#0A0A0A] font-bold text-sm py-3 rounded-full shadow-sm hover:bg-[#0A0A0A] hover:text-white flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        Thêm nhanh
+                    </button>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <a href="/product/quan-jeans-ong-rong" class="text-sm md:text-base font-medium text-[#0A0A0A] line-clamp-1 mb-1.5 hover:text-[#737373] transition-colors">Quần Jeans Ống Rộng Xanh</a>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-base md:text-lg font-bold text-[#0A0A0A]">450.000đ</span>
+                    </div>
+                </div>
+            </div>
 
-  </div>
-  
-  <a href="#" class="md:hidden mt-12 flex justify-center items-center gap-2 text-sm font-medium uppercase tracking-wide border border-black/20 rounded-full py-4 hover:bg-black/5 transition-colors">
-    View All Collection
-  </a>
+            <!-- Product 4 -->
+            <div class="group flex flex-col">
+                <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-white mb-3 md:mb-4">
+                    <a href="/product/quan-khaki-nu" class="block w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop" alt="Quần Khaki Nữ" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="eager">
+                    </a>
+                    <button class="absolute bottom-3 left-3 right-3 translate-y-[120%] opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 ease-out bg-white/95 backdrop-blur-sm text-[#0A0A0A] font-bold text-sm py-3 rounded-full shadow-sm hover:bg-[#0A0A0A] hover:text-white flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        Thêm nhanh
+                    </button>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <a href="/product/quan-khaki-nu" class="text-sm md:text-base font-medium text-[#0A0A0A] line-clamp-1 mb-1.5 hover:text-[#737373] transition-colors">Quần Khaki Nữ Dáng Suông</a>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-base md:text-lg font-bold text-[#0A0A0A]">399.000đ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 text-center md:hidden">
+            <a href="/shop" class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-[#E5E5E5] bg-white text-[#0A0A0A] px-8 py-3 text-sm font-bold uppercase w-full">Xem tất cả</a>
+        </div>
+    </div>
 </section>
 
-<!-- 4. EDITORIAL / BRAND MOMENT -->
-<section class="w-full py-24 md:py-40 bg-[#050505] text-[#FAFAF7] overflow-hidden rounded-[2.5rem] md:rounded-[4rem] mx-2 md:mx-6 mb-24 max-w-[calc(100%-1rem)] md:max-w-[calc(100%-3rem)] relative">
-  <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
-    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-purple-600 rounded-full mix-blend-screen filter blur-[100px] animate-pulse"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#FF4D2E] rounded-full mix-blend-screen filter blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
-  </div>
-
-  <div class="relative z-10 max-w-[1400px] mx-auto px-4 md:px-12 flex flex-col md:flex-row items-center gap-16 md:gap-24">
-    <div class="w-full md:w-5/12 reveal-up">
-      <div class="double-bezel-shell !bg-white/5 !border-white/10">
-        <div class="double-bezel-core !bg-[#111] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] h-[60vh] md:h-[80vh]">
-          <img src="https://picsum.photos/seed/editorial-moment/800/1200" class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-1000" alt="Brand Moment" />
+<!-- Promotional Banner -->
+<section class="py-6 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-[#0A0A0A] text-white rounded-2xl overflow-hidden flex flex-col md:flex-row items-stretch">
+            <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center items-center md:items-start text-center md:text-left">
+                <span class="inline-block bg-[#FF4D4D] text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-sm mb-4">Flash Sale</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-white">48 HOURS ONLY</h2>
+                <p class="text-[#737373] text-base md:text-lg mb-8 max-w-md">Giảm thêm 20% cho tất cả đơn hàng trên 1 triệu. Nhanh tay săn deal, số lượng có hạn.</p>
+                <a href="/sale" class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-white text-[#0A0A0A] px-8 py-3.5 text-sm font-bold uppercase tracking-wide transition-all duration-200 hover:bg-[#F5F5F5] active:scale-[0.98]">
+                    Săn Sale Ngay
+                </a>
+            </div>
+            <div class="w-full md:w-1/2 aspect-square md:aspect-auto">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop" alt="Flash Sale Promotion" class="w-full h-full object-cover" loading="lazy">
+            </div>
         </div>
-      </div>
     </div>
-    
-    <div class="w-full md:w-7/12 flex flex-col justify-center reveal-up" style="transition-delay: 200ms;">
-      <h2 class="font-display text-[10vw] md:text-[5vw] font-bold leading-[0.9] tracking-[-0.03em] mb-8">
-        SUSTAINABLY<br/>
-        MADE.<br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4FF3D] to-[#FF4D2E]">UNIQUELY YOURS.</span>
-      </h2>
-      <p class="text-xl md:text-2xl text-white/70 max-w-xl leading-relaxed mb-12 font-light">
-        Every piece is printed on demand. No overproduction, no waste. Just premium heavyweight cotton and a print that outlasts the fabric.
-      </p>
-      
-      <!-- Magnetic Button Light -->
-      <div class="group relative inline-flex w-max cursor-pointer items-center rounded-full bg-white p-1.5 pr-2 transition-all duration-500 active:scale-[0.98]">
-        <span class="pl-6 pr-4 py-3 text-sm font-medium tracking-wide text-black uppercase">Read the Manifesto</span>
-        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-black/5 transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-[1px] group-hover:translate-x-1">
-          <i class="ph-light ph-arrow-right text-black text-lg"></i>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- 5. SOCIAL PROOF (The Trust) -->
-<section class="w-full py-24 md:py-32 overflow-hidden">
-  <div class="px-4 md:px-8 mb-16 text-center reveal-up">
-    <h2 class="font-display text-3xl md:text-5xl font-bold mb-4">STYLED BY YOU</h2>
-    <p class="font-mono text-xs uppercase tracking-widest text-black/50">#LUMIEREFIT / AS SEEN ON TIKTOK</p>
-  </div>
-  
-  <div class="relative w-full flex overflow-x-hidden group reveal-up" style="transition-delay: 100ms;">
-    <div class="flex animate-marquee gap-4 px-2 w-max group-hover:[animation-play-state:paused]">
-      <?php for($i = 1; $i <= 8; $i++) { ?>
-      <div class="w-[240px] md:w-[280px] h-[380px] md:h-[450px] double-bezel-shell flex-shrink-0 cursor-pointer group/card">
-        <div class="double-bezel-core w-full h-full relative">
-          <img src="https://picsum.photos/seed/ugc<?php echo $i; ?>/400/600" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105" alt="UGC Image" />
-          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-              <i class="ph-fill ph-shopping-bag text-sm"></i> Shop Look
-            </span>
-          </div>
+<!-- Product Grid (Explore More) -->
+<section class="py-12 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-8 md:mb-10 border-b border-[#E5E5E5] pb-4">
+            <h2 class="text-2xl md:text-3xl font-semibold text-[#0A0A0A] tracking-tight">Explore More</h2>
+            <div class="hidden md:flex gap-4 text-sm font-medium text-[#737373]">
+                <button class="text-[#0A0A0A] border-b-2 border-[#0A0A0A] pb-1">Mới nhất</button>
+                <button class="hover:text-[#0A0A0A] transition-colors pb-1">Bán chạy</button>
+            </div>
         </div>
-      </div>
-      <?php } ?>
-    </div>
-    <!-- Duplicate for infinite marquee -->
-    <div class="flex animate-marquee gap-4 px-2 w-max group-hover:[animation-play-state:paused]" aria-hidden="true">
-      <?php for($i = 1; $i <= 8; $i++) { ?>
-      <div class="w-[240px] md:w-[280px] h-[380px] md:h-[450px] double-bezel-shell flex-shrink-0 cursor-pointer group/card">
-        <div class="double-bezel-core w-full h-full relative">
-          <img src="https://picsum.photos/seed/ugc<?php echo $i; ?>/400/600" class="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-105" alt="UGC Image" />
-          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <span class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2">
-              <i class="ph-fill ph-shopping-bag text-sm"></i> Shop Look
-            </span>
-          </div>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
+            <!-- Product 5 -->
+            <div class="group flex flex-col">
+                <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F5F5F5] mb-3 md:mb-4">
+                    <a href="/product/ao-so-mi-nam" class="block w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?q=80&w=800&auto=format&fit=crop" alt="Áo Sơ Mi Nam" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
+                    </a>
+                    <button class="absolute bottom-3 left-3 right-3 translate-y-[120%] opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 ease-out bg-white/95 backdrop-blur-sm text-[#0A0A0A] font-bold text-sm py-3 rounded-full shadow-sm hover:bg-[#0A0A0A] hover:text-white flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        Thêm nhanh
+                    </button>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <a href="/product/ao-so-mi-nam" class="text-sm md:text-base font-medium text-[#0A0A0A] line-clamp-1 mb-1.5 hover:text-[#737373] transition-colors">Áo Sơ Mi Nam Cổ Tàu</a>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-base md:text-lg font-bold text-[#0A0A0A]">420.000đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="group flex flex-col">
+                <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F5F5F5] mb-3 md:mb-4">
+                    <a href="/product/ao-thun-in-hinh" class="block w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=800&auto=format&fit=crop" alt="Áo Thun In Hình" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
+                    </a>
+                    <button class="absolute bottom-3 left-3 right-3 translate-y-[120%] opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 ease-out bg-white/95 backdrop-blur-sm text-[#0A0A0A] font-bold text-sm py-3 rounded-full shadow-sm hover:bg-[#0A0A0A] hover:text-white flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        Thêm nhanh
+                    </button>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <a href="/product/ao-thun-in-hinh" class="text-sm md:text-base font-medium text-[#0A0A0A] line-clamp-1 mb-1.5 hover:text-[#737373] transition-colors">Áo Thun Trắng In Graphic</a>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-base md:text-lg font-bold text-[#0A0A0A]">280.000đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="group flex flex-col">
+                <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F5F5F5] mb-3 md:mb-4">
+                    <span class="absolute top-2.5 left-2.5 z-10 bg-[#0A0A0A] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1.5 rounded shadow-sm">Mới</span>
+                    <a href="/product/chan-vay-denim" class="block w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1618932260643-ee46255476d8?q=80&w=800&auto=format&fit=crop" alt="Chân Váy Dài" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
+                    </a>
+                    <button class="absolute bottom-3 left-3 right-3 translate-y-[120%] opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 ease-out bg-white/95 backdrop-blur-sm text-[#0A0A0A] font-bold text-sm py-3 rounded-full shadow-sm hover:bg-[#0A0A0A] hover:text-white flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        Thêm nhanh
+                    </button>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <a href="/product/chan-vay-denim" class="text-sm md:text-base font-medium text-[#0A0A0A] line-clamp-1 mb-1.5 hover:text-[#737373] transition-colors">Chân Váy Denim Dáng Dài</a>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-base md:text-lg font-bold text-[#0A0A0A]">380.000đ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="group flex flex-col">
+                <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#F5F5F5] mb-3 md:mb-4">
+                    <a href="/product/tui-xach-nu" class="block w-full h-full">
+                        <img src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?q=80&w=800&auto=format&fit=crop" alt="Túi Xách Nữ" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
+                    </a>
+                    <button class="absolute bottom-3 left-3 right-3 translate-y-[120%] opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 ease-out bg-white/95 backdrop-blur-sm text-[#0A0A0A] font-bold text-sm py-3 rounded-full shadow-sm hover:bg-[#0A0A0A] hover:text-white flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                        Thêm nhanh
+                    </button>
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <a href="/product/tui-xach-nu" class="text-sm md:text-base font-medium text-[#0A0A0A] line-clamp-1 mb-1.5 hover:text-[#737373] transition-colors">Túi Xách Da Minimalist</a>
+                    <div class="flex items-center gap-2 mt-auto">
+                        <span class="text-base md:text-lg font-bold text-[#0A0A0A]">490.000đ</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <?php } ?>
+
+        <div class="mt-10 md:mt-16 text-center">
+            <button class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-[#E5E5E5] bg-white text-[#0A0A0A] px-8 py-3.5 text-sm font-bold uppercase tracking-wide hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-200">
+                Xem thêm sản phẩm
+            </button>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- 6. VALUE PROPS (The Logic) -->
-<section class="w-full py-16 md:py-24 border-t border-black/10">
-  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 reveal-up">
-      <div class="flex flex-col items-center md:items-start text-center md:text-left">
-        <i class="ph-light ph-package text-4xl mb-6"></i>
-        <h3 class="font-display font-medium text-xl mb-3">Fast Shipping</h3>
-        <p class="text-black/60 text-sm leading-relaxed max-w-[280px]">Dispatched within 48 hours. Express delivery available across the US.</p>
-      </div>
-      <div class="flex flex-col items-center md:items-start text-center md:text-left">
-        <i class="ph-light ph-recycle text-4xl mb-6"></i>
-        <h3 class="font-display font-medium text-xl mb-3">Printed on Demand</h3>
-        <p class="text-black/60 text-sm leading-relaxed max-w-[280px]">Zero overproduction. We make it when you order it, reducing environmental waste.</p>
-      </div>
-      <div class="flex flex-col items-center md:items-start text-center md:text-left">
-        <i class="ph-light ph-lock-key text-4xl mb-6"></i>
-        <h3 class="font-display font-medium text-xl mb-3">Secure Checkout</h3>
-        <p class="text-black/60 text-sm leading-relaxed max-w-[280px]">Encrypted transactions via Apple Pay, Google Pay, and Shop Pay.</p>
-      </div>
+<!-- Social Proof / Reviews -->
+<section class="py-12 md:py-16 bg-[#F5F5F5] border-t border-[#E5E5E5]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10 md:mb-12">
+            <h2 class="text-2xl md:text-3xl font-semibold text-[#0A0A0A] mb-3 tracking-tight">Khách Hàng Nói Gì?</h2>
+            <div class="flex items-center justify-center gap-2">
+                <div class="flex text-[#0A0A0A] text-sm">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-5 h-5 fill-current text-[#E5E5E5]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <span class="text-[#737373] font-medium text-sm">4.8/5 (2,000+ đánh giá)</span>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+            <!-- Review 1 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-[#E5E5E5] flex flex-col h-full">
+                <div class="flex text-[#0A0A0A] mb-4">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="text-[#737373] text-sm md:text-base leading-relaxed mb-6 flex-grow">"Chất vải siêu xịn, form áo mặc cực kỳ tôn dáng. Mình đã mua 3 màu khác nhau để mặc đi làm và đi chơi đều hợp. Đóng gói rất cẩn thận và ship siêu nhanh!"</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-[#F5F5F5] overflow-hidden shrink-0">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" alt="Minh Anh" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-[#0A0A0A]">Minh Anh</p>
+                        <p class="text-xs text-[#00D26A] font-medium flex items-center gap-1 mt-0.5">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Đã mua hàng
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-[#E5E5E5] flex flex-col h-full hidden md:flex">
+                <div class="flex text-[#0A0A0A] mb-4">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="text-[#737373] text-sm md:text-base leading-relaxed mb-6 flex-grow">"Form quần jean ống rộng chuẩn không cần chỉnh, mặc hack dáng kinh khủng. Rất ưng ý với chất lượng so với mức giá."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-[#F5F5F5] overflow-hidden shrink-0">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Linh Trần" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-[#0A0A0A]">Linh Trần</p>
+                        <p class="text-xs text-[#00D26A] font-medium flex items-center gap-1 mt-0.5">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Đã mua hàng
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-[#E5E5E5] flex flex-col h-full hidden lg:flex">
+                <div class="flex text-[#0A0A0A] mb-4">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <p class="text-[#737373] text-sm md:text-base leading-relaxed mb-6 flex-grow">"Mua đồ onl rất ngại khoản form dáng nhưng brand làm mình rất yên tâm. Đổi trả dễ dàng, support nhiệt tình. Quần áo form chuẩn."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-[#F5F5F5] overflow-hidden shrink-0">
+                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=200&auto=format&fit=crop" alt="Tuấn Nguyễn" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-[#0A0A0A]">Tuấn Nguyễn</p>
+                        <p class="text-xs text-[#00D26A] font-medium flex items-center gap-1 mt-0.5">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Đã mua hàng
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- 7. NEWSLETTER (The Retain) -->
-<section class="w-full bg-[#D4FF3D] py-24 md:py-40 px-4 md:px-8 mt-12 rounded-t-[3rem] md:rounded-t-[5rem] relative z-10">
-  <div class="max-w-4xl mx-auto text-center reveal-up">
-    <h2 class="font-display text-[12vw] md:text-[6vw] font-bold leading-[0.85] tracking-[-0.04em] mb-6 uppercase">
-      DON'T<br/>
-      GHOST<br/>
-      US.
-    </h2>
-    <p class="text-lg md:text-xl text-black/70 mb-12 font-medium">Get early access to drops. No spam, ever.</p>
-    
-    <form class="max-w-xl mx-auto flex flex-col md:flex-row gap-4 md:gap-0 border-b-2 border-black pb-4 md:pb-2 items-center relative group" onsubmit="event.preventDefault();">
-      <input type="email" placeholder="ENTER YOUR EMAIL" class="w-full bg-transparent border-none outline-none text-xl md:text-2xl font-display font-medium placeholder-black/30 text-center md:text-left" required />
-      <button type="submit" class="md:absolute right-0 top-1/2 md:-translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-black text-white hover:scale-110 transition-transform duration-300">
-        <i class="ph-light ph-arrow-right text-xl"></i>
-      </button>
-    </form>
-  </div>
+<!-- Brand Story (Short) -->
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0A0A0A] mb-4">We create everyday essentials<br class="hidden md:block"> for modern lifestyle</h2>
+        <p class="text-[#737373] text-base md:text-lg leading-relaxed mb-8">Chúng tôi mang đến những thiết kế thời trang hiện đại, ứng dụng cao, giúp bạn tự tin thể hiện phong cách mỗi ngày một cách thoải mái nhất.</p>
+        <a href="/about" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#0A0A0A] border-b-2 border-[#0A0A0A] pb-1 hover:text-[#737373] hover:border-[#737373] transition-colors">
+            Về chúng tôi
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+    </div>
 </section>
-
-<!-- JS for Scroll Interpolation -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    const revealElements = document.querySelectorAll('.reveal-up');
-    revealElements.forEach(el => observer.observe(el));
-  });
-</script>

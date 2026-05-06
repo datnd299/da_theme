@@ -2,41 +2,33 @@
 
 @theme {
   /* === COLORS === */
-  /* Background layers */
-  --color-background: #FFFFFF;
-  /* Nền chính */
-  --color-surface: #F5F5F5;
-  /* Card, modal, Secondary Background */
-  --color-surface-alt: #E5E5E5;
-  /* Nền phụ, hover state, Border */
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #F5F5F5;
 
-  /* Text */
-  --color-foreground: #0A0A0A;
-  /* Text chính */
-  --color-foreground-muted: #737373;
-  /* Text phụ */
-  --color-muted: #737373;
-  /* Caption, placeholder */
+  --color-text-primary: #111111;
+  --color-text-secondary: #555555;
+  --color-text-muted: #888888;
 
-  /* Semantic */
-  --color-accent: #000000;
-  /* CTA */
-  --color-alert: #FF4D4D;
-  /* Sale, alert */
-  --color-success: #00D26A;
-  /* Success */
+  --color-accent: #E8470A;
+  --color-accent-hover: #C93D08;
+
+  --color-navy: #1B3A5C;
+  --color-navy-light: #254E7A;
+
+  --color-border: #E2E2E2;
+  --color-sale: #E8470A;
+  --color-original-price: #888888;
+  --color-success: #1A8A3C;
 
   /* === BORDER RADIUS === */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-full: 9999px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
 
   /* === SHADOWS === */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.14);
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Be Vietnam Pro', sans-serif;
+  --font-primary: 'Inter', system-ui, sans-serif;
 }

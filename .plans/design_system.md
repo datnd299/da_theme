@@ -1,85 +1,350 @@
-# Design System: Urban Dynamic (E-commerce Fashion)
+# Elite Shop Express — Design System
 
-## 1. Core Identity & Vibe
-*   **Persona:** Trẻ trung, hiện đại, tối giản nhưng năng động (Urban Cool).
-*   **Mục tiêu:** Giảm tối đa "ma sát" khi mua hàng, tăng tốc độ duyệt sản phẩm và độ tin tưởng.
-*   **Phong cách:** Kết hợp giữa sự tinh tế của các thương hiệu cao cấp (COS) và tính thực dụng, tốc độ của sàn TMĐT (TikTok Shop).
+## 1. Brand Identity
+
+**Store:** Elite Shop Express  
+**Domain:** eliteshopexpress.com  
+**Market:** US (English only)  
+**Niche:** Home & Living, Lawn & Garden, Pet Care, Automotive  
+**Persona:** Practical American homeowner — values reliability, clear pricing, fast shipping  
+
+**Design philosophy:** Conversion-first. Every element must help users find a product, decide to buy it, or reduce checkout friction. This is NOT a fashion site — avoid editorial/lifestyle aesthetics. Think Home Depot clarity meets Amazon simplicity.
 
 ---
 
-## 2. Color Palette (Urban Cool)
-Hệ màu này tạo cảm giác sạch sẽ, làm nổi bật hình ảnh sản phẩm là trung tâm.
+## 2. Color System
 
-| Vai trò | Mã màu | Ứng dụng |
-| :--- | :--- | :--- |
-| **Primary Background** | `#FFFFFF` | Nền trang chính, tạo cảm giác rộng rãi. |
-| **Secondary Background** | `#F5F5F5` | Nền cho Section xám nhạt, Product Card background. |
-| **Primary Text** | `#0A0A0A` | Heading, tên sản phẩm, nội dung quan trọng. |
-| **Secondary Text** | `#737373` | Mô tả ngắn, meta data, giá gốc (gạch ngang). |
-| **Accent (CTA)** | `#000000` | Nút "Mua ngay", "Thêm vào giỏ" (Tương phản tuyệt đối). |
-| **Sale/Alert** | `#FF4D4D` | Giá giảm, Badge Sale, thông báo khẩn cấp. |
-| **Success** | `#00D26A` | Thông báo đã thêm vào giỏ, thanh toán thành công. |
-| **Border/Divider** | `#E5E5E5` | Đường kẻ phân cách, viền input. |
+**Palette: "Trusted Hardware"** — clean, practical, American retail
+
+| Token | Value | Usage |
+|---|---|---|
+| `--color-bg` | `#FFFFFF` | Page background |
+| `--color-bg-subtle` | `#F5F5F5` | Section backgrounds, card backgrounds |
+| `--color-text-primary` | `#111111` | Headings, product names |
+| `--color-text-secondary` | `#555555` | Descriptions, meta, labels |
+| `--color-text-muted` | `#888888` | Captions, breadcrumbs |
+| `--color-accent` | `#E8470A` | Primary CTA buttons, sale badges, highlights |
+| `--color-accent-hover` | `#C93D08` | Hover state for accent |
+| `--color-navy` | `#1B3A5C` | Header background, footer, nav |
+| `--color-navy-light` | `#254E7A` | Nav hover states |
+| `--color-border` | `#E2E2E2` | Card borders, dividers |
+| `--color-sale` | `#E8470A` | Sale price, discount badges |
+| `--color-original-price` | `#888888` | Strikethrough original price |
+| `--color-success` | `#1A8A3C` | In-stock, confirmation states |
+
+**ZERO TOLERANCE:**
+- Do NOT mix more than 3 colors in one component
+- Do NOT use the accent orange for decorative purposes — only CTAs and urgency
+- Do NOT use pure black `#000000` for text — use `#111111`
 
 ---
 
 ## 3. Typography
-Sử dụng **Be Vietnam Pro** để tối ưu hiển thị tiếng Việt và mang lại cảm giác hiện đại.
 
-*   **Font Family:** `font-family: 'Be Vietnam Pro', sans-serif;`
-*   **Scale Hệ thống (Tailwind classes):**
-    *   **Hero Heading:** `text-4xl md:text-6xl font-bold tracking-tight`
-    *   **Section Title:** `text-2xl md:text-3xl font-semibold`
-    *   **Product Name:** `text-sm md:text-base font-medium text-neutral-900`
-    *   **Price:** `text-base md:text-lg font-bold text-black`
-    *   **Body Text:** `text-sm md:text-base leading-relaxed text-neutral-600`
-    *   **Label/Caption:** `text-xs uppercase tracking-wider font-semibold text-neutral-500`
+**Font stack:**
+```css
+--font-primary: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+```
 
----
+Load via Google Fonts with `display=swap`.
 
-## 4. UI Components & Patterns
+**Scale:**
 
-### A. Product Card (Linh hồn của website)
-*   **Tỷ lệ ảnh:** `aspect-[3/4]` (Bắt buộc cho fashion để thấy toàn thân model).
-*   **Giá:** Phải hiển thị ngay dưới tên sản phẩm. Không giấu giá.
-*   **Badge:** Đặt ở góc trái trên (VD: "New Arrival", "-30%").
-*   **Interaction:** 
-    *   Hover: Ảnh scale nhẹ (1.05).
-    *   Nút "Thêm nhanh" xuất hiện ở bottom card khi hover trên desktop.
-
-### B. Buttons (Hành động chuyển đổi)
-*   **Primary Button:** `rounded-full bg-black text-white px-8 py-4 text-sm font-bold uppercase transition-all hover:bg-neutral-800 active:scale-95`
-*   **Secondary Button:** `rounded-full border border-black bg-white text-black px-8 py-4 text-sm font-bold hover:bg-black hover:text-white`
-*   **Mobile Sticky CTA:** Trên trang chi tiết sản phẩm (PDP), nút "Mua ngay" luôn dính (sticky) ở dưới cùng màn hình.
-
-### C. Header & Navigation
-*   **Desktop:** Logo bên trái, Menu trung tâm, Search bar hiển thị rõ, Icon giỏ hàng bên phải (luôn có số lượng).
-*   **Mobile:** Header rút gọn, ưu tiên Search Icon và Cart Icon. Menu dạng Slide-out từ trái.
+| Role | Class | Size | Weight |
+|---|---|---|---|
+| Hero heading | `.t-hero` | `clamp(2rem, 5vw, 3.5rem)` | 700 |
+| Section heading | `.t-section` | `clamp(1.375rem, 3vw, 1.875rem)` | 600 |
+| Product name | `.t-product` | `0.9375rem` (mobile) / `1rem` (desktop) | 500 |
+| Price | `.t-price` | `1.125rem` | 700 |
+| Body | `.t-body` | `0.9375rem` | 400 |
+| Caption / meta | `.t-caption` | `0.75rem` | 400 |
+| Badge / label | `.t-badge` | `0.6875rem` | 600, uppercase, `letter-spacing: 0.04em` |
 
 ---
 
-## 5. Layout & Spacing
-*   **Container:** `max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`
-*   **Grid:**
-    *   Mobile: 2 cột (Ưu tiên hiển thị nhiều sản phẩm nhất có thể).
-    *   Desktop: 4 cột.
-*   **Section Spacing:** `py-12 md:py-16` (Đủ thoáng để sản phẩm "thở", nhưng không quá rộng làm loãng thông tin).
+## 4. Spacing System
+
+```css
+--space-xs:  4px;
+--space-sm:  8px;
+--space-md:  16px;
+--space-lg:  24px;
+--space-xl:  40px;
+--space-2xl: 64px;
+--space-3xl: 96px;
+```
+
+**Containers:**
+```css
+--container-max: 1280px;
+--container-pad-mobile: 16px;
+--container-pad-desktop: 24px;
+```
+
+**Section padding:** `py-12 md:py-16` (48px / 64px)  
+**Grid gap:** `gap-3 md:gap-4` (12px / 16px)  
+**Card padding:** `p-3 md:p-4`
 
 ---
 
-## 6. Conversion Anti-Errors (Chặn lỗi bán hàng)
-1.  **Tốc độ:** Ảnh đầu trang (Hero) dùng `loading="eager"` và `fetchpriority="high"`.
-2.  **Minh bạch:** Không dùng "Liên hệ để biết giá". Giá là thông tin quan trọng nhất.
-3.  **Niềm tin:** Dưới nút "Mua ngay" luôn có 3 icon nhỏ: *Đổi trả 7 ngày - Kiểm hàng trước khi nhận - Freeship đơn >500k*.
-4.  **Ma sát:** Form thanh toán tối giản. Không bắt buộc đăng ký tài khoản mới được mua hàng (Guest Checkout).
+## 5. Components
+
+### 5.1 Header
+
+**Desktop layout:**
+```
+[Navy bg, sticky, shadow-sm]
+[Logo left] | [Nav: Home & Living | Lawn & Garden | Pet Care | Automotive | Sale] | [Search bar — visible] | [Account | Cart(badge)]
+```
+
+**Mobile layout:**
+```
+[Navy bg]
+[☰ Menu] [Logo center] [🔍 Search] [🛒 Cart]
+```
+
+Rules:
+- Sticky on scroll, `backdrop-filter: blur(8px)` when scrolled
+- Search bar always visible on desktop (not icon-only)
+- Cart badge always visible when count > 0
+- Mobile: hamburger opens full-height slide drawer with category tree
+- Phone number visible in top utility bar on desktop: `407-255-1197`
 
 ---
 
-## 7. Motion & Micro-interactions
-*   **Hỗ trợ:**
-    *   `duration-200` cho tất cả hiệu ứng hover màu sắc.
-    *   `duration-500` cho hiệu ứng chuyển ảnh.
-    *   `Skeleton screen` khi đang load danh sách sản phẩm thay vì spinner quay tròn.
-*   **Cấm:** 
-    *   Mọi hiệu ứng làm chậm quá trình đọc thông tin sản phẩm (như scroll-reveal quá đà).
-    *   Pop-up che màn hình ngay khi khách vừa vào trang < 30s.
+### 5.2 Product Card
+
+**Image ratio:** `1/1` (square) for all categories — tools, appliances, accessories all photograph squarer
+
+**Card anatomy:**
+```
+[Image 1:1, object-cover, eager for above-fold / lazy for below]
+[Category label — optional]
+[Product name — 2 lines max, ellipsis]
+[Star rating + review count]
+[Price row: $XX.XX | ~~$YY.YY~~ | [SAVE $Z] badge]
+[Add to Cart button]
+```
+
+Rules:
+- Price MUST be visible without hover/click
+- "Add to Cart" button: full-width, accent orange background, minimum 44px height
+- Sale badge: top-left corner, accent orange pill `SAVE 20%`
+- Hover: image scale `1.03` + card `box-shadow` lift
+- NO `1px solid #ccc` border — use `box-shadow: 0 1px 4px rgba(0,0,0,0.08)` or `bg-[--color-bg-subtle]`
+
+---
+
+### 5.3 Product Grid
+
+| Breakpoint | Columns |
+|---|---|
+| Mobile (`< 640px`) | 2 (MANDATORY) |
+| Tablet (`640px–1023px`) | 3 |
+| Desktop (`≥ 1024px`) | 4 |
+
+No masonry. No bento. Uniform grid only.
+
+---
+
+### 5.4 Hero Section
+
+Allowed layouts (pick one per page build):
+1. **Full-width image + CTA overlay** — dark gradient from bottom
+2. **50/50 split** — image right, headline + CTA left
+3. **Promo carousel** — max 3 slides, auto-play ≥ 5s, pause on hover
+
+**Required hero elements:**
+- Concrete headline: ✅ `"Free Shipping on All Orders — Shop Home & Garden"` ❌ `"Elevate Your Space"`
+- Primary CTA button (accent orange)
+- Secondary CTA link (underline or ghost)
+- At least one trust signal visible (free shipping icon or badge)
+
+---
+
+### 5.5 CTA Buttons
+
+**Primary (Add to Cart, Shop Now, Buy Now):**
+```css
+background: var(--color-accent);   /* #E8470A */
+color: #FFFFFF;
+padding: 12px 24px;
+border-radius: 6px;
+font-weight: 600;
+min-height: 44px;
+```
+
+**Secondary (View Details, Learn More):**
+```css
+background: transparent;
+border: 2px solid var(--color-navy);
+color: var(--color-navy);
+padding: 10px 24px;
+border-radius: 6px;
+```
+
+**Ghost / text link:**
+```css
+color: var(--color-accent);
+text-decoration: underline;
+```
+
+No `border-radius: 9999px` (rounded-full) — this site uses a practical `6px` radius to signal reliability, not fashion.
+
+---
+
+### 5.6 Trust Bar
+
+Displayed below header (desktop) or in footer (mobile):
+
+```
+🚚 Free Shipping on All Orders  |  ↩️ 30-Day Returns  |  🇺🇸 US-Based Support  |  📞 407-255-1197
+```
+
+Colors: white text on navy background, `py-2`
+
+---
+
+### 5.7 Category Navigation (Homepage)
+
+Icon + label grid showing top-level categories:
+
+```
+[Home & Living] [Lawn & Garden] [Pet Care] [Car Parts] [Automotive Tools]
+```
+
+- Mobile: horizontal scroll row, `overflow-x-auto`
+- Desktop: 5-column grid
+- Each tile: category icon (SVG) + label, `bg-[--color-bg-subtle]`, `rounded-lg`, hover lift
+
+---
+
+### 5.8 Footer
+
+**Layout:**
+```
+[Logo + short description]  [Categories]  [Help]  [Contact]
+[Payment logos]  [Copyright]  [Policy links]
+```
+
+**Contact info (required):**
+- 📍 3589 South Orange Avenue, Orlando, FL 32806
+- ✉️ support@eliteshopexpress.com
+- 📞 407-255-1197
+- 🕐 Mon–Fri, 9AM–6PM CST
+- 🔗 facebook.com/eliteshopexpress/
+
+---
+
+### 5.9 Filter & Sort (Category/Shop pages)
+
+- Desktop: sticky left sidebar, 280px wide
+- Mobile: bottom sheet triggered by "Filter" button
+- Sort dropdown: top-right, options — Featured / Price Low–High / Price High–Low / Newest / Best Rated
+- Active filters: chips row above grid with `×` remove buttons
+
+---
+
+## 6. Motion & Micro-interactions
+
+**Allowed:**
+- Product image hover scale `transform: scale(1.03)`, `transition: 200ms ease`
+- Button press `scale(0.97)`, `transition: 100ms`
+- Cart count badge pop on add
+- Skeleton loaders for product grids
+- Smooth drawer open/close
+
+**FORBIDDEN:**
+- Fade-up / slide-up animations on product cards (delays product visibility)
+- Parallax scrolling
+- Entry animations on above-the-fold content
+- Auto-play carousels faster than 5s
+
+---
+
+## 7. Performance Rules
+
+- LCP target: < 2.5s
+- Hero image: `loading="eager"`, `fetchpriority="high"`
+- First 8 product images: `loading="eager"`
+- Remaining products: `loading="lazy"`
+- Fonts: Google Fonts with `&display=swap`
+- No render-blocking JS above the fold
+
+---
+
+## 8. Mobile-First Checklist
+
+- [ ] 2-column product grid
+- [ ] All tap targets ≥ 44px
+- [ ] Sticky "Add to Cart" on product detail page
+- [ ] Search visible in header (not icon-only)
+- [ ] Filter = bottom sheet
+- [ ] Trust bar visible on mobile (inside footer)
+- [ ] Phone number tap-to-call (`tel:` link)
+
+---
+
+## 9. Trust Signals (Required on Every Page)
+
+| Signal | Placement |
+|---|---|
+| Free Shipping | Hero, trust bar, product card, cart |
+| 30-Day Returns | Trust bar, product page, footer |
+| US Address | Footer |
+| Phone Number | Header utility bar (desktop), footer |
+| Business Hours | Footer |
+| Facebook link | Footer |
+
+---
+
+## 10. Page-Specific Rules
+
+### Homepage
+- Trust bar below header
+- Category nav tiles
+- Hero banner
+- Featured/bestseller product grid (8–12 products)
+- "Why Shop With Us" section (icons: Free Shipping, Returns, Support)
+- Newsletter signup (NOT a popup — inline section, delayed or on-scroll)
+
+### Category / Shop Page
+- Breadcrumb
+- Page heading + product count
+- Filter sidebar (desktop) / filter button (mobile)
+- Sort dropdown
+- Product grid
+- Pagination or "Load More"
+
+### Product Page
+- Breadcrumb
+- Image gallery (zoom on click)
+- Product title, SKU, price (sale + original)
+- Short description bullets
+- Sticky "Add to Cart" on mobile
+- Trust badges inline: Free Shipping / Returns / Secure Checkout
+- Tabs: Description / Specifications / Reviews
+- Related products (4 cards)
+
+### Cart
+- Line items with image, name, variant, qty stepper, remove
+- Order summary: subtotal, shipping (Free), total
+- Trust row (Free Shipping, Returns, Secure)
+- "Continue Shopping" + "Proceed to Checkout"
+
+---
+
+## 11. Pre-Output Checklist
+
+Before shipping any component or page:
+
+- [ ] Price visible immediately (no hover required)
+- [ ] "Add to Cart" CTA high contrast and ≥ 44px
+- [ ] 2-col grid on mobile
+- [ ] No entry animations on product cards
+- [ ] Search bar visible in header
+- [ ] Trust signals present
+- [ ] Inter font loaded correctly
+- [ ] Hero has a concrete, actionable headline
+- [ ] Images have alt text
+- [ ] Phone number is a `tel:` link

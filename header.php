@@ -3,122 +3,283 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
+    <style>
+        #mobile-drawer {
+            transform: translateX(-100%);
+            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #mobile-drawer.is-open { transform: translateX(0); }
+        #drawer-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.28s ease;
+        }
+        #drawer-overlay.is-open { opacity: 1; pointer-events: auto; }
+        #site-header.scrolled { backdrop-filter: blur(8px); }
+    </style>
 </head>
-<body <?php body_class('bg-background text-foreground font-sans antialiased'); ?>>
+<body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 
 <?php
-$cart_count = WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
-$cart_url   = wc_get_cart_url();
+$cart_count  = WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+$cart_url    = wc_get_cart_url();
 $account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
-
-$main_menu_items = dawp_main_menu_items();
+$nav_items   = dawp_main_menu_items();
 ?>
 
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 bg-background border-b border-surface-alt">
-    <div class="max-w-screen-xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between gap-6">
+<!-- Utility Bar — desktop only -->
+<div class="hidden md:flex bg-[var(--color-navy)] py-1.5">
+    <div class="max-w-[1280px] w-full mx-auto px-6 flex items-center justify-center gap-6 text-xs text-white/75">
+        <a href="tel:4072551197"
+           class="flex items-center gap-1.5 hover:text-white transition-colors">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            407-255-1197
+        </a>
+        <span class="text-white/30" aria-hidden="true">|</span>
+        <span>Mon–Fri, 9AM–6PM CST</span>
+        <span class="text-white/30" aria-hidden="true">|</span>
+        <span>Free Shipping on All Orders</span>
+    </div>
+</div>
+
+<!-- Main Header -->
+<header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-[var(--color-navy)] shadow-sm" role="banner">
+    <div class="max-w-[1280px] mx-auto px-4 lg:px-6 h-14 lg:h-16 flex items-center justify-between gap-3">
+
+        <!-- Hamburger (mobile) -->
+        <button id="menu-toggle"
+                class="flex lg:hidden items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors shrink-0"
+                aria-expanded="false"
+                aria-controls="mobile-drawer"
+                aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>">
+            <svg id="icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+        </button>
 
         <!-- Logo -->
         <a href="<?php echo esc_url(home_url('/')); ?>"
-           class="text-xl font-bold tracking-widest uppercase text-foreground shrink-0">
+           class="shrink-0"
+           aria-label="<?php bloginfo('name'); ?>">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
                  alt="<?php bloginfo('name'); ?>"
-                 class="h-6 w-auto">
+                 class="h-8 w-auto"
+                 loading="eager"
+                 fetchpriority="high">
         </a>
 
-        <!-- Nav desktop -->
-        <nav class="hidden lg:flex items-center gap-1" aria-label="<?php esc_attr_e('Main Menu', 'dawp'); ?>">
-            <?php foreach ($main_menu_items as $item) :
+        <!-- Nav (desktop) -->
+        <nav class="hidden lg:flex items-center gap-0.5 flex-1 px-4"
+             aria-label="<?php esc_attr_e('Main Navigation', 'dawp'); ?>">
+            <?php foreach ($nav_items as $item) :
                 $is_current = dawp_is_current_url($item['url']);
+                $is_sale    = strtolower($item['title']) === 'sale';
             ?>
             <a href="<?php echo esc_url($item['url']); ?>"
-               class="px-4 py-2 text-sm font-medium rounded-full transition-colors <?php echo $is_current ? 'bg-foreground text-background' : 'text-foreground-muted hover:text-foreground hover:bg-surface'; ?>"
+               class="px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors
+                      <?php echo $is_current
+                          ? 'text-white bg-white/15'
+                          : ($is_sale
+                              ? 'text-accent font-semibold hover:bg-white/10'
+                              : 'text-white/80 hover:text-white hover:bg-white/10'); ?>"
                <?php if ($is_current) echo 'aria-current="page"'; ?>>
                 <?php echo esc_html($item['title']); ?>
             </a>
             <?php endforeach; ?>
         </nav>
 
-        <!-- Actions -->
-        <div class="flex items-center gap-3 shrink-0">
+        <!-- Search (desktop) -->
+        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>"
+              class="hidden lg:flex items-center flex-1 max-w-xs">
+            <div class="relative w-full">
+                <input type="search"
+                       name="s"
+                       value="<?php echo esc_attr(get_search_query()); ?>"
+                       placeholder="<?php esc_attr_e('Search products…', 'dawp'); ?>"
+                       class="w-full h-9 pl-4 pr-10 text-sm bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/15 transition-colors">
+                <button type="submit"
+                        class="absolute right-0 top-0 h-9 w-9 flex items-center justify-center text-white/60 hover:text-white transition-colors"
+                        aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                </button>
+            </div>
+        </form>
 
-            <!-- Account -->
+        <!-- Actions -->
+        <div class="flex items-center gap-1 shrink-0">
+
+            <!-- Search icon (mobile) -->
+            <button id="mobile-search-toggle"
+                    class="flex lg:hidden items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                    aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                </svg>
+            </button>
+
+            <!-- Account (desktop) -->
             <a href="<?php echo esc_url($account_url); ?>"
-               class="hidden sm:flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface transition-colors"
+               class="hidden lg:flex items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors"
                aria-label="<?php esc_attr_e('My Account', 'dawp'); ?>">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
                 </svg>
             </a>
 
             <!-- Cart -->
             <a href="<?php echo esc_url($cart_url); ?>"
-               class="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface transition-colors"
+               class="relative flex items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors"
                aria-label="<?php printf(esc_attr__('Cart (%d items)', 'dawp'), $cart_count); ?>">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
                 </svg>
                 <?php if ($cart_count > 0) : ?>
-                <span class="absolute -top-0.5 -right-0.5 w-5 h-5 flex items-center justify-center rounded-full bg-accent text-background text-[10px] font-bold leading-none">
-                    <?php echo $cart_count; ?>
+                <span class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-accent text-white text-[10px] font-bold leading-none px-1"
+                      aria-hidden="true">
+                    <?php echo esc_html($cart_count); ?>
                 </span>
                 <?php endif; ?>
             </a>
 
-            <!-- Hamburger (mobile) -->
-            <button id="menu-toggle"
-                    class="flex lg:hidden items-center justify-center w-10 h-10 rounded-full hover:bg-surface transition-colors"
-                    aria-expanded="false"
-                    aria-controls="mobile-menu"
-                    aria-label="<?php esc_attr_e('Toggle Menu', 'dawp'); ?>">
-                <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-                    <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-                </svg>
-                <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" class="hidden">
-                    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-            </button>
-
         </div>
     </div>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu"
-         class="hidden lg:hidden border-t border-surface-alt bg-background">
-        <?php
-        $items = dawp_main_menu_items();
-        foreach ($items as $item) :
+    <!-- Mobile search bar -->
+    <div id="mobile-search-bar" class="hidden lg:hidden border-t border-white/10 px-4 py-3">
+        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="relative">
+            <input type="search"
+                   name="s"
+                   value="<?php echo esc_attr(get_search_query()); ?>"
+                   placeholder="<?php esc_attr_e('Search products…', 'dawp'); ?>"
+                   class="w-full h-10 pl-4 pr-10 text-sm bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors">
+            <button type="submit"
+                    class="absolute right-0 top-0 h-10 w-10 flex items-center justify-center text-white/60"
+                    aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                </svg>
+            </button>
+        </form>
+    </div>
+</header>
+
+<!-- Drawer overlay -->
+<div id="drawer-overlay"
+     class="fixed inset-0 z-40 bg-black/50"
+     aria-hidden="true"></div>
+
+<!-- Mobile drawer -->
+<aside id="mobile-drawer"
+       class="fixed top-0 left-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm bg-[var(--color-navy)] overflow-y-auto"
+       aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
+
+    <!-- Drawer header -->
+    <div class="flex items-center justify-between px-4 h-14 border-b border-white/10">
+        <a href="<?php echo esc_url(home_url('/')); ?>">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
+                 alt="<?php bloginfo('name'); ?>"
+                 class="h-7 w-auto">
+        </a>
+        <button id="drawer-close"
+                class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors"
+                aria-label="<?php esc_attr_e('Close menu', 'dawp'); ?>">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Drawer nav -->
+    <nav class="py-2" aria-label="<?php esc_attr_e('Mobile Menu', 'dawp'); ?>">
+        <?php foreach ($nav_items as $item) :
             $is_current = dawp_is_current_url($item['url']);
+            $is_sale    = strtolower($item['title']) === 'sale';
         ?>
         <a href="<?php echo esc_url($item['url']); ?>"
-           class="block px-6 py-3.5 text-sm font-medium border-b border-surface-alt last:border-b-0 <?php echo $is_current ? 'text-accent font-semibold' : 'text-foreground hover:text-foreground-muted'; ?>"
+           class="flex items-center px-5 py-3.5 text-sm font-medium border-b border-white/10 transition-colors
+                  <?php echo $is_current
+                      ? 'text-accent'
+                      : ($is_sale
+                          ? 'text-accent hover:bg-white/5'
+                          : 'text-white/80 hover:text-white hover:bg-white/5'); ?>"
            <?php if ($is_current) echo 'aria-current="page"'; ?>>
             <?php echo esc_html($item['title']); ?>
         </a>
         <?php endforeach; ?>
         <a href="<?php echo esc_url($account_url); ?>"
-           class="block px-6 py-3.5 text-sm font-medium text-foreground hover:text-foreground-muted">
+           class="flex items-center gap-2.5 px-5 py-3.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 border-t border-white/20 mt-2 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
             <?php esc_html_e('My Account', 'dawp'); ?>
         </a>
-    </div>
-</header>
+    </nav>
 
-<!-- Spacer để tránh content bị che bởi fixed header -->
+    <!-- Drawer footer -->
+    <div class="px-5 py-5 border-t border-white/10">
+        <a href="tel:4072551197"
+           class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            407-255-1197
+        </a>
+        <p class="text-xs text-white/40 mt-1.5">Mon–Fri, 9AM–6PM CST</p>
+    </div>
+</aside>
 
 <script>
 (function () {
-    var btn = document.getElementById('menu-toggle');
-    var menu = document.getElementById('mobile-menu');
-    var iconOpen = document.getElementById('icon-open');
-    var iconClose = document.getElementById('icon-close');
-    if (!btn || !menu) return;
-    btn.addEventListener('click', function () {
-        var isOpen = menu.classList.toggle('hidden');
-        btn.setAttribute('aria-expanded', String(!isOpen));
-        iconOpen.classList.toggle('hidden', !isOpen);
-        iconClose.classList.toggle('hidden', isOpen);
+    var header      = document.getElementById('site-header');
+    var toggle      = document.getElementById('menu-toggle');
+    var drawer      = document.getElementById('mobile-drawer');
+    var overlay     = document.getElementById('drawer-overlay');
+    var closeBtn    = document.getElementById('drawer-close');
+    var srchToggle  = document.getElementById('mobile-search-toggle');
+    var srchBar     = document.getElementById('mobile-search-bar');
+
+    function openDrawer() {
+        drawer.classList.add('is-open');
+        overlay.classList.add('is-open');
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+        drawer.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    if (toggle)   toggle.addEventListener('click', function () {
+        drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
     });
+    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+    if (overlay)  overlay.addEventListener('click', closeDrawer);
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeDrawer();
+    });
+
+    if (srchToggle && srchBar) {
+        srchToggle.addEventListener('click', function () {
+            var hidden = srchBar.classList.toggle('hidden');
+            if (!hidden) srchBar.querySelector('input').focus();
+        });
+    }
+
+    if (header) {
+        window.addEventListener('scroll', function () {
+            header.classList.toggle('scrolled', window.scrollY > 4);
+        }, { passive: true });
+    }
 })();
 </script>
 

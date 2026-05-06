@@ -1,40 +1,63 @@
 :root {
-    /* === COLORS === */
-    /* Background layers */
-    --color-background: #FFFFFF;
-    /* Nền chính */
-    --color-surface: #F5F5F5;
-    /* Card, modal, Secondary Background */
-    --color-surface-alt: #E5E5E5;
-    /* Nền phụ, hover state, Border */
+  /* === LEGACY TOKENS (kept for backward compat) === */
+  --color-background: #FFFFFF;
+  --color-surface: #F5F5F5;
+  --color-surface-alt: #E5E5E5;
+  --color-foreground: #111111;
+  --color-foreground-muted: #555555;
+  --color-muted: #888888;
+  --color-alert: #FF4D4D;
+  --color-success: #1A8A3C;
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
 
-    /* Text */
-    --color-foreground: #0A0A0A;
-    /* Text chính */
-    --color-foreground-muted: #737373;
-    /* Text phụ */
-    --color-muted: #737373;
-    /* Caption, placeholder */
+  /* === DESIGN SYSTEM: Elite Shop Express — Trusted Hardware === */
 
-    /* Semantic */
-    --color-accent: #000000;
-    /* CTA */
-    --color-alert: #FF4D4D;
-    /* Sale, alert */
-    --color-success: #00D26A;
-    /* Success */
+  /* Backgrounds */
+  --color-bg:         #FFFFFF;       /* Page background */
+  --color-bg-subtle:  #F5F5F5;       /* Section / card backgrounds */
 
-    /* === TYPOGRAPHY === */
-    --font-sans: 'Be Vietnam Pro', sans-serif;
+  /* Text */
+  --color-text-primary:   #111111;   /* Headings, product names */
+  --color-text-secondary: #555555;   /* Descriptions, meta */
+  --color-text-muted:     #888888;   /* Captions, breadcrumbs */
+
+  /* Brand */
+  --color-accent:       #E8470A;     /* Primary CTA, sale badges */
+  --color-accent-hover: #C93D08;     /* Hover for accent */
+  --color-navy:         #1B3A5C;     /* Header, footer, nav */
+  --color-navy-light:   #254E7A;     /* Nav hover states */
+
+  /* UI */
+  --color-border:         #E2E2E2;   /* Card borders, dividers */
+  --color-sale:           #E8470A;   /* Sale price */
+  --color-original-price: #888888;   /* Strikethrough price */
+
+  /* Spacing */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  /* Container */
+  --container-max:          1280px;
+  --container-pad-mobile:   16px;
+  --container-pad-desktop:  24px;
+
+  /* Typography */
+  --font-primary: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
 }
+
 #content {
-    font-family: var(--font-sans);
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    padding-top: 80px;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
+
 /* === WOOCOMMERCE NOTICES === */
 .woocommerce-notices-wrapper {
   max-width: 1280px;

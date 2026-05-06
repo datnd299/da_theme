@@ -1,254 +1,314 @@
 <?php
-/**
- * Template part for displaying the home page content
- */
-$theme_path = get_template_directory_uri();
+if ( ! defined( 'ABSPATH' ) ) exit;
+
+// Query: Best Sellers (8 products by popularity)
+$best_sellers = function_exists( 'wc_get_products' ) ? wc_get_products( [
+	'limit'   => 8,
+	'orderby' => 'popularity',
+	'order'   => 'DESC',
+	'status'  => 'publish',
+] ) : [];
+
+$best_seller_ids = array_map( fn( $p ) => $p->get_id(), $best_sellers );
+
+// Query: Explore More (8 newest products, exclude best sellers)
+$explore_more = function_exists( 'wc_get_products' ) ? wc_get_products( [
+	'limit'   => 8,
+	'orderby' => 'date',
+	'order'   => 'DESC',
+	'status'  => 'publish',
+	'exclude' => $best_seller_ids,
+] ) : [];
+
+function ese_render_stars( float $rating ): string {
+	$stars = '';
+	for ( $i = 1; $i <= 5; $i++ ) {
+		if ( $rating >= $i ) {
+			$stars .= '<svg width="12" height="12" viewBox="0 0 12 12" fill="#E8470A" xmlns="http://www.w3.org/2000/svg"><path d="M6 1l1.12 2.27L10 3.64l-2 1.95.47 2.75L6 7.02l-2.47 1.32.47-2.75-2-1.95 2.88-.37L6 1z"/></svg>';
+		} elseif ( $rating >= $i - 0.5 ) {
+			$stars .= '<svg width="12" height="12" viewBox="0 0 12 12" fill="#E8470A" xmlns="http://www.w3.org/2000/svg"><path d="M6 1l1.12 2.27L10 3.64l-2 1.95.47 2.75L6 7.02V1z"/><path d="M6 7.02l-2.47 1.32.47-2.75-2-1.95 2.88-.37L6 1v6.02z" fill="#E2E2E2"/></svg>';
+		} else {
+			$stars .= '<svg width="12" height="12" viewBox="0 0 12 12" fill="#E2E2E2" xmlns="http://www.w3.org/2000/svg"><path d="M6 1l1.12 2.27L10 3.64l-2 1.95.47 2.75L6 7.02l-2.47 1.32.47-2.75-2-1.95 2.88-.37L6 1z"/></svg>';
+		}
+	}
+	return $stars;
+}
+
+function ese_product_card( $product, bool $eager = false ): void {
+	if ( ! $product ) return;
+	$img_url   = get_the_post_thumbnail_url( $product->get_id(), 'woocommerce_thumbnail' );
+	$img_url   = $img_url ?: wc_placeholder_img_src( 'woocommerce_thumbnail' );
+	$name      = $product->get_name();
+	$permalink = $product->get_permalink();
+	$rating    = (float) $product->get_average_rating();
+	$reviews   = (int) $product->get_review_count();
+	$price_html = $product->get_price_html();
+	$on_sale   = $product->is_on_sale();
+	$save_pct  = '';
+	if ( $on_sale && $product->get_regular_price() > 0 ) {
+		$save_pct = round( ( ( $product->get_regular_price() - $product->get_sale_price() ) / $product->get_regular_price() ) * 100 );
+	}
+	$loading = $eager ? 'eager' : 'lazy';
+	?>
+	<div class="ese-product-card group bg-white rounded-[6px] overflow-hidden flex flex-col" style="box-shadow:var(--shadow-card)">
+		<a href="<?php echo esc_url( $permalink ); ?>" class="relative block aspect-square overflow-hidden bg-[--color-bg-subtle]">
+			<img
+				src="<?php echo esc_url( $img_url ); ?>"
+				alt="<?php echo esc_attr( $name ); ?>"
+				loading="<?php echo $loading; ?>"
+				class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.03]"
+			/>
+			<?php if ( $on_sale && $save_pct ) : ?>
+			<span class="absolute top-2 left-2 text-white text-[11px] font-semibold uppercase tracking-[0.04em] px-2 py-0.5 rounded-[6px]" style="background:var(--color-accent)">
+				SAVE <?php echo (int) $save_pct; ?>%
+			</span>
+			<?php endif; ?>
+		</a>
+		<div class="flex flex-col flex-1 p-3 md:p-4 gap-1.5">
+			<a href="<?php echo esc_url( $permalink ); ?>" class="text-[15px] font-medium leading-snug line-clamp-2" style="color:var(--color-text-primary)"><?php echo esc_html( $name ); ?></a>
+			<?php if ( $reviews > 0 ) : ?>
+			<div class="flex items-center gap-1">
+				<div class="flex items-center gap-0.5"><?php echo ese_render_stars( $rating ); ?></div>
+				<span class="text-[12px]" style="color:var(--color-text-muted)">(<?php echo (int) $reviews; ?>)</span>
+			</div>
+			<?php endif; ?>
+			<div class="text-[18px] font-bold mt-auto" style="color:var(--color-text-primary)">
+				<?php echo $price_html; ?>
+			</div>
+			<?php
+			$add_to_cart_url = $product->get_type() === 'simple'
+				? add_query_arg( [ 'add-to-cart' => $product->get_id() ], wc_get_cart_url() )
+				: $permalink;
+			$btn_label = $product->get_type() === 'simple' ? __( 'Add to Cart', 'dawp' ) : __( 'View Options', 'dawp' );
+			?>
+			<a href="<?php echo esc_url( $add_to_cart_url ); ?>" class="block text-center text-white text-[15px] font-semibold rounded-[6px] px-4 py-3 mt-1 min-h-[44px] flex items-center justify-center transition-colors" style="background:var(--color-accent)" onmouseover="this.style.background='var(--color-accent-hover)'" onmouseout="this.style.background='var(--color-accent)'">
+				<?php echo esc_html( $btn_label ); ?>
+			</a>
+		</div>
+	</div>
+	<?php
+}
 ?>
 
-<!-- Hero Section -->
-<section class="relative w-full h-[75vh] min-h-[500px] flex items-center overflow-hidden bg-[#0A0A0A]">
-    <picture class="absolute inset-0 w-full h-full">
-        <!-- Desktop Image -->
-        <source media="(min-width: 768px)" srcset="<?php echo $theme_path; ?>/assets/img/banner1.jpeg">
-        <!-- Mobile Image -->
-        <img src="<?php echo $theme_path; ?>/assets/img/banner2.jpeg"
-             alt="Summer Collection 2026"
-             class="w-full h-full object-cover object-top"
-             fetchpriority="high" loading="eager">
-    </picture>
-    <div class="absolute inset-0 bg-black/40 md:bg-gradient-to-r md:from-black/70 md:to-transparent"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10 md:mt-0 text-center md:text-left">
-        <div class="max-w-xl text-white mx-auto md:mx-0">
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 leading-tight">SUMMER 2026<br><span class="text-3xl md:text-5xl lg:text-6xl text-white/90">UP TO 30% OFF</span></h1>
-            <p class="text-base md:text-lg mb-8 text-white/90 font-medium leading-relaxed">Discover our summer collection — clean silhouettes, effortless style, and bold personality. Upgrade your look today.</p>
-            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                <a href="/shop?gender=women" class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-white text-[#0A0A0A] px-8 py-3.5 text-sm font-bold uppercase tracking-wide transition-all duration-200 hover:bg-[#F5F5F5] active:scale-[0.98]">
-                    Shop Women
-                </a>
-                <a href="/shop?gender=men" class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-white text-white px-8 py-3.5 text-sm font-bold uppercase tracking-wide transition-all duration-200 hover:bg-white hover:text-[#0A0A0A] active:scale-[0.98]">
-                    Shop Men
-                </a>
-            </div>
-        </div>
-    </div>
+<!-- ===== HERO ===== -->
+<section class="relative w-full overflow-hidden" style="background:#1B3A5C">
+	<div class="relative w-full" style="aspect-ratio:16/9;max-height:560px">
+		<img
+			src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/banner2.jpeg' ); ?>"
+			alt="Shop home, garden, pet and auto products — all with free shipping"
+			fetchpriority="high"
+			loading="eager"
+			class="w-full h-full object-cover"
+		/>
+		<div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)"></div>
+		<div class="absolute bottom-0 left-0 p-6 md:p-12 max-w-2xl">
+			<span class="inline-block text-white text-[11px] font-semibold uppercase tracking-[0.04em] px-3 py-1 rounded-[6px] mb-3" style="background:rgba(0,0,0,0.45)">
+				FREE SHIPPING ON EVERY ORDER
+			</span>
+			<h1 class="text-white font-bold mb-3 leading-tight" style="font-size:clamp(1.75rem,5vw,3.25rem)">
+				Everything Your Home Needs — Shipped Free
+			</h1>
+			<p class="text-white/85 text-[15px] md:text-[17px] mb-6">
+				Shop Home &amp; Garden, Pet Care, and Auto Parts. Delivered to your door.
+			</p>
+			<div class="flex flex-wrap gap-3">
+				<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="inline-flex items-center justify-center text-white font-semibold text-[15px] px-6 py-3 rounded-[6px] min-h-[44px] transition-colors" style="background:var(--color-accent)" onmouseover="this.style.background='var(--color-accent-hover)'" onmouseout="this.style.background='var(--color-accent)'">
+					Shop Now
+				</a>
+				<a href="#categories" class="inline-flex items-center justify-center text-white font-medium text-[15px] px-4 py-3 min-h-[44px] underline underline-offset-2">
+					Browse Categories
+				</a>
+			</div>
+		</div>
+	</div>
 </section>
 
-<!-- Trust Strip -->
-<div class="bg-[#F5F5F5] border-b border-[#E5E5E5] py-2.5">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center items-center gap-6 md:gap-10 text-[11px] md:text-xs font-semibold text-[#737373] uppercase tracking-wider">
-        <span class="flex items-center gap-1.5">
-            <svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-[#0A0A0A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" /></svg>
-            Free Shipping Over $50
-        </span>
-        <span class="hidden md:flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-[#0A0A0A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
-            Easy 30-Day Returns
-        </span>
-        <span class="hidden md:flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-[#0A0A0A]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
-            Secure Checkout
-        </span>
-    </div>
-</div>
+<!-- ===== CATEGORY SHORTCUTS ===== -->
+<section id="categories" class="py-12 md:py-16" style="background:var(--color-bg)">
+	<div class="max-w-[1280px] mx-auto px-4 md:px-6">
+		<h2 class="text-center font-semibold mb-8" style="font-size:clamp(1.375rem,3vw,1.875rem);color:var(--color-text-primary)">
+			Shop by Category
+		</h2>
 
-<!-- Category Shortcuts -->
-<section class="py-12 md:py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="sr-only">Shop by Category</h2>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-            <!-- Item 1 -->
-            <a href="/product-category/ao" class="group relative block aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-[#F5F5F5]">
-                <img src="<?php echo $theme_path; ?>/assets/img/shirt1.jpeg" alt="Tops" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
-                <div class="absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/20"></div>
-                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-center">
-                    <span class="inline-block w-full bg-white text-[#0A0A0A] px-4 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full shadow-sm">Shirt</span>
-                </div>
-            </a>
-            <!-- Item 2 -->
-            <a href="/product-category/quan" class="group relative block aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-[#F5F5F5]">
-                <img src="<?php echo $theme_path; ?>/assets/img/sweater.jpeg" alt="Bottoms" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
-                <div class="absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/20"></div>
-                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-center">
-                    <span class="inline-block w-full bg-white text-[#0A0A0A] px-4 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full shadow-sm">Sweater</span>
-                </div>
-            </a>
-            <!-- Item 3 -->
-            <a href="/product-category/phu-kien" class="group relative block aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-[#F5F5F5]">
-                <img src="<?php echo $theme_path; ?>/assets/img/accessories1.jpeg" alt="Accessories" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
-                <div class="absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/20"></div>
-                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-center">
-                    <span class="inline-block w-full bg-white text-[#0A0A0A] px-4 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full shadow-sm">Accessories</span>
-                </div>
-            </a>
-            <!-- Item 4 -->
-            <a href="/sale" class="group relative block aspect-square md:aspect-[4/5] overflow-hidden rounded-xl bg-red-50">
-                <img src="<?php echo $theme_path; ?>/assets/img/sale1.jpeg" alt="Sale" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
-                <div class="absolute inset-0 bg-black/10 transition-colors duration-200 group-hover:bg-black/20"></div>
-                <div class="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 text-center">
-                    <span class="inline-block w-full bg-[#FF4D4D] text-white px-4 py-2.5 text-sm font-bold uppercase tracking-wider rounded-full shadow-sm">On Sale</span>
-                </div>
-            </a>
-        </div>
-    </div>
+		<!-- Mobile: horizontal scroll | Desktop: 5 col grid -->
+		<div class="flex md:grid md:grid-cols-5 gap-3 md:gap-4 overflow-x-auto pb-2 md:pb-0 md:overflow-visible">
+			<?php
+			$categories = [
+				[
+					'label' => 'Home &amp; Living',
+					'slug'  => 'home-living',
+					'icon'  => '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 22V12h6v10"/></svg>',
+				],
+				[
+					'label' => 'Lawn &amp; Garden',
+					'slug'  => 'lawn-garden',
+					'icon'  => '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M12 12C12 7 7 4 3 5c0 4 3 8 9 7z"/><path d="M12 12c0-5 5-8 9-7 0 4-3 8-9 7z"/></svg>',
+				],
+				[
+					'label' => 'Pet Care',
+					'slug'  => 'pet-care',
+					'icon'  => '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="5" ry="4"/><circle cx="7" cy="8" r="1.5"/><circle cx="17" cy="8" r="1.5"/><circle cx="4" cy="12" r="1.5"/><circle cx="20" cy="12" r="1.5"/></svg>',
+				],
+				[
+					'label' => 'Car Parts',
+					'slug'  => 'car-parts',
+					'icon'  => '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 17H3v-5l2-6h14l2 6v5h-2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/><path d="M5 12h14"/></svg>',
+				],
+				[
+					'label' => 'Automotive Tools',
+					'slug'  => 'automotive-tools',
+					'icon'  => '<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a6 6 0 01-7 7l-5.1 5.1a2.12 2.12 0 01-3-3L11 11a6 6 0 017-7l-3 3 .7-.7z"/></svg>',
+				],
+			];
+
+			foreach ( $categories as $cat ) :
+				$term      = get_term_by( 'slug', $cat['slug'], 'product_cat' );
+				$term_link = $term ? get_term_link( $term ) : get_permalink( wc_get_page_id( 'shop' ) );
+			?>
+			<a href="<?php echo esc_url( $term_link ); ?>" class="ese-cat-tile flex-shrink-0 flex flex-col items-center justify-center gap-2 rounded-lg p-4 text-center transition-all duration-200 hover:-translate-y-0.5" style="background:var(--color-bg-subtle);min-width:100px;color:var(--color-navy)">
+				<?php echo $cat['icon']; ?>
+				<span class="text-[14px] font-medium leading-tight" style="color:var(--color-text-primary)"><?php echo $cat['label']; ?></span>
+			</a>
+			<?php endforeach; ?>
+		</div>
+	</div>
 </section>
 
-<!-- Featured Products (Best Sellers) -->
-<section class="py-12 md:py-16 bg-[#F5F5F5]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-end justify-between mb-8 md:mb-10">
-            <div>
-                <h2 class="text-2xl md:text-3xl font-semibold text-[#0A0A0A] tracking-tight">Best Sellers</h2>
-                <p class="text-[#737373] text-sm md:text-base mt-1">Our most-loved pieces, chosen by you.</p>
-            </div>
-            <a href="/shop" class="hidden md:inline-flex text-sm font-bold uppercase tracking-wider text-[#0A0A0A] border-b-2 border-[#0A0A0A] pb-0.5 hover:text-[#737373] hover:border-[#737373] transition-colors">View All</a>
-        </div>
+<!-- ===== BEST SELLERS ===== -->
+<?php if ( ! empty( $best_sellers ) ) : ?>
+<section class="py-12 md:py-16" style="background:var(--color-bg-subtle)">
+	<div class="max-w-[1280px] mx-auto px-4 md:px-6">
+		<div class="flex items-center justify-between mb-6">
+			<h2 class="font-semibold" style="font-size:clamp(1.375rem,3vw,1.875rem);color:var(--color-text-primary)">Best Sellers</h2>
+			<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="text-[14px] font-medium hover:underline" style="color:var(--color-accent)">View All →</a>
+		</div>
+		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+			<?php foreach ( $best_sellers as $i => $product ) : ?>
+				<?php ese_product_card( $product, $i < 8 ); ?>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
 
-        <?php echo do_shortcode('[products limit="4" columns="4" best_selling="true"]'); ?>
-
-        <div class="mt-8 text-center md:hidden">
-            <a href="/shop" class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-[#E5E5E5] bg-white text-[#0A0A0A] px-8 py-3 text-sm font-bold uppercase w-full">View All</a>
-        </div>
-    </div>
+<!-- ===== PROMO BANNER ===== -->
+<section class="py-12 md:py-16" style="background:var(--color-navy)">
+	<div class="max-w-[1280px] mx-auto px-4 md:px-6">
+		<div class="flex flex-col md:flex-row items-center gap-8">
+			<!-- Text -->
+			<div class="flex-1 text-center md:text-left">
+				<span class="inline-block text-white text-[11px] font-semibold uppercase tracking-[0.04em] px-3 py-1 rounded-[6px] mb-4" style="background:var(--color-accent)">
+					LIMITED TIME
+				</span>
+				<h2 class="text-white font-bold mb-3 leading-tight" style="font-size:clamp(1.5rem,4vw,2.25rem)">
+					Free Shipping on Every Order — No Minimum
+				</h2>
+				<p class="text-white/75 text-[15px] mb-6">
+					Shop home, garden, pet, and auto products — all with free US delivery.
+				</p>
+				<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="inline-flex items-center justify-center text-white font-semibold text-[15px] px-6 py-3 rounded-[6px] min-h-[44px] transition-colors" style="background:var(--color-accent)" onmouseover="this.style.background='var(--color-accent-hover)'" onmouseout="this.style.background='var(--color-accent)'">
+					Shop All Products
+				</a>
+			</div>
+			<!-- Image -->
+			<div class="flex-1 w-full max-w-sm md:max-w-none rounded-lg overflow-hidden" style="max-height:320px">
+				<img
+					src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/banner1.jpeg' ); ?>"
+					alt="Shop home, garden, pet and auto products with free shipping"
+					loading="lazy"
+					class="w-full h-full object-cover rounded-lg"
+					style="max-height:320px"
+				/>
+			</div>
+		</div>
+	</div>
 </section>
 
-<!-- Promotional Banner -->
-<section class="py-6 md:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-[#0A0A0A] text-white rounded-2xl overflow-hidden flex flex-col md:flex-row items-stretch">
-            <div class="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center items-center md:items-start text-center md:text-left">
-                <span class="inline-block bg-[#FF4D4D] text-white px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-sm mb-4">Flash Sale</span>
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-white">48 HOURS ONLY</h2>
-                <p class="text-[#737373] text-base md:text-lg mb-8 max-w-md">Extra 20% off orders over $100. Limited stock — grab it before it's gone.</p>
-                <a href="/sale" class="inline-flex min-h-[44px] items-center justify-center rounded-full bg-white text-[#0A0A0A] px-8 py-3.5 text-sm font-bold uppercase tracking-wide transition-all duration-200 hover:bg-[#F5F5F5] active:scale-[0.98]">
-                    Shop the Sale
-                </a>
-            </div>
-            <div class="w-full md:w-1/2 aspect-square md:aspect-auto">
-                <img src="<?php echo $theme_path; ?>/assets/img/sale2.jpeg" alt="Flash Sale Promotion" class="w-full h-full object-cover" loading="lazy">
-            </div>
-        </div>
-    </div>
+<!-- ===== EXPLORE MORE ===== -->
+<?php if ( ! empty( $explore_more ) ) : ?>
+<section class="py-12 md:py-16" style="background:var(--color-bg)">
+	<div class="max-w-[1280px] mx-auto px-4 md:px-6">
+		<div class="flex items-center justify-between mb-6">
+			<h2 class="font-semibold" style="font-size:clamp(1.375rem,3vw,1.875rem);color:var(--color-text-primary)">Explore More Products</h2>
+			<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="text-[14px] font-medium hover:underline" style="color:var(--color-accent)">See All →</a>
+		</div>
+		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+			<?php foreach ( $explore_more as $product ) : ?>
+				<?php ese_product_card( $product, false ); ?>
+			<?php endforeach; ?>
+		</div>
+		<div class="text-center mt-8">
+			<a href="<?php echo esc_url( wc_get_page_permalink( 'shop' ) ); ?>" class="inline-flex items-center justify-center text-[15px] font-medium px-8 py-3 rounded-[6px] min-h-[44px] transition-colors border-2" style="color:var(--color-navy);border-color:var(--color-navy)" onmouseover="this.style.background='var(--color-navy)';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='var(--color-navy)'">
+				Load More
+			</a>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+
+<!-- ===== WHY SHOP WITH US ===== -->
+<section class="py-12 md:py-16" style="background:var(--color-bg-subtle)">
+	<div class="max-w-[1280px] mx-auto px-4 md:px-6">
+		<h2 class="text-center font-semibold mb-10" style="font-size:clamp(1.375rem,3vw,1.875rem);color:var(--color-text-primary)">
+			Why Shop With Us
+		</h2>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			<?php
+			$trust_cards = [
+				[
+					'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="1.5"/><circle cx="18.5" cy="18.5" r="1.5"/></svg>',
+					'heading' => 'Free Shipping on All Orders',
+					'body' => 'Every order ships free — no minimum purchase required.',
+				],
+				[
+					'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>',
+					'heading' => '30-Day Return Policy',
+					'body' => 'Not happy? Return any item within 30 days, hassle-free.',
+				],
+				[
+					'icon' => '<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .82h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.77a16 16 0 006.32 6.32l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>',
+					'heading' => 'US-Based Support',
+					'body' => 'Real humans, Mon–Fri 9AM–6PM CST. Call us at <a href="tel:4072551197" class="underline">407-255-1197</a>.',
+				],
+			];
+			foreach ( $trust_cards as $card ) : ?>
+			<div class="rounded-lg p-6 flex flex-col gap-3" style="background:var(--color-bg)">
+				<div style="color:var(--color-accent)"><?php echo $card['icon']; ?></div>
+				<h3 class="text-[16px] font-semibold" style="color:var(--color-text-primary)"><?php echo esc_html( $card['heading'] ); ?></h3>
+				<p class="text-[15px] leading-relaxed" style="color:var(--color-text-secondary)"><?php echo $card['body']; ?></p>
+			</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
 </section>
 
-<!-- Product Grid (Explore More) -->
-<section class="py-12 md:py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-8 md:mb-10 border-b border-[#E5E5E5] pb-4">
-            <h2 class="text-2xl md:text-3xl font-semibold text-[#0A0A0A] tracking-tight">Explore More</h2>
-            <div class="hidden md:flex gap-4 text-sm font-medium text-[#737373]">
-                <button class="text-[#0A0A0A] border-b-2 border-[#0A0A0A] pb-1">Newest</button>
-                <button class="hover:text-[#0A0A0A] transition-colors pb-1">Top Sellers</button>
-            </div>
-        </div>
-
-        <?php echo do_shortcode('[products limit="8" columns="4" orderby="date" order="DESC"]'); ?>
-
-        <div class="mt-10 md:mt-16 text-center">
-            <a href="/shop" class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-[#E5E5E5] bg-white text-[#0A0A0A] px-8 py-3.5 text-sm font-bold uppercase tracking-wide hover:border-[#0A0A0A] hover:bg-[#0A0A0A] hover:text-white transition-all duration-200">
-                View All Products
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Social Proof / Reviews -->
-<section class="py-12 md:py-16 bg-[#F5F5F5] border-t border-[#E5E5E5]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-10 md:mb-12">
-            <h2 class="text-2xl md:text-3xl font-semibold text-[#0A0A0A] mb-3 tracking-tight">What Our Customers Say</h2>
-            <div class="flex items-center justify-center gap-2">
-                <div class="flex text-[#0A0A0A] text-sm">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-5 h-5 fill-current text-[#E5E5E5]" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                </div>
-                <span class="text-[#737373] font-medium text-sm">4.8/5 (2,000+ Reviews)</span>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            <!-- Review 1 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-[#E5E5E5] flex flex-col h-full">
-                <div class="flex text-[#0A0A0A] mb-4">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                </div>
-                <p class="text-[#737373] text-sm md:text-base leading-relaxed mb-6 flex-grow">"The fabric quality is amazing and the fit is incredibly flattering. I bought three colors to wear both to work and out on weekends. Packaging was careful and shipping was super fast!"</p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-[#F5F5F5] overflow-hidden shrink-0">
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop" alt="Sarah M." class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-[#0A0A0A]">Sarah M.</p>
-                        <p class="text-xs text-[#00D26A] font-medium flex items-center gap-1 mt-0.5">
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Verified Purchase
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 2 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-[#E5E5E5] flex flex-col h-full hidden md:flex">
-                <div class="flex text-[#0A0A0A] mb-4">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                </div>
-                <p class="text-[#737373] text-sm md:text-base leading-relaxed mb-6 flex-grow">"The wide-leg jeans fit perfectly right out of the box — no tailoring needed. Super flattering silhouette. Great quality for the price, I'm genuinely impressed."</p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-[#F5F5F5] overflow-hidden shrink-0">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop" alt="Jessica T." class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-[#0A0A0A]">Jessica T.</p>
-                        <p class="text-xs text-[#00D26A] font-medium flex items-center gap-1 mt-0.5">
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Verified Purchase
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review 3 -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-[#E5E5E5] flex flex-col h-full hidden lg:flex">
-                <div class="flex text-[#0A0A0A] mb-4">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                </div>
-                <p class="text-[#737373] text-sm md:text-base leading-relaxed mb-6 flex-grow">"Always nervous buying clothes online but this brand put me at ease. Returns were a breeze and support was super responsive. Sizing was spot on — fits exactly as described."</p>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full bg-[#F5F5F5] overflow-hidden shrink-0">
-                        <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=200&auto=format&fit=crop" alt="Mike R." class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-[#0A0A0A]">Mike R.</p>
-                        <p class="text-xs text-[#00D26A] font-medium flex items-center gap-1 mt-0.5">
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Verified Purchase
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Brand Story (Short) -->
-<section class="py-16 md:py-20 bg-white">
-    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-[#0A0A0A] mb-4">We create everyday essentials<br class="hidden md:block"> for modern lifestyle</h2>
-        <p class="text-[#737373] text-base md:text-lg leading-relaxed mb-8">We design modern, versatile fashion that empowers you to express your personal style with confidence — every single day.</p>
-        <a href="/about" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#0A0A0A] border-b-2 border-[#0A0A0A] pb-1 hover:text-[#737373] hover:border-[#737373] transition-colors">
-            Our Story
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-        </a>
-    </div>
+<!-- ===== NEWSLETTER ===== -->
+<section class="py-12 md:py-16" style="background:var(--color-bg)">
+	<div class="max-w-[1280px] mx-auto px-4 md:px-6">
+		<div class="max-w-[480px] mx-auto text-center">
+			<h2 class="font-semibold mb-2" style="font-size:clamp(1.375rem,3vw,1.875rem);color:var(--color-text-primary)">
+				Get Deals in Your Inbox
+			</h2>
+			<p class="text-[15px] mb-6" style="color:var(--color-text-secondary)">
+				Subscribe for exclusive offers, new arrivals, and tips.
+			</p>
+			<?php if ( function_exists( 'mc4wp_show_form' ) ) : ?>
+				<?php mc4wp_show_form(); ?>
+			<?php else : ?>
+			<form class="flex flex-col sm:flex-row gap-2" onsubmit="return false;">
+				<input
+					type="email"
+					placeholder="Your email address"
+					required
+					class="flex-1 w-full px-4 py-3 rounded-[6px] text-[15px] border min-h-[44px]"
+					style="border-color:var(--color-border);color:var(--color-text-primary);outline-color:var(--color-navy)"
+				/>
+				<button type="submit" class="text-white font-semibold text-[15px] px-6 py-3 rounded-[6px] min-h-[44px] whitespace-nowrap transition-colors" style="background:var(--color-accent)" onmouseover="this.style.background='var(--color-accent-hover)'" onmouseout="this.style.background='var(--color-accent)'">
+					Subscribe
+				</button>
+			</form>
+			<?php endif; ?>
+			<p class="text-[12px] mt-3" style="color:var(--color-text-muted)">No spam. Unsubscribe anytime.</p>
+		</div>
+	</div>
 </section>

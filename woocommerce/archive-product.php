@@ -1,6 +1,8 @@
 <?php
 /**
- * The Template for displaying product archives.
+ * Elite Shop Express — Shop / Archive Product Template
+ * Design System: Trusted Hardware, conversion-first
+ * Section 10: Category / Shop Page rules
  */
 defined('ABSPATH') || exit;
 
@@ -8,83 +10,159 @@ get_header();
 ?>
 
 <div class="shop-page">
+<div class="shop-container">
 
-    <!-- Shop Hero -->
-    <section class="shop-hero">
-        <div class="shop-hero__inner container">
-            <div class="shop-hero__eyebrow">
-                <span class="eyebrow-pill">
-                    <?php 
-                        if ( is_product_category() || is_product_tag() ) {
-                            woocommerce_page_title();
-                        } else {
-                            echo 'New Drops';
-                        }
-                    ?>
-                </span>
-            </div>
-            <h1 class="shop-hero__title">
-                Style that hits<br/>
-                <span class="shop-hero__title--italic">different.</span>
-            </h1>
-            <p class="shop-hero__desc">
-                Outfits built for the streets, the feeds, and everywhere in between.
-            </p>
+    <?php
+    // ── Breadcrumb ─────────────────────────────────────────
+    ?>
+    <nav class="shop-breadcrumb" aria-label="Breadcrumb">
+        <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
+        <span aria-hidden="true">›</span>
+        <?php if ( is_product_category() ) :
+            $cat = get_queried_object(); ?>
+            <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">Shop</a>
+            <span aria-hidden="true">›</span>
+            <span><?php echo esc_html( $cat->name ); ?></span>
+        <?php elseif ( is_product_tag() ) :
+            $tag = get_queried_object(); ?>
+            <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">Shop</a>
+            <span aria-hidden="true">›</span>
+            <span><?php echo esc_html( $tag->name ); ?></span>
+        <?php else : ?>
+            <span>Shop</span>
+        <?php endif; ?>
+    </nav>
+
+    <?php
+    // ── Page heading ───────────────────────────────────────
+    ?>
+    <div class="shop-header">
+        <h1 class="shop-header__title">
+            <?php
+            if ( is_product_category() || is_product_tag() ) {
+                woocommerce_page_title();
+            } else {
+                echo 'All Products';
+            }
+            ?>
+        </h1>
+    </div>
+
+    <?php
+    // ── Toolbar: count + filter toggle + sort ──────────────
+    ?>
+    <div class="shop-toolbar">
+        <div class="shop-toolbar__left">
+            <span class="shop-toolbar__count">
+                <?php
+                global $wp_query;
+                $total = $wp_query->found_posts;
+                printf(
+                    '%d %s',
+                    $total,
+                    $total === 1 ? 'product' : 'products'
+                );
+                ?>
+            </span>
+            <button
+                class="shop-filter-btn"
+                id="shopFilterBtn"
+                aria-expanded="false"
+                aria-controls="shopSidebar"
+            >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <line x1="4" y1="6" x2="20" y2="6"/>
+                    <line x1="8" y1="12" x2="20" y2="12"/>
+                    <line x1="12" y1="18" x2="20" y2="18"/>
+                </svg>
+                Filter
+            </button>
         </div>
-        <!-- Decorative line -->
-        <div class="shop-hero__divider"></div>
-    </section>
 
-    <!-- Shop Body -->
-    <div class="shop-layout container">
+        <?php woocommerce_catalog_ordering(); ?>
+    </div>
 
-        <!-- Sidebar Overlay (Mobile) -->
-        <div class="shop-sidebar-overlay" id="shop-sidebar-overlay"></div>
+    <?php
+    // ── Sidebar overlay (mobile bottom sheet backdrop) ─────
+    ?>
+    <div class="shop-sidebar-overlay" id="shopSidebarOverlay" aria-hidden="true"></div>
 
-        <!-- Sidebar -->
-        <aside class="shop-sidebar" id="shop-sidebar">
-            <div class="shop-sidebar__sticky">
-                <?php get_sidebar('shop'); ?>
-            </div>
-        </aside>
+    <?php
+    // ── Layout ─────────────────────────────────────────────
+    ?>
+    <div class="shop-layout">
 
-        <!-- Main -->
-        <div class="shop-main">
-
-            <!-- Toolbar -->
-            <div class="shop-toolbar">
-                <span class="shop-toolbar__count">
-                    <?php
-                    global $wp_query;
-                    $total = $wp_query->found_posts;
-                    echo $total . ' ' . ($total === 1 ? 'item' : 'items');
-                    ?>
-                </span>
-
-                <button class="shop-filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="shop-sidebar">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <line x1="4" y1="6" x2="20" y2="6"/>
-                        <line x1="8" y1="12" x2="20" y2="12"/>
-                        <line x1="12" y1="18" x2="20" y2="18"/>
+        <?php // ── Sidebar ────────────────────────────────── ?>
+        <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
+            <div class="shop-sidebar__header">
+                <h2 class="shop-sidebar__mobile-title">Filter Products</h2>
+                <button
+                    class="shop-sidebar__close"
+                    id="shopSidebarClose"
+                    aria-label="Close filters"
+                >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
                     </svg>
-                    <span>Filter</span>
                 </button>
             </div>
 
-            <!-- Products -->
-            <?php if (woocommerce_product_loop()) : ?>
+            <?php
+            // Categories widget
+            $categories = get_terms([
+                'taxonomy'   => 'product_cat',
+                'hide_empty' => true,
+                'parent'     => 0,
+                'exclude'    => [ get_term_by('slug', 'uncategorized', 'product_cat')->term_id ?? 0 ],
+            ]);
+            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
+            <div class="shop-sidebar__widget">
+                <h3 class="shop-sidebar__title">Categories</h3>
+                <ul class="shop-sidebar__categories">
+                    <li>
+                        <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
+                            All Products
+                        </a>
+                    </li>
+                    <?php foreach ( $categories as $cat ) :
+                        $is_current = ( is_product_category( $cat->slug ) ); ?>
+                        <li>
+                            <a
+                                href="<?php echo esc_url( get_term_link( $cat ) ); ?>"
+                                <?php if ( $is_current ) echo 'aria-current="page"'; ?>
+                            >
+                                <?php echo esc_html( $cat->name ); ?>
+                                <span class="count">(<?php echo (int) $cat->count; ?>)</span>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <?php endif; ?>
+
+            <?php
+            // Price filter / other widgets
+            if ( is_active_sidebar('shop-sidebar') ) {
+                dynamic_sidebar('shop-sidebar');
+            }
+            ?>
+        </aside>
+
+        <?php // ── Main Product Area ────────────────────────── ?>
+        <main class="shop-main" id="main-content">
+
+            <?php if ( woocommerce_product_loop() ) : ?>
 
                 <?php woocommerce_product_loop_start(); ?>
 
-                <?php if (wc_get_loop_prop('total')) : ?>
-                    <?php while (have_posts()) : the_post(); ?>
+                    <?php while ( have_posts() ) : the_post(); ?>
                         <?php wc_get_template_part('content', 'product'); ?>
                     <?php endwhile; ?>
-                <?php endif; ?>
 
                 <?php woocommerce_product_loop_end(); ?>
 
-                <!-- Pagination -->
+                <?php // Pagination ?>
                 <div class="shop-pagination">
                     <?php do_action('woocommerce_after_shop_loop'); ?>
                 </div>
@@ -92,87 +170,57 @@ get_header();
             <?php else : ?>
                 <div class="shop-empty">
                     <p>No products found in this collection.</p>
+                    <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
+                        Browse all products →
+                    </a>
                 </div>
             <?php endif; ?>
 
-        </div><!-- .shop-main -->
+        </main><!-- .shop-main -->
     </div><!-- .shop-layout -->
 
-    <!-- Editorial closing statement -->
-    <section class="shop-closing">
-        <div class="shop-closing__inner container">
-            <h2 class="shop-closing__text">
-                Wear it<br/>
-                <span class="shop-closing__text--italic">your</span> way.
-            </h2>
-        </div>
-    </section>
-
+</div><!-- .shop-container -->
 </div><!-- .shop-page -->
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Mobile filter toggle
-    const toggle = document.getElementById('filterToggle');
-    const sidebar = document.getElementById('shop-sidebar');
-    const overlay = document.getElementById('shop-sidebar-overlay');
-    const closeBtn = document.getElementById('filterClose');
+(function () {
+    var filterBtn   = document.getElementById('shopFilterBtn');
+    var sidebar     = document.getElementById('shopSidebar');
+    var overlay     = document.getElementById('shopSidebarOverlay');
+    var closeBtn    = document.getElementById('shopSidebarClose');
 
-    function toggleSidebar() {
-        const isOpen = sidebar.classList.toggle('is-open');
-        if (overlay) overlay.classList.toggle('is-open');
-        if (toggle) toggle.setAttribute('aria-expanded', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : ''; // Prevent body scroll
+    function openSidebar() {
+        sidebar.classList.add('is-open');
+        overlay.classList.add('is-open');
+        overlay.removeAttribute('aria-hidden');
+        filterBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
     }
 
-    if (toggle && sidebar) {
-        toggle.addEventListener('click', toggleSidebar);
+    function closeSidebar() {
+        sidebar.classList.remove('is-open');
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        filterBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    if (filterBtn && sidebar) {
+        filterBtn.addEventListener('click', openSidebar);
     }
     if (overlay) {
-        overlay.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', closeSidebar);
     }
     if (closeBtn) {
-        closeBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
     }
-
-    // Scroll reveal for products
-    const reveals = document.querySelectorAll('.shop-hero, .shop-toolbar, .woocommerce-products-header');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => {
-        el.classList.add('shop-reveal');
-        observer.observe(el);
+    // Close on Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('is-open')) {
+            closeSidebar();
+        }
     });
-
-    // Staggered product card reveal
-    const products = document.querySelectorAll('.products .product');
-    const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    entry.target.style.filter = 'blur(0)';
-                }, i * 60);
-                cardObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.08 });
-
-    products.forEach(p => {
-        p.style.opacity = '0';
-        p.style.transform = 'translateY(2rem)';
-        p.style.filter = 'blur(4px)';
-        p.style.transition = 'opacity 0.8s cubic-bezier(0.32,0.72,0,1), transform 0.8s cubic-bezier(0.32,0.72,0,1), filter 0.8s cubic-bezier(0.32,0.72,0,1)';
-        cardObserver.observe(p);
-    });
-});
+})();
 </script>
 
 <?php get_footer(); ?>

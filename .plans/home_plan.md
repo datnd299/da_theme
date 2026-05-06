@@ -1,304 +1,393 @@
-# 🏠 Home Page Specification — Fashion E-commerce (Conversion-First)
+# Homepage Plan — Elite Shop Express
 
 ## 1. Page Goal
 
-Trang chủ KHÔNG phải để “giới thiệu thương hiệu”.
-Trang chủ có 3 mục tiêu chính:
+Drive users to products fast, surface deals, and build trust within the first 3 seconds.
 
-1. Đưa user đến sản phẩm nhanh nhất
-2. Highlight deal / BST mới để kích thích mua
-3. Tạo trust để user yên tâm mua ngay
-
----
-
-## 2. Global Layout Structure (Top → Bottom)
-
-1. Header (sticky)
-2. Trust strip (optional nhưng khuyến nghị)
-3. Hero section (primary conversion block)
-4. Category shortcuts
-5. Featured products (best sellers / new arrivals)
-6. Promotional banner (sale / campaign)
-7. Product grid (explore thêm)
-8. Social proof / reviews
-9. Brand story (rất ngắn, không dài dòng)
-10. Footer
+1. User understands what we sell immediately
+2. User sees products and prices without any extra clicks
+3. User has reasons to buy now (free shipping + trust signals)
 
 ---
 
-## 3. Detailed Section Breakdown
+## 2. Full Layout Structure (Top → Bottom)
+
+1. Utility Bar (desktop only)
+2. Header (sticky)
+3. Trust Bar
+4. Hero Section
+5. Category Shortcuts
+6. Best Sellers Grid
+7. Promo Banner (mid-page)
+8. Explore More Grid
+9. Why Shop With Us
+10. Newsletter Signup (inline)
+11. Footer
 
 ---
 
-### 3.1 Header (Sticky)
+## 3. Section Breakdown
 
-**Mục tiêu:** Navigation + Search + Cart access
+---
 
-**Desktop:**
+### 3.1 Utility Bar (Desktop Only)
+
+**Goal:** Surface contact info and credibility before anything else.
+
+**Layout:** Full-width, `bg-[var(--color-navy)]`, `py-1.5`, `text-[--color-text-muted]`
+
+**Content (centered flex row):**
+```
+📞 407-255-1197  |  Mon–Fri 9AM–6PM CST  |  Free Shipping on All Orders
 ```
 
-[Logo] [Nam | Nữ | BST mới | Sale] [Search bar] [Wishlist] [Cart] [Account]
-
-```
-
-**Mobile:**
-```
-
-[☰] [Logo] [🔍] [🛒]
-
-```
-
-**Yêu cầu:**
-- Sticky top
-- Search bar visible (desktop)
-- Cart có badge số lượng
-- Height: ~64px desktop / ~56px mobile
+- Phone is a `tel:` link: `<a href="tel:4072551197">`
+- Text: `t-caption`, white/muted on navy
+- Hidden on mobile (`hidden md:flex`)
 
 ---
 
-### 3.2 Trust Strip (Above Hero)
+### 3.2 Header (Sticky)
 
-**Mục tiêu:** Giảm friction ngay lập tức
+**Goal:** Navigation + Search + Cart access at all times.
 
-**Content:**
-- 🚚 Miễn phí ship đơn từ $50
-- 🔄 Đổi trả 7 ngày
-- 🔒 Thanh toán an toàn
+**Desktop layout** (`bg-[var(--color-navy)]`, `h-16`, sticky, `shadow-sm`, `backdrop-filter: blur(8px)` when scrolled):
+```
+[Logo — left]  [Nav: Home & Living | Lawn & Garden | Pet Care | Car Parts | Automotive | Sale]  [Search bar — always visible]  [Account icon]  [Cart icon + badge]
+```
 
-**Style:**
-- Background nhẹ (neutral hoặc accent very light)
-- Text nhỏ `text-xs md:text-sm`
-- Flex center, gap đều
+**Mobile layout** (`bg-[var(--color-navy)]`, `h-14`):
+```
+[☰ Hamburger]  [Logo — center]  [🔍 Search icon]  [🛒 Cart + badge]
+```
 
----
-
-### 3.3 Hero Section (Primary Conversion Block)
-
-**Layout:** Full-bleed image + overlay text
-
-**Content:**
-- Heading rõ ràng (KHÔNG mơ hồ)
-  - ✅ "SUMMER 2026 - UP TO 30% OFF"
-- Subtext ngắn (1 dòng)
-- CTA:
-  - "Shop Now"
-  - "Xem BST"
-
-**Image:**
-- Model mặc sản phẩm thật
-- Desktop: 16:9
-- Mobile: 4:5
-
-**CTA Rules:**
-- Primary button nổi bật (đen/trắng contrast cao)
-- Positioned above-the-fold
+**Rules:**
+- Logo: white version on navy bg
+- Nav links: white text, `font-weight: 500`, hover → `bg-[--color-navy-light]`
+- Search bar (desktop): white background, `rounded-md`, `h-9`, placeholder: *"Search products..."*
+- Cart badge: accent orange pill, visible when count > 0
+- Mobile: hamburger opens full-height slide drawer with full category tree + contact info at bottom
+- `Sale` nav item: accent orange text to draw attention
 
 ---
 
-### 3.4 Category Shortcuts
+### 3.3 Trust Bar
 
-**Mục tiêu:** Giúp user vào đúng category ngay
+**Goal:** Eliminate friction immediately below the header.
+
+**Layout:** Full-width strip, `bg-[var(--color-navy)]` (slightly lighter: `--color-navy-light`), `py-2`, white text
+
+**Content (4 items, centered flex, `gap-6 md:gap-10`):**
+```
+🚚 Free Shipping on All Orders  |  ↩️ 30-Day Returns  |  🇺🇸 US-Based Support  |  📞 407-255-1197
+```
+
+- Desktop: all 4 items in one row with `|` dividers
+- Mobile: 2×2 or horizontal scroll, hide phone number
+- Font: `t-caption`, `font-weight: 500`
+
+---
+
+### 3.4 Hero Section
+
+**Goal:** Primary conversion block — land the deal, drive click.
+
+**Layout:** Full-width image with dark gradient overlay from bottom (Layout option 1 from design system)
+
+**Desktop dimensions:** 16:9 aspect, max-height `560px`  
+**Mobile dimensions:** 4:5 aspect
+
+**Content (text overlay, bottom-left positioned):**
+```
+[Badge: "FREE SHIPPING ON EVERY ORDER"]
+[H1: "Everything Your Home Needs — Shipped Free"]
+[Subtext: "Shop Home & Garden, Pet Care, and Auto Parts. Delivered to your door."]
+[Primary CTA: "Shop Now" — accent orange button]
+[Secondary CTA: "Browse Categories" — ghost/underline link, white]
+```
+
+**Image:** Hero photo of a well-organized garage/home/garden setup or a lifestyle shot of home products. High-res, `fetchpriority="high"`, `loading="eager"`.
+
+**Rules:**
+- Headline must be concrete and actionable — no vague slogans
+- Badge above headline: `t-badge`, white text, semi-transparent dark pill
+- Primary CTA: `bg-[--color-accent]`, white text, `min-h-[44px]`, `px-6`, `rounded-[6px]`
+- Free shipping trust signal must be visible in hero (badge or subtext)
+- Gradient: `linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 60%)`
+
+---
+
+### 3.5 Category Shortcuts
+
+**Goal:** Get users into the right category in 1 click.
+
+**Section label:** `t-section`, centered, `"Shop by Category"`
 
 **Layout:**
-- Mobile: 2 columns
-- Desktop: 4 columns
+- Mobile: horizontal scroll row (`overflow-x-auto`, `flex`, `gap-3`)
+- Desktop: 5-column grid (`grid-cols-5`, `gap-4`)
 
-**Items:**
-- Áo
-- Quần
-- Phụ kiện
-- Sale
+**5 Categories (icon tile + label):**
 
-**Design:**
-- Image + label
-- Clickable toàn bộ card
-- Aspect ratio: square
+| Category | Icon | Link |
+|---|---|---|
+| Home & Living | 🏠 (SVG house icon) | `/category/home-living` |
+| Lawn & Garden | 🌿 (SVG leaf/plant icon) | `/category/lawn-garden` |
+| Pet Care | 🐾 (SVG paw icon) | `/category/pet-care` |
+| Car Parts | 🚗 (SVG car icon) | `/category/car-parts` |
+| Automotive Tools | 🔧 (SVG wrench icon) | `/category/automotive-tools` |
+
+**Tile design:**
+- `bg-[--color-bg-subtle]`, `rounded-lg`, `p-4`
+- SVG icon: `48px`, `color: --color-navy`
+- Label: `t-body`, `font-weight: 500`, `color: --color-text-primary`, centered
+- Hover: `box-shadow` lift + slight `translateY(-2px)`
+- Entire tile is clickable (`<a>` wrapper)
+- Mobile tile: fixed `width: 100px`, square-ish
 
 ---
 
-### 3.5 Featured Products (Best Sellers / New Arrivals)
+### 3.6 Best Sellers Grid
 
-**Mục tiêu:** Đưa sản phẩm hot ra ngay
+**Goal:** Put top-selling products in front of the user immediately.
 
-**Section title:**
-- "Best Sellers"
-- hoặc "New Arrivals"
+**Section header row:**
+- Left: `t-section` — `"Best Sellers"`
+- Right: `"View All →"` ghost link → `/shop`
+
+**Product count:** 8 products
 
 **Grid:**
-- Mobile: 2 cột
-- Desktop: 4 cột
+- Mobile: 2 columns (`grid-cols-2`)
+- Tablet: 3 columns (`grid-cols-3`)
+- Desktop: 4 columns (`grid-cols-4`)
+- `gap-3 md:gap-4`
 
-**Product Card gồm:**
-- Ảnh (3:4)
-- Tên sản phẩm
-- Giá (bắt buộc visible)
-- Giá sale (nếu có)
-- Badge (Sale / New)
+**Product Card anatomy:**
+```
+[Image — 1:1 square, object-cover]
+[Sale badge — top-left, accent orange pill: "SAVE 20%"]
+[Product name — 2 lines max, ellipsis, t-product]
+[Star rating + review count — t-caption]
+[Price row: $XX.XX | ~~$YY.YY~~ (muted)]
+[Add to Cart — full-width, accent orange, min-h-44px]
+```
 
-**KHÔNG:**
-- Không animation entry
-- Không ẩn giá
+**Image loading:**
+- First 8 products: `loading="eager"`
+- Hover: `transform: scale(1.03)`, `transition: 200ms ease`
 
----
-
-### 3.6 Promotional Banner (Mid-page Campaign)
-
-**Mục tiêu:** Push sale / urgency
-
-**Layout:**
-- Full width banner hoặc split 50/50
-
-**Content:**
-- "FLASH SALE - 48 HOURS ONLY"
-- CTA: "Shop Sale"
-
-**Design:**
-- Background khác biệt rõ với phần trên
-- Có thể dùng màu accent
+**Rules:**
+- Price always visible — never hidden
+- No entry animations
+- No `1px solid #ccc` borders — use `box-shadow: 0 1px 4px rgba(0,0,0,0.08)`
 
 ---
 
-### 3.7 Product Grid (Explore More)
+### 3.7 Promo Banner (Mid-Page)
 
-**Mục tiêu:** Cho user browse thêm
+**Goal:** Inject urgency, push users toward the sale section.
 
-**Title:**
-- "You May Also Like"
-- hoặc "Explore More"
+**Layout:** Full-width, split 50/50 (text left, image right) on desktop; stacked on mobile
 
-**Grid:**
-- Mobile: 2 cột
-- Tablet: 3 cột
-- Desktop: 4 cột
+**Background:** `bg-[var(--color-navy)]`
 
-**Behavior:**
-- Lazy load (trừ first 4 items)
-- Có thể có nút "Load More"
+**Content (text side):**
+```
+[Badge: "LIMITED TIME"]
+[Headline: "Free Shipping on Every Order — No Minimum"]
+[Sub: "Shop home, garden, pet, and auto products — all with free US delivery."]
+[CTA: "Shop All Products" — accent orange button]
+```
 
----
+**Image side:** Product collage or lifestyle shot
 
-### 3.8 Social Proof / Reviews
-
-**Mục tiêu:** Tăng trust
-
-**Content:**
-- Rating summary (⭐ 4.8/5)
-- 2–3 review nổi bật
-- User avatar + name
-
-**Optional:**
-- Instagram gallery (UGC)
+**Rules:**
+- Headline must reference a real, specific benefit
+- CTA → `/shop`
+- Image: `loading="lazy"` (below fold)
 
 ---
 
-### 3.9 Brand Story (Short)
+### 3.8 Explore More Grid
 
-**Mục tiêu:** Branding nhẹ (KHÔNG dài)
+**Goal:** Let users browse a wider product selection.
 
-**Content:**
-- 2–3 dòng:
-  - "We create everyday essentials for modern lifestyle"
+**Section header row:**
+- Left: `t-section` — `"Explore More Products"`
+- Right: `"See All →"` ghost link → `/shop`
 
-**CTA:**
-- "Learn More"
+**Product count:** 8 products (different from Best Sellers)
 
-**Lưu ý:**
-- Không viết essay dài
-- Không chiếm nhiều space
+**Grid:** Same as 3.6 (2 / 3 / 4 columns)
 
----
+**Image loading:** All `loading="lazy"`
 
-### 3.10 Footer
-
-**Cấu trúc:**
-
-**Column 1:**
-- Logo
-- Short description
-
-**Column 2:**
-- Shop (Nam, Nữ, Sale)
-
-**Column 3:**
-- Support (Contact, Shipping, Returns)
-
-**Column 4:**
-- Newsletter signup
-
-**Bottom:**
-- Payment icons (Visa, MasterCard…)
-- Copyright
+**Optional:** `"Load More"` button at bottom center (`bg-transparent`, `border-2 border-[--color-navy]`, secondary button style)
 
 ---
 
-## 4. Spacing Rules
+### 3.9 Why Shop With Us
+
+**Goal:** Address objections, reinforce trust before footer.
+
+**Section label:** `t-section`, centered — `"Why Shop With Us"`
+
+**Layout:** 3-column grid on desktop, stacked on mobile
+
+**3 Cards:**
+
+| Icon | Heading | Body |
+|---|---|---|
+| 🚚 | Free Shipping on All Orders | Every order ships free — no minimum purchase required. |
+| ↩️ | 30-Day Return Policy | Not happy? Return any item within 30 days, hassle-free. |
+| 🇺🇸 | US-Based Support | Real humans, Mon–Fri 9AM–6PM CST. Call us at 407-255-1197. |
+
+**Card design:**
+- `bg-[--color-bg-subtle]`, `rounded-lg`, `p-6`
+- Icon: `40px`, `color: --color-accent`
+- Heading: `t-product`, `font-weight: 600`
+- Body: `t-body`, `color: --color-text-secondary`
+- No hover effects needed — static trust block
+
+---
+
+### 3.10 Newsletter Signup (Inline)
+
+**Goal:** Capture email leads — NOT a popup.
+
+**Trigger:** Visible after scrolling past product grids (inline section, not popup)
+
+**Layout:** Full-width, `bg-[--color-bg-subtle]`, `py-12`
+
+**Content (centered, max-width `480px`):**
+```
+[Heading: "Get Deals in Your Inbox"]
+[Sub: "Subscribe for exclusive offers, new arrivals, and tips."]
+[Email input + "Subscribe" button — side by side on desktop, stacked on mobile]
+[Fine print: "No spam. Unsubscribe anytime."]
+```
+
+**Button:** Accent orange, primary style, `min-h-[44px]`
+
+**Rules:**
+- NEVER auto-trigger as popup on page load
+- Email input: full-width on mobile
+
+---
+
+### 3.11 Footer
+
+**Goal:** Final trust + navigation anchor.
+
+**Layout:** 4-column grid on desktop (`grid-cols-4`), stacked on mobile, `bg-[var(--color-navy)]`, white text
+
+**Column 1 — Brand:**
+- Logo (white version)
+- 1-line description: *"Your trusted source for home, garden, pet, and auto products."*
+- Facebook link: `facebook.com/eliteshopexpress/`
+
+**Column 2 — Shop:**
+- Home & Living
+- Lawn & Garden
+- Pet Care
+- Car Parts & Accessories
+- Automotive Tools
+
+**Column 3 — Help:**
+- Shipping Policy
+- Return Policy
+- Contact Us
+- FAQ
+
+**Column 4 — Contact:**
+- 📍 3589 South Orange Avenue, Orlando, FL 32806
+- ✉️ support@eliteshopexpress.com
+- 📞 `<a href="tel:4072551197">407-255-1197</a>`
+- 🕐 Mon–Fri, 9AM–6PM CST
+
+**Bottom bar** (border-top, `pt-4`):
+- Left: `© 2026 Elite Shop Express. All rights reserved.`
+- Center: Payment icons (Visa, Mastercard, PayPal, Amex)
+- Right: Privacy Policy | Terms of Service
+
+---
+
+## 4. Trust Signals Placement
+
+| Signal | Placement |
+|---|---|
+| Free Shipping | Utility bar, trust bar, hero badge, promo banner, why-shop section, footer |
+| 30-Day Returns | Trust bar, why-shop section, footer |
+| US Address | Footer column 4 |
+| Phone Number | Utility bar, why-shop section, footer column 4 |
+| Business Hours | Utility bar, footer column 4 |
+| Facebook | Footer column 1 |
+
+---
+
+## 5. Spacing
 
 - Section spacing: `py-12 md:py-16`
 - Grid gap: `gap-3 md:gap-4`
-- Container: `max-w-7xl mx-auto px-4 md:px-6`
+- Container: `max-w-[1280px] mx-auto px-4 md:px-6`
+- Card padding: `p-3 md:p-4`
 
 ---
 
-## 5. Performance Rules
+## 6. Performance Rules
 
-- Hero image:
-  - `fetchpriority="high"`
-  - KHÔNG lazy load
-- First 4 products:
-  - `loading="eager"`
-- Remaining:
-  - `loading="lazy"`
-- Use WebP + proper width/height
+- Hero image: `fetchpriority="high"`, `loading="eager"`, WebP format
+- First 8 product images (Best Sellers): `loading="eager"`
+- All other images: `loading="lazy"`
+- Google Fonts: `Inter` with `&display=swap`
+- No render-blocking JS above the fold
 
 ---
 
-## 6. Mobile-First Rules
+## 7. Mobile-First Checklist
 
-- Product grid luôn 2 cột
-- CTA button ≥ 44px height
-- Không popup ngay khi load
-- Search dễ access (icon → expand)
-- Không sticky banner che nội dung
-
----
-
-## 7. Conversion Checklist
-
-- [ ] CTA rõ ràng trong hero
-- [ ] Giá visible trên mọi sản phẩm
-- [ ] Có section Best Sellers
-- [ ] Có trust signals
-- [ ] Không animation làm chậm UX
-- [ ] Layout đơn giản, dễ scan
-- [ ] Mobile tối ưu
+- [ ] 2-column product grid on all product sections
+- [ ] All tap targets ≥ 44px (buttons, nav links, category tiles)
+- [ ] Search accessible from header
+- [ ] Trust bar visible (condensed) on mobile
+- [ ] Category shortcuts: horizontal scroll row
+- [ ] Newsletter: stacked input + button layout
+- [ ] Phone number: `tel:` link throughout
+- [ ] No popup on page load
 
 ---
 
-## 8. Anti-Patterns (TUYỆT ĐỐI TRÁNH)
+## 8. Pre-Output Checklist (before coding)
 
-- Hero chỉ có slogan mơ hồ
-- Grid 1 cột trên mobile
-- Giá bị ẩn
-- Quá nhiều màu sắc
-- Popup xuất hiện ngay khi load
-- Carousel chạy quá nhanh
-- Design giống template cũ (Bootstrap style)
-
----
-
-## 9. Summary
-
-Home page tốt = user:
-
-1. Hiểu bạn bán gì trong 3 giây
-2. Thấy sản phẩm ngay
-3. Có lý do để mua (sale / trust / social proof)
-4. Click vào sản phẩm mà không cần suy nghĩ
-
-👉 Nếu user phải “tìm hiểu” cách mua → fail.
-👉 Nếu user thấy sản phẩm và muốn mua ngay → success.
-```
+- [ ] Price visible immediately on every product card
+- [ ] "Add to Cart" CTA: high contrast, ≥ 44px height
+- [ ] 2-col product grid on mobile
+- [ ] No entry/fade-up animations on product cards
+- [ ] Search bar visible in header (desktop)
+- [ ] Free Shipping signal in hero
+- [ ] Inter font loaded via Google Fonts
+- [ ] Hero headline is concrete and actionable
+- [ ] All images have alt text
+- [ ] Phone number uses `tel:` link
+- [ ] No `border-radius: 9999px` — use `6px`
+- [ ] No more than 3 colors per component
 
 ---
 
-Nếu bạn muốn, mình có thể **convert file này thành HTML + Tailwind full trang home (production-ready)** theo đúng spec này (chuẩn mobile + tối ưu conversion).
+## 9. Content Strings
+
+| Element | Copy |
+|---|---|
+| Hero H1 | "Everything Your Home Needs — Shipped Free" |
+| Hero sub | "Shop Home & Garden, Pet Care, and Auto Parts. Delivered to your door." |
+| Hero CTA primary | "Shop Now" |
+| Hero CTA secondary | "Browse Categories" |
+| Promo headline | "Free Shipping on Every Order — No Minimum" |
+| Promo sub | "Shop home, garden, pet, and auto products — all with free US delivery." |
+| Promo CTA | "Shop All Products" |
+| Newsletter headline | "Get Deals in Your Inbox" |
+| Newsletter sub | "Subscribe for exclusive offers, new arrivals, and tips." |
+| Newsletter fine print | "No spam. Unsubscribe anytime." |
+| Why shop heading | "Why Shop With Us" |
+| Footer tagline | "Your trusted source for home, garden, pet, and auto products." |

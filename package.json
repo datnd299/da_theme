@@ -9,6 +9,7 @@
     "tailwindcss": "^4.2.4"
   },
   "dependencies": {
+    "canvas": "^3.2.3",
     "cssnano": "^7.1.9",
     "postcss": "^8.5.14",
     "terser": "^5.46.2"

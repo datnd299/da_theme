@@ -67,6 +67,14 @@ function copyDir(src, dest) {
 console.log(`Copying → dist/${themeSlug}/`);
 copyDir(root, distDir);
 
+console.log('Generating screenshot.png...');
+generateThemeScreenshot({
+  themeName,
+  version: randomVersion,
+  outputDir: distDir
+});
+console.log('');
+
 // ── Minify CSS (cssnano) ───────────────────────────────────────
 async function minifyCss(content, keepHeader = false) {
   let header = '';
@@ -88,6 +96,71 @@ async function minifyCss(content, keepHeader = false) {
   ]).process(content, { from: undefined });
 
   return header + result.css;
+}
+
+import { createCanvas } from 'canvas';
+
+function generateThemeScreenshot({ themeName, version, outputDir }) {
+  const width = 1200;
+  const height = 900;
+
+  const canvas = createCanvas(width, height);
+  const ctx = canvas.getContext('2d');
+
+  const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+  const getContrastColor = (r, g, b) => {
+    const yiq = (r * 299 + g * 587 + b * 114) / 1000;
+    return yiq >= 128 ? '#111' : '#fff';
+  };
+
+  // ── Background random ───────────────────────────────────
+  const bgR = rand(0, 255);
+  const bgG = rand(0, 255);
+  const bgB = rand(0, 255);
+
+  ctx.fillStyle = `rgb(${bgR}, ${bgG}, ${bgB})`;
+  ctx.fillRect(0, 0, width, height);
+
+  // ── Main text color (dùng chung cho tất cả text) ────────
+  const mainColor = getContrastColor(bgR, bgG, bgB);
+
+  // ── Noise text (cùng màu nhưng alpha thấp) ──────────────
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = mainColor;
+
+  for (let i = 0; i < 120; i++) {
+    const x = rand(0, width);
+    const y = rand(0, height);
+    const fontSize = rand(10, 28);
+
+    ctx.font = `${fontSize}px monospace`;
+    ctx.globalAlpha = 0.08 + Math.random() * 0.12; // random opacity nhẹ
+
+    const char = chars[rand(0, chars.length - 1)];
+    ctx.fillText(char, x, y);
+  }
+
+  ctx.globalAlpha = 1;
+
+  // ── Theme Name ─────────────────────────────────────────
+  ctx.fillStyle = mainColor;
+  ctx.font = 'bold 64px sans-serif';
+  ctx.fillText(themeName, width / 2, height / 2 - 40);
+
+  // ── Version ────────────────────────────────────────────
+  ctx.font = '28px sans-serif';
+  ctx.globalAlpha = 0.8;
+  ctx.fillText(`Version ${version}`, width / 2, height - 80);
+
+  ctx.globalAlpha = 1;
+
+  // ── Save ───────────────────────────────────────────────
+  const buffer = canvas.toBuffer('image/png');
+  writeFileSync(join(outputDir, 'screenshot.png'), buffer);
 }
 
 // ── Minify JS (Terser) ─────────────────────────────────────────

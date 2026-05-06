@@ -1,50 +1,74 @@
 ---
 name: woocommerce-theme-development
-description: Skill for AI agents (Claude Code, Cursor, Windsurf...) to develop a simple WooCommerce theme focused on selling. Clearly defines the allowed file scope, how to write pure CSS using CSS variables to style WooCommerce classes, and a youthful, dynamic design pattern optimized for conversion. Strictly do not modify files outside the allowed scope.
+description: Kỹ năng dành cho các AI agent (Claude Code, Cursor, Windsurf...) để phát triển một theme WooCommerce đơn giản, tập trung vào bán hàng. Nội dung các trang được fix cứng để đảm bảo dễ phát triển trang load nhanh. Xác định rõ phạm vi file được phép chỉnh sửa.
 ---
 
-# Skill: WooCommerce Theme Developer (Conversion-First, CSS Variables Only)
+# Kỹ năng: WooCommerce Theme Developer (Tối ưu chuyển đổi)
 
-## 1. Project Structure and File Scope
+## 1. Cấu trúc dự án và phạm vi file
 
-Website information is defined in `.plans/site.md` — MUST BE STRICTLY FOLLOWED.
+Thông tin website được định nghĩa trong `.plans/site.md` — **PHẢI TUÂN THỦ NGHIÊM NGẶT**.
+Mô tả design system được định nghĩa trong `.plans/design_system.md` — **PHẢI TUÂN THỦ NGHIÊM NGẶT**.
+HTML template tham chiếu được định nghĩa trong `/.plans/templates/*.html` — **ĐƯỢC ĐỌC để hiểu cấu trúc HTML, nhưng KHÔNG được chỉnh sửa
 
-### 1.1. Theme Folder Structure & File Rules — STRICT COMPLIANCE REQUIRED
+### 1.1. Cấu trúc thư mục theme & quy tắc file — BẮT BUỘC TUÂN THỦ, Nội dung các File phải tuân thuộc `.plans/site.md` và `.plans/design_system.md`
 
-**AI IS ALLOWED to modify:**
+**File CSS chính, AI ĐƯỢC PHÉP chỉnh sửa**
+* `assets/css/main.css` → File CSS chính, dùng cho tất cả các trang, chỉ chứa CSS thuần (không dùng Tailwind), ngắn gọn, chứa các css chung (variable, css cho các component phổ biến)
 
-* `assets/css/tailwind-input.css` → Tailwind theme tokens
-* `assets/css/shop.css` → CSS for shop page only (pure CSS, no Tailwind)
-* `assets/css/product.css` → CSS for product page only (pure CSS, no Tailwind)
-* `assets/css/cart.css` → CSS for cart page only (pure CSS, no Tailwind)
-* `assets/css/checkout.css` → CSS for checkout page only (pure CSS, no Tailwind)
-* `template-parts/*.php` → Templates for other pages using HTML + PHP + Tailwind (no dependency on other CSS files)
+**Header & Footer, AI ĐƯỢC PHÉP chỉnh sửa**
+* `header.php` → Header dùng HTML + PHP + Tailwind
+* `footer.php` → Footer dùng HTML + PHP + Tailwind
 
-**AI IS ALLOWED to read (to understand HTML structure):**
+**Các trang tĩnh AI ĐƯỢC PHÉP chỉnh sửa, dùng tailwind cho các trang này**
+* `assets/css/tailwind-input.css` → chứa các variable cho theme
+* `template-parts/page-home.php` → Nội dung cho trang chủ dùng HTML + PHP + Tailwind
+* `template-parts/page-contact.php` → Nội dung cho trang liên hệ dùng HTML + PHP + Tailwind
+* `template-parts/page-about.php` → Nội dung cho trang About Us dùng HTML + PHP + Tailwind
+* `template-parts/page-faq.php` → Nội dung cho trang FAQ dùng HTML + PHP + Tailwind
+* `template-parts/page-privacy.php` → Nội dung cho trang Privacy Policy dùng HTML + PHP + Tailwind
+* `template-parts/page-shipping-returns.php` → Nội dung cho trang Shipping & Returns dùng HTML + PHP + Tailwind
+* `template-parts/page-terms.php` → Nội dung cho trang Terms & Conditions dùng HTML + PHP + Tailwind
+* `404.php` → Nội dung cho trang 404 dùng HTML + PHP + Tailwind
 
-* All files in `/.plans/templates/*.html`
+**Các trang của Woocommerce và CSS của nó AI ĐƯỢC PHÉP chỉnh sửa**,
+* `woocommerce/archive-product.php` → Nội dung trang shop (dùng HTML + PHP, không dùng Tailwind)
+* `woocommerce/content-product.php` → Nội dung trang sản phẩm (dùng HTML + PHP, không dùng Tailwind)
+* `assets/css/shop.css` → CSS cho trang shop (CSS cho các class của woocommerce, không dùng Tailwind) cấu trúc html tham chiếu trong `.plans/templates/shop.html`
+* `assets/css/product.css` → CSS cho trang sản phẩm (CSS cho các class của woocommerce, không dùng Tailwind) cấu trúc html tham chiếu trong `.plans/templates/product.html`
+* `assets/css/cart.css` → CSS cho trang giỏ hàng (CSS cho các class của woocommerce, không dùng Tailwind) cấu trúc html tham chiếu trong `.plans/templates/cart.html`
+* `assets/css/checkout.css` → CSS cho trang checkout và thank you page (CSS cho các class của woocommerce, không dùng Tailwind) cấu trúc html tham chiếu trong `.plans/templates/checkout.html` và `.plans/templates/thank-you.html`
+* `assets/css/track-order.css` → CSS cho trang Track Order (CSS cho các class của woocommerce, không dùng Tailwind) cấu trúc html tham chiếu trong `.plans/templates/track-order.html`
+
+**File JS chung, AI ĐƯỢC PHÉP chỉnh sửa**
+* `assets/js/main.js` → File JS chính, dùng cho tất cả các trang, chỉ chứa JS thuần, ngắn gọn
+
+### 1.2. Các folder, file không cần đọc và chỉnh sửa
+* `assets/css/tw/**` → Folder chứa các file Tailwind đã build, không cần đọc và chỉnh sửa
+* `dist/**` → Folder chứa theme đã build không cần đọc và chỉnh sửa
 
 ---
 
-## 2. CSS Rules — Pure CSS + Variables
+## 2. Quy tắc CSS — CSS thuần + Variables
 
-### 2.1. Non-negotiable Principles
+### 2.1. Nguyên tắc bắt buộc
 
-**DO NOT use `@apply`** with Tailwind utilities inside CSS files.
-Reason: clearly separate "theme tokens" (defined in `tailwind-input.css`) and "WooCommerce styling" (pure CSS in the other 4 files). When tokens change, all WooCommerce styles update automatically.
+**KHÔNG được dùng `@apply`** với utility của Tailwind trong file CSS.
+Lý do: cần tách rõ “theme tokens” (định nghĩa trong `tailwind-input.css`) và “style WooCommerce” (CSS thuần ở các file còn lại). Khi token thay đổi, toàn bộ style WooCommerce sẽ tự động cập nhật.
 
-**ONLY USE:**
+**CHỈ ĐƯỢC DÙNG:**
 
-* Pure CSS (selectors + properties)
-* CSS variables from `tailwind-input.css` (via `var(--color-foreground)`, etc.)
-* Standard pseudo-classes, pseudo-elements, media queries
-* Modern CSS nesting (well-supported since 2023)
+* CSS thuần (selector + property)
+* CSS variables từ `tailwind-input.css` (dùng `var(--color-foreground)`, ...)
+* Pseudo-class, pseudo-element, media query chuẩn
+* CSS nesting hiện đại (được hỗ trợ tốt từ 2023)
 
 ---
 
-### 2.2. Structure of `tailwind-input.css`
+### 2.2. Cấu trúc của `tailwind-input.css`
 
-This is the **single source of truth** for theme tokens. All values for colors, fonts, spacing, easing must be defined here.
+Đây là **nguồn duy nhất (single source of truth)** cho theme tokens.
+Mọi giá trị về màu sắc, font, spacing, easing phải được định nghĩa tại đây.
 
 ```css
 @import "tailwindcss";
@@ -52,124 +76,124 @@ This is the **single source of truth** for theme tokens. All values for colors, 
 @theme {
   /* === COLORS === */
   /* Background layers */
-  --color-background: #FDFBF7;        /* Main background */
-  --color-surface: #FFFFFF;           /* Cards, modals */
-  --color-surface-alt: #F5F2EC;       /* Secondary background, hover state */
+  --color-background: #FDFBF7;        /* Nền chính */
+  --color-surface: #FFFFFF;           /* Card, modal */
+  --color-surface-alt: #F5F2EC;       /* Nền phụ, hover */
 
   /* Text */
-  --color-foreground: #1A1512;        /* Primary text */
-  --color-foreground-muted: #6B635C;  /* Secondary text */
-  --color-muted: #8B9D83;             /* Captions, placeholders */
+  --color-foreground: #1A1512;        /* Text chính */
+  --color-foreground-muted: #6B635C;  /* Text phụ */
+  --color-muted: #8B9D83;             /* Caption, placeholder */
 }
 ```
 
-**Rules when editing `tailwind-input.css`:**
+**Quy tắc khi chỉnh sửa `tailwind-input.css`:**
 
-* Only add/edit variables inside the `@theme` block, DO NOT write CSS rules
-* Use naming pattern: `--color-*`, `--font-*`, `--radius-*`, `--shadow-*`
-* When adding new variables, group them under section comments (COLORS, TYPOGRAPHY...)
-* DO NOT remove default variables (background, surface, foreground, muted, font-sans, font-heading, ease-fluid)
-
----
-
-### 2.4. Selector Principles
-
-* **Prioritize native WooCommerce classes** (`.woocommerce`, `.product`, `.cart_item`, `.woocommerce-Price-amount`, etc.)
-* **Do not use `!important`** unless overriding inline plugin styles (must include comment explaining why)
-* **No nesting deeper than 3 levels**
-* **Do not use ID selectors** (`#...`) for styling
-* **Minimal specificity** — a single class is sufficient, avoid combining with tags
+* Chỉ thêm/sửa biến trong block `@theme`, KHÔNG viết CSS rule
+* Dùng naming: `--color-*`, `--font-*`, `--radius-*`, `--shadow-*`
+* Khi thêm biến mới, phải group theo comment (COLORS, TYPOGRAPHY...)
+* KHÔNG xóa các biến mặc định (background, surface, foreground, muted, font-sans, font-heading, ease-fluid)
 
 ---
 
-## 6. Standard Workflow for AI Agent
+### 2.4. Nguyên tắc selector
 
-When receiving a request, the AI agent must follow this sequence:
-
-### Step 1: Identify Scope
-
-Which page does the request belong to? Shop / Product / Cart / Checkout / Theme tokens?
-→ Determine 1–2 files to modify within the allowed set.
-
----
-
-### Step 2: Read HTML Reference
-
-Read the corresponding file in `templates/[page].html` to understand:
-
-* How WooCommerce renders HTML
-* Which classes are used
-* Which elements need styling
+* **Ưu tiên class WooCommerce mặc định** (`.woocommerce`, `.product`, `.cart_item`, `.woocommerce-Price-amount`, ...)
+* **Không dùng `!important`** trừ khi override inline style của plugin (phải có comment giải thích)
+* **Không nesting quá 3 cấp**
+* **Không dùng ID selector** (`#...`) để style
+* **Specificity tối thiểu** — chỉ cần 1 class, tránh kết hợp với tag
 
 ---
 
-### Step 3: Check Theme Tokens
+## 6. Workflow chuẩn cho AI Agent
 
-Review the current `tailwind-input.css`.
-If required variables are missing → add them inside the `@theme` block.
+Khi nhận request, AI phải làm theo thứ tự:
 
----
+### Bước 1: Xác định phạm vi
 
-### Step 4: Write CSS
-
-Edit the appropriate CSS file. Follow:
-
-* Pure CSS, no `@apply`
-* All colors/fonts/radius/easing must use `var(--*)`
-* Keep selectors concise, prioritize WooCommerce classes
-* Mobile-first: base styles for mobile, use `@media (min-width: ...)` for desktop
+Request thuộc trang nào? Shop / Product / Cart / Checkout / Theme tokens?
+→ Xác định 1–2 file cần chỉnh trong phạm vi cho phép.
 
 ---
 
-### Step 5: Self-check
+### Bước 2: Đọc HTML tham chiếu
 
-Run through the checklist in Section 7 before finishing.
+Đọc file tương ứng trong `templates/[page].html` để hiểu:
 
----
-
-### Step 6: Report
-
-Summarize:
-
-* Files modified
-* CSS blocks added/changed
-* New variables added to `tailwind-input.css` (if any)
-* Notes for the user (if dependencies with HTML templates exist)
+* WooCommerce render HTML như thế nào
+* Các class được sử dụng
+* Những phần tử cần style
 
 ---
 
-## 7. Pre-output Checklist
+### Bước 3: Kiểm tra theme tokens
 
-Before committing CSS, the AI must verify:
-
-* [ ] Only modified files within the 5 allowed files?
-* [ ] No usage of `@apply`?
-* [ ] No hard-coded hex/rgb values? All colors use `var(--color-*)`?
-* [ ] No hard-coded font names? Use `var(--font-*)`?
-* [ ] Easing and duration use `var(--ease-*)`, `var(--duration-*)`?
-* [ ] No `!important` (or properly justified with comments)?
-* [ ] No ID selectors used for styling?
-* [ ] Minimal specificity?
-* [ ] Mobile-first approach (base = mobile, media query = desktop)?
-* [ ] Animations only use `transform`, `opacity`, `color`, `background`?
-* [ ] Consistent border radius (system: card lg, button pill, input md)?
-* [ ] Primary CTA has high contrast and is clearly visible?
-* [ ] Price is clearly visible on product cards?
-* [ ] Product grid has 2 columns on mobile (not 1 column)?
-* [ ] Touch targets ≥ 44px on mobile (buttons, links, quantity controls)?
-* [ ] Form inputs have clear focus states?
-* [ ] No blocking entry animations on product grid?
+Xem `tailwind-input.css` hiện tại.
+Nếu thiếu biến cần thiết → thêm vào trong `@theme`.
 
 ---
 
-## 8. When to Stop and Ask the User
+### Bước 4: Viết CSS
 
-The AI agent MUST stop and ask if:
+Chỉnh sửa file CSS phù hợp, tuân thủ:
 
-1. The user requests modifying files outside the allowed 5 files
-2. The user requests adding JS, plugins, or changing the build pipeline
-3. HTML in `templates/` does not match actual WooCommerce classes (ask user to verify)
-4. Theme tokens (colors/fonts) need to be changed → confirm before editing `tailwind-input.css`
-5. The request conflicts with the checklist in Section 7
+* CSS thuần, không dùng `@apply`
+* Mọi màu/font/radius/easing phải dùng `var(--*)`
+* Selector ngắn gọn, ưu tiên class WooCommerce
+* Mobile-first: base cho mobile, dùng `@media (min-width: ...)` cho desktop
 
-**Do not expand scope on your own. Better to ask more than to break the theme.**
+---
+
+### Bước 5: Tự kiểm tra
+
+Đối chiếu checklist ở Section 7 trước khi hoàn thành.
+
+---
+
+### Bước 6: Báo cáo
+
+Tóm tắt:
+
+* Các file đã chỉnh sửa
+* Các block CSS thêm/sửa
+* Biến mới thêm vào `tailwind-input.css` (nếu có)
+* Ghi chú cho user (nếu có phụ thuộc HTML template)
+
+---
+
+## 7. Checklist trước khi output
+
+AI phải kiểm tra:
+
+* [ ] Chỉ chỉnh sửa trong 5 file được phép?
+* [ ] Không dùng `@apply`?
+* [ ] Không hard-code màu hex/rgb? Tất cả dùng `var(--color-*)`?
+* [ ] Không hard-code font? Dùng `var(--font-*)`?
+* [ ] Easing & duration dùng `var(--ease-*)`, `var(--duration-*)`?
+* [ ] Không dùng `!important` (hoặc có giải thích hợp lý)?
+* [ ] Không dùng ID selector?
+* [ ] Specificity tối thiểu?
+* [ ] Mobile-first?
+* [ ] Animation chỉ dùng `transform`, `opacity`, `color`, `background`?
+* [ ] Border radius nhất quán (card lg, button pill, input md)?
+* [ ] CTA chính nổi bật, tương phản cao?
+* [ ] Giá sản phẩm hiển thị rõ trên product card?
+* [ ] Grid sản phẩm mobile là 2 cột (không phải 1)?
+* [ ] Touch target ≥ 44px trên mobile?
+* [ ] Input form có trạng thái focus rõ ràng?
+* [ ] Không có animation chặn hiển thị grid sản phẩm?
+
+---
+
+## 8. Khi nào phải dừng và hỏi user
+
+AI **PHẢI dừng lại và hỏi** nếu:
+
+1. User yêu cầu sửa file ngoài 5 file cho phép
+2. User yêu cầu thêm JS, plugin, hoặc thay đổi build pipeline
+3. HTML trong `templates/` không khớp với class WooCommerce thực tế
+4. Cần thay đổi theme tokens (màu, font) → phải xác nhận trước
+5. Request mâu thuẫn với checklist Section 7
+
+**Không tự ý mở rộng phạm vi. Hỏi thêm còn hơn phá vỡ theme.**

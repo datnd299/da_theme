@@ -53,15 +53,6 @@ add_action('wp_enqueue_scripts', 'dawp_virtual_page_assets');
 function dawp_virtual_page_assets() {
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $pages = dawp_virtual_page_map();
-    if ($request_uri == '') {
-        wp_enqueue_style(
-            'dawp-virtual-page-home',
-            get_template_directory_uri() . '/assets/css/' . 'tw-home.css',
-            [],
-            filemtime(get_template_directory_uri() . '/assets/css/') // auto version khi file thay đổi
-        );
-        return;
-    }
 
     // Không phải virtual page hoặc page không cấu hình css
     if (!isset($pages[$request_uri]) || empty($pages[$request_uri]['css'])) {
@@ -71,10 +62,10 @@ function dawp_virtual_page_assets() {
     $css_file_name = ltrim($pages[$request_uri]['css'], '/');
 
     // Đường dẫn vật lý
-    $css_file_path = get_template_directory() . '/assets/css/' . $css_file_name;
+    $css_file_path = get_template_directory() . '/assets/css/tw/' . $css_file_name;
 
     // URL public
-    $css_file_url = get_template_directory_uri() . '/assets/css/' . $css_file_name;
+    $css_file_url = get_template_directory_uri() . '/assets/css/tw/' . $css_file_name;
 
     wp_enqueue_style(
         'dawp-virtual-page-' . sanitize_title($pages[$request_uri]['slug']),

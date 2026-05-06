@@ -1,4 +1,9 @@
 {
+  "type": "module",
+  "scripts": {
+    "build:tw": "node scripts/build-tw.js",
+    "build:theme": "node scripts/build-theme.js"
+  },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.4",
     "tailwindcss": "^4.2.4"

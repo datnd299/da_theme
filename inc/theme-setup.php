@@ -13,10 +13,10 @@ add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
     wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.2');
 
-    wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw-main.css', [], '1.0.2');
+    wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
     if ( is_front_page() ) {
-        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/home.css', [], '1.0.2');
+        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
         dawp_remove_styles();
     }
     

@@ -1,0 +1,9 @@
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-ship.css --content "./template-parts/page-shipping-returns.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-home.css --content "./template-parts/page-home.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-terms.css --content "./template-parts/page-terms-conditions.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-about.css --content "./template-parts/page-about.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-404.css --content "./404.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-main.css --content "./header.php,./footer.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-privacy.css --content "./template-parts/page-privacy.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-faq.css --content "./template-parts/page-faq.php" --minify
+npx @tailwindcss/cli -i ./assets/css/tailwind-input.css -o ./assets/css/tw/tw-contact.css --content "./template-parts/page-contact.php" --minify

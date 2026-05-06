@@ -7,5 +7,10 @@
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.4",
     "tailwindcss": "^4.2.4"
+  },
+  "dependencies": {
+    "cssnano": "^7.1.9",
+    "postcss": "^8.5.14",
+    "terser": "^5.46.2"
   }
 }

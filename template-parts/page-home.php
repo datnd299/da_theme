@@ -98,41 +98,28 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+          <?php
+          $top_picks = wc_get_products( array(
+            'status'  => 'publish',
+            'limit'   => 4,
+            'orderby' => 'date',
+            'order'   => 'DESC',
+          ) );
+          foreach ( $top_picks as $product ) :
+            $img_url = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' );
+            if ( ! $img_url ) $img_url = wc_placeholder_img_src( 'woocommerce_thumbnail' );
+          ?>
           <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="aspect-[4/5] w-full object-cover" src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=700&q=80" alt="Soft floral dress" />
+            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+              <img class="aspect-square w-full object-cover" src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
+            </a>
             <div class="p-3 md:p-4">
-              <h3 class="text-sm font-bold md:text-base">Soft Floral Everyday Dress</h3>
-              <p class="mt-1 font-bold text-[#C98A8A]">$42.00</p>
-              <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
+              <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
+              <p class="mt-1 font-bold text-[#C98A8A]"><?php echo $product->get_price_html(); ?></p>
+              <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
             </div>
           </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="aspect-[4/5] w-full object-cover" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=80" alt="Women casual top" />
-            <div class="p-3 md:p-4">
-              <h3 class="text-sm font-bold md:text-base">Weekend Casual Blouse</h3>
-              <p class="mt-1 font-bold text-[#C98A8A]">$34.00</p>
-              <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="aspect-[4/5] w-full object-cover" src="https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?auto=format&fit=crop&w=700&q=80" alt="Girls boutique dress" />
-            <div class="p-3 md:p-4">
-              <h3 class="text-sm font-bold md:text-base">Girls Sweet Day Dress</h3>
-              <p class="mt-1 font-bold text-[#C98A8A]">$29.00</p>
-              <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="aspect-[4/5] w-full object-cover" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80" alt="Boutique matching set" />
-            <div class="p-3 md:p-4">
-              <h3 class="text-sm font-bold md:text-base">Soft Boutique Matching Set</h3>
-              <p class="mt-1 font-bold text-[#C98A8A]">$48.00</p>
-              <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
-            </div>
-          </article>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
@@ -194,41 +181,37 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+          <?php
+          $favorites = wc_get_products( array(
+            'status'   => 'publish',
+            'limit'    => 4,
+            'featured' => true,
+            'orderby'  => 'popularity',
+            'order'    => 'DESC',
+          ) );
+          if ( empty( $favorites ) ) {
+            $favorites = wc_get_products( array(
+              'status'  => 'publish',
+              'limit'   => 4,
+              'orderby' => 'popularity',
+              'order'   => 'DESC',
+            ) );
+          }
+          foreach ( $favorites as $product ) :
+            $img_url = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' );
+            if ( ! $img_url ) $img_url = wc_placeholder_img_src( 'woocommerce_thumbnail' );
+          ?>
           <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="aspect-[4/5] w-full object-cover" src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?auto=format&fit=crop&w=700&q=80" alt="Women soft cardigan" />
+            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+              <img class="aspect-square w-full object-cover" src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
+            </a>
             <div class="p-3 md:p-4">
-              <h3 class="text-sm font-bold md:text-base">Soft Everyday Cardigan</h3>
-              <p class="mt-1 font-bold text-[#C98A8A]">$39.00</p>
-              <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
+              <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
+              <p class="mt-1 font-bold text-[#C98A8A]"><?php echo $product->get_price_html(); ?></p>
+              <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
             </div>
           </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="aspect-[4/5] w-full object-cover" src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=700&q=80" alt="Girls seasonal outfit" />
-            <div class="p-3 md:p-4">
-              <h3 class="text-sm font-bold md:text-base">Girls Seasonal Outfit</h3>
-              <p class="mt-1 font-bold text-[#C98A8A]">$32.00</p>
-              <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="aspect-[4/5] w-full object-cover" src="https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=700&q=80" alt="Women relaxed dress" />
-            <div class="p-3 md:p-4">
-              <h3 class="text-sm font-bold md:text-base">Relaxed Boutique Dress</h3>
-              <p class="mt-1 font-bold text-[#C98A8A]">$44.00</p>
-              <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="aspect-[4/5] w-full object-cover" src="https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=700&q=80" alt="Boutique accessories" />
-            <div class="p-3 md:p-4">
-              <h3 class="text-sm font-bold md:text-base">Everyday Boutique Accessories</h3>
-              <p class="mt-1 font-bold text-[#C98A8A]">$24.00</p>
-              <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
-            </div>
-          </article>
+          <?php endforeach; ?>
         </div>
       </div>
     </section>
@@ -289,6 +272,29 @@
             Sign Up
           </button>
         </form>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="bg-[#FAF7F2] py-14 md:py-20">
+      <div class="mx-auto w-[min(100%-32px,1180px)]">
+        <div class="mb-8 text-center">
+          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Boutique Life</p>
+          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">From our gallery</h2>
+        </div>
+        <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
+          <?php
+          $gallery_imgs = ['gallery1','gallery2','gallery3','gallery4','gallery5','gallery6'];
+          foreach ( $gallery_imgs as $img ) : ?>
+          <div class="group overflow-hidden rounded-2xl">
+            <img
+              class="h-60 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72"
+              src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/gallery/' . $img . '.jpg' ); ?>"
+              alt="Boutique lifestyle photo"
+            />
+          </div>
+          <?php endforeach; ?>
+        </div>
       </div>
     </section>
   </main>

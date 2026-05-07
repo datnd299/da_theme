@@ -883,3 +883,206 @@ form.cart:not(.variations_form) {
 .related.products .button:active {
   transform: scale(0.97);
 }
+/* ── Reviews ────────────────────────────────────────────────── */
+.woocommerce-Reviews {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border);
+}
+
+.woocommerce-Reviews-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 24px;
+}
+.woocommerce-Reviews-title span {
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+/* Review list */
+.commentlist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comment_container {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+}
+
+.comment_container .avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.comment-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.comment-text .star-rating {
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+  margin-bottom: 6px;
+}
+
+.comment-text .meta {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  margin: 0 0 10px;
+}
+.woocommerce-review__author {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+.woocommerce-review__dash {
+  margin: 0 4px;
+}
+
+.comment-text .description p {
+  font-size: 0.9375rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Review form */
+#review_form_wrapper {
+  border-top: 1px solid var(--color-border);
+  padding-top: 28px;
+}
+
+.comment-reply-title {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+}
+.comment-reply-title small a {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  margin-left: 8px;
+  text-decoration: none;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Star rating selector */
+.comment-form-rating label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+.comment-form-rating label .required {
+  color: var(--color-accent);
+}
+
+.comment-form-rating p.stars {
+  margin: 0;
+}
+.comment-form-rating p.stars a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  position: relative;
+  color: var(--color-border);
+  text-decoration: none;
+}
+.comment-form-rating p.stars a::before {
+  content: "★";
+  font-size: 1.375rem;
+  color: var(--color-border);
+  transition: color 0.1s;
+}
+.comment-form-rating p.stars a:hover::before,
+.comment-form-rating p.stars a:hover ~ a::before,
+.comment-form-rating p.stars.selected a.active::before,
+.comment-form-rating p.stars.selected a.active ~ a::before {
+  color: var(--color-border);
+}
+.comment-form-rating p.stars:hover a::before,
+.comment-form-rating p.stars.selected a::before {
+  color: var(--color-accent);
+}
+.comment-form-rating p.stars:hover a:hover ~ a::before {
+  color: var(--color-border);
+}
+
+/* Review textarea */
+.comment-form-comment label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+.comment-form-comment label .required {
+  color: var(--color-accent);
+}
+.comment-form-comment textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-size: 0.9375rem;
+  font-family: var(--font-primary);
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  resize: vertical;
+  min-height: 120px;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+.comment-form-comment textarea:focus {
+  border-color: var(--color-navy);
+}
+
+/* Submit button */
+.form-submit {
+  margin: 0;
+}
+.form-submit .submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 24px;
+  min-height: 44px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.form-submit .submit:hover {
+  background: var(--color-accent-hover);
+}
+.form-submit .submit:active {
+  transform: scale(0.97);
+}

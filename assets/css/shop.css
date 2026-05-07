@@ -20,6 +20,8 @@
   margin-right: auto;
   padding-left: var(--container-pad-mobile, 16px);
   padding-right: var(--container-pad-mobile, 16px);
+  padding-top: var(--container-pad-mobile, 16px);
+  padding-bottom: var(--container-pad-mobile, 16px);
 }
 @media (min-width: 1024px) {
   .shop-container {

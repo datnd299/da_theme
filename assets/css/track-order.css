@@ -1,173 +1,374 @@
 /* =============================================================
-   TRACK ORDER PAGE — Shop Kelli Design System
-   Pure CSS only. All values reference CSS variables.
-   Matches the boutique, warm, and feminine aesthetic.
+   TRACK ORDER PAGE — Shop Kelli
+   Pure CSS only. References CSS variables from main.css.
    ============================================================= */
 
-/* Page content background */
-#content {
-    font-family: var(--font-sans);
+/* ── Page wrapper ─────────────────────────────────────────── */
+.track-order-page {
+    background-color: var(--color-surface);
+}
+
+/* ── Hero ─────────────────────────────────────────────────── */
+.track-hero {
     background-color: var(--color-background);
-    color: var(--color-foreground);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    border-bottom: 1px solid var(--color-border);
+    padding: 4rem 1rem;
 }
 
-/* Specific section for Order Tracking */
-.virtual-page--track-order {
-    width: 100%;
-    position: relative;
-}
-
-/* Decorative blurs for boutique feel */
-.virtual-page--track-order::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 300px;
-    background-color: color-mix(in srgb, var(--color-accent-soft) 30%, transparent);
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: 0;
-    pointer-events: none;
-    margin-right: -150px;
-    margin-top: -150px;
-}
-
-.virtual-page--track-order::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 400px;
-    height: 400px;
-    background-color: color-mix(in srgb, var(--color-accent-blush) 10%, transparent);
-    border-radius: 50%;
-    filter: blur(100px);
-    z-index: 0;
-    pointer-events: none;
-    margin-left: -200px;
-    margin-bottom: -200px;
-}
-
-/* Container & Sections */
-.virtual-page--track-order>section {
-    max-width: var(--container-max);
+.track-hero__inner {
+    max-width: 48rem;
     margin: 0 auto;
-    padding: 5rem 1rem;
-    position: relative;
-    z-index: 10;
+    text-align: center;
 }
 
-@media (min-width: 768px) {
-    .virtual-page--track-order>section {
-        padding: 8rem 2rem;
-    }
-}
-
-/* Headings */
-.virtual-page--track-order .text-center {
-    margin-bottom: 4rem;
-}
-
-.virtual-page--track-order h1 {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--color-foreground);
-    margin-bottom: 1.5rem;
-}
-
-@media (min-width: 768px) {
-    .virtual-page--track-order h1 {
-        font-size: 3.5rem;
-    }
-}
-
-.virtual-page--track-order .subtitle-label {
-    display: block;
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: 600;
+.track-hero__label {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    border-radius: var(--radius-pill);
+    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
     color: var(--color-accent);
-    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.25rem;
 }
 
-/* Intro Text */
-.virtual-page--track-order .intro-text {
-    font-family: var(--font-sans);
-    font-size: 1.125rem;
-    line-height: 1.625;
+.track-hero__title {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+}
+
+.track-hero__desc {
+    font-size: 1.0625rem;
     color: var(--color-foreground-muted);
-    max-width: 42rem;
+    line-height: 1.7;
+    max-width: 38rem;
     margin: 0 auto;
 }
 
-.prose-intro {
-    margin-bottom: 2.5rem;
-}
+@media (min-width: 1024px) {
+    .track-hero {
+        padding: 6rem 1.5rem;
+    }
 
-.prose-intro p {
-    color: var(--color-foreground-muted);
-    font-size: 1rem;
-    line-height: 1.625;
-    max-width: 32rem;
-    margin: 0 auto;
-}
-
-/* Form Container Card */
-.track-order-form-wrapper {
-    max-width: 42rem;
-    margin: 0 auto;
-    background-color: var(--color-background);
-    padding: 2rem 1.5rem;
-    border-radius: var(--radius-lg);
-    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
-    box-shadow: 0 20px 50px rgba(47, 42, 40, 0.08);
-    position: relative;
-    overflow: hidden;
-}
-
-@media (min-width: 768px) {
-    .track-order-form-wrapper {
-        padding: 3.5rem;
-        border-radius: var(--radius-3xl);
+    .track-hero__title {
+        font-size: 3rem;
     }
 }
 
-/* Accent top line */
-.track-order-form-wrapper::before {
+/* ── Form Section ─────────────────────────────────────────── */
+.track-form-section {
+    padding: 4rem 1rem;
+}
+
+.track-form-section__inner {
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+/* Form Card */
+.track-form-card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(47, 42, 40, 0.08);
+    overflow: hidden;
+    position: relative;
+}
+
+.track-form-card::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 6px;
+    height: 4px;
     background-color: var(--color-accent);
 }
 
-/* WooCommerce Form Elements */
+.track-form-card__body {
+    padding: 2.5rem 1.75rem 2rem;
+}
+
+@media (min-width: 768px) {
+    .track-form-section {
+        padding: 5rem 1.5rem;
+    }
+
+    .track-form-card__body {
+        padding: 3rem 3.5rem 2.5rem;
+    }
+}
+
+/* ── Help Box ─────────────────────────────────────────────── */
+.track-help-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.track-help-box__icon {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.track-help-box__title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin: 0 0 0.375rem;
+}
+
+.track-help-box__text {
+    font-size: 0.875rem;
+    color: var(--color-foreground-muted);
+    line-height: 1.65;
+    margin: 0;
+}
+
+.track-help-box__text a {
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.track-help-box__text a:hover {
+    text-decoration: underline;
+}
+
+/* ── Trust Badges ─────────────────────────────────────────── */
+.track-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    opacity: 0.7;
+}
+
+.track-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-foreground-muted);
+}
+
+.track-badge svg {
+    color: var(--color-accent);
+    flex-shrink: 0;
+}
+
+/* ── More Ways Section ────────────────────────────────────── */
+.track-more-section {
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-border);
+    padding: 4rem 1rem;
+}
+
+.track-more-section__inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.track-more-section__header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.track-more-section__title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin: 0 0 0.5rem;
+}
+
+.track-more-section__subtitle {
+    font-size: 0.9375rem;
+    color: var(--color-foreground-muted);
+    margin: 0;
+}
+
+.track-more-grid {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.track-more-card {
+    display: block;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    text-decoration: none;
+    transition: background-color var(--duration-normal) var(--ease-fluid),
+                border-color var(--duration-normal) var(--ease-fluid);
+}
+
+.track-more-card:hover {
+    background-color: var(--color-surface);
+    border-color: var(--color-accent);
+}
+
+.track-more-card__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin: 0 0 0.5rem;
+    transition: color var(--duration-normal) var(--ease-fluid);
+}
+
+.track-more-card:hover .track-more-card__title {
+    color: var(--color-accent);
+}
+
+.track-more-card__desc {
+    font-size: 0.875rem;
+    color: var(--color-foreground-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .track-more-section {
+        padding: 5rem 1.5rem;
+    }
+
+    .track-more-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ── WooCommerce Form Elements ────────────────────────────── */
 .woocommerce-form-track-order {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1.5rem !important;
+    gap: 0 !important;
 }
 
-.woocommerce-form-row {
+/* Description paragraph */
+.woocommerce-form-track-order > p:not(.form-row) {
+    font-size: 0.9375rem !important;
+    color: var(--color-foreground-muted) !important;
+    line-height: 1.7 !important;
+    margin: 0 0 1.5rem !important;
+    padding: 0 !important;
+}
+
+/* Form rows — WooCommerce renders <p class="form-row"> */
+.form-row {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.625rem !important;
-    margin: 0 !important;
+    gap: 0.5rem !important;
+    margin: 0 0 1.25rem !important;
     padding: 0 !important;
     width: 100% !important;
     float: none !important;
-    /* Fix WC default floats */
+    clear: none !important;
+}
+
+.form-row.form-row-first,
+.form-row.form-row-last {
+    width: 100% !important;
+    float: none !important;
+}
+
+.clear {
+    display: none !important;
+}
+
+.form-row label {
+    color: var(--color-foreground) !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    font-family: var(--font-sans) !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+.form-row input.input-text {
+    width: 100% !important;
+    padding: 0.8125rem 1.125rem !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid var(--color-border) !important;
+    background-color: var(--color-surface-alt) !important;
+    color: var(--color-foreground) !important;
+    font-size: 0.9375rem !important;
+    font-family: var(--font-sans) !important;
+    outline: none !important;
+    transition: border-color var(--duration-normal) var(--ease-fluid),
+                box-shadow var(--duration-normal) var(--ease-fluid) !important;
+    box-sizing: border-box !important;
+}
+
+.form-row input.input-text::placeholder {
+    color: var(--color-foreground-muted) !important;
+    opacity: 0.7 !important;
+}
+
+.form-row input.input-text:focus {
+    border-color: var(--color-accent) !important;
+    background-color: var(--color-background) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
+}
+
+.form-row button.button {
+    width: 100% !important;
+    background-color: var(--color-accent) !important;
+    color: #fff !important;
+    padding: 1rem 2rem !important;
+    border-radius: var(--radius-pill) !important;
+    font-weight: 600 !important;
+    font-size: 0.9375rem !important;
+    font-family: var(--font-sans) !important;
+    letter-spacing: 0.025em !important;
+    cursor: pointer !important;
+    border: none !important;
+    transition: background-color var(--duration-normal) var(--ease-fluid),
+                transform var(--duration-normal) var(--ease-fluid),
+                box-shadow var(--duration-normal) var(--ease-fluid) !important;
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-accent) 25%, transparent) !important;
+    margin-top: 0.5rem !important;
+}
+
+.form-row button.button:hover {
+    background-color: var(--color-accent-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--color-accent) 35%, transparent) !important;
+}
+
+.form-row button.button:active {
+    transform: translateY(0) !important;
+}
+
+/* Legacy selectors kept for compatibility */
+.woocommerce-form-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    margin: 0 0 1.25rem !important;
+    padding: 0 !important;
+    width: 100% !important;
+    float: none !important;
 }
 
 .woocommerce-form-row label {
@@ -181,140 +382,63 @@
 
 .woocommerce-form-row input.input-text {
     width: 100% !important;
-    padding: 0.875rem 1.25rem !important;
+    padding: 0.8125rem 1.125rem !important;
     border-radius: var(--radius-lg) !important;
     border: 1px solid var(--color-border) !important;
     background-color: var(--color-surface-alt) !important;
     color: var(--color-foreground) !important;
-    font-size: 1rem !important;
+    font-size: 0.9375rem !important;
     font-family: var(--font-sans) !important;
     outline: none !important;
-    transition: all var(--duration-normal) var(--ease-fluid) !important;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+    transition: border-color var(--duration-normal) var(--ease-fluid),
+                box-shadow var(--duration-normal) var(--ease-fluid) !important;
+    box-sizing: border-box !important;
 }
 
 .woocommerce-form-row input.input-text:focus {
     border-color: var(--color-accent) !important;
     background-color: var(--color-background) !important;
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
 }
 
-/* WooCommerce Button */
 .woocommerce-form-row button.button {
-    margin-top: 0.75rem !important;
     width: 100% !important;
     background-color: var(--color-accent) !important;
-    color: white !important;
-    padding: 1.125rem 2rem !important;
+    color: #fff !important;
+    padding: 1rem 2rem !important;
     border-radius: var(--radius-pill) !important;
     font-weight: 600 !important;
-    font-size: 1rem !important;
+    font-size: 0.9375rem !important;
     font-family: var(--font-sans) !important;
     letter-spacing: 0.025em !important;
     cursor: pointer !important;
     border: none !important;
-    transition: all var(--duration-normal) var(--ease-fluid) !important;
-    box-shadow: 0 10px 20px color-mix(in srgb, var(--color-accent) 25%, transparent) !important;
+    transition: background-color var(--duration-normal) var(--ease-fluid),
+                transform var(--duration-normal) var(--ease-fluid),
+                box-shadow var(--duration-normal) var(--ease-fluid) !important;
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-accent) 25%, transparent) !important;
 }
 
 .woocommerce-form-row button.button:hover {
     background-color: var(--color-accent-hover) !important;
     transform: translateY(-2px) !important;
-    box-shadow: 0 15px 25px color-mix(in srgb, var(--color-accent) 35%, transparent) !important;
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--color-accent) 35%, transparent) !important;
 }
 
 .woocommerce-form-row button.button:active {
     transform: translateY(0) !important;
 }
 
-/* Help Box */
-.track-help-box {
-    margin-top: 3.5rem;
-    padding-top: 2.5rem;
-    border-top: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
-}
-
-.track-help-content {
-    display: flex;
-    align-items: start;
-    gap: 1.25rem;
-    padding: 1.5rem;
-    background-color: var(--color-surface);
-    border-radius: var(--radius-lg);
-    border: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
-}
-
-.track-help-icon {
-    width: 3rem;
-    height: 3rem;
-    background-color: var(--color-background);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-accent);
-    box-shadow: var(--shadow-card);
-    flex-shrink: 0;
-}
-
-.track-help-text h4 {
-    color: var(--color-foreground);
-    font-weight: 600;
-    font-size: 1.125rem;
-    margin-bottom: 0.25rem;
-}
-
-.track-help-text p {
-    color: var(--color-foreground-muted);
-    font-size: 0.875rem;
-    line-height: 1.6;
-}
-
-.track-help-text a {
-    color: var(--color-accent);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.track-help-text a:hover {
-    text-decoration: underline;
-}
-
-/* Trust Badges */
-.track-trust-badges {
-    margin-top: 3rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    opacity: 0.7;
-}
-
-.trust-badge-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-foreground-muted);
-}
-
-.trust-badge-item svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    color: var(--color-accent);
-}
-
-/* Error/Notices styling */
+/* ── WooCommerce Notices ──────────────────────────────────── */
 .woocommerce-error {
     background-color: #FFF5F5 !important;
     border: 1px solid var(--color-alert) !important;
     border-radius: var(--radius-md) !important;
-    padding: 1rem !important;
+    padding: 1rem 1.25rem !important;
     list-style: none !important;
     color: var(--color-alert) !important;
     font-size: 0.875rem !important;
-    margin-bottom: 2rem !important;
+    margin: 0 0 1.5rem !important;
 }
 
 .woocommerce-error li {
@@ -324,5 +448,187 @@
 }
 
 .woocommerce-error li::before {
-    content: '⚠️' !important;
+    content: '⚠' !important;
+}
+
+.woocommerce-message {
+    background-color: #F0FBF4 !important;
+    border: 1px solid var(--color-success) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 1rem 1.25rem !important;
+    color: var(--color-success) !important;
+    font-size: 0.875rem !important;
+    margin: 0 0 1.5rem !important;
+}
+
+/* ── Order Tracking Result ────────────────────────────────── */
+
+/* Order summary line: "Order #1200 was placed on..." */
+.order-info {
+    font-size: 0.9375rem;
+    color: var(--color-foreground-muted);
+    line-height: 1.7;
+    margin: 0 0 2rem;
+    padding: 1rem 1.25rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.order-info mark {
+    background: none;
+    font-weight: 700;
+}
+
+.order-info mark.order-number {
+    color: var(--color-foreground);
+}
+
+.order-info mark.order-date {
+    color: var(--color-foreground);
+}
+
+.order-info mark.order-status {
+    color: var(--color-accent);
+    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+    padding: 0.125rem 0.625rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Order details section */
+.woocommerce-order-details {
+    margin: 0;
+}
+
+.woocommerce-order-details__title {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    margin: 0 0 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+}
+
+/* Order table */
+.woocommerce-table--order-details {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.woocommerce-table--order-details thead th {
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-foreground-muted);
+    padding: 0.625rem 0.75rem;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+}
+
+.woocommerce-table--order-details thead th.product-total {
+    text-align: right;
+}
+
+/* Product rows */
+.woocommerce-table__line-item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.woocommerce-table__line-item:last-child {
+    border-bottom: none;
+}
+
+.woocommerce-table--order-details tbody td {
+    padding: 0.875rem 0.75rem;
+    vertical-align: top;
+}
+
+.woocommerce-table__product-name a {
+    color: var(--color-foreground);
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 1.5;
+    transition: color var(--duration-normal) var(--ease-fluid);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.woocommerce-table__product-name a:hover {
+    color: var(--color-accent);
+}
+
+.product-quantity {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-foreground-muted);
+}
+
+.woocommerce-table__product-total {
+    text-align: right;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--color-foreground);
+}
+
+/* Footer rows (Subtotal / Shipping / Total / Payment) */
+.woocommerce-table--order-details tfoot tr th {
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-foreground-muted);
+    padding: 0.625rem 0.75rem;
+    border-top: 1px solid var(--color-border);
+    background: none;
+}
+
+.woocommerce-table--order-details tfoot tr td {
+    text-align: right;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+    padding: 0.625rem 0.75rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* Total row — emphasised */
+.woocommerce-table--order-details tfoot tr:nth-last-child(2) th,
+.woocommerce-table--order-details tfoot tr:nth-last-child(2) td {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    border-top: 2px solid var(--color-border);
+}
+
+.woocommerce-table--order-details tfoot tr:nth-last-child(2) td {
+    color: var(--color-accent);
+}
+
+/* Payment method row */
+.woocommerce-table--order-details tfoot tr:last-child th,
+.woocommerce-table--order-details tfoot tr:last-child td {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-foreground-muted);
+    border-top: 1px dashed var(--color-border);
+}
+
+.shipped_via {
+    font-size: 0.8125rem;
+    color: var(--color-foreground-muted);
+    font-weight: 400;
+}
+
+/* Price amounts */
+.woocommerce-Price-amount {
+    font-variant-numeric: tabular-nums;
 }

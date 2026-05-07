@@ -65,7 +65,12 @@ function dawp_virtual_page_assets() {
     $css_file_path = get_template_directory() . '/assets/css/tw/' . $css_file_name;
 
     // URL public
-    $css_file_url = get_template_directory_uri() . '/assets/css/tw/' . $css_file_name;
+    if (str_contains($css_file_name, 'tw-')) {
+        $css_file_url = get_template_directory_uri() . '/assets/css/tw/' . $css_file_name;
+    } else {
+        
+        $css_file_url = get_template_directory_uri() . '/assets/css/' . $css_file_name;
+    }
 
     wp_enqueue_style(
         'dawp-virtual-page-' . sanitize_title($pages[$request_uri]['slug']),

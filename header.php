@@ -41,7 +41,7 @@ $nav_items   = dawp_main_menu_items();
             407-255-1197
         </a>
         <span class="text-white/30" aria-hidden="true">|</span>
-        <span>Mon–Fri, 9AM–6PM CST</span>
+        <span>Mon–Sat, 10AM–6PM PST</span>
         <span class="text-white/30" aria-hidden="true">|</span>
         <span>Free Shipping on All Orders</span>
     </div>
@@ -66,7 +66,7 @@ $nav_items   = dawp_main_menu_items();
         <a href="<?php echo esc_url(home_url('/')); ?>"
            class="shrink-0"
            aria-label="Shopkelli">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
                  alt="Shopkelli"
                  class="h-8 w-auto"
                  loading="eager"
@@ -183,7 +183,7 @@ $nav_items   = dawp_main_menu_items();
     <!-- Drawer header -->
     <div class="flex items-center justify-between px-4 h-14 border-b border-white/10">
         <a href="<?php echo esc_url(home_url('/')); ?>">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
                  alt="Shopkelli"
                  class="h-7 w-auto">
         </a>

@@ -8,6 +8,26 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
+add_action('template_redirect', 'redirect_search_to_product');
+function redirect_search_to_product() {
+    // Chỉ xử lý khi là trang search và chưa có post_type
+    if (is_search() && !isset($_GET['post_type'])) {
+        wp_safe_redirect(
+            add_query_arg('post_type', 'product', $_SERVER['REQUEST_URI'])
+        );
+        exit;
+    }
+}
+add_filter('template_include', 'theme_search_template');
+function theme_search_template($template) {
+    if (is_search() && get_query_var('post_type') === 'product') {
+        $new_template = locate_template(array('woocommerce/archive-product.php'));
+        if ($new_template) {
+            return $new_template;
+        }
+    }
+    return $template;
+}
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {

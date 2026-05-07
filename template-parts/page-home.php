@@ -22,10 +22,10 @@
 
         <div class="relative">
           <div class="overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/image_women_children.png'); ?>" alt="Mother and daughter boutique lifestyle fashion" />
+            <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/banner_baby.png'); ?>" alt="Mother and daughter boutique lifestyle fashion" />
           </div>
           <div class="absolute -left-6 bottom-7 hidden h-[270px] w-[230px] overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
-            <img class="h-full w-full object-cover" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/children_dress.png'); ?>" alt="Women's casual boutique style" />
+            <img class="h-full w-full object-cover" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/fashion_baby.png'); ?>" alt="Women's casual boutique style" />
           </div>
           <div class="absolute bottom-8 right-6 hidden max-w-[240px] rounded-2xl bg-white p-5 shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
             <strong class="mb-1 block text-[#2F2A28]">Curated with care</strong>
@@ -47,39 +47,39 @@
         </div>
 
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/womens_clothing.png'); ?>" alt="Women clothing collection" />
+          <a href="<?php echo esc_url(home_url('/product-category/girls-dresses/')); ?>" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
+            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/babygirls_dress.png'); ?>" alt="Girls Dresses collection" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Women’s Clothing</h3>
-              <p class="mt-1 text-sm text-white/90">Easy outfits for everyday style.</p>
+              <h3 class="font-serif text-2xl">Girls Dresses</h3>
+              <p class="mt-1 text-sm text-white/90">Sweet floral patterns and twirl-worthy styles.</p>
             </div>
           </a>
 
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" id="girls" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/baby_girls_collection.png'); ?>" alt="Girls clothing collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Girls Collection</h3>
-              <p class="mt-1 text-sm text-white/90">Sweet styles for little moments.</p>
-            </div>
-          </a>
-
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" id="mommy-me" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mommy_daughter_holding_hands_lau…_202605071527.jpeg'); ?>" alt="Mommy and daughter matching styles" />
+          <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" id="mommy-me" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
+            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mom&me_collection.png'); ?>" alt="Mommy & Me collection" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
               <h3 class="font-serif text-2xl">Mommy & Me</h3>
-              <p class="mt-1 text-sm text-white/90">Coordinated looks made simple.</p>
+              <p class="mt-1 text-sm text-white/90">Matching outfits for you and your mini-me.</p>
             </div>
           </a>
 
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" id="seasonal" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/seasonal_collections.png'); ?>" alt="Seasonal boutique fashion" />
+          <a href="<?php echo esc_url(home_url('/product-category/women-casual/')); ?>" id="women-casual" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
+            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/women_casual.png'); ?>" alt="Women Casual collection" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Seasonal Collections</h3>
-              <p class="mt-1 text-sm text-white/90">Fresh picks for every occasion.</p>
+              <h3 class="font-serif text-2xl">Women Casual</h3>
+              <p class="mt-1 text-sm text-white/90">Effortless pieces for your everyday look.</p>
+            </div>
+          </a>
+
+          <a href="<?php echo esc_url(home_url('/product-category/baby-girl-boutique/')); ?>" id="baby-girl" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
+            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Baby_girls.png'); ?>" alt="Baby Girl collection" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
+            <div class="absolute bottom-5 left-5 right-5 text-white">
+              <h3 class="font-serif text-2xl">Baby Girl</h3>
+              <p class="mt-1 text-sm text-white/90">Soft fabrics and adorable first outfits.</p>
             </div>
           </a>
         </div>
@@ -128,7 +128,7 @@
     <section class="py-14 md:py-20">
       <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-6 lg:grid-cols-2">
         <div class="overflow-hidden rounded-[28px] bg-[#F5F3F1]">
-          <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mommy_me.png'); ?>" alt="Mommy and daughter boutique outfits" />
+          <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mom&me.png'); ?>" alt="Mommy and daughter boutique outfits" />
         </div>
         <div class="rounded-[28px] border border-[#E6DDD6] bg-white p-8 shadow-[0_12px_30px_rgba(47,42,40,0.08)] md:p-10">
           <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Mommy & Me</p>
@@ -136,7 +136,7 @@
           <p class="mt-5 text-[#6F625D]">
             Create sweet everyday memories with coordinated boutique styles for mothers and daughters. Soft colors, easy silhouettes, and seasonal pieces made for family photos, weekends, and special days.
           </p>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28] hover:border-[#2F2A28]">Shop Matching Styles</a>
+          <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28] hover:border-[#2F2A28]">Shop Matching Styles</a>
         </div>
       </div>
     </section>
@@ -246,7 +246,7 @@
     <section class="py-14 md:py-20">
       <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-8 rounded-[28px] bg-[#FAF7F2] p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div class="overflow-hidden rounded-2xl">
-          <img class="h-[360px] w-full object-cover md:h-[420px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Our_boutique_story.png'); ?>" alt="Warm local boutique shopping experience" />
+          <img class="h-[360px] w-full object-cover md:h-[420px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/mom_baby_store.png'); ?>" alt="Warm local boutique shopping experience" />
         </div>
         <div class="p-2 md:p-6">
           <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Our Boutique Story</p>

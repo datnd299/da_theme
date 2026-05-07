@@ -10,7 +10,7 @@
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block mb-4">
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
                      alt="Shopkelli"
-                     class="h-8 w-auto"
+                     class="h-16 w-auto"
                      loading="lazy">
             </a>
 
@@ -19,14 +19,7 @@
             </p>
 
             <ul class="space-y-2.5 text-sm text-white/90 mb-6">
-                <li>
-                    <a href="tel:4072551197" class="flex items-start gap-2 hover:text-white transition-colors">
-                        <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-                        </svg>
-                        407-255-1197
-                    </a>
-                </li>
+
 
                 <li>
                     <a href="mailto:support@shopkelli.com" class="flex items-start gap-2 hover:text-white transition-colors">
@@ -46,13 +39,7 @@
                     1777 Canal St, Merced, CA, United States, California
                 </li>
 
-                <li class="flex items-start gap-2">
-                    <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                    Mon–Sat, 10AM–6PM PST
-                </li>
+
             </ul>
 
             <div class="flex items-center gap-3">

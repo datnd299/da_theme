@@ -30,7 +30,7 @@
                 
                 <!-- Brand Support Image -->
                 <div class="relative rounded-3xl overflow-hidden shadow-lg aspect-[16/10]">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/image.png'); ?>" 
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/support_contact.png'); ?>" 
                          alt="Shop Kelli Support Desk" 
                          class="w-full h-full object-cover">
                 </div>
@@ -50,15 +50,14 @@
                         </div>
                     </div>
 
-                    <!-- Phone & Email -->
+                    <!-- Email Support -->
                     <div class="flex gap-5">
                         <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Speak with Us', 'dawp'); ?></h3>
+                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Email Support', 'dawp'); ?></h3>
                             <p class="text-[#6F625D] leading-relaxed">
-                                <a href="tel:4072551197" class="hover:text-[#c98a8a] transition-colors">407-255-1197</a><br>
                                 <a href="mailto:support@shopkelli.com" class="hover:text-[#c98a8a] transition-colors">support@shopkelli.com</a>
                             </p>
                         </div>

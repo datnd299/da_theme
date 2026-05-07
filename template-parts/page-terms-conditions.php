@@ -342,7 +342,7 @@
                         <div class="space-y-1 text-foreground-muted">
                             <p>1777 Canal St, Merced, CA, 95340</p>
                             <p>United States</p>
-                            <p>Phone: 407-255-1197</p>
+
                             <p>Email: support@shopkelli.com</p>
                         </div>
                     </div>

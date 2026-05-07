@@ -8,7 +8,7 @@
 <main class="bg-[#FAF7F2]">
     <!-- Hero Section -->
     <section class="relative h-[500px] lg:h-[650px] flex items-center justify-center overflow-hidden">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mother_and_daughter_in_boutique_202605071526.jpeg'); ?>" 
+        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/store_about.png'); ?>" 
              alt="About Shop Kelli Boutique" 
              class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/30"></div>
@@ -46,7 +46,7 @@
             </div>
             <div class="relative">
                 <div class="absolute -inset-4 bg-[#E8D8C8] rounded-2xl -rotate-2"></div>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mommy_daughter_holding_hands_lau…_202605071527.jpeg'); ?>" 
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_babyandmom.png'); ?>" 
                      alt="Mommy and Daughter laughing" 
                      class="relative rounded-xl shadow-xl w-full h-auto object-cover aspect-square">
             </div>

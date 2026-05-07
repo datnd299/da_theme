@@ -35,14 +35,9 @@ $nav_items   = dawp_main_menu_items();
 <!-- Utility Bar — desktop only -->
 <div class="hidden md:flex bg-[#A64B55] text-white py-1.5">
     <div class="max-w-[1280px] w-full mx-auto px-6 flex items-center justify-center gap-6 text-xs text-white">
-        <a href="tel:4072551197"
-           class="flex items-center gap-1.5 hover:text-white transition-colors">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            407-255-1197
-        </a>
-        <span class="text-white/30" aria-hidden="true">|</span>
-        <span>Mon–Sat, 10AM–6PM PST</span>
-        <span class="text-white/30" aria-hidden="true">|</span>
+
+
+
         <span>Free Shipping on All Orders</span>
     </div>
 </div>
@@ -224,14 +219,8 @@ $nav_items   = dawp_main_menu_items();
 
     <!-- Drawer footer -->
     <div class="px-5 py-5 border-t border-white/10">
-        <a href="tel:4072551197"
-           class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
-            </svg>
-            407-255-1197
-        </a>
-        <p class="text-xs text-white/40 mt-1.5">Mon–Fri, 9AM–6PM CST</p>
+
+
     </div>
 </aside>
 

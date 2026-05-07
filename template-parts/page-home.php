@@ -292,22 +292,7 @@ function ese_product_card( $product, bool $eager = false ): void {
 			<p class="text-[15px] mb-6" style="color:var(--color-text-secondary)">
 				Subscribe for exclusive offers, new arrivals, and tips.
 			</p>
-			<?php if ( function_exists( 'mc4wp_show_form' ) ) : ?>
-				<?php mc4wp_show_form(); ?>
-			<?php else : ?>
-			<form class="flex flex-col sm:flex-row gap-2" onsubmit="return false;">
-				<input
-					type="email"
-					placeholder="Your email address"
-					required
-					class="flex-1 w-full px-4 py-3 rounded-[6px] text-[15px] border min-h-[44px]"
-					style="border-color:var(--color-border);color:var(--color-text-primary);outline-color:var(--color-navy)"
-				/>
-				<button type="submit" class="text-white font-semibold text-[15px] px-6 py-3 rounded-[6px] min-h-[44px] whitespace-nowrap transition-colors" style="background:var(--color-accent)" onmouseover="this.style.background='var(--color-accent-hover)'" onmouseout="this.style.background='var(--color-accent)'">
-					Subscribe
-				</button>
-			</form>
-			<?php endif; ?>
+			<?php echo do_shortcode( '[contact-form-7 id="2a74860" title="Email"]' ); ?>
 			<p class="text-[12px] mt-3" style="color:var(--color-text-muted)">No spam. Unsubscribe anytime.</p>
 		</div>
 	</div>

@@ -31,7 +31,7 @@ function dawp_virtual_page_map() {
         'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
         'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
         'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
-        'terms-conditions' => ['slug' => 'terms',            'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
+        'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
         'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
         'track-order'   => ['slug' => 'track-order',          'title' => 'Track Order', 'css' => 'track-order.css'],
     ];

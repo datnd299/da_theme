@@ -1,350 +1,476 @@
-# Elite Shop Express — Design System
+# Shop Kelli Design System
 
-## 1. Brand Identity
+## Design Goal
 
-**Store:** Elite Shop Express  
-**Domain:** eliteshopexpress.com  
-**Market:** US (English only)  
-**Niche:** Home & Living, Lawn & Garden, Pet Care, Automotive  
-**Persona:** Practical American homeowner — values reliability, clear pricing, fast shipping  
+Create a warm, trustworthy, and modern WooCommerce boutique experience for women and young girls.
 
-**Design philosophy:** Conversion-first. Every element must help users find a product, decide to buy it, or reduce checkout friction. This is NOT a fashion site — avoid editorial/lifestyle aesthetics. Think Home Depot clarity meets Amazon simplicity.
+The website should feel like:
 
----
+* A real local boutique
+* Family-oriented
+* Community-driven
+* Lifestyle-focused
+* Mobile-friendly
+* GMC-safe and trustworthy
 
-## 2. Color System
+The design must support:
 
-**Palette: "Trusted Hardware"** — clean, practical, American retail
+* Women & children fashion shopping
+* Mommy & daughter collections
+* Seasonal boutique merchandising
+* Clean ecommerce usability
+* Authentic merchant presentation
 
-| Token | Value | Usage |
-|---|---|---|
-| `--color-bg` | `#FFFFFF` | Page background |
-| `--color-bg-subtle` | `#F5F5F5` | Section backgrounds, card backgrounds |
-| `--color-text-primary` | `#111111` | Headings, product names |
-| `--color-text-secondary` | `#555555` | Descriptions, meta, labels |
-| `--color-text-muted` | `#888888` | Captions, breadcrumbs |
-| `--color-accent` | `#E8470A` | Primary CTA buttons, sale badges, highlights |
-| `--color-accent-hover` | `#C93D08` | Hover state for accent |
-| `--color-navy` | `#1B3A5C` | Header background, footer, nav |
-| `--color-navy-light` | `#254E7A` | Nav hover states |
-| `--color-border` | `#E2E2E2` | Card borders, dividers |
-| `--color-sale` | `#E8470A` | Sale price, discount badges |
-| `--color-original-price` | `#888888` | Strikethrough original price |
-| `--color-success` | `#1A8A3C` | In-stock, confirmation states |
+Avoid making the store feel like:
 
-**ZERO TOLERANCE:**
-- Do NOT mix more than 3 colors in one component
-- Do NOT use the accent orange for decorative purposes — only CTAs and urgency
-- Do NOT use pure black `#000000` for text — use `#111111`
+* Generic dropshipping ecommerce
+* Overstock marketplaces
+* Aggressive fast fashion
+* Random mixed-category stores
+* Scam-like ecommerce
 
 ---
 
-## 3. Typography
+# Brand Visual Identity
 
-**Font stack:**
-```css
---font-primary: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
-```
+The visual identity should feel:
 
-Load via Google Fonts with `display=swap`.
+* Warm
+* Feminine
+* Cheerful
+* Soft
+* Boutique-inspired
+* Family-friendly
 
-**Scale:**
+The storefront should resemble a trusted boutique expanding online rather than a mass ecommerce warehouse.
 
-| Role | Class | Size | Weight |
-|---|---|---|---|
-| Hero heading | `.t-hero` | `clamp(2rem, 5vw, 3.5rem)` | 700 |
-| Section heading | `.t-section` | `clamp(1.375rem, 3vw, 1.875rem)` | 600 |
-| Product name | `.t-product` | `0.9375rem` (mobile) / `1rem` (desktop) | 500 |
-| Price | `.t-price` | `1.125rem` | 700 |
-| Body | `.t-body` | `0.9375rem` | 400 |
-| Caption / meta | `.t-caption` | `0.75rem` | 400 |
-| Badge / label | `.t-badge` | `0.6875rem` | 600, uppercase, `letter-spacing: 0.04em` |
+Use:
 
----
+* Lifestyle-focused imagery
+* Soft feminine visual direction
+* Spacious layouts
+* Curated merchandising
+* Seasonal storytelling
 
-## 4. Spacing System
+Avoid:
 
-```css
---space-xs:  4px;
---space-sm:  8px;
---space-md:  16px;
---space-lg:  24px;
---space-xl:  40px;
---space-2xl: 64px;
---space-3xl: 96px;
-```
-
-**Containers:**
-```css
---container-max: 1280px;
---container-pad-mobile: 16px;
---container-pad-desktop: 24px;
-```
-
-**Section padding:** `py-12 md:py-16` (48px / 64px)  
-**Grid gap:** `gap-3 md:gap-4` (12px / 16px)  
-**Card padding:** `p-3 md:p-4`
+* Dark luxury aesthetics
+* Tech-style ecommerce
+* Harsh color palettes
+* Flashy sales-heavy layouts
+* Overcrowded pages
 
 ---
 
-## 5. Components
+# Color System
 
-### 5.1 Header
+## Primary Background Colors
 
-**Desktop layout:**
-```
-[Navy bg, sticky, shadow-sm]
-[Logo left] | [Nav: Home & Living | Lawn & Garden | Pet Care | Automotive | Sale] | [Search bar — visible] | [Account | Cart(badge)]
-```
+* Warm White: #FFFFFF
+* Soft Cream: #FAF7F2
 
-**Mobile layout:**
-```
-[Navy bg]
-[☰ Menu] [Logo center] [🔍 Search] [🛒 Cart]
-```
+## Brand Colors
 
-Rules:
-- Sticky on scroll, `backdrop-filter: blur(8px)` when scrolled
-- Search bar always visible on desktop (not icon-only)
-- Cart badge always visible when count > 0
-- Mobile: hamburger opens full-height slide drawer with category tree
-- Phone number visible in top utility bar on desktop: `407-255-1197`
+* Dusty Rose: #c98a8aff
+* Soft Beige: #E8D8C8
+* Warm Blush: #DFA39A
 
----
+## Text Colors
 
-### 5.2 Product Card
+* Primary Text: #2F2A28
+* Secondary Text: #6F625D
+* Light Text: #9A8C86
 
-**Image ratio:** `1/1` (square) for all categories — tools, appliances, accessories all photograph squarer
+## Border & UI Colors
 
-**Card anatomy:**
-```
-[Image 1:1, object-cover, eager for above-fold / lazy for below]
-[Category label — optional]
-[Product name — 2 lines max, ellipsis]
-[Star rating + review count]
-[Price row: $XX.XX | ~~$YY.YY~~ | [SAVE $Z] badge]
-[Add to Cart button]
-```
+* Border Color: #E6DDD6
+* Soft Gray Background: #F5F3F1
 
-Rules:
-- Price MUST be visible without hover/click
-- "Add to Cart" button: full-width, accent orange background, minimum 44px height
-- Sale badge: top-left corner, accent orange pill `SAVE 20%`
-- Hover: image scale `1.03` + card `box-shadow` lift
-- NO `1px solid #ccc` border — use `box-shadow: 0 1px 4px rgba(0,0,0,0.08)` or `bg-[--color-bg-subtle]`
+Avoid:
+
+* Neon colors
+* Pure black-heavy layouts
+* Aggressive red sale-heavy design
+* Overly saturated palettes
 
 ---
 
-### 5.3 Product Grid
+# Typography System
 
-| Breakpoint | Columns |
-|---|---|
-| Mobile (`< 640px`) | 2 (MANDATORY) |
-| Tablet (`640px–1023px`) | 3 |
-| Desktop (`≥ 1024px`) | 4 |
+Typography should feel:
 
-No masonry. No bento. Uniform grid only.
+* Elegant
+* Soft
+* Readable
+* Boutique-oriented
+* Mobile-friendly
 
----
+## Font Direction
 
-### 5.4 Hero Section
+Headings:
 
-Allowed layouts (pick one per page build):
-1. **Full-width image + CTA overlay** — dark gradient from bottom
-2. **50/50 split** — image right, headline + CTA left
-3. **Promo carousel** — max 3 slides, auto-play ≥ 5s, pause on hover
+* Elegant serif or soft modern display font
 
-**Required hero elements:**
-- Concrete headline: ✅ `"Free Shipping on All Orders — Shop Home & Garden"` ❌ `"Elevate Your Space"`
-- Primary CTA button (accent orange)
-- Secondary CTA link (underline or ghost)
-- At least one trust signal visible (free shipping icon or badge)
+Body Text:
 
----
+* Clean sans-serif font
 
-### 5.5 CTA Buttons
+Buttons:
 
-**Primary (Add to Cart, Shop Now, Buy Now):**
-```css
-background: var(--color-accent);   /* #E8470A */
-color: #FFFFFF;
-padding: 12px 24px;
-border-radius: 6px;
-font-weight: 600;
-min-height: 44px;
-```
+* Simple and readable
+* Medium weight
+* Friendly appearance
 
-**Secondary (View Details, Learn More):**
-```css
-background: transparent;
-border: 2px solid var(--color-navy);
-color: var(--color-navy);
-padding: 10px 24px;
-border-radius: 6px;
-```
+Avoid:
 
-**Ghost / text link:**
-```css
-color: var(--color-accent);
-text-decoration: underline;
-```
-
-No `border-radius: 9999px` (rounded-full) — this site uses a practical `6px` radius to signal reliability, not fashion.
+* Overly decorative fonts
+* Corporate typography
+* Hard condensed fonts
+* Childish typography
 
 ---
 
-### 5.6 Trust Bar
+# Layout Rules
 
-Displayed below header (desktop) or in footer (mobile):
+The layout should feel clean, spacious, and easy to browse.
 
-```
-🚚 Free Shipping on All Orders  |  ↩️ 30-Day Returns  |  🇺🇸 US-Based Support  |  📞 407-255-1197
-```
+## General Layout
 
-Colors: white text on navy background, `py-2`
+* Mobile-first design
+* Spacious white space
+* Clean visual hierarchy
+* Consistent spacing system
+* Soft section separation
+* Easy navigation
 
----
+Avoid:
 
-### 5.7 Category Navigation (Homepage)
-
-Icon + label grid showing top-level categories:
-
-```
-[Home & Living] [Lawn & Garden] [Pet Care] [Car Parts] [Automotive Tools]
-```
-
-- Mobile: horizontal scroll row, `overflow-x-auto`
-- Desktop: 5-column grid
-- Each tile: category icon (SVG) + label, `bg-[--color-bg-subtle]`, `rounded-lg`, hover lift
+* Cluttered layouts
+* Overstock-style pages
+* Tiny spacing
+* Crowded product grids
 
 ---
 
-### 5.8 Footer
+# WooCommerce Product Grid Rules
 
-**Layout:**
-```
-[Logo + short description]  [Categories]  [Help]  [Contact]
-[Payment logos]  [Copyright]  [Policy links]
-```
+## Desktop Layout
 
-**Contact info (required):**
-- 📍 3589 South Orange Avenue, Orlando, FL 32806
-- ✉️ support@eliteshopexpress.com
-- 📞 407-255-1197
-- 🕐 Mon–Fri, 9AM–6PM CST
-- 🔗 facebook.com/eliteshopexpress/
+* 3–4 columns maximum
 
----
+## Mobile Layout
 
-### 5.9 Filter & Sort (Category/Shop pages)
+* 2 columns
 
-- Desktop: sticky left sidebar, 280px wide
-- Mobile: bottom sheet triggered by "Filter" button
-- Sort dropdown: top-right, options — Featured / Price Low–High / Price High–Low / Newest / Best Rated
-- Active filters: chips row above grid with `×` remove buttons
+## Product Card Rules
 
----
+Each product card should include:
 
-## 6. Motion & Micro-interactions
+* Clean product image
+* Consistent image ratio
+* Product title
+* Visible pricing
+* Simple CTA button
 
-**Allowed:**
-- Product image hover scale `transform: scale(1.03)`, `transition: 200ms ease`
-- Button press `scale(0.97)`, `transition: 100ms`
-- Cart count badge pop on add
-- Skeleton loaders for product grids
-- Smooth drawer open/close
+Product cards should feel:
 
-**FORBIDDEN:**
-- Fade-up / slide-up animations on product cards (delays product visibility)
-- Parallax scrolling
-- Entry animations on above-the-fold content
-- Auto-play carousels faster than 5s
+* Minimal
+* Boutique-oriented
+* Easy to scan
+* Visually balanced
+
+Avoid:
+
+* Crowded badges
+* Excessive labels
+* Overly aggressive sale tags
+* Flashing promotional elements
 
 ---
 
-## 7. Performance Rules
+# Product Page Rules
 
-- LCP target: < 2.5s
-- Hero image: `loading="eager"`, `fetchpriority="high"`
-- First 8 product images: `loading="eager"`
-- Remaining products: `loading="lazy"`
-- Fonts: Google Fonts with `&display=swap`
-- No render-blocking JS above the fold
+Each product page should include:
 
----
+* Large image gallery
+* Clear product title
+* Visible pricing
+* Variant selection
+* Add-to-cart button above the fold
+* Shipping reassurance
+* Return reassurance
+* Product description
+* Related products section
 
-## 8. Mobile-First Checklist
+The product page should feel:
 
-- [ ] 2-column product grid
-- [ ] All tap targets ≥ 44px
-- [ ] Sticky "Add to Cart" on product detail page
-- [ ] Search visible in header (not icon-only)
-- [ ] Filter = bottom sheet
-- [ ] Trust bar visible on mobile (inside footer)
-- [ ] Phone number tap-to-call (`tel:` link)
+* Clean
+* Trustworthy
+* Lifestyle-focused
+* Easy to navigate
 
----
+Avoid:
 
-## 9. Trust Signals (Required on Every Page)
-
-| Signal | Placement |
-|---|---|
-| Free Shipping | Hero, trust bar, product card, cart |
-| 30-Day Returns | Trust bar, product page, footer |
-| US Address | Footer |
-| Phone Number | Header utility bar (desktop), footer |
-| Business Hours | Footer |
-| Facebook link | Footer |
+* Long cluttered layouts
+* Fake urgency timers
+* Aggressive upsell spam
+* Overwhelming product blocks
 
 ---
 
-## 10. Page-Specific Rules
+# Homepage Design Rules
 
-### Homepage
-- Trust bar below header
-- Category nav tiles
-- Hero banner
-- Featured/bestseller product grid (8–12 products)
-- "Why Shop With Us" section (icons: Free Shipping, Returns, Support)
-- Newsletter signup (NOT a popup — inline section, delayed or on-scroll)
+The homepage should be lifestyle-first rather than product-spam-first.
 
-### Category / Shop Page
-- Breadcrumb
-- Page heading + product count
-- Filter sidebar (desktop) / filter button (mobile)
-- Sort dropdown
-- Product grid
-- Pagination or "Load More"
+## Required Sections
 
-### Product Page
-- Breadcrumb
-- Image gallery (zoom on click)
-- Product title, SKU, price (sale + original)
-- Short description bullets
-- Sticky "Add to Cart" on mobile
-- Trust badges inline: Free Shipping / Returns / Secure Checkout
-- Tabs: Description / Specifications / Reviews
-- Related products (4 cards)
+* Hero banner
+* New Arrivals
+* Mommy & Me Collection
+* Girls Collection
+* Seasonal Collections
+* Boutique Favorites
+* Trust Section
+* Newsletter or community section
 
-### Cart
-- Line items with image, name, variant, qty stepper, remove
-- Order summary: subtotal, shipping (Free), total
-- Trust row (Free Shipping, Returns, Secure)
-- "Continue Shopping" + "Proceed to Checkout"
+## Homepage Style
+
+Use:
+
+* Warm lifestyle imagery
+* Seasonal storytelling
+* Soft overlays
+* Curated product presentation
+* Friendly boutique messaging
+
+Avoid:
+
+* Overstock homepage layouts
+* Dense product walls
+* Aggressive sale banners
+* Flash sale countdowns
 
 ---
 
-## 11. Pre-Output Checklist
+# Header Rules
 
-Before shipping any component or page:
+The header should feel:
 
-- [ ] Price visible immediately (no hover required)
-- [ ] "Add to Cart" CTA high contrast and ≥ 44px
-- [ ] 2-col grid on mobile
-- [ ] No entry animations on product cards
-- [ ] Search bar visible in header
-- [ ] Trust signals present
-- [ ] Inter font loaded correctly
-- [ ] Hero has a concrete, actionable headline
-- [ ] Images have alt text
-- [ ] Phone number is a `tel:` link
+* Clean
+* Boutique-oriented
+* Easy to navigate
+
+## Header Elements
+
+Include:
+
+* Logo
+* Main navigation
+* Search
+* Account icon
+* Cart icon
+
+Navigation should remain simple and uncluttered.
+
+Avoid:
+
+* Mega-menu overload
+* Too many categories
+* Aggressive announcement bars
+
+---
+
+# Footer Rules
+
+The footer should reinforce merchant trust and brand authenticity.
+
+## Required Footer Links
+
+* About Us
+* Contact Us
+* Shipping Policy
+* Return & Refund Policy
+* Privacy Policy
+* Terms of Service
+* FAQ
+* Track Your Order
+
+## Footer Style
+
+* Clean layout
+* Soft background
+* Simple typography
+* Organized link groups
+* Visible support information
+
+---
+
+# Image Rules
+
+Images should feel:
+
+* Natural
+* Bright
+* Warm
+* Family-friendly
+* Lifestyle-oriented
+* Boutique-inspired
+
+## Product Images
+
+Use:
+
+* Consistent image ratios
+* Soft lighting
+* Clean backgrounds
+* Natural poses
+* Seasonal styling
+
+Avoid:
+
+* Overly edited imagery
+* AI-looking product photos
+* Luxury runway imagery
+* Dark moody visuals
+* Unrelated stock photos
+
+---
+
+# Component Rules
+
+## Buttons
+
+Buttons should:
+
+* Use rounded corners
+* Have soft hover effects
+* Use readable text
+* Feel friendly and modern
+
+Avoid:
+
+* Harsh gradients
+* Flashing animations
+* Aggressive red CTA buttons
+
+## Cards
+
+Cards should:
+
+* Use clean white backgrounds
+* Include subtle borders or soft shadows
+* Maintain consistent spacing
+
+## Banners
+
+Banners should:
+
+* Combine lifestyle imagery with short text
+* Feel clean and seasonal
+* Avoid overcrowded text
+
+---
+
+# Mobile UX Rules
+
+The website must be optimized for mobile-first shopping.
+
+## Mobile Priorities
+
+* Fast scrolling
+* Clear navigation
+* Easy product browsing
+* Thumb-friendly buttons
+* Clean checkout flow
+* Lightweight layouts
+
+Avoid:
+
+* Large popup interruptions
+* Tiny clickable areas
+* Heavy animations
+* Complex navigation systems
+
+---
+
+# Product Content Rules
+
+Descriptions should feel:
+
+* Natural
+* Friendly
+* Lifestyle-focused
+* Seasonal
+* Easy to understand
+
+Include:
+
+* Styling suggestions
+* Comfort-focused messaging
+* Everyday wear scenarios
+* Family-oriented tone
+
+Avoid:
+
+* Keyword stuffing
+* Robotic AI copy
+* Fake scarcity language
+* Overly technical descriptions
+
+---
+
+# GMC Compliance Rules
+
+The storefront must feel like a legitimate boutique retail business.
+
+## Required Trust Signals
+
+* Visible contact information
+* Consistent branding
+* Transparent policies
+* Realistic shipping timelines
+* Secure checkout messaging
+* Mobile-friendly UX
+* Authentic product presentation
+
+## GMC Priorities
+
+* Strong topical consistency
+* Women & children fashion relevance
+* Boutique-style merchant behavior
+* Realistic ecommerce structure
+* Original branded content
+
+Avoid:
+
+* Mixed-category spam
+* Fake reviews
+* Fake urgency
+* Thin AI-generated pages
+* Excessive discount messaging
+* Random unrelated products
+
+---
+
+# Forbidden Design Patterns
+
+Never use:
+
+* Dark luxury ecommerce style
+* Tech startup visual direction
+* Overstock warehouse layouts
+* Marketplace-style product spam
+* Flashing urgency banners
+* Fake countdown timers
+* Excessive popup spam
+* Harsh neon colors
+* Random visual inconsistency
+* Generic dropshipping aesthetics
+
+---
+
+# Strategic Design Direction
+
+The final storefront should feel like:
+
+“A trusted local boutique for women and young girls with a warm community-oriented shopping experience and a polished modern WooCommerce presence.”

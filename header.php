@@ -33,8 +33,8 @@ $nav_items   = dawp_main_menu_items();
 ?>
 
 <!-- Utility Bar — desktop only -->
-<div class="hidden md:flex bg-[var(--color-navy)] py-1.5">
-    <div class="max-w-[1280px] w-full mx-auto px-6 flex items-center justify-center gap-6 text-xs text-white/75">
+<div class="hidden md:flex bg-[#A64B55] text-white py-1.5">
+    <div class="max-w-[1280px] w-full mx-auto px-6 flex items-center justify-center gap-6 text-xs text-white">
         <a href="tel:4072551197"
            class="flex items-center gap-1.5 hover:text-white transition-colors">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
@@ -48,7 +48,7 @@ $nav_items   = dawp_main_menu_items();
 </div>
 
 <!-- Main Header -->
-<header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-[var(--color-navy)] shadow-sm" role="banner">
+<header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-[#A64B55] shadow-sm" role="banner">
     <div class="max-w-[1280px] mx-auto px-4 lg:px-6 h-14 lg:h-16 flex items-center justify-between gap-3">
 
         <!-- Hamburger (mobile) -->
@@ -65,9 +65,9 @@ $nav_items   = dawp_main_menu_items();
         <!-- Logo -->
         <a href="<?php echo esc_url(home_url('/')); ?>"
            class="shrink-0"
-           aria-label="<?php bloginfo('name'); ?>">
+           aria-label="Shopkelli">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
-                 alt="<?php bloginfo('name'); ?>"
+                 alt="Shopkelli"
                  class="h-8 w-auto"
                  loading="eager"
                  fetchpriority="high">
@@ -81,12 +81,12 @@ $nav_items   = dawp_main_menu_items();
                 $is_sale    = strtolower($item['title']) === 'sale';
             ?>
             <a href="<?php echo esc_url($item['url']); ?>"
-               class="px-3 py-2 text-sm font-medium rounded-md whitespace-nowrap transition-colors
+               class="px-3 py-2 text-sm font-bold rounded-md whitespace-nowrap transition-colors
                       <?php echo $is_current
-                          ? 'text-white bg-white/15'
+                          ? 'text-white bg-white/20'
                           : ($is_sale
-                              ? 'text-accent font-semibold hover:bg-white/10'
-                              : 'text-white/80 hover:text-white hover:bg-white/10'); ?>"
+                              ? 'text-white border-b-2 border-white'
+                              : 'text-white hover:bg-white/10'); ?>"
                <?php if ($is_current) echo 'aria-current="page"'; ?>>
                 <?php echo esc_html($item['title']); ?>
             </a>
@@ -101,7 +101,7 @@ $nav_items   = dawp_main_menu_items();
                        name="s"
                        value="<?php echo esc_attr(get_search_query()); ?>"
                        placeholder="<?php esc_attr_e('Search products…', 'dawp'); ?>"
-                       class="w-full h-9 pl-4 pr-10 text-sm bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 focus:bg-white/15 transition-colors">
+                       class="w-full h-9 pl-4 pr-10 text-sm bg-white/15 border border-white/30 rounded-md text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-white/20 transition-colors">
                 <button type="submit"
                         class="absolute right-0 top-0 h-9 w-9 flex items-center justify-center text-white/60 hover:text-white transition-colors"
                         aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
@@ -135,13 +135,13 @@ $nav_items   = dawp_main_menu_items();
 
             <!-- Cart -->
             <a href="<?php echo esc_url($cart_url); ?>"
-               class="relative flex items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+               class="relative flex items-center justify-center w-10 h-10 rounded-md text-white hover:bg-white/10 transition-colors"
                aria-label="<?php printf(esc_attr__('Cart (%d items)', 'dawp'), $cart_count); ?>">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
                 </svg>
                 <?php if ($cart_count > 0) : ?>
-                <span class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-accent text-white text-[10px] font-bold leading-none px-1"
+                <span class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-white text-[#A64B55] text-[10px] font-bold leading-none px-1 shadow-sm"
                       aria-hidden="true">
                     <?php echo esc_html($cart_count); ?>
                 </span>
@@ -152,13 +152,13 @@ $nav_items   = dawp_main_menu_items();
     </div>
 
     <!-- Mobile search bar -->
-    <div id="mobile-search-bar" class="hidden lg:hidden border-t border-white/10 px-4 py-3">
+    <div id="mobile-search-bar" class="hidden lg:hidden border-t border-white/20 px-4 py-3 bg-[#963C46]">
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="relative">
             <input type="search"
                    name="s"
                    value="<?php echo esc_attr(get_search_query()); ?>"
                    placeholder="<?php esc_attr_e('Search products…', 'dawp'); ?>"
-                   class="w-full h-10 pl-4 pr-10 text-sm bg-white/10 border border-white/20 rounded-md text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors">
+                   class="w-full h-10 pl-4 pr-10 text-sm bg-white/20 border border-white/30 rounded-md text-white placeholder:text-white/70 focus:outline-none focus:border-white transition-colors">
             <button type="submit"
                     class="absolute right-0 top-0 h-10 w-10 flex items-center justify-center text-white/60"
                     aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
@@ -177,14 +177,14 @@ $nav_items   = dawp_main_menu_items();
 
 <!-- Mobile drawer -->
 <aside id="mobile-drawer"
-       class="fixed top-0 left-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm bg-[var(--color-navy)] overflow-y-auto"
+       class="fixed top-0 left-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm bg-[#A64B55] overflow-y-auto shadow-2xl"
        aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
 
     <!-- Drawer header -->
     <div class="flex items-center justify-between px-4 h-14 border-b border-white/10">
         <a href="<?php echo esc_url(home_url('/')); ?>">
             <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
-                 alt="<?php bloginfo('name'); ?>"
+                 alt="Shopkelli"
                  class="h-7 w-auto">
         </a>
         <button id="drawer-close"

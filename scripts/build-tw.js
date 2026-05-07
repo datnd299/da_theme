@@ -10,6 +10,7 @@ const builds = [
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-privacy.css', content: './template-parts/page-privacy.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-faq.css', content: './template-parts/page-faq.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-contact.css', content: './template-parts/page-contact.php' },
+  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-track.css', content: './template-parts/page-track-order.php' },
 ];
 
 for (const { input, output, content } of builds) {

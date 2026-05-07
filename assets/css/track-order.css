@@ -1,249 +1,328 @@
-/* ============================================
-   TRACK ORDER PAGE - Urban Dynamic Style
-   Matches design system
-   ============================================ */
+/* =============================================================
+   TRACK ORDER PAGE — Shop Kelli Design System
+   Pure CSS only. All values reference CSS variables.
+   Matches the boutique, warm, and feminine aesthetic.
+   ============================================================= */
+
+/* Page content background */
 #content {
     font-family: var(--font-sans);
     background-color: var(--color-background);
     color: var(--color-foreground);
-    line-height: 1.5;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    padding-top: 80px;
 }
+
+/* Specific section for Order Tracking */
 .virtual-page--track-order {
-  width: 100%;
-  background-color: var(--color-background);
-  min-height: 100vh;
-  padding-bottom: 8rem;
-  position: relative;
-  font-family: var(--font-sans);
-  color: var(--color-foreground);
+    width: 100%;
+    position: relative;
 }
 
-/* ---------- Section wrapper ---------- */
-.virtual-page--track-order > section {
-  max-width: 48rem;
-  margin: 0 auto;
-  padding: 4rem 1rem;
+/* Decorative blurs for boutique feel */
+.virtual-page--track-order::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background-color: color-mix(in srgb, var(--color-accent-soft) 30%, transparent);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+    margin-right: -150px;
+    margin-top: -150px;
+}
+
+.virtual-page--track-order::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    background-color: color-mix(in srgb, var(--color-accent-blush) 10%, transparent);
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+    margin-left: -200px;
+    margin-bottom: -200px;
+}
+
+/* Container & Sections */
+.virtual-page--track-order>section {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 5rem 1rem;
+    position: relative;
+    z-index: 10;
 }
 
 @media (min-width: 768px) {
-  .virtual-page--track-order > section {
-    padding: 6rem 2rem;
-  }
+    .virtual-page--track-order>section {
+        padding: 8rem 2rem;
+    }
 }
 
-/* ---------- Page Title ---------- */
+/* Headings */
+.virtual-page--track-order .text-center {
+    margin-bottom: 4rem;
+}
+
 .virtual-page--track-order h1 {
-  font-family: var(--font-sans);
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--color-foreground);
-  margin-bottom: 0.5rem;
-  text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-foreground);
+    margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
-  .virtual-page--track-order h1 {
-    font-size: 2.25rem;
-  }
+    .virtual-page--track-order h1 {
+        font-size: 3.5rem;
+    }
 }
 
-/* Subtitle pill / label */
-.virtual-page--track-order h1::before {
-  content: 'Order Status';
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-  color: var(--color-muted);
-  margin-bottom: 0.5rem;
+.virtual-page--track-order .subtitle-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
 }
 
-/* ---------- WooCommerce wrapper ---------- */
-.virtual-page--track-order .woocommerce {
-  margin-top: 2rem;
+/* Intro Text */
+.virtual-page--track-order .intro-text {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.625;
+    color: var(--color-foreground-muted);
+    max-width: 42rem;
+    margin: 0 auto;
 }
 
-.virtual-page--track-order .woocommerce-form {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: 2rem 1.5rem;
+.prose-intro {
+    margin-bottom: 2.5rem;
 }
 
-@media (min-width: 768px) {
-  .virtual-page--track-order .woocommerce-form {
-    padding: 3rem;
-  }
-}
-
-/* ---------- Intro paragraph ---------- */
-.virtual-page--track-order .woocommerce-form > p:first-of-type {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  line-height: 1.6;
-  color: var(--color-foreground-muted);
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-@media (min-width: 768px) {
-  .virtual-page--track-order .woocommerce-form > p:first-of-type {
+.prose-intro p {
+    color: var(--color-foreground-muted);
     font-size: 1rem;
-  }
+    line-height: 1.625;
+    max-width: 32rem;
+    margin: 0 auto;
 }
 
-/* ---------- Form rows ---------- */
-.virtual-page--track-order .form-row {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+/* Form Container Card */
+.track-order-form-wrapper {
+    max-width: 42rem;
+    margin: 0 auto;
+    background-color: var(--color-background);
+    padding: 2rem 1.5rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    box-shadow: 0 20px 50px rgba(47, 42, 40, 0.08);
+    position: relative;
+    overflow: hidden;
 }
 
-.virtual-page--track-order .form-row-first,
-.virtual-page--track-order .form-row-last {
-  width: 100%;
+@media (min-width: 768px) {
+    .track-order-form-wrapper {
+        padding: 3.5rem;
+        border-radius: var(--radius-3xl);
+    }
 }
 
-@media (min-width: 640px) {
-  .virtual-page--track-order .woocommerce-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem 1.5rem;
-  }
-
-  .virtual-page--track-order .woocommerce-form > p:first-of-type {
-    grid-column: 1 / -1;
-  }
-
-  .virtual-page--track-order .form-row-first,
-  .virtual-page--track-order .form-row-last {
-    margin-bottom: 0;
-  }
-
-  .virtual-page--track-order .form-row:last-of-type,
-  .virtual-page--track-order .clear {
-    grid-column: 1 / -1;
-  }
+/* Accent top line */
+.track-order-form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background-color: var(--color-accent);
 }
 
-/* ---------- Labels ---------- */
-.virtual-page--track-order .form-row label {
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--color-foreground);
-  margin-bottom: 0.25rem;
+/* WooCommerce Form Elements */
+.woocommerce-form-track-order {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
 }
 
-/* ---------- Inputs ---------- */
-.virtual-page--track-order .input-text {
-  width: 100%;
-  background-color: var(--color-background);
-  border: 1px solid var(--color-surface-alt);
-  border-radius: var(--radius-md);
-  padding: 0.875rem 1rem;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  color: var(--color-foreground);
-  outline: none;
-  transition: all 0.2s ease;
+.woocommerce-form-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.625rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    float: none !important;
+    /* Fix WC default floats */
 }
 
-.virtual-page--track-order .input-text::placeholder {
-  color: var(--color-muted);
+.woocommerce-form-row label {
+    color: var(--color-foreground) !important;
+    font-weight: 600 !important;
+    font-size: 0.875rem !important;
+    font-family: var(--font-sans) !important;
+    display: block !important;
+    margin: 0 !important;
 }
 
-.virtual-page--track-order .input-text:hover {
-  border-color: var(--color-muted);
+.woocommerce-form-row input.input-text {
+    width: 100% !important;
+    padding: 0.875rem 1.25rem !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid var(--color-border) !important;
+    background-color: var(--color-surface-alt) !important;
+    color: var(--color-foreground) !important;
+    font-size: 1rem !important;
+    font-family: var(--font-sans) !important;
+    outline: none !important;
+    transition: all var(--duration-normal) var(--ease-fluid) !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02) !important;
 }
 
-.virtual-page--track-order .input-text:focus {
-  border-color: var(--color-foreground);
-  box-shadow: 0 0 0 1px var(--color-foreground);
+.woocommerce-form-row input.input-text:focus {
+    border-color: var(--color-accent) !important;
+    background-color: var(--color-background) !important;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
 }
 
-/* ---------- Clear helper ---------- */
-.virtual-page--track-order .clear {
-  clear: both;
-  height: 0;
+/* WooCommerce Button */
+.woocommerce-form-row button.button {
+    margin-top: 0.75rem !important;
+    width: 100% !important;
+    background-color: var(--color-accent) !important;
+    color: white !important;
+    padding: 1.125rem 2rem !important;
+    border-radius: var(--radius-pill) !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    font-family: var(--font-sans) !important;
+    letter-spacing: 0.025em !important;
+    cursor: pointer !important;
+    border: none !important;
+    transition: all var(--duration-normal) var(--ease-fluid) !important;
+    box-shadow: 0 10px 20px color-mix(in srgb, var(--color-accent) 25%, transparent) !important;
 }
 
-/* ---------- Submit Button ---------- */
-.virtual-page--track-order .button {
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-accent);
-  color: var(--color-background);
-  border: none;
-  border-radius: var(--radius-full);
-  padding: 1rem 2rem;
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-top: 1rem;
+.woocommerce-form-row button.button:hover {
+    background-color: var(--color-accent-hover) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 15px 25px color-mix(in srgb, var(--color-accent) 35%, transparent) !important;
 }
 
-@media (min-width: 640px) {
-  .virtual-page--track-order .button {
-    width: auto;
-    padding: 1rem 2.5rem;
-  }
-  .virtual-page--track-order .form-row:last-of-type {
-    text-align: center;
-  }
+.woocommerce-form-row button.button:active {
+    transform: translateY(0) !important;
 }
 
-.virtual-page--track-order .button:hover {
-  background-color: #262626; /* neutral-800 */
+/* Help Box */
+.track-help-box {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
 }
 
-.virtual-page--track-order .button:active {
-  transform: scale(0.95);
+.track-help-content {
+    display: flex;
+    align-items: start;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
 }
 
-/* ---------- Error Message ---------- */
-.virtual-page--track-order .woocommerce-error {
-  list-style: none;
-  margin: 0 0 1.5rem;
-  padding: 1rem 1.25rem;
-  background-color: #FEF2F2;
-  border: 1px solid var(--color-alert);
-  border-radius: var(--radius-md);
-  color: var(--color-alert);
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
+.track-help-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--color-background);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    box-shadow: var(--shadow-card);
+    flex-shrink: 0;
 }
 
-.virtual-page--track-order .woocommerce-error li {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.track-help-text h4 {
+    color: var(--color-foreground);
+    font-weight: 600;
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
 }
 
-.virtual-page--track-order .woocommerce-error li::before {
-  content: '!';
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 50%;
-  background-color: var(--color-alert);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: bold;
+.track-help-text p {
+    color: var(--color-foreground-muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.track-help-text a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.track-help-text a:hover {
+    text-decoration: underline;
+}
+
+/* Trust Badges */
+.track-trust-badges {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0.7;
+}
+
+.trust-badge-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-foreground-muted);
+}
+
+.trust-badge-item svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--color-accent);
+}
+
+/* Error/Notices styling */
+.woocommerce-error {
+    background-color: #FFF5F5 !important;
+    border: 1px solid var(--color-alert) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 1rem !important;
+    list-style: none !important;
+    color: var(--color-alert) !important;
+    font-size: 0.875rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.woocommerce-error li {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.woocommerce-error li::before {
+    content: '⚠️' !important;
 }

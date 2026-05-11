@@ -1,410 +1,502 @@
-# Shop Kelli Home Plan
 
-## Homepage Goal
+---
 
-Create a warm, trustworthy, and lifestyle-focused boutique homepage for women and young girls.
+## 3. `home_plan.md`
 
-The homepage should feel:
+```md
+# Slicktee Home Plan
 
-* Family-oriented
-* Boutique-inspired
-* Seasonal
-* Welcoming
-* Community-driven
-* Easy to shop
+## Homepage Objective
 
-The design should reinforce:
+The homepage should immediately communicate:
 
-* Women & children fashion
-* Mommy & daughter shopping
-* Boutique authenticity
-* GMC-safe ecommerce trust
+- youthful streetwear identity
+- graphic tee specialization
+- clean apparel branding
+- energetic green-based visual system
+- authentic ecommerce experience
+- GMC-safe merchant trust
+
+The storefront should feel like:
+
+“A real modern apparel brand focused on graphic tees, oversized tees, hoodies, and everyday streetwear essentials.”
 
 Avoid:
-
-* Overstock-style layouts
-* Product spam walls
-* Aggressive discount banners
-* Generic dropshipping design
+- POD spam feeling
+- random marketplace layouts
+- overcrowded homepage sections
+- excessive promo messaging
+- pastel boutique styling
 
 ---
 
 # Homepage Structure
 
-## 1. Announcement Bar
+## 1. Hero Section
 
-Simple and clean announcement bar.
+### Purpose
 
-Suggested content:
+Establish brand identity instantly.
 
-* Free shipping offer
-* Seasonal collection message
-* Boutique customer support
+### Layout
+
+- Full-width clean hero
+- Dark green or black background
+- Large lifestyle streetwear image
+- Strong bold headline
+- Minimal supporting text
+- 1–2 CTA buttons
+
+### Content Direction
+
+Headline examples:
+- Clean Fits. Bold Energy.
+- Graphic Apparel Made Simple
+- Streetwear For Everyday Motion
+- Modern Tees For Daily Rotation
+
+### CTA
+
+Primary:
+- Shop New Arrivals
+
+Secondary:
+- Explore Graphic Tees
+
+### Visual Direction
+
+Use:
+- urban lifestyle photography
+- oversized tee styling
+- green / black / white palette
+- authentic streetwear poses
+- high contrast text
 
 Avoid:
-
-* Flashing urgency
-* Fake countdowns
-* Aggressive discount language
+- heavy graphic clutter
+- AI-looking visuals
+- crowded collages
+- low contrast text
 
 ---
 
-# 2. Header
+# 2. Featured Categories
+
+### Purpose
+
+Quickly establish product hierarchy.
+
+### Layout
+
+3–4 category blocks.
+
+### Categories
+
+- Graphic Tees
+- Oversized Tees
+- Hoodies
+- Streetwear Essentials
+
+### Visual Style
+
+- large clean imagery
+- minimal overlays
+- modern typography
+- high contrast cards
+- soft hover effects
+
+---
+
+# 3. New Arrivals
+
+### Purpose
+
+Present fresh apparel immediately.
+
+### Layout
+
+- 4–8 featured products
+- clean product cards
+- balanced spacing
+- 2 columns on mobile
+- 4 columns on desktop
+
+### Product Card Rules
 
 Include:
+- image
+- title
+- price
+- simple CTA
 
-* Boutique logo
-* Main navigation
-* Search icon
-* Account icon
-* Cart icon
-
-Navigation should stay simple and uncluttered.
-
-Suggested navigation:
-
-* New Arrivals
-* Women
-* Girls Collection
-* Mommy & Me
-* Seasonal Collections
-* Accessories
+Avoid:
+- excessive labels
+- countdowns
+- cluttered badges
+- fake urgency
 
 ---
 
-# 3. Hero Banner
+# 4. Lifestyle Banner Section
 
-## Goal
+### Purpose
 
-Create an emotional first impression with warm boutique lifestyle visuals.
+Reinforce brand personality.
 
-## Hero Direction
+### Layout
+
+Split layout:
+- large urban lifestyle image
+- short editorial-style text
+
+### Messaging
+
+Focus on:
+- comfort
+- confidence
+- modern styling
+- casual everyday wear
+- movement and daily use
+
+### Visual Direction
 
 Use:
-
-* Women and young girls lifestyle imagery
-* Soft natural lighting
-* Warm feminine color palette
-* Seasonal boutique styling
-* Community-oriented tone
-
-## Hero Content
-
-Include:
-
-* Short emotional headline
-* Simple supporting text
-* Soft CTA button
-
-Suggested CTA:
-
-* Shop New Arrivals
-* Explore The Collection
-* Shop Mommy & Me
-
-Avoid:
-
-* Overstock-style sales messaging
-* Aggressive promotions
-* Too much text
+- city environments
+- neutral architecture
+- relaxed poses
+- oversized silhouettes
+- black/green high contrast section
 
 ---
 
-# 4. New Arrivals Section
+# 5. Graphic Tee Collection
 
-## Goal
+### Purpose
 
-Highlight fresh seasonal products in a clean boutique layout.
+Core conversion section.
 
-## Layout Rules
+### Layout
 
-* Clean WooCommerce product grid
-* Consistent product images
-* Spacious spacing
-* Mobile-friendly layout
+Grid-based apparel showcase or image + copy split.
 
-Display:
+### Direction
 
-* 4–8 featured products
-* Seasonal or trending arrivals
+Products should feel:
+- curated
+- wearable
+- original
+- minimal
+- modern
 
-Avoid:
-
-* Overcrowded grids
-* Too many badges
-* Spammy sale tags
+Messaging should avoid:
+- meme overload
+- copyrighted graphics
+- novelty spam
+- offensive humor
 
 ---
 
-# 5. Mommy & Me Section
+# 6. Oversized Streetwear Section
 
-## Goal
+### Purpose
 
-Reinforce the core identity of the store.
+Support modern streetwear positioning.
 
-## Content Direction
+### Content Direction
+
+Highlight:
+- relaxed fits
+- washed apparel
+- layering
+- neutral tones
+- effortless styling
+
+### Visual Style
 
 Use:
-
-* Mother and daughter lifestyle imagery
-* Warm family-oriented visuals
-* Seasonal outfit coordination
-* Boutique storytelling
-
-Suggested CTA:
-
-* Shop Matching Styles
-* Explore Mommy & Me
-
-This section should feel emotional and lifestyle-focused.
+- oversized silhouettes
+- urban photography
+- concrete backgrounds
+- clean studio textures
+- confident poses
 
 ---
 
-# 6. Girls Collection Banner
+# 7. Hoodie Collection
 
-## Goal
+### Purpose
 
-Highlight girls fashion and seasonal outfits.
+Expand apparel depth.
 
-## Design Direction
+### Visual Direction
+
+- cozy urban lifestyle
+- minimal layering
+- clean modern photography
+- dark or green section background
+
+Avoid:
+- athletic branding vibe
+- sportswear-heavy layouts
+- loud gym aesthetic
+
+---
+
+# 8. Brand Philosophy Section
+
+### Purpose
+
+Improve merchant authenticity.
+
+### Layout
+
+Simple icon/text grid.
+
+### Topics
+
+- Comfortable Everyday Fits
+- Clean Modern Styling
+- Original Graphic Apparel
+- Secure Online Shopping
+
+### Tone
+
+- short
+- confident
+- apparel-focused
+- youth-friendly
+
+Avoid:
+- fake emotional storytelling
+- corporate paragraphs
+- generic AI brand text
+
+---
+
+# 9. Best Sellers
+
+### Purpose
+
+Build trust and natural product discovery.
+
+### Layout
+
+Clean product carousel or grid.
+
+### Rules
 
 Use:
-
-* Bright cheerful visuals
-* Soft feminine styling
-* Seasonal themes
-* Boutique presentation
-
-Suggested content:
-
-* Dresses
-* Seasonal sets
-* Holiday styles
-* Everyday outfits
+- apparel-focused presentation
+- balanced spacing
+- realistic pricing
+- clean card structure
 
 Avoid:
-
-* Overly childish design
-* Loud cartoon visuals
+- “viral” wording
+- fake urgency
+- aggressive discounting
+- fake reviews
 
 ---
 
-# 7. Seasonal Collection Section
+# 10. Social / Lifestyle Section
 
-## Goal
+### Purpose
 
-Create natural merchandising behavior that feels authentic for a boutique store.
+Create authentic fashion atmosphere.
 
-## Seasonal Examples
+### Content
 
-* Spring Collection
-* Summer Favorites
-* Easter Looks
-* Holiday Boutique Styles
+- lifestyle apparel imagery
+- real-world styling inspiration
+- modern casual looks
+- streetwear fit inspiration
 
-The section should feel curated and editorial rather than promotional.
+### Visual Tone
 
----
-
-# 8. Boutique Favorites Section
-
-## Goal
-
-Show curated best sellers in a warm and trustworthy way.
-
-## Layout Direction
-
-Use:
-
-* Small curated product selection
-* Balanced spacing
-* Clean product cards
-* Lifestyle-focused presentation
-
-Suggested title:
-
-* Boutique Favorites
-* Loved By Our Community
-* Best Sellers
+Should feel:
+- urban
+- relaxed
+- young
+- modern
+- authentic
 
 Avoid:
-
-* Fake review spam
-* Overstock layouts
-
----
-
-# 9. Trust Section
-
-## Goal
-
-Reinforce merchant authenticity and customer trust.
-
-## Include
-
-* Free Shipping
-* Easy Returns
-* Secure Checkout
-* Friendly Customer Support
-
-Use:
-
-* Simple icons
-* Soft neutral backgrounds
-* Minimal text
-
-Avoid:
-
-* Large flashy trust badges
-* Overly technical messaging
-
----
-
-# 10. About Brand Section
-
-## Goal
-
-Make the store feel like a real local boutique.
-
-## Content Direction
-
-Short warm introduction about:
-
-* Boutique identity
-* Women & girls fashion
-* Community-oriented shopping
-* Seasonal collections
-* Friendly customer experience
-
-Tone should feel:
-
-* Personal
-* Warm
-* Authentic
-
-Avoid:
-
-* Corporate storytelling
-* Generic AI brand copy
+- influencer overload
+- luxury fashion editorials
+- overly polished AI images
 
 ---
 
 # 11. Newsletter Section
 
-## Goal
+### Purpose
 
-Create boutique community feeling.
+Capture returning customers cleanly.
 
-## Suggested Content
+### Layout
 
-Invite users to:
+Minimal:
+- short headline
+- email field
+- single CTA
 
-* Discover new arrivals
-* Receive seasonal updates
-* Join the boutique community
+### Tone
 
-Design should feel:
-
-* Soft
-* Minimal
-* Lifestyle-oriented
-
-Avoid:
-
-* Aggressive email capture popups
-
----
-
-# 12. Instagram / Social Proof Section
-
-## Goal
-
-Reinforce boutique authenticity and lifestyle branding.
-
-## Content Direction
-
-Display:
-
-* Boutique lifestyle images
-* Seasonal outfits
-* Women & girls styling
-* Community-focused visuals
-
-The section should feel natural and brand-consistent.
-
----
-
-# 13. Footer
-
-## Required Links
-
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
-
-## Footer Style
-
-* Clean layout
-* Warm neutral background
-* Organized navigation
-* Visible support information
+Examples:
+- Stay Updated On New Drops
+- Join The Slicktee Community
+- Get New Fits First
 
 Avoid:
-
-* Overcrowded footer columns
-* Excessive links
-* Dark corporate styling
-
----
-
-# WooCommerce Rules
-
-Homepage WooCommerce sections should:
-
-* Use consistent product image ratios
-* Maintain spacious layouts
-* Be mobile-first
-* Use clean product cards
-* Avoid overcrowding
-
-Product presentation should feel:
-
-* Curated
-* Boutique-oriented
-* Lifestyle-focused
+- spam discount messaging
+- popup-like design
+- aggressive email capture
 
 ---
 
-# GMC Compliance Rules
+# Footer Structure
 
-The homepage must feel like a legitimate boutique ecommerce storefront.
+## Include
 
-Prioritize:
+- Shop Links
+- Policies
+- Contact
+- Support Email
+- Social Icons
 
-* Authentic branding
-* Women & children fashion relevance
-* Seasonal merchandising
-* Realistic ecommerce structure
-* Transparent navigation
-* Trust-focused UX
+## Footer Tone
+
+- dark
+- minimal
+- clean
+- high contrast
+
+Recommended:
+- black or deep green background
+- white text
+- green/lime accent
 
 Avoid:
-
-* Fake urgency
-* Countdown timers
-* Popup spam
-* Thin AI-generated layouts
-* Random mixed-category merchandising
+- cluttered columns
+- oversized legal text
+- low contrast links
 
 ---
 
-# Strategic Homepage Direction
+# Homepage Visual Rules
 
-The homepage should ultimately feel like:
+## Color Direction
 
-“A trusted local boutique for women and young girls with a warm lifestyle-focused shopping experience and a polished modern WooCommerce storefront.”
+Primary:
+- black
+- deep green
+- active green
+- white
+
+Accent:
+- lime energy
+- cool gray
+- soft white
+
+Avoid:
+- pink pastel
+- soft feminine boutique palette
+- neon overload
+- low contrast muted layouts
+
+---
+
+# Typography Direction
+
+Typography should feel:
+- bold
+- modern
+- energetic
+- fashion-oriented
+- clean
+
+Use:
+- large headlines
+- uppercase headings
+- minimal paragraphs
+- strong spacing
+- clear CTAs
+
+Avoid:
+- decorative fonts
+- playful typography
+- futuristic gaming fonts
+- luxury serif tone
+
+---
+
+# Image Direction
+
+## Photography Style
+
+Use:
+- realistic apparel photography
+- modern urban lifestyle
+- neutral lighting
+- clean compositions
+- streetwear poses
+
+Preferred environments:
+- city streets
+- modern interiors
+- concrete textures
+- minimal studio setups
+- outdoor urban corners
+
+Avoid:
+- fantasy visuals
+- overprocessed AI images
+- random mockups
+- fake celebrity styling
+- copyright graphics
+
+---
+
+# Mobile UX Rules
+
+Homepage must:
+- scroll smoothly
+- load quickly
+- maintain spacing
+- prioritize product imagery
+- support easy thumb navigation
+- show strong contrast on mobile
+
+Avoid:
+- giant banners that hide content
+- cluttered product grids
+- tiny tap targets
+- unreadable text overlays
+
+---
+
+# GMC Compliance Direction
+
+Homepage must clearly show:
+- apparel specialization
+- authentic branding
+- clean ecommerce behavior
+- transparent merchant structure
+- original product direction
+
+Avoid:
+- random products
+- excessive sales messaging
+- copyright-heavy designs
+- fake scarcity tactics
+- fake reviews
+- offensive graphic content
+
+---
+
+# Strategic Goal
+
+The homepage should feel like:
+
+“A youthful modern streetwear and graphic apparel brand with energetic green-based visuals, clean merchandising, strong contrast, and trustworthy ecommerce presentation.”

@@ -22,6 +22,15 @@
   --color-alert:    #C0392B;
   --color-success:  #5C8A6A;
 
+  /* === SLICKTEE BRAND TOKENS === */
+  --color-slickBlack:  #0B0F0D;
+  --color-slickGreen:  #123D2A;
+  --color-slickActive: #22C55E;
+  --color-slickLime:   #A3E635;
+  --color-slickSoft:   #F7F8F5;
+  --color-slickText:   #111827;
+  --color-slickMuted:  #6B7280;
+
   /* === BORDER RADIUS === */
   --radius-sm:   4px;
   --radius-md:   8px;

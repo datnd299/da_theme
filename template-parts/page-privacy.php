@@ -1,144 +1,384 @@
 <?php
 /**
- * Template Part: Privacy Policy Page
- * 
- * This template follows Google Merchant Center (GMC) standards and the Shop Kelli Design System.
+ * Template Name: Privacy Policy
+ * Template Part: page-privacy-policy
  */
+
+get_header();
 ?>
 
-<section class="bg-surface py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <div class="text-center mb-16">
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Privacy Policy</h1>
-            <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
-                At Shop Kelli, your privacy is a priority. This policy explains how we collect, use, and protect your personal information when you visit or shop at our boutique.
-            </p>
+<main id="primary" class="bg-white text-slickText font-body">
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-slickBlack text-white">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
+        <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-slickActive/20 blur-3xl"></div>
+        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-slickLime/10 blur-3xl"></div>
+
+        <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+            <div class="max-w-4xl">
+                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-slickLime">
+                    <?php esc_html_e('Customer Privacy', 'dawp'); ?>
+                </p>
+
+                <h1 class="font-heading text-5xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
+                    <?php esc_html_e('Privacy Policy', 'dawp'); ?>
+                </h1>
+
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85">
+                    <?php esc_html_e('Learn how Slicktee collects, uses, protects, and manages customer information when you browse or shop with us.', 'dawp'); ?>
+                </p>
+            </div>
         </div>
+    </section>
 
-        <div class="space-y-12">
-            <!-- Introduction Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Our Commitment</h2>
+    <!-- Quick Trust Cards -->
+    <section class="bg-slickSoft py-12 lg:py-16">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+
+            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
+                    01
                 </div>
+                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
+                    <?php esc_html_e('Secure Checkout', 'dawp'); ?>
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slickMuted">
+                    <?php esc_html_e('Payment and checkout information is handled through secure ecommerce systems.', 'dawp'); ?>
+                </p>
+            </div>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        Shop Kelli ("we", "us", or "our") operates **shopkelli.com**. We are committed to maintaining the trust and confidence of our visitors. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our store.
+            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">
+                    02
+                </div>
+                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
+                    <?php esc_html_e('Order Support', 'dawp'); ?>
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slickMuted">
+                    <?php esc_html_e('We use customer details to process orders, provide tracking, and support purchases.', 'dawp'); ?>
+                </p>
+            </div>
+
+            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
+                    03
+                </div>
+                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
+                    <?php esc_html_e('No Data Selling', 'dawp'); ?>
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slickMuted">
+                    <?php esc_html_e('We do not sell customer personal information to unrelated third parties.', 'dawp'); ?>
+                </p>
+            </div>
+
+            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">
+                    04
+                </div>
+                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
+                    <?php esc_html_e('Clear Contact', 'dawp'); ?>
+                </h3>
+                <p class="mt-3 text-sm leading-6 text-slickMuted">
+                    <?php esc_html_e('Customers may contact us with privacy questions at any time.', 'dawp'); ?>
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Main Policy Content -->
+    <section class="bg-white py-16 lg:py-24">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+
+            <!-- Sidebar -->
+            <aside class="lg:sticky lg:top-32 lg:self-start">
+                <div class="rounded-3xl bg-slickBlack p-7 text-white shadow-xl shadow-black/10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
+                        <?php esc_html_e('Policy Sections', 'dawp'); ?>
                     </p>
-                    <p class="italic text-sm">Last Updated: May 7, 2026</p>
-                </div>
-            </div>
 
-            <!-- Information Collection Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
+                        <?php esc_html_e('Privacy Made Clear.', 'dawp'); ?>
+                    </h2>
+
+                    <p class="mt-5 text-sm leading-7 text-white/80">
+                        <?php esc_html_e('This page explains what information we collect, why we collect it, how it is used, and how customers can contact us.', 'dawp'); ?>
+                    </p>
+
+                    <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('Privacy policy navigation', 'dawp'); ?>">
+                        <a href="#information" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
+                            <?php esc_html_e('Information We Collect', 'dawp'); ?>
+                        </a>
+                        <a href="#usage" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
+                            <?php esc_html_e('How We Use Data', 'dawp'); ?>
+                        </a>
+                        <a href="#cookies" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
+                            <?php esc_html_e('Cookies', 'dawp'); ?>
+                        </a>
+                        <a href="#sharing" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
+                            <?php esc_html_e('Information Sharing', 'dawp'); ?>
+                        </a>
+                        <a href="#security" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
+                            <?php esc_html_e('Security', 'dawp'); ?>
+                        </a>
+                        <a href="#rights" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
+                            <?php esc_html_e('Your Rights', 'dawp'); ?>
+                        </a>
+                        <a href="#contact" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
+                            <?php esc_html_e('Contact Us', 'dawp'); ?>
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Policy Body -->
+            <div class="space-y-8">
+
+                <!-- Intro -->
+                <section class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('Overview', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('Our Commitment To Privacy', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('Slicktee respects your privacy. This Privacy Policy explains how we collect, use, store, and protect information when you visit our website, place an order, contact support, or interact with our online store.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('By using our website, you agree to the practices described in this Privacy Policy. We may update this policy from time to time to reflect changes in our store, legal requirements, or ecommerce operations.', 'dawp'); ?>
+                        </p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Information We Collect</h2>
-                </div>
+                </section>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <div>
-                        <h3 class="text-foreground font-semibold text-xl mb-3">Order Information</h3>
-                        <p>When you make a purchase or attempt to make a purchase through the Site, we collect certain information from you, including your name, billing address, shipping address, payment information (including credit card numbers), email address, and phone number. We refer to this information as "Order Information."</p>
+                <!-- Information We Collect -->
+                <section id="information" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('Information We Collect', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('Customer & Order Information', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('When you place an order or interact with Slicktee, we may collect information needed to complete your purchase and provide support. This may include your name, email address, shipping address, billing address, phone number, order details, and communication history.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('We may also collect basic technical information such as browser type, device type, pages viewed, referral source, IP address, and website usage data to help improve our website performance and shopping experience.', 'dawp'); ?>
+                        </p>
                     </div>
 
-                    <div>
-                        <h3 class="text-foreground font-semibold text-xl mb-3">Device Information</h3>
-                        <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. We refer to this automatically-collected information as "Device Information."</p>
+                    <div class="mt-8 rounded-2xl border border-[#E5E7EB] bg-white p-6">
+                        <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
+                            <?php esc_html_e('Examples Of Information Collected', 'dawp'); ?>
+                        </h3>
+
+                        <ul class="mt-5 grid gap-3 text-sm leading-6 text-slickMuted sm:grid-cols-2">
+                            <li class="flex gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
+                                <?php esc_html_e('Name and contact details', 'dawp'); ?>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
+                                <?php esc_html_e('Shipping and billing address', 'dawp'); ?>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
+                                <?php esc_html_e('Order and transaction details', 'dawp'); ?>
+                            </li>
+                            <li class="flex gap-3">
+                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
+                                <?php esc_html_e('Website usage information', 'dawp'); ?>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-            </div>
+                </section>
 
-            <!-- How We Use Information Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <!-- How We Use Information -->
+                <section id="usage" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('How We Use Information', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('How Your Information Helps Us Serve You', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('We use customer information to process orders, confirm payments, arrange shipping, send tracking updates, respond to customer service requests, manage returns, prevent fraud, improve our website, and communicate important store updates.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('If you choose to join our newsletter, we may use your email address to send product updates, new drop announcements, and promotional messages. You may unsubscribe from marketing emails at any time.', 'dawp'); ?>
+                        </p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">How We Use Your Data</h2>
-                </div>
+                </section>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We use the Order Information that we collect generally to fulfill any orders placed through the Site (including processing your payment information, arranging for shipping, and providing you with invoices and/or order confirmations).</p>
-                    <p>Additionally, we use this Order Information to:</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Communicate with you;</li>
-                        <li>Screen our orders for potential risk or fraud; and</li>
-                        <li>When in line with the preferences you have shared with us, provide you with information or advertising relating to our boutique products or services.</li>
-                    </ul>
-                </div>
-            </div>
+                <!-- Cookies -->
+                <section id="cookies" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('Cookies & Tracking', 'dawp'); ?>
+                    </p>
 
-            <!-- Sharing Information Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('Cookies Help Improve Your Shopping Experience', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('Our website may use cookies and similar technologies to remember preferences, keep items in your cart, improve site performance, understand traffic patterns, and support ecommerce functionality.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('You can control or disable cookies through your browser settings. Some website features may not function properly if cookies are disabled.', 'dawp'); ?>
+                        </p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Sharing Your Information</h2>
-                </div>
+                </section>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use WooCommerce to power our online store. We also use Google Analytics to help us understand how our customers use the Site.</p>
-                    <p>Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.</p>
-                </div>
-            </div>
+                <!-- Sharing -->
+                <section id="sharing" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('Information Sharing', 'dawp'); ?>
+                    </p>
 
-            <!-- Cookies Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('When Information May Be Shared', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('We may share necessary information with trusted service providers who help operate our store, process payments, fulfill orders, ship products, send emails, provide analytics, or support customer service.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('These providers only receive information needed to perform their services. We do not sell customer personal information to unrelated third parties.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('We may also disclose information if required by law, legal process, fraud prevention, or to protect the rights and safety of Slicktee, our customers, or others.', 'dawp'); ?>
+                        </p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Cookies & Tracking</h2>
-                </div>
+                </section>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We use cookies to enhance your experience on our Site. Cookies are small data files that are placed on your device or computer and often include an anonymous unique identifier.</p>
-                    <p>For more information about cookies, and how to disable cookies, visit <a href="http://www.allaboutcookies.org" target="_blank" class="text-accent hover:underline">allaboutcookies.org</a>.</p>
-                </div>
-            </div>
+                <!-- Security -->
+                <section id="security" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('Security', 'dawp'); ?>
+                    </p>
 
-            <!-- Your Rights Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('Protecting Customer Information', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('We use reasonable administrative, technical, and organizational measures to help protect customer information from unauthorized access, misuse, loss, or disclosure.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('While no online system can be guaranteed completely secure, we work to maintain a safe and trustworthy ecommerce environment for our customers.', 'dawp'); ?>
+                        </p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Your Rights</h2>
-                </div>
+                </section>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>If you are a resident of certain territories (including the EU or California), you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.</p>
-                </div>
-            </div>
+                <!-- Your Rights -->
+                <section id="rights" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('Your Choices', 'dawp'); ?>
+                    </p>
 
-            <!-- Contact Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('Access, Update, Or Request Help', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('You may contact us to request help with your personal information, update order contact details, ask privacy questions, or request that we review information associated with your customer account.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('Marketing emails include unsubscribe options. You may opt out of promotional email communication at any time.', 'dawp'); ?>
+                        </p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Contact Us</h2>
-                </div>
+                </section>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at **support@shopkelli.com** or by mail using the details provided below:</p>
-                    
-                    <div class="bg-surface-alt p-6 rounded-md border-l-4 border-accent">
-                        <p class="font-bold text-foreground">Shop Kelli Boutique</p>
-                        <p>1777 Canal St, Merced, CA</p>
-                        <p>United States, California</p>
-                        <p>Attn: Privacy Compliance Officer</p>
+                <!-- Children -->
+                <section class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('Children’s Privacy', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('Our Store Is Intended For Adults', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('Slicktee is intended for use by adults or individuals who have permission from a parent or guardian to shop online. We do not knowingly collect personal information from children without appropriate consent.', 'dawp'); ?>
+                        </p>
                     </div>
-                </div>
+                </section>
+
+                <!-- Policy Updates -->
+                <section class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
+                        <?php esc_html_e('Policy Updates', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
+                        <?php esc_html_e('Changes To This Privacy Policy', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
+                        <p>
+                            <?php esc_html_e('We may update this Privacy Policy from time to time. Any updates will be posted on this page with the revised content. We encourage customers to review this page periodically.', 'dawp'); ?>
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Contact CTA -->
+                <section id="contact" class="overflow-hidden rounded-3xl bg-slickBlack text-white shadow-xl shadow-black/10">
+                    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
+                        <div class="p-7 lg:p-10">
+                            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
+                                <?php esc_html_e('Privacy Questions?', 'dawp'); ?>
+                            </p>
+
+                            <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
+                                <?php esc_html_e('We Keep Support Clear.', 'dawp'); ?>
+                            </h2>
+
+                            <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
+                                <?php esc_html_e('If you have questions about this Privacy Policy or how your information is handled, contact our support team and we will help you review your request.', 'dawp'); ?>
+                            </p>
+
+                            <div class="mt-8 flex flex-wrap gap-4">
+                                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
+                                   class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
+                                    <?php esc_html_e('Contact Support', 'dawp'); ?>
+                                </a>
+
+                                <a href="mailto:support@slicktee.com"
+                                   class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
+                                    <?php esc_html_e('Email Us', 'dawp'); ?>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="min-h-[300px] bg-slickGreen">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee-privacy.jpg'); ?>"
+                                 alt="<?php esc_attr_e('Slicktee customer privacy and support', 'dawp'); ?>"
+                                 class="h-full w-full object-cover opacity-85">
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+</main>
+
+<?php
+get_footer();

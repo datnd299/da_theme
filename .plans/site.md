@@ -1,60 +1,62 @@
-# Shop Kelli
+h# Slicktee
 
 ## Store Information
 
-* **Website:** shopkelli.com
-* **Language:** English
-* **Store Type:** Women & Children Clothing Boutique
-* **Primary Market:** United States
-* **Location:** 1777 Canal St, Merced, CA, United States, California
-* **Support Email:** [support@shopkelli.com](mailto:support@shopkelli.com)
-* **Business Hours:** Monday – Saturday, 10:00 AM – 6:00 PM (PST)
-* **Facebook:** https://www.facebook.com/shopkelli/
-* **Instagram:** https://www.instagram.com/kelli_shop/
+- **Website:** slicktee.com
+- **Language:** English
+- **Store Type:** Graphic Tee & Modern Streetwear Apparel Brand
+- **Primary Market:** United States
+- **Brand Positioning:** Youthful Graphic Apparel / Everyday Streetwear
+- **Support Email:** support@slicktee.com
+- **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM (EST)
 
 ---
 
 # Brand Positioning
 
-Shop Kelli is a warm boutique focused on women’s fashion, girls clothing, mommy & daughter styles, and seasonal family shopping.
+Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, casual hoodies, and everyday outfit essentials.
 
 The brand should feel:
+- Youthful
+- Energetic
+- Clean
+- Urban
+- Creative
+- Confident
+- Apparel-focused
+- Easy to wear
 
-* Feminine
-* Cheerful
-* Community-oriented
-* Family-friendly
-* Boutique-inspired
-* Warm and authentic
+The storefront should feel like a real apparel brand, not a generic print-on-demand store.
 
-The storefront should resemble a real local boutique rather than a generic ecommerce or dropshipping store.
-
-Avoid:
-
-* Mixed-category ecommerce
-* Aggressive fast fashion
-* Overstock-style presentation
-* Unrelated product niches
+Avoid making the website feel like:
+- Random POD spam
+- Meme shirt marketplace
+- Copyright fan merch store
+- Generic dropshipping ecommerce
+- Aggressive hypebeast store
+- Mixed-category marketplace
 
 ---
 
 # Historical Direction
 
-Historically, Shop Kelli aligns with:
-
-* Women’s boutique fashion
-* Baby and girls clothing
-* Mommy & daughter outfits
-* Seasonal collections
-* Lifestyle-focused ecommerce
-* Community boutique retail
+Slicktee aligns with:
+- Graphic t-shirts
+- Casual apparel
+- Streetwear basics
+- Urban tee culture
+- Youth fashion
+- Creative everyday outfits
+- Simple ecommerce apparel branding
 
 Avoid pivoting into:
-
-* Electronics
-* Automotive
-* Supplements
-* Tool or hardware categories
+- Electronics
+- Pet products
+- Home goods
+- Supplements
+- Automotive
+- Random gadgets
+- Unrelated accessories
 
 ---
 
@@ -62,79 +64,88 @@ Avoid pivoting into:
 
 ## Primary Audience
 
-* Women aged 25–45
-* Mothers with daughters
-* Young families
-* Middle-income suburban shoppers
-* Boutique-loving ecommerce buyers
+- Men and women aged 18–35
+- Graphic tee buyers
+- Streetwear-inspired shoppers
+- Casual outfit customers
+- Online fashion shoppers
+- Young creative buyers
+- Students and young professionals
 
 ## Secondary Audience
 
-* Seasonal shoppers
-* Holiday outfit buyers
-* Customers shopping for girls fashion
+- Hoodie shoppers
+- Oversized tee customers
+- Minimal streetwear fans
+- Gift shoppers looking for casual apparel
 
 ---
 
 # Customer Psychology
 
 Customers shop for:
-
-* Comfortable everyday fashion
-* Cute matching outfits
-* Seasonal inspiration
-* Friendly boutique shopping
-* Wearable lifestyle fashion
+- Comfortable everyday tees
+- Clean graphic apparel
+- Easy outfit styling
+- Casual confidence
+- Streetwear basics
+- Wearable statement pieces
+- Minimal but creative designs
 
 The shopping experience should feel:
-
-* Welcoming
-* Cheerful
-* Family-oriented
-* Relaxed
-* Authentic
+- Fast
+- Clean
+- Bold
+- Energetic
+- Youthful
+- Authentic
+- Easy to browse
 
 ---
 
 # Categories
 
-* **New Arrivals**
-* **Best Sellers**
-* **Women’s Clothing**
-* **Girls Collection**
-* **Mommy & Me Styles**
-* **Seasonal Collections**
-* **Shoes**
-* **Accessories**
-* **Boutique Favorites**
+- **New Arrivals**
+- **Best Sellers**
+- **Graphic Tees**
+- **Oversized Tees**
+- **Streetwear Essentials**
+- **Casual Hoodies**
+- **Vintage Wash**
+- **Minimal Apparel**
+- **Accessories**
 
 ---
 
 # Homepage Direction
 
 The homepage should focus on:
-
-* Boutique lifestyle imagery
-* Mommy & daughter visuals
-* Seasonal storytelling
-* Curated collections
-* Family-friendly fashion
+- Strong streetwear branding
+- Clean lifestyle visuals
+- Youthful product discovery
+- Graphic tee positioning
+- Oversized apparel styling
+- Modern ecommerce trust
+- Easy navigation
 
 Recommended sections:
-
-* Hero banner
-* New arrivals
-* Seasonal collections
-* Mommy & Me highlights
-* Girls collections
-* Boutique favorites
-* Trust sections
+- Hero banner
+- Featured categories
+- New arrivals
+- Graphic tees
+- Oversized tees
+- Hoodie collection
+- Streetwear essentials
+- Best sellers
+- Brand values
+- Newsletter
 
 Avoid:
-
-* Product spam grids
-* Fake urgency countdowns
-* Aggressive sales banners
+- Product spam grids
+- Fake urgency countdowns
+- Loud discount banners
+- Copyright-heavy graphic references
+- Marketplace-style layouts
 
 ---
 
@@ -142,68 +153,75 @@ Avoid:
 
 ## Design Style
 
-* Bright clean layouts
-* Warm neutral colors
-* Soft feminine palettes
-* Spacious spacing
-* Boutique typography
-* Mobile-first ecommerce design
+- Clean modern ecommerce
+- Energetic green-based palette
+- Strong black and white contrast
+- Bold typography
+- Large lifestyle images
+- Spacious product grids
+- Minimal visual clutter
+- Mobile-first shopping experience
 
 ## Visual Tone
 
 The website should feel:
-
-* Warm
-* Cheerful
-* Boutique-oriented
-* Family-friendly
-* Soft and approachable
+- Urban
+- Young
+- Active
+- Confident
+- Modern
+- Apparel-native
+- Creative but trustworthy
 
 Avoid:
-
-* Dark luxury aesthetics
-* Tech-style ecommerce
-* Harsh color schemes
-* Scam-like visuals
+- Cheap POD visuals
+- Fake hypebeast styling
+- Overcrowded graphics
+- Neon chaos
+- Low-quality mockups
+- AI-looking product imagery
 
 ---
 
 # Product Content Direction
 
 Descriptions should feel:
-
-* Natural
-* Friendly
-* Lifestyle-oriented
-* Seasonal
-* Wearable and relatable
+- Short
+- Clear
+- Confident
+- Apparel-focused
+- Fit-driven
+- Styling-oriented
+- Comfort-driven
 
 Content should include:
-
-* Styling suggestions
-* Seasonal references
-* Comfort-focused messaging
-* Family-oriented tone
+- Fit notes
+- Fabric feel
+- Styling ideas
+- Everyday use cases
+- Care information when relevant
 
 Avoid:
-
-* Keyword stuffing
-* Robotic AI copy
-* Fake scarcity messaging
+- Keyword stuffing
+- Robotic AI descriptions
+- Fake scarcity messaging
+- Copyrighted character references
+- Offensive or controversial claims
 
 ---
 
 # Collection Direction
 
-Collections should feel curated and seasonal.
+Collections should feel curated and brand-led.
 
 Each collection should:
+- Include short intro copy
+- Present products cleanly
+- Maintain consistent image style
+- Group items by fit, graphic style, or apparel type
+- Feel intentional rather than auto-generated
 
-* Include short boutique-style intros
-* Maintain visual consistency
-* Present coordinated outfits naturally
-
-The browsing experience should feel human-curated rather than mass-generated.
+The browsing experience should feel like a real apparel brand catalog.
 
 ---
 
@@ -211,23 +229,24 @@ The browsing experience should feel human-curated rather than mass-generated.
 
 ## Required Pages
 
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
+- About Us
+- Contact Us
+- Shipping Policy
+- Return & Refund Policy
+- Privacy Policy
+- Terms of Service
+- FAQ
+- Track Your Order
 
 ## Required Trust Elements
 
-* Consistent boutique branding
-* Matching support email
-* Mobile-friendly UX
-* Social media integration
-* Secure checkout messaging
-* Transparent customer policies
+- Visible support email
+- Clear shipping timelines
+- Transparent return policy
+- Secure checkout messaging
+- Consistent apparel branding
+- Mobile-friendly UX
+- Clean footer navigation
 
 ---
 
@@ -235,16 +254,16 @@ The browsing experience should feel human-curated rather than mass-generated.
 
 Orders are processed within **2–4 business days**.
 
-Standard US shipping typically takes **5–10 business days**.
+After dispatch, standard US shipping typically takes **5–10 business days**.
 
 Customers receive tracking information once orders ship.
 
 ## Shipping Benefits
 
-* Free standard shipping on qualifying orders
-* Tracking included
-* Secure packaging
-* Responsive customer support
+- Standard shipping available on all orders
+- Tracking included
+- Secure packaging
+- Responsive customer support
 
 ---
 
@@ -253,68 +272,76 @@ Customers receive tracking information once orders ship.
 Customers may request returns within **30 days** of delivery.
 
 Eligible returns should be:
-
-* Unused
-* Unworn
-* In original condition
-* Returned with original tags
+- Unused
+- Unwashed
+- Unworn
+- In original condition
+- Returned with original packaging where applicable
 
 The return process should feel:
-
-* Friendly
-* Transparent
-* Boutique-service oriented
+- Clear
+- Fair
+- Simple
+- Customer-friendly
 
 ---
 
 # Tone of Voice
 
 The website tone should be:
-
-* Friendly
-* Warm
-* Feminine
-* Relaxed
-* Family-oriented
+- Clean
+- Direct
+- Confident
+- Youthful
+- Modern
+- Casual
+- Streetwear-inspired
 
 Avoid:
-
-* Corporate language
-* Hard sales copy
-* Fake luxury positioning
+- Corporate language
+- Overhyped slang
+- Fake luxury positioning
+- Aggressive sales copy
+- Offensive humor
 
 ---
 
 # GMC & Compliance Direction
 
-The storefront must feel like a legitimate boutique retail business with strong topical consistency and authentic ecommerce behavior.
+The storefront must feel like a legitimate apparel ecommerce brand with strong topical consistency and authentic merchant behavior.
 
 ## GMC Priorities
 
-* Women & children fashion relevance
-* Boutique-focused category structure
-* Original branded content
-* Mobile-friendly shopping flow
-* Transparent customer policies
-* Seasonal merchandising consistency
-* Authentic visual identity
+- Apparel-focused niche relevance
+- Clean graphic tee positioning
+- Original branded content
+- Transparent policies
+- Realistic ecommerce presentation
+- Mobile-friendly shopping flow
+- Consistent product imagery
+- Trustworthy checkout experience
 
 Avoid:
-
-* Mixed-category spam
-* Thin AI-generated pages
-* Fake reviews
-* Spam-style promotional behavior
+- Mixed-category spam
+- Thin AI-generated pages
+- Fake reviews
+- Fake urgency
+- Excessive discount messaging
+- Copyrighted graphics
+- Celebrity or trademarked designs
+- Offensive or adult graphic content
 
 ---
 
 # Store Promises
 
-* Curated boutique fashion
-* Mommy & daughter seasonal styles
-* Comfortable everyday outfits
-* Warm customer experience
-* Trusted community shopping
+- Clean graphic apparel
+- Comfortable everyday fits
+- Youthful streetwear essentials
+- Simple and secure ordering
+- Clear customer policies
+- Responsive support
+- Authentic apparel brand experience
 
 ---
 
@@ -322,4 +349,4 @@ Avoid:
 
 The storefront should feel like:
 
-“A trusted local boutique for women and young girls that is naturally expanding online while maintaining a warm and family-oriented shopping experience.”
+“A youthful modern streetwear apparel brand built for everyday graphic tee customers, with original designs, clean shopping, strong contrast, and trustworthy ecommerce presentation.”

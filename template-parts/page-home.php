@@ -1,85 +1,114 @@
-<main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slicktee | Graphic Tee & Modern Streetwear</title>
+  <meta name="description" content="Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, hoodies, and everyday streetwear essentials." />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-[#111827] antialiased">
+  <main>
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-[#FAF7F2] to-[#FFF6F3] py-10 md:py-16">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_0.95fr] lg:gap-12">
-        <div>
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Women & Children Boutique</p>
-          <h1 class="font-serif text-5xl leading-[0.95] tracking-[-0.04em] text-[#2F2A28] md:text-7xl">
-            Sweet styles for everyday moments.
-          </h1>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-[#6F625D]">
-            Discover warm, wearable boutique fashion for women and young girls, from seasonal outfits to mommy and daughter favorites.
+    <section class="relative overflow-hidden bg-[#0B0F0D] text-white">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
+      <div class="absolute -right-20 top-20 h-72 w-72 rounded-full bg-[#A3E635]/20 blur-3xl"></div>
+      <div class="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-[#22C55E]/20 blur-3xl"></div>
+
+      <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
+        <div class="max-w-2xl">
+          <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[#A3E635]">
+            Graphic Apparel / Streetwear Essentials
           </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#2F2A28] hover:border-[#2F2A28]">
-              Shop Collections
+
+          <h1 class="text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl">
+            Clean Fits. Bold Energy.
+          </h1>
+
+          <p class="mt-6 max-w-xl text-lg leading-8 text-white/85">
+            Modern graphic tees, oversized silhouettes, casual hoodies, and everyday streetwear essentials built for clean style without the noise.
+          </p>
+
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="#new-arrivals" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#22C55E] px-7 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
+              Shop New Arrivals
             </a>
-            <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:-translate-y-0.5 hover:bg-[#FAF7F2]">
-              Our Brand Story
+
+            <a href="#graphic-tees" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">
+              Explore Graphic Tees
             </a>
           </div>
         </div>
 
         <div class="relative">
-          <div class="overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/banner_baby.png'); ?>" alt="Mother and daughter boutique lifestyle fashion" />
+          <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/image_banner%231.png'); ?>" alt="Modern streetwear graphic tee outfit" class="aspect-[4/5] w-full rounded-[1.35rem] object-cover" />
           </div>
-          <div class="absolute -left-6 bottom-7 hidden h-[270px] w-[230px] overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
-            <img class="h-full w-full object-cover" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/fashion_baby.png'); ?>" alt="Women's casual boutique style" />
-          </div>
-          <div class="absolute bottom-8 right-6 hidden max-w-[240px] rounded-2xl bg-white p-5 shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
-            <strong class="mb-1 block text-[#2F2A28]">Curated with care</strong>
-            <p class="text-sm leading-6 text-[#6F625D]">Family-friendly styles for seasons, weekends, and everyday wear.</p>
+
+          <div class="absolute -bottom-7 -left-4 hidden max-w-[250px] rounded-2xl border border-white/10 bg-white p-5 text-[#111827] shadow-2xl lg:block">
+            <p class="text-xs font-black uppercase tracking-[0.2em] text-[#123D2A]">Built For Daily Wear</p>
+            <p class="mt-2 text-sm leading-6 text-[#6B7280]">Clean graphics. Easy fits. Street-ready comfort.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Shop By Collection -->
-    <section class="py-14 md:py-20" id="women">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <!-- Featured Categories -->
+    <section class="bg-[#F7F8F5] py-16 lg:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Shop By Collection</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Warm boutique favorites</h2>
+            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Shop By Category</p>
+            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Streetwear Core</h2>
           </div>
-          <p class="max-w-lg text-[#6F625D]">Browse curated categories designed for women, young girls, and special family moments.</p>
+          <p class="max-w-xl text-base leading-7 text-[#6B7280]">
+            Focused collections for graphic tees, oversized fits, hoodies, and everyday streetwear essentials.
+          </p>
         </div>
 
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/product-category/girls-dresses/')); ?>" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/babygirls_dress.png'); ?>" alt="Girls Dresses collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Girls Dresses</h3>
-              <p class="mt-1 text-sm text-white/90">Sweet floral patterns and twirl-worthy styles.</p>
+          <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/graphic_tee1.png'); ?>" alt="Graphic tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
+              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Graphic Tees</h3>
+              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Original tee styles for everyday rotation.</p>
+              </div>
             </div>
           </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" id="mommy-me" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mom&me_collection.png'); ?>" alt="Mommy & Me collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Mommy & Me</h3>
-              <p class="mt-1 text-sm text-white/90">Matching outfits for you and your mini-me.</p>
+          <a href="<?php echo esc_url(home_url('/product-category/oversized-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversized tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
+              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Oversized Tees</h3>
+              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Relaxed silhouettes with modern street fit.</p>
+              </div>
             </div>
           </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/women-casual/')); ?>" id="women-casual" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/women_casual.png'); ?>" alt="Women Casual collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Women Casual</h3>
-              <p class="mt-1 text-sm text-white/90">Effortless pieces for your everyday look.</p>
+          <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/hoodie%231.png'); ?>" alt="Hoodies collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
+              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Hoodies</h3>
+              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Clean layering pieces for casual outfits.</p>
+              </div>
             </div>
           </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/baby-girl-boutique/')); ?>" id="baby-girl" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Baby_girls.png'); ?>" alt="Baby Girl collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Baby Girl</h3>
-              <p class="mt-1 text-sm text-white/90">Soft fabrics and adorable first outfits.</p>
+          <a href="<?php echo esc_url(home_url('/product-category/streetwear-essentials/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/banner_image%232.png'); ?>" alt="Streetwear essentials collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5">
+              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
+              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Essentials</h3>
+              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Minimal apparel built for easy styling.</p>
+              </div>
             </div>
           </a>
         </div>
@@ -87,214 +116,244 @@
     </section>
 
     <!-- New Arrivals -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20" id="new-arrivals">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex items-end justify-between gap-5">
+    <section id="new-arrivals" class="bg-white py-16 lg:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 flex items-end justify-between gap-6">
           <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Trending Now</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Top picks for you</h2>
+            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Fresh Drops</p>
+            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">New Arrivals</h2>
           </div>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:bg-[#FAF7F2] sm:inline-flex">View All</a>
+
+          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden rounded-md border border-[#0B0F0D] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#0B0F0D] hover:text-white sm:inline-flex">
+            View All
+          </a>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
-          <?php
-          $top_picks = wc_get_products( array(
-            'status'  => 'publish',
-            'limit'   => 4,
-            'orderby' => 'date',
-            'order'   => 'DESC',
-          ) );
-          foreach ( $top_picks as $product ) :
-            $img_url = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' );
-            if ( ! $img_url ) $img_url = wc_placeholder_img_src( 'woocommerce_thumbnail' );
-          ?>
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-              <img class="aspect-square w-full object-cover" src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
-            </a>
-            <div class="p-3 md:p-4">
-              <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
-              <p class="mt-1 font-bold text-[#C98A8A]"><?php echo $product->get_price_html(); ?></p>
-              <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <div class="overflow-hidden bg-[#F7F8F5]">
+              <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80" alt="Core graphic tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
+            </div>
+            <div class="p-4">
+              <h3 class="text-sm font-black text-[#111827] sm:text-base">Core Graphic Tee</h3>
+              <p class="mt-1 font-black text-[#123D2A]">$29.00</p>
+              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
             </div>
           </article>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
 
-    <!-- Mommy & Me Feature -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-6 lg:grid-cols-2">
-        <div class="overflow-hidden rounded-[28px] bg-[#F5F3F1]">
-          <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mom&me.png'); ?>" alt="Mommy and daughter boutique outfits" />
-        </div>
-        <div class="rounded-[28px] border border-[#E6DDD6] bg-white p-8 shadow-[0_12px_30px_rgba(47,42,40,0.08)] md:p-10">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Mommy & Me</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Matching moments made beautifully simple.</h2>
-          <p class="mt-5 text-[#6F625D]">
-            Create sweet everyday memories with coordinated boutique styles for mothers and daughters. Soft colors, easy silhouettes, and seasonal pieces made for family photos, weekends, and special days.
-          </p>
-          <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28] hover:border-[#2F2A28]">Shop Matching Styles</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seasonal Picks -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Seasonal Boutique Picks</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Style for every little occasion</h2>
-          </div>
-          <p class="max-w-lg text-[#6F625D]">Simple seasonal collections help customers shop naturally without overwhelming the experience.</p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Spring Styles</h3>
-            <p class="mt-3 text-[#6F625D]">Light layers, soft dresses, and cheerful everyday outfits for warmer days.</p>
-          </div>
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Girls Holiday Looks</h3>
-            <p class="mt-3 text-[#6F625D]">Sweet pieces for family gatherings, photos, celebrations, and special moments.</p>
-          </div>
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Summer Favorites</h3>
-            <p class="mt-3 text-[#6F625D]">Comfortable boutique essentials for sunny weekends and casual family outings.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Boutique Favorites -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex items-end justify-between gap-5">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Loved By The Boutique</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Boutique favorites</h2>
-          </div>
-
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
-          <?php
-          $favorites = wc_get_products( array(
-            'status'   => 'publish',
-            'limit'    => 4,
-            'featured' => true,
-            'orderby'  => 'popularity',
-            'order'    => 'DESC',
-          ) );
-          if ( empty( $favorites ) ) {
-            $favorites = wc_get_products( array(
-              'status'  => 'publish',
-              'limit'   => 4,
-              'orderby' => 'popularity',
-              'order'   => 'DESC',
-            ) );
-          }
-          foreach ( $favorites as $product ) :
-            $img_url = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' );
-            if ( ! $img_url ) $img_url = wc_placeholder_img_src( 'woocommerce_thumbnail' );
-          ?>
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-              <img class="aspect-square w-full object-cover" src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
-            </a>
-            <div class="p-3 md:p-4">
-              <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
-              <p class="mt-1 font-bold text-[#C98A8A]"><?php echo $product->get_price_html(); ?></p>
-              <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
+          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <div class="overflow-hidden bg-[#F7F8F5]">
+              <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=700&q=80" alt="Oversized street tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
+            </div>
+            <div class="p-4">
+              <h3 class="text-sm font-black text-[#111827] sm:text-base">Oversized Street Tee</h3>
+              <p class="mt-1 font-black text-[#123D2A]">$34.00</p>
+              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
             </div>
           </article>
-          <?php endforeach; ?>
+
+          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <div class="overflow-hidden bg-[#F7F8F5]">
+              <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=700&q=80" alt="Minimal logo hoodie" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
+            </div>
+            <div class="p-4">
+              <h3 class="text-sm font-black text-[#111827] sm:text-base">Minimal Logo Hoodie</h3>
+              <p class="mt-1 font-black text-[#123D2A]">$52.00</p>
+              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <div class="overflow-hidden bg-[#F7F8F5]">
+              <img src="https://images.unsplash.com/photo-1506629905607-d9e297d387be?auto=format&fit=crop&w=700&q=80" alt="Vintage wash tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
+            </div>
+            <div class="p-4">
+              <h3 class="text-sm font-black text-[#111827] sm:text-base">Vintage Wash Tee</h3>
+              <p class="mt-1 font-black text-[#123D2A]">$36.00</p>
+              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Trust Section -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">01</div>
-          <h3 class="font-serif text-2xl">Free Shipping</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Free standard shipping on all orders with tracking included.</p>
+    <!-- Lifestyle Banner -->
+    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Everyday_street_style.png'); ?>" alt="Urban lifestyle streetwear outfit" class="aspect-[4/3] w-full rounded-2xl object-cover" />
         </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">02</div>
-          <h3 class="font-serif text-2xl">30-Day Returns</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Simple returns on eligible unworn items in original condition.</p>
-        </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">03</div>
-          <h3 class="font-serif text-2xl">Secure Checkout</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">A clean and protected checkout experience for every order.</p>
-        </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">04</div>
-          <h3 class="font-serif text-2xl">Friendly Support</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Helpful boutique customer support for order and product questions.</p>
-        </div>
-      </div>
-    </section>
 
-    <!-- About Brand -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-8 rounded-[28px] bg-[#FAF7F2] p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div class="overflow-hidden rounded-2xl">
-          <img class="h-[360px] w-full object-cover md:h-[420px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/mom_baby_store.png'); ?>" alt="Warm local boutique shopping experience" />
-        </div>
-        <div class="p-2 md:p-6">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Our Boutique Story</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">A warm shopping place for women and young girls.</h2>
-          <p class="mt-5 max-w-xl text-[#6F625D]">
-            Shop Kelli brings together curated women’s clothing, girls outfits, and seasonal boutique pieces for families who love comfortable, cheerful, and easy-to-wear style.
+        <div>
+          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Everyday Street Style</p>
+          <h2 class="text-4xl font-black uppercase leading-none tracking-[-0.05em] lg:text-6xl">
+            Apparel That Moves With Your Day.
+          </h2>
+          <p class="mt-6 max-w-xl text-lg leading-8 text-white/82">
+            Slicktee focuses on clean graphics, relaxed fits, and modern essentials that work from city streets to weekend plans.
           </p>
-          <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:bg-[#FAF7F2]">Learn About Us</a>
+          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-8 inline-flex rounded-md bg-[#22C55E] px-7 py-4 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
+            Shop Now
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Graphic Tee Collection -->
+    <section id="graphic-tees" class="bg-[#F7F8F5] py-16 lg:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 max-w-3xl">
+          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Core Collection</p>
+          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">
+            Graphic Tees Without The Noise
+          </h2>
+          <p class="mt-4 text-base leading-7 text-[#6B7280]">
+            Original apparel-focused designs made for daily wear. No fan merch, no copyright-heavy graphics, no meme spam.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <div class="rounded-3xl bg-[#123D2A] p-8 text-white lg:col-span-1">
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Original Direction</p>
+            <h3 class="mt-4 text-3xl font-black uppercase tracking-[-0.05em]">Clean Graphics</h3>
+            <p class="mt-4 text-white/82">Minimal, wearable tee designs that look sharp without feeling loud.</p>
+            <a href="#" class="mt-7 inline-flex rounded-md bg-[#22C55E] px-6 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
+              Shop Graphic Tees
+            </a>
+          </div>
+
+          <div class="overflow-hidden rounded-3xl bg-[#0B0F0D] lg:col-span-2">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Original_direction.png'); ?>" alt="Graphic tee collection banner" class="h-full min-h-[360px] w-full object-cover opacity-90" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Oversized + Hoodies -->
+    <section class="bg-white py-16 lg:py-24">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <a href="#" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversized tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+          <div class="p-8">
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Relaxed Fit</p>
+            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversized Tees</h3>
+            <p class="mt-3 text-white/82">Built for layering, movement, and clean streetwear silhouettes.</p>
+          </div>
+        </a>
+
+        <a href="#" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/casoul_hoodie.png'); ?>" alt="Casual hoodie streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+          <div class="p-8">
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Layer Ready</p>
+            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Casual Hoodies</h3>
+            <p class="mt-3 text-white/82">Simple hoodie essentials with modern streetwear energy.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Brand Values -->
+    <section class="bg-[#123D2A] py-16 text-white lg:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 max-w-3xl">
+          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Brand Philosophy</p>
+          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">
+            Built Like A Real Apparel Brand
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">01</div>
+            <h3 class="text-lg font-black uppercase leading-snug">Comfortable Everyday Fits</h3>
+            <p class="mt-3 text-sm leading-6 text-white/75">Soft apparel made for repeat wear.</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">02</div>
+            <h3 class="text-lg font-black uppercase leading-snug">Clean Modern Styling</h3>
+            <p class="mt-3 text-sm leading-6 text-white/75">Minimal streetwear without visual clutter.</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">03</div>
+            <h3 class="text-lg font-black uppercase leading-snug">Original Graphic Apparel</h3>
+            <p class="mt-3 text-sm leading-6 text-white/75">Brand-led graphics, not copied fan merch.</p>
+          </div>
+
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">04</div>
+            <h3 class="text-lg font-black uppercase leading-snug">Secure Online Shopping</h3>
+            <p class="mt-3 text-sm leading-6 text-white/75">Clear policies, support, and checkout trust.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="bg-white py-16 lg:py-24">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10">
+          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Customer Picks</p>
+          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Best Sellers</h2>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80" alt="Best selling graphic tee" class="aspect-[4/5] w-full object-cover" />
+            <div class="p-4">
+              <h3 class="text-sm font-black text-[#111827] sm:text-base">Core Graphic Tee</h3>
+              <p class="mt-1 font-black text-[#123D2A]">$29.00</p>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=700&q=80" alt="Best selling oversized tee" class="aspect-[4/5] w-full object-cover" />
+            <div class="p-4">
+              <h3 class="text-sm font-black text-[#111827] sm:text-base">Oversized Street Tee</h3>
+              <p class="mt-1 font-black text-[#123D2A]">$34.00</p>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=700&q=80" alt="Best selling hoodie" class="aspect-[4/5] w-full object-cover" />
+            <div class="p-4">
+              <h3 class="text-sm font-black text-[#111827] sm:text-base">Minimal Logo Hoodie</h3>
+              <p class="mt-1 font-black text-[#123D2A]">$52.00</p>
+            </div>
+          </article>
+
+          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <img src="https://images.unsplash.com/photo-1506629905607-d9e297d387be?auto=format&fit=crop&w=700&q=80" alt="Best selling vintage tee" class="aspect-[4/5] w-full object-cover" />
+            <div class="p-4">
+              <h3 class="text-sm font-black text-[#111827] sm:text-base">Vintage Wash Tee</h3>
+              <p class="mt-1 font-black text-[#123D2A]">$36.00</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Newsletter -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-8 rounded-[28px] bg-[#2F2A28] p-8 text-white md:p-12 lg:grid-cols-2">
+    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Join the boutique community</h2>
-          <p class="mt-4 text-white/80">Get updates on new arrivals, seasonal collections, and warm family-friendly style inspiration.</p>
+          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Stay Connected</p>
+          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">Stay Updated On New Drops</h2>
+          <p class="mt-4 max-w-xl text-white/80">
+            Get updates on new graphic tees, oversized fits, hoodie releases, and clean streetwear essentials.
+          </p>
         </div>
-        <form class="flex flex-col gap-3 rounded-2xl bg-white/10 p-2 sm:flex-row sm:rounded-full">
-          <input class="min-h-12 flex-1 bg-transparent px-4 text-white placeholder:text-white/70 outline-none" type="email" placeholder="Enter your email" aria-label="Email address" />
-          <button class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-white hover:text-[#2F2A28]" type="submit">
-            Sign Up
+
+        <form class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row" action="#" method="post">
+          <label for="slicktee-email" class="sr-only">Email address</label>
+          <input id="slicktee-email" type="email" name="email" placeholder="Enter your email" class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-[#111827] placeholder:text-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#A3E635]" />
+          <button type="submit" class="min-h-12 rounded-md bg-[#22C55E] px-6 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
+            Join
           </button>
         </form>
       </div>
     </section>
-
-    <!-- Gallery -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 text-center">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Boutique Life</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">From our gallery</h2>
-        </div>
-        <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-          <?php
-          $gallery_imgs = ['gallery1','gallery2','gallery3','gallery4','gallery5','gallery6'];
-          foreach ( $gallery_imgs as $img ) : ?>
-          <div class="group overflow-hidden rounded-2xl">
-            <img
-              class="h-60 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/gallery/' . $img . '.jpg' ); ?>"
-              alt="Boutique lifestyle photo"
-            />
-          </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
   </main>
+</body>
+</html>

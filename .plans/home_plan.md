@@ -1,410 +1,438 @@
-# Shop Kelli Home Plan
+# Shopshive Design System
 
-## Homepage Goal
-
-Create a warm, trustworthy, and lifestyle-focused boutique homepage for women and young girls.
-
-The homepage should feel:
-
-* Family-oriented
-* Boutique-inspired
-* Seasonal
-* Welcoming
-* Community-driven
-* Easy to shop
-
-The design should reinforce:
-
-* Women & children fashion
-* Mommy & daughter shopping
-* Boutique authenticity
-* GMC-safe ecommerce trust
-
-Avoid:
-
-* Overstock-style layouts
-* Product spam walls
-* Aggressive discount banners
-* Generic dropshipping design
+> *"Open Doors To A World Of Fashion"* — A design language for modern women's fast fashion.
 
 ---
 
-# Homepage Structure
+## Brand Essence
 
-## 1. Announcement Bar
-
-Simple and clean announcement bar.
-
-Suggested content:
-
-* Free shipping offer
-* Seasonal collection message
-* Boutique customer support
-
-Avoid:
-
-* Flashing urgency
-* Fake countdowns
-* Aggressive discount language
+Shopshive is bold, accessible, and trend-forward. The visual identity should feel like flipping through a glossy fashion editorial — aspirational but never cold, energetic but never overwhelming. Every screen is an invitation to explore.
 
 ---
 
-# 2. Header
+## Color Palette
 
-Include:
+### Primary Colors
 
-* Boutique logo
-* Main navigation
-* Search icon
-* Account icon
-* Cart icon
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-brand-rose` | `#E8567A` | CTAs, highlights, active states |
+| `--color-brand-nude` | `#F5E6DC` | Backgrounds, cards, soft sections |
+| `--color-brand-charcoal` | `#2B2B2B` | Body text, headings |
 
-Navigation should stay simple and uncluttered.
+### Secondary Colors
 
-Suggested navigation:
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-accent-blush` | `#F2A8BC` | Hover states, badges, tags |
+| `--color-accent-sand` | `#D4B8A0` | Borders, dividers, muted UI |
+| `--color-accent-ivory` | `#FDF8F4` | Page background, form fields |
 
-* New Arrivals
-* Women
-* Girls Collection
-* Mommy & Me
-* Seasonal Collections
-* Accessories
+### Semantic Colors
 
----
-
-# 3. Hero Banner
-
-## Goal
-
-Create an emotional first impression with warm boutique lifestyle visuals.
-
-## Hero Direction
-
-Use:
-
-* Women and young girls lifestyle imagery
-* Soft natural lighting
-* Warm feminine color palette
-* Seasonal boutique styling
-* Community-oriented tone
-
-## Hero Content
-
-Include:
-
-* Short emotional headline
-* Simple supporting text
-* Soft CTA button
-
-Suggested CTA:
-
-* Shop New Arrivals
-* Explore The Collection
-* Shop Mommy & Me
-
-Avoid:
-
-* Overstock-style sales messaging
-* Aggressive promotions
-* Too much text
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-success` | `#5BAD8A` | Order confirmed, in-stock |
+| `--color-warning` | `#E8A23A` | Low stock, promotions |
+| `--color-error` | `#D94F4F` | Form errors, out-of-stock |
 
 ---
 
-# 4. New Arrivals Section
+## Typography
 
-## Goal
+### Font Stack
 
-Highlight fresh seasonal products in a clean boutique layout.
+```
+Display / Hero:   "Cormorant Garamond", Georgia, serif
+Headings:         "Playfair Display", serif
+Body:             "DM Sans", sans-serif
+Labels / UI:      "DM Sans", sans-serif
+```
 
-## Layout Rules
+### Type Scale
 
-* Clean WooCommerce product grid
-* Consistent product images
-* Spacious spacing
-* Mobile-friendly layout
+| Level | Size | Weight | Usage |
+|---|---|---|---|
+| `hero` | 56–72px | 300 (Light) | Hero banners, campaign titles |
+| `h1` | 40px | 500 | Page titles |
+| `h2` | 28px | 600 | Section headings |
+| `h3` | 20px | 600 | Card titles, sub-sections |
+| `body-lg` | 16px | 400 | Product descriptions |
+| `body` | 14px | 400 | General content |
+| `caption` | 12px | 400 | Labels, metadata, prices |
 
-Display:
-
-* 4–8 featured products
-* Seasonal or trending arrivals
-
-Avoid:
-
-* Overcrowded grids
-* Too many badges
-* Spammy sale tags
-
----
-
-# 5. Mommy & Me Section
-
-## Goal
-
-Reinforce the core identity of the store.
-
-## Content Direction
-
-Use:
-
-* Mother and daughter lifestyle imagery
-* Warm family-oriented visuals
-* Seasonal outfit coordination
-* Boutique storytelling
-
-Suggested CTA:
-
-* Shop Matching Styles
-* Explore Mommy & Me
-
-This section should feel emotional and lifestyle-focused.
+**Line heights:** Hero `1.1` · Headings `1.25` · Body `1.6`
 
 ---
 
-# 6. Girls Collection Banner
+## Spacing System
 
-## Goal
+Based on a **4px base unit**.
 
-Highlight girls fashion and seasonal outfits.
-
-## Design Direction
-
-Use:
-
-* Bright cheerful visuals
-* Soft feminine styling
-* Seasonal themes
-* Boutique presentation
-
-Suggested content:
-
-* Dresses
-* Seasonal sets
-* Holiday styles
-* Everyday outfits
-
-Avoid:
-
-* Overly childish design
-* Loud cartoon visuals
+```
+xs   = 4px
+sm   = 8px
+md   = 16px
+lg   = 24px
+xl   = 32px
+2xl  = 48px
+3xl  = 64px
+4xl  = 96px
+```
 
 ---
 
-# 7. Seasonal Collection Section
+## Layout & Grid
 
-## Goal
-
-Create natural merchandising behavior that feels authentic for a boutique store.
-
-## Seasonal Examples
-
-* Spring Collection
-* Summer Favorites
-* Easter Looks
-* Holiday Boutique Styles
-
-The section should feel curated and editorial rather than promotional.
+- **Max container width:** 1280px
+- **Column grid:** 12-column, `24px` gutters
+- **Mobile breakpoint:** < 768px → 4 columns, `16px` gutters
+- **Tablet breakpoint:** 768–1024px → 8 columns
+- Product grids: **4-up** desktop · **2-up** tablet · **2-up** mobile
 
 ---
 
-# 8. Boutique Favorites Section
+## Components
 
-## Goal
+### Buttons
 
-Show curated best sellers in a warm and trustworthy way.
+```
+Primary:   bg #E8567A, text white, rounded-full, px-6 py-3
+Secondary: bg transparent, border 1.5px #E8567A, text #E8567A
+Ghost:     no border, text #2B2B2B, underline on hover
+```
 
-## Layout Direction
+- Border radius: `9999px` (pill shape) for primary actions
+- Hover: darken brand-rose by 10%, subtle scale `1.02`
+- Active: scale `0.98`
+- Disabled: opacity `0.4`, cursor not-allowed
 
-Use:
+### Product Cards
 
-* Small curated product selection
-* Balanced spacing
-* Clean product cards
-* Lifestyle-focused presentation
+- White background, `8px` border radius
+- Soft shadow: `0 2px 12px rgba(0,0,0,0.07)`
+- Hover: shadow deepens + image scales `1.03` (300ms ease)
+- Badge overlay (top-left): "NEW", "SALE" in brand-rose pill
+- Quick-add CTA slides up from bottom on hover
 
-Suggested title:
+### Navigation
 
-* Boutique Favorites
-* Loved By Our Community
-* Best Sellers
+- Sticky top bar, background `#FDF8F4` with `1px` bottom border `#E8E0D8`
+- Logo: "Shopshive" in Cormorant Garamond, 28px, charcoal
+- Category links: DM Sans 13px, uppercase, letter-spacing `0.08em`
+- Active underline: 2px brand-rose
+- Mobile: hamburger → full-screen overlay, links stacked with generous padding
 
-Avoid:
+### Forms & Inputs
 
-* Fake review spam
-* Overstock layouts
-
----
-
-# 9. Trust Section
-
-## Goal
-
-Reinforce merchant authenticity and customer trust.
-
-## Include
-
-* Free Shipping
-* Easy Returns
-* Secure Checkout
-* Friendly Customer Support
-
-Use:
-
-* Simple icons
-* Soft neutral backgrounds
-* Minimal text
-
-Avoid:
-
-* Large flashy trust badges
-* Overly technical messaging
+- Height: `48px`, border `1.5px solid #D4B8A0`
+- Border radius: `8px`
+- Focus: border color switches to `#E8567A`, no outline, soft glow
+- Placeholder text: `#A89080`
 
 ---
 
-# 10. About Brand Section
+## Iconography
 
-## Goal
-
-Make the store feel like a real local boutique.
-
-## Content Direction
-
-Short warm introduction about:
-
-* Boutique identity
-* Women & girls fashion
-* Community-oriented shopping
-* Seasonal collections
-* Friendly customer experience
-
-Tone should feel:
-
-* Personal
-* Warm
-* Authentic
-
-Avoid:
-
-* Corporate storytelling
-* Generic AI brand copy
+- Style: **Outline icons**, 1.5px stroke weight
+- Recommended library: Heroicons or Lucide
+- Size: `20px` default · `24px` for navigation · `16px` for inline
+- Color: inherits from parent text color
 
 ---
 
-# 11. Newsletter Section
+## Imagery & Photography
 
-## Goal
-
-Create boutique community feeling.
-
-## Suggested Content
-
-Invite users to:
-
-* Discover new arrivals
-* Receive seasonal updates
-* Join the boutique community
-
-Design should feel:
-
-* Soft
-* Minimal
-* Lifestyle-oriented
-
-Avoid:
-
-* Aggressive email capture popups
+- **Tone:** Bright, airy, natural light — no heavy filters
+- **Models:** Diverse, confident, lifestyle-forward poses
+- **Backgrounds:** Clean white OR soft lifestyle settings (café, street, studio)
+- **Product shots:** Pure white background, multiple angles
+- **Aspect ratios:** Hero `16:9` · Product cards `3:4` · Campaign banners `2:1`
+- Avoid: dark moody shots, heavy retouching, cluttered backgrounds
 
 ---
 
-# 12. Instagram / Social Proof Section
+## Motion & Animation
 
-## Goal
-
-Reinforce boutique authenticity and lifestyle branding.
-
-## Content Direction
-
-Display:
-
-* Boutique lifestyle images
-* Seasonal outfits
-* Women & girls styling
-* Community-focused visuals
-
-The section should feel natural and brand-consistent.
+- **Easing:** `cubic-bezier(0.25, 0, 0.1, 1)` — soft deceleration
+- **Durations:** Micro `150ms` · Standard `300ms` · Page transitions `400ms`
+- Hero text: staggered fade-in-up (each line +80ms delay)
+- Product grid: fade-in on scroll, staggered by column
+- Avoid: bouncy springs, long delays, motion that blocks interaction
 
 ---
 
-# 13. Footer
+## Tone & Voice (UI Copy)
 
-## Required Links
-
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
-
-## Footer Style
-
-* Clean layout
-* Warm neutral background
-* Organized navigation
-* Visible support information
-
-Avoid:
-
-* Overcrowded footer columns
-* Excessive links
-* Dark corporate styling
+- **Friendly, not salesy.** "You'll love this" over "BUY NOW!"
+- **Inclusive.** "For every body, every occasion."
+- Short sentences. Active voice. Warm punctuation (em dash, not exclamation overload).
+- Error messages: kind and solution-focused — *"That size is sold out — try the next size up?"*
 
 ---
 
-# WooCommerce Rules
+## Accessibility
 
-Homepage WooCommerce sections should:
-
-* Use consistent product image ratios
-* Maintain spacious layouts
-* Be mobile-first
-* Use clean product cards
-* Avoid overcrowding
-
-Product presentation should feel:
-
-* Curated
-* Boutique-oriented
-* Lifestyle-focused
+- Minimum contrast ratio: **4.5:1** for all body text
+- All interactive elements keyboard-navigable
+- Focus rings: `2px solid #E8567A` with `2px offset`
+- Images: descriptive `alt` text required
+- Touch targets: minimum `44×44px`
 
 ---
 
-# GMC Compliance Rules
+# Homepage Plan
 
-The homepage must feel like a legitimate boutique ecommerce storefront.
-
-Prioritize:
-
-* Authentic branding
-* Women & children fashion relevance
-* Seasonal merchandising
-* Realistic ecommerce structure
-* Transparent navigation
-* Trust-focused UX
-
-Avoid:
-
-* Fake urgency
-* Countdown timers
-* Popup spam
-* Thin AI-generated layouts
-* Random mixed-category merchandising
+> Goal: Nail the first impression within 3 seconds — visitors should instantly understand "this is a beautiful women's fashion store with great deals and easy shopping." Each section flows naturally into the next, telling a cohesive visual story.
 
 ---
 
-# Strategic Homepage Direction
+## Section 1 — Top Bar (Announcement)
 
-The homepage should ultimately feel like:
+**Purpose:** Surface key perks and create a gentle sense of urgency.
 
-“A trusted local boutique for women and young girls with a warm lifestyle-focused shopping experience and a polished modern WooCommerce storefront.”
+- Background: `#E8567A` · Text: white · Font: DM Sans 13px
+- Suggested copy: `✦ Free Shipping On All Orders  ·  30-Day Easy Returns  ·  New Arrivals Every Week ✦`
+- Auto-scrolling marquee on mobile, centered on desktop
+- Dismissible via `✕` button; state saved to localStorage
+
+---
+
+## Section 2 — Navigation Bar
+
+**Purpose:** Clear wayfinding with instant brand recognition.
+
+**Layout (desktop):**
+```
+[Logo: Shopshive]   Dresses · Blouses & Shirts · Tops · Pants · Shorts · Footwear   [🔍] [♡] [🛒 (2)]
+```
+
+**Layout (mobile):**
+```
+[☰]   [Logo: Shopshive]   [🛒]
+```
+
+- Sticky; drop shadow transitions in after scrolling past 60px
+- Mega-menu dropdown per category: featured image thumbnail + subcategory links
+- Search icon expands into a full-width input bar on click
+- Cart icon displays an item-count badge in brand-rose
+
+---
+
+## Section 3 — Hero Banner
+
+**Purpose:** The first wow moment — showcasing the month's primary campaign.
+
+**Layout:** Full-width, height `90vh` desktop / `70vh` mobile
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                                                         │
+│   [Model lifestyle photo — airy, natural light]        │
+│                                                         │
+│   ┌────────────────────────┐                           │
+│   │  New Season.           │  ← Cormorant Garamond     │
+│   │  New You.              │     64px, light weight    │
+│   │                        │                           │
+│   │  Explore the Spring    │  ← DM Sans 16px           │
+│   │  Collection — styles   │                           │
+│   │  for every story.      │                           │
+│   │                        │                           │
+│   │  [Shop Now →]          │  ← Primary button         │
+│   └────────────────────────┘                           │
+│                                                         │
+│  ○ ● ○  (dot indicators)                               │
+└─────────────────────────────────────────────────────────┘
+```
+
+- **Slideshow** of 3 slides: auto-advances every 5s, pauses on hover
+- Text enters with a staggered fade-in-up animation when each slide becomes active
+- Subtle gradient overlay (bottom-left) keeps text legible over any image
+- Mobile: text block moves below the image in a stacked vertical layout
+
+---
+
+## Section 4 — Category Quick-Nav
+
+**Purpose:** Let users jump directly to their favourite category without needing the menu.
+
+**Layout:** Horizontal scroll on mobile · 6 equal tiles on desktop
+
+```
+┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐
+│      │ │      │ │      │ │      │ │      │ │      │
+│ img  │ │ img  │ │ img  │ │ img  │ │ img  │ │ img  │
+│      │ │      │ │      │ │      │ │      │ │      │
+│Dress │ │Blouse│ │ Tops │ │Pants │ │Short │ │Shoes │
+└──────┘ └──────┘ └──────┘ └──────┘ └──────┘ └──────┘
+```
+
+- Tile: square image `aspect-ratio: 1/1`, border-radius `12px`
+- Hover: image scales to `1.05`, rose overlay at 20% opacity
+- Label: DM Sans 14px, uppercase, charcoal, centered below the image
+- Section background: `#F5E6DC` (brand nude), padding `48px 0`
+
+---
+
+## Section 5 — New Arrivals
+
+**Purpose:** Showcase the latest products — the primary reason customers return.
+
+**Header:**
+```
+New Arrivals          [View All →]
+Fresh styles, just landed.
+```
+
+**Product Grid:** 4 columns desktop · 2 columns mobile · gap `24px`
+
+Each **Product Card** contains:
+```
+┌────────────────────┐
+│ [NEW]              │  ← badge top-left
+│                    │
+│   [Product Image]  │  3:4 ratio
+│                    │
+│  ────────────────  │  ← Quick Add (slides up on hover)
+│  + Quick Add       │
+└────────────────────┘
+Product Name          ← Playfair Display 15px
+$29.99                ← DM Sans 14px, brand-rose
+★★★★☆ (42)           ← caption size, sand color
+```
+
+- Wishlist icon (♡) top-right, toggles on click
+- "NEW" badge: brand-rose pill
+- Displays **8 products** by default; centered "Load More" button below
+- Animation: fade-in-up staggered per card as they scroll into the viewport
+
+---
+
+## Section 6 — Promotional Banner (Mid-page)
+
+**Purpose:** Build urgency and spotlight a major deal or seasonal campaign.
+
+**Layout:** Full-width, height `280px` desktop · `200px` mobile
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Background: blush gradient (#F2A8BC → #F5E6DC)        │
+│                                                         │
+│         Up to 40% Off                                   │
+│         Summer Essentials                               │
+│                                                         │
+│         [Shop the Sale →]                              │
+└─────────────────────────────────────────────────────────┘
+```
+
+- Typography: Cormorant Garamond 52px + DM Sans body
+- Optional: add a countdown timer for time-limited sales
+- Can swap to an editorial split layout (text left, image right)
+
+---
+
+## Section 7 — Best Sellers
+
+**Purpose:** Social proof — "here's what everyone is buying right now."
+
+**Header:**
+```
+Best Sellers          [View All →]
+Our most-loved pieces, right now.
+```
+
+- Same layout as New Arrivals, but badge changes to `🔥 Best Seller` (warning amber color)
+- Shows **4 products** — compact, no load more
+- Background: white `#FFFFFF` to visually separate from the previous section
+
+---
+
+## Section 8 — Trust & Benefits Bar
+
+**Mục đích:** Giải tỏa lo ngại mua hàng (shipping, return, payment).
+
+**Layout:** 4 cột ngang · background `#FDF8F4` · border top/bottom `1px solid #E8E0D8`
+
+```
+[🚚 Free Shipping]    [🔄 30-Day Returns]    [💳 Secure Payment]    [📞 Live Support]
+On all orders         Easy & hassle-free      Multiple cards          Mon–Sat, 10–6 PST
+```
+
+- Icon: outline style, 32px, brand-rose
+- Label: DM Sans 14px 600 (semibold)
+- Sub-label: DM Sans 12px, sand color
+- Mobile: 2×2 grid
+
+---
+
+## Section 9 — Email Sign-up
+
+**Mục đích:** Xây dựng email list — đây là kênh retention quan trọng nhất.
+
+**Layout:** Centered, padding `96px 0`, background `#2B2B2B` (charcoal)
+
+```
+        Join the Shopshive Circle
+   Get early access to new arrivals, exclusive
+   offers, and style inspiration — straight to
+   your inbox.
+
+   [  Enter your email address  ] [Subscribe →]
+
+        🔒 No spam. Unsubscribe anytime.
+```
+
+- Heading: Cormorant Garamond 40px, ivory white
+- Input + button: inline trên desktop · stacked trên mobile
+- Micro-copy bên dưới: DM Sans 12px, opacity 60%
+- Success state: input ẩn, thay bằng `"✓ You're in! Check your inbox."` fade-in
+
+---
+
+## Section 10 — Footer
+
+**Layout:** 4-column grid · background `#1E1E1E` · text `#C8BEB6`
+
+```
+┌─────────────┬─────────────┬─────────────┬─────────────┐
+│  Shopshive  │   Shop      │   Help      │   Connect   │
+│             │             │             │             │
+│ Open Doors  │ Dresses     │ Contact Us  │ Facebook    │
+│ To A World  │ Blouses     │ Shipping    │ Pinterest   │
+│ Of Fashion. │ Tops        │ Returns     │             │
+│             │ Pants       │ Size Guide  │ 📞 (760)    │
+│             │ Shorts      │ FAQ         │  383 0494   │
+│             │ Footwear    │             │             │
+└─────────────┴─────────────┴─────────────┴─────────────┘
+
+        © 2024 Shopshive. All rights reserved.
+        Privacy Policy  ·  Terms of Service
+```
+
+- Logo: Cormorant Garamond 24px, ivory
+- Links: DM Sans 13px, hover color brand-rose
+- Social icons: 20px outline, hover scale `1.15`
+- Bottom bar: `1px solid #333`, caption size, centered
+
+---
+
+## Responsive Behavior Summary
+
+| Section | Desktop | Mobile |
+|---|---|---|
+| Hero Banner | Full-width, text overlay left | Stacked: image top, text bottom |
+| Category Nav | 6-tile row | Horizontal scroll |
+| Product Grids | 4-up | 2-up |
+| Trust Bar | 4-column | 2×2 grid |
+| Email Signup | Inline input+button | Stacked |
+| Footer | 4-column | 2-column then 1-column |
+
+---
+
+## Page Load & Performance Notes
+
+- Hero image: WebP format, lazy-load slides 2 & 3
+- Product images: lazy-load, `aspect-ratio` set để tránh layout shift
+- Fonts: preload Cormorant Garamond + DM Sans woff2
+- Above-the-fold: target **LCP < 2.5s** — hero image phải được preload
+- Animations: chỉ chạy khi `prefers-reduced-motion: no-preference`

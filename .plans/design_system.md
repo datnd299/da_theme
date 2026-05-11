@@ -1,476 +1,180 @@
-# Shop Kelli Design System
+# Shopshive Design System
 
-## Design Goal
-
-Create a warm, trustworthy, and modern WooCommerce boutique experience for women and young girls.
-
-The website should feel like:
-
-* A real local boutique
-* Family-oriented
-* Community-driven
-* Lifestyle-focused
-* Mobile-friendly
-* GMC-safe and trustworthy
-
-The design must support:
-
-* Women & children fashion shopping
-* Mommy & daughter collections
-* Seasonal boutique merchandising
-* Clean ecommerce usability
-* Authentic merchant presentation
-
-Avoid making the store feel like:
-
-* Generic dropshipping ecommerce
-* Overstock marketplaces
-* Aggressive fast fashion
-* Random mixed-category stores
-* Scam-like ecommerce
+> *"Open Doors To A World Of Fashion"* — A design language for modern women's fast fashion.
 
 ---
 
-# Brand Visual Identity
+## Brand Essence
 
-The visual identity should feel:
-
-* Warm
-* Feminine
-* Cheerful
-* Soft
-* Boutique-inspired
-* Family-friendly
-
-The storefront should resemble a trusted boutique expanding online rather than a mass ecommerce warehouse.
-
-Use:
-
-* Lifestyle-focused imagery
-* Soft feminine visual direction
-* Spacious layouts
-* Curated merchandising
-* Seasonal storytelling
-
-Avoid:
-
-* Dark luxury aesthetics
-* Tech-style ecommerce
-* Harsh color palettes
-* Flashy sales-heavy layouts
-* Overcrowded pages
+Shopshive is bold, accessible, and trend-forward. The visual identity should feel like flipping through a glossy fashion editorial — aspirational but never cold, energetic but never overwhelming. Every screen is an invitation to explore.
 
 ---
 
-# Color System
+## Color Palette
 
-## Primary Background Colors
+### Primary Colors
 
-* Warm White: #FFFFFF
-* Soft Cream: #FAF7F2
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-brand-rose` | `#E8567A` | CTAs, highlights, active states |
+| `--color-brand-nude` | `#F5E6DC` | Backgrounds, cards, soft sections |
+| `--color-brand-charcoal` | `#2B2B2B` | Body text, headings |
 
-## Brand Colors
+### Secondary Colors
 
-* Dusty Rose: #c98a8aff
-* Soft Beige: #E8D8C8
-* Warm Blush: #DFA39A
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-accent-blush` | `#F2A8BC` | Hover states, badges, tags |
+| `--color-accent-sand` | `#D4B8A0` | Borders, dividers, muted UI |
+| `--color-accent-ivory` | `#FDF8F4` | Page background, form fields |
 
-## Text Colors
+### Semantic Colors
 
-* Primary Text: #2F2A28
-* Secondary Text: #6F625D
-* Light Text: #9A8C86
-
-## Border & UI Colors
-
-* Border Color: #E6DDD6
-* Soft Gray Background: #F5F3F1
-
-Avoid:
-
-* Neon colors
-* Pure black-heavy layouts
-* Aggressive red sale-heavy design
-* Overly saturated palettes
+| Token | Hex | Usage |
+|---|---|---|
+| `--color-success` | `#5BAD8A` | Order confirmed, in-stock |
+| `--color-warning` | `#E8A23A` | Low stock, promotions |
+| `--color-error` | `#D94F4F` | Form errors, out-of-stock |
 
 ---
 
-# Typography System
+## Typography
 
-Typography should feel:
+### Font Stack
 
-* Elegant
-* Soft
-* Readable
-* Boutique-oriented
-* Mobile-friendly
+```
+Display / Hero:   "Cormorant Garamond", Georgia, serif
+Headings:         "Playfair Display", serif
+Body:             "DM Sans", sans-serif
+Labels / UI:      "DM Sans", sans-serif
+```
 
-## Font Direction
+### Type Scale
 
-Headings:
+| Level | Size | Weight | Usage |
+|---|---|---|---|
+| `hero` | 56–72px | 300 (Light) | Hero banners, campaign titles |
+| `h1` | 40px | 500 | Page titles |
+| `h2` | 28px | 600 | Section headings |
+| `h3` | 20px | 600 | Card titles, sub-sections |
+| `body-lg` | 16px | 400 | Product descriptions |
+| `body` | 14px | 400 | General content |
+| `caption` | 12px | 400 | Labels, metadata, prices |
 
-* Elegant serif or soft modern display font
-
-Body Text:
-
-* Clean sans-serif font
-
-Buttons:
-
-* Simple and readable
-* Medium weight
-* Friendly appearance
-
-Avoid:
-
-* Overly decorative fonts
-* Corporate typography
-* Hard condensed fonts
-* Childish typography
+**Line heights:** Hero `1.1` · Headings `1.25` · Body `1.6`
 
 ---
 
-# Layout Rules
+## Spacing System
 
-The layout should feel clean, spacious, and easy to browse.
+Based on a **4px base unit**.
 
-## General Layout
-
-* Mobile-first design
-* Spacious white space
-* Clean visual hierarchy
-* Consistent spacing system
-* Soft section separation
-* Easy navigation
-
-Avoid:
-
-* Cluttered layouts
-* Overstock-style pages
-* Tiny spacing
-* Crowded product grids
+```
+xs   = 4px
+sm   = 8px
+md   = 16px
+lg   = 24px
+xl   = 32px
+2xl  = 48px
+3xl  = 64px
+4xl  = 96px
+```
 
 ---
 
-# WooCommerce Product Grid Rules
+## Layout & Grid
 
-## Desktop Layout
-
-* 3–4 columns maximum
-
-## Mobile Layout
-
-* 2 columns
-
-## Product Card Rules
-
-Each product card should include:
-
-* Clean product image
-* Consistent image ratio
-* Product title
-* Visible pricing
-* Simple CTA button
-
-Product cards should feel:
-
-* Minimal
-* Boutique-oriented
-* Easy to scan
-* Visually balanced
-
-Avoid:
-
-* Crowded badges
-* Excessive labels
-* Overly aggressive sale tags
-* Flashing promotional elements
+- **Max container width:** 1280px
+- **Column grid:** 12-column, `24px` gutters
+- **Mobile breakpoint:** < 768px → 4 columns, `16px` gutters
+- **Tablet breakpoint:** 768–1024px → 8 columns
+- Product grids: **4-up** desktop · **2-up** tablet · **2-up** mobile
 
 ---
 
-# Product Page Rules
+## Components
 
-Each product page should include:
+### Buttons
 
-* Large image gallery
-* Clear product title
-* Visible pricing
-* Variant selection
-* Add-to-cart button above the fold
-* Shipping reassurance
-* Return reassurance
-* Product description
-* Related products section
+```
+Primary:   bg #E8567A, text white, rounded-full, px-6 py-3
+Secondary: bg transparent, border 1.5px #E8567A, text #E8567A
+Ghost:     no border, text #2B2B2B, underline on hover
+```
 
-The product page should feel:
+- Border radius: `9999px` (pill shape) for primary actions
+- Hover: darken brand-rose by 10%, subtle scale `1.02`
+- Active: scale `0.98`
+- Disabled: opacity `0.4`, cursor not-allowed
 
-* Clean
-* Trustworthy
-* Lifestyle-focused
-* Easy to navigate
+### Product Cards
 
-Avoid:
+- White background, `8px` border radius
+- Soft shadow: `0 2px 12px rgba(0,0,0,0.07)`
+- Hover: shadow deepens + image scales `1.03` (300ms ease)
+- Badge overlay (top-left): "NEW", "SALE" in brand-rose pill
+- Quick-add CTA slides up from bottom on hover
 
-* Long cluttered layouts
-* Fake urgency timers
-* Aggressive upsell spam
-* Overwhelming product blocks
+### Navigation
 
----
+- Sticky top bar, background `#FDF8F4` with `1px` bottom border `#E8E0D8`
+- Logo: "Shopshive" in Cormorant Garamond, 28px, charcoal
+- Category links: DM Sans 13px, uppercase, letter-spacing `0.08em`
+- Active underline: 2px brand-rose
+- Mobile: hamburger → full-screen overlay, links stacked with generous padding
 
-# Homepage Design Rules
+### Forms & Inputs
 
-The homepage should be lifestyle-first rather than product-spam-first.
-
-## Required Sections
-
-* Hero banner
-* New Arrivals
-* Mommy & Me Collection
-* Girls Collection
-* Seasonal Collections
-* Boutique Favorites
-* Trust Section
-* Newsletter or community section
-
-## Homepage Style
-
-Use:
-
-* Warm lifestyle imagery
-* Seasonal storytelling
-* Soft overlays
-* Curated product presentation
-* Friendly boutique messaging
-
-Avoid:
-
-* Overstock homepage layouts
-* Dense product walls
-* Aggressive sale banners
-* Flash sale countdowns
+- Height: `48px`, border `1.5px solid #D4B8A0`
+- Border radius: `8px`
+- Focus: border color switches to `#E8567A`, no outline, soft glow
+- Placeholder text: `#A89080`
 
 ---
 
-# Header Rules
+## Iconography
 
-The header should feel:
-
-* Clean
-* Boutique-oriented
-* Easy to navigate
-
-## Header Elements
-
-Include:
-
-* Logo
-* Main navigation
-* Search
-* Account icon
-* Cart icon
-
-Navigation should remain simple and uncluttered.
-
-Avoid:
-
-* Mega-menu overload
-* Too many categories
-* Aggressive announcement bars
+- Style: **Outline icons**, 1.5px stroke weight
+- Recommended library: Heroicons or Lucide
+- Size: `20px` default · `24px` for navigation · `16px` for inline
+- Color: inherits from parent text color
 
 ---
 
-# Footer Rules
+## Imagery & Photography
 
-The footer should reinforce merchant trust and brand authenticity.
-
-## Required Footer Links
-
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
-
-## Footer Style
-
-* Clean layout
-* Soft background
-* Simple typography
-* Organized link groups
-* Visible support information
+- **Tone:** Bright, airy, natural light — no heavy filters
+- **Models:** Diverse, confident, lifestyle-forward poses
+- **Backgrounds:** Clean white OR soft lifestyle settings (café, street, studio)
+- **Product shots:** Pure white background, multiple angles
+- **Aspect ratios:** Hero `16:9` · Product cards `3:4` · Campaign banners `2:1`
+- Avoid: dark moody shots, heavy retouching, cluttered backgrounds
 
 ---
 
-# Image Rules
+## Motion & Animation
 
-Images should feel:
-
-* Natural
-* Bright
-* Warm
-* Family-friendly
-* Lifestyle-oriented
-* Boutique-inspired
-
-## Product Images
-
-Use:
-
-* Consistent image ratios
-* Soft lighting
-* Clean backgrounds
-* Natural poses
-* Seasonal styling
-
-Avoid:
-
-* Overly edited imagery
-* AI-looking product photos
-* Luxury runway imagery
-* Dark moody visuals
-* Unrelated stock photos
+- **Easing:** `cubic-bezier(0.25, 0, 0.1, 1)` — soft deceleration
+- **Durations:** Micro `150ms` · Standard `300ms` · Page transitions `400ms`
+- Hero text: staggered fade-in-up (each line +80ms delay)
+- Product grid: fade-in on scroll, staggered by column
+- Avoid: bouncy springs, long delays, motion that blocks interaction
 
 ---
 
-# Component Rules
+## Tone & Voice (UI Copy)
 
-## Buttons
-
-Buttons should:
-
-* Use rounded corners
-* Have soft hover effects
-* Use readable text
-* Feel friendly and modern
-
-Avoid:
-
-* Harsh gradients
-* Flashing animations
-* Aggressive red CTA buttons
-
-## Cards
-
-Cards should:
-
-* Use clean white backgrounds
-* Include subtle borders or soft shadows
-* Maintain consistent spacing
-
-## Banners
-
-Banners should:
-
-* Combine lifestyle imagery with short text
-* Feel clean and seasonal
-* Avoid overcrowded text
+- **Friendly, not salesy.** "You'll love this" over "BUY NOW!"
+- **Inclusive.** "For every body, every occasion."
+- Short sentences. Active voice. Warm punctuation (em dash, not exclamation overload).
+- Error messages: kind and solution-focused — *"That size is sold out — try the next size up?"*
 
 ---
 
-# Mobile UX Rules
+## Accessibility
 
-The website must be optimized for mobile-first shopping.
-
-## Mobile Priorities
-
-* Fast scrolling
-* Clear navigation
-* Easy product browsing
-* Thumb-friendly buttons
-* Clean checkout flow
-* Lightweight layouts
-
-Avoid:
-
-* Large popup interruptions
-* Tiny clickable areas
-* Heavy animations
-* Complex navigation systems
-
----
-
-# Product Content Rules
-
-Descriptions should feel:
-
-* Natural
-* Friendly
-* Lifestyle-focused
-* Seasonal
-* Easy to understand
-
-Include:
-
-* Styling suggestions
-* Comfort-focused messaging
-* Everyday wear scenarios
-* Family-oriented tone
-
-Avoid:
-
-* Keyword stuffing
-* Robotic AI copy
-* Fake scarcity language
-* Overly technical descriptions
-
----
-
-# GMC Compliance Rules
-
-The storefront must feel like a legitimate boutique retail business.
-
-## Required Trust Signals
-
-* Visible contact information
-* Consistent branding
-* Transparent policies
-* Realistic shipping timelines
-* Secure checkout messaging
-* Mobile-friendly UX
-* Authentic product presentation
-
-## GMC Priorities
-
-* Strong topical consistency
-* Women & children fashion relevance
-* Boutique-style merchant behavior
-* Realistic ecommerce structure
-* Original branded content
-
-Avoid:
-
-* Mixed-category spam
-* Fake reviews
-* Fake urgency
-* Thin AI-generated pages
-* Excessive discount messaging
-* Random unrelated products
-
----
-
-# Forbidden Design Patterns
-
-Never use:
-
-* Dark luxury ecommerce style
-* Tech startup visual direction
-* Overstock warehouse layouts
-* Marketplace-style product spam
-* Flashing urgency banners
-* Fake countdown timers
-* Excessive popup spam
-* Harsh neon colors
-* Random visual inconsistency
-* Generic dropshipping aesthetics
-
----
-
-# Strategic Design Direction
-
-The final storefront should feel like:
-
-“A trusted local boutique for women and young girls with a warm community-oriented shopping experience and a polished modern WooCommerce presence.”
+- Minimum contrast ratio: **4.5:1** for all body text
+- All interactive elements keyboard-navigable
+- Focus rings: `2px solid #E8567A` with `2px offset`
+- Images: descriptive `alt` text required
+- Touch targets: minimum `44×44px`

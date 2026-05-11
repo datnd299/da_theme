@@ -1,239 +1,337 @@
 <?php
 /**
- * Template Part: FAQ Page
- * 
- * This template follows Google Merchant Center (GMC) standards and the Shop Kelli Design System.
- * It provides clear, transparent answers to common customer questions, building trust and reducing support load.
+ * FAQ page template part — Shopshive
+ * Sections: Hero · Category Tabs · Accordion FAQ · Contact Strip · CTA
  */
 ?>
 
-<section class="bg-surface py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <!-- Header -->
-        <div class="text-center mb-16">
-            <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Common Questions</span>
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Frequently Asked Questions</h1>
-            <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
-                Everything you need to know about our boutique pieces, shipping, and more. Can't find the answer you're looking for? <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="text-accent hover:underline font-medium">Contact our friendly team</a>.
-            </p>
+<!-- ===== HERO ===== -->
+<section class="relative overflow-hidden bg-[#F5E6DC]" style="min-height:400px" aria-label="FAQ hero">
+  <div class="absolute inset-0 bg-gradient-to-br from-[#F5E6DC] via-[#F2A8BC]/20 to-[#E8567A]/10"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#FDF8F4]/60"></div>
+
+  <div class="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-12 py-20 lg:py-28 flex flex-col items-center text-center">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#E8567A] mb-5">Help Center</p>
+    <h1 class="mb-6 text-[#2B2B2B] leading-[1.1]"
+        style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(40px,6vw,68px);font-weight:300">
+      Frequently Asked<br><em>Questions</em>
+    </h1>
+    <p class="text-base lg:text-lg text-[#2B2B2B]/70 max-w-xl leading-relaxed mb-10">
+      Everything you need to know about shopping with Shopshive — from orders and shipping to returns and sizing.
+    </p>
+    <a href="<?php echo esc_url( home_url('/contact/') ); ?>"
+       class="inline-flex items-center gap-2 px-7 py-3.5 border border-[#E8567A] text-[#E8567A] text-sm font-semibold rounded-full hover:bg-[#E8567A] hover:text-white transition-all duration-300">
+      Still Have Questions? Contact Us
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FAQ ACCORDION ===== -->
+<section class="bg-[#FDF8F4] py-20 lg:py-28" aria-label="Frequently asked questions">
+  <div class="max-w-[860px] mx-auto px-6 lg:px-12">
+
+    <?php
+      $faq_groups = [
+        [
+          'category' => 'Shipping & Delivery',
+          'icon'     => '<path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
+          'items'    => [
+            [
+              'q' => 'Do you offer free shipping?',
+              'a' => 'Yes — we offer free shipping on every single order, with no minimum purchase required. We ship to all addresses across the United States.',
+            ],
+            [
+              'q' => 'How long does shipping take?',
+              'a' => 'Standard shipping typically takes 5–10 business days after your order is processed. Processing usually takes 1–2 business days. You\'ll receive a tracking link by email as soon as your package ships.',
+            ],
+            [
+              'q' => 'Do you ship internationally?',
+              'a' => 'Currently we ship within the United States only. We\'re working on expanding internationally — stay tuned by following us on Facebook and Pinterest for updates.',
+            ],
+            [
+              'q' => 'How do I track my order?',
+              'a' => 'Once your order ships, you\'ll receive a confirmation email with your tracking number and a direct link to follow your package. You can also visit our Track Order page anytime and enter your order number.',
+            ],
+            [
+              'q' => 'My package shows delivered but I haven\'t received it. What should I do?',
+              'a' => 'We\'re sorry to hear that! Please first check around your property and with neighbors or building management. If it\'s still missing after 24 hours, email us at support@shopshive.com or call +1 (760) 383 0494 and we\'ll investigate right away.',
+            ],
+          ],
+        ],
+        [
+          'category' => 'Returns & Exchanges',
+          'icon'     => '<polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>',
+          'items'    => [
+            [
+              'q' => 'What is your return policy?',
+              'a' => 'We accept returns and exchanges within 30 days of delivery. Items must be unworn, unwashed, and in their original condition with tags attached. We want you to love every piece — if you don\'t, we\'ll make it right.',
+            ],
+            [
+              'q' => 'How do I start a return or exchange?',
+              'a' => 'Simply email us at support@shopshive.com with your order number and reason for the return. Our team will provide return instructions within 24 hours. Alternatively, call us at +1 (760) 383 0494 Monday–Saturday, 10 AM–6 PM PST.',
+            ],
+            [
+              'q' => 'Are returns free?',
+              'a' => 'For exchanges, we cover the cost of the new shipment. For refunds, customers are responsible for return shipping costs. We recommend using a trackable shipping service for your return.',
+            ],
+            [
+              'q' => 'When will I receive my refund?',
+              'a' => 'Once we receive and inspect your return, we\'ll process your refund within 3–5 business days. The funds will appear on your original payment method within 5–10 business days depending on your bank.',
+            ],
+            [
+              'q' => 'Can I exchange for a different size or color?',
+              'a' => 'Absolutely — exchanges for a different size or color are easy. Contact us within 30 days and we\'ll ship the replacement as soon as we receive your original item back, subject to stock availability.',
+            ],
+          ],
+        ],
+        [
+          'category' => 'Orders & Payment',
+          'icon'     => '<rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>',
+          'items'    => [
+            [
+              'q' => 'What payment methods do you accept?',
+              'a' => 'We accept all major credit and debit cards including Visa, Mastercard, American Express, and Discover. All transactions are encrypted and processed through our secure checkout.',
+            ],
+            [
+              'q' => 'Can I modify or cancel my order after placing it?',
+              'a' => 'We process orders quickly, so please contact us immediately at support@shopshive.com or +1 (760) 383 0494 if you need to modify or cancel. If your order has already shipped, you\'ll need to use our return process instead.',
+            ],
+            [
+              'q' => 'I entered the wrong shipping address. What can I do?',
+              'a' => 'Contact us right away at support@shopshive.com with your order number and the correct address. If your order hasn\'t shipped yet, we can update it at no charge. Once shipped, unfortunately we cannot reroute it.',
+            ],
+            [
+              'q' => 'My order says "processing" for a long time. Is this normal?',
+              'a' => 'Orders typically process within 1–2 business days. If your order has been processing for more than 3 business days, please reach out to us and we\'ll look into it right away.',
+            ],
+            [
+              'q' => 'Will I receive an order confirmation?',
+              'a' => 'Yes — you\'ll receive an order confirmation email immediately after placing your order. If you don\'t see it within a few minutes, please check your spam folder or contact us at support@shopshive.com.',
+            ],
+          ],
+        ],
+        [
+          'category' => 'Sizing & Products',
+          'icon'     => '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>',
+          'items'    => [
+            [
+              'q' => 'How do I find my correct size?',
+              'a' => 'Each product page includes a detailed size guide with measurements. We recommend measuring your bust, waist, and hips and comparing them to our size chart. When in doubt between two sizes, we suggest sizing up for a more comfortable fit.',
+            ],
+            [
+              'q' => 'Do your clothes run true to size?',
+              'a' => 'Most of our styles run true to size, but this can vary by cut and fabric. We note any fit variations (e.g., "runs small" or "oversized") directly on the product page. Customer reviews also often mention sizing tips.',
+            ],
+            [
+              'q' => 'Are the colors accurate in the photos?',
+              'a' => 'We photograph all items in natural light to show colors as accurately as possible. However, monitor settings can slightly affect how colors appear on screen. If you\'re unsure about a color, feel free to email us for more details.',
+            ],
+            [
+              'q' => 'How should I care for my Shopshive clothing?',
+              'a' => 'Care instructions are printed on the label inside each garment and also listed on the product page. We generally recommend cold machine wash and air dry to preserve the shape, color, and quality of your pieces.',
+            ],
+            [
+              'q' => 'An item I want is out of stock. Will it be restocked?',
+              'a' => 'We restock popular items regularly. If an item you love is out of stock, email us at support@shopshive.com with the product name and size — we\'ll notify you as soon as it\'s back, or suggest similar styles you might love.',
+            ],
+          ],
+        ],
+        [
+          'category' => 'General',
+          'icon'     => '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
+          'items'    => [
+            [
+              'q' => 'How can I contact Shopshive customer support?',
+              'a' => 'You can reach us by phone at +1 (760) 383 0494 or by email at support@shopshive.com. We\'re available Monday through Saturday, 10:00 AM to 6:00 PM PST. We aim to respond to all emails within 24 hours.',
+            ],
+            [
+              'q' => 'Do I need an account to shop?',
+              'a' => 'No — you can check out as a guest. However, creating an account lets you track your orders, save your details for faster checkout, and view your order history all in one place.',
+            ],
+            [
+              'q' => 'Is my personal information safe?',
+              'a' => 'Absolutely. We take privacy seriously and use industry-standard SSL encryption to protect your personal and payment information. We never sell or share your data with third parties. View our Privacy Policy for full details.',
+            ],
+            [
+              'q' => 'Do you have a physical store I can visit?',
+              'a' => 'We are an online-only retailer. This allows us to offer a wider selection and better prices without the overhead of a physical location. Our full catalog is always available at shopshive.com.',
+            ],
+            [
+              'q' => 'How do I stay updated on new arrivals and promotions?',
+              'a' => 'Follow us on Facebook at @shopshivedotcom and Pinterest at @galgirlus for the latest arrivals, style inspiration, and exclusive promotions. You can also sign up for our newsletter at checkout.',
+            ],
+          ],
+        ],
+      ];
+    ?>
+
+    <?php foreach ( $faq_groups as $group_index => $group ) : ?>
+
+    <!-- Category heading -->
+    <div class="<?php echo $group_index > 0 ? 'mt-14' : ''; ?> mb-6">
+      <div class="flex items-center gap-3 mb-1">
+        <div class="w-9 h-9 rounded-full bg-[#F5E6DC] flex items-center justify-center flex-shrink-0">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <?php echo $group['icon']; ?>
+          </svg>
         </div>
-
-        <div class="space-y-12">
-            <!-- category: Orders & Payments -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Orders & Payments</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What payment methods do you accept?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, Apple Pay, and Google Pay. All transactions are securely processed and encrypted for your safety.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Can I modify or cancel my order after it's placed?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We aim to process orders quickly! If you need to change or cancel an order, please contact us at **support@shopkelli.com** within 2 hours of placing your order. Once an order has been processed for shipping, we are unable to make changes.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I track my order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Once your order ships, you will receive an email with your tracking number and a link to follow its journey. You can also track your order directly on our <a href="<?php echo esc_url( home_url( '/track-order/' ) ); ?>" class="text-accent hover:underline font-medium">Order Tracking page</a>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- category: Shipping & Delivery -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Shipping & Delivery</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How long will it take to receive my order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Orders are typically processed within 1-2 business days. Shipping via Standard Delivery usually takes 3-5 business days within the United States. For more detailed timelines, please visit our <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="text-accent hover:underline font-medium">Shipping Policy</a>.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What are your shipping costs?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We offer **FREE Standard Shipping on all orders** within the United States!</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Do you ship internationally?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Currently, Shop Kelli ships only within the United States. We are looking into international shipping options for the future, so stay tuned!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- category: Returns & Exchanges -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><polyline points="3 3 3 8 8 8"></polyline></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Returns & Exchanges</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What is your return policy?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We want you to love your purchase! We accept returns within **30 days** of delivery for items in their original, unwashed, and unworn condition with tags attached. For full details, please see our <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="text-accent hover:underline font-medium">Return & Refund Policy</a>.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I start a return?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To start a return, simply email us at **support@shopkelli.com** with your order number and the items you wish to return. We will provide you with instructions and a return shipping address.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- category: Product & Sizing -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Product & Sizing</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I know which size to order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We include specific sizing information on each product page. Since we carry various boutique brands, fit can vary slightly. If you're between sizes, we generally recommend sizing up for kids' items to allow for growth!</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How should I care for my boutique pieces?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To keep your items looking beautiful, we recommend following the care instructions on the label. Most of our delicate pieces benefit from hand washing or a gentle machine cycle in cold water, followed by hanging to dry.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Still Have Questions? -->
-        <div class="mt-20 bg-accent-soft p-10 md:p-16 rounded-3xl text-center">
-            <h3 class="font-heading text-3xl text-foreground font-bold mb-4">Still have questions?</h3>
-            <p class="text-foreground-muted text-lg mb-8 max-w-xl mx-auto">
-                Our family is here to help yours. Reach out anytime and we'll get back to you as soon as possible.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
-                    Contact Support
-                </a>
-                <a href="mailto:support@shopkelli.com" class="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground font-semibold rounded-full border border-border hover:bg-surface-alt transition-colors">
-                    Email Us Directly
-                </a>
-            </div>
-        </div>
-
-        <!-- Policy Links Footer -->
-        <div class="mt-16 pt-8 border-t border-border flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted">
-            <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="hover:text-accent transition-colors">Shipping & Returns</a>
-            <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>" class="hover:text-accent transition-colors">Terms of Service</a>
-        </div>
+        <h2 class="text-[#2B2B2B] font-semibold"
+            style="font-family:'Playfair Display',serif;font-size:clamp(18px,2.5vw,24px)">
+          <?php echo esc_html( $group['category'] ); ?>
+        </h2>
+      </div>
+      <div class="h-px bg-[#D4B8A0]/60 mt-4"></div>
     </div>
+
+    <!-- Accordion items -->
+    <div class="space-y-3">
+      <?php foreach ( $group['items'] as $item_index => $item ) :
+        $item_id = 'faq-' . $group_index . '-' . $item_index;
+      ?>
+      <div class="faq-item bg-white rounded-xl border border-[#F5E6DC] overflow-hidden hover:border-[#F2A8BC] transition-colors duration-200">
+        <button
+          type="button"
+          class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
+          aria-expanded="false"
+          aria-controls="<?php echo esc_attr($item_id); ?>"
+        >
+          <span class="font-semibold text-[#2B2B2B] text-[15px] leading-snug">
+            <?php echo esc_html( $item['q'] ); ?>
+          </span>
+          <span class="faq-icon flex-shrink-0 w-8 h-8 rounded-full bg-[#F5E6DC] flex items-center justify-center transition-all duration-300">
+            <svg class="faq-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <svg class="faq-minus hidden" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div
+          id="<?php echo esc_attr($item_id); ?>"
+          class="faq-panel hidden px-6 pb-5"
+          role="region"
+        >
+          <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed border-t border-[#F5E6DC] pt-4">
+            <?php echo esc_html( $item['a'] ); ?>
+          </p>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+
+    <?php endforeach; ?>
+
+  </div>
+</section>
+
+<!-- ===== CONTACT STRIP ===== -->
+<section class="bg-[#F5E6DC] py-16 lg:py-20" aria-label="Contact support">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
+    <div class="text-center mb-12">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#E8567A] mb-4">Need More Help?</p>
+      <h2 class="text-[#2B2B2B] leading-tight"
+          style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-weight:500">
+        We're Here For You
+      </h2>
+      <p class="mt-4 text-[14px] text-[#2B2B2B]/60 max-w-md mx-auto leading-relaxed">
+        Didn't find what you were looking for? Our friendly team is happy to help — reach out any time.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+
+      <div class="bg-white rounded-2xl p-7 shadow-sm flex flex-col items-center text-center gap-4 hover:shadow-md transition-shadow duration-300">
+        <div class="w-14 h-14 rounded-full bg-[#F5E6DC] flex items-center justify-center flex-shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.9h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Call Us</h3>
+          <a href="tel:+17603830494" class="text-[14px] text-[#E8567A] font-medium hover:underline">+1 (760) 383 0494</a>
+          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">Mon – Sat, 10 AM – 6 PM PST</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 shadow-sm flex flex-col items-center text-center gap-4 hover:shadow-md transition-shadow duration-300">
+        <div class="w-14 h-14 rounded-full bg-[#F5E6DC] flex items-center justify-center flex-shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Email Us</h3>
+          <a href="mailto:support@shopshive.com" class="text-[14px] text-[#E8567A] font-medium hover:underline">support@shopshive.com</a>
+          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">We reply within 24 hours</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-7 shadow-sm flex flex-col items-center text-center gap-4 hover:shadow-md transition-shadow duration-300">
+        <div class="w-14 h-14 rounded-full bg-[#F5E6DC] flex items-center justify-center flex-shrink-0">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Send A Message</h3>
+          <a href="<?php echo esc_url( home_url('/contact/') ); ?>" class="text-[14px] text-[#E8567A] font-medium hover:underline">Contact Form</a>
+          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">Quick &amp; easy online form</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="bg-[#2B2B2B] py-16 lg:py-20" aria-label="Shop now call to action">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-12 text-center">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#F2A8BC] mb-5">Keep Exploring</p>
+    <h2 class="mb-4 text-white leading-tight"
+        style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,5vw,56px);font-weight:300">
+      Ready To Find Your<br><em>Next Favorite Look?</em>
+    </h2>
+    <p class="text-white/60 text-base mb-8 max-w-lg mx-auto leading-relaxed">
+      Hundreds of styles, free shipping on every order, and hassle-free 30-day returns.
+    </p>
+    <a href="<?php echo esc_url( home_url('/shop/') ); ?>"
+       class="inline-flex items-center gap-2 px-8 py-4 bg-[#E8567A] text-white text-sm font-semibold rounded-full hover:bg-[#d14469] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
+      Shop The Collection
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const faqTriggers = document.querySelectorAll('.faq-trigger');
-    
-    faqTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
-            const item = this.parentElement;
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('.faq-icon');
-            
-            // Toggle current item
-            const isOpen = !content.classList.contains('hidden');
-            
-            if (isOpen) {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        });
+(function () {
+  document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item    = btn.closest('.faq-item');
+      var panel   = item.querySelector('.faq-panel');
+      var plus    = btn.querySelector('.faq-plus');
+      var minus   = btn.querySelector('.faq-minus');
+      var open    = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach(function (other) {
+        if (other !== item) {
+          other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-panel').classList.add('hidden');
+          other.querySelector('.faq-plus').classList.remove('hidden');
+          other.querySelector('.faq-minus').classList.add('hidden');
+          other.querySelector('.faq-icon').classList.remove('bg-[#E8567A]');
+          other.querySelector('.faq-plus').setAttribute('stroke', '#E8567A');
+        }
+      });
+
+      // Toggle current
+      if (open) {
+        btn.setAttribute('aria-expanded', 'false');
+        panel.classList.add('hidden');
+        plus.classList.remove('hidden');
+        minus.classList.add('hidden');
+        btn.querySelector('.faq-icon').classList.remove('bg-[#E8567A]');
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        panel.classList.remove('hidden');
+        plus.classList.add('hidden');
+        minus.classList.remove('hidden');
+        btn.querySelector('.faq-icon').classList.add('bg-[#E8567A]');
+        minus.setAttribute('stroke', '#fff');
+      }
     });
-});
+  });
+})();
 </script>

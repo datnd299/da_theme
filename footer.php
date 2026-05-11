@@ -8,7 +8,7 @@
 
         <div class="sm:col-span-2 lg:col-span-1">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block mb-5">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shopshive-logo-footer.svg'); ?>"
                      alt="Shopshive"
                      class="h-14 w-auto"
                      loading="lazy">

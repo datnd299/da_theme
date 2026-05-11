@@ -15,6 +15,10 @@
 
     <!-- Slide 1 -->
     <div class="hero-slide absolute inset-0 flex" data-slide="0">
+      <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/shopshive/slide%231.png'); ?>"
+           alt=""
+           class="absolute inset-0 h-full w-full object-cover"
+           aria-hidden="true">
       <div class="absolute inset-0 bg-gradient-to-br from-[#F5E6DC] via-[#F2A8BC]/30 to-[#E8567A]/10"></div>
       <div class="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-transparent"></div>
       <div class="relative z-10 flex h-full items-center w-full">
@@ -42,8 +46,12 @@
 
     <!-- Slide 2 -->
     <div class="hero-slide absolute inset-0 flex" data-slide="1">
-      <div class="absolute inset-0 bg-gradient-to-br from-[#2B2B2B] via-[#3a2a30] to-[#E8567A]/20"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
+      <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/shopshive/slide%232.png'); ?>"
+           alt=""
+           class="absolute inset-0 h-full w-full object-cover"
+           aria-hidden="true">
+      <div class="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/12 via-transparent to-transparent"></div>
       <div class="relative z-10 flex h-full items-center w-full">
         <div class="max-w-[1280px] mx-auto px-6 lg:px-12 w-full">
           <div class="max-w-lg">
@@ -67,8 +75,12 @@
 
     <!-- Slide 3 -->
     <div class="hero-slide absolute inset-0 flex" data-slide="2">
-      <div class="absolute inset-0 bg-gradient-to-br from-[#F2A8BC]/50 via-[#FDF8F4] to-[#F5E6DC]"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-black/15 via-transparent to-transparent"></div>
+      <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/shopshive/slide%233.png'); ?>"
+           alt=""
+           class="absolute inset-0 h-full w-full object-cover"
+           aria-hidden="true">
+      <div class="absolute inset-0 bg-gradient-to-r from-white/38 via-white/10 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black/8 via-transparent to-transparent"></div>
       <div class="relative z-10 flex h-full items-center w-full">
         <div class="max-w-[1280px] mx-auto px-6 lg:px-12 w-full">
           <div class="max-w-lg">
@@ -450,8 +462,14 @@
 
 
 <style>
+.hero-slide > img {
+  object-position: center center;
+}
 @media (max-width: 767px) {
   section[aria-label="Featured campaign"] { height: 70vh !important; min-height: 420px !important; }
+  .hero-slide[data-slide="0"] > img { object-position: 74% center; }
+  .hero-slide[data-slide="1"] > img { object-position: 70% center; }
+  .hero-slide[data-slide="2"] > img { object-position: 72% center; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .hero-text-block .hero-line {

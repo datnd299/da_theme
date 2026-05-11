@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="72" viewBox="0 0 260 72" role="img" aria-labelledby="title desc">
+  <title id="title">Shopshive</title>
+  <desc id="desc">Shopshive logo with a boutique bag and honeycomb mark.</desc>
+  <defs>
+    <linearGradient id="shopshive-rose" x1="9" y1="10" x2="61" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F2A8BC"/>
+      <stop offset="0.52" stop-color="#E8567A"/>
+      <stop offset="1" stop-color="#CF4E6E"/>
+    </linearGradient>
+    <filter id="shopshive-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#E8567A" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#shopshive-shadow)">
+    <path d="M36 7 61.98 22v30L36 67 10.02 52V22L36 7Z" fill="#FDF8F4" stroke="#E8567A" stroke-width="3"/>
+    <path d="M22.6 29.2h26.8l-2.25 23.2a4.8 4.8 0 0 1-4.78 4.34H29.63a4.8 4.8 0 0 1-4.78-4.34L22.6 29.2Z" fill="url(#shopshive-rose)"/>
+    <path d="M29.6 29.2v-3.1c0-4.3 2.94-7.35 6.4-7.35s6.4 3.05 6.4 7.35v3.1" fill="none" stroke="#2B2B2B" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M35.9 36.2 47.7 29.5M36.1 36.35 24.3 29.7M36 36.25v13.5" stroke="#FDF8F4" stroke-width="1.8" stroke-linecap="round" opacity="0.76"/>
+    <circle cx="36" cy="36.2" r="3.4" fill="#FDF8F4"/>
+  </g>
+
+  <text x="82" y="40" fill="#2B2B2B" font-family="'Playfair Display', Georgia, serif" font-size="31" font-weight="600" letter-spacing="0">Shopshive</text>
+  <text x="85" y="56" fill="#A89080" font-family="'DM Sans', Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="2.8">BOUTIQUE STYLE</text>
+  <path d="M82 48.5h27" stroke="#E8567A" stroke-width="2" stroke-linecap="round"/>
+</svg>

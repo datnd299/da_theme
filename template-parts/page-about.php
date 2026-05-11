@@ -35,10 +35,9 @@
       <!-- Image placeholder -->
       <div class="relative">
         <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-[#F5E6DC]">
-          <div class="w-full h-full flex flex-col items-center justify-center text-[#D4B8A0]">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <p class="mt-3 text-sm tracking-wide">Brand Story Photo</p>
-          </div>
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/shopshive/About%231.png'); ?>"
+               alt="<?php esc_attr_e('Shopshive brand story', 'dawp'); ?>"
+               class="h-full w-full object-cover">
         </div>
         <!-- Floating badge -->
         <div class="absolute -bottom-5 -right-4 lg:-right-8 bg-white rounded-2xl shadow-lg px-6 py-4 border border-[#F5E6DC]">
@@ -210,10 +209,9 @@
       <!-- Image placeholder -->
       <div class="relative order-first lg:order-last">
         <div class="aspect-square rounded-2xl overflow-hidden bg-[#F5E6DC]">
-          <div class="w-full h-full flex flex-col items-center justify-center text-[#D4B8A0]">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <p class="mt-3 text-sm tracking-wide">Shopping Experience Photo</p>
-          </div>
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/shopshive/About%232.png'); ?>"
+               alt="<?php esc_attr_e('Shopshive shopping experience', 'dawp'); ?>"
+               class="h-full w-full object-cover">
         </div>
         <!-- Decorative ring -->
         <div class="absolute -top-4 -left-4 w-32 h-32 rounded-full border-2 border-[#F2A8BC]/50 pointer-events-none"></div>

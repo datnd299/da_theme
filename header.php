@@ -61,9 +61,9 @@ $nav_items   = dawp_main_menu_items();
         <a href="<?php echo esc_url(home_url('/')); ?>"
            class="shrink-0"
            aria-label="Shopshive">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shopshive-logo.svg'); ?>"
                  alt="Shopshive"
-                 class="h-9 w-auto"
+                 class="h-10 lg:h-11 w-auto"
                  loading="eager"
                  fetchpriority="high">
         </a>
@@ -182,9 +182,9 @@ $nav_items   = dawp_main_menu_items();
     <!-- Drawer header -->
     <div class="flex items-center justify-between px-4 h-16 border-b border-[#E8E0D8]">
         <a href="<?php echo esc_url(home_url('/')); ?>">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shopshive-logo.svg'); ?>"
                  alt="Shopshive"
-                 class="h-8 w-auto">
+                 class="h-10 w-auto">
         </a>
         <button id="drawer-close"
                 class="w-10 h-10 flex items-center justify-center text-[#2B2B2B]/50 hover:text-[#E8567A] hover:bg-[#F5E6DC] rounded-md transition-colors"

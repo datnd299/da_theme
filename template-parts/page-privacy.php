@@ -347,7 +347,7 @@ get_header();
 
                             <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
                                 <?php esc_html_e('We Keep Support Clear.', 'dawp'); ?>
-                            </h2>
+                            </h2> 
 
                             <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
                                 <?php esc_html_e('If you have questions about this Privacy Policy or how your information is handled, contact our support team and we will help you review your request.', 'dawp'); ?>

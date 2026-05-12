@@ -4,31 +4,28 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Noto+Serif:wght@600;700;800;900&display=swap&subset=vietnamese" rel="stylesheet">
 
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        heading: ['Barlow Condensed', 'sans-serif'],
-                        body: ['DM Sans', 'sans-serif'],
+                        heading: ['Noto Serif', 'serif'],
+                        body: ['Be Vietnam Pro', 'sans-serif'],
                     },
                     colors: {
-                        slickBlack: '#0B0F0D',
-                        slickGreen: '#123D2A',
-                        slickActive: '#22C55E',
-                        slickLime: '#A3E635',
-                        slickSoft: '#F7F8F5',
-                        slickText: '#111827',
-                        slickMuted: '#6B7280',
+                        rainCream: '#FAF7F2',
+                        rainIvory: '#FFF9EF',
+                        rainMoss: '#123D2A',
+                        rainLeaf: '#6F8F3A',
+                        rainStraw: '#E7C873',
+                        rainBamboo: '#8B5E34',
+                        rainWood: '#2F2A28',
+                        rainMuted: '#6F625D',
                     }
                 }
             }
@@ -36,132 +33,92 @@
     </script>
 
     <?php wp_head(); ?>
+    <style>
+        :root {
+            --font-sans: 'Be Vietnam Pro', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Be Vietnam Pro', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-heading: 'Noto Serif', Georgia, 'Times New Roman', serif;
+            --default-font-family: var(--font-sans);
+        }
+
+        html,
+        body,
+        #content,
+        .font-body {
+            font-family: var(--font-sans) !important;
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .font-heading {
+            font-family: var(--font-heading) !important;
+            font-feature-settings: 'kern' 1;
+        }
+    </style>
 </head>
 
-<body <?php body_class('bg-white text-slickText font-body antialiased'); ?>>
+<body <?php body_class('bg-rainCream text-rainWood font-body antialiased'); ?>>
 <?php wp_body_open(); ?>
 
 <?php
-$cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
-$cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
-$account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
+$home_url = home_url('/');
 
-$nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [];
-
-if (empty($nav_items)) {
-    $nav_items = [
-        [
-            'title' => 'New Arrivals',
-            'url'   => home_url('/shop/'),
-        ],
-        [
-            'title' => 'Graphic Tees',
-            'url'   => home_url('/product-category/graphic-tees/'),
-        ],
-        [
-            'title' => 'Oversized Tees',
-            'url'   => home_url('/product-category/oversized-tees/'),
-        ],
-        [
-            'title' => 'Hoodies',
-            'url'   => home_url('/product-category/casual-hoodies/'),
-        ],
-        [
-            'title' => 'Essentials',
-            'url'   => home_url('/product-category/streetwear-essentials/'),
-        ],
-    ];
-}
+$nav_items = [
+    ['title' => __('Trang chủ', 'dawp'), 'url' => $home_url],
+    ['title' => __('Câu chuyện', 'dawp'), 'url' => $home_url . '#khong-gian'],
+    ['title' => __('Không gian', 'dawp'), 'url' => $home_url . '#ben-ao'],
+    ['title' => __('Menu', 'dawp'), 'url' => $home_url . '#menu'],
+    ['title' => __('Thư viện', 'dawp'), 'url' => $home_url . '#thu-vien'],
+    ['title' => __('Liên hệ', 'dawp'), 'url' => $home_url . '#lien-he'],
+];
 ?>
 
-<!-- HEADER -->
-<header id="masthead" class="sticky top-0 z-50 bg-slickBlack text-white shadow-lg shadow-black/20" role="banner">
-
-    <!-- Announcement Bar -->
-    <div class="border-b border-white/10 bg-slickGreen">
-        <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-2 text-center text-xs font-black uppercase tracking-[0.18em] text-slickLime sm:px-6 lg:px-8">
-            <?php esc_html_e('New streetwear drops are live • Clean fits for everyday rotation', 'dawp'); ?>
+<header id="masthead" class="sticky top-0 z-50 border-b border-[#D8C7A3]/70 bg-rainCream/95 text-rainWood shadow-sm backdrop-blur" role="banner">
+    <div class="border-b border-[#D8C7A3]/60 bg-rainMoss text-white">
+        <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-2 text-center text-xs font-black uppercase tracking-[0.18em] text-rainStraw sm:px-6 lg:px-8">
+            <?php esc_html_e('Chuyện Của Mưa đang chuẩn bị mở cửa vào tháng 8 tại thành phố Điện Biên', 'dawp'); ?>
         </div>
     </div>
 
-    <!-- Main Header -->
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between gap-6">
-
-            <!-- Logo -->
-            <a href="<?php echo esc_url(home_url('/')); ?>"
-               class="shrink-0 font-heading text-3xl font-black uppercase tracking-[-0.04em] text-white"
-               aria-label="<?php bloginfo('name'); ?>">
-                Slick<span class="text-slickActive">tee</span>
+        <div class="flex min-h-20 items-center justify-between gap-5">
+            <a href="<?php echo esc_url($home_url); ?>"
+               class="group inline-flex items-center gap-3"
+               aria-label="<?php esc_attr_e('Về trang chủ Chuyện Của Mưa', 'dawp'); ?>">
+                <span class="flex h-11 w-11 items-center justify-center rounded-full border border-rainBamboo/25 bg-rainMoss font-heading text-2xl font-black text-rainStraw">
+                    <?php esc_html_e('Mưa', 'dawp'); ?>
+                </span>
+                <span class="leading-none">
+                    <span class="block font-heading text-3xl font-black uppercase tracking-tight text-rainMoss">
+                        <?php esc_html_e('Chuyện Của Mưa', 'dawp'); ?>
+                    </span>
+                    <span class="mt-1 hidden text-xs font-black uppercase tracking-[0.18em] text-rainBamboo sm:block">
+                        <?php esc_html_e('Bên ao, sau lưng là đồng lúa', 'dawp'); ?>
+                    </span>
+                </span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden items-center gap-7 lg:flex" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
+            <nav class="hidden items-center gap-7 lg:flex" aria-label="<?php esc_attr_e('Điều hướng chính', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
                     <a href="<?php echo esc_url($item['url']); ?>"
-                       class="text-sm font-black uppercase tracking-wide text-white/82 transition hover:text-slickLime">
+                       class="text-sm font-black uppercase tracking-wide text-rainWood/78 transition hover:text-rainMoss">
                         <?php echo esc_html($item['title']); ?>
                     </a>
                 <?php endforeach; ?>
             </nav>
 
-            <!-- Header Actions -->
-            <div class="flex items-center gap-3 sm:gap-4">
-
-                <!-- Desktop Search -->
-                <form role="search"
-                      method="get"
-                      action="<?php echo esc_url(home_url('/')); ?>"
-                      class="hidden items-center sm:flex">
-
-                    <label for="slicktee-header-search" class="sr-only">
-                        <?php esc_html_e('Search products', 'dawp'); ?>
-                    </label>
-
-                    <input id="slicktee-header-search"
-                           type="search"
-                           name="s"
-                           placeholder="<?php esc_attr_e('Search', 'dawp'); ?>"
-                           class="h-10 w-36 rounded-md border border-white/10 bg-white/10 px-3 text-sm text-white placeholder:text-white/55 outline-none transition focus:border-slickActive focus:bg-white/15 lg:w-44">
-
-                    <input type="hidden" name="post_type" value="product">
-                </form>
-
-                <!-- Mobile Search Icon -->
-                <a href="<?php echo esc_url(home_url('/?s=&post_type=product')); ?>"
-                   class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime sm:hidden"
-                   aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="M21 21l-4.35-4.35"></path>
-                    </svg>
+            <div class="flex items-center gap-3">
+                <a href="<?php echo esc_url($home_url . '#mo-cua'); ?>"
+                   class="hidden min-h-11 items-center justify-center rounded-md bg-rainMoss px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-rainBamboo sm:inline-flex">
+                    <?php esc_html_e('Theo dõi mở cửa', 'dawp'); ?>
                 </a>
 
-                <!-- Account -->
-                <a href="<?php echo esc_url($account_url); ?>"
-                   class="hidden h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime sm:inline-flex"
-                   aria-label="<?php esc_attr_e('My Account', 'dawp'); ?>">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </a>
-
-                <!-- Cart -->
-                <a href="<?php echo esc_url($cart_url); ?>"
-                   class="relative inline-flex min-h-10 items-center justify-center rounded-md bg-slickActive px-4 text-xs font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime"
-                   aria-label="<?php esc_attr_e('Shopping Cart', 'dawp'); ?>">
-                    <?php esc_html_e('Bag', 'dawp'); ?>
-                    <span class="ml-1">(<?php echo esc_html($cart_count); ?>)</span>
-                </a>
-
-                <!-- Mobile Menu Button -->
                 <button type="button"
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime lg:hidden"
-                        aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>"
-                        onclick="document.getElementById('slicktee-mobile-menu').classList.toggle('hidden')">
+                        class="inline-flex h-11 w-11 items-center justify-center rounded-md border border-rainBamboo/25 text-rainMoss transition hover:border-rainMoss hover:bg-white lg:hidden"
+                        aria-label="<?php esc_attr_e('Mở menu', 'dawp'); ?>"
+                        aria-controls="rain-mobile-menu"
+                        onclick="document.getElementById('rain-mobile-menu').classList.toggle('hidden')">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -169,23 +126,24 @@ if (empty($nav_items)) {
                         <line x1="3" y1="18" x2="21" y2="18"></line>
                     </svg>
                 </button>
-
             </div>
         </div>
     </div>
 
-    <!-- Mobile Navigation -->
-    <div id="slicktee-mobile-menu" class="hidden border-t border-white/10 bg-slickBlack lg:hidden">
-        <nav class="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
+    <div id="rain-mobile-menu" class="hidden border-t border-[#D8C7A3]/70 bg-rainIvory lg:hidden">
+        <nav class="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6" aria-label="<?php esc_attr_e('Điều hướng mobile', 'dawp'); ?>">
             <?php foreach ($nav_items as $item) : ?>
                 <a href="<?php echo esc_url($item['url']); ?>"
-                   class="rounded-md px-3 py-3 text-sm font-black uppercase tracking-wide text-white/82 transition hover:bg-white/10 hover:text-slickLime">
+                   class="rounded-md px-3 py-3 text-sm font-black uppercase tracking-wide text-rainWood/78 transition hover:bg-rainCream hover:text-rainMoss">
                     <?php echo esc_html($item['title']); ?>
                 </a>
             <?php endforeach; ?>
+            <a href="<?php echo esc_url($home_url . '#mo-cua'); ?>"
+               class="mt-2 inline-flex min-h-11 items-center justify-center rounded-md bg-rainMoss px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-rainBamboo">
+                <?php esc_html_e('Theo dõi ngày mở cửa', 'dawp'); ?>
+            </a>
         </nav>
     </div>
-
 </header>
 
 <div id="content" class="site-content">

@@ -1,352 +1,305 @@
-h# Slicktee
+# Chuyện Của Mưa
 
-## Store Information
+## Thông tin quán
 
-- **Website:** slicktee.com
-- **Language:** English
-- **Store Type:** Graphic Tee & Modern Streetwear Apparel Brand
-- **Primary Market:** United States
-- **Brand Positioning:** Youthful Graphic Apparel / Everyday Streetwear
-- **Support Email:** support@slicktee.com
-- **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM (EST)
-
----
-
-# Brand Positioning
-
-Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, casual hoodies, and everyday outfit essentials.
-
-The brand should feel:
-- Youthful
-- Energetic
-- Clean
-- Urban
-- Creative
-- Confident
-- Apparel-focused
-- Easy to wear
-
-The storefront should feel like a real apparel brand, not a generic print-on-demand store.
-
-Avoid making the website feel like:
-- Random POD spam
-- Meme shirt marketplace
-- Copyright fan merch store
-- Generic dropshipping ecommerce
-- Aggressive hypebeast store
-- Mixed-category marketplace
+* **Tên quán:** Chuyện Của Mưa
+* **Mô hình:** Quán cà phê, trà chanh, đồ uống dân dã kết hợp không gian trải nghiệm ngoài trời
+* **Địa điểm:** Thành phố Điện Biên, Việt Nam
+* **Ngôn ngữ website:** Tiếng Việt
+* **Thời gian mở cửa dự kiến:** Tháng 8
+* **Phong cách:** Mộc mạc, dân dã, bình yên, gần thiên nhiên, giàu cảm xúc
+* **Tinh thần chính:** Một nơi để ngồi lại, lắng nghe, trò chuyện và tìm một chút an nhiên giữa đời thường
 
 ---
 
-# Historical Direction
+## Định vị thương hiệu
 
-Slicktee aligns with:
-- Graphic t-shirts
-- Casual apparel
-- Streetwear basics
-- Urban tee culture
-- Youth fashion
-- Creative everyday outfits
-- Simple ecommerce apparel branding
+Chuyện Của Mưa không chỉ là một quán cà phê.
 
-Avoid pivoting into:
-- Electronics
-- Pet products
-- Home goods
-- Supplements
-- Automotive
-- Random gadgets
-- Unrelated accessories
+Đây là một không gian trải nghiệm mang hồn quê Điện Biên, nơi khách có thể ngồi bên ao nước, nhìn cá bơi, phía sau là cánh đồng lúa, trước mặt là mái tre, mái lá và những gian nhà nhỏ được dựng từ tre trúc dân dã.
+
+Website cần truyền tải cảm giác:
+
+* Một quán nhỏ nhưng có câu chuyện riêng
+* Một nơi không vội vã
+* Một không gian để người ta đến không chỉ vì đồ uống, mà vì cảm giác được lắng nghe
+* Một điểm hẹn khác biệt tại thành phố Điện Biên
+* Một nơi phù hợp cho bạn bè, gia đình, cặp đôi, người muốn tìm chỗ ngồi yên bình
 
 ---
 
-# Core Audience
+## Câu chuyện thương hiệu
 
-## Primary Audience
+Mưa trong tên gọi “Chuyện Của Mưa” là một hình ảnh ẩn dụ.
 
-- Men and women aged 18–35
-- Graphic tee buyers
-- Streetwear-inspired shoppers
-- Casual outfit customers
-- Online fashion shoppers
-- Young creative buyers
-- Students and young professionals
+Nhắc đến mưa, mỗi người lại nhớ về một điều khác nhau. Có người nghĩ đến nỗi buồn. Có người nghĩ đến những buổi chiều lãng mạn. Có người nhớ gia đình, bạn bè, những lần trú mưa, những câu chuyện cũ, hoặc chỉ đơn giản là một khoảnh khắc rất đời thường.
 
-## Secondary Audience
+Mưa không chỉ có một sắc thái.
 
-- Hoodie shoppers
-- Oversized tee customers
-- Minimal streetwear fans
-- Gift shoppers looking for casual apparel
+Mưa có thể buồn, có thể vui, có thể dịu dàng, có thể gợi nhớ, có thể làm người ta muốn chậm lại. Và mỗi người đến Chuyện Của Mưa cũng mang theo một câu chuyện của riêng mình.
 
----
+Có người đến cùng bạn bè.
+Có người đến cùng gia đình.
+Có người đến cùng người thương.
+Có người đến một mình để ngồi yên.
+Có người đến sau một ngày dài, chỉ muốn uống một ly trà mát và nhìn mặt ao tĩnh lại.
 
-# Customer Psychology
+Mỗi câu chuyện đều có một vẻ đẹp riêng.
 
-Customers shop for:
-- Comfortable everyday tees
-- Clean graphic apparel
-- Easy outfit styling
-- Casual confidence
-- Streetwear basics
-- Wearable statement pieces
-- Minimal but creative designs
-
-The shopping experience should feel:
-- Fast
-- Clean
-- Bold
-- Energetic
-- Youthful
-- Authentic
-- Easy to browse
+Chuyện Của Mưa chào đón tất cả những câu chuyện ấy. Không gian của quán được tạo ra để người ta thấy mình được đón nhận, được ngồi lại, được chia sẻ, hoặc đơn giản là được yên bình.
 
 ---
 
-# Categories
+## Thông điệp cốt lõi
 
-- **New Arrivals**
-- **Best Sellers**
-- **Graphic Tees**
-- **Oversized Tees**
-- **Streetwear Essentials**
-- **Casual Hoodies**
-- **Vintage Wash**
-- **Minimal Apparel**
-- **Accessories**
+> Chuyện Của Mưa là nơi mỗi người mang đến một câu chuyện, và rời đi với một chút bình yên.
 
----
+Website phải kể câu chuyện này từ đầu đến cuối, không chỉ giới thiệu quán theo kiểu thông tin khô cứng.
 
-# Homepage Direction
+Mỗi section nên giống như một đoạn trong hành trình:
 
-The homepage should focus on:
-- Strong streetwear branding
-- Clean lifestyle visuals
-- Youthful product discovery
-- Graphic tee positioning
-- Oversized apparel styling
-- Modern ecommerce trust
-- Easy navigation
-
-Recommended sections:
-- Hero banner
-- Featured categories
-- New arrivals
-- Graphic tees
-- Oversized tees
-- Hoodie collection
-- Streetwear essentials
-- Best sellers
-- Brand values
-- Newsletter
-
-Avoid:
-- Product spam grids
-- Fake urgency countdowns
-- Loud discount banners
-- Copyright-heavy graphic references
-- Marketplace-style layouts
+1. Gặp mưa
+2. Ngồi lại
+3. Nhìn ra ao nước
+4. Tựa lưng vào đồng lúa
+5. Gọi một ly đồ uống
+6. Chia sẻ một câu chuyện
+7. Mang về một chút an nhiên
 
 ---
 
-# Visual Direction
+## Slogan gợi ý
 
-## Design Style
-
-- Clean modern ecommerce
-- Energetic green-based palette
-- Strong black and white contrast
-- Bold typography
-- Large lifestyle images
-- Spacious product grids
-- Minimal visual clutter
-- Mobile-first shopping experience
-
-## Visual Tone
-
-The website should feel:
-- Urban
-- Young
-- Active
-- Confident
-- Modern
-- Apparel-native
-- Creative but trustworthy
-
-Avoid:
-- Cheap POD visuals
-- Fake hypebeast styling
-- Overcrowded graphics
-- Neon chaos
-- Low-quality mockups
-- AI-looking product imagery
+* Chậm lại một chút, nghe Chuyện Của Mưa.
+* Một quán nhỏ bên ao, nơi câu chuyện bắt đầu.
+* Nơi mỗi câu chuyện được lắng nghe bằng một ly trà mát.
+* Bên ao cá, sau lưng là đồng lúa, trước mặt là những câu chuyện đời thường.
+* Đến với Mưa, để lòng mình dịu lại.
 
 ---
 
-# Product Content Direction
+## Không gian quán
 
-Descriptions should feel:
-- Short
-- Clear
-- Confident
-- Apparel-focused
-- Fit-driven
-- Styling-oriented
-- Comfort-driven
+Không gian là điểm khác biệt lớn nhất của Chuyện Của Mưa.
 
-Content should include:
-- Fit notes
-- Fabric feel
-- Styling ideas
-- Everyday use cases
-- Care information when relevant
+Quán được mô phỏng theo phong cách dân dã, gần gũi với làng quê Việt Nam:
 
-Avoid:
-- Keyword stuffing
-- Robotic AI descriptions
-- Fake scarcity messaging
-- Copyrighted character references
-- Offensive or controversial claims
+* Các gian nhà nhỏ bằng tre, trúc, mái lá
+* Sàn gỗ, sàn tre nằm sát mặt ao
+* Một mặt nhìn ra ao cá
+* Một mặt tựa vào cánh đồng lúa
+* Xung quanh có cây xanh, hoa sen, mặt nước, gió đồng
+* Không gian mở, thoáng, nhiều ánh sáng tự nhiên
+* Cảm giác gần gũi, bình dị, không công nghiệp hóa
+
+Website nên xuất hiện nhiều ảnh mô phỏng từ trên xuống dưới để người xem cảm thấy như đang bước vào quán thật.
 
 ---
 
-# Collection Direction
+## Trải nghiệm khách hàng
 
-Collections should feel curated and brand-led.
+Ưu tiên lớn nhất của quán là trải nghiệm.
 
-Each collection should:
-- Include short intro copy
-- Present products cleanly
-- Maintain consistent image style
-- Group items by fit, graphic style, or apparel type
-- Feel intentional rather than auto-generated
+Khách đến Chuyện Của Mưa không chỉ để uống cà phê hoặc trà chanh. Họ đến để:
 
-The browsing experience should feel like a real apparel brand catalog.
+* Ngồi bên ao nước
+* Nhìn cá bơi dưới mặt hồ
+* Tận hưởng gió từ cánh đồng
+* Trò chuyện trong những gian tre nhỏ
+* Chụp những bức ảnh thật tự nhiên
+* Tìm một khoảng lặng sau ngày dài
+* Tận hưởng đồ uống trong một không gian khác biệt
 
----
-
-# Brand Trust Signals
-
-## Required Pages
-
-- About Us
-- Contact Us
-- Shipping Policy
-- Return & Refund Policy
-- Privacy Policy
-- Terms of Service
-- FAQ
-- Track Your Order
-
-## Required Trust Elements
-
-- Visible support email
-- Clear shipping timelines
-- Transparent return policy
-- Secure checkout messaging
-- Consistent apparel branding
-- Mobile-friendly UX
-- Clean footer navigation
+Website cần làm rõ rằng đây là một điểm đến trải nghiệm, không phải chỉ là một quán nước thông thường.
 
 ---
 
-# Shipping Information
+## Menu đồ uống định hướng
 
-Orders are processed within **2–4 business days**.
+Menu nên được giới thiệu theo cảm xúc, không quá khô như bảng giá.
 
-After dispatch, standard US shipping typically takes **5–10 business days**.
+Các nhóm đồ uống chính:
 
-Customers receive tracking information once orders ship.
+* Cà phê
+* Trà chanh
+* Trà trái cây
+* Đồ uống mát
+* Đồ uống theo mùa
+* Món nhâm nhi nhẹ
 
-## Shipping Benefits
+Tinh thần menu:
 
-- Standard shipping available on all orders
-- Tracking included
-- Secure packaging
-- Responsive customer support
+* Dễ uống
+* Tươi mát
+* Phù hợp ngồi lâu
+* Hợp với không gian ao nước và đồng lúa
+* Có vị quen thuộc nhưng được trình bày chỉn chu
+* Không cần quá cầu kỳ, nhưng phải tạo cảm giác ngon, sạch, dễ chịu
 
----
+Thông điệp menu:
 
-# Return Policy Direction
-
-Customers may request returns within **30 days** of delivery.
-
-Eligible returns should be:
-- Unused
-- Unwashed
-- Unworn
-- In original condition
-- Returned with original packaging where applicable
-
-The return process should feel:
-- Clear
-- Fair
-- Simple
-- Customer-friendly
+> Một ly đồ uống ngon không chỉ để giải khát, mà để câu chuyện bên bàn trở nên lâu hơn một chút.
 
 ---
 
-# Tone of Voice
+## Đối tượng khách hàng
 
-The website tone should be:
-- Clean
-- Direct
-- Confident
-- Youthful
-- Modern
-- Casual
-- Streetwear-inspired
+Chuyện Của Mưa phù hợp với:
 
-Avoid:
-- Corporate language
-- Overhyped slang
-- Fake luxury positioning
-- Aggressive sales copy
-- Offensive humor
+* Người dân địa phương tại Điện Biên
+* Nhóm bạn muốn tìm nơi ngồi chill
+* Gia đình muốn có không gian rộng và thoáng
+* Cặp đôi muốn một nơi lãng mạn, yên bình
+* Người thích check-in không gian thiên nhiên
+* Khách du lịch muốn trải nghiệm nét dân dã Điện Biên
+* Người muốn tìm một quán khác biệt so với mô hình cà phê phố thông thường
 
 ---
 
-# GMC & Compliance Direction
+## Giọng văn website
 
-The storefront must feel like a legitimate apparel ecommerce brand with strong topical consistency and authentic merchant behavior.
+Website phải dùng tiếng Việt.
 
-## GMC Priorities
+Giọng văn nên:
 
-- Apparel-focused niche relevance
-- Clean graphic tee positioning
-- Original branded content
-- Transparent policies
-- Realistic ecommerce presentation
-- Mobile-friendly shopping flow
-- Consistent product imagery
-- Trustworthy checkout experience
+* Mềm mại
+* Có chất thơ
+* Gần gũi
+* Đời thường
+* Chân thành
+* Không quá quảng cáo
+* Không quá sang trọng hóa
+* Không dùng ngôn ngữ công nghiệp hoặc thương mại quá mạnh
 
-Avoid:
-- Mixed-category spam
-- Thin AI-generated pages
-- Fake reviews
-- Fake urgency
-- Excessive discount messaging
-- Copyrighted graphics
-- Celebrity or trademarked designs
-- Offensive or adult graphic content
+Nên viết như đang kể chuyện.
 
----
+Ví dụ đúng tinh thần:
 
-# Store Promises
+“Có những ngày, ta chỉ cần một chỗ ngồi bên ao, một ly trà mát và một người đủ thân để kể vài chuyện đời thường.”
 
-- Clean graphic apparel
-- Comfortable everyday fits
-- Youthful streetwear essentials
-- Simple and secure ordering
-- Clear customer policies
-- Responsive support
-- Authentic apparel brand experience
+Không nên viết:
+
+“Chúng tôi là quán cà phê hàng đầu với chất lượng dịch vụ tốt nhất khu vực.”
 
 ---
 
-# Strategic Build Goal
+## Màu sắc định hướng
 
-The storefront should feel like:
+Màu website phải phù hợp với bối cảnh tre, trúc, ao nước, ruộng lúa và không gian quê.
 
-“A youthful modern streetwear apparel brand built for everyday graphic tee customers, with original designs, clean shopping, strong contrast, and trustworthy ecommerce presentation.”
+Nên dùng:
+
+* Nâu tre
+* Vàng rơm
+* Xanh lúa
+* Xanh ao nước
+* Kem ấm
+* Nâu gỗ
+* Vàng nắng chiều
+* Xanh lá đậm
+
+Không nên dùng:
+
+* Đen luxury quá mạnh
+* Trắng lạnh kiểu công nghệ
+* Đỏ sale ecommerce
+* Neon hiện đại
+* Màu quá gắt làm mất sự bình yên
+
+---
+
+## Visual direction
+
+Website cần nhiều ảnh mô phỏng để tạo cảm giác trải nghiệm thật.
+
+Các loại ảnh cần có:
+
+* Toàn cảnh quán bên ao
+* Các gian nhà tre nhìn từ xa
+* Góc ngồi sát mặt nước
+* Ly cà phê hoặc trà chanh trên bàn tre
+* Cánh đồng lúa phía sau quán
+* Hoàng hôn bên ao
+* Khách ngồi trò chuyện trong chòi
+* Gia đình hoặc nhóm bạn trong không gian quán
+* Hoa sen, cá, mặt nước, chi tiết tre trúc
+* Biển hiệu gỗ “Chuyện Của Mưa”
+
+Ảnh phải chân thực, tự nhiên, không quá fantasy, không quá resort sang trọng.
+
+---
+
+## Cấu trúc website đề xuất
+
+Các trang chính:
+
+* Trang chủ
+* Câu chuyện của Mưa
+* Không gian
+* Menu
+* Thư viện ảnh
+* Liên hệ / Chỉ đường
+
+Có thể thêm sau:
+
+* Đặt bàn
+* Tổ chức sinh nhật / gặp mặt
+* Góc check-in
+* Tin tức / nhật ký của Mưa
+
+---
+
+## Cấu trúc homepage đề xuất
+
+Homepage nên đi theo mạch kể chuyện:
+
+1. Hero mở đầu bằng hình ảnh toàn cảnh quán
+2. Lời mời: Chậm lại một chút, nghe Chuyện Của Mưa
+3. Câu chuyện ẩn dụ về mưa và những câu chuyện đời
+4. Không gian bên ao
+5. Sau lưng là cánh đồng lúa
+6. Những gian tre, mái lá và chất dân dã
+7. Menu đồ uống
+8. Trải nghiệm dành cho bạn bè, gia đình, cặp đôi
+9. Thư viện khoảnh khắc
+10. Thông báo mở cửa tháng 8
+11. Liên hệ / chỉ đường / theo dõi fanpage
+
+---
+
+## Nội dung mở cửa
+
+Quán dự kiến mở cửa vào tháng 8.
+
+Website nên có section thông báo nhẹ nhàng:
+
+> Chuyện Của Mưa đang chuẩn bị những góc ngồi đầu tiên để đón bạn vào tháng 8 này. Mong rằng khi cánh cửa tre mở ra, bạn sẽ tìm thấy một chỗ ngồi đủ yên để câu chuyện của mình được bắt đầu.
+
+CTA gợi ý:
+
+* Theo dõi ngày mở cửa
+* Xem không gian quán
+* Lưu lại để ghé Mưa
+
+---
+
+## Nguyên tắc quan trọng
+
+* Website phải kể chuyện, không chỉ giới thiệu dịch vụ
+* Từ đầu đến cuối phải giữ cảm giác bình yên, mộc mạc, giàu cảm xúc
+* Hình ảnh nên xuất hiện nhiều để mô phỏng trải nghiệm thật
+* Nội dung phải gắn với Điện Biên, ao nước, đồng lúa, tre trúc và câu chuyện của khách
+* Không biến quán thành mô hình cafe luxury hoặc quán trà chanh phố
+* Không viết quá khoa trương
+* Không dùng tiếng Anh làm ngôn ngữ chính
+* Trải nghiệm khách hàng là trung tâm
+
+---
+
+## Kết luận định hướng
+
+Chuyện Của Mưa nên được xây dựng như một website trải nghiệm, nơi hình ảnh và câu chữ cùng dẫn người xem đi qua một hành trình cảm xúc.
+
+Đây là nơi mưa không chỉ là thời tiết, mà là ẩn dụ cho những câu chuyện đời thường: có vui, có buồn, có lãng mạn, có gia đình, có bạn bè, có những ngày mệt mỏi và cả những khoảnh khắc bình yên.
+
+Quán không hứa làm cuộc sống khác đi, nhưng mong có thể trao cho mỗi người một khoảng ngồi đủ dịu, một ly đồ uống đủ ngon, và một không gian đủ an nhiên để câu chuyện trong lòng được nhẹ lại.

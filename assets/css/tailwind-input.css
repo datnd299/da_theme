@@ -42,8 +42,8 @@
   --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
 
   /* === TYPOGRAPHY === */
-  --font-sans:    'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans:    'Be Vietnam Pro', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Noto Serif', 'Georgia', serif;
 
   /* === TRANSITIONS === */
   --ease-fluid:      cubic-bezier(0.4, 0, 0.2, 1);

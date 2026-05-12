@@ -1,502 +1,648 @@
+# Chuyện Của Mưa Home Plan
+
+## Mục tiêu trang chủ
+
+Trang chủ của Chuyện Của Mưa phải giống một hành trình cảm xúc.
+
+Người xem không chỉ đọc thông tin về quán, mà phải có cảm giác như đang dần bước vào không gian bên ao, nhìn thấy mái tre, nghe gió qua đồng lúa, gọi một ly đồ uống và ngồi lại cùng câu chuyện của mình.
+
+Mục tiêu chính:
+
+* Giới thiệu Chuyện Của Mưa như một điểm đến trải nghiệm tại thành phố Điện Biên
+* Kể rõ ý nghĩa ẩn dụ của “mưa” và “câu chuyện”
+* Làm nổi bật không gian ao nước, đồng lúa, tre trúc, mái lá
+* Tạo cảm giác bình yên, mộc mạc, khác biệt so với các quán cà phê thông thường
+* Nhấn mạnh đồ uống ngon, dễ uống, phù hợp với không gian ngồi lâu
+* Thông báo quán dự kiến mở cửa vào tháng 8
+* Dẫn người xem theo dõi fanpage, xem menu, xem không gian hoặc lưu lại để ghé quán
 
 ---
 
-## 3. `home_plan.md`
+## Mạch kể chuyện tổng thể
 
-```md
-# Slicktee Home Plan
+Trang chủ nên đi theo cảm xúc này:
 
-## Homepage Objective
-
-The homepage should immediately communicate:
-
-- youthful streetwear identity
-- graphic tee specialization
-- clean apparel branding
-- energetic green-based visual system
-- authentic ecommerce experience
-- GMC-safe merchant trust
-
-The storefront should feel like:
-
-“A real modern apparel brand focused on graphic tees, oversized tees, hoodies, and everyday streetwear essentials.”
-
-Avoid:
-- POD spam feeling
-- random marketplace layouts
-- overcrowded homepage sections
-- excessive promo messaging
-- pastel boutique styling
+1. Mời người xem chậm lại
+2. Cho họ thấy toàn cảnh không gian quán
+3. Kể ý nghĩa của tên Chuyện Của Mưa
+4. Dẫn họ tới bên ao nước
+5. Dẫn họ nhìn ra cánh đồng lúa
+6. Cho họ chạm vào chất tre, trúc, mái lá
+7. Mời họ gọi một ly đồ uống
+8. Cho họ thấy nơi này dành cho bạn bè, gia đình, cặp đôi và người đi một mình
+9. Tạo mong muốn check-in, chụp ảnh, lưu lại khoảnh khắc
+10. Thông báo tháng 8 quán sẽ mở cửa
+11. Kết bằng lời mời dịu dàng: hãy ghé Mưa khi lòng cần một chỗ ngồi yên
 
 ---
 
-# Homepage Structure
+# Section 1: Hero — Gặp Mưa
 
-## 1. Hero Section
+## Mục tiêu cảm xúc
 
-### Purpose
+Mở đầu phải tạo cảm giác choáng nhẹ, bình yên và tò mò.
 
-Establish brand identity instantly.
+Người xem cần thấy ngay:
 
-### Layout
+* Quán nằm bên ao
+* Có các gian tre, mái lá
+* Sau lưng là cánh đồng và núi xa
+* Không gian rất khác với quán cà phê phố
 
-- Full-width clean hero
-- Dark green or black background
-- Large lifestyle streetwear image
-- Strong bold headline
-- Minimal supporting text
-- 1–2 CTA buttons
+## Visual
 
-### Content Direction
+Dùng ảnh toàn cảnh ngang rộng:
 
-Headline examples:
-- Clean Fits. Bold Energy.
-- Graphic Apparel Made Simple
-- Streetwear For Everyday Motion
-- Modern Tees For Daily Rotation
+* Ao nước ở phía trước
+* Các chòi tre nằm ven ao
+* Cánh đồng lúa và núi phía sau
+* Ánh nắng tự nhiên
+* Có thể có cá, sen, cây xanh
+* Biển gỗ Chuyện Của Mưa nếu có, nhưng không bắt buộc
 
-### CTA
+Tỷ lệ ảnh:
 
-Primary:
-- Shop New Arrivals
+* Desktop: 21:9 hoặc 16:9 full-width
+* Mobile: crop 4:5 hoặc 3:4, ưu tiên chòi tre và mặt nước
 
-Secondary:
-- Explore Graphic Tees
+## Content
 
-### Visual Direction
+Eyebrow:
 
-Use:
-- urban lifestyle photography
-- oversized tee styling
-- green / black / white palette
-- authentic streetwear poses
-- high contrast text
+```text
+Chuyện Của Mưa • Thành phố Điện Biên
+```
 
-Avoid:
-- heavy graphic clutter
-- AI-looking visuals
-- crowded collages
-- low contrast text
+Heading:
 
----
+```text
+Chậm lại một chút, nghe Chuyện Của Mưa.
+```
 
-# 2. Featured Categories
+Subheadline:
 
-### Purpose
+```text
+Một quán nhỏ bên ao, sau lưng là cánh đồng lúa, nơi mỗi người có thể mang theo câu chuyện của mình và ngồi lại trong một khoảng bình yên.
+```
 
-Quickly establish product hierarchy.
+CTA chính:
 
-### Layout
+```text
+Khám phá không gian
+```
 
-3–4 category blocks.
+CTA phụ:
 
-### Categories
+```text
+Theo dõi ngày mở cửa
+```
 
-- Graphic Tees
-- Oversized Tees
-- Hoodies
-- Streetwear Essentials
+## Design Notes
 
-### Visual Style
-
-- large clean imagery
-- minimal overlays
-- modern typography
-- high contrast cards
-- soft hover effects
+* Text đặt trên overlay tối nhẹ hoặc khối nền kem mờ
+* Không dùng text quá dài trên hero
+* CTA mềm, bo tròn, màu nâu tre hoặc xanh rêu
+* Hero cần tạo cảm giác sang nhưng không luxury, thơ nhưng không mơ hồ
 
 ---
 
-# 3. New Arrivals
+# Section 2: Lời mở — Mưa không chỉ là mưa
 
-### Purpose
+## Mục tiêu cảm xúc
 
-Present fresh apparel immediately.
+Giải thích ẩn dụ của tên quán.
 
-### Layout
+Người xem phải hiểu rằng “mưa” không chỉ là thời tiết, mà là biểu tượng cho các câu chuyện đời thường.
 
-- 4–8 featured products
-- clean product cards
-- balanced spacing
-- 2 columns on mobile
-- 4 columns on desktop
+## Visual
 
-### Product Card Rules
+Có thể dùng background kem ấm với ảnh nhỏ:
 
-Include:
-- image
-- title
-- price
-- simple CTA
+* Mặt nước có gợn nhẹ
+* Ly trà/cà phê trên bàn tre
+* Giọt nước trên mái lá hoặc lá sen
+* Một góc chòi yên tĩnh
 
-Avoid:
-- excessive labels
-- countdowns
-- cluttered badges
-- fake urgency
+## Content
 
----
+Eyebrow:
 
-# 4. Lifestyle Banner Section
+```text
+Một cái tên, nhiều câu chuyện
+```
 
-### Purpose
+Heading:
 
-Reinforce brand personality.
+```text
+Mưa có khi buồn, có khi vui, có khi chỉ là một lý do để ngồi lại.
+```
 
-### Layout
+Paragraph:
 
-Split layout:
-- large urban lifestyle image
-- short editorial-style text
+```text
+Nhắc đến mưa, mỗi người lại nhớ về một điều khác nhau. Có người nhớ một buổi chiều lãng mạn, có người nhớ gia đình, bạn bè, những câu chuyện cũ, hoặc một ngày dài chỉ muốn tìm chỗ để lòng mình dịu xuống.
 
-### Messaging
+Chuyện Của Mưa được tạo ra để đón nhận những điều ấy. Mỗi vị khách đến quán đều mang theo một câu chuyện riêng. Và chúng mình mong nơi này đủ yên để câu chuyện ấy được lắng nghe.
+```
 
-Focus on:
-- comfort
-- confidence
-- modern styling
-- casual everyday wear
-- movement and daily use
+## Design Notes
 
-### Visual Direction
-
-Use:
-- city environments
-- neutral architecture
-- relaxed poses
-- oversized silhouettes
-- black/green high contrast section
+* Section nhiều khoảng trắng
+* Có thể đặt một quote lớn ở giữa
+* Heading dùng font serif mềm
+* Không dùng card cứng quá
 
 ---
 
-# 5. Graphic Tee Collection
+# Section 3: Không gian bên ao
 
-### Purpose
+## Mục tiêu cảm xúc
 
-Core conversion section.
+Làm người xem tưởng tượng mình đang ngồi sát mặt nước.
 
-### Layout
+Nội dung cần nhấn:
 
-Grid-based apparel showcase or image + copy split.
+* Ao nước là mặt tiền của trải nghiệm
+* Có cá bơi, sen, gió mát
+* Các gian tre nằm ven nước
+* Phù hợp ngồi lâu, nói chuyện chậm
 
-### Direction
+## Visual
 
-Products should feel:
-- curated
-- wearable
-- original
-- minimal
-- modern
+Ảnh chính:
 
-Messaging should avoid:
-- meme overload
-- copyrighted graphics
-- novelty spam
-- offensive humor
+* Góc nhìn từ chòi tre ra ao
+* Bàn tre, ghế tre, ly đồ uống trên bàn
+* Cá bơi dưới mặt nước
+* Sen hoặc cây thủy sinh
 
----
+Có thể dùng layout 2 cột:
 
-# 6. Oversized Streetwear Section
+* Một ảnh lớn bên trái
+* Text bên phải
+* 2 ảnh nhỏ dưới dạng collage
 
-### Purpose
+## Content
 
-Support modern streetwear positioning.
+Eyebrow:
 
-### Content Direction
+```text
+Bên ao
+```
 
-Highlight:
-- relaxed fits
-- washed apparel
-- layering
-- neutral tones
-- effortless styling
+Heading:
 
-### Visual Style
+```text
+Ngồi gần mặt nước, nghe ngày trôi chậm lại.
+```
 
-Use:
-- oversized silhouettes
-- urban photography
-- concrete backgrounds
-- clean studio textures
-- confident poses
+Paragraph:
 
----
+```text
+Những gian tre được đặt sát bên ao để mỗi buổi gặp gỡ có thêm một chút gió, một chút mặt nước và một chút yên bình. Dưới ao là đàn cá bơi, trên bàn là ly trà mát, xung quanh là những câu chuyện được kể rất tự nhiên.
+```
 
-# 7. Hoodie Collection
+Small highlights:
 
-### Purpose
+```text
+Góc ngồi ven ao
+Không gian mở
+Cá, sen và mặt nước
+Phù hợp bạn bè, gia đình, cặp đôi
+```
 
-Expand apparel depth.
+CTA:
 
-### Visual Direction
-
-- cozy urban lifestyle
-- minimal layering
-- clean modern photography
-- dark or green section background
-
-Avoid:
-- athletic branding vibe
-- sportswear-heavy layouts
-- loud gym aesthetic
+```text
+Xem thêm không gian
+```
 
 ---
 
-# 8. Brand Philosophy Section
+# Section 4: Sau lưng là đồng lúa
 
-### Purpose
+## Mục tiêu cảm xúc
 
-Improve merchant authenticity.
+Tạo điểm khác biệt địa phương và thiên nhiên Điện Biên.
 
-### Layout
+Người xem phải nhớ rằng quán không chỉ có view ao, mà còn có cả cánh đồng lúa phía sau.
 
-Simple icon/text grid.
+## Visual
 
-### Topics
+Ảnh ngang hoặc ảnh 4:3:
 
-- Comfortable Everyday Fits
-- Clean Modern Styling
-- Original Graphic Apparel
-- Secure Online Shopping
+* Cánh đồng lúa xanh/chín
+* Mái tre của quán phía trước hoặc bên cạnh
+* Núi xa Điện Biên
+* Ánh chiều
 
-### Tone
+## Content
 
-- short
-- confident
-- apparel-focused
-- youth-friendly
+Eyebrow:
 
-Avoid:
-- fake emotional storytelling
-- corporate paragraphs
-- generic AI brand text
+```text
+Sau lưng là đồng lúa
+```
 
----
+Heading:
 
-# 9. Best Sellers
+```text
+Một mặt là ao nước, một mặt là hương đồng gió nội.
+```
 
-### Purpose
+Paragraph:
 
-Build trust and natural product discovery.
+```text
+Ở Chuyện Của Mưa, chỉ cần quay lưng lại, bạn đã thấy cánh đồng lúa mở ra phía sau. Có những ngày lúa xanh, có những ngày nắng vàng, có những chiều gió thổi qua mái lá khiến mọi thứ trở nên rất đỗi bình thường mà cũng rất đáng nhớ.
+```
 
-### Layout
+## Design Notes
 
-Clean product carousel or grid.
-
-### Rules
-
-Use:
-- apparel-focused presentation
-- balanced spacing
-- realistic pricing
-- clean card structure
-
-Avoid:
-- “viral” wording
-- fake urgency
-- aggressive discounting
-- fake reviews
+* Có thể dùng image full-width với text overlay nhỏ
+* Màu nền nên xanh lúa rất nhạt hoặc kem ấm
+* Tránh xử lý ảnh quá cinematic fantasy
 
 ---
 
-# 10. Social / Lifestyle Section
+# Section 5: Những gian tre nhỏ
 
-### Purpose
+## Mục tiêu cảm xúc
 
-Create authentic fashion atmosphere.
+Làm nổi bật chất liệu, kiến trúc và cảm giác dân dã.
 
-### Content
+Nội dung cần nói rõ:
 
-- lifestyle apparel imagery
-- real-world styling inspiration
-- modern casual looks
-- streetwear fit inspiration
+* Quán cấu tạo từ tre, trúc, mái lá
+* Có nhiều gian nhỏ riêng biệt
+* Tạo cảm giác gần gũi, riêng tư, mộc mạc
 
-### Visual Tone
+## Visual
 
-Should feel:
-- urban
-- relaxed
-- young
-- modern
-- authentic
+Ảnh chi tiết:
 
-Avoid:
-- influencer overload
-- luxury fashion editorials
-- overly polished AI images
+* Mái lá
+* Cột tre
+* Lan can tre
+* Bàn ghế tre
+* Đèn lồng hoặc vật dụng trang trí dân dã
+* Biển gỗ Chuyện Của Mưa
 
----
+## Content
 
-# 11. Newsletter Section
+Eyebrow:
 
-### Purpose
+```text
+Tre, trúc và mái lá
+```
 
-Capture returning customers cleanly.
+Heading:
 
-### Layout
+```text
+Mộc mạc từ những điều chạm tay được.
+```
 
-Minimal:
-- short headline
-- email field
-- single CTA
+Paragraph:
 
-### Tone
+```text
+Chúng mình muốn không gian của Mưa giữ lại cảm giác gần gũi của làng quê Việt Nam. Từ mái lá, cột tre, lan can trúc đến những chiếc bàn nhỏ bên ao, mọi chi tiết đều được tạo ra để bạn thấy nhẹ nhàng hơn khi bước vào.
+```
 
-Examples:
-- Stay Updated On New Drops
-- Join The Slicktee Community
-- Get New Fits First
+Cards:
 
-Avoid:
-- spam discount messaging
-- popup-like design
-- aggressive email capture
+```text
+Gian ngồi riêng tư
+Bàn ghế tre dân dã
+Mái lá gần thiên nhiên
+Góc chụp ảnh tự nhiên
+```
 
 ---
 
-# Footer Structure
+# Section 6: Một ly đồ uống cho câu chuyện dài hơn
 
-## Include
+## Mục tiêu cảm xúc
 
-- Shop Links
-- Policies
-- Contact
-- Support Email
-- Social Icons
+Giới thiệu menu nhưng không làm nó quá thương mại.
 
-## Footer Tone
+Đồ uống phải được kể như một phần của trải nghiệm.
 
-- dark
-- minimal
-- clean
-- high contrast
+## Visual
 
-Recommended:
-- black or deep green background
-- white text
-- green/lime accent
+Ảnh cần có:
 
-Avoid:
-- cluttered columns
-- oversized legal text
-- low contrast links
+* Ly trà chanh trên bàn tre
+* Ly cà phê đá hoặc cà phê sữa
+* Trà trái cây nhiều màu tự nhiên
+* Khay đồ uống đặt bên ao
+* Tay khách cầm ly, background mờ là mặt nước
 
----
+## Content
 
-# Homepage Visual Rules
+Eyebrow:
 
-## Color Direction
+```text
+Menu của Mưa
+```
 
-Primary:
-- black
-- deep green
-- active green
-- white
+Heading:
 
-Accent:
-- lime energy
-- cool gray
-- soft white
+```text
+Một ly trà mát, một tách cà phê, và câu chuyện còn dài.
+```
 
-Avoid:
-- pink pastel
-- soft feminine boutique palette
-- neon overload
-- low contrast muted layouts
+Paragraph:
 
----
+```text
+Ở Chuyện Của Mưa, đồ uống không cần quá cầu kỳ để trở nên đáng nhớ. Chỉ cần đủ ngon, đủ mát, đủ hợp với buổi ngồi lâu bên ao. Từ cà phê quen vị, trà chanh tươi mát đến những ly trà trái cây nhẹ nhàng, mỗi món đều được chuẩn bị để đi cùng câu chuyện của bạn.
+```
 
-# Typography Direction
+Menu groups:
 
-Typography should feel:
-- bold
-- modern
-- energetic
-- fashion-oriented
-- clean
+```text
+Cà phê
+Trà chanh
+Trà trái cây
+Đồ uống mát
+Đồ uống theo mùa
+Món nhâm nhi
+```
 
-Use:
-- large headlines
-- uppercase headings
-- minimal paragraphs
-- strong spacing
-- clear CTAs
+CTA:
 
-Avoid:
-- decorative fonts
-- playful typography
-- futuristic gaming fonts
-- luxury serif tone
+```text
+Xem menu đồ uống
+```
 
 ---
 
-# Image Direction
+# Section 7: Mỗi người đến cùng một câu chuyện
 
-## Photography Style
+## Mục tiêu cảm xúc
 
-Use:
-- realistic apparel photography
-- modern urban lifestyle
-- neutral lighting
-- clean compositions
-- streetwear poses
+Đưa con người vào trung tâm website.
 
-Preferred environments:
-- city streets
-- modern interiors
-- concrete textures
-- minimal studio setups
-- outdoor urban corners
+Quán không chỉ có cảnh đẹp, mà là nơi con người gặp nhau, trò chuyện, chia sẻ.
 
-Avoid:
-- fantasy visuals
-- overprocessed AI images
-- random mockups
-- fake celebrity styling
-- copyright graphics
+## Visual
 
----
+Ảnh mô phỏng:
 
-# Mobile UX Rules
+* Nhóm bạn cười nói trong chòi tre
+* Gia đình ngồi bên ao
+* Cặp đôi uống trà lúc chiều
+* Một người ngồi một mình đọc sách hoặc nhìn mặt nước
 
-Homepage must:
-- scroll smoothly
-- load quickly
-- maintain spacing
-- prioritize product imagery
-- support easy thumb navigation
-- show strong contrast on mobile
+## Content
 
-Avoid:
-- giant banners that hide content
-- cluttered product grids
-- tiny tap targets
-- unreadable text overlays
+Eyebrow:
 
----
+```text
+Câu chuyện của bạn
+```
 
-# GMC Compliance Direction
+Heading:
 
-Homepage must clearly show:
-- apparel specialization
-- authentic branding
-- clean ecommerce behavior
-- transparent merchant structure
-- original product direction
+```text
+Có người đến để vui, có người đến để yên, có người đến chỉ để được ngồi lại.
+```
 
-Avoid:
-- random products
-- excessive sales messaging
-- copyright-heavy designs
-- fake scarcity tactics
-- fake reviews
-- offensive graphic content
+Paragraph:
+
+```text
+Mỗi vị khách mang theo một câu chuyện khác nhau. Có câu chuyện của bạn bè lâu ngày gặp lại, câu chuyện của gia đình trong một buổi cuối tuần, câu chuyện của đôi người đang thương, và cả những câu chuyện không cần nói thành lời.
+
+Chuyện Của Mưa không hỏi bạn đến vì điều gì. Chúng mình chỉ mong có thể dành cho bạn một chỗ ngồi đủ dịu để mọi điều trong lòng nhẹ hơn một chút.
+```
+
+Experience cards:
+
+```text
+Đi cùng bạn bè
+Đi cùng gia đình
+Đi cùng người thương
+Đi một mình cũng được
+```
 
 ---
 
-# Strategic Goal
+# Section 8: Những góc chụp của Mưa
 
-The homepage should feel like:
+## Mục tiêu cảm xúc
 
-“A youthful modern streetwear and graphic apparel brand with energetic green-based visuals, clean merchandising, strong contrast, and trustworthy ecommerce presentation.”
+Tạo mong muốn check-in và lưu lại khoảnh khắc.
+
+Không được viết như “quán sống ảo”, mà nên nói về “khoảnh khắc”.
+
+## Visual
+
+Gallery nhiều ảnh:
+
+* Toàn cảnh ao
+* Chòi tre
+* Biển hiệu gỗ
+* Ly đồ uống
+* Hoa sen
+* Hoàng hôn
+* Đồng lúa
+* Khách ngồi trong quán
+
+## Content
+
+Eyebrow:
+
+```text
+Khoảnh khắc của Mưa
+```
+
+Heading:
+
+```text
+Mỗi góc nhỏ đều có một câu chuyện để giữ lại.
+```
+
+Paragraph:
+
+```text
+Có thể là ánh nắng rơi trên mái tre, một bông sen cạnh mặt nước, ly trà đặt trên bàn, hay nụ cười của người ngồi đối diện. Những điều rất nhỏ ấy đôi khi lại là thứ khiến ta nhớ lâu nhất.
+```
+
+CTA:
+
+```text
+Xem thư viện ảnh
+```
+
+---
+
+# Section 9: Mở cửa tháng 8
+
+## Mục tiêu cảm xúc
+
+Thông báo thời gian mở cửa nhưng vẫn giữ giọng văn thơ và mời gọi.
+
+## Visual
+
+Ảnh phù hợp:
+
+* Công đoạn chuẩn bị quán
+* Gian tre đang hoàn thiện
+* Ánh nắng sớm trên mặt ao
+* Biển hiệu gỗ
+* Bàn ghế được sắp xếp chờ khách
+
+## Content
+
+Eyebrow:
+
+```text
+Hẹn gặp bạn tháng 8
+```
+
+Heading:
+
+```text
+Mưa đang chuẩn bị những góc ngồi đầu tiên để đón bạn.
+```
+
+Paragraph:
+
+```text
+Chuyện Của Mưa dự kiến mở cửa vào tháng 8 này tại thành phố Điện Biên. Chúng mình đang chuẩn bị từng mái tre, từng chiếc bàn, từng góc nhìn ra ao để khi bạn ghé đến, mọi thứ đủ yên, đủ ấm và đủ gần để câu chuyện bắt đầu.
+```
+
+CTA chính:
+
+```text
+Theo dõi ngày mở cửa
+```
+
+CTA phụ:
+
+```text
+Lưu lại để ghé Mưa
+```
+
+Design:
+
+* Có thể dùng countdown nhẹ nếu thật sự cần, nhưng không dùng cảm giác sale/countdown giả tạo
+* Nên dùng notification style như lời hẹn
+
+---
+
+# Section 10: Địa điểm và lời mời cuối
+
+## Mục tiêu cảm xúc
+
+Kết trang bằng lời mời rõ ràng và dễ hành động.
+
+Người xem cần biết:
+
+* Quán ở thành phố Điện Biên
+* Sắp mở vào tháng 8
+* Có thể theo dõi fanpage / chỉ đường / liên hệ
+
+## Visual
+
+* Bản đồ hoặc khối placeholder Google Maps
+* Ảnh quán từ xa lúc chiều
+* Ảnh lối vào hoặc biển hiệu
+
+## Content
+
+Eyebrow:
+
+```text
+Ghé Mưa khi bạn cần một chỗ ngồi yên
+```
+
+Heading:
+
+```text
+Chuyện Của Mưa luôn chào đón câu chuyện của bạn.
+```
+
+Paragraph:
+
+```text
+Dù bạn đến cùng niềm vui, một nỗi buồn, một người bạn, gia đình, hay chỉ là một buổi chiều muốn ngồi yên, Mưa vẫn ở đó. Bên ao nước, sau lưng là đồng lúa, chờ bạn ghé qua khi quán mở cửa vào tháng 8.
+```
+
+Contact info placeholders:
+
+```text
+Địa chỉ: Thành phố Điện Biên, Việt Nam
+Giờ mở cửa: Sắp cập nhật
+Mở cửa dự kiến: Tháng 8
+Facebook: Sắp cập nhật
+Số điện thoại: Sắp cập nhật
+```
+
+CTA:
+
+```text
+Chỉ đường đến quán
+Theo dõi fanpage
+```
+
+---
+
+## Homepage Image List
+
+Cần chuẩn bị các ảnh sau cho homepage:
+
+1. Hero toàn cảnh quán bên ao, đồng lúa, mái tre
+2. Mặt nước hoặc ly trà cho section “Mưa không chỉ là mưa”
+3. Góc ngồi bên ao, bàn tre, cá bơi
+4. Cánh đồng lúa sau quán
+5. Chi tiết tre, trúc, mái lá, biển gỗ
+6. Bộ đồ uống: cà phê, trà chanh, trà trái cây
+7. Nhóm bạn/gia đình/cặp đôi trong chòi tre
+8. Gallery check-in: sen, hoàng hôn, bàn trà, ao cá
+9. Ảnh chuẩn bị mở cửa tháng 8
+10. Ảnh lối vào hoặc toàn cảnh cuối trang
+
+---
+
+## Homepage UX Rules
+
+* Không để section nào chỉ có chữ mà không có ảnh
+* Mỗi 1–2 section nên có một ảnh lớn
+* Text phải ngắn, dễ đọc, nhiều khoảng thở
+* Không dùng quá nhiều CTA mạnh
+* Chuyển section phải mượt như một câu chuyện
+* Mobile cần ưu tiên ảnh lớn và đoạn văn ngắn
+* Toàn trang không dùng tone bán hàng gắt
+
+---
+
+## Suggested Page Flow Short Version
+
+```text
+Hero: Chậm lại một chút, nghe Chuyện Của Mưa
+Story: Mưa không chỉ là mưa
+Space 1: Ngồi bên ao
+Space 2: Sau lưng là đồng lúa
+Materials: Tre, trúc và mái lá
+Menu: Một ly đồ uống cho câu chuyện dài hơn
+People: Mỗi người đến cùng một câu chuyện
+Gallery: Mỗi góc nhỏ đều có một câu chuyện để giữ lại
+Opening: Hẹn gặp bạn tháng 8
+Contact: Mưa luôn chào đón câu chuyện của bạn
+```
+
+---
+
+## Final Homepage Feeling
+
+Sau khi xem hết trang chủ, người xem cần cảm thấy:
+
+* Quán này có câu chuyện riêng
+* Không gian thật sự khác biệt ở Điện Biên
+* Đây là nơi đáng để ghé, không chỉ để uống nước mà để trải nghiệm
+* Hình ảnh ao nước, đồng lúa, mái tre rất rõ trong tâm trí
+* Tên “Chuyện Của Mưa” trở nên có ý nghĩa
+* Họ muốn theo dõi ngày mở cửa tháng 8
+
+Trang chủ phải khiến người xem nghĩ:
+
+“Có lẽ mình nên ghé Mưa một lần. Biết đâu ở đó, câu chuyện của mình cũng sẽ nhẹ hơn.”

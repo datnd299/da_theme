@@ -1,359 +1,394 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Slicktee | Graphic Tee & Modern Streetwear</title>
-  <meta name="description" content="Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, hoodies, and everyday streetwear essentials." />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
+<?php
+/**
+ * Template Name: Home
+ * Template Part: page-home
+ */
 
-<body class="bg-white text-[#111827] antialiased">
-  <main>
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-[#0B0F0D] text-white">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-      <div class="absolute -right-20 top-20 h-72 w-72 rounded-full bg-[#A3E635]/20 blur-3xl"></div>
-      <div class="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-[#22C55E]/20 blur-3xl"></div>
+$ccm_image = static function ($file) {
+    return get_template_directory_uri() . '/assets/img/gallery/CCM/' . rawurlencode($file);
+};
+?>
 
-      <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
-        <div class="max-w-2xl">
-          <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[#A3E635]">
-            Graphic Apparel / Streetwear Essentials
-          </p>
+<main id="primary" class="bg-[#FAF7F2] text-[#2F2A28] font-body">
 
-          <h1 class="text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl">
-            Clean Fits. Bold Energy.
-          </h1>
+    <!-- Hero -->
+    <section id="khong-gian" class="relative min-h-[78vh] overflow-hidden bg-[#123D2A] text-white">
+        <img src="<?php echo esc_url($ccm_image('faa6de0a-885b-49cd-84d6-4ee0c69bc773.png')); ?>"
+             alt="<?php esc_attr_e('Toàn cảnh Chuyện Của Mưa bên ao nước, nhà tre, đồng lúa và núi xa', 'dawp'); ?>"
+             class="absolute inset-0 h-full w-full object-cover"
+             loading="eager"
+             fetchpriority="high">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#123D2A]/92 via-[#123D2A]/58 to-black/18"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_28%_45%,rgba(18,61,42,0.62)_0%,rgba(18,61,42,0.42)_28%,rgba(18,61,42,0.12)_52%,transparent_74%)]"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/18 via-transparent to-black/18"></div>
+        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#FAF7F2] to-transparent"></div>
 
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/85">
-            Modern graphic tees, oversized silhouettes, casual hoodies, and everyday streetwear essentials built for clean style without the noise.
-          </p>
+        <div class="relative mx-auto flex min-h-[78vh] max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#E7C873]">
+                    <?php esc_html_e('Chuyện Của Mưa • Thành phố Điện Biên', 'dawp'); ?>
+                </p>
 
-          <div class="mt-9 flex flex-wrap gap-4">
-            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#22C55E] px-7 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Now
-            </a>
+                <h1 class="font-heading text-5xl font-black uppercase leading-[1.04] text-white sm:text-6xl lg:text-7xl">
+                    <?php esc_html_e('Chậm lại một chút, nghe Chuyện Của Mưa.', 'dawp'); ?>
+                </h1>
 
-            <a href="#graphic-tees" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">
-              Explore Graphic Tees
-            </a>
-          </div>
+                <p class="mt-6 max-w-2xl text-base leading-8 text-white/90 md:text-lg">
+                    <?php esc_html_e('Một quán nhỏ bên ao, sau lưng là cánh đồng lúa, nơi mỗi người có thể mang theo câu chuyện của mình và ngồi lại trong một khoảng bình yên.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-9 flex flex-wrap gap-4">
+                    <a href="#ben-ao"
+                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E7C873] px-7 text-sm font-black uppercase tracking-wide text-[#2F2A28] transition hover:bg-[#F2DFA2]">
+                        <?php esc_html_e('Khám phá không gian', 'dawp'); ?>
+                    </a>
+                    <a href="#mo-cua"
+                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/35 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#2F2A28]">
+                        <?php esc_html_e('Theo dõi ngày mở cửa', 'dawp'); ?>
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <div class="relative">
-          <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/image_banner%231.png'); ?>" alt="Modern streetwear graphic tee outfit" class="aspect-[4/5] w-full rounded-[1.35rem] object-cover" />
-          </div>
-
-          <div class="absolute -bottom-7 -left-4 hidden max-w-[250px] rounded-2xl border border-white/10 bg-white p-5 text-[#111827] shadow-2xl lg:block">
-            <p class="text-xs font-black uppercase tracking-[0.2em] text-[#123D2A]">Built For Daily Wear</p>
-            <p class="mt-2 text-sm leading-6 text-[#6B7280]">Clean graphics. Easy fits. Street-ready comfort.</p>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Featured Categories -->
-    <section class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Shop By Category</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Streetwear Core</h2>
-          </div>
-          <p class="max-w-xl text-base leading-7 text-[#6B7280]">
-            Focused collections for graphic tees, oversized fits, hoodies, and everyday streetwear essentials.
-          </p>
+    <!-- Intro Story -->
+    <section class="relative overflow-hidden bg-[#FAF7F2] py-16 lg:py-24">
+        <div class="pointer-events-none absolute left-0 top-10 h-px w-full bg-[#D8C7A3]/55"></div>
+        <div class="pointer-events-none absolute right-8 top-16 hidden font-heading text-[120px] font-black uppercase leading-none text-[#123D2A]/5 lg:block">
+            <?php esc_html_e('Mưa', 'dawp'); ?>
         </div>
 
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/graphic_tee1.png'); ?>" alt="Graphic tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Graphic Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Original tee styles for everyday rotation.</p>
-              </div>
+        <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 border-y border-[#D8C7A3]/60 px-4 py-10 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-14">
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#8A6F35]">
+                    <?php esc_html_e('Một cái tên, nhiều câu chuyện', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] text-[#123D2A] lg:text-6xl">
+                    <?php esc_html_e('Mưa có khi buồn, có khi vui, có khi chỉ là một lý do để ngồi lại.', 'dawp'); ?>
+                </h2>
+                <div class="mt-7 flex flex-wrap gap-3">
+                    <?php foreach (['Vui', 'Buồn', 'Nhớ', 'Yên'] as $mood) : ?>
+                        <span class="rounded-full border border-[#D8C7A3] bg-white/55 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#8A6F35]">
+                            <?php echo esc_html($mood); ?>
+                        </span>
+                    <?php endforeach; ?>
+                </div>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/oversized-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversized tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Oversized Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Relaxed silhouettes with modern street fit.</p>
-              </div>
+            <div class="space-y-5 text-base leading-8 text-[#6F625D] lg:border-l lg:border-[#D8C7A3]/70 lg:pl-10">
+                <p><?php esc_html_e('Nhắc đến mưa, mỗi người lại nhớ về một điều khác nhau. Có người nhớ một buổi chiều lãng mạn, có người nhớ gia đình, bạn bè, những câu chuyện cũ, hoặc một ngày dài chỉ muốn tìm chỗ để lòng mình dịu xuống.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Chuyện Của Mưa được tạo ra để đón nhận những điều ấy. Mỗi vị khách đến quán đều mang theo một câu chuyện riêng, và chúng mình mong nơi này đủ yên để câu chuyện ấy được lắng nghe.', 'dawp'); ?></p>
+                <div class="border-l-4 border-[#E7C873] bg-white/65 px-5 py-4 text-sm font-bold leading-7 text-[#3A342F]">
+                    <?php esc_html_e('Một cái tên không chỉ để gọi, mà để giữ lại những vui buồn rất đời thường.', 'dawp'); ?>
+                </div>
             </div>
-          </a>
-
-          <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/hoodie%231.png'); ?>" alt="Hoodies collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Hoodies</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Clean layering pieces for casual outfits.</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="<?php echo esc_url(home_url('/product-category/streetwear-essentials/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/banner_image%232.png'); ?>" alt="Streetwear essentials collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Essentials</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Minimal apparel built for easy styling.</p>
-              </div>
-            </div>
-          </a>
         </div>
-      </div>
     </section>
 
-    <!-- New Arrivals -->
-    <section id="new-arrivals" class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Fresh Drops</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">New Arrivals</h2>
-          </div>
+    <!-- Pond Space -->
+    <section id="ben-ao" class="bg-white py-16 lg:py-24">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div class="grid grid-cols-2 gap-4">
+                <img src="<?php echo esc_url($ccm_image('download.png')); ?>"
+                     alt="<?php esc_attr_e('Góc ngồi ven ao với sen, cá và nhà tre của Chuyện Của Mưa', 'dawp'); ?>"
+                     class="col-span-2 aspect-[16/10] w-full rounded-lg object-cover shadow-xl shadow-black/10">
+                <img src="<?php echo esc_url($ccm_image('c12fc4f1-a8c3-46b6-b18c-6a938535670c.png')); ?>"
+                     alt="<?php esc_attr_e('Những gian tre nằm sát mặt nước tại Chuyện Của Mưa', 'dawp'); ?>"
+                     class="aspect-[4/3] w-full rounded-lg object-cover">
+                <img src="<?php echo esc_url($ccm_image('Ảnh#1.png')); ?>"
+                     alt="<?php esc_attr_e('Ao cá, hoa sen và những mái tre bên đồng lúa', 'dawp'); ?>"
+                     class="aspect-[4/3] w-full rounded-lg object-cover">
+            </div>
 
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden rounded-md border border-[#0B0F0D] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#0B0F0D] hover:text-white sm:inline-flex">
-            View All
-          </a>
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#8A6F35]">
+                    <?php esc_html_e('Bên ao', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] text-[#123D2A] lg:text-6xl">
+                    <?php esc_html_e('Ngồi gần mặt nước, nghe ngày trôi chậm lại.', 'dawp'); ?>
+                </h2>
+                <p class="mt-6 text-base leading-8 text-[#6F625D]">
+                    <?php esc_html_e('Những gian tre được đặt sát bên ao để mỗi buổi gặp gỡ có thêm một chút gió, một chút mặt nước và một chút yên bình. Dưới ao là đàn cá bơi, trên bàn là ly trà mát, xung quanh là những câu chuyện được kể rất tự nhiên.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <?php
+                    $pond_highlights = [
+                        'Góc ngồi ven ao',
+                        'Không gian mở',
+                        'Cá, sen và mặt nước',
+                        'Phù hợp bạn bè, gia đình, cặp đôi',
+                    ];
+                    foreach ($pond_highlights as $highlight) :
+                        ?>
+                        <div class="rounded-lg border border-[#E6DDCC] bg-[#FAF7F2] px-4 py-3 text-sm font-bold text-[#3A342F]">
+                            <?php echo esc_html($highlight); ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
         </div>
-
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80" alt="Core graphic tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Core Graphic Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$29.00</p>
-              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
-            </div>
-          </article>
-
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=700&q=80" alt="Oversized street tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Oversized Street Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$34.00</p>
-              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
-            </div>
-          </article>
-
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=700&q=80" alt="Minimal logo hoodie" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Minimal Logo Hoodie</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$52.00</p>
-              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
-            </div>
-          </article>
-
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="https://images.unsplash.com/photo-1506629905607-d9e297d387be?auto=format&fit=crop&w=700&q=80" alt="Vintage wash tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Vintage Wash Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$36.00</p>
-              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
-            </div>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <!-- Lifestyle Banner -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Everyday_street_style.png'); ?>" alt="Urban lifestyle streetwear outfit" class="aspect-[4/3] w-full rounded-2xl object-cover" />
-        </div>
-
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Everyday Street Style</p>
-          <h2 class="text-4xl font-black uppercase leading-none tracking-[-0.05em] lg:text-6xl">
-            Apparel That Moves With Your Day.
-          </h2>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/82">
-            Slicktee focuses on clean graphics, relaxed fits, and modern essentials that work from city streets to weekend plans.
-          </p>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-8 inline-flex rounded-md bg-[#22C55E] px-7 py-4 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Shop Now
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Graphic Tee Collection -->
-    <section id="graphic-tees" class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Core Collection</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">
-            Graphic Tees Without The Noise
-          </h2>
-          <p class="mt-4 text-base leading-7 text-[#6B7280]">
-            Original apparel-focused designs made for daily wear. No fan merch, no copyright-heavy graphics, no meme spam.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div class="rounded-3xl bg-[#123D2A] p-8 text-white lg:col-span-1">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Original Direction</p>
-            <h3 class="mt-4 text-3xl font-black uppercase tracking-[-0.05em]">Clean Graphics</h3>
-            <p class="mt-4 text-white/82">Minimal, wearable tee designs that look sharp without feeling loud.</p>
-            <a href="#" class="mt-7 inline-flex rounded-md bg-[#22C55E] px-6 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Graphic Tees
-            </a>
-          </div>
-
-          <div class="overflow-hidden rounded-3xl bg-[#0B0F0D] lg:col-span-2">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Original_direction.png'); ?>" alt="Graphic tee collection banner" class="h-full min-h-[360px] w-full object-cover opacity-90" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Oversized + Hoodies -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <a href="#" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversized tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Relaxed Fit</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversized Tees</h3>
-            <p class="mt-3 text-white/82">Built for layering, movement, and clean streetwear silhouettes.</p>
-          </div>
-        </a>
-
-        <a href="#" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/casoul_hoodie.png'); ?>" alt="Casual hoodie streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Layer Ready</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Casual Hoodies</h3>
-            <p class="mt-3 text-white/82">Simple hoodie essentials with modern streetwear energy.</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Brand Values -->
-    <section class="bg-[#123D2A] py-16 text-white lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Brand Philosophy</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">
-            Built Like A Real Apparel Brand
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">01</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Comfortable Everyday Fits</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Soft apparel made for repeat wear.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">02</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Clean Modern Styling</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Minimal streetwear without visual clutter.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">03</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Original Graphic Apparel</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Brand-led graphics, not copied fan merch.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">04</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Secure Online Shopping</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Clear policies, support, and checkout trust.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Best Sellers -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Customer Picks</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Best Sellers</h2>
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80" alt="Best selling graphic tee" class="aspect-[4/5] w-full object-cover" />
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Core Graphic Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$29.00</p>
+    <!-- Rice Field -->
+    <section class="relative overflow-hidden bg-[#EAF1D8] py-16 lg:py-24">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#607234]">
+                    <?php esc_html_e('Sau lưng là đồng lúa', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] text-[#123D2A] lg:text-6xl">
+                    <?php esc_html_e('Một mặt là ao nước, một mặt là hương đồng gió nội.', 'dawp'); ?>
+                </h2>
+                <p class="mt-6 text-base leading-8 text-[#54604A]">
+                    <?php esc_html_e('Ở Chuyện Của Mưa, chỉ cần quay lưng lại, bạn đã thấy cánh đồng lúa mở ra phía sau. Có những ngày lúa xanh, có những ngày nắng vàng, có những chiều gió thổi qua mái lá khiến mọi thứ trở nên rất đỗi bình thường mà cũng rất đáng nhớ.', 'dawp'); ?>
+                </p>
             </div>
-          </article>
 
-          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=700&q=80" alt="Best selling oversized tee" class="aspect-[4/5] w-full object-cover" />
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Oversized Street Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$34.00</p>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=700&q=80" alt="Best selling hoodie" class="aspect-[4/5] w-full object-cover" />
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Minimal Logo Hoodie</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$52.00</p>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <img src="https://images.unsplash.com/photo-1506629905607-d9e297d387be?auto=format&fit=crop&w=700&q=80" alt="Best selling vintage tee" class="aspect-[4/5] w-full object-cover" />
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Vintage Wash Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$36.00</p>
-            </div>
-          </article>
+            <img src="<?php echo esc_url($ccm_image('d2f7d2e7-96be-4629-a10a-c67f517a3e76.png')); ?>"
+                 alt="<?php esc_attr_e('Nhà tre Chuyện Của Mưa bên ao, phía sau là đồng lúa và núi xanh', 'dawp'); ?>"
+                 class="aspect-[16/10] w-full rounded-lg object-cover shadow-xl shadow-black/10">
         </div>
-      </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Stay Connected</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">Stay Updated On New Drops</h2>
-          <p class="mt-4 max-w-xl text-white/80">
-            Get updates on new graphic tees, oversized fits, hoodie releases, and clean streetwear essentials.
-          </p>
+    <!-- Materials -->
+    <section class="bg-[#2F2A28] py-16 text-white lg:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+                <div>
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E7C873]">
+                        <?php esc_html_e('Tre, trúc và mái lá', 'dawp'); ?>
+                    </p>
+                    <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] lg:text-6xl">
+                        <?php esc_html_e('Mộc mạc từ những điều chạm tay được.', 'dawp'); ?>
+                    </h2>
+                    <p class="mt-6 max-w-2xl text-base leading-8 text-white/78">
+                        <?php esc_html_e('Chúng mình muốn không gian của Mưa giữ lại cảm giác gần gũi của làng quê Việt Nam. Từ mái lá, cột tre, lan can trúc đến những chiếc bàn nhỏ bên ao, mọi chi tiết đều được tạo ra để bạn thấy nhẹ nhàng hơn khi bước vào.', 'dawp'); ?>
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <?php
+                    $material_cards = [
+                        'Gian ngồi riêng tư',
+                        'Bàn ghế tre dân dã',
+                        'Mái lá gần thiên nhiên',
+                        'Góc chụp ảnh tự nhiên',
+                    ];
+                    foreach ($material_cards as $index => $card) :
+                        ?>
+                        <div class="rounded-lg border border-white/12 bg-white/8 p-5">
+                            <span class="text-sm font-black text-[#E7C873]"><?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
+                            <p class="mt-4 font-heading text-2xl font-black uppercase leading-[1.18]">
+                                <?php echo esc_html($card); ?>
+                            </p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" class="bg-[#FAF7F2] py-16 lg:py-24">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8">
+            <div class="order-2 lg:order-1">
+                <img src="<?php echo esc_url($ccm_image('download copy.png')); ?>"
+                     alt="<?php esc_attr_e('Ly đồ uống trong gian tre bên ao của Chuyện Của Mưa', 'dawp'); ?>"
+                     class="aspect-[4/5] w-full rounded-lg object-cover shadow-xl shadow-black/10">
+            </div>
+
+            <div class="order-1 lg:order-2">
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#8A6F35]">
+                    <?php esc_html_e('Menu của Mưa', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] text-[#123D2A] lg:text-6xl">
+                    <?php esc_html_e('Một ly trà mát, một tách cà phê, và câu chuyện còn dài.', 'dawp'); ?>
+                </h2>
+                <p class="mt-6 text-base leading-8 text-[#6F625D]">
+                    <?php esc_html_e('Ở Chuyện Của Mưa, đồ uống không cần quá cầu kỳ để trở nên đáng nhớ. Chỉ cần đủ ngon, đủ mát, đủ hợp với buổi ngồi lâu bên ao. Từ cà phê quen vị, trà chanh tươi mát đến những ly trà trái cây nhẹ nhàng, mỗi món đều được chuẩn bị để đi cùng câu chuyện của bạn.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <?php
+                    $menu_groups = ['Cà phê', 'Trà chanh', 'Trà trái cây', 'Đồ uống mát', 'Đồ uống theo mùa', 'Món nhâm nhi'];
+                    foreach ($menu_groups as $group) :
+                        ?>
+                        <span class="rounded-md border border-[#D8C7A3] bg-white px-4 py-2 text-sm font-bold text-[#3A342F]">
+                            <?php echo esc_html($group); ?>
+                        </span>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- People -->
+    <section class="relative overflow-hidden bg-white py-16 lg:py-24">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#E6DDCC]"></div>
+        <div class="pointer-events-none absolute -right-10 top-14 hidden h-72 w-72 rounded-full border border-[#D8C7A3]/45 lg:block"></div>
+
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-10 border-b border-[#E6DDCC] pb-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+                <div>
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#8A6F35]">
+                        <?php esc_html_e('Câu chuyện của bạn', 'dawp'); ?>
+                    </p>
+                    <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] text-[#123D2A] lg:text-6xl">
+                        <?php esc_html_e('Có người đến để vui, có người đến để yên, có người đến chỉ để được ngồi lại.', 'dawp'); ?>
+                    </h2>
+                </div>
+                <div class="border-l border-[#D8C7A3] pl-6">
+                    <p class="text-base leading-8 text-[#6F625D]">
+                    <?php esc_html_e('Mỗi vị khách mang theo một câu chuyện khác nhau. Có câu chuyện của bạn bè lâu ngày gặp lại, câu chuyện của gia đình trong một buổi cuối tuần, câu chuyện của đôi người đang thương, và cả những câu chuyện không cần nói thành lời.', 'dawp'); ?>
+                    </p>
+                    <div class="mt-6 grid grid-cols-3 gap-2 text-center text-xs font-black uppercase tracking-[0.14em] text-[#8A6F35]">
+                        <span class="border-y border-[#E6DDCC] py-2"><?php esc_html_e('Bạn bè', 'dawp'); ?></span>
+                        <span class="border-y border-[#E6DDCC] py-2"><?php esc_html_e('Gia đình', 'dawp'); ?></span>
+                        <span class="border-y border-[#E6DDCC] py-2"><?php esc_html_e('Một mình', 'dawp'); ?></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <?php
+                $experiences = [
+                    ['title' => 'Đi cùng bạn bè', 'text' => 'Một bàn đủ rộng cho tiếng cười và những chuyện chưa kể hết.'],
+                    ['title' => 'Đi cùng gia đình', 'text' => 'Không gian mở, thoáng và gần gũi cho một buổi ngồi lâu.'],
+                    ['title' => 'Đi cùng người thương', 'text' => 'Một góc bên ao vừa đủ riêng để chiều trôi nhẹ hơn.'],
+                    ['title' => 'Đi một mình cũng được', 'text' => 'Một chỗ ngồi yên để đọc sách, nhìn nước và nghỉ lại.'],
+                ];
+                foreach ($experiences as $item) :
+                    ?>
+                    <article class="rounded-lg border border-[#E6DDCC] bg-[#FAF7F2] p-6">
+                        <h3 class="font-heading text-2xl font-black uppercase leading-[1.18] text-[#123D2A]">
+                            <?php echo esc_html($item['title']); ?>
+                        </h3>
+                        <p class="mt-3 text-sm leading-6 text-[#6F625D]">
+                            <?php echo esc_html($item['text']); ?>
+                        </p>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="thu-vien" class="relative overflow-hidden bg-[#FAF7F2] py-16 lg:py-24">
+        <div class="pointer-events-none absolute left-0 top-24 hidden h-px w-1/3 bg-[#D8C7A3]/70 lg:block"></div>
+        <div class="pointer-events-none absolute right-0 top-24 hidden h-px w-1/3 bg-[#D8C7A3]/70 lg:block"></div>
+
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 max-w-3xl border-l-4 border-[#E7C873] pl-6">
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#8A6F35]">
+                    <?php esc_html_e('Khoảnh khắc của Mưa', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] text-[#123D2A] lg:text-6xl">
+                    <?php esc_html_e('Mỗi góc nhỏ đều có một câu chuyện để giữ lại.', 'dawp'); ?>
+                </h2>
+                <p class="mt-5 text-base leading-8 text-[#6F625D]">
+                    <?php esc_html_e('Có thể là ánh nắng rơi trên mái tre, một bông sen cạnh mặt nước, ly trà đặt trên bàn, hay nụ cười của người ngồi đối diện. Những điều rất nhỏ ấy đôi khi lại là thứ khiến ta nhớ lâu nhất.', 'dawp'); ?>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
+                <?php
+                $gallery_images = [
+                    ['file' => 'c12fc4f1-a8c3-46b6-b18c-6a938535670c copy.png', 'class' => 'col-span-2 row-span-2 aspect-[4/3]', 'alt' => 'Toàn cảnh ao cá và những gian tre của Chuyện Của Mưa'],
+                    ['file' => 'download.png', 'class' => 'aspect-square', 'alt' => 'Hoa sen, ao cá và góc ngồi bên mái tre'],
+                    ['file' => 'd2f7d2e7-96be-4629-a10a-c67f517a3e76 copy.png', 'class' => 'aspect-square', 'alt' => 'Biển gỗ Chuyện Của Mưa trên gian nhà tre'],
+                    ['file' => 'Ảnh#1 copy.png', 'class' => 'aspect-square', 'alt' => 'Đàn cá dưới ao cạnh hoa sen và nhà tre'],
+                    ['file' => 'faa6de0a-885b-49cd-84d6-4ee0c69bc773.png', 'class' => 'aspect-square', 'alt' => 'Nhà tre ven ao với đồng lúa phía sau'],
+                ];
+                foreach ($gallery_images as $image) :
+                    ?>
+                    <img src="<?php echo esc_url($ccm_image($image['file'])); ?>"
+                         alt="<?php echo esc_attr($image['alt']); ?>"
+                         class="<?php echo esc_attr($image['class']); ?> w-full rounded-lg object-cover shadow-sm">
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opening -->
+    <section id="mo-cua" class="bg-[#123D2A] py-16 text-white lg:py-24">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E7C873]">
+                    <?php esc_html_e('Hẹn gặp bạn tháng 8', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] lg:text-6xl">
+                    <?php esc_html_e('Mưa đang chuẩn bị những góc ngồi đầu tiên để đón bạn.', 'dawp'); ?>
+                </h2>
+                <p class="mt-6 text-base leading-8 text-white/80">
+                    <?php esc_html_e('Chuyện Của Mưa dự kiến mở cửa vào tháng 8 này tại thành phố Điện Biên. Chúng mình đang chuẩn bị từng mái tre, từng chiếc bàn, từng góc nhìn ra ao để khi bạn ghé đến, mọi thứ đủ yên, đủ ấm và đủ gần để câu chuyện bắt đầu.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="#lien-he"
+                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E7C873] px-7 text-sm font-black uppercase tracking-wide text-[#2F2A28] transition hover:bg-[#F2DFA2]">
+                        <?php esc_html_e('Theo dõi ngày mở cửa', 'dawp'); ?>
+                    </a>
+                    <a href="#thu-vien"
+                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#123D2A]">
+                        <?php esc_html_e('Lưu lại để ghé Mưa', 'dawp'); ?>
+                    </a>
+                </div>
+            </div>
+
+            <img src="<?php echo esc_url($ccm_image('c12fc4f1-a8c3-46b6-b18c-6a938535670c.png')); ?>"
+                 alt="<?php esc_attr_e('Những gian tre của Chuyện Của Mưa đang chờ ngày đón khách', 'dawp'); ?>"
+                 class="aspect-[16/11] w-full rounded-lg object-cover shadow-2xl shadow-black/20">
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="lien-he" class="relative overflow-hidden bg-[#FAF7F2] py-16 lg:py-24">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#D8C7A3]/70"></div>
+        <div class="pointer-events-none absolute bottom-10 left-8 hidden font-heading text-[120px] font-black uppercase leading-none text-[#123D2A]/5 lg:block">
+            <?php esc_html_e('Điện Biên', 'dawp'); ?>
         </div>
 
-        <form class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row" action="#" method="post">
-          <label for="slicktee-email" class="sr-only">Email address</label>
-          <input id="slicktee-email" type="email" name="email" placeholder="Enter your email" class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-[#111827] placeholder:text-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#A3E635]" />
-          <button type="submit" class="min-h-12 rounded-md bg-[#22C55E] px-6 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Join
-          </button>
-        </form>
-      </div>
+        <div class="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#8A6F35]">
+                    <?php esc_html_e('Ghé Mưa khi bạn cần một chỗ ngồi yên', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black uppercase leading-[1.12] text-[#123D2A] lg:text-6xl">
+                    <?php esc_html_e('Chuyện Của Mưa luôn chào đón câu chuyện của bạn.', 'dawp'); ?>
+                </h2>
+                <p class="mt-6 max-w-3xl text-base leading-8 text-[#6F625D]">
+                    <?php esc_html_e('Dù bạn đến cùng niềm vui, một nỗi buồn, một người bạn, gia đình, hay chỉ là một buổi chiều muốn ngồi yên, Mưa vẫn ở đó. Bên ao nước, sau lưng là đồng lúa, chờ bạn ghé qua khi quán mở cửa vào tháng 8.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-8 flex max-w-3xl items-center gap-4 text-xs font-black uppercase tracking-[0.18em] text-[#8A6F35]">
+                    <span class="h-px flex-1 bg-[#D8C7A3]"></span>
+                    <span><?php esc_html_e('Lưu lại để ghé Mưa', 'dawp'); ?></span>
+                    <span class="h-px flex-1 bg-[#D8C7A3]"></span>
+                </div>
+            </div>
+
+            <aside class="rounded-lg border border-[#D8C7A3] bg-white p-6 shadow-sm">
+                <div class="space-y-5">
+                    <div>
+                        <p class="text-xs font-black uppercase tracking-[0.2em] text-[#8A6F35]"><?php esc_html_e('Địa chỉ', 'dawp'); ?></p>
+                        <p class="mt-2 font-bold text-[#2F2A28]"><?php esc_html_e('Thành phố Điện Biên, Việt Nam', 'dawp'); ?></p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-black uppercase tracking-[0.2em] text-[#8A6F35]"><?php esc_html_e('Giờ mở cửa', 'dawp'); ?></p>
+                        <p class="mt-2 font-bold text-[#2F2A28]"><?php esc_html_e('Sắp cập nhật', 'dawp'); ?></p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-black uppercase tracking-[0.2em] text-[#8A6F35]"><?php esc_html_e('Mở cửa dự kiến', 'dawp'); ?></p>
+                        <p class="mt-2 font-bold text-[#2F2A28]"><?php esc_html_e('Tháng 8', 'dawp'); ?></p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-black uppercase tracking-[0.2em] text-[#8A6F35]"><?php esc_html_e('Facebook & số điện thoại', 'dawp'); ?></p>
+                        <p class="mt-2 font-bold text-[#2F2A28]"><?php esc_html_e('Sắp cập nhật', 'dawp'); ?></p>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </section>
-  </main>
-</body>
-</html>
+
+</main>

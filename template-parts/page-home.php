@@ -31,8 +31,8 @@
           </p>
 
           <div class="mt-9 flex flex-wrap gap-4">
-            <a href="#new-arrivals" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#22C55E] px-7 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop New Arrivals
+            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#22C55E] px-7 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
+              Shop Now
             </a>
 
             <a href="#graphic-tees" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">

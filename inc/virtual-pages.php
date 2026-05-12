@@ -62,13 +62,11 @@ function dawp_virtual_page_assets() {
     $css_file_name = ltrim($pages[$request_uri]['css'], '/');
 
     // Đường dẫn vật lý
-    $css_file_path = get_template_directory() . '/assets/css/tw/' . $css_file_name;
-
-    // URL public
     if (str_contains($css_file_name, 'tw-')) {
+        $css_file_path = get_template_directory() . '/assets/css/tw/' . $css_file_name;
         $css_file_url = get_template_directory_uri() . '/assets/css/tw/' . $css_file_name;
     } else {
-        
+        $css_file_path = get_template_directory() . '/assets/css/' . $css_file_name;
         $css_file_url = get_template_directory_uri() . '/assets/css/' . $css_file_name;
     }
 
@@ -76,6 +74,7 @@ function dawp_virtual_page_assets() {
         'dawp-virtual-page-' . sanitize_title($pages[$request_uri]['slug']),
         $css_file_url,
         [],
-        filemtime($css_file_path) // auto version khi file thay đổi
+        file_exists($css_file_path) ? filemtime($css_file_path) : '1.0.0'
     );
 }
+

@@ -300,7 +300,7 @@ get_header();
                         </div>
 
                         <div class="min-h-[300px] bg-slickGreen">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee-support.jpg'); ?>"
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/contact_banner.png'); ?>"
                                  alt="<?php esc_attr_e('Slicktee customer support assistance', 'dawp'); ?>"
                                  class="h-full w-full object-cover opacity-85">
                         </div>

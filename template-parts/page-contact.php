@@ -127,70 +127,9 @@
                     <?php esc_html_e('Our support team can help with order status, apparel fit, product details, shipping timelines, and return eligibility.', 'dawp'); ?>
                 </p>
 
-                <form action="#" method="post" class="mt-8 space-y-6">
-                    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                        <div class="space-y-2">
-                            <label for="contact_name" class="text-sm font-black uppercase tracking-wide text-slickText">
-                                <?php esc_html_e('Name', 'dawp'); ?> <span class="text-slickActive">*</span>
-                            </label>
-                            <input type="text" id="contact_name" name="contact_name" required
-                                   class="min-h-12 w-full rounded-md border border-[#E5E7EB] bg-slickSoft px-4 text-slickText outline-none transition focus:border-slickActive focus:bg-white focus:ring-2 focus:ring-slickLime"
-                                   placeholder="<?php esc_attr_e('Your name', 'dawp'); ?>">
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="contact_email" class="text-sm font-black uppercase tracking-wide text-slickText">
-                                <?php esc_html_e('Email', 'dawp'); ?> <span class="text-slickActive">*</span>
-                            </label>
-                            <input type="email" id="contact_email" name="contact_email" required
-                                   class="min-h-12 w-full rounded-md border border-[#E5E7EB] bg-slickSoft px-4 text-slickText outline-none transition focus:border-slickActive focus:bg-white focus:ring-2 focus:ring-slickLime"
-                                   placeholder="<?php esc_attr_e('you@example.com', 'dawp'); ?>">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                        <div class="space-y-2">
-                            <label for="contact_order" class="text-sm font-black uppercase tracking-wide text-slickText">
-                                <?php esc_html_e('Order Number', 'dawp'); ?>
-                            </label>
-                            <input type="text" id="contact_order" name="contact_order"
-                                   class="min-h-12 w-full rounded-md border border-[#E5E7EB] bg-slickSoft px-4 text-slickText outline-none transition focus:border-slickActive focus:bg-white focus:ring-2 focus:ring-slickLime"
-                                   placeholder="<?php esc_attr_e('Optional', 'dawp'); ?>">
-                        </div>
-
-                        <div class="space-y-2">
-                            <label for="contact_subject" class="text-sm font-black uppercase tracking-wide text-slickText">
-                                <?php esc_html_e('Topic', 'dawp'); ?>
-                            </label>
-                            <select id="contact_subject" name="contact_subject"
-                                    class="min-h-12 w-full rounded-md border border-[#E5E7EB] bg-slickSoft px-4 text-slickText outline-none transition focus:border-slickActive focus:bg-white focus:ring-2 focus:ring-slickLime">
-                                <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
-                                <option value="shipping"><?php esc_html_e('Shipping & Tracking', 'dawp'); ?></option>
-                                <option value="returns"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></option>
-                                <option value="sizing"><?php esc_html_e('Product & Sizing', 'dawp'); ?></option>
-                                <option value="general"><?php esc_html_e('General Question', 'dawp'); ?></option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label for="contact_message" class="text-sm font-black uppercase tracking-wide text-slickText">
-                            <?php esc_html_e('Message', 'dawp'); ?> <span class="text-slickActive">*</span>
-                        </label>
-                        <textarea id="contact_message" name="contact_message" rows="6" required
-                                  class="w-full resize-none rounded-md border border-[#E5E7EB] bg-slickSoft px-4 py-4 text-slickText outline-none transition focus:border-slickActive focus:bg-white focus:ring-2 focus:ring-slickLime"
-                                  placeholder="<?php esc_attr_e('How can we help?', 'dawp'); ?>"></textarea>
-                    </div>
-
-                    <button type="submit"
-                            class="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-slickBlack px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-slickGreen sm:w-auto">
-                        <?php esc_html_e('Send Message', 'dawp'); ?>
-                    </button>
-
-                    <p class="text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Slicktee support is available Monday through Friday, 9:00 AM - 6:00 PM EST. Response times may vary during weekends, holidays, or high-volume periods.', 'dawp'); ?>
-                    </p>
-                </form>
+                <div id="contact-form-1">
+                    <?php echo do_shortcode('[contact-form-7 id="5d357f1" title="Contact"]'); ?>
+                </div>
             </div>
 
         </div>

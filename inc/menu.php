@@ -2,10 +2,10 @@
 function dawp_main_menu_items() {
     return [
         ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Girls Dresses', 'dawp'),  'url' => home_url('/product-category/girls-dresses/')],
-        ['title' => __('Mommy & Me', 'dawp'),  'url' => home_url('/product-category/mommy-me-matching-sets/')],
-        ['title' => __('Women Casual', 'dawp'),        'url' => home_url('/product-category/women-casual/')],
-        ['title' => __('Baby Girl', 'dawp'),       'url' => home_url('/product-category/baby-girl-boutique/')],
+        ['title' => __('Graphic Tees', 'dawp'),  'url' => home_url('/product-category/graphic-tees/')],
+        ['title' => __('Oversize Tees', 'dawp'),  'url' => home_url('/product-category/oversize-tees/')],
+        ['title' => __('Casual Hoodies', 'dawp'),        'url' => home_url('/product-category/casual-hoodies/')],
+        ['title' => __('Streetwear Essentials', 'dawp'),       'url' => home_url('/product-category/streetwear-essentials/')],
     ];
 }
 function dawp_is_current_url($url) {
@@ -21,11 +21,10 @@ function dawp_footer_columns() {
             'title' => 'Shop',
             'links' => [
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Girls Dresses', 'dawp'),  'url' => home_url('/product-category/girls-dresses/')],
-        ['title' => __('Mommy & Me', 'dawp'),  'url' => home_url('/product-category/mommy-me-matching-sets/')],
-        ['title' => __('Women Casual', 'dawp'),        'url' => home_url('/product-category/women-casual/')],
-        ['title' => __('Baby Girl', 'dawp'),       'url' => home_url('/product-category/baby-girl-boutique/')],
-        ['title' => __('Boutique Accessories', 'dawp'),       'url' => home_url('/product-category/boutique-accessories/')],
+        ['title' => __('Graphic Tees', 'dawp'),  'url' => home_url('/product-category/graphic-tees/')],
+        ['title' => __('Oversize Tees', 'dawp'),  'url' => home_url('/product-category/oversize-tees/')],
+        ['title' => __('Casual Hoodies', 'dawp'),        'url' => home_url('/product-category/casual-hoodies/')],
+        ['title' => __('Streetwear Essentials', 'dawp'),       'url' => home_url('/product-category/streetwear-essentials/')],
             ],
         ],
         [

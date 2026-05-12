@@ -128,15 +128,16 @@ if (empty($nav_items)) {
                 </form>
 
                 <!-- Mobile Search Icon -->
-                <a href="<?php echo esc_url(home_url('/?s=&post_type=product')); ?>"
-                   class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime sm:hidden"
-                   aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
+                <button type="button"
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime sm:hidden"
+                        aria-label="<?php esc_attr_e('Search', 'dawp'); ?>"
+                        onclick="document.getElementById('slicktee-mobile-search').classList.toggle('hidden')">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="M21 21l-4.35-4.35"></path>
                     </svg>
-                </a>
+                </button>
 
                 <!-- Account -->
                 <a href="<?php echo esc_url($account_url); ?>"
@@ -172,6 +173,30 @@ if (empty($nav_items)) {
 
             </div>
         </div>
+    </div>
+
+    <!-- Mobile Search Bar -->
+    <div id="slicktee-mobile-search" class="hidden border-t border-white/10 bg-slickBlack sm:hidden">
+        <form role="search"
+              method="get"
+              action="<?php echo esc_url(home_url('/')); ?>"
+              class="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3">
+            <input type="search"
+                   name="s"
+                   placeholder="<?php esc_attr_e('Search products...', 'dawp'); ?>"
+                   autofocus
+                   class="h-10 flex-1 rounded-md border border-white/10 bg-white/10 px-3 text-sm text-white placeholder:text-white/55 outline-none focus:border-slickActive focus:bg-white/15">
+            <input type="hidden" name="post_type" value="product">
+            <button type="submit"
+                    class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slickActive text-slickBlack transition hover:bg-slickLime"
+                    aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="M21 21l-4.35-4.35"></path>
+                </svg>
+            </button>
+        </form>
     </div>
 
     <!-- Mobile Navigation -->

@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Slicktee | Graphic Tee & Modern Streetwear</title>
-  <meta name="description" content="Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, hoodies, and everyday streetwear essentials." />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
 
-<body class="bg-white text-[#111827] antialiased">
-  <main>
     <!-- Hero Section -->
     <section class="relative overflow-hidden bg-[#0B0F0D] text-white">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
@@ -129,51 +118,37 @@
           </a>
         </div>
 
+        <?php
+        $new_arrivals = wc_get_products([
+          'limit'   => 4,
+          'orderby' => 'date',
+          'order'   => 'DESC',
+          'status'  => 'publish',
+        ]);
+        ?>
+
+        <?php if ($new_arrivals) : ?>
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+          <?php foreach ($new_arrivals as $product) :
+            $img_url  = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
+            $img_url  = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
+            $price    = $product->get_price_html();
+            $link     = get_permalink($product->get_id());
+            $name     = $product->get_name();
+          ?>
           <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
             <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80" alt="Core graphic tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
+              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
             </div>
             <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Core Graphic Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$29.00</p>
-              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
+              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
+              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
+              <a href="<?php echo esc_url($link); ?>" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-slickBlack px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">View Product</a>
             </div>
           </article>
-
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=700&q=80" alt="Oversized street tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Oversized Street Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$34.00</p>
-              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
-            </div>
-          </article>
-
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=700&q=80" alt="Minimal logo hoodie" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Minimal Logo Hoodie</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$52.00</p>
-              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
-            </div>
-          </article>
-
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="https://images.unsplash.com/photo-1506629905607-d9e297d387be?auto=format&fit=crop&w=700&q=80" alt="Vintage wash tee" class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Vintage Wash Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$36.00</p>
-              <a href="#" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-[#0B0F0D] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#123D2A]">View Product</a>
-            </div>
-          </article>
+          <?php endforeach; ?>
         </div>
+        <?php endif; ?>
       </div>
     </section>
 
@@ -298,39 +273,36 @@
           <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Best Sellers</h2>
         </div>
 
+        <?php
+        $best_sellers = wc_get_products([
+          'limit'   => 4,
+          'orderby' => 'date',
+          'order'   => 'ASC',
+          'status'  => 'publish',
+        ]);
+        ?>
+
+        <?php if ($best_sellers) : ?>
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=700&q=80" alt="Best selling graphic tee" class="aspect-[4/5] w-full object-cover" />
+          <?php foreach ($best_sellers as $product) :
+            $img_url = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
+            $img_url = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
+            $price   = $product->get_price_html();
+            $link    = get_permalink($product->get_id());
+            $name    = $product->get_name();
+          ?>
+          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
+            <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-[#F7F8F5]">
+              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
+            </a>
             <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Core Graphic Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$29.00</p>
+              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
+              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
             </div>
           </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=700&q=80" alt="Best selling oversized tee" class="aspect-[4/5] w-full object-cover" />
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Oversized Street Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$34.00</p>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=700&q=80" alt="Best selling hoodie" class="aspect-[4/5] w-full object-cover" />
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Minimal Logo Hoodie</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$52.00</p>
-            </div>
-          </article>
-
-          <article class="overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <img src="https://images.unsplash.com/photo-1506629905607-d9e297d387be?auto=format&fit=crop&w=700&q=80" alt="Best selling vintage tee" class="aspect-[4/5] w-full object-cover" />
-            <div class="p-4">
-              <h3 class="text-sm font-black text-[#111827] sm:text-base">Vintage Wash Tee</h3>
-              <p class="mt-1 font-black text-[#123D2A]">$36.00</p>
-            </div>
-          </article>
+          <?php endforeach; ?>
         </div>
+        <?php endif; ?>
       </div>
     </section>
 
@@ -354,6 +326,3 @@
         </form>
       </div>
     </section>
-  </main>
-</body>
-</html>

@@ -80,9 +80,13 @@ $footer_policy_links = [
         <div class="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.85fr] lg:px-8 lg:py-20">
             <div>
                 <a href="<?php echo esc_url(home_url('/')); ?>"
-                   class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-white"
+                   class="inline-flex shrink-0"
                    aria-label="<?php bloginfo('name'); ?>">
-                    Slick<span class="text-slickActive">tee</span>
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee-logo.svg'); ?>"
+                         alt="<?php bloginfo('name'); ?>"
+                         class="h-11 w-auto"
+                         width="190"
+                         height="44">
                 </a>
 
                 <p class="mt-5 max-w-md text-base leading-8 text-white/78">

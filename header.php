@@ -79,34 +79,38 @@ if (empty($nav_items)) {
 
     <!-- Announcement Bar -->
     <div class="border-b border-white/10 bg-slickGreen">
-        <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-2 text-center text-xs font-black uppercase tracking-[0.18em] text-slickLime sm:px-6 lg:px-8">
+        <div class="mx-auto flex max-w-[1480px] items-center justify-center px-4 py-2 text-center text-xs font-black uppercase tracking-[0.18em] text-slickLime sm:px-6 lg:px-8">
             <?php esc_html_e('New streetwear drops are live • Clean fits for everyday rotation', 'dawp'); ?>
         </div>
     </div>
 
     <!-- Main Header -->
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between gap-6">
+    <div class="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-8 2xl:px-10">
+        <div class="flex h-20 items-center justify-between gap-4 xl:gap-6">
 
             <!-- Logo -->
             <a href="<?php echo esc_url(home_url('/')); ?>"
-               class="shrink-0 font-heading text-3xl font-black uppercase tracking-[-0.04em] text-white"
+               class="shrink-0"
                aria-label="<?php bloginfo('name'); ?>">
-                Slick<span class="text-slickActive">tee</span>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee-logo.svg'); ?>"
+                     alt="<?php bloginfo('name'); ?>"
+                     class="h-11 w-auto"
+                     width="190"
+                     height="44">
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden items-center gap-7 lg:flex" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
+            <nav class="hidden flex-1 items-center justify-center gap-4 xl:gap-6 2xl:gap-7 lg:flex" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
                     <a href="<?php echo esc_url($item['url']); ?>"
-                       class="text-sm font-black uppercase tracking-wide text-white/82 transition hover:text-slickLime">
+                       class="whitespace-nowrap text-sm font-black uppercase tracking-wide text-white/82 transition hover:text-slickLime">
                         <?php echo esc_html($item['title']); ?>
                     </a>
                 <?php endforeach; ?>
             </nav>
 
             <!-- Header Actions -->
-            <div class="flex items-center gap-3 sm:gap-4">
+            <div class="flex shrink-0 items-center gap-3 sm:gap-4">
 
                 <!-- Desktop Search -->
                 <form role="search"

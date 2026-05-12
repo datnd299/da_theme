@@ -24,7 +24,7 @@
               Shop Now
             </a>
 
-            <a href="#graphic-tees" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">
+            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">
               Explore Graphic Tees
             </a>
           </div>
@@ -68,12 +68,12 @@
             </div>
           </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/oversized-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversized tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+          <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversize tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
               <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Oversized Tees</h3>
+              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Oversize Tees</h3>
               <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Relaxed silhouettes with modern street fit.</p>
               </div>
             </div>
@@ -192,7 +192,7 @@
             <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Original Direction</p>
             <h3 class="mt-4 text-3xl font-black uppercase tracking-[-0.05em]">Clean Graphics</h3>
             <p class="mt-4 text-white/82">Minimal, wearable tee designs that look sharp without feeling loud.</p>
-            <a href="#" class="mt-7 inline-flex rounded-md bg-[#22C55E] px-6 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
+            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="mt-7 inline-flex rounded-md bg-[#22C55E] px-6 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
               Shop Graphic Tees
             </a>
           </div>
@@ -207,16 +207,16 @@
     <!-- Oversized + Hoodies -->
     <section class="bg-white py-16 lg:py-24">
       <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <a href="#" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversized tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+        <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
+          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversize tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
           <div class="p-8">
             <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Relaxed Fit</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversized Tees</h3>
+            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversize Tees</h3>
             <p class="mt-3 text-white/82">Built for layering, movement, and clean streetwear silhouettes.</p>
           </div>
         </a>
 
-        <a href="#" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
+        <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
           <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/casoul_hoodie.png'); ?>" alt="Casual hoodie streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
           <div class="p-8">
             <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Layer Ready</p>

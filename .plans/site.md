@@ -1,352 +1,338 @@
-h# Slicktee
+# Website Portfolio Bác sĩ Lê Thị Thu Hiền
 
-## Store Information
+## Thông tin cá nhân
 
-- **Website:** slicktee.com
-- **Language:** English
-- **Store Type:** Graphic Tee & Modern Streetwear Apparel Brand
-- **Primary Market:** United States
-- **Brand Positioning:** Youthful Graphic Apparel / Everyday Streetwear
-- **Support Email:** support@slicktee.com
-- **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM (EST)
-
----
-
-# Brand Positioning
-
-Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, casual hoodies, and everyday outfit essentials.
-
-The brand should feel:
-- Youthful
-- Energetic
-- Clean
-- Urban
-- Creative
-- Confident
-- Apparel-focused
-- Easy to wear
-
-The storefront should feel like a real apparel brand, not a generic print-on-demand store.
-
-Avoid making the website feel like:
-- Random POD spam
-- Meme shirt marketplace
-- Copyright fan merch store
-- Generic dropshipping ecommerce
-- Aggressive hypebeast store
-- Mixed-category marketplace
+* **Tên:** Bác sĩ Lê Thị Thu Hiền
+* **Học hàm / chuyên môn:** Bác sĩ Chuyên khoa I
+* **Chuyên ngành:** Nhi khoa
+* **Lĩnh vực chính:** Khám, tư vấn và chăm sóc sức khỏe trẻ em
+* **Ngôn ngữ website:** Tiếng Việt
+* **Loại website:** Portfolio cá nhân / hồ sơ chuyên môn bác sĩ
+* **Mục tiêu:** Giới thiệu uy tín chuyên môn, quá trình đào tạo, kinh nghiệm công tác và triết lý chăm sóc bệnh nhi
 
 ---
 
-# Historical Direction
+## Định vị website
 
-Slicktee aligns with:
-- Graphic t-shirts
-- Casual apparel
-- Streetwear basics
-- Urban tee culture
-- Youth fashion
-- Creative everyday outfits
-- Simple ecommerce apparel branding
+Website của Bác sĩ Lê Thị Thu Hiền cần tạo cảm giác:
 
-Avoid pivoting into:
-- Electronics
-- Pet products
-- Home goods
-- Supplements
-- Automotive
-- Random gadgets
-- Unrelated accessories
+* Tin cậy
+* Chuyên nghiệp
+* Nhân hậu
+* Gần gũi với phụ huynh
+* Rõ ràng về chuyên môn
+* Ấm áp khi nói về trẻ nhỏ
+* Không phô trương, không quảng cáo quá đà
+
+Website không phải website bán dịch vụ y tế kiểu thương mại mạnh.
+
+Website cần giống một hồ sơ chuyên môn đáng tin cậy, giúp phụ huynh hiểu bác sĩ là ai, đã học tập và công tác ở đâu, có kinh nghiệm gì trong nhi khoa và đang đảm nhiệm vai trò chuyên môn nào.
 
 ---
 
-# Core Audience
+## Thông tin chuyên môn chính
 
-## Primary Audience
+Bác sĩ Lê Thị Thu Hiền là Bác sĩ Chuyên khoa I chuyên ngành Nhi khoa, có nhiều năm kinh nghiệm trong thăm khám, chăm sóc và tư vấn sức khỏe trẻ em.
 
-- Men and women aged 18–35
-- Graphic tee buyers
-- Streetwear-inspired shoppers
-- Casual outfit customers
-- Online fashion shoppers
-- Young creative buyers
-- Students and young professionals
+Bác sĩ từng công tác tại tuyến y tế cơ sở, bệnh viện tuyến huyện, giữ vai trò Trưởng khoa Nhi và hiện đảm nhiệm vị trí Giám đốc chuyên môn tại hệ thống phòng khám nhi khoa The Medcare Hà Nội.
 
-## Secondary Audience
+Hồ sơ chuyên môn cần nhấn mạnh sự kết hợp giữa:
 
-- Hoodie shoppers
-- Oversized tee customers
-- Minimal streetwear fans
-- Gift shoppers looking for casual apparel
+* Nền tảng đào tạo y khoa chính quy
+* Kinh nghiệm tuyến cơ sở
+* Kinh nghiệm bệnh viện
+* Kinh nghiệm chuyên khoa nhi
+* Kinh nghiệm quản lý chuyên môn
+* Sự thấu hiểu phụ huynh và trẻ nhỏ
 
 ---
 
-# Customer Psychology
+## Quá trình đào tạo
 
-Customers shop for:
-- Comfortable everyday tees
-- Clean graphic apparel
-- Easy outfit styling
-- Casual confidence
-- Streetwear basics
-- Wearable statement pieces
-- Minimal but creative designs
+### 1993 – 1998
 
-The shopping experience should feel:
-- Fast
-- Clean
-- Bold
-- Energetic
-- Youthful
-- Authentic
-- Easy to browse
+**Đại học Y Thái Nguyên**
+
+Bác sĩ Lê Thị Thu Hiền theo học ngành Y tại Đại học Y Thái Nguyên trong niên khóa 1993 – 1998.
+
+Đây là nền tảng đào tạo y khoa chính quy đầu tiên, đặt cơ sở cho hành trình làm nghề y và gắn bó lâu dài với lĩnh vực chăm sóc sức khỏe trẻ em.
+
+### 2008 – 2010
+
+**Đại học Y Hà Nội**
+
+Bác sĩ tham gia chương trình đào tạo Chuyên khoa I chuyên ngành Nhi khoa tại Đại học Y Hà Nội trong giai đoạn 2008 – 2010.
+
+Đây là giai đoạn quan trọng giúp bác sĩ tập trung sâu hơn vào chuyên ngành Nhi khoa, củng cố kiến thức, kỹ năng thăm khám và điều trị các vấn đề sức khỏe thường gặp ở trẻ em.
 
 ---
 
-# Categories
+## Quá trình công tác
 
-- **New Arrivals**
-- **Best Sellers**
-- **Graphic Tees**
-- **Oversized Tees**
-- **Streetwear Essentials**
-- **Casual Hoodies**
-- **Vintage Wash**
-- **Minimal Apparel**
-- **Accessories**
+### 1998 – 2002
 
----
+**Trạm xá Y tế xã Hoàng Khai, huyện Yên Sơn, tỉnh Tuyên Quang**
 
-# Homepage Direction
+Sau khi tốt nghiệp, bác sĩ công tác tại Trạm xá Y tế xã Hoàng Khai, huyện Yên Sơn, tỉnh Tuyên Quang.
 
-The homepage should focus on:
-- Strong streetwear branding
-- Clean lifestyle visuals
-- Youthful product discovery
-- Graphic tee positioning
-- Oversized apparel styling
-- Modern ecommerce trust
-- Easy navigation
+Giai đoạn này giúp bác sĩ có nhiều trải nghiệm thực tế trong chăm sóc sức khỏe ban đầu cho người dân địa phương, tiếp xúc trực tiếp với các vấn đề sức khỏe cộng đồng và xây dựng nền tảng y tế cơ sở vững chắc.
 
-Recommended sections:
-- Hero banner
-- Featured categories
-- New arrivals
-- Graphic tees
-- Oversized tees
-- Hoodie collection
-- Streetwear essentials
-- Best sellers
-- Brand values
-- Newsletter
+### 2002 – 2008
 
-Avoid:
-- Product spam grids
-- Fake urgency countdowns
-- Loud discount banners
-- Copyright-heavy graphic references
-- Marketplace-style layouts
+**Bệnh viện Yên Sơn, tỉnh Tuyên Quang**
+
+Bác sĩ tiếp tục công tác tại Bệnh viện Yên Sơn, tỉnh Tuyên Quang.
+
+Đây là giai đoạn tích lũy kinh nghiệm bệnh viện, tiếp cận nhiều ca bệnh đa dạng, trong đó có các vấn đề sức khỏe trẻ em, từ đó định hình rõ hơn con đường chuyên sâu về Nhi khoa.
+
+### 2008 – 2010
+
+**Đào tạo Chuyên khoa I Nhi khoa – Đại học Y Hà Nội**
+
+Bác sĩ tham gia học Chuyên khoa I chuyên ngành Nhi khoa tại Đại học Y Hà Nội.
+
+Giai đoạn này cần được trình bày như một cột mốc chuyên môn quan trọng trong hành trình trở thành bác sĩ nhi khoa.
+
+### 2010 – 2016
+
+**Bệnh viện Yên Sơn, tỉnh Tuyên Quang – Trưởng khoa Nhi**
+
+Sau khi hoàn thành chương trình Chuyên khoa I Nhi khoa, bác sĩ trở về công tác tại Bệnh viện Yên Sơn, tỉnh Tuyên Quang và đảm nhiệm chức vụ **Trưởng khoa Nhi**.
+
+Giai đoạn này thể hiện năng lực chuyên môn, kinh nghiệm lâm sàng và vai trò quản lý trong lĩnh vực chăm sóc sức khỏe trẻ em tại bệnh viện.
+
+### 2016 – 2026
+
+**Hệ thống phòng khám nhi khoa The Medcare – Giám đốc chuyên môn Phòng khám The Medcare Hà Nội**
+
+Từ năm 2016 đến 2026, bác sĩ công tác tại hệ thống phòng khám nhi khoa The Medcare và đảm nhiệm vai trò **Giám đốc chuyên môn Phòng khám The Medcare Hà Nội**.
+
+Đây là giai đoạn thể hiện kinh nghiệm chuyên sâu trong mô hình phòng khám nhi khoa hiện đại, kết hợp giữa thăm khám, tư vấn phụ huynh, quản lý chuyên môn và xây dựng chất lượng dịch vụ chăm sóc trẻ em.
 
 ---
 
-# Visual Direction
+## Timeline tóm tắt
 
-## Design Style
-
-- Clean modern ecommerce
-- Energetic green-based palette
-- Strong black and white contrast
-- Bold typography
-- Large lifestyle images
-- Spacious product grids
-- Minimal visual clutter
-- Mobile-first shopping experience
-
-## Visual Tone
-
-The website should feel:
-- Urban
-- Young
-- Active
-- Confident
-- Modern
-- Apparel-native
-- Creative but trustworthy
-
-Avoid:
-- Cheap POD visuals
-- Fake hypebeast styling
-- Overcrowded graphics
-- Neon chaos
-- Low-quality mockups
-- AI-looking product imagery
+```text
+1993 – 1998: Học tại Đại học Y Thái Nguyên
+1998 – 2002: Công tác tại Trạm xá Y tế xã Hoàng Khai, Yên Sơn, Tuyên Quang
+2002 – 2008: Công tác tại Bệnh viện Yên Sơn, Tuyên Quang
+2008 – 2010: Học Chuyên khoa I Nhi khoa tại Đại học Y Hà Nội
+2010 – 2016: Trưởng khoa Nhi, Bệnh viện Yên Sơn, Tuyên Quang
+2016 – 2026: Giám đốc chuyên môn Phòng khám The Medcare Hà Nội
+```
 
 ---
 
-# Product Content Direction
+## Thông điệp chuyên môn
 
-Descriptions should feel:
-- Short
-- Clear
-- Confident
-- Apparel-focused
-- Fit-driven
-- Styling-oriented
-- Comfort-driven
+Website nên truyền tải rằng bác sĩ Hiền là người có hành trình dài và bền bỉ trong y khoa, đặc biệt là Nhi khoa.
 
-Content should include:
-- Fit notes
-- Fabric feel
-- Styling ideas
-- Everyday use cases
-- Care information when relevant
+Thông điệp chính:
 
-Avoid:
-- Keyword stuffing
-- Robotic AI descriptions
-- Fake scarcity messaging
-- Copyrighted character references
-- Offensive or controversial claims
+> Hơn nhiều năm gắn bó với lĩnh vực chăm sóc sức khỏe trẻ em, Bác sĩ Lê Thị Thu Hiền luôn đặt sự an toàn, thấu hiểu và đồng hành cùng phụ huynh làm trọng tâm trong mỗi lần thăm khám.
+
+Các giá trị cần nhấn mạnh:
+
+* Chuyên môn vững vàng
+* Kinh nghiệm thực tế phong phú
+* Sự cẩn trọng trong thăm khám trẻ nhỏ
+* Sự thấu hiểu tâm lý phụ huynh
+* Tinh thần đồng hành lâu dài cùng gia đình
+* Quản lý chuyên môn trong môi trường phòng khám nhi khoa
 
 ---
 
-# Collection Direction
+## Triết lý chăm sóc bệnh nhi
 
-Collections should feel curated and brand-led.
+Nhi khoa không chỉ là điều trị bệnh cho trẻ, mà còn là đồng hành cùng phụ huynh trong quá trình chăm sóc con.
 
-Each collection should:
-- Include short intro copy
-- Present products cleanly
-- Maintain consistent image style
-- Group items by fit, graphic style, or apparel type
-- Feel intentional rather than auto-generated
+Website nên thể hiện triết lý:
 
-The browsing experience should feel like a real apparel brand catalog.
+* Lắng nghe kỹ triệu chứng từ phụ huynh
+* Thăm khám cẩn trọng, nhẹ nhàng với trẻ
+* Giải thích dễ hiểu, rõ ràng
+* Tránh tạo cảm giác hoang mang cho gia đình
+* Ưu tiên sự an toàn và phù hợp với từng trẻ
+* Đồng hành với phụ huynh trong chăm sóc sau thăm khám
 
----
+Có thể dùng đoạn:
 
-# Brand Trust Signals
-
-## Required Pages
-
-- About Us
-- Contact Us
-- Shipping Policy
-- Return & Refund Policy
-- Privacy Policy
-- Terms of Service
-- FAQ
-- Track Your Order
-
-## Required Trust Elements
-
-- Visible support email
-- Clear shipping timelines
-- Transparent return policy
-- Secure checkout messaging
-- Consistent apparel branding
-- Mobile-friendly UX
-- Clean footer navigation
+> Với bác sĩ nhi khoa, mỗi lần thăm khám không chỉ là xem một triệu chứng, mà là lắng nghe cả sự lo lắng của cha mẹ và sự khó chịu mà trẻ chưa thể diễn đạt trọn vẹn.
 
 ---
 
-# Shipping Information
+## Đối tượng người xem website
 
-Orders are processed within **2–4 business days**.
+Website hướng đến:
 
-After dispatch, standard US shipping typically takes **5–10 business days**.
-
-Customers receive tracking information once orders ship.
-
-## Shipping Benefits
-
-- Standard shipping available on all orders
-- Tracking included
-- Secure packaging
-- Responsive customer support
+* Phụ huynh có con nhỏ
+* Gia đình đang tìm bác sĩ nhi khoa uy tín
+* Người muốn tìm hiểu hồ sơ chuyên môn của bác sĩ
+* Đối tác y tế / phòng khám / đơn vị hợp tác
+* Người cần thông tin rõ ràng về quá trình đào tạo và công tác của bác sĩ
 
 ---
 
-# Return Policy Direction
+## Tone of Voice
 
-Customers may request returns within **30 days** of delivery.
+Ngôn ngữ chính: Tiếng Việt.
 
-Eligible returns should be:
-- Unused
-- Unwashed
-- Unworn
-- In original condition
-- Returned with original packaging where applicable
+Giọng văn cần:
 
-The return process should feel:
-- Clear
-- Fair
-- Simple
-- Customer-friendly
+* Chuyên nghiệp
+* Tin cậy
+* Ấm áp
+* Rõ ràng
+* Dễ hiểu với phụ huynh
+* Không quá học thuật
+* Không quảng cáo quá mức
+* Không đưa cam kết điều trị tuyệt đối
 
----
+Nên viết:
 
-# Tone of Voice
+“Bác sĩ có nhiều năm kinh nghiệm trong lĩnh vực Nhi khoa.”
 
-The website tone should be:
-- Clean
-- Direct
-- Confident
-- Youthful
-- Modern
-- Casual
-- Streetwear-inspired
+Không nên viết:
 
-Avoid:
-- Corporate language
-- Overhyped slang
-- Fake luxury positioning
-- Aggressive sales copy
-- Offensive humor
+“Bác sĩ chữa khỏi mọi bệnh lý nhi khoa.”
 
 ---
 
-# GMC & Compliance Direction
+## Quy tắc nội dung y tế
 
-The storefront must feel like a legitimate apparel ecommerce brand with strong topical consistency and authentic merchant behavior.
+Vì đây là website bác sĩ, cần tuân thủ nguyên tắc an toàn nội dung:
 
-## GMC Priorities
+* Không cam kết chữa khỏi bệnh
+* Không dùng từ ngữ gây hiểu nhầm như “tốt nhất”, “số 1”, “đảm bảo khỏi”
+* Không thay thế tư vấn y khoa cá nhân bằng nội dung website
+* Không đưa phác đồ điều trị chi tiết nếu chưa có bối cảnh khám bệnh
+* Không viết quá thương mại hóa y tế
+* Không dùng hình ảnh bệnh nhi nhạy cảm hoặc thiếu riêng tư
 
-- Apparel-focused niche relevance
-- Clean graphic tee positioning
-- Original branded content
-- Transparent policies
-- Realistic ecommerce presentation
-- Mobile-friendly shopping flow
-- Consistent product imagery
-- Trustworthy checkout experience
+Nên có disclaimer nhẹ:
 
-Avoid:
-- Mixed-category spam
-- Thin AI-generated pages
-- Fake reviews
-- Fake urgency
-- Excessive discount messaging
-- Copyrighted graphics
-- Celebrity or trademarked designs
-- Offensive or adult graphic content
+> Các thông tin trên website mang tính giới thiệu chuyên môn và tham khảo, không thay thế cho việc thăm khám và tư vấn trực tiếp với bác sĩ.
 
 ---
 
-# Store Promises
+## Cấu trúc website đề xuất
 
-- Clean graphic apparel
-- Comfortable everyday fits
-- Youthful streetwear essentials
-- Simple and secure ordering
-- Clear customer policies
-- Responsive support
-- Authentic apparel brand experience
+Các trang chính:
+
+* Trang chủ
+* Giới thiệu bác sĩ
+* Quá trình đào tạo & công tác
+* Chuyên môn Nhi khoa
+* Triết lý chăm sóc bệnh nhi
+* Liên hệ / Đặt lịch
+
+Có thể thêm:
+
+* Câu hỏi thường gặp cho phụ huynh
+* Kiến thức chăm sóc trẻ
+* Bài viết chuyên môn
+* Thông tin phòng khám
 
 ---
 
-# Strategic Build Goal
+## Cấu trúc homepage đề xuất
 
-The storefront should feel like:
+1. Hero giới thiệu bác sĩ
+2. Tóm tắt chuyên môn và chức vụ hiện tại
+3. Hành trình hơn nhiều năm trong Nhi khoa
+4. Timeline đào tạo và công tác
+5. Triết lý chăm sóc trẻ nhỏ
+6. Lĩnh vực thăm khám / tư vấn nhi khoa
+7. Vai trò tại The Medcare Hà Nội
+8. Lời nhắn dành cho phụ huynh
+9. Liên hệ / đặt lịch / thông tin phòng khám
 
-“A youthful modern streetwear apparel brand built for everyday graphic tee customers, with original designs, clean shopping, strong contrast, and trustworthy ecommerce presentation.”
+---
+
+## Visual direction
+
+Website nên sử dụng hình ảnh:
+
+* Chân dung bác sĩ chuyên nghiệp, thân thiện
+* Bác sĩ mặc blouse trắng hoặc trang phục y tế lịch sự
+* Không gian phòng khám nhi khoa sạch, sáng, ấm áp
+* Phụ huynh và trẻ nhỏ trong bối cảnh tư vấn nhẹ nhàng
+* Icon y tế đơn giản: trái tim, ống nghe, trẻ em, gia đình
+* Timeline y khoa tinh gọn
+
+Màu sắc nên tạo cảm giác:
+
+* Tin cậy
+* Sạch sẽ
+* Y tế
+* Dịu mắt
+* Thân thiện với trẻ nhỏ
+
+Màu gợi ý:
+
+* Xanh y tế dịu
+* Xanh navy nhẹ
+* Trắng
+* Kem nhạt
+* Xanh pastel
+* Hồng nhạt / vàng nhạt làm accent nhẹ
+
+Không nên dùng:
+
+* Đỏ gắt
+* Đen quá nhiều
+* Neon
+* Màu quá trẻ con thiếu chuyên nghiệp
+* Hình ảnh bệnh lý gây sợ hãi
+
+---
+
+## CTA đề xuất
+
+* Xem hành trình chuyên môn
+* Tìm hiểu về bác sĩ
+* Liên hệ đặt lịch
+* Xem thông tin phòng khám
+* Đọc lời nhắn gửi phụ huynh
+
+CTA nên nhẹ nhàng, không quá thúc ép.
+
+---
+
+## Nội dung hero gợi ý
+
+Eyebrow:
+
+```text
+Bác sĩ Chuyên khoa I Nhi khoa
+```
+
+Heading:
+
+```text
+Bác sĩ Lê Thị Thu Hiền
+```
+
+Subheadline:
+
+```text
+Hơn nhiều năm gắn bó với Nhi khoa, bác sĩ Lê Thị Thu Hiền đồng hành cùng phụ huynh trong thăm khám, tư vấn và chăm sóc sức khỏe trẻ em bằng sự cẩn trọng, thấu hiểu và chuyên môn vững vàng.
+```
+
+CTA:
+
+```text
+Xem hành trình chuyên môn
+Liên hệ đặt lịch
+```
+
+---
+
+## Kết luận định hướng
+
+Website portfolio của Bác sĩ Lê Thị Thu Hiền cần là một hồ sơ chuyên môn rõ ràng, đáng tin cậy và ấm áp.
+
+Điểm mạnh lớn nhất là hành trình y khoa dài, trải qua nhiều môi trường công tác từ y tế cơ sở, bệnh viện, chuyên khoa nhi đến quản lý chuyên môn tại hệ thống phòng khám nhi khoa.
+
+Website phải giúp phụ huynh cảm thấy rằng bác sĩ không chỉ có chuyên môn, mà còn có kinh nghiệm thực tế và sự thấu hiểu cần thiết khi chăm sóc trẻ nhỏ.

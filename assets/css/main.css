@@ -8,7 +8,7 @@
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
   /* Warm White — page background */
-  --color-surface: #FAF7F2;
+  --color-surface: rgb(231, 231, 231);
   /* Soft Cream — section / card background */
   --color-surface-alt: #F5F3F1;
   /* Soft Gray — hover states, alt sections */
@@ -22,13 +22,13 @@
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C98A8A;
+  --color-accent: #22c55e;
   /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #B87575;
+  --color-accent-hover: #498f63;
   /* Dusty Rose darker — hover state */
   --color-accent-soft: #E8D8C8;
   /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DFA39A;
+  --color-accent-blush: #22c55e;
   /* Warm Blush — secondary brand color */
 
   /* === UI === */
@@ -326,4 +326,179 @@
 #contact-form-1 .wpcf7-form.spam .wpcf7-response-output {
   background: rgba(192, 57, 43, 0.08);
   border-left: 3px solid var(--color-alert);
+}
+
+/* =============================================================
+   WOOCOMMERCE LOGIN FORM
+   ============================================================= */
+
+.woocommerce-form-login {
+  max-width: 480px;
+  margin: var(--space-xl) auto;
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.woocommerce-form-login .woocommerce-form-row {
+  margin: 0 0 var(--space-md);
+}
+
+.woocommerce-form-login label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-foreground);
+}
+
+.woocommerce-form-login label .required {
+  color: var(--color-alert);
+  margin-left: 2px;
+}
+
+.woocommerce-form-login .woocommerce-Input {
+  display: block;
+  width: 100%;
+  padding: 11px var(--space-md);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--color-foreground);
+  background: var(--color-background);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--duration-fast) var(--ease-fluid),
+              box-shadow var(--duration-fast) var(--ease-fluid);
+}
+
+.woocommerce-form-login .woocommerce-Input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+/* Password field with show/hide toggle */
+.woocommerce-form-login .password-input {
+  position: relative;
+  display: block;
+}
+
+.woocommerce-form-login .password-input .woocommerce-Input {
+  padding-right: 44px;
+}
+
+.woocommerce-form-login .show-password-input {
+  position: absolute;
+  top: 50%;
+  right: var(--space-sm);
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-muted);
+  transition: color var(--duration-fast) var(--ease-fluid);
+}
+
+.woocommerce-form-login .show-password-input:hover {
+  color: var(--color-accent);
+}
+
+.woocommerce-form-login .show-password-input::before {
+  font-family: WooCommerce, sans-serif;
+  font-size: 1rem;
+}
+
+/* Remember me row */
+.woocommerce-form-login .form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.woocommerce-form-login .woocommerce-form__label-for-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-foreground-muted);
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.woocommerce-form-login .woocommerce-form__input-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Submit button */
+.woocommerce-form-login__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-xl);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-background);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--duration-normal) var(--ease-fluid);
+  white-space: nowrap;
+}
+
+.woocommerce-form-login__submit:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Lost password */
+.woocommerce-LostPassword {
+  margin-top: var(--space-md);
+  text-align: center;
+}
+
+.woocommerce-LostPassword a {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-fluid);
+}
+
+.woocommerce-LostPassword a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* Page heading */
+.woocommerce h2 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+  text-align: center;
+  margin: var(--space-xl) 0 var(--space-lg);
 }

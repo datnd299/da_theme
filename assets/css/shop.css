@@ -206,7 +206,7 @@
   right: 0;
   max-height: 85vh;
   background: var(--color-bg);
-  z-index: 0;
+  z-index: 100;
   padding: 20px 16px 32px;
   overflow-y: auto;
   transform: translateY(100%);
@@ -258,6 +258,7 @@
   .shop-sidebar {
     position: sticky;
     top: 80px;
+    z-index: 0;
     bottom: auto;
     left: auto;
     right: auto;
@@ -444,7 +445,7 @@ ul.products {
   position: relative;
   overflow: hidden;
   background-color: var(--color-bg-subtle);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
 }
 .product-card__img-wrap {
   width: 100%;
@@ -576,6 +577,11 @@ ul.products {
 .product-card__price .woocommerce-Price-amount {
   font-weight: inherit;
   color: inherit;
+}
+
+/* CTA wrapper — hidden */
+.product-card__cta {
+  display: none;
 }
 
 /* Add to Cart — always visible, full-width */

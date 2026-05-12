@@ -9,32 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        heading: ['Barlow Condensed', 'sans-serif'],
-                        body: ['DM Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        slickBlack: '#0B0F0D',
-                        slickGreen: '#123D2A',
-                        slickActive: '#22C55E',
-                        slickLime: '#A3E635',
-                        slickSoft: '#F7F8F5',
-                        slickText: '#111827',
-                        slickMuted: '#6B7280',
-                    }
-                }
-            }
-        }
-    </script>
-
     <?php wp_head(); ?>
 </head>
 
@@ -92,7 +66,7 @@ if (empty($nav_items)) {
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="shrink-0"
                aria-label="<?php bloginfo('name'); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee-logo.svg'); ?>"
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee.png'); ?>"
                      alt="<?php bloginfo('name'); ?>"
                      class="h-11 w-auto"
                      width="190"

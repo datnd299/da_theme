@@ -621,9 +621,14 @@ ul.products {
   margin-bottom: 16px;
 }
 .shop-empty a {
-  color: var(--color-accent);
+  color: #123d2a !important;
   font-weight: 500;
   text-decoration: underline;
+  transition: color 0.15s;
+}
+
+.shop-empty a:hover {
+  color: #22c55e !important;
 }
 
 /* ── Pagination ─────────────────────────────────────────────── */

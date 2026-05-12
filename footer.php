@@ -121,6 +121,25 @@ $footer_policy_links = [
                        class="inline-flex min-h-10 items-center justify-center rounded-md bg-white px-4 text-xs font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
                         <?php esc_html_e('Shop New Drops', 'dawp'); ?>
                     </a>
+
+                    <a href="https://www.facebook.com/slickteeshirt/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white/85 transition hover:border-slickLime hover:text-slickLime"
+                       aria-label="<?php esc_attr_e('Visit Slicktee on Facebook', 'dawp'); ?>">
+                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.01 3.66 9.16 8.44 9.91v-7.01H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2V8.6h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.9h-2.33v7.01C18.34 21.22 22 17.07 22 12.06Z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="mt-4 max-w-md rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-slickLime">
+                        <?php esc_html_e('Address', 'dawp'); ?>
+                    </p>
+                    <p class="mt-2 text-sm font-bold leading-6 text-white/80">
+                        <?php esc_html_e('2171 Prairie Center Pkwy, Brighton, CO 80601, US', 'dawp'); ?>
+                    </p>
                 </div>
             </div>
 
@@ -192,7 +211,7 @@ $footer_policy_links = [
     <div class="border-t border-white/10">
         <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-white/60 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <p>
-                &copy; <?php echo esc_html($current_year); ?> <?php bloginfo('name'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
+                &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('Slicktee'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
             </p>
 
             <p class="font-black uppercase tracking-[0.18em] text-slickLime">

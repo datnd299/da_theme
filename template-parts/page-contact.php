@@ -91,6 +91,11 @@
                         </div>
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                            <span class="block text-xs font-black uppercase tracking-[0.2em] text-slickLime"><?php esc_html_e('Address', 'dawp'); ?></span>
+                            <span class="mt-2 block text-sm font-bold leading-6 text-white/75"><?php esc_html_e('2171 Prairie Center Pkwy, Brighton, CO 80601, US', 'dawp'); ?></span>
+                        </div>
+
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
                             <span class="block text-xs font-black uppercase tracking-[0.2em] text-slickLime"><?php esc_html_e('Best For', 'dawp'); ?></span>
                             <span class="mt-2 block text-sm leading-6 text-white/75"><?php esc_html_e('Order updates, product questions, sizing help, shipping, and returns.', 'dawp'); ?></span>
                         </div>
@@ -215,20 +220,20 @@
                 <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="group rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                     <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">01</div>
                     <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText group-hover:text-slickGreen">
-                        <?php esc_html_e('Shipping', 'dawp'); ?>
+                        <?php esc_html_e('Shipping & Return', 'dawp'); ?>
                     </h3>
                     <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Review processing times, delivery expectations, and tracking details.', 'dawp'); ?>
+                        <?php esc_html_e('Review processing times, delivery expectations, tracking details, and return requirements.', 'dawp'); ?>
                     </p>
                 </a>
 
-                <a href="<?php echo esc_url(home_url('/shipping-returns/#refunds')); ?>" class="group rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>" class="group rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                     <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">02</div>
                     <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText group-hover:text-slickGreen">
-                        <?php esc_html_e('Returns', 'dawp'); ?>
+                        <?php esc_html_e('Terms Conditions', 'dawp'); ?>
                     </h3>
                     <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('See the 30-day return window and item condition requirements.', 'dawp'); ?>
+                        <?php esc_html_e('Review the terms that apply when using the website and placing orders.', 'dawp'); ?>
                     </p>
                 </a>
 

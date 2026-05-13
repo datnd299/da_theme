@@ -115,7 +115,7 @@
 }
 
 .wc-block-components-product-name:hover {
-  color: #22C55E;
+  color: #B89B83;
 }
 
 /* Unit price */
@@ -326,7 +326,7 @@
   font-family: var(--font-sans);
   font-size: 1.375rem;
   font-weight: 900;
-  color: #0B0F0D;
+  color: #4B3528;
 }
 
 /* === 5. COUPON === */
@@ -393,8 +393,8 @@
 
 .wc-block-components-text-input input:focus {
   outline: none;
-  border-color: #22C55E;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+  border-color: #B89B83;
+  box-shadow: 0 0 0 3px rgba(184, 155, 131, 0.18);
 }
 
 .wc-block-components-text-input label {
@@ -427,8 +427,8 @@
   font-weight: 900;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #0B0F0D;
-  background: #22C55E;
+  color: #ffffff;
+  background: #B89B83;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -437,7 +437,7 @@
 }
 
 .wc-block-components-totals-coupon__button:hover:not(:disabled) {
-  background: #A3E635;
+  background: #4B3528;
 }
 
 .wc-block-components-totals-coupon__button:disabled {
@@ -454,7 +454,9 @@
   margin-top: 20px;
 }
 
-.wc-block-cart__submit-button {
+.wc-block-cart__submit-button,
+.wc-block-cart__submit .wc-block-components-button,
+.wc-block-cart__submit-container .wc-block-components-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -466,9 +468,9 @@
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0B0F0D;
-  background: #22C55E;
-  border: none;
+  color: #ffffff !important;
+  background: #B89B83 !important;
+  border: none !important;
   border-radius: 10px;
   text-decoration: none;
   cursor: pointer;
@@ -476,17 +478,30 @@
   transition: background 0.2s, transform 0.15s;
 }
 
-.wc-block-cart__submit-button:hover {
-  background: #A3E635;
+.wc-block-cart__submit-button:hover,
+.wc-block-cart__submit .wc-block-components-button:hover,
+.wc-block-cart__submit-container .wc-block-components-button:hover {
+  color: #ffffff !important;
+  background: #4B3528 !important;
 }
 
-.wc-block-cart__submit-button:active {
+.wc-block-cart__submit-button:active,
+.wc-block-cart__submit .wc-block-components-button:active,
+.wc-block-cart__submit-container .wc-block-components-button:active {
   transform: scale(0.98);
 }
 
-.wc-block-cart__submit-button:focus-visible {
+.wc-block-cart__submit-button:focus-visible,
+.wc-block-cart__submit .wc-block-components-button:focus-visible,
+.wc-block-cart__submit-container .wc-block-components-button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.30);
+  box-shadow: 0 0 0 3px rgba(184, 155, 131, 0.35);
+}
+
+.wc-block-cart__submit-button span,
+.wc-block-cart__submit .wc-block-components-button span,
+.wc-block-cart__submit-container .wc-block-components-button span {
+  color: inherit !important;
 }
 
 /* === 7. SKELETON LOADING === */
@@ -683,7 +698,7 @@
   font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 900;
-  color: #22C55E;
+  color: #4B3528;
   padding: 2px 10px 8px;
   min-height: 1.6em;
 }
@@ -704,8 +719,8 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  color: #0B0F0D;
-  background: #22C55E;
+  color: #ffffff;
+  background: #B89B83;
   border-radius: 8px;
   box-sizing: border-box;
   min-height: 44px;
@@ -716,5 +731,5 @@
 }
 
 .wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
-  background: #A3E635;
+  background: #4B3528;
 }

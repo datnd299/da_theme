@@ -6,64 +6,88 @@
  */
 
 get_header();
+
+$category_url = static function ($slug) {
+    if (function_exists('dawp_product_category_url')) {
+        return dawp_product_category_url($slug);
+    }
+
+    if (function_exists('get_term_by')) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+        if ($term && !is_wp_error($term)) {
+            $link = get_term_link($term);
+            if (!is_wp_error($link)) {
+                return $link;
+            }
+        }
+    }
+
+    return home_url('/product-category/' . trim($slug, '/') . '/');
+};
+
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+
+$quick_links = [
+    [
+        'title' => __('Relaxed Tops', 'dawp'),
+        'copy'  => __('Easy tops made for comfort, errands, and weekends.', 'dawp'),
+        'url'   => $category_url('relaxed-tops'),
+    ],
+    [
+        'title' => __('Soft Tunics', 'dawp'),
+        'copy'  => __('Longer relaxed silhouettes with a flattering feel.', 'dawp'),
+        'url'   => $category_url('soft-tunics'),
+    ],
+    [
+        'title' => __('Gentle Blouses', 'dawp'),
+        'copy'  => __('Light polish for casual workdays and daily plans.', 'dawp'),
+        'url'   => $category_url('gentle-blouses'),
+    ],
+];
 ?>
 
-<main id="primary" class="site-main error-404 relative min-h-[100dvh] overflow-hidden bg-slickBlack text-white flex items-center justify-center px-4 py-24 md:py-40">
+<main id="primary" class="site-main bg-white text-[#2F2925]">
+    <section class="bg-[#FFF8EF] py-16 lg:py-24">
+        <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+            <div>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Page Not Found', 'dawp'); ?></p>
+                <p class="mt-4 select-none font-heading text-[7rem] font-bold leading-none text-[#E7D8C8] sm:text-[9rem] lg:text-[11rem]" aria-hidden="true">
+                    404
+                </p>
+                <h1 class="-mt-4 font-heading text-4xl font-bold leading-tight text-[#4B3528] sm:text-5xl lg:text-6xl">
+                    <?php esc_html_e('This page slipped out of the wardrobe.', 'dawp'); ?>
+                </h1>
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#756A62] sm:text-lg">
+                    <?php esc_html_e('The link may be outdated, but you can keep browsing Vivisshop for soft everyday women\'s fashion, relaxed tops, tunics, blouses, and fresh arrivals.', 'dawp'); ?>
+                </p>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-7 text-sm font-bold text-white shadow-lg shadow-[#4B3528]/10 transition hover:bg-[#4B3528]">
+                        <?php esc_html_e('Continue Shopping', 'dawp'); ?>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#B89B83] bg-white px-7 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]">
+                        <?php esc_html_e('Back To Home', 'dawp'); ?>
+                    </a>
+                </div>
+            </div>
 
-  <!-- Decorative glows -->
-  <div class="pointer-events-none absolute -top-32 -right-20 h-96 w-96 rounded-full bg-slickActive/20 blur-3xl"></div>
-  <div class="pointer-events-none absolute -bottom-20 -left-24 h-80 w-80 rounded-full bg-slickLime/15 blur-3xl"></div>
-
-  <div class="relative z-10 mx-auto w-[min(100%-32px,640px)] text-center">
-
-    <!-- 404 number -->
-    <p class="select-none text-[140px] font-black leading-none tracking-[-0.06em] text-white/5 md:text-[200px]">
-      404
-    </p>
-
-    <!-- Label -->
-    <div class="-mt-12 mb-6 md:-mt-16">
-      <p class="text-sm font-black uppercase tracking-[0.24em] text-slickLime">Page Not Found</p>
-    </div>
-
-    <!-- Heading -->
-    <h1 class="text-4xl font-black uppercase leading-[0.92] tracking-tighter text-white md:text-6xl">
-      Lost In The Streets.
-    </h1>
-
-    <p class="mt-6 text-base leading-7 text-white/75 md:text-lg">
-      That page doesn't exist — but the fits do. Head back and keep browsing clean graphic tees and streetwear essentials.
-    </p>
-
-    <!-- CTAs -->
-    <div class="mt-9 flex flex-wrap justify-center gap-4">
-      <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-7 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-        Shop Now
-      </a>
-      <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-        Back To Home
-      </a>
-    </div>
-
-    <!-- Quick links -->
-    <div class="mt-12 border-t border-white/10 pt-8">
-      <p class="mb-5 text-xs font-black uppercase tracking-[0.2em] text-white/40">Browse Collections</p>
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-semibold text-white/60">
-        <?php
-        $quick_links = [
-          ['title' => 'Graphic Tees',          'url' => home_url('/product-category/graphic-tees/')],
-          ['title' => 'Oversized Tees',         'url' => home_url('/product-category/oversized-tees/')],
-          ['title' => 'Casual Hoodies',         'url' => home_url('/product-category/casual-hoodies/')],
-          ['title' => 'Streetwear Essentials',  'url' => home_url('/product-category/streetwear-essentials/')],
-          ['title' => 'New Arrivals',           'url' => home_url('/shop/')],
-        ];
-        foreach ($quick_links as $link) : ?>
-          <a href="<?php echo esc_url($link['url']); ?>" class="transition-colors hover:text-slickLime"><?php echo esc_html($link['title']); ?></a>
-        <?php endforeach; ?>
-      </div>
-    </div>
-
-  </div>
+            <div class="rounded-[2rem] border border-[#E7D8C8] bg-white p-5 shadow-xl shadow-[#4B3528]/10 sm:p-6 lg:p-8">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Browse Collections', 'dawp'); ?></p>
+                <div class="mt-6 grid gap-3">
+                    <?php foreach ($quick_links as $index => $link) : ?>
+                        <a href="<?php echo esc_url($link['url']); ?>" class="group flex gap-4 rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-4 transition hover:bg-[#F3E7DA]">
+                            <span class="flex h-10 min-w-10 items-center justify-center rounded-full <?php echo 1 === $index % 2 ? 'bg-[#A8B99A]' : 'bg-[#B89B83]'; ?> text-xs font-bold text-white">
+                                <?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?>
+                            </span>
+                            <span>
+                                <span class="block font-bold text-[#4B3528] transition group-hover:text-[#8C6D58]"><?php echo esc_html($link['title']); ?></span>
+                                <span class="mt-1 block text-sm leading-6 text-[#756A62]"><?php echo esc_html($link['copy']); ?></span>
+                            </span>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <?php

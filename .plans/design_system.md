@@ -1,597 +1,940 @@
-# Design System Website Portfolio Bác sĩ Lê Thị Thu Hiền
+# Vivisshop Women’s Fashion Design System
 
-## Mục tiêu thiết kế
+## Core Design Philosophy
 
-Website của Bác sĩ Lê Thị Thu Hiền cần tạo cảm giác chuyên nghiệp, đáng tin cậy và ấm áp.
+Vivisshop should feel like a calm, soft, and trustworthy women’s fashion store for everyday clothing.
 
-Đây là website portfolio cá nhân của một bác sĩ Chuyên khoa I Nhi khoa, vì vậy thiết kế phải giúp phụ huynh cảm thấy:
+The website experience must be:
 
-* Bác sĩ có chuyên môn rõ ràng
-* Hành trình đào tạo và công tác minh bạch
-* Kinh nghiệm nhi khoa lâu năm
-* Phong thái gần gũi, nhẹ nhàng với trẻ nhỏ
-* Nội dung dễ hiểu, không gây lo lắng
-* Website đáng tin, không thương mại hóa quá mức
+* Gentle
+* Feminine
+* Clean
+* Mature
+* Comfortable
+* Boutique-inspired
+* Easy to browse
+* GMC-safe
 
-Thiết kế cần ưu tiên sự rõ ràng, tin cậy và cảm giác an tâm.
+Vivisshop is not a fast-fashion trend site.
+It is not a teen fashion store.
+It is not a streetwear brand.
+It is not a luxury boutique.
 
----
-
-## Design Archetype
-
-Website nên thuộc nhóm:
-
-**Professional Pediatric Doctor Portfolio**
-
-Kết hợp giữa:
-
-* Hồ sơ chuyên môn bác sĩ
-* Website y tế cá nhân
-* Trang giới thiệu chuyên gia nhi khoa
-* Landing page đặt niềm tin cho phụ huynh
-* Hồ sơ kinh nghiệm và quá trình công tác
-
-Không đi theo hướng:
-
-* Website bệnh viện quá cứng
-* Landing page bán dịch vụ y tế quá mạnh
-* Website thẩm mỹ/phòng khám thương mại
-* Giao diện trẻ con quá màu mè
-* Giao diện y tế lạnh, xa cách
-* Website dùng quá nhiều hiệu ứng quảng cáo
+The website should make women aged 30–45 feel that the clothing is wearable, flattering, comfortable, and easy to style in real daily life.
 
 ---
 
-## Tinh thần thương hiệu cá nhân
+# Design Archetype
 
-Bác sĩ Lê Thị Thu Hiền cần được thể hiện như một bác sĩ nhi khoa:
+## Brand Identity
 
-* Vững chuyên môn
-* Dày kinh nghiệm thực tế
-* Cẩn trọng trong thăm khám
-* Thấu hiểu phụ huynh
-* Nhẹ nhàng với trẻ nhỏ
-* Có năng lực quản lý chuyên môn
-* Có hành trình y khoa bền bỉ từ tuyến cơ sở đến phòng khám nhi khoa hiện đại
+Vivisshop =
 
-Thông điệp cốt lõi:
+**Soft Everyday Women’s Fashion**
 
-> Đồng hành cùng phụ huynh trong chăm sóc sức khỏe trẻ em bằng chuyên môn, sự cẩn trọng và thấu hiểu.
+Visual identity should combine:
 
----
+* Relaxed boutique fashion
+* Soft neutral colors
+* Mature feminine styling
+* Simple product discovery
+* Lifestyle photography
+* Clear ecommerce structure
+* Trust-first customer experience
 
-## Tone of Voice
+The website should resemble:
 
-Ngôn ngữ chính: **Tiếng Việt**
+* A calm women’s boutique
+* A soft everyday apparel store
+* A mature casual fashion brand
+* A relaxed lifestyle clothing shop
 
-Giọng văn cần:
+Avoid resembling:
 
-* Chuyên nghiệp
-* Rõ ràng
-* Ấm áp
-* Dễ hiểu với phụ huynh
-* Không quá học thuật
-* Không quảng cáo quá đà
-* Không cam kết điều trị tuyệt đối
-* Không dùng ngôn ngữ gây sợ hãi
-
-Nên viết:
-
-“Bác sĩ có nhiều năm kinh nghiệm trong lĩnh vực Nhi khoa, từng công tác tại nhiều môi trường y tế và đảm nhiệm vai trò quản lý chuyên môn.”
-
-Không nên viết:
-
-“Bác sĩ chữa khỏi mọi bệnh cho trẻ.”
-
-“Bác sĩ nhi khoa tốt nhất.”
-
-“Cam kết khỏi bệnh sau điều trị.”
+* A random fashion marketplace
+* A clubwear store
+* A Gen Z trend shop
+* A luxury runway brand
+* A discount warehouse
+* A general dropshipping store
 
 ---
 
-## Hệ màu chủ đạo
+# Layout Rules
 
-Màu sắc cần tạo cảm giác y tế, sạch sẽ, tin cậy nhưng vẫn mềm mại và thân thiện với phụ huynh có con nhỏ.
+## General Layout
 
-### Primary Palette
+The layout should be clean, soft, and spacious.
 
-* **Medical Navy:** `#12324A`
-* **Trust Blue:** `#2F80A8`
-* **Soft Pediatric Blue:** `#DFF3F8`
-* **Clean White:** `#FFFFFF`
-* **Warm Cream:** `#FFF8EF`
+Use:
 
-### Secondary Palette
+* Generous whitespace
+* Large lifestyle images
+* Simple product grids
+* Calm section transitions
+* Rounded cards
+* Clear typography
+* Warm background blocks
 
-* **Gentle Teal:** `#7FC8C2`
-* **Soft Mint:** `#E8F7F4`
-* **Warm Beige:** `#F4E8D8`
-* **Light Sky:** `#EEF9FC`
-* **Text Gray:** `#52606D`
+Avoid:
 
-### Accent Palette
-
-* **Soft Peach:** `#F7C9B6`
-* **Light Yellow:** `#F8E7A1`
-* **Calm Green:** `#8BC7A5`
-
----
-
-## Quy tắc dùng màu
-
-### Background
-
-Nên dùng nền:
-
-* Trắng sạch
-* Xanh rất nhạt
-* Kem ấm
-* Mint rất nhạt
-
-Mục tiêu là tạo không gian nhẹ nhàng, thoáng và dễ đọc.
-
-Không dùng nền đen hoặc màu quá đậm cho toàn trang.
-
-### Heading
-
-Heading chính nên dùng:
-
-* Medical Navy `#12324A`
-* Trust Blue `#2F80A8`
-
-Heading cần rõ, nghiêm túc nhưng không lạnh.
-
-### Body Text
-
-Text nội dung nên dùng:
-
-* Text Gray `#52606D`
-* Navy nhạt hoặc xám xanh
-
-Không dùng text xám quá nhạt vì phụ huynh cần đọc thông tin y tế rõ ràng.
-
-### Button
-
-Button chính:
-
-* Nền Trust Blue `#2F80A8`
-* Text trắng
-* Hover sang Medical Navy
-
-Button phụ:
-
-* Nền trắng
-* Border Trust Blue
-* Text Trust Blue
-* Hover nền Soft Pediatric Blue
-
-CTA không nên quá gắt hoặc quá thương mại.
+* Crowded product walls
+* Too many sale banners
+* Flashy animations
+* Harsh contrast blocks
+* Aggressive discount graphics
+* Overly dense homepage sections
 
 ---
 
-## Typography
+# Grid System
 
-Typography phải rõ ràng, dễ đọc tiếng Việt và tạo cảm giác chuyên nghiệp.
+## Desktop
 
-### Heading Font
+* Use max-w-7xl containers
+* 3-column category cards
+* 4-column product grids
+* 2-column image + copy sections
+* Large hero with soft lifestyle image
 
-Gợi ý:
+## Tablet
 
-* Be Vietnam Pro
-* Merriweather
+* 2-column category and product cards
+* Keep text blocks readable
+* Use large image cards
+
+## Mobile
+
+* Single-column story sections
+* 2-column product grids when suitable
+* Large tap targets
+* Sticky or simple mobile navigation
+* Shorter copy blocks
+
+---
+
+# Container Rules
+
+Recommended widths:
+
+* Main container: `max-w-7xl`
+* Narrow text: `max-w-3xl`
+* Policy/content pages: `max-w-4xl`
+* Product grid: `max-w-7xl`
+
+Recommended padding:
+
+* Mobile: `px-4`
+* Tablet: `px-6`
+* Desktop: `px-8`
+
+Section spacing:
+
+* Desktop: `py-20` to `py-24`
+* Mobile: `py-14` to `py-16`
+
+---
+
+# Color System
+
+The color system should feel soft, feminine, mature, and easy on the eyes.
+
+It should not feel childish, neon, or overly pink.
+
+## Primary Palette
+
+### Warm Ivory
+
+```txt
+#FFF8EF
+```
+
+Use for:
+
+* Main soft backgrounds
+* Hero background
+* Warm content sections
+* Calm page atmosphere
+
+---
+
+### Soft Taupe
+
+```txt
+#B89B83
+```
+
+Use for:
+
+* Buttons
+* Accents
+* Section labels
+* Border highlights
+* Warm feminine details
+
+---
+
+### Cocoa Brown
+
+```txt
+#4B3528
+```
+
+Use for:
+
+* Main headings
+* Footer background
+* Strong text emphasis
+* Elegant contrast
+
+---
+
+### Dusty Lavender
+
+```txt
+#AFA2D6
+```
+
+Use for:
+
+* Soft accent blocks
+* Hover details
+* Seasonal graphics
+* Gentle feminine highlights
+
+---
+
+### Sage Green
+
+```txt
+#A8B99A
+```
+
+Use for:
+
+* Secondary accents
+* Natural lifestyle sections
+* Soft badges
+* Seasonal collection highlights
+
+---
+
+## Neutral Palette
+
+### Clean White
+
+```txt
+#FFFFFF
+```
+
+Use for:
+
+* Product cards
+* Forms
+* Header
+* Main content areas
+
+---
+
+### Soft Beige
+
+```txt
+#F3E7DA
+```
+
+Use for:
+
+* Alternate sections
+* Category backgrounds
+* Lifestyle cards
+
+---
+
+### Gentle Border
+
+```txt
+#E7D8C8
+```
+
+Use for:
+
+* Borders
+* Dividers
+* Product cards
+* Form inputs
+
+---
+
+### Main Text
+
+```txt
+#2F2925
+```
+
+Use for:
+
+* Product titles
+* Body text when stronger readability is needed
+
+---
+
+### Muted Text
+
+```txt
+#756A62
+```
+
+Use for:
+
+* Descriptions
+* Metadata
+* Secondary text
+
+---
+
+# Color Usage Rules
+
+## Light Sections
+
+Use:
+
+* Background: `#FFF8EF`, `#FFFFFF`, or `#F3E7DA`
+* Heading: `#4B3528`
+* Body text: `#756A62`
+* CTA: `#B89B83`
+
+## Accent Sections
+
+Use:
+
+* Dusty Lavender or Sage Green as soft accent blocks
+* Keep text contrast strong with Cocoa Brown
+* Avoid placing light text on pastel backgrounds unless contrast is checked
+
+## Dark Sections
+
+Use Cocoa Brown for footer or strong CTA areas.
+
+* Background: `#4B3528`
+* Heading: `#FFFFFF`
+* Body: white/80
+* Accent: `#F3E7DA` or `#A8B99A`
+
+## Avoid
+
+* Neon colors
+* Harsh black backgrounds
+* Bright red sale sections
+* Overly sweet baby pink
+* Too many pastel colors together
+* Low contrast taupe text on beige background
+
+---
+
+# Typography System
+
+Typography should feel feminine, mature, and easy to read.
+
+## Heading Font Direction
+
+Recommended:
+
+* Playfair Display
+* Cormorant Garamond
 * Lora
-* Source Serif 4
+* Merriweather
+* DM Serif Display
 
-Nếu muốn cảm giác chuyên nghiệp hiện đại, dùng Be Vietnam Pro cho cả heading và body.
+Heading should feel:
 
-Nếu muốn heading có chiều sâu và uy tín hơn, có thể dùng Lora hoặc Merriweather cho heading.
+* Soft
+* Elegant
+* Mature
+* Boutique-inspired
+* Not overly luxury
 
-### Body Font
+## Body Font Direction
 
-Gợi ý:
+Recommended:
 
-* Be Vietnam Pro
 * Inter
 * Source Sans 3
+* Be Vietnam Pro
 * Nunito Sans
+* DM Sans
 
-Body phải hỗ trợ tiếng Việt tốt.
+Body should feel:
 
-### Typography Rules
+* Clear
+* Friendly
+* Easy to read
+* Modern but not cold
 
-* H1 rõ, lớn, không quá trang trí
-* H2 có khoảng cách thoáng
-* Paragraph line-height rộng, dễ đọc
-* Không dùng chữ in hoa quá nhiều
-* Không dùng font trẻ con hoặc cartoon
-* Không dùng font y tế quá cứng kiểu bệnh viện cũ
+## Typography Rules
 
----
+H1:
 
-## Layout Principles
+* Large, soft, elegant
+* Avoid all-caps aggressive styling
+* Use relaxed line-height
 
-Thiết kế cần sạch, có cấu trúc rõ, nhiều khoảng thở.
+H2:
 
-### Container
+* Calm and descriptive
+* Should introduce each collection or story clearly
 
-* Max width: 1180px – 1240px
-* Content width cho bài viết: 720px – 860px
-* Section padding desktop: 80px – 110px
-* Section padding mobile: 56px – 72px
+Paragraphs:
 
-### Grid
+* Short
+* Gentle
+* Benefit-focused
+* Avoid dense fashion jargon
 
-Nên dùng:
+Product titles:
 
-* Hero 2 cột: text + ảnh bác sĩ
-* Timeline theo chiều dọc
-* Cards cho chuyên môn / giá trị / kinh nghiệm
-* Section quote dành cho triết lý chăm sóc bệnh nhi
-* CTA cuối trang đơn giản
-
-Không dùng:
-
-* Layout quá nhiều hiệu ứng
-* Cards quá dày đặc
-* Banner sales
-* Pop-up thương mại
-* Animation mạnh
+* Clear and simple
+* Avoid keyword stuffing
+* Avoid overly long titles
 
 ---
 
-## Image System
+# Imagery System
 
-Ảnh là yếu tố quan trọng để tạo lòng tin.
+Images should sell comfort, softness, and real-life wearability.
 
-### Loại ảnh nên dùng
+## Preferred Image Style
 
-1. Ảnh chân dung bác sĩ chuyên nghiệp
-2. Bác sĩ mặc blouse trắng hoặc trang phục y tế lịch sự
-3. Bác sĩ trong không gian phòng khám sáng, sạch, ấm áp
-4. Hình ảnh tư vấn phụ huynh nhẹ nhàng
-5. Hình ảnh trẻ nhỏ trong bối cảnh thân thiện, không bệnh lý nặng
-6. Ảnh phòng khám nhi khoa sạch sẽ
-7. Ảnh biểu tượng gia đình, trẻ em, chăm sóc sức khỏe
-8. Timeline visual về hành trình công tác
+Use:
 
-### Phong cách ảnh
+* Realistic women’s fashion photography
+* Women aged around 30–45
+* Natural indoor light
+* Soft outdoor settings
+* Home, café, garden, weekend scenes
+* Relaxed posing
+* Comfortable silhouettes
+* Fabric texture close-ups
+* Neutral and pastel color palettes
 
-Ảnh nên:
+Images should feel:
 
-* Sáng
-* Sạch
-* Chân thực
-* Ấm áp
-* Không quá stock photo giả
-* Không quá lạnh kiểu bệnh viện
-* Có ánh sáng tự nhiên
-* Gợi cảm giác bác sĩ thân thiện và đáng tin
+* Real
+* Soft
+* Calm
+* Boutique-like
+* Approachable
+* Not over-styled
 
-### Không dùng ảnh
+## Image Categories Needed
 
-* Trẻ em đang đau đớn hoặc khóc quá mức
-* Hình ảnh bệnh lý nhạy cảm
-* Phẫu thuật, máu, kim tiêm quá rõ
-* Ảnh bác sĩ tạo dáng quá quảng cáo
-* Ảnh phòng khám quá luxury, không phù hợp y tế nhi
-* Ảnh AI quá bóng, mặt người không tự nhiên
+Homepage should include images for:
 
----
+* Hero lifestyle image with mature woman wearing relaxed soft top
+* Casual tops collection
+* Tunic tops collection
+* Blouses & shirts collection
+* Soft graphic tops collection
+* Dresses or seasonal favorites
+* Product grid images
+* Trust/customer support section
 
-## UI Components
+## Avoid Images
 
-### Header
+Do not use:
 
-Header cần đơn giản, chuyên nghiệp.
-
-Menu đề xuất:
-
-* Trang chủ
-* Giới thiệu
-* Hành trình chuyên môn
-* Chuyên môn Nhi khoa
-* Triết lý chăm sóc
-* Liên hệ
-
-Header style:
-
-* Nền trắng hoặc xanh rất nhạt
-* Logo/name text rõ
-* CTA nhỏ “Liên hệ đặt lịch”
-* Không dùng menu quá nhiều cấp
-
-### Buttons
-
-Button style:
-
-* Bo góc 999px hoặc 14px
-* Padding rộng vừa phải
-* Font rõ
-* Không quá nhiều màu
-
-CTA chính:
-
-* Liên hệ đặt lịch
-* Xem hành trình chuyên môn
-* Tìm hiểu về bác sĩ
-
-CTA phụ:
-
-* Xem quá trình công tác
-* Đọc triết lý chăm sóc
-
-### Cards
-
-Cards dùng cho:
-
-* Chuyên môn
-* Kinh nghiệm
-* Giá trị chăm sóc
-* Timeline tóm tắt
-* Vai trò hiện tại
-
-Card style:
-
-* Nền trắng
-* Border xanh nhạt
-* Shadow nhẹ
-* Bo góc 20px – 28px
-* Icon nhỏ, không màu mè
-
-### Timeline
-
-Timeline là component quan trọng nhất.
-
-Cần thể hiện rõ:
-
-* 1993 – 1998: Đại học Y Thái Nguyên
-* 1998 – 2002: Trạm xá Y tế xã Hoàng Khai
-* 2002 – 2008: Bệnh viện Yên Sơn
-* 2008 – 2010: Chuyên khoa I Nhi khoa, Đại học Y Hà Nội
-* 2010 – 2016: Trưởng khoa Nhi, Bệnh viện Yên Sơn
-* 2016 – 2026: Giám đốc chuyên môn Phòng khám The Medcare Hà Nội
-
-Timeline style:
-
-* Dọc trên mobile
-* 2 cột xen kẽ trên desktop nếu cần
-* Mốc năm nổi bật bằng Trust Blue
-* Nội dung ngắn, dễ scan
+* Teen models
+* Nightclub poses
+* Overly sexy clothing
+* Luxury runway shots
+* Harsh studio lighting
+* Fast fashion collage graphics
+* Low-quality product screenshots
+* Images with fake brand logos
+* Copyrighted character graphics
 
 ---
 
-## Homepage Design Rules
+# UI Component Rules
 
-Homepage nên có cảm giác như một hồ sơ chuyên môn được kể bằng hành trình.
+## Buttons
 
-### Section 1: Hero
+Buttons should feel soft and boutique-friendly.
 
-Hero cần có:
+### Primary Button
 
-* Tên bác sĩ
-* Chức danh chuyên môn
-* Chuyên ngành Nhi khoa
-* Tóm tắt kinh nghiệm
-* Ảnh chân dung bác sĩ
-* CTA liên hệ / xem hành trình
+Recommended:
+
+* Background: `#B89B83`
+* Text: `#FFFFFF`
+* Hover: `#4B3528`
+
+Use for:
+
+* Shop New Arrivals
+* Shop Casual Tops
+* Explore Collection
+
+### Secondary Button
+
+Recommended:
+
+* Background: transparent or white
+* Border: `#B89B83`
+* Text: `#4B3528`
+* Hover: `#F3E7DA`
+
+Use for:
+
+* Learn More
+* View Lookbook
+* Explore Styles
+
+### Button Shape
+
+* Border radius: 999px or 14px
+* Padding: comfortable
+* Font weight: 600
+
+Avoid:
+
+* Red urgency buttons
+* Neon buttons
+* Huge all-caps sales buttons
+
+---
+
+## Product Cards
+
+Product cards should feel clean and soft.
+
+Must include:
+
+* Product image
+* Product title
+* Price
+* Simple CTA or add to cart
+
+Recommended style:
+
+* White background
+* Gentle beige border
+* Soft hover shadow
+* Rounded corners
+* Consistent product image ratio
+* Minimal badges
+
+Avoid:
+
+* Too many sale labels
+* Fake review stars
+* Countdown timers
+* Long keyword-stuffed titles
+* Product cards with clashing image styles
+
+---
+
+## Category Cards
+
+Category cards should communicate soft daily style.
+
+Good structure:
+
+* Lifestyle image
+* Category name
+* One short style line
+* CTA link
+
+Example:
+
+```text
+Casual Tops
+Soft everyday tops made for relaxed days.
+```
+
+Recommended categories:
+
+* Casual Tops
+* Tunic Tops
+* Blouses & Shirts
+* Soft Graphic Tops
+* Dresses
+* Seasonal Favorites
+
+---
+
+## Trust Cards
+
+Trust cards should be simple and warm.
+
+Suggested cards:
+
+* Easy Everyday Styles
+* Secure Checkout
+* Tracking Included
+* 30-Day Returns
+* Customer Support
+* Clear Product Details
+
+Style:
+
+* Soft icon line style
+* Warm beige cards
+* Short copy
+
+---
+
+# Header Rules
+
+Header should be clean, feminine, and easy to use.
+
+Recommended structure:
+
+* Logo left
+* Main navigation center
+* Search / account / cart right
+
+Navigation:
+
+* New Arrivals
+* Casual Tops
+* Tunic Tops
+* Blouses & Shirts
+* Dresses
+* Contact
+
+Header color:
+
+* Clean white or warm ivory
+* Cocoa Brown text
+* Soft Taupe hover
+
+Avoid:
+
+* Heavy dark header
+* Too many menu links
+* Flash sale top bars
+* Mega menu at early stage
+
+---
+
+# Footer Rules
+
+Footer should be trust-heavy but still soft.
+
+Include:
+
+* Brand summary
+* Main categories
+* Customer care links
+* Policy links
+* Support email
+* Business hours
+
+Footer background:
+
+* Cocoa Brown `#4B3528`
+
+Footer text:
+
+* White
+* White/75 for secondary text
+* Soft Beige accent
+
+Avoid:
+
+* Overcrowded footer
+* Low contrast links
+* Fake badges
+
+---
+
+# Homepage Design Rules
+
+Homepage should feel like a calm boutique journey.
+
+## Hero Section
+
+Goal:
+
+Introduce Vivisshop as a soft women’s fashion store.
+
+Visual:
+
+* Mature woman in relaxed soft top
+* Natural home/garden/café setting
+* Soft neutral colors
+* No text inside image
+
+Headline direction:
+
+```text
+Soft Everyday Styles For Women
+```
+
+Subheadline:
+
+```text
+Relaxed tops, tunics, blouses, and easy wardrobe pieces made for comfort, quiet beauty, and real daily life.
+```
+
+CTA:
+
+* Shop New Arrivals
+* Explore Casual Tops
+
+---
+
+## Shop By Style
+
+Use style cards:
+
+* Relaxed Tops
+* Soft Tunics
+* Gentle Blouses
+* Easy Dresses
+
+---
+
+## Featured Collections
+
+Show:
+
+* Casual Tops
+* Tunic Tops
+* Blouses & Shirts
+* Soft Graphic Tops
+* Dresses
+* Seasonal Favorites
+
+---
+
+## New Arrivals
+
+Use clean product grid.
+
+Avoid fake urgency.
+Avoid excessive discounts.
+
+---
+
+## Why Vivisshop
+
+Explain brand promise:
+
+* Soft comfortable fits
+* Easy everyday styling
+* Feminine details
+* Clear product information
+* Secure checkout
+* 30-day returns
+
+---
+
+# Collection Page Rules
+
+Collection pages should feel curated and easy to browse.
+
+Each collection should include:
+
+* Short intro
+* Soft hero image
+* Clean product grid
+* Helpful category description
+* Clear filter/sort if available
+
+Avoid:
+
+* Endless keyword text
+* Random products
+* Overly sexy items
+* Mixed unrelated categories
+
+---
+
+# Product Page Rules
+
+Product pages must be clear and fashion-focused.
+
+Include:
+
+* Product title
+* Price
+* Size options
+* Color options
+* Clear product images
+* Fabric/material notes
+* Fit description
+* Care instructions
+* Shipping and returns note
+
+Product copy should answer:
+
+* What is the fit?
+* What is the fabric feel?
+* How can it be styled?
+* When can it be worn?
+* What should the customer know before buying?
+
+Avoid:
+
+* Unsupported fabric claims
+* Fake luxury language
+* Overly long product titles
+* Too many emojis
+* Sexualized descriptions
+
+---
+
+# Policy Page Rules
+
+Policy pages should be clear and trustworthy.
+
+Use:
+
+* Soft hero section
+* Summary cards
+* Clear sections
+* Contact CTA
 
 Tone:
 
-Chuyên nghiệp, ấm áp, không quá thương mại.
+* Calm
+* Transparent
+* Customer-friendly
 
-### Section 2: Tóm tắt chuyên môn
+Policies should include:
 
-Nên có 3–4 cards:
-
-* Bác sĩ Chuyên khoa I Nhi khoa
-* Kinh nghiệm bệnh viện và phòng khám
-* Trưởng khoa Nhi giai đoạn 2010 – 2016
-* Giám đốc chuyên môn The Medcare Hà Nội
-
-### Section 3: Hành trình chuyên môn
-
-Timeline là phần bắt buộc.
-
-Phải thể hiện rõ từng mốc năm theo dữ liệu site.md.
-
-### Section 4: Triết lý chăm sóc bệnh nhi
-
-Nên có đoạn quote lớn:
-
-“Với bác sĩ nhi khoa, mỗi lần thăm khám không chỉ là xem một triệu chứng, mà là lắng nghe cả sự lo lắng của cha mẹ và sự khó chịu mà trẻ chưa thể diễn đạt trọn vẹn.”
-
-### Section 5: Lĩnh vực chuyên môn
-
-Không nên ghi quá cụ thể như cam kết điều trị.
-
-Nên viết các nhóm an toàn:
-
-* Thăm khám nhi khoa tổng quát
-* Tư vấn chăm sóc sức khỏe trẻ em
-* Theo dõi tăng trưởng và phát triển
-* Tư vấn các vấn đề sức khỏe thường gặp ở trẻ
-* Đồng hành cùng phụ huynh trong chăm sóc trẻ
-
-### Section 6: Vai trò hiện tại
-
-Nêu rõ bác sĩ hiện đảm nhiệm vai trò Giám đốc chuyên môn Phòng khám The Medcare Hà Nội trong giai đoạn 2016 – 2026.
-
-### Section 7: CTA liên hệ
-
-CTA cần nhẹ nhàng:
-
-* Liên hệ đặt lịch
-* Xem thông tin phòng khám
+* Shipping Policy
+* Return & Refund Policy
+* Privacy Policy
+* Terms of Service
+* FAQ
+* Track Your Order
 
 ---
 
-## About Page Rules
+# GMC Compliance Design Rules
 
-Trang About nên tập trung vào:
+Design must support merchant trust.
 
-* Bác sĩ là ai
-* Hành trình từ Đại học Y Thái Nguyên đến chuyên khoa Nhi
-* Kinh nghiệm tại tuyến cơ sở, bệnh viện, phòng khám
-* Vai trò Trưởng khoa Nhi
-* Vai trò Giám đốc chuyên môn The Medcare Hà Nội
-* Triết lý chăm sóc trẻ nhỏ
+Must show:
 
-Không viết như quảng cáo dịch vụ.
-Không dùng quá nhiều tính từ phóng đại.
+* Clear women’s fashion niche
+* Consistent categories
+* Transparent policies
+* Clear support information
+* Realistic product descriptions
+* No misleading urgency
+* No copyright graphics
+* No counterfeit branding
 
----
+Avoid:
 
-## Medical Content Safety Rules
-
-Vì là website bác sĩ, phải tuân thủ các quy tắc:
-
-1. Không cam kết chữa khỏi bệnh
-2. Không nói “tốt nhất”, “số 1”, “đảm bảo khỏi”
-3. Không đưa phác đồ điều trị chi tiết trên website portfolio
-4. Không mô tả bệnh lý gây hoang mang
-5. Không dùng hình ảnh bệnh nhi nhạy cảm
-6. Không thay thế tư vấn y tế trực tiếp
-7. Luôn viết theo hướng tham khảo, giới thiệu chuyên môn
-8. Nên có disclaimer nhẹ ở footer hoặc trang liên hệ
-
-Disclaimer gợi ý:
-
-“Thông tin trên website mang tính giới thiệu chuyên môn và tham khảo, không thay thế cho thăm khám và tư vấn trực tiếp với bác sĩ.”
+* Mixed-category homepage
+* Viral fashion claims
+* Fake reviews
+* Countdown timers
+* Overly revealing sexualized imagery
+* Low-quality product photos
+* Missing contact info
 
 ---
 
-## Accessibility & Readability
+# Motion & Interaction
 
-Website phải dễ đọc với phụ huynh ở nhiều độ tuổi.
+Use subtle interactions only:
 
-Quy tắc:
+* Soft image scale on hover
+* Gentle fade-in
+* Smooth transitions
+* Light card hover shadow
 
-* Font body tối thiểu 16px
-* Line-height 1.6 – 1.8
-* Tương phản cao giữa text và background
-* Button đủ lớn trên mobile
-* Timeline không quá nhỏ
-* Không dùng text màu pastel quá nhạt
-* Không đặt chữ trên ảnh nếu không có overlay rõ
+Avoid:
 
----
-
-## Mobile Rules
-
-Mobile cần ưu tiên:
-
-* Ảnh bác sĩ rõ
-* CTA liên hệ dễ bấm
-* Timeline dễ đọc theo chiều dọc
-* Text ngắn, chia đoạn rõ
-* Cards 1 cột
-* Không để section quá dài không có điểm nghỉ
+* Flashy animations
+* Auto popups
+* Product spin effects
+* Aggressive motion
 
 ---
 
-## Motion & Interaction
+# Mobile UX Rules
 
-Hiệu ứng nên tối giản.
+Mobile experience must be simple and elegant.
 
-Nên dùng:
+Rules:
 
-* Fade in nhẹ
-* Slide up rất nhẹ cho cards
-* Hover card shadow nhẹ
-* Smooth scroll
-
-Không dùng:
-
-* Animation bay nhảy
-* Parallax quá mạnh
-* Popup tự động nhiều
-* Countdown
-* Hiệu ứng trẻ con
+* Large lifestyle hero image
+* Short hero copy
+* Easy category cards
+* Product grid readable
+* Buttons easy to tap
+* Header not too tall
+* No intrusive popups
 
 ---
 
-## Icon Style
+# Content Rules
 
-Icon nên line-based, nhẹ, màu xanh y tế.
+Use words like:
 
-Icon phù hợp:
+* soft
+* relaxed
+* comfortable
+* easy
+* everyday
+* gentle
+* feminine
+* simple
+* natural
+* wearable
+* flattering
+* quiet beauty
 
-* Ống nghe
-* Trái tim
-* Gia đình
-* Trẻ em
-* Hồ sơ y tế
-* Lịch
-* Dấu cộng y tế
-* Chứng chỉ / bằng cấp
+Avoid words like:
 
-Không dùng icon cartoon quá trẻ con.
-Không dùng icon đỏ cấp cứu quá nhiều.
-
----
-
-## Suggested CTA System
-
-CTA chính:
-
-* Liên hệ đặt lịch
-* Xem hành trình chuyên môn
-* Tìm hiểu về bác sĩ
-
-CTA phụ:
-
-* Xem quá trình công tác
-* Đọc triết lý chăm sóc
-* Xem thông tin phòng khám
-
-CTA cuối trang:
-
-* Liên hệ bác sĩ
-* Đặt lịch tư vấn
+* sexy
+* hot
+* viral
+* crazy sale
+* must-have trend
+* bodycon
+* clubwear
+* luxury guaranteed
 
 ---
 
-## Content Pattern
+# Technical Stack Rules
 
-Mỗi section nên có cấu trúc:
+Recommended stack:
 
-1. Eyebrow nhỏ: ví dụ “Bác sĩ Chuyên khoa I Nhi khoa”
-2. Heading rõ ràng
-3. Paragraph ngắn, dễ hiểu
-4. Supporting cards hoặc timeline
-5. CTA nếu cần
+* WooCommerce
+* TailwindCSS
+* Modular PHP templates
+* Lightweight JavaScript only
 
-Ví dụ:
+Performance priorities:
 
-Eyebrow: “Hành trình chuyên môn”
-Heading: “Từ y tế cơ sở đến quản lý chuyên môn phòng khám nhi khoa.”
-Paragraph: “Hành trình công tác của bác sĩ Lê Thị Thu Hiền trải qua nhiều môi trường y tế khác nhau, từ trạm xá xã, bệnh viện tuyến huyện, chuyên khoa nhi đến vai trò quản lý chuyên môn tại phòng khám nhi khoa.”
-
----
-
-## Footer Rules
-
-Footer cần có:
-
-* Tên bác sĩ
-* Chức danh
-* Chuyên ngành
-* Thông tin liên hệ placeholder
-* Link chính
-* Disclaimer y tế
-
-Footer không nên quá nặng.
-Nên dùng nền xanh navy hoặc xanh rất nhạt.
+* Compressed images
+* Fast mobile loading
+* Lazy-loaded product images
+* Clean DOM
+* Minimal plugins
 
 ---
 
-## Final Design Direction
+# Final Design Goal
 
-Website portfolio Bác sĩ Lê Thị Thu Hiền phải tạo cảm giác:
+Vivisshop should look like:
 
-“Đây là một bác sĩ nhi khoa có hành trình chuyên môn rõ ràng, nhiều năm kinh nghiệm, từng đảm nhiệm vai trò quản lý chuyên môn và có sự thấu hiểu cần thiết với trẻ nhỏ cùng phụ huynh.”
+> A soft and trustworthy women’s fashion store offering relaxed tops, tunics, blouses, and easy everyday styles for women aged 30–45.
 
-Thiết kế phải sạch, đáng tin, ấm áp và dễ đọc.
+The customer should feel:
 
-Không cần quá cầu kỳ, nhưng phải có sự chỉn chu của một hồ sơ chuyên môn y tế cá nhân.
-D
+* The styles are wearable
+* The website is calm and trustworthy
+* The products are easy to understand
+* The brand feels mature and feminine
+* Shopping feels simple and comfortable
+
+The site should never feel like a chaotic fast-fashion warehouse.

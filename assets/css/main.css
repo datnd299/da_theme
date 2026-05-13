@@ -255,8 +255,8 @@
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #22C55E;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+  border-color: #B89B83;
+  box-shadow: 0 0 0 3px rgba(184, 155, 131, 0.18);
 }
 
 #contact-form-1 input.wpcf7-not-valid,
@@ -289,8 +289,8 @@
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0B0F0D;
-  background: #22C55E;
+  color: #ffffff;
+  background: #B89B83;
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -298,7 +298,7 @@
 }
 
 #contact-form-1 input[type="submit"]:hover {
-  background: #A3E635;
+  background: #4B3528;
 }
 
 #contact-form-1 .wpcf7-spinner {
@@ -317,8 +317,8 @@
 }
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
-  background: rgba(34, 197, 94, 0.1);
-  border-left: 3px solid #22C55E;
+  background: rgba(184, 155, 131, 0.12);
+  border-left: 3px solid #B89B83;
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,

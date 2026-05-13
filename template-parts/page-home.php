@@ -1,312 +1,285 @@
 <?php
+/**
+ * Home page template part.
+ *
+ * @package dawp
+ */
+
 $theme_uri = get_template_directory_uri();
 
-$home_image = static function ($path) use ($theme_uri) {
-  return esc_url($theme_uri . $path);
+$asset = static function ($path) use ($theme_uri) {
+    return $theme_uri . '/assets/img/' . ltrim($path, '/');
 };
 
-$professional_cards = [
-  [
-    'icon' => '✚',
-    'title' => 'Bác sĩ Chuyên khoa I Nhi khoa',
-    'copy' => 'Được đào tạo chuyên sâu về Nhi khoa tại Đại học Y Hà Nội giai đoạn 2008 - 2010.',
-  ],
-  [
-    'icon' => '⌁',
-    'title' => 'Kinh nghiệm bệnh viện',
-    'copy' => 'Từng công tác nhiều năm tại Bệnh viện Yên Sơn, tỉnh Tuyên Quang.',
-  ],
-  [
-    'icon' => '◌',
-    'title' => 'Nguyên Trưởng khoa Nhi',
-    'copy' => 'Đảm nhiệm chức vụ Trưởng khoa Nhi tại Bệnh viện Yên Sơn giai đoạn 2010 - 2016.',
-  ],
-  [
-    'icon' => '▣',
-    'title' => 'Quản lý chuyên môn phòng khám',
-    'copy' => 'Đảm nhiệm vai trò Giám đốc chuyên môn Phòng khám The Medcare Hà Nội giai đoạn 2016 - 2026.',
-  ],
+$support_email = 'support@vivisshop.com';
+$support_link_on_dark = '<a class="font-semibold text-white underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
+$link_support_email_on_dark = static function ($text) use ($support_email, $support_link_on_dark) {
+    return str_replace(esc_html($support_email), $support_link_on_dark, esc_html($text));
+};
+
+$category_url = static function ($slug) {
+    if (function_exists('dawp_product_category_url')) {
+        return dawp_product_category_url($slug);
+    }
+
+    if (function_exists('get_term_by')) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+        if ($term && !is_wp_error($term)) {
+            $link = get_term_link($term);
+            if (!is_wp_error($link)) {
+                return $link;
+            }
+        }
+    }
+
+    return home_url('/product-category/' . trim($slug, '/') . '/');
+};
+
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+
+$style_cards = [
+    [
+        'title' => __('Relaxed Tops', 'dawp'),
+        'copy'  => __('Easy tops made for comfort, errands, weekends, and everyday wear.', 'dawp'),
+        'image' => $asset('gallery/vivisshop/Relaxed_Tops.png'),
+        'url'   => $category_url('relaxed-tops'),
+    ],
+    [
+        'title' => __('Soft Tunics', 'dawp'),
+        'copy'  => __('Longer relaxed silhouettes with a flattering, comfortable feel.', 'dawp'),
+        'image' => $asset('gallery/vivisshop/Soft_Tunics.png'),
+        'url'   => $category_url('soft-tunics'),
+    ],
+    [
+        'title' => __('Gentle Blouses', 'dawp'),
+        'copy'  => __('Light feminine shirts and blouses for polished casual days.', 'dawp'),
+        'image' => $asset('gallery/vivisshop/Gentle_Blouses.png'),
+        'url'   => $category_url('gentle-blouses'),
+    ],
 ];
 
-$timeline_items = [
-  [
-    'year' => '1993 - 1998',
-    'title' => 'Đại học Y Thái Nguyên',
-    'copy' => 'Theo học ngành Y tại Đại học Y Thái Nguyên, đặt nền tảng cho hành trình làm nghề y.',
-  ],
-  [
-    'year' => '1998 - 2002',
-    'title' => 'Trạm xá Y tế xã Hoàng Khai',
-    'copy' => 'Công tác tại tuyến y tế cơ sở ở Yên Sơn, Tuyên Quang, tích lũy kinh nghiệm chăm sóc sức khỏe ban đầu cho cộng đồng.',
-  ],
-  [
-    'year' => '2002 - 2008',
-    'title' => 'Bệnh viện Yên Sơn, tỉnh Tuyên Quang',
-    'copy' => 'Công tác tại bệnh viện, tiếp cận nhiều ca bệnh và tích lũy kinh nghiệm lâm sàng thực tế.',
-  ],
-  [
-    'year' => '2008 - 2010',
-    'title' => 'Chuyên khoa I Nhi khoa - Đại học Y Hà Nội',
-    'copy' => 'Tham gia đào tạo chuyên sâu về Nhi khoa, củng cố kiến thức và kỹ năng thăm khám trẻ em.',
-  ],
-  [
-    'year' => '2010 - 2016',
-    'title' => 'Trưởng khoa Nhi - Bệnh viện Yên Sơn',
-    'copy' => 'Đảm nhiệm vai trò Trưởng khoa Nhi, thể hiện kinh nghiệm chuyên môn và năng lực quản lý tại bệnh viện.',
-  ],
-  [
-    'year' => '2016 - 2026',
-    'title' => 'Giám đốc chuyên môn Phòng khám The Medcare Hà Nội',
-    'copy' => 'Công tác tại hệ thống phòng khám nhi khoa The Medcare, đảm nhiệm vai trò quản lý chuyên môn và đồng hành cùng phụ huynh trong chăm sóc sức khỏe trẻ em.',
-  ],
+$trust_cards = [
+    ['title' => __('Soft Comfortable Fits', 'dawp'), 'copy' => __('Relaxed silhouettes designed for real daily movement and comfort.', 'dawp')],
+    ['title' => __('Gentle Feminine Details', 'dawp'), 'copy' => __('Soft colors, light prints, and simple details that feel naturally pretty.', 'dawp')],
+    ['title' => __('Easy Everyday Styling', 'dawp'), 'copy' => __('Pieces you can wear at home, out for errands, or on casual weekends.', 'dawp')],
+    ['title' => __('Clear Product Information', 'dawp'), 'copy' => __('Helpful product details make it easier to choose the right style.', 'dawp')],
+    ['title' => __('Secure Checkout', 'dawp'), 'copy' => __('Shop with a simple and secure checkout experience.', 'dawp')],
+    ['title' => __('30-Day Returns', 'dawp'), 'copy' => __('Eligible unworn items may be returned within 30 days of delivery.', 'dawp')],
 ];
 
-$care_principles = [
-  'Lắng nghe phụ huynh',
-  'Thăm khám cẩn trọng',
-  'Giải thích dễ hiểu',
-  'Đồng hành sau thăm khám',
-];
+$new_arrivals = [];
+if (class_exists('WooCommerce')) {
+    $products = wc_get_products([
+        'status'  => 'publish',
+        'limit'   => 4,
+        'orderby' => 'date',
+        'order'   => 'DESC',
+        'return'  => 'objects',
+    ]);
 
-$specialty_cards = [
-  [
-    'title' => 'Thăm khám Nhi khoa tổng quát',
-    'copy' => 'Đánh giá tình trạng sức khỏe của trẻ và tư vấn hướng chăm sóc phù hợp sau thăm khám.',
-  ],
-  [
-    'title' => 'Tư vấn chăm sóc sức khỏe trẻ em',
-    'copy' => 'Hỗ trợ phụ huynh hiểu rõ hơn về các vấn đề sức khỏe thường gặp trong quá trình chăm sóc con.',
-  ],
-  [
-    'title' => 'Theo dõi tăng trưởng và phát triển',
-    'copy' => 'Quan tâm đến sự phát triển thể chất và sức khỏe tổng thể của trẻ theo từng giai đoạn.',
-  ],
-  [
-    'title' => 'Đồng hành cùng phụ huynh',
-    'copy' => 'Giải thích rõ ràng, dễ hiểu để phụ huynh yên tâm hơn trong quá trình chăm sóc trẻ.',
-  ],
-];
+    if (!empty($products)) {
+        $new_arrivals = $products;
+    }
+}
 ?>
 
-<section class="bg-[#EEF9FC]">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:px-8 lg:py-24">
-    <div class="lg:col-span-6">
-      <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80A8]">Bác sĩ Chuyên khoa I Nhi khoa</p>
-      <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-tight text-[#12324A] sm:text-5xl lg:text-6xl">
-        Bác sĩ Lê Thị Thu Hiền
-      </h1>
-      <p class="mt-6 max-w-2xl text-lg leading-8 text-[#52606D]">
-        Với hành trình nhiều năm gắn bó cùng Nhi khoa, Bác sĩ Lê Thị Thu Hiền đồng hành cùng phụ huynh trong thăm khám, tư vấn và chăm sóc sức khỏe trẻ em bằng sự cẩn trọng, thấu hiểu và chuyên môn vững vàng.
-      </p>
-      <div class="mt-6 rounded-2xl border border-[#DFF3F8] bg-white/80 p-5 text-base font-semibold leading-7 text-[#12324A] shadow-sm">
-        Giám đốc chuyên môn Phòng khám The Medcare Hà Nội
-      </div>
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href="#hanh-trinh" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2F80A8] px-7 text-sm font-bold text-white transition hover:bg-[#12324A]">
-          Xem hành trình chuyên môn
-        </a>
-        <a href="#lien-he" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2F80A8] bg-white px-7 text-sm font-bold text-[#2F80A8] transition hover:bg-[#DFF3F8]">
-          Liên hệ đặt lịch
-        </a>
-      </div>
-      <div class="mt-8 grid grid-cols-1 gap-3 text-sm font-semibold text-[#12324A] sm:grid-cols-3">
-        <span class="rounded-full bg-white px-4 py-3 shadow-sm">Chuyên khoa I Nhi khoa</span>
-        <span class="rounded-full bg-white px-4 py-3 shadow-sm">Nguyên Trưởng khoa Nhi</span>
-        <span class="rounded-full bg-white px-4 py-3 shadow-sm">The Medcare Hà Nội</span>
-      </div>
-    </div>
-
-    <div class="lg:col-span-6">
-      <div class="relative overflow-hidden rounded-[28px] bg-white p-3 shadow-xl shadow-[#12324A]/10">
-        <img src="<?php echo $home_image('/assets/img/gallery/bshien/Bsi-Hien.png'); ?>" alt="Bác sĩ Lê Thị Thu Hiền" class="aspect-[4/3] w-full rounded-[22px] object-cover" />
-        <div class="absolute bottom-6 left-6 max-w-xs rounded-2xl bg-white/95 p-4 shadow-lg">
-          <p class="text-sm font-bold text-[#2F80A8]">Chăm sóc trẻ nhỏ</p>
-          <p class="mt-1 text-sm leading-6 text-[#52606D]">Cẩn trọng trong thăm khám, rõ ràng trong tư vấn, nhẹ nhàng với gia đình.</p>
+<div class="bg-white text-[#2F2925]">
+    <section class="overflow-hidden bg-[#FFF8EF]">
+        <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-24">
+            <div>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Soft Women\'s Everyday Fashion', 'dawp'); ?></p>
+                <h1 class="mt-5 max-w-3xl font-heading text-5xl font-bold leading-[1.05] text-[#4B3528] sm:text-6xl lg:text-7xl">
+                    <?php esc_html_e('Soft Everyday Styles For Women', 'dawp'); ?>
+                </h1>
+                <p class="mt-6 max-w-xl text-lg leading-8 text-[#756A62]">
+                    <?php esc_html_e('Relaxed tops, tunics, blouses, and easy wardrobe pieces made for comfort, quiet beauty, and real daily life.', 'dawp'); ?>
+                </p>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a href="<?php echo esc_url($category_url('relaxed-tops')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-7 text-sm font-bold text-white shadow-lg shadow-[#4B3528]/10 transition hover:bg-[#4B3528]">
+                        <?php esc_html_e('Shop Relaxed Tops', 'dawp'); ?>
+                    </a>
+                    <a href="<?php echo esc_url($category_url('soft-tunics')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#B89B83] bg-white px-7 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]">
+                        <?php esc_html_e('Explore Soft Tunics', 'dawp'); ?>
+                    </a>
+                </div>
+                <div class="mt-8 grid gap-3 text-center text-sm font-semibold leading-5 text-[#4B3528] sm:grid-cols-3">
+                    <span class="flex min-h-16 items-center justify-center rounded-full border border-[#E7D8C8] bg-white px-5 py-3"><?php esc_html_e('Women\'s casual fashion', 'dawp'); ?></span>
+                    <span class="flex min-h-16 items-center justify-center rounded-full border border-[#E7D8C8] bg-white px-5 py-3"><?php esc_html_e('30-day returns', 'dawp'); ?></span>
+                    <span class="flex min-h-16 items-center justify-center rounded-full border border-[#E7D8C8] bg-white px-5 py-3"><?php esc_html_e('Tracking included', 'dawp'); ?></span>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="overflow-hidden rounded-[2rem] border border-[#E7D8C8] bg-white shadow-2xl shadow-[#4B3528]/10">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/vivisshop/Soft_Women\'s_Everyday_Fashion.png'); ?>" alt="<?php esc_attr_e('Woman wearing a relaxed soft everyday top', 'dawp'); ?>" class="aspect-[4/5] h-full w-full object-cover lg:aspect-[5/4]">
+                </div>
+                <div class="absolute bottom-4 left-4 w-[min(100%-32px,640px)] rounded-[1.35rem] border border-white/70 bg-white/95 p-5 shadow-xl">
+                    <p class="text-sm font-bold text-[#4B3528]"><?php esc_html_e('Comfort-first wardrobe pieces', 'dawp'); ?></p>
+                    <p class="mt-2 text-sm leading-6 text-[#756A62]"><?php esc_html_e('Soft colors, relaxed fits, and wearable details for home, errands, weekends, and casual plans.', 'dawp'); ?></p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="bg-white py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-10 max-w-3xl">
-      <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80A8]">Tổng quan chuyên môn</p>
-      <h2 class="mt-3 text-3xl font-bold leading-tight text-[#12324A] sm:text-4xl">
-        Kinh nghiệm Nhi khoa được xây dựng qua nhiều môi trường y tế.
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      <?php foreach ($professional_cards as $card) : ?>
-      <article class="rounded-[24px] border border-[#DFF3F8] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg hover:shadow-[#12324A]/10">
-        <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E8F7F4] text-xl font-bold text-[#2F80A8]"><?php echo esc_html($card['icon']); ?></div>
-        <h3 class="text-lg font-bold leading-snug text-[#12324A]"><?php echo esc_html($card['title']); ?></h3>
-        <p class="mt-3 text-sm leading-6 text-[#52606D]"><?php echo esc_html($card['copy']); ?></p>
-      </article>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-
-<section id="hanh-trinh" class="bg-[#FFF8EF] py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto mb-12 max-w-3xl text-center">
-      <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80A8]">Hành trình chuyên môn</p>
-      <h2 class="mt-3 text-3xl font-bold leading-tight text-[#12324A] sm:text-4xl">
-        Từ nền tảng y khoa chính quy đến vai trò quản lý chuyên môn Nhi khoa.
-      </h2>
-      <p class="mt-5 text-base leading-7 text-[#52606D]">
-        Hành trình của Bác sĩ Lê Thị Thu Hiền trải qua nhiều môi trường y tế khác nhau, từ tuyến y tế cơ sở, bệnh viện, đào tạo chuyên khoa Nhi đến vai trò quản lý chuyên môn tại hệ thống phòng khám nhi khoa.
-      </p>
-    </div>
-
-    <div class="relative mx-auto max-w-5xl">
-      <div class="absolute left-4 top-0 hidden h-full w-px bg-[#7FC8C2]/50 md:left-1/2 md:block"></div>
-      <div class="space-y-6">
-        <?php foreach ($timeline_items as $index => $item) : ?>
-        <article class="relative grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-10">
-          <div class="<?php echo $index % 2 ? 'md:col-start-2' : ''; ?> rounded-[24px] border border-[#DFF3F8] bg-white p-6 shadow-sm">
-            <span class="inline-flex rounded-full bg-[#DFF3F8] px-4 py-2 text-sm font-bold text-[#2F80A8]"><?php echo esc_html($item['year']); ?></span>
-            <h3 class="mt-4 text-xl font-bold leading-snug text-[#12324A]"><?php echo esc_html($item['title']); ?></h3>
-            <p class="mt-3 text-sm leading-6 text-[#52606D]"><?php echo esc_html($item['copy']); ?></p>
-          </div>
-        </article>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="triet-ly" class="bg-[#E8F7F4] py-16 lg:py-24">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-    <div>
-      <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80A8]">Triết lý chăm sóc</p>
-      <h2 class="mt-3 text-3xl font-bold leading-tight text-[#12324A] sm:text-4xl">
-        Nhi khoa không chỉ là xem triệu chứng, mà là lắng nghe cả gia đình.
-      </h2>
-      <blockquote class="mt-6 rounded-[24px] border-l-4 border-[#2F80A8] bg-white p-6 text-xl font-semibold leading-9 text-[#12324A] shadow-sm">
-        “Với bác sĩ nhi khoa, mỗi lần thăm khám không chỉ là xem một triệu chứng, mà là lắng nghe cả sự lo lắng của cha mẹ và sự khó chịu mà trẻ chưa thể diễn đạt trọn vẹn.”
-      </blockquote>
-      <p class="mt-6 text-base leading-8 text-[#52606D]">
-        Trong chăm sóc trẻ nhỏ, sự cẩn trọng và cách giải thích rõ ràng cho phụ huynh là điều rất quan trọng. Bác sĩ luôn hướng tới việc thăm khám nhẹ nhàng, lắng nghe kỹ thông tin từ gia đình và đưa ra tư vấn phù hợp với từng trẻ.
-      </p>
-    </div>
-
-    <div>
-      <img src="<?php echo $home_image('/assets/img/gallery/bshien/429666892_436560252050581_4873857152481017_n.png'); ?>" alt="Hình ảnh chuyên môn của bác sĩ Lê Thị Thu Hiền" class="aspect-[4/3] w-full rounded-[28px] object-cover shadow-xl shadow-[#12324A]/10" />
-      <div class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <?php foreach ($care_principles as $principle) : ?>
-        <div class="rounded-2xl bg-white px-5 py-4 text-sm font-bold text-[#12324A] shadow-sm"><?php echo esc_html($principle); ?></div>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="chuyen-mon" class="bg-white py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mb-10 max-w-3xl">
-      <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80A8]">Chuyên môn Nhi khoa</p>
-      <h2 class="mt-3 text-3xl font-bold leading-tight text-[#12324A] sm:text-4xl">
-        Đồng hành cùng phụ huynh trong chăm sóc sức khỏe trẻ em.
-      </h2>
-      <p class="mt-5 text-base leading-8 text-[#52606D]">
-        Với nền tảng chuyên khoa Nhi và kinh nghiệm thực tế trong bệnh viện, phòng khám, bác sĩ tập trung vào thăm khám, tư vấn và theo dõi sức khỏe trẻ em theo hướng an toàn, cẩn trọng và phù hợp với từng trường hợp.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-      <?php foreach ($specialty_cards as $card) : ?>
-      <article class="rounded-[24px] border border-[#DFF3F8] bg-[#EEF9FC] p-6">
-        <h3 class="text-xl font-bold text-[#12324A]"><?php echo esc_html($card['title']); ?></h3>
-        <p class="mt-3 text-base leading-7 text-[#52606D]"><?php echo esc_html($card['copy']); ?></p>
-      </article>
-      <?php endforeach; ?>
-    </div>
-  </div>
-</section>
-
-<section class="bg-[#12324A] py-16 text-white lg:py-24">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-    <div class="order-2 lg:order-1">
-      <img src="<?php echo $home_image('/assets/img/gallery/bshien/689235060_1476398857515209_8311699732582292443_n.jpg'); ?>" alt="Bác sĩ Lê Thị Thu Hiền trong hoạt động chuyên môn" class="aspect-[4/3] w-full rounded-[28px] object-cover" />
-    </div>
-    <div class="order-1 lg:order-2">
-      <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#7FC8C2]">Vai trò chuyên môn hiện tại</p>
-      <h2 class="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
-        Giám đốc chuyên môn Phòng khám The Medcare Hà Nội.
-      </h2>
-      <p class="mt-5 text-base leading-8 text-white/80">
-        Từ năm 2016 đến 2026, Bác sĩ Lê Thị Thu Hiền công tác tại hệ thống phòng khám nhi khoa The Medcare và đảm nhiệm vai trò Giám đốc chuyên môn Phòng khám The Medcare Hà Nội. Đây là giai đoạn bác sĩ kết hợp kinh nghiệm thăm khám Nhi khoa với công tác quản lý chuyên môn trong môi trường phòng khám hiện đại.
-      </p>
-      <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <?php foreach (['Quản lý chuyên môn', 'Thăm khám và tư vấn nhi khoa', 'Đồng hành cùng phụ huynh', 'Xây dựng chất lượng chăm sóc trẻ em'] as $highlight) : ?>
-        <span class="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-semibold text-white"><?php echo esc_html($highlight); ?></span>
-        <?php endforeach; ?>
-      </div>
-      <a href="#lien-he" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold text-[#12324A] transition hover:bg-[#DFF3F8]">
-        Liên hệ đặt lịch
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="bg-[#FFF8EF] py-16 lg:py-24">
-  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
-    <div class="lg:col-span-7">
-      <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80A8]">Gửi phụ huynh</p>
-      <h2 class="mt-3 text-3xl font-bold leading-tight text-[#12324A] sm:text-4xl">
-        Mỗi đứa trẻ cần được thăm khám bằng sự cẩn trọng và thấu hiểu.
-      </h2>
-      <p class="mt-5 text-base leading-8 text-[#52606D]">
-        Khi con không khỏe, sự lo lắng của cha mẹ là điều rất dễ hiểu. Một buổi thăm khám tốt không chỉ giúp đánh giá tình trạng của trẻ, mà còn giúp phụ huynh hiểu rõ hơn về cách chăm sóc con sau đó. Với bác sĩ, sự yên tâm của gia đình cũng là một phần quan trọng trong quá trình chăm sóc sức khỏe trẻ nhỏ.
-      </p>
-      <p class="mt-6 rounded-[24px] bg-white p-6 text-xl font-semibold leading-8 text-[#12324A] shadow-sm">
-        “Lắng nghe kỹ hơn để tư vấn đúng hơn, giải thích rõ hơn để phụ huynh yên tâm hơn.”
-      </p>
-    </div>
-    <div class="lg:col-span-5">
-      <img src="<?php echo $home_image('/assets/img/gallery/bshien/116011520_2713605472293353_1474453608355257715_n.jpg'); ?>" alt="Chân dung bác sĩ Lê Thị Thu Hiền" class="aspect-[4/5] w-full rounded-[28px] object-cover shadow-xl shadow-[#12324A]/10" />
-    </div>
-  </div>
-</section>
-
-<section id="lien-he" class="bg-white py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="overflow-hidden rounded-[28px] bg-[#EEF9FC]">
-      <div class="grid grid-cols-1 gap-0 lg:grid-cols-2">
-        <div class="p-8 sm:p-10 lg:p-12">
-          <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80A8]">Liên hệ</p>
-          <h2 class="mt-3 text-3xl font-bold leading-tight text-[#12324A] sm:text-4xl">
-            Cần tư vấn hoặc đặt lịch thăm khám?
-          </h2>
-          <p class="mt-5 text-base leading-8 text-[#52606D]">
-            Phụ huynh có thể liên hệ để tìm hiểu thêm thông tin thăm khám, đặt lịch hoặc biết thêm về thời gian làm việc của bác sĩ tại phòng khám.
-          </p>
-          <div class="mt-7 space-y-3 text-base leading-7 text-[#12324A]">
-            <p><strong>Địa điểm:</strong> Phòng khám The Medcare Hà Nội</p>
-            <p><strong>Số điện thoại:</strong> Sắp cập nhật</p>
-            <p><strong>Email:</strong> Sắp cập nhật</p>
-            <p><strong>Giờ làm việc:</strong> Sắp cập nhật</p>
-          </div>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2F80A8] px-7 text-sm font-bold text-white transition hover:bg-[#12324A]">
-              Liên hệ đặt lịch
-            </a>
-            <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2F80A8] bg-white px-7 text-sm font-bold text-[#2F80A8] transition hover:bg-[#DFF3F8]">
-              Tìm hiểu về bác sĩ
-            </a>
-          </div>
+    <section class="bg-white py-16 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Shop By Style', 'dawp'); ?></p>
+                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Find the fit that feels easy.', 'dawp'); ?></h2>
+            </div>
+            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <?php foreach ($style_cards as $card) : ?>
+                    <a href="<?php echo esc_url($card['url']); ?>" class="group overflow-hidden rounded-2xl border border-[#E7D8C8] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4B3528]/10">
+                        <img src="<?php echo esc_url($card['image']); ?>" alt="<?php echo esc_attr($card['title']); ?>" class="aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.03]">
+                        <span class="block p-5">
+                            <span class="block text-lg font-bold text-[#4B3528]"><?php echo esc_html($card['title']); ?></span>
+                            <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php echo esc_html($card['copy']); ?></span>
+                        </span>
+                    </a>
+                <?php endforeach; ?>
+            </div>
         </div>
-        <div class="bg-[#12324A] p-8 text-white sm:p-10 lg:p-12">
-          <h3 class="text-2xl font-bold">Lưu ý nội dung y tế</h3>
-          <p class="mt-4 text-base leading-8 text-white/80">
-            Thông tin trên website mang tính giới thiệu chuyên môn và tham khảo, không thay thế cho thăm khám và tư vấn trực tiếp với bác sĩ.
-          </p>
-          <img src="<?php echo $home_image('/assets/img/gallery/bshien/429666892_436560252050581_4873857152481017_n.png'); ?>" alt="Thông tin giới thiệu bác sĩ Lê Thị Thu Hiền" class="mt-8 aspect-[16/10] w-full rounded-[22px] object-cover opacity-95" />
+    </section>
+
+    <section class="bg-[#FFF8EF] py-16 lg:py-24">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:[&>*:first-child]:order-2">
+            <img src="<?php echo esc_url($asset('gallery/vivisshop/Tunic_Tops_Relaxed.png')); ?>" alt="<?php esc_attr_e('Woman wearing a relaxed tunic top', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
+            <div>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Soft Tunics', 'dawp'); ?></p>
+                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Relaxed silhouettes with a flattering feel.', 'dawp'); ?></h2>
+                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('Tunic tops bring ease to everyday dressing. Longer lengths, soft drape, and comfortable shapes make them simple to style for home, errands, weekends, and casual gatherings.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url($category_url('soft-tunics')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#4B3528] px-7 text-sm font-bold text-white transition hover:bg-[#B89B83]"><?php esc_html_e('Explore Soft Tunics', 'dawp'); ?></a>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
+
+    <section class="bg-white py-16 lg:py-24">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+            <img src="<?php echo esc_url($asset('gallery/vivisshop/Soft_Graphic_Tops.png')); ?>" alt="<?php esc_attr_e('Soft graphic top with gentle artwork', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
+            <div>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Soft Graphic Tops', 'dawp'); ?></p>
+                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Gentle prints with a quiet kind of charm.', 'dawp'); ?></h2>
+                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('For women who like a little artwork without a loud statement, our soft graphic tops bring nature-inspired details, delicate motifs, and relaxed comfort into everyday outfits.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url($category_url('relaxed-tops')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-7 text-sm font-bold text-white transition hover:bg-[#4B3528]"><?php esc_html_e('Shop Relaxed Tops', 'dawp'); ?></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#F3E7DA] py-16 lg:py-24">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8 lg:[&>*:first-child]:order-2">
+            <img src="<?php echo esc_url($asset('gallery/vivisshop/Blouse_Shirts_Simple.png')); ?>" alt="<?php esc_attr_e('Light blouse styled for a casual polished day', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
+            <div>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Gentle Blouses', 'dawp'); ?></p>
+                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Simple polish for everyday plans.', 'dawp'); ?></h2>
+                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('Light blouses and easy shirts help you feel comfortable while looking gently put together. Perfect for casual workdays, lunches, errands, or relaxed time with family and friends.', 'dawp'); ?></p>
+                <div class="mt-6 flex flex-wrap gap-3 text-sm font-semibold text-[#4B3528]">
+                    <span class="rounded-full bg-white px-4 py-2"><?php esc_html_e('Light', 'dawp'); ?></span>
+                    <span class="rounded-full bg-white px-4 py-2"><?php esc_html_e('Easy', 'dawp'); ?></span>
+                    <span class="rounded-full bg-white px-4 py-2"><?php esc_html_e('Feminine', 'dawp'); ?></span>
+                    <span class="rounded-full bg-white px-4 py-2"><?php esc_html_e('Wearable', 'dawp'); ?></span>
+                </div>
+                <a href="<?php echo esc_url($category_url('gentle-blouses')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-7 text-sm font-bold text-white transition hover:bg-[#4B3528]"><?php esc_html_e('Shop Gentle Blouses', 'dawp'); ?></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-16 lg:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
+                    <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Fresh pieces for softer everyday dressing.', 'dawp'); ?></h2>
+                    <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('Discover relaxed tops, gentle blouses, soft graphic pieces, and easy seasonal styles added to the Vivisshop collection.', 'dawp'); ?></p>
+                </div>
+                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-[#B89B83] px-6 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('View All Styles', 'dawp'); ?></a>
+            </div>
+
+            <?php if (!empty($new_arrivals)) : ?>
+                <div class="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+                    <?php foreach ($new_arrivals as $product) : ?>
+                        <a href="<?php echo esc_url($product->get_permalink()); ?>" class="group overflow-hidden rounded-2xl border border-[#E7D8C8] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4B3528]/10">
+                            <?php echo wp_kses_post($product->get_image('woocommerce_thumbnail', ['class' => 'aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.03]'])); ?>
+                            <span class="block p-4">
+                                <span class="block text-sm font-bold leading-6 text-[#4B3528]"><?php echo esc_html($product->get_name()); ?></span>
+                                <span class="mt-2 block text-sm font-semibold text-[#756A62]"><?php echo wp_kses_post($product->get_price_html()); ?></span>
+                            </span>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            <?php else : ?>
+                <div class="mt-10 rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-7">
+                    <p class="text-base font-semibold text-[#4B3528]"><?php esc_html_e('New product listings will appear here as the collection is updated.', 'dawp'); ?></p>
+                    <p class="mt-2 text-sm leading-6 text-[#756A62]"><?php esc_html_e('Until then, browse the main Vivisshop categories for relaxed tops, tunics, blouses, and seasonal pieces.', 'dawp'); ?></p>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+
+    <section class="bg-[#F3E7DA] py-16 lg:py-24">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Why Women Love Vivisshop', 'dawp'); ?></p>
+                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Comfort, clarity, and simple everyday style.', 'dawp'); ?></h2>
+            </div>
+            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <?php foreach ($trust_cards as $card) : ?>
+                    <div class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
+                        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FFF8EF] text-[#4B3528]" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 6 9 17l-5-5"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-[#4B3528]"><?php echo esc_html($card['title']); ?></h3>
+                        <p class="mt-2 text-sm leading-6 text-[#756A62]"><?php echo esc_html($card['copy']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-16 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="rounded-[2rem] bg-[#4B3528] p-6 text-white sm:p-8 lg:p-10">
+                <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+                    <div>
+                        <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#F3E7DA]"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
+                        <h2 class="mt-3 font-heading text-4xl font-bold leading-tight"><?php esc_html_e('Clear support from order to delivery.', 'dawp'); ?></h2>
+                        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('View Shipping & Returns', 'dawp'); ?></a>
+                    </div>
+                    <div class="grid gap-4 md:grid-cols-3">
+                        <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
+                            <h3 class="font-bold"><?php esc_html_e('Shipping', 'dawp'); ?></h3>
+                            <p class="mt-2 text-sm leading-6 text-white/80"><?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></p>
+                        </div>
+                        <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
+                            <h3 class="font-bold"><?php esc_html_e('Returns', 'dawp'); ?></h3>
+                            <p class="mt-2 text-sm leading-6 text-white/80"><?php esc_html_e('Customers may request returns within 30 days of delivery for eligible unworn and unwashed items in original condition.', 'dawp'); ?></p>
+                        </div>
+                        <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
+                            <h3 class="font-bold"><?php esc_html_e('Support', 'dawp'); ?></h3>
+                            <p class="mt-2 text-sm leading-6 text-white/80"><?php echo wp_kses_post($link_support_email_on_dark(__('Need help with sizing, orders, or product questions? Contact support@vivisshop.com. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'))); ?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#FFF8EF] py-16 lg:py-20">
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:px-8">
+            <div>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Stay Updated', 'dawp'); ?></p>
+                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Soft new styles, straight to your inbox.', 'dawp'); ?></h2>
+                <p class="mt-4 max-w-2xl text-base leading-7 text-[#756A62]"><?php esc_html_e('Join the Vivisshop list for new arrivals, seasonal favorites, and easy everyday outfit ideas.', 'dawp'); ?></p>
+            </div>
+            <form class="rounded-2xl border border-[#E7D8C8] bg-white p-4 shadow-sm" action="#" method="post">
+                <label for="vivisshop-newsletter-email" class="sr-only"><?php esc_html_e('Email address', 'dawp'); ?></label>
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <input id="vivisshop-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>" class="min-h-12 flex-1 rounded-full border border-[#E7D8C8] px-5 text-sm outline-none focus:border-[#A8B99A]">
+                    <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-7 text-sm font-bold text-white transition hover:bg-[#4B3528]">
+                        <?php esc_html_e('Subscribe', 'dawp'); ?>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

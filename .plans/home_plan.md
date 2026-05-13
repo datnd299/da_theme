@@ -1,158 +1,153 @@
-# Home Plan Website Portfolio Bác sĩ Lê Thị Thu Hiền
+# Vivisshop Women’s Fashion Home Plan
 
-## Mục tiêu trang chủ
+## Homepage Objective
 
-Trang chủ cần giới thiệu Bác sĩ Lê Thị Thu Hiền như một bác sĩ Chuyên khoa I Nhi khoa có hành trình chuyên môn rõ ràng, kinh nghiệm nhiều năm và phong thái chăm sóc bệnh nhi cẩn trọng, ấm áp.
+The Vivisshop homepage should clearly position the brand as a soft, simple, and mature women’s fashion store for everyday clothing.
 
-Trang chủ không nên giống landing page quảng cáo dịch vụ y tế. Nó cần giống một hồ sơ chuyên môn cá nhân được trình bày chỉn chu, đáng tin và dễ hiểu với phụ huynh.
+The homepage must communicate:
 
-Mục tiêu chính:
+* Relaxed women’s fashion
+* Soft casual tops
+* Tunic tops
+* Blouses and shirts
+* Gentle graphic tops
+* Easy dresses
+* Comfortable everyday styling
+* Trustworthy ecommerce experience
 
-* Giới thiệu bác sĩ Lê Thị Thu Hiền
-* Làm rõ chuyên môn: Bác sĩ Chuyên khoa I Nhi khoa
-* Tóm tắt hành trình đào tạo và công tác
-* Nhấn mạnh kinh nghiệm từ y tế cơ sở, bệnh viện, Trưởng khoa Nhi đến Giám đốc chuyên môn phòng khám
-* Tạo niềm tin với phụ huynh thông qua thông tin minh bạch
-* Truyền tải triết lý chăm sóc trẻ nhỏ: cẩn trọng, lắng nghe, thấu hiểu
-* Dẫn người xem tới liên hệ / đặt lịch / tìm hiểu thêm
+The homepage should not feel trendy, loud, sexy, or too young.
 
----
-
-## Mạch trang chủ tổng thể
-
-Trang chủ nên đi theo trình tự niềm tin:
-
-1. Gặp bác sĩ
-2. Hiểu bác sĩ là ai và chuyên môn gì
-3. Thấy các cột mốc đào tạo, công tác rõ ràng
-4. Hiểu triết lý chăm sóc bệnh nhi
-5. Biết các nhóm lĩnh vực tư vấn / thăm khám nhi khoa
-6. Thấy vai trò chuyên môn hiện tại tại The Medcare Hà Nội
-7. Đọc lời nhắn dành cho phụ huynh
-8. Dễ dàng liên hệ hoặc đặt lịch
+It should feel calm, wearable, and approachable for women aged 30–45.
 
 ---
 
-# Section 1: Hero — Giới thiệu bác sĩ
+# Core Homepage Message
 
-## Mục tiêu
+Vivisshop helps women find soft, relaxed, and easy-to-wear fashion for real everyday life.
 
-Tạo ấn tượng đầu tiên chuyên nghiệp, tin cậy và ấm áp.
+Main homepage concept:
 
-Người xem cần nhận biết ngay:
+> Soft everyday styles for women who love comfort, ease, and quiet beauty.
 
-* Tên bác sĩ
-* Chức danh chuyên môn
-* Chuyên ngành Nhi khoa
-* Kinh nghiệm lâu năm
-* Vai trò hiện tại
+The homepage should focus on:
 
-## Visual
+* Comfort
+* Softness
+* Relaxed fit
+* Feminine details
+* Everyday wear
+* Mature style
+* Simple outfit building
 
-Ảnh nên dùng:
+---
 
-* Chân dung bác sĩ rõ mặt, ánh sáng tự nhiên
-* Bác sĩ mặc blouse trắng hoặc trang phục y tế lịch sự
-* Background phòng khám sáng, sạch, dịu
-* Không tạo dáng quá quảng cáo
-* Biểu cảm nhẹ nhàng, đáng tin
+# Homepage Story Flow
+
+The page should guide customers through this journey:
+
+1. Discover Vivisshop as a soft everyday women’s fashion store
+2. Shop by style and fit
+3. Explore main collections
+4. Highlight casual tops as the strongest category
+5. Highlight tunic tops for relaxed comfort
+6. Highlight blouses and shirts for polished everyday looks
+7. Highlight soft graphic tops inspired by nature and gentle prints
+8. Show new arrivals
+9. Build trust with policies and customer care
+10. Invite customers to subscribe or continue shopping
+
+---
+
+# Section 1: Hero
+
+## Purpose
+
+The hero section should immediately communicate the Vivisshop style: soft, relaxed, feminine, and wearable.
+
+It should not look like a discount banner.
+
+## Visual Direction
+
+Use a realistic lifestyle image of a woman aged around 30–45 wearing a relaxed soft top, tunic, or blouse.
+
+Recommended scene:
+
+* Soft natural light
+* Home, garden, porch, café, or calm indoor setting
+* Neutral or pastel outfit
+* Relaxed pose
+* Comfortable silhouette
+* No text inside image
+* No overly sexy styling
 
 ## Content
 
 Eyebrow:
 
 ```text
-Bác sĩ Chuyên khoa I Nhi khoa
+Soft Women’s Everyday Fashion
 ```
 
-Heading:
+Headline:
 
 ```text
-Bác sĩ Lê Thị Thu Hiền
+Soft Everyday Styles For Women
 ```
 
 Subheadline:
 
 ```text
-Với hành trình nhiều năm gắn bó cùng Nhi khoa, Bác sĩ Lê Thị Thu Hiền đồng hành cùng phụ huynh trong thăm khám, tư vấn và chăm sóc sức khỏe trẻ em bằng sự cẩn trọng, thấu hiểu và chuyên môn vững vàng.
+Relaxed tops, tunics, blouses, and easy wardrobe pieces made for comfort, quiet beauty, and real daily life.
 ```
 
-Trust line:
+Primary CTA:
 
 ```text
-Giám đốc chuyên môn Phòng khám The Medcare Hà Nội
+Shop New Arrivals
 ```
 
-CTA chính:
+Secondary CTA:
 
 ```text
-Xem hành trình chuyên môn
-```
-
-CTA phụ:
-
-```text
-Liên hệ đặt lịch
+Explore Casual Tops
 ```
 
 ## Design Notes
 
-* Layout 2 cột: text trái, ảnh bác sĩ phải
-* Background xanh rất nhạt hoặc trắng kem
-* CTA màu Trust Blue
-* Có thể thêm 3 badges nhỏ dưới hero:
-
-  * Chuyên khoa I Nhi khoa
-  * Nguyên Trưởng khoa Nhi
-  * Giám đốc chuyên môn The Medcare Hà Nội
+* Warm ivory or soft beige background
+* Cocoa Brown heading
+* Soft Taupe CTA
+* Large lifestyle image
+* No aggressive sale text
 
 ---
 
-# Section 2: Tóm tắt chuyên môn
+# Section 2: Shop By Style
 
-## Mục tiêu
+## Purpose
 
-Giúp phụ huynh scan nhanh các điểm mạnh chuyên môn của bác sĩ.
+Help customers quickly understand the main style directions.
 
-## Visual
+This section should feel like a soft boutique navigation.
 
-Dùng cards hoặc icon line nhẹ.
+## Layout
 
-Icon gợi ý:
+Use 4 cards in a grid.
 
-* Ống nghe
-* Trái tim
-* Hồ sơ y tế
-* Gia đình / trẻ em
-
-## Content
-
-Eyebrow:
-
-```text
-Tổng quan chuyên môn
-```
-
-Heading:
-
-```text
-Kinh nghiệm Nhi khoa được xây dựng qua nhiều môi trường y tế.
-```
-
-Cards:
+## Cards
 
 ### Card 1
 
 Title:
 
 ```text
-Bác sĩ Chuyên khoa I Nhi khoa
+Relaxed Tops
 ```
 
 Description:
 
 ```text
-Được đào tạo chuyên sâu về Nhi khoa tại Đại học Y Hà Nội giai đoạn 2008 – 2010.
+Easy tops made for comfort, errands, weekends, and everyday wear.
 ```
 
 ### Card 2
@@ -160,13 +155,13 @@ Description:
 Title:
 
 ```text
-Kinh nghiệm bệnh viện
+Soft Tunics
 ```
 
 Description:
 
 ```text
-Từng công tác nhiều năm tại Bệnh viện Yên Sơn, tỉnh Tuyên Quang.
+Longer relaxed silhouettes with a flattering, comfortable feel.
 ```
 
 ### Card 3
@@ -174,13 +169,13 @@ Từng công tác nhiều năm tại Bệnh viện Yên Sơn, tỉnh Tuyên Quan
 Title:
 
 ```text
-Nguyên Trưởng khoa Nhi
+Gentle Blouses
 ```
 
 Description:
 
 ```text
-Đảm nhiệm chức vụ Trưởng khoa Nhi tại Bệnh viện Yên Sơn giai đoạn 2010 – 2016.
+Light feminine shirts and blouses for polished casual days.
 ```
 
 ### Card 4
@@ -188,520 +183,664 @@ Description:
 Title:
 
 ```text
-Quản lý chuyên môn phòng khám
+Easy Dresses
 ```
 
 Description:
 
 ```text
-Đảm nhiệm vai trò Giám đốc chuyên môn Phòng khám The Medcare Hà Nội giai đoạn 2016 – 2026.
+Simple day dresses for soft seasonal styling and relaxed plans.
+```
+
+## Visual Direction
+
+Each card should use calm lifestyle or product images.
+
+Preferred visuals:
+
+* Relaxed white top
+* Soft lavender tunic
+* Lightweight blouse
+* Casual day dress
+
+## Design Notes
+
+* Use rounded image cards
+* Text below or overlay with readable panel
+* No loud labels
+* No discount badges
+
+---
+
+# Section 3: Featured Collections
+
+## Purpose
+
+Show the main product categories clearly.
+
+Customers should immediately understand what the store sells.
+
+## Collections
+
+* Casual Tops
+* Tunic Tops
+* Blouses & Shirts
+* Soft Graphic Tops
+* Dresses
+* Seasonal Favorites
+
+## Collection Copy
+
+### Casual Tops
+
+```text
+Soft everyday tops made for relaxed days and simple styling.
+```
+
+### Tunic Tops
+
+```text
+Longer easy-fit silhouettes for comfort and gentle coverage.
+```
+
+### Blouses & Shirts
+
+```text
+Light, feminine pieces for casual polish and everyday plans.
+```
+
+### Soft Graphic Tops
+
+```text
+Nature-inspired prints and gentle artwork on relaxed wearable tops.
+```
+
+### Dresses
+
+```text
+Easy day dresses for weekends, errands, and seasonal moments.
+```
+
+### Seasonal Favorites
+
+```text
+Soft colors, light fabrics, and comfortable styles for the season.
 ```
 
 ## Design Notes
 
-* 4 cards trên desktop
-* 2x2 trên tablet
-* 1 cột trên mobile
-* Card nền trắng, border xanh nhạt, shadow nhẹ
+* Use 3 columns desktop
+* 2 columns tablet
+* 1 column mobile if image-heavy
+* Image should dominate the card
+* Keep copy short
 
 ---
 
-# Section 3: Hành trình đào tạo và công tác
+# Section 4: Casual Tops Feature
 
-## Mục tiêu
+## Purpose
 
-Đây là section quan trọng nhất để xây dựng niềm tin.
-
-Timeline phải rõ ràng, chính xác và dễ scan.
+Casual Tops should be the main category focus because the reference products are relaxed tops.
 
 ## Visual
 
-Dùng vertical timeline.
+Use an image of a woman wearing a loose V-neck top or relaxed pullover top.
 
-Desktop có thể dùng timeline 2 cột xen kẽ.
-Mobile dùng timeline dọc.
+Preferred details:
+
+* Soft white or ivory top
+* Natural fabric texture
+* Relaxed sleeves
+* Simple casual jeans or pants
+* Indoor home or calm boutique setting
 
 ## Content
 
 Eyebrow:
 
 ```text
-Hành trình chuyên môn
+Casual Tops
 ```
 
-Heading:
+Headline:
 
 ```text
-Từ nền tảng y khoa chính quy đến vai trò quản lý chuyên môn Nhi khoa.
-```
-
-Intro paragraph:
-
-```text
-Hành trình của Bác sĩ Lê Thị Thu Hiền trải qua nhiều môi trường y tế khác nhau, từ tuyến y tế cơ sở, bệnh viện, đào tạo chuyên khoa Nhi đến vai trò quản lý chuyên môn tại hệ thống phòng khám nhi khoa.
-```
-
-Timeline items:
-
-### 1993 – 1998
-
-Title:
-
-```text
-Đại học Y Thái Nguyên
-```
-
-Description:
-
-```text
-Theo học ngành Y tại Đại học Y Thái Nguyên, đặt nền tảng cho hành trình làm nghề y.
-```
-
-### 1998 – 2002
-
-Title:
-
-```text
-Trạm xá Y tế xã Hoàng Khai, Yên Sơn, Tuyên Quang
-```
-
-Description:
-
-```text
-Công tác tại tuyến y tế cơ sở, tích lũy kinh nghiệm chăm sóc sức khỏe ban đầu cho cộng đồng.
-```
-
-### 2002 – 2008
-
-Title:
-
-```text
-Bệnh viện Yên Sơn, tỉnh Tuyên Quang
-```
-
-Description:
-
-```text
-Công tác tại bệnh viện, tiếp cận nhiều ca bệnh và tích lũy kinh nghiệm lâm sàng thực tế.
-```
-
-### 2008 – 2010
-
-Title:
-
-```text
-Chuyên khoa I Nhi khoa – Đại học Y Hà Nội
-```
-
-Description:
-
-```text
-Tham gia đào tạo chuyên sâu về Nhi khoa, củng cố kiến thức và kỹ năng thăm khám trẻ em.
-```
-
-### 2010 – 2016
-
-Title:
-
-```text
-Trưởng khoa Nhi – Bệnh viện Yên Sơn
-```
-
-Description:
-
-```text
-Đảm nhiệm vai trò Trưởng khoa Nhi, thể hiện kinh nghiệm chuyên môn và năng lực quản lý tại bệnh viện.
-```
-
-### 2016 – 2026
-
-Title:
-
-```text
-Giám đốc chuyên môn Phòng khám The Medcare Hà Nội
-```
-
-Description:
-
-```text
-Công tác tại hệ thống phòng khám nhi khoa The Medcare, đảm nhiệm vai trò quản lý chuyên môn và đồng hành cùng phụ huynh trong chăm sóc sức khỏe trẻ em.
-```
-
-## Design Notes
-
-* Mốc năm nổi bật bằng màu Trust Blue
-* Mỗi item có title rõ, mô tả ngắn
-* Không viết quá dài trong timeline
-* Có thể thêm đường line xanh nhạt nối các mốc
-
----
-
-# Section 4: Triết lý chăm sóc bệnh nhi
-
-## Mục tiêu
-
-Thể hiện bác sĩ không chỉ có chuyên môn, mà còn có sự thấu hiểu với phụ huynh và trẻ nhỏ.
-
-## Visual
-
-Ảnh gợi ý:
-
-* Bác sĩ trao đổi nhẹ nhàng với phụ huynh
-* Bác sĩ ngồi cạnh trẻ trong phòng khám
-* Không gian tư vấn sáng và thân thiện
-
-## Content
-
-Eyebrow:
-
-```text
-Triết lý chăm sóc
-```
-
-Heading:
-
-```text
-Nhi khoa không chỉ là xem triệu chứng, mà là lắng nghe cả gia đình.
-```
-
-Quote:
-
-```text
-“Với bác sĩ nhi khoa, mỗi lần thăm khám không chỉ là xem một triệu chứng, mà là lắng nghe cả sự lo lắng của cha mẹ và sự khó chịu mà trẻ chưa thể diễn đạt trọn vẹn.”
+Easy tops for soft everyday comfort.
 ```
 
 Paragraph:
 
 ```text
-Trong chăm sóc trẻ nhỏ, sự cẩn trọng và cách giải thích rõ ràng cho phụ huynh là điều rất quan trọng. Bác sĩ luôn hướng tới việc thăm khám nhẹ nhàng, lắng nghe kỹ thông tin từ gia đình và đưa ra tư vấn phù hợp với từng trẻ.
-```
-
-Principle cards:
-
-```text
-Lắng nghe phụ huynh
-Thăm khám cẩn trọng
-Giải thích dễ hiểu
-Đồng hành sau thăm khám
-```
-
-## Design Notes
-
-* Section nền kem ấm hoặc xanh rất nhạt
-* Quote lớn, chữ xanh navy
-* Ảnh đặt bên cạnh quote hoặc phía dưới
-
----
-
-# Section 5: Lĩnh vực chuyên môn Nhi khoa
-
-## Mục tiêu
-
-Giới thiệu các nhóm công việc chuyên môn mà không đưa cam kết điều trị cụ thể.
-
-## Content Safety
-
-Không viết kiểu chữa khỏi bệnh.
-Không liệt kê phác đồ điều trị.
-Không gây hiểu nhầm website thay thế khám trực tiếp.
-
-## Content
-
-Eyebrow:
-
-```text
-Chuyên môn Nhi khoa
-```
-
-Heading:
-
-```text
-Đồng hành cùng phụ huynh trong chăm sóc sức khỏe trẻ em.
-```
-
-Intro:
-
-```text
-Với nền tảng chuyên khoa Nhi và kinh nghiệm thực tế trong bệnh viện, phòng khám, bác sĩ tập trung vào thăm khám, tư vấn và theo dõi sức khỏe trẻ em theo hướng an toàn, cẩn trọng và phù hợp với từng trường hợp.
-```
-
-Service cards:
-
-### Card 1
-
-Title:
-
-```text
-Thăm khám Nhi khoa tổng quát
-```
-
-Description:
-
-```text
-Đánh giá tình trạng sức khỏe của trẻ và tư vấn hướng chăm sóc phù hợp sau thăm khám.
-```
-
-### Card 2
-
-Title:
-
-```text
-Tư vấn chăm sóc sức khỏe trẻ em
-```
-
-Description:
-
-```text
-Hỗ trợ phụ huynh hiểu rõ hơn về các vấn đề sức khỏe thường gặp trong quá trình chăm sóc con.
-```
-
-### Card 3
-
-Title:
-
-```text
-Theo dõi tăng trưởng và phát triển
-```
-
-Description:
-
-```text
-Quan tâm đến sự phát triển thể chất và sức khỏe tổng thể của trẻ theo từng giai đoạn.
-```
-
-### Card 4
-
-Title:
-
-```text
-Đồng hành cùng phụ huynh
-```
-
-Description:
-
-```text
-Giải thích rõ ràng, dễ hiểu để phụ huynh yên tâm hơn trong quá trình chăm sóc trẻ.
-```
-
-## Design Notes
-
-* 4 cards nhẹ, icon y tế line-based
-* Dùng màu xanh nhạt và trắng
-* Không dùng icon gây sợ hãi
-
----
-
-# Section 6: Vai trò tại The Medcare Hà Nội
-
-## Mục tiêu
-
-Làm rõ vai trò hiện tại hoặc giai đoạn công tác nổi bật 2016 – 2026.
-
-## Visual
-
-Ảnh gợi ý:
-
-* Phòng khám nhi khoa sáng sạch
-* Bác sĩ trong môi trường khám nhi
-* Không gian tiếp đón phụ huynh và trẻ nhỏ
-
-## Content
-
-Eyebrow:
-
-```text
-Vai trò chuyên môn hiện tại
-```
-
-Heading:
-
-```text
-Giám đốc chuyên môn Phòng khám The Medcare Hà Nội.
-```
-
-Paragraph:
-
-```text
-Từ năm 2016 đến 2026, Bác sĩ Lê Thị Thu Hiền công tác tại hệ thống phòng khám nhi khoa The Medcare và đảm nhiệm vai trò Giám đốc chuyên môn Phòng khám The Medcare Hà Nội. Đây là giai đoạn bác sĩ kết hợp kinh nghiệm thăm khám Nhi khoa với công tác quản lý chuyên môn trong môi trường phòng khám hiện đại.
-```
-
-Highlights:
-
-```text
-Quản lý chuyên môn
-Thăm khám và tư vấn nhi khoa
-Đồng hành cùng phụ huynh
-Xây dựng chất lượng chăm sóc trẻ em
+Our casual tops are made for the days when you want to feel comfortable but still look naturally put together. Think relaxed fits, soft textures, gentle colors, and simple details you can wear again and again.
 ```
 
 CTA:
 
 ```text
-Liên hệ đặt lịch
+Shop Casual Tops
 ```
 
 ## Design Notes
 
-* Section 2 cột
-* Một bên nội dung, một bên ảnh phòng khám/bác sĩ
-* Nền navy hoặc xanh nhạt tùy tổng thể
+* Use split layout: image + text
+* Warm ivory or white background
+* Keep text calm and mature
 
 ---
 
-# Section 7: Lời nhắn gửi phụ huynh
+# Section 5: Tunic Tops Feature
 
-## Mục tiêu
+## Purpose
 
-Tạo kết nối cảm xúc, giúp website không bị chỉ là CV khô cứng.
-
-## Content
-
-Eyebrow:
-
-```text
-Gửi phụ huynh
-```
-
-Heading:
-
-```text
-Mỗi đứa trẻ cần được thăm khám bằng sự cẩn trọng và thấu hiểu.
-```
-
-Paragraph:
-
-```text
-Khi con không khỏe, sự lo lắng của cha mẹ là điều rất dễ hiểu. Một buổi thăm khám tốt không chỉ giúp đánh giá tình trạng của trẻ, mà còn giúp phụ huynh hiểu rõ hơn về cách chăm sóc con sau đó. Với bác sĩ, sự yên tâm của gia đình cũng là một phần quan trọng trong quá trình chăm sóc sức khỏe trẻ nhỏ.
-```
-
-Optional quote:
-
-```text
-“Lắng nghe kỹ hơn để tư vấn đúng hơn, giải thích rõ hơn để phụ huynh yên tâm hơn.”
-```
-
-## Design Notes
-
-* Section nền kem ấm hoặc trắng
-* Có thể dùng ảnh phụ huynh bế trẻ hoặc bác sĩ tư vấn
-* Tone mềm, không quảng cáo
-
----
-
-# Section 8: Liên hệ / Đặt lịch
-
-## Mục tiêu
-
-Tạo điểm hành động cuối trang rõ ràng.
-
-Người xem cần biết có thể liên hệ bằng cách nào.
+Tunic Tops should communicate comfort, flattering coverage, and relaxed feminine style.
 
 ## Visual
 
-* Background xanh navy nhẹ hoặc trắng sạch
-* Có thể có ảnh phòng khám hoặc icon lịch
+Use image of a woman wearing a longer relaxed tunic top.
+
+Recommended look:
+
+* Soft lavender, sage, white, or beige top
+* Loose silhouette
+* Casual pants or jeans
+* Natural light
+* Garden/home/café background
 
 ## Content
 
 Eyebrow:
 
 ```text
-Liên hệ
+Tunic Tops
 ```
 
-Heading:
+Headline:
 
 ```text
-Cần tư vấn hoặc đặt lịch thăm khám?
+Relaxed silhouettes with a flattering feel.
 ```
 
 Paragraph:
 
 ```text
-Phụ huynh có thể liên hệ để tìm hiểu thêm thông tin thăm khám, đặt lịch hoặc biết thêm về thời gian làm việc của bác sĩ tại phòng khám.
+Tunic tops bring ease to everyday dressing. Longer lengths, soft drape, and comfortable shapes make them simple to style for home, errands, weekends, and casual gatherings.
 ```
 
-Contact placeholders:
+CTA:
 
 ```text
-Địa điểm: Phòng khám The Medcare Hà Nội
-Số điện thoại: Sắp cập nhật
-Email: Sắp cập nhật
-Giờ làm việc: Sắp cập nhật
+Explore Tunic Tops
 ```
 
-CTA chính:
+## Design Notes
+
+* Use soft beige or sage-tinted section
+* Pair with close-up fabric/detail image if available
+
+---
+
+# Section 6: Soft Graphic Tops Feature
+
+## Purpose
+
+This section should reflect the reference images: soft tops with gentle dragonfly, nature, floral, or inspirational prints.
+
+## Visual
+
+Use image of soft graphic top.
+
+Preferred graphic themes:
+
+* Dragonfly
+* Floral
+* Leaf
+* Watercolor tree
+* Gentle seasonal motif
+* Soft inspirational typography
+
+Avoid:
+
+* Loud slogans
+* Meme graphics
+* Copyright characters
+* Celebrity prints
+
+## Content
+
+Eyebrow:
 
 ```text
-Liên hệ đặt lịch
+Soft Graphic Tops
 ```
 
-CTA phụ:
+Headline:
 
 ```text
-Xem thông tin phòng khám
+Gentle prints with a quiet kind of charm.
 ```
 
-Disclaimer:
+Paragraph:
 
 ```text
-Thông tin trên website mang tính giới thiệu chuyên môn và tham khảo, không thay thế cho thăm khám và tư vấn trực tiếp với bác sĩ.
+For women who like a little artwork without a loud statement, our soft graphic tops bring nature-inspired details, delicate motifs, and relaxed comfort into everyday outfits.
+```
+
+CTA:
+
+```text
+Shop Soft Graphic Tops
+```
+
+## Design Notes
+
+* Dusty lavender accent works well here
+* Use close-up product texture and lifestyle image
+* Keep tone soft, not trendy
+
+---
+
+# Section 7: Blouses & Shirts Feature
+
+## Purpose
+
+Show slightly more polished pieces for women who want casual but presentable outfits.
+
+## Visual
+
+Use image of mature woman wearing light blouse or soft shirt.
+
+Recommended scene:
+
+* Café
+* Home office
+* Garden lunch
+* Weekend outing
+
+## Content
+
+Eyebrow:
+
+```text
+Blouses & Shirts
+```
+
+Headline:
+
+```text
+Simple polish for everyday plans.
+```
+
+Paragraph:
+
+```text
+Light blouses and easy shirts help you feel comfortable while looking gently put together. Perfect for casual workdays, lunches, errands, or relaxed time with family and friends.
+```
+
+CTA:
+
+```text
+Shop Blouses & Shirts
+```
+
+## Design Notes
+
+* Use clean white section
+* Add small benefit cards: light, easy, feminine, wearable
+
+---
+
+# Section 8: New Arrivals
+
+## Purpose
+
+Show fresh products without making the site feel like a discount-heavy fast-fashion store.
+
+## Layout
+
+Use a clean product grid.
+
+Recommended:
+
+* 4 products on desktop
+* 2 products on mobile
+
+## Content
+
+Eyebrow:
+
+```text
+New Arrivals
+```
+
+Headline:
+
+```text
+Fresh pieces for softer everyday dressing.
+```
+
+Supporting text:
+
+```text
+Discover relaxed tops, gentle blouses, soft graphic pieces, and easy seasonal styles added to the Vivisshop collection.
+```
+
+CTA:
+
+```text
+View New Arrivals
+```
+
+## Design Notes
+
+* No fake urgency
+* No countdown
+* No excessive discount badges
+* Product images should be consistent
+
+---
+
+# Section 9: Seasonal Favorites
+
+## Purpose
+
+Create a lifestyle moment around seasonal dressing.
+
+## Visual
+
+Use soft seasonal image:
+
+* Spring/summer tops
+* Light fabrics
+* Garden/café setting
+* Pastel or neutral colors
+
+## Content
+
+Eyebrow:
+
+```text
+Seasonal Favorites
+```
+
+Headline:
+
+```text
+Light layers, soft colors, and easy outfits for the season.
+```
+
+Paragraph:
+
+```text
+Refresh your wardrobe with comfortable pieces that feel right for the season — from breathable tops to soft blouses and relaxed everyday dresses.
+```
+
+CTA:
+
+```text
+Shop Seasonal Favorites
+```
+
+## Design Notes
+
+* Use soft sage or warm ivory background
+* Large lifestyle image
+* Calm CTA
+
+---
+
+# Section 10: Why Women Love Vivisshop
+
+## Purpose
+
+Build trust and explain the brand promise.
+
+## Layout
+
+Use 4–6 cards.
+
+## Cards
+
+### Soft Comfortable Fits
+
+```text
+Relaxed silhouettes designed for real daily movement and comfort.
+```
+
+### Gentle Feminine Details
+
+```text
+Soft colors, light prints, and simple details that feel naturally pretty.
+```
+
+### Easy Everyday Styling
+
+```text
+Pieces you can wear at home, out for errands, or on casual weekends.
+```
+
+### Clear Product Information
+
+```text
+Helpful product details make it easier to choose the right style.
+```
+
+### Secure Checkout
+
+```text
+Shop with a simple and secure checkout experience.
+```
+
+### 30-Day Returns
+
+```text
+Eligible unworn items may be returned within 30 days of delivery.
+```
+
+## Design Notes
+
+* Use soft icon line style
+* White cards on warm beige background
+* Keep copy short
+* No fake reviews unless real
+
+---
+
+# Section 11: Shipping, Returns & Support
+
+## Purpose
+
+Reinforce GMC trust before the footer.
+
+## Content
+
+Eyebrow:
+
+```text
+Customer Care
+```
+
+Headline:
+
+```text
+Clear support from order to delivery.
+```
+
+Three columns:
+
+### Shipping
+
+```text
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+```
+
+### Returns
+
+```text
+Customers may request returns within 30 days of delivery for eligible unworn and unwashed items in original condition.
+```
+
+### Support
+
+```text
+Need help with sizing, orders, or product questions? Contact support@vivisshop.com during business hours.
+```
+
+CTA:
+
+```text
+View Shipping & Returns
+```
+
+## Design Notes
+
+* Use trust section near bottom
+* Link to policy pages
+* Make information realistic and transparent
+
+---
+
+# Section 12: Newsletter
+
+## Purpose
+
+Invite visitors to stay connected without aggressive discount pressure.
+
+## Content
+
+Eyebrow:
+
+```text
+Stay Updated
+```
+
+Headline:
+
+```text
+Soft new styles, straight to your inbox.
+```
+
+Paragraph:
+
+```text
+Join the Vivisshop list for new arrivals, seasonal favorites, and easy everyday outfit ideas.
+```
+
+CTA:
+
+```text
+Subscribe
+```
+
+## Design Notes
+
+* No popup
+* No fake discount language
+* Use simple email input
+* Warm ivory or cocoa footer transition
+
+---
+
+# Homepage Image List
+
+Prepare images for:
+
+1. Hero image: woman 30–45 in relaxed soft top
+2. Shop by Style: relaxed tops
+3. Shop by Style: tunic tops
+4. Shop by Style: blouses
+5. Shop by Style: easy dresses
+6. Featured category: casual tops
+7. Featured category: tunic tops
+8. Featured category: soft graphic tops
+9. Featured category: blouses & shirts
+10. Seasonal favorites lifestyle image
+11. Product card images
+12. Customer care / support image if needed
+
+Image requirements:
+
+* Realistic
+* Soft natural light
+* Women aged 30–45
+* No text inside image
+* No copyrighted graphics
+* No overly sexy styling
+* No teen fashion aesthetic
+
+---
+
+# Homepage Copy Rules
+
+Use soft, mature, benefit-driven language.
+
+Good phrases:
+
+* Soft everyday styles
+* Relaxed tops for real daily life
+* Easy pieces for home, errands, and weekends
+* Gentle feminine details
+* Comfortable silhouettes
+* Quiet beauty
+* Wearable wardrobe favorites
+
+Avoid:
+
+* Sexy fashion
+* Viral trend
+* Must-have hot style
+* Crazy deal
+* Clubwear
+* Bodycon
+* Slay
+* Too youthful slang
+
+---
+
+# Homepage UX Rules
+
+* Make Casual Tops and Tunic Tops prominent
+* Do not overload homepage with too many product grids
+* Use lifestyle images to create a calm boutique feel
+* Keep categories focused on women’s fashion
+* Add trust section before footer
+* Use realistic shipping/return copy
+* Avoid popups on first load
+* Maintain strong text contrast
+* Mobile must keep product cards readable
+
+---
+
+# Suggested Homepage Flow Short Version
+
+```text
+Hero: Soft Everyday Styles For Women
+Shop By Style: Relaxed Tops / Soft Tunics / Gentle Blouses / Easy Dresses
+Featured Collections: Casual Tops / Tunic Tops / Blouses & Shirts / Soft Graphic Tops / Dresses / Seasonal Favorites
+Casual Tops Feature
+Tunic Tops Feature
+Soft Graphic Tops Feature
+Blouses & Shirts Feature
+New Arrivals
+Seasonal Favorites
+Why Women Love Vivisshop
+Shipping, Returns & Support
+Newsletter
 ```
 
 ---
 
-## Homepage Image List
+# Final Homepage Feeling
 
-Cần chuẩn bị các ảnh sau:
+After viewing the homepage, customers should feel:
 
-1. Ảnh chân dung bác sĩ Lê Thị Thu Hiền
-2. Ảnh bác sĩ trong không gian phòng khám nhi khoa
-3. Ảnh tư vấn phụ huynh và trẻ nhỏ
-4. Ảnh phòng khám nhi sáng, sạch, ấm áp
-5. Ảnh minh họa chăm sóc trẻ em / gia đình
-6. Ảnh hoặc graphic timeline hành trình chuyên môn
-7. Ảnh bác sĩ làm việc trong môi trường chuyên môn
-8. Ảnh CTA liên hệ / đặt lịch
+* Vivisshop clearly sells women’s casual fashion
+* The style is soft, mature, and comfortable
+* Products feel wearable for daily life
+* The store feels calm and trustworthy
+* The brand does not feel random or too trendy
+* Policies and support are transparent
 
----
+The homepage should communicate:
 
-## UX Rules
-
-* Không để trang chủ giống CV khô cứng
-* Không để trang chủ giống quảng cáo phòng khám quá mạnh
-* Timeline phải dễ đọc và chính xác
-* CTA vừa đủ, không thúc ép
-* Nội dung y tế phải an toàn, không cam kết điều trị
-* Phụ huynh phải dễ hiểu nội dung dù không có kiến thức y khoa
-* Mobile cần tối ưu timeline dọc và CTA liên hệ dễ bấm
-
----
-
-## Suggested Page Flow Short Version
-
-```text
-Hero: Bác sĩ Lê Thị Thu Hiền — Chuyên khoa I Nhi khoa
-Tổng quan: Chuyên môn và vai trò nổi bật
-Timeline: Hành trình đào tạo và công tác
-Triết lý: Lắng nghe trẻ nhỏ và phụ huynh
-Chuyên môn: Thăm khám, tư vấn, đồng hành chăm sóc trẻ
-The Medcare: Vai trò Giám đốc chuyên môn
-Lời nhắn: Sự yên tâm của phụ huynh là một phần quan trọng
-Liên hệ: Đặt lịch / thông tin phòng khám
-```
-
----
-
-## Final Homepage Feeling
-
-Sau khi xem hết trang chủ, phụ huynh cần cảm thấy:
-
-* Bác sĩ có hành trình chuyên môn rõ ràng
-* Kinh nghiệm của bác sĩ được trình bày minh bạch
-* Bác sĩ có chuyên môn Nhi khoa và kinh nghiệm quản lý chuyên môn
-* Giọng website ấm áp, dễ hiểu, không gây áp lực
-* Có thể tin tưởng tìm hiểu thêm hoặc liên hệ đặt lịch
-
-Trang chủ cần để lại cảm giác:
-
-“Đây là một bác sĩ nhi khoa có kinh nghiệm, cẩn trọng và thấu hiểu phụ huynh.”
+> Vivisshop is a gentle women’s fashion store for relaxed tops, tunics, blouses, and soft everyday styles.

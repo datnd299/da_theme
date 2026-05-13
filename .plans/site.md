@@ -1,338 +1,527 @@
-# Website Portfolio Bác sĩ Lê Thị Thu Hiền
+# Vivisshop Site.md
 
-## Thông tin cá nhân
+## Store Information
 
-* **Tên:** Bác sĩ Lê Thị Thu Hiền
-* **Học hàm / chuyên môn:** Bác sĩ Chuyên khoa I
-* **Chuyên ngành:** Nhi khoa
-* **Lĩnh vực chính:** Khám, tư vấn và chăm sóc sức khỏe trẻ em
-* **Ngôn ngữ website:** Tiếng Việt
-* **Loại website:** Portfolio cá nhân / hồ sơ chuyên môn bác sĩ
-* **Mục tiêu:** Giới thiệu uy tín chuyên môn, quá trình đào tạo, kinh nghiệm công tác và triết lý chăm sóc bệnh nhi
-
----
-
-## Định vị website
-
-Website của Bác sĩ Lê Thị Thu Hiền cần tạo cảm giác:
-
-* Tin cậy
-* Chuyên nghiệp
-* Nhân hậu
-* Gần gũi với phụ huynh
-* Rõ ràng về chuyên môn
-* Ấm áp khi nói về trẻ nhỏ
-* Không phô trương, không quảng cáo quá đà
-
-Website không phải website bán dịch vụ y tế kiểu thương mại mạnh.
-
-Website cần giống một hồ sơ chuyên môn đáng tin cậy, giúp phụ huynh hiểu bác sĩ là ai, đã học tập và công tác ở đâu, có kinh nghiệm gì trong nhi khoa và đang đảm nhiệm vai trò chuyên môn nào.
+* **Website:** vivisshop.com
+* **Language:** English
+* **Store Type:** Women’s Casual Fashion Store
+* **Primary Market:** United States
+* **Target Audience:** Women aged 30–45
+* **Style Direction:** Soft, simple, relaxed, feminine, wearable everyday fashion
+* **Support Email:** [support@vivisshop.com](mailto:support@vivisshop.com)
+* **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
-## Thông tin chuyên môn chính
+# Brand Positioning
 
-Bác sĩ Lê Thị Thu Hiền là Bác sĩ Chuyên khoa I chuyên ngành Nhi khoa, có nhiều năm kinh nghiệm trong thăm khám, chăm sóc và tư vấn sức khỏe trẻ em.
+Vivisshop is a women’s fashion store focused on soft, relaxed, and easy-to-wear clothing for everyday life.
 
-Bác sĩ từng công tác tại tuyến y tế cơ sở, bệnh viện tuyến huyện, giữ vai trò Trưởng khoa Nhi và hiện đảm nhiệm vị trí Giám đốc chuyên môn tại hệ thống phòng khám nhi khoa The Medcare Hà Nội.
+The brand should feel:
 
-Hồ sơ chuyên môn cần nhấn mạnh sự kết hợp giữa:
+* Gentle
+* Feminine
+* Comfortable
+* Simple
+* Mature
+* Relaxed
+* Approachable
+* Everyday-friendly
+* Not trend-chasing
 
-* Nền tảng đào tạo y khoa chính quy
-* Kinh nghiệm tuyến cơ sở
-* Kinh nghiệm bệnh viện
-* Kinh nghiệm chuyên khoa nhi
-* Kinh nghiệm quản lý chuyên môn
-* Sự thấu hiểu phụ huynh và trẻ nhỏ
+Vivisshop should not feel like a young streetwear brand, luxury boutique, or random fashion marketplace.
 
----
-
-## Quá trình đào tạo
-
-### 1993 – 1998
-
-**Đại học Y Thái Nguyên**
-
-Bác sĩ Lê Thị Thu Hiền theo học ngành Y tại Đại học Y Thái Nguyên trong niên khóa 1993 – 1998.
-
-Đây là nền tảng đào tạo y khoa chính quy đầu tiên, đặt cơ sở cho hành trình làm nghề y và gắn bó lâu dài với lĩnh vực chăm sóc sức khỏe trẻ em.
-
-### 2008 – 2010
-
-**Đại học Y Hà Nội**
-
-Bác sĩ tham gia chương trình đào tạo Chuyên khoa I chuyên ngành Nhi khoa tại Đại học Y Hà Nội trong giai đoạn 2008 – 2010.
-
-Đây là giai đoạn quan trọng giúp bác sĩ tập trung sâu hơn vào chuyên ngành Nhi khoa, củng cố kiến thức, kỹ năng thăm khám và điều trị các vấn đề sức khỏe thường gặp ở trẻ em.
+The store should focus on wearable pieces that suit women who want to feel comfortable, polished, and naturally stylish without dressing too loudly.
 
 ---
 
-## Quá trình công tác
+# Core Store Concept
 
-### 1998 – 2002
+Vivisshop offers soft everyday clothing for women who love relaxed silhouettes, comfortable fabrics, feminine details, and easy styling.
 
-**Trạm xá Y tế xã Hoàng Khai, huyện Yên Sơn, tỉnh Tuyên Quang**
+The product direction is inspired by items such as:
 
-Sau khi tốt nghiệp, bác sĩ công tác tại Trạm xá Y tế xã Hoàng Khai, huyện Yên Sơn, tỉnh Tuyên Quang.
+* Loose casual tops
+* Soft tunic tops
+* Relaxed blouses
+* Lightweight shirts
+* Linen-look tops
+* Cotton gauze tops
+* Simple printed tops
+* Soft graphic tops
+* Everyday layering pieces
+* Easy pants and casual bottoms
 
-Giai đoạn này giúp bác sĩ có nhiều trải nghiệm thực tế trong chăm sóc sức khỏe ban đầu cho người dân địa phương, tiếp xúc trực tiếp với các vấn đề sức khỏe cộng đồng và xây dựng nền tảng y tế cơ sở vững chắc.
+The store should communicate:
 
-### 2002 – 2008
-
-**Bệnh viện Yên Sơn, tỉnh Tuyên Quang**
-
-Bác sĩ tiếp tục công tác tại Bệnh viện Yên Sơn, tỉnh Tuyên Quang.
-
-Đây là giai đoạn tích lũy kinh nghiệm bệnh viện, tiếp cận nhiều ca bệnh đa dạng, trong đó có các vấn đề sức khỏe trẻ em, từ đó định hình rõ hơn con đường chuyên sâu về Nhi khoa.
-
-### 2008 – 2010
-
-**Đào tạo Chuyên khoa I Nhi khoa – Đại học Y Hà Nội**
-
-Bác sĩ tham gia học Chuyên khoa I chuyên ngành Nhi khoa tại Đại học Y Hà Nội.
-
-Giai đoạn này cần được trình bày như một cột mốc chuyên môn quan trọng trong hành trình trở thành bác sĩ nhi khoa.
-
-### 2010 – 2016
-
-**Bệnh viện Yên Sơn, tỉnh Tuyên Quang – Trưởng khoa Nhi**
-
-Sau khi hoàn thành chương trình Chuyên khoa I Nhi khoa, bác sĩ trở về công tác tại Bệnh viện Yên Sơn, tỉnh Tuyên Quang và đảm nhiệm chức vụ **Trưởng khoa Nhi**.
-
-Giai đoạn này thể hiện năng lực chuyên môn, kinh nghiệm lâm sàng và vai trò quản lý trong lĩnh vực chăm sóc sức khỏe trẻ em tại bệnh viện.
-
-### 2016 – 2026
-
-**Hệ thống phòng khám nhi khoa The Medcare – Giám đốc chuyên môn Phòng khám The Medcare Hà Nội**
-
-Từ năm 2016 đến 2026, bác sĩ công tác tại hệ thống phòng khám nhi khoa The Medcare và đảm nhiệm vai trò **Giám đốc chuyên môn Phòng khám The Medcare Hà Nội**.
-
-Đây là giai đoạn thể hiện kinh nghiệm chuyên sâu trong mô hình phòng khám nhi khoa hiện đại, kết hợp giữa thăm khám, tư vấn phụ huynh, quản lý chuyên môn và xây dựng chất lượng dịch vụ chăm sóc trẻ em.
+> Soft everyday styles for women who love comfort, ease, and quiet beauty.
 
 ---
 
-## Timeline tóm tắt
+# Target Audience
 
-```text
-1993 – 1998: Học tại Đại học Y Thái Nguyên
-1998 – 2002: Công tác tại Trạm xá Y tế xã Hoàng Khai, Yên Sơn, Tuyên Quang
-2002 – 2008: Công tác tại Bệnh viện Yên Sơn, Tuyên Quang
-2008 – 2010: Học Chuyên khoa I Nhi khoa tại Đại học Y Hà Nội
-2010 – 2016: Trưởng khoa Nhi, Bệnh viện Yên Sơn, Tuyên Quang
-2016 – 2026: Giám đốc chuyên môn Phòng khám The Medcare Hà Nội
-```
+## Primary Audience
 
----
+Women aged 30–45 who want clothing that feels:
 
-## Thông điệp chuyên môn
+* Comfortable
+* Easy to wear
+* Feminine but not overly youthful
+* Casual but still presentable
+* Soft and flattering
+* Suitable for daily routines
+* Good for home, errands, casual outings, weekends, and relaxed gatherings
 
-Website nên truyền tải rằng bác sĩ Hiền là người có hành trình dài và bền bỉ trong y khoa, đặc biệt là Nhi khoa.
+They may be:
 
-Thông điệp chính:
+* Mothers
+* Working women
+* Women who prefer relaxed clothing
+* Women who like boutique-style casual fashion
+* Women who want soft colors and easy outfits
+* Women who avoid tight or overly revealing clothing
 
-> Hơn nhiều năm gắn bó với lĩnh vực chăm sóc sức khỏe trẻ em, Bác sĩ Lê Thị Thu Hiền luôn đặt sự an toàn, thấu hiểu và đồng hành cùng phụ huynh làm trọng tâm trong mỗi lần thăm khám.
+## Secondary Audience
 
-Các giá trị cần nhấn mạnh:
-
-* Chuyên môn vững vàng
-* Kinh nghiệm thực tế phong phú
-* Sự cẩn trọng trong thăm khám trẻ nhỏ
-* Sự thấu hiểu tâm lý phụ huynh
-* Tinh thần đồng hành lâu dài cùng gia đình
-* Quản lý chuyên môn trong môi trường phòng khám nhi khoa
-
----
-
-## Triết lý chăm sóc bệnh nhi
-
-Nhi khoa không chỉ là điều trị bệnh cho trẻ, mà còn là đồng hành cùng phụ huynh trong quá trình chăm sóc con.
-
-Website nên thể hiện triết lý:
-
-* Lắng nghe kỹ triệu chứng từ phụ huynh
-* Thăm khám cẩn trọng, nhẹ nhàng với trẻ
-* Giải thích dễ hiểu, rõ ràng
-* Tránh tạo cảm giác hoang mang cho gia đình
-* Ưu tiên sự an toàn và phù hợp với từng trẻ
-* Đồng hành với phụ huynh trong chăm sóc sau thăm khám
-
-Có thể dùng đoạn:
-
-> Với bác sĩ nhi khoa, mỗi lần thăm khám không chỉ là xem một triệu chứng, mà là lắng nghe cả sự lo lắng của cha mẹ và sự khó chịu mà trẻ chưa thể diễn đạt trọn vẹn.
+* Women aged 45–55 who like relaxed boutique tops
+* Gift shoppers buying for wives, mothers, sisters, or friends
+* Women looking for simple seasonal wardrobe refreshes
 
 ---
 
-## Đối tượng người xem website
+# Customer Psychology
 
-Website hướng đến:
+Vivisshop customers are not looking for loud fashion.
 
-* Phụ huynh có con nhỏ
-* Gia đình đang tìm bác sĩ nhi khoa uy tín
-* Người muốn tìm hiểu hồ sơ chuyên môn của bác sĩ
-* Đối tác y tế / phòng khám / đơn vị hợp tác
-* Người cần thông tin rõ ràng về quá trình đào tạo và công tác của bác sĩ
+They want clothes that help them feel:
 
----
+* Comfortable in their body
+* Effortlessly put together
+* Softly feminine
+* Relaxed and confident
+* Age-appropriate without feeling old-fashioned
+* Stylish without trying too hard
 
-## Tone of Voice
+They are likely attracted to:
 
-Ngôn ngữ chính: Tiếng Việt.
+* Loose silhouettes
+* Natural-looking fabrics
+* Soft colors
+* Light prints
+* Gentle graphic details
+* V-neck tops
+* Tunic shapes
+* Easy layering
+* Comfortable sleeves
+* Flowy fits
 
-Giọng văn cần:
+Good messaging:
 
-* Chuyên nghiệp
-* Tin cậy
-* Ấm áp
-* Rõ ràng
-* Dễ hiểu với phụ huynh
-* Không quá học thuật
-* Không quảng cáo quá mức
-* Không đưa cam kết điều trị tuyệt đối
+* Easy styles for everyday comfort
+* Soft tops made for relaxed days
+* Feminine pieces you can wear again and again
+* Simple outfits for home, weekends, and casual plans
+* Feel comfortable, look naturally polished
 
-Nên viết:
+Avoid messaging:
 
-“Bác sĩ có nhiều năm kinh nghiệm trong lĩnh vực Nhi khoa.”
-
-Không nên viết:
-
-“Bác sĩ chữa khỏi mọi bệnh lý nhi khoa.”
-
----
-
-## Quy tắc nội dung y tế
-
-Vì đây là website bác sĩ, cần tuân thủ nguyên tắc an toàn nội dung:
-
-* Không cam kết chữa khỏi bệnh
-* Không dùng từ ngữ gây hiểu nhầm như “tốt nhất”, “số 1”, “đảm bảo khỏi”
-* Không thay thế tư vấn y khoa cá nhân bằng nội dung website
-* Không đưa phác đồ điều trị chi tiết nếu chưa có bối cảnh khám bệnh
-* Không viết quá thương mại hóa y tế
-* Không dùng hình ảnh bệnh nhi nhạy cảm hoặc thiếu riêng tư
-
-Nên có disclaimer nhẹ:
-
-> Các thông tin trên website mang tính giới thiệu chuyên môn và tham khảo, không thay thế cho việc thăm khám và tư vấn trực tiếp với bác sĩ.
+* Sexy outfits
+* Party fashion
+* Ultra-trendy looks
+* Viral fashion
+* Bodycon styling
+* Luxury claims
+* Teen/Gen Z slang
+* Aggressive discount language
 
 ---
 
-## Cấu trúc website đề xuất
+# Product Categories
 
-Các trang chính:
+Keep the store focused and easy to understand.
 
-* Trang chủ
-* Giới thiệu bác sĩ
-* Quá trình đào tạo & công tác
-* Chuyên môn Nhi khoa
-* Triết lý chăm sóc bệnh nhi
-* Liên hệ / Đặt lịch
+## Main Categories
 
-Có thể thêm:
+* **New Arrivals**
+* **Casual Tops**
+* **Blouses & Shirts**
+* **Tunic Tops**
+* **Soft Graphic Tops**
+* **Dresses**
+* **Pants & Bottoms**
+* **Seasonal Favorites**
 
-* Câu hỏi thường gặp cho phụ huynh
-* Kiến thức chăm sóc trẻ
-* Bài viết chuyên môn
-* Thông tin phòng khám
+## Optional Categories
 
----
+* **Best Sellers**
+* **Everyday Essentials**
+* **Weekend Styles**
+* **Relaxed Fit Collection**
 
-## Cấu trúc homepage đề xuất
+Do not create too many unrelated categories.
 
-1. Hero giới thiệu bác sĩ
-2. Tóm tắt chuyên môn và chức vụ hiện tại
-3. Hành trình hơn nhiều năm trong Nhi khoa
-4. Timeline đào tạo và công tác
-5. Triết lý chăm sóc trẻ nhỏ
-6. Lĩnh vực thăm khám / tư vấn nhi khoa
-7. Vai trò tại The Medcare Hà Nội
-8. Lời nhắn dành cho phụ huynh
-9. Liên hệ / đặt lịch / thông tin phòng khám
+Vivisshop should feel like a curated women’s apparel store, not a mass fashion warehouse.
 
 ---
 
-## Visual direction
+# Category Direction
 
-Website nên sử dụng hình ảnh:
+## Casual Tops
 
-* Chân dung bác sĩ chuyên nghiệp, thân thiện
-* Bác sĩ mặc blouse trắng hoặc trang phục y tế lịch sự
-* Không gian phòng khám nhi khoa sạch, sáng, ấm áp
-* Phụ huynh và trẻ nhỏ trong bối cảnh tư vấn nhẹ nhàng
-* Icon y tế đơn giản: trái tim, ống nghe, trẻ em, gia đình
-* Timeline y khoa tinh gọn
+This should be the strongest category.
 
-Màu sắc nên tạo cảm giác:
+Products should include:
 
-* Tin cậy
-* Sạch sẽ
-* Y tế
-* Dịu mắt
-* Thân thiện với trẻ nhỏ
+* Loose V-neck tops
+* Soft pullover tops
+* Short sleeve tops
+* Three-quarter sleeve tops
+* Lightweight casual shirts
+* Relaxed everyday tops
 
-Màu gợi ý:
+Tone:
 
-* Xanh y tế dịu
-* Xanh navy nhẹ
-* Trắng
-* Kem nhạt
-* Xanh pastel
-* Hồng nhạt / vàng nhạt làm accent nhẹ
+Comfortable, soft, easy to style.
 
-Không nên dùng:
+## Blouses & Shirts
 
-* Đỏ gắt
-* Đen quá nhiều
-* Neon
-* Màu quá trẻ con thiếu chuyên nghiệp
-* Hình ảnh bệnh lý gây sợ hãi
+Products should feel slightly more polished but still relaxed.
+
+Examples:
+
+* Soft button blouses
+* Lightweight shirts
+* Casual woven tops
+* Feminine blouses
+* Easy office-to-weekend tops
+
+Tone:
+
+Gentle, mature, presentable.
+
+## Tunic Tops
+
+This category is important for women aged 30–45 and older shoppers who like longer relaxed fits.
+
+Examples:
+
+* Loose tunic tops
+* Oversized cotton tops
+* Linen-look tunics
+* Flowing longline tops
+* Easy V-neck tunics
+
+Tone:
+
+Relaxed, flattering, comfortable.
+
+## Soft Graphic Tops
+
+Inspired by the reference images.
+
+Products can include subtle prints such as:
+
+* Dragonfly motif
+* Floral artwork
+* Nature-inspired graphics
+* Soft typography
+* Watercolor prints
+* Gentle seasonal graphics
+
+Avoid:
+
+* Loud slogans
+* Offensive graphics
+* Copyright characters
+* Celebrity or brand logos
+* Teen-style meme prints
+
+## Dresses
+
+Keep dresses simple and wearable.
+
+Examples:
+
+* Casual day dresses
+* Loose summer dresses
+* Soft floral dresses
+* Shirt dresses
+* Relaxed weekend dresses
+
+Avoid:
+
+* Overly sexy bodycon dresses
+* Extreme cutouts
+* Nightclub style
+
+## Pants & Bottoms
+
+Use as supporting category.
+
+Examples:
+
+* Relaxed pants
+* Linen-look pants
+* Casual wide-leg pants
+* Soft everyday bottoms
+
+Tone:
+
+Comfort and ease.
 
 ---
 
-## CTA đề xuất
+# Product Style Rules
 
-* Xem hành trình chuyên môn
-* Tìm hiểu về bác sĩ
-* Liên hệ đặt lịch
-* Xem thông tin phòng khám
-* Đọc lời nhắn gửi phụ huynh
+Vivisshop products should generally have:
 
-CTA nên nhẹ nhàng, không quá thúc ép.
+* Relaxed silhouettes
+* Soft or natural-looking fabric textures
+* Feminine but subtle details
+* Simple prints or embroidery-style graphics
+* Comfortable sleeves
+* Easy neckline shapes
+* Soft colors
+* Neutral or pastel tones
+* Casual styling
 
----
+Avoid products that look:
 
-## Nội dung hero gợi ý
-
-Eyebrow:
-
-```text
-Bác sĩ Chuyên khoa I Nhi khoa
-```
-
-Heading:
-
-```text
-Bác sĩ Lê Thị Thu Hiền
-```
-
-Subheadline:
-
-```text
-Hơn nhiều năm gắn bó với Nhi khoa, bác sĩ Lê Thị Thu Hiền đồng hành cùng phụ huynh trong thăm khám, tư vấn và chăm sóc sức khỏe trẻ em bằng sự cẩn trọng, thấu hiểu và chuyên môn vững vàng.
-```
-
-CTA:
-
-```text
-Xem hành trình chuyên môn
-Liên hệ đặt lịch
-```
+* Too revealing
+* Too tight
+* Too young
+* Too trendy
+* Too cheap
+* Too loud
+* Too formal
+* Too sporty
 
 ---
 
-## Kết luận định hướng
+# Color & Style Direction For Products
 
-Website portfolio của Bác sĩ Lê Thị Thu Hiền cần là một hồ sơ chuyên môn rõ ràng, đáng tin cậy và ấm áp.
+Preferred product colors:
 
-Điểm mạnh lớn nhất là hành trình y khoa dài, trải qua nhiều môi trường công tác từ y tế cơ sở, bệnh viện, chuyên khoa nhi đến quản lý chuyên môn tại hệ thống phòng khám nhi khoa.
+* White
+* Ivory
+* Cream
+* Soft lavender
+* Sage green
+* Dusty blue
+* Light gray
+* Blush pink
+* Taupe
+* Sand beige
+* Muted coral
+* Soft yellow
 
-Website phải giúp phụ huynh cảm thấy rằng bác sĩ không chỉ có chuyên môn, mà còn có kinh nghiệm thực tế và sự thấu hiểu cần thiết khi chăm sóc trẻ nhỏ.
+Preferred prints:
+
+* Small floral
+* Nature motifs
+* Dragonfly
+* Leaf patterns
+* Watercolor artwork
+* Gentle abstract prints
+* Soft seasonal designs
+
+Avoid:
+
+* Neon colors
+* Heavy black-only fashion
+* Loud animal prints
+* Large aggressive slogans
+* Harsh contrast graphics
+
+---
+
+# Brand Voice
+
+Vivisshop should speak softly and clearly.
+
+Tone should be:
+
+* Warm
+* Calm
+* Feminine
+* Mature
+* Reassuring
+* Simple
+* Friendly
+* Not overly luxurious
+
+Good examples:
+
+* Soft styles for everyday comfort
+* Relaxed pieces made for real days
+* Easy tops you can wear again and again
+* Simple wardrobe favorites for home, errands, and weekends
+* Comfortable clothing with gentle feminine details
+
+Avoid:
+
+* Slay your look
+* Hot girl style
+* Sexy must-have
+* Viral fashion trend
+* Luxury wardrobe upgrade
+* Crazy sale
+* Limited stock pressure
+
+---
+
+# Visual Direction
+
+Vivisshop should use calm, soft, realistic fashion imagery.
+
+Images should show:
+
+* Women aged around 30–45
+* Casual indoor and outdoor settings
+* Soft natural light
+* Relaxed poses
+* Comfortable tops and blouses
+* Boutique-like styling
+* Home, garden, café, weekend, and lifestyle scenes
+
+Preferred visual feel:
+
+* Gentle boutique lookbook
+* Realistic ecommerce lifestyle photography
+* Soft colors
+* Natural fabric textures
+* Calm backgrounds
+* Not over-retouched
+
+Avoid:
+
+* Teen fashion poses
+* Nightclub styling
+* Luxury editorial fashion
+* Overly sexy photography
+* Heavy streetwear look
+* Fast fashion collage style
+* Low-quality product cutouts
+
+---
+
+# Homepage Direction
+
+Homepage should make the brand feel like a soft women’s fashion destination.
+
+Recommended homepage flow:
+
+1. Hero: Soft Everyday Styles For Women
+2. Shop by Style
+3. Casual Tops Feature
+4. Tunic Tops Feature
+5. Blouses & Shirts Feature
+6. Soft Graphic Tops Feature
+7. New Arrivals
+8. Why Women Love Vivisshop
+9. Seasonal Favorites
+10. Shipping / Returns / Customer Support
+11. Newsletter
+
+Homepage should focus on:
+
+* Comfort
+* Ease
+* Softness
+* Everyday wear
+* Mature feminine style
+* Trust and clear policies
+
+---
+
+# Trust & Policy Requirements
+
+Vivisshop should include clear customer trust pages:
+
+* About Us
+* Contact Us
+* Shipping Policy
+* Return & Refund Policy
+* Privacy Policy
+* Terms of Service
+* FAQ
+* Track Your Order
+
+Trust elements should be visible:
+
+* Support email
+* Business hours
+* Shipping timeline
+* Return window
+* Secure checkout messaging
+* Clear product categories
+* Consistent footer navigation
+
+---
+
+# Shipping Information
+
+Orders are processed within **2–4 business days**.
+
+After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
+
+Tracking information is provided once an order ships.
+
+---
+
+# Return Policy Direction
+
+Customers may request returns within **30 days** of delivery.
+
+Eligible items should be:
+
+* Unworn
+* Unwashed
+* Unused
+* In original condition
+* Returned with original packaging where applicable
+
+Return copy should feel clear, fair, and customer-friendly.
+
+---
+
+# GMC Compliance Direction
+
+Vivisshop must appear as a legitimate women’s apparel store with a coherent product focus.
+
+## GMC Priorities
+
+* Clear women’s fashion niche
+* Consistent product categories
+* Transparent policies
+* Realistic product descriptions
+* No counterfeit brands
+* No copyrighted character graphics
+* No offensive prints
+* No fake urgency
+* Clean navigation
+* Trustworthy checkout experience
+
+## Avoid
+
+* Mixed general store products
+* Viral gadget content
+* Dropshipping-style product spam
+* Countdown timers
+* Fake reviews
+* Unsupported fabric or health claims
+* Overly revealing sexualized fashion
+* Copyrighted graphics
+* Brand imitation products
+
+---
+
+# Strategic Build Goal
+
+The final Vivisshop storefront should feel like:
+
+> A gentle women’s fashion store offering soft, comfortable, relaxed clothing for everyday life — especially casual tops, tunics, blouses, soft graphic tops, and easy seasonal pieces for women aged 30–45.
+
+The store should feel curated, calm, wearable, and trustworthy.
+
+It should not feel like a random fashion warehouse.

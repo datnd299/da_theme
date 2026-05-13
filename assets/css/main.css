@@ -41,7 +41,7 @@
 
   /* === TYPOGRAPHY === */
   --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-heading: 'Lato', 'Georgia', serif;
 
   /* === SPACING === */
   --space-xs: 4px;

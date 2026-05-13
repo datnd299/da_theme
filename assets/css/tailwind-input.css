@@ -43,7 +43,7 @@
 
   /* === TYPOGRAPHY === */
   --font-sans:    'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-heading: 'Lato', 'Georgia', serif;
 
   /* === TRANSITIONS === */
   --ease-fluid:      cubic-bezier(0.4, 0, 0.2, 1);

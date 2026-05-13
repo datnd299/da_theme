@@ -10,22 +10,22 @@ $current_year = date_i18n('Y');
 $footer_shop_links = [
     ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
     ['title' => __('Graphic Tees', 'dawp'), 'url' => home_url('/product-category/graphic-tees/')],
-    ['title' => __('Oversized Tees', 'dawp'), 'url' => home_url('/product-category/oversized-tees/')],
+    ['title' => __('Oversized Tees', 'dawp'), 'url' => home_url('/product-category/oversize-tees/')],
     ['title' => __('Casual Hoodies', 'dawp'), 'url' => home_url('/product-category/casual-hoodies/')],
     ['title' => __('Streetwear Essentials', 'dawp'), 'url' => home_url('/product-category/streetwear-essentials/')],
 ];
 
 $footer_help_links = [
-    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
     ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
-    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
-    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
     ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
+    ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
 
 $footer_policy_links = [
-    ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-    ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
+    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
     ['title' => __('My Account', 'dawp'), 'url' => get_permalink(get_option('woocommerce_myaccount_page_id')) ?: home_url('/my-account/')],
     ['title' => __('Cart', 'dawp'), 'url' => function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/')],
 ];
@@ -82,7 +82,7 @@ $footer_policy_links = [
                 <a href="<?php echo esc_url(home_url('/')); ?>"
                    class="inline-flex shrink-0"
                    aria-label="<?php bloginfo('name'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee-logo.svg'); ?>"
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee.png'); ?>"
                          alt="<?php bloginfo('name'); ?>"
                          class="h-11 w-auto"
                          width="190"
@@ -148,9 +148,9 @@ $footer_policy_links = [
             </div>
 
             <nav aria-label="<?php esc_attr_e('Footer shop navigation', 'dawp'); ?>">
-                <h2 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
                     <?php esc_html_e('Shop', 'dawp'); ?>
-                </h2>
+                </h3>
 
                 <ul class="space-y-3">
                     <?php foreach ($footer_shop_links as $link) : ?>
@@ -165,9 +165,9 @@ $footer_policy_links = [
             </nav>
 
             <nav aria-label="<?php esc_attr_e('Footer help navigation', 'dawp'); ?>">
-                <h2 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Help', 'dawp'); ?>
-                </h2>
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
+                    <?php esc_html_e('Help & Policy', 'dawp'); ?>
+                </h3>
 
                 <ul class="space-y-3">
                     <?php foreach ($footer_help_links as $link) : ?>
@@ -182,9 +182,9 @@ $footer_policy_links = [
             </nav>
 
             <nav aria-label="<?php esc_attr_e('Footer policy navigation', 'dawp'); ?>">
-                <h2 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Account & Policy', 'dawp'); ?>
-                </h2>
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
+                    <?php esc_html_e('Link', 'dawp'); ?>
+                </h3>
 
                 <ul class="space-y-3">
                     <?php foreach ($footer_policy_links as $link) : ?>

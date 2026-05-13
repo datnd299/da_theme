@@ -52,7 +52,7 @@ get_header();
         <?php
         $quick_links = [
           ['title' => 'Graphic Tees',          'url' => home_url('/product-category/graphic-tees/')],
-          ['title' => 'Oversized Tees',         'url' => home_url('/product-category/oversized-tees/')],
+          ['title' => 'Oversized Tees',         'url' => home_url('/product-category/oversize-tees/')],
           ['title' => 'Casual Hoodies',         'url' => home_url('/product-category/casual-hoodies/')],
           ['title' => 'Streetwear Essentials',  'url' => home_url('/product-category/streetwear-essentials/')],
           ['title' => 'New Arrivals',           'url' => home_url('/shop/')],

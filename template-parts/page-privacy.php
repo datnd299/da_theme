@@ -1,116 +1,136 @@
 <?php
 /**
- * Privacy policy page template part.
- *
- * @package dawp
+ * Privacy policy template part for Shop Avec Moi.
  */
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+$support_email = 'support@shopavecmoi.com';
+
 $privacy_cards = [
-    ['title' => __('Order Information', 'dawp'), 'copy' => __('We collect details needed to process purchases, including name, email, shipping address, billing address, phone number when provided, and order details.', 'dawp')],
-    ['title' => __('Payment Security', 'dawp'), 'copy' => __('Payments are handled through secure payment providers. Vivisshop does not store full payment card numbers on this website.', 'dawp')],
-    ['title' => __('Customer Support', 'dawp'), 'copy' => __('Messages sent to support may be used to answer questions, resolve order issues, and improve service quality.', 'dawp')],
+    [
+        'title' => 'Order Information',
+        'copy'  => 'We collect the information needed to process orders, provide delivery updates, and support customer service.',
+    ],
+    [
+        'title' => 'Secure Checkout',
+        'copy'  => 'Payments are handled through secure payment providers. We do not store full payment card numbers on our website.',
+    ],
+    [
+        'title' => 'Customer Control',
+        'copy'  => 'You may contact us to request access, correction, or deletion of eligible personal information.',
+    ],
 ];
 
-$policy_sections = [
+$sections = [
     [
-        'title' => __('Information We Collect', 'dawp'),
+        'title' => 'Information We Collect',
         'copy'  => [
-            __('When you browse or shop at Vivisshop, we may collect information you provide directly, such as your name, email address, shipping address, billing address, phone number, order details, and customer service messages.', 'dawp'),
-            __('We may also collect basic technical information such as IP address, browser type, device information, pages visited, referring pages, and cookie data to help operate and protect the website.', 'dawp'),
+            'We collect information you provide when you place an order, create an account, contact support, subscribe to updates, or interact with our website.',
+            'This may include your name, email address, shipping address, billing address, phone number, order details, account details, support messages, and transaction-related information.',
+            'We may also collect technical information such as IP address, browser type, device information, pages viewed, referral source, and cookie or analytics data.',
         ],
     ],
     [
-        'title' => __('How We Use Information', 'dawp'),
+        'title' => 'How We Use Information',
         'copy'  => [
-            __('We use customer information to process orders, accept payment, arrange shipping, provide tracking, answer support requests, manage returns, prevent fraud, maintain website security, and improve the shopping experience.', 'dawp'),
-            __('If you join our email list, we may send product updates or store news. You can unsubscribe from marketing emails at any time by using the unsubscribe link in the email.', 'dawp'),
+            'We use personal information to process orders, arrange shipping, send order confirmations and tracking updates, provide customer support, manage returns and refunds, prevent fraud, improve our website, and comply with legal obligations.',
+            'If you choose to receive marketing messages, we may use your contact information to send product updates or offers. You can unsubscribe from marketing emails at any time.',
         ],
     ],
     [
-        'title' => __('Sharing Information', 'dawp'),
+        'title' => 'Cookies And Analytics',
         'copy'  => [
-            __('We share information only when needed to operate the store, such as with payment processors, shipping carriers, ecommerce platform providers, analytics providers, fraud prevention tools, and customer support services.', 'dawp'),
-            __('We may also disclose information when required by law, to protect our legal rights, or to respond to valid legal requests.', 'dawp'),
+            'Our website may use cookies and similar technologies to support site functionality, remember preferences, understand website performance, improve shopping experience, and support advertising or analytics.',
+            'You can adjust cookie settings through your browser. Some site features may not work properly if cookies are disabled.',
         ],
     ],
     [
-        'title' => __('Cookies & Analytics', 'dawp'),
+        'title' => 'How We Share Information',
         'copy'  => [
-            __('Cookies help the website remember cart contents, support checkout, understand site performance, and improve browsing. You can control cookies through your browser settings, but some store features may not work correctly if cookies are disabled.', 'dawp'),
+            'We share information only as needed with service providers that help us operate the store, including payment processors, shipping carriers, ecommerce platform providers, fraud prevention tools, analytics providers, email services, and customer support tools.',
+            'We may also share information if required by law, to protect our rights, to prevent fraud or security issues, or in connection with a business transfer such as a merger or sale.',
         ],
     ],
     [
-        'title' => __('Data Retention', 'dawp'),
+        'title' => 'Data Security And Retention',
         'copy'  => [
-            __('We keep order and account information for as long as needed to provide service, comply with legal obligations, resolve disputes, prevent fraud, and maintain business records.', 'dawp'),
+            'We use reasonable administrative, technical, and organizational safeguards to protect personal information. No online system is completely secure, so we cannot guarantee absolute security.',
+            'We keep personal information only as long as needed for order records, customer support, legal compliance, fraud prevention, accounting, and legitimate business purposes.',
         ],
     ],
     [
-        'title' => __('Your Choices', 'dawp'),
+        'title' => 'Your Privacy Choices',
         'copy'  => [
-            __('You may contact us to request access, correction, or deletion of personal information where applicable. Some information may need to be retained for legal, tax, fraud prevention, or order record purposes.', 'dawp'),
+            'Depending on where you live, you may have rights to request access, correction, deletion, portability, or restriction of certain personal information.',
+            'To make a privacy request, email us at support@shopavecmoi.com. We may need to verify your identity before completing certain requests.',
+        ],
+    ],
+    [
+        'title' => 'Children\'s Privacy',
+        'copy'  => [
+            'Shop Avec Moi is intended for adult shoppers and does not knowingly collect personal information from children under 13. If you believe a child has provided personal information, please contact us so we can review and delete it where appropriate.',
+        ],
+    ],
+    [
+        'title' => 'Policy Updates',
+        'copy'  => [
+            'We may update this Privacy Policy from time to time. Updates will be posted on this page with a revised last updated date.',
         ],
     ],
 ];
 ?>
 
-<div class="bg-white text-[#2F2925]">
-    <section class="bg-[#FFF8EF] py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl">
-                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Privacy & Trust', 'dawp'); ?></p>
-                <h1 class="mt-4 font-heading text-5xl font-bold leading-tight text-[#4B3528] sm:text-6xl">
-                    <?php esc_html_e('Privacy Policy', 'dawp'); ?>
-                </h1>
-                <p class="mt-6 max-w-3xl text-lg leading-8 text-[#756A62]">
-                    <?php esc_html_e('This policy explains how Vivisshop collects, uses, and protects information when you browse our women\'s fashion store, place an order, or contact customer support.', 'dawp'); ?>
-                </p>
-                <p class="mt-4 text-sm font-semibold text-[#4B3528]"><?php esc_html_e('Last updated: May 13, 2026', 'dawp'); ?></p>
-            </div>
+<div class="bg-white text-[#24132E] antialiased">
+    <section class="bg-[#FBF4FF] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mx-auto max-w-4xl text-center">
+            <p class="text-sm font-semibold uppercase text-[#6E3A8A]">Privacy &amp; Trust</p>
+            <h1 class="mt-4 font-heading text-5xl leading-[1.05] text-[#3B1748] sm:text-6xl">
+                Privacy Policy
+            </h1>
+            <p class="mt-6 text-base leading-7 text-[#6D5875] sm:text-lg">
+                This policy explains how Shop Avec Moi collects, uses, shares, and protects personal information when you visit our website or place an order.
+            </p>
+            <p class="mt-4 text-sm font-semibold text-[#6E3A8A]">Last updated: May 13, 2026</p>
         </div>
     </section>
 
-    <section class="bg-white py-16 lg:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid gap-5 md:grid-cols-3">
+    <section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid gap-4 md:grid-cols-3">
                 <?php foreach ($privacy_cards as $card) : ?>
-                    <div class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-6">
-                        <h2 class="text-lg font-bold text-[#4B3528]"><?php echo esc_html($card['title']); ?></h2>
-                        <p class="mt-3 text-sm leading-6 text-[#756A62]"><?php echo esc_html($card['copy']); ?></p>
+                    <div class="rounded-2xl border border-[#E8DFF0] bg-white p-6 shadow-sm shadow-[#3B1748]/10">
+                        <h2 class="font-heading text-2xl leading-tight text-[#3B1748]"><?php echo esc_html($card['title']); ?></h2>
+                        <p class="mt-3 text-sm leading-6 text-[#6D5875]"><?php echo esc_html($card['copy']); ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
 
-            <div class="mt-10 grid gap-8 lg:grid-cols-[0.75fr_1.25fr]">
-                <aside class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm lg:sticky lg:top-8 lg:self-start">
-                    <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Contact For Privacy Requests', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#756A62]">
-                        <?php esc_html_e('For privacy questions or requests, email us with enough detail to identify your order or account.', 'dawp'); ?>
+            <div class="mt-12 grid gap-8 lg:grid-cols-[0.72fr_1.28fr]">
+                <aside class="rounded-[2rem] bg-[#21102C] p-6 text-white lg:p-8">
+                    <p class="text-sm font-semibold uppercase text-white">Privacy Contact</p>
+                    <h2 class="mt-3 font-heading text-3xl leading-tight text-white">Questions about your information?</h2>
+                    <p class="mt-4 text-sm leading-6 text-white/75">
+                        Contact our support team for privacy requests or questions about how your order information is handled.
                     </p>
-                    <a class="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-[#4B3528]" href="mailto:support@vivisshop.com">
-                        <?php esc_html_e('support@vivisshop.com', 'dawp'); ?>
+                    <a class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="mailto:<?php echo esc_attr($support_email); ?>">
+                        <?php echo esc_html($support_email); ?>
                     </a>
-                    <p class="mt-5 text-sm leading-6 text-[#756A62]"><?php esc_html_e('Business hours: Monday-Friday, 9:00 AM-5:00 PM', 'dawp'); ?></p>
                 </aside>
 
-                <div class="space-y-6">
-                    <?php foreach ($policy_sections as $section) : ?>
-                        <section class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm sm:p-8">
-                            <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php echo esc_html($section['title']); ?></h2>
-                            <div class="mt-5 space-y-4 text-base leading-8 text-[#756A62]">
+                <div class="grid gap-6">
+                    <?php foreach ($sections as $section) : ?>
+                        <section class="rounded-2xl border border-[#E8DFF0] bg-white p-6 shadow-sm shadow-[#3B1748]/10 lg:p-8">
+                            <h2 class="font-heading text-3xl leading-tight text-[#3B1748]"><?php echo esc_html($section['title']); ?></h2>
+                            <div class="mt-5 grid gap-4 text-sm leading-7 text-[#6D5875]">
                                 <?php foreach ($section['copy'] as $paragraph) : ?>
                                     <p><?php echo esc_html($paragraph); ?></p>
                                 <?php endforeach; ?>
                             </div>
                         </section>
                     <?php endforeach; ?>
-
-                    <section class="rounded-[2rem] bg-[#4B3528] p-6 text-white sm:p-8">
-                        <h2 class="font-heading text-3xl font-bold"><?php esc_html_e('Policy Updates', 'dawp'); ?></h2>
-                        <p class="mt-4 text-base leading-8 text-white/80">
-                            <?php esc_html_e('We may update this Privacy Policy from time to time. Updates will be posted on this page with a revised date, and continued use of the website means the updated policy applies.', 'dawp'); ?>
-                        </p>
-                    </section>
                 </div>
             </div>
         </div>

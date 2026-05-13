@@ -1,103 +1,101 @@
-# Vivisshop Women’s Fashion Home Plan
+# Shop Avec Moi Home Plan
 
 ## Homepage Objective
 
-The Vivisshop homepage should clearly position the brand as a soft, simple, and mature women’s fashion store for everyday clothing.
+Trang chủ Shop Avec Moi cần giới thiệu thương hiệu như một boutique thời trang nội y và đồ ngủ nữ tính, lãng mạn, tinh tế và đủ an toàn cho mainstream ecommerce.
 
-The homepage must communicate:
+Homepage không nên quá dài. Chỉ cần khoảng **5 section chính**, visual mạnh, nội dung ngắn, giàu mood và tập trung vào các nhóm sản phẩm chính:
 
-* Relaxed women’s fashion
-* Soft casual tops
-* Tunic tops
-* Blouses and shirts
-* Gentle graphic tops
-* Easy dresses
-* Comfortable everyday styling
-* Trustworthy ecommerce experience
+* Lingerie Sets
+* Sleepwear
+* Robes & Loungewear
+* Bras & Bralettes
+* Intimate Essentials
 
-The homepage should not feel trendy, loud, sexy, or too young.
+Mục tiêu của homepage:
 
-It should feel calm, wearable, and approachable for women aged 30–45.
+* Tạo ấn tượng boutique feminine ngay từ đầu
+* Thể hiện vibe soft sensual, romantic, elegant
+* Giữ nội dung product-focused và GMC-safe
+* Tránh cảm giác explicit, fetish, adult marketplace
+* Tạo trải nghiệm mua sắm tinh tế, rõ ràng, đáng tin
 
 ---
 
 # Core Homepage Message
 
-Vivisshop helps women find soft, relaxed, and easy-to-wear fashion for real everyday life.
+Shop Avec Moi là nơi dành cho những khoảnh khắc riêng tư, mềm mại và tự tin của phụ nữ.
 
-Main homepage concept:
+Core message:
 
-> Soft everyday styles for women who love comfort, ease, and quiet beauty.
+```text
+Soft intimate pieces for comfort, romance, and quiet confidence.
+```
 
-The homepage should focus on:
-
-* Comfort
-* Softness
-* Relaxed fit
-* Feminine details
-* Everyday wear
-* Mature style
-* Simple outfit building
+Homepage cần truyền tải rằng sản phẩm không chỉ là đồ lót hay đồ ngủ, mà là một phần của self-care, sự nữ tính và cảm giác đẹp trong những khoảnh khắc cá nhân.
 
 ---
 
-# Homepage Story Flow
+# Homepage Flow — 5 Sections
 
-The page should guide customers through this journey:
-
-1. Discover Vivisshop as a soft everyday women’s fashion store
-2. Shop by style and fit
-3. Explore main collections
-4. Highlight casual tops as the strongest category
-5. Highlight tunic tops for relaxed comfort
-6. Highlight blouses and shirts for polished everyday looks
-7. Highlight soft graphic tops inspired by nature and gentle prints
-8. Show new arrivals
-9. Build trust with policies and customer care
-10. Invite customers to subscribe or continue shopping
+```text
+1. Hero: Soft Intimates For Quiet Confidence
+2. Shop By Mood / Category
+3. Feature: Lingerie & Lace
+4. Feature: Sleepwear, Robes & At-Home Elegance
+5. New Arrivals + Customer Care Trust
+```
 
 ---
 
-# Section 1: Hero
+# Section 1: Hero — Soft Intimates For Quiet Confidence
 
 ## Purpose
 
-The hero section should immediately communicate the Vivisshop style: soft, relaxed, feminine, and wearable.
+Hero cần tạo ấn tượng đầu tiên thật mềm mại, lãng mạn và boutique.
 
-It should not look like a discount banner.
+Người xem cần hiểu ngay Shop Avec Moi bán:
+
+* lingerie
+* sleepwear
+* robes
+* intimate essentials
+* feminine pieces
+
+Nhưng cách thể hiện phải tinh tế, không explicit.
 
 ## Visual Direction
 
-Use a realistic lifestyle image of a woman aged around 30–45 wearing a relaxed soft top, tunic, or blouse.
+Dùng ảnh lifestyle/editorial chân thực:
 
-Recommended scene:
-
-* Soft natural light
-* Home, garden, porch, café, or calm indoor setting
-* Neutral or pastel outfit
-* Relaxed pose
-* Comfortable silhouette
-* No text inside image
-* No overly sexy styling
+* Adult female model
+* Mặc satin robe, cami sleep set hoặc soft lace bralette theo cách tasteful
+* Bối cảnh bedroom sáng nhẹ, cream studio, vanity corner hoặc soft hotel room
+* Ánh sáng champagne/ivory, warm window light
+* Pose tự nhiên, calm, confident
+* Không nude
+* Không pose quá khiêu khích
+* Không zoom body quá explicit
+* Không có chữ trong ảnh
 
 ## Content
 
 Eyebrow:
 
 ```text
-Soft Women’s Everyday Fashion
+Romantic Intimates & Sleepwear
 ```
 
 Headline:
 
 ```text
-Soft Everyday Styles For Women
+Soft Intimates For Quiet Confidence
 ```
 
 Subheadline:
 
 ```text
-Relaxed tops, tunics, blouses, and easy wardrobe pieces made for comfort, quiet beauty, and real daily life.
+Romantic lingerie, sleepwear, robes, and feminine essentials designed for comfort, softness, and beautifully personal moments.
 ```
 
 Primary CTA:
@@ -109,403 +107,239 @@ Shop New Arrivals
 Secondary CTA:
 
 ```text
-Explore Casual Tops
+Explore Sleepwear
 ```
 
 ## Design Notes
 
-* Warm ivory or soft beige background
-* Cocoa Brown heading
-* Soft Taupe CTA
-* Large lifestyle image
-* No aggressive sale text
+* Background: Champagne Ivory `#FFF6EE`
+* Heading: Deep Cocoa `#3A241F`
+* Primary button: Soft Blush `#E8B8AD`
+* Secondary button: outline Dusty Rose `#B97878`
+* Layout 2 cột hoặc full image with soft overlay
+* Copy ngắn, visual chiếm vai trò chính
 
 ---
 
-# Section 2: Shop By Style
+# Section 2: Shop By Mood / Category
 
 ## Purpose
 
-Help customers quickly understand the main style directions.
+Giúp người xem nhanh chóng hiểu các collection chính của Shop Avec Moi.
 
-This section should feel like a soft boutique navigation.
+Thay vì chỉ gọi là “category”, section này nên mang cảm giác “shop by mood” để phù hợp với ngành hàng intimate apparel.
 
 ## Layout
 
-Use 4 cards in a grid.
+Dùng 5 collection cards hoặc 4 cards nếu muốn gọn hơn.
 
-## Cards
+Recommended cards:
 
-### Card 1
+1. Lingerie Sets
+2. Sleepwear
+3. Robes & Loungewear
+4. Bras & Bralettes
+5. Intimate Essentials
 
-Title:
+## Card Copy
+
+### Lingerie Sets
 
 ```text
-Relaxed Tops
+Soft lace and delicate matching pieces for romantic confidence.
 ```
 
-Description:
+### Sleepwear
 
 ```text
-Easy tops made for comfort, errands, weekends, and everyday wear.
+Satin, lace-trim, and soft nightwear for quiet evenings.
 ```
 
-### Card 2
-
-Title:
+### Robes & Loungewear
 
 ```text
-Soft Tunics
+At-home elegance made for comfort, layering, and slow mornings.
 ```
 
-Description:
+### Bras & Bralettes
 
 ```text
-Longer relaxed silhouettes with a flattering, comfortable feel.
+Delicate support and feminine shapes for everyday intimacy.
 ```
 
-### Card 3
-
-Title:
+### Intimate Essentials
 
 ```text
-Gentle Blouses
-```
-
-Description:
-
-```text
-Light feminine shirts and blouses for polished casual days.
-```
-
-### Card 4
-
-Title:
-
-```text
-Easy Dresses
-```
-
-Description:
-
-```text
-Simple day dresses for soft seasonal styling and relaxed plans.
+Refined basics designed for softness, comfort, and ease.
 ```
 
 ## Visual Direction
 
-Each card should use calm lifestyle or product images.
+Mỗi card dùng ảnh mood riêng:
 
-Preferred visuals:
-
-* Relaxed white top
-* Soft lavender tunic
-* Lightweight blouse
-* Casual day dress
-
-## Design Notes
-
-* Use rounded image cards
-* Text below or overlay with readable panel
-* No loud labels
-* No discount badges
-
----
-
-# Section 3: Featured Collections
-
-## Purpose
-
-Show the main product categories clearly.
-
-Customers should immediately understand what the store sells.
-
-## Collections
-
-* Casual Tops
-* Tunic Tops
-* Blouses & Shirts
-* Soft Graphic Tops
-* Dresses
-* Seasonal Favorites
-
-## Collection Copy
-
-### Casual Tops
-
-```text
-Soft everyday tops made for relaxed days and simple styling.
-```
-
-### Tunic Tops
-
-```text
-Longer easy-fit silhouettes for comfort and gentle coverage.
-```
-
-### Blouses & Shirts
-
-```text
-Light, feminine pieces for casual polish and everyday plans.
-```
-
-### Soft Graphic Tops
-
-```text
-Nature-inspired prints and gentle artwork on relaxed wearable tops.
-```
-
-### Dresses
-
-```text
-Easy day dresses for weekends, errands, and seasonal moments.
-```
-
-### Seasonal Favorites
-
-```text
-Soft colors, light fabrics, and comfortable styles for the season.
-```
+* Lingerie Sets: lace set hoặc soft matching set, tasteful framing
+* Sleepwear: satin cami set / pajama set
+* Robes: model in robe near window
+* Bras & Bralettes: product-focused bralette image, not explicit
+* Essentials: folded lace/satin pieces, detail shot
 
 ## Design Notes
 
-* Use 3 columns desktop
-* 2 columns tablet
-* 1 column mobile if image-heavy
-* Image should dominate the card
-* Keep copy short
+* Cards image-heavy
+* Text overlay phải có nền nhẹ hoặc đặt bên dưới ảnh
+* Không dùng badge sexy/hot
+* Không dùng ảnh quá lộ hoặc quá cropped
+* Card border Satin Beige `#E6D1C0`
 
 ---
 
-# Section 4: Casual Tops Feature
+# Section 3: Feature — Lingerie & Lace
 
 ## Purpose
 
-Casual Tops should be the main category focus because the reference products are relaxed tops.
+Đây là section cảm xúc chính cho mảng lingerie.
 
-## Visual
+Mục tiêu là tạo cảm giác romantic, delicate, confident nhưng không đi quá giới hạn explicit.
 
-Use an image of a woman wearing a loose V-neck top or relaxed pullover top.
+## Visual Direction
 
-Preferred details:
+Dùng layout editorial 2 cột:
 
-* Soft white or ivory top
-* Natural fabric texture
-* Relaxed sleeves
-* Simple casual jeans or pants
-* Indoor home or calm boutique setting
+* Một ảnh model mặc lace lingerie/bralette hoặc lingerie set một cách tasteful
+* Một ảnh close-up lace/satin detail hoặc product flat lay
+* Soft cream/champagne lighting
+* Không pose adult entertainment
+* Tập trung vào fabric, lace, silhouette, confidence
 
 ## Content
 
 Eyebrow:
 
 ```text
-Casual Tops
+Lingerie & Lace
 ```
 
 Headline:
 
 ```text
-Easy tops for soft everyday comfort.
+Delicate details, softly confident silhouettes.
 ```
 
 Paragraph:
 
 ```text
-Our casual tops are made for the days when you want to feel comfortable but still look naturally put together. Think relaxed fits, soft textures, gentle colors, and simple details you can wear again and again.
+From lace-trim sets to feminine bralettes, Shop Avec Moi brings intimate pieces that feel romantic, comfortable, and beautifully personal — made for women who love softness without losing confidence.
+```
+
+Highlights:
+
+```text
+Soft lace details
+Romantic matching sets
+Comfort-focused silhouettes
+Tasteful feminine styling
 ```
 
 CTA:
 
 ```text
-Shop Casual Tops
+Shop Lingerie Sets
 ```
 
 ## Design Notes
 
-* Use split layout: image + text
-* Warm ivory or white background
-* Keep text calm and mature
+* Background: Soft Gray Rose `#F6EFEC` hoặc Pearl White
+* Heading: Deep Cocoa
+* Accent: Dusty Rose
+* Có thể dùng quote nhỏ: “Romance in the details.”
+* Không dùng copy quá sexy
 
 ---
 
-# Section 5: Tunic Tops Feature
+# Section 4: Feature — Sleepwear, Robes & At-Home Elegance
 
 ## Purpose
 
-Tunic Tops should communicate comfort, flattering coverage, and relaxed feminine style.
+Section này làm mềm brand, tăng độ GMC-safe và mở rộng khỏi cảm giác “lingerie only”.
 
-## Visual
+Sleepwear và robes nên được nhấn mạnh như self-care, comfort, evening routine và at-home elegance.
 
-Use image of a woman wearing a longer relaxed tunic top.
+## Visual Direction
 
-Recommended look:
+Dùng ảnh lifestyle:
 
-* Soft lavender, sage, white, or beige top
-* Loose silhouette
-* Casual pants or jeans
-* Natural light
-* Garden/home/café background
+* Model mặc satin robe hoặc cami sleepwear
+* Bối cảnh phòng ngủ sáng, ghế cạnh cửa sổ, vanity table, morning routine
+* Màu ivory, beige, blush, champagne
+* Pose tự nhiên, đang buộc robe, cầm tách trà, ngồi cạnh giường
+* Không explicit
 
 ## Content
 
 Eyebrow:
 
 ```text
-Tunic Tops
+Sleepwear & Robes
 ```
 
 Headline:
 
 ```text
-Relaxed silhouettes with a flattering feel.
+Soft pieces for evenings, slow mornings, and quiet self-care.
 ```
 
 Paragraph:
 
 ```text
-Tunic tops bring ease to everyday dressing. Longer lengths, soft drape, and comfortable shapes make them simple to style for home, errands, weekends, and casual gatherings.
+Sleepwear should feel as beautiful as it is comfortable. Explore satin textures, delicate trims, soft robes, and loungewear pieces made for restful evenings and graceful at-home moments.
+```
+
+Highlights:
+
+```text
+Satin sleepwear
+Soft robes
+Loungewear ease
+Elegant at-home comfort
 ```
 
 CTA:
 
 ```text
-Explore Tunic Tops
+Explore Sleepwear
+```
+
+Secondary CTA:
+
+```text
+Shop Robes & Loungewear
 ```
 
 ## Design Notes
 
-* Use soft beige or sage-tinted section
-* Pair with close-up fabric/detail image if available
+* Background: Champagne Ivory hoặc Satin Beige very light
+* Có thể dùng full-width image + content card overlay
+* Tone nên nhẹ hơn Section 3
+* Đây là section quan trọng để website không quá sexualized
 
 ---
 
-# Section 6: Soft Graphic Tops Feature
+# Section 5: New Arrivals + Customer Care Trust
 
 ## Purpose
 
-This section should reflect the reference images: soft tops with gentle dragonfly, nature, floral, or inspirational prints.
+Section cuối gộp sản phẩm mới và niềm tin mua hàng.
 
-## Visual
+Vì homepage chỉ có 5 section, section này cần vừa có ecommerce function vừa có trust/GMC support.
 
-Use image of soft graphic top.
+## Layout Option
 
-Preferred graphic themes:
+Có thể chia thành 2 phần trong cùng một section:
 
-* Dragonfly
-* Floral
-* Leaf
-* Watercolor tree
-* Gentle seasonal motif
-* Soft inspirational typography
+1. New Arrivals product grid
+2. Customer Care trust cards
 
-Avoid:
-
-* Loud slogans
-* Meme graphics
-* Copyright characters
-* Celebrity prints
-
-## Content
-
-Eyebrow:
-
-```text
-Soft Graphic Tops
-```
-
-Headline:
-
-```text
-Gentle prints with a quiet kind of charm.
-```
-
-Paragraph:
-
-```text
-For women who like a little artwork without a loud statement, our soft graphic tops bring nature-inspired details, delicate motifs, and relaxed comfort into everyday outfits.
-```
-
-CTA:
-
-```text
-Shop Soft Graphic Tops
-```
-
-## Design Notes
-
-* Dusty lavender accent works well here
-* Use close-up product texture and lifestyle image
-* Keep tone soft, not trendy
-
----
-
-# Section 7: Blouses & Shirts Feature
-
-## Purpose
-
-Show slightly more polished pieces for women who want casual but presentable outfits.
-
-## Visual
-
-Use image of mature woman wearing light blouse or soft shirt.
-
-Recommended scene:
-
-* Café
-* Home office
-* Garden lunch
-* Weekend outing
-
-## Content
-
-Eyebrow:
-
-```text
-Blouses & Shirts
-```
-
-Headline:
-
-```text
-Simple polish for everyday plans.
-```
-
-Paragraph:
-
-```text
-Light blouses and easy shirts help you feel comfortable while looking gently put together. Perfect for casual workdays, lunches, errands, or relaxed time with family and friends.
-```
-
-CTA:
-
-```text
-Shop Blouses & Shirts
-```
-
-## Design Notes
-
-* Use clean white section
-* Add small benefit cards: light, easy, feminine, wearable
-
----
-
-# Section 8: New Arrivals
-
-## Purpose
-
-Show fresh products without making the site feel like a discount-heavy fast-fashion store.
-
-## Layout
-
-Use a clean product grid.
-
-Recommended:
-
-* 4 products on desktop
-* 2 products on mobile
-
-## Content
+## New Arrivals Content
 
 Eyebrow:
 
@@ -516,13 +350,13 @@ New Arrivals
 Headline:
 
 ```text
-Fresh pieces for softer everyday dressing.
+Fresh pieces for soft, personal moments.
 ```
 
-Supporting text:
+Subtext:
 
 ```text
-Discover relaxed tops, gentle blouses, soft graphic pieces, and easy seasonal styles added to the Vivisshop collection.
+Discover romantic lingerie, satin sleepwear, delicate robes, and feminine essentials newly added to Shop Avec Moi.
 ```
 
 CTA:
@@ -531,128 +365,19 @@ CTA:
 View New Arrivals
 ```
 
-## Design Notes
+Product grid:
 
-* No fake urgency
-* No countdown
-* No excessive discount badges
-* Product images should be consistent
+* Desktop: 4 products
+* Mobile: 2 columns if readable
 
----
+Product types to show:
 
-# Section 9: Seasonal Favorites
+* Lingerie set
+* Satin sleepwear
+* Robe/loungewear piece
+* Bralette or intimate essential
 
-## Purpose
-
-Create a lifestyle moment around seasonal dressing.
-
-## Visual
-
-Use soft seasonal image:
-
-* Spring/summer tops
-* Light fabrics
-* Garden/café setting
-* Pastel or neutral colors
-
-## Content
-
-Eyebrow:
-
-```text
-Seasonal Favorites
-```
-
-Headline:
-
-```text
-Light layers, soft colors, and easy outfits for the season.
-```
-
-Paragraph:
-
-```text
-Refresh your wardrobe with comfortable pieces that feel right for the season — from breathable tops to soft blouses and relaxed everyday dresses.
-```
-
-CTA:
-
-```text
-Shop Seasonal Favorites
-```
-
-## Design Notes
-
-* Use soft sage or warm ivory background
-* Large lifestyle image
-* Calm CTA
-
----
-
-# Section 10: Why Women Love Vivisshop
-
-## Purpose
-
-Build trust and explain the brand promise.
-
-## Layout
-
-Use 4–6 cards.
-
-## Cards
-
-### Soft Comfortable Fits
-
-```text
-Relaxed silhouettes designed for real daily movement and comfort.
-```
-
-### Gentle Feminine Details
-
-```text
-Soft colors, light prints, and simple details that feel naturally pretty.
-```
-
-### Easy Everyday Styling
-
-```text
-Pieces you can wear at home, out for errands, or on casual weekends.
-```
-
-### Clear Product Information
-
-```text
-Helpful product details make it easier to choose the right style.
-```
-
-### Secure Checkout
-
-```text
-Shop with a simple and secure checkout experience.
-```
-
-### 30-Day Returns
-
-```text
-Eligible unworn items may be returned within 30 days of delivery.
-```
-
-## Design Notes
-
-* Use soft icon line style
-* White cards on warm beige background
-* Keep copy short
-* No fake reviews unless real
-
----
-
-# Section 11: Shipping, Returns & Support
-
-## Purpose
-
-Reinforce GMC trust before the footer.
-
-## Content
+## Customer Care Content
 
 Eyebrow:
 
@@ -663,27 +388,39 @@ Customer Care
 Headline:
 
 ```text
-Clear support from order to delivery.
+A softer shopping experience, from fit to delivery.
 ```
 
-Three columns:
+Trust cards:
 
-### Shipping
+### Secure Checkout
 
 ```text
-Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+Shop with a simple and secure checkout experience.
 ```
 
-### Returns
+### Tracking Included
 
 ```text
-Customers may request returns within 30 days of delivery for eligible unworn and unwashed items in original condition.
+Tracking information is provided once your order ships.
 ```
 
-### Support
+### 30-Day Returns
 
 ```text
-Need help with sizing, orders, or product questions? Contact support@vivisshop.com during business hours.
+Eligible unworn and unused items may be returned within 30 days of delivery.
+```
+
+### Hygiene-Aware Policy
+
+```text
+For intimate apparel, return eligibility may depend on product condition, tags, packaging, and hygiene requirements.
+```
+
+Support line:
+
+```text
+Need help with sizing, orders, or product questions? Contact support@shopavecmoi.com during business hours.
 ```
 
 CTA:
@@ -694,153 +431,129 @@ View Shipping & Returns
 
 ## Design Notes
 
-* Use trust section near bottom
-* Link to policy pages
-* Make information realistic and transparent
-
----
-
-# Section 12: Newsletter
-
-## Purpose
-
-Invite visitors to stay connected without aggressive discount pressure.
-
-## Content
-
-Eyebrow:
-
-```text
-Stay Updated
-```
-
-Headline:
-
-```text
-Soft new styles, straight to your inbox.
-```
-
-Paragraph:
-
-```text
-Join the Vivisshop list for new arrivals, seasonal favorites, and easy everyday outfit ideas.
-```
-
-CTA:
-
-```text
-Subscribe
-```
-
-## Design Notes
-
-* No popup
-* No fake discount language
-* Use simple email input
-* Warm ivory or cocoa footer transition
+* New Arrivals dùng nền Pearl White
+* Trust block có thể dùng nền Deep Cocoa với text trắng
+* Trust copy phải rõ ràng vì ngành intimate apparel cần minh bạch return policy
+* Không fake review nếu chưa có review thật
+* Không countdown / flash sale
 
 ---
 
 # Homepage Image List
 
-Prepare images for:
+Cần chuẩn bị tối thiểu các ảnh sau:
 
-1. Hero image: woman 30–45 in relaxed soft top
-2. Shop by Style: relaxed tops
-3. Shop by Style: tunic tops
-4. Shop by Style: blouses
-5. Shop by Style: easy dresses
-6. Featured category: casual tops
-7. Featured category: tunic tops
-8. Featured category: soft graphic tops
-9. Featured category: blouses & shirts
-10. Seasonal favorites lifestyle image
-11. Product card images
-12. Customer care / support image if needed
+1. Hero image: adult woman in satin robe/sleepwear, tasteful bedroom or cream studio
+2. Category image: Lingerie Sets
+3. Category image: Sleepwear
+4. Category image: Robes & Loungewear
+5. Category image: Bras & Bralettes
+6. Category image: Intimate Essentials / fabric detail
+7. Feature image: Lingerie & Lace editorial shot
+8. Detail image: lace/satin close-up
+9. Feature image: Sleepwear & Robes lifestyle shot
+10. Product images: 4 new arrivals
+11. Optional customer care/support image if needed
 
 Image requirements:
 
-* Realistic
-* Soft natural light
-* Women aged 30–45
 * No text inside image
-* No copyrighted graphics
-* No overly sexy styling
-* No teen fashion aesthetic
+* No nudity
+* No explicit pose
+* No fetish styling
+* No adult-content framing
+* Soft editorial lighting
+* Adult models only
+* Product/fabric must be visible
 
 ---
 
 # Homepage Copy Rules
 
-Use soft, mature, benefit-driven language.
+Use words like:
 
-Good phrases:
+```text
+soft
+romantic
+delicate
+feminine
+intimate
+comfort
+confidence
+satin
+lace
+sleepwear
+loungewear
+quiet beauty
+personal moments
+self-care
+at-home elegance
+```
 
-* Soft everyday styles
-* Relaxed tops for real daily life
-* Easy pieces for home, errands, and weekends
-* Gentle feminine details
-* Comfortable silhouettes
-* Quiet beauty
-* Wearable wardrobe favorites
+Avoid words like:
+
+```text
+naughty
+fetish
+explicit
+adult fantasy
+hot babe
+wild night
+pornographic
+barely there
+seduce
+```
+
+---
+
+# GMC-Safe Homepage Rules
+
+The homepage must present intimate apparel as fashion, comfort, and self-care.
+
+Do:
+
+* Show product categories clearly
+* Use tasteful imagery
+* Mention fabric, fit, comfort, sleepwear, robes
+* Include transparent customer care info
+* Keep language elegant and mature
 
 Avoid:
 
-* Sexy fashion
-* Viral trend
-* Must-have hot style
-* Crazy deal
-* Clubwear
-* Bodycon
-* Slay
-* Too youthful slang
+* Nudity
+* Adult entertainment vibe
+* Explicit copy
+* Extreme body focus
+* Suggestive hero image
+* Fake urgency
+* Countdown timers
+* Overly sexual collection names
 
 ---
 
-# Homepage UX Rules
-
-* Make Casual Tops and Tunic Tops prominent
-* Do not overload homepage with too many product grids
-* Use lifestyle images to create a calm boutique feel
-* Keep categories focused on women’s fashion
-* Add trust section before footer
-* Use realistic shipping/return copy
-* Avoid popups on first load
-* Maintain strong text contrast
-* Mobile must keep product cards readable
-
----
-
-# Suggested Homepage Flow Short Version
+# Suggested 5-Section Flow
 
 ```text
-Hero: Soft Everyday Styles For Women
-Shop By Style: Relaxed Tops / Soft Tunics / Gentle Blouses / Easy Dresses
-Featured Collections: Casual Tops / Tunic Tops / Blouses & Shirts / Soft Graphic Tops / Dresses / Seasonal Favorites
-Casual Tops Feature
-Tunic Tops Feature
-Soft Graphic Tops Feature
-Blouses & Shirts Feature
-New Arrivals
-Seasonal Favorites
-Why Women Love Vivisshop
-Shipping, Returns & Support
-Newsletter
+1. Hero: Soft Intimates For Quiet Confidence
+2. Shop By Mood / Category
+3. Lingerie & Lace Feature
+4. Sleepwear, Robes & At-Home Elegance
+5. New Arrivals + Customer Care Trust
 ```
 
 ---
 
 # Final Homepage Feeling
 
-After viewing the homepage, customers should feel:
+Sau khi xem homepage, khách hàng cần cảm thấy:
 
-* Vivisshop clearly sells women’s casual fashion
-* The style is soft, mature, and comfortable
-* Products feel wearable for daily life
-* The store feels calm and trustworthy
-* The brand does not feel random or too trendy
-* Policies and support are transparent
+* Shop Avec Moi là boutique intimate apparel tinh tế
+* Sản phẩm romantic, feminine, soft nhưng không explicit
+* Lingerie và sleepwear được trình bày như fashion/self-care
+* Website có visual đẹp, premium, editorial
+* Chính sách và customer support rõ ràng
+* Brand có cá tính riêng, khác với một shop lingerie rẻ tiền
 
-The homepage should communicate:
+Homepage nên truyền tải:
 
-> Vivisshop is a gentle women’s fashion store for relaxed tops, tunics, blouses, and soft everyday styles.
+> Shop Avec Moi is a romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials — soft, elegant, confident, and safe for mainstream ecommerce.

@@ -1,11 +1,12 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'casual-tops'       => 'relaxed-tops',
-        'tunic-tops'        => 'soft-tunics',
-        'blouses-shirts'    => 'gentle-blouses',
-        'new-arrivals'      => 'relaxed-tops',
-        'soft-graphic-tops' => 'relaxed-tops',
+        'lingerie'              => 'lingerie-sets',
+        'bras-and-bralettes'    => 'bras-bralettes',
+        'robes-and-loungewear'  => 'robes-loungewear',
+        'robes'                 => 'robes-loungewear',
+        'loungewear'            => 'robes-loungewear',
+        'essentials'            => 'intimate-essentials',
     ];
 
     return $map[$slug] ?? $slug;
@@ -29,19 +30,21 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     return [
-        ['title' => __('Relaxed Tops', 'dawp'), 'url' => dawp_product_category_url('relaxed-tops')],
-        ['title' => __('Soft Tunics', 'dawp'), 'url' => dawp_product_category_url('soft-tunics')],
-        ['title' => __('Gentle Blouses', 'dawp'), 'url' => dawp_product_category_url('gentle-blouses')],
+        ['title' => __('Lingerie Sets', 'dawp'), 'url' => dawp_product_category_url('lingerie-sets')],
+        ['title' => __('Sleepwear', 'dawp'), 'url' => dawp_product_category_url('sleepwear')],
+        ['title' => __('Robes & Loungewear', 'dawp'), 'url' => dawp_product_category_url('robes-loungewear')],
+        ['title' => __('Bras & Bralettes', 'dawp'), 'url' => dawp_product_category_url('bras-bralettes')],
+        ['title' => __('Intimate Essentials', 'dawp'), 'url' => dawp_product_category_url('intimate-essentials')],
     ];
 }
 
 function dawp_main_menu_items() {
-    return array_merge([
-        ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-    ], dawp_shop_category_items(), [
-        ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
+    return [
+        ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
+        ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')],
+        ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
         ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
-    ]);
+    ];
 }
 function dawp_is_current_url($url) {
     $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
@@ -61,10 +64,10 @@ function dawp_footer_columns() {
         [
             'title' => __('Store Policy', 'dawp'),
             'links' => [
-                ['title' => __('Shipping & Return', 'dawp'), 'url' => home_url('/shipping-returns/')],
+                ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
                 ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
                 ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-                ['title' => __('Faqs', 'dawp'), 'url' => home_url('/faq/')],
+                ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
             ],
         ],
         [

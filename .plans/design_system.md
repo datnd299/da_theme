@@ -1,26 +1,34 @@
-# Vivisshop Women’s Fashion Design System
+# Shop Avec Moi Design System
 
 ## Core Design Philosophy
 
-Vivisshop should feel like a calm, soft, and trustworthy women’s fashion store for everyday clothing.
+Shop Avec Moi should feel like a romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials.
 
-The website experience must be:
+The design must feel:
 
-* Gentle
 * Feminine
-* Clean
+* Romantic
+* Elegant
+* Softly sensual
 * Mature
-* Comfortable
-* Boutique-inspired
-* Easy to browse
+* Intimate
+* Premium but approachable
 * GMC-safe
 
-Vivisshop is not a fast-fashion trend site.
-It is not a teen fashion store.
-It is not a streetwear brand.
-It is not a luxury boutique.
+The site should create desire through softness, fabric, fit, light, and mood — not through explicit imagery or aggressive sexual language.
 
-The website should make women aged 30–45 feel that the clothing is wearable, flattering, comfortable, and easy to style in real daily life.
+Shop Avec Moi is not:
+
+* An adult entertainment site
+* A fetish lingerie store
+* A cheap dropshipping lingerie marketplace
+* A nightclub fashion shop
+* A loud fast-fashion store
+* A teen-focused fashion brand
+
+The design should communicate:
+
+> Soft intimate pieces for comfort, romance, and quiet confidence.
 
 ---
 
@@ -28,200 +36,196 @@ The website should make women aged 30–45 feel that the clothing is wearable, f
 
 ## Brand Identity
 
-Vivisshop =
+Shop Avec Moi =
 
-**Soft Everyday Women’s Fashion**
+**Romantic Intimate Apparel Boutique**
 
 Visual identity should combine:
 
-* Relaxed boutique fashion
-* Soft neutral colors
-* Mature feminine styling
-* Simple product discovery
-* Lifestyle photography
-* Clear ecommerce structure
-* Trust-first customer experience
+* Feminine editorial ecommerce
+* Soft luxury bedroom mood
+* Satin and lace textures
+* Minimal but romantic UI
+* Clean product discovery
+* Strong customer trust
+* Mature sensuality
+* Boutique warmth
 
 The website should resemble:
 
-* A calm women’s boutique
-* A soft everyday apparel store
-* A mature casual fashion brand
-* A relaxed lifestyle clothing shop
+* A refined lingerie boutique
+* A romantic sleepwear brand
+* A feminine self-care apparel store
+* A premium intimate essentials shop
 
 Avoid resembling:
 
-* A random fashion marketplace
-* A clubwear store
-* A Gen Z trend shop
-* A luxury runway brand
-* A discount warehouse
-* A general dropshipping store
+* Adult marketplace
+* Costume lingerie site
+* Discount lingerie warehouse
+* Neon clubwear store
+* Explicit adult landing page
 
 ---
 
-# Layout Rules
+# Brand Mood
 
-## General Layout
+The emotional mood should be:
 
-The layout should be clean, soft, and spacious.
+* Quiet confidence
+* Feminine softness
+* Private elegance
+* Evening calm
+* Romantic comfort
+* Self-care
+* Warm intimacy
 
-Use:
+Good mood words:
 
-* Generous whitespace
-* Large lifestyle images
-* Simple product grids
-* Calm section transitions
-* Rounded cards
-* Clear typography
-* Warm background blocks
+```text
+soft
+romantic
+delicate
+satin
+lace
+intimate
+confidence
+comfort
+evening
+quiet beauty
+feminine ease
+```
 
-Avoid:
+Avoid mood words:
 
-* Crowded product walls
-* Too many sale banners
-* Flashy animations
-* Harsh contrast blocks
-* Aggressive discount graphics
-* Overly dense homepage sections
-
----
-
-# Grid System
-
-## Desktop
-
-* Use max-w-7xl containers
-* 3-column category cards
-* 4-column product grids
-* 2-column image + copy sections
-* Large hero with soft lifestyle image
-
-## Tablet
-
-* 2-column category and product cards
-* Keep text blocks readable
-* Use large image cards
-
-## Mobile
-
-* Single-column story sections
-* 2-column product grids when suitable
-* Large tap targets
-* Sticky or simple mobile navigation
-* Shorter copy blocks
-
----
-
-# Container Rules
-
-Recommended widths:
-
-* Main container: `max-w-7xl`
-* Narrow text: `max-w-3xl`
-* Policy/content pages: `max-w-4xl`
-* Product grid: `max-w-7xl`
-
-Recommended padding:
-
-* Mobile: `px-4`
-* Tablet: `px-6`
-* Desktop: `px-8`
-
-Section spacing:
-
-* Desktop: `py-20` to `py-24`
-* Mobile: `py-14` to `py-16`
+```text
+naughty
+fetish
+adult fantasy
+explicit
+wild night
+barely there
+hot babe
+pornographic
+```
 
 ---
 
 # Color System
 
-The color system should feel soft, feminine, mature, and easy on the eyes.
+The color palette should feel romantic, soft, mature, and boutique-like.
 
-It should not feel childish, neon, or overly pink.
+Avoid overly bright pinks, neon colors, or harsh black-heavy styling.
 
 ## Primary Palette
 
-### Warm Ivory
+### Champagne Ivory
 
 ```txt
-#FFF8EF
+#FFF6EE
 ```
 
 Use for:
 
 * Main soft backgrounds
-* Hero background
-* Warm content sections
-* Calm page atmosphere
+* Hero backgrounds
+* Sleepwear sections
+* Product storytelling blocks
 
 ---
 
-### Soft Taupe
+### Soft Blush
 
 ```txt
-#B89B83
+#E8B8AD
 ```
 
 Use for:
 
+* Primary feminine accents
 * Buttons
-* Accents
-* Section labels
-* Border highlights
-* Warm feminine details
+* Collection labels
+* Soft highlight blocks
 
 ---
 
-### Cocoa Brown
+### Dusty Rose
 
 ```txt
-#4B3528
+#B97878
+```
+
+Use for:
+
+* Stronger feminine accents
+* Hover states
+* Small badges
+* Editorial headings
+
+---
+
+### Deep Cocoa
+
+```txt
+#3A241F
 ```
 
 Use for:
 
 * Main headings
 * Footer background
-* Strong text emphasis
-* Elegant contrast
+* High-contrast sections
+* Elegant text emphasis
 
 ---
 
-### Dusty Lavender
+### Warm Black
 
 ```txt
-#AFA2D6
+#171313
+```
+
+Use sparingly for:
+
+* Luxury contrast
+* Footer overlays
+* Strong CTA blocks
+* Product detail emphasis
+
+---
+
+## Secondary Palette
+
+### Satin Beige
+
+```txt
+#E6D1C0
 ```
 
 Use for:
 
-* Soft accent blocks
-* Hover details
-* Seasonal graphics
-* Gentle feminine highlights
+* Alternate section backgrounds
+* Product card accents
+* Soft borders
+* Sleepwear/loungewear sections
 
 ---
 
-### Sage Green
+### Muted Mauve
 
 ```txt
-#A8B99A
+#9D7A83
 ```
 
 Use for:
 
-* Secondary accents
-* Natural lifestyle sections
-* Soft badges
-* Seasonal collection highlights
+* Secondary buttons
+* Link hover states
+* Romantic editorial accents
 
 ---
 
-## Neutral Palette
-
-### Clean White
+### Pearl White
 
 ```txt
 #FFFFFF
@@ -232,225 +236,322 @@ Use for:
 * Product cards
 * Forms
 * Header
-* Main content areas
+* Clean content areas
 
 ---
 
-### Soft Beige
+### Soft Gray Rose
 
 ```txt
-#F3E7DA
+#F6EFEC
 ```
 
 Use for:
 
-* Alternate sections
-* Category backgrounds
-* Lifestyle cards
+* Light neutral sections
+* Policy pages
+* Subtle content backgrounds
 
 ---
 
-### Gentle Border
-
-```txt
-#E7D8C8
-```
-
-Use for:
-
-* Borders
-* Dividers
-* Product cards
-* Form inputs
-
----
+## Text Colors
 
 ### Main Text
 
 ```txt
-#2F2925
+#2C2220
 ```
 
 Use for:
 
+* Body text
 * Product titles
-* Body text when stronger readability is needed
-
----
+* Main content
 
 ### Muted Text
 
 ```txt
-#756A62
+#7B6B66
 ```
 
 Use for:
 
 * Descriptions
+* Secondary content
 * Metadata
-* Secondary text
 
 ---
 
 # Color Usage Rules
 
-## Light Sections
+## Light Romantic Sections
 
 Use:
 
-* Background: `#FFF8EF`, `#FFFFFF`, or `#F3E7DA`
-* Heading: `#4B3528`
-* Body text: `#756A62`
-* CTA: `#B89B83`
+* Background: Champagne Ivory or Soft Gray Rose
+* Heading: Deep Cocoa
+* Body: Muted Text
+* CTA: Soft Blush or Dusty Rose
 
-## Accent Sections
+## Product Sections
 
 Use:
 
-* Dusty Lavender or Sage Green as soft accent blocks
-* Keep text contrast strong with Cocoa Brown
-* Avoid placing light text on pastel backgrounds unless contrast is checked
+* Background: Pearl White or Soft Gray Rose
+* Product card: White
+* Border: Satin Beige
+* Heading: Deep Cocoa
 
-## Dark Sections
+## Strong Editorial Sections
 
-Use Cocoa Brown for footer or strong CTA areas.
+Use:
 
-* Background: `#4B3528`
-* Heading: `#FFFFFF`
+* Background: Deep Cocoa or Warm Black
+* Heading: Pearl White
 * Body: white/80
-* Accent: `#F3E7DA` or `#A8B99A`
+* Accent: Soft Blush or Satin Beige
 
 ## Avoid
 
-* Neon colors
-* Harsh black backgrounds
-* Bright red sale sections
-* Overly sweet baby pink
-* Too many pastel colors together
-* Low contrast taupe text on beige background
+* Neon pink
+* Bright red sale backgrounds
+* Heavy black on every section
+* Low-contrast blush text on ivory
+* Too many pastel tones in one section
 
 ---
 
 # Typography System
 
-Typography should feel feminine, mature, and easy to read.
+Typography should feel elegant, romantic, and mature.
 
 ## Heading Font Direction
 
-Recommended:
+Recommended heading fonts:
 
 * Playfair Display
 * Cormorant Garamond
 * Lora
-* Merriweather
 * DM Serif Display
+* Libre Baskerville
 
-Heading should feel:
+Heading style:
 
-* Soft
 * Elegant
-* Mature
-* Boutique-inspired
-* Not overly luxury
+* Editorial
+* Feminine
+* Slightly romantic
+* Not overly decorative
+* Not too luxury-cold
 
 ## Body Font Direction
 
-Recommended:
+Recommended body fonts:
 
 * Inter
-* Source Sans 3
-* Be Vietnam Pro
-* Nunito Sans
 * DM Sans
+* Source Sans 3
+* Nunito Sans
+* Be Vietnam Pro
 
-Body should feel:
+Body style:
 
-* Clear
-* Friendly
-* Easy to read
-* Modern but not cold
+* Clean
+* Readable
+* Modern
+* Soft
+* Easy to scan
 
 ## Typography Rules
 
 H1:
 
-* Large, soft, elegant
-* Avoid all-caps aggressive styling
-* Use relaxed line-height
+* Large editorial style
+* Soft line-height
+* Should feel premium and feminine
+* Avoid aggressive all-caps
 
 H2:
 
-* Calm and descriptive
-* Should introduce each collection or story clearly
+* Collection mood focused
+* Elegant but readable
 
-Paragraphs:
+Paragraph:
 
 * Short
-* Gentle
-* Benefit-focused
-* Avoid dense fashion jargon
+* Warm
+* Product/fabric focused
+* Avoid explicit copy
 
 Product titles:
 
-* Clear and simple
-* Avoid keyword stuffing
-* Avoid overly long titles
+* Clear and tasteful
+* No vulgar wording
+* No keyword stuffing
+
+---
+
+# Layout Principles
+
+The layout should be visual-first, soft, and spacious.
+
+Use:
+
+* Large photography
+* Editorial split sections
+* Clean collection cards
+* Soft rounded product cards
+* Warm whitespace
+* Smooth section flow
+* Calm grid layouts
+
+Avoid:
+
+* Crowded product walls
+* Loud sale banners
+* Red urgency blocks
+* Flashy sliders
+* Auto popups
+* Overly explicit hero imagery
+* Too many products above the fold
+
+---
+
+# Container Rules
+
+Recommended widths:
+
+* Main container: `max-w-7xl`
+* Narrow text: `max-w-3xl`
+* Policy pages: `max-w-4xl`
+* Product grids: `max-w-7xl`
+
+Recommended padding:
+
+* Mobile: `px-4`
+* Tablet: `px-6`
+* Desktop: `px-8`
+
+Section spacing:
+
+* Desktop: `py-20` to `py-28`
+* Mobile: `py-14` to `py-16`
 
 ---
 
 # Imagery System
 
-Images should sell comfort, softness, and real-life wearability.
+Imagery is the strongest brand driver.
 
-## Preferred Image Style
+Images must feel elegant, intimate, and tasteful.
+
+## Preferred Photography Style
 
 Use:
 
-* Realistic women’s fashion photography
-* Women aged around 30–45
-* Natural indoor light
-* Soft outdoor settings
-* Home, café, garden, weekend scenes
-* Relaxed posing
-* Comfortable silhouettes
-* Fabric texture close-ups
-* Neutral and pastel color palettes
+* Soft window light
+* Warm bedroom scenes
+* Vanity table scenes
+* Cream wall studio
+* Satin sheets
+* Robes and sleepwear in natural poses
+* Fabric detail close-ups
+* Soft editorial framing
+* Adult women models
+* Mature feminine expression
 
-Images should feel:
+Images should communicate:
 
-* Real
-* Soft
-* Calm
-* Boutique-like
-* Approachable
-* Not over-styled
+* Comfort
+* Romance
+* Soft confidence
+* Fabric texture
+* Elegant intimacy
 
-## Image Categories Needed
+## Model Direction
 
-Homepage should include images for:
+Models should be:
 
-* Hero lifestyle image with mature woman wearing relaxed soft top
-* Casual tops collection
-* Tunic tops collection
-* Blouses & shirts collection
-* Soft graphic tops collection
-* Dresses or seasonal favorites
-* Product grid images
-* Trust/customer support section
+* Adult women
+* Styled tastefully
+* Relaxed and confident
+* Not overly posed
+* Not explicit
+* Not nude
+* Not adult-entertainment coded
 
-## Avoid Images
+Good poses:
 
-Do not use:
+* Sitting on bed in satin robe
+* Standing near window in sleepwear
+* Adjusting robe belt naturally
+* Holding robe collar softly
+* Looking calm and confident
+* Walking through a soft bedroom or dressing area
 
-* Teen models
-* Nightclub poses
-* Overly sexy clothing
-* Luxury runway shots
-* Harsh studio lighting
-* Fast fashion collage graphics
-* Low-quality product screenshots
-* Images with fake brand logos
-* Copyrighted character graphics
+Avoid poses:
+
+* Explicit bedroom poses
+* Overly arched body focus
+* Nude or near-nude imagery
+* Extreme sheer exposure
+* Fetish styling
+* Adult performance vibe
+
+---
+
+# Product Photography Rules
+
+Product images should show:
+
+* Garment shape clearly
+* Fabric texture
+* Lace or satin details
+* Fit and silhouette
+* Front and back when needed
+* Color accuracy
+
+Recommended ratios:
+
+* Product card: 4:5
+* Editorial feature: 4:5 or 3:4
+* Hero: 16:9 or split layout 4:5 image
+* Detail images: 1:1 or 4:3
+
+Avoid:
+
+* Low-resolution product cutouts
+* Overly cropped body images
+* Text inside product images
+* Fake brand logos
+* Inconsistent backgrounds
+
+---
+
+# GMC-Safe Visual Rules
+
+Because the store sells intimate apparel, visual safety is important.
+
+Allowed:
+
+* Lingerie modeled tastefully
+* Sleepwear and robes
+* Satin pajama sets
+* Lace details
+* Bralettes and bras presented as apparel
+* Product-focused model shots
+
+Avoid:
+
+* Nudity
+* Explicit sexual framing
+* Pornographic poses
+* Body-part-only imagery
+* Fetish props
+* Transparent exposure that looks adult-content oriented
+* Suggestive thumbnails designed only for clicks
+
+The goal is fashion and intimate apparel, not adult entertainment.
 
 ---
 
@@ -458,168 +559,170 @@ Do not use:
 
 ## Buttons
 
-Buttons should feel soft and boutique-friendly.
+Buttons should feel soft and elegant.
 
 ### Primary Button
 
 Recommended:
 
-* Background: `#B89B83`
-* Text: `#FFFFFF`
-* Hover: `#4B3528`
+* Background: Soft Blush `#E8B8AD`
+* Text: Deep Cocoa `#3A241F` or White depending contrast
+* Hover: Dusty Rose `#B97878`
 
 Use for:
 
 * Shop New Arrivals
-* Shop Casual Tops
-* Explore Collection
+* Shop Lingerie Sets
+* Explore Sleepwear
 
 ### Secondary Button
 
 Recommended:
 
-* Background: transparent or white
-* Border: `#B89B83`
-* Text: `#4B3528`
-* Hover: `#F3E7DA`
+* Background: transparent or Pearl White
+* Border: Dusty Rose
+* Text: Deep Cocoa
+* Hover: Soft Gray Rose
 
 Use for:
 
-* Learn More
+* Explore Collection
 * View Lookbook
-* Explore Styles
+* Learn More
 
 ### Button Shape
 
 * Border radius: 999px or 14px
-* Padding: comfortable
+* Padding: generous
 * Font weight: 600
+* Letter spacing: subtle
 
 Avoid:
 
-* Red urgency buttons
 * Neon buttons
-* Huge all-caps sales buttons
+* Red urgency buttons
+* Huge all-caps discount CTAs
 
 ---
 
 ## Product Cards
 
-Product cards should feel clean and soft.
+Product cards should feel premium, soft, and clean.
 
 Must include:
 
 * Product image
 * Product title
 * Price
-* Simple CTA or add to cart
+* Color/size option if available
+* Add to cart or view product
 
 Recommended style:
 
-* White background
-* Gentle beige border
-* Soft hover shadow
+* White or ivory background
+* Satin Beige border
 * Rounded corners
-* Consistent product image ratio
+* Soft hover shadow
 * Minimal badges
+* Consistent image ratio
 
 Avoid:
 
 * Too many sale labels
-* Fake review stars
-* Countdown timers
+* Fake reviews
+* Countdown badges
+* Explicit product names
 * Long keyword-stuffed titles
-* Product cards with clashing image styles
 
 ---
 
-## Category Cards
+## Collection Cards
 
-Category cards should communicate soft daily style.
+Collection cards should communicate mood and product type.
 
-Good structure:
+Recommended structure:
 
-* Lifestyle image
+* Large mood image
 * Category name
-* One short style line
+* One romantic line
 * CTA link
 
 Example:
 
 ```text
-Casual Tops
-Soft everyday tops made for relaxed days.
+Sleepwear
+Soft satin and lace-trim pieces for quiet evenings.
 ```
 
-Recommended categories:
+Main collection cards:
 
-* Casual Tops
-* Tunic Tops
-* Blouses & Shirts
-* Soft Graphic Tops
-* Dresses
-* Seasonal Favorites
+* Lingerie Sets
+* Sleepwear
+* Robes & Loungewear
+* Bras & Bralettes
+* Intimate Essentials
 
 ---
 
 ## Trust Cards
 
-Trust cards should be simple and warm.
+Trust cards should be elegant and customer-care focused.
 
 Suggested cards:
 
-* Easy Everyday Styles
 * Secure Checkout
 * Tracking Included
 * 30-Day Returns
+* Size & Fit Details
 * Customer Support
-* Clear Product Details
+* Carefully Curated Styles
 
 Style:
 
-* Soft icon line style
-* Warm beige cards
+* Soft line icons
+* Ivory or white card
+* Warm accent color
 * Short copy
 
 ---
 
 # Header Rules
 
-Header should be clean, feminine, and easy to use.
+Header should feel minimal and boutique-like.
 
 Recommended structure:
 
 * Logo left
 * Main navigation center
-* Search / account / cart right
+* Search/account/cart right
 
 Navigation:
 
 * New Arrivals
-* Casual Tops
-* Tunic Tops
-* Blouses & Shirts
-* Dresses
+* Lingerie Sets
+* Sleepwear
+* Robes & Loungewear
+* Bras & Bralettes
 * Contact
 
 Header color:
 
-* Clean white or warm ivory
-* Cocoa Brown text
-* Soft Taupe hover
+* Pearl White or Champagne Ivory
+* Deep Cocoa text
+* Dusty Rose hover
 
 Avoid:
 
-* Heavy dark header
-* Too many menu links
-* Flash sale top bars
+* Heavy black header
+* Too many menu items
+* Flash sale top bar
 * Mega menu at early stage
 
 ---
 
 # Footer Rules
 
-Footer should be trust-heavy but still soft.
+Footer should feel warm, elegant, and trust-focused.
 
 Include:
 
@@ -629,131 +732,126 @@ Include:
 * Policy links
 * Support email
 * Business hours
+* Return hygiene note link
 
 Footer background:
 
-* Cocoa Brown `#4B3528`
+* Deep Cocoa `#3A241F`
 
 Footer text:
 
-* White
-* White/75 for secondary text
-* Soft Beige accent
+* Pearl White
+* White/75 secondary text
+* Soft Blush accent links
 
 Avoid:
 
-* Overcrowded footer
 * Low contrast links
-* Fake badges
+* Fake trust badges
+* Too many payment logos
+* Explicit wording
 
 ---
 
 # Homepage Design Rules
 
-Homepage should feel like a calm boutique journey.
+Homepage should feel editorial and boutique-like, but not too long.
 
-## Hero Section
+Recommended sections:
 
-Goal:
+1. Hero: Soft Intimates For Quiet Confidence
+2. Shop Categories
+3. Lingerie & Lace Feature
+4. Sleepwear & Robes Feature
+5. New Arrivals / Customer Care
 
-Introduce Vivisshop as a soft women’s fashion store.
+## Hero Direction
 
-Visual:
-
-* Mature woman in relaxed soft top
-* Natural home/garden/café setting
-* Soft neutral colors
-* No text inside image
-
-Headline direction:
+Headline:
 
 ```text
-Soft Everyday Styles For Women
+Soft Intimates For Quiet Confidence
 ```
 
 Subheadline:
 
 ```text
-Relaxed tops, tunics, blouses, and easy wardrobe pieces made for comfort, quiet beauty, and real daily life.
+Romantic lingerie, sleepwear, and feminine essentials designed for comfort, softness, and beautifully personal moments.
 ```
 
 CTA:
 
 * Shop New Arrivals
-* Explore Casual Tops
+* Explore Sleepwear
+
+Visual:
+
+* Tasteful adult model in satin robe or soft sleepwear
+* Warm bedroom or cream studio
+* No explicit pose
 
 ---
 
-## Shop By Style
+## Category Section
 
-Use style cards:
+Show 3–5 categories only:
 
-* Relaxed Tops
-* Soft Tunics
-* Gentle Blouses
-* Easy Dresses
+* Lingerie Sets
+* Sleepwear
+* Robes & Loungewear
+* Bras & Bralettes
+* Intimate Essentials
 
----
-
-## Featured Collections
-
-Show:
-
-* Casual Tops
-* Tunic Tops
-* Blouses & Shirts
-* Soft Graphic Tops
-* Dresses
-* Seasonal Favorites
+Use image-heavy cards.
 
 ---
 
-## New Arrivals
+## Feature Sections
 
-Use clean product grid.
+### Lingerie & Lace
 
-Avoid fake urgency.
-Avoid excessive discounts.
+Focus on:
 
----
+* Soft lace
+* Delicate details
+* Matching sets
+* Feminine confidence
 
-## Why Vivisshop
+### Sleepwear & Robes
 
-Explain brand promise:
+Focus on:
 
-* Soft comfortable fits
-* Easy everyday styling
-* Feminine details
-* Clear product information
-* Secure checkout
-* 30-day returns
+* Satin textures
+* Evening comfort
+* Soft self-care
+* At-home elegance
 
 ---
 
 # Collection Page Rules
 
-Collection pages should feel curated and easy to browse.
+Collection pages should feel curated, not like product dumps.
 
-Each collection should include:
+Each collection page should include:
 
-* Short intro
 * Soft hero image
+* Short intro copy
 * Clean product grid
-* Helpful category description
-* Clear filter/sort if available
+* Simple filters
+* Fit/fabric note if useful
 
 Avoid:
 
-* Endless keyword text
-* Random products
-* Overly sexy items
-* Mixed unrelated categories
+* Long SEO keyword paragraphs
+* Overly explicit product titles
+* Random unrelated items
+* Too many sale labels
 
 ---
 
 # Product Page Rules
 
-Product pages must be clear and fashion-focused.
+Product pages must be tasteful and helpful.
 
 Include:
 
@@ -762,47 +860,42 @@ Include:
 * Size options
 * Color options
 * Clear product images
-* Fabric/material notes
-* Fit description
+* Fabric feel
+* Fit notes
 * Care instructions
 * Shipping and returns note
+* Hygiene-sensitive return note where relevant
 
 Product copy should answer:
 
-* What is the fit?
 * What is the fabric feel?
-* How can it be styled?
-* When can it be worn?
+* What is the fit?
+* How is it styled?
+* Is it sleepwear, loungewear, or intimate apparel?
 * What should the customer know before buying?
 
 Avoid:
 
-* Unsupported fabric claims
-* Fake luxury language
-* Overly long product titles
-* Too many emojis
-* Sexualized descriptions
+* Explicit sexual copy
+* Adult fantasy descriptions
+* Unrealistic body claims
+* Keyword stuffing
+* Vulgar naming
 
 ---
 
 # Policy Page Rules
 
-Policy pages should be clear and trustworthy.
+Policy pages should be calm, clear, and trust-first.
 
 Use:
 
 * Soft hero section
 * Summary cards
-* Clear sections
+* Clear text blocks
 * Contact CTA
 
-Tone:
-
-* Calm
-* Transparent
-* Customer-friendly
-
-Policies should include:
+Policies needed:
 
 * Shipping Policy
 * Return & Refund Policy
@@ -811,66 +904,7 @@ Policies should include:
 * FAQ
 * Track Your Order
 
----
-
-# GMC Compliance Design Rules
-
-Design must support merchant trust.
-
-Must show:
-
-* Clear women’s fashion niche
-* Consistent categories
-* Transparent policies
-* Clear support information
-* Realistic product descriptions
-* No misleading urgency
-* No copyright graphics
-* No counterfeit branding
-
-Avoid:
-
-* Mixed-category homepage
-* Viral fashion claims
-* Fake reviews
-* Countdown timers
-* Overly revealing sexualized imagery
-* Low-quality product photos
-* Missing contact info
-
----
-
-# Motion & Interaction
-
-Use subtle interactions only:
-
-* Soft image scale on hover
-* Gentle fade-in
-* Smooth transitions
-* Light card hover shadow
-
-Avoid:
-
-* Flashy animations
-* Auto popups
-* Product spin effects
-* Aggressive motion
-
----
-
-# Mobile UX Rules
-
-Mobile experience must be simple and elegant.
-
-Rules:
-
-* Large lifestyle hero image
-* Short hero copy
-* Easy category cards
-* Product grid readable
-* Buttons easy to tap
-* Header not too tall
-* No intrusive popups
+Return policy must clearly address hygiene conditions for intimate apparel.
 
 ---
 
@@ -878,63 +912,112 @@ Rules:
 
 Use words like:
 
-* soft
-* relaxed
-* comfortable
-* easy
-* everyday
-* gentle
-* feminine
-* simple
-* natural
-* wearable
-* flattering
-* quiet beauty
+```text
+soft
+romantic
+delicate
+feminine
+intimate
+comfort
+confidence
+satin
+lace
+sleepwear
+loungewear
+quiet beauty
+personal moments
+```
 
 Avoid words like:
 
-* sexy
-* hot
-* viral
-* crazy sale
-* must-have trend
-* bodycon
-* clubwear
-* luxury guaranteed
+```text
+naughty
+fetish
+explicit
+adult fantasy
+hot babe
+wild night
+pornographic
+barely there
+```
 
 ---
 
-# Technical Stack Rules
+# GMC Compliance Rules
 
-Recommended stack:
+The design must support merchant trust and keep intimate apparel presentation safe.
 
-* WooCommerce
-* TailwindCSS
-* Modular PHP templates
-* Lightweight JavaScript only
+Must include:
 
-Performance priorities:
+* Clear product categories
+* Tasteful images
+* Transparent policies
+* Support email
+* Return conditions
+* Size and fit details
+* Secure checkout messaging
+* No explicit adult content
 
-* Compressed images
-* Fast mobile loading
-* Lazy-loaded product images
-* Clean DOM
-* Minimal plugins
+Avoid:
+
+* Nudity
+* Pornographic poses
+* Fetish styling
+* Adult-only language
+* Misleading discounts
+* Fake reviews
+* Counterfeit branding
+* Copyright graphics
+
+---
+
+# Mobile UX Rules
+
+Mobile must feel elegant and easy to shop.
+
+Rules:
+
+* Large image hero
+* Short copy
+* Clear category cards
+* 2-column product grid if readable
+* Sticky cart/search if needed
+* Easy access to size/return info
+* No intrusive popups
+
+---
+
+# Motion & Interaction
+
+Use subtle interactions only:
+
+* Soft image hover scale
+* Gentle fade-in
+* Smooth transitions
+* Product card shadow on hover
+
+Avoid:
+
+* Flashy animations
+* Autoplay videos
+* Aggressive popups
+* Countdown timers
+* Overly sensual motion effects
 
 ---
 
 # Final Design Goal
 
-Vivisshop should look like:
+Shop Avec Moi should look like:
 
-> A soft and trustworthy women’s fashion store offering relaxed tops, tunics, blouses, and easy everyday styles for women aged 30–45.
+> A romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials — elegant, soft, confident, and safe for mainstream ecommerce.
 
-The customer should feel:
+Customers should feel:
 
-* The styles are wearable
-* The website is calm and trustworthy
-* The products are easy to understand
-* The brand feels mature and feminine
-* Shopping feels simple and comfortable
+* The brand is tasteful
+* The products are beautiful and wearable
+* The website feels premium but not cold
+* The shopping experience is clear and trustworthy
+* The intimate apparel is presented as fashion, comfort, and self-care
 
-The site should never feel like a chaotic fast-fashion warehouse.
+The site should never feel explicit, cheap, or unsafe for GMC.

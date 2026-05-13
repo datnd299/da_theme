@@ -1,21 +1,21 @@
 /* ============================================================
-   Vivisshop Shop / Product Archive
+   Shop Avec Moi Shop / Product Archive
    ============================================================ */
 
 :root {
-  --shop-bg: #fff8ef;
+  --shop-bg: #FBF4FF;
   --shop-surface: #ffffff;
-  --shop-surface-soft: #f3e7da;
-  --shop-surface-muted: #fbf4ec;
-  --shop-text: #2f2925;
-  --shop-heading: #4b3528;
-  --shop-muted: #756a62;
-  --shop-soft-text: #8c6d58;
-  --shop-border: #e7d8c8;
-  --shop-accent: #b89b83;
-  --shop-accent-dark: #4b3528;
-  --shop-green: #a8b99a;
-  --shop-sale: #9b4f44;
+  --shop-surface-soft: #F6EFEC;
+  --shop-surface-muted: #FFF6EE;
+  --shop-text: #24132E;
+  --shop-heading: #3B1748;
+  --shop-muted: #6D5875;
+  --shop-soft-text: #9D7A83;
+  --shop-border: #E8DFF0;
+  --shop-accent: #6E3A8A;
+  --shop-accent-dark: #3B1748;
+  --shop-blush: #E8B8AD;
+  --shop-sale: #B97878;
   --shop-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --shop-heading-font: 'Playfair Display', Georgia, serif;
   --shop-container: 1280px;
@@ -80,8 +80,7 @@
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background:
-    radial-gradient(circle at right 20% top 10%, rgba(168, 185, 154, 0.24), transparent 34%),
-    linear-gradient(135deg, #ffffff 0%, var(--shop-bg) 52%, var(--shop-surface-soft) 100%);
+    linear-gradient(135deg, #ffffff 0%, var(--shop-bg) 54%, var(--shop-surface-muted) 100%);
 }
 
 .shop-header::after {
@@ -92,7 +91,7 @@
   width: 180px;
   height: 5px;
   border-radius: 999px 999px 0 0;
-  background: linear-gradient(90deg, var(--shop-accent), var(--shop-green));
+  background: linear-gradient(90deg, var(--shop-accent), var(--shop-blush));
   opacity: 0.75;
 }
 
@@ -120,7 +119,7 @@
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 30px rgba(75, 53, 40, 0.06);
+  box-shadow: 0 10px 30px rgba(59, 23, 72, 0.06);
 }
 
 .shop-toolbar__left {
@@ -189,8 +188,8 @@
 
 .woocommerce-ordering select:focus,
 .shop-sort select:focus {
-  border-color: var(--shop-green);
-  box-shadow: 0 0 0 3px rgba(168, 185, 154, 0.22);
+  border-color: var(--shop-accent);
+  box-shadow: 0 0 0 3px rgba(110, 58, 138, 0.18);
 }
 
 .shop-layout {
@@ -211,7 +210,7 @@
   inset: 0;
   z-index: 99;
   visibility: hidden;
-  background: rgba(47, 41, 37, 0.42);
+  background: rgba(36, 19, 46, 0.44);
   opacity: 0;
   transition: opacity 200ms ease, visibility 200ms ease;
 }
@@ -232,7 +231,7 @@
   overflow-y: auto;
   border-radius: 8px 8px 0 0;
   background: var(--shop-surface);
-  box-shadow: 0 -20px 50px rgba(75, 53, 40, 0.2);
+  box-shadow: 0 -20px 50px rgba(59, 23, 72, 0.2);
   transform: translateY(100%);
   transition: transform 240ms ease;
 }
@@ -287,7 +286,7 @@
     padding: 18px;
     border: 1px solid var(--shop-border);
     border-radius: 8px;
-    box-shadow: 0 14px 34px rgba(75, 53, 40, 0.06);
+    box-shadow: 0 14px 34px rgba(59, 23, 72, 0.06);
     transform: none;
   }
 
@@ -390,7 +389,7 @@
   height: 17px;
   border: 3px solid var(--shop-surface);
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(75, 53, 40, 0.2);
+  box-shadow: 0 2px 8px rgba(59, 23, 72, 0.2);
 }
 
 .widget_price_filter .price_label {
@@ -471,13 +470,13 @@ ul.products li.product,
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background: var(--shop-surface);
-  box-shadow: 0 8px 24px rgba(75, 53, 40, 0.05);
+  box-shadow: 0 8px 24px rgba(59, 23, 72, 0.05);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .product-card:hover {
-  border-color: rgba(184, 155, 131, 0.7);
-  box-shadow: 0 18px 38px rgba(75, 53, 40, 0.12);
+  border-color: rgba(110, 58, 138, 0.55);
+  box-shadow: 0 18px 38px rgba(59, 23, 72, 0.12);
   transform: translateY(-3px);
 }
 
@@ -498,7 +497,7 @@ ul.products li.product,
 .product-card__shell {
   aspect-ratio: 4 / 5;
   background:
-    linear-gradient(135deg, rgba(243, 231, 218, 0.7), rgba(255, 248, 239, 0.9)),
+    linear-gradient(135deg, rgba(251, 244, 255, 0.72), rgba(255, 246, 238, 0.9)),
     var(--shop-surface-muted);
 }
 
@@ -535,7 +534,7 @@ ul.products li.product,
   border-radius: 999px;
   background: #ffffff;
   color: var(--shop-sale);
-  box-shadow: 0 8px 18px rgba(75, 53, 40, 0.12);
+  box-shadow: 0 8px 18px rgba(59, 23, 72, 0.12);
   font-size: 0.7rem;
   font-weight: 900;
   line-height: 1.2;
@@ -551,7 +550,7 @@ ul.products li.product,
   gap: 6px;
   padding: 8px 11px;
   border-radius: 999px;
-  background: rgba(75, 53, 40, 0.9);
+  background: rgba(59, 23, 72, 0.9);
   color: #ffffff;
   font-size: 0.78rem;
   font-weight: 800;

@@ -1,168 +1,231 @@
 <?php
 /**
- * About page template part.
- *
- * @package dawp
+ * About page template part for Shop Avec Moi.
  */
 
-$theme_uri = get_template_directory_uri();
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-$asset = static function ($path) use ($theme_uri) {
-    return $theme_uri . '/assets/img/' . ltrim($path, '/');
-};
+if (!function_exists('dawp_about_shop_url')) {
+    function dawp_about_shop_url() {
+        if (function_exists('wc_get_page_id')) {
+            $shop_id = wc_get_page_id('shop');
+            if ($shop_id && $shop_id > 0) {
+                return get_permalink($shop_id);
+            }
+        }
 
-$support_email = 'support@vivisshop.com';
-$support_link = '<a class="font-semibold text-[#4B3528] underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
-$link_support_email = static function ($text) use ($support_email, $support_link) {
-    return str_replace(esc_html($support_email), $support_link, esc_html($text));
-};
-
-$category_url = static function ($slug) {
-    if (function_exists('dawp_product_category_url')) {
-        return dawp_product_category_url($slug);
+        return home_url('/shop/');
     }
+}
 
-    if (function_exists('get_term_by')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-        if ($term && !is_wp_error($term)) {
+if (!function_exists('dawp_about_find_product_cat')) {
+    function dawp_about_find_product_cat($slugs, $name = '') {
+        if (!taxonomy_exists('product_cat')) {
+            return null;
+        }
+
+        foreach ((array) $slugs as $slug) {
+            $term = get_term_by('slug', $slug, 'product_cat');
+            if ($term && !is_wp_error($term)) {
+                return $term;
+            }
+        }
+
+        if ($name) {
+            $term = get_term_by('name', $name, 'product_cat');
+            if ($term && !is_wp_error($term)) {
+                return $term;
+            }
+        }
+
+        return null;
+    }
+}
+
+if (!function_exists('dawp_about_category_url')) {
+    function dawp_about_category_url($slugs, $name = '') {
+        $term = dawp_about_find_product_cat($slugs, $name);
+        if ($term) {
             $link = get_term_link($term);
             if (!is_wp_error($link)) {
                 return $link;
             }
         }
+
+        return dawp_about_shop_url();
     }
+}
 
-    return home_url('/product-category/' . trim($slug, '/') . '/');
-};
+if (!function_exists('dawp_about_image_url')) {
+    function dawp_about_image_url($slugs = [], $size = 'large') {
+        $term = dawp_about_find_product_cat($slugs);
 
-$focus_cards = [
-    [
-        'title' => __('Relaxed Everyday Fits', 'dawp'),
-        'copy'  => __('Comfortable silhouettes made for home, errands, weekends, and casual plans.', 'dawp'),
-    ],
-    [
-        'title' => __('Soft Feminine Details', 'dawp'),
-        'copy'  => __('Gentle colors, light prints, easy necklines, and wearable finishes.', 'dawp'),
-    ],
-    [
-        'title' => __('Curated Apparel Only', 'dawp'),
-        'copy'  => __('A focused women\'s fashion store, not a mixed marketplace of unrelated products.', 'dawp'),
-    ],
-    [
-        'title' => __('Clear Shopping Standards', 'dawp'),
-        'copy'  => __('Straightforward product categories, clear policies, secure checkout, and customer support.', 'dawp'),
-    ],
-];
+        if ($term) {
+            $thumbnail_id = (int) get_term_meta($term->term_id, 'thumbnail_id', true);
+            if ($thumbnail_id) {
+                $image_url = wp_get_attachment_image_url($thumbnail_id, $size);
+                if ($image_url) {
+                    return $image_url;
+                }
+            }
+
+            if (function_exists('wc_get_products')) {
+                $products = wc_get_products([
+                    'status'   => 'publish',
+                    'limit'    => 1,
+                    'category' => [$term->slug],
+                    'orderby'  => 'date',
+                    'order'    => 'DESC',
+                ]);
+
+                if (!empty($products)) {
+                    $image_id = $products[0]->get_image_id();
+                    if ($image_id) {
+                        $image_url = wp_get_attachment_image_url($image_id, $size);
+                        if ($image_url) {
+                            return $image_url;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (function_exists('wc_get_products')) {
+            $products = wc_get_products([
+                'status'  => 'publish',
+                'limit'   => 1,
+                'orderby' => 'date',
+                'order'   => 'DESC',
+            ]);
+
+            if (!empty($products)) {
+                $image_id = $products[0]->get_image_id();
+                if ($image_id) {
+                    $image_url = wp_get_attachment_image_url($image_id, $size);
+                    if ($image_url) {
+                        return $image_url;
+                    }
+                }
+            }
+        }
+
+        return function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src($size) : '';
+    }
+}
+
+$shop_url        = dawp_about_shop_url();
+$sleepwear_url   = dawp_about_category_url(['sleepwear'], 'Sleepwear');
+$lingerie_url    = dawp_about_category_url(['lingerie-sets', 'lingerie'], 'Lingerie Sets');
+$robes_url       = dawp_about_category_url(['robes-loungewear', 'robes-and-loungewear', 'robes', 'loungewear'], 'Robes & Loungewear');
+$contact_url     = home_url('/contact-us/');
+$shipping_url    = home_url('/shipping-returns/');
+$hero_image_url  = dawp_about_image_url(['sleepwear', 'robes-loungewear', 'robes-and-loungewear'], 'full');
+$detail_image_url = dawp_about_image_url(['lingerie-sets', 'lingerie', 'bras-bralettes'], 'large');
 
 $values = [
-    __('Soft, comfortable clothing for real daily life', 'dawp'),
-    __('Mature feminine style without loud trend-chasing', 'dawp'),
-    __('Clear product information and focused categories', 'dawp'),
-    __('No counterfeit branding, copied characters, or offensive graphics', 'dawp'),
-    __('No fake countdowns, exaggerated urgency, or misleading claims', 'dawp'),
-    __('Transparent support, shipping, returns, and policy pages', 'dawp'),
+    [
+        'title' => 'Soft Confidence',
+        'copy'  => 'Pieces are chosen for the way they help you feel beautiful, comfortable, and quietly put together.',
+    ],
+    [
+        'title' => 'Tasteful Romance',
+        'copy'  => 'Lace, satin, and delicate details are presented as intimate apparel, never as explicit styling.',
+    ],
+    [
+        'title' => 'Boutique Care',
+        'copy'  => 'The collection stays focused, feminine, and easy to shop, with clear support when you need it.',
+    ],
 ];
 
-$trust_cards = [
+$collections = [
     [
-        'title' => __('Secure Checkout', 'dawp'),
-        'copy'  => __('The shopping experience is structured to be simple, clear, and trustworthy.', 'dawp'),
+        'title' => 'Lingerie Sets',
+        'copy'  => 'Delicate matching pieces, soft lace, and romantic silhouettes.',
+        'url'   => $lingerie_url,
     ],
     [
-        'title' => __('Tracking Included', 'dawp'),
-        'copy'  => __('Tracking information is provided once an order ships.', 'dawp'),
+        'title' => 'Sleepwear',
+        'copy'  => 'Satin, lace-trim, and restful nightwear for quiet evenings.',
+        'url'   => $sleepwear_url,
     ],
     [
-        'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unworn and unwashed items may be returned within 30 days of delivery.', 'dawp'),
+        'title' => 'Robes & Loungewear',
+        'copy'  => 'At-home ease, soft layers, and elegant comfort.',
+        'url'   => $robes_url,
     ],
-    [
-        'title' => __('Customer Support', 'dawp'),
-        'copy'  => __('Contact support@vivisshop.com. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'),
-    ],
+];
+
+$care_points = [
+    'Orders are processed within 2-4 business days.',
+    'Standard US shipping typically takes 5-10 business days after dispatch.',
+    'Eligible unworn and unused items may be returned within 30 days of delivery.',
+    'Return conditions are hygiene-aware because the boutique sells intimate apparel.',
 ];
 ?>
 
-<div class="bg-white text-[#2F2925]">
-    <section class="bg-[#FFF8EF] py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-            <div>
-                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Who We Are', 'dawp'); ?></p>
-                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528] lg:text-5xl">
-                    <?php esc_html_e('A gentle boutique-inspired store for everyday women\'s style.', 'dawp'); ?>
-                </h2>
-            </div>
-            <div class="space-y-5 text-base leading-8 text-[#756A62]">
-                <p><?php esc_html_e('Vivisshop was created around a simple idea: everyday clothing should be comfortable, easy to style, and softly feminine without feeling loud or overly trendy.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Our collection direction focuses on wearable women\'s apparel such as casual tops, tunic tops, relaxed blouses, soft graphic tops, easy dresses, and seasonal pieces that suit daily routines.', 'dawp'); ?></p>
-                <p><?php esc_html_e('We keep the store focused so customers can quickly understand what we offer, browse clear categories, and shop with confidence through transparent support and policy information.', 'dawp'); ?></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#F3E7DA] py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Our Focus', 'dawp'); ?></p>
-                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Made for comfort-first, everyday dressing.', 'dawp'); ?></h2>
-                <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('The Vivisshop experience is built around a clear women\'s apparel niche and a calm shopping journey.', 'dawp'); ?></p>
+<div class="bg-white text-[#24132E] antialiased">
+    <section class="overflow-hidden bg-[#FBF4FF] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+            <div class="max-w-2xl">
+                <p class="text-sm font-semibold uppercase text-[#6E3A8A]">About Shop Avec Moi</p>
+                <h1 class="mt-4 font-heading text-5xl leading-[1.05] text-[#3B1748] sm:text-6xl lg:text-7xl">
+                    A softer way to shop intimate apparel.
+                </h1>
+                <p class="mt-6 max-w-xl text-base leading-7 text-[#6D5875] sm:text-lg">
+                    Shop Avec Moi is a romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials made for comfort, softness, and quiet confidence.
+                </p>
+                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#3B1748] px-7 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-[#6E3A8A]" href="<?php echo esc_url($shop_url); ?>">
+                        Explore The Boutique
+                    </a>
+                    <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E8DFF0] bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-white/70" href="<?php echo esc_url($contact_url); ?>">
+                        Contact Support
+                    </a>
+                </div>
             </div>
 
-            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                <?php foreach ($focus_cards as $index => $card) : ?>
-                    <div class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
-                        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full <?php echo 1 === $index % 2 ? 'bg-[#A8B99A]' : 'bg-[#B89B83]'; ?> text-sm font-bold text-white">
-                            <?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?>
-                        </div>
-                        <h3 class="text-lg font-bold text-[#4B3528]"><?php echo esc_html($card['title']); ?></h3>
-                        <p class="mt-3 text-sm leading-6 text-[#756A62]"><?php echo esc_html($card['copy']); ?></p>
+            <div class="relative">
+                <?php if ($hero_image_url) : ?>
+                    <div class="overflow-hidden rounded-[2rem] border border-[#E8DFF0] bg-white p-3 shadow-2xl shadow-[#3B1748]/10">
+                        <img class="aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]" src="<?php echo esc_url($hero_image_url); ?>" alt="Soft sleepwear and robes styled for Shop Avec Moi" loading="eager" fetchpriority="high">
                     </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
-            <img src="<?php echo esc_url($asset('gallery/vivisshop/Tunic_Tops_Relaxed.png')); ?>" alt="<?php esc_attr_e('Relaxed tunic top styled for everyday wear', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
-            <div>
-                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('What We Choose', 'dawp'); ?></p>
-                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Soft pieces that fit into real routines.', 'dawp'); ?></h2>
-                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('We look for relaxed silhouettes, soft-looking textures, gentle colors, and simple details that help women feel comfortable and naturally put together.', 'dawp'); ?></p>
-                <div class="mt-6 grid gap-3 sm:grid-cols-2">
-                    <a href="<?php echo esc_url($category_url('relaxed-tops')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
-                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Relaxed Tops', 'dawp'); ?></span>
-                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Easy tops for daily comfort.', 'dawp'); ?></span>
-                    </a>
-                    <a href="<?php echo esc_url($category_url('soft-tunics')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
-                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Soft Tunics', 'dawp'); ?></span>
-                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Longer relaxed fits.', 'dawp'); ?></span>
-                    </a>
-                    <a href="<?php echo esc_url($category_url('gentle-blouses')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
-                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Gentle Blouses', 'dawp'); ?></span>
-                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Soft polish for casual days.', 'dawp'); ?></span>
-                    </a>
+                <?php endif; ?>
+                <div class="relative mx-auto -mt-4 max-w-xl rounded-2xl border border-[#E8DFF0] bg-white p-5 shadow-lg shadow-[#3B1748]/10">
+                    <p class="font-heading text-2xl leading-tight text-[#3B1748]">Soft intimate pieces for comfort, romance, and beautifully personal moments.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#FFF8EF] py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8 lg:[&>*:first-child]:order-2">
-            <img src="<?php echo esc_url($asset('gallery/vivisshop/Blouse_Shirts_Simple.png')); ?>" alt="<?php esc_attr_e('Simple blouse styled for a relaxed polished day', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
+    <section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+            <?php if ($detail_image_url) : ?>
+                <div class="overflow-hidden rounded-[2rem] border border-[#E8DFF0] bg-white p-3 shadow-2xl shadow-[#3B1748]/10">
+                    <img class="aspect-[4/5] w-full rounded-2xl object-cover" src="<?php echo esc_url($detail_image_url); ?>" alt="Tasteful lace and satin details from Shop Avec Moi" loading="lazy">
+                </div>
+            <?php endif; ?>
+
             <div>
-                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Our Store Standards', 'dawp'); ?></p>
-                <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Clear, honest, and focused on women\'s apparel.', 'dawp'); ?></h2>
-                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('Vivisshop is built to present a legitimate, coherent fashion store with transparent customer information and realistic product direction.', 'dawp'); ?></p>
-                <div class="mt-7 grid gap-3">
+                <p class="text-sm font-semibold uppercase text-[#6E3A8A]">Our Point Of View</p>
+                <h2 class="mt-3 font-heading text-4xl leading-tight text-[#3B1748] md:text-5xl">
+                    Intimacy through fabric, fit, and feeling.
+                </h2>
+                <div class="mt-5 grid gap-4 text-base leading-7 text-[#6D5875]">
+                    <p>
+                        The Avec Moi feeling is personal, close, and softly romantic. We focus on pieces women choose for themselves: something delicate after a long day, a satin set for a quiet evening, a robe that makes home feel more graceful.
+                    </p>
+                    <p>
+                        Every page, product, and collection is shaped to feel tasteful and mature. The boutique celebrates feminine confidence without explicit language, harsh styling, or loud urgency.
+                    </p>
+                </div>
+
+                <div class="mt-8 grid gap-4 md:grid-cols-3">
                     <?php foreach ($values as $value) : ?>
-                        <div class="flex gap-3 rounded-2xl border border-[#E7D8C8] bg-white p-4">
-                            <span class="mt-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#A8B99A] text-white" aria-hidden="true">
-                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 6 9 17l-5-5"></path>
-                                </svg>
-                            </span>
-                            <p class="text-sm font-semibold leading-6 text-[#4B3528]"><?php echo esc_html($value); ?></p>
+                        <div class="rounded-2xl border border-[#E8DFF0] bg-[#FBF4FF] p-5">
+                            <h3 class="font-heading text-2xl leading-tight text-[#3B1748]"><?php echo esc_html($value['title']); ?></h3>
+                            <p class="mt-3 text-sm leading-6 text-[#6D5875]"><?php echo esc_html($value['copy']); ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -170,56 +233,62 @@ $trust_cards = [
         </div>
     </section>
 
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-                <div class="max-w-3xl">
-                    <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Customer Trust', 'dawp'); ?></p>
-                    <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Support and policies are part of the experience.', 'dawp'); ?></h2>
-                    <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('We keep key customer information visible so shoppers can understand shipping, returns, contact options, and order support before they buy.', 'dawp'); ?></p>
-                </div>
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-[#B89B83] px-6 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('View Shipping & Returns', 'dawp'); ?></a>
+    <section class="bg-[#3B1748] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mx-auto max-w-7xl">
+            <div class="max-w-3xl">
+                <p class="text-sm font-semibold uppercase text-white">Curated Boutique</p>
+                <h2 class="mt-3 font-heading text-4xl leading-tight text-white md:text-5xl">
+                    A focused collection for softness, romance, and ease.
+                </h2>
+                <p class="mt-4 text-base leading-7 text-white/75">
+                    Shop Avec Moi keeps the assortment simple and intentional so each category feels clear, feminine, and easy to browse.
+                </p>
             </div>
 
-            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                <?php foreach ($trust_cards as $card) : ?>
-                    <div class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
-                        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FFF8EF] text-[#4B3528]" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 6 9 17l-5-5"></path>
+            <div class="mt-10 grid gap-4 md:grid-cols-3">
+                <?php foreach ($collections as $collection) : ?>
+                    <a class="group rounded-2xl border border-white/15 bg-white/10 p-6 text-white transition duration-300 hover:-translate-y-1 hover:bg-white/15" href="<?php echo esc_url($collection['url']); ?>">
+                        <span class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#3B1748]">
+                            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M20 6 9 17l-5-5" />
                             </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-[#4B3528]"><?php echo esc_html($card['title']); ?></h3>
-                        <p class="mt-2 text-sm leading-6 text-[#756A62]"><?php echo wp_kses_post($link_support_email($card['copy'])); ?></p>
-                    </div>
+                        </span>
+                        <h3 class="font-heading text-3xl leading-tight text-white"><?php echo esc_html($collection['title']); ?></h3>
+                        <p class="mt-3 text-sm leading-6 text-white/75"><?php echo esc_html($collection['copy']); ?></p>
+                    </a>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-16 lg:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-[2rem] bg-[#4B3528] p-6 text-white sm:p-8 lg:p-10">
-                <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-                    <div>
-                        <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#F3E7DA]"><?php esc_html_e('Begin With Soft Everyday Style', 'dawp'); ?></p>
-                        <h2 class="mt-3 font-heading text-4xl font-bold leading-tight"><?php esc_html_e('Explore relaxed pieces made for comfortable daily dressing.', 'dawp'); ?></h2>
-                    </div>
-                    <div class="grid gap-4 md:grid-cols-3">
-                        <a href="<?php echo esc_url($category_url('relaxed-tops')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
-                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Relaxed Tops', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Soft everyday favorites.', 'dawp'); ?></span>
-                        </a>
-                        <a href="<?php echo esc_url($category_url('soft-tunics')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
-                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Soft Tunics', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Longer relaxed fits.', 'dawp'); ?></span>
-                        </a>
-                        <a href="<?php echo esc_url($category_url('gentle-blouses')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
-                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Gentle Blouses', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Soft polish for casual days.', 'dawp'); ?></span>
-                        </a>
-                    </div>
+    <section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+            <aside class="rounded-[2rem] bg-[#21102C] p-6 text-white lg:p-8">
+                <p class="text-sm font-semibold uppercase text-white">Customer Care</p>
+                <h2 class="mt-3 font-heading text-3xl leading-tight text-white">Clear support for personal pieces.</h2>
+                <p class="mt-4 text-sm leading-6 text-white/75">
+                    Have a question about sizing, delivery, returns, or a product detail? Our support team is available Monday to Friday, 9:00 AM to 6:00 PM EST.
+                </p>
+                <a class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($contact_url); ?>">
+                    Contact Us
+                </a>
+            </aside>
+
+            <div class="rounded-2xl border border-[#E8DFF0] bg-white p-6 shadow-sm shadow-[#3B1748]/10 lg:p-8">
+                <p class="text-sm font-semibold uppercase text-[#6E3A8A]">Trust &amp; Policy</p>
+                <h2 class="mt-3 font-heading text-4xl leading-tight text-[#3B1748] md:text-5xl">
+                    Designed to feel beautiful and straightforward.
+                </h2>
+                <div class="mt-7 grid gap-3 md:grid-cols-2">
+                    <?php foreach ($care_points as $point) : ?>
+                        <div class="rounded-2xl border border-[#E8DFF0] bg-[#FBF4FF] p-5 text-sm font-semibold leading-6 text-[#3B1748]">
+                            <?php echo esc_html($point); ?>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
+                <a class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#E8DFF0] px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($shipping_url); ?>">
+                    View Shipping &amp; Returns
+                </a>
             </div>
         </div>
     </section>

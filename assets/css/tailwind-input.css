@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - Vivisshop backgrounds === */
+  /* === COLORS - Shop Avec Moi backgrounds === */
   --color-background: #FFFFFF;
-  --color-surface: #FFF8EF;
-  --color-surface-alt: #F3E7DA;
+  --color-surface: #FBF4FF;
+  --color-surface-alt: #FFFFFF;
 
-  /* === COLORS - Vivisshop text === */
-  --color-foreground: #2F2925;
-  --color-foreground-muted: #756A62;
-  --color-muted: #8C8178;
+  /* === COLORS - Shop Avec Moi text === */
+  --color-foreground: #24132E;
+  --color-foreground-muted: #6D5875;
+  --color-muted: #8A728E;
 
-  /* === COLORS - Vivisshop brand === */
-  --color-accent: #B89B83;
-  --color-accent-hover: #4B3528;
-  --color-accent-soft: #F3E7DA;
-  --color-accent-blush: #AFA2D6;
-  --color-accent-sage: #A8B99A;
+  /* === COLORS - Shop Avec Moi brand === */
+  --color-accent: #6E3A8A;
+  --color-accent-hover: #3B1748;
+  --color-accent-soft: #F1E2FA;
+  --color-accent-blush: #B68AC8;
+  --color-accent-sage: #FFFFFF;
 
   /* === COLORS - UI === */
-  --color-border: #E7D8C8;
+  --color-border: #E8DFF0;
   --color-alert: #C0392B;
   --color-success: #5C8A6A;
 
@@ -39,8 +39,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 10px 30px rgba(75, 53, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(36, 19, 46, 0.07);
+  --shadow-card-hover: 0 10px 30px rgba(59, 23, 72, 0.16);
 
   /* === TYPOGRAPHY === */
   --font-sans: 'Lato', 'Inter', system-ui, sans-serif;

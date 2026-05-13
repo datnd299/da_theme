@@ -5,103 +5,86 @@
  * @package dawp
  */
 
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$support_email = 'support@shopavecmoi.com';
+$instagram_url = 'https://www.instagram.com/shopavec.moi/';
+
 $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
     [
         'title' => __('Shop', 'dawp'),
         'links' => [
-            ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-            ['title' => __('Relaxed Tops', 'dawp'), 'url' => home_url('/product-category/relaxed-tops/')],
-            ['title' => __('Soft Tunics', 'dawp'), 'url' => home_url('/product-category/soft-tunics/')],
-            ['title' => __('Gentle Blouses', 'dawp'), 'url' => home_url('/product-category/gentle-blouses/')],
+            ['title' => __('Shop All', 'dawp'), 'url' => $shop_url],
+            ['title' => __('Lingerie Sets', 'dawp'), 'url' => home_url('/product-category/lingerie-sets/')],
+            ['title' => __('Sleepwear', 'dawp'), 'url' => home_url('/product-category/sleepwear/')],
+            ['title' => __('Robes & Loungewear', 'dawp'), 'url' => home_url('/product-category/robes-loungewear/')],
+            ['title' => __('Bras & Bralettes', 'dawp'), 'url' => home_url('/product-category/bras-bralettes/')],
+            ['title' => __('Intimate Essentials', 'dawp'), 'url' => home_url('/product-category/intimate-essentials/')],
         ],
     ],
     [
-        'title' => __('Store Policy', 'dawp'),
+        'title' => __('Customer Care', 'dawp'),
         'links' => [
-            ['title' => __('Shipping & Return', 'dawp'), 'url' => home_url('/shipping-returns/')],
-            ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-            ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-            ['title' => __('Faqs', 'dawp'), 'url' => home_url('/faq/')],
-        ],
-    ],
-    [
-        'title' => __('Help', 'dawp'),
-        'links' => [
-            ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
             ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
-            ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
+            ['title' => __('Track Your Order', 'dawp'), 'url' => home_url('/track-order/')],
+            ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
             ['title' => __('My Account', 'dawp'), 'url' => function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/')],
         ],
     ],
+    [
+        'title' => __('Policies', 'dawp'),
+        'links' => [
+            ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+            ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
+            ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+        ],
+    ],
 ];
-
-$home_url = home_url('/');
-$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 ?>
 
-</div>
+</div><!-- #content -->
 
-<footer id="colophon" class="bg-[#4B3528] text-white" role="contentinfo">
-    <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
-        <div class="grid gap-8 lg:grid-cols-[0.9fr_1.7fr] lg:items-start">
-            <div>
-                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex flex-col items-start" aria-label="<?php esc_attr_e('Vivisshop home', 'dawp'); ?>">
-                    <span class="flex h-12 w-44 items-center">
-                        <?php if (file_exists(get_template_directory() . '/assets/img/gallery/vivisshop/Logo.jpg')) : ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/vivisshop/Logo.jpg'); ?>" alt="<?php esc_attr_e('Vivisshop', 'dawp'); ?>" class="max-h-12 w-auto object-contain">
-                        <?php else : ?>
-                            VS
-                        <?php endif; ?>
-                    </span>
-                    <span class="mt-2 block text-sm font-semibold text-white/75">
-                        <?php esc_html_e('Soft everyday women\'s fashion', 'dawp'); ?>
-                    </span>
+<footer class="bg-[#21102C] text-white" role="contentinfo">
+    <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+        <div class="grid gap-10 lg:grid-cols-[1.2fr_1.8fr]">
+            <div class="max-w-xl">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="font-heading text-3xl leading-tight text-white" aria-label="<?php esc_attr_e('Shop Avec Moi home', 'dawp'); ?>">
+                    Shop Avec Moi
                 </a>
-
-                <p class="mt-4 max-w-sm text-sm leading-6 text-white/75">
-                    <?php esc_html_e('Soft everyday women\'s fashion made for comfort, ease, and mature feminine style.', 'dawp'); ?>
+                <p class="mt-5 text-base leading-7 text-white/75">
+                    <?php esc_html_e('A romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials made for comfort, softness, and quiet confidence.', 'dawp'); ?>
                 </p>
 
-                <div class="mt-5 grid gap-2 text-sm text-white/80">
-                    <a href="https://www.facebook.com/people/Vivisshopcom/100070774974928/" class="inline-flex items-center gap-3 transition hover:text-[#F3E7DA]" target="_blank" rel="noopener noreferrer">
-                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#F3E7DA]" aria-hidden="true">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M22 12.06C22 6.49 17.52 2 12 2S2 6.49 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"></path>
+                <div class="mt-7 grid gap-3 text-sm leading-6 text-white/75">
+                    <a class="inline-flex items-center gap-3 transition hover:text-white" href="mailto:<?php echo esc_attr($support_email); ?>">
+                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+                                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                             </svg>
                         </span>
-                        <span>Facebook</span>
+                        <?php echo esc_html($support_email); ?>
                     </a>
-                    <a href="mailto:support@vivisshop.com" class="inline-flex items-center gap-3 transition hover:text-[#F3E7DA]">
-                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#F3E7DA]" aria-hidden="true">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                                <path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7"></path>
+                    <a class="inline-flex items-center gap-3 transition hover:text-white" href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
+                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                                <path d="M16 11.37a4 4 0 1 1-7.99 1.26A4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                             </svg>
                         </span>
-                        <span>support@vivisshop.com</span>
+                        @shopavec.moi
                     </a>
-                    <p class="inline-flex items-center gap-3">
-                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#F3E7DA]" aria-hidden="true">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M12 6v6l4 2"></path>
-                            </svg>
-                        </span>
-                        <span><?php esc_html_e('Business hours: Monday-Friday, 9:00 AM-5:00 PM', 'dawp'); ?></span>
-                    </p>
                 </div>
             </div>
 
-            <div class="grid gap-7 sm:grid-cols-3 lg:gap-10">
+            <div class="grid gap-8 sm:grid-cols-3">
                 <?php foreach ($footer_columns as $column) : ?>
                     <nav aria-label="<?php echo esc_attr($column['title']); ?>">
-                        <h2 class="text-sm font-bold uppercase tracking-[0.18em] text-[#F3E7DA]">
-                            <?php echo esc_html($column['title']); ?>
-                        </h2>
-                        <ul class="mt-4 grid gap-2.5">
+                        <h2 class="text-sm font-semibold uppercase text-white"><?php echo esc_html($column['title']); ?></h2>
+                        <ul class="mt-4 grid gap-3 text-sm text-white/70">
                             <?php foreach ($column['links'] as $link) : ?>
                                 <li>
-                                    <a href="<?php echo esc_url($link['url']); ?>" class="text-sm font-medium leading-6 text-white/75 transition hover:text-white">
+                                    <a class="transition hover:text-white" href="<?php echo esc_url($link['url']); ?>">
                                         <?php echo esc_html($link['title']); ?>
                                     </a>
                                 </li>
@@ -112,21 +95,24 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
             </div>
         </div>
 
-        <div class="mt-8 border-t border-white/10 pt-6">
-            <div class="flex flex-col gap-4 text-sm text-white/70 lg:flex-row lg:items-center lg:justify-between">
-                <p>
-                    <?php
-                    printf(
-                        esc_html__('Copyright %1$s %2$s. All rights reserved.', 'dawp'),
-                        esc_html(date_i18n('Y')),
-                        esc_html__('Vivisshop', 'dawp')
-                    );
-                    ?>
-                </p>
-                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-white hover:text-[#4B3528]">
-                    <?php esc_html_e('Continue Shopping', 'dawp'); ?>
-                </a>
+        <div class="mt-12 grid gap-4 border-t border-white/15 pt-8 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
+                <h3 class="text-sm font-semibold text-white"><?php esc_html_e('Business Hours', 'dawp'); ?></h3>
+                <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Monday to Friday, 9:00 AM to 6:00 PM EST.', 'dawp'); ?></p>
             </div>
+            <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
+                <h3 class="text-sm font-semibold text-white"><?php esc_html_e('Shipping', 'dawp'); ?></h3>
+                <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Orders process within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></p>
+            </div>
+            <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
+                <h3 class="text-sm font-semibold text-white"><?php esc_html_e('Returns', 'dawp'); ?></h3>
+                <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Eligible unworn and unused items may be returned within 30 days. Intimate apparel returns are hygiene-aware.', 'dawp'); ?></p>
+            </div>
+        </div>
+
+        <div class="mt-8 flex flex-col gap-4 border-t border-white/15 pt-6 text-sm text-white/60 lg:flex-row lg:items-center lg:justify-between">
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> <?php esc_html_e('Shop Avec Moi. All rights reserved.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Soft intimate pieces for comfort, romance, and quiet confidence.', 'dawp'); ?></p>
         </div>
     </div>
 </footer>

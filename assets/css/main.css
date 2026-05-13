@@ -41,7 +41,7 @@
   --space-2xl: 48px;
   --space-3xl: 64px;
   --space-4xl: 96px;
-
+  --color-bg: white;
   /* === CONTAINER === */
   --container-max: 1280px;
   --container-pad-mobile: 16px;
@@ -342,7 +342,7 @@
 }
 
 /* =============================================================
-   CONTACT FORM 2 — Newsletter subscription (footer)
+   CONTACT FORM 2 — Full contact form (contact page, CF7)
    ============================================================= */
 
 .contact-form-2 .wpcf7 {
@@ -360,10 +360,8 @@
 
 .contact-form-2 .wpcf7-form {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
+  flex-direction: column;
+  gap: var(--space-md);
   width: 100%;
 }
 
@@ -375,76 +373,122 @@
   margin: 0;
 }
 
-.contact-form-2 .wpcf7-form > p:has(input[type="email"]) {
-  flex: 1;
-  min-width: 0;
-}
-
-.contact-form-2 .wpcf7-form > p:has(input[type="submit"]) {
-  flex-shrink: 0;
-}
-
 .contact-form-2 .wpcf7-form label {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
   width: 100%;
-  font-size: 0;
-  line-height: 0;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-foreground-muted);
+  line-height: 1.5;
+}
+
+.contact-form-2 .wpcf7-form label br {
+  display: none;
 }
 
 .contact-form-2 .wpcf7-form-control-wrap {
   display: block;
   width: 100%;
-  font-size: 1rem;
-  line-height: 1.5;
 }
 
+.contact-form-2 input[type="text"],
 .contact-form-2 input[type="email"] {
   width: 100%;
-  min-height: 44px;
+  min-height: 48px;
   padding: 0 var(--space-md);
-  background: rgba(255, 255, 255, 0.2);
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  border-radius: var(--radius-pill);
-  color: #ffffff;
+  background: var(--color-background);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-foreground);
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   outline: none;
   box-sizing: border-box;
   transition: border-color var(--duration-fast) var(--ease-fluid),
-              background var(--duration-fast) var(--ease-fluid);
+              box-shadow var(--duration-fast) var(--ease-fluid);
 }
 
-.contact-form-2 input[type="email"]::placeholder {
-  color: rgba(255, 255, 255, 0.55);
-}
-
+.contact-form-2 input[type="text"]:focus,
 .contact-form-2 input[type="email"]:focus {
-  border-color: rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.28);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+.contact-form-2 input[type="text"]::placeholder,
+.contact-form-2 input[type="email"]::placeholder {
+  color: var(--color-muted);
+}
+
+.contact-form-2 textarea {
+  width: 100%;
+  min-height: 160px;
+  padding: var(--space-md);
+  background: var(--color-background);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--duration-fast) var(--ease-fluid),
+              box-shadow var(--duration-fast) var(--ease-fluid);
+}
+
+.contact-form-2 textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+.contact-form-2 textarea::placeholder {
+  color: var(--color-muted);
+}
+
+.contact-form-2 .wpcf7-not-valid-tip {
+  display: block;
+  margin-top: var(--space-xs);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-alert);
+  line-height: 1.4;
+}
+
+.contact-form-2 input.wpcf7-not-valid,
+.contact-form-2 textarea.wpcf7-not-valid {
+  border-color: var(--color-alert);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-alert) 12%, transparent);
 }
 
 .contact-form-2 input[type="submit"] {
-  display: block;
-  width: 100%;
-  min-height: 44px;
-  padding: 0 var(--space-lg);
-  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 var(--space-xl);
+  background: var(--color-accent);
   border: none;
   border-radius: var(--radius-pill);
-  color: var(--color-foreground);
+  color: #ffffff;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 700;
   cursor: pointer;
-  white-space: nowrap;
   transition: background var(--duration-normal) var(--ease-fluid),
-              color var(--duration-normal) var(--ease-fluid),
               transform var(--duration-fast) var(--ease-fluid);
 }
 
 .contact-form-2 input[type="submit"]:hover {
-  background: var(--color-foreground);
-  color: #ffffff;
+  background: var(--color-accent-hover);
   transform: translateY(-1px);
 }
 
@@ -454,29 +498,28 @@
 
 .contact-form-2 .wpcf7-response-output {
   display: none;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-md);
   border-radius: var(--radius-md);
   font-family: var(--font-sans);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.5;
-  color: #ffffff;
   margin: 0;
-  flex-basis: 100%;
-  order: 10;
 }
 
 .contact-form-2 .wpcf7-form.sent .wpcf7-response-output {
   display: block;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-success) 30%, transparent);
 }
 
 .contact-form-2 .wpcf7-form.failed .wpcf7-response-output,
 .contact-form-2 .wpcf7-form.invalid .wpcf7-response-output,
 .contact-form-2 .wpcf7-form.spam .wpcf7-response-output {
   display: block;
-  background: rgba(47, 42, 40, 0.2);
-  border: 1px solid rgba(47, 42, 40, 0.3);
+  color: var(--color-alert);
+  background: color-mix(in srgb, var(--color-alert) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-alert) 25%, transparent);
 }
 
 /* =============================================================
@@ -656,4 +699,321 @@
   color: var(--color-alert);
   background: color-mix(in srgb, var(--color-alert) 8%, transparent);
   border: 1px solid color-mix(in srgb, var(--color-alert) 25%, transparent);
+}
+
+/* =============================================================
+   WOOCOMMERCE LOGIN FORM
+   ============================================================= */
+
+.woocommerce-form-login {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: var(--space-2xl);
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.woocommerce-form-login .woocommerce-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin: 0;
+}
+
+.woocommerce-form-login label {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-foreground);
+  line-height: 1.5;
+}
+
+.woocommerce-form-login label .required {
+  color: var(--color-alert);
+  margin-left: 2px;
+}
+
+.woocommerce-form-login .woocommerce-Input--text {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--space-md);
+  background: var(--color-background);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--duration-fast) var(--ease-fluid),
+              background var(--duration-fast) var(--ease-fluid);
+}
+
+.woocommerce-form-login .woocommerce-Input--text:focus {
+  border-color: var(--color-accent);
+  background: var(--color-background);
+}
+
+.woocommerce-form-login .woocommerce-Input--text::placeholder {
+  color: var(--color-muted);
+}
+
+/* Password input wrapper */
+.woocommerce-form-login .password-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.woocommerce-form-login .password-input .woocommerce-Input--text {
+  padding-right: 48px;
+}
+
+.woocommerce-form-login .show-password-input {
+  position: absolute;
+  right: var(--space-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--color-muted);
+  transition: color var(--duration-fast) var(--ease-fluid);
+  display: flex;
+  align-items: center;
+}
+
+.woocommerce-form-login .show-password-input:hover {
+  color: var(--color-foreground);
+}
+
+/* Remember me + submit row */
+.woocommerce-form-login .form-row:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin: 0;
+}
+
+.woocommerce-form-login .woocommerce-form-login__rememberme {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-foreground-muted);
+  cursor: pointer;
+}
+
+.woocommerce-form-login .woocommerce-form__input-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.woocommerce-form-login__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 var(--space-xl);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-pill);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--duration-normal) var(--ease-fluid),
+              transform var(--duration-fast) var(--ease-fluid);
+}
+
+.woocommerce-form-login__submit:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+.woocommerce-LostPassword {
+  margin: 0;
+  text-align: center;
+}
+
+.woocommerce-LostPassword a {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-foreground-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-fluid);
+}
+
+.woocommerce-LostPassword a:hover {
+  color: var(--color-accent);
+}
+
+/* =============================================================
+   HOME NEWSLETTER FORM — #home-newsletter-form (dark bg, CF7)
+   ============================================================= */
+
+#home-newsletter-form .wpcf7 {
+  width: 100%;
+}
+
+#home-newsletter-form .screen-reader-response {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+#home-newsletter-form .wpcf7-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+#home-newsletter-form .wpcf7-form fieldset {
+  display: none;
+}
+
+#home-newsletter-form .wpcf7-form > p {
+  margin: 0;
+}
+
+#home-newsletter-form .wpcf7-form label {
+  display: block;
+  width: 100%;
+  font-size: 0;
+  line-height: 0;
+}
+
+#home-newsletter-form .wpcf7-form-control-wrap {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#home-newsletter-form input[type="email"] {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--space-md);
+  background: rgba(255, 255, 255, 0.10);
+  border: 1.5px solid rgba(255, 255, 255, 0.20);
+  border-radius: var(--radius-pill);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color var(--duration-fast) var(--ease-fluid),
+              background var(--duration-fast) var(--ease-fluid);
+}
+
+#home-newsletter-form input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+#home-newsletter-form input[type="email"]:focus {
+  border-color: rgba(255, 255, 255, 0.50);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+#home-newsletter-form input[type="email"].wpcf7-not-valid {
+  border-color: var(--color-alert);
+}
+
+#home-newsletter-form .wpcf7-not-valid-tip {
+  display: block;
+  margin-top: var(--space-xs);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: #F2A8BC;
+  line-height: 1.4;
+}
+
+#home-newsletter-form input[type="submit"] {
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 var(--space-xl);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-pill);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--duration-normal) var(--ease-fluid),
+              transform var(--duration-fast) var(--ease-fluid);
+}
+
+#home-newsletter-form input[type="submit"]:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+
+#home-newsletter-form .wpcf7-spinner {
+  display: none;
+}
+
+#home-newsletter-form .wpcf7-response-output {
+  display: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  text-align: center;
+  color: #ffffff;
+  margin: 0;
+  flex-basis: 100%;
+  order: 10;
+}
+
+#home-newsletter-form .wpcf7-form.sent .wpcf7-response-output {
+  display: block;
+  background: rgba(92, 138, 106, 0.30);
+  border: 1px solid rgba(92, 138, 106, 0.45);
+}
+
+#home-newsletter-form .wpcf7-form.failed .wpcf7-response-output,
+#home-newsletter-form .wpcf7-form.invalid .wpcf7-response-output,
+#home-newsletter-form .wpcf7-form.spam .wpcf7-response-output {
+  display: block;
+  background: rgba(192, 57, 43, 0.22);
+  border: 1px solid rgba(192, 57, 43, 0.38);
+}
+
+@media (min-width: 640px) {
+  #home-newsletter-form .wpcf7-form {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  #home-newsletter-form .wpcf7-form > p:has(input[type="email"]) {
+    flex: 1;
+    min-width: 0;
+  }
+
+  #home-newsletter-form .wpcf7-form > p:has(input[type="submit"]) {
+    flex-shrink: 0;
+  }
+
+  #home-newsletter-form input[type="submit"] {
+    width: auto;
+  }
 }

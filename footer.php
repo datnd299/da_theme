@@ -4,7 +4,7 @@
 
 <footer id="colophon" class="bg-[#2B2B2B] text-white" role="contentinfo">
 
-    <div class="max-w-[1280px] mx-auto px-4 lg:px-6 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="max-w-[1280px] mx-auto px-4 lg:px-6 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
 
         <div class="sm:col-span-2 lg:col-span-1">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block mb-5">
@@ -44,7 +44,7 @@
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
                         <circle cx="12" cy="10" r="3"/>
                     </svg>
-                    1777 Canal St, Merced, CA 95340
+                    885 Roselyn Lakes, South Vidashire, 37334, Illionis
                 </li>
 
                 <li class="flex items-start gap-2.5 text-white/40">
@@ -99,62 +99,66 @@
             </div>
         <?php endforeach; ?>
 
-        <div>
+        <div class="flex flex-col justify-between">
 
-            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#E8567A] mb-5" style="font-family:'DM Sans',sans-serif">
-                <?php esc_html_e('Stay in the Loop', 'dawp'); ?>
-            </h4>
+            <div>
+                <svg class="w-8 h-8 text-accent mb-4 opacity-80" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true">
+                    <path d="M0 24V14.4C0 6.08 4.48 1.28 13.44 0l1.92 2.88C11.2 3.84 8.96 5.92 8 9.6h5.44V24H0zm18.56 0V14.4C18.56 6.08 23.04 1.28 32 0l1.92 2.88C29.76 3.84 27.52 5.92 26.56 9.6H32V24H18.56z"/>
+                </svg>
 
-            <p class="text-sm text-white/55 leading-relaxed mb-4" style="font-family:'DM Sans',sans-serif">
-                <?php esc_html_e('Get new arrivals, seasonal styles, and fashion inspiration straight to your inbox.', 'dawp'); ?>
-            </p>
+                <blockquote class="text-base text-white/80 leading-relaxed italic mb-4" style="font-family:'DM Sans',sans-serif">
+                    <?php esc_html_e('Style is a way to say who you are without having to speak.', 'dawp'); ?>
+                </blockquote>
 
-            <div id="contact-form-2" class="flex gap-2 contact-form-2">
-                <?php echo do_shortcode('[contact-form-7 id="30148ed" title="Email"]'); ?>
+                <p class="text-xs text-accent font-semibold tracking-widest uppercase" style="font-family:'DM Sans',sans-serif">
+                    — Rachel Zoe
+                </p>
             </div>
 
-            <ul class="mt-6 space-y-2.5 text-xs text-white/45" style="font-family:'DM Sans',sans-serif">
+            <div>
+                <ul class="mt-8 space-y-2.5 text-xs text-white/45" style="font-family:'DM Sans',sans-serif">
 
-                <li class="flex items-center gap-2">
-                    <span class="w-1 h-1 rounded-full bg-[#E8567A] shrink-0"></span>
-                    <?php esc_html_e('Free Shipping on All Orders', 'dawp'); ?>
-                </li>
+                    <li class="flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-accent shrink-0"></span>
+                        <?php esc_html_e('Free Shipping on All Orders', 'dawp'); ?>
+                    </li>
 
-                <li class="flex items-center gap-2">
-                    <span class="w-1 h-1 rounded-full bg-[#E8567A] shrink-0"></span>
-                    <?php esc_html_e('30-Day Returns', 'dawp'); ?>
-                </li>
+                    <li class="flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-accent shrink-0"></span>
+                        <?php esc_html_e('30-Day Returns', 'dawp'); ?>
+                    </li>
 
-                <li class="flex items-center gap-2">
-                    <span class="w-1 h-1 rounded-full bg-[#E8567A] shrink-0"></span>
-                    <?php esc_html_e('Secure Checkout', 'dawp'); ?>
-                </li>
+                    <li class="flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-accent shrink-0"></span>
+                        <?php esc_html_e('Secure Checkout', 'dawp'); ?>
+                    </li>
 
-            </ul>
+                </ul>
 
-            <div class="mt-5 flex items-center gap-2 flex-wrap">
+                <div class="mt-5 flex items-center gap-2 flex-wrap">
 
-                <span class="text-xs text-white/35 mr-1" style="font-family:'DM Sans',sans-serif">
-                    <?php esc_html_e('We accept', 'dawp'); ?>
-                </span>
+                    <span class="text-xs text-white/35 mr-1" style="font-family:'DM Sans',sans-serif">
+                        <?php esc_html_e('We accept', 'dawp'); ?>
+                    </span>
 
-                <span class="inline-flex items-center justify-center px-2 h-6 rounded bg-white/10 text-[10px] font-bold text-white/65 tracking-wider">
-                    VISA
-                </span>
+                    <span class="inline-flex items-center justify-center px-2 h-6 rounded bg-white/10 text-[10px] font-bold text-white/65 tracking-wider">
+                        VISA
+                    </span>
 
-                <span class="inline-flex items-center justify-center px-2 h-6 rounded bg-white/10 gap-0.5">
-                    <span class="w-4 h-4 rounded-full bg-red-500 opacity-75"></span>
-                    <span class="w-4 h-4 rounded-full bg-yellow-400 opacity-75 -ml-2"></span>
-                </span>
+                    <span class="inline-flex items-center justify-center px-2 h-6 rounded bg-white/10 gap-0.5">
+                        <span class="w-4 h-4 rounded-full bg-red-500 opacity-75"></span>
+                        <span class="w-4 h-4 rounded-full bg-yellow-400 opacity-75 -ml-2"></span>
+                    </span>
 
-                <span class="inline-flex items-center justify-center px-2 h-6 rounded bg-white/10 text-[10px] font-bold text-white/65">
-                    PayPal
-                </span>
+                    <span class="inline-flex items-center justify-center px-2 h-6 rounded bg-white/10 text-[10px] font-bold text-white/65">
+                        PayPal
+                    </span>
 
-                <span class="inline-flex items-center justify-center px-2 h-6 rounded bg-white/10 text-[10px] font-bold text-white/65 tracking-wider">
-                    AMEX
-                </span>
+                    <span class="inline-flex items-center justify-center px-2 h-6 rounded bg-white/10 text-[10px] font-bold text-white/65 tracking-wider">
+                        AMEX
+                    </span>
 
+                </div>
             </div>
 
         </div>

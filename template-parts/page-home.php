@@ -134,7 +134,7 @@
       ];
       foreach ($home_cats as $hcat) :
         $term        = get_term_by('slug', $hcat['slug'], 'product_cat');
-        $cat_url     = $term ? get_term_link($term) : get_permalink(wc_get_page_id('shop'));
+        $cat_url     = '/product-category/' . $hcat['slug'] . '/';
         $thumb_id    = $term ? get_woocommerce_term_meta($term->term_id, 'thumbnail_id', true) : 0;
         $thumb_url   = $thumb_id ? wp_get_attachment_image_url($thumb_id, 'medium') : false;
       ?>
@@ -181,10 +181,11 @@
 
     <?php
     $new_arrivals = wc_get_products([
-      'limit'   => 8,
-      'orderby' => 'date',
-      'order'   => 'DESC',
-      'status'  => 'publish',
+      'limit'    => 8,
+      'orderby'  => 'date',
+      'order'    => 'DESC',
+      'status'   => 'publish',
+      'category' => ['dresses'],
     ]);
     ?>
 
@@ -304,10 +305,11 @@
 
     <?php
     $best_sellers = wc_get_products([
-      'limit'   => 4,
-      'orderby' => 'popularity',
-      'order'   => 'DESC',
-      'status'  => 'publish',
+      'limit'    => 4,
+      'orderby'  => 'popularity',
+      'order'    => 'DESC',
+      'status'   => 'publish',
+      'category' => ['tops'],
     ]);
     ?>
 
@@ -441,15 +443,7 @@
     </p>
 
     <div id="home-newsletter-form" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center">
-      <input type="email"
-             id="home-email-input"
-             placeholder="Enter your email address"
-             class="flex-1 h-12 px-5 rounded-lg bg-white/10 border border-white/20 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-[#E8567A] transition-colors"
-             aria-label="<?php esc_attr_e('Email address', 'dawp'); ?>">
-      <button id="home-subscribe-btn"
-              class="h-12 px-6 bg-[#E8567A] text-white text-sm font-semibold rounded-lg hover:bg-[#d14469] transition-colors whitespace-nowrap">
-        <?php esc_html_e('Subscribe →', 'dawp'); ?>
-      </button>
+      <?php echo do_shortcode('[contact-form-7 id="ad93593" title="Email"]'); ?>
     </div>
 
     <div id="home-newsletter-success" class="hidden mt-4">

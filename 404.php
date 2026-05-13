@@ -1,6 +1,6 @@
 <?php
 /**
- * 404 Not Found Template
+ * 404 Not Found Template — Shopshive
  *
  * @package Dawp
  */
@@ -8,68 +8,85 @@
 get_header();
 ?>
 
-<main id="primary" class="relative site-main error-404 min-h-[100dvh] flex items-center justify-center bg-gradient-to-br from-[#FAF7F2] to-[#FFF6F3] overflow-hidden px-4 py-24 md:py-40">
+<main id="primary" class="relative site-main error-404 min-h-dvh flex items-center justify-center overflow-hidden px-4 py-24 md:py-40"
+      style="background-color:#FDF8F4">
 
   <!-- Decorative blobs -->
-  <div class="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full bg-[#E8D8C8] opacity-30 blur-3xl"></div>
-  <div class="pointer-events-none absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-[#DFA39A] opacity-20 blur-3xl"></div>
+  <div class="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full opacity-25 blur-3xl"
+       style="background-color:#F5E6DC"></div>
+  <div class="pointer-events-none absolute -bottom-24 -right-24 h-80 w-80 rounded-full opacity-20 blur-3xl"
+       style="background-color:#F2A8BC"></div>
 
-  <div class="relative z-10 mx-auto w-[min(100%-32px,620px)] text-center">
+  <div class="relative z-10 mx-auto w-[min(100%-32px,600px)] text-center">
 
     <!-- 404 number -->
-    <p class="font-serif text-[120px] leading-none font-bold tracking-[-0.05em] text-[#C98A8A] opacity-20 md:text-[180px] select-none">
+    <p class="select-none leading-none font-light opacity-[0.12]"
+       style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(100px,20vw,180px);color:#2B2B2B">
       404
     </p>
 
     <!-- Icon -->
-    <div class="-mt-10 mb-6 flex justify-center md:-mt-14">
-      <span class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-[0_4px_16px_rgba(201,138,138,0.18)]">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#C98A8A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
+    <div class="-mt-8 mb-6 flex justify-center md:-mt-12">
+      <span class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-white"
+            style="box-shadow:0 4px 20px rgba(232,86,122,0.15)">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+             stroke="#E8567A" stroke-width="1.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"/>
         </svg>
       </span>
     </div>
 
-    <!-- Text -->
-    <p class="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Oops — Page Not Found</p>
-    <h1 class="font-serif text-3xl leading-tight tracking-[-0.02em] text-[#2F2A28] md:text-5xl">
+    <!-- Label -->
+    <p class="mb-2 text-xs font-semibold uppercase tracking-[0.16em]" style="color:#E8567A;font-family:'DM Sans',system-ui,sans-serif">
+      Page Not Found
+    </p>
+
+    <!-- Heading -->
+    <h1 class="leading-tight tracking-[-0.02em]"
+        style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,5vw,40px);font-weight:500;color:#2B2B2B">
       We couldn't find that page
     </h1>
-    <p class="mt-4 text-base leading-7 text-[#6F625D] md:text-lg">
-      The page you're looking for may have moved, been removed, or never existed.
-      Don't worry — our boutique is full of beautiful things waiting for you!
+
+    <!-- Body copy -->
+    <p class="mt-4 leading-[1.7]" style="color:#6B5A52;font-family:'DM Sans',system-ui,sans-serif;font-size:15px">
+      The page you're looking for may have moved or no longer exists.<br>
+      Let's get you back to the good stuff — there's a whole collection waiting.
     </p>
 
     <!-- CTAs -->
     <div class="mt-8 flex flex-wrap justify-center gap-3">
-      <a
-        href="<?php echo esc_url(home_url('/shop/')); ?>"
-        class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-7 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#2F2A28] hover:border-[#2F2A28]"
-      >
-        Browse the Shop
+      <a href="<?php echo esc_url(home_url('/shop/')); ?>"
+         class="inline-flex min-h-12 items-center justify-center rounded-full px-7 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+         style="background-color:#E8567A;font-family:'DM Sans',system-ui,sans-serif">
+        Shop Now
       </a>
-      <a
-        href="<?php echo esc_url(home_url('/')); ?>"
-        class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-7 text-sm font-bold text-[#2F2A28] transition hover:-translate-y-0.5 hover:bg-[#FAF7F2]"
-      >
+      <a href="<?php echo esc_url(home_url('/')); ?>"
+         class="inline-flex min-h-12 items-center justify-center rounded-full border px-7 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+         style="border-color:#D4B8A0;color:#2B2B2B;background-color:#fff;font-family:'DM Sans',system-ui,sans-serif">
         Back to Home
       </a>
     </div>
 
     <!-- Quick links -->
-    <div class="mt-12 border-t border-[#E6DDD6] pt-8">
-      <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-[#9A8C86]">You might be looking for</p>
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[#6F625D]">
+    <div class="mt-12 border-t pt-8" style="border-color:#E8E0D8">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-widest" style="color:#A89080;font-family:'DM Sans',system-ui,sans-serif">
+        Browse categories
+      </p>
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm" style="color:#6B5A52;font-family:'DM Sans',system-ui,sans-serif">
         <?php
         $quick_links = [
-          ['title' => __('Shop All', 'dawp'),        'url' => home_url('/shop/')],
-          ['title' => __('Girls Dresses', 'dawp'),   'url' => home_url('/product-category/girls-dresses/')],
-          ['title' => __('Mommy & Me', 'dawp'),      'url' => home_url('/product-category/mommy-me-matching-sets/')],
-          ['title' => __('Women Casual', 'dawp'),    'url' => home_url('/product-category/women-casual/')],
-          ['title' => __('Baby Girl', 'dawp'),       'url' => home_url('/product-category/baby-girl-boutique/')],
+          ['title' => __('Dresses', 'dawp'),        'url' => home_url('/product-category/dresses/')],
+          ['title' => __('Blouses & Shirts', 'dawp'), 'url' => home_url('/product-category/blouses-shirts/')],
+          ['title' => __('Tops', 'dawp'),           'url' => home_url('/product-category/tops/')],
+          ['title' => __('Pants', 'dawp'),          'url' => home_url('/product-category/pants/')],
+          ['title' => __('Footwear', 'dawp'),       'url' => home_url('/product-category/footwear/')],
         ];
         foreach ($quick_links as $link) : ?>
-          <a href="<?php echo esc_url($link['url']); ?>" class="hover:text-[#C98A8A] transition-colors"><?php echo esc_html($link['title']); ?></a>
+          <a href="<?php echo esc_url($link['url']); ?>"
+             class="transition-colors duration-150 hover:text-accent">
+            <?php echo esc_html($link['title']); ?>
+          </a>
         <?php endforeach; ?>
       </div>
     </div>

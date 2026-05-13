@@ -89,13 +89,11 @@
             style="font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,36px);font-weight:500">
           How Can We Help?
         </h2>
-
-        <?php
-          // Show success/error notice if Contact Form 7 or WPForms is not active
-          if ( function_exists('wpcf7') ) :
-            echo do_shortcode('[contact-form-7 id="contact-form" title="Contact Form"]');
-          else :
-        ?>
+        <?php if ( function_exists('wpcf7') ) : ?>
+        <div class="contact-form-2">
+          <?php echo do_shortcode('[contact-form-7 id="04e6e73" title="Contact"]'); ?>
+        </div>
+        <?php else : ?>
         <form method="post" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" class="space-y-5" novalidate>
           <?php wp_nonce_field('shopshive_contact', 'shopshive_contact_nonce'); ?>
           <input type="hidden" name="action" value="shopshive_contact">

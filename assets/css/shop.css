@@ -1,15 +1,15 @@
 /* ============================================================
-   Shop Page — Elite Shop Express
-   Design System: Trusted Hardware palette, conversion-first
+   Shop Page — Shopshive
+   Design System: Fashion palette, conversion-first
    Skill: WooCommerce Theme Developer (pure CSS + CSS vars)
    ============================================================ */
 
 /* ── Page wrapper ──────────────────────────────────────────── */
 .shop-page {
-  font-family: var(--font-primary);
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  line-height: 1.5;
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -39,11 +39,11 @@
 
 .shop-breadcrumb {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--color-muted);
   margin-bottom: 12px;
 }
 .shop-breadcrumb a {
-  color: var(--color-text-muted);
+  color: var(--color-muted);
   text-decoration: none;
 }
 .shop-breadcrumb a:hover {
@@ -55,11 +55,12 @@
 }
 
 .shop-header__title {
+  font-family: var(--font-heading);
   font-size: clamp(1.375rem, 3vw, 1.875rem);
   font-weight: 600;
-  color: var(--color-text-primary);
+  color: var(--color-foreground);
   margin: 0 0 16px;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 /* ── Toolbar (count + sort) ────────────────────────────────── */
@@ -82,7 +83,7 @@
 
 .shop-toolbar__count {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--color-foreground-muted);
   font-weight: 400;
 }
 
@@ -92,19 +93,20 @@
   align-items: center;
   gap: 6px;
   background: transparent;
-  border: 1px solid var(--color-border);
-  padding: 8px 14px;
-  border-radius: 6px;
+  border: 1.5px solid var(--color-border);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-text-primary);
+  color: var(--color-foreground);
   cursor: pointer;
-  min-height: 36px;
-  transition: border-color 0.15s, background 0.15s;
+  min-height: 40px;
+  transition: border-color var(--duration-fast), background var(--duration-fast);
 }
 .shop-filter-btn:hover {
-  border-color: var(--color-navy);
-  background: var(--color-bg-subtle);
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-accent);
 }
 @media (min-width: 1024px) {
   .shop-filter-btn {
@@ -120,26 +122,26 @@
 }
 .shop-sort label {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--color-foreground-muted);
   white-space: nowrap;
 }
 .woocommerce-ordering select,
 .shop-sort select {
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 8px 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
   font-size: 0.875rem;
-  font-family: var(--font-primary);
-  color: var(--color-text-primary);
-  background-color: var(--color-bg);
+  font-family: var(--font-sans);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
   cursor: pointer;
-  min-height: 36px;
+  min-height: 40px;
   outline: none;
-  transition: border-color 0.15s;
+  transition: border-color var(--duration-fast);
 }
 .woocommerce-ordering select:focus,
 .shop-sort select:focus {
-  border-color: var(--color-navy);
+  border-color: var(--color-accent);
 }
 .woocommerce-ordering {
   margin-bottom: 0;
@@ -165,11 +167,11 @@
 .shop-sidebar-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(43, 43, 43, 0.45);
   z-index: 99;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, visibility 0.2s;
+  transition: opacity var(--duration-normal), visibility var(--duration-normal);
 }
 .shop-sidebar-overlay.is-open {
   opacity: 1;
@@ -182,14 +184,14 @@
   left: 0;
   right: 0;
   max-height: 85vh;
-  background: var(--color-bg);
+  background: var(--color-background);
   z-index: 100;
   padding: 20px 16px 32px;
   overflow-y: auto;
   transform: translateY(100%);
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s var(--ease-fluid);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: 0 -4px 24px rgba(43, 43, 43, 0.12);
 }
 .shop-sidebar.is-open {
   transform: translateY(0);
@@ -204,9 +206,10 @@
   border-bottom: 1px solid var(--color-border);
 }
 .shop-sidebar__mobile-title {
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-text-primary);
+  color: var(--color-foreground);
   margin: 0;
 }
 .shop-sidebar__close {
@@ -214,17 +217,19 @@
   border: none;
   padding: 6px;
   margin: -6px;
-  color: var(--color-text-secondary);
+  color: var(--color-foreground-muted);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 .shop-sidebar__close:hover {
-  color: var(--color-text-primary);
+  color: var(--color-foreground);
 }
-
+.product-card__cta {
+  display: none;
+}
 /* Desktop: sticky left sidebar */
 @media (min-width: 1024px) {
   .shop-sidebar-overlay {
@@ -236,8 +241,9 @@
     bottom: auto;
     left: auto;
     right: auto;
+    z-index: 0;
     max-height: calc(100vh - 100px);
-    width: 280px;
+    width: 260px;
     flex-shrink: 0;
     transform: none;
     transition: none;
@@ -259,11 +265,12 @@
   margin-bottom: 0;
 }
 .shop-sidebar__title {
-  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--color-text-primary);
+  letter-spacing: 0.08em;
+  color: var(--color-foreground);
   margin: 0 0 12px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--color-border);
@@ -278,19 +285,19 @@
 }
 .shop-sidebar__categories li,
 .widget_product_categories li {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 .shop-sidebar__categories a,
 .widget_product_categories a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--color-text-secondary);
+  color: var(--color-foreground-muted);
   font-size: 0.9375rem;
   font-weight: 400;
   text-decoration: none;
   padding: 4px 0;
-  transition: color 0.15s;
+  transition: color var(--duration-fast);
 }
 .shop-sidebar__categories a:hover,
 .widget_product_categories a:hover {
@@ -299,7 +306,7 @@
 .shop-sidebar__categories .count,
 .widget_product_categories .count {
   font-size: 0.75rem;
-  color: var(--color-text-muted);
+  color: var(--color-muted);
 }
 
 /* Price filter widget */
@@ -327,23 +334,26 @@
 }
 .widget_price_filter .price_label {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--color-foreground-muted);
   margin-top: 10px;
 }
 .widget_price_filter .button {
-  background: var(--color-navy);
+  background: var(--color-accent);
   color: #ffffff;
   border: none;
-  border-radius: 6px;
-  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  padding: 8px 20px;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  min-height: 36px;
-  transition: background 0.15s;
+  min-height: 40px;
+  transition: background var(--duration-fast), transform var(--duration-fast);
 }
 .widget_price_filter .button:hover {
-  background: var(--color-navy-light);
+  background: var(--color-accent-hover);
+}
+.widget_price_filter .button:active {
+  transform: scale(0.97);
 }
 
 /* Active filters / chips */
@@ -356,11 +366,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--color-text-secondary);
+  color: var(--color-foreground-muted);
   font-size: 0.9375rem;
   text-decoration: none;
   padding: 4px 0;
-  transition: color 0.15s;
+  transition: color var(--duration-fast);
 }
 .woocommerce-widget-layered-nav-list__item a:hover {
   color: var(--color-accent);
@@ -380,7 +390,7 @@
 ul.products {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 16px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -388,7 +398,7 @@ ul.products {
 @media (min-width: 640px) {
   ul.products {
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 20px;
   }
 }
 @media (min-width: 1024px) {
@@ -401,22 +411,23 @@ ul.products {
 .product-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-bg);
-  border-radius: 6px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--duration-normal) var(--ease-fluid),
+              transform var(--duration-normal) var(--ease-fluid);
 }
 .product-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-2px);
 }
 
-/* Image container */
+/* Image container — 3:4 fashion ratio */
 .product-card__shell {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-bg-subtle);
+  background-color: var(--color-surface);
   aspect-ratio: 1 / 1;
 }
 .product-card__img-wrap {
@@ -428,43 +439,67 @@ ul.products {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.2s ease;
+  transition: transform var(--duration-normal) var(--ease-fluid);
 }
 .product-card:hover .product-card__img {
   transform: scale(1.03);
 }
 
-/* Sale badge */
+/* Sale / New badge — pill shape */
 .product-card__badge {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 10px;
+  left: 10px;
   background: var(--color-accent);
   color: #ffffff;
-  font-size: 0.6875rem;
-  font-weight: 600;
+  font-size: 0.625rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 8px;
-  border-radius: 6px;
-  line-height: 1.4;
+  letter-spacing: 0.06em;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  line-height: 1.6;
+  pointer-events: none;
 }
 /* WooCommerce native sale badge */
 .onsale {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  background: var(--color-accent) !important; /* override WC default green */
+  top: 10px;
+  left: 10px;
+  background: var(--color-accent) !important;
   color: #ffffff !important;
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
+  font-size: 0.625rem !important;
+  font-weight: 700 !important;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 8px !important;
-  border-radius: 6px !important;
+  letter-spacing: 0.06em;
+  padding: 2px 10px !important;
+  border-radius: var(--radius-pill) !important;
   min-width: 0 !important;
-  line-height: 1.4 !important;
+  line-height: 1.6 !important;
   margin: 0 !important;
+}
+
+/* Wishlist button (top-right) */
+.product-card__wishlist {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border: none;
+  border-radius: 50%;
+  color: var(--color-accent-soft);
+  cursor: pointer;
+  z-index: 2;
+  transition: color var(--duration-fast);
+}
+.product-card__wishlist:hover {
+  color: var(--color-accent);
 }
 
 /* Card body */
@@ -473,29 +508,30 @@ ul.products {
   flex-direction: column;
   flex: 1;
   padding: 12px;
-  gap: 6px;
+  gap: 4px;
 }
 @media (min-width: 768px) {
   .product-card__meta {
-    padding: 16px;
+    padding: 12px 14px 14px;
   }
 }
 
 /* Category label */
 .product-card__cat {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+  color: var(--color-muted);
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   display: block;
 }
 
-/* Product name */
+/* Product name — Playfair Display */
 .product-card__title {
+  font-family: var(--font-heading);
   font-size: 0.9375rem;
   font-weight: 500;
-  color: var(--color-text-primary);
+  color: var(--color-foreground);
   margin: 0;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -505,10 +541,13 @@ ul.products {
   line-height: 1.4;
   text-decoration: none;
 }
-@media (min-width: 768px) {
-  .product-card__title {
-    font-size: 1rem;
-  }
+.product-card__title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+.product-card__title a:hover {
+  color: var(--color-accent);
 }
 
 /* Star rating */
@@ -519,31 +558,32 @@ ul.products {
 }
 .product-card__rating .star-rating {
   font-size: 0.75rem;
-  color: var(--color-accent);
+  color: var(--color-accent-soft);
 }
 .product-card__rating .review-count {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
+  font-size: 0.6875rem;
+  color: var(--color-muted);
 }
 
-/* Price — MUST be visible without hover */
+/* Price — brand rose, always visible */
 .product-card__price {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-accent);
   display: flex;
   align-items: center;
   gap: 6px;
   flex-wrap: wrap;
+  margin-top: 2px;
 }
 .product-card__price ins {
   text-decoration: none;
-  color: var(--color-sale, var(--color-accent));
+  color: var(--color-accent);
 }
 .product-card__price del {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 400;
-  color: var(--color-original-price, var(--color-text-muted));
+  color: var(--color-muted);
   text-decoration: line-through;
 }
 .product-card__price .woocommerce-Price-amount {
@@ -551,7 +591,7 @@ ul.products {
   color: inherit;
 }
 
-/* Add to Cart button — always visible, full-width */
+/* Add to Cart button — pill, always visible */
 .product-card__atc {
   display: flex;
   align-items: center;
@@ -559,21 +599,22 @@ ul.products {
   width: 100%;
   background: var(--color-accent);
   color: #ffffff;
-  font-family: var(--font-primary);
-  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   font-weight: 600;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
   padding: 10px 16px;
   min-height: 44px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   margin-top: auto;
-  transition: background 0.15s, transform 0.1s;
+  transition: background var(--duration-fast), transform var(--duration-fast);
 }
 .product-card__atc:hover {
   background: var(--color-accent-hover);
+  color: #ffffff;
 }
 .product-card__atc:active {
   transform: scale(0.97);
@@ -588,16 +629,16 @@ ul.products {
   width: 100%;
   background: var(--color-accent);
   color: #ffffff;
-  font-family: var(--font-primary);
-  font-size: 0.9375rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
   font-weight: 600;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
   padding: 10px 16px;
   min-height: 44px;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.15s, transform 0.1s;
+  transition: background var(--duration-fast), transform var(--duration-fast);
   margin-top: auto;
 }
 .woocommerce ul.products li.product .button:hover,
@@ -614,7 +655,7 @@ ul.products {
 .shop-empty {
   text-align: center;
   padding: 64px 16px;
-  color: var(--color-text-secondary);
+  color: var(--color-foreground-muted);
 }
 .shop-empty p {
   font-size: 1rem;
@@ -651,20 +692,21 @@ ul.products {
   min-width: 40px;
   height: 40px;
   padding: 0 8px;
-  border-radius: 6px;
-  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border);
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-text-primary);
+  color: var(--color-foreground);
   text-decoration: none;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition: background var(--duration-fast), border-color var(--duration-fast), color var(--duration-fast);
 }
 .woocommerce-pagination .page-numbers li a:hover {
-  border-color: var(--color-navy);
-  background: var(--color-bg-subtle);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  background: var(--color-surface);
 }
 .woocommerce-pagination .page-numbers li span.current {
-  background: var(--color-navy);
+  background: var(--color-accent);
   color: #ffffff;
-  border-color: var(--color-navy);
+  border-color: var(--color-accent);
 }

@@ -7,7 +7,7 @@ Shopshive (shopshive.com) is an online women's fashion retailer that offers a wi
 * **Language:** English
 * **Store Type:** Fast Fashion / Women's Fashion Online Store
 * **Primary Market:** United States
-* **Location:** 1777 Canal St, Merced, CA, United States, California
+* **Location:** 885 Roselyn Lakes, South Vidashire, 37334, Illionis
 * **Support Email:** [support@shopshive.com](mailto:support@shopshive.com)
 * **Business Hours:** Monday – Saturday, 10:00 AM – 6:00 PM (PST)
 * **Facebook:** https://www.facebook.com/shopshivedotcom

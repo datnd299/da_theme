@@ -37,7 +37,7 @@
                     <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
                     <p class="track-help-box__text">
                         <?php esc_html_e('If you have any trouble, please reach out to our boutique team at ', 'dawp'); ?>
-                        <a href="mailto:support@shopkelli.com">support@shopkelli.com</a>
+                        <a href="mailto:support@shopshive.com">support@shopshive.com</a>
                         <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
                     </p>
                 </div>

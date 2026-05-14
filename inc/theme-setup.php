@@ -55,6 +55,8 @@ function dawp_scripts() {
         }
     }
 
+    wp_enqueue_style('dawp-doctor-portfolio', get_template_directory_uri() . '/assets/css/doctor-portfolio.css', [], '1.0.0');
+
     wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.2', true);
 
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');

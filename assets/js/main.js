@@ -18,9 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.classList.toggle('is-open');
         });
 
+        nav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                toggle.setAttribute('aria-expanded', 'false');
+                nav.classList.remove('is-open');
+            });
+        });
+
         // Đóng menu khi click bên ngoài
         document.addEventListener('click', (e) => {
-            if (!header.contains(e.target) && !toggle.contains(e.target)) {
+            if (header && !header.contains(e.target) && !toggle.contains(e.target)) {
                 toggle.setAttribute('aria-expanded', 'false');
                 nav.classList.remove('is-open');
             }

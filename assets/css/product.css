@@ -1,28 +1,28 @@
 /* ============================================================
-   Product Page — Slicktee
-   Streetwear brand: clean, bold, conversion-first
+   Product Page - MyBaapStore
+   Everyday gadget store: clean, practical, conversion-focused
    ============================================================ */
 
-/* ── CSS Variables ─────────────────────────────────────────── */
+/* CSS Variables */
 :root {
   --color-bg:             #ffffff;
-  --color-bg-subtle:      #FBF4FF;
-  --color-bg-muted:       #FFF6EE;
-  --color-text-primary:   #24132E;
-  --color-text-secondary: #3B1748;
-  --color-text-muted:     #6D5875;
-  --color-text-soft:      #9D7A83;
-  --color-border:         #E8DFF0;
-  --color-accent:         #6E3A8A;
-  --color-accent-hover:   #3B1748;
+  --color-bg-subtle:      #EAF4FF;
+  --color-bg-muted:       #F5F7FA;
+  --color-text-primary:   #1F2937;
+  --color-text-secondary: #102A43;
+  --color-text-muted:     #667085;
+  --color-text-soft:      #667085;
+  --color-border:         #E5E7EB;
+  --color-accent:         #2F80ED;
+  --color-accent-hover:   #102A43;
   --color-button-bg:      var(--color-accent-hover);
   --color-button-hover:   var(--color-accent);
   --color-button-text:    var(--color-bg);
-  --color-sale:           #B97878;
-  --color-blush:          #E8B8AD;
-  --color-navy:           #3B1748;
-  --color-navy-light:     #9D7A83;
-  --color-ring:           rgba(110, 58, 138, 0.18);
+  --color-sale:           #B42318;
+  --color-blush:          #5BA8A0;
+  --color-navy:           #102A43;
+  --color-navy-light:     #667085;
+  --color-ring:           rgba(47, 128, 237, 0.18);
   --color-background:     var(--color-bg);
   --color-foreground:     var(--color-text-primary);
   --color-foreground-muted: var(--color-text-muted);
@@ -34,8 +34,8 @@
   --radius-md:            8px;
   --radius-lg:            16px;
   --radius-xl:            24px;
-  --shadow-card:          0 1px 4px rgba(59, 23, 72, 0.06);
-  --shadow-card-hover:    0 14px 34px rgba(59, 23, 72, 0.12);
+  --shadow-card:          0 1px 4px rgba(16, 42, 67, 0.06);
+  --shadow-card-hover:    0 14px 34px rgba(16, 42, 67, 0.12);
 }
 
 /* === 1. PAGE LAYOUT === */
@@ -102,7 +102,7 @@ body.single-product {
   border-radius: 999px;
   background: var(--color-bg);
   color: var(--color-sale);
-  box-shadow: 0 8px 18px rgba(59, 23, 72, 0.12);
+  box-shadow: 0 8px 18px rgba(16, 42, 67, 0.12);
   font-family: var(--font-primary);
   font-size: 0.7rem;
   font-weight: 900;

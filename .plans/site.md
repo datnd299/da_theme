@@ -1,918 +1,695 @@
-# Portfolio Site.md — Hồ Thị Huyền Trang
+# MyBaapStore Site.md
 
-## Website Type
+## Store Information
 
-* **Website Type:** Personal Portfolio Website
-* **Purpose:** Professional portfolio for a final-year university student
-* **Primary Language:** Vietnamese
-* **Secondary Language:** English where suitable
-* **Main Audience:** Recruiters, employers, internship supervisors, HR teams, project collaborators
-* **Candidate Name:** Hồ Thị Huyền Trang
-* **Current Status:** Final-year English Language student
-* **Academic Background:** English Language Major, University of Languages and International Studies – Vietnam National University, Hanoi
-* **Career Direction:** Tourism, Communication, Customer Experience, Education, Content & Marketing Support
-
----
-
-# Core Positioning
-
-Hồ Thị Huyền Trang should be positioned as a dynamic final-year student with strong language ability, practical work experience, communication skills, and measurable achievements in tourism, customer care, content promotion, and English teaching.
-
-The portfolio should not feel like a simple online CV.
-
-It should feel like a professional personal brand website that tells the story of a young, active, result-oriented candidate.
-
-Core positioning statement:
-
-> A final-year English Language student with practical experience in tourism, communication, customer care, and education — bringing strong language skills, measurable results, and a proactive attitude to every project.
-
-Vietnamese version:
-
-> Sinh viên năm cuối ngành Ngôn ngữ Anh, định hướng phát triển trong lĩnh vực du lịch, truyền thông, chăm sóc khách hàng và giáo dục — nổi bật với khả năng ngoại ngữ, tư duy giao tiếp và các thành tích thực tế có số liệu rõ ràng.
+* **Website:** mybaapstore.com
+* **Brand Name:** MyBaapStore
+* **Language:** English
+* **Store Type:** Practical Gadgets & Everyday Electronic Tools Store
+* **Primary Market:** United States
+* **Core Products:** Smart gadgets, home & kitchen gadgets, personal care devices, camera & tech accessories, daily tools
+* **Brand Direction:** Practical, useful, modern, clean, everyday-focused, GMC-safe
+* **Support Email:** [support@mybaapstore.com](mailto:support@mybaapstore.com)
+* **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
-# Personal Brand Direction
+# Brand Positioning
 
-The portfolio should communicate that Huyền Trang is:
+MyBaapStore is a practical gadget store offering useful everyday tools for home, kitchen, personal care, tech accessories, and daily convenience.
 
-* Dynamic
-* Professional
-* Responsible
-* Communicative
-* Result-oriented
-* Good at language and presentation
-* Customer-focused
-* Able to create promotional content
-* Interested in tourism and education
-* Capable of teamwork and problem-solving
+The brand should feel:
 
-The website should feel youthful but still professional.
+* Practical
+* Useful
+* Modern
+* Clean
+* Trustworthy
+* Easy to shop
+* Everyday-focused
+* Gadget-oriented but not overly technical
 
-Avoid making the website look too playful, too academic, or too corporate.
+MyBaapStore should not feel like a random general dropshipping store or a chaotic viral gadget marketplace.
 
----
+The store should focus on small, useful products that help customers solve simple daily needs.
 
-# Professional Identity
+Core positioning:
 
-Suggested professional title:
+> Useful gadgets for everyday life.
 
-```text
-Final-year English Language Student
-Tourism • Communication • Customer Experience • Education
-```
+Expanded positioning:
 
-Vietnamese title:
-
-```text
-Sinh viên năm cuối ngành Ngôn ngữ Anh
-Định hướng Du lịch • Truyền thông • Chăm sóc khách hàng • Giáo dục
-```
-
-Alternative short title:
-
-```text
-English Language Student | Tourism & Communication Enthusiast
-```
+> MyBaapStore helps customers discover practical gadgets and everyday electronic tools for home, kitchen, grooming, tech accessories, and daily routines.
 
 ---
 
-# Key Strengths To Highlight
+# Historical Direction
 
-The portfolio must highlight these core strengths:
+Based on previous social signals, MyBaapStore appeared to promote practical gadget-style products such as:
 
-## 1. Strong Academic Foundation
+* Cameras or camera-related products
+* Silicone Ice Cube Bucket
+* Micro Touch Trimmer
+* Unisex Comfy Hair Remove
+* Small daily-use tools
+* Personal grooming devices
+* Household and kitchen gadgets
 
-* English Language Major
-* University of Languages and International Studies – VNU Hanoi
-* GPA: 3.63/4
-* Academic classification: Excellent
+This suggests the store should be rebuilt around practical gadgets and everyday tools rather than a broad general marketplace.
 
-## 2. Practical Tourism Experience
-
-Experience at Công ty TNHH Thương mại và Dịch vụ TRIPUS as a tourism intern.
-
-Key highlights:
-
-* Designed promotional content
-* Reached 80% of potential customers
-* Achieved the highest KPI among interns
-* Contributed to 260 million VND/month total sales from travel tours
-* Designed customized tours based on customer needs
-* Provided customer care and received 95% positive feedback
-
-## 3. Teaching & Education Experience
-
-Experience as an English Teacher at CTCP Dream Viet Education – KYNA PTE. LTD. / KYNA English.
-
-Key highlights:
-
-* Taught English to learners across multiple age groups
-* 90% of trial students registered for the next course
-* Received positive feedback from parents and learners
-* Helped beginner learners improve scores and pronunciation
-* Handled difficult and unexpected classroom situations
-
-## 4. Language Certifications
-
-* VNU TEST – English C1, score 8.0/10
-* Chinese HSK 3, score 295/300
-* HSKK Intermediate
-
-## 5. Communication & Project Achievement
-
-* Award: “Video truyền thông xuất sắc nhất”
-* Competition: Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
-* This should be treated as a featured project on the portfolio, not just a small CV bullet.
-
-## 6. Social Contribution
-
-* Outstanding volunteer of SCF Social Fund
-* Recognized for contributions to community support programs
+The new website should preserve the gadget/electronic utility direction while making the product structure more focused and trustworthy for GMC.
 
 ---
 
-# Target Employers / Opportunities
+# Core Store Concept
 
-The portfolio should be useful for applying to roles such as:
+MyBaapStore is built around smart little tools that make everyday tasks easier.
 
-* Tourism intern
-* Tour consultant
-* Customer service executive
-* Marketing communication intern
-* Content marketing intern
-* Education consultant
-* English teaching assistant
-* Training support staff
-* Project assistant
-* Communication assistant
-* Sales support / customer experience roles
+The store should focus on:
 
----
+* Small home and kitchen gadgets
+* Practical personal care devices
+* Camera and tech accessories
+* Daily-use tools
+* Compact household helpers
+* Useful electronic-style products
 
-# Website Goals
+The brand should communicate value through use cases, convenience, and practical benefits.
 
-The portfolio should help Huyền Trang:
+Good messaging:
 
-* Present herself professionally beyond a PDF CV
-* Showcase real work achievements with numbers
-* Embed or link the award-winning communication video
-* Build credibility through education and certifications
-* Show personality, motivation, and communication ability
-* Make it easy for recruiters to contact her
-* Make her profile memorable and visually polished
+* Smart little tools for everyday living
+* Useful gadgets for home, grooming, tech, and daily routines
+* Practical tools that make small tasks easier
+* Everyday gadgets selected for convenience and simple use
 
----
+Avoid messaging:
 
-# Recommended Website Structure
-
-The portfolio can be built as a one-page website with smooth navigation.
-
-Recommended sections:
-
-1. Hero / Introduction
-2. Achievement Highlights
-3. About Me
-4. Experience
-5. Featured Project: Award-Winning Communication Video
-6. Education & Certifications
-7. Skills
-8. Activities & Awards
-9. Contact
-
-If building multiple pages, recommended pages:
-
-* Home
-* About
-* Experience
-* Projects
-* Awards & Activities
-* Certificates
-* Contact
-
-For the first version, a one-page portfolio is recommended.
+* Life-changing miracle gadgets
+* Viral products everyone must buy
+* Crazy deals
+* Secret devices
+* Guaranteed results
+* Too-good-to-be-true claims
 
 ---
 
-# Hero Section Direction
+# Target Audience
 
-## Purpose
+## Primary Audience
 
-The hero section should introduce Huyền Trang quickly and confidently.
+Adults aged 25–45 who like practical products for everyday convenience.
 
-## Content
+They may be:
 
-Name:
+* Home users looking for simple tools
+* People interested in small gadgets
+* Customers shopping for kitchen or household helpers
+* Men and women looking for grooming devices
+* Tech accessory shoppers
+* Gift shoppers looking for useful gadgets
+* Busy people who want convenient daily-use items
 
-```text
-Hồ Thị Huyền Trang
-```
+## Secondary Audience
 
-Professional title:
-
-```text
-Final-year English Language Student
-Tourism • Communication • Customer Experience • Education
-```
-
-Vietnamese version:
-
-```text
-Sinh viên năm cuối ngành Ngôn ngữ Anh
-Định hướng Du lịch • Truyền thông • Chăm sóc khách hàng • Giáo dục
-```
-
-Hero description:
-
-```text
-Sinh viên năm cuối ngành Ngôn ngữ Anh với kinh nghiệm trong tư vấn du lịch, thiết kế nội dung quảng bá, chăm sóc khách hàng và giảng dạy tiếng Anh. Nổi bật với tư duy giao tiếp, khả năng ngoại ngữ và các thành tích thực tế trong môi trường làm việc.
-```
-
-CTA buttons:
-
-```text
-Xem Portfolio
-Tải CV
-Xem LinkedIn
-```
-
-Visual:
-
-* Professional headshot
-* Clean personal portrait
-* Light academic/professional background
-* Optional subtle travel/communication visual accent
+* Students and young professionals
+* Parents managing household routines
+* Remote workers
+* Travelers
+* People looking for simple electronic accessories
+* Customers buying practical gifts
 
 ---
 
-# Achievement Highlights Section
+# Customer Psychology
 
-## Purpose
+MyBaapStore customers are attracted to products that feel:
 
-This section should turn CV numbers into strong visual proof.
+* Useful
+* Compact
+* Simple
+* Affordable
+* Easy to understand
+* Convenient
+* Practical for daily life
 
-Suggested highlight cards:
+They want small products that help with:
 
-### GPA
+* Grooming routines
+* Kitchen tasks
+* Home convenience
+* Camera/video use
+* Tech organization
+* Daily carry
 
-```text
-3.63/4
-GPA — Xếp loại Xuất sắc
-```
+They are not necessarily looking for advanced electronics or expensive devices.
 
-### Sales KPI
-
-```text
-260M VND/month
-Top KPI intern performance in tourism sales
-```
-
-### Customer Feedback
-
-```text
-95%
-Positive feedback from new and returning customers
-```
-
-### Teaching Conversion
-
-```text
-90%
-Trial students registered for the next course
-```
-
-### English Level
-
-```text
-C1 English
-VNU TEST Certificate — 8.0/10
-```
-
-### Award-Winning Video
-
-```text
-Award-Winning Video
-Best Communication Video — Tourism Guide Skills 2025
-```
-
-Design note:
-
-Achievement cards should be visible near the top of the homepage.
+They want products that solve small everyday problems.
 
 ---
 
-# About Me Section
+# Main Product Categories
 
-## Purpose
+Keep the store focused with 5 main categories.
 
-The About section should tell her personal and career direction clearly.
+## Main Categories
 
-## Content Direction
+* **Smart Gadgets**
+* **Home & Kitchen Gadgets**
+* **Personal Care Devices**
+* **Camera & Tech Accessories**
+* **Daily Tools**
 
-Focus on:
+Do not add too many unrelated categories at the beginning.
 
-* Final-year English Language student
-* Passion for communication, tourism, customer experience, and education
-* Strength in connecting with people
-* Ability to work with targets and measurable outcomes
-* Interest in creating meaningful content and service experiences
-
-Suggested copy:
-
-```text
-Tôi là Hồ Thị Huyền Trang, sinh viên năm cuối ngành Ngôn ngữ Anh tại Trường Đại học Ngoại Ngữ – ĐHQGHN. Với nền tảng ngoại ngữ, kinh nghiệm tư vấn du lịch, chăm sóc khách hàng và giảng dạy tiếng Anh, tôi mong muốn phát triển trong môi trường nơi giao tiếp, nội dung và trải nghiệm khách hàng đóng vai trò quan trọng.
-
-Tôi yêu thích những công việc cho phép mình kết nối với con người, truyền tải thông tin rõ ràng và tạo ra giá trị thực tế qua từng dự án, từng lớp học hoặc từng trải nghiệm khách hàng.
-```
+The website must not feel like a general store selling everything.
 
 ---
 
-# Experience Section
+# Category Direction
 
-## Purpose
+## Smart Gadgets
 
-Experience should be presented as professional case cards, not just CV bullets.
+This category is for useful small gadgets that do not fit neatly into one room or use case.
 
-## Experience 1: TRIPUS
+Products may include:
 
-Company:
+* Portable gadgets
+* Small electronic-style tools
+* Useful home convenience devices
+* Compact tools
+* Practical daily gadgets
 
-```text
-Công ty TNHH Thương mại và Dịch vụ TRIPUS
-```
+Tone:
 
-Role:
+Useful, practical, modern, easy to understand.
 
-```text
-Thực tập sinh du lịch
-```
+Avoid:
 
-Time:
-
-```text
-04/2025 – 07/2025
-```
-
-Key responsibilities:
-
-* Designed promotional content
-* Consulted customers on travel tours
-* Created customized tour suggestions based on customer needs
-* Supported customer care and follow-up
-* Worked toward KPI and sales targets
-
-Key achievements:
-
-* Reached 80% of potential customers
-* Highest KPI among interns
-* Contributed to 260 million VND/month total sales from tours
-* Received 95% positive customer feedback
-
-Suggested card title:
-
-```text
-Tourism Communication & Customer Consulting
-```
-
-## Experience 2: KYNA English
-
-Company:
-
-```text
-CTCP Dream Viet Education – KYNA PTE. LTD. / KYNA English
-```
-
-Role:
-
-```text
-Giáo viên tiếng Anh
-```
-
-Time:
-
-```text
-03/2024 – 12/2024
-```
-
-Key responsibilities:
-
-* Taught English to learners of different age groups
-* Supported beginner and returning learners
-* Communicated with students and parents
-* Managed class situations and learning progress
-
-Key achievements:
-
-* 90% of trial students registered for the next course
-* Positive feedback from parents and learners
-* Helped beginner learners improve scores and pronunciation
-* Handled difficult and unexpected classroom situations
-
-Suggested card title:
-
-```text
-English Teaching & Learner Engagement
-```
+* Viral gimmicks
+* Unrealistic claims
+* Surveillance or hidden devices
+* Hazardous gadgets
 
 ---
 
-# Featured Project Section
+## Home & Kitchen Gadgets
 
-## Purpose
+This category includes products like Silicone Ice Cube Bucket and other kitchen/home helpers.
 
-This is one of the most important sections of the portfolio.
+Products may include:
 
-The award-winning video should be displayed prominently with an embedded video player or a clickable video thumbnail.
+* Ice cube tools
+* Kitchen prep gadgets
+* Drinkware accessories
+* Sink or counter organizers
+* Storage helpers
+* Small household tools
+* Simple home convenience items
 
-## Project Title
+Tone:
 
-```text
-Award-Winning Communication Video
-```
+Clean, helpful, family-friendly, everyday use.
 
-Vietnamese title:
+Avoid:
 
-```text
-Video truyền thông đạt giải xuất sắc
-```
-
-Award:
-
-```text
-Đạt giải “Video truyền thông xuất sắc nhất” — Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
-```
-
-## Video Embed
-
-The website should support one of the following:
-
-* YouTube embed
-* Google Drive video embed
-* Self-hosted MP4
-* Vimeo embed
-
-## Project Description
-
-Suggested copy:
-
-```text
-Dự án video truyền thông được thực hiện trong khuôn khổ Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025. Sản phẩm đạt giải “Video truyền thông xuất sắc nhất”, thể hiện khả năng xây dựng thông điệp, kể chuyện bằng hình ảnh và truyền tải nội dung du lịch một cách hấp dẫn.
-```
-
-## Suggested Role Breakdown
-
-If accurate, the project section may include:
-
-* Idea development
-* Content concept
-* Script support
-* Tourism communication message
-* Presentation/storytelling
-* Team coordination
-* Video planning
-
-If role details are uncertain, use safe wording:
-
-```text
-Tham gia vào quá trình xây dựng nội dung, truyền tải thông điệp và hoàn thiện sản phẩm truyền thông cùng nhóm dự án.
-```
-
-## Skills Demonstrated
-
-* Storytelling
-* Tourism communication
-* Public speaking
-* Content planning
-* Teamwork
-* Presentation skills
-* Visual communication
-
-## CTA
-
-```text
-Xem video dự án
-Xem thêm dự án
-```
+* Dangerous cutting tools
+* Restricted knives
+* Appliances with unclear safety details
+* Exaggerated performance claims
 
 ---
 
-# Education Section
+## Personal Care Devices
 
-## Content
+This category includes grooming tools such as Micro Touch Trimmer and hair removal devices.
 
-School:
+Products may include:
 
-```text
-Trường Đại học Ngoại Ngữ – ĐHQGHN
-```
+* Personal trimmers
+* Hair removal tools
+* Grooming accessories
+* Small beauty/grooming devices
+* Daily personal care tools
 
-Major:
+Tone:
 
-```text
-Cử nhân ngành Ngôn ngữ Anh
-```
+Simple grooming, everyday care, easy routines.
 
-Time:
+Important copy rules:
 
-```text
-10/2022 – 06/2026
-```
+* Focus on grooming convenience
+* Use practical product descriptions
+* Mention product use clearly
+* Avoid medical or permanent-result claims
 
-Academic results:
+Avoid claims like:
 
-```text
-GPA: 3.63/4
-Xếp loại: Xuất sắc
-```
+* Permanent hair removal
+* 100% painless guaranteed
+* Medical-grade results
+* Safe for all skin types guaranteed
+* Doctor recommended unless verified
+* Cure/treatment claims
 
-Design note:
+Safe copy example:
 
-Education should be clean, with one strong academic card and maybe an academic timeline style.
-
----
-
-# Certificates Section
-
-## Certificates To Display
-
-### VNU TEST — English C1
-
-```text
-Score: 8.0/10
-```
-
-### Chinese HSK 3
-
-```text
-Score: 295/300
-```
-
-### HSKK Intermediate
-
-```text
-Chinese Speaking Certificate
-```
-
-Optional CTA:
-
-```text
-View Certificate
-```
-
-if certificate images or PDF files are available.
+> Designed for simple everyday grooming routines.
 
 ---
 
-# Skills Section
+## Camera & Tech Accessories
 
-Skills should be grouped, not displayed as a plain list.
+This category covers camera-related and tech accessory products.
 
-## Communication Skills
+Products may include:
 
-* Public speaking
-* Customer communication
-* Presentation
-* Teamwork
-* Interpersonal communication
+* Camera accessories
+* Video accessories
+* Phone or camera mounts
+* Tech organizers
+* Cable accessories
+* Simple content creation tools
+* Portable tech helpers
 
-## Marketing & Content Skills
+Tone:
 
-* Digital marketing basics
-* Promotional content design
-* Tourism communication
-* Content planning
-* Customer-focused messaging
+Useful, tech-friendly, practical, content-friendly.
 
-## Language Skills
+Important GMC rule:
 
-* English: C1 level
-* Chinese: HSK 3
-* Chinese speaking: HSKK Intermediate
+Do not position products as spy, hidden, secret, or surveillance-without-consent devices.
 
-## Education & Training Skills
+Avoid words like:
 
-* English teaching
-* Learner engagement
-* Class situation handling
-* Pronunciation support
-* Beginner learner support
+* spy camera
+* hidden camera
+* secret recorder
+* undetectable
+* covert surveillance
+* hidden monitoring
 
-## Workplace Skills
+Safe direction:
 
-* Basic computer skills
-* Problem-solving
-* Customer care
-* Tour planning support
-* KPI-oriented working style
+* camera tools
+* video accessories
+* content creation accessories
+* home camera accessories
+* portable camera gear
 
 ---
 
-# Activities & Awards Section
+## Daily Tools
 
-## Purpose
+This category collects compact, practical tools for everyday convenience.
 
-This section should show that Huyền Trang is active beyond academic study.
+Products may include:
 
-## Awards
+* Travel-friendly tools
+* Small organizers
+* Cable organizers
+* Daily carry accessories
+* Compact home tools
+* Practical giftable items
 
-### Best Communication Video
+Tone:
 
-```text
-Đạt giải “Video truyền thông xuất sắc nhất” — Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
-```
+Simple, compact, everyday, gift-friendly.
 
-This award should link to the Featured Project section.
+Avoid:
 
-## Volunteer Activity
-
-### Outstanding Volunteer — SCF Social Fund
-
-```text
-Tình nguyện viên xuất sắc của Quỹ xã hội SCF, được ghi nhận thành tích đóng góp trong các chương trình hỗ trợ cộng đồng.
-```
-
-Design note:
-
-Use cards with icons or timeline format.
+* Weapons
+* Tactical self-defense items
+* Pepper spray
+* Hidden recording tools
+* Hazardous tools
 
 ---
 
-# Contact Section
+# Product Style Rules
 
-## Purpose
+Products should generally feel:
 
-Make it easy for recruiters to contact Huyền Trang.
+* Useful
+* Compact
+* Practical
+* Easy to explain
+* Safe for mainstream ecommerce
+* Relevant to daily routines
+* Not overly gimmicky
 
-## Public Contact Recommendation
+Preferred product types:
 
-Because the website may be public, avoid showing full personal address.
+* Small gadgets
+* Kitchen tools
+* Grooming devices
+* Camera accessories
+* Tech organization tools
+* Daily convenience items
 
-Recommended public information:
+Avoid products that feel:
 
-```text
-Hanoi, Vietnam
-Available for internship / entry-level opportunities
-Email: [professional email]
-LinkedIn: linkedin.com/in/hohuyentrang
-```
-
-Optional contact form fields:
-
-* Name
-* Email
-* Company / Organization
-* Message
-
-CTA:
-
-```text
-Liên hệ với tôi
-Tải CV
-```
+* Illegal or surveillance-focused
+* Medical claim-heavy
+* Fake branded electronics
+* Dangerous
+* Adult-oriented
+* Weapon-related
+* Too random or unrelated to the store direction
 
 ---
 
-# Privacy & Personal Information Note
+# Products To Avoid
 
-Since this portfolio may be public, avoid displaying:
+For GMC safety, do not sell or promote:
 
-* Full home address
-* Personal identification information
-* Too much private contact detail
+* Spy cameras
+* Hidden recorders
+* Covert surveillance devices
+* Weapons or tactical knives
+* Pepper spray or self-defense weapons
+* Supplements
+* Medical claim devices
+* CBD, THC, nicotine, alcohol
+* Adult products
+* Fake branded electronics
+* Counterfeit goods
+* Copyrighted character products
+* Dangerous chemicals
+* High-risk beauty devices with medical claims
+* Devices marketed as permanent treatment solutions
 
-Use a professional email and LinkedIn link instead.
+---
 
-If phone number is included, place it in CV download or contact section only.
+# Brand Voice
+
+MyBaapStore should speak clearly and practically.
+
+Tone should be:
+
+* Useful
+* Friendly
+* Simple
+* Direct
+* Trustworthy
+* Benefit-focused
+* Not overly technical
+* Not hype-heavy
+
+Good examples:
+
+* Smart little tools for everyday living
+* Practical gadgets for home, grooming, and daily routines
+* Simple products that make small tasks easier
+* Useful finds for everyday convenience
+* Easy tools for home, kitchen, care, and tech
+
+Avoid:
+
+* Viral must-have
+* Miracle gadget
+* Secret device
+* Life-changing results
+* Crazy sale
+* Limited stock pressure
+* Guaranteed transformation
 
 ---
 
 # Visual Direction
 
-The website should look:
+The visual direction should feel modern, clean, and practical.
 
-* Young
-* Professional
-* Clean
-* Energetic
-* Trustworthy
-* Academic but modern
-* Suitable for tourism, communication, and education roles
+Images should show products in realistic daily-use environments.
 
-Avoid:
+## Preferred Image Themes
 
-* Too childish
-* Too corporate
-* Too colorful
-* Overly decorative student-style design
-* Dense CV-like layout
+* Clean kitchen counter with useful tools
+* Grooming device on bathroom vanity
+* Camera or tech accessory on desk setup
+* Small gadgets arranged neatly
+* Home convenience tools in use
+* Neutral workspace with tech accessories
+* Product close-ups showing function
+
+## Image Style
+
+* Bright lighting
+* Clean backgrounds
+* Neutral colors
+* Realistic product use
+* Minimal clutter
+* No aggressive sale graphics
+* No fake before/after claims
+* No medical-style visual claims
+
+## Avoid Images
+
+* Spy/camera hidden use scenes
+* Surveillance scenarios
+* Medical treatment imagery
+* Overly dramatic before/after visuals
+* Low-quality product collages
+* Red discount graphics
+* Copyrighted brand logos
+* Images with misleading text claims
 
 ---
 
-# Suggested Color Direction
+# Color Direction
+
+The website should feel modern, practical, and trustworthy.
 
 Recommended palette:
 
-## Primary Navy
+* Deep Navy
+* Electric Blue
+* Light Blue
+* Clean White
+* Cool Gray
+* Charcoal
+* Soft Teal
 
-```txt
-#0F3D5E
-```
+The site should avoid:
 
-Use for:
-
-* Headings
-* Header
-* Key section accents
-* Professional identity
-
-## Sky Blue
-
-```txt
-#DCEEFF
-```
-
-Use for:
-
-* Light backgrounds
-* Highlight sections
-* Cards
-
-## Warm Beige
-
-```txt
-#F6EFE7
-```
-
-Use for:
-
-* Soft background sections
-* About section
-* Human warmth
-
-## White
-
-```txt
-#FFFFFF
-```
-
-Use for:
-
-* Main background
-* Cards
-* Clean reading areas
-
-## Charcoal
-
-```txt
-#222222
-```
-
-Use for:
-
-* Body text
-* High readability
-
-## Accent Gold
-
-```txt
-#D9A441
-```
-
-Use for:
-
-* Awards
-* Achievement highlights
-* Small accents
+* Neon gadget colors
+* Red discount-heavy design
+* Dark hacker/spy aesthetic
+* Cheap marketplace colors
+* Too many bright colors together
 
 ---
 
-# Typography Direction
+# Homepage Direction
 
-The typography should be modern, readable, and professional.
+Homepage should be short, focused, and product-category clear.
 
-Recommended fonts:
+Recommended homepage flow:
 
-* Inter
-* Be Vietnam Pro
-* Manrope
-* Source Sans 3
-* Plus Jakarta Sans
+1. Hero: Smart Little Tools For Everyday Living
+2. Shop By Category
+3. Home & Kitchen Gadgets Feature
+4. Personal Care Devices Feature
+5. Camera & Tech Accessories / Best Sellers
+6. Customer Care / Shipping / Returns
 
-Heading style:
+If keeping homepage very short, use 5 sections:
 
-* Confident
-* Clean
-* Slightly bold
-* Not too decorative
+1. Hero
+2. Shop By Category
+3. Home & Kitchen Gadgets
+4. Personal Care & Tech Tools
+5. Customer Care / Trust
 
-Body style:
+Homepage should focus on:
 
-* Easy to read
-* Clear line spacing
-* Professional
-
----
-
-# UI Component Direction
-
-## Achievement Cards
-
-Should be visually strong.
-
-Use:
-
-* Large number
-* Short label
-* Small explanation
-
-## Experience Cards
-
-Each card should include:
-
-* Company name
-* Role
-* Time
-* Responsibilities
-* Key results
-
-## Project Video Block
-
-Must include:
-
-* Video embed
-* Project title
-* Award label
-* Role/skills summary
-* CTA
-
-## Certificate Cards
-
-Each card should include:
-
-* Certificate name
-* Score
-* Organization or test name
-* Optional view link
-
-## Contact CTA
-
-Should be clean and clear.
-
-Use buttons:
-
-* Download CV
-* Contact Me
-* LinkedIn
-
----
-
-# Content Tone
-
-Tone should be:
-
-* Professional
-* Young
-* Confident
-* Clear
-* Human
-* Result-focused
-* Not overly boastful
-
-Good words:
-
-* proactive
-* communication
-* customer experience
-* tourism
-* education
-* measurable results
-* learning mindset
-* teamwork
-* responsibility
-* growth
+* Everyday usefulness
+* Practical categories
+* Clear product use cases
+* Trust and policy transparency
+* Clean navigation
 
 Avoid:
 
-* exaggerated claims
-* saying “expert” too early
-* overpromising
-* fake corporate jargon
-* too casual Gen Z slang
+* Massive product dump
+* Countdown timers
+* Fake urgency
+* Viral gadget claims
+* Too many unrelated product groups
 
 ---
 
-# Final Portfolio Goal
+# Trust & Policy Requirements
 
-The final portfolio should make recruiters feel:
+MyBaapStore should include clear customer trust pages:
 
-* Huyền Trang is not just a student; she has real experience
-* Her achievements are measurable and credible
-* She communicates well
-* She can work with customers, learners, and teams
-* She has strong language ability
-* She has a meaningful project to showcase through video
-* She is ready for internship or entry-level roles in tourism, communication, customer experience, or education
+* About Us
+* Contact Us
+* Shipping Policy
+* Return & Refund Policy
+* Privacy Policy
+* Terms of Service
+* FAQ
+* Track Your Order
 
-The portfolio should leave the impression:
+Trust elements should be visible:
 
-> A dynamic final-year English Language student with strong communication skills, measurable work results, language certifications, and a standout award-winning
+* Support email
+* Business hours
+* Shipping timeline
+* Return window
+* Product usage information
+* Clear product categories
+* Secure checkout messaging
+
+---
+
+# Shipping Information
+
+Orders are processed within **2–4 business days**.
+
+After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
+
+Tracking information is provided once an order ships.
+
+Shipping copy should be realistic and transparent.
+
+Avoid vague promises like:
+
+* fastest shipping
+* instant delivery
+* guaranteed delivery date
+
+unless officially supported.
+
+---
+
+# Return Policy Direction
+
+Customers may request returns within **30 days** of delivery.
+
+Eligible items should be:
+
+* Unused
+* Undamaged
+* In original condition
+* Returned with original packaging where applicable
+
+For personal care devices, returns may need additional hygiene conditions.
+
+Policy language should clearly explain:
+
+* Eligible return conditions
+* Hygiene-related limitations for personal care products
+* How to contact support
+* Refund process timeline
+
+---
+
+# Product Copy Rules
+
+Product descriptions should explain:
+
+* What the product is
+* How it is used
+* Where it fits in daily life
+* Key practical benefits
+* Product specifications
+* Included items
+* Care/use instructions when relevant
+* Safety notes when needed
+
+Avoid:
+
+* Keyword stuffing
+* Unsupported claims
+* Medical claims
+* Permanent-result claims
+* Spy/surveillance wording
+* Fake urgency
+* Overpromising performance
+
+Example safe copy:
+
+> This compact grooming tool is designed for simple everyday touch-ups and easy handling at home or while traveling.
+
+---
+
+# GMC Compliance Direction
+
+MyBaapStore must appear as a legitimate practical gadget store with a coherent product focus.
+
+## GMC Priorities
+
+* Clear product categories
+* Transparent policies
+* Realistic product descriptions
+* No prohibited products
+* No hidden surveillance positioning
+* No fake urgency
+* No counterfeit electronics
+* No unsupported medical or personal care claims
+* Clear customer support information
+* Clean product pages
+
+## Avoid
+
+* Mixed random general store products
+* Spy or hidden camera language
+* Medical-result personal care devices
+* Fake reviews
+* Countdown timers
+* Viral gadget hype
+* Products with unclear safety/legal status
+
+---
+
+# Category Copy Examples
+
+## Smart Gadgets
+
+```text
+Useful small gadgets selected for everyday convenience, simple routines, and practical daily use.
+```
+
+## Home & Kitchen Gadgets
+
+```text
+Helpful tools for kitchen prep, home organization, drinkware, storage, and everyday household tasks.
+```
+
+## Personal Care Devices
+
+```text
+Simple grooming tools and personal care devices designed for everyday routines and easy use.
+```
+
+## Camera & Tech Accessories
+
+```text
+Practical camera, video, and tech accessories for desks, content creation, and daily device organization.
+```
+
+## Daily Tools
+
+```text
+Compact tools and accessories made for travel, daily carry, and everyday problem-solving.
+```
+
+---
+
+# Strategic Build Goal
+
+The final MyBaapStore storefront should feel like:
+
+> A clean and trustworthy gadget store offering practical tools for home, kitchen, grooming, tech accessories, and everyday convenience.
+
+The customer should feel:
+
+* Products are useful and easy to understand
+* The store has a clear gadget-focused direction
+* The shopping experience is clean and trustworthy
+* Policies and support are transparent
+* The products are practical, not random
+
+The site should never feel like a chaotic viral gadget dropshipping store or a risky surveillance/personal-care claim site.

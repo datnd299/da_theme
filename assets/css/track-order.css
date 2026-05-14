@@ -1,21 +1,21 @@
 /* =============================================================
-   TRACK ORDER PAGE - Shop Avec Moi palette
+   TRACK ORDER PAGE - MyBaapStore palette
    ============================================================= */
 
 .track-order-page {
-  --track-ink: #24132E;
-  --track-brown: #3B1748;
-  --track-taupe: #6E3A8A;
-  --track-sage: #B85C84;
-  --track-cream: #FBF4FF;
-  --track-sand: #F7EAF5;
-  --track-muted: #6D5875;
-  --track-eyebrow: #6E3A8A;
-  --track-border: #E8DFF0;
+  --track-ink: #1F2937;
+  --track-brown: #102A43;
+  --track-taupe: #2F80ED;
+  --track-sage: #5BA8A0;
+  --track-cream: #EAF4FF;
+  --track-sand: #F5F7FA;
+  --track-muted: #667085;
+  --track-eyebrow: #2F80ED;
+  --track-border: #E5E7EB;
   --track-white: #FFFFFF;
   --track-danger: #DC2626;
-  --track-success: #5C8A6A;
-  --track-shadow: 0 18px 48px rgba(59, 23, 72, 0.12);
+  --track-success: #5BA8A0;
+  --track-shadow: 0 18px 48px rgba(16, 42, 67, 0.12);
 
   background: linear-gradient(180deg, var(--track-cream) 0%, var(--track-white) 52%);
   color: var(--track-ink);
@@ -36,7 +36,7 @@
   bottom: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(110, 58, 138, 0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(47, 128, 237, 0.35), transparent);
   pointer-events: none;
 }
 
@@ -59,7 +59,7 @@
 }
 
 .track-hero__title {
-  font-family: var(--font-heading, var(--font-sans));
+  font-family: var(--font-sans);
   font-size: 2.75rem;
   font-weight: 800;
   line-height: 1.05;
@@ -145,8 +145,8 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 999px;
-  background-color: var(--track-sand);
-  color: var(--track-brown);
+  background-color: var(--track-white);
+  color: var(--track-taupe);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,13 +167,13 @@
 }
 
 .track-help-box__text a {
-  color: var(--track-brown);
+  color: var(--track-taupe);
   font-weight: 800;
   text-decoration: none;
 }
 
 .track-help-box__text a:hover {
-  color: var(--track-taupe);
+  color: var(--track-brown);
 }
 
 .track-badges {
@@ -198,7 +198,7 @@
 }
 
 .track-badge svg {
-  color: var(--track-sage);
+  color: var(--track-taupe);
   flex-shrink: 0;
 }
 
@@ -219,7 +219,7 @@
 }
 
 .track-more-section__title {
-  font-family: var(--font-heading, var(--font-sans));
+  font-family: var(--font-sans);
   font-size: 2rem;
   font-weight: 800;
   color: var(--track-brown);
@@ -251,7 +251,7 @@
 .track-more-card:hover {
   background-color: var(--track-cream);
   border-color: var(--track-taupe);
-  box-shadow: 0 12px 28px rgba(59, 23, 72, 0.1);
+  box-shadow: 0 12px 28px rgba(16, 42, 67, 0.1);
   transform: translateY(-2px);
 }
 
@@ -273,6 +273,96 @@
   margin: 0;
 }
 
+.track-category-section {
+  background: var(--track-white);
+  padding: 4rem 1rem;
+}
+
+.track-category-section__inner {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.track-category-section__header {
+  max-width: 44rem;
+  margin-bottom: 2.5rem;
+}
+
+.track-category-section__label {
+  display: inline-block;
+  color: var(--track-sage);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 1rem;
+}
+
+.track-category-section__title {
+  font-family: var(--font-sans);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--track-brown);
+  margin: 0;
+}
+
+.track-category-section__subtitle {
+  color: var(--track-muted);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin: 1rem 0 0;
+}
+
+.track-category-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.track-category-card {
+  display: flex;
+  min-height: 12rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border: 1px solid var(--track-border);
+  border-radius: 1rem;
+  background: var(--track-sand);
+  color: var(--track-brown);
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.track-category-card:hover {
+  background: var(--track-cream);
+  border-color: rgba(47, 128, 237, 0.45);
+  box-shadow: 0 14px 30px rgba(16, 42, 67, 0.1);
+  transform: translateY(-2px);
+}
+
+.track-category-card__name {
+  display: block;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.track-category-card__copy {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--track-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.track-category-card__cta {
+  display: inline-flex;
+  margin-top: 1.25rem;
+  color: var(--track-taupe);
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
 @media (min-width: 768px) {
   .track-more-section {
     padding: 5rem 1.5rem;
@@ -280,6 +370,20 @@
 
   .track-more-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .track-category-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .track-category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .track-category-grid {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -334,7 +438,7 @@
   width: 100% !important;
   min-height: 3.25rem !important;
   padding: 0.875rem 1rem !important;
-  border-radius: 999px !important;
+  border-radius: 12px !important;
   border: 1.5px solid var(--track-border) !important;
   background-color: var(--track-cream) !important;
   color: var(--track-ink) !important;
@@ -352,9 +456,9 @@
 
 .form-row input.input-text:focus,
 .woocommerce-form-row input.input-text:focus {
-  border-color: var(--track-sage) !important;
+  border-color: var(--track-taupe) !important;
   background-color: var(--track-white) !important;
-  box-shadow: 0 0 0 3px rgba(110, 58, 138, 0.18) !important;
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.16) !important;
 }
 
 .form-row button.button,
@@ -364,7 +468,7 @@
   background-color: var(--track-taupe) !important;
   color: var(--track-white) !important;
   padding: 1rem 2rem !important;
-  border-radius: 999px !important;
+  border-radius: 12px !important;
   font-weight: 800 !important;
   font-size: 0.9375rem !important;
   font-family: var(--font-sans) !important;
@@ -372,7 +476,7 @@
   text-transform: uppercase !important;
   cursor: pointer !important;
   border: none !important;
-  box-shadow: 0 12px 26px rgba(59, 23, 72, 0.18) !important;
+  box-shadow: 0 12px 26px rgba(47, 128, 237, 0.18) !important;
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
   margin-top: 0.5rem !important;
 }
@@ -381,7 +485,7 @@
 .woocommerce-form-row button.button:hover {
   background-color: var(--track-brown) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 16px 32px rgba(59, 23, 72, 0.24) !important;
+  box-shadow: 0 16px 32px rgba(16, 42, 67, 0.22) !important;
 }
 
 .form-row button.button:active,
@@ -466,7 +570,7 @@
 }
 
 .woocommerce-order-details__title {
-  font-family: var(--font-heading, var(--font-sans));
+  font-family: var(--font-sans);
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--track-brown);

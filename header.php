@@ -9,17 +9,27 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$home_url = home_url('/');
-$cv_url = home_url('/wp-content/uploads/huyen-trang-cv.pdf');
-$portfolio_email = 'huyen.trang@example.com';
+$support_email = 'support@mybaapstore.com';
+$home_url      = home_url('/');
+$header_logo_url = get_theme_file_uri('/assets/img/gallery/Logo_all (5).png');
+$shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
+$cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
+$cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
+
+if (!$shop_url) {
+    $shop_url = home_url('/shop/');
+}
+
+if (!$account_url) {
+    $account_url = home_url('/my-account/');
+}
 
 $nav_items = [
-    ['title' => __('Portfolio', 'dawp'), 'url' => home_url('/#portfolio')],
-    ['title' => __('About', 'dawp'), 'url' => home_url('/#about')],
-    ['title' => __('Experience', 'dawp'), 'url' => home_url('/#experience')],
-    ['title' => __('Project', 'dawp'), 'url' => home_url('/#featured-project')],
-    ['title' => __('Certificates', 'dawp'), 'url' => home_url('/#education')],
-    ['title' => __('Contact', 'dawp'), 'url' => home_url('/#contact')],
+    ['title' => __('Home', 'dawp'), 'url' => $home_url],
+    ['title' => __('Shop', 'dawp'), 'url' => $shop_url],
+    ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
 ];
 ?>
 <!DOCTYPE html>
@@ -30,50 +40,84 @@ $nav_items = [
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: "Be Vietnam Pro", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-        .font-heading { font-family: "Be Vietnam Pro", "Inter", system-ui, sans-serif; }
+        body { font-family: "Inter", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .font-heading { font-family: "Manrope", "Inter", system-ui, sans-serif; }
         html { scroll-behavior: smooth; }
     </style>
 
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('bg-white antialiased'); ?>>
+<body <?php body_class('bg-white antialiased text-[#1F2937]'); ?>>
 <?php wp_body_open(); ?>
 
-<header id="masthead" class="sticky top-0 z-50 border-b border-[#E5E7EB] bg-white/95 backdrop-blur" role="banner">
+<a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-xl focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-bold focus:text-[#102A43]">
+    <?php esc_html_e('Skip to content', 'dawp'); ?>
+</a>
+
+<header id="site-header" class="sticky top-0 z-50 border-b border-[#E5E7EB] bg-white/95 backdrop-blur" role="banner">
+    <div class="hidden border-b border-[#E5E7EB] bg-[#F5F7FA] lg:block">
+        <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-8 py-2 text-xs font-semibold text-[#667085]">
+            <p><?php esc_html_e('Useful gadgets for everyday life.', 'dawp'); ?></p>
+            <div class="flex items-center gap-5">
+                <a class="transition hover:text-[#2F80ED]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                <span><?php esc_html_e('Mon - Fri, 9:00 AM - 6:00 PM EST', 'dawp'); ?></span>
+                <a class="font-bold text-[#102A43] transition hover:text-[#2F80ED]" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+            </div>
+        </div>
+    </div>
+
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex min-h-20 items-center justify-between gap-4">
-            <a href="<?php echo esc_url($home_url); ?>" class="group flex min-w-0 items-center gap-3" aria-label="<?php esc_attr_e('Hồ Thị Huyền Trang portfolio home', 'dawp'); ?>">
-                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#0F3D5E] text-sm font-extrabold text-white shadow-sm transition group-hover:bg-[#0A2F48]">
-                    HT
-                </span>
-                <span class="min-w-0">
-                    <span class="block truncate text-base font-extrabold leading-5 text-[#0F3D5E] sm:text-lg">Hồ Thị Huyền Trang</span>
-                    <span class="mt-0.5 hidden truncate text-xs font-semibold text-[#667085] sm:block">English Language Student · Tourism & Communication</span>
-                </span>
+            <a href="<?php echo esc_url($home_url); ?>" class="group inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('MyBaapStore home', 'dawp'); ?>">
+                <img class="h-14 w-auto max-w-[154px] object-contain sm:h-16 sm:max-w-[176px]" src="<?php echo esc_url($header_logo_url); ?>" alt="<?php esc_attr_e('MyBaapStore logo', 'dawp'); ?>" width="375" height="188">
             </a>
 
-            <nav class="hidden items-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Main portfolio navigation', 'dawp'); ?>">
+            <nav class="hidden items-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Main store navigation', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
-                    <a href="<?php echo esc_url($item['url']); ?>" class="rounded-full px-4 py-2 text-sm font-bold text-[#334155] transition hover:bg-[#DCEEFF] hover:text-[#0F3D5E]">
+                    <a href="<?php echo esc_url($item['url']); ?>" class="rounded-full px-4 py-2 text-sm font-bold text-[#334155] transition hover:bg-[#EAF4FF] hover:text-[#2F80ED]">
                         <?php echo esc_html($item['title']); ?>
                     </a>
                 <?php endforeach; ?>
             </nav>
 
-            <div class="flex shrink-0 items-center gap-3">
-                <a href="mailto:<?php echo esc_attr($portfolio_email); ?>" class="hidden min-h-11 items-center justify-center rounded-full border border-[#0F3D5E]/20 bg-white px-5 text-sm font-bold text-[#0F3D5E] transition hover:bg-[#DCEEFF] sm:inline-flex">
-                    <?php esc_html_e('Liên hệ', 'dawp'); ?>
-                </a>
-                <a href="<?php echo esc_url($cv_url); ?>" class="hidden min-h-11 items-center justify-center rounded-full bg-[#0F3D5E] px-5 text-sm font-bold text-white transition hover:bg-[#0A2F48] md:inline-flex">
-                    <?php esc_html_e('Tải CV', 'dawp'); ?>
+            <div class="flex shrink-0 items-center gap-2">
+                <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="hidden items-center rounded-full border border-[#E5E7EB] bg-white px-3 py-2 xl:flex">
+                    <label class="sr-only" for="header-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                    <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search gadgets', 'dawp'); ?>" class="w-40 bg-transparent text-sm text-[#1F2937] outline-none placeholder:text-[#667085]">
+                    <input type="hidden" name="post_type" value="product">
+                    <button type="submit" class="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full text-[#102A43] transition hover:bg-[#EAF4FF] hover:text-[#2F80ED]" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m16 16 4 4"></path>
+                        </svg>
+                    </button>
+                </form>
+
+                <a href="<?php echo esc_url($account_url); ?>" class="hidden h-11 w-11 items-center justify-center rounded-full border border-[#E5E7EB] text-[#102A43] transition hover:bg-[#EAF4FF] hover:text-[#2F80ED] md:inline-flex" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
+                    <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21a8 8 0 0 0-16 0"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
                 </a>
 
-                <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E5E7EB] text-[#0F3D5E] transition hover:bg-[#DCEEFF] lg:hidden" aria-expanded="false" aria-label="<?php esc_attr_e('Open portfolio menu', 'dawp'); ?>" aria-controls="portfolio-mobile-menu" onclick="const menu=document.getElementById('portfolio-mobile-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('hidden');">
+                <a href="<?php echo esc_url($cart_url); ?>" class="relative inline-flex h-11 w-11 items-center justify-center rounded-full bg-[#2F80ED] text-white transition hover:bg-[#102A43]" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
+                    <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 6H6"></path>
+                    </svg>
+                    <?php if ($cart_count > 0) : ?>
+                        <span class="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#102A43] px-1 text-[11px] font-extrabold text-white">
+                            <?php echo esc_html($cart_count); ?>
+                        </span>
+                    <?php endif; ?>
+                </a>
+
+                <button type="button" class="menu-toggle inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E5E7EB] text-[#102A43] transition hover:bg-[#EAF4FF] hover:text-[#2F80ED] lg:hidden" aria-expanded="false" aria-label="<?php esc_attr_e('Open store menu', 'dawp'); ?>" aria-controls="mobile-store-menu" onclick="const menu=document.getElementById('mobile-store-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('hidden');">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="4" y1="7" x2="20" y2="7"></line>
                         <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -84,23 +128,43 @@ $nav_items = [
         </div>
     </div>
 
-    <div id="portfolio-mobile-menu" class="hidden border-t border-[#E5E7EB] bg-white lg:hidden">
+    <div id="mobile-store-menu" class="hidden border-t border-[#E5E7EB] bg-white lg:hidden">
         <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
-            <nav class="grid gap-1" aria-label="<?php esc_attr_e('Mobile portfolio navigation', 'dawp'); ?>">
+            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mb-4 flex items-center rounded-xl border border-[#E5E7EB] bg-[#F5F7FA] px-4 py-3">
+                <label class="sr-only" for="mobile-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search practical gadgets', 'dawp'); ?>" class="w-full bg-transparent text-sm text-[#1F2937] outline-none placeholder:text-[#667085]">
+                <input type="hidden" name="post_type" value="product">
+                <button type="submit" class="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#102A43]" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m16 16 4 4"></path>
+                    </svg>
+                </button>
+            </form>
+
+            <nav class="grid gap-1" aria-label="<?php esc_attr_e('Mobile store navigation', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
-                    <a href="<?php echo esc_url($item['url']); ?>" class="rounded-2xl px-4 py-3 text-base font-bold text-[#334155] transition hover:bg-[#DCEEFF] hover:text-[#0F3D5E]">
+                    <a href="<?php echo esc_url($item['url']); ?>" class="rounded-xl px-4 py-3 text-base font-bold text-[#334155] transition hover:bg-[#EAF4FF] hover:text-[#2F80ED]">
                         <?php echo esc_html($item['title']); ?>
                     </a>
                 <?php endforeach; ?>
             </nav>
-            <div class="mt-4 grid gap-3 sm:grid-cols-2">
-                <a href="mailto:<?php echo esc_attr($portfolio_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#0F3D5E]/20 px-5 text-sm font-bold text-[#0F3D5E] transition hover:bg-[#DCEEFF]">
-                    <?php esc_html_e('Liên hệ với tôi', 'dawp'); ?>
+
+            <div class="mt-4 grid gap-3 sm:grid-cols-3">
+                <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#2F80ED] px-5 text-sm font-bold text-[#2F80ED] transition hover:bg-[#EAF4FF]">
+                    <?php esc_html_e('Track Order', 'dawp'); ?>
                 </a>
-                <a href="<?php echo esc_url($cv_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#0F3D5E] px-5 text-sm font-bold text-white transition hover:bg-[#0A2F48]">
-                    <?php esc_html_e('Tải CV', 'dawp'); ?>
+                <a href="<?php echo esc_url($account_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#2F80ED] px-5 text-sm font-bold text-[#2F80ED] transition hover:bg-[#EAF4FF]">
+                    <?php esc_html_e('My Account', 'dawp'); ?>
+                </a>
+                <a href="<?php echo esc_url($cart_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#2F80ED] px-5 text-sm font-bold text-white transition hover:bg-[#102A43]">
+                    <?php esc_html_e('Cart', 'dawp'); ?>
                 </a>
             </div>
+
+            <p class="mt-4 text-sm leading-6 text-[#667085]">
+                <?php esc_html_e('Need help? Email support@mybaapstore.com, Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?>
+            </p>
         </div>
     </div>
 </header>

@@ -1,109 +1,142 @@
-# Design System — Portfolio Hồ Thị Huyền Trang
+# MyBaapStore Design System
 
 ## Core Design Philosophy
 
-Website portfolio của Hồ Thị Huyền Trang cần thể hiện hình ảnh một sinh viên năm cuối năng động, chuyên nghiệp và có năng lực thực tế trong các lĩnh vực:
+MyBaapStore should feel like a clean, modern gadget store for practical everyday tools.
 
-* Du lịch
-* Truyền thông
-* Chăm sóc khách hàng
-* Giáo dục
-* Ngoại ngữ
-* Nội dung quảng bá
+The website experience must be:
 
-Website không nên chỉ là bản CV online. Nó cần giống một hồ sơ cá nhân chuyên nghiệp, có câu chuyện, có thành tích, có dự án nổi bật và có định hướng nghề nghiệp rõ ràng.
+* Modern
+* Practical
+* Clean
+* Trustworthy
+* Easy to browse
+* Gadget-focused
+* Everyday-use oriented
+* GMC-safe
 
-Cảm giác tổng thể cần đạt được:
+MyBaapStore is not a chaotic viral gadget shop.
+It is not a spy/surveillance store.
+It is not a random general dropshipping marketplace.
 
-* Trẻ trung
-* Chuyên nghiệp
-* Sạch sẽ
-* Tin cậy
-* Năng động
-* Có tinh thần học hỏi
-* Có kết quả thực tế
-* Phù hợp nhà tuyển dụng
+The design must communicate:
 
----
+> Useful gadgets for everyday life.
 
-# Brand Personality
-
-Hồ Thị Huyền Trang nên được thể hiện như một ứng viên:
-
-* Chủ động
-* Giao tiếp tốt
-* Có khả năng ngoại ngữ
-* Có kinh nghiệm với khách hàng và học viên
-* Biết làm việc theo KPI
-* Có tinh thần trách nhiệm
-* Có khả năng kể chuyện và truyền thông
-* Năng động trong hoạt động và dự án
-
-Website cần tránh cảm giác:
-
-* Quá trẻ con
-* Quá màu mè
-* Quá học thuật khô cứng
-* Quá corporate như hồ sơ quản lý cấp cao
-* Quá giống template CV thông thường
+The store should help customers quickly understand that the products are small, practical tools for home, kitchen, grooming, tech accessories, and daily convenience.
 
 ---
 
-# Visual Identity
+# Design Archetype
 
-## Design Archetype
+## Brand Identity
 
-Portfolio nên nằm giữa 3 tinh thần:
+MyBaapStore =
 
-1. **Academic Professional** — có học vấn tốt, chứng chỉ rõ ràng
-2. **Communication Talent** — biết giao tiếp, truyền tải nội dung, kể chuyện
-3. **Tourism & Customer Experience Candidate** — hiểu trải nghiệm khách hàng và môi trường dịch vụ
+**Practical Gadgets & Everyday Electronic Tools**
 
-Tổng thể nên giống:
+The visual identity should combine:
 
-* Portfolio cá nhân của sinh viên năm cuối có thành tích
-* Website ứng viên ngành communication/tourism/education
-* Online profile chuyên nghiệp để gửi nhà tuyển dụng
+* Clean ecommerce layout
+* Practical product discovery
+* Modern gadget-style UI
+* Clear category hierarchy
+* Product-in-use photography
+* Trust-focused customer care
+* Simple product information
 
-Không nên giống:
+The website should resemble:
 
-* Blog cá nhân giải trí
-* CV PDF scan lại
-* Website freelancer quá nghệ thuật
-* Landing page bán hàng
+* A modern daily-use gadget store
+* A clean electronics accessories shop
+* A practical home and tech tools store
+* A curated everyday gadget ecommerce brand
+
+Avoid resembling:
+
+* A viral gadget funnel
+* A spy gadget store
+* A dark hacker/tech site
+* A discount-heavy marketplace
+* A random general product warehouse
+
+---
+
+# Brand Mood
+
+The brand mood should be:
+
+* Useful
+* Smart
+* Practical
+* Clear
+* Functional
+* Everyday-friendly
+* Trustworthy
+* Modern but not overly technical
+
+Good mood words:
+
+```text
+useful
+smart
+practical
+compact
+everyday
+simple
+convenient
+clean
+reliable
+easy to use
+```
+
+Avoid mood words:
+
+```text
+secret
+spy
+hidden
+miracle
+viral
+life-changing
+crazy deal
+undetectable
+surveillance
+```
 
 ---
 
 # Color System
 
-Bảng màu nên dựa trên xanh navy chuyên nghiệp, xanh nhạt trẻ trung và điểm nhấn vàng cho thành tích/khen thưởng.
+The color palette should feel clean, practical, modern, and trustworthy.
 
-## Primary Colors
+Avoid neon gadget colors, harsh red sale banners, or black hacker-style design.
 
-### Professional Navy
+## Primary Palette
+
+### Deep Navy
 
 ```txt
-#0F3D5E
+#102A43
 ```
 
 Use for:
 
-* Header
 * Main headings
-* Hero title
-* Section titles
-* Strong CTA
-* Timeline accents
+* Footer background
+* Header text
+* Strong CTA sections
+* Trust sections
 
-Ý nghĩa:
+Meaning:
 
-* Chuyên nghiệp
-* Tin cậy
-* Phù hợp ngành học/ngôn ngữ/du lịch
+* Trust
+* Stability
+* Professional ecommerce feel
 
 ---
 
-### Bright Academic Blue
+### Electric Blue
 
 ```txt
 #2F80ED
@@ -111,64 +144,61 @@ Use for:
 
 Use for:
 
+* Primary buttons
 * Links
+* Icons
 * Hover states
-* Icon accents
-* Secondary CTA
-* Highlight small elements
+* Category accents
 
-Ý nghĩa:
+Meaning:
 
-* Trẻ trung
-* Năng động
-* Hiện đại
+* Modern
+* Tech-friendly
+* Clear action
 
 ---
 
-### Soft Sky Blue
+### Light Blue
 
 ```txt
-#DCEEFF
+#EAF4FF
 ```
 
 Use for:
 
-* Light background sections
-* Achievement card backgrounds
-* Skills tags
-* Education blocks
+* Soft background sections
+* Category blocks
+* Trust cards
+* Product highlight areas
 
-Ý nghĩa:
+Meaning:
 
-* Nhẹ nhàng
-* Học thuật
-* Dễ đọc
+* Clean
+* Friendly
+* Tech without harshness
 
 ---
 
-### Achievement Gold
+### Soft Teal
 
 ```txt
-#D9A441
+#5BA8A0
 ```
 
 Use for:
 
-* Awards
-* Achievement highlights
-* Best project badge
-* Certificate accents
-* Important metrics
+* Secondary accents
+* Daily tools category accents
+* Small icons
+* Balanced visual details
 
-Ý nghĩa:
+Meaning:
 
-* Thành tích
-* Giải thưởng
-* Điểm nổi bật
+* Practical
+* Calm
+* Helpful
 
 ---
-
-## Neutral Colors
 
 ### Clean White
 
@@ -179,53 +209,27 @@ Use for:
 Use for:
 
 * Main background
-* Cards
-* Content sections
+* Product cards
 * Forms
+* Header
+* Content blocks
 
 ---
 
-### Warm Beige
+## Neutral Palette
+
+### Cool Gray Background
 
 ```txt
-#F6EFE7
+#F5F7FA
 ```
 
 Use for:
 
-* About section
-* Human story blocks
-* Soft contrast sections
-* Personal introduction areas
-
----
-
-### Charcoal Text
-
-```txt
-#222222
-```
-
-Use for:
-
-* Body text
-* Paragraphs
-* Main content
-
----
-
-### Muted Gray
-
-```txt
-#667085
-```
-
-Use for:
-
-* Secondary text
-* Dates
-* Small descriptions
-* Metadata
+* Alternate sections
+* Product grid background
+* Policy pages
+* Light cards
 
 ---
 
@@ -237,10 +241,39 @@ Use for:
 
 Use for:
 
-* Card borders
-* Timeline dividers
-* Form borders
-* Section separators
+* Product card borders
+* Form fields
+* Dividers
+* Card outlines
+
+---
+
+### Charcoal Text
+
+```txt
+#1F2937
+```
+
+Use for:
+
+* Body text
+* Product titles
+* Main content
+
+---
+
+### Muted Text
+
+```txt
+#667085
+```
+
+Use for:
+
+* Descriptions
+* Dates
+* Metadata
+* Secondary copy
 
 ---
 
@@ -250,133 +283,124 @@ Use for:
 
 Use:
 
-* Background: White or Soft Sky Blue
-* Heading: Professional Navy
-* Body: Charcoal Text
-* Accent: Bright Academic Blue or Achievement Gold
+* Background: Clean White or Cool Gray
+* Heading: Deep Navy or Charcoal
+* Body: Muted Text
+* CTA: Electric Blue
 
-## Warm Personal Sections
+## Tech Highlight Sections
 
 Use:
 
-* Background: Warm Beige
-* Heading: Professional Navy
-* Body: Charcoal Text
+* Background: Light Blue
+* Heading: Deep Navy
+* Accent: Electric Blue or Soft Teal
 
-## Dark Professional Sections
+## Dark Trust Sections
 
-Use carefully:
+Use:
 
-* Background: Professional Navy
+* Background: Deep Navy
 * Heading: White
-* Body: white/85
-* Accent: Achievement Gold
-
-Dark sections are best for:
-
-* Final CTA
-* Footer
-* Featured Project highlight
+* Body: white/80
+* Accent: Electric Blue or Soft Teal
 
 ## Avoid
 
-* Neon colors
+* Neon green/blue overload
+* Red flash-sale design
+* Full black hacker UI
 * Too many gradients
-* Purple/pink teen style
-* Red aggressive CTA
-* Low-contrast gray text
-* Too many unrelated accent colors
+* Low contrast gray text
+* Too many category colors at once
 
 ---
 
 # Typography System
 
-Typography cần rõ ràng, hiện đại và chuyên nghiệp.
+Typography should feel modern, clean, and easy to scan.
 
 ## Recommended Fonts
 
-Ưu tiên font hỗ trợ tiếng Việt tốt:
+Use fonts that feel practical and ecommerce-native:
 
-* Be Vietnam Pro
 * Inter
 * Manrope
-* Source Sans 3
 * Plus Jakarta Sans
+* Source Sans 3
+* Be Vietnam Pro
 
 ## Heading Style
 
-Headings nên:
+Headings should be:
 
-* Rõ ràng
-* Tự tin
-* Gọn
-* Có trọng lượng vừa mạnh
-* Không quá decorative
+* Clear
+* Confident
+* Modern
+* Benefit-focused
+* Not overly playful
+* Not overly futuristic
 
 H1:
 
-* Large
-* Bold
-* Professional
-* Có thể dùng 42–64px desktop
+* Large and bold
+* Clear value proposition
+* 44–64px desktop
 * 34–42px mobile
 
 H2:
 
 * 28–40px desktop
 * 26–32px mobile
-* Dùng cho section title
+* Used for category/feature sections
 
 H3:
 
 * 20–24px
-* Dùng cho card title, role title, project title
+* Used for card titles and product/category headings
 
 ## Body Style
 
-Body text nên:
+Body should be:
 
-* Dễ đọc
-* Line-height rộng
-* Không quá nhỏ
-* Font-size 16–18px
+* 16–18px
+* Line-height 1.6–1.75
+* Clear and practical
+* Short paragraphs
 
-## Special Text
+Product descriptions should be concise and easy to understand.
 
-Metric numbers nên lớn và nổi bật:
+Avoid:
 
-* 36–56px desktop
-* Font-weight 700–800
-* Color: Professional Navy hoặc Achievement Gold
-
-Dates:
-
-* Nhỏ hơn, dùng Muted Gray
-* Có thể nằm dạng pill/tag
+* Overly technical jargon
+* ALL CAPS everywhere
+* Hype-heavy wording
+* Long keyword-stuffed text
 
 ---
 
-# Layout System
+# Layout Principles
 
-## General Layout
+The layout should make products easy to understand and categories easy to browse.
 
-Website nên là one-page portfolio có các section rõ ràng, dễ scan.
+Use:
 
-Layout cần:
+* Clear section hierarchy
+* Large category cards
+* Practical product grids
+* Strong trust blocks
+* Clean product information
+* Plenty of whitespace
+* Product-in-use visuals
 
-* Nhiều whitespace
-* Card rõ ràng
-* Thành tích dễ nhìn
-* Video project nổi bật
-* Timeline kinh nghiệm dễ đọc
-* CTA liên hệ rõ
+Avoid:
 
-Không nên:
-
-* Nhồi quá nhiều text như CV
-* Dùng quá nhiều animation
-* Mỗi section quá dài
-* Chia cột quá nhỏ gây khó đọc
+* Chaotic product collage layouts
+* Flashy animations
+* Multiple sale bars
+* Countdown timers
+* Popup-heavy design
+* Too many unrelated category blocks
 
 ---
 
@@ -385,683 +409,737 @@ Không nên:
 Recommended widths:
 
 * Main container: `max-w-7xl`
-* Text container: `max-w-3xl`
-* Portfolio content: `max-w-5xl`
-* Project/video section: `max-w-6xl`
+* Narrow text: `max-w-3xl`
+* Policy pages: `max-w-4xl`
+* Product grid: `max-w-7xl`
 
-Recommended spacing:
+Recommended padding:
 
-* Desktop section padding: `py-20` to `py-24`
-* Mobile section padding: `py-14` to `py-16`
-* Container padding: `px-4`, `px-6`, `px-8`
+* Mobile: `px-4`
+* Tablet: `px-6`
+* Desktop: `px-8`
+
+Section spacing:
+
+* Desktop: `py-20` to `py-24`
+* Mobile: `py-14` to `py-16`
 
 ---
 
-# Grid Rules
+# Grid System
 
 ## Desktop
 
-* Hero: 2-column layout, text + portrait
-* Achievement: 3-column or 6-card grid
-* Experience: 2-column cards
-* Featured Project: video left, content right
-* Certificates: 3-card grid
-* Skills: grouped cards
+* Hero: 2-column layout, copy + product/lifestyle image
+* Category cards: 5 cards, can use 3 + 2 layout
+* Product grids: 4 columns
+* Trust cards: 4 columns
+* Feature sections: image + text split
 
 ## Tablet
 
-* 2-column cards
-* Video section can stack if needed
+* Category cards: 2 columns
+* Product grids: 2–3 columns
+* Feature sections can stack if needed
 
 ## Mobile
 
-* Single-column flow
-* Achievement cards 2 columns if readable
-* Project video full width
-* CTA buttons stacked or wrapped
+* Single-column feature sections
+* Category cards 1 column or 2 columns depending image size
+* Product grids 2 columns if readable
+* Trust cards 1 column
 
 ---
 
-# Section Design Rules
+# Imagery System
 
-## Hero Section
+Images should show products in realistic daily-use contexts.
 
-Hero cần tạo ấn tượng đầu tiên mạnh và chuyên nghiệp.
-
-Must include:
-
-* Name: Hồ Thị Huyền Trang
-* Professional title
-* Short positioning statement
-* Portrait/headshot
-* CTA buttons
-
-Recommended CTA:
-
-```text
-Xem Portfolio
-Tải CV
-Xem LinkedIn
-```
-
-Design:
-
-* Background: White hoặc Soft Sky Blue
-* Name in Professional Navy
-* CTA chính màu Navy
-* CTA phụ outline Navy/Blue
-* Có thể thêm small badges:
-
-  * English C1
-  * Tourism Communication
-  * Customer Experience
-  * Teaching
-
----
-
-## Achievement Highlights Section
-
-Đây là section cực quan trọng.
-
-Purpose:
-
-Biến các số liệu trong CV thành bằng chứng trực quan.
-
-Card style:
-
-* White card
-* Border light gray
-* Soft shadow
-* Large number
-* Short label
-* Small context line
-
-Metrics cần nổi bật:
-
-```text
-3.63/4 GPA
-260M VND/month
-95% Positive feedback
-90% Trial-to-course conversion
-C1 English
-Award-Winning Video
-```
-
-Use Achievement Gold for award-related cards.
-
----
-
-## About Section
-
-Purpose:
-
-Cho người xem hiểu con người, định hướng và động lực phát triển.
-
-Design:
-
-* Background Warm Beige
-* Text left, small visual/portrait/card right
-* Có thể có quote cá nhân ngắn
-
-Tone:
-
-* Chân thành
-* Chuyên nghiệp
-* Có định hướng
-* Không quá dài
-
----
-
-## Experience Section
-
-Experience không nên copy y nguyên CV.
-
-Nên dùng case-card format:
-
-Each card includes:
-
-* Company
-* Role
-* Time
-* Short description
-* Key responsibilities
-* Key results
-
-Design:
-
-* Cards with top border color
-* Role title prominent
-* Dates in pill
-* Results highlighted with icons or bold text
-
-Experience cards:
-
-1. TRIPUS — Tourism Intern
-2. KYNA English — English Teacher
-
-Use result callouts:
-
-```text
-Reached 80% potential customers
-Highest KPI among interns
-260M VND/month sales contribution
-95% positive feedback
-90% trial students converted
-```
-
----
-
-## Featured Project Section
-
-Đây là section cần nổi bật nhất sau Hero/Achievement.
-
-Purpose:
-
-Làm nổi bật video đạt giải “Video truyền thông xuất sắc nhất”.
-
-Design direction:
-
-* Full-width standout section
-* Background: Professional Navy hoặc White với navy accent
-* Video player lớn
-* Award badge màu Achievement Gold
-* Content mô tả bên cạnh
-
-Must include:
-
-* Video embed / thumbnail
-* Project title
-* Award label
-* Project description
-* Role breakdown
-* Skills demonstrated
-
-Suggested badge:
-
-```text
-Award-Winning Project
-```
-
-Suggested title:
-
-```text
-Video truyền thông đạt giải xuất sắc
-```
-
-Skills tags:
-
-```text
-Storytelling
-Tourism Communication
-Content Planning
-Teamwork
-Presentation
-Visual Communication
-```
-
-Important:
-
-Nếu chưa có link video, để placeholder rõ:
-
-```text
-Video embed placeholder — replace with YouTube/Drive/MP4 link
-```
-
----
-
-## Education & Certificates Section
-
-Purpose:
-
-Thể hiện nền tảng học vấn và năng lực ngoại ngữ.
-
-Design:
-
-* Education card lớn
-* Certificate cards nhỏ
-* Mỗi certificate có score nổi bật
-
-Certificate cards:
-
-```text
-VNU TEST — English C1
-Score: 8.0/10
-```
-
-```text
-Chinese HSK 3
-Score: 295/300
-```
-
-```text
-HSKK Intermediate
-Chinese Speaking Certificate
-```
+## Preferred Image Style
 
 Use:
 
-* Navy heading
-* Gold/Blue accent
-* Optional certificate icon
+* Bright product photography
+* Clean home/kitchen/bathroom/desk scenes
+* Product-in-use images
+* Neutral backgrounds
+* Simple lighting
+* Functional composition
+* Clear product visibility
+
+Images should feel:
+
+* Realistic
+* Practical
+* Useful
+* Clean
+* Trustworthy
+* Not overhyped
 
 ---
 
-## Skills Section
+# Image Themes By Category
 
-Skills nên chia nhóm thay vì list dài.
+## Smart Gadgets
 
-Skill groups:
+Visuals:
 
-1. Communication
-2. Marketing & Content
-3. Languages
-4. Education & Training
-5. Workplace Skills
-
-Card style:
-
-* Group title
-* Skill tags
-* Light blue background
-* Icon line style
+* Small gadgets on clean desk
+* Product close-ups
+* Everyday tool usage
+* Minimal product arrangement
 
 Avoid:
 
-* Progress bars tự chấm điểm nếu không có cơ sở
-* Quá nhiều kỹ năng rời rạc
+* Chaotic gadget piles
+* Fake sci-fi glow
+* Viral thumbnail style
+
+## Home & Kitchen Gadgets
+
+Visuals:
+
+* Clean kitchen counter
+* Ice cube bucket / drinkware accessory in use
+* Storage or prep tool in kitchen
+* Bright natural kitchen setting
+
+Avoid:
+
+* Dangerous cutting visuals
+* Messy kitchen scenes
+* Overclaiming before/after images
+
+## Personal Care Devices
+
+Visuals:
+
+* Grooming device on bathroom vanity
+* Clean personal care setup
+* Device held naturally in hand
+* Neutral bathroom or travel pouch setting
+
+Avoid:
+
+* Medical treatment imagery
+* Skin close-up transformation claims
+* Before/after body imagery
+* Overly intimate or uncomfortable framing
+
+## Camera & Tech Accessories
+
+Visuals:
+
+* Camera accessory on desk
+* Content creation setup
+* Phone/camera mount in normal use
+* Cable organizer or tech accessory flat lay
+
+Avoid:
+
+* Hidden camera placement
+* Spy/surveillance scenes
+* Secret recording vibe
+* Dark covert lighting
+
+## Daily Tools
+
+Visuals:
+
+* Compact tools in travel bag
+* Cable organizers
+* Everyday carry items
+* Clean lifestyle flat lay
+
+Avoid:
+
+* Tactical or weapon-like imagery
+* Survivalist/military styling
 
 ---
 
-## Activities & Awards Section
+# Product Photography Rules
 
-Purpose:
+Product photos should show:
 
-Thể hiện sự năng động và hoạt động ngoài học tập.
+* Product clearly
+* Main use case
+* Scale if helpful
+* Included accessories
+* Clean background
+* Consistent image ratio
 
-Items:
+Recommended product card ratio:
 
-* Video truyền thông xuất sắc nhất
-* Tình nguyện viên xuất sắc của Quỹ xã hội SCF
+* 1:1 for gadgets
+* 4:5 for lifestyle product images
 
-Design:
+Avoid:
 
-* Timeline hoặc award cards
-* Award item link tới Featured Project section
-* Volunteer item có icon cộng đồng
-
-Use Gold accent for awards.
-
----
-
-## Contact Section
-
-Purpose:
-
-Giúp nhà tuyển dụng liên hệ dễ dàng.
-
-Design:
-
-* Clean CTA block
-* Navy background hoặc White card on blue background
-* Buttons rõ ràng
-
-Contact info nên hiển thị công khai an toàn:
-
-```text
-Hanoi, Vietnam
-Available for internship / entry-level opportunities
-Email
-LinkedIn
-```
-
-Avoid showing full home address publicly.
-
-CTA buttons:
-
-```text
-Liên hệ với tôi
-Tải CV
-Xem LinkedIn
-```
+* Text-heavy product images
+* Fake labels/claims inside images
+* Low-resolution screenshots
+* Watermarked supplier images
+* Copyrighted logos
+* Misleading before/after imagery
 
 ---
 
-# Component System
+# UI Component Rules
 
 ## Buttons
 
+Buttons should feel clean and practical.
+
 ### Primary Button
 
-Use for main actions.
+Recommended:
 
-Style:
-
-* Background: Professional Navy `#0F3D5E`
+* Background: Electric Blue `#2F80ED`
 * Text: White
-* Hover: slightly darker navy
-* Border radius: 12px or 999px
-* Font weight: 600
+* Hover: Deep Navy `#102A43`
+
+Use for:
+
+* Shop New Arrivals
+* Explore Gadgets
+* Shop Category
+* View Products
 
 ### Secondary Button
 
-Use for secondary actions.
+Recommended:
 
-Style:
+* Background: White or Transparent
+* Border: Electric Blue
+* Text: Electric Blue
+* Hover background: Light Blue
 
-* Background: Transparent / White
-* Border: Professional Navy
-* Text: Professional Navy
-* Hover background: Soft Sky Blue
+Use for:
 
-### Gold Button / Badge
+* Learn More
+* View Support
+* See Details
 
-Use only for awards or featured project.
+### Button Shape
 
-* Background: Achievement Gold
-* Text: Navy or White depending contrast
+* Border radius: 10px–14px
+* Padding: comfortable
+* Font weight: 600–700
+
+Avoid:
+
+* Red urgent buttons
+* Neon glow
+* Huge flashing CTA
 
 ---
 
-## Cards
+## Product Cards
 
-General card style:
+Product cards should be clean, practical, and ecommerce-native.
+
+Must include:
+
+* Product image
+* Product title
+* Price
+* Short CTA or add to cart
+
+Recommended style:
 
 * White background
 * Light border
-* Soft shadow
-* Rounded 18–24px
-* Padding 24–32px
+* Rounded corners 16–20px
+* Soft hover shadow
+* Clear product title
+* Consistent image ratio
+* Minimal badges
 
-Cards should feel clean and modern.
+Optional:
 
-Avoid heavy shadows and overly decorative borders.
+* Short benefit line
+* Category tag
+
+Avoid:
+
+* Too many badges
+* Countdown labels
+* Fake review stars
+* Keyword-stuffed titles
+* Big red sale stickers
 
 ---
 
-## Metric Cards
+## Category Cards
 
-Metric card structure:
+Category cards should communicate product type and use case.
 
-```text
-Large number
-Short label
-Context line
-```
+Recommended structure:
+
+* Image
+* Category name
+* One short practical line
+* CTA link
+
+Categories:
+
+* Smart Gadgets
+* Home & Kitchen Gadgets
+* Personal Care Devices
+* Camera & Tech Accessories
+* Daily Tools
 
 Example:
 
 ```text
-260M VND/month
-Top KPI Intern Performance
-Tourism sales contribution at TRIPUS
+Personal Care Devices
+Simple grooming tools for everyday routines.
 ```
-
-Metric numbers should be visually dominant.
 
 ---
 
-## Timeline / Experience Cards
+## Trust Cards
+
+Trust cards are important for GMC and conversion.
+
+Suggested cards:
+
+* Secure Checkout
+* Tracking Included
+* 30-Day Returns
+* Customer Support
+* Clear Product Details
+* Practical Everyday Tools
+
+Style:
+
+* Line icons
+* White or Light Blue background
+* Short copy
+* No fake trust badge images
+
+---
+
+# Header Rules
+
+Header should be simple and ecommerce-focused.
 
 Recommended structure:
 
-```text
-Date pill
-Role title
-Company name
-Short paragraph
-Key achievements
-```
+* Logo left
+* Main navigation center
+* Search / account / cart right
 
-Use blue left border or small icon marker.
+Navigation:
 
----
+* Smart Gadgets
+* Home & Kitchen
+* Personal Care
+* Tech Accessories
+* Daily Tools
+* Contact
 
-## Video Project Block
+Header color:
 
-Structure:
-
-```text
-Video embed / thumbnail
-Award badge
-Project title
-Short description
-Role / skills
-CTA
-```
-
-Video container should have:
-
-* 16:9 ratio
-* Rounded corners
-* Soft shadow
-* Play button overlay if thumbnail
-
----
-
-## Certificate Cards
-
-Structure:
-
-```text
-Certificate name
-Score / level
-Issuer or test name
-Optional View Certificate CTA
-```
-
-Use small icon or badge.
-
----
-
-# Imagery Rules
-
-## Portrait / Headshot
-
-Use a clean, professional portrait.
-
-Recommended:
-
-* Bright background
-* Natural smile
-* Business casual outfit
-* Cropped chest-up
-* High resolution
+* Clean White background
+* Deep Navy text
+* Electric Blue hover
 
 Avoid:
 
-* Casual selfies
-* Heavy filters
-* Blurry photos
-* Overly formal ID-photo feeling if possible
+* Heavy dark header
+* Too many links
+* Flash-sale top bar
+* Mega menu at early stage
 
-## Project Visuals
+---
 
-For the award-winning video:
+# Footer Rules
 
-* Use video thumbnail
-* Add project title outside the image, not inside if avoid clutter
-* Keep thumbnail professional and clear
+Footer should be trust-heavy.
 
-## Background Visuals
+Include:
 
-Can use subtle abstract elements:
+* Brand summary
+* Main categories
+* Customer care links
+* Policy links
+* Support email
+* Business hours
+* Personal care return note link if needed
 
-* Travel map lines
-* Speech bubble icons
-* Book/language motifs
-* Presentation/camera icons
-* Soft geometric shapes
+Footer background:
+
+* Deep Navy `#102A43`
+
+Footer text:
+
+* White
+* White/75 secondary text
+* Electric Blue or Soft Teal accent links
 
 Avoid:
 
-* Stock photos unrelated to her work
-* Overly decorative travel clichés
-* Cartoon graphics that reduce professionalism
+* Low contrast links
+* Fake payment/trust badges
+* Overcrowded footer
 
 ---
 
-# Icon Style
+# Homepage Design Rules
 
-Icons should be:
+Homepage should be short, focused, and product-category clear.
 
-* Line-based
-* Minimal
-* Consistent stroke width
-* Navy/blue/gold
-
-Suggested icon themes:
-
-* Graduation cap
-* Globe/travel
-* Speech bubble
-* Video/play
-* Certificate
-* Users/customer care
-* Teaching/book
-* Award/trophy
-
-Avoid mixed icon styles.
-
----
-
-# Motion & Interaction
-
-Use subtle motion only:
-
-* Fade in sections
-* Soft card hover
-* Button hover
-* Smooth scroll
-* Video play overlay
-
-Avoid:
-
-* Too much parallax
-* Spinning icons
-* Heavy animations
-* Auto-playing video with sound
-
-Video should not autoplay with sound.
-
----
-
-# Navigation Rules
-
-For one-page portfolio, navigation can include:
+Recommended 5-section homepage:
 
 ```text
-About
-Experience
-Project
-Certificates
-Awards
-Contact
+1. Hero — Smart Little Tools For Everyday Living
+2. Shop By Category
+3. Home & Kitchen Gadgets Feature
+4. Personal Care & Tech Tools Feature
+5. Customer Care / Trust
 ```
 
-Header:
+---
 
-* Sticky optional
-* White or Navy background
-* Clear active section hover
-* CTA button: Download CV
+## Hero Section
 
-Mobile:
+Goal:
 
-* Simple hamburger menu
-* Big tap targets
-* Avoid too many nav items
+Immediately introduce MyBaapStore as a practical gadget store.
+
+Headline:
+
+```text
+Smart Little Tools For Everyday Living
+```
+
+Subheadline:
+
+```text
+Discover practical gadgets for home, kitchen, grooming, tech accessories, and daily routines — selected to make everyday tasks simpler.
+```
+
+CTA:
+
+* Shop New Arrivals
+* Explore Categories
+
+Visual:
+
+* Clean lifestyle flat lay of small gadgets
+* Kitchen/home/tech/personal care product mix
+* Bright modern background
+* No spy/surveillance vibe
+* No sale text inside image
+
+---
+
+## Shop By Category
+
+Show 5 category cards:
+
+* Smart Gadgets
+* Home & Kitchen Gadgets
+* Personal Care Devices
+* Camera & Tech Accessories
+* Daily Tools
+
+Keep text short.
+
+---
+
+## Home & Kitchen Gadgets Feature
+
+Goal:
+
+Make the store feel useful and mainstream.
+
+Visual:
+
+* Silicone ice cube bucket / kitchen gadget scene
+* Clean kitchen counter
+* Drinkware or prep accessory in use
+
+Copy direction:
+
+```text
+Useful kitchen helpers for simpler everyday routines.
+```
+
+---
+
+## Personal Care & Tech Tools Feature
+
+Goal:
+
+Highlight trimmers, hair removal tools, camera/tech accessories safely.
+
+Visual:
+
+* Grooming device on bathroom vanity
+* Tech accessory on clean desk
+* No medical claim visuals
+* No hidden camera placement
+
+Copy direction:
+
+```text
+Simple grooming tools and practical tech accessories for daily convenience.
+```
+
+---
+
+## Customer Care / Trust
+
+Goal:
+
+Support GMC and customer confidence.
+
+Include:
+
+* Shipping timeline
+* Return window
+* Support email
+* Secure checkout
+* Personal care return note
+
+Copy:
+
+```text
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+```
+
+```text
+Eligible unused items may be returned within 30 days of delivery. Personal care devices may be subject to hygiene-related return conditions.
+```
+
+---
+
+# Collection Page Rules
+
+Collection pages should be practical and easy to browse.
+
+Each collection should include:
+
+* Short intro
+* Clean category hero image
+* Product grid
+* Helpful product filters if available
+* Clear category description
+
+Avoid:
+
+* Long SEO spam paragraphs
+* Random unrelated products
+* Too many sale badges
+* Products that do not fit the category
+
+---
+
+# Product Page Rules
+
+Product pages must be clear, safe, and practical.
+
+Include:
+
+* Product title
+* Price
+* Product images
+* Short description
+* Key features
+* Use instructions
+* Specifications
+* What’s included
+* Shipping and return note
+* Safety/hygiene note when relevant
+
+Product copy should answer:
+
+* What is this product?
+* How is it used?
+* Where does it fit in daily life?
+* What practical benefit does it provide?
+* What should the customer know before buying?
+
+Avoid:
+
+* Medical claims
+* Permanent-result claims
+* Spy or hidden camera copy
+* Fake urgency
+* Exaggerated miracle claims
+
+---
+
+# Policy Page Rules
+
+Policy pages should be clean and transparent.
+
+Use:
+
+* Hero title
+* Summary cards
+* Clear section headings
+* Contact CTA
+
+Tone:
+
+* Clear
+* Customer-friendly
+* Realistic
+* Professional
+
+Must include:
+
+* Shipping Policy
+* Return & Refund Policy
+* Privacy Policy
+* Terms of Service
+* FAQ
+* Track Your Order
+
+Return policy should include personal care hygiene conditions.
+
+---
+
+# GMC Compliance Design Rules
+
+The design must support merchant trust and product safety.
+
+Must show:
+
+* Clear gadget-focused niche
+* Transparent policies
+* Support email
+* Business hours
+* Product descriptions with realistic use cases
+* No hidden surveillance positioning
+* No medical/personal care overclaims
+* No counterfeit branding
+
+Avoid:
+
+* Spy imagery
+* Hidden camera placement
+* Medical before/after visuals
+* Fake review sections
+* Countdown timers
+* Overly broad general store layout
+* Risky product categories
 
 ---
 
 # Content Rules
 
-## Writing Tone
-
-Tone should be:
-
-* Professional
-* Young
-* Confident
-* Clear
-* Specific
-* Result-focused
-* Human
-
-Use measurable achievements whenever possible.
-
-Good wording:
+Use words like:
 
 ```text
-Đạt KPI cao nhất trong nhóm thực tập sinh
-Góp phần vào tổng doanh số 260 triệu đồng/tháng
-Nhận 95% phản hồi tích cực từ khách hàng
-90% học viên đăng ký khóa tiếp theo sau buổi học thử
+useful
+smart
+practical
+compact
+everyday
+simple
+convenient
+easy to use
+home gadgets
+grooming tools
+tech accessories
+daily tools
 ```
+
+Avoid words like:
+
+```text
+spy
+hidden
+secret
+undetectable
+surveillance
+miracle
+permanent results
+100% painless guaranteed
+life-changing
+crazy deal
+```
+
+---
+
+# Motion & Interaction
+
+Use subtle interactions only:
+
+* Soft card hover
+* Image scale on hover
+* Smooth transitions
+* Simple fade-in
 
 Avoid:
 
-```text
-Tôi là chuyên gia
-Tôi rất giỏi mọi thứ
-Tôi có khả năng vượt trội toàn diện
-```
-
-Because she is a final-year student, wording should be confident but realistic.
+* Flashy animation
+* Auto-playing videos
+* Popups on load
+* Spinning gadget effects
+* Countdown animation
 
 ---
 
-# Privacy Rules
+# Mobile UX Rules
 
-Because this is a public portfolio, avoid displaying:
+Mobile must be simple and fast.
 
-* Full home address
-* Too much personal information
-* Sensitive private details
+Rules:
 
-Recommended public format:
-
-```text
-Hanoi, Vietnam
-Email: professional email
-LinkedIn: linkedin.com/in/hohuyentrang
-```
-
-Phone number can be included only if the owner agrees.
-
----
-
-# Accessibility Rules
-
-* Strong text contrast
-* Font size readable
+* Hero copy short
+* Category cards easy to tap
+* Product grid readable
 * Buttons large enough
-* Alt text for portrait and project images
-* Video should have title/caption
-* Avoid relying only on color to show meaning
+* Header compact
+* No intrusive popups
+* Trust information easy to find
 
 ---
 
-# Performance Rules
+# Technical Stack Rules
 
-* Compress images
-* Lazy load video embed if possible
-* Use optimized thumbnail before loading video
-* Avoid too many heavy scripts
-* Keep homepage fast on mobile
+Recommended stack:
+
+* WooCommerce
+* TailwindCSS
+* Modular PHP templates
+* Lightweight JavaScript only
+
+Performance priorities:
+
+* Compressed images
+* Lazy-loaded product images
+* Clean DOM
+* Minimal plugins
+* Fast mobile loading
+
+Avoid:
+
+* Heavy animation libraries
+* Too many sliders
+* Product widgets everywhere
+* Unnecessary scripts
 
 ---
 
 # Final Design Goal
 
-The portfolio should make recruiters feel:
+MyBaapStore should look like:
 
-* Huyền Trang has more than academic knowledge
-* She has real experience and measurable results
-* She communicates well
-* She is proactive and ready for professional opportunities
-* The award-winning video project proves her ability in tourism communication
-* Her language certifications support her career direction
+> A clean and trustworthy everyday gadget store offering practical tools for home, kitchen, grooming, camera/tech accessories, and daily convenience.
 
-Final impression:
+Customers should feel:
 
-> A dynamic final-year English Language student with strong communication skills, measurable achievements, language certifications, and a standout award-winning tourism communication project.
+* Products are useful and easy to understand
+* The store is practical, not random
+* The website is safe and trustworthy
+* Policies and support are transparent
+* Gadgets are presented for normal everyday use, not hype or risky use cases
+
+The site should never feel like a chaotic viral gadget marketplace, spy store, or risky personal-care claim website.

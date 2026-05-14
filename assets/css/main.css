@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css — Shop Kelli Design System
+   main.css - MyBaapStore Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -7,41 +7,41 @@
 :root {
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
-  /* Warm White — page background */
-  --color-surface: #FAF7F2;
-  /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
-  /* Soft Gray — hover states, alt sections */
+  /* Clean white page background */
+  --color-surface: #F5F7FA;
+  /* Cool gray section/card background */
+  --color-surface-alt: #EAF4FF;
+  /* Light blue hover states and alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
+  --color-foreground: #1F2937;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
+  --color-foreground-muted: #667085;
   /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
+  --color-muted: #667085;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C98A8A;
-  /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #B87575;
-  /* Dusty Rose darker — hover state */
-  --color-accent-soft: #E8D8C8;
-  /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DFA39A;
-  /* Warm Blush — secondary brand color */
+  --color-accent: #2F80ED;
+  /* Electric blue primary CTA and links */
+  --color-accent-hover: #102A43;
+  /* Deep navy hover state */
+  --color-accent-soft: #EAF4FF;
+  /* Light blue subtle highlights and badges */
+  --color-accent-blush: #5BA8A0;
+  /* Soft teal secondary accent */
 
   /* === UI === */
-  --color-border: #E6DDD6;
+  --color-border: #E5E7EB;
   /* Border — cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */
-  --color-success: #5C8A6A;
-  /* Success — muted green, fits boutique palette */
+  --color-success: #5BA8A0;
+  /* Success / helpful state */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Manrope', 'Inter', system-ui, sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -64,8 +64,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(31, 41, 55, 0.06);
+  --shadow-card-hover: 0 6px 20px rgba(31, 41, 55, 0.12);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -243,7 +243,7 @@
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   color: #111827;
-  background: #F7F8F5;
+  background: #F5F7FA;
   border: 1.5px solid #E5E7EB;
   border-radius: var(--radius-md);
   outline: none;
@@ -255,8 +255,8 @@
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #B89B83;
-  box-shadow: 0 0 0 3px rgba(184, 155, 131, 0.18);
+  border-color: #2F80ED;
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.18);
 }
 
 #contact-form-1 input.wpcf7-not-valid,
@@ -290,7 +290,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
-  background: #B89B83;
+  background: #2F80ED;
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -298,7 +298,7 @@
 }
 
 #contact-form-1 input[type="submit"]:hover {
-  background: #4B3528;
+  background: #102A43;
 }
 
 #contact-form-1 .wpcf7-spinner {
@@ -317,8 +317,8 @@
 }
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
-  background: rgba(184, 155, 131, 0.12);
-  border-left: 3px solid #B89B83;
+  background: rgba(47, 128, 237, 0.12);
+  border-left: 3px solid #2F80ED;
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,

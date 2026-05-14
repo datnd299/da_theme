@@ -1,591 +1,918 @@
-# Shop Avec Moi Site.md
+# Portfolio Site.md — Hồ Thị Huyền Trang
 
-## Store Information
+## Website Type
 
-* **Website:** shopavecmoi.com
-* **Brand Name:** Shop Avec Moi
-* **Instagram:** shopavec.moi
-* **Language:** English
-* **Store Type:** Women’s Intimate Apparel Boutique
-* **Primary Market:** United States
-* **Core Products:** Lingerie, sleepwear, loungewear, romantic intimate essentials
-* **Brand Direction:** Soft sensual, feminine, romantic, elegant, intimate, boutique-style
-* **Support Email:** [support@shopavecmoi.com](mailto:support@shopavecmoi.com)
-* **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
-
----
-
-# Brand Positioning
-
-Shop Avec Moi is a feminine intimate apparel boutique focused on soft lingerie, romantic sleepwear, and elegant loungewear for women who love comfort, confidence, and quiet sensuality.
-
-The brand should feel:
-
-* Feminine
-* Romantic
-* Softly sensual
-* Elegant
-* Comfortable
-* Intimate
-* Mature
-* Boutique-inspired
-* Confident without being explicit
-
-Shop Avec Moi should not feel like a cheap sexy fashion store, adult entertainment brand, fetish store, or random dropshipping lingerie marketplace.
-
-The website should communicate intimacy through softness, fabric, fit, mood, and confidence — not through explicit language or overly sexualized imagery.
+* **Website Type:** Personal Portfolio Website
+* **Purpose:** Professional portfolio for a final-year university student
+* **Primary Language:** Vietnamese
+* **Secondary Language:** English where suitable
+* **Main Audience:** Recruiters, employers, internship supervisors, HR teams, project collaborators
+* **Candidate Name:** Hồ Thị Huyền Trang
+* **Current Status:** Final-year English Language student
+* **Academic Background:** English Language Major, University of Languages and International Studies – Vietnam National University, Hanoi
+* **Career Direction:** Tourism, Communication, Customer Experience, Education, Content & Marketing Support
 
 ---
 
-# Core Brand Concept
+# Core Positioning
 
-“Comme avec moi” / “with me” feeling: personal, close, romantic, and softly intimate.
+Hồ Thị Huyền Trang should be positioned as a dynamic final-year student with strong language ability, practical work experience, communication skills, and measurable achievements in tourism, customer care, content promotion, and English teaching.
 
-Shop Avec Moi is about the private moments women choose for themselves:
+The portfolio should not feel like a simple online CV.
 
-* Feeling beautiful at home
-* Wearing something soft after a long day
-* Enjoying romantic sleepwear
-* Choosing lace or satin as a form of self-care
-* Feeling confident in intimate essentials
-* Dressing for comfort, mood, and quiet beauty
+It should feel like a professional personal brand website that tells the story of a young, active, result-oriented candidate.
 
-Core message:
+Core positioning statement:
 
-> Soft intimate pieces for comfort, romance, and quiet confidence.
+> A final-year English Language student with practical experience in tourism, communication, customer care, and education — bringing strong language skills, measurable results, and a proactive attitude to every project.
 
----
+Vietnamese version:
 
-# Brand Personality
-
-Shop Avec Moi should sound and feel like:
-
-* A romantic boutique
-* A soft feminine editorial brand
-* A sleepwear and lingerie destination
-* A confidence-focused intimate apparel store
-* A tasteful, mature feminine ecommerce brand
-
-It should avoid sounding like:
-
-* A nightclub brand
-* A fetish/adult store
-* A cheap dropshipping lingerie site
-* A loud fast-fashion store
-* A teen fashion brand
-* A discount-heavy marketplace
+> Sinh viên năm cuối ngành Ngôn ngữ Anh, định hướng phát triển trong lĩnh vực du lịch, truyền thông, chăm sóc khách hàng và giáo dục — nổi bật với khả năng ngoại ngữ, tư duy giao tiếp và các thành tích thực tế có số liệu rõ ràng.
 
 ---
 
-# Target Audience
+# Personal Brand Direction
 
-## Primary Audience
+The portfolio should communicate that Huyền Trang is:
 
-Women aged 22–40 who are interested in:
+* Dynamic
+* Professional
+* Responsible
+* Communicative
+* Result-oriented
+* Good at language and presentation
+* Customer-focused
+* Able to create promotional content
+* Interested in tourism and education
+* Capable of teamwork and problem-solving
 
-* Lingerie sets
-* Lace details
-* Satin sleepwear
-* Soft robes
-* Feminine loungewear
-* Romantic nightwear
-* Intimate basics
-* Self-care fashion
-* Boutique-style feminine pieces
+The website should feel youthful but still professional.
 
-They want products that feel:
-
-* Beautiful
-* Comfortable
-* Romantic
-* Soft
-* Tasteful
-* Confident
-* Feminine
-* Personal
-
-## Secondary Audience
-
-* Women aged 40–50 who like elegant sleepwear and soft loungewear
-* Gift shoppers buying romantic sleepwear or robes
-* Couples shopping for tasteful intimate gifts
-* Customers seeking feminine pieces without overly explicit styling
+Avoid making the website look too playful, too academic, or too corporate.
 
 ---
 
-# Customer Psychology
+# Professional Identity
 
-Customers may shop at Shop Avec Moi because they want to feel:
+Suggested professional title:
 
-* More confident
-* More feminine
-* More comfortable at home
-* Softly romantic
-* Beautiful in private moments
-* Put together even in sleepwear
-* Elegant without trying too hard
+```text
+Final-year English Language Student
+Tourism • Communication • Customer Experience • Education
+```
 
-They are likely attracted to:
+Vietnamese title:
 
-* Lace
-* Satin
-* Mesh used tastefully
-* Soft robes
-* Cami sets
-* Romantic color palettes
-* Feminine product photography
-* Elegant packaging and presentation
-* Collection mood names
+```text
+Sinh viên năm cuối ngành Ngôn ngữ Anh
+Định hướng Du lịch • Truyền thông • Chăm sóc khách hàng • Giáo dục
+```
 
-Good messaging:
+Alternative short title:
 
-* Made for soft confidence
-* Romantic pieces for quiet moments
-* Lingerie and sleepwear that feel as beautiful as they look
-* Soft lace, satin textures, and feminine silhouettes
-* Comfort, beauty, and intimacy in one wardrobe
-
-Avoid messaging:
-
-* Explicit adult language
-* Overly sexual claims
-* Fetish wording
-* Cheap “hot/sexy babe” copy
-* Aggressive seduction language
-* Viral fashion language
-* Fake urgency
+```text
+English Language Student | Tourism & Communication Enthusiast
+```
 
 ---
 
-# Product Categories
+# Key Strengths To Highlight
 
-Keep categories focused and simple.
+The portfolio must highlight these core strengths:
 
-## Main Categories
+## 1. Strong Academic Foundation
 
-* **Lingerie Sets**
-* **Sleepwear**
-* **Robes & Loungewear**
-* **Bras & Bralettes**
-* **Intimate Essentials**
+* English Language Major
+* University of Languages and International Studies – VNU Hanoi
+* GPA: 3.63/4
+* Academic classification: Excellent
 
-Do not create too many categories at the beginning.
+## 2. Practical Tourism Experience
 
-The store should feel curated and boutique-like, not like a massive lingerie warehouse.
+Experience at Công ty TNHH Thương mại và Dịch vụ TRIPUS as a tourism intern.
 
----
+Key highlights:
 
-# Category Direction
+* Designed promotional content
+* Reached 80% of potential customers
+* Achieved the highest KPI among interns
+* Contributed to 260 million VND/month total sales from travel tours
+* Designed customized tours based on customer needs
+* Provided customer care and received 95% positive feedback
 
-## Lingerie Sets
+## 3. Teaching & Education Experience
 
-This is the strongest romantic category.
+Experience as an English Teacher at CTCP Dream Viet Education – KYNA PTE. LTD. / KYNA English.
 
-Products may include:
+Key highlights:
 
-* Lace lingerie sets
-* Soft mesh sets
-* Delicate bra and panty sets
-* Romantic matching sets
-* Feminine intimate sets
+* Taught English to learners across multiple age groups
+* 90% of trial students registered for the next course
+* Received positive feedback from parents and learners
+* Helped beginner learners improve scores and pronunciation
+* Handled difficult and unexpected classroom situations
 
-Tone:
+## 4. Language Certifications
 
-Romantic, elegant, delicate, confident.
+* VNU TEST – English C1, score 8.0/10
+* Chinese HSK 3, score 295/300
+* HSKK Intermediate
 
-Avoid:
+## 5. Communication & Project Achievement
 
-* Explicit adult styling
-* Overly revealing product names
-* Vulgar descriptions
-* Extreme sheer imagery
+* Award: “Video truyền thông xuất sắc nhất”
+* Competition: Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
+* This should be treated as a featured project on the portfolio, not just a small CV bullet.
 
-## Sleepwear
+## 6. Social Contribution
 
-A key GMC-safe category and strong brand pillar.
-
-Products may include:
-
-* Satin pajama sets
-* Cami sleep sets
-* Slip nightgowns
-* Lace-trim sleepwear
-* Soft nightwear
-* Romantic sleep pieces
-
-Tone:
-
-Soft, restful, romantic, self-care oriented.
-
-## Robes & Loungewear
-
-A comfort-focused category that helps soften the brand and reduce overly sexy positioning.
-
-Products may include:
-
-* Satin robes
-* Lace-trim robes
-* Soft lounge sets
-* Feminine homewear
-* Lightweight cover-ups
-
-Tone:
-
-Comfort, ease, at-home elegance.
-
-## Bras & Bralettes
-
-A practical intimate apparel category.
-
-Products may include:
-
-* Lace bralettes
-* Soft bras
-* Wireless bralettes
-* Everyday feminine bras
-* Delicate layering pieces
-
-Tone:
-
-Support, comfort, delicate feminine style.
-
-## Intimate Essentials
-
-A supporting category for simple and tasteful basics.
-
-Products may include:
-
-* Panties
-* Seamless basics
-* Lace underwear
-* Soft layering essentials
-* Feminine intimate basics
-
-Tone:
-
-Comfortable, essential, refined.
+* Outstanding volunteer of SCF Social Fund
+* Recognized for contributions to community support programs
 
 ---
 
-# Product Style Rules
+# Target Employers / Opportunities
 
-Products should generally feel:
+The portfolio should be useful for applying to roles such as:
 
-* Soft
-* Feminine
-* Romantic
-* Elegant
-* Comfortable
-* Tasteful
-* Boutique-like
-* Not overly explicit
-
-Preferred details:
-
-* Lace trims
-* Satin textures
-* Soft mesh
-* Bow details
-* Delicate straps
-* Cami silhouettes
-* Robes
-* Feminine sets
-* Gentle color palettes
-
-Avoid products that feel:
-
-* Fetish-oriented
-* Overly transparent or explicit
-* Costume-like
-* Cheap clubwear
-* Extremely revealing
-* Offensive or vulgar
-* Youth/teen-oriented
+* Tourism intern
+* Tour consultant
+* Customer service executive
+* Marketing communication intern
+* Content marketing intern
+* Education consultant
+* English teaching assistant
+* Training support staff
+* Project assistant
+* Communication assistant
+* Sales support / customer experience roles
 
 ---
 
-# Color & Fabric Direction
+# Website Goals
 
-Preferred product colors:
+The portfolio should help Huyền Trang:
 
-* Ivory
-* Champagne
-* Soft blush
-* Dusty rose
-* Mauve
-* Cocoa
-* Black
-* Pearl white
-* Satin beige
-* Deep wine
-* Soft lavender
+* Present herself professionally beyond a PDF CV
+* Showcase real work achievements with numbers
+* Embed or link the award-winning communication video
+* Build credibility through education and certifications
+* Show personality, motivation, and communication ability
+* Make it easy for recruiters to contact her
+* Make her profile memorable and visually polished
 
-Preferred fabrics and textures:
+---
 
-* Satin
-* Lace
-* Soft mesh
-* Modal-like loungewear
-* Silk-like textures
-* Smooth knit
-* Lightweight fabric
+# Recommended Website Structure
 
-Avoid:
+The portfolio can be built as a one-page website with smooth navigation.
 
-* Neon colors
-* Harsh synthetic shine
-* Loud printed graphics
-* Cheap costume colors
+Recommended sections:
+
+1. Hero / Introduction
+2. Achievement Highlights
+3. About Me
+4. Experience
+5. Featured Project: Award-Winning Communication Video
+6. Education & Certifications
+7. Skills
+8. Activities & Awards
+9. Contact
+
+If building multiple pages, recommended pages:
+
+* Home
+* About
+* Experience
+* Projects
+* Awards & Activities
+* Certificates
+* Contact
+
+For the first version, a one-page portfolio is recommended.
+
+---
+
+# Hero Section Direction
+
+## Purpose
+
+The hero section should introduce Huyền Trang quickly and confidently.
+
+## Content
+
+Name:
+
+```text
+Hồ Thị Huyền Trang
+```
+
+Professional title:
+
+```text
+Final-year English Language Student
+Tourism • Communication • Customer Experience • Education
+```
+
+Vietnamese version:
+
+```text
+Sinh viên năm cuối ngành Ngôn ngữ Anh
+Định hướng Du lịch • Truyền thông • Chăm sóc khách hàng • Giáo dục
+```
+
+Hero description:
+
+```text
+Sinh viên năm cuối ngành Ngôn ngữ Anh với kinh nghiệm trong tư vấn du lịch, thiết kế nội dung quảng bá, chăm sóc khách hàng và giảng dạy tiếng Anh. Nổi bật với tư duy giao tiếp, khả năng ngoại ngữ và các thành tích thực tế trong môi trường làm việc.
+```
+
+CTA buttons:
+
+```text
+Xem Portfolio
+Tải CV
+Xem LinkedIn
+```
+
+Visual:
+
+* Professional headshot
+* Clean personal portrait
+* Light academic/professional background
+* Optional subtle travel/communication visual accent
+
+---
+
+# Achievement Highlights Section
+
+## Purpose
+
+This section should turn CV numbers into strong visual proof.
+
+Suggested highlight cards:
+
+### GPA
+
+```text
+3.63/4
+GPA — Xếp loại Xuất sắc
+```
+
+### Sales KPI
+
+```text
+260M VND/month
+Top KPI intern performance in tourism sales
+```
+
+### Customer Feedback
+
+```text
+95%
+Positive feedback from new and returning customers
+```
+
+### Teaching Conversion
+
+```text
+90%
+Trial students registered for the next course
+```
+
+### English Level
+
+```text
+C1 English
+VNU TEST Certificate — 8.0/10
+```
+
+### Award-Winning Video
+
+```text
+Award-Winning Video
+Best Communication Video — Tourism Guide Skills 2025
+```
+
+Design note:
+
+Achievement cards should be visible near the top of the homepage.
+
+---
+
+# About Me Section
+
+## Purpose
+
+The About section should tell her personal and career direction clearly.
+
+## Content Direction
+
+Focus on:
+
+* Final-year English Language student
+* Passion for communication, tourism, customer experience, and education
+* Strength in connecting with people
+* Ability to work with targets and measurable outcomes
+* Interest in creating meaningful content and service experiences
+
+Suggested copy:
+
+```text
+Tôi là Hồ Thị Huyền Trang, sinh viên năm cuối ngành Ngôn ngữ Anh tại Trường Đại học Ngoại Ngữ – ĐHQGHN. Với nền tảng ngoại ngữ, kinh nghiệm tư vấn du lịch, chăm sóc khách hàng và giảng dạy tiếng Anh, tôi mong muốn phát triển trong môi trường nơi giao tiếp, nội dung và trải nghiệm khách hàng đóng vai trò quan trọng.
+
+Tôi yêu thích những công việc cho phép mình kết nối với con người, truyền tải thông tin rõ ràng và tạo ra giá trị thực tế qua từng dự án, từng lớp học hoặc từng trải nghiệm khách hàng.
+```
+
+---
+
+# Experience Section
+
+## Purpose
+
+Experience should be presented as professional case cards, not just CV bullets.
+
+## Experience 1: TRIPUS
+
+Company:
+
+```text
+Công ty TNHH Thương mại và Dịch vụ TRIPUS
+```
+
+Role:
+
+```text
+Thực tập sinh du lịch
+```
+
+Time:
+
+```text
+04/2025 – 07/2025
+```
+
+Key responsibilities:
+
+* Designed promotional content
+* Consulted customers on travel tours
+* Created customized tour suggestions based on customer needs
+* Supported customer care and follow-up
+* Worked toward KPI and sales targets
+
+Key achievements:
+
+* Reached 80% of potential customers
+* Highest KPI among interns
+* Contributed to 260 million VND/month total sales from tours
+* Received 95% positive customer feedback
+
+Suggested card title:
+
+```text
+Tourism Communication & Customer Consulting
+```
+
+## Experience 2: KYNA English
+
+Company:
+
+```text
+CTCP Dream Viet Education – KYNA PTE. LTD. / KYNA English
+```
+
+Role:
+
+```text
+Giáo viên tiếng Anh
+```
+
+Time:
+
+```text
+03/2024 – 12/2024
+```
+
+Key responsibilities:
+
+* Taught English to learners of different age groups
+* Supported beginner and returning learners
+* Communicated with students and parents
+* Managed class situations and learning progress
+
+Key achievements:
+
+* 90% of trial students registered for the next course
+* Positive feedback from parents and learners
+* Helped beginner learners improve scores and pronunciation
+* Handled difficult and unexpected classroom situations
+
+Suggested card title:
+
+```text
+English Teaching & Learner Engagement
+```
+
+---
+
+# Featured Project Section
+
+## Purpose
+
+This is one of the most important sections of the portfolio.
+
+The award-winning video should be displayed prominently with an embedded video player or a clickable video thumbnail.
+
+## Project Title
+
+```text
+Award-Winning Communication Video
+```
+
+Vietnamese title:
+
+```text
+Video truyền thông đạt giải xuất sắc
+```
+
+Award:
+
+```text
+Đạt giải “Video truyền thông xuất sắc nhất” — Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
+```
+
+## Video Embed
+
+The website should support one of the following:
+
+* YouTube embed
+* Google Drive video embed
+* Self-hosted MP4
+* Vimeo embed
+
+## Project Description
+
+Suggested copy:
+
+```text
+Dự án video truyền thông được thực hiện trong khuôn khổ Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025. Sản phẩm đạt giải “Video truyền thông xuất sắc nhất”, thể hiện khả năng xây dựng thông điệp, kể chuyện bằng hình ảnh và truyền tải nội dung du lịch một cách hấp dẫn.
+```
+
+## Suggested Role Breakdown
+
+If accurate, the project section may include:
+
+* Idea development
+* Content concept
+* Script support
+* Tourism communication message
+* Presentation/storytelling
+* Team coordination
+* Video planning
+
+If role details are uncertain, use safe wording:
+
+```text
+Tham gia vào quá trình xây dựng nội dung, truyền tải thông điệp và hoàn thiện sản phẩm truyền thông cùng nhóm dự án.
+```
+
+## Skills Demonstrated
+
+* Storytelling
+* Tourism communication
+* Public speaking
+* Content planning
+* Teamwork
+* Presentation skills
+* Visual communication
+
+## CTA
+
+```text
+Xem video dự án
+Xem thêm dự án
+```
+
+---
+
+# Education Section
+
+## Content
+
+School:
+
+```text
+Trường Đại học Ngoại Ngữ – ĐHQGHN
+```
+
+Major:
+
+```text
+Cử nhân ngành Ngôn ngữ Anh
+```
+
+Time:
+
+```text
+10/2022 – 06/2026
+```
+
+Academic results:
+
+```text
+GPA: 3.63/4
+Xếp loại: Xuất sắc
+```
+
+Design note:
+
+Education should be clean, with one strong academic card and maybe an academic timeline style.
+
+---
+
+# Certificates Section
+
+## Certificates To Display
+
+### VNU TEST — English C1
+
+```text
+Score: 8.0/10
+```
+
+### Chinese HSK 3
+
+```text
+Score: 295/300
+```
+
+### HSKK Intermediate
+
+```text
+Chinese Speaking Certificate
+```
+
+Optional CTA:
+
+```text
+View Certificate
+```
+
+if certificate images or PDF files are available.
+
+---
+
+# Skills Section
+
+Skills should be grouped, not displayed as a plain list.
+
+## Communication Skills
+
+* Public speaking
+* Customer communication
+* Presentation
+* Teamwork
+* Interpersonal communication
+
+## Marketing & Content Skills
+
+* Digital marketing basics
+* Promotional content design
+* Tourism communication
+* Content planning
+* Customer-focused messaging
+
+## Language Skills
+
+* English: C1 level
+* Chinese: HSK 3
+* Chinese speaking: HSKK Intermediate
+
+## Education & Training Skills
+
+* English teaching
+* Learner engagement
+* Class situation handling
+* Pronunciation support
+* Beginner learner support
+
+## Workplace Skills
+
+* Basic computer skills
+* Problem-solving
+* Customer care
+* Tour planning support
+* KPI-oriented working style
+
+---
+
+# Activities & Awards Section
+
+## Purpose
+
+This section should show that Huyền Trang is active beyond academic study.
+
+## Awards
+
+### Best Communication Video
+
+```text
+Đạt giải “Video truyền thông xuất sắc nhất” — Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
+```
+
+This award should link to the Featured Project section.
+
+## Volunteer Activity
+
+### Outstanding Volunteer — SCF Social Fund
+
+```text
+Tình nguyện viên xuất sắc của Quỹ xã hội SCF, được ghi nhận thành tích đóng góp trong các chương trình hỗ trợ cộng đồng.
+```
+
+Design note:
+
+Use cards with icons or timeline format.
+
+---
+
+# Contact Section
+
+## Purpose
+
+Make it easy for recruiters to contact Huyền Trang.
+
+## Public Contact Recommendation
+
+Because the website may be public, avoid showing full personal address.
+
+Recommended public information:
+
+```text
+Hanoi, Vietnam
+Available for internship / entry-level opportunities
+Email: [professional email]
+LinkedIn: linkedin.com/in/hohuyentrang
+```
+
+Optional contact form fields:
+
+* Name
+* Email
+* Company / Organization
+* Message
+
+CTA:
+
+```text
+Liên hệ với tôi
+Tải CV
+```
+
+---
+
+# Privacy & Personal Information Note
+
+Since this portfolio may be public, avoid displaying:
+
+* Full home address
+* Personal identification information
+* Too much private contact detail
+
+Use a professional email and LinkedIn link instead.
+
+If phone number is included, place it in CV download or contact section only.
 
 ---
 
 # Visual Direction
 
-Shop Avec Moi should be visual-first.
+The website should look:
 
-Images should feel:
-
-* Feminine
-* Soft
-* Romantic
-* Editorial
-* Warm
-* Intimate but tasteful
-* Premium boutique
-* GMC-safe
-
-## Recommended Image Settings
-
-* Soft bedroom setting
-* Vanity table
-* Cream wall studio
-* Warm hotel room
-* Satin sheets
-* Morning light
-* Feminine dressing area
-* Soft window lighting
-* Neutral luxury interior
-
-## Model Direction
-
-* Adult women
-* Natural feminine poses
-* Calm, confident expressions
-* Tasteful styling
-* No nudity
-* No explicit poses
-* No extreme body focus
-* No adult entertainment vibe
-
-## Photography Style
-
-* Soft shadows
-* Cream/champagne lighting
-* Editorial ecommerce
-* High-quality fabric details
-* Natural skin texture
-* Elegant framing
-* Clean product visibility
-
----
-
-# Content Voice
-
-Tone should be:
-
-* Romantic
-* Gentle
-* Feminine
-* Confident
-* Elegant
-* Softly sensual
-* Mature
-* Clear
-
-Good words:
-
-* soft
-* romantic
-* delicate
-* feminine
-* intimate
-* confidence
-* lace
-* satin
-* comfort
-* evening
-* lounge
-* sleepwear
-* beautiful
-* quiet confidence
-
-Avoid words:
-
-* explicit
-* naughty
-* fetish
-* adult fantasy
-* hot babe
-* barely there
-* pornographic
-* wild night
-* extreme seduction
-
----
-
-# Homepage Direction
-
-Homepage should feel elegant, romantic, and boutique-like.
-
-Recommended homepage flow:
-
-1. Hero: Soft Intimates For Quiet Confidence
-2. Shop By Mood / Category
-3. Featured Collection: Lingerie Sets
-4. Featured Collection: Sleepwear & Robes
-5. New Arrivals / Best Sellers
-6. Why Shop Avec Moi / Customer Care
-
-If the homepage must stay short, use 5 sections:
-
-1. Hero
-2. Shop Categories
-3. Lingerie & Lace Feature
-4. Sleepwear & Robes Feature
-5. Customer Care / Trust
-
----
-
-# GMC-Safe Positioning
-
-Because the store sells intimate apparel, all content should remain tasteful and product-focused.
-
-## Allowed Focus
-
-* Lingerie as apparel
-* Sleepwear
-* Comfort
-* Fit
-* Fabric
-* Feminine confidence
-* Romantic styling
-* Self-care
-* At-home elegance
-
-## Avoid
-
-* Explicit sexual language
-* Nudity
-* Adult entertainment language
-* Fetish styling
-* Overly provocative poses
-* Body part zooms
-* Suggestive product names
-* Pornographic content
-
-The site should feel like an intimate apparel boutique, not an adult content store.
-
----
-
-# Trust & Policy Requirements
-
-Shop Avec Moi should include clear customer trust pages:
-
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
-
-Trust elements should be visible:
-
-* Support email
-* Business hours
-* Shipping timeline
-* Return conditions
-* Secure checkout messaging
-* Clear product categories
-* Product size and fit details
-
----
-
-# Shipping Information
-
-Orders are processed within **2–4 business days**.
-
-After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
-
-Tracking information is provided once an order ships.
-
----
-
-# Return Policy Direction
-
-Customers may request returns within **30 days** of delivery.
-
-Because this is intimate apparel, return policy language should be clear and hygiene-aware.
-
-Eligible returns should generally be:
-
-* Unworn
-* Unwashed
-* Unused
-* In original condition
-* With tags and original packaging where applicable
-
-For hygiene reasons, some intimate items may have stricter return limitations. The policy must clearly explain this.
-
-Return copy should feel:
-
-* Clear
-* Fair
+* Young
 * Professional
-* Customer-friendly
-* Hygiene-conscious
-
----
-
-# Product Copy Rules
-
-Product descriptions should focus on:
-
-* Fabric feel
-* Fit
-* Styling use
-* Comfort
-* Product details
-* Care instructions
-* Size guidance
-
-Good copy example:
-
-“Designed with soft lace and a delicate silhouette, this set brings a romantic feel to everyday intimates while keeping the look elegant and wearable.”
+* Clean
+* Energetic
+* Trustworthy
+* Academic but modern
+* Suitable for tourism, communication, and education roles
 
 Avoid:
 
-* Overly sexual claims
-* Adult fantasy copy
-* Explicit body language
-* Unrealistic fit claims
-* Keyword-stuffed product titles
+* Too childish
+* Too corporate
+* Too colorful
+* Overly decorative student-style design
+* Dense CV-like layout
 
 ---
 
-# Strategic Build Goal
+# Suggested Color Direction
 
-The final Shop Avec Moi storefront should feel like:
+Recommended palette:
 
-> A romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials — soft, elegant, confident, and GMC-safe.
+## Primary Navy
 
-The customer should feel:
+```txt
+#0F3D5E
+```
 
-* The brand is tasteful
-* The products are feminine and beautiful
-* The shopping experience is elegant
-* The site does not feel explicit or cheap
-* Policies and support are clear
+Use for:
 
-The site should never feel like a vulgar or adult-only lingerie marketplace.
+* Headings
+* Header
+* Key section accents
+* Professional identity
+
+## Sky Blue
+
+```txt
+#DCEEFF
+```
+
+Use for:
+
+* Light backgrounds
+* Highlight sections
+* Cards
+
+## Warm Beige
+
+```txt
+#F6EFE7
+```
+
+Use for:
+
+* Soft background sections
+* About section
+* Human warmth
+
+## White
+
+```txt
+#FFFFFF
+```
+
+Use for:
+
+* Main background
+* Cards
+* Clean reading areas
+
+## Charcoal
+
+```txt
+#222222
+```
+
+Use for:
+
+* Body text
+* High readability
+
+## Accent Gold
+
+```txt
+#D9A441
+```
+
+Use for:
+
+* Awards
+* Achievement highlights
+* Small accents
+
+---
+
+# Typography Direction
+
+The typography should be modern, readable, and professional.
+
+Recommended fonts:
+
+* Inter
+* Be Vietnam Pro
+* Manrope
+* Source Sans 3
+* Plus Jakarta Sans
+
+Heading style:
+
+* Confident
+* Clean
+* Slightly bold
+* Not too decorative
+
+Body style:
+
+* Easy to read
+* Clear line spacing
+* Professional
+
+---
+
+# UI Component Direction
+
+## Achievement Cards
+
+Should be visually strong.
+
+Use:
+
+* Large number
+* Short label
+* Small explanation
+
+## Experience Cards
+
+Each card should include:
+
+* Company name
+* Role
+* Time
+* Responsibilities
+* Key results
+
+## Project Video Block
+
+Must include:
+
+* Video embed
+* Project title
+* Award label
+* Role/skills summary
+* CTA
+
+## Certificate Cards
+
+Each card should include:
+
+* Certificate name
+* Score
+* Organization or test name
+* Optional view link
+
+## Contact CTA
+
+Should be clean and clear.
+
+Use buttons:
+
+* Download CV
+* Contact Me
+* LinkedIn
+
+---
+
+# Content Tone
+
+Tone should be:
+
+* Professional
+* Young
+* Confident
+* Clear
+* Human
+* Result-focused
+* Not overly boastful
+
+Good words:
+
+* proactive
+* communication
+* customer experience
+* tourism
+* education
+* measurable results
+* learning mindset
+* teamwork
+* responsibility
+* growth
+
+Avoid:
+
+* exaggerated claims
+* saying “expert” too early
+* overpromising
+* fake corporate jargon
+* too casual Gen Z slang
+
+---
+
+# Final Portfolio Goal
+
+The final portfolio should make recruiters feel:
+
+* Huyền Trang is not just a student; she has real experience
+* Her achievements are measurable and credible
+* She communicates well
+* She can work with customers, learners, and teams
+* She has strong language ability
+* She has a meaningful project to showcase through video
+* She is ready for internship or entry-level roles in tourism, communication, customer experience, or education
+
+The portfolio should leave the impression:
+
+> A dynamic final-year English Language student with strong communication skills, measurable work results, language certifications, and a standout award-winning

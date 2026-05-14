@@ -1,559 +1,837 @@
-# Shop Avec Moi Home Plan
+# Home Plan — Portfolio Hồ Thị Huyền Trang
 
 ## Homepage Objective
 
-Trang chủ Shop Avec Moi cần giới thiệu thương hiệu như một boutique thời trang nội y và đồ ngủ nữ tính, lãng mạn, tinh tế và đủ an toàn cho mainstream ecommerce.
+Trang portfolio của Hồ Thị Huyền Trang cần thể hiện hình ảnh một sinh viên năm cuối năng động, chuyên nghiệp, có kinh nghiệm thực tế và có thành tích rõ ràng.
 
-Homepage không nên quá dài. Chỉ cần khoảng **5 section chính**, visual mạnh, nội dung ngắn, giàu mood và tập trung vào các nhóm sản phẩm chính:
+Homepage cần làm nổi bật 4 điểm chính:
 
-* Lingerie Sets
-* Sleepwear
-* Robes & Loungewear
-* Bras & Bralettes
-* Intimate Essentials
+1. Nền tảng học vấn tốt: GPA 3.63/4, xếp loại Xuất sắc
+2. Kinh nghiệm thực tế có số liệu trong du lịch, chăm sóc khách hàng và giảng dạy
+3. Chứng chỉ ngoại ngữ: English C1, Chinese HSK 3, HSKK Intermediate
+4. Dự án video truyền thông đạt giải “Video truyền thông xuất sắc nhất”
 
-Mục tiêu của homepage:
-
-* Tạo ấn tượng boutique feminine ngay từ đầu
-* Thể hiện vibe soft sensual, romantic, elegant
-* Giữ nội dung product-focused và GMC-safe
-* Tránh cảm giác explicit, fetish, adult marketplace
-* Tạo trải nghiệm mua sắm tinh tế, rõ ràng, đáng tin
+Website không nên chỉ là CV online. Nó cần giống một landing page cá nhân chuyên nghiệp, có câu chuyện, có kết quả, có dự án showcase và có CTA rõ ràng cho nhà tuyển dụng.
 
 ---
 
 # Core Homepage Message
 
-Shop Avec Moi là nơi dành cho những khoảnh khắc riêng tư, mềm mại và tự tin của phụ nữ.
-
 Core message:
 
 ```text
-Soft intimate pieces for comfort, romance, and quiet confidence.
+Sinh viên năm cuối ngành Ngôn ngữ Anh với kinh nghiệm thực tế trong du lịch, truyền thông, chăm sóc khách hàng và giáo dục.
 ```
 
-Homepage cần truyền tải rằng sản phẩm không chỉ là đồ lót hay đồ ngủ, mà là một phần của self-care, sự nữ tính và cảm giác đẹp trong những khoảnh khắc cá nhân.
-
----
-
-# Homepage Flow — 5 Sections
+English support line:
 
 ```text
-1. Hero: Soft Intimates For Quiet Confidence
-2. Shop By Mood / Category
-3. Feature: Lingerie & Lace
-4. Feature: Sleepwear, Robes & At-Home Elegance
-5. New Arrivals + Customer Care Trust
+Final-year English Language Student | Tourism • Communication • Customer Experience • Education
 ```
+
+Homepage cần truyền tải rằng Huyền Trang là ứng viên trẻ nhưng đã có trải nghiệm thực tế, biết làm việc theo KPI, có khả năng giao tiếp, có năng lực ngoại ngữ và có sản phẩm dự án cụ thể để chứng minh năng lực.
 
 ---
 
-# Section 1: Hero — Soft Intimates For Quiet Confidence
+# Recommended One-Page Flow
+
+```text
+1. Hero / Introduction
+2. Achievement Highlights
+3. About Me
+4. Experience
+5. Featured Project — Award-Winning Communication Video
+6. Education & Certifications
+7. Skills
+8. Activities & Awards
+9. Contact
+```
+
+Đây là cấu trúc tốt nhất cho portfolio đầu tiên. Nếu muốn rút gọn khi build, có thể gộp section 6 + 7 và section 8 + 9.
+
+---
+
+# Section 1: Hero / Introduction
 
 ## Purpose
 
-Hero cần tạo ấn tượng đầu tiên thật mềm mại, lãng mạn và boutique.
+Hero section cần giới thiệu nhanh, chuyên nghiệp và tạo ấn tượng đầu tiên với nhà tuyển dụng.
 
-Người xem cần hiểu ngay Shop Avec Moi bán:
+Người xem cần hiểu ngay:
 
-* lingerie
-* sleepwear
-* robes
-* intimate essentials
-* feminine pieces
-
-Nhưng cách thể hiện phải tinh tế, không explicit.
-
-## Visual Direction
-
-Dùng ảnh lifestyle/editorial chân thực:
-
-* Adult female model
-* Mặc satin robe, cami sleep set hoặc soft lace bralette theo cách tasteful
-* Bối cảnh bedroom sáng nhẹ, cream studio, vanity corner hoặc soft hotel room
-* Ánh sáng champagne/ivory, warm window light
-* Pose tự nhiên, calm, confident
-* Không nude
-* Không pose quá khiêu khích
-* Không zoom body quá explicit
-* Không có chữ trong ảnh
-
-## Content
-
-Eyebrow:
-
-```text
-Romantic Intimates & Sleepwear
-```
-
-Headline:
-
-```text
-Soft Intimates For Quiet Confidence
-```
-
-Subheadline:
-
-```text
-Romantic lingerie, sleepwear, robes, and feminine essentials designed for comfort, softness, and beautifully personal moments.
-```
-
-Primary CTA:
-
-```text
-Shop New Arrivals
-```
-
-Secondary CTA:
-
-```text
-Explore Sleepwear
-```
-
-## Design Notes
-
-* Background: Champagne Ivory `#FFF6EE`
-* Heading: Deep Cocoa `#3A241F`
-* Primary button: Soft Blush `#E8B8AD`
-* Secondary button: outline Dusty Rose `#B97878`
-* Layout 2 cột hoặc full image with soft overlay
-* Copy ngắn, visual chiếm vai trò chính
-
----
-
-# Section 2: Shop By Mood / Category
-
-## Purpose
-
-Giúp người xem nhanh chóng hiểu các collection chính của Shop Avec Moi.
-
-Thay vì chỉ gọi là “category”, section này nên mang cảm giác “shop by mood” để phù hợp với ngành hàng intimate apparel.
+* Đây là ai
+* Đang học ngành gì
+* Định hướng nghề nghiệp là gì
+* Có điểm mạnh gì nổi bật
+* Có thể xem CV, LinkedIn hoặc kéo xuống portfolio
 
 ## Layout
 
-Dùng 5 collection cards hoặc 4 cards nếu muốn gọn hơn.
+Desktop:
 
-Recommended cards:
+* Left: text introduction + CTA
+* Right: portrait/headshot + small info cards
 
-1. Lingerie Sets
-2. Sleepwear
-3. Robes & Loungewear
-4. Bras & Bralettes
-5. Intimate Essentials
+Mobile:
 
-## Card Copy
+* Portrait trên hoặc dưới text
+* CTA buttons xếp gọn
 
-### Lingerie Sets
+## Content
+
+Name:
 
 ```text
-Soft lace and delicate matching pieces for romantic confidence.
+Hồ Thị Huyền Trang
 ```
 
-### Sleepwear
+Professional title:
 
 ```text
-Satin, lace-trim, and soft nightwear for quiet evenings.
+Final-year English Language Student
+Tourism • Communication • Customer Experience • Education
 ```
 
-### Robes & Loungewear
+Vietnamese headline:
 
 ```text
-At-home elegance made for comfort, layering, and slow mornings.
+Sinh viên năm cuối ngành Ngôn ngữ Anh, định hướng phát triển trong du lịch, truyền thông, chăm sóc khách hàng và giáo dục.
 ```
 
-### Bras & Bralettes
+Short intro:
 
 ```text
-Delicate support and feminine shapes for everyday intimacy.
+Tôi có kinh nghiệm trong tư vấn du lịch, thiết kế nội dung quảng bá, chăm sóc khách hàng và giảng dạy tiếng Anh. Với nền tảng ngoại ngữ, khả năng giao tiếp và các thành tích thực tế, tôi mong muốn phát triển trong môi trường chuyên nghiệp, nơi con người và trải nghiệm khách hàng là trung tâm.
 ```
 
-### Intimate Essentials
+CTA buttons:
 
 ```text
-Refined basics designed for softness, comfort, and ease.
+Xem Portfolio
+Tải CV
+Xem LinkedIn
+```
+
+Small badges:
+
+```text
+English C1
+Tourism Communication
+Customer Experience
+Teaching Experience
+Award-Winning Video
 ```
 
 ## Visual Direction
 
-Mỗi card dùng ảnh mood riêng:
+Use:
 
-* Lingerie Sets: lace set hoặc soft matching set, tasteful framing
-* Sleepwear: satin cami set / pajama set
-* Robes: model in robe near window
-* Bras & Bralettes: product-focused bralette image, not explicit
-* Essentials: folded lace/satin pieces, detail shot
+* Professional portrait/headshot
+* Clean blue/white background
+* Subtle academic or communication visual accents
+* No clutter
 
 ## Design Notes
 
-* Cards image-heavy
-* Text overlay phải có nền nhẹ hoặc đặt bên dưới ảnh
-* Không dùng badge sexy/hot
-* Không dùng ảnh quá lộ hoặc quá cropped
-* Card border Satin Beige `#E6D1C0`
+* Background: White or Soft Sky Blue
+* Name color: Professional Navy
+* CTA primary: Navy background
+* Secondary CTA: outline navy
+* Add a small “Available for internship / entry-level opportunities” note if needed
 
 ---
 
-# Section 3: Feature — Lingerie & Lace
+# Section 2: Achievement Highlights
 
 ## Purpose
 
-Đây là section cảm xúc chính cho mảng lingerie.
+Đây là section nên đặt rất sớm để biến các con số trong CV thành bằng chứng mạnh.
 
-Mục tiêu là tạo cảm giác romantic, delicate, confident nhưng không đi quá giới hạn explicit.
+Nhà tuyển dụng thường scan nhanh, nên các thành tích định lượng cần được đưa lên rõ ràng.
 
-## Visual Direction
+## Layout
 
-Dùng layout editorial 2 cột:
+Desktop:
 
-* Một ảnh model mặc lace lingerie/bralette hoặc lingerie set một cách tasteful
-* Một ảnh close-up lace/satin detail hoặc product flat lay
-* Soft cream/champagne lighting
-* Không pose adult entertainment
-* Tập trung vào fabric, lace, silhouette, confidence
+* 6 metric cards, 3 columns x 2 rows
+
+Mobile:
+
+* 2 columns hoặc single-column nếu text dài
+
+## Cards
+
+### Card 1: GPA
+
+```text
+3.63/4
+GPA — Xếp loại Xuất sắc
+Trường Đại học Ngoại Ngữ – ĐHQGHN
+```
+
+### Card 2: Tourism Sales Result
+
+```text
+260M VND/month
+Top KPI Intern Performance
+Góp phần vào tổng doanh số tour du lịch tại TRIPUS
+```
+
+### Card 3: Customer Feedback
+
+```text
+95%
+Positive Customer Feedback
+Từ nhiều khách hàng mới và cũ trong quá trình chăm sóc khách hàng
+```
+
+### Card 4: Teaching Conversion
+
+```text
+90%
+Trial Students Continued
+Học viên đăng ký khóa tiếp theo sau buổi học thử đầu tiên
+```
+
+### Card 5: English Certificate
+
+```text
+C1 English
+VNU TEST — 8.0/10
+Chứng chỉ tiếng Anh thể hiện năng lực ngoại ngữ học thuật và giao tiếp
+```
+
+### Card 6: Award-Winning Video
+
+```text
+Award-Winning Video
+Video truyền thông xuất sắc nhất
+Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
+```
+
+## Design Notes
+
+* Large number typography
+* Navy for main metrics
+* Gold accent for award/project card
+* White cards with soft shadow
+* Keep copy short and scannable
+
+---
+
+# Section 3: About Me
+
+## Purpose
+
+Giúp portfolio có yếu tố con người, không chỉ là số liệu.
+
+Section này cần kể ngắn gọn về định hướng, động lực và kiểu môi trường phù hợp.
+
+## Layout
+
+* Left: short personal story
+* Right: profile summary card / timeline mini / quote
 
 ## Content
 
 Eyebrow:
 
 ```text
-Lingerie & Lace
+About Me
 ```
 
 Headline:
 
 ```text
-Delicate details, softly confident silhouettes.
+Kết nối con người qua ngôn ngữ, nội dung và trải nghiệm.
 ```
 
-Paragraph:
+Body copy:
 
 ```text
-From lace-trim sets to feminine bralettes, Shop Avec Moi brings intimate pieces that feel romantic, comfortable, and beautifully personal — made for women who love softness without losing confidence.
+Tôi là Hồ Thị Huyền Trang, sinh viên năm cuối ngành Ngôn ngữ Anh tại Trường Đại học Ngoại Ngữ – ĐHQGHN. Với nền tảng ngoại ngữ cùng kinh nghiệm trong tư vấn du lịch, chăm sóc khách hàng và giảng dạy tiếng Anh, tôi mong muốn phát triển trong những lĩnh vực nơi giao tiếp, nội dung và trải nghiệm khách hàng đóng vai trò quan trọng.
+
+Tôi yêu thích các công việc cho phép mình kết nối với con người, truyền tải thông tin rõ ràng và tạo ra giá trị thực tế qua từng dự án, từng lớp học hoặc từng trải nghiệm khách hàng.
 ```
 
-Highlights:
+Optional quote:
 
 ```text
-Soft lace details
-Romantic matching sets
-Comfort-focused silhouettes
-Tasteful feminine styling
-```
-
-CTA:
-
-```text
-Shop Lingerie Sets
+“Mỗi trải nghiệm với khách hàng, học viên hoặc dự án đều là cơ hội để tôi học cách giao tiếp tốt hơn và tạo ra giá trị rõ ràng hơn.”
 ```
 
 ## Design Notes
 
-* Background: Soft Gray Rose `#F6EFEC` hoặc Pearl White
-* Heading: Deep Cocoa
-* Accent: Dusty Rose
-* Có thể dùng quote nhỏ: “Romance in the details.”
-* Không dùng copy quá sexy
+* Background: Warm Beige
+* Text should be warm and professional
+* Avoid overly long paragraphs
+* Can include small icons: language, communication, service, education
 
 ---
 
-# Section 4: Feature — Sleepwear, Robes & At-Home Elegance
+# Section 4: Experience
 
 ## Purpose
 
-Section này làm mềm brand, tăng độ GMC-safe và mở rộng khỏi cảm giác “lingerie only”.
+Trình bày kinh nghiệm làm việc như các case cards chuyên nghiệp, không chỉ copy bullet từ CV.
 
-Sleepwear và robes nên được nhấn mạnh như self-care, comfort, evening routine và at-home elegance.
+## Layout
 
-## Visual Direction
+Desktop:
 
-Dùng ảnh lifestyle:
+* 2 large experience cards side by side
 
-* Model mặc satin robe hoặc cami sleepwear
-* Bối cảnh phòng ngủ sáng, ghế cạnh cửa sổ, vanity table, morning routine
-* Màu ivory, beige, blush, champagne
-* Pose tự nhiên, đang buộc robe, cầm tách trà, ngồi cạnh giường
-* Không explicit
+Mobile:
 
-## Content
+* Stack cards vertically
 
-Eyebrow:
+## Experience Card 1: TRIPUS
+
+Company:
 
 ```text
-Sleepwear & Robes
+Công ty TNHH Thương mại và Dịch vụ TRIPUS
 ```
 
-Headline:
+Role:
 
 ```text
-Soft pieces for evenings, slow mornings, and quiet self-care.
+Thực tập sinh du lịch
 ```
 
-Paragraph:
+Time:
 
 ```text
-Sleepwear should feel as beautiful as it is comfortable. Explore satin textures, delicate trims, soft robes, and loungewear pieces made for restful evenings and graceful at-home moments.
+04/2025 – 07/2025
 ```
 
-Highlights:
+Card headline:
 
 ```text
-Satin sleepwear
-Soft robes
-Loungewear ease
-Elegant at-home comfort
+Tourism Communication & Customer Consulting
 ```
 
-CTA:
+Description:
 
 ```text
-Explore Sleepwear
+Tham gia thiết kế nội dung quảng bá, tư vấn tour theo nhu cầu khách hàng và chăm sóc khách hàng trong quá trình tìm hiểu, lựa chọn dịch vụ du lịch.
 ```
 
-Secondary CTA:
+Key results:
 
 ```text
-Shop Robes & Loungewear
+Reached 80% potential customers
+Highest KPI among interns
+260M VND/month total sales contribution
+95% positive customer feedback
 ```
 
-## Design Notes
-
-* Background: Champagne Ivory hoặc Satin Beige very light
-* Có thể dùng full-width image + content card overlay
-* Tone nên nhẹ hơn Section 3
-* Đây là section quan trọng để website không quá sexualized
-
----
-
-# Section 5: New Arrivals + Customer Care Trust
-
-## Purpose
-
-Section cuối gộp sản phẩm mới và niềm tin mua hàng.
-
-Vì homepage chỉ có 5 section, section này cần vừa có ecommerce function vừa có trust/GMC support.
-
-## Layout Option
-
-Có thể chia thành 2 phần trong cùng một section:
-
-1. New Arrivals product grid
-2. Customer Care trust cards
-
-## New Arrivals Content
-
-Eyebrow:
+Skills shown:
 
 ```text
-New Arrivals
-```
-
-Headline:
-
-```text
-Fresh pieces for soft, personal moments.
-```
-
-Subtext:
-
-```text
-Discover romantic lingerie, satin sleepwear, delicate robes, and feminine essentials newly added to Shop Avec Moi.
-```
-
-CTA:
-
-```text
-View New Arrivals
-```
-
-Product grid:
-
-* Desktop: 4 products
-* Mobile: 2 columns if readable
-
-Product types to show:
-
-* Lingerie set
-* Satin sleepwear
-* Robe/loungewear piece
-* Bralette or intimate essential
-
-## Customer Care Content
-
-Eyebrow:
-
-```text
+Customer Consulting
+Tour Planning
+Sales Support
+Promotional Content
 Customer Care
 ```
 
+## Experience Card 2: KYNA English
+
+Company:
+
+```text
+CTCP Dream Viet Education – KYNA PTE. LTD. / KYNA English
+```
+
+Role:
+
+```text
+Giáo viên tiếng Anh
+```
+
+Time:
+
+```text
+03/2024 – 12/2024
+```
+
+Card headline:
+
+```text
+English Teaching & Learner Engagement
+```
+
+Description:
+
+```text
+Giảng dạy tiếng Anh cho học viên thuộc nhiều độ tuổi, hỗ trợ người học cải thiện phát âm, điểm số và sự tự tin trong quá trình học.
+```
+
+Key results:
+
+```text
+90% trial students registered for the next course
+Positive feedback from parents and learners
+Supported beginner learners with pronunciation and score improvement
+Handled unexpected classroom situations
+```
+
+Skills shown:
+
+```text
+English Teaching
+Learner Engagement
+Parent Communication
+Classroom Handling
+Pronunciation Support
+```
+
+## Design Notes
+
+* Use date pills
+* Highlight results in bold or small metric tags
+* Use line icons for role types
+* Avoid overly dense text
+
+---
+
+# Section 5: Featured Project — Award-Winning Communication Video
+
+## Purpose
+
+Đây là section quan trọng nhất để biến portfolio khác biệt so với CV.
+
+Video đạt giải cần được đặt như một dự án nổi bật, không chỉ nằm trong phần “Hoạt động & Khen thưởng”.
+
+## Layout
+
+Desktop:
+
+* Left: video embed / thumbnail 16:9
+* Right: project description + award badge + role + skills
+
+Mobile:
+
+* Video full width on top
+* Content below
+
+## Content
+
+Eyebrow:
+
+```text
+Featured Project
+```
+
+Award badge:
+
+```text
+Award-Winning Project
+```
+
 Headline:
 
 ```text
-A softer shopping experience, from fit to delivery.
+Video truyền thông đạt giải xuất sắc
 ```
 
-Trust cards:
-
-### Secure Checkout
+Award detail:
 
 ```text
-Shop with a simple and secure checkout experience.
+Đạt giải “Video truyền thông xuất sắc nhất” — Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
 ```
 
-### Tracking Included
+Description:
 
 ```text
-Tracking information is provided once your order ships.
+Dự án video truyền thông được thực hiện trong khuôn khổ Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025. Sản phẩm thể hiện khả năng xây dựng thông điệp, kể chuyện bằng hình ảnh và truyền tải nội dung du lịch một cách hấp dẫn.
 ```
 
-### 30-Day Returns
+Role copy if exact role is uncertain:
 
 ```text
-Eligible unworn and unused items may be returned within 30 days of delivery.
+Tham gia vào quá trình xây dựng nội dung, truyền tải thông điệp và hoàn thiện sản phẩm truyền thông cùng nhóm dự án.
 ```
 
-### Hygiene-Aware Policy
+Skills demonstrated:
 
 ```text
-For intimate apparel, return eligibility may depend on product condition, tags, packaging, and hygiene requirements.
-```
-
-Support line:
-
-```text
-Need help with sizing, orders, or product questions? Contact support@shopavecmoi.com during business hours.
+Storytelling
+Tourism Communication
+Content Planning
+Teamwork
+Presentation
+Visual Communication
 ```
 
 CTA:
 
 ```text
-View Shipping & Returns
+Xem video dự án
+Xem thêm hoạt động
+```
+
+## Video Embed Notes
+
+Support one of:
+
+* YouTube embed
+* Google Drive embed
+* Vimeo embed
+* Self-hosted MP4
+
+If no video link yet, place placeholder:
+
+```text
+Video project placeholder — replace with YouTube / Google Drive / MP4 embed link
 ```
 
 ## Design Notes
 
-* New Arrivals dùng nền Pearl White
-* Trust block có thể dùng nền Deep Cocoa với text trắng
-* Trust copy phải rõ ràng vì ngành intimate apparel cần minh bạch return policy
-* Không fake review nếu chưa có review thật
-* Không countdown / flash sale
+* Background can be Professional Navy for strong contrast
+* Use Achievement Gold for award badge
+* Video container should have rounded corners and shadow
+* Do not autoplay video with sound
+* This section should feel like a portfolio case study
 
 ---
 
-# Homepage Image List
+# Section 6: Education & Certifications
 
-Cần chuẩn bị tối thiểu các ảnh sau:
+## Purpose
 
-1. Hero image: adult woman in satin robe/sleepwear, tasteful bedroom or cream studio
-2. Category image: Lingerie Sets
-3. Category image: Sleepwear
-4. Category image: Robes & Loungewear
-5. Category image: Bras & Bralettes
-6. Category image: Intimate Essentials / fabric detail
-7. Feature image: Lingerie & Lace editorial shot
-8. Detail image: lace/satin close-up
-9. Feature image: Sleepwear & Robes lifestyle shot
-10. Product images: 4 new arrivals
-11. Optional customer care/support image if needed
+Thể hiện nền tảng học vấn và năng lực ngoại ngữ một cách rõ ràng, chuyên nghiệp.
 
-Image requirements:
+## Layout
 
-* No text inside image
-* No nudity
-* No explicit pose
-* No fetish styling
-* No adult-content framing
-* Soft editorial lighting
-* Adult models only
-* Product/fabric must be visible
+* Left: Education card
+* Right: Certificate grid
 
----
+## Education Card
 
-# Homepage Copy Rules
-
-Use words like:
+Title:
 
 ```text
-soft
-romantic
-delicate
-feminine
-intimate
-comfort
-confidence
-satin
-lace
-sleepwear
-loungewear
-quiet beauty
-personal moments
-self-care
-at-home elegance
+Cử nhân ngành Ngôn ngữ Anh
 ```
 
-Avoid words like:
+School:
 
 ```text
-naughty
-fetish
-explicit
-adult fantasy
-hot babe
-wild night
-pornographic
-barely there
-seduce
+Trường Đại học Ngoại Ngữ – ĐHQGHN
 ```
 
----
-
-# GMC-Safe Homepage Rules
-
-The homepage must present intimate apparel as fashion, comfort, and self-care.
-
-Do:
-
-* Show product categories clearly
-* Use tasteful imagery
-* Mention fabric, fit, comfort, sleepwear, robes
-* Include transparent customer care info
-* Keep language elegant and mature
-
-Avoid:
-
-* Nudity
-* Adult entertainment vibe
-* Explicit copy
-* Extreme body focus
-* Suggestive hero image
-* Fake urgency
-* Countdown timers
-* Overly sexual collection names
-
----
-
-# Suggested 5-Section Flow
+Time:
 
 ```text
-1. Hero: Soft Intimates For Quiet Confidence
-2. Shop By Mood / Category
-3. Lingerie & Lace Feature
-4. Sleepwear, Robes & At-Home Elegance
-5. New Arrivals + Customer Care Trust
+10/2022 – 06/2026
+```
+
+Details:
+
+```text
+GPA: 3.63/4
+Xếp loại: Xuất sắc
+```
+
+## Certificate Cards
+
+### VNU TEST — English C1
+
+```text
+Score: 8.0/10
+```
+
+### Chinese HSK 3
+
+```text
+Score: 295/300
+```
+
+### HSKK Intermediate
+
+```text
+Chinese Speaking Certificate
+```
+
+Optional CTA:
+
+```text
+View Certificate
+```
+
+## Design Notes
+
+* Use clean white cards
+* Certificate names should be clear
+* Use blue/gold accent for levels and scores
+* If certificate files exist, each card can link to the document/image
+
+---
+
+# Section 7: Skills
+
+## Purpose
+
+Gom kỹ năng thành nhóm có logic, tránh list kỹ năng dài không có tổ chức.
+
+## Layout
+
+Use 5 grouped skill cards.
+
+## Skill Groups
+
+### Communication
+
+```text
+Public speaking
+Customer communication
+Presentation
+Teamwork
+Interpersonal communication
+```
+
+### Marketing & Content
+
+```text
+Digital marketing basics
+Promotional content design
+Tourism communication
+Content planning
+Customer-focused messaging
+```
+
+### Languages
+
+```text
+English — C1
+Chinese — HSK 3
+Chinese Speaking — HSKK Intermediate
+```
+
+### Education & Training
+
+```text
+English teaching
+Learner engagement
+Pronunciation support
+Class situation handling
+Beginner learner support
+```
+
+### Workplace Skills
+
+```text
+Basic computer skills
+Problem-solving
+Customer care
+Tour planning support
+KPI-oriented working style
+```
+
+## Design Notes
+
+* Use skill tags/chips
+* Background: Soft Sky Blue or White
+* Icons can help differentiate groups
+* Do not use fake percentage skill bars
+
+---
+
+# Section 8: Activities & Awards
+
+## Purpose
+
+Thể hiện Huyền Trang là người năng động ngoài học tập và công việc.
+
+## Layout
+
+Use 2 highlight cards or a mini timeline.
+
+## Items
+
+### Best Communication Video
+
+```text
+Đạt giải “Video truyền thông xuất sắc nhất” — Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
+```
+
+Action:
+
+```text
+Xem dự án video
+```
+
+This should link back to Featured Project section.
+
+### Outstanding Volunteer — SCF Social Fund
+
+```text
+Tình nguyện viên xuất sắc của Quỹ xã hội SCF, được ghi nhận thành tích đóng góp trong các chương trình hỗ trợ cộng đồng.
+```
+
+## Design Notes
+
+* Use Achievement Gold for award card
+* Use soft blue/green accent for volunteer card
+* Keep section concise
+
+---
+
+# Section 9: Contact
+
+## Purpose
+
+Giúp nhà tuyển dụng dễ dàng liên hệ và tải CV.
+
+## Layout
+
+* Centered CTA block or 2-column contact card
+* Include email, LinkedIn, location, availability
+
+## Content
+
+Headline:
+
+```text
+Let’s connect
+```
+
+Vietnamese headline:
+
+```text
+Sẵn sàng cho những cơ hội mới
+```
+
+Description:
+
+```text
+Tôi luôn sẵn sàng trao đổi về các cơ hội thực tập, vị trí entry-level hoặc dự án liên quan đến du lịch, truyền thông, chăm sóc khách hàng và giáo dục.
+```
+
+Recommended public info:
+
+```text
+Hanoi, Vietnam
+Available for internship / entry-level opportunities
+Email: [professional email]
+LinkedIn: linkedin.com/in/hohuyentrang
+```
+
+CTA buttons:
+
+```text
+Liên hệ với tôi
+Tải CV
+Xem LinkedIn
+```
+
+## Privacy Note
+
+Không nên hiển thị đầy đủ địa chỉ nhà trên website công khai. Có thể dùng:
+
+```text
+Hanoi, Vietnam
+```
+
+thay vì địa chỉ chi tiết.
+
+## Design Notes
+
+* Background: Professional Navy or White on Soft Sky Blue
+* Use strong CTA buttons
+* Footer can be minimal
+
+---
+
+# Homepage Image & Asset List
+
+Cần chuẩn bị:
+
+1. Professional portrait/headshot
+2. CV PDF download file
+3. LinkedIn URL
+4. Award-winning video link or MP4 file
+5. Optional video thumbnail
+6. Certificate images/PDFs if available
+7. Optional activity/volunteer photos
+8. Optional project screenshots
+
+---
+
+# UX Rules
+
+* Portfolio should be easy to scan within 30 seconds
+* Achievements must appear above the fold or near the top
+* Video project must be visually prominent
+* CTA to download CV should appear in Hero and Contact
+* Contact information should be easy to find
+* On mobile, video and achievement cards must remain readable
+* Avoid long dense paragraphs
+
+---
+
+# Copy Rules
+
+Use confident but realistic wording.
+
+Good wording:
+
+```text
+Có kinh nghiệm thực tế trong...
+Góp phần vào...
+Đạt kết quả...
+Tham gia xây dựng...
+Được ghi nhận...
+```
+
+Avoid overclaiming:
+
+```text
+Chuyên gia hàng đầu
+Thành thạo mọi lĩnh vực
+Cam kết tạo ra kết quả vượt trội trong mọi dự án
+```
+
+Because Huyền Trang is a final-year student, the tone should be professional, humble, and evidence-based.
+
+---
+
+# Suggested Navigation
+
+For one-page portfolio:
+
+```text
+About
+Experience
+Project
+Certificates
+Awards
+Contact
+```
+
+Header CTA:
+
+```text
+Download CV
 ```
 
 ---
 
 # Final Homepage Feeling
 
-Sau khi xem homepage, khách hàng cần cảm thấy:
+Sau khi xem portfolio, nhà tuyển dụng cần cảm thấy:
 
-* Shop Avec Moi là boutique intimate apparel tinh tế
-* Sản phẩm romantic, feminine, soft nhưng không explicit
-* Lingerie và sleepwear được trình bày như fashion/self-care
-* Website có visual đẹp, premium, editorial
-* Chính sách và customer support rõ ràng
-* Brand có cá tính riêng, khác với một shop lingerie rẻ tiền
+* Huyền Trang là ứng viên trẻ nhưng có kinh nghiệm thật
+* Các thành tích được chứng minh bằng số liệu
+* Năng lực ngoại ngữ có chứng chỉ rõ ràng
+* Có khả năng giao tiếp, giảng dạy và chăm sóc khách hàng
+* Có dự án video đạt giải để showcase năng lực truyền thông
+* Sẵn sàng cho các cơ hội thực tập hoặc entry-level trong du lịch, truyền thông, customer experience hoặc giáo dục
 
-Homepage nên truyền tải:
+Final impression:
 
-> Shop Avec Moi is a romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials — soft, elegant, confident, and safe for mainstream ecommerce.
+```text
+A dynamic final-year English Language student with strong communication skills, measurable work achievements, language certifications, and an award-winning tourism communication video project.
+```

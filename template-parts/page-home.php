@@ -1,430 +1,444 @@
 <?php
 /**
- * Homepage template part for Shop Avec Moi.
+ * Template Part: Home - Personal Portfolio.
+ *
+ * @package dawp
  */
 
 if (!defined('ABSPATH')) {
     exit;
 }
 
-if (!function_exists('dawp_home_shop_url')) {
-    function dawp_home_shop_url() {
-        if (function_exists('wc_get_page_id')) {
-            $shop_id = wc_get_page_id('shop');
-            if ($shop_id && $shop_id > 0) {
-                return get_permalink($shop_id);
-            }
-        }
+$portfolio_email = 'huyen.trang@example.com';
+$linkedin_url = 'https://www.linkedin.com/in/hohuyentrang/';
+$cv_url = home_url('/wp-content/uploads/huyen-trang-cv.pdf');
+$project_video_url = '#featured-project';
 
-        return home_url('/shop/');
-    }
-}
-
-if (!function_exists('dawp_home_find_product_cat')) {
-    function dawp_home_find_product_cat($slugs, $name = '') {
-        if (!taxonomy_exists('product_cat')) {
-            return null;
-        }
-
-        foreach ((array) $slugs as $slug) {
-            $term = get_term_by('slug', $slug, 'product_cat');
-            if ($term && !is_wp_error($term)) {
-                return $term;
-            }
-        }
-
-        if ($name) {
-            $term = get_term_by('name', $name, 'product_cat');
-            if ($term && !is_wp_error($term)) {
-                return $term;
-            }
-        }
-
-        return null;
-    }
-}
-
-if (!function_exists('dawp_home_category_url')) {
-    function dawp_home_category_url($slugs, $name = '') {
-        $slugs = array_values(array_filter((array) $slugs));
-        $term = dawp_home_find_product_cat($slugs, $name);
-        if ($term) {
-            $link = get_term_link($term);
-            if (!is_wp_error($link)) {
-                return $link;
-            }
-        }
-
-        if (!empty($slugs) && function_exists('dawp_product_category_url')) {
-            return dawp_product_category_url($slugs[0]);
-        }
-
-        if (!empty($slugs)) {
-            return home_url('/product-category/' . trim($slugs[0], '/') . '/');
-        }
-
-        return dawp_home_shop_url();
-    }
-}
-
-if (!function_exists('dawp_home_image_url')) {
-    function dawp_home_image_url($slugs = [], $size = 'large') {
-        $term = dawp_home_find_product_cat($slugs);
-
-        if ($term) {
-            $thumbnail_id = (int) get_term_meta($term->term_id, 'thumbnail_id', true);
-            if ($thumbnail_id) {
-                $image_url = wp_get_attachment_image_url($thumbnail_id, $size);
-                if ($image_url) {
-                    return $image_url;
-                }
-            }
-
-            if (function_exists('wc_get_products')) {
-                $products = wc_get_products([
-                    'status'   => 'publish',
-                    'limit'    => 1,
-                    'category' => [$term->slug],
-                    'orderby'  => 'date',
-                    'order'    => 'DESC',
-                ]);
-
-                if (!empty($products)) {
-                    $image_id = $products[0]->get_image_id();
-                    if ($image_id) {
-                        $image_url = wp_get_attachment_image_url($image_id, $size);
-                        if ($image_url) {
-                            return $image_url;
-                        }
-                    }
-                }
-            }
-        }
-
-        if (function_exists('wc_get_products')) {
-            $products = wc_get_products([
-                'status'  => 'publish',
-                'limit'   => 1,
-                'orderby' => 'date',
-                'order'   => 'DESC',
-            ]);
-
-            if (!empty($products)) {
-                $image_id = $products[0]->get_image_id();
-                if ($image_id) {
-                    $image_url = wp_get_attachment_image_url($image_id, $size);
-                    if ($image_url) {
-                        return $image_url;
-                    }
-                }
-            }
-        }
-
-        return function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src($size) : '';
-    }
-}
-
-$shop_url             = dawp_home_shop_url();
-$new_arrivals_url     = add_query_arg('orderby', 'date', $shop_url);
-$sleepwear_url        = dawp_home_category_url(['sleepwear'], 'Sleepwear');
-$lingerie_url         = dawp_home_category_url(['lingerie-sets', 'lingerie'], 'Lingerie Sets');
-$robes_url            = dawp_home_category_url(['robes-loungewear', 'robes-and-loungewear', 'robes', 'loungewear'], 'Robes & Loungewear');
-$bras_url             = dawp_home_category_url(['bras-bralettes', 'bras-and-bralettes', 'bralettes', 'bras'], 'Bras & Bralettes');
-$essentials_url       = dawp_home_category_url(['intimate-essentials', 'essentials'], 'Intimate Essentials');
-$shipping_returns_url = home_url('/shipping-returns/');
-$hero_image_url       = get_theme_file_uri('/assets/img/gallery/Home/Romantic_Intimates_Sleepwear.png');
-$lace_feature_url     = get_theme_file_uri('/assets/img/gallery/Home/Lingerie_Lace.png');
-$lace_detail_url      = get_theme_file_uri('/assets/img/gallery/Home/Lingerie_Lace_two.png');
-$sleepwear_image_url  = get_theme_file_uri('/assets/img/gallery/Home/Sleepwear_Robes.png');
-$new_products         = [];
-
-if (function_exists('wc_get_products')) {
-    $new_products = array_values(array_filter(wc_get_products([
-        'status'  => 'publish',
-        'limit'   => 4,
-        'orderby' => 'date',
-        'order'   => 'DESC',
-    ]), function ($product) {
-        return $product && $product->is_visible();
-    }));
-}
-
-$categories = [
+$metrics = [
     [
-        'name'  => 'Lingerie Sets',
-        'copy'  => 'Soft lace and delicate matching pieces for romantic confidence.',
-        'slugs' => ['lingerie-sets', 'lingerie'],
-        'url'   => $lingerie_url,
-        'image' => get_theme_file_uri('/assets/img/gallery/Home/Lingerie_Sets.png'),
+        'value' => '3.63/4',
+        'label' => 'GPA - Xếp loại Xuất sắc',
+        'context' => 'Trường Đại học Ngoại ngữ - ĐHQGHN',
+        'tone' => 'blue',
     ],
     [
-        'name'  => 'Sleepwear',
-        'copy'  => 'Satin, lace-trim, and soft nightwear for quiet evenings.',
-        'slugs' => ['sleepwear'],
-        'url'   => $sleepwear_url,
-        'image' => get_theme_file_uri('/assets/img/gallery/Home/Sleep_wear.png'),
+        'value' => '260M VND/tháng',
+        'label' => 'Top KPI Intern Performance',
+        'context' => 'Góp phần vào tổng doanh số tour du lịch tại TRIPUS',
+        'tone' => 'gold',
     ],
     [
-        'name'  => 'Robes & Loungewear',
-        'copy'  => 'At-home elegance made for comfort, layering, and slow mornings.',
-        'slugs' => ['robes-loungewear', 'robes-and-loungewear', 'robes', 'loungewear'],
-        'url'   => $robes_url,
-        'image' => get_theme_file_uri('/assets/img/gallery/Home/Robes_Loungewear.png'),
+        'value' => '95%',
+        'label' => 'Positive Customer Feedback',
+        'context' => 'Từ khách hàng mới và khách hàng cũ trong quá trình chăm sóc',
+        'tone' => 'blue',
     ],
     [
-        'name'  => 'Bras & Bralettes',
-        'copy'  => 'Delicate support and feminine shapes for everyday intimacy.',
-        'slugs' => ['bras-bralettes', 'bras-and-bralettes', 'bralettes', 'bras'],
-        'url'   => $bras_url,
-        'image' => get_theme_file_uri('/assets/img/gallery/Home/bras.png'),
+        'value' => '90%',
+        'label' => 'Trial Students Continued',
+        'context' => 'Học viên đăng ký khóa tiếp theo sau buổi học thử',
+        'tone' => 'blue',
     ],
     [
-        'name'  => 'Intimate Essentials',
-        'copy'  => 'Refined basics designed for softness, comfort, and ease.',
-        'slugs' => ['intimate-essentials', 'essentials'],
-        'url'   => $essentials_url,
-        'image' => get_theme_file_uri('/assets/img/gallery/Home/intimate.png'),
+        'value' => 'C1 English',
+        'label' => 'VNU TEST - 8.0/10',
+        'context' => 'Năng lực ngoại ngữ phục vụ học thuật và giao tiếp',
+        'tone' => 'blue',
+    ],
+    [
+        'value' => 'Award Video',
+        'label' => 'Video truyền thông xuất sắc nhất',
+        'context' => 'Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025',
+        'tone' => 'gold',
+    ],
+];
+
+$experiences = [
+    [
+        'period' => '04/2025 - 07/2025',
+        'role' => 'Thực tập sinh du lịch',
+        'company' => 'Công ty TNHH Thương mại và Dịch vụ TRIPUS',
+        'title' => 'Tourism Communication & Customer Consulting',
+        'description' => 'Tham gia thiết kế nội dung quảng bá, tư vấn tour theo nhu cầu khách hàng và chăm sóc khách hàng trong quá trình tìm hiểu, lựa chọn dịch vụ du lịch.',
+        'results' => [
+            'Reached 80% potential customers',
+            'Highest KPI among interns',
+            '260M VND/month total sales contribution',
+            '95% positive customer feedback',
+        ],
+        'skills' => ['Customer Consulting', 'Tour Planning', 'Sales Support', 'Promotional Content', 'Customer Care'],
+    ],
+    [
+        'period' => '03/2024 - 12/2024',
+        'role' => 'Giáo viên tiếng Anh',
+        'company' => 'CTCP Dream Viet Education - KYNA PTE. LTD. / KYNA English',
+        'title' => 'English Teaching & Learner Engagement',
+        'description' => 'Giảng dạy tiếng Anh cho học viên thuộc nhiều độ tuổi, hỗ trợ người học cải thiện phát âm, điểm số và sự tự tin trong quá trình học.',
+        'results' => [
+            '90% trial students registered for the next course',
+            'Positive feedback from parents and learners',
+            'Supported beginner learners with pronunciation and score improvement',
+            'Handled unexpected classroom situations',
+        ],
+        'skills' => ['English Teaching', 'Learner Engagement', 'Parent Communication', 'Classroom Handling', 'Pronunciation Support'],
+    ],
+];
+
+$certificates = [
+    ['name' => 'VNU TEST - English C1', 'score' => '8.0/10', 'issuer' => 'English proficiency certificate'],
+    ['name' => 'Chinese HSK 3', 'score' => '295/300', 'issuer' => 'Chinese language certificate'],
+    ['name' => 'HSKK Intermediate', 'score' => 'Speaking', 'issuer' => 'Chinese speaking certificate'],
+];
+
+$skill_groups = [
+    [
+        'title' => 'Communication',
+        'items' => ['Public speaking', 'Customer communication', 'Presentation', 'Teamwork', 'Interpersonal communication'],
+    ],
+    [
+        'title' => 'Marketing & Content',
+        'items' => ['Digital marketing basics', 'Promotional content design', 'Tourism communication', 'Content planning', 'Customer-focused messaging'],
+    ],
+    [
+        'title' => 'Languages',
+        'items' => ['English - C1', 'Chinese - HSK 3', 'Chinese Speaking - HSKK Intermediate'],
+    ],
+    [
+        'title' => 'Education & Training',
+        'items' => ['English teaching', 'Learner engagement', 'Pronunciation support', 'Class situation handling', 'Beginner learner support'],
+    ],
+    [
+        'title' => 'Workplace Skills',
+        'items' => ['Basic computer skills', 'Problem-solving', 'Customer care', 'Tour planning support', 'KPI-oriented working style'],
     ],
 ];
 ?>
 
-<div class="bg-white text-[#24132E] antialiased">
-    <section class="overflow-hidden bg-[#FBF4FF] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
-            <div class="max-w-2xl">
-                <p class="text-sm font-semibold uppercase text-[#6E3A8A]">Romantic Intimates &amp; Sleepwear</p>
-                <h1 class="mt-4 font-heading text-5xl leading-[1.05] text-[#3B1748] sm:text-6xl lg:text-7xl">
-                    Soft Intimates For Quiet Confidence
-                </h1>
-                <p class="mt-6 max-w-xl text-base leading-7 text-[#6D5875] sm:text-lg">
-                    Romantic lingerie, sleepwear, robes, and feminine essentials designed for comfort, softness, and beautifully personal moments.
+<main class="portfolio-home bg-white text-[#222222]">
+    <section class="relative overflow-hidden bg-[#DCEEFF]">
+        <div class="absolute inset-x-0 top-0 h-32 bg-white/45" aria-hidden="true"></div>
+        <div class="relative mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:px-8 lg:py-24">
+            <div>
+                <p class="inline-flex rounded-full border border-[#0F3D5E]/15 bg-white px-4 py-2 text-sm font-semibold text-[#0F3D5E]">
+                    Final-year English Language Student
                 </p>
-                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#3B1748] px-7 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-[#6E3A8A]" href="<?php echo esc_url($new_arrivals_url); ?>">
-                        Shop New Arrivals
+                <h1 class="mt-6 text-4xl font-extrabold leading-tight text-[#0F3D5E] sm:text-5xl lg:text-6xl">
+                    Hồ Thị Huyền Trang
+                </h1>
+                <p class="mt-5 max-w-3xl text-xl font-semibold leading-8 text-[#12384F]">
+                    Tourism - Communication - Customer Experience - Education
+                </p>
+                <p class="mt-5 max-w-3xl text-base leading-8 text-[#334155] sm:text-lg">
+                    Sinh viên năm cuối ngành Ngôn ngữ Anh với kinh nghiệm trong tư vấn du lịch, thiết kế nội dung quảng bá, chăm sóc khách hàng và giảng dạy tiếng Anh. Nổi bật với tư duy giao tiếp, khả năng ngoại ngữ và các thành tích thực tế trong môi trường làm việc.
+                </p>
+
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="#portfolio" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#0F3D5E] px-6 text-sm font-bold text-white transition hover:bg-[#0A2F48]">
+                        Xem Portfolio
                     </a>
-                    <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E8DFF0] bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($sleepwear_url); ?>">
-                        Explore Sleepwear
+                    <a href="<?php echo esc_url($cv_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#0F3D5E] bg-white px-6 text-sm font-bold text-[#0F3D5E] transition hover:bg-[#F6EFE7]">
+                        Tải CV
+                    </a>
+                    <a href="<?php echo esc_url($linkedin_url); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2F80ED] bg-white px-6 text-sm font-bold text-[#2F80ED] transition hover:bg-white/75">
+                        Xem LinkedIn
                     </a>
                 </div>
-                <div class="mt-8 grid grid-cols-2 gap-4 text-sm text-[#6D5875] sm:grid-cols-3">
-                    <div class="border-l border-[#E8DFF0] pl-4">
-                        <span class="block font-semibold text-[#3B1748]">Lace</span>
-                        Delicate details
-                    </div>
-                    <div class="border-l border-[#E8DFF0] pl-4">
-                        <span class="block font-semibold text-[#3B1748]">Satin</span>
-                        Soft textures
-                    </div>
-                    <div class="border-l border-[#E8DFF0] pl-4">
-                        <span class="block font-semibold text-[#3B1748]">Comfort</span>
-                        Everyday ease
-                    </div>
+
+                <div class="mt-8 flex flex-wrap gap-2">
+                    <?php foreach (['English C1', 'Tourism Communication', 'Customer Experience', 'Teaching Experience', 'Award-Winning Video'] as $badge) : ?>
+                        <span class="rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-[#0F3D5E] shadow-sm">
+                            <?php echo esc_html($badge); ?>
+                        </span>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
             <div class="relative">
-                <?php if ($hero_image_url) : ?>
-                    <div class="overflow-hidden rounded-[2rem] border border-[#E8DFF0] bg-white p-3 shadow-2xl shadow-[#3B1748]/10">
-                        <img class="aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]" src="<?php echo esc_url($hero_image_url); ?>" alt="Tasteful romantic sleepwear and intimate apparel from Shop Avec Moi" loading="eager" fetchpriority="high">
+                <div class="rounded-[2rem] border border-white/70 bg-white p-4 shadow-2xl shadow-[#0F3D5E]/15">
+                    <div class="relative flex aspect-[4/5] min-h-[430px] items-end overflow-hidden rounded-[1.5rem] bg-[#F6EFE7]">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_24%_20%,rgba(47,128,237,0.24),transparent_34%),radial-gradient(circle_at_82%_16%,rgba(217,164,65,0.24),transparent_30%)]" aria-hidden="true"></div>
+                        <div class="relative mx-auto mb-12 flex h-48 w-48 items-center justify-center rounded-full border-8 border-white bg-[#0F3D5E] text-6xl font-extrabold text-white shadow-xl">
+                            HT
+                        </div>
+                        <div class="absolute bottom-5 left-5 right-5 rounded-3xl bg-white/92 p-5 shadow-lg">
+                            <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#D9A441]">Available for opportunities</p>
+                            <p class="mt-2 text-base font-semibold text-[#0F3D5E]">Internship / Entry-level roles in tourism, communication, customer experience and education.</p>
+                        </div>
                     </div>
-                <?php endif; ?>
-                <div class="relative mx-auto -mt-4 max-w-xl rounded-2xl border border-[#E8DFF0] bg-white p-5 shadow-lg shadow-[#3B1748]/10">
-                    <p class="font-heading text-2xl leading-tight text-[#3B1748]">Soft intimate pieces for comfort, romance, and quiet confidence.</p>
+                </div>
+                <div class="absolute -right-2 top-8 hidden rounded-3xl bg-[#0F3D5E] p-5 text-white shadow-xl lg:block">
+                    <p class="text-3xl font-extrabold">C1</p>
+                    <p class="mt-1 text-sm text-white/80">English level</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <div class="mx-auto max-w-7xl">
-            <div class="max-w-3xl">
-                <p class="text-sm font-semibold uppercase text-[#6E3A8A]">Shop By Mood</p>
-                <h2 class="mt-3 font-heading text-4xl leading-tight text-[#3B1748] md:text-5xl">
-                    Curated for softness, romance, and ease.
-                </h2>
-                <p class="mt-4 text-base leading-7 text-[#6D5875]">
-                    Explore intimate apparel by the pieces you reach for most: lace sets, sleepwear, robes, bralettes, and refined essentials.
-                </p>
-            </div>
+    <nav class="border-b border-[#E5E7EB] bg-white/95 backdrop-blur">
+        <div class="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-3 text-sm font-semibold text-[#0F3D5E] sm:px-6 lg:px-8">
+            <?php foreach ([['About', '#about'], ['Experience', '#experience'], ['Project', '#featured-project'], ['Certificates', '#education'], ['Awards', '#awards'], ['Contact', '#contact']] as $nav_item) : ?>
+                <a href="<?php echo esc_url($nav_item[1]); ?>" class="shrink-0 rounded-full px-4 py-2 transition hover:bg-[#DCEEFF]">
+                    <?php echo esc_html($nav_item[0]); ?>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </nav>
 
-            <div class="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-5">
-                <?php foreach ($categories as $category) :
-                    $category_url = $category['url'];
-                    $category_img = $category['image'];
-                    ?>
-                    <a class="group overflow-hidden rounded-2xl border border-[#E8DFF0] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#3B1748]/10" href="<?php echo esc_url($category_url); ?>">
-                        <?php if ($category_img) : ?>
-                            <img class="aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.03]" src="<?php echo esc_url($category_img); ?>" alt="<?php echo esc_attr($category['name']); ?>" loading="lazy">
-                        <?php endif; ?>
-                        <div class="p-4">
-                            <h3 class="font-heading text-2xl leading-tight text-[#3B1748]"><?php echo esc_html($category['name']); ?></h3>
-                            <p class="mt-2 text-sm leading-6 text-[#6D5875]"><?php echo esc_html($category['copy']); ?></p>
-                        </div>
-                    </a>
+    <section id="portfolio" class="bg-white py-14 sm:py-16 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80ED]">Achievement Highlights</p>
+                <h2 class="mt-3 text-3xl font-extrabold text-[#0F3D5E] sm:text-4xl">Kết quả nổi bật có thể đo lường</h2>
+            </div>
+            <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <?php foreach ($metrics as $metric) : ?>
+                    <article class="rounded-3xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                        <p class="text-3xl font-extrabold leading-tight <?php echo $metric['tone'] === 'gold' ? 'text-[#D9A441]' : 'text-[#0F3D5E]'; ?>">
+                            <?php echo esc_html($metric['value']); ?>
+                        </p>
+                        <h3 class="mt-4 text-lg font-bold text-[#222222]"><?php echo esc_html($metric['label']); ?></h3>
+                        <p class="mt-2 text-sm leading-6 text-[#667085]"><?php echo esc_html($metric['context']); ?></p>
+                    </article>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#3B1748] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
-            <div class="grid grid-cols-2 gap-4">
-                <?php if ($lace_feature_url) : ?>
-                    <img class="aspect-[4/5] w-full rounded-2xl object-cover shadow-xl shadow-black/20" src="<?php echo esc_url($lace_feature_url); ?>" alt="Soft lace lingerie styled with tasteful feminine detail" loading="lazy">
-                <?php endif; ?>
-                <?php if ($lace_detail_url) : ?>
-                    <img class="mt-8 aspect-[4/5] w-full rounded-2xl object-cover shadow-lg shadow-black/20" src="<?php echo esc_url($lace_detail_url); ?>" alt="Close detail of lace and satin intimate apparel" loading="lazy">
-                <?php endif; ?>
-            </div>
-
+    <section id="about" class="bg-[#F6EFE7] py-14 sm:py-16 lg:py-20">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8">
             <div>
-                <p class="text-sm font-semibold uppercase text-white">Lingerie &amp; Lace</p>
-                <h2 class="mt-3 font-heading text-4xl leading-tight text-white md:text-5xl">
-                    Delicate details, softly confident silhouettes.
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#D9A441]">About Me</p>
+                <h2 class="mt-3 max-w-4xl text-3xl font-extrabold leading-tight text-[#0F3D5E] sm:text-4xl">
+                    Kết nối con người qua ngôn ngữ, nội dung và trải nghiệm.
                 </h2>
-                <p class="mt-5 text-base leading-7 text-white/75">
-                    From lace-trim sets to feminine bralettes, Shop Avec Moi brings intimate pieces that feel romantic, comfortable, and beautifully personal, made for women who love softness without losing confidence.
-                </p>
-
-                <div class="mt-8 grid gap-3 sm:grid-cols-2">
-                    <?php
-                    $lace_highlights = ['Soft lace details', 'Romantic matching sets', 'Comfort-focused silhouettes', 'Tasteful feminine styling'];
-                    foreach ($lace_highlights as $highlight) :
-                        ?>
-                        <div class="rounded-2xl border border-white/15 bg-white/10 p-4 text-sm font-semibold text-white">
-                            <?php echo esc_html($highlight); ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <p class="mt-8 font-heading text-2xl text-white">Romance in the details.</p>
-                <a class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($lingerie_url); ?>">
-                    Shop Lingerie Sets
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1fr] lg:items-center">
-            <div>
-                <p class="text-sm font-semibold uppercase text-[#6E3A8A]">Sleepwear &amp; Robes</p>
-                <h2 class="mt-3 font-heading text-4xl leading-tight text-[#3B1748] md:text-5xl">
-                    Soft pieces for evenings, slow mornings, and quiet self-care.
-                </h2>
-                <p class="mt-5 text-base leading-7 text-[#6D5875]">
-                    Sleepwear should feel as beautiful as it is comfortable. Explore satin textures, delicate trims, soft robes, and loungewear pieces made for restful evenings and graceful at-home moments.
-                </p>
-
-                <div class="mt-8 grid gap-3 sm:grid-cols-2">
-                    <?php
-                    $sleepwear_highlights = ['Satin sleepwear', 'Soft robes', 'Loungewear ease', 'Elegant at-home comfort'];
-                    foreach ($sleepwear_highlights as $highlight) :
-                        ?>
-                        <div class="rounded-2xl border border-[#E8DFF0] bg-white p-4 text-sm font-semibold text-[#3B1748]">
-                            <?php echo esc_html($highlight); ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#3B1748] px-7 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-[#6E3A8A]" href="<?php echo esc_url($sleepwear_url); ?>">
-                        Explore Sleepwear
-                    </a>
-                    <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E8DFF0] bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($robes_url); ?>">
-                        Shop Robes &amp; Loungewear
-                    </a>
-                </div>
-            </div>
-
-            <?php if ($sleepwear_image_url) : ?>
-                <div class="overflow-hidden rounded-[2rem] border border-[#E8DFF0] bg-white p-3 shadow-2xl shadow-[#3B1748]/10">
-                    <img class="aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]" src="<?php echo esc_url($sleepwear_image_url); ?>" alt="Soft sleepwear and robes for elegant at-home comfort" loading="lazy">
-                </div>
-            <?php endif; ?>
-        </div>
-    </section>
-
-    <section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
-        <div class="mx-auto max-w-7xl">
-            <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-                <div class="max-w-3xl">
-                    <p class="text-sm font-semibold uppercase text-[#6E3A8A]">New Arrivals</p>
-                    <h2 class="mt-3 font-heading text-4xl leading-tight text-[#3B1748] md:text-5xl">
-                        Fresh pieces for soft, personal moments.
-                    </h2>
-                    <p class="mt-4 text-base leading-7 text-[#6D5875]">
-                        Discover romantic lingerie, satin sleepwear, delicate robes, and feminine essentials newly added to Shop Avec Moi.
+                <div class="mt-6 grid gap-5 text-base leading-8 text-[#334155] sm:text-lg">
+                    <p>
+                        Tôi là Hồ Thị Huyền Trang, sinh viên năm cuối ngành Ngôn ngữ Anh tại Trường Đại học Ngoại ngữ - ĐHQGHN. Với nền tảng ngoại ngữ cùng kinh nghiệm trong tư vấn du lịch, chăm sóc khách hàng và giảng dạy tiếng Anh, tôi mong muốn phát triển trong những lĩnh vực nơi giao tiếp, nội dung và trải nghiệm khách hàng đóng vai trò quan trọng.
+                    </p>
+                    <p>
+                        Tôi yêu thích các công việc cho phép mình kết nối với con người, truyền tải thông tin rõ ràng và tạo ra giá trị thực tế qua từng dự án, từng lớp học hoặc từng trải nghiệm khách hàng.
                     </p>
                 </div>
-                <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E8DFF0] px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($new_arrivals_url); ?>">
-                    View New Arrivals
-                </a>
             </div>
-
-            <?php if (!empty($new_products)) : ?>
-                <div class="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-                    <?php foreach ($new_products as $product) :
-                        $product_url = get_permalink($product->get_id());
-                        $image_id    = $product->get_image_id();
-                        $image_url   = $image_id ? wp_get_attachment_image_url($image_id, 'woocommerce_single') : (function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('woocommerce_single') : '');
-                        ?>
-                        <a class="group overflow-hidden rounded-2xl border border-[#E8DFF0] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#3B1748]/10" href="<?php echo esc_url($product_url); ?>">
-                            <?php if ($image_url) : ?>
-                                <img class="aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.03]" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" loading="lazy">
-                            <?php endif; ?>
-                            <div class="p-4">
-                                <h3 class="text-sm font-semibold leading-6 text-[#3B1748] md:text-base"><?php echo esc_html($product->get_name()); ?></h3>
-                                <div class="mt-2 text-sm font-bold text-[#6E3A8A]"><?php echo wp_kses_post($product->get_price_html()); ?></div>
-                            </div>
-                        </a>
+            <aside class="rounded-3xl border border-white/80 bg-white p-7 shadow-sm">
+                <p class="text-xl font-bold leading-8 text-[#0F3D5E]">
+                    "Mỗi trải nghiệm với khách hàng, học viên hoặc dự án đều là cơ hội để tôi học cách giao tiếp tốt hơn và tạo ra giá trị rõ ràng hơn."
+                </p>
+                <div class="mt-8 grid gap-4">
+                    <?php foreach ([['Major', 'English Language'], ['Location', 'Hanoi, Vietnam'], ['Career focus', 'Tourism, Communication, Education']] as $item) : ?>
+                        <div class="rounded-2xl bg-[#DCEEFF] p-4">
+                            <p class="text-sm font-semibold text-[#667085]"><?php echo esc_html($item[0]); ?></p>
+                            <p class="mt-1 font-bold text-[#0F3D5E]"><?php echo esc_html($item[1]); ?></p>
+                        </div>
                     <?php endforeach; ?>
                 </div>
-            <?php else : ?>
-                <div class="mt-10 rounded-2xl border border-[#E8DFF0] bg-white p-8 text-[#6D5875]">
-                    New arrivals will appear here as products are added to the boutique.
-                </div>
-            <?php endif; ?>
+            </aside>
+        </div>
+    </section>
 
-            <div class="mt-14 overflow-hidden rounded-[2rem] bg-[#21102C] p-6 text-white sm:p-8 lg:p-10">
-                <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-                    <div>
-                        <p class="text-sm font-semibold uppercase text-white">Customer Care</p>
-                        <h2 class="mt-3 font-heading text-4xl leading-tight text-white md:text-5xl">
-                            A softer shopping experience, from fit to delivery.
-                        </h2>
-                        <p class="mt-5 text-base leading-7 text-white/75">
-                            Need help with sizing, orders, or product questions? Contact support@shopavecmoi.com during business hours, Monday to Friday, 9:00 AM to 6:00 PM EST.
-                        </p>
-                        <a class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($shipping_returns_url); ?>">
-                            View Shipping &amp; Returns
-                        </a>
-                    </div>
-
-                    <div class="grid gap-4 sm:grid-cols-2">
-                        <?php
-                        $trust_cards = [
-                            ['title' => 'Secure Checkout', 'copy' => 'Shop with a simple and secure checkout experience.'],
-                            ['title' => 'Tracking Included', 'copy' => 'Tracking information is provided once your order ships.'],
-                            ['title' => '30-Day Returns', 'copy' => 'Eligible unworn and unused items may be returned within 30 days of delivery.'],
-                            ['title' => 'Hygiene-Aware Policy', 'copy' => 'Return eligibility may depend on condition, tags, packaging, and hygiene requirements.'],
-                        ];
-                        foreach ($trust_cards as $card) :
-                            ?>
-                            <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
-                                <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#3B1748]">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                        <path d="M20 6 9 17l-5-5" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-base font-semibold text-white"><?php echo esc_html($card['title']); ?></h3>
-                                <p class="mt-2 text-sm leading-6 text-white/75"><?php echo esc_html($card['copy']); ?></p>
+    <section id="experience" class="bg-white py-14 sm:py-16 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80ED]">Experience</p>
+                <h2 class="mt-3 text-3xl font-extrabold text-[#0F3D5E] sm:text-4xl">Kinh nghiệm thực tế theo dạng case card</h2>
+            </div>
+            <div class="mt-9 grid gap-6 lg:grid-cols-2">
+                <?php foreach ($experiences as $experience) : ?>
+                    <article class="rounded-3xl border border-[#E5E7EB] bg-white p-6 shadow-sm sm:p-8">
+                        <div class="flex flex-wrap items-start justify-between gap-4">
+                            <div>
+                                <span class="rounded-full bg-[#DCEEFF] px-4 py-2 text-sm font-bold text-[#0F3D5E]"><?php echo esc_html($experience['period']); ?></span>
+                                <h3 class="mt-5 text-2xl font-extrabold text-[#0F3D5E]"><?php echo esc_html($experience['title']); ?></h3>
+                                <p class="mt-2 font-semibold text-[#222222]"><?php echo esc_html($experience['role']); ?></p>
+                                <p class="mt-1 text-sm leading-6 text-[#667085]"><?php echo esc_html($experience['company']); ?></p>
                             </div>
-                        <?php endforeach; ?>
+                        </div>
+                        <p class="mt-5 text-base leading-7 text-[#334155]"><?php echo esc_html($experience['description']); ?></p>
+                        <div class="mt-6 rounded-3xl bg-[#F8FAFC] p-5">
+                            <p class="font-bold text-[#0F3D5E]">Key results</p>
+                            <ul class="mt-3 grid gap-3 text-sm leading-6 text-[#334155]">
+                                <?php foreach ($experience['results'] as $result) : ?>
+                                    <li class="flex gap-3">
+                                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#D9A441]" aria-hidden="true"></span>
+                                        <span><?php echo esc_html($result); ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <?php foreach ($experience['skills'] as $skill) : ?>
+                                <span class="rounded-full border border-[#DCEEFF] px-3 py-1.5 text-xs font-bold text-[#0F3D5E]"><?php echo esc_html($skill); ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-project" class="bg-[#0F3D5E] py-14 text-white sm:py-16 lg:py-20">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
+            <div class="rounded-3xl border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/20">
+                <div class="flex aspect-video items-center justify-center rounded-2xl bg-[#08283E] p-6 text-center">
+                    <div>
+                        <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#D9A441] text-[#0F3D5E]">
+                            <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M8 5v14l11-7z"></path>
+                            </svg>
+                        </div>
+                        <p class="mt-5 text-lg font-bold">Video project placeholder</p>
+                        <p class="mt-2 max-w-md text-sm leading-6 text-white/70">Replace this block with YouTube, Google Drive, Vimeo or MP4 embed link.</p>
                     </div>
+                </div>
+            </div>
+            <div>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#D9A441]">Featured Project</p>
+                <span class="mt-4 inline-flex rounded-full bg-[#D9A441] px-4 py-2 text-sm font-extrabold text-[#0F3D5E]">Award-Winning Project</span>
+                <h2 class="mt-5 text-3xl font-extrabold leading-tight sm:text-4xl">Video truyền thông đạt giải xuất sắc</h2>
+                <p class="mt-4 text-base font-semibold leading-7 text-white/90">
+                    Đạt giải "Video truyền thông xuất sắc nhất" - Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025
+                </p>
+                <p class="mt-5 text-base leading-8 text-white/75">
+                    Dự án video truyền thông được thực hiện trong khuôn khổ Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025. Sản phẩm thể hiện khả năng xây dựng thông điệp, kể chuyện bằng hình ảnh và truyền tải nội dung du lịch một cách hấp dẫn.
+                </p>
+                <p class="mt-4 text-base leading-8 text-white/75">
+                    Tham gia vào quá trình xây dựng nội dung, truyền tải thông điệp và hoàn thiện sản phẩm truyền thông cùng nhóm dự án.
+                </p>
+                <div class="mt-6 flex flex-wrap gap-2">
+                    <?php foreach (['Storytelling', 'Tourism Communication', 'Content Planning', 'Teamwork', 'Presentation', 'Visual Communication'] as $skill) : ?>
+                        <span class="rounded-full bg-white/10 px-3 py-2 text-sm font-semibold text-white"><?php echo esc_html($skill); ?></span>
+                    <?php endforeach; ?>
+                </div>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="<?php echo esc_url($project_video_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-bold text-[#0F3D5E] transition hover:bg-[#DCEEFF]">
+                        Xem video dự án
+                    </a>
+                    <a href="#awards" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 text-sm font-bold text-white transition hover:bg-white/10">
+                        Xem thêm hoạt động
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-</div>
+
+    <section id="education" class="bg-[#F8FAFC] py-14 sm:py-16 lg:py-20">
+        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+            <article class="rounded-3xl bg-white p-7 shadow-sm sm:p-8">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80ED]">Education</p>
+                <h2 class="mt-4 text-3xl font-extrabold text-[#0F3D5E]">Cử nhân ngành Ngôn ngữ Anh</h2>
+                <p class="mt-3 text-base font-semibold text-[#222222]">Trường Đại học Ngoại ngữ - ĐHQGHN</p>
+                <p class="mt-1 text-sm text-[#667085]">10/2022 - 06/2026</p>
+                <div class="mt-7 grid gap-3 sm:grid-cols-2">
+                    <div class="rounded-2xl bg-[#DCEEFF] p-5">
+                        <p class="text-3xl font-extrabold text-[#0F3D5E]">3.63/4</p>
+                        <p class="mt-1 text-sm font-semibold text-[#667085]">GPA</p>
+                    </div>
+                    <div class="rounded-2xl bg-[#F6EFE7] p-5">
+                        <p class="text-3xl font-extrabold text-[#D9A441]">Xuất sắc</p>
+                        <p class="mt-1 text-sm font-semibold text-[#667085]">Academic classification</p>
+                    </div>
+                </div>
+            </article>
+
+            <div class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+                <?php foreach ($certificates as $certificate) : ?>
+                    <article class="rounded-3xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                        <p class="text-sm font-bold text-[#667085]"><?php echo esc_html($certificate['issuer']); ?></p>
+                        <h3 class="mt-2 text-xl font-extrabold text-[#0F3D5E]"><?php echo esc_html($certificate['name']); ?></h3>
+                        <p class="mt-3 inline-flex rounded-full bg-[#DCEEFF] px-4 py-2 text-sm font-bold text-[#0F3D5E]"><?php echo esc_html($certificate['score']); ?></p>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-16 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#2F80ED]">Skills</p>
+                <h2 class="mt-3 text-3xl font-extrabold text-[#0F3D5E] sm:text-4xl">Nhóm kỹ năng phục vụ công việc</h2>
+            </div>
+            <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <?php foreach ($skill_groups as $group) : ?>
+                    <article class="rounded-3xl bg-[#DCEEFF] p-6">
+                        <h3 class="text-xl font-extrabold text-[#0F3D5E]"><?php echo esc_html($group['title']); ?></h3>
+                        <div class="mt-5 flex flex-wrap gap-2">
+                            <?php foreach ($group['items'] as $item) : ?>
+                                <span class="rounded-full bg-white px-3 py-2 text-sm font-semibold text-[#334155]"><?php echo esc_html($item); ?></span>
+                            <?php endforeach; ?>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" class="bg-[#F6EFE7] py-14 sm:py-16 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#D9A441]">Activities & Awards</p>
+                <h2 class="mt-3 text-3xl font-extrabold text-[#0F3D5E] sm:text-4xl">Hoạt động nổi bật ngoài học tập</h2>
+            </div>
+            <div class="mt-9 grid gap-5 lg:grid-cols-2">
+                <article class="rounded-3xl bg-white p-7 shadow-sm">
+                    <p class="inline-flex rounded-full bg-[#D9A441] px-4 py-2 text-sm font-extrabold text-[#0F3D5E]">Award</p>
+                    <h3 class="mt-5 text-2xl font-extrabold text-[#0F3D5E]">Best Communication Video</h3>
+                    <p class="mt-3 text-base leading-7 text-[#334155]">Đạt giải "Video truyền thông xuất sắc nhất" - Cuộc thi Kỹ năng Hướng dẫn viên Du lịch 2025.</p>
+                    <a href="#featured-project" class="mt-6 inline-flex font-bold text-[#2F80ED]">Xem dự án video</a>
+                </article>
+                <article class="rounded-3xl bg-white p-7 shadow-sm">
+                    <p class="inline-flex rounded-full bg-[#DCEEFF] px-4 py-2 text-sm font-extrabold text-[#0F3D5E]">Volunteer</p>
+                    <h3 class="mt-5 text-2xl font-extrabold text-[#0F3D5E]">Outstanding Volunteer - SCF Social Fund</h3>
+                    <p class="mt-3 text-base leading-7 text-[#334155]">Tình nguyện viên xuất sắc của Quỹ xã hội SCF, được ghi nhận thành tích đóng góp trong các chương trình hỗ trợ cộng đồng.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-[#0F3D5E] py-14 text-white sm:py-16 lg:py-20">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-8">
+            <div>
+                <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#D9A441]">Let's connect</p>
+                <h2 class="mt-3 text-3xl font-extrabold leading-tight sm:text-4xl">Sẵn sàng cho những cơ hội mới</h2>
+                <p class="mt-5 max-w-3xl text-base leading-8 text-white/75">
+                    Tôi luôn sẵn sàng trao đổi về các cơ hội thực tập, vị trí entry-level hoặc dự án liên quan đến du lịch, truyền thông, chăm sóc khách hàng và giáo dục.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="mailto:<?php echo esc_attr($portfolio_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-bold text-[#0F3D5E] transition hover:bg-[#DCEEFF]">
+                        Liên hệ với tôi
+                    </a>
+                    <a href="<?php echo esc_url($cv_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 text-sm font-bold text-white transition hover:bg-white/10">
+                        Tải CV
+                    </a>
+                    <a href="<?php echo esc_url($linkedin_url); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 text-sm font-bold text-white transition hover:bg-white/10">
+                        Xem LinkedIn
+                    </a>
+                </div>
+            </div>
+            <div class="rounded-3xl border border-white/15 bg-white/10 p-7">
+                <dl class="grid gap-5">
+                    <div>
+                        <dt class="text-sm font-bold uppercase tracking-[0.16em] text-white/55">Location</dt>
+                        <dd class="mt-1 text-lg font-bold">Hanoi, Vietnam</dd>
+                    </div>
+                    <div>
+                        <dt class="text-sm font-bold uppercase tracking-[0.16em] text-white/55">Availability</dt>
+                        <dd class="mt-1 text-lg font-bold">Internship / entry-level opportunities</dd>
+                    </div>
+                    <div>
+                        <dt class="text-sm font-bold uppercase tracking-[0.16em] text-white/55">Email</dt>
+                        <dd class="mt-1 text-lg font-bold">
+                            <a href="mailto:<?php echo esc_attr($portfolio_email); ?>" class="break-all transition hover:text-[#D9A441]"><?php echo esc_html($portfolio_email); ?></a>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="text-sm font-bold uppercase tracking-[0.16em] text-white/55">LinkedIn</dt>
+                        <dd class="mt-1 text-lg font-bold">
+                            <a href="<?php echo esc_url($linkedin_url); ?>" target="_blank" rel="noopener noreferrer" class="break-all transition hover:text-[#D9A441]">linkedin.com/in/hohuyentrang</a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </section>
+</main>

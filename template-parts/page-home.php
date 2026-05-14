@@ -132,10 +132,10 @@ $robes_url            = dawp_home_category_url(['robes-loungewear', 'robes-and-l
 $bras_url             = dawp_home_category_url(['bras-bralettes', 'bras-and-bralettes', 'bralettes', 'bras'], 'Bras & Bralettes');
 $essentials_url       = dawp_home_category_url(['intimate-essentials', 'essentials'], 'Intimate Essentials');
 $shipping_returns_url = home_url('/shipping-returns/');
-$hero_image_url       = dawp_home_image_url(['sleepwear', 'robes-loungewear', 'robes-and-loungewear', 'lingerie-sets'], 'full');
-$lace_feature_url     = dawp_home_image_url(['lingerie-sets', 'lingerie', 'bras-bralettes'], 'large');
-$lace_detail_url      = dawp_home_image_url(['intimate-essentials', 'bras-bralettes', 'lingerie-sets'], 'medium_large');
-$sleepwear_image_url  = dawp_home_image_url(['sleepwear', 'robes-loungewear', 'robes-and-loungewear'], 'large');
+$hero_image_url       = get_theme_file_uri('/assets/img/gallery/Home/Romantic_Intimates_Sleepwear.png');
+$lace_feature_url     = get_theme_file_uri('/assets/img/gallery/Home/Lingerie_Lace.png');
+$lace_detail_url      = get_theme_file_uri('/assets/img/gallery/Home/Lingerie_Lace_two.png');
+$sleepwear_image_url  = get_theme_file_uri('/assets/img/gallery/Home/Sleepwear_Robes.png');
 $new_products         = [];
 
 if (function_exists('wc_get_products')) {
@@ -155,30 +155,35 @@ $categories = [
         'copy'  => 'Soft lace and delicate matching pieces for romantic confidence.',
         'slugs' => ['lingerie-sets', 'lingerie'],
         'url'   => $lingerie_url,
+        'image' => get_theme_file_uri('/assets/img/gallery/Home/Lingerie_Sets.png'),
     ],
     [
         'name'  => 'Sleepwear',
         'copy'  => 'Satin, lace-trim, and soft nightwear for quiet evenings.',
         'slugs' => ['sleepwear'],
         'url'   => $sleepwear_url,
+        'image' => get_theme_file_uri('/assets/img/gallery/Home/Sleep_wear.png'),
     ],
     [
         'name'  => 'Robes & Loungewear',
         'copy'  => 'At-home elegance made for comfort, layering, and slow mornings.',
         'slugs' => ['robes-loungewear', 'robes-and-loungewear', 'robes', 'loungewear'],
         'url'   => $robes_url,
+        'image' => get_theme_file_uri('/assets/img/gallery/Home/Robes_Loungewear.png'),
     ],
     [
         'name'  => 'Bras & Bralettes',
         'copy'  => 'Delicate support and feminine shapes for everyday intimacy.',
         'slugs' => ['bras-bralettes', 'bras-and-bralettes', 'bralettes', 'bras'],
         'url'   => $bras_url,
+        'image' => get_theme_file_uri('/assets/img/gallery/Home/bras.png'),
     ],
     [
         'name'  => 'Intimate Essentials',
         'copy'  => 'Refined basics designed for softness, comfort, and ease.',
         'slugs' => ['intimate-essentials', 'essentials'],
         'url'   => $essentials_url,
+        'image' => get_theme_file_uri('/assets/img/gallery/Home/intimate.png'),
     ],
 ];
 ?>
@@ -246,7 +251,7 @@ $categories = [
             <div class="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-5">
                 <?php foreach ($categories as $category) :
                     $category_url = $category['url'];
-                    $category_img = dawp_home_image_url($category['slugs'], 'medium_large');
+                    $category_img = $category['image'];
                     ?>
                     <a class="group overflow-hidden rounded-2xl border border-[#E8DFF0] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#3B1748]/10" href="<?php echo esc_url($category_url); ?>">
                         <?php if ($category_img) : ?>

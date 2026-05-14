@@ -46,12 +46,21 @@ if (!function_exists('dawp_about_find_product_cat')) {
 
 if (!function_exists('dawp_about_category_url')) {
     function dawp_about_category_url($slugs, $name = '') {
+        $slugs = array_values(array_filter((array) $slugs));
         $term = dawp_about_find_product_cat($slugs, $name);
         if ($term) {
             $link = get_term_link($term);
             if (!is_wp_error($link)) {
                 return $link;
             }
+        }
+
+        if (!empty($slugs) && function_exists('dawp_product_category_url')) {
+            return dawp_product_category_url($slugs[0]);
+        }
+
+        if (!empty($slugs)) {
+            return home_url('/product-category/' . trim($slugs[0], '/') . '/');
         }
 
         return dawp_about_shop_url();
@@ -121,8 +130,8 @@ $lingerie_url    = dawp_about_category_url(['lingerie-sets', 'lingerie'], 'Linge
 $robes_url       = dawp_about_category_url(['robes-loungewear', 'robes-and-loungewear', 'robes', 'loungewear'], 'Robes & Loungewear');
 $contact_url     = home_url('/contact-us/');
 $shipping_url    = home_url('/shipping-returns/');
-$hero_image_url  = dawp_about_image_url(['sleepwear', 'robes-loungewear', 'robes-and-loungewear'], 'full');
-$detail_image_url = dawp_about_image_url(['lingerie-sets', 'lingerie', 'bras-bralettes'], 'large');
+$hero_image_url   = get_template_directory_uri() . '/assets/img/gallery/Home/About_Shop_Avec_Moi.png';
+$detail_image_url = get_template_directory_uri() . '/assets/img/gallery/Home/Our_Point_Of_View.png';
 
 $values = [
     [

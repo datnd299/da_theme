@@ -8,6 +8,7 @@
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $support_email = 'support@shopavecmoi.com';
 $instagram_url = 'https://www.instagram.com/shopavec.moi/';
+$facebook_url = 'https://www.facebook.com/shopavec.moi/';
 
 $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
     [
@@ -47,8 +48,8 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
     <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
         <div class="grid gap-10 lg:grid-cols-[1.2fr_1.8fr]">
             <div class="max-w-xl">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="font-heading text-3xl leading-tight text-white" aria-label="<?php esc_attr_e('Shop Avec Moi home', 'dawp'); ?>">
-                    Shop Avec Moi
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('Shop Avec Moi home', 'dawp'); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/shopavecmoi_logo_footer.png'); ?>" alt="<?php esc_attr_e('Shop Avec Moi', 'dawp'); ?>" class="h-16 w-auto max-w-[14rem] object-contain">
                 </a>
                 <p class="mt-5 text-base leading-7 text-white/75">
                     <?php esc_html_e('A romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials made for comfort, softness, and quiet confidence.', 'dawp'); ?>
@@ -73,6 +74,14 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
                             </svg>
                         </span>
                         @shopavec.moi
+                    </a>
+                    <a class="inline-flex items-center gap-3 transition hover:text-white" href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer">
+                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2z"></path>
+                            </svg>
+                        </span>
+                        <?php esc_html_e('Facebook fanpage', 'dawp'); ?>
                     </a>
                 </div>
             </div>

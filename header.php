@@ -59,7 +59,7 @@ $nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : 
                 </span>
             </a>
 
-            <nav class="hidden items-center gap-6 lg:flex" aria-label="<?php esc_attr_e('Main navigation', 'dawp'); ?>">
+            <nav class="hidden items-center gap-10 lg:flex" aria-label="<?php esc_attr_e('Main navigation', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
                     <a href="<?php echo esc_url($item['url']); ?>" class="whitespace-nowrap text-base font-semibold text-[#24132E] transition hover:text-[#6E3A8A]">
                         <?php echo esc_html($item['title']); ?>

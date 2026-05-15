@@ -18,70 +18,182 @@ if (!$shop_url) {
 $new_arrivals_url = add_query_arg('orderby', 'date', $shop_url);
 $support_email    = 'support@lbqshop.com';
 $business_hours   = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$home_products_query = null;
 
-$lbq_category_url = static function ($slug) {
-    if (function_exists('get_term_by')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
+if (class_exists('WooCommerce')) {
+    $home_product_tax_query = [];
 
-        if ($term && !is_wp_error($term)) {
-            $link = get_term_link($term);
+    if (function_exists('wc_get_product_visibility_term_ids')) {
+        $product_visibility_term_ids = wc_get_product_visibility_term_ids();
+        $excluded_visibility_terms   = [];
 
-            if (!is_wp_error($link)) {
-                return $link;
-            }
+        if (!empty($product_visibility_term_ids['exclude-from-catalog'])) {
+            $excluded_visibility_terms[] = $product_visibility_term_ids['exclude-from-catalog'];
+        }
+
+        if ('yes' === get_option('woocommerce_hide_out_of_stock_items') && !empty($product_visibility_term_ids['outofstock'])) {
+            $excluded_visibility_terms[] = $product_visibility_term_ids['outofstock'];
+        }
+
+        if (!empty($excluded_visibility_terms)) {
+            $home_product_tax_query[] = [
+                'taxonomy' => 'product_visibility',
+                'field'    => 'term_taxonomy_id',
+                'terms'    => $excluded_visibility_terms,
+                'operator' => 'NOT IN',
+            ];
         }
     }
 
-    return home_url('/product-category/' . trim($slug, '/') . '/');
+    $home_products_query = new WP_Query([
+        'post_type'           => 'product',
+        'post_status'         => 'publish',
+        'posts_per_page'      => 4,
+        'orderby'             => 'date',
+        'order'               => 'DESC',
+        'ignore_sticky_posts' => true,
+        'no_found_rows'       => true,
+        'tax_query'           => $home_product_tax_query,
+    ]);
+}
+
+$lbq_category_term = static function ($slug) {
+    if (!function_exists('get_term_by')) {
+        return null;
+    }
+
+    $term = get_term_by('slug', $slug, 'product_cat');
+
+    return ($term && !is_wp_error($term)) ? $term : null;
 };
 
+$lbq_category_link = static function ($term) use ($shop_url) {
+    if (!$term || !function_exists('get_term_link')) {
+        return $shop_url;
+    }
+
+    $link = get_term_link($term);
+
+    return is_wp_error($link) ? $shop_url : $link;
+};
+
+$home_image_base = trailingslashit(get_theme_file_uri('assets/img/home'));
+
 $stock_images = [
-    'hero'      => 'https://images.pexels.com/photos/9871671/pexels-photo-9871671.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    'drawer'    => 'https://images.pexels.com/photos/8580709/pexels-photo-8580709.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'brushes'   => 'https://images.pexels.com/photos/34689880/pexels-photo-34689880.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'flat_lay'  => 'https://images.pexels.com/photos/28973056/pexels-photo-28973056.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'fashion'   => 'https://images.pexels.com/photos/32616677/pexels-photo-32616677.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'gift'      => 'https://images.pexels.com/photos/34076070/pexels-photo-34076070.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'essentials' => 'https://unsplash.com/photos/b0yQi11cHuc/download?force=true',
+    'hero'       => $home_image_base . 'hero-beauty-style.png',
+    'drawer'     => $home_image_base . 'makeup-organizers.png',
+    'brushes'    => $home_image_base . 'beauty-accessories.png',
+    'flat_lay'   => $home_image_base . 'beauty-fashion-flat-lay.png',
+    'fashion'    => $home_image_base . 'fashion-accessories.png',
+    'gift'       => $home_image_base . 'giftable-finds.png',
+    'essentials' => $home_image_base . 'everyday-essentials.png',
 ];
 
-$categories = [
+$preferred_categories = [
     [
         'name'        => __('Beauty Accessories', 'dawp'),
+        'slug'        => 'beauty-accessories',
         'description' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
-        'url'         => $lbq_category_url('beauty-accessories'),
         'image'       => $stock_images['brushes'],
         'alt'         => __('Makeup brushes stored neatly in small holders', 'dawp'),
     ],
     [
         'name'        => __('Makeup Bags & Organizers', 'dawp'),
+        'slug'        => 'makeup-bags-organizers',
         'description' => __('Travel-friendly cosmetic bags and organizers that help keep beauty items neat and easy to find.', 'dawp'),
-        'url'         => $lbq_category_url('makeup-bags-organizers'),
         'image'       => $stock_images['drawer'],
-        'alt'         => __('Cosmetics and beauty tools organized in a clean vanity drawer', 'dawp'),
+        'alt'         => __('Cosmetic bags and beauty tools organized in a clean vanity drawer', 'dawp'),
     ],
     [
         'name'        => __('Fashion Accessories', 'dawp'),
+        'slug'        => 'fashion-accessories',
         'description' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
-        'url'         => $lbq_category_url('fashion-accessories'),
         'image'       => $stock_images['fashion'],
-        'alt'         => __('Women fashion accessories arranged as a clean flat lay', 'dawp'),
+        'alt'         => __('Daily fashion accessories arranged as a clean flat lay', 'dawp'),
     ],
     [
         'name'        => __('Everyday Style Essentials', 'dawp'),
+        'slug'        => 'everyday-style-essentials',
         'description' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
-        'url'         => $lbq_category_url('everyday-style-essentials'),
         'image'       => $stock_images['essentials'],
         'alt'         => __('Small pouches and everyday accessories arranged on a white surface', 'dawp'),
     ],
     [
         'name'        => __('Giftable Finds', 'dawp'),
+        'slug'        => 'giftable-finds',
         'description' => __('Pretty, practical accessories made for thoughtful everyday gifting.', 'dawp'),
-        'url'         => $lbq_category_url('giftable-finds'),
         'image'       => $stock_images['gift'],
         'alt'         => __('Pink beauty accessories arranged for a giftable flat lay', 'dawp'),
     ],
 ];
+
+$categories     = [];
+$used_term_ids  = [];
+$fallback_images = [
+    $stock_images['brushes'],
+    $stock_images['drawer'],
+    $stock_images['fashion'],
+    $stock_images['essentials'],
+    $stock_images['gift'],
+];
+
+foreach ($preferred_categories as $category) {
+    $term = $lbq_category_term($category['slug']);
+
+    if (!$term) {
+        continue;
+    }
+
+    $term_description = term_description($term->term_id, 'product_cat');
+
+    $categories[] = [
+        'name'        => $term->name,
+        'description' => $term_description ? wp_strip_all_tags($term_description) : $category['description'],
+        'url'         => $lbq_category_link($term),
+        'image'       => $category['image'],
+        'alt'         => $category['alt'],
+    ];
+    $used_term_ids[] = (int) $term->term_id;
+}
+
+if (function_exists('get_terms') && count($categories) < 5) {
+    $uncategorized = $lbq_category_term('uncategorized');
+    $exclude_ids   = $used_term_ids;
+
+    if ($uncategorized) {
+        $exclude_ids[] = (int) $uncategorized->term_id;
+    }
+
+    $store_categories = get_terms([
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => false,
+        'parent'     => 0,
+        'exclude'    => $exclude_ids,
+        'number'     => 5 - count($categories),
+    ]);
+
+    if (!is_wp_error($store_categories)) {
+        foreach ($store_categories as $index => $term) {
+            $term_description = term_description($term->term_id, 'product_cat');
+
+            $categories[] = [
+                'name'        => $term->name,
+                'description' => $term_description ? wp_strip_all_tags($term_description) : __('Explore this collection from LBQ Shop.', 'dawp'),
+                'url'         => $lbq_category_link($term),
+                'image'       => $fallback_images[$index % count($fallback_images)],
+                'alt'         => sprintf(
+                    /* translators: %s: product category name */
+                    __('Products from the %s category', 'dawp'),
+                    $term->name
+                ),
+            ];
+        }
+    }
+}
+
+$organizer_term = $lbq_category_term('makeup-bags-organizers');
+$organizer_url  = $lbq_category_link($organizer_term);
+$organizer_label = $organizer_term ? __('Shop Makeup Organizers', 'dawp') : __('Shop All Products', 'dawp');
 
 $organizer_points = [
     __('Compact cases for travel and daily carry', 'dawp'),
@@ -148,7 +260,7 @@ $render_icon = static function ($icon) {
 
 <div class="bg-white text-[#2F2A28]">
     <section class="relative isolate flex min-h-[70svh] items-center overflow-hidden bg-[#F8F2EE] py-16" aria-labelledby="lbq-hero-title">
-        <img src="<?php echo esc_url($stock_images['hero']); ?>" alt="<?php esc_attr_e('Cosmetics being placed into a makeup bag on a clean table', 'dawp'); ?>" class="absolute inset-0 -z-20 h-full w-full object-cover" loading="eager" decoding="async">
+        <img src="<?php echo esc_url($stock_images['hero']); ?>" alt="<?php esc_attr_e('Open blush makeup bag with beauty and fashion accessories on a clean vanity', 'dawp'); ?>" class="absolute inset-0 -z-20 h-full w-full object-cover" loading="eager" decoding="async">
         <div class="absolute inset-0 -z-10 bg-[#2E2320]/55" aria-hidden="true"></div>
 
         <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -167,8 +279,8 @@ $render_icon = static function ($icon) {
                     <a href="<?php echo esc_url($new_arrivals_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
                         <?php esc_html_e('Shop New Arrivals', 'dawp'); ?>
                     </a>
-                    <a href="#shop-by-category" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/70 bg-white/10 px-6 text-sm font-bold text-white backdrop-blur transition hover:bg-white hover:text-[#2F2A28]">
-                        <?php esc_html_e('Shop By Category', 'dawp'); ?>
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/70 bg-white/10 px-6 text-sm font-bold text-white backdrop-blur transition hover:bg-white hover:text-[#2F2A28]">
+                        <?php esc_html_e('Shop All', 'dawp'); ?>
                     </a>
                 </div>
 
@@ -198,6 +310,7 @@ $render_icon = static function ($icon) {
                 </a>
             </div>
 
+            <?php if (!empty($categories)) : ?>
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
                 <?php foreach ($categories as $category) : ?>
                     <a href="<?php echo esc_url($category['url']); ?>" class="group overflow-hidden rounded-md border border-[#E8DAD4] bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
@@ -213,13 +326,51 @@ $render_icon = static function ($icon) {
                     </a>
                 <?php endforeach; ?>
             </div>
+            <?php else : ?>
+                <?php if ($home_products_query instanceof WP_Query && $home_products_query->have_posts()) : ?>
+                    <div class="home-product-loop shop-main woocommerce mt-10">
+                        <?php
+                        if (function_exists('wc_setup_loop')) {
+                            wc_setup_loop([
+                                'columns'      => 4,
+                                'is_shortcode' => true,
+                                'name'         => 'home-products',
+                            ]);
+                        }
+
+                        woocommerce_product_loop_start();
+
+                        while ($home_products_query->have_posts()) :
+                            $home_products_query->the_post();
+                            wc_get_template_part('content', 'product');
+                        endwhile;
+
+                        woocommerce_product_loop_end();
+
+                        if (function_exists('woocommerce_reset_loop')) {
+                            woocommerce_reset_loop();
+                        }
+
+                        wp_reset_postdata();
+                        ?>
+                    </div>
+                <?php else : ?>
+                    <div class="mt-10 rounded-md border border-[#E8DAD4] bg-white p-6">
+                        <h3 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Browse LBQ Shop', 'dawp'); ?></h3>
+                        <p class="mt-3 max-w-2xl text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Products are being added. Browse the shop to see every available item.', 'dawp'); ?></p>
+                        <a href="<?php echo esc_url($shop_url); ?>" class="mt-5 inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
+                            <?php esc_html_e('Browse All Products', 'dawp'); ?>
+                        </a>
+                    </div>
+                <?php endif; ?>
+            <?php endif; ?>
         </div>
     </section>
 
     <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="organizer-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:px-8">
             <div class="grid gap-4 sm:grid-cols-5">
-                <img src="<?php echo esc_url($stock_images['drawer']); ?>" alt="<?php esc_attr_e('A clean makeup drawer with brushes, sunglasses, and small beauty items', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3" loading="lazy" decoding="async">
+                <img src="<?php echo esc_url($stock_images['drawer']); ?>" alt="<?php esc_attr_e('A clean makeup drawer with cosmetic bags, brushes, palettes, and small beauty items', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3" loading="lazy" decoding="async">
                 <div class="grid gap-4 sm:col-span-2">
                     <img src="<?php echo esc_url($stock_images['brushes']); ?>" alt="<?php esc_attr_e('Makeup brushes arranged in small holders', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
                     <img src="<?php echo esc_url($stock_images['flat_lay']); ?>" alt="<?php esc_attr_e('Beauty and fashion accessories arranged on a tabletop', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
@@ -243,8 +394,8 @@ $render_icon = static function ($icon) {
                     <?php endforeach; ?>
                 </div>
 
-                <a href="<?php echo esc_url($lbq_category_url('makeup-bags-organizers')); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
-                    <?php esc_html_e('Shop Makeup Organizers', 'dawp'); ?>
+                <a href="<?php echo esc_url($organizer_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
+                    <?php echo esc_html($organizer_label); ?>
                 </a>
             </div>
         </div>
@@ -282,7 +433,7 @@ $render_icon = static function ($icon) {
                 </div>
 
                 <div class="grid gap-4 sm:grid-cols-2">
-                    <img src="<?php echo esc_url($stock_images['fashion']); ?>" alt="<?php esc_attr_e('Handbag, shoes, jewelry, and accessories arranged as a flat lay', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:mt-12" loading="lazy" decoding="async">
+                    <img src="<?php echo esc_url($stock_images['fashion']); ?>" alt="<?php esc_attr_e('Pouch, scarf, scrunchies, sunglasses, and jewelry arranged as a fashion flat lay', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:mt-12" loading="lazy" decoding="async">
                     <img src="<?php echo esc_url($stock_images['flat_lay']); ?>" alt="<?php esc_attr_e('Beauty and fashion essentials arranged neatly on a tabletop', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
                 </div>
             </div>

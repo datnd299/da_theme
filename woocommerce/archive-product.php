@@ -7,6 +7,48 @@
 defined('ABSPATH') || exit;
 
 get_header();
+
+$shop_page_id = wc_get_page_id('shop');
+$shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
+$archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
+$archive_title = __('All Products', 'dawp');
+$archive_description = __('Browse practical beauty accessories, makeup organizers, fashion accents, everyday essentials, and small giftable finds from LBQ Shop.', 'dawp');
+$archive_eyebrow = __('LBQ Shop Collection', 'dawp');
+
+if ($archive_term && !is_wp_error($archive_term)) {
+    $archive_title = $archive_term->name;
+    $term_description = term_description($archive_term->term_id, $archive_term->taxonomy);
+    $archive_description = $term_description ? wp_strip_all_tags($term_description) : $archive_description;
+    $archive_eyebrow = is_product_tag() ? __('Shop By Tag', 'dawp') : __('Shop By Category', 'dawp');
+}
+
+global $wp_query;
+$archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
+$category_chips = [];
+
+if (function_exists('dawp_lbq_product_categories')) {
+    foreach (dawp_lbq_product_categories() as $slug => $category) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+
+        if (!$term || is_wp_error($term)) {
+            continue;
+        }
+
+        $term_link = get_term_link($term);
+
+        if (is_wp_error($term_link)) {
+            continue;
+        }
+
+        $category_chips[] = [
+            'name'    => $term->name,
+            'slug'    => $term->slug,
+            'url'     => $term_link,
+            'count'   => (int) $term->count,
+            'current' => is_product_category($term->slug),
+        ];
+    }
+}
 ?>
 
 <div class="shop-page">
@@ -20,12 +62,12 @@ get_header();
         <span aria-hidden="true">›</span>
         <?php if ( is_product_category() ) :
             $cat = get_queried_object(); ?>
-            <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">Shop</a>
+            <a href="<?php echo esc_url( $shop_url ); ?>">Shop</a>
             <span aria-hidden="true">›</span>
             <span><?php echo esc_html( $cat->name ); ?></span>
         <?php elseif ( is_product_tag() ) :
             $tag = get_queried_object(); ?>
-            <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">Shop</a>
+            <a href="<?php echo esc_url( $shop_url ); ?>">Shop</a>
             <span aria-hidden="true">›</span>
             <span><?php echo esc_html( $tag->name ); ?></span>
         <?php else : ?>
@@ -37,16 +79,43 @@ get_header();
     // ── Page heading ───────────────────────────────────────
     ?>
     <div class="shop-header">
-        <h1 class="shop-header__title">
-            <?php
-            if ( is_product_category() || is_product_tag() ) {
-                woocommerce_page_title();
-            } else {
-                echo 'All Products';
-            }
-            ?>
-        </h1>
+        <div class="shop-header__content">
+            <p class="shop-header__eyebrow"><?php echo esc_html($archive_eyebrow); ?></p>
+            <h1 class="shop-header__title"><?php echo esc_html($archive_title); ?></h1>
+            <?php if ($archive_description) : ?>
+                <p class="shop-header__description"><?php echo esc_html($archive_description); ?></p>
+            <?php endif; ?>
+            <div class="shop-header__meta">
+                <span>
+                    <?php
+                    printf(
+                        esc_html(_n('%d product', '%d products', $archive_total, 'dawp')),
+                        $archive_total
+                    );
+                    ?>
+                </span>
+                <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all products', 'dawp'); ?></a>
+            </div>
+        </div>
     </div>
+
+    <?php if (!empty($category_chips)) : ?>
+        <nav class="shop-category-nav" aria-label="<?php esc_attr_e('Product categories', 'dawp'); ?>">
+            <a href="<?php echo esc_url($shop_url); ?>" class="<?php echo is_shop() ? 'is-current' : ''; ?>">
+                <?php esc_html_e('All', 'dawp'); ?>
+            </a>
+            <?php foreach ($category_chips as $chip) : ?>
+                <a
+                    href="<?php echo esc_url($chip['url']); ?>"
+                    class="<?php echo $chip['current'] ? 'is-current' : ''; ?>"
+                    <?php echo $chip['current'] ? 'aria-current="page"' : ''; ?>
+                >
+                    <span><?php echo esc_html($chip['name']); ?></span>
+                    <span class="count"><?php echo esc_html($chip['count']); ?></span>
+                </a>
+            <?php endforeach; ?>
+        </nav>
+    <?php endif; ?>
 
     <?php
     // ── Toolbar: count + filter toggle + sort ──────────────
@@ -110,18 +179,22 @@ get_header();
 
             <?php
             // Categories widget
+            $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
             $categories = get_terms([
                 'taxonomy'   => 'product_cat',
-                'hide_empty' => true,
+                'hide_empty' => false,
                 'parent'     => 0,
-                'exclude'    => [ get_term_by('slug', 'uncategorized', 'product_cat')->term_id ?? 0 ],
+                'exclude'    => $uncategorized && !is_wp_error($uncategorized) ? [(int) $uncategorized->term_id] : [],
             ]);
             if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
             <div class="shop-sidebar__widget">
                 <h3 class="shop-sidebar__title">Categories</h3>
                 <ul class="shop-sidebar__categories">
                     <li>
-                        <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
+                        <a
+                            href="<?php echo esc_url( $shop_url ); ?>"
+                            <?php if ( is_shop() ) echo 'aria-current="page"'; ?>
+                        >
                             All Products
                         </a>
                     </li>
@@ -170,7 +243,7 @@ get_header();
             <?php else : ?>
                 <div class="shop-empty">
                     <p>No products found in this collection.</p>
-                    <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
+                    <a href="<?php echo esc_url( $shop_url ); ?>">
                         Browse all products →
                     </a>
                 </div>

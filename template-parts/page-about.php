@@ -35,13 +35,11 @@ $lbq_category_url = static function ($slug) {
 };
 
 $stock_images = [
-    'hero'      => 'https://images.pexels.com/photos/9871671/pexels-photo-9871671.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    'drawer'    => 'https://images.pexels.com/photos/8580709/pexels-photo-8580709.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'brushes'   => 'https://images.pexels.com/photos/34689880/pexels-photo-34689880.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'flat_lay'  => 'https://images.pexels.com/photos/28973056/pexels-photo-28973056.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'fashion'   => 'https://images.pexels.com/photos/32616677/pexels-photo-32616677.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'gift'      => 'https://images.pexels.com/photos/34076070/pexels-photo-34076070.jpeg?auto=compress&cs=tinysrgb&w=1200',
-    'essentials' => 'https://unsplash.com/photos/b0yQi11cHuc/download?force=true',
+    'hero'     => get_theme_file_uri('assets/img/about/about-hero-beauty-essentials.jpg'),
+    'drawer'   => get_theme_file_uri('assets/img/about/about-drawer-organizer.jpg'),
+    'brushes'  => get_theme_file_uri('assets/img/about/about-brush-storage.jpg'),
+    'flat_lay' => get_theme_file_uri('assets/img/about/about-standards-flat-lay.jpg'),
+    'gift'     => get_theme_file_uri('assets/img/about/about-giftable-flat-lay.jpg'),
 ];
 
 $brand_pillars = [
@@ -137,30 +135,30 @@ $render_icon = static function ($icon) {
                     <?php esc_html_e('About LBQ Shop', 'dawp'); ?>
                 </p>
                 <h1 id="about-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl lg:text-6xl">
-                    <?php esc_html_e('Beauty and fashion accessories for everyday confidence.', 'dawp'); ?>
+                    <?php esc_html_e('Pretty, practical beauty and style essentials for everyday confidence.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-xl text-base leading-8 text-[#6F625D] sm:text-lg">
-                    <?php esc_html_e('LBQ Shop is built around practical makeup organizers, beauty accessories, fashion accents, and small everyday essentials that help routines feel cleaner, easier, and more polished.', 'dawp'); ?>
+                    <?php esc_html_e('LBQ Shop brings together simple makeup organizers, beauty accessories, fashion accents, and giftable everyday finds that help your routine feel cleaner, easier, and more polished without overcomplicating your day.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
                     <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
                         <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Focused beauty organization', 'dawp'); ?></span>
+                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Simple organizers for easier routines', 'dawp'); ?></span>
                     </div>
                     <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
                         <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Simple daily style pieces', 'dawp'); ?></span>
+                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Pretty accents for daily beauty and style', 'dawp'); ?></span>
                     </div>
                     <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
                         <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Clear customer support', 'dawp'); ?></span>
+                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Useful finds that feel easy to trust', 'dawp'); ?></span>
                     </div>
                 </div>
 
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
-                        <?php esc_html_e('Shop Our Finds', 'dawp'); ?>
+                        <?php esc_html_e('Shop Everyday Finds', 'dawp'); ?>
                     </a>
                     <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
                         <?php esc_html_e('Contact Support', 'dawp'); ?>
@@ -171,7 +169,7 @@ $render_icon = static function ($icon) {
             <figure class="relative">
                 <img src="<?php echo esc_url($stock_images['hero']); ?>" alt="<?php esc_attr_e('Makeup and beauty accessories arranged beside a cosmetic bag', 'dawp'); ?>" class="aspect-[5/4] w-full rounded-md object-cover shadow-xl shadow-[#8A4F56]/15 lg:aspect-[4/5]" loading="eager" decoding="async">
                 <figcaption class="mt-4 rounded-md border border-[#E8DAD4] bg-white p-4 text-sm font-bold leading-6 text-[#2F2A28] shadow-sm">
-                    <?php esc_html_e('Clean, feminine, practical, and easy to trust.', 'dawp'); ?>
+                    <?php esc_html_e('Clean, feminine accessories made for simple routines, travel, gifting, and everyday confidence.', 'dawp'); ?>
                 </figcaption>
             </figure>
         </div>

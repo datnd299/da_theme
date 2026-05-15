@@ -1,42 +1,42 @@
 /* =============================================================
-   main.css - MyBaapStore Design System
+   main.css - Vivisshop Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #FFFFFF;
+  --color-background: #FFFDFC;
   /* Clean white page background */
-  --color-surface: #F5F7FA;
-  /* Cool gray section/card background */
-  --color-surface-alt: #EAF4FF;
-  /* Light blue hover states and alt sections */
+  --color-surface: #F8F2EE;
+  /* Warm section/card background */
+  --color-surface-alt: #FFF3F1;
+  /* Soft blush hover states and alt sections */
 
   /* === TEXT === */
-  --color-foreground: #1F2937;
+  --color-foreground: #2F2A28;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #667085;
+  --color-foreground-muted: #6F625D;
   /* Secondary text — descriptions, meta */
-  --color-muted: #667085;
+  --color-muted: #6F625D;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #2F80ED;
-  /* Electric blue primary CTA and links */
-  --color-accent-hover: #102A43;
-  /* Deep navy hover state */
-  --color-accent-soft: #EAF4FF;
-  /* Light blue subtle highlights and badges */
-  --color-accent-blush: #5BA8A0;
-  /* Soft teal secondary accent */
+  --color-accent: #C87F86;
+  /* Dusty rose primary CTA and links */
+  --color-accent-hover: #4B403C;
+  /* Deep warm-brown hover state */
+  --color-accent-soft: #FFF3F1;
+  /* Soft blush subtle highlights and badges */
+  --color-accent-blush: #A8B99A;
+  /* Muted sage secondary accent */
 
   /* === UI === */
-  --color-border: #E5E7EB;
+  --color-border: #E8DAD4;
   /* Border — cards, dividers */
-  --color-alert: #C0392B;
+  --color-alert: #8A332B;
   /* Error / alert */
-  --color-success: #5BA8A0;
+  --color-success: #A8B99A;
   /* Success / helpful state */
 
   /* === TYPOGRAPHY === */
@@ -64,8 +64,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(31, 41, 55, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(31, 41, 55, 0.12);
+  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
+  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -243,8 +243,8 @@
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   color: #111827;
-  background: #F5F7FA;
-  border: 1.5px solid #E5E7EB;
+  background: #F8F2EE;
+  border: 1.5px solid #E8DAD4;
   border-radius: var(--radius-md);
   outline: none;
   box-sizing: border-box;
@@ -255,8 +255,8 @@
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #2F80ED;
-  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.18);
+  border-color: #C87F86;
+  box-shadow: 0 0 0 3px rgba(200, 127, 134, 0.18);
 }
 
 #contact-form-1 input.wpcf7-not-valid,
@@ -290,7 +290,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
-  background: #2F80ED;
+  background: #C87F86;
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -298,7 +298,7 @@
 }
 
 #contact-form-1 input[type="submit"]:hover {
-  background: #102A43;
+  background: #4B403C;
 }
 
 #contact-form-1 .wpcf7-spinner {
@@ -317,8 +317,8 @@
 }
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
-  background: rgba(47, 128, 237, 0.12);
-  border-left: 3px solid #2F80ED;
+  background: rgba(200, 127, 134, 0.12);
+  border-left: 3px solid #C87F86;
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,

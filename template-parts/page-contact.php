@@ -137,6 +137,12 @@ $render_icon = static function ($icon) {
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
+                            <span><strong class="text-[#2F2A28]"><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('We aim to reply within 1 business day.', 'dawp'); ?></span>
+                        </div>
+                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
+                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                            </svg>
                             <span><?php esc_html_e('Orders are processed within 2-4 business days.', 'dawp'); ?></span>
                         </div>
                         <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">

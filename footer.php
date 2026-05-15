@@ -105,10 +105,6 @@ $footer_columns = [
                     >
                 </a>
 
-                <p class="mt-5 max-w-md text-sm leading-6 text-white/75">
-                    <?php esc_html_e('LBQ Shop offers clean, feminine beauty accessories, makeup organizers, fashion accents, and giftable everyday essentials for simple routines and polished daily style.', 'dawp'); ?>
-                </p>
-
                 <div class="mt-6 grid gap-3 text-sm leading-6 text-white/75">
                     <div class="flex items-start gap-3">
                         <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-[#F6D5CF]" aria-hidden="true">

@@ -1,12 +1,12 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'lingerie'              => 'lingerie-sets',
-        'bras-and-bralettes'    => 'bras-bralettes',
-        'robes-and-loungewear'  => 'robes-loungewear',
-        'robes'                 => 'robes-loungewear',
-        'loungewear'            => 'robes-loungewear',
-        'essentials'            => 'intimate-essentials',
+        'beauty'     => 'beauty-accessories',
+        'organizers' => 'makeup-bags-organizers',
+        'makeup'     => 'makeup-bags-organizers',
+        'fashion'    => 'fashion-accessories',
+        'essentials' => 'everyday-style-essentials',
+        'gifts'      => 'giftable-finds',
     ];
 
     return $map[$slug] ?? $slug;
@@ -29,13 +29,24 @@ function dawp_product_category_url($slug) {
 }
 
 function dawp_shop_category_items() {
-    return [
-        ['title' => __('Lingerie Sets', 'dawp'), 'url' => dawp_product_category_url('lingerie-sets')],
-        ['title' => __('Sleepwear', 'dawp'), 'url' => dawp_product_category_url('sleepwear')],
-        ['title' => __('Robes & Loungewear', 'dawp'), 'url' => dawp_product_category_url('robes-loungewear')],
-        ['title' => __('Bras & Bralettes', 'dawp'), 'url' => dawp_product_category_url('bras-bralettes')],
-        ['title' => __('Intimate Essentials', 'dawp'), 'url' => dawp_product_category_url('intimate-essentials')],
+    $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
+        'beauty-accessories'          => ['name' => __('Beauty Accessories', 'dawp')],
+        'makeup-bags-organizers'      => ['name' => __('Makeup Bags & Organizers', 'dawp')],
+        'fashion-accessories'         => ['name' => __('Fashion Accessories', 'dawp')],
+        'everyday-style-essentials'   => ['name' => __('Everyday Style Essentials', 'dawp')],
+        'giftable-finds'              => ['name' => __('Giftable Finds', 'dawp')],
     ];
+
+    $items = [];
+
+    foreach ($categories as $slug => $category) {
+        $items[] = [
+            'title' => $category['name'],
+            'url'   => dawp_product_category_url($slug),
+        ];
+    }
+
+    return $items;
 }
 
 function dawp_main_menu_items() {

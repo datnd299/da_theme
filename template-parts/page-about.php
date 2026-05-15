@@ -1,6 +1,6 @@
 <?php
 /**
- * About page for MyBaapStore.
+ * About page for LBQ Shop.
  *
  * @package dawp
  */
@@ -9,14 +9,16 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@mybaapstore.com';
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$about_category_url = static function ($slug) {
+$support_email  = 'support@lbqshop.com';
+$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+
+$lbq_category_url = static function ($slug) {
     if (function_exists('get_term_by')) {
         $term = get_term_by('slug', $slug, 'product_cat');
 
@@ -32,321 +34,303 @@ $about_category_url = static function ($slug) {
     return home_url('/product-category/' . trim($slug, '/') . '/');
 };
 
-$audiences = [
-    [
-        'title' => __('Home Users', 'dawp'),
-        'copy'  => __('People looking for simple tools that support kitchen, storage, cleaning, and household routines.', 'dawp'),
-    ],
-    [
-        'title' => __('Busy Everyday Shoppers', 'dawp'),
-        'copy'  => __('Customers who prefer compact, useful products that are easy to understand and fit normal daily life.', 'dawp'),
-    ],
-    [
-        'title' => __('Grooming & Care Buyers', 'dawp'),
-        'copy'  => __('Men and women shopping for personal care devices for regular grooming and everyday care routines.', 'dawp'),
-    ],
-    [
-        'title' => __('Tech Accessory Users', 'dawp'),
-        'copy'  => __('Desk users, content creators, travelers, and gift shoppers looking for practical camera and device accessories.', 'dawp'),
-    ],
+$stock_images = [
+    'hero'      => 'https://images.pexels.com/photos/9871671/pexels-photo-9871671.jpeg?auto=compress&cs=tinysrgb&w=1800',
+    'drawer'    => 'https://images.pexels.com/photos/8580709/pexels-photo-8580709.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'brushes'   => 'https://images.pexels.com/photos/34689880/pexels-photo-34689880.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'flat_lay'  => 'https://images.pexels.com/photos/28973056/pexels-photo-28973056.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'fashion'   => 'https://images.pexels.com/photos/32616677/pexels-photo-32616677.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'gift'      => 'https://images.pexels.com/photos/34076070/pexels-photo-34076070.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'essentials' => 'https://unsplash.com/photos/b0yQi11cHuc/download?force=true',
 ];
 
-$principles = [
+$brand_pillars = [
     [
-        'title' => __('Useful First', 'dawp'),
-        'copy'  => __('Products should have a clear everyday purpose, not depend on hype, pressure, or exaggerated promises.', 'dawp'),
-        'icon'  => 'check',
+        'title' => __('Clean Beauty Organization', 'dawp'),
+        'copy'  => __('Makeup bags, cosmetic organizers, brush storage, and small tools that help everyday routines feel easier to manage.', 'dawp'),
+        'icon'  => 'sparkle',
     ],
     [
-        'title' => __('Simple Product Information', 'dawp'),
-        'copy'  => __('We aim to describe what each item is, how it is used, what is included, and what customers should know before ordering.', 'dawp'),
-        'icon'  => 'list',
+        'title' => __('Practical Daily Style', 'dawp'),
+        'copy'  => __('Simple accessories selected for regular days, travel, commuting, gifting, and small outfit details.', 'dawp'),
+        'icon'  => 'bag',
     ],
     [
-        'title' => __('Safe Mainstream Use', 'dawp'),
-        'copy'  => __('Camera and tech accessories are presented for normal, lawful uses such as content creation, desk setups, and device organization.', 'dawp'),
-        'icon'  => 'shield',
-    ],
-    [
-        'title' => __('Clear Customer Care', 'dawp'),
-        'copy'  => __('Support, shipping, returns, and product notes are kept visible so shoppers can make informed decisions.', 'dawp'),
+        'title' => __('Approachable Support', 'dawp'),
+        'copy'  => __('Clear product focus, transparent order details, and customer care that keeps shopping straightforward.', 'dawp'),
         'icon'  => 'mail',
     ],
 ];
 
-$categories = [
+$category_links = [
     [
-        'name' => __('Smart Gadgets', 'dawp'),
-        'copy' => __('Useful small gadgets selected for everyday convenience and simple routines.', 'dawp'),
-        'url'  => $about_category_url('smart-gadgets'),
+        'name' => __('Beauty Accessories', 'dawp'),
+        'copy' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
+        'url'  => $lbq_category_url('beauty-accessories'),
     ],
     [
-        'name' => __('Home & Kitchen Gadgets', 'dawp'),
-        'copy' => __('Helpful tools for kitchen prep, drinkware, storage, and everyday household tasks.', 'dawp'),
-        'url'  => $about_category_url('home-kitchen-gadgets'),
+        'name' => __('Makeup Bags & Organizers', 'dawp'),
+        'copy' => __('Travel-friendly cosmetic bags and organizers that help keep beauty items neat and easy to find.', 'dawp'),
+        'url'  => $lbq_category_url('makeup-bags-organizers'),
     ],
     [
-        'name' => __('Personal Care Devices', 'dawp'),
-        'copy' => __('Simple grooming tools designed for regular personal care routines and easy handling.', 'dawp'),
-        'url'  => $about_category_url('personal-care-devices'),
+        'name' => __('Fashion Accessories', 'dawp'),
+        'copy' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
+        'url'  => $lbq_category_url('fashion-accessories'),
     ],
     [
-        'name' => __('Camera & Tech Accessories', 'dawp'),
-        'copy' => __('Practical camera, video, desk, and device accessories for normal daily use.', 'dawp'),
-        'url'  => $about_category_url('camera-tech-accessories'),
+        'name' => __('Everyday Style Essentials', 'dawp'),
+        'copy' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
+        'url'  => $lbq_category_url('everyday-style-essentials'),
     ],
-    [
-        'name' => __('Daily Tools', 'dawp'),
-        'copy' => __('Compact accessories for travel, daily carry, and small everyday problem-solving.', 'dawp'),
-        'url'  => $about_category_url('daily-tools'),
-    ],
+];
+
+$standards = [
+    __('Products should feel useful, feminine, organized, and easy to use.', 'dawp'),
+    __('Collections stay focused on beauty accessories, makeup organization, fashion accents, and giftable everyday finds.', 'dawp'),
+    __('We avoid counterfeit branding, medical beauty claims, and unrelated general-store products.', 'dawp'),
+    __('Product copy should be clear about how each item fits into daily routines, travel, storage, or personal style.', 'dawp'),
 ];
 
 $care_cards = [
     [
-        'title' => __('US-Focused Shipping', 'dawp'),
-        'copy'  => __('Orders are processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'),
+        'title' => __('Customer Support', 'dawp'),
+        'copy'  => sprintf(
+            /* translators: %s: support email address */
+            __('Questions about an item or order can be sent to %s.', 'dawp'),
+            $support_email
+        ),
+        'icon'  => 'mail',
     ],
     [
-        'title' => __('30-Day Return Window', 'dawp'),
-        'copy'  => __('Eligible unused items may be returned within 30 days of delivery after contacting support. Personal care devices may be subject to hygiene-related return conditions.', 'dawp'),
+        'title' => __('Realistic Shipping', 'dawp'),
+        'copy'  => __('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'),
+        'icon'  => 'truck',
     ],
     [
-        'title' => __('Support You Can Reach', 'dawp'),
-        'copy'  => __('For product, order, delivery, or return questions, email support@mybaapstore.com. Business hours are Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'),
-    ],
-];
-
-$policy_links = [
-    [
-        'title' => __('Shipping & Returns', 'dawp'),
-        'url'   => home_url('/shipping-returns/'),
-    ],
-    [
-        'title' => __('FAQ', 'dawp'),
-        'url'   => home_url('/faq/'),
-    ],
-    [
-        'title' => __('Privacy Policy', 'dawp'),
-        'url'   => home_url('/privacy-policy/'),
-    ],
-    [
-        'title' => __('Terms & Conditions', 'dawp'),
-        'url'   => home_url('/terms-conditions/'),
+        'title' => __('30-Day Returns', 'dawp'),
+        'copy'  => __('Eligible unused items may be returned within 30 days of delivery, with hygiene and original-condition requirements where relevant.', 'dawp'),
+        'icon'  => 'refresh',
     ],
 ];
 
 $render_icon = static function ($icon) {
     $icons = [
-        'check'  => '<path d="m20 6-11 11-5-5"/>',
-        'list'   => '<path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/>',
-        'shield' => '<path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V5l8-3 8 3v8Z"/><path d="m9 12 2 2 4-4"/>',
-        'mail'   => '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/>',
+        'bag'     => '<path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/>',
+        'mail'    => '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/>',
+        'truck'   => '<path d="M10 17h4V5H3v12h2"/><path d="M14 8h4l3 3v6h-3"/><circle cx="7" cy="17" r="2"/><circle cx="16" cy="17" r="2"/>',
+        'refresh' => '<path d="M20 12a8 8 0 0 1-13.66 5.66L4 15"/><path d="M4 20v-5h5"/><path d="M4 12A8 8 0 0 1 17.66 6.34L20 9"/><path d="M20 4v5h-5"/>',
+        'sparkle' => '<path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3Z"/>',
     ];
 
-    return $icons[$icon] ?? $icons['check'];
+    return $icons[$icon] ?? $icons['sparkle'];
 };
 ?>
 
-<div class="bg-white text-[#1F2937]">
-    <section class="bg-[#EAF4FF]" aria-labelledby="about-title">
-        <div class="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-8 lg:py-20">
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#2F80ED]"><?php esc_html_e('About MyBaapStore', 'dawp'); ?></p>
-                <h1 id="about-title" class="mt-5 max-w-3xl text-4xl font-extrabold leading-tight text-[#102A43] sm:text-5xl lg:text-6xl">
-                    <?php esc_html_e('Useful Gadgets For Everyday Life', 'dawp'); ?>
-                </h1>
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#667085]">
-                    <?php esc_html_e('MyBaapStore is a practical gadget store focused on small, useful tools for home, kitchen, grooming, camera and tech accessories, and daily convenience.', 'dawp'); ?>
+<div class="bg-white text-[#2F2A28]">
+    <section class="relative isolate overflow-hidden border-b border-[#E8DAD4] bg-[#FFFDFC] py-12 sm:py-16 lg:py-20" aria-labelledby="about-hero-title">
+        <div class="absolute inset-x-0 top-0 -z-10 h-40 bg-[#F8F2EE]" aria-hidden="true"></div>
+
+        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12 lg:px-8">
+            <div class="max-w-2xl">
+                <p class="inline-flex rounded-md border border-[#E8DAD4] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#A96870] shadow-sm">
+                    <?php esc_html_e('About LBQ Shop', 'dawp'); ?>
                 </p>
-                <p class="mt-4 max-w-2xl text-base leading-8 text-[#667085]">
-                    <?php esc_html_e('We build the store around clear use cases, realistic product information, and customer care details that help shoppers choose everyday products with confidence.', 'dawp'); ?>
+                <h1 id="about-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl lg:text-6xl">
+                    <?php esc_html_e('Beauty and fashion accessories for everyday confidence.', 'dawp'); ?>
+                </h1>
+                <p class="mt-5 max-w-xl text-base leading-8 text-[#6F625D] sm:text-lg">
+                    <?php esc_html_e('LBQ Shop is built around practical makeup organizers, beauty accessories, fashion accents, and small everyday essentials that help routines feel cleaner, easier, and more polished.', 'dawp'); ?>
                 </p>
 
+                <div class="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
+                    <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
+                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
+                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Focused beauty organization', 'dawp'); ?></span>
+                    </div>
+                    <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
+                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
+                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Simple daily style pieces', 'dawp'); ?></span>
+                    </div>
+                    <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
+                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
+                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Clear customer support', 'dawp'); ?></span>
+                    </div>
+                </div>
+
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#2F80ED] px-6 text-sm font-bold text-white transition hover:bg-[#102A43]">
-                        <?php esc_html_e('Shop Practical Gadgets', 'dawp'); ?>
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
+                        <?php esc_html_e('Shop Our Finds', 'dawp'); ?>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#2F80ED] bg-white px-6 text-sm font-bold text-[#2F80ED] transition hover:bg-white/70">
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
                         <?php esc_html_e('Contact Support', 'dawp'); ?>
                     </a>
                 </div>
             </div>
 
-            <div class="overflow-hidden rounded-2xl border border-white bg-white p-4 shadow-xl shadow-[#102A43]/15">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/About_Image.png'); ?>" alt="<?php esc_attr_e('Clean desk with practical everyday tech accessories', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-xl object-cover" loading="eager" decoding="async">
-                <div class="mt-4 grid gap-3 sm:grid-cols-3">
-                    <div class="rounded-xl bg-[#F5F7FA] p-4">
-                        <p class="text-sm font-extrabold text-[#102A43]"><?php esc_html_e('Home', 'dawp'); ?></p>
-                        <p class="mt-1 text-xs leading-5 text-[#667085]"><?php esc_html_e('Kitchen and household helpers.', 'dawp'); ?></p>
-                    </div>
-                    <div class="rounded-xl bg-[#F5F7FA] p-4">
-                        <p class="text-sm font-extrabold text-[#102A43]"><?php esc_html_e('Care', 'dawp'); ?></p>
-                        <p class="mt-1 text-xs leading-5 text-[#667085]"><?php esc_html_e('Simple grooming routines.', 'dawp'); ?></p>
-                    </div>
-                    <div class="rounded-xl bg-[#F5F7FA] p-4">
-                        <p class="text-sm font-extrabold text-[#102A43]"><?php esc_html_e('Tech', 'dawp'); ?></p>
-                        <p class="mt-1 text-xs leading-5 text-[#667085]"><?php esc_html_e('Desk and device accessories.', 'dawp'); ?></p>
-                    </div>
+            <figure class="relative">
+                <img src="<?php echo esc_url($stock_images['hero']); ?>" alt="<?php esc_attr_e('Makeup and beauty accessories arranged beside a cosmetic bag', 'dawp'); ?>" class="aspect-[5/4] w-full rounded-md object-cover shadow-xl shadow-[#8A4F56]/15 lg:aspect-[4/5]" loading="eager" decoding="async">
+                <figcaption class="mt-4 rounded-md border border-[#E8DAD4] bg-white p-4 text-sm font-bold leading-6 text-[#2F2A28] shadow-sm">
+                    <?php esc_html_e('Clean, feminine, practical, and easy to trust.', 'dawp'); ?>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="about-story-title">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
+            <div class="grid gap-4 sm:grid-cols-5">
+                <img src="<?php echo esc_url($stock_images['drawer']); ?>" alt="<?php esc_attr_e('Cosmetics and beauty tools organized in a clean drawer', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3" loading="lazy" decoding="async">
+                <div class="grid gap-4 sm:col-span-2">
+                    <img src="<?php echo esc_url($stock_images['brushes']); ?>" alt="<?php esc_attr_e('Makeup brushes stored neatly in small holders', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
+                    <img src="<?php echo esc_url($stock_images['gift']); ?>" alt="<?php esc_attr_e('Pink beauty accessories arranged as a giftable flat lay', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <div>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Our Story', 'dawp'); ?></p>
+                <h2 id="about-story-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                    <?php esc_html_e('Small accessories can make daily routines feel more put together.', 'dawp'); ?>
+                </h2>
+                <div class="mt-5 space-y-4 text-base leading-8 text-[#6F625D]">
+                    <p>
+                        <?php esc_html_e('LBQ Shop was created for shoppers who like beauty and fashion pieces that are pretty, useful, and simple to use. The store focuses on the everyday details: a makeup bag that keeps cosmetics easy to find, a compact organizer that clears a vanity, or a small style accent that finishes a regular outfit.', 'dawp'); ?>
+                    </p>
+                    <p>
+                        <?php esc_html_e('Our approach is modern and practical. We keep the collection focused on beauty accessories, makeup storage, fashion accessories, everyday style essentials, and giftable finds instead of unrelated products or exaggerated claims.', 'dawp'); ?>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-16 sm:py-20" aria-labelledby="about-mission-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5BA8A0]"><?php esc_html_e('Our Purpose', 'dawp'); ?></p>
-                <h2 id="about-mission-title" class="mt-4 text-3xl font-extrabold leading-tight text-[#102A43] sm:text-4xl">
-                    <?php esc_html_e('Making small daily tasks easier to handle.', 'dawp'); ?>
-                </h2>
-                <p class="mt-5 text-base leading-8 text-[#667085]">
-                    <?php esc_html_e('MyBaapStore is for shoppers who like practical products that solve simple everyday needs. Our focus is not on viral trends or complicated electronics. It is on useful gadgets that are easy to understand, easy to compare, and relevant to normal routines.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="grid gap-5 sm:grid-cols-2">
-                <?php foreach ($audiences as $audience) : ?>
-                    <article class="rounded-2xl border border-[#E5E7EB] bg-[#F5F7FA] p-6">
-                        <h3 class="text-lg font-extrabold text-[#102A43]"><?php echo esc_html($audience['title']); ?></h3>
-                        <p class="mt-3 text-sm leading-6 text-[#667085]"><?php echo esc_html($audience['copy']); ?></p>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#F5F7FA] py-16 sm:py-20" aria-labelledby="about-principles-title">
+    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="about-pillars-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="max-w-3xl">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#2F80ED]"><?php esc_html_e('How We Choose Products', 'dawp'); ?></p>
-                <h2 id="about-principles-title" class="mt-4 text-3xl font-extrabold leading-tight text-[#102A43] sm:text-4xl">
-                    <?php esc_html_e('Practical, clear, and appropriate for everyday shopping.', 'dawp'); ?>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('What We Stand For', 'dawp'); ?></p>
+                <h2 id="about-pillars-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                    <?php esc_html_e('Pretty, practical finds for beauty, organization, and everyday style.', 'dawp'); ?>
                 </h2>
-                <p class="mt-4 text-base leading-7 text-[#667085]">
-                    <?php esc_html_e('The store is shaped around mainstream ecommerce expectations: focused categories, realistic descriptions, transparent policies, and products presented for normal daily use.', 'dawp'); ?>
+                <p class="mt-4 text-base leading-7 text-[#6F625D]">
+                    <?php esc_html_e('Every section of LBQ Shop is shaped around products customers can understand quickly and use often.', 'dawp'); ?>
                 </p>
             </div>
 
-            <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-                <?php foreach ($principles as $principle) : ?>
-                    <article class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#102A43]/10">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-[#EAF4FF] text-[#2F80ED]">
+            <div class="mt-10 grid gap-5 md:grid-cols-3">
+                <?php foreach ($brand_pillars as $pillar) : ?>
+                    <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
                             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon($principle['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                <?php echo $render_icon($pillar['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
                         </div>
-                        <h3 class="mt-5 text-lg font-extrabold text-[#102A43]"><?php echo esc_html($principle['title']); ?></h3>
-                        <p class="mt-3 text-sm leading-6 text-[#667085]"><?php echo esc_html($principle['copy']); ?></p>
+                        <h3 class="mt-5 font-heading text-xl font-extrabold text-[#2F2A28]"><?php echo esc_html($pillar['title']); ?></h3>
+                        <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($pillar['copy']); ?></p>
                     </article>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-16 sm:py-20" aria-labelledby="about-categories-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
-            <div class="grid gap-4 sm:grid-cols-2">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/About_product.png'); ?>" alt="<?php esc_attr_e('Clean kitchen counter with useful home and kitchen tools', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-2xl object-cover" loading="lazy" decoding="async">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/About_productone.png'); ?>" alt="<?php esc_attr_e('Personal care items arranged on a bathroom vanity', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-2xl object-cover sm:mt-10" loading="lazy" decoding="async">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/home/category-daily-tools.jpg'); ?>" alt="<?php esc_attr_e('Camera and tech accessories on a clean desk', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-2xl object-cover sm:col-span-2" loading="lazy" decoding="async">
-            </div>
-
+    <section class="bg-white py-14 sm:py-20" aria-labelledby="about-categories-title">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5BA8A0]"><?php esc_html_e('Focused Store Categories', 'dawp'); ?></p>
-                <h2 id="about-categories-title" class="mt-4 text-3xl font-extrabold leading-tight text-[#102A43] sm:text-4xl">
-                    <?php esc_html_e('A clear gadget store, not a random marketplace.', 'dawp'); ?>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Our Product Focus', 'dawp'); ?></p>
+                <h2 id="about-categories-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                    <?php esc_html_e('A clear beauty and fashion accessories store, not a random marketplace.', 'dawp'); ?>
                 </h2>
-                <p class="mt-5 text-base leading-8 text-[#667085]">
-                    <?php esc_html_e('MyBaapStore keeps its product direction focused on everyday gadgets and electronic-style tools that fit home routines, grooming, desk setups, camera use, travel, and daily convenience.', 'dawp'); ?>
+                <p class="mt-5 text-base leading-8 text-[#6F625D]">
+                    <?php esc_html_e('LBQ Shop keeps the shopping experience focused, feminine, and easy to browse. Our categories are built around daily routines, travel-friendly organization, simple outfit details, and thoughtful small gifts.', 'dawp'); ?>
                 </p>
-
-                <div class="mt-8 grid gap-3">
-                    <?php foreach ($categories as $category) : ?>
-                        <a href="<?php echo esc_url($category['url']); ?>" class="group rounded-2xl border border-[#E5E7EB] bg-[#F5F7FA] p-5 transition hover:border-[#2F80ED] hover:bg-[#EAF4FF]">
-                            <h3 class="text-lg font-extrabold text-[#102A43] group-hover:text-[#2F80ED]"><?php echo esc_html($category['name']); ?></h3>
-                            <p class="mt-2 text-sm leading-6 text-[#667085]"><?php echo esc_html($category['copy']); ?></p>
-                        </a>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#EAF4FF] py-16 sm:py-20" aria-labelledby="about-gmc-title">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-2xl bg-[#102A43] p-6 text-white shadow-xl shadow-[#102A43]/15 sm:p-8 lg:p-10">
-                <div class="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-                    <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#8FD4CD]"><?php esc_html_e('Responsible Product Communication', 'dawp'); ?></p>
-                        <h2 id="about-gmc-title" class="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">
-                            <?php esc_html_e('Clear boundaries for safer shopping.', 'dawp'); ?>
-                        </h2>
-                    </div>
-
-                    <div class="grid gap-5 md:grid-cols-2">
-                        <article class="rounded-2xl border border-white/15 bg-white/10 p-5">
-                            <h3 class="text-lg font-extrabold"><?php esc_html_e('Personal Care Devices', 'dawp'); ?></h3>
-                            <p class="mt-3 text-sm leading-7 text-white/75">
-                                <?php esc_html_e('Personal care products are presented for regular grooming and everyday care. We do not describe them as medical devices or make cure, treatment, or permanent-result claims.', 'dawp'); ?>
-                            </p>
-                        </article>
-                        <article class="rounded-2xl border border-white/15 bg-white/10 p-5">
-                            <h3 class="text-lg font-extrabold"><?php esc_html_e('Camera & Tech Accessories', 'dawp'); ?></h3>
-                            <p class="mt-3 text-sm leading-7 text-white/75">
-                                <?php esc_html_e('Camera and tech products are positioned for normal uses such as video, desk setups, organization, and device support. We do not promote covert, privacy-invasive, or unlawful use.', 'dawp'); ?>
-                            </p>
-                        </article>
-                        <article class="rounded-2xl border border-white/15 bg-white/10 p-5 md:col-span-2">
-                            <h3 class="text-lg font-extrabold"><?php esc_html_e('What We Avoid', 'dawp'); ?></h3>
-                            <p class="mt-3 text-sm leading-7 text-white/75">
-                                <?php esc_html_e('The store avoids hidden surveillance positioning, weapons, counterfeit goods, adult products, supplements, medical-result claims, fake urgency, and exaggerated product promises.', 'dawp'); ?>
-                            </p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white py-16 sm:py-20" aria-labelledby="about-care-title">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-                <div>
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#2F80ED]"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
-                    <h2 id="about-care-title" class="mt-4 text-3xl font-extrabold leading-tight text-[#102A43] sm:text-4xl">
-                        <?php esc_html_e('Transparent details before and after checkout.', 'dawp'); ?>
-                    </h2>
-                    <p class="mt-5 text-base leading-8 text-[#667085]">
-                        <?php esc_html_e('Our customer experience is designed around clear timelines, reachable support, and policy pages that explain shipping, returns, privacy, and website terms.', 'dawp'); ?>
-                    </p>
-                    <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-                        <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#2F80ED] px-6 text-sm font-bold text-white transition hover:bg-[#102A43]">
-                            <?php echo esc_html($support_email); ?>
-                        </a>
-                        <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#2F80ED] px-6 text-sm font-bold text-[#2F80ED] transition hover:bg-[#EAF4FF]">
-                            <?php esc_html_e('Track Your Order', 'dawp'); ?>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="grid gap-5">
-                    <?php foreach ($care_cards as $card) : ?>
-                        <article class="rounded-2xl border border-[#E5E7EB] bg-[#F5F7FA] p-6">
-                            <h3 class="text-lg font-extrabold text-[#102A43]"><?php echo esc_html($card['title']); ?></h3>
-                            <p class="mt-3 text-sm leading-7 text-[#667085]"><?php echo esc_html($card['copy']); ?></p>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
+                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
+                    <?php esc_html_e('Browse All Products', 'dawp'); ?>
+                </a>
             </div>
 
-            <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <?php foreach ($policy_links as $link) : ?>
-                    <a href="<?php echo esc_url($link['url']); ?>" class="group rounded-2xl border border-[#E5E7EB] bg-white p-5 text-sm font-extrabold text-[#102A43] shadow-sm transition hover:-translate-y-1 hover:text-[#2F80ED] hover:shadow-xl hover:shadow-[#102A43]/10">
-                        <?php echo esc_html($link['title']); ?>
-                        <span class="ml-2 text-[#2F80ED]" aria-hidden="true">-&gt;</span>
+            <div class="grid gap-4 sm:grid-cols-2">
+                <?php foreach ($category_links as $category) : ?>
+                    <a href="<?php echo esc_url($category['url']); ?>" class="group rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-5 transition hover:-translate-y-1 hover:bg-[#FBEDEA] hover:shadow-xl hover:shadow-[#8A4F56]/10">
+                        <span class="block font-heading text-lg font-extrabold text-[#2F2A28] transition group-hover:text-[#8A4F56]"><?php echo esc_html($category['name']); ?></span>
+                        <span class="mt-3 block text-sm leading-6 text-[#6F625D]"><?php echo esc_html($category['copy']); ?></span>
+                        <span class="mt-5 inline-flex text-sm font-bold text-[#A96870]">
+                            <?php esc_html_e('Shop category', 'dawp'); ?>
+                            <span class="ml-2" aria-hidden="true">-&gt;</span>
+                        </span>
                     </a>
                 <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="about-standards-title">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
+            <div>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('How We Choose', 'dawp'); ?></p>
+                <h2 id="about-standards-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                    <?php esc_html_e('A practical standard for every beauty and style essential.', 'dawp'); ?>
+                </h2>
+                <p class="mt-5 text-base leading-8 text-[#6F625D]">
+                    <?php esc_html_e('Our product direction is intentionally simple: useful items, clean presentation, and clear expectations. That helps customers understand what they are buying and how it fits into daily life.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-7 grid gap-3">
+                    <?php foreach ($standards as $standard) : ?>
+                        <div class="flex gap-3 rounded-md border border-[#E8DAD4] bg-white px-4 py-4 text-sm font-bold leading-6 text-[#2F2A28]">
+                            <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
+                            <span><?php echo esc_html($standard); ?></span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <img src="<?php echo esc_url($stock_images['flat_lay']); ?>" alt="<?php esc_attr_e('Beauty and fashion accessories arranged neatly on a tabletop', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
+        </div>
+    </section>
+
+    <section class="border-y border-[#E8DAD4] bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="about-care-title">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+                <div>
+                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
+                    <h2 id="about-care-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                        <?php esc_html_e('Clear support for a smoother shopping experience.', 'dawp'); ?>
+                    </h2>
+                    <p class="mt-5 text-base leading-8 text-[#6F625D]">
+                        <?php esc_html_e('We want customers to know what to expect before and after they place an order. Product focus, shipping details, returns, and support information are kept visible and straightforward.', 'dawp'); ?>
+                    </p>
+                    <p class="mt-5 text-sm leading-7 text-[#6F625D]">
+                        <?php
+                        echo wp_kses(
+                            sprintf(
+                                /* translators: 1: support email link, 2: business hours */
+                                __('Need help? Email %1$s. Business hours: %2$s.', 'dawp'),
+                                '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
+                                esc_html($business_hours)
+                            ),
+                            [
+                                'a' => [
+                                    'class' => [],
+                                    'href'  => [],
+                                ],
+                            ]
+                        );
+                        ?>
+                    </p>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-3">
+                    <?php foreach ($care_cards as $card) : ?>
+                        <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
+                            <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
+                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                </svg>
+                            </div>
+                            <h3 class="mt-5 font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($card['title']); ?></h3>
+                            <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </section>

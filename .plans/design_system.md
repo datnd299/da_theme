@@ -1,998 +1,494 @@
-# MyBaapStore Design System
+# LBQ Shop Site.md
 
-## Core Design Philosophy
+## Store Information
 
-MyBaapStore should feel like a clean, modern gadget store for practical everyday tools.
+* **Website:** lbqshop.com
+* **Brand Name:** LBQ Shop
+* **Language:** English
+* **Store Type:** Beauty & Fashion Accessories Store
+* **Primary Market:** United States
+* **Core Products:** Beauty accessories, makeup bags, cosmetic organizers, fashion accessories, everyday style essentials, giftable accessories
+* **Brand Direction:** Clean, feminine, modern, practical, lifestyle-focused, GMC-safe
+* **Support Email:** [support@lbqshop.com](mailto:support@lbqshop.com)
+* **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
-The website experience must be:
+---
 
+# Brand Positioning
+
+LBQ Shop is a beauty and fashion accessories store focused on everyday style, simple organization, and small confidence-boosting essentials.
+
+The brand should feel:
+
+* Feminine
+* Clean
 * Modern
 * Practical
-* Clean
-* Trustworthy
-* Easy to browse
-* Gadget-focused
-* Everyday-use oriented
-* GMC-safe
-
-MyBaapStore is not a chaotic viral gadget shop.
-It is not a spy/surveillance store.
-It is not a random general dropshipping marketplace.
-
-The design must communicate:
-
-> Useful gadgets for everyday life.
-
-The store should help customers quickly understand that the products are small, practical tools for home, kitchen, grooming, tech accessories, and daily convenience.
-
----
-
-# Design Archetype
-
-## Brand Identity
-
-MyBaapStore =
-
-**Practical Gadgets & Everyday Electronic Tools**
-
-The visual identity should combine:
-
-* Clean ecommerce layout
-* Practical product discovery
-* Modern gadget-style UI
-* Clear category hierarchy
-* Product-in-use photography
-* Trust-focused customer care
-* Simple product information
-
-The website should resemble:
-
-* A modern daily-use gadget store
-* A clean electronics accessories shop
-* A practical home and tech tools store
-* A curated everyday gadget ecommerce brand
-
-Avoid resembling:
-
-* A viral gadget funnel
-* A spy gadget store
-* A dark hacker/tech site
-* A discount-heavy marketplace
-* A random general product warehouse
-
----
-
-# Brand Mood
-
-The brand mood should be:
-
-* Useful
-* Smart
-* Practical
-* Clear
-* Functional
+* Stylish
+* Approachable
+* Beauty-focused
 * Everyday-friendly
+* Giftable
 * Trustworthy
-* Modern but not overly technical
 
-Good mood words:
+LBQ Shop should not feel like a random general store, cheap marketplace, counterfeit fashion shop, or overly luxury beauty boutique.
 
-```text
-useful
-smart
-practical
-compact
-everyday
-simple
-convenient
-clean
-reliable
-easy to use
-```
+The website should focus on small, useful beauty and fashion accessories that help customers feel more organized, polished, and confident in daily life.
 
-Avoid mood words:
+Core positioning:
 
-```text
-secret
-spy
-hidden
-miracle
-viral
-life-changing
-crazy deal
-undetectable
-surveillance
-```
+> Beauty and fashion accessories for everyday confidence.
+
+Expanded positioning:
+
+> LBQ Shop helps customers discover practical beauty accessories, makeup organizers, fashion accessories, and everyday essentials designed to support simple routines and personal style.
 
 ---
 
-# Color System
+# Social Footprint Direction
 
-The color palette should feel clean, practical, modern, and trustworthy.
+Based on the closest social media direction, LBQ Shop should be rebuilt around beauty, makeup, fashion, and accessories rather than home decor or a general store.
 
-Avoid neon gadget colors, harsh red sale banners, or black hacker-style design.
+Relevant product signals include:
 
-## Primary Palette
+* Beauty accessories
+* Makeup accessories
+* Makeup bags
+* Cosmetic storage boxes
+* Travel makeup bags with mirror
+* Fashion accessories
+* Everyday style items
+* Giftable feminine accessories
 
-### Deep Navy
-
-```txt
-#102A43
-```
-
-Use for:
-
-* Main headings
-* Footer background
-* Header text
-* Strong CTA sections
-* Trust sections
-
-Meaning:
-
-* Trust
-* Stability
-* Professional ecommerce feel
+The new website should align with this recent beauty + fashion accessories footprint while making the niche clearer and more trustworthy for GMC.
 
 ---
 
-### Electric Blue
+# Core Store Concept
 
-```txt
-#2F80ED
-```
+LBQ Shop offers useful, feminine, and stylish accessories for everyday beauty routines and simple personal style.
 
-Use for:
+The store should focus on products that help customers:
 
-* Primary buttons
-* Links
-* Icons
-* Hover states
-* Category accents
+* Organize makeup and beauty items
+* Carry cosmetics while traveling
+* Add small style details to daily outfits
+* Keep beauty routines easier and cleaner
+* Find practical accessories for themselves or as gifts
+* Feel polished without overcomplicating daily routines
 
-Meaning:
-
-* Modern
-* Tech-friendly
-* Clear action
+The brand should communicate practical beauty and everyday style, not medical skincare claims or luxury fashion imitation.
 
 ---
 
-### Light Blue
+# Target Audience
 
-```txt
-#EAF4FF
-```
+## Primary Audience
 
-Use for:
+Women aged 20–40 who enjoy beauty accessories, makeup organization, and simple fashion details.
 
-* Soft background sections
-* Category blocks
-* Trust cards
-* Product highlight areas
+They may be:
 
-Meaning:
+* Students
+* Young professionals
+* Beauty lovers
+* Women who travel or commute
+* Shoppers looking for makeup storage solutions
+* Customers buying affordable fashion accessories
+* Gift shoppers looking for small useful items
 
-* Clean
-* Friendly
-* Tech without harshness
+## Secondary Audience
 
----
-
-### Soft Teal
-
-```txt
-#5BA8A0
-```
-
-Use for:
-
-* Secondary accents
-* Daily tools category accents
-* Small icons
-* Balanced visual details
-
-Meaning:
-
-* Practical
-* Calm
-* Helpful
+* Women aged 40–55 who like practical beauty organizers and simple accessories
+* People buying gifts for wives, girlfriends, sisters, mothers, or friends
+* Customers looking for travel-friendly organizers and everyday carry items
 
 ---
 
-### Clean White
+# Customer Psychology
 
-```txt
-#FFFFFF
-```
+LBQ Shop customers are attracted to products that feel:
 
-Use for:
-
-* Main background
-* Product cards
-* Forms
-* Header
-* Content blocks
-
----
-
-## Neutral Palette
-
-### Cool Gray Background
-
-```txt
-#F5F7FA
-```
-
-Use for:
-
-* Alternate sections
-* Product grid background
-* Policy pages
-* Light cards
-
----
-
-### Border Gray
-
-```txt
-#E5E7EB
-```
-
-Use for:
-
-* Product card borders
-* Form fields
-* Dividers
-* Card outlines
-
----
-
-### Charcoal Text
-
-```txt
-#1F2937
-```
-
-Use for:
-
-* Body text
-* Product titles
-* Main content
-
----
-
-### Muted Text
-
-```txt
-#667085
-```
-
-Use for:
-
-* Descriptions
-* Dates
-* Metadata
-* Secondary copy
-
----
-
-# Color Usage Rules
-
-## Light Sections
-
-Use:
-
-* Background: Clean White or Cool Gray
-* Heading: Deep Navy or Charcoal
-* Body: Muted Text
-* CTA: Electric Blue
-
-## Tech Highlight Sections
-
-Use:
-
-* Background: Light Blue
-* Heading: Deep Navy
-* Accent: Electric Blue or Soft Teal
-
-## Dark Trust Sections
-
-Use:
-
-* Background: Deep Navy
-* Heading: White
-* Body: white/80
-* Accent: Electric Blue or Soft Teal
-
-## Avoid
-
-* Neon green/blue overload
-* Red flash-sale design
-* Full black hacker UI
-* Too many gradients
-* Low contrast gray text
-* Too many category colors at once
-
----
-
-# Typography System
-
-Typography should feel modern, clean, and easy to scan.
-
-## Recommended Fonts
-
-Use fonts that feel practical and ecommerce-native:
-
-* Inter
-* Manrope
-* Plus Jakarta Sans
-* Source Sans 3
-* Be Vietnam Pro
-
-## Heading Style
-
-Headings should be:
-
-* Clear
-* Confident
-* Modern
-* Benefit-focused
-* Not overly playful
-* Not overly futuristic
-
-H1:
-
-* Large and bold
-* Clear value proposition
-* 44–64px desktop
-* 34–42px mobile
-
-H2:
-
-* 28–40px desktop
-* 26–32px mobile
-* Used for category/feature sections
-
-H3:
-
-* 20–24px
-* Used for card titles and product/category headings
-
-## Body Style
-
-Body should be:
-
-* 16–18px
-* Line-height 1.6–1.75
-* Clear and practical
-* Short paragraphs
-
-Product descriptions should be concise and easy to understand.
-
-Avoid:
-
-* Overly technical jargon
-* ALL CAPS everywhere
-* Hype-heavy wording
-* Long keyword-stuffed text
-
----
-
-# Layout Principles
-
-The layout should make products easy to understand and categories easy to browse.
-
-Use:
-
-* Clear section hierarchy
-* Large category cards
-* Practical product grids
-* Strong trust blocks
-* Clean product information
-* Plenty of whitespace
-* Product-in-use visuals
-
-Avoid:
-
-* Chaotic product collage layouts
-* Flashy animations
-* Multiple sale bars
-* Countdown timers
-* Popup-heavy design
-* Too many unrelated category blocks
-
----
-
-# Container Rules
-
-Recommended widths:
-
-* Main container: `max-w-7xl`
-* Narrow text: `max-w-3xl`
-* Policy pages: `max-w-4xl`
-* Product grid: `max-w-7xl`
-
-Recommended padding:
-
-* Mobile: `px-4`
-* Tablet: `px-6`
-* Desktop: `px-8`
-
-Section spacing:
-
-* Desktop: `py-20` to `py-24`
-* Mobile: `py-14` to `py-16`
-
----
-
-# Grid System
-
-## Desktop
-
-* Hero: 2-column layout, copy + product/lifestyle image
-* Category cards: 5 cards, can use 3 + 2 layout
-* Product grids: 4 columns
-* Trust cards: 4 columns
-* Feature sections: image + text split
-
-## Tablet
-
-* Category cards: 2 columns
-* Product grids: 2–3 columns
-* Feature sections can stack if needed
-
-## Mobile
-
-* Single-column feature sections
-* Category cards 1 column or 2 columns depending image size
-* Product grids 2 columns if readable
-* Trust cards 1 column
-
----
-
-# Imagery System
-
-Images should show products in realistic daily-use contexts.
-
-## Preferred Image Style
-
-Use:
-
-* Bright product photography
-* Clean home/kitchen/bathroom/desk scenes
-* Product-in-use images
-* Neutral backgrounds
-* Simple lighting
-* Functional composition
-* Clear product visibility
-
-Images should feel:
-
-* Realistic
-* Practical
+* Pretty
 * Useful
-* Clean
-* Trustworthy
-* Not overhyped
+* Organized
+* Easy to carry
+* Feminine
+* Practical
+* Affordable but not cheap-looking
+* Giftable
+* Simple to use
+* Helpful for daily routines
+
+They want small accessories that make everyday beauty and style feel easier.
+
+They are not necessarily looking for professional cosmetics or high-end luxury fashion.
+
+They want items that support beauty routines, storage, travel, and everyday styling.
 
 ---
 
-# Image Themes By Category
+# Main Product Categories
 
-## Smart Gadgets
+Keep the store focused with 4–5 main categories.
 
-Visuals:
+## Main Categories
 
-* Small gadgets on clean desk
-* Product close-ups
-* Everyday tool usage
-* Minimal product arrangement
+* **Beauty Accessories**
+* **Makeup Bags & Organizers**
+* **Fashion Accessories**
+* **Everyday Style Essentials**
+* **Giftable Finds**
 
-Avoid:
+If the website needs fewer categories, use these 4:
 
-* Chaotic gadget piles
-* Fake sci-fi glow
-* Viral thumbnail style
+* **Beauty Accessories**
+* **Makeup Organizers**
+* **Fashion Accessories**
+* **Everyday Essentials**
 
-## Home & Kitchen Gadgets
-
-Visuals:
-
-* Clean kitchen counter
-* Ice cube bucket / drinkware accessory in use
-* Storage or prep tool in kitchen
-* Bright natural kitchen setting
-
-Avoid:
-
-* Dangerous cutting visuals
-* Messy kitchen scenes
-* Overclaiming before/after images
-
-## Personal Care Devices
-
-Visuals:
-
-* Grooming device on bathroom vanity
-* Clean personal care setup
-* Device held naturally in hand
-* Neutral bathroom or travel pouch setting
-
-Avoid:
-
-* Medical treatment imagery
-* Skin close-up transformation claims
-* Before/after body imagery
-* Overly intimate or uncomfortable framing
-
-## Camera & Tech Accessories
-
-Visuals:
-
-* Camera accessory on desk
-* Content creation setup
-* Phone/camera mount in normal use
-* Cable organizer or tech accessory flat lay
-
-Avoid:
-
-* Hidden camera placement
-* Spy/surveillance scenes
-* Secret recording vibe
-* Dark covert lighting
-
-## Daily Tools
-
-Visuals:
-
-* Compact tools in travel bag
-* Cable organizers
-* Everyday carry items
-* Clean lifestyle flat lay
-
-Avoid:
-
-* Tactical or weapon-like imagery
-* Survivalist/military styling
+Do not add unrelated categories such as electronics, home decor, supplements, gadgets, or general household products in the first build.
 
 ---
 
-# Product Photography Rules
+# Category Direction
 
-Product photos should show:
+## Beauty Accessories
 
-* Product clearly
-* Main use case
-* Scale if helpful
-* Included accessories
-* Clean background
-* Consistent image ratio
+This category covers small beauty-related accessories that support daily routines.
 
-Recommended product card ratio:
+Products may include:
 
-* 1:1 for gadgets
-* 4:5 for lifestyle product images
-
-Avoid:
-
-* Text-heavy product images
-* Fake labels/claims inside images
-* Low-resolution screenshots
-* Watermarked supplier images
-* Copyrighted logos
-* Misleading before/after imagery
-
----
-
-# UI Component Rules
-
-## Buttons
-
-Buttons should feel clean and practical.
-
-### Primary Button
-
-Recommended:
-
-* Background: Electric Blue `#2F80ED`
-* Text: White
-* Hover: Deep Navy `#102A43`
-
-Use for:
-
-* Shop New Arrivals
-* Explore Gadgets
-* Shop Category
-* View Products
-
-### Secondary Button
-
-Recommended:
-
-* Background: White or Transparent
-* Border: Electric Blue
-* Text: Electric Blue
-* Hover background: Light Blue
-
-Use for:
-
-* Learn More
-* View Support
-* See Details
-
-### Button Shape
-
-* Border radius: 10px–14px
-* Padding: comfortable
-* Font weight: 600–700
-
-Avoid:
-
-* Red urgent buttons
-* Neon glow
-* Huge flashing CTA
-
----
-
-## Product Cards
-
-Product cards should be clean, practical, and ecommerce-native.
-
-Must include:
-
-* Product image
-* Product title
-* Price
-* Short CTA or add to cart
-
-Recommended style:
-
-* White background
-* Light border
-* Rounded corners 16–20px
-* Soft hover shadow
-* Clear product title
-* Consistent image ratio
-* Minimal badges
-
-Optional:
-
-* Short benefit line
-* Category tag
-
-Avoid:
-
-* Too many badges
-* Countdown labels
-* Fake review stars
-* Keyword-stuffed titles
-* Big red sale stickers
-
----
-
-## Category Cards
-
-Category cards should communicate product type and use case.
-
-Recommended structure:
-
-* Image
-* Category name
-* One short practical line
-* CTA link
-
-Categories:
-
-* Smart Gadgets
-* Home & Kitchen Gadgets
-* Personal Care Devices
-* Camera & Tech Accessories
-* Daily Tools
-
-Example:
-
-```text
-Personal Care Devices
-Simple grooming tools for everyday routines.
-```
-
----
-
-## Trust Cards
-
-Trust cards are important for GMC and conversion.
-
-Suggested cards:
-
-* Secure Checkout
-* Tracking Included
-* 30-Day Returns
-* Customer Support
-* Clear Product Details
-* Practical Everyday Tools
-
-Style:
-
-* Line icons
-* White or Light Blue background
-* Short copy
-* No fake trust badge images
-
----
-
-# Header Rules
-
-Header should be simple and ecommerce-focused.
-
-Recommended structure:
-
-* Logo left
-* Main navigation center
-* Search / account / cart right
-
-Navigation:
-
-* Smart Gadgets
-* Home & Kitchen
-* Personal Care
-* Tech Accessories
-* Daily Tools
-* Contact
-
-Header color:
-
-* Clean White background
-* Deep Navy text
-* Electric Blue hover
-
-Avoid:
-
-* Heavy dark header
-* Too many links
-* Flash-sale top bar
-* Mega menu at early stage
-
----
-
-# Footer Rules
-
-Footer should be trust-heavy.
-
-Include:
-
-* Brand summary
-* Main categories
-* Customer care links
-* Policy links
-* Support email
-* Business hours
-* Personal care return note link if needed
-
-Footer background:
-
-* Deep Navy `#102A43`
-
-Footer text:
-
-* White
-* White/75 secondary text
-* Electric Blue or Soft Teal accent links
-
-Avoid:
-
-* Low contrast links
-* Fake payment/trust badges
-* Overcrowded footer
-
----
-
-# Homepage Design Rules
-
-Homepage should be short, focused, and product-category clear.
-
-Recommended 5-section homepage:
-
-```text
-1. Hero — Smart Little Tools For Everyday Living
-2. Shop By Category
-3. Home & Kitchen Gadgets Feature
-4. Personal Care & Tech Tools Feature
-5. Customer Care / Trust
-```
-
----
-
-## Hero Section
-
-Goal:
-
-Immediately introduce MyBaapStore as a practical gadget store.
-
-Headline:
-
-```text
-Smart Little Tools For Everyday Living
-```
-
-Subheadline:
-
-```text
-Discover practical gadgets for home, kitchen, grooming, tech accessories, and daily routines — selected to make everyday tasks simpler.
-```
-
-CTA:
-
-* Shop New Arrivals
-* Explore Categories
-
-Visual:
-
-* Clean lifestyle flat lay of small gadgets
-* Kitchen/home/tech/personal care product mix
-* Bright modern background
-* No spy/surveillance vibe
-* No sale text inside image
-
----
-
-## Shop By Category
-
-Show 5 category cards:
-
-* Smart Gadgets
-* Home & Kitchen Gadgets
-* Personal Care Devices
-* Camera & Tech Accessories
-* Daily Tools
-
-Keep text short.
-
----
-
-## Home & Kitchen Gadgets Feature
-
-Goal:
-
-Make the store feel useful and mainstream.
-
-Visual:
-
-* Silicone ice cube bucket / kitchen gadget scene
-* Clean kitchen counter
-* Drinkware or prep accessory in use
-
-Copy direction:
-
-```text
-Useful kitchen helpers for simpler everyday routines.
-```
-
----
-
-## Personal Care & Tech Tools Feature
-
-Goal:
-
-Highlight trimmers, hair removal tools, camera/tech accessories safely.
-
-Visual:
-
-* Grooming device on bathroom vanity
-* Tech accessory on clean desk
-* No medical claim visuals
-* No hidden camera placement
-
-Copy direction:
-
-```text
-Simple grooming tools and practical tech accessories for daily convenience.
-```
-
----
-
-## Customer Care / Trust
-
-Goal:
-
-Support GMC and customer confidence.
-
-Include:
-
-* Shipping timeline
-* Return window
-* Support email
-* Secure checkout
-* Personal care return note
-
-Copy:
-
-```text
-Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
-```
-
-```text
-Eligible unused items may be returned within 30 days of delivery. Personal care devices may be subject to hygiene-related return conditions.
-```
-
----
-
-# Collection Page Rules
-
-Collection pages should be practical and easy to browse.
-
-Each collection should include:
-
-* Short intro
-* Clean category hero image
-* Product grid
-* Helpful product filters if available
-* Clear category description
-
-Avoid:
-
-* Long SEO spam paragraphs
-* Random unrelated products
-* Too many sale badges
-* Products that do not fit the category
-
----
-
-# Product Page Rules
-
-Product pages must be clear, safe, and practical.
-
-Include:
-
-* Product title
-* Price
-* Product images
-* Short description
-* Key features
-* Use instructions
-* Specifications
-* What’s included
-* Shipping and return note
-* Safety/hygiene note when relevant
-
-Product copy should answer:
-
-* What is this product?
-* How is it used?
-* Where does it fit in daily life?
-* What practical benefit does it provide?
-* What should the customer know before buying?
-
-Avoid:
-
-* Medical claims
-* Permanent-result claims
-* Spy or hidden camera copy
-* Fake urgency
-* Exaggerated miracle claims
-
----
-
-# Policy Page Rules
-
-Policy pages should be clean and transparent.
-
-Use:
-
-* Hero title
-* Summary cards
-* Clear section headings
-* Contact CTA
+* Makeup brushes
+* Brush holders
+* Cosmetic tools
+* Beauty mirrors
+* Hair accessories
+* Makeup puffs and applicators
+* Small beauty cases
+* Travel beauty accessories
 
 Tone:
 
-* Clear
-* Customer-friendly
-* Realistic
-* Professional
+Clean, feminine, routine-friendly, practical.
 
-Must include:
+Avoid:
 
+* Skincare products with treatment claims
+* Medical beauty devices
+* Supplements
+* Skin whitening claims
+* Acne cure claims
+* Fake branded cosmetics
+
+---
+
+## Makeup Bags & Organizers
+
+This should be one of the strongest categories because it fits the social footprint clearly.
+
+Products may include:
+
+* Travel makeup bags
+* Makeup bags with mirror
+* Cosmetic storage boxes
+* Makeup organizers
+* Vanity organizers
+* Brush storage cases
+* Portable cosmetic pouches
+* Travel toiletry bags
+
+Tone:
+
+Organized, travel-friendly, easy, clean, useful.
+
+Good copy:
+
+> Keep your beauty routine organized at home or on the go.
+
+Avoid:
+
+* Exaggerated claims like “perfect for everyone”
+* Fake luxury branding
+* Overly cluttered product presentation
+
+---
+
+## Fashion Accessories
+
+This category supports the fashion side of the brand.
+
+Products may include:
+
+* Hair clips
+* Scarves
+* Small bags
+* Everyday pouches
+* Simple jewelry-style accessories
+* Belts
+* Sunglasses-style accessories if unbranded and compliant
+* Outfit add-ons
+
+Tone:
+
+Simple, feminine, wearable, everyday style.
+
+Avoid:
+
+* Counterfeit designer items
+* Fake luxury handbags
+* Replica brand logos
+* Copyrighted character accessories
+* Overly adult or explicit fashion items
+
+---
+
+## Everyday Style Essentials
+
+This category is for practical items customers can use daily.
+
+Products may include:
+
+* Small pouches
+* Travel organizers
+* Compact mirrors
+* Everyday bags
+* Hair tools/accessories
+* Beauty carry cases
+* Simple style add-ons
+
+Tone:
+
+Practical, useful, easy to carry, everyday confidence.
+
+Avoid:
+
+* Random unrelated gadgets
+* Electronics-heavy items
+* Medical claims
+* Products outside beauty/fashion lifestyle
+
+---
+
+## Giftable Finds
+
+This category helps position the store as a place for small feminine gifts.
+
+Products may include:
+
+* Cosmetic bags
+* Beauty organizer sets
+* Hair accessory sets
+* Small fashion accessories
+* Travel-friendly beauty kits
+* Vanity accessories
+
+Tone:
+
+Thoughtful, pretty, practical, easy to gift.
+
+Avoid:
+
+* Fake scarcity gift language
+* Valentine/adult suggestive positioning
+* Overpromising luxury value
+
+---
+
+# Product Style Rules
+
+Products should generally feel:
+
+* Feminine
+* Practical
+* Easy to use
+* Clean
+* Stylish
+* Giftable
+* Lightweight
+* Travel-friendly
+* Everyday useful
+
+Preferred product styles:
+
+* Neutral colors
+* Soft blush tones
+* Cream, beige, pink, black, white
+* Gold accents
+* Minimal modern shapes
+* Clear cosmetic storage
+* Compact organizer designs
+* Simple fashion details
+
+Avoid products that feel:
+
+* Counterfeit
+* Overly cheap
+* Too random
+* Medical claim-heavy
+* Adult/explicit
+* Unrelated to beauty or fashion accessories
+* Fake designer inspired with logos
+
+---
+
+# Products To Avoid
+
+For GMC safety, do not sell or promote:
+
+* Supplements
+* Weight loss products
+* Skin treatment products with medical claims
+* Skin whitening or cure claims
+* Acne cure products
+* Medical beauty devices
+* Fake branded cosmetics
+* Counterfeit designer bags/accessories
+* Copyright character products
+* Adult products
+* Weapons/self-defense accessories
+* Nicotine/CBD/alcohol products
+* Hazardous cosmetics or chemicals
+
+---
+
+# Brand Voice
+
+LBQ Shop should speak in a clean, feminine, and practical tone.
+
+Tone should be:
+
+* Friendly
+* Feminine
+* Simple
+* Helpful
+* Stylish
+* Practical
+* Confidence-focused
+* Not overly luxurious
+* Not too young or slang-heavy
+
+Good examples:
+
+* Beauty accessories for everyday confidence
+* Simple organizers for easier routines
+* Pretty, practical finds for daily beauty and style
+* Keep your cosmetics neat at home or on the go
+* Small accessories that make daily routines feel more polished
+
+Avoid:
+
+* Miracle beauty claims
+* Luxury imitation language
+* Viral TikTok hype
+* Crazy deal wording
+* Fake scarcity
+* Teen slang overload
+* Medical or treatment language
+
+---
+
+# Visual Direction
+
+The visual direction should feel clean, feminine, beauty-focused, and modern.
+
+Images should show products in realistic daily-use environments.
+
+## Preferred Image Themes
+
+* Vanity table with makeup organizer
+* Travel makeup bag on a clean counter
+* Cosmetic storage box with brushes and beauty tools
+* Fashion accessories arranged on a neutral surface
+* Small bag, scarf, or hair accessories in a lifestyle setting
+* Beauty routine flat lay
+* Giftable accessory set with soft packaging feel
+
+## Image Style
+
+* Soft natural light
+* Clean backgrounds
+* Feminine lifestyle mood
+* Cream, blush, beige, white, black, soft gold tones
+* Minimal clutter
+* Product clearly visible
+* Premium but approachable ecommerce photography
+
+## Avoid Images
+
+* Fake luxury logos
+* Overly edited beauty claims
+* Medical skincare before/after images
+* Overly sexualized fashion imagery
+* Chaotic product collage
+* Low-quality supplier screenshots
+* Text-heavy promotional images
+* Watermarks
+
+---
+
+# Color Direction
+
+The website should feel clean, feminine, and modern.
+
+Recommended palette:
+
+* Champagne Ivory
+* Soft Blush
+* Dusty Rose
+* Warm Beige
+* Clean White
+* Charcoal
+* Soft Gold
+* Muted Mauve
+
+The site should avoid:
+
+* Neon pink
+* Red discount-heavy design
+* Harsh black luxury-only design
+* Too many pastel colors together
+* Cheap marketplace color schemes
+
+---
+
+# Homepage Direction
+
+Homepage should be short, focused, and beauty/fashion-accessory clear.
+
+Recommended homepage flow:
+
+1. Hero: Beauty & Style Essentials For Everyday Confidence
+2. Shop By Category
+3. Makeup Bags & Beauty Organizers Feature
+4. Fashion Accessories For Daily Looks Feature
+5. Giftable Finds / Customer Care Trust
+
+Homepage should focus on:
+
+* Beauty organization
+* Makeup bags and organizers
+* Fashion accessories
+* Everyday confidence
+* Small giftable items
+* Clean customer care and trust
+
+Avoid:
+
+* General store messaging
+* Overly broad product categories
+* Medical beauty claims
+* Fake discounts
+* Counterfeit luxury language
+
+---
+
+# Trust & Policy Requirements
+
+LBQ Shop should include clear customer trust pages:
+
+* About Us
+* Contact Us
 * Shipping Policy
 * Return & Refund Policy
 * Privacy Policy
@@ -1000,146 +496,158 @@ Must include:
 * FAQ
 * Track Your Order
 
-Return policy should include personal care hygiene conditions.
+Trust elements should be visible:
 
----
-
-# GMC Compliance Design Rules
-
-The design must support merchant trust and product safety.
-
-Must show:
-
-* Clear gadget-focused niche
-* Transparent policies
 * Support email
 * Business hours
-* Product descriptions with realistic use cases
-* No hidden surveillance positioning
-* No medical/personal care overclaims
+* Shipping timeline
+* Return window
+* Clear product categories
+* Product material/size details
+* Secure checkout messaging
+
+---
+
+# Shipping Information
+
+Orders are processed within **2–4 business days**.
+
+After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
+
+Tracking information is provided once an order ships.
+
+Shipping copy should be realistic and transparent.
+
+---
+
+# Return Policy Direction
+
+Customers may request returns within **30 days** of delivery.
+
+Eligible items should be:
+
+* Unused
+* Undamaged
+* In original condition
+* Returned with original packaging where applicable
+
+For beauty accessories or personal-use items, return policy should mention hygiene and condition requirements where relevant.
+
+Return copy should feel:
+
+* Clear
+* Fair
+* Customer-friendly
+* Professional
+
+---
+
+# Product Copy Rules
+
+Product descriptions should explain:
+
+* What the product is
+* How it is used
+* Where it fits in daily life
+* Size or capacity if relevant
+* Material details if available
+* Key practical benefits
+* Travel or organization use cases
+* Care instructions if needed
+
+Avoid:
+
+* Keyword stuffing
+* Beauty treatment claims
+* Medical claims
+* Luxury brand imitation
+* Fake urgency
+* Unsupported quality claims
+* Overpromising results
+
+Safe copy example:
+
+> This travel makeup bag helps keep cosmetics, brushes, and small beauty items organized at home or while on the go.
+
+---
+
+# GMC Compliance Direction
+
+LBQ Shop must appear as a legitimate beauty and fashion accessories store with a coherent product focus.
+
+## GMC Priorities
+
+* Clear beauty/fashion accessories niche
+* Transparent policies
+* Support email
+* Consistent product categories
+* Realistic product descriptions
 * No counterfeit branding
+* No fake luxury products
+* No medical skincare claims
+* No prohibited beauty claims
+* Clean product pages
+* Clear material/size information
 
-Avoid:
+## Avoid
 
-* Spy imagery
-* Hidden camera placement
-* Medical before/after visuals
-* Fake review sections
+* Mixed random general store products
+* Fake designer accessories
+* Fake branded cosmetics
+* Skincare treatment claims
+* Supplements or ingestible beauty products
+* Fake reviews
 * Countdown timers
-* Overly broad general store layout
-* Risky product categories
+* Viral hype language
 
 ---
 
-# Content Rules
+# Category Copy Examples
 
-Use words like:
+## Beauty Accessories
 
 ```text
-useful
-smart
-practical
-compact
-everyday
-simple
-convenient
-easy to use
-home gadgets
-grooming tools
-tech accessories
-daily tools
+Useful beauty tools and small accessories designed to support simple everyday routines.
 ```
 
-Avoid words like:
+## Makeup Bags & Organizers
 
 ```text
-spy
-hidden
-secret
-undetectable
-surveillance
-miracle
-permanent results
-100% painless guaranteed
-life-changing
-crazy deal
+Travel-friendly cosmetic bags and organizers that help keep beauty items neat and easy to find.
+```
+
+## Fashion Accessories
+
+```text
+Simple style accents for everyday outfits, from hair accessories to small carry pieces.
+```
+
+## Everyday Style Essentials
+
+```text
+Practical accessories for daily beauty, travel, organization, and personal style.
+```
+
+## Giftable Finds
+
+```text
+Pretty, practical accessories made for thoughtful everyday gifting.
 ```
 
 ---
 
-# Motion & Interaction
+# Strategic Build Goal
 
-Use subtle interactions only:
+The final LBQ Shop storefront should feel like:
 
-* Soft card hover
-* Image scale on hover
-* Smooth transitions
-* Simple fade-in
+> A clean and feminine beauty & fashion accessories store offering practical makeup organizers, beauty accessories, fashion accents, and everyday essentials for simple style and confidence.
 
-Avoid:
+The customer should feel:
 
-* Flashy animation
-* Auto-playing videos
-* Popups on load
-* Spinning gadget effects
-* Countdown animation
-
----
-
-# Mobile UX Rules
-
-Mobile must be simple and fast.
-
-Rules:
-
-* Hero copy short
-* Category cards easy to tap
-* Product grid readable
-* Buttons large enough
-* Header compact
-* No intrusive popups
-* Trust information easy to find
-
----
-
-# Technical Stack Rules
-
-Recommended stack:
-
-* WooCommerce
-* TailwindCSS
-* Modular PHP templates
-* Lightweight JavaScript only
-
-Performance priorities:
-
-* Compressed images
-* Lazy-loaded product images
-* Clean DOM
-* Minimal plugins
-* Fast mobile loading
-
-Avoid:
-
-* Heavy animation libraries
-* Too many sliders
-* Product widgets everywhere
-* Unnecessary scripts
-
----
-
-# Final Design Goal
-
-MyBaapStore should look like:
-
-> A clean and trustworthy everyday gadget store offering practical tools for home, kitchen, grooming, camera/tech accessories, and daily convenience.
-
-Customers should feel:
-
+* The store has a clear beauty/fashion accessories direction
 * Products are useful and easy to understand
-* The store is practical, not random
-* The website is safe and trustworthy
+* The website feels clean and trustworthy
+* Items are stylish but practical
 * Policies and support are transparent
-* Gadgets are presented for normal everyday use, not hype or risky use cases
 
-The site should never feel like a chaotic viral gadget marketplace, spy store, or risky personal-care claim website.
+The site should never feel like a random general store, counterfeit fashion shop, or medical beauty-claim website.

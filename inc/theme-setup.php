@@ -1,5 +1,10 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
+add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
+
+function custom_woocommerce_order_prefix($order_id, $order) {
+    return 'MYB-' . $order_id;
+}
 function dawp_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');

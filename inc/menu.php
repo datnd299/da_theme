@@ -3,9 +3,9 @@ function dawp_main_menu_items() {
     return [
         ['title' => __('Shop All', 'dawp'),           'url' => home_url('/shop/')],
         ['title' => __('Dresses', 'dawp'),            'url' => home_url('/product-category/dresses/')],
-        ['title' => __('Blouses & Shirts', 'dawp'),   'url' => home_url('/product-category/blouses-shirts/')],
-        ['title' => __('Tops', 'dawp'),               'url' => home_url('/product-category/tops/')],
-        ['title' => __('Pants', 'dawp'),              'url' => home_url('/product-category/pants/')],
+        ['title' => __('About us', 'dawp'),   'url' => home_url('/about-us/')],
+        ['title' => __('Contact us', 'dawp'),               'url' => home_url('/contact-us/')],
+        ['title' => __('Track Order', 'dawp'),              'url' => home_url('/track-order/')],
     ];
 }
 function dawp_is_current_url($url) {
@@ -42,8 +42,8 @@ function dawp_footer_columns() {
             'title' => 'Policy',
             'links' => [
                 ['title' => 'Shipping & Returns', 'url' => home_url('/shipping-returns/')],
-                ['title' => 'Terms & Conditions', 'url' => home_url('/terms-conditions/')],
                 ['title' => 'Privacy Policy',     'url' => home_url('/privacy-policy/')],
+                ['title' => 'Terms & Conditions', 'url' => home_url('/terms-conditions/')],
             ],
         ],
     ];

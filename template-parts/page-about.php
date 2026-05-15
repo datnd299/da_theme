@@ -273,7 +273,7 @@
         </div>
         <h4 class="font-semibold text-[#2B2B2B]" style="font-family:'Playfair Display',serif">Our Address</h4>
         <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          1777 Canal St, Merced, CA<br>United States, California
+          885 Roselyn Lakes, South Vidashire, 37334, IL, USA
         </p>
       </div>
 

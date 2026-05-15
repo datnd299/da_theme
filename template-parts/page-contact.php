@@ -58,7 +58,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Our Address</h3>
-          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">1777 Canal St, Merced<br>CA, United States</p>
+          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">885 Roselyn Lakes, South Vidashire, 37334, IL, USA</p>
         </div>
       </div>
 

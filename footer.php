@@ -44,7 +44,7 @@
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
                         <circle cx="12" cy="10" r="3"/>
                     </svg>
-                    885 Roselyn Lakes, South Vidashire, 37334, Illionis
+                    885 Roselyn Lakes, South Vidashire, 37334, IL
                 </li>
 
                 <li class="flex items-start gap-2.5 text-white/40">

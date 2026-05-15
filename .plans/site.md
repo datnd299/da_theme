@@ -7,13 +7,13 @@ Shopshive (shopshive.com) is an online women's fashion retailer that offers a wi
 * **Language:** English
 * **Store Type:** Fast Fashion / Women's Fashion Online Store
 * **Primary Market:** United States
-* **Location:** 885 Roselyn Lakes, South Vidashire, 37334, Illionis
+* **Location:** 885 Roselyn Lakes, South Vidashire, 37334, IL
 * **Support Email:** [support@shopshive.com](mailto:support@shopshive.com)
 * **Business Hours:** Monday – Saturday, 10:00 AM – 6:00 PM (PST)
 * **Facebook:** https://www.facebook.com/shopshivedotcom
 * **Printerest:** https://www.pinterest.com/galgirlus/
 * **Phone:** +1 (760) 383 0494
-* **Address:** Shopshive, 885 Roselyn Lakes, South Vidashire, 37334, Illionis
+* **Address:** Shopshive, 885 Roselyn Lakes, South Vidashire, 37334, IL
 ---
 
 # Categories

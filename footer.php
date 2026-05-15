@@ -13,7 +13,7 @@ $support_email   = 'support@mybaapstore.com';
 $business_hours  = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $store_address   = __('681 Main St, Belleville, NJ 07109, USA', 'dawp');
 $facebook_url    = 'https://www.facebook.com/mybaapstore/';
-$footer_logo_url = get_theme_file_uri('/assets/img/gallery/Logo_all (4).png');
+$footer_logo_url = get_theme_file_uri('/assets/img/gallery/logo.jpg');
 
 $footer_category_url = static function ($slug) {
     if (function_exists('get_term_by')) {
@@ -67,10 +67,10 @@ $footer_columns = [
     [
         'title' => __('Store Policy', 'dawp'),
         'links' => [
+            ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
             ['title' => __('Shipping & Return', 'dawp'), 'url' => home_url('/shipping-returns/')],
             ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
             ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-            ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
         ],
     ],
 ];

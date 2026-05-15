@@ -193,6 +193,164 @@ $render_icon = static function ($icon) {
         </div>
     </section>
 
+    <section class="bg-[#F5F7FA] py-16 sm:py-20" aria-labelledby="contact-form-title">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
+                <div>
+                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#2F80ED]"><?php esc_html_e('Send a Message', 'dawp'); ?></p>
+                    <h2 id="contact-form-title" class="mt-4 text-3xl font-extrabold leading-tight text-[#102A43] sm:text-4xl">
+                        <?php esc_html_e('We\'d love to hear from you.', 'dawp'); ?>
+                    </h2>
+                    <p class="mt-4 text-base leading-8 text-[#667085]">
+                        <?php esc_html_e('Fill out the form and our support team will get back to you within 1–2 business days. For faster help, include your order number and a short description of your question.', 'dawp'); ?>
+                    </p>
+                    <div class="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#EAF4FF] px-4 py-3">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#2F80ED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                        </svg>
+                        <p class="text-sm font-bold text-[#2F80ED]"><?php esc_html_e('We respond to all support messages within 24 hours.', 'dawp'); ?></p>
+                    </div>
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EAF4FF] text-[#2F80ED]">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-[#102A43]"><?php esc_html_e('Email Support', 'dawp'); ?></p>
+                                <a href="mailto:<?php echo esc_attr($support_email); ?>" class="text-sm text-[#2F80ED] hover:text-[#102A43]"><?php echo esc_html($support_email); ?></a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EAF4FF] text-[#2F80ED]">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-[#102A43]"><?php esc_html_e('Business Hours', 'dawp'); ?></p>
+                                <p class="text-sm text-[#667085]"><?php echo esc_html($business_hours); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm sm:p-8">
+                    <form id="dawp-contact-form" novalidate>
+                        <?php wp_nonce_field('dawp_contact_nonce', 'dawp_contact_nonce_field'); ?>
+
+                        <div class="grid gap-5 sm:grid-cols-2">
+                            <div>
+                                <label for="contact_name" class="block text-sm font-semibold text-[#102A43]">
+                                    <?php esc_html_e('Your Name', 'dawp'); ?> <span class="text-[#2F80ED]" aria-hidden="true">*</span>
+                                </label>
+                                <input type="text" id="contact_name" name="contact_name" required autocomplete="name"
+                                    class="mt-2 block w-full rounded-xl border border-[#E5E7EB] bg-[#F5F7FA] px-4 py-3 text-sm text-[#1F2937] placeholder-[#9CA3AF] focus:border-[#2F80ED] focus:outline-none focus:ring-2 focus:ring-[#2F80ED]/20 transition"
+                                    placeholder="<?php esc_attr_e('John Smith', 'dawp'); ?>">
+                            </div>
+                            <div>
+                                <label for="contact_email" class="block text-sm font-semibold text-[#102A43]">
+                                    <?php esc_html_e('Email Address', 'dawp'); ?> <span class="text-[#2F80ED]" aria-hidden="true">*</span>
+                                </label>
+                                <input type="email" id="contact_email" name="contact_email" required autocomplete="email"
+                                    class="mt-2 block w-full rounded-xl border border-[#E5E7EB] bg-[#F5F7FA] px-4 py-3 text-sm text-[#1F2937] placeholder-[#9CA3AF] focus:border-[#2F80ED] focus:outline-none focus:ring-2 focus:ring-[#2F80ED]/20 transition"
+                                    placeholder="<?php esc_attr_e('john@example.com', 'dawp'); ?>">
+                            </div>
+                        </div>
+
+                        <div class="mt-5">
+                            <label for="contact_subject" class="block text-sm font-semibold text-[#102A43]">
+                                <?php esc_html_e('Subject', 'dawp'); ?> <span class="text-[#2F80ED]" aria-hidden="true">*</span>
+                            </label>
+                            <select id="contact_subject" name="contact_subject" required
+                                class="mt-2 block w-full rounded-xl border border-[#E5E7EB] bg-[#F5F7FA] px-4 py-3 text-sm text-[#1F2937] focus:border-[#2F80ED] focus:outline-none focus:ring-2 focus:ring-[#2F80ED]/20 transition appearance-none">
+                                <option value="" disabled selected><?php esc_html_e('Select a topic…', 'dawp'); ?></option>
+                                <option value="Order Question"><?php esc_html_e('Order Question', 'dawp'); ?></option>
+                                <option value="Shipping & Delivery"><?php esc_html_e('Shipping & Delivery', 'dawp'); ?></option>
+                                <option value="Return & Refund"><?php esc_html_e('Return & Refund', 'dawp'); ?></option>
+                                <option value="Product Help"><?php esc_html_e('Product Help', 'dawp'); ?></option>
+                                <option value="Other"><?php esc_html_e('Other', 'dawp'); ?></option>
+                            </select>
+                        </div>
+
+                        <div class="mt-5">
+                            <label for="contact_message" class="block text-sm font-semibold text-[#102A43]">
+                                <?php esc_html_e('Message', 'dawp'); ?> <span class="text-[#2F80ED]" aria-hidden="true">*</span>
+                            </label>
+                            <textarea id="contact_message" name="contact_message" required rows="5"
+                                class="mt-2 block w-full resize-none rounded-xl border border-[#E5E7EB] bg-[#F5F7FA] px-4 py-3 text-sm text-[#1F2937] placeholder-[#9CA3AF] focus:border-[#2F80ED] focus:outline-none focus:ring-2 focus:ring-[#2F80ED]/20 transition"
+                                placeholder="<?php esc_attr_e('Include your order number, product name, and a short description of your question or issue…', 'dawp'); ?>"></textarea>
+                        </div>
+
+                        <div id="dawp-contact-alert" role="alert" aria-live="polite" class="hidden mt-5 rounded-xl p-4 text-sm font-semibold"></div>
+
+                        <button type="submit" id="dawp-contact-submit"
+                            class="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#2F80ED] px-6 text-sm font-bold text-white transition hover:bg-[#102A43] disabled:opacity-60 disabled:cursor-not-allowed">
+                            <span id="dawp-contact-btn-text"><?php esc_html_e('Send Message', 'dawp'); ?></span>
+                            <svg id="dawp-contact-spinner" class="hidden h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <script>
+                    (function () {
+                        var form    = document.getElementById('dawp-contact-form');
+                        var alert   = document.getElementById('dawp-contact-alert');
+                        var submit  = document.getElementById('dawp-contact-submit');
+                        var btnText = document.getElementById('dawp-contact-btn-text');
+                        var spinner = document.getElementById('dawp-contact-spinner');
+
+                        if (!form) return;
+
+                        form.addEventListener('submit', function (e) {
+                            e.preventDefault();
+
+                            alert.className = 'hidden mt-5 rounded-xl p-4 text-sm font-semibold';
+                            submit.disabled = true;
+                            btnText.textContent = '<?php esc_html_e('Sending…', 'dawp'); ?>';
+                            spinner.classList.remove('hidden');
+
+                            var data = new FormData(form);
+                            data.append('action', 'dawp_contact');
+                            data.append('nonce', document.getElementById('dawp_contact_nonce_field').value);
+
+                            fetch('<?php echo esc_url(admin_url('admin-ajax.php')); ?>', {
+                                method: 'POST',
+                                body: data,
+                                credentials: 'same-origin',
+                            })
+                            .then(function (r) { return r.json(); })
+                            .then(function (res) {
+                                alert.classList.remove('hidden');
+                                if (res.success) {
+                                    alert.classList.add('bg-[#EAF4FF]', 'text-[#102A43]', 'border', 'border-[#2F80ED]/30');
+                                    alert.textContent = res.data.message;
+                                    form.reset();
+                                } else {
+                                    alert.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+                                    alert.textContent = res.data.message;
+                                }
+                            })
+                            .catch(function () {
+                                alert.classList.remove('hidden');
+                                alert.classList.add('bg-red-50', 'text-red-700', 'border', 'border-red-200');
+                                alert.textContent = '<?php esc_html_e('Something went wrong. Please try again or email us directly.', 'dawp'); ?>';
+                            })
+                            .finally(function () {
+                                submit.disabled = false;
+                                btnText.textContent = '<?php esc_html_e('Send Message', 'dawp'); ?>';
+                                spinner.classList.add('hidden');
+                            });
+                        });
+                    })();
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="bg-[#F5F7FA] py-16 sm:py-20" aria-labelledby="support-topics-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:px-8">
             <div>

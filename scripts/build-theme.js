@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
 import {
   readFileSync, writeFileSync, existsSync,
-  mkdirSync, statSync, readdirSync, copyFileSync, rmSync,
+  mkdirSync, statSync, readdirSync, copyFileSync, rmSync, renameSync,
 } from 'fs';
 import { resolve, dirname, extname, join, basename } from 'path';
 import { fileURLToPath } from 'url';
@@ -222,6 +222,106 @@ async function walkAndProcess(dir) {
 
 console.log('Processing files...');
 await walkAndProcess(distDir);
+
+// ── Rename assets/css & assets/js files + subdirs ─────────────
+const ASSET_RENAME_DIRS = ['assets/css', 'assets/js'];
+
+function randomToken(usedNames) {
+  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  let name;
+  do {
+    const len = Math.floor(Math.random() * 6) + 5; // 5–10 chars
+    name = Array.from({ length: len }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+  } while (usedNames.has(name));
+  usedNames.add(name);
+  return name;
+}
+
+function buildRenameMaps() {
+  const fileMap = new Map(); // oldBasename → newBasename  (e.g. main.css → xk7p2.css)
+  const dirMap  = new Map(); // oldDirName  → newDirName   (e.g. tw     → ab3qr)
+  const used    = new Set();
+
+  function walk(dir) {
+    if (!existsSync(dir)) return;
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) {
+        if (!dirMap.has(entry)) dirMap.set(entry, randomToken(used));
+        walk(full);
+      } else {
+        const ext = extname(entry).toLowerCase();
+        if ((ext === '.css' || ext === '.js') && !fileMap.has(entry))
+          fileMap.set(entry, randomToken(used) + ext);
+      }
+    }
+  }
+
+  for (const d of ASSET_RENAME_DIRS) walk(join(distDir, d));
+  return { fileMap, dirMap };
+}
+
+async function applyRenaming(fileMap, dirMap) {
+  console.log('Renaming asset files:');
+  for (const [o, n] of fileMap) console.log(`  ${o} → ${n}`);
+  console.log('Renaming asset dirs:');
+  for (const [o, n] of dirMap) console.log(`  ${o}/ → ${n}/`);
+  console.log('');
+
+  // Sort longest key first to prevent substring collision
+  // e.g. replace 'tw-main.css' before 'main.css', otherwise 'main.css' → 'abc'
+  // turns 'tw-main.css' into 'tw-abc' and the tw-main.css entry never matches.
+  const sortedFiles = [...fileMap.entries()].sort((a, b) => b[0].length - a[0].length);
+  const sortedDirs  = [...dirMap.entries()].sort((a, b) => b[0].length - a[0].length);
+
+  // Phase 1: update all text-file references (files first, then dirs)
+  async function updateRefs(dir) {
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) { await updateRefs(full); continue; }
+      const ext = extname(full).toLowerCase();
+      if (!TEXT_EXTS.has(ext)) continue;
+      let content = readFileSync(full, 'utf8');
+      let changed = false;
+      for (const [o, n] of sortedFiles) {
+        if (content.includes(o)) { content = content.replaceAll(o, n); changed = true; }
+      }
+      for (const [o, n] of sortedDirs) {
+        const pattern = o + '/';
+        if (content.includes(pattern)) { content = content.replaceAll(pattern, n + '/'); changed = true; }
+      }
+      if (changed) writeFileSync(full, content, 'utf8');
+    }
+  }
+  await updateRefs(distDir);
+
+  // Phase 2: rename files (while dirs still have original names)
+  function renameFiles(dir) {
+    if (!existsSync(dir)) return;
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      if (statSync(full).isDirectory()) renameFiles(full);
+      else if (fileMap.has(entry)) renameSync(full, join(dir, fileMap.get(entry)));
+    }
+  }
+  for (const d of ASSET_RENAME_DIRS) renameFiles(join(distDir, d));
+
+  // Phase 3: rename dirs bottom-up (children before parents)
+  function renameDirs(dir) {
+    if (!existsSync(dir)) return;
+    for (const entry of readdirSync(dir)) {
+      const full = join(dir, entry);
+      if (!statSync(full).isDirectory()) continue;
+      renameDirs(full); // recurse first
+      if (dirMap.has(entry)) renameSync(full, join(dir, dirMap.get(entry)));
+    }
+  }
+  for (const d of ASSET_RENAME_DIRS) renameDirs(join(distDir, d));
+}
+
+console.log('Renaming assets...');
+const { fileMap, dirMap } = buildRenameMaps();
+await applyRenaming(fileMap, dirMap);
 
 // ── Zip ────────────────────────────────────────────────────────
 const distRoot = resolve(root, 'dist');

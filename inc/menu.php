@@ -44,6 +44,7 @@ function dawp_main_menu_items() {
         ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')],
         ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
         ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+        ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
     ];
 }
 function dawp_is_current_url($url) {
@@ -64,10 +65,10 @@ function dawp_footer_columns() {
         [
             'title' => __('Store Policy', 'dawp'),
             'links' => [
+                ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
                 ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
                 ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
                 ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-                ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
             ],
         ],
         [

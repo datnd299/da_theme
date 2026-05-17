@@ -218,6 +218,17 @@ $footer_policy_links = [
                 &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('Slicktee'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
             </p>
 
+            <div class="flex flex-col items-center gap-2">
+                <p class="text-xs font-black uppercase tracking-[0.2em] text-white/40">
+                    <?php esc_html_e('Payment Methods', 'dawp'); ?>
+                </p>
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment-methods.webp'); ?>"
+                     alt="<?php esc_attr_e('Accepted payment methods: Visa, Mastercard, Discover, American Express, PayPal', 'dawp'); ?>"
+                     class="h-7 w-auto opacity-70"
+                     width="340"
+                     height="44">
+            </div>
+
             <p class="font-black uppercase tracking-[0.18em] text-slickLime">
                 <?php esc_html_e('Clean fits for everyday rotation', 'dawp'); ?>
             </p>

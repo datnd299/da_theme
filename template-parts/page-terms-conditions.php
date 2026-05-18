@@ -318,7 +318,7 @@
 
                 <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
                     <p>
-                        These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of **Merced, CA, 95340, United States**.
+                        These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of **Merced, CA 95340**.
                     </p>
                 </div>
             </div>
@@ -340,8 +340,7 @@
                     <div class="bg-surface-alt p-8 rounded-2xl border-l-4 border-accent shadow-sm">
                         <h4 class="font-bold text-foreground text-lg mb-2">Shop Kelli Boutique</h4>
                         <div class="space-y-1 text-foreground-muted">
-                            <p>1777 Canal St, Merced, CA, 95340</p>
-                            <p>United States</p>
+                            <p>1777 Canal St, Merced, CA 95340</p>
 
                             <p>Email: support@shopkelli.com</p>
                         </div>

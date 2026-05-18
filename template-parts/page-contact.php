@@ -71,8 +71,7 @@
                         <div>
                             <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Our Location', 'dawp'); ?></h3>
                             <p class="text-[#6F625D] leading-relaxed">
-                                <?php esc_html_e('1777 Canal St', 'dawp'); ?><br>
-                                <?php esc_html_e('Merced, CA, 95340, United States', 'dawp'); ?>
+                                <?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?>
                             </p>
                         </div>
                     </div>

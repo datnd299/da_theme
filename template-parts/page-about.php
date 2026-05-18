@@ -118,7 +118,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-[#2F2A28]"><?php esc_html_e('Our Boutique Location', 'dawp'); ?></h4>
-                                <p class="text-[#6F625D]"><?php esc_html_e('1777 Canal St, Merced, CA, 95340, United States', 'dawp'); ?></p>
+                                <p class="text-[#6F625D]"><?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?></p>
                             </div>
                         </div>
                         <div class="flex gap-4 items-start">

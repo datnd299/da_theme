@@ -133,8 +133,7 @@
                     
                     <div class="bg-surface-alt p-6 rounded-md border-l-4 border-accent">
                         <p class="font-bold text-foreground">Shop Kelli Boutique</p>
-                        <p>1777 Canal St, Merced, CA</p>
-                        <p>United States, California</p>
+                        <p>1777 Canal St, Merced, CA 95340</p>
                         <p>Attn: Privacy Compliance Officer</p>
                     </div>
                 </div>

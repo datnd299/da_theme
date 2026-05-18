@@ -1,12 +1,11 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'lingerie'              => 'lingerie-sets',
-        'bras-and-bralettes'    => 'bras-bralettes',
-        'robes-and-loungewear'  => 'robes-loungewear',
-        'robes'                 => 'robes-loungewear',
-        'loungewear'            => 'robes-loungewear',
-        'essentials'            => 'intimate-essentials',
+        'tshirts'    => 'dry-fit-t-shirts',
+        'tracksuits' => 'tracksuits',
+        'tanktops'   => 'tank-tops',
+        'sets'       => 'training-sets',
+        'bottoms'    => 'activewear-bottoms',
     ];
 
     return $map[$slug] ?? $slug;
@@ -30,11 +29,11 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     return [
-        ['title' => __('Lingerie Sets', 'dawp'), 'url' => dawp_product_category_url('lingerie-sets')],
-        ['title' => __('Sleepwear', 'dawp'), 'url' => dawp_product_category_url('sleepwear')],
-        ['title' => __('Robes & Loungewear', 'dawp'), 'url' => dawp_product_category_url('robes-loungewear')],
-        ['title' => __('Bras & Bralettes', 'dawp'), 'url' => dawp_product_category_url('bras-bralettes')],
-        ['title' => __('Intimate Essentials', 'dawp'), 'url' => dawp_product_category_url('intimate-essentials')],
+        ['title' => __('Dry-Fit T-Shirts', 'dawp'), 'url' => dawp_product_category_url('dry-fit-t-shirts')],
+        ['title' => __('Tracksuits', 'dawp'), 'url' => dawp_product_category_url('tracksuits')],
+        ['title' => __('Tank Tops', 'dawp'), 'url' => dawp_product_category_url('tank-tops')],
+        ['title' => __('Training Sets', 'dawp'), 'url' => dawp_product_category_url('training-sets')],
+        ['title' => __('Activewear Bottoms', 'dawp'), 'url' => dawp_product_category_url('activewear-bottoms')],
     ];
 }
 

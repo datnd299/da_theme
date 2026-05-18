@@ -7,41 +7,28 @@
 :root {
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
-  /* Warm White — page background */
-  --color-surface: #FAF7F2;
-  /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
-  /* Soft Gray — hover states, alt sections */
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F3F5F7;
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
-  /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
-  /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
-  /* Light text — captions, breadcrumbs */
+  --color-foreground: #1F2937;
+  --color-foreground-muted: #4B5563;
+  --color-muted: #9CA3AF;
 
   /* === BRAND === */
-  --color-accent: #C98A8A;
-  /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #B87575;
-  /* Dusty Rose darker — hover state */
-  --color-accent-soft: #E8D8C8;
-  /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DFA39A;
-  /* Warm Blush — secondary brand color */
+  --color-accent: #2563EB;
+  --color-accent-hover: #0B1F33;
+  --color-accent-soft: #DBEAFE;
+  --color-accent-blush: #A3E635;
 
   /* === UI === */
-  --color-border: #E6DDD6;
-  /* Border — cards, dividers */
-  --color-alert: #C0392B;
-  /* Error / alert */
-  --color-success: #5C8A6A;
-  /* Success — muted green, fits boutique palette */
+  --color-border: #E5E7EB;
+  --color-alert: #DC2626;
+  --color-success: #16A34A;
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -60,12 +47,12 @@
   /* === BORDER RADIUS === */
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-pill: 999px;
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(31, 41, 55, 0.06);
+  --shadow-card-hover: 0 10px 30px rgba(31, 41, 55, 0.12);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);

@@ -1,23 +1,23 @@
 /* ============================================================
-   Shop Avec Moi Shop / Product Archive
+   UK Official Store Shop / Product Archive
    ============================================================ */
 
 :root {
-  --shop-bg: #FBF4FF;
+  --shop-bg: #F3F5F7;
   --shop-surface: #ffffff;
-  --shop-surface-soft: #F6EFEC;
-  --shop-surface-muted: #FFF6EE;
-  --shop-text: #24132E;
-  --shop-heading: #3B1748;
-  --shop-muted: #6D5875;
-  --shop-soft-text: #9D7A83;
-  --shop-border: #E8DFF0;
-  --shop-accent: #6E3A8A;
-  --shop-accent-dark: #3B1748;
-  --shop-blush: #E8B8AD;
-  --shop-sale: #B97878;
+  --shop-surface-soft: #F3F5F7;
+  --shop-surface-muted: #F3F5F7;
+  --shop-text: #1F2937;
+  --shop-heading: #0B1F33;
+  --shop-muted: #4B5563;
+  --shop-soft-text: #9CA3AF;
+  --shop-border: #E5E7EB;
+  --shop-accent: #2563EB;
+  --shop-accent-dark: #0B1F33;
+  --shop-blush: #A3E635;
+  --shop-sale: #2563EB;
   --shop-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --shop-heading-font: 'Playfair Display', Georgia, serif;
+  --shop-heading-font: 'Plus Jakarta Sans', 'Inter', sans-serif;
   --shop-container: 1280px;
   --shop-pad: 16px;
 }
@@ -92,7 +92,7 @@
   height: 5px;
   border-radius: 999px 999px 0 0;
   background: linear-gradient(90deg, var(--shop-accent), var(--shop-blush));
-  opacity: 0.75;
+  opacity: 1;
 }
 
 .shop-header__title {
@@ -119,7 +119,7 @@
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 30px rgba(59, 23, 72, 0.06);
+  box-shadow: 0 10px 30px rgba(11, 31, 51, 0.06);
 }
 
 .shop-toolbar__left {
@@ -189,7 +189,7 @@
 .woocommerce-ordering select:focus,
 .shop-sort select:focus {
   border-color: var(--shop-accent);
-  box-shadow: 0 0 0 3px rgba(110, 58, 138, 0.18);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
 }
 
 .shop-layout {
@@ -210,7 +210,7 @@
   inset: 0;
   z-index: 99;
   visibility: hidden;
-  background: rgba(36, 19, 46, 0.44);
+  background: rgba(11, 31, 51, 0.44);
   opacity: 0;
   transition: opacity 200ms ease, visibility 200ms ease;
 }
@@ -231,7 +231,7 @@
   overflow-y: auto;
   border-radius: 8px 8px 0 0;
   background: var(--shop-surface);
-  box-shadow: 0 -20px 50px rgba(59, 23, 72, 0.2);
+  box-shadow: 0 -20px 50px rgba(11, 31, 51, 0.2);
   transform: translateY(100%);
   transition: transform 240ms ease;
 }
@@ -286,7 +286,7 @@
     padding: 18px;
     border: 1px solid var(--shop-border);
     border-radius: 8px;
-    box-shadow: 0 14px 34px rgba(59, 23, 72, 0.06);
+    box-shadow: 0 14px 34px rgba(11, 31, 51, 0.06);
     transform: none;
   }
 
@@ -389,7 +389,7 @@
   height: 17px;
   border: 3px solid var(--shop-surface);
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(59, 23, 72, 0.2);
+  box-shadow: 0 2px 8px rgba(11, 31, 51, 0.2);
 }
 
 .widget_price_filter .price_label {
@@ -470,13 +470,13 @@ ul.products li.product,
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background: var(--shop-surface);
-  box-shadow: 0 8px 24px rgba(59, 23, 72, 0.05);
+  box-shadow: 0 8px 24px rgba(11, 31, 51, 0.05);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .product-card:hover {
-  border-color: rgba(110, 58, 138, 0.55);
-  box-shadow: 0 18px 38px rgba(59, 23, 72, 0.12);
+  border-color: rgba(37, 99, 235, 0.55);
+  box-shadow: 0 18px 38px rgba(11, 31, 51, 0.12);
   transform: translateY(-3px);
 }
 
@@ -497,7 +497,7 @@ ul.products li.product,
 .product-card__shell {
   aspect-ratio: 4 / 5;
   background:
-    linear-gradient(135deg, rgba(251, 244, 255, 0.72), rgba(255, 246, 238, 0.9)),
+    linear-gradient(135deg, rgba(243, 245, 247, 0.72), rgba(255, 255, 255, 0.9)),
     var(--shop-surface-muted);
 }
 
@@ -534,7 +534,7 @@ ul.products li.product,
   border-radius: 999px;
   background: #ffffff;
   color: var(--shop-sale);
-  box-shadow: 0 8px 18px rgba(59, 23, 72, 0.12);
+  box-shadow: 0 8px 18px rgba(11, 31, 51, 0.12);
   font-size: 0.7rem;
   font-weight: 900;
   line-height: 1.2;
@@ -550,7 +550,7 @@ ul.products li.product,
   gap: 6px;
   padding: 8px 11px;
   border-radius: 999px;
-  background: rgba(59, 23, 72, 0.9);
+  background: rgba(11, 31, 51, 0.9);
   color: #ffffff;
   font-size: 0.78rem;
   font-weight: 800;

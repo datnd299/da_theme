@@ -34,12 +34,12 @@ function dawp_virtual_page_map() {
         'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
         'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
         'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
-        'track-order'      => ['slug' => 'track-order',      'title' => 'Track Order', 'css' => 'track-order.css'],
-        'product-category/lingerie-sets'     => ['slug' => 'category-lingerie',   'title' => 'Lingerie Sets', 'css' => 'tw-main.css'],
-        'product-category/sleepwear'         => ['slug' => 'category-sleepwear',  'title' => 'Sleepwear', 'css' => 'tw-main.css'],
-        'product-category/robes-loungewear'  => ['slug' => 'category-robes',      'title' => 'Robes & Loungewear', 'css' => 'tw-main.css'],
-        'product-category/bras-bralettes'    => ['slug' => 'category-bras',       'title' => 'Bras & Bralettes', 'css' => 'tw-main.css'],
-        'product-category/intimate-essentials' => ['slug' => 'category-essentials', 'title' => 'Intimate Essentials', 'css' => 'tw-main.css'],
+        'track-order'      => ['slug' => 'track-order',      'title' => 'Track Order', 'css' => 'tw-track.css'],
+        'product-category/dry-fit-t-shirts'   => ['slug' => 'category-tshirts',    'title' => 'Dry-Fit T-Shirts', 'css' => 'tw-main.css'],
+        'product-category/tracksuits'         => ['slug' => 'category-tracksuits', 'title' => 'Tracksuits', 'css' => 'tw-main.css'],
+        'product-category/tank-tops'          => ['slug' => 'category-tank-tops',  'title' => 'Tank Tops', 'css' => 'tw-main.css'],
+        'product-category/training-sets'      => ['slug' => 'category-sets',       'title' => 'Training Sets', 'css' => 'tw-main.css'],
+        'product-category/activewear-bottoms' => ['slug' => 'category-bottoms',    'title' => 'Activewear Bottoms', 'css' => 'tw-main.css'],
     ];
 }
 

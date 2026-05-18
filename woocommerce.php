@@ -15,7 +15,7 @@ if (is_shop() || is_product_category() || is_product_tag()) {
 get_header();
 ?>
 <main class="woo-page">
-    <div class="container" style="padding-top:6rem; padding-bottom:6rem; min-height:60vh;">
+    <div class="container mx-auto px-4 py-12 md:py-20 min-h-[60vh]">
         <?php woocommerce_content(); ?>
     </div>
 </main>

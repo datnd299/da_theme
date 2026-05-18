@@ -1,7 +1,7 @@
 <?php
 /**
- * Elite Shop Express — Shop / Archive Product Template
- * Design System: Trusted Hardware, conversion-first
+ * UK Official Store — Shop / Archive Product Template
+ * Design System: Sporty Activewear, conversion-first
  * Section 10: Category / Shop Page rules
  */
 defined('ABSPATH') || exit;

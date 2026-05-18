@@ -1,50 +1,31 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - Shop Avec Moi backgrounds === */
+  /* === COLORS - UK Official Store === */
   --color-background: #FFFFFF;
-  --color-surface: #FBF4FF;
-  --color-surface-alt: #FFFFFF;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F3F5F7;
 
-  /* === COLORS - Shop Avec Moi text === */
-  --color-foreground: #24132E;
-  --color-foreground-muted: #6D5875;
-  --color-muted: #8A728E;
+  /* === COLORS - Text & UI === */
+  --color-foreground: #1F2937;
+  --color-foreground-muted: #4B5563;
+  --color-muted: #9CA3AF;
+  --color-border: #E5E7EB;
 
-  /* === COLORS - Shop Avec Moi brand === */
-  --color-accent: #6E3A8A;
-  --color-accent-hover: #3B1748;
-  --color-accent-soft: #F1E2FA;
-  --color-accent-blush: #B68AC8;
-  --color-accent-sage: #FFFFFF;
-
-  /* === COLORS - UI === */
-  --color-border: #E8DFF0;
-  --color-alert: #C0392B;
-  --color-success: #5C8A6A;
-
-  /* === SLICKTEE BRAND TOKENS === */
-  --color-slickBlack: #0B0F0D;
-  --color-slickGreen: #123D2A;
-  --color-slickActive: #22C55E;
-  --color-slickLime: #A3E635;
-  --color-slickSoft: #F7F8F5;
-  --color-slickText: #111827;
-  --color-slickMuted: #6B7280;
+  /* === BRAND COLORS === */
+  --color-navy: #0B1F33;
+  --color-blue: #2563EB;
+  --color-lime: #A3E635;
 
   /* === BORDER RADIUS === */
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-pill: 999px;
-
-  /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(36, 19, 46, 0.07);
-  --shadow-card-hover: 0 10px 30px rgba(59, 23, 72, 0.16);
+  --radius-lg: 14px;
+  --radius-pill: 9999px;
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);

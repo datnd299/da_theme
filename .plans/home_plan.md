@@ -1,559 +1,380 @@
-# Shop Avec Moi Home Plan
+# UK Official Store — Home Plan
 
-## Homepage Objective
+## Homepage Goal
 
-Trang chủ Shop Avec Moi cần giới thiệu thương hiệu như một boutique thời trang nội y và đồ ngủ nữ tính, lãng mạn, tinh tế và đủ an toàn cho mainstream ecommerce.
+Build a short, clean, sporty homepage for an activewear and dry-fit sportswear store.
 
-Homepage không nên quá dài. Chỉ cần khoảng **5 section chính**, visual mạnh, nội dung ngắn, giàu mood và tập trung vào các nhóm sản phẩm chính:
+The homepage must quickly show that UK Official Store sells:
 
-* Lingerie Sets
-* Sleepwear
-* Robes & Loungewear
-* Bras & Bralettes
-* Intimate Essentials
+* Dry-fit t-shirts
+* Tracksuits
+* Tank tops
+* Training sets
+* Activewear bottoms
 
-Mục tiêu của homepage:
+Main feeling:
 
-* Tạo ấn tượng boutique feminine ngay từ đầu
-* Thể hiện vibe soft sensual, romantic, elegant
-* Giữ nội dung product-focused và GMC-safe
-* Tránh cảm giác explicit, fetish, adult marketplace
-* Tạo trải nghiệm mua sắm tinh tế, rõ ràng, đáng tin
+> Activewear essentials made for movement, comfort, and daily training.
+
+Avoid any feeling of fake branded sportswear, random fashion, or exaggerated fitness claims.
 
 ---
 
-# Core Homepage Message
+# Homepage Structure
 
-Shop Avec Moi là nơi dành cho những khoảnh khắc riêng tư, mềm mại và tự tin của phụ nữ.
+Use 5 sections only:
 
-Core message:
-
-```text
-Soft intimate pieces for comfort, romance, and quiet confidence.
-```
-
-Homepage cần truyền tải rằng sản phẩm không chỉ là đồ lót hay đồ ngủ, mà là một phần của self-care, sự nữ tính và cảm giác đẹp trong những khoảnh khắc cá nhân.
-
----
-
-# Homepage Flow — 5 Sections
-
-```text
-1. Hero: Soft Intimates For Quiet Confidence
-2. Shop By Mood / Category
-3. Feature: Lingerie & Lace
-4. Feature: Sleepwear, Robes & At-Home Elegance
-5. New Arrivals + Customer Care Trust
+```txt
+1. Hero
+2. Shop By Category
+3. Dry-Fit Training Tops
+4. Tracksuits & Gym Wear
+5. Customer Care / Trust
 ```
 
 ---
 
-# Section 1: Hero — Soft Intimates For Quiet Confidence
+# Section 1 — Hero
 
 ## Purpose
 
-Hero cần tạo ấn tượng đầu tiên thật mềm mại, lãng mạn và boutique.
-
-Người xem cần hiểu ngay Shop Avec Moi bán:
-
-* lingerie
-* sleepwear
-* robes
-* intimate essentials
-* feminine pieces
-
-Nhưng cách thể hiện phải tinh tế, không explicit.
-
-## Visual Direction
-
-Dùng ảnh lifestyle/editorial chân thực:
-
-* Adult female model
-* Mặc satin robe, cami sleep set hoặc soft lace bralette theo cách tasteful
-* Bối cảnh bedroom sáng nhẹ, cream studio, vanity corner hoặc soft hotel room
-* Ánh sáng champagne/ivory, warm window light
-* Pose tự nhiên, calm, confident
-* Không nude
-* Không pose quá khiêu khích
-* Không zoom body quá explicit
-* Không có chữ trong ảnh
+Introduce the store as a clean activewear brand for daily movement and training.
 
 ## Content
 
 Eyebrow:
 
-```text
-Romantic Intimates & Sleepwear
+```txt
+Activewear & Dry-Fit Sportswear
 ```
 
 Headline:
 
-```text
-Soft Intimates For Quiet Confidence
+```txt
+Activewear Essentials For Everyday Movement
 ```
 
 Subheadline:
 
-```text
-Romantic lingerie, sleepwear, robes, and feminine essentials designed for comfort, softness, and beautifully personal moments.
+```txt
+Discover dry-fit t-shirts, tracksuits, tank tops, and training-ready sportswear designed for comfort, movement, and daily active routines.
 ```
 
 Primary CTA:
 
-```text
-Shop New Arrivals
+```txt
+Shop Activewear
 ```
 
 Secondary CTA:
 
-```text
-Explore Sleepwear
+```txt
+Explore Dry-Fit Tops
 ```
 
-## Design Notes
+## Image Direction
 
-* Background: Champagne Ivory `#FFF6EE`
-* Heading: Deep Cocoa `#3A241F`
-* Primary button: Soft Blush `#E8B8AD`
-* Secondary button: outline Dusty Rose `#B97878`
-* Layout 2 cột hoặc full image with soft overlay
-* Copy ngắn, visual chiếm vai trò chính
+Use a clean activewear lifestyle image:
+
+* Model wearing dry-fit top or tracksuit
+* Gym, running track, or urban training setting
+* Sporty, realistic, clean
+* No big brand logos
+* No text in image
+* No overly sexual pose
 
 ---
 
-# Section 2: Shop By Mood / Category
+# Section 2 — Shop By Category
 
 ## Purpose
 
-Giúp người xem nhanh chóng hiểu các collection chính của Shop Avec Moi.
+Show the main product categories clearly.
 
-Thay vì chỉ gọi là “category”, section này nên mang cảm giác “shop by mood” để phù hợp với ngành hàng intimate apparel.
+## Categories
 
-## Layout
-
-Dùng 5 collection cards hoặc 4 cards nếu muốn gọn hơn.
-
-Recommended cards:
-
-1. Lingerie Sets
-2. Sleepwear
-3. Robes & Loungewear
-4. Bras & Bralettes
-5. Intimate Essentials
+```txt
+Dry-Fit T-Shirts
+Tracksuits
+Tank Tops
+Training Sets
+Activewear Bottoms
+```
 
 ## Card Copy
 
-### Lingerie Sets
+### Dry-Fit T-Shirts
 
-```text
-Soft lace and delicate matching pieces for romantic confidence.
+```txt
+Lightweight tops for training, movement, and everyday active routines.
 ```
 
-### Sleepwear
+### Tracksuits
 
-```text
-Satin, lace-trim, and soft nightwear for quiet evenings.
+```txt
+Comfortable sportswear sets for warm-ups, casual wear, and daily movement.
 ```
 
-### Robes & Loungewear
+### Tank Tops
 
-```text
-At-home elegance made for comfort, layering, and slow mornings.
+```txt
+Gym-ready tank tops for layering, training, and active style.
 ```
 
-### Bras & Bralettes
+### Training Sets
 
-```text
-Delicate support and feminine shapes for everyday intimacy.
+```txt
+Coordinated activewear sets made for simple training looks.
 ```
 
-### Intimate Essentials
+### Activewear Bottoms
 
-```text
-Refined basics designed for softness, comfort, and ease.
+```txt
+Joggers, shorts, and training bottoms for workouts and daily wear.
 ```
-
-## Visual Direction
-
-Mỗi card dùng ảnh mood riêng:
-
-* Lingerie Sets: lace set hoặc soft matching set, tasteful framing
-* Sleepwear: satin cami set / pajama set
-* Robes: model in robe near window
-* Bras & Bralettes: product-focused bralette image, not explicit
-* Essentials: folded lace/satin pieces, detail shot
 
 ## Design Notes
 
-* Cards image-heavy
-* Text overlay phải có nền nhẹ hoặc đặt bên dưới ảnh
-* Không dùng badge sexy/hot
-* Không dùng ảnh quá lộ hoặc quá cropped
-* Card border Satin Beige `#E6D1C0`
+* Use image-heavy cards
+* White background
+* Light border
+* Sporty hover effect
+* Keep text short
 
 ---
 
-# Section 3: Feature — Lingerie & Lace
+# Section 3 — Dry-Fit Training Tops
 
 ## Purpose
 
-Đây là section cảm xúc chính cho mảng lingerie.
-
-Mục tiêu là tạo cảm giác romantic, delicate, confident nhưng không đi quá giới hạn explicit.
-
-## Visual Direction
-
-Dùng layout editorial 2 cột:
-
-* Một ảnh model mặc lace lingerie/bralette hoặc lingerie set một cách tasteful
-* Một ảnh close-up lace/satin detail hoặc product flat lay
-* Soft cream/champagne lighting
-* Không pose adult entertainment
-* Tập trung vào fabric, lace, silhouette, confidence
+Feature the strongest product category: dry-fit t-shirts and training tops.
 
 ## Content
 
 Eyebrow:
 
-```text
-Lingerie & Lace
+```txt
+Dry-Fit Training Tops
 ```
 
 Headline:
 
-```text
-Delicate details, softly confident silhouettes.
+```txt
+Lightweight comfort for active routines.
 ```
 
 Paragraph:
 
-```text
-From lace-trim sets to feminine bralettes, Shop Avec Moi brings intimate pieces that feel romantic, comfortable, and beautifully personal — made for women who love softness without losing confidence.
+```txt
+Explore dry-fit style t-shirts and training tops made for workouts, warm-ups, and everyday movement.
 ```
 
 Highlights:
 
-```text
-Soft lace details
-Romantic matching sets
-Comfort-focused silhouettes
-Tasteful feminine styling
+```txt
+Lightweight feel
+Training-ready style
+Easy movement
+Everyday activewear
 ```
 
 CTA:
 
-```text
-Shop Lingerie Sets
+```txt
+Shop Dry-Fit T-Shirts
 ```
 
-## Design Notes
+## Image Direction
 
-* Background: Soft Gray Rose `#F6EFEC` hoặc Pearl White
-* Heading: Deep Cocoa
-* Accent: Dusty Rose
-* Có thể dùng quote nhỏ: “Romance in the details.”
-* Không dùng copy quá sexy
+* Dry-fit t-shirt in gym or studio
+* Close-up fabric texture
+* Model in natural workout pose
+* No exaggerated sweat/performance claim
 
 ---
 
-# Section 4: Feature — Sleepwear, Robes & At-Home Elegance
+# Section 4 — Tracksuits & Gym Wear
 
 ## Purpose
 
-Section này làm mềm brand, tăng độ GMC-safe và mở rộng khỏi cảm giác “lingerie only”.
-
-Sleepwear và robes nên được nhấn mạnh như self-care, comfort, evening routine và at-home elegance.
-
-## Visual Direction
-
-Dùng ảnh lifestyle:
-
-* Model mặc satin robe hoặc cami sleepwear
-* Bối cảnh phòng ngủ sáng, ghế cạnh cửa sổ, vanity table, morning routine
-* Màu ivory, beige, blush, champagne
-* Pose tự nhiên, đang buộc robe, cầm tách trà, ngồi cạnh giường
-* Không explicit
+Feature tracksuits, tank tops, and coordinated activewear.
 
 ## Content
 
 Eyebrow:
 
-```text
-Sleepwear & Robes
+```txt
+Tracksuits & Gym Wear
 ```
 
 Headline:
 
-```text
-Soft pieces for evenings, slow mornings, and quiet self-care.
+```txt
+Built for warm-ups, workouts, and everyday sport style.
 ```
 
 Paragraph:
 
-```text
-Sleepwear should feel as beautiful as it is comfortable. Explore satin textures, delicate trims, soft robes, and loungewear pieces made for restful evenings and graceful at-home moments.
+```txt
+From tracksuits to tank tops and training sets, find activewear pieces that keep your style clean and your movement comfortable.
 ```
 
-Highlights:
+Two mini cards:
 
-```text
-Satin sleepwear
-Soft robes
-Loungewear ease
-Elegant at-home comfort
+### Tracksuits
+
+```txt
+Matching sportswear sets for training days and casual movement.
+```
+
+### Tank Tops
+
+```txt
+Simple gym-ready tops for layering and active routines.
 ```
 
 CTA:
 
-```text
-Explore Sleepwear
+```txt
+Explore Gym Wear
 ```
 
-Secondary CTA:
+## Image Direction
 
-```text
-Shop Robes & Loungewear
-```
-
-## Design Notes
-
-* Background: Champagne Ivory hoặc Satin Beige very light
-* Có thể dùng full-width image + content card overlay
-* Tone nên nhẹ hơn Section 3
-* Đây là section quan trọng để website không quá sexualized
+* Tracksuit lifestyle shot
+* Tank top gym scene
+* Urban fitness or clean studio setting
+* No third-party logos
 
 ---
 
-# Section 5: New Arrivals + Customer Care Trust
+# Section 5 — Customer Care / Trust
 
 ## Purpose
 
-Section cuối gộp sản phẩm mới và niềm tin mua hàng.
+Support GMC trust and make the store feel reliable.
 
-Vì homepage chỉ có 5 section, section này cần vừa có ecommerce function vừa có trust/GMC support.
-
-## Layout Option
-
-Có thể chia thành 2 phần trong cùng một section:
-
-1. New Arrivals product grid
-2. Customer Care trust cards
-
-## New Arrivals Content
+## Content
 
 Eyebrow:
 
-```text
-New Arrivals
-```
-
-Headline:
-
-```text
-Fresh pieces for soft, personal moments.
-```
-
-Subtext:
-
-```text
-Discover romantic lingerie, satin sleepwear, delicate robes, and feminine essentials newly added to Shop Avec Moi.
-```
-
-CTA:
-
-```text
-View New Arrivals
-```
-
-Product grid:
-
-* Desktop: 4 products
-* Mobile: 2 columns if readable
-
-Product types to show:
-
-* Lingerie set
-* Satin sleepwear
-* Robe/loungewear piece
-* Bralette or intimate essential
-
-## Customer Care Content
-
-Eyebrow:
-
-```text
+```txt
 Customer Care
 ```
 
 Headline:
 
-```text
-A softer shopping experience, from fit to delivery.
+```txt
+Clear support from checkout to delivery.
+```
+
+Short paragraph:
+
+```txt
+Shop activewear with clear product details, order tracking, and customer support when you need help.
 ```
 
 Trust cards:
 
-### Secure Checkout
-
-```text
-Shop with a simple and secure checkout experience.
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Size & Product Details
 ```
 
-### Tracking Included
+Shipping note:
 
-```text
-Tracking information is provided once your order ships.
+```txt
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
 ```
 
-### 30-Day Returns
+Return note:
 
-```text
-Eligible unworn and unused items may be returned within 30 days of delivery.
-```
-
-### Hygiene-Aware Policy
-
-```text
-For intimate apparel, return eligibility may depend on product condition, tags, packaging, and hygiene requirements.
-```
-
-Support line:
-
-```text
-Need help with sizing, orders, or product questions? Contact support@shopavecmoi.com during business hours.
+```txt
+Eligible unworn, unwashed, and undamaged items may be returned within 30 days of delivery.
 ```
 
 CTA:
 
-```text
+```txt
 View Shipping & Returns
+```
+
+Secondary CTA:
+
+```txt
+Contact Support
 ```
 
 ## Design Notes
 
-* New Arrivals dùng nền Pearl White
-* Trust block có thể dùng nền Deep Cocoa với text trắng
-* Trust copy phải rõ ràng vì ngành intimate apparel cần minh bạch return policy
-* Không fake review nếu chưa có review thật
-* Không countdown / flash sale
+* Use navy background
+* White text
+* Electric blue or lime accent
+* Keep copy clear and short
 
 ---
 
 # Homepage Image List
 
-Cần chuẩn bị tối thiểu các ảnh sau:
+Needed images:
 
-1. Hero image: adult woman in satin robe/sleepwear, tasteful bedroom or cream studio
-2. Category image: Lingerie Sets
-3. Category image: Sleepwear
-4. Category image: Robes & Loungewear
-5. Category image: Bras & Bralettes
-6. Category image: Intimate Essentials / fabric detail
-7. Feature image: Lingerie & Lace editorial shot
-8. Detail image: lace/satin close-up
-9. Feature image: Sleepwear & Robes lifestyle shot
-10. Product images: 4 new arrivals
-11. Optional customer care/support image if needed
+1. Hero activewear lifestyle image
+2. Dry-fit t-shirt category image
+3. Tracksuit category image
+4. Tank top category image
+5. Training set category image
+6. Activewear bottoms category image
+7. Dry-fit training tops feature image
+8. Tracksuits/gym wear feature image
+9. Customer support or packaging/trust image
 
-Image requirements:
+Image rules:
 
+* No fake brand logos
 * No text inside image
-* No nudity
-* No explicit pose
-* No fetish styling
-* No adult-content framing
-* Soft editorial lighting
-* Adult models only
-* Product/fabric must be visible
+* No supplier collage
+* No overly sexual gym posing
+* No medical/body transformation visuals
+* Realistic activewear photography
 
 ---
 
-# Homepage Copy Rules
+# Copy Rules
 
-Use words like:
+Use:
 
-```text
-soft
-romantic
-delicate
-feminine
-intimate
+```txt
+movement
 comfort
-confidence
-satin
-lace
-sleepwear
-loungewear
-quiet beauty
-personal moments
-self-care
-at-home elegance
+training-ready
+lightweight feel
+dry-fit style
+gym-ready
+everyday activewear
+sportswear essentials
 ```
-
-Avoid words like:
-
-```text
-naughty
-fetish
-explicit
-adult fantasy
-hot babe
-wild night
-pornographic
-barely there
-seduce
-```
-
----
-
-# GMC-Safe Homepage Rules
-
-The homepage must present intimate apparel as fashion, comfort, and self-care.
-
-Do:
-
-* Show product categories clearly
-* Use tasteful imagery
-* Mention fabric, fit, comfort, sleepwear, robes
-* Include transparent customer care info
-* Keep language elegant and mature
 
 Avoid:
 
-* Nudity
-* Adult entertainment vibe
-* Explicit copy
-* Extreme body focus
-* Suggestive hero image
-* Fake urgency
-* Countdown timers
-* Overly sexual collection names
-
----
-
-# Suggested 5-Section Flow
-
-```text
-1. Hero: Soft Intimates For Quiet Confidence
-2. Shop By Mood / Category
-3. Lingerie & Lace Feature
-4. Sleepwear, Robes & At-Home Elegance
-5. New Arrivals + Customer Care Trust
+```txt
+official Nike
+Adidas style
+Puma official
+fat loss
+body transformation
+medical compression
+sweat-proof forever
+miracle performance
 ```
 
 ---
 
 # Final Homepage Feeling
 
-Sau khi xem homepage, khách hàng cần cảm thấy:
+The homepage should feel like:
 
-* Shop Avec Moi là boutique intimate apparel tinh tế
-* Sản phẩm romantic, feminine, soft nhưng không explicit
-* Lingerie và sleepwear được trình bày như fashion/self-care
-* Website có visual đẹp, premium, editorial
-* Chính sách và customer support rõ ràng
-* Brand có cá tính riêng, khác với một shop lingerie rẻ tiền
+> A clean, modern activewear store for dry-fit t-shirts, tracksuits, tank tops, and gym wear made for comfort, movement, and daily training.
 
-Homepage nên truyền tải:
-
-> Shop Avec Moi is a romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials — soft, elegant, confident, and safe for mainstream ecommerce.
+It must be short, sporty, independent, trustworthy, and GMC-safe.

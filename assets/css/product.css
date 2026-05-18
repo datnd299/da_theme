@@ -1,41 +1,41 @@
 /* ============================================================
-   Product Page — Slicktee
-   Streetwear brand: clean, bold, conversion-first
+   Product Page — UK Official Store
+   Activewear brand: clean, sporty, conversion-first
    ============================================================ */
 
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
   --color-bg:             #ffffff;
-  --color-bg-subtle:      #FBF4FF;
-  --color-bg-muted:       #FFF6EE;
-  --color-text-primary:   #24132E;
-  --color-text-secondary: #3B1748;
-  --color-text-muted:     #6D5875;
-  --color-text-soft:      #9D7A83;
-  --color-border:         #E8DFF0;
-  --color-accent:         #6E3A8A;
-  --color-accent-hover:   #3B1748;
-  --color-button-bg:      var(--color-accent-hover);
-  --color-button-hover:   var(--color-accent);
-  --color-button-text:    var(--color-bg);
-  --color-sale:           #B97878;
-  --color-blush:          #E8B8AD;
-  --color-navy:           #3B1748;
-  --color-navy-light:     #9D7A83;
-  --color-ring:           rgba(110, 58, 138, 0.18);
+  --color-bg-subtle:      #F3F5F7;
+  --color-bg-muted:       #F3F5F7;
+  --color-text-primary:   #1F2937;
+  --color-text-secondary: #0B1F33;
+  --color-text-muted:     #4B5563;
+  --color-text-soft:      #9CA3AF;
+  --color-border:         #E5E7EB;
+  --color-accent:         #2563EB;
+  --color-accent-hover:   #0B1F33;
+  --color-button-bg:      #2563EB;
+  --color-button-hover:   #0B1F33;
+  --color-button-text:    #ffffff;
+  --color-sale:           #2563EB;
+  --color-blush:          #A3E635;
+  --color-navy:           #0B1F33;
+  --color-navy-light:     #2563EB;
+  --color-ring:           rgba(37, 99, 235, 0.18);
   --color-background:     var(--color-bg);
   --color-foreground:     var(--color-text-primary);
   --color-foreground-muted: var(--color-text-muted);
   --color-muted:          var(--color-text-soft);
   --color-success:        var(--color-accent);
   --color-alert:          var(--color-sale);
-  --font-primary:         'Inter', system-ui, -apple-system, sans-serif;
+  --font-primary:         'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-sans:            var(--font-primary);
   --radius-md:            8px;
-  --radius-lg:            16px;
+  --radius-lg:            14px;
   --radius-xl:            24px;
-  --shadow-card:          0 1px 4px rgba(59, 23, 72, 0.06);
-  --shadow-card-hover:    0 14px 34px rgba(59, 23, 72, 0.12);
+  --shadow-card:          0 1px 4px rgba(11, 31, 51, 0.06);
+  --shadow-card-hover:    0 14px 34px rgba(11, 31, 51, 0.12);
 }
 
 /* === 1. PAGE LAYOUT === */
@@ -102,7 +102,7 @@ body.single-product {
   border-radius: 999px;
   background: var(--color-bg);
   color: var(--color-sale);
-  box-shadow: 0 8px 18px rgba(59, 23, 72, 0.12);
+  box-shadow: 0 8px 18px rgba(11, 31, 51, 0.12);
   font-family: var(--font-primary);
   font-size: 0.7rem;
   font-weight: 900;
@@ -359,7 +359,7 @@ body.single-product {
   font-weight: 600;
   color: var(--color-text-primary);
   background-color: var(--color-bg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233B1748' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230B1F33' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   border: 1.5px solid var(--color-border);

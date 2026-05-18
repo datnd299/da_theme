@@ -1,182 +1,319 @@
-# Slicktee Design System
+# One Shop Vibe — Design System
 
-## Core Design Philosophy
+## Design Goal
 
-Slicktee should feel like a youthful modern streetwear apparel brand.
+Build a clean, fresh, feminine beauty essentials website for makeup tools, beauty accessories, hair care items, personal care tools, and organizers.
 
-The website experience must be:
-- Clean
-- Energetic
-- Apparel-focused
-- Urban
-- Minimal
-- Confident
-- Modern
-- GMC-safe
+The site should feel:
 
-This is NOT:
-- a generic POD store
-- a meme shirt marketplace
-- a flashy scam store
-- a random dropshipping store
-- a copyright fan merch site
+* Fresh
+* Clean
+* Feminine
+* Practical
+* Friendly
+* Modern
+* Beauty-focused
+* GMC-safe
 
-The design must create:
-- strong merchant trust
-- clear product hierarchy
-- authentic apparel branding
-- modern ecommerce professionalism
-- high contrast readability
+Avoid making the site feel like a fake luxury cosmetics shop, medical skincare brand, or random general store.
 
 ---
 
-# Design Archetype
+## Color Palette
 
-## Brand Identity
+Use a fresher color direction than typical blush/pink beauty websites.
 
-Slicktee =
-
-youthful graphic apparel and everyday streetwear brand.
-
-Visual identity should combine:
-- energetic green accents
-- clean ecommerce structure
-- modern bold typography
-- urban lifestyle photography
-- minimal editorial spacing
-- confident product presentation
-
-The website should resemble:
-- a real direct-to-consumer apparel brand
-- modern streetwear ecommerce
-- clean graphic tee brands
-- youthful lifestyle fashion stores
-
----
-
-# Layout Rules
-
-## General Layout
-
-- Spacious sections
-- Strong vertical rhythm
-- Clean whitespace
-- Clear visual hierarchy
-- Large product imagery
-- Minimal distractions
-- Mobile-first structure
-
-Avoid:
-- crowded homepage
-- small compressed sections
-- random cards everywhere
-- excessive animations
-- cluttered UI
-- marketplace-style product walls
-
----
-
-# Grid System
-
-## Desktop
-
-- 12-column structure
-- Wide content spacing
-- Large hero sections
-- Balanced product grids
-- 4-column product grids where suitable
-
-## Mobile
-
-- Single-column content priority
-- 2-column product grids
-- Large tap targets
-- Clear spacing
-- Easy thumb navigation
-
----
-
-# Container Rules
-
-## Standard Widths
-
-- Main container: max-w-7xl
-- Narrow content: max-w-4xl
-- Text sections: max-w-3xl
-
-Use generous padding:
-- px-4 mobile
-- px-6 tablet
-- px-8 desktop
-
----
-
-# Typography System
-
-## Typography Style
-
-Typography should feel:
-- modern
-- bold
-- sharp
-- youthful
-- fashion-oriented
-- minimal
-
-Recommended direction:
-- bold condensed headings
-- clean sans-serif body text
-- uppercase labels and CTAs
-- short punchy copy
-
-Avoid:
-- playful fonts
-- luxury serif overload
-- futuristic gaming fonts
-- graffiti fonts
-- childish typography
-
----
-
-# Heading Rules
-
-## H1
-
-- Very large
-- Bold
-- Clean
-- High contrast
-- Strong visual impact
-
-Style:
-- uppercase preferred
-- tight line-height
-- strong spacing
-- sharp editorial rhythm
-
-## H2
-
-- Bold
-- Minimal
-- Fashion ecommerce inspired
-- High readability
-- Strong spacing
-
-## Paragraphs
-
-- Short
-- Clean
-- Medium line spacing
-- High readability
-- No keyword stuffing
-
----
-
-# Color System
-
-## Primary Colors
-
-### Jet Black
+### Fresh Citrus
 
 ```txt
-#0B0F0D
+#F7C948
+```
+
+Use for small highlight accents, badges, icons, and energetic details.
+
+### Soft Lilac
+
+```txt
+#DCD5FF
+```
+
+Use for soft background blocks, beauty routine sections, and feminine accents.
+
+### Mint Cream
+
+```txt
+#EAF7F0
+```
+
+Use for clean beauty, personal care, and organizer sections.
+
+### Clean White
+
+```txt
+#FFFFFF
+```
+
+Use for main background, cards, product grids, and forms.
+
+### Charcoal Plum
+
+```txt
+#2D2633
+```
+
+Use for headings, strong text, footer, and premium contrast.
+
+### Soft Gray
+
+```txt
+#F6F7F9
+```
+
+Use for product grid backgrounds, policy pages, and neutral spacing.
+
+### Muted Text
+
+```txt
+#6B6470
+```
+
+Use for body copy and product descriptions.
+
+---
+
+## Color Usage Rules
+
+* Main background: Clean White or Soft Gray
+* Hero background: Mint Cream or Soft Lilac
+* Heading: Charcoal Plum
+* Body text: Muted Text
+* CTA button: Charcoal Plum with white text
+* Accent details: Fresh Citrus
+* Product cards: White with soft border
+
+Avoid:
+
+* Neon pink
+* Heavy black/gold luxury style
+* Red discount-heavy sections
+* Too many pastel colors in one block
+* Low contrast text
+
+---
+
+## Typography
+
+Use clean modern fonts:
+
+```txt
+Inter
+DM Sans
+Manrope
+Plus Jakarta Sans
+Source Sans 3
+```
+
+Rules:
+
+* Headings: bold, clean, slightly playful but professional
+* Body: simple, readable, short paragraphs
+* Product titles: clear and direct
+* Avoid luxury serif fonts and overly cute fonts
+
+---
+
+## Layout Style
+
+Use a clean beauty ecommerce layout:
+
+* Large hero section
+* Soft color blocks
+* Clear category cards
+* Product-focused grids
+* Rounded cards
+* Plenty of whitespace
+* Short copy
+* Mobile-first spacing
+
+Recommended width:
+
+```txt
+max-w-7xl
+```
+
+Recommended spacing:
+
+```txt
+Desktop: py-20
+Mobile: py-14
+```
+
+---
+
+## Homepage Sections
+
+Use 5 sections:
+
+1. Hero — Beauty Essentials For Everyday Confidence
+2. Shop By Category
+3. Makeup Tools & Beauty Accessories
+4. Hair Care & Personal Care Essentials
+5. Customer Care / Trust
+
+Keep homepage clear, bright, and focused on beauty essentials.
+
+---
+
+## Product Categories
+
+Main categories:
+
+```txt
+Beauty Accessories
+Makeup Tools
+Hair Care Essentials
+Personal Care Tools
+Beauty Organizers
+```
+
+Short menu option:
+
+```txt
+Beauty Accessories
+Makeup Tools
+Hair Care
+Personal Care
+```
+
+---
+
+## Image Direction
+
+Use realistic clean beauty imagery:
+
+* Vanity table with beauty tools
+* Makeup brushes and sponges
+* Beauty organizer flat lay
+* Hair accessories on clean surface
+* Personal care tools in soft bathroom setting
+* Cosmetic pouch or travel organizer
+
+Image style:
+
+* Bright natural light
+* Clean background
+* Fresh colors
+* Minimal clutter
+* No text inside image
+* No fake luxury logos
+* No before/after medical visuals
+* No over-edited beauty claims
+
+---
+
+## Product Card Style
+
+Product cards should be simple and fresh:
+
+* White background
+* Soft border
+* Rounded corners 18–22px
+* Clean product image
+* Product title
+* Price
+* Simple CTA
+
+Optional:
+
+* Small category tag
+* Short benefit line
+
+Avoid:
+
+* Too many sale badges
+* Fake reviews
+* Countdown timers
+* Medical claim text
+* Fake branded product names
+
+---
+
+## Buttons
+
+### Primary Button
+
+```txt
+Background: #2D2633
+Text: #FFFFFF
+Hover: #F7C948
+Hover text: #2D2633
+```
+
+### Secondary Button
+
+```txt
+Background: transparent / white
+Border: #2D2633
+Text: #2D2633
+Hover background: #EAF7F0
+```
+
+Button style:
+
+* Rounded 999px or 14px
+* Medium-bold text
+* Clean, friendly, not flashy
+
+---
+
+## Trust Elements
+
+Always include:
+
+* Secure checkout
+* Tracking included
+* 30-day returns
+* Support email
+* Shipping timeline
+* Clear product details
+* Hygiene/original condition note for personal care items
+
+Trust section can use Charcoal Plum background with white text and Fresh Citrus accents.
+
+---
+
+## GMC-Safe Rules
+
+Do not use:
+
+* Medical beauty claims
+* Skin treatment or cure claims
+* Permanent hair removal claims
+* Fake branded cosmetics
+* Counterfeit perfume
+* Weight-loss or supplement messaging
+* Fake reviews
+* Countdown timers
+* Unrealistic beauty transformation claims
+
+Safe wording:
+
+```txt
+beauty essentials
+simple routine
+personal care tools
+makeup helpers
+organized beauty
+hair care accessories
+everyday confidence
+```
+
+---
+
+## Final Design Feeling
+
+One Shop Vibe should look like:
+
+> A fresh, clean, feminine beauty essentials store for makeup tools, beauty accessories, hair care items, personal care tools, and organizers.
+
+The site must feel modern, practical, friendly, beauty-focused, and GMC-safe.

@@ -1,27 +1,29 @@
 /* ============================================================
-   Product Page — Slicktee
-   Streetwear brand: clean, bold, conversion-first
+   Product Page - One Shop Vibe
+   Beauty essentials brand: clean, bright, conversion-first
    ============================================================ */
 
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
   --color-bg:             #ffffff;
-  --color-bg-subtle:      #F7F8F5;
-  --color-text-primary:   #111827;
-  --color-text-secondary: #374151;
-  --color-text-muted:     #6B7280;
+  --color-bg-subtle:      #F6F7F9;
+  --color-text-primary:   #2D2633;
+  --color-text-secondary: #4F4657;
+  --color-text-muted:     #6B6470;
   --color-border:         #E5E7EB;
-  --color-accent:         #22C55E;
-  --color-accent-hover:   #A3E635;
-  --color-sale:           #22C55E;
-  --color-navy:           #0B0F0D;
-  --color-navy-light:     #123D2A;
+  --color-accent:         #F7C948;
+  --color-accent-hover:   #EABF44;
+  --color-sale:           #2D2633;
+  --color-navy:           #2D2633;
+  --color-navy-light:     #4F4657;
+  --color-focus:          #DCD5FF;
+  --color-mint:           #EAF7F0;
   --font-primary:         'Inter', system-ui, -apple-system, sans-serif;
   --radius-md:            8px;
   --radius-lg:            16px;
   --radius-xl:            24px;
-  --shadow-card:          0 1px 4px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover:    0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-card:          0 1px 4px rgba(45, 38, 51, 0.06);
+  --shadow-card-hover:    0 8px 24px rgba(45, 38, 51, 0.12);
 }
 
 /* === 1. PAGE LAYOUT === */
@@ -283,7 +285,7 @@ body.single-product {
   font-weight: 600;
   color: var(--color-text-primary);
   background-color: var(--color-bg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23374151' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232D2633' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   border: 1.5px solid var(--color-border);
@@ -297,7 +299,7 @@ body.single-product {
 .variations_form .value select:focus {
   outline: none;
   border-color: var(--color-navy);
-  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+  box-shadow: 0 0 0 3px rgba(220, 213, 255, 0.65);
 }
 
 /* Reset variations link */
@@ -392,7 +394,7 @@ form.cart:not(.variations_form) {
 
 .single_add_to_cart_button.button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 0 0 3px rgba(220, 213, 255, 0.85);
 }
 
 .single_add_to_cart_button.button.disabled,

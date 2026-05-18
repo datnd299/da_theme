@@ -2,33 +2,77 @@
 /**
  * Template Part: Track Your Order
  */
+
+$shop_links = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
+    ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
+];
+
+$support_email = 'support@oneshopvibe.com';
 ?>
 
 <main class="track-order-page">
 
-    <!-- Hero Section -->
     <section class="track-hero">
         <div class="track-hero__inner">
-            <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
-            <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
-            <p class="track-hero__desc">
-                <?php esc_html_e('Enter your order details below to see your shipment status. We\'ll help you follow your Slicktee order from checkout to delivery.', 'dawp'); ?>
-            </p>
+            <div class="track-hero__copy">
+                <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
+                <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
+                <p class="track-hero__desc">
+                    <?php esc_html_e('Enter your order number and billing email to check the latest One Shop Vibe delivery update.', 'dawp'); ?>
+                </p>
+                <div class="track-hero__actions">
+                    <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="track-hero__button track-hero__button--primary">
+                        <?php esc_html_e('Continue Shopping', 'dawp'); ?>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-hero__button track-hero__button--ghost">
+                        <?php esc_html_e('Contact Support', 'dawp'); ?>
+                    </a>
+                </div>
+            </div>
+
+            <div class="track-hero__panel" aria-label="<?php esc_attr_e('Order progress steps', 'dawp'); ?>">
+                <div class="track-status-card">
+                    <span class="track-status-card__eyebrow"><?php esc_html_e('Typical Flow', 'dawp'); ?></span>
+                    <ol class="track-status-list">
+                        <li>
+                            <span></span>
+                            <div>
+                                <strong><?php esc_html_e('Order Confirmed', 'dawp'); ?></strong>
+                                <p><?php esc_html_e('Your order details are received securely.', 'dawp'); ?></p>
+                            </div>
+                        </li>
+                        <li>
+                            <span></span>
+                            <div>
+                                <strong><?php esc_html_e('Packed & Shipped', 'dawp'); ?></strong>
+                                <p><?php esc_html_e('Tracking is added when the carrier scans your package.', 'dawp'); ?></p>
+                            </div>
+                        </li>
+                        <li>
+                            <span></span>
+                            <div>
+                                <strong><?php esc_html_e('Delivered', 'dawp'); ?></strong>
+                                <p><?php esc_html_e('Check your delivery status anytime from this page.', 'dawp'); ?></p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Form Section -->
     <section class="track-form-section">
         <div class="track-form-section__inner">
-
-            <!-- Form Card -->
             <div class="track-form-card">
+                <div class="track-form-card__header">
+                    <span><?php esc_html_e('Tracking Lookup', 'dawp'); ?></span>
+                    <h2><?php esc_html_e('Find your order', 'dawp'); ?></h2>
+                </div>
                 <div class="track-form-card__body">
                     <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
                 </div>
             </div>
 
-            <!-- Help Box -->
             <div class="track-help-box">
                 <div class="track-help-box__icon" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
@@ -36,14 +80,13 @@
                 <div class="track-help-box__content">
                     <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
                     <p class="track-help-box__text">
-                        <?php esc_html_e('If you have any trouble, please reach out to the Slicktee support team at ', 'dawp'); ?>
-                        <a href="mailto:support@slicktee.com">support@slicktee.com</a>
+                        <?php esc_html_e('If the tracking form cannot find your order, contact One Shop Vibe support at ', 'dawp'); ?>
+                        <a href="<?php echo esc_url('mailto:' . $support_email); ?>"><?php echo esc_html($support_email); ?></a>
                         <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
                     </p>
                 </div>
             </div>
 
-            <!-- Trust Badges -->
             <div class="track-badges">
                 <div class="track-badge">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
@@ -62,12 +105,12 @@
         </div>
     </section>
 
-    <!-- More Ways Section -->
     <section class="track-more-section">
         <div class="track-more-section__inner">
             <div class="track-more-section__header">
-                <h2 class="track-more-section__title"><?php esc_html_e('More Ways We Can Help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth Slicktee shopping experience.', 'dawp'); ?></p>
+                <span class="track-more-section__label"><?php esc_html_e('Quick Links', 'dawp'); ?></span>
+                <h2 class="track-more-section__title"><?php esc_html_e('More ways we can help', 'dawp'); ?></h2>
+                <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and correct shop categories for a smooth One Shop Vibe order experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
@@ -76,12 +119,20 @@
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our Slicktee support team is here to help with order and delivery questions.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Our One Shop Vibe support team is here to help with order and delivery questions.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Find quick answers to our most common customer questions.', 'dawp'); ?></p>
                 </a>
+            </div>
+
+            <div class="track-category-strip" aria-label="<?php esc_attr_e('Shop categories', 'dawp'); ?>">
+                <?php foreach ($shop_links as $link) : ?>
+                    <a href="<?php echo esc_url($link['url']); ?>" class="track-category-link">
+                        <?php echo esc_html($link['title']); ?>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

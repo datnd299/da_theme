@@ -1,77 +1,91 @@
 /* =============================================================
-   TRACK ORDER PAGE - Slicktee palette
+   TRACK ORDER PAGE - One Shop Vibe
    ============================================================= */
 
 .track-order-page {
-  --track-black: #0B0F0D;
-  --track-green: #123D2A;
-  --track-active: #22C55E;
-  --track-lime: #A3E635;
-  --track-soft: #F7F8F5;
-  --track-text: #111827;
-  --track-muted: #6B7280;
-  --track-border: #DDE4DC;
+  --track-ink: #2D2633;
+  --track-muted: #6B6470;
+  --track-border: #E5E7EB;
+  --track-soft: #F6F7F9;
+  --track-mint: #EAF7F0;
+  --track-lilac: #DCD5FF;
+  --track-gold: #F7C948;
   --track-white: #FFFFFF;
   --track-danger: #DC2626;
   --track-success: #16A34A;
-  --track-shadow: 0 18px 48px rgba(11, 15, 13, 0.1);
+  --track-shadow: 0 18px 44px rgba(45, 38, 51, 0.1);
 
   background:
-    radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 28rem),
-    linear-gradient(180deg, var(--track-soft) 0%, var(--track-white) 54%);
-  color: var(--track-text);
+    linear-gradient(180deg, var(--track-white) 0%, var(--track-soft) 48%, var(--track-white) 100%);
+  color: var(--track-ink);
 }
 
 .track-hero {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at top right, rgba(34, 197, 94, 0.35), transparent 34%),
-    linear-gradient(135deg, var(--track-black) 0%, var(--track-green) 58%, var(--track-black) 100%);
+  background: var(--track-ink);
   color: var(--track-white);
-  padding: 5rem 1rem;
+  padding: 4rem 1rem 4.5rem;
+}
+
+.track-hero::before {
+  content: "";
+  position: absolute;
+  inset: auto -8rem -9rem auto;
+  width: 26rem;
+  height: 26rem;
+  background: var(--track-gold);
+  opacity: 0.16;
+  border-radius: 999px;
 }
 
 .track-hero::after {
   content: "";
   position: absolute;
-  right: -6rem;
-  bottom: -8rem;
-  width: 18rem;
-  height: 18rem;
-  border-radius: 999px;
-  background: rgba(163, 230, 53, 0.16);
-  filter: blur(48px);
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  opacity: 0.34;
   pointer-events: none;
 }
 
 .track-hero__inner {
   position: relative;
   z-index: 1;
-  max-width: 48rem;
+  display: grid;
+  gap: 2rem;
+  max-width: 80rem;
   margin: 0 auto;
-  text-align: center;
+  align-items: center;
 }
 
-.track-hero__label {
-  display: inline-block;
-  padding: 0.4rem 1rem;
-  border: 1px solid rgba(163, 230, 53, 0.3);
+.track-hero__copy {
+  max-width: 42rem;
+}
+
+.track-hero__label,
+.track-more-section__label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  background-color: rgba(163, 230, 53, 0.1);
-  color: var(--track-lime);
+  background-color: rgba(247, 201, 72, 0.14);
+  color: var(--track-gold);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   margin-bottom: 1.25rem;
 }
 
 .track-hero__title {
   font-family: var(--font-heading, var(--font-sans));
-  font-size: 2.75rem;
+  font-size: clamp(2.75rem, 8vw, 5.75rem);
   font-weight: 900;
-  line-height: 0.95;
+  line-height: 0.98;
   letter-spacing: 0;
   text-transform: uppercase;
   color: var(--track-white);
@@ -80,28 +94,147 @@
 
 .track-hero__desc {
   font-size: 1.0625rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.78);
   line-height: 1.75;
-  max-width: 40rem;
-  margin: 0 auto;
+  max-width: 36rem;
+  margin: 0;
 }
 
-@media (min-width: 1024px) {
+.track-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.track-hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.track-hero__button:hover {
+  transform: translateY(-2px);
+}
+
+.track-hero__button--primary {
+  background: var(--track-gold);
+  color: var(--track-ink);
+}
+
+.track-hero__button--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: var(--track-white);
+}
+
+.track-hero__button--ghost:hover {
+  border-color: var(--track-lilac);
+  background: rgba(220, 213, 255, 0.1);
+}
+
+.track-hero__panel {
+  width: 100%;
+}
+
+.track-status-card {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1.25rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(14px);
+}
+
+.track-status-card__eyebrow {
+  display: block;
+  color: var(--track-gold);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 1rem;
+}
+
+.track-status-list {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.track-status-list li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.track-status-list span {
+  position: relative;
+  display: inline-flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--track-white);
+  color: var(--track-ink);
+}
+
+.track-status-list span::after {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  margin: auto;
+  border-radius: 999px;
+  background: var(--track-gold);
+}
+
+.track-status-list strong {
+  display: block;
+  color: var(--track-white);
+  font-size: 0.95rem;
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+}
+
+.track-status-list p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (min-width: 900px) {
   .track-hero {
-    padding: 6rem 1.5rem;
+    padding: 5.5rem 1.5rem 6rem;
   }
 
-  .track-hero__title {
-    font-size: 4.75rem;
+  .track-hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 27rem);
   }
 }
 
 .track-form-section {
-  padding: 4rem 1rem;
+  padding: 3.5rem 1rem 4rem;
 }
 
 .track-form-section__inner {
-  max-width: 42rem;
+  display: grid;
+  gap: 1.25rem;
+  max-width: 58rem;
   margin: 0 auto;
 }
 
@@ -110,22 +243,36 @@
   overflow: hidden;
   background-color: var(--track-white);
   border: 1px solid var(--track-border);
-  border-radius: 14px;
+  border-radius: 8px;
   box-shadow: var(--track-shadow);
 }
 
-.track-form-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, var(--track-active), var(--track-lime));
+.track-form-card__header {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.track-form-card__header span {
+  color: var(--track-muted);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.track-form-card__header h2 {
+  font-family: var(--font-heading, var(--font-sans));
+  color: var(--track-ink);
+  font-size: 1.6rem;
+  line-height: 1.15;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .track-form-card__body {
-  padding: 2.25rem 1.5rem 2rem;
+  padding: 1.25rem 1.5rem 1.75rem;
 }
 
 @media (min-width: 768px) {
@@ -133,8 +280,12 @@
     padding: 5rem 1.5rem;
   }
 
+  .track-form-card__header {
+    padding: 2rem 2.25rem 0;
+  }
+
   .track-form-card__body {
-    padding: 3rem 3.5rem 2.5rem;
+    padding: 1.5rem 2.25rem 2.25rem;
   }
 }
 
@@ -142,11 +293,10 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  margin-top: 1.5rem;
   padding: 1.25rem 1.5rem;
-  background-color: var(--track-white);
-  border: 1px solid var(--track-border);
-  border-radius: 12px;
+  background-color: var(--track-mint);
+  border: 1px solid #D8ECE1;
+  border-radius: 8px;
 }
 
 .track-help-box__icon {
@@ -154,8 +304,8 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 999px;
-  background-color: rgba(34, 197, 94, 0.12);
-  color: var(--track-green);
+  background-color: var(--track-white);
+  color: var(--track-ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -164,7 +314,7 @@
 .track-help-box__title {
   font-size: 0.9375rem;
   font-weight: 900;
-  color: var(--track-black);
+  color: var(--track-ink);
   margin: 0 0 0.375rem;
   text-transform: uppercase;
 }
@@ -177,21 +327,18 @@
 }
 
 .track-help-box__text a {
-  color: var(--track-green);
-  font-weight: 800;
-  text-decoration: none;
-}
-
-.track-help-box__text a:hover {
-  color: var(--track-active);
+  color: var(--track-ink);
+  font-weight: 900;
+  text-decoration-color: var(--track-gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .track-badges {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 0.75rem;
 }
 
 .track-badge {
@@ -201,14 +348,14 @@
   padding: 0.625rem 0.875rem;
   border: 1px solid var(--track-border);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.75);
+  background: var(--track-white);
   font-size: 0.8125rem;
-  font-weight: 800;
-  color: var(--track-green);
+  font-weight: 900;
+  color: var(--track-ink);
 }
 
 .track-badge svg {
-  color: var(--track-active);
+  color: var(--track-gold);
   flex-shrink: 0;
 }
 
@@ -224,58 +371,65 @@
 }
 
 .track-more-section__header {
-  text-align: center;
-  margin-bottom: 2.5rem;
+  display: grid;
+  gap: 0.5rem;
+  max-width: 42rem;
+  margin-bottom: 2rem;
+}
+
+.track-more-section__label {
+  color: var(--track-ink);
+  background: var(--track-lilac);
+  width: fit-content;
+  margin-bottom: 0.5rem;
 }
 
 .track-more-section__title {
   font-family: var(--font-heading, var(--font-sans));
-  font-size: 2rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
   font-weight: 900;
-  color: var(--track-black);
+  color: var(--track-ink);
   text-transform: uppercase;
-  margin: 0 0 0.5rem;
+  margin: 0;
 }
 
 .track-more-section__subtitle {
   font-size: 0.9375rem;
   color: var(--track-muted);
+  line-height: 1.7;
   margin: 0;
 }
 
 .track-more-grid {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .track-more-card {
   display: block;
+  min-height: 10.5rem;
   padding: 1.5rem;
   border: 1px solid var(--track-border);
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--track-soft);
-  text-align: center;
   text-decoration: none;
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .track-more-card:hover {
   background-color: var(--track-white);
-  border-color: var(--track-active);
-  box-shadow: 0 12px 28px rgba(11, 15, 13, 0.08);
+  border-color: var(--track-gold);
+  box-shadow: 0 12px 28px rgba(45, 38, 51, 0.08);
   transform: translateY(-2px);
 }
 
 .track-more-card__title {
   font-size: 1rem;
   font-weight: 900;
-  color: var(--track-black);
-  margin: 0 0 0.5rem;
+  color: var(--track-ink);
+  margin: 0 0 0.65rem;
   text-transform: uppercase;
-}
-
-.track-more-card:hover .track-more-card__title {
-  color: var(--track-green);
 }
 
 .track-more-card__desc {
@@ -283,6 +437,39 @@
   color: var(--track-muted);
   line-height: 1.6;
   margin: 0;
+}
+
+.track-category-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--track-border);
+}
+
+.track-category-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--track-border);
+  border-radius: 999px;
+  background: var(--track-white);
+  color: var(--track-ink);
+  font-size: 0.8125rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.track-category-link:hover {
+  border-color: var(--track-gold);
+  background: var(--track-gold);
+  transform: translateY(-2px);
 }
 
 @media (min-width: 768px) {
@@ -333,8 +520,8 @@
 
 .form-row label,
 .woocommerce-form-row label {
-  color: var(--track-black) !important;
-  font-weight: 800 !important;
+  color: var(--track-ink) !important;
+  font-weight: 900 !important;
   font-size: 0.875rem !important;
   font-family: var(--font-sans) !important;
   display: block !important;
@@ -349,7 +536,7 @@
   border-radius: 8px !important;
   border: 1.5px solid var(--track-border) !important;
   background-color: var(--track-soft) !important;
-  color: var(--track-text) !important;
+  color: var(--track-ink) !important;
   font-size: 0.9375rem !important;
   font-family: var(--font-sans) !important;
   outline: none !important;
@@ -364,17 +551,17 @@
 
 .form-row input.input-text:focus,
 .woocommerce-form-row input.input-text:focus {
-  border-color: var(--track-active) !important;
+  border-color: var(--track-ink) !important;
   background-color: var(--track-white) !important;
-  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.28) !important;
+  box-shadow: 0 0 0 3px rgba(220, 213, 255, 0.75) !important;
 }
 
 .form-row button.button,
 .woocommerce-form-row button.button {
   width: 100% !important;
   min-height: 3.5rem !important;
-  background-color: var(--track-active) !important;
-  color: var(--track-black) !important;
+  background-color: var(--track-ink) !important;
+  color: var(--track-white) !important;
   padding: 1rem 2rem !important;
   border-radius: 8px !important;
   font-weight: 900 !important;
@@ -384,16 +571,17 @@
   text-transform: uppercase !important;
   cursor: pointer !important;
   border: none !important;
-  box-shadow: 0 12px 26px rgba(34, 197, 94, 0.22) !important;
-  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  box-shadow: 0 12px 26px rgba(45, 38, 51, 0.2) !important;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
   margin-top: 0.5rem !important;
 }
 
 .form-row button.button:hover,
 .woocommerce-form-row button.button:hover {
-  background-color: var(--track-lime) !important;
+  background-color: var(--track-gold) !important;
+  color: var(--track-ink) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 16px 32px rgba(34, 197, 94, 0.28) !important;
+  box-shadow: 0 16px 32px rgba(247, 201, 72, 0.28) !important;
 }
 
 .form-row button.button:active,
@@ -404,7 +592,7 @@
 .woocommerce-error {
   background-color: #FEF2F2 !important;
   border: 1px solid rgba(220, 38, 38, 0.28) !important;
-  border-radius: 10px !important;
+  border-radius: 8px !important;
   padding: 1rem 1.25rem !important;
   list-style: none !important;
   color: var(--track-danger) !important;
@@ -433,11 +621,11 @@
 }
 
 .woocommerce-message {
-  background-color: rgba(34, 197, 94, 0.1) !important;
-  border: 1px solid rgba(34, 197, 94, 0.24) !important;
-  border-radius: 10px !important;
+  background-color: var(--track-mint) !important;
+  border: 1px solid #D8ECE1 !important;
+  border-radius: 8px !important;
   padding: 1rem 1.25rem !important;
-  color: var(--track-green) !important;
+  color: var(--track-ink) !important;
   font-size: 0.875rem !important;
   margin: 0 0 1.5rem !important;
 }
@@ -450,7 +638,7 @@
   padding: 1rem 1.25rem;
   background-color: var(--track-soft);
   border: 1px solid var(--track-border);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .order-info mark {
@@ -460,12 +648,12 @@
 
 .order-info mark.order-number,
 .order-info mark.order-date {
-  color: var(--track-black);
+  color: var(--track-ink);
 }
 
 .order-info mark.order-status {
-  color: var(--track-black);
-  background-color: var(--track-lime);
+  color: var(--track-ink);
+  background-color: var(--track-gold);
   padding: 0.125rem 0.625rem;
   border-radius: 999px;
   font-size: 0.8125rem;
@@ -481,10 +669,10 @@
   font-family: var(--font-heading, var(--font-sans));
   font-size: 1.25rem;
   font-weight: 900;
-  color: var(--track-black);
+  color: var(--track-ink);
   margin: 0 0 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 3px solid var(--track-active);
+  border-bottom: 3px solid var(--track-gold);
   display: inline-block;
   text-transform: uppercase;
 }
@@ -501,10 +689,10 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--track-green);
+  color: var(--track-ink);
   padding: 0.75rem;
   border-bottom: 1px solid var(--track-border);
-  background-color: var(--track-soft);
+  background-color: var(--track-mint);
 }
 
 .woocommerce-table--order-details thead th.product-total {
@@ -525,7 +713,7 @@
 }
 
 .woocommerce-table__product-name a {
-  color: var(--track-black);
+  color: var(--track-ink);
   font-weight: 800;
   text-decoration: none;
   line-height: 1.5;
@@ -535,7 +723,7 @@
 }
 
 .woocommerce-table__product-name a:hover {
-  color: var(--track-active);
+  color: var(--track-muted);
 }
 
 .product-quantity {
@@ -548,7 +736,7 @@
   text-align: right;
   white-space: nowrap;
   font-weight: 800;
-  color: var(--track-black);
+  color: var(--track-ink);
 }
 
 .woocommerce-table--order-details tfoot tr th {
@@ -565,7 +753,7 @@
   text-align: right;
   font-size: 0.875rem;
   font-weight: 800;
-  color: var(--track-black);
+  color: var(--track-ink);
   padding: 0.625rem 0.75rem;
   border-top: 1px solid var(--track-border);
 }
@@ -574,14 +762,14 @@
 .woocommerce-table--order-details tfoot tr:nth-last-child(2) td {
   font-size: 1rem;
   font-weight: 900;
-  color: var(--track-black);
+  color: var(--track-ink);
   padding-top: 0.875rem;
   padding-bottom: 0.875rem;
   border-top: 2px solid var(--track-border);
 }
 
 .woocommerce-table--order-details tfoot tr:nth-last-child(2) td {
-  color: var(--track-green);
+  color: var(--track-ink);
 }
 
 .woocommerce-table--order-details tfoot tr:last-child th,

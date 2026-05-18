@@ -1,381 +1,177 @@
 <?php
 /**
- * Template Name: About Us
- * Template Part: page-about-us
+ * Template Part: page-about
  */
 
-get_header();
+$oneshopvibe_gallery_uri = get_theme_file_uri('/assets/img/gallery/Oneshopvibe/');
+
+$images = [
+    'mission' => $oneshopvibe_gallery_uri . 'Beauty_Organizers.png',
+    'values' => $oneshopvibe_gallery_uri . 'Makeup_Tools_Beauty_Accessories.png',
+];
 ?>
 
-<main id="primary" class="bg-white text-slickText font-body">
+<div id="primary" class="bg-white font-body text-[#2D2633]">
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slickBlack text-white">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-        <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-slickActive/20 blur-3xl"></div>
-        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-slickLime/10 blur-3xl"></div>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-[#DCD5FF]">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.4),transparent_40%),radial-gradient(circle_at_bottom_left,rgba(247,201,72,0.2),transparent_30%)]"></div>
 
-        <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
-            <div class="max-w-3xl">
-                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-slickLime">
-                    <?php esc_html_e('About Slicktee', 'dawp'); ?>
-                </p>
+        <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 text-center">
+            <p class="mb-5 inline-flex rounded-full bg-white px-5 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#2D2633] shadow-sm">
+                <?php esc_html_e('About One Shop Vibe', 'dawp'); ?>
+            </p>
 
-                <h1 class="font-heading text-5xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Clean Apparel For Daily Rotation.', 'dawp'); ?>
-                </h1>
+            <h1 class="mx-auto max-w-4xl font-heading text-5xl font-black leading-[0.96] text-[#2D2633] sm:text-6xl lg:text-7xl">
+                <?php esc_html_e('Beauty essentials for simple everyday confidence.', 'dawp'); ?>
+            </h1>
 
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-                    <?php esc_html_e('Slicktee is a modern streetwear apparel brand built around graphic tees, oversized silhouettes, casual hoodies, and everyday essentials made for clean, confident styling.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-9 flex flex-wrap gap-4">
-                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-7 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                        <?php esc_html_e('Shop The Collection', 'dawp'); ?>
-                    </a>
-
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                        <?php esc_html_e('Contact Us', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
-
-            <div class="relative">
-                <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/About_image.png'); ?>"
-                         alt="<?php esc_attr_e('Slicktee modern streetwear apparel style', 'dawp'); ?>"
-                         class="aspect-[4/5] w-full rounded-[1.35rem] object-cover">
-                </div>
-
-                <div class="absolute -bottom-7 -left-4 hidden max-w-[260px] rounded-2xl border border-white/10 bg-white p-5 text-slickText shadow-2xl lg:block">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-slickGreen">
-                        <?php esc_html_e('Apparel First', 'dawp'); ?>
-                    </p>
-                    <p class="mt-2 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Graphic tees, relaxed fits, and essentials designed for everyday wear.', 'dawp'); ?>
-                    </p>
-                </div>
-            </div>
+            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#4F4657]">
+                <?php esc_html_e('We bring you practical beauty accessories, makeup tools, and personal care essentials designed to make your daily routine easier, more organized, and stress-free.', 'dawp'); ?>
+            </p>
         </div>
     </section>
 
-    <!-- Brand Intro -->
-    <section class="bg-slickSoft py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                    <?php esc_html_e('Who We Are', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em] text-slickText lg:text-6xl">
-                    <?php esc_html_e('A modern graphic apparel brand without the noise.', 'dawp'); ?>
-                </h2>
-            </div>
-
-            <div class="space-y-5 text-base leading-8 text-slickMuted">
-                <p>
-                    <?php esc_html_e('Slicktee was built for people who want clean graphic apparel that fits naturally into everyday life. Our focus is simple: wearable tees, relaxed silhouettes, comfortable hoodies, and streetwear essentials that feel easy to style.', 'dawp'); ?>
-                </p>
-                <p>
-                    <?php esc_html_e('We are not here to create a random marketplace of loud novelty shirts. Slicktee is designed to feel like a focused apparel brand with consistent visuals, clean product presentation, and original streetwear direction.', 'dawp'); ?>
-                </p>
-                <p>
-                    <?php esc_html_e('Every page, collection, and product experience is built around clear browsing, strong visuals, and a trustworthy ecommerce structure.', 'dawp'); ?>
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Brand Positioning Cards -->
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-            <div class="mb-10 max-w-3xl">
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                    <?php esc_html_e('Brand Direction', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText lg:text-5xl">
-                    <?php esc_html_e('Built For Clean Streetwear Energy.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-4 text-base leading-7 text-slickMuted">
-                    <?php esc_html_e('Slicktee keeps the product experience focused, modern, and apparel-native.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
-                        01
-                    </div>
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Graphic Tees', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Clean graphic apparel made for daily outfits, not one-time novelty wear.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">
-                        02
-                    </div>
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Relaxed Fits', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Oversized silhouettes and casual shapes that feel modern, easy, and wearable.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
-                        03
-                    </div>
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Streetwear Basics', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Everyday essentials made for layering, rotating, and styling without effort.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">
-                        04
-                    </div>
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Clear Shopping', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Focused categories, clean product cards, and transparent customer policies.', 'dawp'); ?>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Image + Philosophy Section -->
-    <section class="bg-slickBlack py-16 text-white lg:py-24">
+    <!-- Mission / Story -->
+    <section class="bg-white py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div class="order-2 lg:order-1">
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#6B6470]">
+                    <?php esc_html_e('Our Mission', 'dawp'); ?>
+                </p>
 
-            <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/about_image%233.png'); ?>"
-                     alt="<?php esc_attr_e('Urban streetwear outfit and apparel styling', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover">
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-5xl">
+                    <?php esc_html_e('Keeping self-care simple and affordable.', 'dawp'); ?>
+                </h2>
+
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B6470]">
+                    <?php esc_html_e('At One Shop Vibe, we know that an organized vanity and the right tools can make all the difference in your day. Our goal is to provide simple, reliable, and affordable beauty helpers that support your everyday routine.', 'dawp'); ?>
+                </p>
+                <p class="mt-4 max-w-2xl text-base leading-8 text-[#6B6470]">
+                    <?php esc_html_e('Whether you are looking for soft makeup sponges, organized cosmetic storage, or daily hair care essentials, our curated collection is focused on practical items that you will reach for time and time again.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-8">
+                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F7C948] hover:text-[#2D2633]">
+                        <?php esc_html_e('Shop All Essentials', 'dawp'); ?>
+                    </a>
+                </div>
+            </div>
+
+            <div class="order-1 overflow-hidden rounded-[1.25rem] border border-[#E5E7EB] bg-white p-3 shadow-sm lg:order-2">
+                <img src="<?php echo esc_url($images['mission']); ?>"
+                     alt="<?php esc_attr_e('Clean vanity setup with beauty organizers and makeup tools', 'dawp'); ?>"
+                     class="aspect-[4/3] w-full rounded-2xl object-cover"
+                     loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="bg-[#EAF7F0] py-14 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#6B6470]">
+                <?php esc_html_e('What We Offer', 'dawp'); ?>
+            </p>
+            <h2 class="mx-auto max-w-2xl font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-5xl">
+                <?php esc_html_e('Practical tools for polished routines.', 'dawp'); ?>
+            </h2>
+
+            <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+                <div class="rounded-2xl bg-white p-8 shadow-sm text-left">
+                    <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#DCD5FF] text-[#2D2633]">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-black text-[#2D2633]"><?php esc_html_e('Everyday Practicality', 'dawp'); ?></h3>
+                    <p class="mt-3 text-sm leading-6 text-[#6B6470]">
+                        <?php esc_html_e('No confusing gimmicks. Just simple beauty accessories and tools designed to easily fit into your day-to-day life.', 'dawp'); ?>
+                    </p>
+                </div>
+                
+                <div class="rounded-2xl bg-white p-8 shadow-sm text-left">
+                    <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#F7C948] text-[#2D2633]">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-black text-[#2D2633]"><?php esc_html_e('Clean & Organized', 'dawp'); ?></h3>
+                    <p class="mt-3 text-sm leading-6 text-[#6B6470]">
+                        <?php esc_html_e('We love an organized vanity. Our selection of cosmetic bags and storage boxes keep your essentials neat and easy to find.', 'dawp'); ?>
+                    </p>
+                </div>
+
+                <div class="rounded-2xl bg-white p-8 shadow-sm text-left">
+                    <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#2D2633] text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-black text-[#2D2633]"><?php esc_html_e('Accessible Quality', 'dawp'); ?></h3>
+                    <p class="mt-3 text-sm leading-6 text-[#6B6470]">
+                        <?php esc_html_e('Good tools shouldn\'t have to be expensive. We focus on affordable essentials without compromising on reliability.', 'dawp'); ?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Customer Care -->
+    <section class="bg-white py-14 lg:py-20">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div class="overflow-hidden rounded-[1.25rem] border border-[#E5E7EB] bg-white p-3 shadow-sm">
+                <img src="<?php echo esc_url($images['values']); ?>"
+                     alt="<?php esc_attr_e('Makeup brushes and accessories layout', 'dawp'); ?>"
+                     class="aspect-[4/3] w-full rounded-2xl object-cover"
+                     loading="lazy">
             </div>
 
             <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Our Apparel Philosophy', 'dawp'); ?>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#6B6470]">
+                    <?php esc_html_e('Shop With Confidence', 'dawp'); ?>
                 </p>
 
-                <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em] lg:text-6xl">
-                    <?php esc_html_e('Wearable first. Graphic second. Always clean.', 'dawp'); ?>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-5xl">
+                    <?php esc_html_e('Clear details and reliable support.', 'dawp'); ?>
                 </h2>
 
-                <div class="mt-6 space-y-5 text-base leading-8 text-white/82">
-                    <p>
-                        <?php esc_html_e('We believe graphic apparel should be easy to wear, not hard to style. Every collection should feel intentional, clean, and useful for real outfits.', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <?php esc_html_e('That means strong product imagery, consistent fits, clear categories, and graphics that support the look instead of overpowering it.', 'dawp'); ?>
-                    </p>
-                </div>
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B6470]">
+                    <?php esc_html_e('We want your shopping experience to be as smooth as your beauty routine. Our team is dedicated to providing transparent product details, straightforward policies, and responsive customer service.', 'dawp'); ?>
+                </p>
 
                 <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                        <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
-                            <?php esc_html_e('No Random Marketplace Feel', 'dawp'); ?>
+                    <div class="rounded-[1.25rem] border border-[#E5E7EB] bg-[#F6F7F9] p-5">
+                        <p class="text-xs font-black uppercase tracking-[0.16em] text-[#2D2633]">
+                            <?php esc_html_e('Order Processing', 'dawp'); ?>
                         </p>
-                        <p class="mt-2 text-sm leading-6 text-white/70">
-                            <?php esc_html_e('Focused apparel only.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                        <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
-                            <?php esc_html_e('No Copyright Noise', 'dawp'); ?>
-                        </p>
-                        <p class="mt-2 text-sm leading-6 text-white/70">
-                            <?php esc_html_e('Original, brand-led direction.', 'dawp'); ?>
+                        <p class="mt-2 text-sm leading-6 text-[#6B6470]">
+                            <?php esc_html_e('Orders are typically processed within 2-4 business days before standard dispatch.', 'dawp'); ?>
                         </p>
                     </div>
+                    <div class="rounded-[1.25rem] border border-[#E5E7EB] bg-[#F6F7F9] p-5">
+                        <p class="text-xs font-black uppercase tracking-[0.16em] text-[#2D2633]">
+                            <?php esc_html_e('30-Day Returns', 'dawp'); ?>
+                        </p>
+                        <p class="mt-2 text-sm leading-6 text-[#6B6470]">
+                            <?php esc_html_e('Eligible unused items in original condition can be returned within 30 days.', 'dawp'); ?>
+                        </p>
+                    </div>
                 </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- What We Avoid -->
-    <section class="bg-slickSoft py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-            <div class="mb-10 max-w-3xl">
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                    <?php esc_html_e('Why Slicktee Feels Different', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText lg:text-5xl">
-                    <?php esc_html_e('Not a POD spam store. Not a meme marketplace.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-4 text-base leading-7 text-slickMuted">
-                    <?php esc_html_e('The brand is built to feel focused, original, and apparel-native.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-
-                <div class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm">
-                    <p class="mb-4 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('We Avoid', 'dawp'); ?>
-                    </p>
-                    <h3 class="font-heading text-3xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Copyright-Heavy Graphics', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-4 text-sm leading-7 text-slickMuted">
-                        <?php esc_html_e('Slicktee is designed around clean original presentation, not celebrity images, anime references, fan merch, or trademarked designs.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm">
-                    <p class="mb-4 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('We Avoid', 'dawp'); ?>
-                    </p>
-                    <h3 class="font-heading text-3xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Overcrowded Product Walls', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-4 text-sm leading-7 text-slickMuted">
-                        <?php esc_html_e('Collections should feel curated and easy to browse, not like a marketplace filled with random shirt uploads.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm">
-                    <p class="mb-4 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('We Avoid', 'dawp'); ?>
-                    </p>
-                    <h3 class="font-heading text-3xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Fake Urgency Tactics', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-4 text-sm leading-7 text-slickMuted">
-                        <?php esc_html_e('No fake countdowns, exaggerated claims, or pressure-heavy shopping patterns. The experience should feel confident and clear.', 'dawp'); ?>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust / Values -->
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-            <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-                <div class="max-w-3xl">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Customer Trust', 'dawp'); ?>
-                    </p>
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText lg:text-5xl">
-                        <?php esc_html_e('Clear policies. Clean shopping. Real apparel focus.', 'dawp'); ?>
-                    </h2>
-                </div>
-
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
-                   class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickBlack px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">
-                    <?php esc_html_e('View Policies', 'dawp'); ?>
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Secure Checkout', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('A clear checkout flow designed for trustworthy ecommerce shopping.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Tracking Included', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Customers receive tracking details once an order ships.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('30-Day Returns', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Eligible unworn and unwashed items may be returned within 30 days.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Support Available', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Contact support for order, shipping, product, or return questions.', 'dawp'); ?>
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="overflow-hidden bg-slickBlack text-white">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
-
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Start Your Rotation', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em] lg:text-6xl">
-                    <?php esc_html_e('Find your next everyday fit.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
-                    <?php esc_html_e('Explore graphic tees, oversized staples, hoodies, and streetwear essentials made for clean daily styling.', 'dawp'); ?>
-                </p>
 
                 <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                        <?php esc_html_e('Shop Now', 'dawp'); ?>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F7C948] hover:text-[#2D2633]">
+                        <?php esc_html_e('Contact Us', 'dawp'); ?>
                     </a>
-
-                    <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                        <?php esc_html_e('Graphic Tees', 'dawp'); ?>
+                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black uppercase tracking-wide text-[#2D2633] transition hover:bg-[#F6F7F9]">
+                        <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
                     </a>
                 </div>
             </div>
-
-            <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/about_image%232.png'); ?>"
-                     alt="<?php esc_attr_e('Slicktee everyday streetwear apparel collection', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover opacity-90">
-            </div>
-
         </div>
     </section>
 
-</main>
-
-<?php
-get_footer();
+</div>

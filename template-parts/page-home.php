@@ -1,328 +1,347 @@
+<?php
+/**
+ * Template Part: page-home
+ */
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-[#0B0F0D] text-white">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-      <div class="absolute -right-20 top-20 h-72 w-72 rounded-full bg-[#A3E635]/20 blur-3xl"></div>
-      <div class="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-[#22C55E]/20 blur-3xl"></div>
+$oneshopvibe_gallery_uri = get_theme_file_uri('/assets/img/gallery/Oneshopvibe/');
 
-      <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
-        <div class="max-w-2xl">
-          <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[#A3E635]">
-            Graphic Apparel / Streetwear Essentials
-          </p>
+$images = [
+    'hero' => $oneshopvibe_gallery_uri . 'Beauty_Essentials_Personal_Care.png',
+    'beauty_accessories' => $oneshopvibe_gallery_uri . 'Beauty_Accessories.png',
+    'makeup_tools' => $oneshopvibe_gallery_uri . 'makeup_tools.png',
+    'hair_care' => $oneshopvibe_gallery_uri . 'haircare.png',
+    'personal_care' => $oneshopvibe_gallery_uri . 'Personal_care.png',
+    'organizers' => $oneshopvibe_gallery_uri . 'Beauty_Organizers.png',
+    'makeup_feature' => $oneshopvibe_gallery_uri . 'Makeup_Tools_Beauty_Accessories.png',
+    'care_feature' => $oneshopvibe_gallery_uri . 'Hair_Care_Personal_Care.png',
+];
 
-          <h1 class="text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl">
-            Clean Fits. Bold Energy.
-          </h1>
+$categories = [
+    [
+        'title' => __('Beauty Accessories', 'dawp'),
+        'copy' => __('Small beauty helpers for simple everyday routines.', 'dawp'),
+        'url' => home_url('/product-category/beauty-accessories/'),
+        'image' => $images['beauty_accessories'],
+        'accent' => '#F7C948',
+    ],
+    [
+        'title' => __('Makeup Tools', 'dawp'),
+        'copy' => __('Brushes, sponges, and tools for easier makeup application.', 'dawp'),
+        'url' => home_url('/product-category/makeup-tools/'),
+        'image' => $images['makeup_tools'],
+        'accent' => '#DCD5FF',
+    ],
+    [
+        'title' => __('Hair Care Essentials', 'dawp'),
+        'copy' => __('Hair accessories and tools for daily styling and care.', 'dawp'),
+        'url' => home_url('/product-category/hair-care-essentials/'),
+        'image' => $images['hair_care'],
+        'accent' => '#EAF7F0',
+    ],
+    [
+        'title' => __('Personal Care Tools', 'dawp'),
+        'copy' => __('Practical grooming and personal-use tools for daily self-care.', 'dawp'),
+        'url' => home_url('/product-category/personal-care-tools/'),
+        'image' => $images['personal_care'],
+        'accent' => '#F7C948',
+    ],
+    [
+        'title' => __('Beauty Organizers', 'dawp'),
+        'copy' => __('Storage solutions that keep cosmetics and tools easy to find.', 'dawp'),
+        'url' => home_url('/product-category/beauty-organizers/'),
+        'image' => $images['organizers'],
+        'accent' => '#DCD5FF',
+    ],
+];
+?>
 
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/85">
-            Modern graphic tees, oversized silhouettes, casual hoodies, and everyday streetwear essentials built for clean style without the noise.
-          </p>
+<div id="primary" class="bg-white font-body text-[#2D2633]">
 
-          <div class="mt-9 flex flex-wrap gap-4">
-            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#22C55E] px-7 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Now
-            </a>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-[#EAF7F0]">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,213,255,0.72),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(247,201,72,0.28),transparent_30%)]"></div>
 
-            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">
-              Explore Graphic Tees
-            </a>
-          </div>
-        </div>
+        <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-14 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8 lg:py-20">
+            <div class="max-w-3xl">
+                <p class="mb-5 inline-flex rounded-full bg-white px-5 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#2D2633] shadow-sm">
+                    <?php esc_html_e('Beauty Essentials & Personal Care', 'dawp'); ?>
+                </p>
 
-        <div class="relative">
-          <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/image_banner%231.png'); ?>" alt="Modern streetwear graphic tee outfit" class="aspect-[4/5] w-full rounded-[1.35rem] object-cover" />
-          </div>
+                <h1 class="font-heading text-5xl font-black leading-[0.96] text-[#2D2633] sm:text-6xl lg:text-7xl">
+                    <?php esc_html_e('Beauty Essentials For Everyday Confidence', 'dawp'); ?>
+                </h1>
 
-          <div class="absolute -bottom-7 -left-4 hidden max-w-[250px] rounded-2xl border border-white/10 bg-white p-5 text-[#111827] shadow-2xl lg:block">
-            <p class="text-xs font-black uppercase tracking-[0.2em] text-[#123D2A]">Built For Daily Wear</p>
-            <p class="mt-2 text-sm leading-6 text-[#6B7280]">Clean graphics. Easy fits. Street-ready comfort.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#6B6470]">
+                    <?php esc_html_e('Discover simple beauty accessories, makeup tools, hair care essentials, and personal care products made for easy daily routines.', 'dawp'); ?>
+                </p>
 
-    <!-- Featured Categories -->
-    <section class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Shop By Category</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Streetwear Core</h2>
-          </div>
-          <p class="max-w-xl text-base leading-7 text-[#6B7280]">
-            Focused collections for graphic tees, oversized fits, hoodies, and everyday streetwear essentials.
-          </p>
-        </div>
+                <div class="mt-9 flex flex-wrap gap-4">
+                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F7C948] hover:text-[#2D2633]">
+                        <?php esc_html_e('Shop Beauty Essentials', 'dawp'); ?>
+                    </a>
 
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/graphic_tee1.png'); ?>" alt="Graphic tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Graphic Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Original tee styles for everyday rotation.</p>
-              </div>
+                    <a href="<?php echo esc_url(home_url('/product-category/makeup-tools/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black uppercase tracking-wide text-[#2D2633] transition hover:bg-[#DCD5FF]">
+                        <?php esc_html_e('Explore Makeup Tools', 'dawp'); ?>
+                    </a>
+                </div>
+
+                <div class="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+                    <div class="rounded-2xl bg-white p-5 shadow-sm">
+                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('2-4', 'dawp'); ?></p>
+                        <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Business day processing', 'dawp'); ?></p>
+                    </div>
+                    <div class="rounded-2xl bg-white p-5 shadow-sm">
+                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('5-10', 'dawp'); ?></p>
+                        <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Business day US shipping', 'dawp'); ?></p>
+                    </div>
+                    <div class="rounded-2xl bg-white p-5 shadow-sm">
+                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('30', 'dawp'); ?></p>
+                        <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Day eligible returns', 'dawp'); ?></p>
+                    </div>
+                </div>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversize tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Oversize Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Relaxed silhouettes with modern street fit.</p>
-              </div>
+            <div class="relative">
+                <div class="overflow-hidden rounded-[1.375rem] border border-white bg-white p-3 shadow-xl shadow-black/10">
+                    <img src="<?php echo esc_url($images['hero']); ?>"
+                         alt="<?php esc_attr_e('Vanity table with makeup tools, brushes, beauty pouch, and daily beauty essentials', 'dawp'); ?>"
+                         class="aspect-[4/5] w-full rounded-2xl object-cover"
+                         fetchpriority="high">
+                </div>
+
+                <div class="absolute -bottom-6 left-6 hidden max-w-[280px] rounded-2xl border border-[#E5E7EB] bg-white p-5 shadow-xl lg:block">
+                    <p class="text-xs font-black uppercase tracking-[0.18em] text-[#2D2633]">
+                        <?php esc_html_e('Simple Routine Support', 'dawp'); ?>
+                    </p>
+                    <p class="mt-2 text-sm leading-6 text-[#6B6470]">
+                        <?php esc_html_e('Practical tools for organized beauty, grooming, and self-care moments.', 'dawp'); ?>
+                    </p>
+                </div>
             </div>
-          </a>
+        </div>
+    </section>
 
-          <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/hoodie%231.png'); ?>" alt="Hoodies collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Hoodies</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Clean layering pieces for casual outfits.</p>
-              </div>
+    <!-- Shop By Category -->
+    <section class="bg-[#F6F7F9] py-14 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#6B6470]">
+                        <?php esc_html_e('Shop By Category', 'dawp'); ?>
+                    </p>
+                    <h2 class="font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-5xl">
+                        <?php esc_html_e('Find beauty essentials by routine.', 'dawp'); ?>
+                    </h2>
+                </div>
+
+                <a href="<?php echo esc_url(home_url('/shop/')); ?>"
+                   class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F7C948] hover:text-[#2D2633]">
+                    <?php esc_html_e('Shop All', 'dawp'); ?>
+                </a>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/streetwear-essentials/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/banner_image%232.png'); ?>" alt="Streetwear essentials collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Essentials</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Minimal apparel built for easy styling.</p>
-              </div>
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+                <?php foreach ($categories as $category) : ?>
+                    <a href="<?php echo esc_url($category['url']); ?>"
+                       class="group overflow-hidden rounded-[1.25rem] border border-[#E5E7EB] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                        <div class="relative overflow-hidden">
+                            <img src="<?php echo esc_url($category['image']); ?>"
+                                 alt="<?php echo esc_attr($category['title']); ?>"
+                                 class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
+                                 loading="lazy">
+                            <span class="absolute left-4 top-4 h-9 w-9 rounded-full border border-white/70 shadow-sm"
+                                  style="background-color: <?php echo esc_attr($category['accent']); ?>"></span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="text-xl font-black leading-snug text-[#2D2633]">
+                                <?php echo esc_html($category['title']); ?>
+                            </h3>
+                            <p class="mt-3 text-sm leading-6 text-[#6B6470]">
+                                <?php echo esc_html($category['copy']); ?>
+                            </p>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
             </div>
-          </a>
         </div>
-      </div>
     </section>
 
-    <!-- New Arrivals -->
-    <section id="new-arrivals" class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Fresh Drops</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">New Arrivals</h2>
-          </div>
-
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden rounded-md border border-[#0B0F0D] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#0B0F0D] hover:text-white sm:inline-flex">
-            View All
-          </a>
-        </div>
-
-        <?php
-        $new_arrivals = wc_get_products([
-          'limit'   => 4,
-          'orderby' => 'date',
-          'order'   => 'DESC',
-          'status'  => 'publish',
-        ]);
-        ?>
-
-        <?php if ($new_arrivals) : ?>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <?php foreach ($new_arrivals as $product) :
-            $img_url  = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url  = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
-            $price    = $product->get_price_html();
-            $link     = get_permalink($product->get_id());
-            $name     = $product->get_name();
-          ?>
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
+    <!-- Makeup Tools & Beauty Accessories -->
+    <section class="bg-white py-14 lg:py-20">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div class="overflow-hidden rounded-[1.25rem] border border-[#E5E7EB] bg-white p-3 shadow-sm">
+                <img src="<?php echo esc_url($images['makeup_feature']); ?>"
+                     alt="<?php esc_attr_e('Makeup brushes, applicators, mirrors, and small beauty accessories on a bright vanity', 'dawp'); ?>"
+                     class="aspect-[4/3] w-full rounded-2xl object-cover"
+                     loading="lazy">
             </div>
-            <div class="p-4">
-              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
-              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
-              <a href="<?php echo esc_url($link); ?>" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-slickBlack px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">View Product</a>
+
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#6B6470]">
+                    <?php esc_html_e('Makeup Tools & Beauty Accessories', 'dawp'); ?>
+                </p>
+
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-5xl">
+                    <?php esc_html_e('Simple tools for cleaner, easier beauty routines.', 'dawp'); ?>
+                </h2>
+
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B6470]">
+                    <?php esc_html_e('From brushes and applicators to mirrors and small beauty helpers, One Shop Vibe brings practical accessories that make daily routines feel easier and more organized.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <?php
+                    $makeup_highlights = [
+                        __('Makeup helpers', 'dawp'),
+                        __('Beauty tools', 'dawp'),
+                        __('Compact mirrors', 'dawp'),
+                        __('Daily routine support', 'dawp'),
+                    ];
+                    ?>
+                    <?php foreach ($makeup_highlights as $highlight) : ?>
+                        <div class="flex items-center gap-3 rounded-2xl bg-[#F6F7F9] p-4">
+                            <span class="h-3 w-3 shrink-0 rounded-full bg-[#F7C948]"></span>
+                            <span class="text-sm font-bold text-[#2D2633]"><?php echo esc_html($highlight); ?></span>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="mt-8">
+                    <a href="<?php echo esc_url(home_url('/product-category/makeup-tools/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F7C948] hover:text-[#2D2633]">
+                        <?php esc_html_e('Shop Makeup Tools', 'dawp'); ?>
+                    </a>
+                </div>
             </div>
-          </article>
-          <?php endforeach; ?>
         </div>
-        <?php endif; ?>
-      </div>
     </section>
 
-    <!-- Lifestyle Banner -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Everyday_street_style.png'); ?>" alt="Urban lifestyle streetwear outfit" class="aspect-[4/3] w-full rounded-2xl object-cover" />
-        </div>
+    <!-- Hair Care & Personal Care Essentials -->
+    <section class="bg-[#DCD5FF] py-14 lg:py-20">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#2D2633]">
+                    <?php esc_html_e('Hair Care & Personal Care', 'dawp'); ?>
+                </p>
 
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Everyday Street Style</p>
-          <h2 class="text-4xl font-black uppercase leading-none tracking-[-0.05em] lg:text-6xl">
-            Apparel That Moves With Your Day.
-          </h2>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/82">
-            Slicktee focuses on clean graphics, relaxed fits, and modern essentials that work from city streets to weekend plans.
-          </p>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-8 inline-flex rounded-md bg-[#22C55E] px-7 py-4 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Shop Now
-          </a>
-        </div>
-      </div>
-    </section>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-5xl">
+                    <?php esc_html_e('Everyday tools for simple self-care moments.', 'dawp'); ?>
+                </h2>
 
-    <!-- Graphic Tee Collection -->
-    <section id="graphic-tees" class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Core Collection</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">
-            Graphic Tees Without The Noise
-          </h2>
-          <p class="mt-4 text-base leading-7 text-[#6B7280]">
-            Original apparel-focused designs made for daily wear. No fan merch, no copyright-heavy graphics, no meme spam.
-          </p>
-        </div>
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#4F4657]">
+                    <?php esc_html_e('Explore hair accessories, grooming tools, and personal care essentials designed to support daily routines at home or while traveling.', 'dawp'); ?>
+                </p>
 
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div class="rounded-3xl bg-[#123D2A] p-8 text-white lg:col-span-1">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Original Direction</p>
-            <h3 class="mt-4 text-3xl font-black uppercase tracking-[-0.05em]">Clean Graphics</h3>
-            <p class="mt-4 text-white/82">Minimal, wearable tee designs that look sharp without feeling loud.</p>
-            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="mt-7 inline-flex rounded-md bg-[#22C55E] px-6 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Graphic Tees
-            </a>
-          </div>
+                <div class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
+                    <a href="<?php echo esc_url(home_url('/product-category/hair-care-essentials/')); ?>"
+                       class="rounded-[1.25rem] border border-white/60 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                        <p class="mb-4 inline-flex rounded-full bg-[#EAF7F0] px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#2D2633]">
+                            <?php esc_html_e('Hair Care Essentials', 'dawp'); ?>
+                        </p>
+                        <h3 class="text-2xl font-black leading-snug text-[#2D2633]">
+                            <?php esc_html_e('Simple accessories for everyday styling and care.', 'dawp'); ?>
+                        </h3>
+                    </a>
 
-          <div class="overflow-hidden rounded-3xl bg-[#0B0F0D] lg:col-span-2">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Original_direction.png'); ?>" alt="Graphic tee collection banner" class="h-full min-h-[360px] w-full object-cover opacity-90" />
-          </div>
-        </div>
-      </div>
-    </section>
+                    <a href="<?php echo esc_url(home_url('/product-category/personal-care-tools/')); ?>"
+                       class="rounded-[1.25rem] border border-white/60 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+                        <p class="mb-4 inline-flex rounded-full bg-[#F7C948] px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#2D2633]">
+                            <?php esc_html_e('Personal Care Tools', 'dawp'); ?>
+                        </p>
+                        <h3 class="text-2xl font-black leading-snug text-[#2D2633]">
+                            <?php esc_html_e('Practical tools for easy daily grooming routines.', 'dawp'); ?>
+                        </h3>
+                    </a>
+                </div>
 
-    <!-- Oversized + Hoodies -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversize tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Relaxed Fit</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversize Tees</h3>
-            <p class="mt-3 text-white/82">Built for layering, movement, and clean streetwear silhouettes.</p>
-          </div>
-        </a>
-
-        <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/casoul_hoodie.png'); ?>" alt="Casual hoodie streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Layer Ready</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Casual Hoodies</h3>
-            <p class="mt-3 text-white/82">Simple hoodie essentials with modern streetwear energy.</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Brand Values -->
-    <section class="bg-[#123D2A] py-16 text-white lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Brand Philosophy</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">
-            Built Like A Real Apparel Brand
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">01</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Comfortable Everyday Fits</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Soft apparel made for repeat wear.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">02</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Clean Modern Styling</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Minimal streetwear without visual clutter.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">03</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Original Graphic Apparel</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Brand-led graphics, not copied fan merch.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">04</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Secure Online Shopping</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Clear policies, support, and checkout trust.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Best Sellers -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Customer Picks</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Best Sellers</h2>
-        </div>
-
-        <?php
-        $best_sellers = wc_get_products([
-          'limit'   => 4,
-          'orderby' => 'date',
-          'order'   => 'ASC',
-          'status'  => 'publish',
-        ]);
-        ?>
-
-        <?php if ($best_sellers) : ?>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <?php foreach ($best_sellers as $product) :
-            $img_url = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
-            $price   = $product->get_price_html();
-            $link    = get_permalink($product->get_id());
-            $name    = $product->get_name();
-          ?>
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
-            </a>
-            <div class="p-4">
-              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
-              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
+                <div class="mt-8">
+                    <a href="<?php echo esc_url(home_url('/product-category/personal-care-tools/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F7C948] hover:text-[#2D2633]">
+                        <?php esc_html_e('Explore Personal Care', 'dawp'); ?>
+                    </a>
+                </div>
             </div>
-          </article>
-          <?php endforeach; ?>
+
+            <div class="overflow-hidden rounded-[1.25rem] border border-white/60 bg-white p-3 shadow-xl shadow-black/10">
+                <img src="<?php echo esc_url($images['care_feature']); ?>"
+                     alt="<?php esc_attr_e('Hair accessories and personal care tools arranged on a clean vanity surface', 'dawp'); ?>"
+                     class="aspect-[4/5] w-full rounded-2xl object-cover"
+                     loading="lazy">
+            </div>
         </div>
-        <?php endif; ?>
-      </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Stay Connected</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">Stay Updated On New Drops</h2>
-          <p class="mt-4 max-w-xl text-white/80">
-            Get updates on new graphic tees, oversized fits, hoodie releases, and clean streetwear essentials.
-          </p>
-        </div>
+    <!-- Customer Care / Trust -->
+    <section class="bg-[#2D2633] py-14 text-white lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#F7C948]">
+                        <?php esc_html_e('Customer Care', 'dawp'); ?>
+                    </p>
+                    <h2 class="font-heading text-4xl font-black leading-tight text-white lg:text-5xl">
+                        <?php esc_html_e('Clear support from checkout to delivery.', 'dawp'); ?>
+                    </h2>
+                    <p class="mt-5 max-w-2xl text-base leading-8 text-white/75">
+                        <?php esc_html_e('Shop beauty essentials with clear product details, order tracking, and customer support when you need help.', 'dawp'); ?>
+                    </p>
+                </div>
 
-        <form class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row" action="#" method="post">
-          <label for="slicktee-email" class="sr-only">Email address</label>
-          <input id="slicktee-email" type="email" name="email" placeholder="Enter your email" class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-[#111827] placeholder:text-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#A3E635]" />
-          <button type="submit" class="min-h-12 rounded-md bg-[#22C55E] px-6 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Join
-          </button>
-        </form>
-      </div>
+                <div class="flex flex-wrap gap-4">
+                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#F7C948] px-6 text-sm font-black uppercase tracking-wide text-[#2D2633] transition hover:bg-white">
+                        <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#2D2633]">
+                        <?php esc_html_e('Contact Support', 'dawp'); ?>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <?php
+                $trust_cards = [
+                    __('Secure Checkout', 'dawp'),
+                    __('Tracking Included', 'dawp'),
+                    __('30-Day Returns', 'dawp'),
+                    __('Clear Product Details', 'dawp'),
+                ];
+                ?>
+                <?php foreach ($trust_cards as $index => $card) : ?>
+                    <div class="rounded-[1.25rem] border border-white/10 bg-white/5 p-6">
+                        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#F7C948] text-sm font-black text-[#2D2633]">
+                            <?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?>
+                        </div>
+                        <h3 class="text-2xl font-black leading-snug text-white">
+                            <?php echo esc_html($card); ?>
+                        </h3>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
+            <div class="mt-8 grid grid-cols-1 gap-5 lg:grid-cols-2">
+                <div class="rounded-[1.25rem] border border-white/10 bg-white/5 p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#F7C948]">
+                        <?php esc_html_e('Shipping Note', 'dawp'); ?>
+                    </p>
+                    <p class="mt-3 text-sm leading-7 text-white/75">
+                        <?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?>
+                    </p>
+                </div>
+
+                <div class="rounded-[1.25rem] border border-white/10 bg-white/5 p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#F7C948]">
+                        <?php esc_html_e('Return Note', 'dawp'); ?>
+                    </p>
+                    <p class="mt-3 text-sm leading-7 text-white/75">
+                        <?php esc_html_e('Eligible unused and undamaged items may be returned within 30 days of delivery. Personal care items may be subject to hygiene and original condition requirements.', 'dawp'); ?>
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
+
+</div>

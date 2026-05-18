@@ -1,8 +1,7 @@
 <?php
 /**
- * Elite Shop Express — Shop / Archive Product Template
- * Design System: Trusted Hardware, conversion-first
- * Section 10: Category / Shop Page rules
+ * One Shop Vibe - Shop / Archive Product Template
+ * Design System: Beauty essentials, conversion-first
  */
 defined('ABSPATH') || exit;
 
@@ -13,20 +12,20 @@ get_header();
 <div class="shop-container">
 
     <?php
-    // ── Breadcrumb ─────────────────────────────────────────
+    // Breadcrumb
     ?>
     <nav class="shop-breadcrumb" aria-label="Breadcrumb">
         <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
-        <span aria-hidden="true">›</span>
+        <span aria-hidden="true">&rsaquo;</span>
         <?php if ( is_product_category() ) :
             $cat = get_queried_object(); ?>
             <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
+            <span aria-hidden="true">&rsaquo;</span>
             <span><?php echo esc_html( $cat->name ); ?></span>
         <?php elseif ( is_product_tag() ) :
             $tag = get_queried_object(); ?>
             <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
+            <span aria-hidden="true">&rsaquo;</span>
             <span><?php echo esc_html( $tag->name ); ?></span>
         <?php else : ?>
             <span>Shop</span>
@@ -34,7 +33,7 @@ get_header();
     </nav>
 
     <?php
-    // ── Page heading ───────────────────────────────────────
+    // Page heading
     ?>
     <div class="shop-header">
         <h1 class="shop-header__title">
@@ -49,7 +48,7 @@ get_header();
     </div>
 
     <?php
-    // ── Toolbar: count + filter toggle + sort ──────────────
+    // Toolbar: count + filter toggle + sort
     ?>
     <div class="shop-toolbar">
         <div class="shop-toolbar__left">
@@ -83,16 +82,16 @@ get_header();
     </div>
 
     <?php
-    // ── Sidebar overlay (mobile bottom sheet backdrop) ─────
+    // Sidebar overlay
     ?>
     <div class="shop-sidebar-overlay" id="shopSidebarOverlay" aria-hidden="true"></div>
 
     <?php
-    // ── Layout ─────────────────────────────────────────────
+    // Layout
     ?>
     <div class="shop-layout">
 
-        <?php // ── Sidebar ────────────────────────────────── ?>
+        <?php // Sidebar ?>
         <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
             <div class="shop-sidebar__header">
                 <h2 class="shop-sidebar__mobile-title">Filter Products</h2>
@@ -149,7 +148,7 @@ get_header();
             ?>
         </aside>
 
-        <?php // ── Main Product Area ────────────────────────── ?>
+        <?php // Main Product Area ?>
         <main class="shop-main" id="main-content">
 
             <?php if ( woocommerce_product_loop() ) : ?>
@@ -171,7 +170,7 @@ get_header();
                 <div class="shop-empty">
                     <p>No products found in this collection.</p>
                     <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
-                        Browse all products →
+                        Browse all products &rarr;
                     </a>
                 </div>
             <?php endif; ?>

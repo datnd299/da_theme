@@ -1,502 +1,384 @@
+# One Shop Vibe — Home Plan
 
----
+## Homepage Goal
 
-## 3. `home_plan.md`
+Build a short, fresh, clean beauty homepage for beauty accessories, makeup tools, hair care essentials, personal care tools, and beauty organizers.
 
-```md
-# Slicktee Home Plan
+Main feeling:
 
-## Homepage Objective
+> Beauty essentials for simple everyday confidence.
 
-The homepage should immediately communicate:
+The homepage should feel fresh, friendly, feminine, practical, and GMC-safe.
 
-- youthful streetwear identity
-- graphic tee specialization
-- clean apparel branding
-- energetic green-based visual system
-- authentic ecommerce experience
-- GMC-safe merchant trust
-
-The storefront should feel like:
-
-“A real modern apparel brand focused on graphic tees, oversized tees, hoodies, and everyday streetwear essentials.”
-
-Avoid:
-- POD spam feeling
-- random marketplace layouts
-- overcrowded homepage sections
-- excessive promo messaging
-- pastel boutique styling
+Avoid medical beauty claims, fake luxury styling, random product categories, and exaggerated transformation language.
 
 ---
 
 # Homepage Structure
 
-## 1. Hero Section
+Use 5 sections only:
 
-### Purpose
+```txt
+1. Hero
+2. Shop By Category
+3. Makeup Tools & Beauty Accessories
+4. Hair Care & Personal Care Essentials
+5. Customer Care / Trust
+```
 
-Establish brand identity instantly.
+---
 
-### Layout
+# Section 1 — Hero
 
-- Full-width clean hero
-- Dark green or black background
-- Large lifestyle streetwear image
-- Strong bold headline
-- Minimal supporting text
-- 1–2 CTA buttons
+## Purpose
 
-### Content Direction
+Introduce One Shop Vibe as a fresh beauty essentials store for simple daily routines.
 
-Headline examples:
-- Clean Fits. Bold Energy.
-- Graphic Apparel Made Simple
-- Streetwear For Everyday Motion
-- Modern Tees For Daily Rotation
+## Content
 
-### CTA
+Eyebrow:
 
-Primary:
-- Shop New Arrivals
+```txt
+Beauty Essentials & Personal Care
+```
 
-Secondary:
-- Explore Graphic Tees
+Headline:
 
-### Visual Direction
+```txt
+Beauty Essentials For Everyday Confidence
+```
+
+Subheadline:
+
+```txt
+Discover simple beauty accessories, makeup tools, hair care essentials, and personal care products made for easy daily routines.
+```
+
+Primary CTA:
+
+```txt
+Shop Beauty Essentials
+```
+
+Secondary CTA:
+
+```txt
+Explore Makeup Tools
+```
+
+## Image Direction
+
+Use a bright beauty lifestyle image:
+
+* Vanity table with makeup tools, brushes, cosmetic pouch, organizer
+* Fresh soft colors: lilac, mint, white, citrus accent
+* Natural light
+* No text in image
+* No fake luxury logos
+* No medical skincare/before-after visuals
+
+## Design Notes
+
+* Background: Mint Cream `#EAF7F0` or Soft Lilac `#DCD5FF`
+* Heading: Charcoal Plum `#2D2633`
+* Accent: Fresh Citrus `#F7C948`
+* Keep hero clean and not overly pink
+
+---
+
+# Section 2 — Shop By Category
+
+## Purpose
+
+Show the main product categories clearly and avoid general-store feeling.
+
+## Categories
+
+```txt
+Beauty Accessories
+Makeup Tools
+Hair Care Essentials
+Personal Care Tools
+Beauty Organizers
+```
+
+## Card Copy
+
+### Beauty Accessories
+
+```txt
+Small beauty helpers for simple everyday routines.
+```
+
+### Makeup Tools
+
+```txt
+Brushes, sponges, and tools for easier makeup application.
+```
+
+### Hair Care Essentials
+
+```txt
+Hair accessories and tools for daily styling and care.
+```
+
+### Personal Care Tools
+
+```txt
+Practical grooming and personal-use tools for daily self-care.
+```
+
+### Beauty Organizers
+
+```txt
+Storage solutions that keep cosmetics and tools easy to find.
+```
+
+## Design Notes
+
+* Use rounded category cards
+* White card background
+* Soft border
+* Image-heavy layout
+* Short text only
+
+---
+
+# Section 3 — Makeup Tools & Beauty Accessories
+
+## Purpose
+
+Feature the core beauty routine products.
+
+## Content
+
+Eyebrow:
+
+```txt
+Makeup Tools & Beauty Accessories
+```
+
+Headline:
+
+```txt
+Simple tools for cleaner, easier beauty routines.
+```
+
+Paragraph:
+
+```txt
+From brushes and applicators to mirrors and small beauty helpers, One Shop Vibe brings practical accessories that make daily routines feel easier and more organized.
+```
+
+Highlights:
+
+```txt
+Makeup helpers
+Beauty tools
+Compact mirrors
+Daily routine support
+```
+
+CTA:
+
+```txt
+Shop Makeup Tools
+```
+
+## Image Direction
+
+* Makeup brushes and sponges on vanity
+* Cosmetic pouch or beauty tray
+* Fresh bright background
+* No treatment claim visuals
+
+---
+
+# Section 4 — Hair Care & Personal Care Essentials
+
+## Purpose
+
+Feature hair care and personal care tools in a safe, practical way.
+
+## Content
+
+Eyebrow:
+
+```txt
+Hair Care & Personal Care
+```
+
+Headline:
+
+```txt
+Everyday tools for simple self-care moments.
+```
+
+Paragraph:
+
+```txt
+Explore hair accessories, grooming tools, and personal care essentials designed to support daily routines at home or while traveling.
+```
+
+Two mini cards:
+
+### Hair Care Essentials
+
+```txt
+Simple accessories for everyday styling and care.
+```
+
+### Personal Care Tools
+
+```txt
+Practical tools for easy daily grooming routines.
+```
+
+CTA:
+
+```txt
+Explore Personal Care
+```
+
+## Image Direction
+
+* Hair accessories on clean surface
+* Personal care tools in soft bathroom/vanity setting
+* No medical visuals
+* No permanent-result claims
+* No skin close-up before/after images
+
+---
+
+# Section 5 — Customer Care / Trust
+
+## Purpose
+
+Build GMC trust and give shoppers clear support information.
+
+## Content
+
+Eyebrow:
+
+```txt
+Customer Care
+```
+
+Headline:
+
+```txt
+Clear support from checkout to delivery.
+```
+
+Short paragraph:
+
+```txt
+Shop beauty essentials with clear product details, order tracking, and customer support when you need help.
+```
+
+Trust cards:
+
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Clear Product Details
+```
+
+Shipping note:
+
+```txt
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+```
+
+Return note:
+
+```txt
+Eligible unused and undamaged items may be returned within 30 days of delivery. Personal care items may be subject to hygiene and original condition requirements.
+```
+
+CTA:
+
+```txt
+View Shipping & Returns
+```
+
+Secondary CTA:
+
+```txt
+Contact Support
+```
+
+## Design Notes
+
+* Use Charcoal Plum background
+* White text
+* Fresh Citrus accents
+* Keep trust copy clear and short
+
+---
+
+# Homepage Image List
+
+Needed images:
+
+1. Hero vanity / beauty essentials lifestyle image
+2. Beauty Accessories category image
+3. Makeup Tools category image
+4. Hair Care Essentials category image
+5. Personal Care Tools category image
+6. Beauty Organizers category image
+7. Makeup tools feature image
+8. Hair care / personal care feature image
+9. Customer support or clean packaging/trust image
+
+Image rules:
+
+* No text inside image
+* No fake luxury logos
+* No medical before/after visuals
+* No watermarks
+* No over-edited beauty transformation
+* Bright, clean, realistic beauty photography
+
+---
+
+# Copy Rules
 
 Use:
-- urban lifestyle photography
-- oversized tee styling
-- green / black / white palette
-- authentic streetwear poses
-- high contrast text
+
+```txt
+beauty essentials
+simple routine
+personal care tools
+makeup helpers
+organized beauty
+hair care accessories
+everyday confidence
+fresh beauty
+self-care
+```
 
 Avoid:
-- heavy graphic clutter
-- AI-looking visuals
-- crowded collages
-- low contrast text
+
+```txt
+miracle
+cure
+medical-grade
+permanent results
+flawless guaranteed
+instant transformation
+fake branded
+replica
+crazy deal
+```
 
 ---
 
-# 2. Featured Categories
-
-### Purpose
-
-Quickly establish product hierarchy.
-
-### Layout
-
-3–4 category blocks.
-
-### Categories
-
-- Graphic Tees
-- Oversized Tees
-- Hoodies
-- Streetwear Essentials
-
-### Visual Style
-
-- large clean imagery
-- minimal overlays
-- modern typography
-- high contrast cards
-- soft hover effects
-
----
-
-# 3. New Arrivals
-
-### Purpose
-
-Present fresh apparel immediately.
-
-### Layout
-
-- 4–8 featured products
-- clean product cards
-- balanced spacing
-- 2 columns on mobile
-- 4 columns on desktop
-
-### Product Card Rules
-
-Include:
-- image
-- title
-- price
-- simple CTA
-
-Avoid:
-- excessive labels
-- countdowns
-- cluttered badges
-- fake urgency
-
----
-
-# 4. Lifestyle Banner Section
-
-### Purpose
-
-Reinforce brand personality.
-
-### Layout
-
-Split layout:
-- large urban lifestyle image
-- short editorial-style text
-
-### Messaging
-
-Focus on:
-- comfort
-- confidence
-- modern styling
-- casual everyday wear
-- movement and daily use
-
-### Visual Direction
-
-Use:
-- city environments
-- neutral architecture
-- relaxed poses
-- oversized silhouettes
-- black/green high contrast section
-
----
-
-# 5. Graphic Tee Collection
-
-### Purpose
-
-Core conversion section.
-
-### Layout
-
-Grid-based apparel showcase or image + copy split.
-
-### Direction
-
-Products should feel:
-- curated
-- wearable
-- original
-- minimal
-- modern
-
-Messaging should avoid:
-- meme overload
-- copyrighted graphics
-- novelty spam
-- offensive humor
-
----
-
-# 6. Oversized Streetwear Section
-
-### Purpose
-
-Support modern streetwear positioning.
-
-### Content Direction
-
-Highlight:
-- relaxed fits
-- washed apparel
-- layering
-- neutral tones
-- effortless styling
-
-### Visual Style
-
-Use:
-- oversized silhouettes
-- urban photography
-- concrete backgrounds
-- clean studio textures
-- confident poses
-
----
-
-# 7. Hoodie Collection
-
-### Purpose
-
-Expand apparel depth.
-
-### Visual Direction
-
-- cozy urban lifestyle
-- minimal layering
-- clean modern photography
-- dark or green section background
-
-Avoid:
-- athletic branding vibe
-- sportswear-heavy layouts
-- loud gym aesthetic
-
----
-
-# 8. Brand Philosophy Section
-
-### Purpose
-
-Improve merchant authenticity.
-
-### Layout
-
-Simple icon/text grid.
-
-### Topics
-
-- Comfortable Everyday Fits
-- Clean Modern Styling
-- Original Graphic Apparel
-- Secure Online Shopping
-
-### Tone
-
-- short
-- confident
-- apparel-focused
-- youth-friendly
-
-Avoid:
-- fake emotional storytelling
-- corporate paragraphs
-- generic AI brand text
-
----
-
-# 9. Best Sellers
-
-### Purpose
-
-Build trust and natural product discovery.
-
-### Layout
-
-Clean product carousel or grid.
-
-### Rules
-
-Use:
-- apparel-focused presentation
-- balanced spacing
-- realistic pricing
-- clean card structure
-
-Avoid:
-- “viral” wording
-- fake urgency
-- aggressive discounting
-- fake reviews
-
----
-
-# 10. Social / Lifestyle Section
-
-### Purpose
-
-Create authentic fashion atmosphere.
-
-### Content
-
-- lifestyle apparel imagery
-- real-world styling inspiration
-- modern casual looks
-- streetwear fit inspiration
-
-### Visual Tone
-
-Should feel:
-- urban
-- relaxed
-- young
-- modern
-- authentic
-
-Avoid:
-- influencer overload
-- luxury fashion editorials
-- overly polished AI images
-
----
-
-# 11. Newsletter Section
-
-### Purpose
-
-Capture returning customers cleanly.
-
-### Layout
-
-Minimal:
-- short headline
-- email field
-- single CTA
-
-### Tone
-
-Examples:
-- Stay Updated On New Drops
-- Join The Slicktee Community
-- Get New Fits First
-
-Avoid:
-- spam discount messaging
-- popup-like design
-- aggressive email capture
-
----
-
-# Footer Structure
-
-## Include
-
-- Shop Links
-- Policies
-- Contact
-- Support Email
-- Social Icons
-
-## Footer Tone
-
-- dark
-- minimal
-- clean
-- high contrast
-
-Recommended:
-- black or deep green background
-- white text
-- green/lime accent
-
-Avoid:
-- cluttered columns
-- oversized legal text
-- low contrast links
-
----
-
-# Homepage Visual Rules
-
-## Color Direction
-
-Primary:
-- black
-- deep green
-- active green
-- white
-
-Accent:
-- lime energy
-- cool gray
-- soft white
-
-Avoid:
-- pink pastel
-- soft feminine boutique palette
-- neon overload
-- low contrast muted layouts
-
----
-
-# Typography Direction
-
-Typography should feel:
-- bold
-- modern
-- energetic
-- fashion-oriented
-- clean
-
-Use:
-- large headlines
-- uppercase headings
-- minimal paragraphs
-- strong spacing
-- clear CTAs
-
-Avoid:
-- decorative fonts
-- playful typography
-- futuristic gaming fonts
-- luxury serif tone
-
----
-
-# Image Direction
-
-## Photography Style
-
-Use:
-- realistic apparel photography
-- modern urban lifestyle
-- neutral lighting
-- clean compositions
-- streetwear poses
-
-Preferred environments:
-- city streets
-- modern interiors
-- concrete textures
-- minimal studio setups
-- outdoor urban corners
-
-Avoid:
-- fantasy visuals
-- overprocessed AI images
-- random mockups
-- fake celebrity styling
-- copyright graphics
-
----
-
-# Mobile UX Rules
-
-Homepage must:
-- scroll smoothly
-- load quickly
-- maintain spacing
-- prioritize product imagery
-- support easy thumb navigation
-- show strong contrast on mobile
-
-Avoid:
-- giant banners that hide content
-- cluttered product grids
-- tiny tap targets
-- unreadable text overlays
-
----
-
-# GMC Compliance Direction
-
-Homepage must clearly show:
-- apparel specialization
-- authentic branding
-- clean ecommerce behavior
-- transparent merchant structure
-- original product direction
-
-Avoid:
-- random products
-- excessive sales messaging
-- copyright-heavy designs
-- fake scarcity tactics
-- fake reviews
-- offensive graphic content
-
----
-
-# Strategic Goal
+# Final Homepage Feeling
 
 The homepage should feel like:
 
-“A youthful modern streetwear and graphic apparel brand with energetic green-based visuals, clean merchandising, strong contrast, and trustworthy ecommerce presentation.”
+> A fresh, clean, feminine beauty essentials store for makeup tools, beauty accessories, hair care items, personal care tools, and organizers.
+
+It must be short, bright, practical, trustworthy, and GMC-safe.

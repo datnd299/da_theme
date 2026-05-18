@@ -1,352 +1,415 @@
-h# Slicktee
+# One Shop Vibe — Site.md
 
 ## Store Information
 
-- **Website:** slicktee.com
-- **Language:** English
-- **Store Type:** Graphic Tee & Modern Streetwear Apparel Brand
-- **Primary Market:** United States
-- **Brand Positioning:** Youthful Graphic Apparel / Everyday Streetwear
-- **Support Email:** support@slicktee.com
-- **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM (EST)
+* **Domain:** oneshopvibe.com
+* **Brand Name:** One Shop Vibe
+* **Language:** English
+* **Store Type:** Beauty Essentials & Personal Care Accessories Store
+* **Primary Market:** United States / beauty shoppers
+* **Core Products:** Beauty accessories, makeup tools, hair care essentials, personal care tools, beauty organizers
+* **Support Email:** [support@oneshopvibe.com](mailto:support@oneshopvibe.com)
+* **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
-# Brand Positioning
+## Brand Positioning
 
-Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, casual hoodies, and everyday outfit essentials.
+One Shop Vibe is a beauty essentials store focused on simple beauty accessories, personal care tools, makeup helpers, and everyday self-care products.
 
-The brand should feel:
-- Youthful
-- Energetic
-- Clean
-- Urban
-- Creative
-- Confident
-- Apparel-focused
-- Easy to wear
+Core message:
 
-The storefront should feel like a real apparel brand, not a generic print-on-demand store.
+> Beauty essentials for simple everyday confidence.
 
-Avoid making the website feel like:
-- Random POD spam
-- Meme shirt marketplace
-- Copyright fan merch store
-- Generic dropshipping ecommerce
-- Aggressive hypebeast store
-- Mixed-category marketplace
+The store should feel:
 
----
+* Clean
+* Feminine
+* Practical
+* Affordable but trustworthy
+* Beauty-focused
+* Easy to shop
+* Everyday self-care oriented
+* GMC-safe
 
-# Historical Direction
+The store should not feel like:
 
-Slicktee aligns with:
-- Graphic t-shirts
-- Casual apparel
-- Streetwear basics
-- Urban tee culture
-- Youth fashion
-- Creative everyday outfits
-- Simple ecommerce apparel branding
-
-Avoid pivoting into:
-- Electronics
-- Pet products
-- Home goods
-- Supplements
-- Automotive
-- Random gadgets
-- Unrelated accessories
+* A random general store
+* A medical skincare claim website
+* A counterfeit cosmetics shop
+* A luxury perfume replica store
+* A weight-loss or supplement store
+* A custom clothing/fashion designer brand
 
 ---
 
-# Core Audience
+## Social Footprint Direction
 
-## Primary Audience
+Recent social footprint suggests the brand was related to beauty products, with messaging around affordable beauty items.
 
-- Men and women aged 18–35
-- Graphic tee buyers
-- Streetwear-inspired shoppers
-- Casual outfit customers
-- Online fashion shoppers
-- Young creative buyers
-- Students and young professionals
+Therefore, the website should be rebuilt around:
 
-## Secondary Audience
+* Beauty essentials
+* Makeup accessories
+* Hair care tools
+* Personal care tools
+* Beauty organizers
+* Everyday self-care items
 
-- Hoodie shoppers
-- Oversized tee customers
-- Minimal streetwear fans
-- Gift shoppers looking for casual apparel
+Avoid building the site around custom clothing or fashion design, because similar search results may refer to a different domain/brand.
 
 ---
 
-# Customer Psychology
+## Target Audience
 
-Customers shop for:
-- Comfortable everyday tees
-- Clean graphic apparel
-- Easy outfit styling
-- Casual confidence
-- Streetwear basics
-- Wearable statement pieces
-- Minimal but creative designs
+Primary audience:
 
-The shopping experience should feel:
-- Fast
-- Clean
-- Bold
-- Energetic
-- Youthful
-- Authentic
-- Easy to browse
+* Women aged 18–40
+* Beauty shoppers
+* Students and young professionals
+* Customers looking for affordable beauty accessories
+* People who want simple daily self-care tools
+* Gift shoppers looking for small beauty-related items
 
----
+Customer needs:
 
-# Categories
-
-- **New Arrivals**
-- **Best Sellers**
-- **Graphic Tees**
-- **Oversized Tees**
-- **Streetwear Essentials**
-- **Casual Hoodies**
-- **Vintage Wash**
-- **Minimal Apparel**
-- **Accessories**
+* Simple beauty routine support
+* Affordable beauty accessories
+* Makeup tools and helpers
+* Hair care accessories
+* Personal care tools
+* Beauty storage and organization
+* Useful everyday beauty finds
 
 ---
 
-# Homepage Direction
+## Main Product Categories
 
-The homepage should focus on:
-- Strong streetwear branding
-- Clean lifestyle visuals
-- Youthful product discovery
-- Graphic tee positioning
-- Oversized apparel styling
-- Modern ecommerce trust
-- Easy navigation
+Keep categories focused and simple:
 
-Recommended sections:
-- Hero banner
-- Featured categories
-- New arrivals
-- Graphic tees
-- Oversized tees
-- Hoodie collection
-- Streetwear essentials
-- Best sellers
-- Brand values
-- Newsletter
+1. **Beauty Accessories**
+2. **Makeup Tools**
+3. **Hair Care Essentials**
+4. **Personal Care Tools**
+5. **Beauty Organizers**
+
+Short menu option:
+
+1. **Beauty Accessories**
+2. **Makeup Tools**
+3. **Hair Care**
+4. **Personal Care**
+
+---
+
+## Category Direction
+
+### Beauty Accessories
+
+For small beauty items that support daily routines.
+
+Examples:
+
+* Mirrors
+* Brush holders
+* Beauty puffs
+* Applicators
+* Cosmetic pouches
+* Small beauty tools
+
+Safe copy:
+
+> Practical beauty accessories for simple everyday routines.
+
+### Makeup Tools
+
+For makeup helpers and tools.
+
+Examples:
+
+* Makeup brushes
+* Sponges
+* Applicators
+* Eyelash tools
+* Brush cleaning accessories
+
+Safe copy:
+
+> Makeup tools designed to help keep your routine simple and organized.
+
+### Hair Care Essentials
+
+For non-medical hair styling and care accessories.
+
+Examples:
+
+* Hair brushes
+* Hair clips
+* Styling accessories
+* Hair towels
+* Hair organizers
+
+Safe copy:
+
+> Simple hair accessories and tools for everyday styling and care.
+
+### Personal Care Tools
+
+For grooming and personal-use accessories.
+
+Examples:
+
+* Grooming tools
+* Personal care accessories
+* Small beauty devices
+* Travel care tools
+
+Safe copy:
+
+> Everyday personal care tools made for simple grooming routines.
+
+Avoid medical or permanent-result claims.
+
+### Beauty Organizers
+
+For keeping beauty products neat.
+
+Examples:
+
+* Makeup organizers
+* Cosmetic storage boxes
+* Travel beauty bags
+* Vanity organizers
+* Brush storage
+
+Safe copy:
+
+> Beauty organizers that help keep cosmetics and tools easy to find at home or on the go.
+
+---
+
+## Products To Avoid
+
+For GMC safety, do not sell or promote:
+
+* Supplements
+* Weight loss products
+* Skin whitening products
+* Acne cure products
+* Medical skincare treatment products
+* Injectables
+* Prescription-like cosmetics
+* Medical beauty devices
+* Products claiming permanent hair removal
+* Fake branded cosmetics
+* Counterfeit perfume
+* Replica designer accessories
+* Adult products
+* Hazardous chemicals
+
+---
+
+## Brand Voice
+
+Tone should be:
+
+* Friendly
+* Clean
+* Feminine
+* Simple
+* Practical
+* Confidence-focused
+* Not overly luxury
+* Not medical
+
+Good words:
+
+* beauty
+* simple routine
+* everyday confidence
+* self-care
+* organized
+* easy to use
+* beauty essentials
+* personal care
+* polished
+* practical
+
+Avoid words:
+
+* miracle
+* cure
+* medical-grade
+* permanent results
+* flawless guaranteed
+* instant transformation
+* doctor recommended
+* fake luxury
+* replica
+* crazy deal
+
+---
+
+## Visual Direction
+
+Use clean beauty lifestyle imagery:
+
+* Vanity table scenes
+* Makeup tools and brushes
+* Beauty organizers
+* Hair accessories
+* Personal care tools
+* Soft flat lays
+* Cream, blush, white, beige, soft gold tones
+* Bright natural light
+* Clean and realistic product photography
 
 Avoid:
-- Product spam grids
-- Fake urgency countdowns
-- Loud discount banners
-- Copyright-heavy graphic references
-- Marketplace-style layouts
+
+* Before/after skin images
+* Medical skincare visuals
+* Fake luxury logos
+* Overly edited beauty transformation visuals
+* Low-quality supplier screenshots
+* Text-heavy promotional images
+* Watermarks
 
 ---
 
-# Visual Direction
+## Color Direction
 
-## Design Style
+Recommended palette:
 
-- Clean modern ecommerce
-- Energetic green-based palette
-- Strong black and white contrast
-- Bold typography
-- Large lifestyle images
-- Spacious product grids
-- Minimal visual clutter
-- Mobile-first shopping experience
+* Champagne Ivory
+* Soft Blush
+* Dusty Rose
+* Warm Beige
+* Clean White
+* Charcoal
+* Soft Gold
 
-## Visual Tone
+The site should feel feminine, clean, affordable, and trustworthy.
 
-The website should feel:
-- Urban
-- Young
-- Active
-- Confident
-- Modern
-- Apparel-native
-- Creative but trustworthy
+Avoid neon colors, red discount-heavy design, fake luxury black/gold overload, and overly childish pink styling.
+
+---
+
+## Homepage Direction
+
+Recommended homepage flow:
+
+1. **Hero — Beauty Essentials For Everyday Confidence**
+2. **Shop By Category**
+3. **Makeup Tools & Beauty Accessories**
+4. **Hair Care & Personal Care Essentials**
+5. **Customer Care / Trust**
+
+Hero headline:
+
+> Beauty Essentials For Everyday Confidence
+
+Hero subheadline:
+
+> Discover simple beauty accessories, makeup tools, hair care essentials, and personal care products made for easy daily routines.
+
+Main CTA:
+
+* Shop Beauty Essentials
+* Explore Makeup Tools
+
+---
+
+## GMC-Safe Rules
+
+The site must present itself as a legitimate beauty accessories and personal care store.
+
+Must include:
+
+* Clear product categories
+* Contact page
+* Shipping policy
+* Return & refund policy
+* Privacy policy
+* Terms of service
+* FAQ
+* Track order page
+* Clear product details
+* Support email
 
 Avoid:
-- Cheap POD visuals
-- Fake hypebeast styling
-- Overcrowded graphics
-- Neon chaos
-- Low-quality mockups
-- AI-looking product imagery
+
+* Medical beauty claims
+* Skin treatment/cure claims
+* Permanent hair removal claims
+* Counterfeit cosmetics
+* Fake branded perfume
+* Fake reviews
+* Countdown timers
+* Overpromising beauty results
 
 ---
 
-# Product Content Direction
-
-Descriptions should feel:
-- Short
-- Clear
-- Confident
-- Apparel-focused
-- Fit-driven
-- Styling-oriented
-- Comfort-driven
-
-Content should include:
-- Fit notes
-- Fabric feel
-- Styling ideas
-- Everyday use cases
-- Care information when relevant
-
-Avoid:
-- Keyword stuffing
-- Robotic AI descriptions
-- Fake scarcity messaging
-- Copyrighted character references
-- Offensive or controversial claims
-
----
-
-# Collection Direction
-
-Collections should feel curated and brand-led.
-
-Each collection should:
-- Include short intro copy
-- Present products cleanly
-- Maintain consistent image style
-- Group items by fit, graphic style, or apparel type
-- Feel intentional rather than auto-generated
-
-The browsing experience should feel like a real apparel brand catalog.
-
----
-
-# Brand Trust Signals
-
-## Required Pages
-
-- About Us
-- Contact Us
-- Shipping Policy
-- Return & Refund Policy
-- Privacy Policy
-- Terms of Service
-- FAQ
-- Track Your Order
-
-## Required Trust Elements
-
-- Visible support email
-- Clear shipping timelines
-- Transparent return policy
-- Secure checkout messaging
-- Consistent apparel branding
-- Mobile-friendly UX
-- Clean footer navigation
-
----
-
-# Shipping Information
+## Shipping Information
 
 Orders are processed within **2–4 business days**.
 
-After dispatch, standard US shipping typically takes **5–10 business days**.
+After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
 
-Customers receive tracking information once orders ship.
-
-## Shipping Benefits
-
-- Standard shipping available on all orders
-- Tracking included
-- Secure packaging
-- Responsive customer support
+Tracking information is provided once an order ships.
 
 ---
 
-# Return Policy Direction
+## Return Policy Direction
 
 Customers may request returns within **30 days** of delivery.
 
-Eligible returns should be:
-- Unused
-- Unwashed
-- Unworn
-- In original condition
-- Returned with original packaging where applicable
+Eligible items should be:
 
-The return process should feel:
-- Clear
-- Fair
-- Simple
-- Customer-friendly
+* Unused
+* Undamaged
+* In original condition
+* Returned with original packaging where applicable
+
+For personal care and beauty accessories, return eligibility may depend on hygiene and original condition requirements.
 
 ---
 
-# Tone of Voice
+## Product Copy Rules
 
-The website tone should be:
-- Clean
-- Direct
-- Confident
-- Youthful
-- Modern
-- Casual
-- Streetwear-inspired
+Product descriptions should include:
+
+* Product type
+* Main use case
+* Material or size if relevant
+* How it supports beauty/personal care routines
+* Travel or storage use if relevant
+* Care instructions if needed
+
+Safe copy example:
+
+> This compact beauty organizer helps keep makeup tools and small cosmetics easy to find at home or while traveling.
 
 Avoid:
-- Corporate language
-- Overhyped slang
-- Fake luxury positioning
-- Aggressive sales copy
-- Offensive humor
+
+* Medical claims
+* Cure/treatment claims
+* Permanent results
+* Fake brand references
+* Keyword stuffing
+* Unrealistic beauty promises
 
 ---
 
-# GMC & Compliance Direction
+## Strategic Build Goal
 
-The storefront must feel like a legitimate apparel ecommerce brand with strong topical consistency and authentic merchant behavior.
+The final website should feel like:
 
-## GMC Priorities
+> A clean, feminine beauty essentials store offering makeup tools, beauty accessories, hair care items, personal care tools, and organizers for simple everyday confidence.
 
-- Apparel-focused niche relevance
-- Clean graphic tee positioning
-- Original branded content
-- Transparent policies
-- Realistic ecommerce presentation
-- Mobile-friendly shopping flow
-- Consistent product imagery
-- Trustworthy checkout experience
+Customers should feel:
 
-Avoid:
-- Mixed-category spam
-- Thin AI-generated pages
-- Fake reviews
-- Fake urgency
-- Excessive discount messaging
-- Copyrighted graphics
-- Celebrity or trademarked designs
-- Offensive or adult graphic content
-
----
-
-# Store Promises
-
-- Clean graphic apparel
-- Comfortable everyday fits
-- Youthful streetwear essentials
-- Simple and secure ordering
-- Clear customer policies
-- Responsive support
-- Authentic apparel brand experience
-
----
-
-# Strategic Build Goal
-
-The storefront should feel like:
-
-“A youthful modern streetwear apparel brand built for everyday graphic tee customers, with original designs, clean shopping, strong contrast, and trustworthy ecommerce presentation.”
+* The store has a clear beauty-focused direction
+* Products are practical and easy to understand
+* The website feels trustworthy and GMC-safe
+* The brand is not pretending to be a luxury or medical beauty store
+* Policies and product information are clear

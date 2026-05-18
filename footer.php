@@ -7,7 +7,7 @@
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $support_email = 'support@ukofficialstore.com';
-$store_address = '292 Malcolm X Blvd, New York, NY 10027, USA';
+$store_address = '292 Malcolm X Blvd, New York, NY 10027';
 $logo_url = get_template_directory_uri() . '/assets/img/gallery/logo.png';
 
 $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [

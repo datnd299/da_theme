@@ -92,7 +92,7 @@
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
                             <span class="block text-xs font-black uppercase tracking-[0.2em] text-slickLime"><?php esc_html_e('Address', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm font-bold leading-6 text-white/75"><?php esc_html_e('2171 Prairie Center Pkwy, Brighton, CO 80601, US', 'dawp'); ?></span>
+                            <span class="mt-2 block text-sm font-bold leading-6 text-white/75"><?php esc_html_e('2171 Prairie Center Pkwy, Brighton, CO 80601', 'dawp'); ?></span>
                         </div>
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">

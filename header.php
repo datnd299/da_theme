@@ -16,7 +16,12 @@ $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permali
 $account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url       = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count     = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
+$logo_path      = get_template_directory() . '/assets/img/gallery/logo.png';
 $logo_url       = get_template_directory_uri() . '/assets/img/gallery/logo.png';
+
+if (file_exists($logo_path)) {
+    $logo_url = add_query_arg('ver', filemtime($logo_path), $logo_url);
+}
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');

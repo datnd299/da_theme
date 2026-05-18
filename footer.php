@@ -7,6 +7,7 @@
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $support_email = 'support@shopavecmoi.com';
+$store_address = '147 Prince St, Brooklyn, NY 11201';
 $instagram_url = 'https://www.instagram.com/shopavec.moi/';
 $facebook_url = 'https://www.facebook.com/shopavec.moi/';
 
@@ -65,6 +66,15 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
                         </span>
                         <?php echo esc_html($support_email); ?>
                     </a>
+                    <address class="inline-flex items-center gap-3 font-normal not-italic">
+                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </span>
+                        <?php echo esc_html($store_address); ?>
+                    </address>
                     <a class="inline-flex items-center gap-3 transition hover:text-white" href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
                         <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">

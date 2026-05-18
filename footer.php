@@ -160,7 +160,12 @@ $footer_columns = [
             </div>
         </div>
 
-        <div class="mt-8 flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/60 lg:flex-row lg:items-center lg:justify-between">
+        <div class="mt-8 border-t border-white/15 pt-6 pb-4">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-white/50"><?php esc_html_e('Payment Methods Accepted', 'dawp'); ?></p>
+            <img src="<?php echo esc_url(get_theme_file_uri('/assets/img/payment-methods.webp')); ?>" alt="<?php esc_attr_e('Visa, MasterCard, Discover, American Express, PayPal', 'dawp'); ?>" width="340" height="60" class="h-8 w-auto object-contain opacity-80">
+        </div>
+
+        <div class="flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/60 lg:flex-row lg:items-center lg:justify-between">
             <p>&copy; <?php echo esc_html(gmdate('Y')); ?> MyBaapStore. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
                 <a class="transition hover:text-white" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Return', 'dawp'); ?></a>

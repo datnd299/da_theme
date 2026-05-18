@@ -273,7 +273,7 @@
         </div>
         <h4 class="font-semibold text-[#2B2B2B]" style="font-family:'Playfair Display',serif">Our Address</h4>
         <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          885 Roselyn Lakes, South Vidashire, 37334, IL, USA
+          885 Roselyn Lakes, South Vidashire, IL 37334, USA
         </p>
       </div>
 

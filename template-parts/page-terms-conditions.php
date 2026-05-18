@@ -341,7 +341,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
                 <div>
                   <p class="text-xs font-semibold text-[#2B2B2B] mb-0.5">Address</p>
-                  <p class="text-[#2B2B2B]/70">885 Roselyn Lakes, South Vidashire, 37334, IL</p>
+                  <p class="text-[#2B2B2B]/70">885 Roselyn Lakes, South Vidashire, IL 37334</p>
                 </div>
               </div>
               <div class="flex items-start gap-3">

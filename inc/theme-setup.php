@@ -31,7 +31,7 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.3');
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.4');
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 

@@ -284,20 +284,20 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   gap: var(--space-lg);
 }
 
-.woocommerce-account .u-columns {
+body.woocommerce-account #content .u-columns {
   display: grid;
   gap: var(--space-lg);
 }
 
-.woocommerce-account .u-column1,
-.woocommerce-account .u-column2,
-.woocommerce-account form.login,
-.woocommerce-account form.register {
+body.woocommerce-account #content .u-column1,
+body.woocommerce-account #content .u-column2,
+body.woocommerce-account #content form.login,
+body.woocommerce-account #content form.register {
   min-width: 0;
 }
 
-.woocommerce-account .u-column1,
-.woocommerce-account .u-column2 {
+body.woocommerce-account #content .u-column1,
+body.woocommerce-account #content .u-column2 {
   padding: 22px 18px;
   border: 1px solid var(--color-account-border);
   border-radius: var(--radius-md);
@@ -305,16 +305,16 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   box-shadow: var(--shadow-card);
 }
 
-.woocommerce-account .woocommerce::before,
-.woocommerce-account .woocommerce::after {
+body.woocommerce-account #content .woocommerce::before,
+body.woocommerce-account #content .woocommerce::after {
   display: none;
 }
 
-.woocommerce-account .woocommerce-MyAccount-navigation {
+body.woocommerce-account #content .woocommerce-MyAccount-navigation {
   width: 100%;
 }
 
-.woocommerce-account .woocommerce-MyAccount-navigation ul {
+body.woocommerce-account #content .woocommerce-MyAccount-navigation ul {
   display: grid;
   gap: var(--space-sm);
   margin: 0;
@@ -326,11 +326,11 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   box-shadow: var(--shadow-card);
 }
 
-.woocommerce-account .woocommerce-MyAccount-navigation li {
+body.woocommerce-account #content .woocommerce-MyAccount-navigation li {
   margin: 0;
 }
 
-.woocommerce-account .woocommerce-MyAccount-navigation a {
+body.woocommerce-account #content .woocommerce-MyAccount-navigation a {
   display: flex;
   align-items: center;
   min-height: 48px;
@@ -346,23 +346,23 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
     transform var(--duration-fast) var(--ease-fluid);
 }
 
-.woocommerce-account .woocommerce-MyAccount-navigation a:hover,
-.woocommerce-account .woocommerce-MyAccount-navigation .is-active a {
+body.woocommerce-account #content .woocommerce-MyAccount-navigation a:hover,
+body.woocommerce-account #content .woocommerce-MyAccount-navigation .is-active a {
   background: var(--color-account-bg);
   color: var(--color-account-accent);
 }
 
-.woocommerce-account .woocommerce-MyAccount-navigation a:focus-visible,
-.woocommerce-account a:focus-visible,
-.woocommerce-account button:focus-visible,
-.woocommerce-account input:focus-visible,
-.woocommerce-account select:focus-visible,
-.woocommerce-account textarea:focus-visible {
+body.woocommerce-account #content .woocommerce-MyAccount-navigation a:focus-visible,
+body.woocommerce-account #content a:focus-visible,
+body.woocommerce-account #content button:focus-visible,
+body.woocommerce-account #content input:focus-visible,
+body.woocommerce-account #content select:focus-visible,
+body.woocommerce-account #content textarea:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--color-account-accent) 28%, transparent);
   outline-offset: 2px;
 }
 
-.woocommerce-account .woocommerce-MyAccount-content {
+body.woocommerce-account #content .woocommerce-MyAccount-content {
   width: 100%;
   min-width: 0;
   padding: 22px 18px;
@@ -372,45 +372,45 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   box-shadow: var(--shadow-card);
 }
 
-.woocommerce-account .woocommerce-MyAccount-content > p:first-child {
+body.woocommerce-account #content .woocommerce-MyAccount-content > p:first-child {
   margin-top: 0;
 }
 
-.woocommerce-account .woocommerce-MyAccount-content p {
+body.woocommerce-account #content .woocommerce-MyAccount-content p {
   color: var(--color-account-muted);
   font-size: 0.98rem;
   line-height: 1.7;
 }
 
-.woocommerce-account .woocommerce-MyAccount-content strong {
+body.woocommerce-account #content .woocommerce-MyAccount-content strong {
   color: var(--color-account-heading);
   font-weight: 800;
 }
 
-.woocommerce-account .woocommerce-MyAccount-content a {
+body.woocommerce-account #content .woocommerce-MyAccount-content a {
   color: var(--color-account-accent);
   font-weight: 700;
   text-decoration: none;
 }
 
-.woocommerce-account .woocommerce-MyAccount-content a:hover {
+body.woocommerce-account #content .woocommerce-MyAccount-content a:hover {
   color: var(--color-account-heading);
 }
 
-.woocommerce-account .woocommerce-form-login,
-.woocommerce-account .woocommerce-form-register,
-.woocommerce-account .woocommerce-EditAccountForm,
-.woocommerce-account .woocommerce-address-fields {
+body.woocommerce-account #content .woocommerce-form-login,
+body.woocommerce-account #content .woocommerce-form-register,
+body.woocommerce-account #content .woocommerce-EditAccountForm,
+body.woocommerce-account #content .woocommerce-address-fields {
   max-width: 760px;
   margin: 0;
 }
 
-.woocommerce-account .woocommerce-form-row,
-.woocommerce-account .form-row {
+body.woocommerce-account #content .woocommerce-form-row,
+body.woocommerce-account #content .form-row {
   margin: 0 0 var(--space-md);
 }
 
-.woocommerce-account label {
+body.woocommerce-account #content label {
   display: block;
   margin-bottom: 7px;
   color: var(--color-account-heading);
@@ -419,17 +419,17 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   letter-spacing: 0.04em;
 }
 
-.woocommerce-account .required {
+body.woocommerce-account #content .required {
   color: var(--color-account-danger);
 }
 
-.woocommerce-account input.input-text,
-.woocommerce-account input[type="text"],
-.woocommerce-account input[type="email"],
-.woocommerce-account input[type="password"],
-.woocommerce-account input[type="tel"],
-.woocommerce-account select,
-.woocommerce-account textarea {
+body.woocommerce-account #content input.input-text,
+body.woocommerce-account #content input[type="text"],
+body.woocommerce-account #content input[type="email"],
+body.woocommerce-account #content input[type="password"],
+body.woocommerce-account #content input[type="tel"],
+body.woocommerce-account #content select,
+body.woocommerce-account #content textarea {
   width: 100%;
   min-height: 48px;
   padding: 12px 14px;
@@ -443,26 +443,26 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
     box-shadow var(--duration-fast) var(--ease-fluid);
 }
 
-.woocommerce-account textarea {
+body.woocommerce-account #content textarea {
   min-height: 120px;
   resize: vertical;
 }
 
-.woocommerce-account input.input-text:focus,
-.woocommerce-account input[type="text"]:focus,
-.woocommerce-account input[type="email"]:focus,
-.woocommerce-account input[type="password"]:focus,
-.woocommerce-account input[type="tel"]:focus,
-.woocommerce-account select:focus,
-.woocommerce-account textarea:focus {
+body.woocommerce-account #content input.input-text:focus,
+body.woocommerce-account #content input[type="text"]:focus,
+body.woocommerce-account #content input[type="email"]:focus,
+body.woocommerce-account #content input[type="password"]:focus,
+body.woocommerce-account #content input[type="tel"]:focus,
+body.woocommerce-account #content select:focus,
+body.woocommerce-account #content textarea:focus {
   border-color: var(--color-account-accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-account-accent) 14%, transparent);
   outline: none;
 }
 
-.woocommerce-account .button,
-.woocommerce-account button.button,
-.woocommerce-account input.button {
+body.woocommerce-account #content .button,
+body.woocommerce-account #content button.button,
+body.woocommerce-account #content input.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -482,20 +482,20 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
     transform var(--duration-fast) var(--ease-fluid);
 }
 
-.woocommerce-account .button:hover,
-.woocommerce-account button.button:hover,
-.woocommerce-account input.button:hover {
+body.woocommerce-account #content .button:hover,
+body.woocommerce-account #content button.button:hover,
+body.woocommerce-account #content input.button:hover {
   background: var(--color-account-accent);
   color: var(--color-account-surface);
 }
 
-.woocommerce-account .button:active,
-.woocommerce-account button.button:active,
-.woocommerce-account input.button:active {
+body.woocommerce-account #content .button:active,
+body.woocommerce-account #content button.button:active,
+body.woocommerce-account #content input.button:active {
   transform: translateY(1px);
 }
 
-.woocommerce-account .woocommerce-form-login__rememberme {
+body.woocommerce-account #content .woocommerce-form-login__rememberme {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
@@ -506,17 +506,17 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   letter-spacing: 0;
 }
 
-.woocommerce-account .woocommerce-form-login__rememberme input {
+body.woocommerce-account #content .woocommerce-form-login__rememberme input {
   width: 18px;
   height: 18px;
   accent-color: var(--color-account-accent);
 }
 
-.woocommerce-account .lost_password {
+body.woocommerce-account #content .lost_password {
   margin-bottom: 0;
 }
 
-.woocommerce-account fieldset {
+body.woocommerce-account #content fieldset {
   margin: var(--space-lg) 0 0;
   padding: var(--space-lg);
   border: 1px solid var(--color-account-border);
@@ -524,10 +524,10 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   background: var(--color-account-soft);
 }
 
-.woocommerce-account legend,
-.woocommerce-account h2,
-.woocommerce-account h3,
-.woocommerce-account .woocommerce-column__title {
+body.woocommerce-account #content legend,
+body.woocommerce-account #content h2,
+body.woocommerce-account #content h3,
+body.woocommerce-account #content .woocommerce-column__title {
   margin: 0 0 var(--space-md);
   color: var(--color-account-heading);
   font-family: var(--font-heading);
@@ -535,22 +535,22 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   line-height: 1.2;
 }
 
-.woocommerce-account .woocommerce-Addresses,
-.woocommerce-account .woocommerce-columns--addresses {
+body.woocommerce-account #content .woocommerce-Addresses,
+body.woocommerce-account #content .woocommerce-columns--addresses {
   display: grid;
   gap: var(--space-md);
   margin-top: var(--space-lg);
 }
 
-.woocommerce-account .woocommerce-Address,
-.woocommerce-account .woocommerce-column {
+body.woocommerce-account #content .woocommerce-Address,
+body.woocommerce-account #content .woocommerce-column {
   padding: var(--space-md);
   border: 1px solid var(--color-account-border);
   border-radius: var(--radius-md);
   background: var(--color-account-soft);
 }
 
-.woocommerce-account .woocommerce-Address-title {
+body.woocommerce-account #content .woocommerce-Address-title {
   display: flex;
   align-items: start;
   justify-content: space-between;
@@ -558,17 +558,17 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   margin-bottom: var(--space-sm);
 }
 
-.woocommerce-account .woocommerce-Address-title h3 {
+body.woocommerce-account #content .woocommerce-Address-title h3 {
   margin-bottom: 0;
 }
 
-.woocommerce-account address {
+body.woocommerce-account #content address {
   color: var(--color-account-muted);
   font-style: normal;
   line-height: 1.7;
 }
 
-.woocommerce-account table.shop_table {
+body.woocommerce-account #content table.shop_table {
   display: block;
   width: 100%;
   margin: 0 0 var(--space-lg);
@@ -580,15 +580,15 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   background: var(--color-account-surface);
 }
 
-.woocommerce-account table.shop_table tbody,
-.woocommerce-account table.shop_table thead,
-.woocommerce-account table.shop_table tfoot,
-.woocommerce-account table.shop_table tr {
+body.woocommerce-account #content table.shop_table tbody,
+body.woocommerce-account #content table.shop_table thead,
+body.woocommerce-account #content table.shop_table tfoot,
+body.woocommerce-account #content table.shop_table tr {
   width: 100%;
 }
 
-.woocommerce-account table.shop_table th,
-.woocommerce-account table.shop_table td {
+body.woocommerce-account #content table.shop_table th,
+body.woocommerce-account #content table.shop_table td {
   padding: 14px var(--space-md);
   border-bottom: 1px solid var(--color-account-border);
   color: var(--color-account-text);
@@ -596,7 +596,7 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   white-space: nowrap;
 }
 
-.woocommerce-account table.shop_table th {
+body.woocommerce-account #content table.shop_table th {
   background: var(--color-account-bg);
   color: var(--color-account-muted);
   font-size: 0.75rem;
@@ -605,12 +605,12 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   text-transform: uppercase;
 }
 
-.woocommerce-account table.shop_table tr:last-child td,
-.woocommerce-account table.shop_table tr:last-child th {
+body.woocommerce-account #content table.shop_table tr:last-child td,
+body.woocommerce-account #content table.shop_table tr:last-child th {
   border-bottom: 0;
 }
 
-.woocommerce-account mark {
+body.woocommerce-account #content mark {
   padding: 2px 7px;
   border-radius: var(--radius-pill);
   background: var(--color-account-bg);
@@ -618,10 +618,10 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
   font-weight: 800;
 }
 
-.woocommerce-account .woocommerce-Message,
-.woocommerce-account .woocommerce-message,
-.woocommerce-account .woocommerce-info,
-.woocommerce-account .woocommerce-error {
+body.woocommerce-account #content .woocommerce-Message,
+body.woocommerce-account #content .woocommerce-message,
+body.woocommerce-account #content .woocommerce-info,
+body.woocommerce-account #content .woocommerce-error {
   margin: 0 0 var(--space-md);
 }
 
@@ -634,17 +634,17 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
     padding: 34px 32px;
   }
 
-  .woocommerce-account .u-columns {
+  body.woocommerce-account #content .u-columns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .woocommerce-account .u-column1,
-  .woocommerce-account .u-column2 {
+  body.woocommerce-account #content .u-column1,
+  body.woocommerce-account #content .u-column2 {
     padding: 28px;
   }
 
-  .woocommerce-account .woocommerce-Addresses,
-  .woocommerce-account .woocommerce-columns--addresses {
+  body.woocommerce-account #content .woocommerce-Addresses,
+  body.woocommerce-account #content .woocommerce-columns--addresses {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -655,12 +655,12 @@ body.logged-in.woocommerce-account .account-page__content > .woocommerce {
     align-items: start;
   }
 
-  .woocommerce-account .woocommerce-MyAccount-navigation {
+  body.woocommerce-account #content .woocommerce-MyAccount-navigation {
     position: sticky;
     top: 132px;
   }
 
-  .woocommerce-account .woocommerce-MyAccount-content {
+  body.woocommerce-account #content .woocommerce-MyAccount-content {
     padding: 30px;
   }
 }

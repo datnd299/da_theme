@@ -49,6 +49,14 @@ function dawp_scripts() {
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
             wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.4');
+        } elseif ( function_exists('is_account_page') && is_account_page() ) {
+            $account_css = get_template_directory() . '/assets/css/account.css';
+            wp_enqueue_style(
+                'dawp-account',
+                get_template_directory_uri() . '/assets/css/account.css',
+                ['dawp-main'],
+                file_exists($account_css) ? filemtime($account_css) : '1.0.0'
+            );
         } elseif ( is_woocommerce()  ) {
             wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.4');
             dawp_remove_styles();

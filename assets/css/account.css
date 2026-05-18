@@ -1,0 +1,484 @@
+/* =============================================================
+   MY ACCOUNT PAGE
+   WooCommerce account dashboard, forms, tables, and mobile layout
+   ============================================================= */
+
+.dawp-account-page {
+  min-height: 60vh;
+  background: #fffaf4;
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+.dawp-account-hero {
+  border-bottom: 1px solid #eadccd;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 239, 0.96), rgba(246, 236, 226, 0.9)),
+    #fff8ef;
+}
+
+.dawp-account-hero__inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 52px 16px 38px;
+}
+
+.dawp-account-hero__eyebrow {
+  margin: 0 0 8px;
+  color: #8c6d58;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.dawp-account-hero h1 {
+  margin: 0;
+  color: #2f2925;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.dawp-account-hero__copy {
+  max-width: 640px;
+  margin: 14px 0 0;
+  color: #756a62;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.dawp-account-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 16px 64px;
+}
+
+.dawp-account-shell .woocommerce {
+  display: grid;
+  gap: 20px;
+}
+
+.dawp-account-shell--guest .woocommerce {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.dawp-account-shell--guest .woocommerce > h2,
+.dawp-account-shell--guest .woocommerce > .woocommerce-form-login {
+  width: 100%;
+  max-width: 560px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.dawp-account-shell .woocommerce-notices-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.dawp-account-shell .woocommerce-MyAccount-navigation,
+.dawp-account-shell .woocommerce-MyAccount-content,
+.dawp-account-shell .woocommerce-form-login,
+.dawp-account-shell .woocommerce-form-register {
+  background: #ffffff;
+  border: 1px solid #eadccd;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(75, 53, 40, 0.07);
+}
+
+.dawp-account-shell .woocommerce-MyAccount-navigation {
+  overflow: hidden;
+}
+
+.dawp-account-shell .woocommerce-MyAccount-navigation ul {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+}
+
+.dawp-account-shell .woocommerce-MyAccount-navigation a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: #4b3528;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.dawp-account-shell .woocommerce-MyAccount-navigation a:hover {
+  background: #fff8ef;
+  color: #8c6d58;
+}
+
+.dawp-account-shell .woocommerce-MyAccount-navigation .is-active a {
+  background: #4b3528;
+  color: #ffffff;
+}
+
+.dawp-account-shell .woocommerce-MyAccount-content {
+  min-width: 0;
+  padding: 22px;
+}
+
+.dawp-account-shell .woocommerce-MyAccount-content p {
+  margin: 0 0 14px;
+  color: #3f3732;
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.dawp-account-shell .woocommerce-MyAccount-content p:last-child {
+  margin-bottom: 0;
+}
+
+.dawp-account-shell a {
+  color: #8c6d58;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(140, 109, 88, 0.35);
+  text-underline-offset: 3px;
+}
+
+.dawp-account-shell a:hover {
+  color: #4b3528;
+  text-decoration-color: currentColor;
+}
+
+.dawp-account-shell .woocommerce h2,
+.dawp-account-shell .woocommerce h3,
+.dawp-account-shell .woocommerce-Address-title h3 {
+  margin: 0 0 14px;
+  color: #2f2925;
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.dawp-account-shell--guest .woocommerce > h2 {
+  margin: 0 auto 14px;
+}
+
+.dawp-account-shell .woocommerce .u-columns {
+  display: grid;
+  gap: 20px;
+}
+
+.dawp-account-shell .woocommerce-form-login,
+.dawp-account-shell .woocommerce-form-register {
+  margin: 0;
+  padding: 22px;
+}
+
+.dawp-account-shell .form-row {
+  margin: 0 0 16px;
+}
+
+.dawp-account-shell .woocommerce-address-fields__field-wrapper,
+.dawp-account-shell .woocommerce-EditAccountForm {
+  display: grid;
+  gap: 16px;
+}
+
+.dawp-account-shell .woocommerce-address-fields__field-wrapper .form-row,
+.dawp-account-shell .woocommerce-EditAccountForm .form-row {
+  margin: 0;
+}
+
+.dawp-account-shell fieldset {
+  min-width: 0;
+  margin: 8px 0 0;
+  padding: 18px;
+  border: 1px solid #eadccd;
+  border-radius: 8px;
+  background: #fffdf9;
+}
+
+.dawp-account-shell legend {
+  padding: 0 8px;
+  color: #4b3528;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dawp-account-shell label {
+  display: block;
+  margin: 0 0 7px;
+  color: #4b3528;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.dawp-account-shell input[type="text"],
+.dawp-account-shell input[type="email"],
+.dawp-account-shell input[type="password"],
+.dawp-account-shell input[type="tel"],
+.dawp-account-shell select,
+.dawp-account-shell textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 11px 13px;
+  border: 1px solid #dac8b7;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #2f2925;
+  font: inherit;
+  line-height: 1.45;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.dawp-account-shell input:focus,
+.dawp-account-shell select:focus,
+.dawp-account-shell textarea:focus {
+  border-color: #b89b83;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(184, 155, 131, 0.18);
+}
+
+.dawp-account-shell .password-input {
+  display: block;
+}
+
+.dawp-account-shell .show-password-input {
+  margin-top: 8px;
+}
+
+.dawp-account-shell .woocommerce-form-login__rememberme {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 12px 12px 0;
+  color: #756a62;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.dawp-account-shell input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #4b3528;
+}
+
+.dawp-account-shell button.button,
+.dawp-account-shell a.button,
+.dawp-account-shell .woocommerce-button,
+.dawp-account-shell .woocommerce-Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 11px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: #4b3528;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.dawp-account-shell button.button:hover,
+.dawp-account-shell a.button:hover,
+.dawp-account-shell .woocommerce-button:hover,
+.dawp-account-shell .woocommerce-Button:hover {
+  background: #b89b83;
+  color: #ffffff;
+}
+
+.dawp-account-shell button.button:active,
+.dawp-account-shell a.button:active,
+.dawp-account-shell .woocommerce-button:active,
+.dawp-account-shell .woocommerce-Button:active {
+  transform: translateY(1px);
+}
+
+.dawp-account-shell .woocommerce-orders-table,
+.dawp-account-shell .woocommerce-table,
+.dawp-account-shell table.shop_table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border: 1px solid #eadccd;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.dawp-account-shell table th,
+.dawp-account-shell table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid #eadccd;
+  color: #3f3732;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.dawp-account-shell table th {
+  background: #fff8ef;
+  color: #4b3528;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dawp-account-shell table tr:last-child td {
+  border-bottom: 0;
+}
+
+.dawp-account-shell address {
+  padding: 16px;
+  border: 1px solid #eadccd;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #3f3732;
+  font-style: normal;
+  line-height: 1.7;
+}
+
+.dawp-account-shell .woocommerce-Addresses {
+  display: grid;
+  gap: 18px;
+}
+
+.dawp-account-shell .woocommerce-Address-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.dawp-account-shell .woocommerce-Address-title h3 {
+  margin: 0;
+}
+
+.dawp-account-shell .woocommerce-Message,
+.dawp-account-shell .woocommerce-info,
+.dawp-account-shell .woocommerce-message {
+  margin-bottom: 18px;
+}
+
+@media (min-width: 768px) {
+  .dawp-account-hero__inner {
+    padding: 64px 24px 44px;
+  }
+
+  .dawp-account-shell {
+    padding: 34px 24px 80px;
+  }
+
+  .dawp-account-shell--logged-in .woocommerce {
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .dawp-account-shell .woocommerce-MyAccount-navigation {
+    position: sticky;
+    top: 112px;
+  }
+
+  .dawp-account-shell .woocommerce-MyAccount-content {
+    padding: 28px;
+  }
+
+  .dawp-account-shell .woocommerce .u-columns,
+  .dawp-account-shell .woocommerce-Addresses {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dawp-account-shell .woocommerce-address-fields__field-wrapper,
+  .dawp-account-shell .woocommerce-EditAccountForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dawp-account-shell .woocommerce-address-fields__field-wrapper .form-row-wide,
+  .dawp-account-shell .woocommerce-EditAccountForm .form-row-wide,
+  .dawp-account-shell .woocommerce-EditAccountForm fieldset,
+  .dawp-account-shell .woocommerce-EditAccountForm p:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .dawp-account-shell .woocommerce-MyAccount-navigation ul {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .dawp-account-shell .woocommerce-MyAccount-navigation li {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .dawp-account-shell .woocommerce-MyAccount-navigation a {
+    min-height: 40px;
+    white-space: nowrap;
+  }
+
+  .dawp-account-shell .woocommerce-MyAccount-content {
+    padding: 18px;
+  }
+
+  .dawp-account-shell table,
+  .dawp-account-shell thead,
+  .dawp-account-shell tbody,
+  .dawp-account-shell th,
+  .dawp-account-shell td,
+  .dawp-account-shell tr {
+    display: block;
+  }
+
+  .dawp-account-shell table thead {
+    display: none;
+  }
+
+  .dawp-account-shell table tr {
+    border-bottom: 1px solid #eadccd;
+  }
+
+  .dawp-account-shell table tr:last-child {
+    border-bottom: 0;
+  }
+
+  .dawp-account-shell table td {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 0;
+  }
+
+  .dawp-account-shell table td::before {
+    content: attr(data-title);
+    flex: 0 0 42%;
+    color: #756a62;
+    font-weight: 800;
+  }
+}

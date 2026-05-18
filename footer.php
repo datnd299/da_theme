@@ -37,6 +37,24 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
 
 $home_url = home_url('/');
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$payment_methods = [
+    [
+        'label' => __('Visa', 'dawp'),
+        'file' => 'Visa.png',
+    ],
+    [
+        'label' => __('Mastercard', 'dawp'),
+        'file' => 'mastercard.png',
+    ],
+    [
+        'label' => __('American Express', 'dawp'),
+        'file' => 'amre.png',
+    ],
+    [
+        'label' => __('PayPal', 'dawp'),
+        'file' => 'paypal.png',
+    ],
+];
 ?>
 
 </div>
@@ -83,6 +101,15 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
                     <p class="inline-flex items-center gap-3">
                         <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#F3E7DA]" aria-hidden="true">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 10c0 4.99-5.54 10.19-7.39 11.8a.94.94 0 0 1-1.22 0C9.54 20.19 4 14.99 4 10a8 8 0 0 1 16 0Z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </span>
+                        <span>506 Warren St, Brooklyn, NY 11217</span>
+                    </p>
+                    <p class="inline-flex items-center gap-3">
+                        <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-[#F3E7DA]" aria-hidden="true">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <path d="M12 6v6l4 2"></path>
                             </svg>
@@ -123,9 +150,18 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
                     );
                     ?>
                 </p>
-                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-white hover:text-[#4B3528]">
-                    <?php esc_html_e('Continue Shopping', 'dawp'); ?>
-                </a>
+                <div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+                    <div class="flex flex-wrap items-center gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
+                        <?php foreach ($payment_methods as $payment_method) : ?>
+                            <span class="inline-flex h-9 w-14 shrink-0 items-center justify-center overflow-hidden rounded-md border border-[#E7D8C8] bg-white shadow-sm" role="img" aria-label="<?php echo esc_attr($payment_method['label']); ?>">
+                                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/' . $payment_method['file']); ?>" alt="" class="h-7 max-w-full object-contain" loading="lazy" decoding="async" aria-hidden="true">
+                            </span>
+                        <?php endforeach; ?>
+                    </div>
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-white hover:text-[#4B3528]">
+                        <?php esc_html_e('Continue Shopping', 'dawp'); ?>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

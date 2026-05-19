@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 
 $support_email   = 'support@mybaapstore.com';
 $business_hours  = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
-$store_address   = __('681 Main St, Belleville, NJ 07109', 'dawp');
+$store_address   = __('---', 'dawp');
 $facebook_url    = 'https://www.facebook.com/mybaapstore/';
 $footer_logo_url = get_theme_file_uri('/assets/img/gallery/logo.jpg');
 

@@ -142,7 +142,7 @@ $footer_policy_links = [
                         <?php esc_html_e('Address', 'dawp'); ?>
                     </p>
                     <p class="mt-2 text-sm font-bold leading-6 text-white/80">
-                        <?php esc_html_e('2171 Prairie Center Pkwy, Brighton, CO 80601', 'dawp'); ?>
+                        <?php esc_html_e('---', 'dawp'); ?>
                     </p>
                 </div>
             </div>

@@ -1,328 +1,344 @@
+<?php
+/**
+ * Template Part: Home Page
+ * 
+ * The premium ecommerce homepage for Bardic, strictly matching Google Stitch specifications.
+ * "A modern artisan workshop inspired by ancient music and storytelling."
+ */
+?>
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-[#0B0F0D] text-white">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-      <div class="absolute -right-20 top-20 h-72 w-72 rounded-full bg-[#A3E635]/20 blur-3xl"></div>
-      <div class="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-[#22C55E]/20 blur-3xl"></div>
-
-      <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
-        <div class="max-w-2xl">
-          <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[#A3E635]">
-            Graphic Apparel / Streetwear Essentials
-          </p>
-
-          <h1 class="text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl">
-            Clean Fits. Bold Energy.
-          </h1>
-
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/85">
-            Modern graphic tees, oversized silhouettes, casual hoodies, and everyday streetwear essentials built for clean style without the noise.
-          </p>
-
-          <div class="mt-9 flex flex-wrap gap-4">
-            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#22C55E] px-7 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Now
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">
-              Explore Graphic Tees
-            </a>
-          </div>
-        </div>
-
-        <div class="relative">
-          <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/image_banner%231.png'); ?>" alt="Modern streetwear graphic tee outfit" class="aspect-[4/5] w-full rounded-[1.35rem] object-cover" />
-          </div>
-
-          <div class="absolute -bottom-7 -left-4 hidden max-w-[250px] rounded-2xl border border-white/10 bg-white p-5 text-[#111827] shadow-2xl lg:block">
-            <p class="text-xs font-black uppercase tracking-[0.2em] text-[#123D2A]">Built For Daily Wear</p>
-            <p class="mt-2 text-sm leading-6 text-[#6B7280]">Clean graphics. Easy fits. Street-ready comfort.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Categories -->
-    <section class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Shop By Category</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Streetwear Core</h2>
-          </div>
-          <p class="max-w-xl text-base leading-7 text-[#6B7280]">
-            Focused collections for graphic tees, oversized fits, hoodies, and everyday streetwear essentials.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/graphic_tee1.png'); ?>" alt="Graphic tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Graphic Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Original tee styles for everyday rotation.</p>
-              </div>
+<!-- Section 1: Hero Section -->
+<section class="relative bg-[#FAF6F0] py-16 md:py-24 lg:py-32 px-6 md:px-12 overflow-hidden border-b border-[#D9D2C5]/30">
+    <div class="max-w-[1280px] mx-auto flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
+        <!-- Text Content -->
+        <div class="w-full lg:w-1/2 flex flex-col justify-center text-left">
+            <span class="text-[#B08A57] text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 block">
+                THE MAKER'S JOURNEY
+            </span>
+            <h1 class="text-4xl md:text-5xl lg:text-[64px] font-serif text-[#4A3426] leading-[1.08] mb-6 font-medium">
+                Craft Music With Your Own Hands
+            </h1>
+            <p class="text-[#7A6C5F] font-sans text-base md:text-lg leading-[1.75] mb-10 max-w-xl">
+                Handcrafted DIY lyre kits inspired by ancient artistry and timeless folk traditions. No prior woodworking experience required—only the soul of a bard.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <a href="/shop?series=walnut" class="bg-[#4A3426] text-[#FAF6F0] text-center font-sans font-semibold text-xs tracking-[0.2em] uppercase px-8 py-4.5 rounded-xl hover:bg-[#B08A57] transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5">
+                    BUILD YOUR LYRE
+                </a>
+                <a href="/shop" class="border border-[#B08A57] text-[#B08A57] text-center font-sans font-semibold text-xs tracking-[0.2em] uppercase px-8 py-4.5 rounded-xl hover:bg-[#B08A57] hover:text-[#FAF6F0] transition-all duration-300">
+                    EXPLORE KITS
+                </a>
             </div>
-          </a>
-
-          <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversize tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Oversize Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Relaxed silhouettes with modern street fit.</p>
-              </div>
+        </div>
+        <!-- Media -->
+        <div class="w-full lg:w-1/2">
+            <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] rounded-[24px] overflow-hidden bg-[#EAE2D5] shadow-md relative">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTCrmSN5dqZRx_Cucaj56sUahLJAifEl8Ib7RMXlUUsNCe4Kzay6_YzX-mlx-v6H1T5xxVMrHw4dr-Bd6IQ5Waoo8vHMhEhm2xPTk4D4Z0L2VA-O4Hczq6BD3ZrS4zVXQNhUS3thn-6i08trsRVaY83LdC8oNTInB7xUsmlGaboiD6hAPstZ3XcHZ9dj57dWBHjAar8QFoFEWv0nWEyd9ifUN349bAolXYAglCRID0_J9MIl51LaxL8WTOqbxIVVPjEn6Hs5L-vA" alt="Artisan hands sanding and crafting a wooden lyre next to a warm candle" class="w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-[#4A3426]/5 mix-blend-multiply"></div>
             </div>
-          </a>
+        </div>
+    </div>
+</section>
 
-          <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/hoodie%231.png'); ?>" alt="Hoodies collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Hoodies</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Clean layering pieces for casual outfits.</p>
-              </div>
+<!-- Section 2: Value Propositions (Two-Card Grid) -->
+<section class="bg-[#FAF6F0] py-16 md:py-24 px-6 md:px-12 border-b border-[#D9D2C5]/30">
+    <div class="max-w-[1280px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            <!-- Card 1 -->
+            <div class="bg-[#F3EDE2] p-8 md:p-12 rounded-[24px] border border-[#D9D2C5]/30 shadow-sm flex flex-col items-start text-left">
+                <div class="w-12 h-12 rounded-xl bg-[#4A3426] flex items-center justify-center mb-6 text-[#FAF6F0]">
+                    <!-- Crossed Tools Icon -->
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-serif text-[#4A3426] mb-4 font-medium">Handcrafted Experience</h3>
+                <p class="text-[#7A6C5F] font-sans text-sm md:text-base leading-[1.7]">
+                    Every piece of walnut and maple is hand-selected and pre-carved, ensuring a tactile connection to the raw material from the very first touch.
+                </p>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/streetwear-essentials/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/banner_image%232.png'); ?>" alt="Streetwear essentials collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Essentials</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Minimal apparel built for easy styling.</p>
-              </div>
+            <!-- Card 2 -->
+            <div class="bg-[#F3EDE2] p-8 md:p-12 rounded-[24px] border border-[#D9D2C5]/30 shadow-sm flex flex-col items-start text-left">
+                <div class="w-12 h-12 rounded-xl bg-[#4A3426] flex items-center justify-center mb-6 text-[#FAF6F0]">
+                    <!-- Graduation Cap Icon -->
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-serif text-[#4A3426] mb-4 font-medium">Beginner Friendly</h3>
+                <p class="text-[#7A6C5F] font-sans text-sm md:text-base leading-[1.7]">
+                    Our comprehensive video guides and ancient scrolls lead you through assembly, stringing, and tuning your very first ancient instrument.
+                </p>
             </div>
-          </a>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- New Arrivals -->
-    <section id="new-arrivals" class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Fresh Drops</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">New Arrivals</h2>
-          </div>
-
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden rounded-md border border-[#0B0F0D] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#0B0F0D] hover:text-white sm:inline-flex">
-            View All
-          </a>
+<!-- Section 3: Collection Introduction -->
+<section class="bg-[#FAF6F0] py-16 md:py-24 px-6 md:px-12 text-center">
+    <div class="max-w-[1280px] mx-auto">
+        <span class="text-[#B08A57] text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 block">
+            COLLECTION
+        </span>
+        <h2 class="text-4xl md:text-5xl font-serif text-[#4A3426] mb-12 font-medium">
+            The Artisan Series
+        </h2>
+        <div class="rounded-[24px] overflow-hidden bg-[#FAF6F0] shadow-sm max-w-[1000px] mx-auto aspect-[16/9] border border-[#D9D2C5]/30">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwlCc9Tp5ZnEuJGDj2KhKiUCpJAPinClli75LlpsoYwmtnLoQTO_44JgzQdEJFkRWNhdizT2U29bfeDEC8NVQnzzogzdvDLPyqUbHtebH_1_aPBCNmR-WOV_Y38DlZY5cEBgyT012YvAEvKqSHrSYkzTBo11TrUQjhteoqHlXR1TaxD5mNfljJ9s4FGV6Z7lWwKXA8C8yYyKVA1zEdURAZdMfSqaUWKFKDK571U8ioyGcfZ-DZ_anq7C54ea7_XzdoFxdpmYgCCw" alt="A completed 10-string artisan lyre resting elegantly on a natural wool blanket in a rustic cottage" class="w-full h-full object-cover" />
         </div>
+    </div>
+</section>
 
-        <?php
-        $new_arrivals = wc_get_products([
-          'limit'   => 4,
-          'orderby' => 'date',
-          'order'   => 'DESC',
-          'status'  => 'publish',
-        ]);
-        ?>
-
-        <?php if ($new_arrivals) : ?>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <?php foreach ($new_arrivals as $product) :
-            $img_url  = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url  = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
-            $price    = $product->get_price_html();
-            $link     = get_permalink($product->get_id());
-            $name     = $product->get_name();
-          ?>
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
+<!-- Section 4: Product Showcase Grid -->
+<section class="bg-[#FAF6F0] pb-24 md:pb-32 px-6 md:px-12 border-b border-[#D9D2C5]/30">
+    <div class="max-w-[1280px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+            <!-- Product A: Walnut Series -->
+            <div class="flex flex-col text-left group">
+                <div class="aspect-[4/5] rounded-[24px] overflow-hidden bg-[#FAF6F0] mb-6 relative border border-[#D9D2C5]/30 shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgKJUF7vWeRYursokcVissZIoHUuzMsPsYBiVNPy4syWjyTQgKhgalBCoSozXfmQAra99ItFRPrj_nyEBl46qAGYmIzfeHwbB5OMr7e1GYffP98Uu5JmqHaO1rjFuUVN2IkjCeH4JSpgLJI5snexIZXXsxVWXtE-EzuA1qKYsxN_Nbn3DVECEMuxOePb_dMxKAb64aK0DUHyCCkn1liEF8CDlNP9c9PhgvSThdFa1U7lnETb05m-mL6w5oMz9LSoZcHAmo516eQA" alt="Walnut Series Lyre Kit" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out" />
+                </div>
+                <div class="flex justify-between items-baseline mb-2">
+                    <h3 class="text-3xl font-serif text-[#4A3426] font-medium">Walnut Series</h3>
+                    <span class="text-2xl text-[#4A3426] font-sans font-light">$245</span>
+                </div>
+                <p class="text-[#7A6C5F] font-sans text-sm md:text-base mb-4">
+                    Rich, deep resonance with aged brass strings.
+                </p>
+                <a href="/product/walnut-lyre" class="text-xs uppercase tracking-[0.2em] font-bold text-[#B08A57] hover:text-[#4A3426] transition-colors flex items-center gap-1.5 mt-2">
+                    EXPLORE SERIES <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </a>
             </div>
-            <div class="p-4">
-              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
-              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
-              <a href="<?php echo esc_url($link); ?>" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-slickBlack px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">View Product</a>
+
+            <!-- Product B: Nordic Series -->
+            <div class="flex flex-col text-left group">
+                <div class="aspect-[4/5] rounded-[24px] overflow-hidden bg-[#FAF6F0] mb-6 relative border border-[#D9D2C5]/30 shadow-sm">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/nordic-series.jpg' ); ?>" alt="Nordic Series Lyre Kit" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out" />
+                </div>
+                <div class="flex justify-between items-baseline mb-2">
+                    <h3 class="text-3xl font-serif text-[#4A3426] font-medium">Nordic Series</h3>
+                    <span class="text-2xl text-[#4A3426] font-sans font-light">$225</span>
+                </div>
+                <p class="text-[#7A6C5F] font-sans text-sm md:text-base mb-4">
+                    Clean ash wood tones with silver-plated strings.
+                </p>
+                <a href="/product/nordic-lyre" class="text-xs uppercase tracking-[0.2em] font-bold text-[#B08A57] hover:text-[#4A3426] transition-colors flex items-center gap-1.5 mt-2">
+                    EXPLORE SERIES <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </a>
             </div>
-          </article>
-          <?php endforeach; ?>
-        </div>
-        <?php endif; ?>
-      </div>
-    </section>
 
-    <!-- Lifestyle Banner -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Everyday_street_style.png'); ?>" alt="Urban lifestyle streetwear outfit" class="aspect-[4/3] w-full rounded-2xl object-cover" />
-        </div>
-
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Everyday Street Style</p>
-          <h2 class="text-4xl font-black uppercase leading-none tracking-[-0.05em] lg:text-6xl">
-            Apparel That Moves With Your Day.
-          </h2>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/82">
-            Slicktee focuses on clean graphics, relaxed fits, and modern essentials that work from city streets to weekend plans.
-          </p>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-8 inline-flex rounded-md bg-[#22C55E] px-7 py-4 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Shop Now
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Graphic Tee Collection -->
-    <section id="graphic-tees" class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Core Collection</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">
-            Graphic Tees Without The Noise
-          </h2>
-          <p class="mt-4 text-base leading-7 text-[#6B7280]">
-            Original apparel-focused designs made for daily wear. No fan merch, no copyright-heavy graphics, no meme spam.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div class="rounded-3xl bg-[#123D2A] p-8 text-white lg:col-span-1">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Original Direction</p>
-            <h3 class="mt-4 text-3xl font-black uppercase tracking-[-0.05em]">Clean Graphics</h3>
-            <p class="mt-4 text-white/82">Minimal, wearable tee designs that look sharp without feeling loud.</p>
-            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="mt-7 inline-flex rounded-md bg-[#22C55E] px-6 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Graphic Tees
-            </a>
-          </div>
-
-          <div class="overflow-hidden rounded-3xl bg-[#0B0F0D] lg:col-span-2">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Original_direction.png'); ?>" alt="Graphic tee collection banner" class="h-full min-h-[360px] w-full object-cover opacity-90" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Oversized + Hoodies -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversize tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Relaxed Fit</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversize Tees</h3>
-            <p class="mt-3 text-white/82">Built for layering, movement, and clean streetwear silhouettes.</p>
-          </div>
-        </a>
-
-        <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/casoul_hoodie.png'); ?>" alt="Casual hoodie streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Layer Ready</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Casual Hoodies</h3>
-            <p class="mt-3 text-white/82">Simple hoodie essentials with modern streetwear energy.</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Brand Values -->
-    <section class="bg-[#123D2A] py-16 text-white lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Brand Philosophy</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">
-            Built Like A Real Apparel Brand
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">01</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Comfortable Everyday Fits</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Soft apparel made for repeat wear.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">02</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Clean Modern Styling</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Minimal streetwear without visual clutter.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">03</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Original Graphic Apparel</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Brand-led graphics, not copied fan merch.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">04</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Secure Online Shopping</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Clear policies, support, and checkout trust.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Best Sellers -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Customer Picks</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Best Sellers</h2>
-        </div>
-
-        <?php
-        $best_sellers = wc_get_products([
-          'limit'   => 4,
-          'orderby' => 'date',
-          'order'   => 'ASC',
-          'status'  => 'publish',
-        ]);
-        ?>
-
-        <?php if ($best_sellers) : ?>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <?php foreach ($best_sellers as $product) :
-            $img_url = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
-            $price   = $product->get_price_html();
-            $link    = get_permalink($product->get_id());
-            $name    = $product->get_name();
-          ?>
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
-            </a>
-            <div class="p-4">
-              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
-              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
+            <!-- Product C: Celtic Series -->
+            <div class="flex flex-col text-left group">
+                <div class="aspect-[4/5] rounded-[24px] overflow-hidden bg-[#FAF6F0] mb-6 relative border border-[#D9D2C5]/30 shadow-sm">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/celtic-series.jpg' ); ?>" alt="Celtic Series Oak Wood Lyre Kit" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out" />
+                </div>
+                <div class="flex justify-between items-baseline mb-2">
+                    <h3 class="text-3xl font-serif text-[#4A3426] font-medium">Celtic Series</h3>
+                    <span class="text-2xl text-[#4A3426] font-sans font-light">$265</span>
+                </div>
+                <p class="text-[#7A6C5F] font-sans text-sm md:text-base mb-4">
+                    Timeless oak crafted for wandering souls.
+                </p>
+                <a href="/product/celtic-lyre" class="text-xs uppercase tracking-[0.2em] font-bold text-[#B08A57] hover:text-[#4A3426] transition-colors flex items-center gap-1.5 mt-2">
+                    EXPLORE SERIES <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </a>
             </div>
-          </article>
-          <?php endforeach; ?>
         </div>
-        <?php endif; ?>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Newsletter -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Stay Connected</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">Stay Updated On New Drops</h2>
-          <p class="mt-4 max-w-xl text-white/80">
-            Get updates on new graphic tees, oversized fits, hoodie releases, and clean streetwear essentials.
-          </p>
+<!-- Section 4.5: The Workshop Ethos -->
+<section class="bg-[#F3EDE2] py-20 md:py-28 px-6 md:px-12 border-b border-[#D9D2C5]/30 relative overflow-hidden">
+    <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <!-- Workbench Media Left -->
+        <div class="w-full lg:w-1/2 relative group">
+            <div class="aspect-[4/3] rounded-[24px] overflow-hidden bg-[#EAE2D5] shadow-md relative border border-[#D9D2C5]/40">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp30j96Wtp8xb4FjDP8EXtykAI9anHYdZFyzhNU0pQj1HVD4by1flhUFi2YccAgB-y3AskC2TTT98xrKd3e0TRchabwqQyZEq2FXaWVkmnFDMspZLkxD2it8zKTQRius58kdo1UZdN2eLbzV99ZyBQK2up_OukKqt2pLkBh2IcMgEb5dxsdr5TNB6diO1ABuPlP0Xwgip1XJqPqyWTQhl2skL5tW1YKT__fw1SB72TDVnSb1i4llE8VgprOsMsZn5o_Qmu52lytw" alt="Artisan workbench with chisels, wood carvings, shavings, and natural wood grain planks" class="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-700" />
+                <div class="absolute inset-0 bg-[#4A3426]/5 mix-blend-multiply"></div>
+                
+                <!-- Handcrafted Gold Quality Seal overlayed bottom right -->
+                <div class="absolute bottom-6 right-6 bg-[#4A3426] text-[#FAF6F0] p-4 rounded-full border border-[#B08A57] shadow-lg flex flex-col items-center justify-center w-20 h-20 rotate-6 hover:rotate-0 transition-transform duration-300">
+                    <span class="text-[8px] font-sans tracking-[0.2em] uppercase font-bold opacity-60">Handmade</span>
+                    <span class="text-base font-serif font-bold text-[#B08A57]">100%</span>
+                    <span class="text-[8px] font-sans tracking-[0.2em] uppercase font-bold opacity-60">Quality</span>
+                </div>
+            </div>
         </div>
+        
+        <!-- Ethos Text Content Right -->
+        <div class="w-full lg:w-1/2 flex flex-col justify-center text-left">
+            <span class="text-[#B08A57] text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 block">
+                THE WORKSHOP ETHOS
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif text-[#4A3426] mb-6 font-medium leading-[1.12]">
+                Honoring the Grain
+            </h2>
+            <p class="text-[#7A6C5F] font-sans text-base md:text-lg leading-[1.75] mb-10 max-w-xl">
+                Every piece begins with a conversation between the artisan and the wood. We do not force shapes; we uncover them. By using traditional joinery and natural oils, we ensure that each Bardic instrument breathes, age, and develops its own unique voice over generations.
+            </p>
+            
+            <!-- Badges List -->
+            <div class="flex flex-wrap gap-3">
+                <span class="bg-[#FAF6F0] text-[#7A6C5F] text-xs font-sans tracking-wider uppercase px-4 py-2 rounded-full border border-[#D9D2C5]/50 shadow-sm font-medium">
+                    Aged Walnut
+                </span>
+                <span class="bg-[#FAF6F0] text-[#7A6C5F] text-xs font-sans tracking-wider uppercase px-4 py-2 rounded-full border border-[#D9D2C5]/50 shadow-sm font-medium">
+                    Slow-Grown Spruce
+                </span>
+                <span class="bg-[#FAF6F0] text-[#7A6C5F] text-xs font-sans tracking-wider uppercase px-4 py-2 rounded-full border border-[#D9D2C5]/50 shadow-sm font-medium">
+                    Antique Brass
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <form class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row" action="#" method="post">
-          <label for="slicktee-email" class="sr-only">Email address</label>
-          <input id="slicktee-email" type="email" name="email" placeholder="Enter your email" class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-[#111827] placeholder:text-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#A3E635]" />
-          <button type="submit" class="min-h-12 rounded-md bg-[#22C55E] px-6 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Join
-          </button>
-        </form>
-      </div>
-    </section>
+<!-- Section 5: Community & Testimonials -->
+<section class="bg-[#F3EDE2] py-20 md:py-28 px-6 md:px-12 border-b border-[#D9D2C5]/30">
+    <div class="max-w-[1280px] mx-auto">
+        <span class="text-[#B08A57] text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 block text-center">
+            THE BARDIC COMMUNITY
+        </span>
+        <h2 class="text-4xl md:text-5xl font-serif text-[#4A3426] mb-16 font-medium text-center">
+            Built By You
+        </h2>
+        
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <!-- Collage Grid Left -->
+            <!-- Collage Grid Left -->
+            <div class="w-full lg:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <!-- Large image -->
+                <div class="sm:col-span-2 aspect-[4/3] rounded-[20px] overflow-hidden shadow-sm relative">
+                    <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/Thiết kế chưa có tên (1).png' ); ?>" alt="Customer carefully tuning their instrument under a soft warm light" class="w-full h-full object-cover" />
+                </div>
+                <!-- Column 3 Stacked Images -->
+                <div class="sm:col-span-1 relative w-full sm:h-full">
+                    <!-- Mobile Layout: Stack naturally with square aspect ratio -->
+                    <div class="flex sm:hidden flex-col gap-6 w-full">
+                        <div class="aspect-square rounded-[20px] overflow-hidden shadow-sm relative">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvpGDoCS6_GuZZIu9idqGJIit-kLwq19k4SUWS7Wx1TWy9NM0D82jQrHqzoVIAdT1LSa03ewTgwlDb2rphWk3Vd5Ij3AJsVFJ1Y5IySjm0ygzFZSidbNCJoJTqi79L3lzrG3eS5kwxr26POz5yv4OObypX4twUrR_HuN7JEGCWYYeBXO3CGtIsRvSFLvnM8V0bGzTd_EO0JDAZb1lZoTUddrWhfiA5aBSY88imr-hSnczK1seN5KzTy1TgtYl6HZk4roNliHcJuw" alt="Close-up of hands stringing a wooden lyre frame" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="aspect-square rounded-[20px] overflow-hidden shadow-sm relative">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/d1d2a4ceb6065b94046272d12b34341c.jpg' ); ?>" alt="Finished lyre sitting on a rustic stone castle window" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                    <!-- Desktop/Tablet Layout: stretch to exactly the absolute height of the large image -->
+                    <div class="hidden sm:flex absolute inset-0 flex-col gap-6">
+                        <div class="flex-1 rounded-[20px] overflow-hidden shadow-sm relative">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvpGDoCS6_GuZZIu9idqGJIit-kLwq19k4SUWS7Wx1TWy9NM0D82jQrHqzoVIAdT1LSa03ewTgwlDb2rphWk3Vd5Ij3AJsVFJ1Y5IySjm0ygzFZSidbNCJoJTqi79L3lzrG3eS5kwxr26POz5yv4OObypX4twUrR_HuN7JEGCWYYeBXO3CGtIsRvSFLvnM8V0bGzTd_EO0JDAZb1lZoTUddrWhfiA5aBSY88imr-hSnczK1seN5KzTy1TgtYl6HZk4roNliHcJuw" alt="Close-up of hands stringing a wooden lyre frame" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="flex-1 rounded-[20px] overflow-hidden shadow-sm relative">
+                            <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/d1d2a4ceb6065b94046272d12b34341c.jpg' ); ?>" alt="Finished lyre sitting on a rustic stone castle window" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Right -->
+            <div class="w-full lg:w-1/3 flex flex-col items-center lg:items-start text-center lg:text-left">
+                <div class="text-[#B08A57] text-7xl font-serif leading-none mb-4 font-semibold opacity-30 select-none">“</div>
+                <blockquote class="text-[#4A3426] font-serif text-xl md:text-2xl leading-[1.65] italic mb-6">
+                    "I never thought I could build something so beautiful. The wood feels alive."
+                </blockquote>
+                <cite class="text-[#7A6C5F] font-sans text-xs tracking-widest uppercase mb-10 block not-italic">
+                    — Elara V.
+                </cite>
+                <a href="/join-workshop" class="border border-[#4A3426] text-[#4A3426] font-sans font-semibold text-xs tracking-[0.2em] uppercase px-8 py-4 rounded-xl hover:bg-[#4A3426] hover:text-[#FAF6F0] transition-colors duration-300">
+                    JOIN THE WORKSHOP
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 6: Philosophy Section -->
+<section class="bg-[#FAF6F0] py-20 md:py-32 px-6 md:px-12 border-b border-[#D9D2C5]/30">
+    <div class="max-w-[1280px] mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+        <!-- Left Image -->
+        <div class="w-full lg:w-1/2">
+            <div class="aspect-[4/3] rounded-[24px] overflow-hidden bg-[#FAF6F0] shadow-sm border border-[#D9D2C5]/30">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq1STlgC7RFhDB-zNkjUp_Zdmvg2TuIEPfkrcB-wTDaxKTCdok4WJI3Uf8zMiZWcP5WOk35qnUJ3IbBTaW2q606JNxl3iVhm40lQv7Vb8el989wDGwtL3xA4zvzC0xWLWCiGZTGC9T0KZ7e0HbofSghbHA7cPlhJvEu4cXGvXNkvOSNl-YvmCDj4m8zFGkFhjdB_ZrcgZB3LefA8eC5sDmzR1fPzomT6xWQEUhi6YWBwbm1nNmQbBxRfQhsJgB6UBseYd8HBP5Dg" alt="Rustic workshop table with blueprint rolls, inkwell, copper kettle" class="w-full h-full object-cover" />
+            </div>
+        </div>
+        <!-- Right Story Column -->
+        <div class="w-full lg:w-1/2 flex flex-col justify-center text-left">
+            <span class="text-[#B08A57] text-xs md:text-sm font-bold tracking-[0.25em] uppercase mb-4 block">
+                PHILOSOPHY
+            </span>
+            <h2 class="text-4xl md:text-5xl font-serif text-[#4A3426] mb-8 font-medium leading-[1.12]">
+                The Art of Ancient Sound
+            </h2>
+            <div class="text-[#7A6C5F] font-sans text-base md:text-lg leading-[1.75] space-y-6 max-w-xl">
+                <p>
+                    At Bardic, we believe music isn't just something you consume—it's something you inhabit. Our journey began in a small timber workshop, driven by a desire to reconnect with the acoustic resonance of our ancestors.
+                </p>
+                <p>
+                    Each kit is a bridge across time. We use the same joinery principles used by master luthiers of the medieval era, simplified so you can master them in a single weekend. This is not assembly-line production; this is slow craftsmanship, reborn for the modern bard.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 7: FAQ (Common Inquiries) -->
+<section class="bg-[#FAF6F0] py-20 md:py-28 px-6 md:px-12">
+    <div class="max-w-[760px] mx-auto text-center">
+        <h2 class="text-4xl md:text-5xl font-serif text-[#4A3426] mb-4 font-medium">
+            Common Inquiries
+        </h2>
+        <p class="text-[#7A6C5F] font-sans text-sm md:text-base tracking-wide uppercase mb-16 opacity-75">
+            Everything you need to know before you begin your craft.
+        </p>
+
+        <!-- Accordions -->
+        <div class="space-y-4 text-left">
+            <!-- Accordion 1 -->
+            <details class="group bg-[#F3EDE2] border border-[#D9D2C5]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-sm" open>
+                <summary class="flex justify-between items-center font-serif text-lg md:text-xl text-[#4A3426] font-medium cursor-pointer list-none focus:outline-none">
+                    Do I need woodworking experience?
+                    <span class="text-[#B08A57] transition-transform duration-300 group-open:rotate-185">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </span>
+                </summary>
+                <p class="mt-4 text-[#7A6C5F] font-sans text-sm md:text-base leading-[1.7] border-t border-[#D9D2C5]/30 pt-4">
+                    None at all. Our kits are "Ready-to-Assemble." The difficult shaping is done by us; the soul-enriching assembly and finishing are done by you. We provide step-by-step video tutorials for every stage.
+                </p>
+            </details>
+
+            <!-- Accordion 2 -->
+            <details class="group bg-[#F3EDE2] border border-[#D9D2C5]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-sm">
+                <summary class="flex justify-between items-center font-serif text-lg md:text-xl text-[#4A3426] font-medium cursor-pointer list-none focus:outline-none">
+                    How long does shipping take?
+                    <span class="text-[#B08A57] transition-transform duration-300 group-open:rotate-185">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </span>
+                </summary>
+                <p class="mt-4 text-[#7A6C5F] font-sans text-sm md:text-base leading-[1.7] border-t border-[#D9D2C5]/30 pt-4">
+                    We currently ship only within the USA. Orders typically arrive within 7–10 business days. Each kit is packed in sustainable linen and recycled cardboard to protect the delicate wood components during transit.
+                </p>
+            </details>
+
+            <!-- Accordion 3 -->
+            <details class="group bg-[#F3EDE2] border border-[#D9D2C5]/40 rounded-2xl p-6 transition-all duration-300 hover:shadow-sm">
+                <summary class="flex justify-between items-center font-serif text-lg md:text-xl text-[#4A3426] font-medium cursor-pointer list-none focus:outline-none">
+                    What if I make a mistake during build?
+                    <span class="text-[#B08A57] transition-transform duration-300 group-open:rotate-185">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </span>
+                </summary>
+                <p class="mt-4 text-[#7A6C5F] font-sans text-sm md:text-base leading-[1.7] border-t border-[#D9D2C5]/30 pt-4">
+                    We include "The Artisan's Insurance" with every kit. If you break or lose a component during assembly, we'll replace it for free—just cover the shipping. We want you to finish your instrument.
+                </p>
+            </details>
+        </div>
+    </div>
+</section>

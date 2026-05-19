@@ -1,89 +1,57 @@
 <?php
 /**
  * Template Part: Track Your Order
+ * Bardic – Track Your Order
  */
 ?>
+<section class="bg-[#FAF6F0] pt-20 pb-16 px-6 md:px-12 border-b border-[#D9D2C5]/40">
+    <div class="max-w-[600px] mx-auto text-center">
+        <span class="text-[#B08A57] text-xs font-bold tracking-[0.3em] uppercase block mb-4">Support</span>
+        <h1 class="font-serif text-4xl md:text-5xl text-[#4A3426] leading-[1.1] mb-5 font-medium">Track Your Order</h1>
+        <p class="text-[#7A6C5F] font-sans text-base leading-[1.8]">
+            Enter your order number and email address below to check the status of your shipment.
+        </p>
+    </div>
+</section>
 
-<main class="track-order-page">
-
-    <!-- Hero Section -->
-    <section class="track-hero">
-        <div class="track-hero__inner">
-            <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
-            <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
-            <p class="track-hero__desc">
-                <?php esc_html_e('Enter your order details below to see your shipment status. We\'ll help you follow your Slicktee order from checkout to delivery.', 'dawp'); ?>
-            </p>
+<!-- Track Form -->
+<section class="bg-[#FAF6F0] py-16 px-6 md:px-12">
+    <div class="max-w-[520px] mx-auto">
+        <div class="bg-[#F3EDE2] border border-[#D9D2C5]/50 rounded-3xl p-8 md:p-10 shadow-sm">
+            <h2 class="font-serif text-xl text-[#4A3426] mb-6 font-medium text-center">Order Lookup</h2>
+            <form class="space-y-5" onsubmit="return false;">
+                <div>
+                    <label for="order-number" class="block font-sans text-xs font-semibold text-[#4A3426] tracking-[0.15em] uppercase mb-2">Order Number</label>
+                    <input type="text" id="order-number" placeholder="e.g. #10234" class="w-full bg-[#FAF6F0] border border-[#D9D2C5] rounded-xl px-4 py-3.5 text-sm text-[#4A3426] placeholder-[#7A6C5F]/50 focus:outline-none focus:ring-2 focus:ring-[#B08A57]/40 focus:border-[#B08A57] transition-all" />
+                </div>
+                <div>
+                    <label for="order-email" class="block font-sans text-xs font-semibold text-[#4A3426] tracking-[0.15em] uppercase mb-2">Email Address</label>
+                    <input type="email" id="order-email" placeholder="Email used at checkout" class="w-full bg-[#FAF6F0] border border-[#D9D2C5] rounded-xl px-4 py-3.5 text-sm text-[#4A3426] placeholder-[#7A6C5F]/50 focus:outline-none focus:ring-2 focus:ring-[#B08A57]/40 focus:border-[#B08A57] transition-all" />
+                </div>
+                <button type="submit" class="w-full bg-[#4A3426] text-[#FAF6F0] py-4 rounded-xl font-sans text-sm font-semibold tracking-wide hover:bg-[#B08A57] transition-all duration-300 flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7 7 0 1 0 6.65 6.65a7 7 0 0 0 9.9 9.9z"/></svg>
+                    Track Order
+                </button>
+            </form>
         </div>
-    </section>
 
-    <!-- Form Section -->
-    <section class="track-form-section">
-        <div class="track-form-section__inner">
-
-            <!-- Form Card -->
-            <div class="track-form-card">
-                <div class="track-form-card__body">
-                    <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
-                </div>
+        <!-- Info Cards -->
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-[#F3EDE2] border border-[#D9D2C5]/40 rounded-2xl p-5 text-center">
+                <div class="text-2xl mb-2">📦</div>
+                <h3 class="font-sans font-semibold text-[#4A3426] text-xs tracking-wide uppercase mb-1">Processing Time</h3>
+                <p class="text-[#7A6C5F] text-xs leading-[1.6]">Orders are processed within 3–5 business days (Monday - Friday).</p>
             </div>
-
-            <!-- Help Box -->
-            <div class="track-help-box">
-                <div class="track-help-box__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-                </div>
-                <div class="track-help-box__content">
-                    <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
-                    <p class="track-help-box__text">
-                        <?php esc_html_e('If you have any trouble, please reach out to the Slicktee support team at ', 'dawp'); ?>
-                        <a href="mailto:support@slicktee.com">support@slicktee.com</a>
-                        <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Trust Badges -->
-            <div class="track-badges">
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                    <?php esc_html_e('Secure Tracking', 'dawp'); ?>
-                </div>
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    <?php esc_html_e('Real-time Updates', 'dawp'); ?>
-                </div>
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                    <?php esc_html_e('Order Protection', 'dawp'); ?>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- More Ways Section -->
-    <section class="track-more-section">
-        <div class="track-more-section__inner">
-            <div class="track-more-section__header">
-                <h2 class="track-more-section__title"><?php esc_html_e('More Ways We Can Help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth Slicktee shopping experience.', 'dawp'); ?></p>
-            </div>
-            <div class="track-more-grid">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our shipping times, rates, and delivery details.', 'dawp'); ?></p>
-                </a>
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our Slicktee support team is here to help with order and delivery questions.', 'dawp'); ?></p>
-                </a>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Find quick answers to our most common customer questions.', 'dawp'); ?></p>
-                </a>
+            <div class="bg-[#F3EDE2] border border-[#D9D2C5]/40 rounded-2xl p-5 text-center">
+                <div class="text-2xl mb-2">🚚</div>
+                <h3 class="font-sans font-semibold text-[#4A3426] text-xs tracking-wide uppercase mb-1">Delivery Estimate</h3>
+                <p class="text-[#7A6C5F] text-xs leading-[1.6]">Continental US: 7–10 business days total estimated delivery time.</p>
             </div>
         </div>
-    </section>
 
-</main>
+        <p class="text-center text-[#7A6C5F] font-sans text-xs mt-8 leading-[1.7]">
+            Need help with your order? Contact us at
+            <a href="mailto:contact@bardicshop.com" class="text-[#B08A57] hover:underline">contact@bardicshop.com</a>
+        </p>
+    </div>
+</section>

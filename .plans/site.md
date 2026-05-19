@@ -1,62 +1,20 @@
-h# Slicktee
+# Bardic — Site Strategy & Design System
 
-## Store Information
+## Brand Positioning
 
-- **Website:** slicktee.com
-- **Language:** English
-- **Store Type:** Graphic Tee & Modern Streetwear Apparel Brand
-- **Primary Market:** United States
-- **Brand Positioning:** Youthful Graphic Apparel / Everyday Streetwear
-- **Support Email:** support@slicktee.com
-- **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM (EST)
+### Core Positioning
 
----
+Bardic is a handcrafted folk music lifestyle brand centered around DIY lyre kits inspired by ancient artistry, slow living, and creative craftsmanship.
 
-# Brand Positioning
+The brand does not sell instruments.
+It sells:
 
-Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, casual hoodies, and everyday outfit essentials.
-
-The brand should feel:
-- Youthful
-- Energetic
-- Clean
-- Urban
-- Creative
-- Confident
-- Apparel-focused
-- Easy to wear
-
-The storefront should feel like a real apparel brand, not a generic print-on-demand store.
-
-Avoid making the website feel like:
-- Random POD spam
-- Meme shirt marketplace
-- Copyright fan merch store
-- Generic dropshipping ecommerce
-- Aggressive hypebeast store
-- Mixed-category marketplace
-
----
-
-# Historical Direction
-
-Slicktee aligns with:
-- Graphic t-shirts
-- Casual apparel
-- Streetwear basics
-- Urban tee culture
-- Youth fashion
-- Creative everyday outfits
-- Simple ecommerce apparel branding
-
-Avoid pivoting into:
-- Electronics
-- Pet products
-- Home goods
-- Supplements
-- Automotive
-- Random gadgets
-- Unrelated accessories
+* creative experience
+* tactile craftsmanship
+* artistic identity
+* calming rituals
+* emotional connection
+* medieval folk atmosphere
 
 ---
 
@@ -64,289 +22,721 @@ Avoid pivoting into:
 
 ## Primary Audience
 
-- Men and women aged 18–35
-- Graphic tee buyers
-- Streetwear-inspired shoppers
-- Casual outfit customers
-- Online fashion shoppers
-- Young creative buyers
-- Students and young professionals
+### Women 24–42
+
+Interests:
+
+* cottagecore
+* fantasy aesthetics
+* crafting hobbies
+* journaling
+* cozy interiors
+* handmade culture
+* folk music
+* renaissance fairs
+* artistic slow living
+
+Psychological triggers:
+
+* “I made this myself”
+* creative escape from modern life
+* calming artistic hobby
+* aesthetic self-expression
+* meaningful tactile experiences
+
+---
 
 ## Secondary Audience
 
-- Hoodie shoppers
-- Oversized tee customers
-- Minimal streetwear fans
-- Gift shoppers looking for casual apparel
+### Men 28–45
+
+Interests:
+
+* medieval culture
+* Celtic/Viking aesthetics
+* DnD
+* woodworking
+* fantasy worlds
+* acoustic music
+* artisan craftsmanship
 
 ---
 
-# Customer Psychology
+# Brand Personality
 
-Customers shop for:
-- Comfortable everyday tees
-- Clean graphic apparel
-- Easy outfit styling
-- Casual confidence
-- Streetwear basics
-- Wearable statement pieces
-- Minimal but creative designs
+## Keywords
 
-The shopping experience should feel:
-- Fast
-- Clean
-- Bold
-- Energetic
-- Youthful
-- Authentic
-- Easy to browse
+* handcrafted
+* timeless
+* soulful
+* artistic
+* warm
+* grounded
+* poetic
+* immersive
+* tactile
+* cinematic
 
 ---
 
-# Categories
+# Brand Visual Direction
 
-- **New Arrivals**
-- **Best Sellers**
-- **Graphic Tees**
-- **Oversized Tees**
-- **Streetwear Essentials**
-- **Casual Hoodies**
-- **Vintage Wash**
-- **Minimal Apparel**
-- **Accessories**
+## Core Aesthetic
+
+Modern medieval artisan workshop.
+
+The experience should feel:
+
+* cinematic
+* warm
+* tactile
+* calm
+* premium
+* emotionally grounded
 
 ---
 
-# Homepage Direction
+## Texture Language
 
-The homepage should focus on:
-- Strong streetwear branding
-- Clean lifestyle visuals
-- Youthful product discovery
-- Graphic tee positioning
-- Oversized apparel styling
-- Modern ecommerce trust
-- Easy navigation
+* oak wood
+* walnut grain
+* parchment paper
+* linen fabric
+* brass details
+* candlelight
+* handcrafted imperfections
 
-Recommended sections:
-- Hero banner
-- Featured categories
-- New arrivals
-- Graphic tees
-- Oversized tees
-- Hoodie collection
-- Streetwear essentials
-- Best sellers
-- Brand values
-- Newsletter
+---
+
+## Photography Direction
+
+* warm shadows
+* cinematic closeups
+* hands assembling instruments
+* workshop atmosphere
+* natural light
+* shallow depth of field
+* textured surfaces
+* cozy interiors
 
 Avoid:
-- Product spam grids
-- Fake urgency countdowns
-- Loud discount banners
-- Copyright-heavy graphic references
-- Marketplace-style layouts
+
+* bright white studio imagery
+* generic ecommerce mockups
+* cluttered product collages
+* flashy graphics
 
 ---
 
-# Visual Direction
+# Color System
 
-## Design Style
+## Primary Palette
 
-- Clean modern ecommerce
-- Energetic green-based palette
-- Strong black and white contrast
-- Bold typography
-- Large lifestyle images
-- Spacious product grids
-- Minimal visual clutter
-- Mobile-first shopping experience
+| Role         | Color        | Hex     |
+| ------------ | ------------ | ------- |
+| Background   | Warm Ivory   | #F5F1E8 |
+| Primary Dark | Walnut Brown | #4A3426 |
+| Accent       | Antique Gold | #B08A57 |
+| Secondary    | Forest Green | #5E6B57 |
+| Neutral      | Linen Beige  | #D8CBB8 |
 
-## Visual Tone
+---
 
-The website should feel:
-- Urban
-- Young
-- Active
-- Confident
-- Modern
-- Apparel-native
-- Creative but trustworthy
+## Color Philosophy
+
+The site should use soft contrast instead of aggressive contrast.
 
 Avoid:
-- Cheap POD visuals
-- Fake hypebeast styling
-- Overcrowded graphics
-- Neon chaos
-- Low-quality mockups
-- AI-looking product imagery
+
+* harsh black/white combinations
+* neon accents
+* overly dark fantasy aesthetics
+* bright ecommerce colors
+
+Goal:
+quiet luxury artisan feel.
 
 ---
 
-# Product Content Direction
+# Typography System
 
-Descriptions should feel:
-- Short
-- Clear
-- Confident
-- Apparel-focused
-- Fit-driven
-- Styling-oriented
-- Comfort-driven
+## Heading Font
 
-Content should include:
-- Fit notes
-- Fabric feel
-- Styling ideas
-- Everyday use cases
-- Care information when relevant
+### Cormorant Garamond
+
+Alternative:
+
+* Cinzel
+
+Purpose:
+
+* emotional storytelling
+* elegance
+* old-world sophistication
+
+---
+
+## Body Font
+
+### Inter
+
+Alternative:
+
+* Source Sans 3
+
+Purpose:
+
+* readability
+* modern UX clarity
+* clean ecommerce structure
+
+---
+
+## Typography Hierarchy
+
+### H1
+
+56–72px
+Elegant and spacious.
+
+### H2
+
+40–52px
+
+### Body
+
+18–20px
+
+### Small Text
+
+14–16px
+
+Typography should feel airy and breathable.
 
 Avoid:
-- Keyword stuffing
-- Robotic AI descriptions
-- Fake scarcity messaging
-- Copyrighted character references
-- Offensive or controversial claims
+
+* dense text blocks
+* tiny ecommerce body text
+* excessive decorative fonts
 
 ---
 
-# Collection Direction
+# Design System Thinking
 
-Collections should feel curated and brand-led.
+## Core Principle
 
-Each collection should:
-- Include short intro copy
-- Present products cleanly
-- Maintain consistent image style
-- Group items by fit, graphic style, or apparel type
-- Feel intentional rather than auto-generated
+The site must feel like an immersive artisan experience, not a generic online store.
 
-The browsing experience should feel like a real apparel brand catalog.
+Every visual decision should reinforce:
+
+* craftsmanship
+* calmness
+* authenticity
+* tactile value
+* premium simplicity
 
 ---
 
-# Brand Trust Signals
+# Visual Hierarchy System
+
+## One Dominant Focus Per Viewport
+
+Each section should contain:
+
+* one emotional message
+  OR
+* one visual priority
+
+Avoid:
+
+* multiple competing CTAs
+* icon overload
+* cluttered layouts
+* excessive motion
+
+---
+
+# Contrast System
+
+Contrast should be created through:
+
+* spacing
+* typography scale
+* texture
+* visual weight
+* lighting
+* motion restraint
+
+Not aggressive colors.
+
+---
+
+# Spacing System
+
+## Philosophy
+
+Whitespace creates perceived value.
+
+Premium brands use generous spacing.
+
+---
+
+## Desktop Spacing
+
+### Between Major Sections
+
+120–160px
+
+### Between Heading & Body
+
+20–28px
+
+### Between Cards
+
+24–32px
+
+### Container Width
+
+1280–1440px max
+
+---
+
+## Mobile Spacing
+
+Mobile should feel:
+
+* breathable
+* calm
+* thumb-friendly
+* immersive
+
+Do not simply scale desktop layouts down.
+
+---
+
+# Grid System
+
+## Desktop Grid
+
+12-column layout.
+
+---
+
+## Product Grids
+
+Maximum:
+
+* 3-column product layout
+
+Avoid:
+
+* crowded grids
+* marketplace-style density
+
+---
+
+# Button System
+
+## CTA Philosophy
+
+CTAs should feel intentional and premium.
+
+Avoid:
+
+* aggressive urgency
+* loud ecommerce language
+* excessive animations
+
+---
+
+## Recommended CTA Copy
+
+* Build Your Lyre
+* Begin Crafting
+* Explore The Collection
+* Discover Ancient Sound
+
+---
+
+# Image System
+
+## Aspect Ratio
+
+Preferred:
+4:5
+
+---
+
+## Image Priorities
+
+Focus on:
+
+* wood textures
+* craftsmanship
+* human hands
+* artistic process
+* warm lighting
+* emotional atmosphere
+
+---
+
+# User Flow Strategy
+
+## Homepage Emotional Flow
+
+Emotion
+↓
+Curiosity
+↓
+Trust
+↓
+Desire
+↓
+Simplicity
+↓
+Purchase
+
+---
+
+# Homepage Structure
+
+## 1. Hero Section
+
+### Goal
+
+Immediate emotional immersion.
+
+### Layout
+
+Left:
+
+* headline
+* supporting copy
+* CTA
+
+Right:
+
+* cinematic assembly visual/video
+
+---
+
+## Hero Copy
+
+### Headline
+
+Craft Music With Your Own Hands
+
+### Subheadline
+
+Handcrafted DIY lyre kits inspired by ancient artistry and timeless folk traditions.
+
+### CTA
+
+Build Your Lyre
+
+---
+
+## 2. Why Bardic
+
+Three pillars:
+
+* Handcrafted Experience
+* Beginner Friendly
+* Inspired by Ancient Music
+
+Goal:
+build trust and emotional framing.
+
+---
+
+## 3. Featured Kits
+
+Hero products only.
+
+Avoid:
+
+* large catalogs
+* overwhelming options
+
+Focus on:
+
+* curated premium presentation
+
+---
+
+## 4. Built By You
+
+UGC gallery featuring:
+
+* customer builds
+* workshop setups
+* finished instruments
+* cozy lifestyle photography
+
+Goal:
+authenticity and social proof.
+
+---
+
+## 5. Video Section
+
+Content:
+
+* assembly process
+* tuning demos
+* sound samples
+* craftsmanship closeups
+
+Goal:
+increase emotional immersion.
+
+---
+
+## 6. What’s Included
+
+Display:
+
+* pre-cut wood
+* strings
+* tools
+* instruction guide
+* beginner friendliness
+
+Goal:
+reduce anxiety.
+
+---
+
+## 7. Reviews
+
+Reviews should feel cinematic and authentic.
+
+Avoid:
+
+* fake-looking review blocks
+* excessive star graphics
+
+---
+
+## 8. Story Section
+
+Theme:
+The Art of Ancient Sound
+
+Goal:
+build emotional identity around the brand.
+
+---
+
+## 9. FAQ
+
+Important for:
+
+* trust
+* GMC quality
+* conversion reassurance
+
+Topics:
+
+* beginner difficulty
+* assembly time
+* tuning process
+* shipping
+* returns
+
+---
+
+# Product Page Strategy
+
+## Above The Fold
+
+### Left Side
+
+* lifestyle images
+* detail photography
+* assembly visuals
+* sound demo video
+
+### Right Side
+
+* emotional headline
+* reassurance copy
+* CTA
+* shipping details
+* trust signals
+
+---
+
+# Product Page CRO Blocks
+
+## No Experience Needed
+
+Reduces beginner anxiety.
+
+---
+
+## A Relaxing Creative Experience
+
+Emphasizes emotional value.
+
+---
+
+## Display It Proudly
+
+Frames the product as decor + identity.
+
+---
+
+## What You’ll Create
+
+Shows the transformation journey.
+
+---
+
+# Trust System
 
 ## Required Pages
 
-- About Us
-- Contact Us
-- Shipping Policy
-- Return & Refund Policy
-- Privacy Policy
-- Terms of Service
-- FAQ
-- Track Your Order
-
-## Required Trust Elements
-
-- Visible support email
-- Clear shipping timelines
-- Transparent return policy
-- Secure checkout messaging
-- Consistent apparel branding
-- Mobile-friendly UX
-- Clean footer navigation
+* About Us
+* Contact Us
+* Shipping Policy
+* Return Policy
+* Privacy Policy
+* Terms of Service
+* Track Order
 
 ---
 
-# Shipping Information
+## Footer Requirements
 
-Orders are processed within **2–4 business days**.
-
-After dispatch, standard US shipping typically takes **5–10 business days**.
-
-Customers receive tracking information once orders ship.
-
-## Shipping Benefits
-
-- Standard shipping available on all orders
-- Tracking included
-- Secure packaging
-- Responsive customer support
+* support email
+* business address
+* social icons
+* secure checkout messaging
 
 ---
 
-# Return Policy Direction
-
-Customers may request returns within **30 days** of delivery.
-
-Eligible returns should be:
-- Unused
-- Unwashed
-- Unworn
-- In original condition
-- Returned with original packaging where applicable
-
-The return process should feel:
-- Clear
-- Fair
-- Simple
-- Customer-friendly
-
----
-
-# Tone of Voice
-
-The website tone should be:
-- Clean
-- Direct
-- Confident
-- Youthful
-- Modern
-- Casual
-- Streetwear-inspired
+## GMC Safety Principles
 
 Avoid:
-- Corporate language
-- Overhyped slang
-- Fake luxury positioning
-- Aggressive sales copy
-- Offensive humor
+
+* fake scarcity
+* fake countdown timers
+* misleading claims
+* exaggerated promises
+
+The brand should feel authentic and transparent.
 
 ---
 
-# GMC & Compliance Direction
+# Content Strategy
 
-The storefront must feel like a legitimate apparel ecommerce brand with strong topical consistency and authentic merchant behavior.
+## Best Performing Content Types
 
-## GMC Priorities
+### 1. Assembly Videos
 
-- Apparel-focused niche relevance
-- Clean graphic tee positioning
-- Original branded content
-- Transparent policies
-- Realistic ecommerce presentation
-- Mobile-friendly shopping flow
-- Consistent product imagery
-- Trustworthy checkout experience
-
-Avoid:
-- Mixed-category spam
-- Thin AI-generated pages
-- Fake reviews
-- Fake urgency
-- Excessive discount messaging
-- Copyrighted graphics
-- Celebrity or trademarked designs
-- Offensive or adult graphic content
+Most important content format.
 
 ---
 
-# Store Promises
+### 2. Sound Demo Videos
 
-- Clean graphic apparel
-- Comfortable everyday fits
-- Youthful streetwear essentials
-- Simple and secure ordering
-- Clear customer policies
-- Responsive support
-- Authentic apparel brand experience
+Strong emotional engagement.
 
 ---
 
-# Strategic Build Goal
+### 3. Cozy Aesthetic Reels
 
-The storefront should feel like:
+Cottagecore + folk atmosphere.
 
-“A youthful modern streetwear apparel brand built for everyday graphic tee customers, with original designs, clean shopping, strong contrast, and trustworthy ecommerce presentation.”
+---
+
+### 4. Transformation Content
+
+“From flat wood to instrument.”
+
+---
+
+### 5. Workshop Ambience Content
+
+Slow, calming, tactile visuals.
+
+---
+
+# Product Strategy
+
+## Launch Strategy
+
+Do not launch with too many products.
+
+Start with:
+
+* 1 hero product
+* 2–4 curated variants
+
+Examples:
+
+* Walnut Edition
+* Nordic Edition
+* Celtic Edition
+
+---
+
+# Recommended Shopify Direction
+
+## Premium Themes
+
+* Prestige
+* Impact
+
+## Budget Direction
+
+* Sense (heavily customized)
+* Trade
+
+---
+
+# UX Principles
+
+Users should not feel:
+“I’m shopping.”
+
+They should feel:
+“I discovered something beautiful.”
+
+This emotional framing increases:
+
+* perceived value
+* conversion rate
+* brand memory
+* ad performance
+* customer trust
+* AOV
+
+---
+
+# Final Brand Summary
+
+Bardic should position itself as:
+
+A premium handcrafted folk music lifestyle brand focused on creativity, craftsmanship, and immersive artistic experiences.
+
+The website experience should feel:
+
+* calm
+* cinematic
+* tactile
+* warm
+* soulful
+* intentional
+* premium
+* emotionally immersive
+
+The design language must communicate:
+
+* authenticity
+* artistry
+* trust
+* craftsmanship
+* slow living
+* timelessness

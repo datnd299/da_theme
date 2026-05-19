@@ -1,502 +1,804 @@
+# Bardic — Homepage Plan
+
+# Homepage Objective
+
+The homepage should not feel like a traditional ecommerce storefront.
+
+Its purpose is to:
+
+* emotionally immerse the visitor
+* establish craftsmanship and authenticity
+* create curiosity
+* reduce beginner anxiety
+* build premium perception
+* guide users toward the hero product
+
+The homepage should feel like:
+“A cinematic introduction to handcrafted ancient music.”
 
 ---
 
-## 3. `home_plan.md`
+# Homepage Experience Flow
 
-```md
-# Slicktee Home Plan
-
-## Homepage Objective
-
-The homepage should immediately communicate:
-
-- youthful streetwear identity
-- graphic tee specialization
-- clean apparel branding
-- energetic green-based visual system
-- authentic ecommerce experience
-- GMC-safe merchant trust
-
-The storefront should feel like:
-
-“A real modern apparel brand focused on graphic tees, oversized tees, hoodies, and everyday streetwear essentials.”
-
-Avoid:
-- POD spam feeling
-- random marketplace layouts
-- overcrowded homepage sections
-- excessive promo messaging
-- pastel boutique styling
+Emotion
+↓
+Curiosity
+↓
+Atmosphere
+↓
+Trust
+↓
+Product Desire
+↓
+Simplicity
+↓
+Purchase Intent
 
 ---
 
 # Homepage Structure
 
-## 1. Hero Section
+1. Announcement Bar
+2. Header
+3. Hero Section
+4. Brand Pillars
+5. Featured Lyre Kits
+6. Craftsmanship Story Section
+7. Build Process Video
+8. Beginner Friendly Section
+9. Built By You (UGC)
+10. Sound & Atmosphere Section
+11. Product Features Breakdown
+12. Reviews & Testimonials
+13. Brand Story
+14. FAQ
+15. Newsletter Section
+16. Footer
 
-### Purpose
+---
 
-Establish brand identity instantly.
+# 1. Announcement Bar
 
-### Layout
+## Purpose
 
-- Full-width clean hero
-- Dark green or black background
-- Large lifestyle streetwear image
-- Strong bold headline
-- Minimal supporting text
-- 1–2 CTA buttons
-
-### Content Direction
-
-Headline examples:
-- Clean Fits. Bold Energy.
-- Graphic Apparel Made Simple
-- Streetwear For Everyday Motion
-- Modern Tees For Daily Rotation
-
-### CTA
-
-Primary:
-- Shop New Arrivals
-
-Secondary:
-- Explore Graphic Tees
-
-### Visual Direction
-
-Use:
-- urban lifestyle photography
-- oversized tee styling
-- green / black / white palette
-- authentic streetwear poses
-- high contrast text
+Provide subtle reassurance.
 
 Avoid:
-- heavy graphic clutter
-- AI-looking visuals
-- crowded collages
-- low contrast text
+
+* aggressive promotional language
+* fake urgency
+* spammy discounts
 
 ---
 
-# 2. Featured Categories
+## Recommended Copy
 
-### Purpose
-
-Quickly establish product hierarchy.
-
-### Layout
-
-3–4 category blocks.
-
-### Categories
-
-- Graphic Tees
-- Oversized Tees
-- Hoodies
-- Streetwear Essentials
-
-### Visual Style
-
-- large clean imagery
-- minimal overlays
-- modern typography
-- high contrast cards
-- soft hover effects
+* Handcrafted DIY Lyre Kits Inspired by Ancient Music
+* Beginner Friendly • Worldwide Shipping
+* Crafted for Artists, Dreamers & Folk Music Lovers
 
 ---
 
-# 3. New Arrivals
+# 2. Header
 
-### Purpose
+# Structure
 
-Present fresh apparel immediately.
+## Left Navigation
 
-### Layout
+* Shop
+* Learn
+* About
 
-- 4–8 featured products
-- clean product cards
-- balanced spacing
-- 2 columns on mobile
-- 4 columns on desktop
+## Center
 
-### Product Card Rules
+* Bardic logo
 
-Include:
-- image
-- title
-- price
-- simple CTA
+## Right
+
+* Search
+* Account
+* Cart
+
+---
+
+# Header Style
+
+The header should feel:
+
+* minimal
+* elegant
+* calm
+* breathable
 
 Avoid:
-- excessive labels
-- countdowns
-- cluttered badges
-- fake urgency
+
+* oversized sticky headers
+* crowded menus
+* flashy icons
 
 ---
 
-# 4. Lifestyle Banner Section
+# 3. Hero Section
 
-### Purpose
+# Purpose
 
-Reinforce brand personality.
+Immediate emotional immersion.
 
-### Layout
+This is the most important section on the site.
 
-Split layout:
-- large urban lifestyle image
-- short editorial-style text
+The visitor must instantly understand:
 
-### Messaging
-
-Focus on:
-- comfort
-- confidence
-- modern styling
-- casual everyday wear
-- movement and daily use
-
-### Visual Direction
-
-Use:
-- city environments
-- neutral architecture
-- relaxed poses
-- oversized silhouettes
-- black/green high contrast section
+* what Bardic is
+* how it feels
+* who it is for
+* why it is special
 
 ---
 
-# 5. Graphic Tee Collection
+# Layout
 
-### Purpose
+## Desktop
 
-Core conversion section.
+### Left Side
 
-### Layout
+* headline
+* supporting copy
+* CTA
 
-Grid-based apparel showcase or image + copy split.
+### Right Side
 
-### Direction
-
-Products should feel:
-- curated
-- wearable
-- original
-- minimal
-- modern
-
-Messaging should avoid:
-- meme overload
-- copyrighted graphics
-- novelty spam
-- offensive humor
+* cinematic video or imagery
 
 ---
 
-# 6. Oversized Streetwear Section
+## Mobile
 
-### Purpose
+Stacked layout.
 
-Support modern streetwear positioning.
+Priority:
 
-### Content Direction
-
-Highlight:
-- relaxed fits
-- washed apparel
-- layering
-- neutral tones
-- effortless styling
-
-### Visual Style
-
-Use:
-- oversized silhouettes
-- urban photography
-- concrete backgrounds
-- clean studio textures
-- confident poses
+1. Visual
+2. Headline
+3. Supporting copy
+4. CTA
 
 ---
 
-# 7. Hoodie Collection
+# Hero Media Direction
 
-### Purpose
+Preferred media:
 
-Expand apparel depth.
-
-### Visual Direction
-
-- cozy urban lifestyle
-- minimal layering
-- clean modern photography
-- dark or green section background
+* hands assembling lyre
+* wood closeups
+* tuning strings
+* candlelight workshop environment
+* slow cinematic movement
 
 Avoid:
-- athletic branding vibe
-- sportswear-heavy layouts
-- loud gym aesthetic
+
+* static white-background product images
+* generic ecommerce banners
 
 ---
 
-# 8. Brand Philosophy Section
+# Hero Copy
 
-### Purpose
+## Headline
 
-Improve merchant authenticity.
-
-### Layout
-
-Simple icon/text grid.
-
-### Topics
-
-- Comfortable Everyday Fits
-- Clean Modern Styling
-- Original Graphic Apparel
-- Secure Online Shopping
-
-### Tone
-
-- short
-- confident
-- apparel-focused
-- youth-friendly
-
-Avoid:
-- fake emotional storytelling
-- corporate paragraphs
-- generic AI brand text
+Craft Music With Your Own Hands
 
 ---
 
-# 9. Best Sellers
+## Subheadline
 
-### Purpose
-
-Build trust and natural product discovery.
-
-### Layout
-
-Clean product carousel or grid.
-
-### Rules
-
-Use:
-- apparel-focused presentation
-- balanced spacing
-- realistic pricing
-- clean card structure
-
-Avoid:
-- “viral” wording
-- fake urgency
-- aggressive discounting
-- fake reviews
+Handcrafted DIY lyre kits inspired by ancient artistry and timeless folk traditions.
 
 ---
 
-# 10. Social / Lifestyle Section
+## Primary CTA
 
-### Purpose
-
-Create authentic fashion atmosphere.
-
-### Content
-
-- lifestyle apparel imagery
-- real-world styling inspiration
-- modern casual looks
-- streetwear fit inspiration
-
-### Visual Tone
-
-Should feel:
-- urban
-- relaxed
-- young
-- modern
-- authentic
-
-Avoid:
-- influencer overload
-- luxury fashion editorials
-- overly polished AI images
+Build Your Lyre
 
 ---
 
-# 11. Newsletter Section
+## Secondary CTA
 
-### Purpose
+Explore The Collection
 
-Capture returning customers cleanly.
+---
 
-### Layout
+# Hero Trust Elements
 
-Minimal:
-- short headline
-- email field
-- single CTA
-
-### Tone
+Subtle reassurance only.
 
 Examples:
-- Stay Updated On New Drops
-- Join The Slicktee Community
-- Get New Fits First
 
-Avoid:
-- spam discount messaging
-- popup-like design
-- aggressive email capture
+* Beginner Friendly
+* Handcrafted Experience
+* Worldwide Shipping
+
+Avoid clutter.
 
 ---
 
-# Footer Structure
+# 4. Brand Pillars Section
 
-## Include
+# Purpose
 
-- Shop Links
-- Policies
-- Contact
-- Support Email
-- Social Icons
-
-## Footer Tone
-
-- dark
-- minimal
-- clean
-- high contrast
-
-Recommended:
-- black or deep green background
-- white text
-- green/lime accent
-
-Avoid:
-- cluttered columns
-- oversized legal text
-- low contrast links
+Quickly establish emotional positioning and trust.
 
 ---
 
-# Homepage Visual Rules
+# Layout
 
-## Color Direction
+Three-column icon/text layout.
 
-Primary:
-- black
-- deep green
-- active green
-- white
-
-Accent:
-- lime energy
-- cool gray
-- soft white
-
-Avoid:
-- pink pastel
-- soft feminine boutique palette
-- neon overload
-- low contrast muted layouts
+Spacing should feel generous.
 
 ---
 
-# Typography Direction
+# Pillars
 
-Typography should feel:
-- bold
-- modern
-- energetic
-- fashion-oriented
-- clean
+## Handcrafted Experience
 
-Use:
-- large headlines
-- uppercase headings
-- minimal paragraphs
-- strong spacing
-- clear CTAs
-
-Avoid:
-- decorative fonts
-- playful typography
-- futuristic gaming fonts
-- luxury serif tone
+Every kit is designed to create a meaningful creative journey.
 
 ---
 
-# Image Direction
+## Beginner Friendly
 
-## Photography Style
-
-Use:
-- realistic apparel photography
-- modern urban lifestyle
-- neutral lighting
-- clean compositions
-- streetwear poses
-
-Preferred environments:
-- city streets
-- modern interiors
-- concrete textures
-- minimal studio setups
-- outdoor urban corners
-
-Avoid:
-- fantasy visuals
-- overprocessed AI images
-- random mockups
-- fake celebrity styling
-- copyright graphics
+No prior musical or woodworking experience required.
 
 ---
 
-# Mobile UX Rules
+## Inspired by Ancient Music
 
-Homepage must:
-- scroll smoothly
-- load quickly
-- maintain spacing
-- prioritize product imagery
-- support easy thumb navigation
-- show strong contrast on mobile
-
-Avoid:
-- giant banners that hide content
-- cluttered product grids
-- tiny tap targets
-- unreadable text overlays
+Rooted in timeless folk traditions and artisan craftsmanship.
 
 ---
 
-# GMC Compliance Direction
+# 5. Featured Lyre Kits
 
-Homepage must clearly show:
-- apparel specialization
-- authentic branding
-- clean ecommerce behavior
-- transparent merchant structure
-- original product direction
+# Purpose
 
-Avoid:
-- random products
-- excessive sales messaging
-- copyright-heavy designs
-- fake scarcity tactics
-- fake reviews
-- offensive graphic content
+Introduce hero products.
+
+This section should feel curated, not commercial.
 
 ---
 
-# Strategic Goal
+# Layout
 
-The homepage should feel like:
+## Desktop
 
-“A youthful modern streetwear and graphic apparel brand with energetic green-based visuals, clean merchandising, strong contrast, and trustworthy ecommerce presentation.”
+3-column product grid maximum.
+
+## Mobile
+
+Single-column scrolling cards.
+
+---
+
+# Product Card Rules
+
+Focus hierarchy:
+
+1. Image
+2. Product name
+3. Short descriptor
+4. Price
+
+Avoid:
+
+* excessive badges
+* too much text
+* aggressive sale elements
+
+---
+
+# Suggested Variants
+
+* Walnut Edition
+* Nordic Edition
+* Celtic Edition
+
+---
+
+# 6. Craftsmanship Story Section
+
+# Purpose
+
+Create emotional immersion.
+
+This section sells:
+
+* craftsmanship
+* artistry
+* ritual
+* tactile beauty
+
+---
+
+# Layout
+
+Split editorial layout.
+
+One side:
+
+* cinematic image
+
+Other side:
+
+* storytelling copy
+
+---
+
+# Suggested Headline
+
+The Art of Ancient Sound
+
+---
+
+# Suggested Direction
+
+Discuss:
+
+* handcrafted process
+* timeless artistry
+* emotional experience
+* rediscovering slow creativity
+
+---
+
+# 7. Build Process Video Section
+
+# Purpose
+
+Reduce anxiety and increase fascination.
+
+This is a major conversion section.
+
+---
+
+# Video Direction
+
+Show:
+
+* unpacking
+* assembly
+* sanding/staining
+* string installation
+* tuning process
+* finished instrument
+
+---
+
+# UX Notes
+
+* autoplay muted allowed
+* cinematic pacing
+* warm lighting
+* natural sound preferred
+
+---
+
+# Suggested Headline
+
+From Wood to Music
+
+---
+
+# 8. Beginner Friendly Section
+
+# Purpose
+
+Remove hesitation.
+
+Visitors must feel:
+“I can actually do this.”
+
+---
+
+# Layout
+
+Educational reassurance layout.
+
+Possible format:
+
+* simple steps
+* icon flow
+* minimal copy
+
+---
+
+# Suggested Structure
+
+## Step 1
+
+Customize Your Lyre
+
+## Step 2
+
+Assemble the Frame
+
+## Step 3
+
+String & Tune
+
+## Step 4
+
+Play & Display
+
+---
+
+# Suggested Messaging
+
+No experience needed.
+Designed for beginners, hobbyists, and creative explorers.
+
+---
+
+# 9. Built By You (UGC Section)
+
+# Purpose
+
+Create authenticity and community trust.
+
+This section is extremely important.
+
+---
+
+# Content Types
+
+* customer builds
+* home setups
+* crafting moments
+* finished lyres
+* cozy artistic environments
+
+---
+
+# Layout
+
+Editorial masonry grid.
+
+Avoid:
+
+* overly uniform ecommerce galleries
+
+---
+
+# Suggested Headline
+
+Crafted By Our Community
+
+---
+
+# 10. Sound & Atmosphere Section
+
+# Purpose
+
+Demonstrate emotional atmosphere.
+
+The instrument should feel magical and calming.
+
+---
+
+# Content Ideas
+
+* sound demos
+* ambient folk music
+* ASMR string plucks
+* candlelight atmosphere
+* medieval-inspired melodies
+
+---
+
+# Layout
+
+Large immersive media section.
+
+Could include:
+
+* embedded video
+* waveform visuals
+* layered textures
+
+---
+
+# Suggested Headline
+
+Hear the Sound of Ancient Craftsmanship
+
+---
+
+# 11. Product Features Breakdown
+
+# Purpose
+
+Transition into practical reassurance.
+
+Only after emotional immersion.
+
+---
+
+# Layout
+
+Structured grid.
+
+Possible features:
+
+* beginner friendly
+* premium wood materials
+* guided assembly
+* display-worthy craftsmanship
+* calming creative hobby
+
+---
+
+# UX Rule
+
+Keep copy concise.
+
+Avoid technical overload.
+
+---
+
+# 12. Reviews & Testimonials
+
+# Purpose
+
+Build credibility.
+
+The review section should feel authentic and cinematic.
+
+---
+
+# Preferred Reviews
+
+Focus on:
+
+* emotional experience
+* creative enjoyment
+* relaxation
+* craftsmanship
+* giftability
+
+---
+
+# Avoid
+
+* fake-looking review spam
+* excessive star graphics
+* cluttered layouts
+
+---
+
+# 13. Brand Story Section
+
+# Purpose
+
+Create emotional brand identity.
+
+---
+
+# Suggested Theme
+
+Rediscover Ancient Creativity
+
+---
+
+# Story Direction
+
+Discuss:
+
+* ancient artistry
+* folk traditions
+* craftsmanship
+* reconnecting with creativity
+* slow living philosophy
+
+---
+
+# Layout
+
+Editorial storytelling section.
+
+Large spacing.
+Minimal copy width.
+
+---
+
+# 14. FAQ Section
+
+# Purpose
+
+Reduce friction and increase trust.
+
+Also important for:
+
+* GMC trust quality
+* SEO
+* conversion confidence
+
+---
+
+# FAQ Topics
+
+* Is this beginner friendly?
+* How long does assembly take?
+* Does it include tools?
+* Can it actually be played?
+* Is tuning difficult?
+* Shipping times
+* Return policy
+
+---
+
+# UX Rules
+
+Use accordion layout.
+Keep answers concise and reassuring.
+
+---
+
+# 15. Newsletter Section
+
+# Purpose
+
+Build emotional retention.
+
+Avoid:
+
+* discount-focused signup language
+
+---
+
+# Suggested Direction
+
+Invite users into the Bardic world.
+
+---
+
+# Suggested Headline
+
+Join the Bardic Workshop
+
+---
+
+# Suggested Copy
+
+Receive stories, music inspiration, crafting guides, and new releases.
+
+---
+
+# 16. Footer
+
+# Purpose
+
+Reinforce legitimacy and trust.
+
+---
+
+# Footer Content
+
+## Navigation
+
+* Shop
+* Learn
+* About
+* Contact
+
+---
+
+## Policies
+
+* Shipping Policy
+* Return Policy
+* Privacy Policy
+* Terms of Service
+
+---
+
+## Business Trust
+
+* support email
+* business address
+* social icons
+
+---
+
+## Footer Style
+
+Should feel:
+
+* warm
+* minimal
+* breathable
+* editorial
+
+Avoid:
+
+* overcrowded links
+* dark corporate footers
+
+---
+
+# Homepage Design Rules
+
+# Contrast Philosophy
+
+Use soft contrast.
+
+Focus on:
+
+* texture
+* spacing
+* lighting
+* typography hierarchy
+
+Not aggressive colors.
+
+---
+
+# Spacing Philosophy
+
+The homepage should breathe.
+
+## Major Sections
+
+128–160px spacing.
+
+## Internal Padding
+
+64–96px.
+
+---
+
+# Motion Philosophy
+
+Motion should feel:
+
+* cinematic
+* slow
+* atmospheric
+
+Avoid:
+
+* flashy transitions
+* excessive movement
+
+---
+
+# Conversion Philosophy
+
+The homepage should sell:
+
+* imagination
+* craftsmanship
+* atmosphere
+* identity
+* creative ritual
+
+before:
+
+* specifications
+* technical details
+* ecommerce mechanics
+
+---
+
+# Final Homepage Goal
+
+The visitor should leave the homepage feeling:
+
+“This feels meaningful, artistic, and beautifully handcrafted.”
+
+The homepage should create:
+
+* emotional immersion
+* premium perception
+* trust
+* curiosity
+* creative desire
+* purchase intent

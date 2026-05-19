@@ -1,196 +1,129 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Google Fonts -->
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
+    <!-- Add Google Fonts: Cormorant Garamond & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
+    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css">
+    <!-- Tailwind CSS v4 Browser Compiler for Instant Local Preview -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-
-<body <?php body_class('bg-white text-slickText font-body antialiased'); ?>>
+<body <?php body_class('bg-[#FAF6F0] font-sans text-[#4A3426] antialiased flex flex-col min-h-screen'); ?>>
 <?php wp_body_open(); ?>
 
-<?php
-$cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
-$cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
-$account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
+<!-- 1. Announcement Bar -->
+<div class="bg-[#4A3426] text-[#FAF6F0] text-center py-2.5 text-[10px] sm:text-xs tracking-[0.2em] font-sans uppercase z-50 relative border-b border-[#FAF6F0]/10">
+    Handcrafted DIY Lyre Kits Inspired by Ancient Music
+</div>
 
-$nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [];
-
-if (empty($nav_items)) {
-    $nav_items = [
-        [
-            'title' => 'New Arrivals',
-            'url'   => home_url('/shop/'),
-        ],
-        [
-            'title' => 'Graphic Tees',
-            'url'   => home_url('/product-category/graphic-tees/'),
-        ],
-        [
-            'title' => 'Oversized Tees',
-            'url'   => home_url('/product-category/oversize-tees/'),
-        ],
-        [
-            'title' => 'Hoodies',
-            'url'   => home_url('/product-category/casual-hoodies/'),
-        ],
-        [
-            'title' => 'Essentials',
-            'url'   => home_url('/product-category/streetwear-essentials/'),
-        ],
-    ];
-}
-?>
-
-<!-- HEADER -->
-<header id="masthead" class="sticky top-0 z-50 bg-slickBlack text-white shadow-lg shadow-black/20" role="banner">
-
-    <!-- Announcement Bar -->
-    <div class="border-b border-white/10 bg-slickGreen">
-        <div class="mx-auto flex max-w-[1480px] items-center justify-center px-4 py-2 text-center text-xs font-black uppercase tracking-[0.18em] text-slickLime sm:px-6 lg:px-8">
-            <?php esc_html_e('New streetwear drops are live • Clean fits for everyday rotation', 'dawp'); ?>
-        </div>
+<!-- 2. Header -->
+<header class="bg-[#FAF6F0] text-[#4A3426] px-6 md:px-12 py-5 flex justify-between items-center border-b border-[#D9D2C5]/40 sticky top-0 z-50 backdrop-blur-md bg-opacity-95">
+    <!-- Left Logo -->
+    <div class="flex items-center">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="font-serif font-semibold text-2xl tracking-[0.15em] text-[#4A3426] hover:text-[#B08A57] transition-colors duration-300">
+            Bardic
+        </a>
     </div>
 
-    <!-- Main Header -->
-    <div class="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-8 2xl:px-10">
-        <div class="flex h-20 items-center justify-between gap-4 xl:gap-6">
+    <!-- Center Navigation Links (Hidden on Mobile) -->
+    <nav class="hidden lg:flex items-center gap-10 text-xs uppercase tracking-[0.2em] font-sans font-medium">
+        <a href="/shop?series=walnut" class="text-[#7A6C5F] hover:text-[#B08A57] hover:border-b hover:border-[#B08A57] pb-1 transition-all duration-300">Walnut Series</a>
+        <a href="/shop?series=nordic" class="text-[#7A6C5F] hover:text-[#B08A57] hover:border-b hover:border-[#B08A57] pb-1 transition-all duration-300">Nordic Series</a>
+        <a href="/shop?series=celtic" class="text-[#7A6C5F] hover:text-[#B08A57] hover:border-b hover:border-[#B08A57] pb-1 transition-all duration-300">Celtic Series</a>
+        <a href="<?php echo esc_url( home_url( '/contact-us' ) ); ?>" class="text-[#7A6C5F] hover:text-[#B08A57] hover:border-b hover:border-[#B08A57] pb-1 transition-all duration-300">Contact Us</a>
+        <a href="<?php echo esc_url( home_url( '/track-order' ) ); ?>" class="text-[#7A6C5F] hover:text-[#B08A57] hover:border-b hover:border-[#B08A57] pb-1 transition-all duration-300">Tracking</a>
+    </nav>
 
-            <!-- Logo -->
-            <a href="<?php echo esc_url(home_url('/')); ?>"
-               class="shrink-0"
-               aria-label="<?php bloginfo('name'); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee.png'); ?>"
-                     alt="<?php bloginfo('name'); ?>"
-                     class="h-11 w-auto"
-                     width="190"
-                     height="44">
-            </a>
+    <!-- Right Actions & CTA -->
+    <div class="flex items-center gap-6">
+        <!-- Search icon/button (Minimalist) -->
+        <a href="/?s=&post_type=product" class="hover:text-[#B08A57] transition-colors duration-200 p-1 text-[#7A6C5F]" title="Search our collection">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden flex-1 items-center justify-center gap-4 xl:gap-6 2xl:gap-7 lg:flex" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
-                <?php foreach ($nav_items as $item) : ?>
-                    <a href="<?php echo esc_url($item['url']); ?>"
-                       class="whitespace-nowrap text-sm font-black uppercase tracking-wide text-white/82 transition hover:text-slickLime">
-                        <?php echo esc_html($item['title']); ?>
-                    </a>
-                <?php endforeach; ?>
-            </nav>
+        <!-- Cart Link -->
+        <?php 
+        $cart_url = '/cart';
+        $cart_count = 0;
+        if ( class_exists( 'WooCommerce' ) ) {
+            $cart_url = wc_get_cart_url();
+            if ( WC()->cart ) {
+                $cart_count = WC()->cart->get_cart_contents_count();
+            }
+        }
+        ?>
+        <a href="<?php echo esc_url( $cart_url ); ?>" class="hover:text-[#B08A57] transition-colors duration-200 flex items-center gap-1.5 relative p-1 text-[#7A6C5F]" title="Shopping Cart">
+            <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+            </svg>
+            <?php if ($cart_count > 0): ?>
+            <span class="absolute -top-1 -right-1 bg-[#B08A57] text-[#FAF6F0] text-[9px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center shadow-sm">
+                <?php echo esc_html( $cart_count ); ?>
+            </span>
+            <?php endif; ?>
+        </a>
 
-            <!-- Header Actions -->
-            <div class="flex shrink-0 items-center gap-3 sm:gap-4">
+        <!-- Header CTA Button -->
+        <a href="/shop" class="hidden sm:inline-flex justify-center items-center bg-[#4A3426] text-[#FAF6F0] font-sans font-semibold text-xs tracking-wider uppercase px-6 py-3 rounded-full hover:bg-[#B08A57] hover:text-[#FAF6F0] hover:shadow-md transition-all duration-300">
+            Begin Crafting
+        </a>
 
-                <!-- Desktop Search -->
-                <form role="search"
-                      method="get"
-                      action="<?php echo esc_url(home_url('/')); ?>"
-                      class="hidden items-center sm:flex">
-
-                    <label for="slicktee-header-search" class="sr-only">
-                        <?php esc_html_e('Search products', 'dawp'); ?>
-                    </label>
-
-                    <input id="slicktee-header-search"
-                           type="search"
-                           name="s"
-                           placeholder="<?php esc_attr_e('Search', 'dawp'); ?>"
-                           class="h-10 w-36 rounded-md border border-white/10 bg-white/10 px-3 text-sm text-white placeholder:text-white/55 outline-none transition focus:border-slickActive focus:bg-white/15 lg:w-44">
-
-                    <input type="hidden" name="post_type" value="product">
-                </form>
-
-                <!-- Mobile Search Icon -->
-                <button type="button"
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime sm:hidden"
-                        aria-label="<?php esc_attr_e('Search', 'dawp'); ?>"
-                        onclick="document.getElementById('slicktee-mobile-search').classList.toggle('hidden')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="M21 21l-4.35-4.35"></path>
-                    </svg>
-                </button>
-
-                <!-- Account -->
-                <a href="<?php echo esc_url($account_url); ?>"
-                   class="hidden h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime sm:inline-flex"
-                   aria-label="<?php esc_attr_e('My Account', 'dawp'); ?>">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </a>
-
-                <!-- Cart -->
-                <a href="<?php echo esc_url($cart_url); ?>"
-                   class="relative inline-flex min-h-10 items-center justify-center rounded-md bg-slickActive px-4 text-xs font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime"
-                   aria-label="<?php esc_attr_e('Shopping Cart', 'dawp'); ?>">
-                    <?php esc_html_e('Bag', 'dawp'); ?>
-                    <span class="ml-1">(<?php echo esc_html($cart_count); ?>)</span>
-                </a>
-
-                <!-- Mobile Menu Button -->
-                <button type="button"
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime lg:hidden"
-                        aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>"
-                        onclick="document.getElementById('slicktee-mobile-menu').classList.toggle('hidden')">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-
-            </div>
-        </div>
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" class="lg:hidden p-1 text-[#4A3426] hover:text-[#B08A57] transition-colors" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path id="hamburger-icon" class="block" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16" />
+                <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
     </div>
-
-    <!-- Mobile Search Bar -->
-    <div id="slicktee-mobile-search" class="hidden border-t border-white/10 bg-slickBlack sm:hidden">
-        <form role="search"
-              method="get"
-              action="<?php echo esc_url(home_url('/')); ?>"
-              class="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3">
-            <input type="search"
-                   name="s"
-                   placeholder="<?php esc_attr_e('Search products...', 'dawp'); ?>"
-                   autofocus
-                   class="h-10 flex-1 rounded-md border border-white/10 bg-white/10 px-3 text-sm text-white placeholder:text-white/55 outline-none focus:border-slickActive focus:bg-white/15">
-            <input type="hidden" name="post_type" value="product">
-            <button type="submit"
-                    class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slickActive text-slickBlack transition hover:bg-slickLime"
-                    aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="M21 21l-4.35-4.35"></path>
-                </svg>
-            </button>
-        </form>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <div id="slicktee-mobile-menu" class="hidden border-t border-white/10 bg-slickBlack lg:hidden">
-        <nav class="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
-            <?php foreach ($nav_items as $item) : ?>
-                <a href="<?php echo esc_url($item['url']); ?>"
-                   class="rounded-md px-3 py-3 text-sm font-black uppercase tracking-wide text-white/82 transition hover:bg-white/10 hover:text-slickLime">
-                    <?php echo esc_html($item['title']); ?>
-                </a>
-            <?php endforeach; ?>
-        </nav>
-    </div>
-
 </header>
 
-<div id="content" class="site-content">
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-menu" class="fixed inset-0 top-[112px] bg-[#FAF6F0] z-40 translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col px-8 py-10 border-t border-[#D9D2C5]/30">
+    <nav class="flex flex-col gap-6 text-lg font-serif text-[#4A3426]">
+        <a href="/shop?series=walnut" class="hover:text-[#B08A57] transition-colors border-b border-[#D9D2C5]/20 pb-3">Walnut Series</a>
+        <a href="/shop?series=nordic" class="hover:text-[#B08A57] transition-colors border-b border-[#D9D2C5]/20 pb-3">Nordic Series</a>
+        <a href="/shop?series=celtic" class="hover:text-[#B08A57] transition-colors border-b border-[#D9D2C5]/20 pb-3">Celtic Series</a>
+        <a href="<?php echo esc_url( home_url( '/contact-us' ) ); ?>" class="hover:text-[#B08A57] transition-colors border-b border-[#D9D2C5]/20 pb-3">Contact Us</a>
+        <a href="<?php echo esc_url( home_url( '/track-order' ) ); ?>" class="hover:text-[#B08A57] transition-colors border-b border-[#D9D2C5]/20 pb-3">Tracking</a>
+    </nav>
+    <div class="mt-auto border-t border-[#D9D2C5]/40 pt-8 flex flex-col gap-5">
+        <a href="/shop" class="w-full inline-flex justify-center items-center bg-[#4A3426] text-[#FAF6F0] font-sans font-semibold text-sm tracking-wider uppercase py-4 rounded-full hover:bg-[#B08A57] hover:text-[#FAF6F0] transition-colors duration-300">
+            Begin Crafting
+        </a>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (toggleBtn && mobileMenu) {
+        toggleBtn.addEventListener('click', function() {
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
+            if (isOpen) {
+                mobileMenu.classList.add('translate-x-full');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            } else {
+                mobileMenu.classList.remove('translate-x-full');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            }
+        });
+    }
+});
+</script>

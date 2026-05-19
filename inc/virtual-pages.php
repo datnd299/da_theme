@@ -27,13 +27,19 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
-        'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
-        'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
-        'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
-        'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
-        'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
-        'track-order'   => ['slug' => 'track-order',          'title' => 'Track Order', 'css' => 'track-order.css'],
+        'about-us'              => ['slug' => 'about',              'title' => 'About Us',                    'css' => ''],
+        'faq'                   => ['slug' => 'faq',                'title' => 'Frequently Asked Questions',  'css' => ''],
+        'contact-us'            => ['slug' => 'contact',            'title' => 'Contact Us',                  'css' => ''],
+        'track-order'           => ['slug' => 'track-order',        'title' => 'Track Your Order',            'css' => ''],
+        'shipping-policy'       => ['slug' => 'shipping-policy',    'title' => 'Shipping Policy',             'css' => ''],
+        'refund-return-policy'  => ['slug' => 'refund-return-policy','title' => 'Refund & Return Policy',     'css' => ''],
+        'billing-terms'         => ['slug' => 'billing-terms',      'title' => 'Billing Terms & Conditions', 'css' => ''],
+        'terms-of-service'      => ['slug' => 'terms-of-service',   'title' => 'Terms of Service',           'css' => ''],
+        'privacy-policy'        => ['slug' => 'privacy-policy',     'title' => 'Privacy Policy',             'css' => ''],
+        // Legacy routes kept for backwards compatibility
+        'shipping-returns'      => ['slug' => 'shipping-policy',    'title' => 'Shipping Policy',             'css' => ''],
+        'terms-conditions'      => ['slug' => 'terms-of-service',   'title' => 'Terms of Service',           'css' => ''],
+        'privacy'               => ['slug' => 'privacy-policy',     'title' => 'Privacy Policy',             'css' => ''],
     ];
 }
 

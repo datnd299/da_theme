@@ -39,6 +39,32 @@ function dawp_lbq_product_categories() {
     ];
 }
 
+function dawp_lbq_product_category_slugs() {
+    return array_keys(dawp_lbq_product_categories());
+}
+
+function dawp_is_lbq_product_category_slug($slug) {
+    return in_array($slug, dawp_lbq_product_category_slugs(), true);
+}
+
+function dawp_lbq_product_category_terms() {
+    if (!function_exists('get_term_by') || !taxonomy_exists('product_cat')) {
+        return [];
+    }
+
+    $terms = [];
+
+    foreach (dawp_lbq_product_category_slugs() as $slug) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+
+        if ($term && !is_wp_error($term)) {
+            $terms[] = $term;
+        }
+    }
+
+    return $terms;
+}
+
 add_action('init', 'dawp_ensure_lbq_product_categories', 30);
 function dawp_ensure_lbq_product_categories() {
     if (!taxonomy_exists('product_cat')) {

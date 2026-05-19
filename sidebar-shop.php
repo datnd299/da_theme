@@ -1,9 +1,5 @@
 <?php
-$categories = get_terms([
-    'taxonomy'   => 'product_cat',
-    'hide_empty' => false,
-    'parent'     => 0,
-]);
+$categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
 ?>
 <div class="shop-sidebar__header">
     <h2 class="shop-sidebar__mobile-title"><?php esc_html_e('Filters', 'dawp'); ?></h2>

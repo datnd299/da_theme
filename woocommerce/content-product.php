@@ -8,7 +8,18 @@ global $product;
 if (empty($product) || !$product->is_visible()) return;
 
 $cats     = get_the_terms($product->get_id(), 'product_cat');
-$cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
+$cat_name = '';
+
+if (!is_wp_error($cats) && !empty($cats)) {
+    foreach ($cats as $cat) {
+        if (function_exists('dawp_is_lbq_product_category_slug') && !dawp_is_lbq_product_category_slug($cat->slug)) {
+            continue;
+        }
+
+        $cat_name = $cat->name;
+        break;
+    }
+}
 ?>
 <li <?php wc_product_class('product-card', $product); ?>>
     <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">

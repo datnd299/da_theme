@@ -11,6 +11,8 @@ if (!defined('ABSPATH')) {
 
 $support_email  = 'support@lbqshop.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$website_url    = home_url('/');
+$website_label  = wp_parse_url($website_url, PHP_URL_HOST) ?: $website_url;
 $track_url      = home_url('/track-order/');
 $faq_url        = home_url('/faq/');
 $shipping_url   = home_url('/shipping-returns/');
@@ -34,6 +36,13 @@ $support_cards = [
         ),
         'meta'  => $support_email,
         'icon'  => 'mail',
+    ],
+    [
+        'title' => __('Website', 'dawp'),
+        'copy'  => __('Visit our official website for products, policies, order help, and store updates.', 'dawp'),
+        'meta'  => $website_label,
+        'url'   => $website_url,
+        'icon'  => 'globe',
     ],
     [
         'title' => __('Business Hours', 'dawp'),
@@ -83,6 +92,7 @@ $form_topics = [
 $render_icon = static function ($icon) {
     $icons = [
         'mail'    => '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/>',
+        'globe'   => '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20"/><path d="M12 2a15.3 15.3 0 0 0 0 20"/>',
         'clock'   => '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
         'package' => '<path d="M21 8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
         'check'   => '<path d="m20 6-11 11-5-5"/>',
@@ -106,7 +116,7 @@ $render_icon = static function ($icon) {
                 </p>
             </div>
 
-            <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                 <?php foreach ($support_cards as $card) : ?>
                     <article class="rounded-md border border-[#E8DAD4] bg-white p-5 shadow-sm">
                         <div class="flex h-11 w-11 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
@@ -116,7 +126,13 @@ $render_icon = static function ($icon) {
                         </div>
                         <h2 class="mt-4 font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($card['title']); ?></h2>
                         <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
-                        <p class="mt-4 text-sm font-bold text-[#8A4F56]"><?php echo esc_html($card['meta']); ?></p>
+                        <?php if (!empty($card['url'])) : ?>
+                            <a href="<?php echo esc_url($card['url']); ?>" class="mt-4 inline-flex break-all text-sm font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]">
+                                <?php echo esc_html($card['meta']); ?>
+                            </a>
+                        <?php else : ?>
+                            <p class="mt-4 text-sm font-bold text-[#8A4F56]"><?php echo esc_html($card['meta']); ?></p>
+                        <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
             </div>

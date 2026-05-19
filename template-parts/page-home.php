@@ -128,14 +128,6 @@ $preferred_categories = [
 ];
 
 $categories     = [];
-$used_term_ids  = [];
-$fallback_images = [
-    $stock_images['brushes'],
-    $stock_images['drawer'],
-    $stock_images['fashion'],
-    $stock_images['essentials'],
-    $stock_images['gift'],
-];
 
 foreach ($preferred_categories as $category) {
     $term = $lbq_category_term($category['slug']);
@@ -153,42 +145,6 @@ foreach ($preferred_categories as $category) {
         'image'       => $category['image'],
         'alt'         => $category['alt'],
     ];
-    $used_term_ids[] = (int) $term->term_id;
-}
-
-if (function_exists('get_terms') && count($categories) < 5) {
-    $uncategorized = $lbq_category_term('uncategorized');
-    $exclude_ids   = $used_term_ids;
-
-    if ($uncategorized) {
-        $exclude_ids[] = (int) $uncategorized->term_id;
-    }
-
-    $store_categories = get_terms([
-        'taxonomy'   => 'product_cat',
-        'hide_empty' => false,
-        'parent'     => 0,
-        'exclude'    => $exclude_ids,
-        'number'     => 5 - count($categories),
-    ]);
-
-    if (!is_wp_error($store_categories)) {
-        foreach ($store_categories as $index => $term) {
-            $term_description = term_description($term->term_id, 'product_cat');
-
-            $categories[] = [
-                'name'        => $term->name,
-                'description' => $term_description ? wp_strip_all_tags($term_description) : __('Explore this collection from LBQ Shop.', 'dawp'),
-                'url'         => $lbq_category_link($term),
-                'image'       => $fallback_images[$index % count($fallback_images)],
-                'alt'         => sprintf(
-                    /* translators: %s: product category name */
-                    __('Products from the %s category', 'dawp'),
-                    $term->name
-                ),
-            ];
-        }
-    }
 }
 
 $organizer_term = $lbq_category_term('makeup-bags-organizers');
@@ -214,6 +170,33 @@ $fashion_points = [
     [
         'title' => __('Gift-Friendly Finds', 'dawp'),
         'copy'  => __('Practical beauty and fashion accessories that feel thoughtful, useful, and easy to give.', 'dawp'),
+    ],
+];
+
+$product_placeholders = [
+    [
+        'name'     => __('Makeup Organizer', 'dawp'),
+        'category' => __('Beauty storage', 'dawp'),
+        'image'    => $stock_images['drawer'],
+        'alt'      => __('Cosmetic bags and beauty tools organized in a clean vanity drawer', 'dawp'),
+    ],
+    [
+        'name'     => __('Beauty Tool Set', 'dawp'),
+        'category' => __('Beauty accessories', 'dawp'),
+        'image'    => $stock_images['brushes'],
+        'alt'      => __('Makeup brushes stored neatly in small holders', 'dawp'),
+    ],
+    [
+        'name'     => __('Everyday Pouch', 'dawp'),
+        'category' => __('Daily essentials', 'dawp'),
+        'image'    => $stock_images['essentials'],
+        'alt'      => __('Small pouches and everyday accessories arranged on a white surface', 'dawp'),
+    ],
+    [
+        'name'     => __('Giftable Accessory', 'dawp'),
+        'category' => __('Giftable finds', 'dawp'),
+        'image'    => $stock_images['gift'],
+        'alt'      => __('Pink beauty accessories arranged for a giftable flat lay', 'dawp'),
     ],
 ];
 
@@ -363,6 +346,95 @@ $render_icon = static function ($icon) {
                         </a>
                     </div>
                 <?php endif; ?>
+            <?php endif; ?>
+        </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-20" aria-labelledby="featured-products-title">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('New In Store', 'dawp'); ?></p>
+                    <h2 id="featured-products-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                        <?php esc_html_e('Find what you came for', 'dawp'); ?>
+                    </h2>
+                    <p class="mt-4 text-base leading-7 text-[#6F625D]">
+                        <?php esc_html_e('A ready product area for your WooCommerce import. Once products are published, this section will show the latest items automatically.', 'dawp'); ?>
+                    </p>
+                </div>
+                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                    <?php esc_html_e('View Shop', 'dawp'); ?>
+                </a>
+            </div>
+
+            <?php if ($home_products_query instanceof WP_Query && $home_products_query->have_posts()) : ?>
+                <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    <?php
+                    while ($home_products_query->have_posts()) :
+                        $home_products_query->the_post();
+                        $product = function_exists('wc_get_product') ? wc_get_product(get_the_ID()) : null;
+
+                        if (!$product) {
+                            continue;
+                        }
+
+                        $product_categories = get_the_terms($product->get_id(), 'product_cat');
+                        $product_category   = __('LBQ Shop', 'dawp');
+
+                        if (!empty($product_categories) && !is_wp_error($product_categories)) {
+                            foreach ($product_categories as $category_term) {
+                                if (function_exists('dawp_is_lbq_product_category_slug') && !dawp_is_lbq_product_category_slug($category_term->slug)) {
+                                    continue;
+                                }
+
+                                $product_category = $category_term->name;
+                                break;
+                            }
+                        }
+                        ?>
+                        <article class="group overflow-hidden rounded-md border border-[#E8DAD4] bg-[#FFFDFC] transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
+                            <a href="<?php the_permalink(); ?>" class="block" aria-label="<?php the_title_attribute(); ?>">
+                                <div class="relative overflow-hidden bg-[#F8F2EE]">
+                                    <?php echo $product->get_image('woocommerce_single', ['class' => 'aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-105', 'loading' => 'lazy']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                    <?php if ($product->is_on_sale()) : ?>
+                                        <span class="absolute left-4 top-4 rounded-md bg-[#C87F86] px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-white">
+                                            <?php esc_html_e('Sale', 'dawp'); ?>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="p-5">
+                                    <p class="text-xs font-extrabold uppercase tracking-[0.12em] text-[#A96870]"><?php echo esc_html($product_category); ?></p>
+                                    <h3 class="mt-2 font-heading text-lg font-extrabold leading-snug text-[#2F2A28]"><?php the_title(); ?></h3>
+                                    <div class="mt-4 text-base font-extrabold text-[#8A4F56]">
+                                        <?php echo wp_kses_post($product->get_price_html()); ?>
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    <?php endwhile; ?>
+                </div>
+                <?php
+                wp_reset_postdata();
+                $home_products_query->rewind_posts();
+                ?>
+            <?php else : ?>
+                <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    <?php foreach ($product_placeholders as $placeholder) : ?>
+                        <article class="overflow-hidden rounded-md border border-dashed border-[#D8C5BE] bg-[#FFFDFC]">
+                            <div class="relative overflow-hidden bg-[#F8F2EE]">
+                                <img src="<?php echo esc_url($placeholder['image']); ?>" alt="<?php echo esc_attr($placeholder['alt']); ?>" class="aspect-[4/5] w-full object-cover opacity-80" loading="lazy" decoding="async">
+                                <span class="absolute left-4 top-4 rounded-md bg-white/90 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-[#8A4F56]">
+                                    <?php esc_html_e('Coming soon', 'dawp'); ?>
+                                </span>
+                            </div>
+                            <div class="p-5">
+                                <p class="text-xs font-extrabold uppercase tracking-[0.12em] text-[#A96870]"><?php echo esc_html($placeholder['category']); ?></p>
+                                <h3 class="mt-2 font-heading text-lg font-extrabold leading-snug text-[#2F2A28]"><?php echo esc_html($placeholder['name']); ?></h3>
+                                <p class="mt-4 text-sm font-bold text-[#6F625D]"><?php esc_html_e('WooCommerce product slot', 'dawp'); ?></p>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
             <?php endif; ?>
         </div>
     </section>

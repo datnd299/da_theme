@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 
 $support_email  = 'support@lbqshop.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
-$store_address  = __('4803 N Milwaukee Ave, Chicago, IL, United States, Illinois', 'dawp');
+$store_address  = __('4803 N Milwaukee AveChicago, IL 60630', 'dawp');
 $instagram_url  = 'https://www.instagram.com/thelbqshop/';
 $facebook_url   = 'https://www.facebook.com/lacedbyQ/';
 

@@ -24,31 +24,6 @@ if ($archive_term && !is_wp_error($archive_term)) {
 
 global $wp_query;
 $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
-$category_chips = [];
-
-if (function_exists('dawp_lbq_product_categories')) {
-    foreach (dawp_lbq_product_categories() as $slug => $category) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-
-        if (!$term || is_wp_error($term)) {
-            continue;
-        }
-
-        $term_link = get_term_link($term);
-
-        if (is_wp_error($term_link)) {
-            continue;
-        }
-
-        $category_chips[] = [
-            'name'    => $term->name,
-            'slug'    => $term->slug,
-            'url'     => $term_link,
-            'count'   => (int) $term->count,
-            'current' => is_product_category($term->slug),
-        ];
-    }
-}
 ?>
 
 <div class="shop-page">
@@ -98,24 +73,6 @@ if (function_exists('dawp_lbq_product_categories')) {
             </div>
         </div>
     </div>
-
-    <?php if (!empty($category_chips)) : ?>
-        <nav class="shop-category-nav" aria-label="<?php esc_attr_e('Product categories', 'dawp'); ?>">
-            <a href="<?php echo esc_url($shop_url); ?>" class="<?php echo is_shop() ? 'is-current' : ''; ?>">
-                <?php esc_html_e('All', 'dawp'); ?>
-            </a>
-            <?php foreach ($category_chips as $chip) : ?>
-                <a
-                    href="<?php echo esc_url($chip['url']); ?>"
-                    class="<?php echo $chip['current'] ? 'is-current' : ''; ?>"
-                    <?php echo $chip['current'] ? 'aria-current="page"' : ''; ?>
-                >
-                    <span><?php echo esc_html($chip['name']); ?></span>
-                    <span class="count"><?php echo esc_html($chip['count']); ?></span>
-                </a>
-            <?php endforeach; ?>
-        </nav>
-    <?php endif; ?>
 
     <?php
     // ── Toolbar: count + filter toggle + sort ──────────────
@@ -179,13 +136,7 @@ if (function_exists('dawp_lbq_product_categories')) {
 
             <?php
             // Categories widget
-            $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
-            $categories = get_terms([
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => false,
-                'parent'     => 0,
-                'exclude'    => $uncategorized && !is_wp_error($uncategorized) ? [(int) $uncategorized->term_id] : [],
-            ]);
+            $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
             if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
             <div class="shop-sidebar__widget">
                 <h3 class="shop-sidebar__title">Categories</h3>

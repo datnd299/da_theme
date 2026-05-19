@@ -7,14 +7,9 @@
 
 $current_year = date_i18n('Y');
 
-$footer_shop_links = [
+$footer_shop_links = array_merge([
     ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-    ['title' => __('Beauty Accessories', 'dawp'), 'url' => home_url('/product-category/beauty-accessories/')],
-    ['title' => __('Makeup Tools', 'dawp'), 'url' => home_url('/product-category/makeup-tools/')],
-    ['title' => __('Hair Care Essentials', 'dawp'), 'url' => home_url('/product-category/hair-care-essentials/')],
-    ['title' => __('Personal Care Tools', 'dawp'), 'url' => home_url('/product-category/personal-care-tools/')],
-    ['title' => __('Beauty Organizers', 'dawp'), 'url' => home_url('/product-category/beauty-organizers/')],
-];
+], function_exists('dawp_product_category_links') ? dawp_product_category_links(5) : []);
 
 $footer_help_links = [
     ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
@@ -29,6 +24,14 @@ $footer_policy_links = [
     ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
     ['title' => __('My Account', 'dawp'), 'url' => get_permalink(get_option('woocommerce_myaccount_page_id')) ?: home_url('/my-account/')],
     ['title' => __('Cart', 'dawp'), 'url' => function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/')],
+];
+
+$footer_payment_methods = [
+    ['label' => __('Visa', 'dawp'), 'mark' => 'VISA'],
+    ['label' => __('Mastercard', 'dawp'), 'mark' => 'MC'],
+    ['label' => __('American Express', 'dawp'), 'mark' => 'AMEX'],
+    ['label' => __('Discover', 'dawp'), 'mark' => 'DISC'],
+    ['label' => __('PayPal', 'dawp'), 'mark' => 'PayPal'],
 ];
 ?>
 
@@ -93,6 +96,16 @@ $footer_policy_links = [
                 </div>
 
                 <div class="mt-6 flex flex-wrap gap-3">
+                    <a href="https://www.facebook.com/people/One-Shop-Vibe/61575413724507/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="<?php esc_attr_e('Visit One Shop Vibe on Facebook', 'dawp'); ?>"
+                       class="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#F7C948] bg-[#1877F2] text-white shadow-[0_0_24px_rgba(247,201,72,0.35)] ring-4 ring-white/10 transition hover:-translate-y-0.5 hover:bg-[#F7C948] hover:text-[#2D2633] hover:shadow-[0_0_32px_rgba(247,201,72,0.5)]">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                            <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.48H15.2c-1.24 0-1.63.78-1.63 1.57v1.87h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"></path>
+                        </svg>
+                    </a>
+
                     <a href="mailto:support@oneshopvibe.com"
                        class="inline-flex min-h-10 items-center justify-center rounded-full border border-white/15 px-4 text-xs font-black uppercase tracking-wide text-white/85 transition hover:border-[#F7C948] hover:text-[#F7C948]">
                         support@oneshopvibe.com
@@ -172,15 +185,20 @@ $footer_policy_links = [
                 &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('One Shop Vibe'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
             </p>
 
-            <div class="flex flex-col gap-2 lg:items-center">
-                <p class="text-xs font-black uppercase tracking-[0.2em] text-white/40">
+            <div class="flex flex-col gap-3 lg:items-center">
+                <p class="text-xs font-black uppercase tracking-[0.2em] text-white/70">
                     <?php esc_html_e('Payment Methods', 'dawp'); ?>
                 </p>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment-methods.webp'); ?>"
-                     alt="<?php esc_attr_e('Accepted payment methods: Visa, Mastercard, Discover, American Express, PayPal', 'dawp'); ?>"
-                     class="h-7 w-auto opacity-70"
-                     width="340"
-                     height="44">
+                <ul class="flex flex-wrap gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
+                    <?php foreach ($footer_payment_methods as $method) : ?>
+                        <li>
+                            <span class="inline-flex min-h-8 min-w-14 items-center justify-center rounded-md border border-white/15 bg-white px-3 text-xs font-black leading-none tracking-wide text-[#2D2633] shadow-sm">
+                                <span class="sr-only"><?php echo esc_html($method['label']); ?></span>
+                                <span aria-hidden="true"><?php echo esc_html($method['mark']); ?></span>
+                            </span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
 
             <p class="font-black uppercase tracking-[0.18em] text-[#F7C948]">

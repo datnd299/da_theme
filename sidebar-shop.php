@@ -1,8 +1,12 @@
 <?php
+$uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
 $categories = get_terms([
     'taxonomy'   => 'product_cat',
-    'hide_empty' => false,
+    'hide_empty' => true,
     'parent'     => 0,
+    'exclude'    => $uncategorized ? [(int) $uncategorized->term_id] : [],
+    'orderby'    => 'name',
+    'order'      => 'ASC',
 ]);
 ?>
 <div class="shop-sidebar__header">

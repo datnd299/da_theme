@@ -1,12 +1,45 @@
 <?php
-function dawp_main_menu_items() {
-    return [
-        ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Graphic Tees', 'dawp'),  'url' => home_url('/product-category/graphic-tees/')],
-        ['title' => __('Oversize Tees', 'dawp'),  'url' => home_url('/product-category/oversize-tees/')],
-        ['title' => __('Casual Hoodies', 'dawp'),        'url' => home_url('/product-category/casual-hoodies/')],
-        ['title' => __('Streetwear Essentials', 'dawp'),       'url' => home_url('/product-category/streetwear-essentials/')],
+function dawp_product_category_links($limit = 5) {
+    $fallback = [
+        ['title' => __('Activewear Bottoms', 'dawp'), 'url' => home_url('/product-category/activewear-bottoms/')],
+        ['title' => __('Dry-Fit T-Shirts', 'dawp'), 'url' => home_url('/product-category/dry-fit-t-shirts/')],
+        ['title' => __('Tank Tops', 'dawp'), 'url' => home_url('/product-category/tank-tops/')],
+        ['title' => __('Tracksuits', 'dawp'), 'url' => home_url('/product-category/tracksuits/')],
+        ['title' => __('Training Sets', 'dawp'), 'url' => home_url('/product-category/training-sets/')],
     ];
+
+    if (!function_exists('get_terms') || !taxonomy_exists('product_cat')) {
+        return array_slice($fallback, 0, $limit);
+    }
+
+    $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
+    $exclude = $uncategorized ? [(int) $uncategorized->term_id] : [];
+    $terms = get_terms([
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => true,
+        'parent'     => 0,
+        'exclude'    => $exclude,
+        'orderby'    => 'name',
+        'order'      => 'ASC',
+        'number'     => $limit,
+    ]);
+
+    if (is_wp_error($terms) || empty($terms)) {
+        return array_slice($fallback, 0, $limit);
+    }
+
+    return array_map(function ($term) {
+        return [
+            'title' => $term->name,
+            'url'   => get_term_link($term),
+        ];
+    }, $terms);
+}
+
+function dawp_main_menu_items() {
+    return array_merge([
+        ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
+    ], dawp_product_category_links(5));
 }
 function dawp_is_current_url($url) {
     $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
@@ -19,13 +52,9 @@ function dawp_footer_columns() {
     return [
         [
             'title' => 'Shop',
-            'links' => [
+            'links' => array_merge([
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Graphic Tees', 'dawp'),  'url' => home_url('/product-category/graphic-tees/')],
-        ['title' => __('Oversize Tees', 'dawp'),  'url' => home_url('/product-category/oversize-tees/')],
-        ['title' => __('Casual Hoodies', 'dawp'),        'url' => home_url('/product-category/casual-hoodies/')],
-        ['title' => __('Streetwear Essentials', 'dawp'),       'url' => home_url('/product-category/streetwear-essentials/')],
-            ],
+            ], dawp_product_category_links(5)),
         ],
         [
             'title' => 'Help',

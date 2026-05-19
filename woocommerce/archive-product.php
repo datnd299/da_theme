@@ -109,18 +109,24 @@ get_header();
 
             <?php
             // Categories widget
+            $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
             $categories = get_terms([
                 'taxonomy'   => 'product_cat',
                 'hide_empty' => true,
                 'parent'     => 0,
-                'exclude'    => [ get_term_by('slug', 'uncategorized', 'product_cat')->term_id ?? 0 ],
+                'exclude'    => $uncategorized ? [ (int) $uncategorized->term_id ] : [],
+                'orderby'    => 'name',
+                'order'      => 'ASC',
             ]);
             if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
             <div class="shop-sidebar__widget">
                 <h3 class="shop-sidebar__title">Categories</h3>
                 <ul class="shop-sidebar__categories">
                     <li>
-                        <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
+                        <a
+                            href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>"
+                            <?php if ( is_shop() ) echo 'aria-current="page"'; ?>
+                        >
                             All Products
                         </a>
                     </li>

@@ -54,13 +54,7 @@ get_header();
       </p>
       <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-bold text-[#6B6470]">
         <?php
-        $quick_links = [
-          ['title' => __('Beauty Accessories', 'dawp'), 'url' => home_url('/product-category/beauty-accessories/')],
-          ['title' => __('Makeup Tools', 'dawp'),       'url' => home_url('/product-category/makeup-tools/')],
-          ['title' => __('Hair Care Essentials', 'dawp'),'url' => home_url('/product-category/hair-care-essentials/')],
-          ['title' => __('Personal Care Tools', 'dawp'), 'url' => home_url('/product-category/personal-care-tools/')],
-          ['title' => __('Beauty Organizers', 'dawp'),   'url' => home_url('/product-category/beauty-organizers/')],
-        ];
+        $quick_links = function_exists('dawp_product_category_links') ? dawp_product_category_links(5) : [];
         foreach ($quick_links as $link) : ?>
           <a href="<?php echo esc_url($link['url']); ?>" class="transition-colors hover:text-[#2D2633]"><?php echo esc_html($link['title']); ?></a>
         <?php endforeach; ?>

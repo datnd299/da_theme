@@ -134,7 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     feedback.className = 'text-sm font-medium rounded-lg px-4 py-3 bg-red-50 text-red-700 border border-red-200';
                 }
-            } catch {
+            } catch(e) {
+                console.error(e)
                 feedback.textContent = 'Something went wrong. Please try again.';
                 feedback.className = 'text-sm font-medium rounded-lg px-4 py-3 bg-red-50 text-red-700 border border-red-200';
             }

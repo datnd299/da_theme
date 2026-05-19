@@ -4,7 +4,7 @@
 
 <footer id="colophon" class="bg-[#C98A8A] text-white" role="contentinfo">
 
-    <div class="max-w-[1280px] mx-auto px-4 lg:px-6 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="max-w-[1280px] mx-auto px-4 lg:px-6 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
 
         <div class="sm:col-span-2 lg:col-span-1">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block mb-4">
@@ -96,7 +96,7 @@
                 <?php esc_html_e('Get new arrivals, seasonal boutique styles, and family-friendly outfit inspiration straight to your inbox.', 'dawp'); ?>
             </p>
 
-            <form class="flex gap-2" action="#" method="post">
+            <form id="footer-newsletter-form" class="flex gap-2">
 
                 <label for="footer-email" class="sr-only">
                     <?php esc_html_e('Email address', 'dawp'); ?>
@@ -117,6 +117,8 @@
                 </button>
 
             </form>
+
+            <p id="footer-newsletter-msg" aria-live="polite" style="display:none" class="mt-2 text-xs"></p>
 
             <ul class="mt-6 space-y-2 text-xs text-white/85">
 

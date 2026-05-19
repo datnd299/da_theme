@@ -81,13 +81,13 @@
 
             <!-- Right Side: Contact Form -->
             <div class="lg:col-span-7 bg-white p-8 lg:p-12 rounded-3xl border border-[#E6DDD6] shadow-sm">
-                <form action="#" method="POST" class="space-y-6">
+                <form id="contact-form" class="space-y-6">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label for="contact_name" class="text-sm font-bold text-[#2F2A28]">
                                 <?php esc_html_e('Your Name', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
                             </label>
-                            <input type="text" id="contact_name" name="contact_name" required
+                            <input type="text" id="contact_name" name="name" required
                                    class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28]"
                                    placeholder="<?php esc_attr_e('e.g. Sarah Johnson', 'dawp'); ?>">
                         </div>
@@ -95,7 +95,7 @@
                             <label for="contact_email" class="text-sm font-bold text-[#2F2A28]">
                                 <?php esc_html_e('Email Address', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
                             </label>
-                            <input type="email" id="contact_email" name="contact_email" required
+                            <input type="email" id="contact_email" name="email" required
                                    class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28]"
                                    placeholder="<?php esc_attr_e('sarah@example.com', 'dawp'); ?>">
                         </div>
@@ -105,7 +105,7 @@
                         <label for="contact_subject" class="text-sm font-bold text-[#2F2A28]">
                             <?php esc_html_e('Subject', 'dawp'); ?>
                         </label>
-                        <select id="contact_subject" name="contact_subject"
+                        <select id="contact_subject" name="subject"
                                 class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] transition-all text-[#2F2A28]">
                             <option value="general"><?php esc_html_e('General Inquiry', 'dawp'); ?></option>
                             <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
@@ -118,7 +118,7 @@
                         <label for="contact_message" class="text-sm font-bold text-[#2F2A28]">
                             <?php esc_html_e('Your Message', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
                         </label>
-                        <textarea id="contact_message" name="contact_message" rows="5" required
+                        <textarea id="contact_message" name="message" rows="5" required
                                   class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28] resize-none"
                                   placeholder="<?php esc_attr_e('How can we help you today?', 'dawp'); ?>"></textarea>
                     </div>
@@ -127,6 +127,8 @@
                             class="w-full py-4 px-8 bg-[#c98a8a] text-white font-bold rounded-xl hover:bg-[#b37a7a] transition-all shadow-md active:scale-[0.98]">
                         <?php esc_html_e('Send Message', 'dawp'); ?>
                     </button>
+
+                    <p id="contact-msg" aria-live="polite" style="display:none" class="text-sm text-center font-bold"></p>
 
                     <p class="text-xs text-[#9A8C86] text-center italic">
                         <?php esc_html_e('Our boutique team typically responds within 24 business hours.', 'dawp'); ?>

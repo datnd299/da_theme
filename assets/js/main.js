@@ -93,4 +93,84 @@ document.addEventListener('DOMContentLoaded', () => {
             if (initGalleryThumbsScroll() || checkCount++ > 15) clearInterval(interval);
         }, 300);
     }
+
+    // Newsletter signup (shared handler)
+    function initNewsletterForm(formId, msgId, successColor, errorColor) {
+        const form = document.getElementById(formId);
+        const msg  = document.getElementById(msgId);
+        if (!form || !msg || !window.dawpAjax) return;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const emailInput = form.querySelector('input[type="email"]');
+            const submitBtn  = form.querySelector('button[type="submit"]');
+            const origText   = submitBtn.textContent;
+
+            submitBtn.disabled    = true;
+            submitBtn.textContent = 'Sending…';
+            msg.style.display     = 'none';
+
+            const body = new FormData();
+            body.append('action', 'dawp_newsletter');
+            body.append('nonce', window.dawpAjax.nonce);
+            body.append('email', emailInput.value.trim());
+
+            try {
+                const res  = await fetch(window.dawpAjax.url, { method: 'POST', body });
+                const data = await res.json();
+                msg.textContent   = data.data?.message ?? (data.success ? 'Thank you!' : 'Something went wrong.');
+                msg.style.color   = data.success ? successColor : errorColor;
+                msg.style.display = 'block';
+                if (data.success) form.reset();
+            } catch {
+                msg.textContent   = 'Something went wrong. Please try again.';
+                msg.style.color   = errorColor;
+                msg.style.display = 'block';
+            } finally {
+                submitBtn.disabled    = false;
+                submitBtn.textContent = origText;
+            }
+        });
+    }
+
+    // Contact form handler
+    function initContactForm() {
+        const form = document.getElementById('contact-form');
+        const msg  = document.getElementById('contact-msg');
+        if (!form || !msg || !window.dawpAjax) return;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const origText  = submitBtn.textContent;
+
+            submitBtn.disabled    = true;
+            submitBtn.textContent = 'Sending…';
+            msg.style.display     = 'none';
+
+            const body = new FormData(form);
+            body.append('action', 'dawp_contact');
+            body.append('nonce', window.dawpAjax.contactNonce);
+
+            try {
+                const res  = await fetch(window.dawpAjax.url, { method: 'POST', body });
+                const data = await res.json();
+                msg.textContent   = data.data?.message ?? (data.success ? 'Message sent!' : 'Something went wrong.');
+                msg.style.color   = data.success ? '#2e7d5e' : '#c0392b';
+                msg.style.display = 'block';
+                if (data.success) form.reset();
+            } catch {
+                msg.textContent   = 'Something went wrong. Please try again.';
+                msg.style.color   = '#c0392b';
+                msg.style.display = 'block';
+            } finally {
+                submitBtn.disabled    = false;
+                submitBtn.textContent = origText;
+            }
+        });
+    }
+
+    initNewsletterForm('newsletter-form', 'newsletter-msg', '#a8f0c8', '#f9a8a8');
+    initNewsletterForm('footer-newsletter-form', 'footer-newsletter-msg', '#a8f0c8', '#f9a8a8');
+    initContactForm();
 });

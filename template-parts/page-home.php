@@ -185,16 +185,15 @@
           $favorites = wc_get_products( array(
             'status'   => 'publish',
             'limit'    => 4,
-            'featured' => true,
-            'orderby'  => 'popularity',
-            'order'    => 'DESC',
+            'orderby'  => 'date',
+            'order'    => 'ASC',
           ) );
           if ( empty( $favorites ) ) {
             $favorites = wc_get_products( array(
               'status'  => 'publish',
               'limit'   => 4,
-              'orderby' => 'popularity',
-              'order'   => 'DESC',
+              'orderby' => 'date',
+              'order'   => 'ASC',
             ) );
           }
           foreach ( $favorites as $product ) :
@@ -266,12 +265,15 @@
           <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Join the boutique community</h2>
           <p class="mt-4 text-white/80">Get updates on new arrivals, seasonal collections, and warm family-friendly style inspiration.</p>
         </div>
-        <form class="flex flex-col gap-3 rounded-2xl bg-white/10 p-2 sm:flex-row sm:rounded-full">
-          <input class="min-h-12 flex-1 bg-transparent px-4 text-white placeholder:text-white/70 outline-none" type="email" placeholder="Enter your email" aria-label="Email address" />
-          <button class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-white hover:text-[#2F2A28]" type="submit">
-            Sign Up
-          </button>
-        </form>
+        <div class="flex flex-col gap-3">
+          <form id="newsletter-form" class="flex flex-col gap-3 rounded-2xl bg-white/10 p-2 sm:flex-row sm:rounded-full">
+            <input class="min-h-12 flex-1 bg-transparent px-4 text-white placeholder:text-white/70 outline-none" type="email" placeholder="Enter your email" aria-label="Email address" required />
+            <button class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-white hover:text-[#2F2A28]" type="submit">
+              Sign Up
+            </button>
+          </form>
+          <p id="newsletter-msg" aria-live="polite" style="display:none" class="text-center text-sm text-white/80"></p>
+        </div>
       </div>
     </section>
 

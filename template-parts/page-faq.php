@@ -55,7 +55,7 @@
             ],
             [
               'q' => 'My package shows delivered but I haven\'t received it. What should I do?',
-              'a' => 'We\'re sorry to hear that! Please first check around your property and with neighbors or building management. If it\'s still missing after 24 hours, email us at support@shopshive.com or call +1 (760) 383 0494 and we\'ll investigate right away.',
+              'a' => 'We\'re sorry to hear that! Please first check around your property and with neighbors or building management. If it\'s still missing after 24 hours, email us at support@shopshive.com and we\'ll investigate right away.',
             ],
           ],
         ],
@@ -69,7 +69,7 @@
             ],
             [
               'q' => 'How do I start a return or exchange?',
-              'a' => 'Simply email us at support@shopshive.com with your order number and reason for the return. Our team will provide return instructions within 24 hours. Alternatively, call us at +1 (760) 383 0494 Monday–Saturday, 10 AM–6 PM PST.',
+              'a' => 'Simply email us at support@shopshive.com with your order number and reason for the return. Our team will provide return instructions within 24 hours.',
             ],
             [
               'q' => 'Are returns free?',
@@ -95,7 +95,7 @@
             ],
             [
               'q' => 'Can I modify or cancel my order after placing it?',
-              'a' => 'We process orders quickly, so please contact us immediately at support@shopshive.com or +1 (760) 383 0494 if you need to modify or cancel. If your order has already shipped, you\'ll need to use our return process instead.',
+              'a' => 'We process orders quickly, so please contact us immediately at support@shopshive.com if you need to modify or cancel. If your order has already shipped, you\'ll need to use our return process instead.',
             ],
             [
               'q' => 'I entered the wrong shipping address. What can I do?',
@@ -143,7 +143,7 @@
           'items'    => [
             [
               'q' => 'How can I contact Shopshive customer support?',
-              'a' => 'You can reach us by phone at +1 (760) 383 0494 or by email at support@shopshive.com. We\'re available Monday through Saturday, 10:00 AM to 6:00 PM PST. We aim to respond to all emails within 24 hours.',
+              'a' => 'You can reach us by email at support@shopshive.com. We\'re available Monday through Saturday, 10:00 AM to 6:00 PM PST. We aim to respond to all emails within 24 hours.',
             ],
             [
               'q' => 'Do I need an account to shop?',
@@ -243,8 +243,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.9h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
         <div>
-          <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Call Us</h3>
-          <a href="tel:+17603830494" class="text-[14px] text-[#E8567A] font-medium hover:underline">+1 (760) 383 0494</a>
+          <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Business Hours</h3>
           <p class="text-[12px] text-[#2B2B2B]/50 mt-1">Mon – Sat, 10 AM – 6 PM PST</p>
         </div>
       </div>

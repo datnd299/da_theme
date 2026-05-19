@@ -200,7 +200,7 @@
             </div>
             <div>
               <h4 class="font-semibold text-[#2B2B2B] mb-1">Real People. Real Support.</h4>
-              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Our team is available Mon–Sat, 10 AM–6 PM PST. Call us at +1 (760) 383 0494 or email support@shopshive.com.</p>
+              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Our team is available Mon–Sat, 10 AM–6 PM PST. Email us at support@shopshive.com.</p>
             </div>
           </li>
         </ul>
@@ -273,7 +273,7 @@
         </div>
         <h4 class="font-semibold text-[#2B2B2B]" style="font-family:'Playfair Display',serif">Our Address</h4>
         <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          885 Roselyn Lakes, South Vidashire, IL 37334, USA
+          885 Roselyn Lakes, South Vidashire, IL 37334
         </p>
       </div>
 
@@ -281,9 +281,8 @@
         <div class="w-12 h-12 rounded-full bg-[#F5E6DC] flex items-center justify-center">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.9h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
-        <h4 class="font-semibold text-[#2B2B2B]" style="font-family:'Playfair Display',serif">Call Us</h4>
+        <h4 class="font-semibold text-[#2B2B2B]" style="font-family:'Playfair Display',serif">Business Hours</h4>
         <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          <a href="tel:+17603830494" class="hover:text-[#E8567A] transition-colors">+1 (760) 383 0494</a><br>
           Mon – Sat, 10:00 AM – 6:00 PM PST
         </p>
       </div>

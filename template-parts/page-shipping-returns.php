@@ -268,7 +268,7 @@
         <span class="text-xs font-bold uppercase tracking-[0.15em] text-[#E8567A] mb-2">Step 01</span>
         <h3 class="font-semibold text-[#2B2B2B] text-lg mb-3" style="font-family:'Playfair Display',serif">Contact Us</h3>
         <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          Email us at <a href="mailto:support@shopshive.com" class="text-[#E8567A] hover:underline">support@shopshive.com</a> or call <a href="tel:+17603830494" class="text-[#E8567A] hover:underline">+1 (760) 383 0494</a> with your order number and reason for return. Our team will respond within 24 hours.
+          Email us at <a href="mailto:support@shopshive.com" class="text-[#E8567A] hover:underline">support@shopshive.com</a> with your order number and reason for return. Our team will respond within 24 hours.
         </p>
       </div>
 
@@ -384,11 +384,6 @@
              class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-[#E8567A] text-sm font-semibold rounded-full hover:bg-[#FDF8F4] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             support@shopshive.com
-          </a>
-          <a href="tel:+17603830494"
-             class="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-transparent border-2 border-white text-white text-sm font-semibold rounded-full hover:bg-white/10 transition-all duration-300">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.9h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            +1 (760) 383 0494
           </a>
         </div>
 

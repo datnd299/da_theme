@@ -1,7 +1,7 @@
 <?php
 /**
- * Contact page template part — Shopshive
- * Sections: Hero · Contact Cards · Contact Form · FAQ Teaser · CTA
+ * Contact page template part - Shopshive
+ * Sections: Hero - Contact Cards - Contact Form - FAQ Teaser - CTA
  */
 ?>
 
@@ -25,19 +25,7 @@
 <!-- ===== CONTACT CARDS ===== -->
 <section class="bg-[#FDF8F4] py-16 lg:py-20" aria-label="Contact information">
   <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <!-- Phone -->
-      <div class="bg-white rounded-2xl p-7 shadow-sm border border-[#F5E6DC] hover:shadow-md hover:border-[#F2A8BC] transition-all duration-300 flex flex-col items-center text-center gap-4">
-        <div class="w-14 h-14 rounded-full bg-[#F5E6DC] flex items-center justify-center flex-shrink-0">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.9h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <div>
-          <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Call Us</h3>
-          <a href="tel:+17603830494" class="text-[14px] text-[#E8567A] font-medium hover:underline">+1 (760) 383 0494</a>
-          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">Mon – Sat, 10 AM – 6 PM PST</p>
-        </div>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- Email -->
       <div class="bg-white rounded-2xl p-7 shadow-sm border border-[#F5E6DC] hover:shadow-md hover:border-[#F2A8BC] transition-all duration-300 flex flex-col items-center text-center gap-4">
@@ -58,7 +46,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Our Address</h3>
-          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">885 Roselyn Lakes, South Vidashire, IL 37334, USA</p>
+          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">885 Roselyn Lakes, South Vidashire, IL 37334</p>
         </div>
       </div>
 
@@ -69,7 +57,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Business Hours</h3>
-          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">Monday – Saturday<br>10:00 AM – 6:00 PM PST</p>
+          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">Monday - Saturday<br>10:00 AM - 6:00 PM PST</p>
         </div>
       </div>
 
@@ -118,7 +106,7 @@
             <select id="cf-subject" name="cf_subject"
                     class="w-full h-12 px-4 rounded-lg border border-[#D4B8A0] bg-white text-[14px] text-[#2B2B2B]
                            focus:outline-none focus:border-[#E8567A] focus:ring-2 focus:ring-[#E8567A]/20 transition-colors duration-200 appearance-none cursor-pointer">
-              <option value="">Select a topic…</option>
+              <option value="">Select a topic...</option>
               <option value="order">Order Status / Tracking</option>
               <option value="returns">Returns & Exchanges</option>
               <option value="product">Product Question</option>
@@ -137,7 +125,7 @@
 
           <div>
             <label for="cf-message" class="block text-[12px] font-semibold uppercase tracking-[0.12em] text-[#2B2B2B]/60 mb-2">Message <span class="text-[#E8567A]">*</span></label>
-            <textarea id="cf-message" name="cf_message" required rows="6" placeholder="Tell us how we can help you…"
+            <textarea id="cf-message" name="cf_message" required rows="6" placeholder="Tell us how we can help you..."
                       class="w-full px-4 py-3 rounded-lg border border-[#D4B8A0] bg-white text-[14px] text-[#2B2B2B] placeholder-[#A89080] leading-relaxed resize-none
                              focus:outline-none focus:border-[#E8567A] focus:ring-2 focus:ring-[#E8567A]/20 transition-colors duration-200"></textarea>
           </div>
@@ -225,7 +213,7 @@
         Common Questions
       </h2>
       <p class="mt-4 text-[14px] text-[#2B2B2B]/60 max-w-md mx-auto leading-relaxed">
-        Find quick answers below — or reach out and we'll get back to you within 24 hours.
+        Find quick answers below - or reach out and we'll get back to you within 24 hours.
       </p>
     </div>
 
@@ -233,8 +221,8 @@
 
       <?php
         $faqs = [
-          ['q' => 'How long does shipping take?',         'a' => 'Standard shipping takes 5–10 business days. We ship free on all orders, with no minimum required.'],
-          ['q' => 'Can I return or exchange my order?',   'a' => 'Yes — we offer hassle-free exchanges and returns within 30 days of delivery, no questions asked.'],
+          ['q' => 'How long does shipping take?',         'a' => 'Standard shipping takes 5-10 business days. We ship free on all orders, with no minimum required.'],
+          ['q' => 'Can I return or exchange my order?',   'a' => 'Yes - we offer hassle-free exchanges and returns within 30 days of delivery, no questions asked.'],
           ['q' => 'How do I track my order?',             'a' => 'Once your order ships, you\'ll receive a tracking link via email. You can also use our Track Order page.'],
           ['q' => 'What payment methods do you accept?',  'a' => 'We accept all major credit cards (Visa, Mastercard, Amex, Discover) via our secure checkout.'],
         ];
@@ -268,7 +256,7 @@
     <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#F2A8BC] mb-5">Explore The Store</p>
     <h2 class="mb-4 text-white leading-tight"
         style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,5vw,56px);font-weight:300">
-      While You're Here —<br><em>Discover Something Beautiful</em>
+      While You're Here -<br><em>Discover Something Beautiful</em>
     </h2>
     <p class="text-white/60 text-base mb-8 max-w-lg mx-auto leading-relaxed">
       Hundreds of styles, free shipping, and 30-day returns. Fashion that truly opens doors.

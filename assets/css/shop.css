@@ -460,6 +460,11 @@ ul.products {
     gap: 32px;
   }
 }
+@media (min-width: 1024px) {
+  ul.products {
+    gap: 40px;
+  }
+}
 
 /* ── Product Card ───────────────────────────────────────────── */
 .product-card {
@@ -476,12 +481,17 @@ ul.products {
 .product-card__shell {
   position: relative;
   overflow: hidden;
-  background-color: var(--color-bg-subtle);
-  aspect-ratio: 4 / 5; /* 4:5 ratio requested in design system */
-  border-radius: var(--radius-lg); /* 24px rounded corners */
-  border: 1px solid rgba(217, 210, 197, 0.4);
-  transition: transform var(--duration-normal) var(--ease-fluid), box-shadow var(--duration-normal) var(--ease-fluid);
-  margin-bottom: 16px;
+  background-color: var(--color-bg);
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+  border: 1px solid rgba(217, 210, 197, 0.3);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: transform 700ms ease-out, box-shadow 700ms ease-out;
+  margin-bottom: 24px;
+  transform: translateZ(0); /* Fix Safari rounded corner overflow during scroll */
+  isolation: isolate; /* Create new stacking context */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .product-card__inner {
@@ -499,16 +509,18 @@ ul.products {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform var(--duration-slow) var(--ease-fluid);
+  transition: transform 700ms ease-out;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Hover effects */
 .product-card:hover .product-card__shell {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(74, 52, 38, 0.06); /* Soft, natural walnut-tinted shadow */
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 .product-card:hover .product-card__img {
-  transform: scale(1.03); /* Subtle magnification */
+  transform: scale(1.02) translateZ(0);
 }
 
 /* Sale badge */
@@ -551,31 +563,37 @@ ul.products {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 0; /* Flat layout style, no inner padding */
-  gap: 6px;
+  padding: 0;
+  gap: 8px;
 }
 
 .product-card__info {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 8px;
+  gap: 16px;
 }
 
 /* Category label placed above title */
 .product-card__cat {
   font-size: 0.75rem;
-  color: var(--color-accent);
-  font-weight: 700;
+  color: var(--color-text-secondary);
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   display: block;
-  order: -1; /* Display above title */
+  order: -1;
+  width: 100%;
+  margin-bottom: 4px;
 }
 
 /* Product name */
 .product-card__title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.875rem;
   font-weight: 500;
   color: var(--color-text-primary);
   margin: 0;
@@ -584,13 +602,15 @@ ul.products {
   line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.35;
+  line-height: 1.2;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-fluid);
+  flex: 1;
 }
 .product-card__link {
   text-decoration: none;
   color: inherit;
+  flex: 1 1 auto;
 }
 .product-card__link:hover .product-card__title {
   color: var(--color-accent);
@@ -601,6 +621,9 @@ ul.products {
   display: flex;
   align-items: center;
   gap: 6px;
+  width: 100%;
+  margin-bottom: 8px;
+  order: -1;
 }
 .product-card__rating .star-rating {
   font-size: 0.75rem;
@@ -613,24 +636,24 @@ ul.products {
 
 /* Price — always visible */
 .product-card__price {
-  font-size: 1.125rem;
-  font-weight: 400;
+  font-size: 1.5rem;
+  font-weight: 300;
   font-family: var(--font-primary);
   color: var(--color-text-primary);
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
-  margin-top: 4px;
+  margin-top: 0;
 }
 .product-card__price ins {
   text-decoration: none;
-  font-weight: 600;
-  color: var(--color-accent);
+  font-weight: 400;
+  color: var(--color-text-primary);
 }
 .product-card__price del {
-  font-size: 0.9375rem;
-  font-weight: 400;
+  font-size: 1.125rem;
+  font-weight: 300;
   color: var(--color-text-muted);
   text-decoration: line-through;
 }
@@ -675,34 +698,51 @@ ul.products {
 .product-card__atc {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  background: var(--color-navy); /* Walnut brown */
-  color: var(--color-bg); /* Warm Ivory */
+  justify-content: flex-start;
+  background: transparent;
+  color: var(--color-accent);
   font-family: var(--font-primary);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   border: none;
-  border-radius: var(--radius-md); /* 16px */
-  padding: 12px 24px;
-  min-height: 48px;
+  padding: 0;
   cursor: pointer;
   text-decoration: none;
-  transition: all var(--duration-normal) var(--ease-fluid);
-  margin-top: 16px;
+  transition: color 300ms ease-out;
+  margin-top: 8px;
 }
 .woocommerce ul.products li.product .button:hover,
 .add_to_cart_button:hover,
 .product-card__atc:hover {
-  background: var(--color-accent); /* Gold hover */
-  color: var(--color-bg);
+  background: transparent;
+  color: var(--color-text-primary);
 }
 .woocommerce ul.products li.product .button:active,
 .add_to_cart_button:active,
 .product-card__atc:active {
   transform: scale(0.98);
+}
+/* We can use an ::after pseudo-element to add the arrow icon */
+.woocommerce ul.products li.product .button::after,
+.add_to_cart_button::after,
+.product-card__atc::after {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-left: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23B08A57'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M9 5l7 7-7 7'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 300ms ease-out, background-image 300ms ease-out;
+}
+.woocommerce ul.products li.product .button:hover::after,
+.add_to_cart_button:hover::after,
+.product-card__atc:hover::after {
+  transform: translateX(4px);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234A3426'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5' d='M9 5l7 7-7 7'/%3E%3C/svg%3E");
 }
 
 /* ── Empty state ────────────────────────────────────────────── */

@@ -32,7 +32,7 @@ function dawp_virtual_page_map() {
         'contact-us'            => ['slug' => 'contact',            'title' => 'Contact Us',                  'css' => ''],
         'track-order'           => ['slug' => 'track-order',        'title' => 'Track Your Order',            'css' => ''],
         'shipping-policy'       => ['slug' => 'shipping-policy',    'title' => 'Shipping Policy',             'css' => ''],
-        'refund-return-policy'  => ['slug' => 'refund-return-policy','title' => 'Refund & Return Policy',     'css' => ''],
+        'refund-return-policy'  => ['slug' => 'refund-return-policy','title' => 'Return & Refund Policy',     'css' => ''],
         'billing-terms'         => ['slug' => 'billing-terms',      'title' => 'Billing Terms & Conditions', 'css' => ''],
         'terms-of-service'      => ['slug' => 'terms-of-service',   'title' => 'Terms of Service',           'css' => ''],
         'privacy-policy'        => ['slug' => 'privacy-policy',     'title' => 'Privacy Policy',             'css' => ''],

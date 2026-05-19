@@ -13,12 +13,17 @@ if (is_shop() || is_product_category() || is_product_tag()) {
 }
 
 get_header();
+$is_checkout_page = function_exists('is_checkout') && is_checkout() && ! is_order_received_page();
+$queried_post = get_post();
+
+if (! $is_checkout_page && $queried_post instanceof WP_Post) {
+    $is_checkout_page = is_page('checkout') || has_shortcode($queried_post->post_content, 'woocommerce_checkout');
+}
 ?>
 <main class="woo-page">
     <div class="container" style="padding-top:6rem; padding-bottom:6rem; min-height:60vh;">
-        <?php if (is_checkout() && ! is_order_received_page()) : ?>
+        <?php if ($is_checkout_page) : ?>
             <header class="checkout-page-title">
-                <p class="checkout-page-title__eyebrow"><?php esc_html_e('Secure checkout', 'dawp'); ?></p>
                 <h1><?php esc_html_e('Check Out', 'dawp'); ?></h1>
             </header>
         <?php endif; ?>

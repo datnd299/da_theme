@@ -15,8 +15,8 @@
 /* === PAGE TITLE === */
 .checkout-page-title {
     max-width: 80rem;
-    margin: 0 auto;
-    padding: 0 1rem 0.75rem;
+    margin: 0 auto 1.5rem;
+    padding: 0 1rem;
 }
 
 .checkout-page-title__eyebrow {
@@ -32,7 +32,7 @@
 .checkout-page-title h1 {
     margin: 0;
     color: #111827;
-    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 900;
     line-height: 1.05;
     letter-spacing: 0;
@@ -966,12 +966,13 @@ form.checkout.woocommerce-checkout {
 
 #customer_details.col2-set {
     grid-column: 1;
-    grid-row: 1 / span 2;
+    grid-row: 1;
 }
 
 h3#order_review_heading {
     grid-column: 2;
     grid-row: 1;
+    align-self: start;
     font-size: 1rem;
     font-weight: 900;
     text-transform: uppercase;
@@ -984,7 +985,9 @@ h3#order_review_heading {
 
 .woocommerce-checkout-review-order {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
+    align-self: start;
+    margin-top: 3.25rem;
     position: sticky;
     top: 5.5rem;
 }
@@ -1378,6 +1381,11 @@ ul.wc_payment_methods {
     justify-content: flex-end;
 }
 
+.wc_payment_method .dawp-payment-icons {
+    flex-wrap: nowrap;
+    max-width: none;
+}
+
 .wc_payment_method .icon-box .icon {
     display: inline-flex;
     align-items: center;
@@ -1390,6 +1398,15 @@ ul.wc_payment_methods {
     border: 1px solid rgba(255, 255, 255, 0.85);
     object-fit: contain;
     padding: 0.125rem 0.25rem;
+}
+
+.wc_payment_method .dawp-payment-icon.icon {
+    width: 2.5rem;
+    min-width: 2.5rem;
+    height: 1.5rem;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
 }
 
 .wc_payment_method .icon-box .icon:is(span, div),
@@ -1518,6 +1535,7 @@ button#place_order:active {
     .woocommerce-checkout-review-order {
         grid-column: 1;
         grid-row: 3;
+        margin-top: 0;
         position: static;
     }
 

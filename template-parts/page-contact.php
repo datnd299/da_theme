@@ -82,30 +82,32 @@ $business_hours = 'Monday – Friday, 9:00 AM – 6:00 PM EST';
                 <!-- Form Column -->
                 <div class="bg-white p-8 md:p-10 rounded-2xl border border-border shadow-xl">
                     <h3 class="text-2xl font-heading font-bold text-navy mb-6">Send us a message</h3>
-                    <form action="#" class="space-y-6">
+                    <form id="da-contact-form" class="space-y-6" novalidate>
+                        <?php wp_nonce_field( 'da_contact_nonce', 'da_contact_nonce_field' ); ?>
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-xs font-bold text-navy mb-2 uppercase tracking-widest">First Name</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="e.g. John" required>
+                                <input type="text" name="first_name" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="e.g. John" required>
                             </div>
                             <div>
                                 <label class="block text-xs font-bold text-navy mb-2 uppercase tracking-widest">Last Name</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="e.g. Doe" required>
+                                <input type="text" name="last_name" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="e.g. Doe" required>
                             </div>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-navy mb-2 uppercase tracking-widest">Email Address</label>
-                            <input type="email" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="john.doe@example.com" required>
+                            <input type="email" name="email" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="john.doe@example.com" required>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-navy mb-2 uppercase tracking-widest">Order Number (Optional)</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="#0000">
+                            <input type="text" name="order_number" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="#0000">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-navy mb-2 uppercase tracking-widest">Message</label>
-                            <textarea rows="5" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="How can we help you?" required></textarea>
+                            <textarea name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-border focus:border-blue focus:ring-1 focus:ring-blue outline-none transition bg-surface-alt" placeholder="How can we help you?" required></textarea>
                         </div>
-                        <button type="submit" class="w-full py-4 bg-blue hover:bg-navy text-white font-bold rounded-lg transition-all duration-normal text-lg shadow-lg shadow-blue/20 hover:shadow-navy/20">
+                        <div id="da-contact-feedback" class="hidden text-sm font-medium rounded-lg px-4 py-3"></div>
+                        <button type="submit" id="da-contact-submit" class="w-full py-4 bg-blue hover:bg-navy text-white font-bold rounded-lg transition-all duration-normal text-lg shadow-lg shadow-blue/20 hover:shadow-navy/20">
                             Send Message
                         </button>
                     </form>

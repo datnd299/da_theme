@@ -27,19 +27,14 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'home'             => ['slug' => 'home',             'title' => 'Home', 'css' => 'tw-home.css'],
-        'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
-        'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
-        'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
-        'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
-        'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
-        'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
-        'track-order'      => ['slug' => 'track-order',      'title' => 'Track Order', 'css' => 'tw-track.css'],
-        'product-category/dry-fit-t-shirts'   => ['slug' => 'category-tshirts',    'title' => 'Dry-Fit T-Shirts', 'css' => 'tw-main.css'],
-        'product-category/tracksuits'         => ['slug' => 'category-tracksuits', 'title' => 'Tracksuits', 'css' => 'tw-main.css'],
-        'product-category/tank-tops'          => ['slug' => 'category-tank-tops',  'title' => 'Tank Tops', 'css' => 'tw-main.css'],
-        'product-category/training-sets'      => ['slug' => 'category-sets',       'title' => 'Training Sets', 'css' => 'tw-main.css'],
-        'product-category/activewear-bottoms' => ['slug' => 'category-bottoms',    'title' => 'Activewear Bottoms', 'css' => 'tw-main.css'],
+        'home'             => ['slug' => 'home',             'title' => 'Home',               'css' => 'tw/tw-home.css'],
+        'about-us'         => ['slug' => 'about',            'title' => 'About Us',           'css' => 'tw/tw-about.css'],
+        'faq'              => ['slug' => 'faq',              'title' => 'FAQ',                'css' => 'tw/tw-faq.css'],
+        'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us',         'css' => 'tw/tw-contact.css'],
+        'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw/tw-ship.css'],
+        'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw/tw-terms.css'],
+        'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy',     'css' => 'tw/tw-privacy.css'],
+        'track-order'      => ['slug' => 'track-order',      'title' => 'Track Order',        'css' => 'track-order.css'],
     ];
 }
 
@@ -66,15 +61,8 @@ function dawp_virtual_page_assets() {
     }
 
     $css_file_name = ltrim($pages[$request_uri]['css'], '/');
-
-    // Đường dẫn vật lý
-    if (str_contains($css_file_name, 'tw-')) {
-        $css_file_path = get_template_directory() . '/assets/css/tw/' . $css_file_name;
-        $css_file_url = get_template_directory_uri() . '/assets/css/tw/' . $css_file_name;
-    } else {
-        $css_file_path = get_template_directory() . '/assets/css/' . $css_file_name;
-        $css_file_url = get_template_directory_uri() . '/assets/css/' . $css_file_name;
-    }
+    $css_file_path = get_template_directory() . '/assets/css/' . $css_file_name;
+    $css_file_url  = get_template_directory_uri() . '/assets/css/' . $css_file_name;
 
     wp_enqueue_style(
         'dawp-virtual-page-' . sanitize_title($pages[$request_uri]['slug']),
@@ -83,4 +71,3 @@ function dawp_virtual_page_assets() {
         file_exists($css_file_path) ? filemtime($css_file_path) : '1.0.0'
     );
 }
-

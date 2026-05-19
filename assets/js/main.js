@@ -93,4 +93,54 @@ document.addEventListener('DOMContentLoaded', () => {
             if (initGalleryThumbsScroll() || checkCount++ > 15) clearInterval(interval);
         }, 300);
     }
+
+    // Contact form AJAX submission
+    const contactForm = document.getElementById('da-contact-form');
+    if (contactForm) {
+        const feedback = document.getElementById('da-contact-feedback');
+        const submitBtn = document.getElementById('da-contact-submit');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending…';
+            feedback.className = 'hidden text-sm font-medium rounded-lg px-4 py-3';
+
+            const nonce = document.getElementById('da_contact_nonce_field').value;
+            const body = new URLSearchParams({
+                action: 'da_contact_form',
+                nonce,
+                first_name:   contactForm.first_name.value,
+                last_name:    contactForm.last_name.value,
+                email:        contactForm.email.value,
+                order_number: contactForm.order_number.value,
+                message:      contactForm.message.value,
+            });
+
+            try {
+                const res  = await fetch(da_theme.ajax_url, { method: 'POST', body });
+                const data = await res.json();
+
+                feedback.textContent = data.data;
+                if (data.success) {
+                    feedback.className = 'text-sm font-medium rounded-lg px-4 py-3 bg-green-50 text-green-700 border border-green-200';
+                    contactForm.reset();
+                } else {
+                    feedback.className = 'text-sm font-medium rounded-lg px-4 py-3 bg-red-50 text-red-700 border border-red-200';
+                }
+            } catch {
+                feedback.textContent = 'Something went wrong. Please try again.';
+                feedback.className = 'text-sm font-medium rounded-lg px-4 py-3 bg-red-50 text-red-700 border border-red-200';
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
+    }
 });

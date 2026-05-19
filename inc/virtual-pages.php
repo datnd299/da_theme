@@ -27,7 +27,6 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'home'             => ['slug' => 'home',             'title' => 'Home', 'css' => 'tw-home.css'],
         'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
         'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
         'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
@@ -78,4 +77,3 @@ function dawp_virtual_page_assets() {
         file_exists($css_file_path) ? filemtime($css_file_path) : '1.0.0'
     );
 }
-

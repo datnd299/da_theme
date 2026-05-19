@@ -95,7 +95,29 @@
                     <h3 class="font-heading text-2xl font-black text-[#2D2633] mb-6">
                         <?php esc_html_e('Send a Message', 'dawp'); ?>
                     </h3>
-                    <form action="#" method="POST" class="space-y-5">
+                    <?php
+                    $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
+                    if ($contact_status === 'sent') :
+                    ?>
+                        <div class="mb-5 rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-sm font-medium text-green-800" role="status">
+                            <?php esc_html_e('Thank you. Your message has been sent successfully.', 'dawp'); ?>
+                        </div>
+                    <?php elseif ($contact_status === 'invalid') : ?>
+                        <div class="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800" role="alert">
+                            <?php esc_html_e('Please check your details and try again.', 'dawp'); ?>
+                        </div>
+                    <?php elseif ($contact_status === 'failed') : ?>
+                        <div class="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800" role="alert">
+                            <?php esc_html_e('Sorry, your message could not be sent right now. Please email us directly.', 'dawp'); ?>
+                        </div>
+                    <?php endif; ?>
+                    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="POST" class="space-y-5">
+                        <input type="hidden" name="action" value="dawp_contact_submit">
+                        <?php wp_nonce_field('dawp_contact_submit', 'dawp_contact_nonce'); ?>
+                        <div class="hidden" aria-hidden="true">
+                            <label for="website"><?php esc_html_e('Website', 'dawp'); ?></label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         <div>
                             <label for="name" class="block text-sm font-medium text-[#2D2633] mb-1">
                                 <?php esc_html_e('Full Name', 'dawp'); ?>

@@ -1,62 +1,65 @@
-# One Shop Vibe — Site.md
+# Tizezap — Site.md
 
 ## Store Information
 
-* **Domain:** oneshopvibe.com
-* **Brand Name:** One Shop Vibe
+* **Domain:** tizezap.com
+* **Brand Name:** Tizezap
 * **Language:** English
-* **Store Type:** Beauty Essentials & Personal Care Accessories Store
-* **Primary Market:** United States / beauty shoppers
-* **Core Products:** Beauty accessories, makeup tools, hair care essentials, personal care tools, beauty organizers
-* **Support Email:** [support@oneshopvibe.com](mailto:support@oneshopvibe.com)
+* **Store Type:** Tire & Auto Essentials Store
+* **Primary Market:** United States
+* **Core Products:** Car tires, SUV tires, light truck tires, trailer tires, all-season tires, winter tires, performance tires
+* **Support Email:** [support@tizezap.com](mailto:support@tizezap.com)
 * **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
 ## Brand Positioning
 
-One Shop Vibe is a beauty essentials store focused on simple beauty accessories, personal care tools, makeup helpers, and everyday self-care products.
+Tizezap is an online tire store focused on reliable tires for everyday driving, road comfort, vehicle compatibility, and practical tire shopping.
 
 Core message:
 
-> Beauty essentials for simple everyday confidence.
+> Reliable tires for everyday driving.
+
+Expanded message:
+
+> Tizezap helps drivers find suitable tires for cars, SUVs, trucks, trailers, and seasonal driving needs with clear product details and practical support.
 
 The store should feel:
 
-* Clean
-* Feminine
+* Automotive
+* Reliable
 * Practical
-* Affordable but trustworthy
-* Beauty-focused
-* Easy to shop
-* Everyday self-care oriented
+* Clean
+* Technical but easy to understand
+* Trustworthy
+* Road-ready
 * GMC-safe
 
 The store should not feel like:
 
-* A random general store
-* A medical skincare claim website
-* A counterfeit cosmetics shop
-* A luxury perfume replica store
-* A weight-loss or supplement store
-* A custom clothing/fashion designer brand
+* A random auto parts store
+* A racing-only tire shop
+* A fake discount tire site
+* A used tire marketplace
+* A site making exaggerated safety claims
 
 ---
 
-## Social Footprint Direction
+## Core Store Concept
 
-Recent social footprint suggests the brand was related to beauty products, with messaging around affordable beauty items.
+Tizezap sells tires for different vehicle needs and driving conditions.
 
-Therefore, the website should be rebuilt around:
+The site should help customers shop by:
 
-* Beauty essentials
-* Makeup accessories
-* Hair care tools
-* Personal care tools
-* Beauty organizers
-* Everyday self-care items
+* Tire type
+* Vehicle type
+* Driving condition
+* Tire size
+* Rim size
+* Product specifications
 
-Avoid building the site around custom clothing or fashion design, because similar search results may refer to a different domain/brand.
+The main focus is not hype or extreme performance claims. The focus is clear tire selection, dependable road use, and easy product comparison.
 
 ---
 
@@ -64,148 +67,139 @@ Avoid building the site around custom clothing or fashion design, because simila
 
 Primary audience:
 
-* Women aged 18–40
-* Beauty shoppers
-* Students and young professionals
-* Customers looking for affordable beauty accessories
-* People who want simple daily self-care tools
-* Gift shoppers looking for small beauty-related items
+* Car owners
+* SUV and crossover owners
+* Light truck drivers
+* Trailer owners
+* Everyday commuters
+* Drivers replacing worn tires
+* Customers looking for seasonal tires
+* People comparing tire options online
 
 Customer needs:
 
-* Simple beauty routine support
-* Affordable beauty accessories
-* Makeup tools and helpers
-* Hair care accessories
-* Personal care tools
-* Beauty storage and organization
-* Useful everyday beauty finds
+* Find tires that fit their vehicle
+* Understand tire size and specifications
+* Choose tires for everyday driving
+* Compare all-season, winter, performance, SUV, truck, and trailer tires
+* Get clear shipping and return information
 
 ---
 
 ## Main Product Categories
 
-Keep categories focused and simple:
+Keep categories focused and tire-specific:
 
-1. **Beauty Accessories**
-2. **Makeup Tools**
-3. **Hair Care Essentials**
-4. **Personal Care Tools**
-5. **Beauty Organizers**
+1. **All-Season Tires**
+2. **SUV & Crossover Tires**
+3. **Light Truck Tires**
+4. **Performance Tires**
+5. **Trailer Tires**
+6. **Winter Tires**
 
 Short menu option:
 
-1. **Beauty Accessories**
-2. **Makeup Tools**
-3. **Hair Care**
-4. **Personal Care**
+1. **All-Season Tires**
+2. **SUV & Truck Tires**
+3. **Performance Tires**
+4. **Trailer Tires**
+5. **Winter Tires**
+
+Additional shopping filters:
+
+* Shop By Tire Size
+* Shop By Rim Size
+* Shop By Vehicle Type
+* Shop By Brand
 
 ---
 
 ## Category Direction
 
-### Beauty Accessories
+### All-Season Tires
 
-For small beauty items that support daily routines.
-
-Examples:
-
-* Mirrors
-* Brush holders
-* Beauty puffs
-* Applicators
-* Cosmetic pouches
-* Small beauty tools
+For everyday driving in varied conditions.
 
 Safe copy:
 
-> Practical beauty accessories for simple everyday routines.
+> Tires designed for practical year-round driving and everyday road use.
 
-### Makeup Tools
+### SUV & Crossover Tires
 
-For makeup helpers and tools.
-
-Examples:
-
-* Makeup brushes
-* Sponges
-* Applicators
-* Eyelash tools
-* Brush cleaning accessories
+For SUVs, crossovers, and family vehicles.
 
 Safe copy:
 
-> Makeup tools designed to help keep your routine simple and organized.
+> Tire options for SUVs and crossovers, built for daily driving, comfort, and road stability.
 
-### Hair Care Essentials
+### Light Truck Tires
 
-For non-medical hair styling and care accessories.
-
-Examples:
-
-* Hair brushes
-* Hair clips
-* Styling accessories
-* Hair towels
-* Hair organizers
+For pickup trucks and light-duty work vehicles.
 
 Safe copy:
 
-> Simple hair accessories and tools for everyday styling and care.
+> Tires for light trucks, hauling needs, and everyday utility driving.
 
-### Personal Care Tools
+### Performance Tires
 
-For grooming and personal-use accessories.
-
-Examples:
-
-* Grooming tools
-* Personal care accessories
-* Small beauty devices
-* Travel care tools
+For drivers who want sharper handling and sporty road feel.
 
 Safe copy:
 
-> Everyday personal care tools made for simple grooming routines.
+> Tires designed for responsive handling and performance-inspired driving.
 
-Avoid medical or permanent-result claims.
+### Trailer Tires
 
-### Beauty Organizers
-
-For keeping beauty products neat.
-
-Examples:
-
-* Makeup organizers
-* Cosmetic storage boxes
-* Travel beauty bags
-* Vanity organizers
-* Brush storage
+For trailers, utility trailers, and towing support.
 
 Safe copy:
 
-> Beauty organizers that help keep cosmetics and tools easy to find at home or on the go.
+> Trailer tire options for towing, utility use, and road-ready trailer needs.
+
+### Winter Tires
+
+For cold-weather and winter driving conditions.
+
+Safe copy:
+
+> Tires designed for colder temperatures and winter road conditions.
+
+---
+
+## Product Information Requirements
+
+Every tire product page should clearly show:
+
+* Tire size
+* Rim size
+* Load index
+* Speed rating
+* Tire type
+* Vehicle compatibility guidance
+* Season / driving condition
+* Tread pattern if available
+* Brand / model
+* Quantity included
+* Shipping information
+* Return eligibility
+
+Important note to include on product pages:
+
+> Please confirm your tire size, rim size, and vehicle compatibility before placing an order.
 
 ---
 
 ## Products To Avoid
 
-For GMC safety, do not sell or promote:
+For GMC safety, avoid:
 
-* Supplements
-* Weight loss products
-* Skin whitening products
-* Acne cure products
-* Medical skincare treatment products
-* Injectables
-* Prescription-like cosmetics
-* Medical beauty devices
-* Products claiming permanent hair removal
-* Fake branded cosmetics
-* Counterfeit perfume
-* Replica designer accessories
-* Adult products
-* Hazardous chemicals
+* Used tires unless clearly disclosed and compliant
+* Counterfeit tire brands
+* Fake brand names or unauthorized logos
+* Misleading warranty claims
+* Unsafe or damaged tire products
+* Racing-only products marketed for regular road use without clarity
+* Extreme claims such as accident-proof or safest tire guaranteed
 
 ---
 
@@ -213,66 +207,69 @@ For GMC safety, do not sell or promote:
 
 Tone should be:
 
-* Friendly
-* Clean
-* Feminine
-* Simple
+* Clear
 * Practical
-* Confidence-focused
-* Not overly luxury
-* Not medical
+* Reliable
+* Technical but easy to understand
+* Customer-friendly
+* Safety-aware without exaggerated claims
 
 Good words:
 
-* beauty
-* simple routine
-* everyday confidence
-* self-care
-* organized
-* easy to use
-* beauty essentials
-* personal care
-* polished
-* practical
+* reliable
+* everyday driving
+* road-ready
+* compatible
+* all-season
+* traction
+* handling
+* comfort
+* utility
+* tire size
+* vehicle fit
 
 Avoid words:
 
-* miracle
-* cure
-* medical-grade
-* permanent results
-* flawless guaranteed
-* instant transformation
-* doctor recommended
-* fake luxury
-* replica
-* crazy deal
+* safest tire guaranteed
+* accident-proof
+* fits every vehicle
+* lifetime warranty unless verified
+* best tire in the world
+* unbeatable performance
+* 100% guaranteed grip
 
 ---
 
 ## Visual Direction
 
-Use clean beauty lifestyle imagery:
+Use clean automotive imagery:
 
-* Vanity table scenes
-* Makeup tools and brushes
-* Beauty organizers
-* Hair accessories
-* Personal care tools
-* Soft flat lays
-* Cream, blush, white, beige, soft gold tones
-* Bright natural light
-* Clean and realistic product photography
+* Tire close-ups
+* Tread detail shots
+* Car on road
+* SUV on highway
+* Truck / trailer tire scenes
+* Garage or tire shop setting
+* Clean product photography
+* Road lifestyle visuals
+
+Visual style:
+
+* Navy
+* Black
+* Steel gray
+* White
+* Electric blue accent
+* Realistic lighting
+* Strong product clarity
 
 Avoid:
 
-* Before/after skin images
-* Medical skincare visuals
-* Fake luxury logos
-* Overly edited beauty transformation visuals
-* Low-quality supplier screenshots
-* Text-heavy promotional images
-* Watermarks
+* Overly aggressive racing visuals unless for performance section
+* Fake brand logos
+* Text-heavy supplier images
+* Dirty/unsafe tire imagery
+* Low-quality product screenshots
 
 ---
 
@@ -280,17 +277,14 @@ Avoid:
 
 Recommended palette:
 
-* Champagne Ivory
-* Soft Blush
-* Dusty Rose
-* Warm Beige
+* Deep Navy
+* Charcoal Black
+* Steel Gray
 * Clean White
-* Charcoal
-* Soft Gold
+* Electric Blue
+* Safety Orange accent used lightly
 
-The site should feel feminine, clean, affordable, and trustworthy.
-
-Avoid neon colors, red discount-heavy design, fake luxury black/gold overload, and overly childish pink styling.
+The site should feel automotive, trustworthy, and technical.
 
 ---
 
@@ -298,54 +292,48 @@ Avoid neon colors, red discount-heavy design, fake luxury black/gold overload, a
 
 Recommended homepage flow:
 
-1. **Hero — Beauty Essentials For Everyday Confidence**
-2. **Shop By Category**
-3. **Makeup Tools & Beauty Accessories**
-4. **Hair Care & Personal Care Essentials**
-5. **Customer Care / Trust**
+1. **Hero — Reliable Tires For Everyday Driving**
+2. **Shop By Tire Category**
+3. **All-Season & Daily Driving Tires**
+4. **SUV, Truck & Trailer Tires**
+5. **Customer Care / Fitment & Trust**
 
 Hero headline:
 
-> Beauty Essentials For Everyday Confidence
+> Reliable Tires For Everyday Driving
 
 Hero subheadline:
 
-> Discover simple beauty accessories, makeup tools, hair care essentials, and personal care products made for easy daily routines.
+> Find all-season, SUV, truck, trailer, winter, and performance tires with clear product details to help you choose the right fit for your vehicle.
 
 Main CTA:
 
-* Shop Beauty Essentials
-* Explore Makeup Tools
+* Shop Tires
+* Find Your Tire Size
 
 ---
 
-## GMC-Safe Rules
+## Trust & Policy Requirements
 
-The site must present itself as a legitimate beauty accessories and personal care store.
+The website must include:
 
-Must include:
-
-* Clear product categories
-* Contact page
-* Shipping policy
-* Return & refund policy
-* Privacy policy
-* Terms of service
+* About Us
+* Contact Us
+* Shipping Policy
+* Return & Refund Policy
+* Privacy Policy
+* Terms of Service
 * FAQ
-* Track order page
-* Clear product details
+* Track Your Order
+
+Trust information should include:
+
 * Support email
-
-Avoid:
-
-* Medical beauty claims
-* Skin treatment/cure claims
-* Permanent hair removal claims
-* Counterfeit cosmetics
-* Fake branded perfume
-* Fake reviews
-* Countdown timers
-* Overpromising beauty results
+* Business hours
+* Tire fitment reminder
+* Shipping timeline
+* Return conditions
+* Clear product specifications
 
 ---
 
@@ -353,7 +341,7 @@ Avoid:
 
 Orders are processed within **2–4 business days**.
 
-After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
+After dispatch, standard US shipping typically takes **5–10 business days** depending on destination, product availability, tire size, carrier conditions, and delivery location.
 
 Tracking information is provided once an order ships.
 
@@ -363,14 +351,17 @@ Tracking information is provided once an order ships.
 
 Customers may request returns within **30 days** of delivery.
 
-Eligible items should be:
+Eligible tires should be:
 
 * Unused
+* Unmounted
 * Undamaged
 * In original condition
-* Returned with original packaging where applicable
+* Returned with original labels/packaging where applicable
 
-For personal care and beauty accessories, return eligibility may depend on hygiene and original condition requirements.
+Mounted, driven-on, damaged, or incorrectly ordered tires may not be eligible for return unless required by applicable law or approved by support.
+
+Customers should confirm size and compatibility before ordering.
 
 ---
 
@@ -378,25 +369,53 @@ For personal care and beauty accessories, return eligibility may depend on hygie
 
 Product descriptions should include:
 
-* Product type
-* Main use case
-* Material or size if relevant
-* How it supports beauty/personal care routines
-* Travel or storage use if relevant
-* Care instructions if needed
+* Tire type
+* Best use case
+* Size and specification details
+* Vehicle type guidance
+* Driving condition
+* Tread/handling notes if available
+* Fitment reminder
+* Shipping and return note
 
-Safe copy example:
+Safe product copy example:
 
-> This compact beauty organizer helps keep makeup tools and small cosmetics easy to find at home or while traveling.
+> This all-season tire is designed for everyday road use and daily driving needs. Please confirm your tire size, rim size, and vehicle compatibility before ordering.
 
 Avoid:
 
-* Medical claims
-* Cure/treatment claims
-* Permanent results
-* Fake brand references
+* Guaranteed safety claims
+* Accident-proof claims
+* Fits every vehicle claims
+* Fake warranty statements
+* Unsupported performance claims
 * Keyword stuffing
-* Unrealistic beauty promises
+
+---
+
+## GMC-Safe Rules
+
+Tizezap must appear as a legitimate tire store with clear product data and transparent policies.
+
+Must include:
+
+* Tire categories
+* Fitment/size reminders
+* Product specifications
+* Contact information
+* Shipping and return policies
+* Clear warranty wording if applicable
+* No fake reviews
+* No counterfeit branding
+
+Avoid:
+
+* Misleading compatibility claims
+* Exaggerated safety claims
+* Fake discounts
+* Countdown timers
+* Unauthorized brand logos
+* Used/damaged products without disclosure
 
 ---
 
@@ -404,12 +423,14 @@ Avoid:
 
 The final website should feel like:
 
-> A clean, feminine beauty essentials store offering makeup tools, beauty accessories, hair care items, personal care tools, and organizers for simple everyday confidence.
+> A clean and trustworthy online tire store helping drivers find reliable tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
 
 Customers should feel:
 
-* The store has a clear beauty-focused direction
-* Products are practical and easy to understand
-* The website feels trustworthy and GMC-safe
-* The brand is not pretending to be a luxury or medical beauty store
-* Policies and product information are clear
+* The store is focused on tires
+* Product details are clear
+* Compatibility matters are explained
+* The website feels professional and automotive
+* Shipping, returns, and support are transparent
+
+The site should never feel like a random auto parts store, fake discount tire shop, or unsafe tire marketplace.

@@ -1,51 +1,73 @@
-# One Shop Vibe — Design System
+# Tizezap — Design System
 
 ## Design Goal
 
-Build a clean, fresh, feminine beauty essentials website for makeup tools, beauty accessories, hair care items, personal care tools, and organizers.
+Build a clean, professional tire ecommerce website for cars, SUVs, trucks, trailers, winter tires, and performance tires.
 
 The site should feel:
 
-* Fresh
+* Automotive
+* Reliable
+* Technical
 * Clean
-* Feminine
-* Practical
-* Friendly
-* Modern
-* Beauty-focused
+* Road-ready
+* Trustworthy
+* Easy to shop
 * GMC-safe
 
-Avoid making the site feel like a fake luxury cosmetics shop, medical skincare brand, or random general store.
+Avoid making the site feel like a racing-only store, random auto parts shop, fake discount tire site, or unsafe used tire marketplace.
 
 ---
 
 ## Color Palette
 
-Use a fresher color direction than typical blush/pink beauty websites.
-
-### Fresh Citrus
+### Deep Navy
 
 ```txt
-#F7C948
+#0B1F33
 ```
 
-Use for small highlight accents, badges, icons, and energetic details.
+Use for headings, footer, strong sections, trust blocks.
 
-### Soft Lilac
+### Charcoal Black
 
 ```txt
-#DCD5FF
+#111827
 ```
 
-Use for soft background blocks, beauty routine sections, and feminine accents.
+Use for main text, product titles, dark UI areas.
 
-### Mint Cream
+### Steel Gray
 
 ```txt
-#EAF7F0
+#E5E7EB
 ```
 
-Use for clean beauty, personal care, and organizer sections.
+Use for borders, dividers, product card outlines.
+
+### Cool Gray
+
+```txt
+#F4F6F8
+```
+
+Use for section backgrounds and product grid areas.
+
+### Electric Blue
+
+```txt
+#2563EB
+```
+
+Use for primary buttons, links, active states, technical highlights.
+
+### Safety Orange
+
+```txt
+#F97316
+```
+
+Use lightly for fitment reminders, important notes, small badges.
 
 ### Clean White
 
@@ -53,61 +75,16 @@ Use for clean beauty, personal care, and organizer sections.
 #FFFFFF
 ```
 
-Use for main background, cards, product grids, and forms.
-
-### Charcoal Plum
-
-```txt
-#2D2633
-```
-
-Use for headings, strong text, footer, and premium contrast.
-
-### Soft Gray
-
-```txt
-#F6F7F9
-```
-
-Use for product grid backgrounds, policy pages, and neutral spacing.
-
-### Muted Text
-
-```txt
-#6B6470
-```
-
-Use for body copy and product descriptions.
-
----
-
-## Color Usage Rules
-
-* Main background: Clean White or Soft Gray
-* Hero background: Mint Cream or Soft Lilac
-* Heading: Charcoal Plum
-* Body text: Muted Text
-* CTA button: Charcoal Plum with white text
-* Accent details: Fresh Citrus
-* Product cards: White with soft border
-
-Avoid:
-
-* Neon pink
-* Heavy black/gold luxury style
-* Red discount-heavy sections
-* Too many pastel colors in one block
-* Low contrast text
+Use for main background, cards, forms, product pages.
 
 ---
 
 ## Typography
 
-Use clean modern fonts:
+Use clean modern sans-serif fonts:
 
 ```txt
 Inter
-DM Sans
 Manrope
 Plus Jakarta Sans
 Source Sans 3
@@ -115,24 +92,23 @@ Source Sans 3
 
 Rules:
 
-* Headings: bold, clean, slightly playful but professional
-* Body: simple, readable, short paragraphs
-* Product titles: clear and direct
-* Avoid luxury serif fonts and overly cute fonts
+* Headings: bold, clear, technical
+* Body: readable and direct
+* Product titles: concise and specification-friendly
+* Avoid decorative, luxury, or playful fonts
 
 ---
 
 ## Layout Style
 
-Use a clean beauty ecommerce layout:
+Use a practical automotive ecommerce layout:
 
 * Large hero section
-* Soft color blocks
 * Clear category cards
-* Product-focused grids
-* Rounded cards
-* Plenty of whitespace
-* Short copy
+* Product grids with specs
+* Strong filter/search area
+* Trust and fitment reminders
+* Short copy blocks
 * Mobile-first spacing
 
 Recommended width:
@@ -154,13 +130,13 @@ Mobile: py-14
 
 Use 5 sections:
 
-1. Hero — Beauty Essentials For Everyday Confidence
-2. Shop By Category
-3. Makeup Tools & Beauty Accessories
-4. Hair Care & Personal Care Essentials
-5. Customer Care / Trust
+1. Hero — Reliable Tires For Everyday Driving
+2. Shop By Tire Category
+3. All-Season & Daily Driving Tires
+4. SUV, Truck & Trailer Tires
+5. Customer Care / Fitment & Trust
 
-Keep homepage clear, bright, and focused on beauty essentials.
+Keep homepage focused on tires, not general auto parts.
 
 ---
 
@@ -169,72 +145,71 @@ Keep homepage clear, bright, and focused on beauty essentials.
 Main categories:
 
 ```txt
-Beauty Accessories
-Makeup Tools
-Hair Care Essentials
-Personal Care Tools
-Beauty Organizers
+All-Season Tires
+SUV & Crossover Tires
+Light Truck Tires
+Performance Tires
+Trailer Tires
+Winter Tires
 ```
 
-Short menu option:
+Useful filters:
 
 ```txt
-Beauty Accessories
-Makeup Tools
-Hair Care
-Personal Care
+Shop By Tire Size
+Shop By Rim Size
+Shop By Vehicle Type
+Shop By Brand
 ```
 
 ---
 
 ## Image Direction
 
-Use realistic clean beauty imagery:
+Use clean automotive photography:
 
-* Vanity table with beauty tools
-* Makeup brushes and sponges
-* Beauty organizer flat lay
-* Hair accessories on clean surface
-* Personal care tools in soft bathroom setting
-* Cosmetic pouch or travel organizer
+* Tire close-ups
+* Tread detail shots
+* Car on road
+* SUV / truck lifestyle
+* Garage or tire shop scene
+* Product tire images on clean background
 
-Image style:
+Image rules:
 
-* Bright natural light
-* Clean background
-* Fresh colors
-* Minimal clutter
-* No text inside image
-* No fake luxury logos
-* No before/after medical visuals
-* No over-edited beauty claims
+* No fake brand logos
+* No dirty/unsafe tire visuals
+* No text-heavy supplier images
+* No aggressive racing visuals unless for performance category
+* Product tread and tire sidewall should be clear when possible
 
 ---
 
 ## Product Card Style
 
-Product cards should be simple and fresh:
+Product cards should show key tire info clearly:
+
+* Tire image
+* Product name
+* Tire size
+* Tire type
+* Price
+* Short CTA
+
+Optional specs:
+
+* Load index
+* Speed rating
+* Season
+* Vehicle type
+
+Style:
 
 * White background
-* Soft border
-* Rounded corners 18–22px
-* Clean product image
-* Product title
-* Price
-* Simple CTA
-
-Optional:
-
-* Small category tag
-* Short benefit line
-
-Avoid:
-
-* Too many sale badges
-* Fake reviews
-* Countdown timers
-* Medical claim text
-* Fake branded product names
+* Light border
+* Rounded corners
+* Clean shadow on hover
+* No excessive sale badges
 
 ---
 
@@ -243,26 +218,28 @@ Avoid:
 ### Primary Button
 
 ```txt
-Background: #2D2633
+Background: #2563EB
 Text: #FFFFFF
-Hover: #F7C948
-Hover text: #2D2633
+Hover: #0B1F33
 ```
 
 ### Secondary Button
 
 ```txt
 Background: transparent / white
-Border: #2D2633
-Text: #2D2633
-Hover background: #EAF7F0
+Border: #2563EB
+Text: #2563EB
+Hover background: #F4F6F8
 ```
 
-Button style:
+### Warning / Fitment Button or Badge
 
-* Rounded 999px or 14px
-* Medium-bold text
-* Clean, friendly, not flashy
+```txt
+Background: #F97316
+Text: #FFFFFF
+```
+
+Use Safety Orange only for important reminders, not decoration overload.
 
 ---
 
@@ -275,10 +252,35 @@ Always include:
 * 30-day returns
 * Support email
 * Shipping timeline
-* Clear product details
-* Hygiene/original condition note for personal care items
+* Tire fitment reminder
+* Clear product specifications
 
-Trust section can use Charcoal Plum background with white text and Fresh Citrus accents.
+Important fitment note:
+
+```txt
+Please confirm your tire size, rim size, and vehicle compatibility before placing an order.
+```
+
+---
+
+## Product Page Requirements
+
+Every tire product page should include:
+
+```txt
+Tire size
+Rim size
+Load index
+Speed rating
+Tire type
+Season / driving condition
+Vehicle compatibility guidance
+Quantity included
+Shipping note
+Return eligibility
+```
+
+Avoid vague product pages with only image + price.
 
 ---
 
@@ -286,34 +288,35 @@ Trust section can use Charcoal Plum background with white text and Fresh Citrus 
 
 Do not use:
 
-* Medical beauty claims
-* Skin treatment or cure claims
-* Permanent hair removal claims
-* Fake branded cosmetics
-* Counterfeit perfume
-* Weight-loss or supplement messaging
+* Accident-proof claims
+* Safest tire guaranteed
+* Fits every vehicle
+* Lifetime warranty unless verified
+* Fake brand logos
+* Counterfeit tire branding
 * Fake reviews
 * Countdown timers
-* Unrealistic beauty transformation claims
+* Misleading compatibility claims
 
 Safe wording:
 
 ```txt
-beauty essentials
-simple routine
-personal care tools
-makeup helpers
-organized beauty
-hair care accessories
-everyday confidence
+reliable
+everyday driving
+road-ready
+all-season
+vehicle compatibility
+clear tire specs
+fitment reminder
+practical tire shopping
 ```
 
 ---
 
 ## Final Design Feeling
 
-One Shop Vibe should look like:
+Tizezap should look like:
 
-> A fresh, clean, feminine beauty essentials store for makeup tools, beauty accessories, hair care items, personal care tools, and organizers.
+> A clean, trustworthy online tire store helping drivers find tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
 
-The site must feel modern, practical, friendly, beauty-focused, and GMC-safe.
+The site must feel tire-focused, professional, technical enough to trust, and easy for customers to confirm fitment before purchase.

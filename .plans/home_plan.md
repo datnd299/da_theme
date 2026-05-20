@@ -1,29 +1,34 @@
-# One Shop Vibe — Home Plan
+# Tizezap — Home Plan
 
 ## Homepage Goal
 
-Build a short, fresh, clean beauty homepage for beauty accessories, makeup tools, hair care essentials, personal care tools, and beauty organizers.
+Build a clean, professional tire ecommerce homepage for drivers looking for reliable tires for cars, SUVs, trucks, trailers, winter driving, and performance needs.
 
-Main feeling:
+Main homepage message:
 
-> Beauty essentials for simple everyday confidence.
+```txt
+Reliable Tires For Everyday Driving
+```
 
-The homepage should feel fresh, friendly, feminine, practical, and GMC-safe.
+The homepage must make customers understand:
 
-Avoid medical beauty claims, fake luxury styling, random product categories, and exaggerated transformation language.
+* Tizezap sells tires, not general auto parts
+* Customers can shop by tire type and vehicle need
+* Tire size and compatibility must be checked before purchase
+* Product details, shipping, returns, and support are clear
 
 ---
 
 # Homepage Structure
 
-Use 5 sections only:
+Use 5 sections:
 
 ```txt
 1. Hero
-2. Shop By Category
-3. Makeup Tools & Beauty Accessories
-4. Hair Care & Personal Care Essentials
-5. Customer Care / Trust
+2. Shop By Tire Category
+3. All-Season & Daily Driving Tires
+4. SUV, Truck & Trailer Tires
+5. Customer Care / Fitment & Trust
 ```
 
 ---
@@ -32,229 +37,243 @@ Use 5 sections only:
 
 ## Purpose
 
-Introduce One Shop Vibe as a fresh beauty essentials store for simple daily routines.
+Introduce Tizezap as a trustworthy tire store for everyday drivers.
 
 ## Content
 
 Eyebrow:
 
 ```txt
-Beauty Essentials & Personal Care
+Tire & Auto Essentials
 ```
 
 Headline:
 
 ```txt
-Beauty Essentials For Everyday Confidence
+Reliable Tires For Everyday Driving
 ```
 
 Subheadline:
 
 ```txt
-Discover simple beauty accessories, makeup tools, hair care essentials, and personal care products made for easy daily routines.
+Find all-season, SUV, truck, trailer, winter, and performance tires with clear product details to help you choose the right fit for your vehicle.
 ```
 
 Primary CTA:
 
 ```txt
-Shop Beauty Essentials
+Shop Tires
 ```
 
 Secondary CTA:
 
 ```txt
-Explore Makeup Tools
+Find Your Tire Size
+```
+
+Fitment reminder:
+
+```txt
+Please confirm your tire size, rim size, and vehicle compatibility before placing an order.
 ```
 
 ## Image Direction
 
-Use a bright beauty lifestyle image:
+Use a clean automotive hero image:
 
-* Vanity table with makeup tools, brushes, cosmetic pouch, organizer
-* Fresh soft colors: lilac, mint, white, citrus accent
-* Natural light
-* No text in image
-* No fake luxury logos
-* No medical skincare/before-after visuals
-
-## Design Notes
-
-* Background: Mint Cream `#EAF7F0` or Soft Lilac `#DCD5FF`
-* Heading: Charcoal Plum `#2D2633`
-* Accent: Fresh Citrus `#F7C948`
-* Keep hero clean and not overly pink
+* Car or SUV on road
+* Tire close-up / tread detail
+* Garage or tire shop scene
+* Clean lighting, automotive mood
+* No fake logos
+* No text inside image
+* No aggressive racing-only visual
 
 ---
 
-# Section 2 — Shop By Category
+# Section 2 — Shop By Tire Category
 
 ## Purpose
 
-Show the main product categories clearly and avoid general-store feeling.
+Show tire categories clearly so customers can shop by need.
 
 ## Categories
 
 ```txt
-Beauty Accessories
-Makeup Tools
-Hair Care Essentials
-Personal Care Tools
-Beauty Organizers
+All-Season Tires
+SUV & Crossover Tires
+Light Truck Tires
+Performance Tires
+Trailer Tires
+Winter Tires
 ```
 
 ## Card Copy
 
-### Beauty Accessories
+### All-Season Tires
 
 ```txt
-Small beauty helpers for simple everyday routines.
+Practical tire options for year-round everyday driving.
 ```
 
-### Makeup Tools
+### SUV & Crossover Tires
 
 ```txt
-Brushes, sponges, and tools for easier makeup application.
+Tires for SUVs, crossovers, family vehicles, and daily road use.
 ```
 
-### Hair Care Essentials
+### Light Truck Tires
 
 ```txt
-Hair accessories and tools for daily styling and care.
+Tire options for pickup trucks, utility driving, and hauling needs.
 ```
 
-### Personal Care Tools
+### Performance Tires
 
 ```txt
-Practical grooming and personal-use tools for daily self-care.
+Tires designed for responsive handling and performance-inspired driving.
 ```
 
-### Beauty Organizers
+### Trailer Tires
 
 ```txt
-Storage solutions that keep cosmetics and tools easy to find.
+Road-ready tire options for trailers and towing support.
+```
+
+### Winter Tires
+
+```txt
+Tires designed for colder temperatures and winter road conditions.
 ```
 
 ## Design Notes
 
-* Use rounded category cards
-* White card background
-* Soft border
-* Image-heavy layout
-* Short text only
+* Use clean image-heavy cards
+* White cards with light borders
+* Show category name clearly
+* Keep copy short
+* Avoid sale-heavy badges
 
 ---
 
-# Section 3 — Makeup Tools & Beauty Accessories
+# Section 3 — All-Season & Daily Driving Tires
 
 ## Purpose
 
-Feature the core beauty routine products.
+Feature the safest and broadest category for everyday drivers.
 
 ## Content
 
 Eyebrow:
 
 ```txt
-Makeup Tools & Beauty Accessories
+All-Season Tires
 ```
 
 Headline:
 
 ```txt
-Simple tools for cleaner, easier beauty routines.
+Built for practical everyday road use.
 ```
 
 Paragraph:
 
 ```txt
-From brushes and applicators to mirrors and small beauty helpers, One Shop Vibe brings practical accessories that make daily routines feel easier and more organized.
+Explore tire options made for daily driving, road comfort, and year-round use. Review tire size, rim size, load index, and speed rating before choosing the right fit.
 ```
 
 Highlights:
 
 ```txt
-Makeup helpers
-Beauty tools
-Compact mirrors
-Daily routine support
+Everyday driving
+Year-round use
+Road comfort
+Clear tire specs
 ```
 
 CTA:
 
 ```txt
-Shop Makeup Tools
+Shop All-Season Tires
 ```
 
 ## Image Direction
 
-* Makeup brushes and sponges on vanity
-* Cosmetic pouch or beauty tray
-* Fresh bright background
-* No treatment claim visuals
+* Sedan or crossover on clean road
+* Tire tread close-up
+* Product tire image with clean background
+* No extreme racing claims
 
 ---
 
-# Section 4 — Hair Care & Personal Care Essentials
+# Section 4 — SUV, Truck & Trailer Tires
 
 ## Purpose
 
-Feature hair care and personal care tools in a safe, practical way.
+Feature vehicle-specific categories with practical use cases.
 
 ## Content
 
 Eyebrow:
 
 ```txt
-Hair Care & Personal Care
+SUV, Truck & Trailer Tires
 ```
 
 Headline:
 
 ```txt
-Everyday tools for simple self-care moments.
+Tire options for utility, towing, and larger vehicles.
 ```
 
 Paragraph:
 
 ```txt
-Explore hair accessories, grooming tools, and personal care essentials designed to support daily routines at home or while traveling.
+Find tire categories for SUVs, crossovers, light trucks, and trailers with product details that help support better fitment decisions.
 ```
 
-Two mini cards:
+Mini cards:
 
-### Hair Care Essentials
+### SUV & Crossover Tires
 
 ```txt
-Simple accessories for everyday styling and care.
+For family vehicles, road trips, and daily SUV driving.
 ```
 
-### Personal Care Tools
+### Light Truck Tires
 
 ```txt
-Practical tools for easy daily grooming routines.
+For pickup trucks, hauling needs, and everyday utility use.
+```
+
+### Trailer Tires
+
+```txt
+For trailers, towing support, and road-ready utility needs.
 ```
 
 CTA:
 
 ```txt
-Explore Personal Care
+Explore Vehicle-Specific Tires
 ```
 
 ## Image Direction
 
-* Hair accessories on clean surface
-* Personal care tools in soft bathroom/vanity setting
-* No medical visuals
-* No permanent-result claims
-* No skin close-up before/after images
+* SUV highway scene
+* Pickup truck or trailer tire close-up
+* Garage/tire service vibe
+* No dirty or unsafe tire imagery
 
 ---
 
-# Section 5 — Customer Care / Trust
+# Section 5 — Customer Care / Fitment & Trust
 
 ## Purpose
 
-Build GMC trust and give shoppers clear support information.
+Build trust and support GMC compliance.
+
+This section should make customers feel safe ordering tires online by clearly explaining fitment, shipping, returns, and support.
 
 ## Content
 
@@ -267,13 +286,13 @@ Customer Care
 Headline:
 
 ```txt
-Clear support from checkout to delivery.
+Clear support from tire selection to delivery.
 ```
 
 Short paragraph:
 
 ```txt
-Shop beauty essentials with clear product details, order tracking, and customer support when you need help.
+Tizezap provides clear product details, tire fitment reminders, order tracking, and customer support to help you shop with confidence.
 ```
 
 Trust cards:
@@ -282,22 +301,28 @@ Trust cards:
 Secure Checkout
 Tracking Included
 30-Day Returns
-Clear Product Details
+Clear Tire Specifications
+```
+
+Fitment note:
+
+```txt
+Please confirm your tire size, rim size, load index, speed rating, and vehicle compatibility before placing an order.
 ```
 
 Shipping note:
 
 ```txt
-Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch depending on product availability, tire size, carrier conditions, and delivery location.
 ```
 
 Return note:
 
 ```txt
-Eligible unused and undamaged items may be returned within 30 days of delivery. Personal care items may be subject to hygiene and original condition requirements.
+Eligible unused, unmounted, and undamaged tires may be returned within 30 days of delivery in original condition.
 ```
 
-CTA:
+Primary CTA:
 
 ```txt
 View Shipping & Returns
@@ -311,10 +336,46 @@ Contact Support
 
 ## Design Notes
 
-* Use Charcoal Plum background
+* Use Deep Navy background
 * White text
-* Fresh Citrus accents
-* Keep trust copy clear and short
+* Electric Blue for CTA
+* Safety Orange only for fitment reminder
+* Keep copy direct and practical
+
+---
+
+# Optional Product Grid Add-On
+
+If needed, add a short product grid before Section 5.
+
+Title:
+
+```txt
+Popular Tire Options
+```
+
+Subtext:
+
+```txt
+Browse tire options for everyday driving, SUVs, trucks, trailers, and seasonal road needs.
+```
+
+Grid:
+
+* Desktop: 4 products
+* Mobile: 2 products per row if readable
+
+Product cards should show:
+
+```txt
+Product name
+Tire size
+Tire type
+Price
+CTA
+```
+
+Avoid fake reviews, countdown timers, and exaggerated safety claims.
 
 ---
 
@@ -322,24 +383,25 @@ Contact Support
 
 Needed images:
 
-1. Hero vanity / beauty essentials lifestyle image
-2. Beauty Accessories category image
-3. Makeup Tools category image
-4. Hair Care Essentials category image
-5. Personal Care Tools category image
-6. Beauty Organizers category image
-7. Makeup tools feature image
-8. Hair care / personal care feature image
-9. Customer support or clean packaging/trust image
+1. Hero image: car/SUV on road or tire close-up
+2. Category image: All-Season Tires
+3. Category image: SUV & Crossover Tires
+4. Category image: Light Truck Tires
+5. Category image: Performance Tires
+6. Category image: Trailer Tires
+7. Category image: Winter Tires
+8. Feature image: all-season daily driving tire
+9. Feature image: SUV/truck/trailer tire scene
+10. Optional customer support / tire shop image
 
 Image rules:
 
+* No fake logos
 * No text inside image
-* No fake luxury logos
-* No medical before/after visuals
-* No watermarks
-* No over-edited beauty transformation
-* Bright, clean, realistic beauty photography
+* No dirty/unsafe tire visuals
+* No racing-only vibe unless for performance category
+* Use realistic automotive photography
+* Product/tread details should be clear
 
 ---
 
@@ -348,29 +410,28 @@ Image rules:
 Use:
 
 ```txt
-beauty essentials
-simple routine
-personal care tools
-makeup helpers
-organized beauty
-hair care accessories
-everyday confidence
-fresh beauty
-self-care
+reliable
+everyday driving
+road-ready
+all-season
+vehicle compatibility
+clear tire specs
+fitment reminder
+tire size
+rim size
+load index
+speed rating
 ```
 
 Avoid:
 
 ```txt
-miracle
-cure
-medical-grade
-permanent results
-flawless guaranteed
-instant transformation
-fake branded
-replica
-crazy deal
+accident-proof
+safest tire guaranteed
+fits every vehicle
+best tire in the world
+100% guaranteed grip
+lifetime warranty unless verified
 ```
 
 ---
@@ -379,6 +440,8 @@ crazy deal
 
 The homepage should feel like:
 
-> A fresh, clean, feminine beauty essentials store for makeup tools, beauty accessories, hair care items, personal care tools, and organizers.
+```txt
+A clean, trustworthy online tire store helping drivers find tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
+```
 
-It must be short, bright, practical, trustworthy, and GMC-safe.
+It must be tire-focused, professional, easy to navigate, and clear about size/fitment before purchase.

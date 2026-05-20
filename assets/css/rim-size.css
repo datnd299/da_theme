@@ -1,0 +1,680 @@
+.rim-size-page {
+    background: #f4f6f8;
+    color: #111827;
+    font-family: Inter, Manrope, system-ui, sans-serif;
+}
+
+.rim-hero {
+    position: relative;
+    min-height: 620px;
+    overflow: hidden;
+    background: #0b1f33;
+    color: #fff;
+}
+
+.rim-hero__image,
+.rim-hero__overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.rim-hero__image {
+    object-fit: cover;
+}
+
+.rim-hero__overlay {
+    background: linear-gradient(90deg, rgba(11, 31, 51, 0.96) 0%, rgba(11, 31, 51, 0.82) 50%, rgba(11, 31, 51, 0.34) 100%);
+}
+
+.rim-hero__inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 260px;
+    align-items: end;
+    gap: clamp(28px, 5vw, 56px);
+    min-height: 620px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 112px 32px 76px;
+}
+
+.rim-hero__copy {
+    max-width: 760px;
+}
+
+.rim-eyebrow {
+    display: inline-flex;
+    margin: 0 0 20px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 9px 14px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.rim-eyebrow--blue {
+    border-color: #bfdbfe;
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.rim-hero h1,
+.rim-intro h2,
+.rim-tool h2,
+.rim-support h2 {
+    margin: 0;
+    color: inherit;
+    font-family: Manrope, Inter, system-ui, sans-serif;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 1.02;
+}
+
+.rim-hero h1 {
+    max-width: 780px;
+    font-size: clamp(44px, 7vw, 82px);
+}
+
+.rim-hero p:not(.rim-eyebrow) {
+    max-width: 680px;
+    margin: 24px 0 0;
+    color: #e5e7eb;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+.rim-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+}
+
+.rim-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 0 26px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.rim-button:hover {
+    transform: translateY(-2px);
+}
+
+.rim-button--primary {
+    background: #2563eb;
+    color: #fff;
+}
+
+.rim-button--primary:hover,
+.rim-button--dark:hover {
+    background: #f97316;
+    color: #fff;
+}
+
+.rim-button--ghost {
+    border: 1px solid rgba(255, 255, 255, 0.56);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.rim-button--ghost:hover {
+    background: #fff;
+    color: #0b1f33;
+}
+
+.rim-button--dark {
+    background: #0b1f33;
+    color: #fff;
+}
+
+.rim-hero__panel {
+    display: grid;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 28px;
+    backdrop-filter: blur(12px);
+}
+
+.rim-hero__panel span {
+    color: #fdba74;
+    font-size: 44px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.rim-hero__panel strong {
+    margin-bottom: 12px;
+    color: #f8fafc;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.rim-intro,
+.rim-tool,
+.rim-support {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 32px;
+}
+
+.rim-intro {
+    padding-bottom: 0;
+}
+
+.rim-intro__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 56px;
+}
+
+.rim-intro h2,
+.rim-tool h2,
+.rim-support h2 {
+    color: #0b1f33;
+    font-size: clamp(30px, 4vw, 48px);
+}
+
+.rim-intro p:not(.rim-eyebrow),
+.tz-panel__top p,
+.rim-support p {
+    margin: 16px 0 0;
+    color: #4b5563;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+.rim-intro img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.rim-tool {
+    padding-top: 48px;
+}
+
+.rim-tool__header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 28px;
+}
+
+.rim-search {
+    width: min(100%, 360px);
+}
+
+.rim-search input {
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    background: #fff;
+    padding: 0 16px;
+    color: #111827;
+    font-size: 15px;
+    outline: none;
+}
+
+.rim-search input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+}
+
+.tz-tabs-nav {
+    display: flex;
+    overflow-x: auto;
+    border-radius: 8px 8px 0 0;
+    background: #0b1f33;
+    scrollbar-width: none;
+}
+
+.tz-tabs-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.tz-tab-link {
+    flex: 1;
+    min-width: 96px;
+    border: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0b1f33;
+    color: #fff;
+    cursor: pointer;
+    display: grid;
+    gap: 4px;
+    padding: 17px 18px;
+    text-align: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.tz-tab-link span {
+    font-size: 17px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.tz-tab-link small {
+    color: #b8c3d1;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.tz-tab-link.active {
+    background: #f97316;
+    color: #fff;
+}
+
+.tz-tab-link.active small {
+    color: #fff7ed;
+}
+
+.tz-content {
+    border: 1px solid #e5e7eb;
+    border-top: 0;
+    border-radius: 0 0 8px 8px;
+    background: #fff;
+}
+
+.tz-panel {
+    display: none;
+    padding: 32px;
+    animation: tzFadeIn 0.24s ease;
+}
+
+.tz-panel.active {
+    display: block;
+}
+
+.tz-panel__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 26px;
+}
+
+.tz-panel__top h3 {
+    margin: 0;
+    color: #0b1f33;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.tz-panel__top p {
+    margin: 8px 0 0;
+    font-size: 14px;
+}
+
+.tz-panel__top span {
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.tz-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.tz-item {
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    background: #f9fafb;
+    color: #263241;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.tz-item:hover {
+    transform: translateY(-3px);
+    border-color: #f97316;
+    background: #fff;
+    color: #c2410c;
+    box-shadow: 0 8px 18px rgba(249, 115, 22, 0.15);
+}
+
+.rim-no-results {
+    margin: 18px 0 0;
+    border: 1px solid #fed7aa;
+    border-radius: 8px;
+    background: #fff7ed;
+    padding: 16px 18px;
+    color: #9a3412;
+    font-weight: 800;
+}
+
+.vehicle-panel__layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+    gap: 30px;
+    align-items: stretch;
+}
+
+.vehicle-panel__layout > img {
+    width: 100%;
+    min-height: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.vehicle-panel .tz-panel__top {
+    align-items: flex-start;
+}
+
+.vehicle-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.vehicle-tags span {
+    border: 1px solid #dbeafe;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 8px 11px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.vehicle-category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.vehicle-primary-card {
+    display: grid;
+    min-height: 122px;
+    grid-column: span 3;
+    align-content: center;
+    gap: 8px;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    background: #eff6ff;
+    padding: 22px;
+    color: #0b1f33;
+    text-decoration: none;
+    transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.vehicle-primary-card:hover {
+    transform: translateY(-3px);
+    border-color: #2563eb;
+    background: #dbeafe;
+}
+
+.vehicle-primary-card strong {
+    color: #0b1f33;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.vehicle-primary-card span {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.brand-card {
+    display: grid;
+    min-height: 178px;
+    align-content: start;
+    gap: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #f9fafb;
+    padding: 22px;
+    color: #263241;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.brand-card:hover {
+    transform: translateY(-3px);
+    border-color: #f97316;
+    background: #fff;
+    box-shadow: 0 8px 18px rgba(249, 115, 22, 0.15);
+}
+
+.brand-card__top {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.brand-card__top strong {
+    color: #0b1f33;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.brand-card__top em {
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 7px 10px;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.brand-card__copy {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.brand-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.brand-card__tags small {
+    border: 1px solid #dbeafe;
+    border-radius: 999px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 7px 10px;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.rim-support {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding-top: 40px;
+    padding-bottom: 88px;
+}
+
+.rim-support > div {
+    max-width: 760px;
+}
+
+@keyframes tzFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .rim-hero__inner,
+    .rim-intro__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .rim-hero__panel {
+        max-width: 360px;
+    }
+
+    .tz-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .vehicle-panel__layout,
+    .vehicle-category-grid,
+    .brand-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-primary-card {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .rim-hero,
+    .rim-hero__inner {
+        min-height: 560px;
+    }
+
+    .rim-hero__inner {
+        padding: 72px 18px 42px;
+    }
+
+    .rim-intro,
+    .rim-tool,
+    .rim-support {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .rim-intro {
+        padding-top: 52px;
+    }
+
+    .rim-intro__inner {
+        padding-bottom: 48px;
+    }
+
+    .rim-tool {
+        padding-top: 44px;
+        padding-bottom: 56px;
+    }
+
+    .rim-tool__header,
+    .rim-support {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .rim-search {
+        width: 100%;
+    }
+
+    .tz-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .vehicle-panel__layout > img {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .rim-hero h1 {
+        font-size: 42px;
+    }
+
+    .rim-hero__actions {
+        flex-direction: column;
+    }
+
+    .rim-button {
+        width: 100%;
+    }
+
+    .rim-intro,
+    .rim-tool,
+    .rim-support {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .rim-intro {
+        padding-top: 44px;
+    }
+
+    .rim-intro__inner {
+        padding-bottom: 40px;
+    }
+
+    .rim-tool {
+        padding-top: 36px;
+        padding-bottom: 48px;
+    }
+
+    .rim-support {
+        padding-top: 32px;
+        padding-bottom: 64px;
+    }
+
+    .tz-panel {
+        padding: 20px;
+    }
+
+    .tz-panel__top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tz-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,10 +1,22 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
+add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_number', 9);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
     return 'SLK-' . $order_id;
 }
+
+function dawp_normalize_tracking_order_number($order_id) {
+    $order_id = trim((string) $order_id);
+
+    if (preg_match('/^SLK[-\s#]*(\d+)$/i', $order_id, $matches)) {
+        return $matches[1];
+    }
+
+    return $order_id;
+}
+
 function dawp_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -12,6 +24,19 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
+}
+
+add_action('wp_head', 'dawp_favicon_links', 100);
+add_action('login_head', 'dawp_favicon_links', 100);
+function dawp_favicon_links() {
+    $favicon_32 = get_theme_file_uri('/assets/img/favicon-tire-32.png');
+    $favicon_512 = get_theme_file_uri('/assets/img/favicon-tire.png');
+    $apple_touch_icon = get_theme_file_uri('/assets/img/apple-touch-icon.png');
+    ?>
+    <link rel="icon" href="<?php echo esc_url($favicon_32); ?>" sizes="32x32" type="image/png">
+    <link rel="icon" href="<?php echo esc_url($favicon_512); ?>" sizes="512x512" type="image/png">
+    <link rel="apple-touch-icon" href="<?php echo esc_url($apple_touch_icon); ?>">
+    <?php
 }
 add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
@@ -43,18 +68,22 @@ function dawp_scripts() {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
         dawp_remove_styles();
     }
+
+    if ( is_404() ) {
+        wp_enqueue_style('dawp-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', ['dawp-tw-main'], '1.0.3');
+    }
     
     if ( class_exists( 'WooCommerce' ) ) {
         if ( is_product() ) {
             wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.3');
             dawp_remove_styles();
         } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.3');
+            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.4');
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
             wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.9');
         } elseif ( is_woocommerce()  ) {
-            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.4');
+            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.6');
             dawp_remove_styles();
         }
     }

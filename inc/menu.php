@@ -1,12 +1,17 @@
 <?php
 function dawp_product_category_links($limit = 5) {
-    $fallback = [
-        ['title' => __('Activewear Bottoms', 'dawp'), 'url' => home_url('/product-category/activewear-bottoms/')],
-        ['title' => __('Dry-Fit T-Shirts', 'dawp'), 'url' => home_url('/product-category/dry-fit-t-shirts/')],
-        ['title' => __('Tank Tops', 'dawp'), 'url' => home_url('/product-category/tank-tops/')],
-        ['title' => __('Tracksuits', 'dawp'), 'url' => home_url('/product-category/tracksuits/')],
-        ['title' => __('Training Sets', 'dawp'), 'url' => home_url('/product-category/training-sets/')],
-    ];
+    $fallback = [];
+
+    if (function_exists('dawp_tire_category_definitions')) {
+        foreach (dawp_tire_category_definitions() as $slug => $category) {
+            $fallback[] = [
+                'title' => $category['name'],
+                'url'   => function_exists('dawp_product_category_url')
+                    ? dawp_product_category_url($slug)
+                    : home_url('/product-category/' . sanitize_title($slug) . '/'),
+            ];
+        }
+    }
 
     if (!function_exists('get_terms') || !taxonomy_exists('product_cat')) {
         return array_slice($fallback, 0, $limit);
@@ -54,6 +59,9 @@ function dawp_footer_columns() {
             'title' => 'Shop',
             'links' => array_merge([
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
+                ['title' => __('Shop By Rim Size', 'dawp'),    'url' => home_url('/shop-by-rim-size/')],
+                ['title' => __('Shop By Vehicle Type', 'dawp'), 'url' => home_url('/shop-by-vehicle-type/')],
+                ['title' => __('Shop By Brand', 'dawp'),       'url' => home_url('/shop-by-brand/')],
             ], dawp_product_category_links(5)),
         ],
         [

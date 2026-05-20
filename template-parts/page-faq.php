@@ -2,198 +2,303 @@
 /**
  * Template Part: page-faq
  */
+
+$faq_sections = [
+    [
+        'id' => 'faq-shipping',
+        'label' => __('Shipping', 'dawp'),
+        'accent' => '#2563EB',
+        'tint' => '#EFF6FF',
+        'items' => [
+            [
+                'question' => __('How long does order processing and delivery take?', 'dawp'),
+                'answer' => [
+                    __('Most Tizezap orders are processed within 2-4 business days after payment is confirmed. Processing includes order review, payment confirmation, product availability, shipping details, and tire specification checks before fulfillment begins.', 'dawp'),
+                    __('After dispatch, standard delivery within the United States usually takes 5-10 business days. Delivery estimates may change because of destination, product availability, tire size, carrier capacity, weather, large-item handling, peak seasons, address issues, or local delivery conditions.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Where can I see shipping costs before I pay?', 'dawp'),
+                'answer' => [
+                    __('Available shipping methods, shipping charges, estimated delivery information, taxes, and applicable fees are shown during checkout before you place your order. Please review the full checkout total before submitting payment.', 'dawp'),
+                    __('If a listing, cart, checkout, or policy page shows different shipping information, contact support@tizezap.com before ordering so we can review the details.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('When will I receive tracking information?', 'dawp'),
+                'answer' => [
+                    __('When your order ships, we send a shipping confirmation email with tracking details when tracking is available. Tracking may take 24-48 hours to update after the carrier receives the shipment.', 'dawp'),
+                    __('If the tracking window has passed or movement appears delayed, email support@tizezap.com with your order number and tracking number so support can review the shipment history.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Can I change my shipping address after checkout?', 'dawp'),
+                'answer' => [
+                    __('Address changes can only be reviewed before an order has entered fulfillment or shipped. Once a package has shipped, rerouting, cancellation, or address correction is not guaranteed.', 'dawp'),
+                    __('Customers are responsible for entering a complete and accurate shipping address, including recipient name, street address, unit number, city, state, ZIP code, phone number, and email address.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('What happens if tracking says delivered but I cannot find the package?', 'dawp'),
+                'answer' => [
+                    __('First check the delivery area, building office, mailroom, household members, neighbors, and local carrier office. If the package still cannot be located, contact us with your order number and tracking number.', 'dawp'),
+                    __('If the carrier confirms a package was lost before delivery and the shipping address was correct, we will review the claim and may offer a replacement, store credit, or refund depending on product availability and claim outcome. If tracking confirms delivery to the address provided at checkout, Tizezap is not responsible for theft or loss after delivery, but we will help collect shipment details for a carrier claim when possible.', 'dawp'),
+                ],
+            ],
+        ],
+    ],
+    [
+        'id' => 'faq-returns',
+        'label' => __('Returns & Refunds', 'dawp'),
+        'accent' => '#F97316',
+        'tint' => '#FFF7ED',
+        'items' => [
+            [
+                'question' => __('What is Tizezap\'s return window?', 'dawp'),
+                'answer' => [
+                    __('You may request a return within 30 days of delivery for eligible tires purchased directly from Tizezap. Return approval depends on product condition, order details, tire fitment information, and whether the item can be safely resold.', 'dawp'),
+                    __('A return request is not automatically approved. Please wait for return authorization and instructions before shipping anything back.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Which tire returns are eligible?', 'dawp'),
+                'answer' => [
+                    __('Eligible returns generally must be requested within 30 days of delivery and the tire must be unused, unmounted, undriven, undamaged, and in original condition. Original labels, packaging, documentation, and included parts should be present when applicable.', 'dawp'),
+                    __('Proof of purchase is required, such as your order number or order confirmation email. Items marked final sale, clearance, special order, custom, or otherwise non-returnable at purchase may not qualify.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Which tire conditions are not returnable?', 'dawp'),
+                'answer' => [
+                    __('Tires that have been mounted, balanced, installed, driven on, repaired, altered, or used are not returnable. Tires damaged by improper handling, incorrect installation, road hazards, misuse, storage issues, or customer-caused wear may also be declined.', 'dawp'),
+                    __('Returns may be declined if they are outside the 30-day window, missing required labels or packaging, incomplete, final sale, unauthorized, or not in condition suitable for resale.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('How do I start a return or exchange request?', 'dawp'),
+                'answer' => [
+                    __('Email support@tizezap.com within 30 days of delivery. Include your order number, tire model, tire size, quantity, reason for return, and clear photos of the tire condition, labels, packaging, and shipping label.', 'dawp'),
+                    __('After review, support will provide return authorization and instructions if the request is approved. Unauthorized returns may be refused or returned to sender.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Who pays for return shipping?', 'dawp'),
+                'answer' => [
+                    __('Customers are responsible for return shipping costs unless the return is caused by our confirmed error, such as an incorrect, defective, or damaged item confirmed by support.', 'dawp'),
+                    __('Use a trackable shipping service for approved returns and keep the carrier receipt until the return is fully resolved.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('How long do refunds take?', 'dawp'),
+                'answer' => [
+                    __('Approved refunds are issued to the original payment method used at checkout. Refunds are normally processed within 5-10 business days after we receive and approve the returned item.', 'dawp'),
+                    __('Your bank, card issuer, or payment provider may require additional time to post the credit. Original shipping charges, return shipping charges, shipping protection fees, and service fees are non-refundable unless the return is due to our confirmed error.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('What should I do if my tire arrives damaged, defective, or incorrect?', 'dawp'),
+                'answer' => [
+                    __('Inspect your order as soon as it arrives. If you receive a tire that is damaged, defective, missing, or different from what you ordered, contact us within 7 days of delivery.', 'dawp'),
+                    __('Include your order number and clear photos of the tire, sidewall details, tread, packaging, and shipping label. Keep all packaging until the issue is reviewed.', 'dawp'),
+                ],
+            ],
+        ],
+    ],
+    [
+        'id' => 'faq-products-orders',
+        'label' => __('Products & Orders', 'dawp'),
+        'accent' => '#111827',
+        'tint' => '#F4F6F8',
+        'items' => [
+            [
+                'question' => __('How do I confirm a tire fits my vehicle?', 'dawp'),
+                'answer' => [
+                    __('Before ordering, confirm your tire size, rim size, load index, speed rating, vehicle compatibility, and quantity. Tire compatibility can depend on vehicle requirements, manufacturer recommendations, driving conditions, and product specifications.', 'dawp'),
+                    __('Tizezap provides product details to support practical tire shopping, but customers are responsible for confirming that the selected tire is appropriate for their vehicle and intended use.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Can I cancel or change an order after placing it?', 'dawp'),
+                'answer' => [
+                    __('Contact support@tizezap.com as soon as possible if you need to update order details, correct an address, or request cancellation. Changes can only be reviewed before the order has entered fulfillment or shipped.', 'dawp'),
+                    __('We may also refuse, limit, hold, review, or cancel an order in certain situations, including unavailable products, pricing errors, suspected fraud, inaccurate information, or restrictions tied to the same customer account, payment method, billing address, shipping address, email, or phone number.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Can prices, specifications, or availability change?', 'dawp'),
+                'answer' => [
+                    __('Yes. Product prices, promotions, availability, shipping rates, descriptions, tire specifications, images, and service features may change without notice. Product images and sidewall details may also vary because of device screens, lighting, manufacturing changes, packaging updates, supplier variations, or specification updates.', 'dawp'),
+                    __('If website information contains an error, inaccuracy, or omission, we may correct it and may update, refuse, or cancel affected orders where permitted by law.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Why do I need to provide accurate billing, contact, and shipping information?', 'dawp'),
+                'answer' => [
+                    __('Accurate billing, shipping, email, and phone information helps us process payment, fulfill the order, send tracking updates, review address issues, handle returns, and contact you if support needs more information.', 'dawp'),
+                    __('Incorrect or incomplete information may delay fulfillment, prevent delivery, affect return eligibility, or require reshipment at the customer\'s cost when applicable.', 'dawp'),
+                ],
+            ],
+        ],
+    ],
+    [
+        'id' => 'faq-privacy-terms',
+        'label' => __('Privacy & Terms', 'dawp'),
+        'accent' => '#2563EB',
+        'tint' => '#EFF6FF',
+        'items' => [
+            [
+                'question' => __('How does Tizezap use my personal information?', 'dawp'),
+                'answer' => [
+                    __('We use personal information to operate the tire store, process and confirm purchases, process payments through third-party payment processors, fulfill and ship orders, provide tracking, manage returns or refunds, provide customer support, improve the website, prevent fraud, and meet legal obligations.', 'dawp'),
+                    __('This may include contact details, order and tire information, payment-related references, device and technical data, website usage data, communications, support photos, and marketing preferences where applicable.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Does Tizezap store my full credit card number?', 'dawp'),
+                'answer' => [
+                    __('No. Payment information is processed by trusted third-party payment processors. Tizezap does not store full credit card numbers, card security codes, or complete payment credentials on our website servers.', 'dawp'),
+                    __('Checkout pages and pages that collect personal information should be protected by HTTPS/SSL, but no website or online transmission can be guaranteed completely secure.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('Do you sell customer contact information?', 'dawp'),
+                'answer' => [
+                    __('We do not sell, rent, or trade customer contact information to third parties for their independent marketing. We share personal information only when needed to operate the store, fulfill purchases, protect customers, comply with law, or complete a transaction you requested.', 'dawp'),
+                    __('For example, we may share limited information with payment processors, fraud prevention providers, shipping carriers, fulfillment partners, website providers, analytics or advertising partners, professional advisers, or legal authorities when appropriate.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('How do cookies and advertising tools work on the website?', 'dawp'),
+                'answer' => [
+                    __('We use cookies and similar technologies for cart, checkout, account login, security, language preferences, fraud prevention, analytics, performance measurement, advertising measurement, and relevant advertising where permitted.', 'dawp'),
+                    __('You can set your browser to block or delete cookies, but some parts of the website may not work correctly if cookies are disabled.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('What privacy rights do I have?', 'dawp'),
+                'answer' => [
+                    __('Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, withdrawal of consent, or information about how we collect, use, and share personal information.', 'dawp'),
+                    __('To make a privacy request, contact support@tizezap.com. We may need enough information to verify your identity and locate the relevant order, account, or contact record.', 'dawp'),
+                ],
+            ],
+            [
+                'question' => __('How can I contact Tizezap support?', 'dawp'),
+                'answer' => [
+                    __('For shipping, returns, exchanges, refunds, privacy requests, product specifications, order status, or policy questions, email support@tizezap.com with your order number when available.', 'dawp'),
+                    __('Our support team typically replies within 1-2 business days, Monday through Friday, excluding holidays. Business hours are Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'),
+                ],
+            ],
+        ],
+    ],
+];
 ?>
 
-<div id="primary" class="bg-white font-body text-[#2D2633]">
-    <!-- Hero -->
-    <section class="bg-[#F6F7F9] py-14 lg:py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(247,201,72,0.15),transparent_40%)]"></div>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative">
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#6B6470]">
-                <?php esc_html_e('Help Center', 'dawp'); ?>
-            </p>
-            <h1 class="font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-6xl">
+<div id="primary" class="bg-[#F4F6F8] font-body text-[#111827]">
+    <section class="bg-[#0B1F33] py-14 text-white lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Tizezap Help Center', 'dawp'); ?></p>
+            <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
             </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-[#6B6470]">
-                <?php esc_html_e('Detailed answers about orders, shipping, returns, privacy, product information, and the terms that apply when you shop with One Shop Vibe.', 'dawp'); ?>
+            <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#D7DEE8]">
+                <?php esc_html_e('Clear answers about tire fitment, checkout, shipping, returns, refunds, privacy, and the terms that apply when you shop with Tizezap.', 'dawp'); ?>
+            </p>
+            <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#B8C3D1]">
+                <?php esc_html_e('Last Updated: May 19, 2026', 'dawp'); ?>
             </p>
         </div>
     </section>
 
     <section class="py-14 lg:py-20">
-        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div class="space-y-6">
-                
-                <!-- FAQ Item 1 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How long will it take to receive my order?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Orders are typically processed within 2-4 business days before they are handed to the carrier. Processing time is separate from shipping time and may be affected by order volume, payment review, address accuracy, or holiday schedules.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('After dispatch, standard US shipping usually takes 5-10 business days depending on the destination and carrier conditions. If a carrier delay occurs after dispatch, the tracking page will normally show the most current delivery estimate.', 'dawp'); ?></p>
-                    </div>
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+                <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#2563EB] bg-white p-6 shadow-sm">
+                    <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Processing', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('2-4 Business Days', 'dawp'); ?></p>
                 </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How can I track my order?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Once your order ships, we send a shipping confirmation email with tracking information. Use that tracking link to follow the package from dispatch through delivery.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Tracking can take a short time to update after the label is created. If the link has not updated after the carrier receives the package, contact support@oneshopvibe.com with your order number so we can help review the shipment status.', 'dawp'); ?></p>
-                    </div>
+                <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#2563EB] bg-white p-6 shadow-sm">
+                    <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('US Transit', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('5-10 Business Days', 'dawp'); ?></p>
                 </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('What is your return policy?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('You may request a return within 30 days of delivery if you are not completely satisfied with an eligible item. Returned items must be unused, undamaged, and in their original condition.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Items should be returned with their original packaging where applicable. For hygiene and health safety reasons, opened or used personal care tools and beauty accessories may not be eligible for return.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('To start a return, email support@oneshopvibe.com with your order number and the reason for your return. Our support team will review the request and provide next steps.', 'dawp'); ?></p>
-                    </div>
+                <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#F97316] bg-white p-6 shadow-sm">
+                    <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Returns', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('30-Day Window', 'dawp'); ?></p>
                 </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Which items may not qualify for return?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Because many products we sell are personal care or beauty accessories, return eligibility may depend on hygiene and original condition requirements. Opened, used, damaged, or altered items generally cannot be accepted.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('If you are unsure whether your item is eligible, contact us before sending anything back. This helps prevent delays and ensures we can give you the correct return instructions for your order.', 'dawp'); ?></p>
-                    </div>
+                <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#111827] bg-white p-6 shadow-sm">
+                    <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Support', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('1-2 Business Days', 'dawp'); ?></p>
                 </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Can I cancel or change my order after placing it?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Contact support@oneshopvibe.com as soon as possible if you need to change a shipping address, update order details, or request a cancellation. We process orders quickly, so changes are not guaranteed once an order has entered fulfillment or shipped.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Under our Terms & Conditions, we may also refuse, limit, or cancel an order in certain situations, including suspected inaccurate order information, unavailable products, pricing errors, or restrictions tied to the same customer account, payment method, billing address, or shipping address.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Why do I need to provide accurate billing and shipping information?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Accurate account, billing, email, phone, and shipping details help us process your payment, fulfill your order, send tracking updates, and contact you if there is an issue. Incorrect or incomplete information can delay fulfillment or prevent delivery.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Our Terms & Conditions require customers to provide current, complete, and accurate purchase information. If you notice an error after checkout, email support promptly with your order number and the correct details.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 7 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How do you use my personal information?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('We use personal information such as your name, billing address, shipping address, email address, and phone number to fulfill orders, process payments, manage returns or exchanges, provide customer support, and send order confirmations, shipping updates, or policy notices.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We may also use technical and usage data to improve site functionality, personalize the shopping experience, monitor trends, and help detect fraud, technical issues, or other illegal activity.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 8 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Do you sell or share my personal information?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('We do not sell, rent, or trade personal information to third parties for marketing purposes. We may share information with trusted service providers who help operate the website, process payments, fulfill orders, provide shipping services, or support our IT systems.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We may also disclose information when required by law, in response to valid public authority requests, or as part of a business transfer such as a merger, acquisition, or asset sale.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 9 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Do you store my full credit card details?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('No. Payment processing is handled by trusted third-party payment gateways, and we do not store full credit card numbers on our servers. Credit card information is encrypted during transfer over networks.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Like any online service, no method of transmission over the Internet is 100% secure, but we use commercially reasonable safeguards, including SSL encryption, to help protect personal information submitted through the website.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 10 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How do cookies work on the website?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('We use cookies and similar technologies to remember preferences, keep track of cart activity, understand how customers use the website, and improve the shopping experience.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('You can set your browser to refuse cookies or alert you when cookies are being sent. Some parts of the website may not function properly if cookies are disabled, including features related to shopping cart behavior or account preferences.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 11 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Do you sell medical or professional-grade skincare products?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('No. One Shop Vibe focuses on everyday beauty accessories, makeup tools, hair care essentials, organizers, and self-care tools. We do not sell products that are intended to diagnose, treat, cure, or prevent medical conditions.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Product descriptions are provided for general shopping information. Colors, images, availability, pricing, and descriptions may be updated as needed, and actual color display can vary depending on your device or monitor.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 12 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Can prices, product details, or availability change?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Yes. Product pricing, descriptions, promotions, shipping charges, transit times, and availability may change without notice. Some products may have limited quantities or be available exclusively online.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('If site information contains an error, inaccuracy, or omission, we reserve the right to correct it, update information, or cancel an affected order when permitted by our Terms & Conditions.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 13 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('What privacy rights do I have?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Depending on your location, you may have the right to access, update, delete, correct, object to, restrict processing of, or request a portable copy of personal information we hold about you.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('To make a privacy request, contact support@oneshopvibe.com. We may need enough information to verify your request and locate the relevant account or order records.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 14 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How do updates to your policies or terms affect me?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('We may update our Privacy Policy or Terms & Conditions from time to time by posting the revised version on the website and updating the Last Updated date where applicable.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('It is your responsibility to review the current policies periodically. Continued use of the website or service after changes are posted means you accept the updated terms, policies, and notices.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
             </div>
 
-            <!-- Contact Box -->
-            <div class="mt-12 rounded-[1.25rem] bg-[#2D2633] p-8 text-center text-white">
-                <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#F7C948] text-[#2D2633]">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+            <div class="mt-12 grid gap-10 lg:mt-14 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-10">
+                <aside class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm lg:sticky lg:top-24">
+                    <p class="text-xs font-black uppercase tracking-[0.16em] text-[#5B6472]"><?php esc_html_e('FAQ Sections', 'dawp'); ?></p>
+                    <nav class="mt-5 space-y-3" aria-label="<?php esc_attr_e('FAQ sections', 'dawp'); ?>">
+                        <?php foreach ($faq_sections as $section) : ?>
+                            <a class="block rounded-md border border-transparent px-4 py-3 text-sm font-bold leading-5 text-[#111827] transition hover:border-[var(--faq-accent)] hover:bg-[var(--faq-tint)]" style="--faq-accent: <?php echo esc_attr($section['accent']); ?>; --faq-tint: <?php echo esc_attr($section['tint']); ?>;" href="#<?php echo esc_attr($section['id']); ?>">
+                                <?php echo esc_html($section['label']); ?>
+                            </a>
+                        <?php endforeach; ?>
+                    </nav>
+                </aside>
+
+                <div class="space-y-10">
+                    <?php foreach ($faq_sections as $section) : ?>
+                        <section id="<?php echo esc_attr($section['id']); ?>" class="scroll-mt-24 rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm sm:p-7 lg:p-10">
+                            <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-full text-white" style="background-color: <?php echo esc_attr($section['accent']); ?>;">
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h8M8 14h5M5 5h14v12H8l-3 3z" />
+                                </svg>
+                            </div>
+                            <h2 class="font-heading text-3xl font-black leading-tight text-[#0B1F33]"><?php echo esc_html($section['label']); ?></h2>
+
+                            <div class="mt-6 space-y-4">
+                                <?php foreach ($section['items'] as $index => $item) : ?>
+                                    <details class="group rounded-lg border border-[#E5E7EB] bg-white shadow-sm open:border-[var(--faq-accent)] open:bg-[var(--faq-tint)]" style="--faq-accent: <?php echo esc_attr($section['accent']); ?>; --faq-tint: <?php echo esc_attr($section['tint']); ?>;" <?php echo 0 === $index ? 'open' : ''; ?>>
+                                        <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-5 text-left marker:hidden">
+                                            <span class="font-heading text-lg font-black leading-snug text-[#0B1F33]"><?php echo esc_html($item['question']); ?></span>
+                                            <span class="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-[#D1D5DB] text-[#111827] transition group-open:rotate-45 group-open:border-[var(--faq-accent)] group-open:bg-white">
+                                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14M5 12h14" />
+                                                </svg>
+                                            </span>
+                                        </summary>
+                                        <div class="border-t border-[#E5E7EB] px-5 pb-5 pt-4 text-base leading-7 text-[#4B5563]">
+                                            <?php foreach ($item['answer'] as $paragraph) : ?>
+                                                <p class="mb-4 last:mb-0"><?php echo esc_html($paragraph); ?></p>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    </details>
+                                <?php endforeach; ?>
+                            </div>
+                        </section>
+                    <?php endforeach; ?>
+
+                    <section class="rounded-lg border border-[#E5E7EB] bg-[#0B1F33] p-6 text-white shadow-sm sm:p-8 lg:p-10">
+                        <div class="mx-auto max-w-3xl text-center">
+                            <div class="mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#F97316] text-white">
+                                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <h2 class="font-heading text-3xl font-black leading-tight"><?php esc_html_e('Still have questions?', 'dawp'); ?></h2>
+                            <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#D7DEE8]">
+                                <?php esc_html_e('Email support@tizezap.com with your order number when available. Support typically replies within 1-2 business days, Monday through Friday, excluding holidays.', 'dawp'); ?>
+                            </p>
+                            <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
+                                <a href="mailto:support@tizezap.com" class="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-black uppercase tracking-wide text-[#0B1F33] transition hover:bg-[#F97316] hover:text-white">
+                                    <?php esc_html_e('Email Support', 'dawp'); ?>
+                                </a>
+                                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">
+                                    <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
+                                </a>
+                                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">
+                                    <?php esc_html_e('Privacy Policy', 'dawp'); ?>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <h3 class="font-heading text-2xl font-black mb-3"><?php esc_html_e('Still have questions?', 'dawp'); ?></h3>
-                <p class="text-white/80 mb-6"><?php esc_html_e('Our support team is here to help you Monday through Friday, 9:00 AM – 6:00 PM EST.', 'dawp'); ?></p>
-                <a href="mailto:support@oneshopvibe.com" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-black uppercase tracking-wide text-[#2D2633] transition hover:bg-[#F7C948]">
-                    <?php esc_html_e('Email Support', 'dawp'); ?>
-                </a>
             </div>
         </div>
     </section>

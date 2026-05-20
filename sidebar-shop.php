@@ -1,13 +1,5 @@
 <?php
-$uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
-$categories = get_terms([
-    'taxonomy'   => 'product_cat',
-    'hide_empty' => true,
-    'parent'     => 0,
-    'exclude'    => $uncategorized ? [(int) $uncategorized->term_id] : [],
-    'orderby'    => 'name',
-    'order'      => 'ASC',
-]);
+$categories = function_exists('dawp_tire_product_category_terms') ? dawp_tire_product_category_terms() : [];
 ?>
 <div class="shop-sidebar__header">
     <h2 class="shop-sidebar__mobile-title"><?php esc_html_e('Filters', 'dawp'); ?></h2>
@@ -23,7 +15,10 @@ $categories = get_terms([
     <ul class="shop-sidebar__categories">
         <?php foreach ($categories as $cat) : ?>
             <li>
-                <a href="<?php echo esc_url(get_term_link($cat)); ?>">
+                <a
+                    href="<?php echo esc_url(get_term_link($cat)); ?>"
+                    <?php if (is_product_category($cat->slug)) echo 'aria-current="page"'; ?>
+                >
                     <?php echo esc_html($cat->name); ?>
                     <span class="shop-sidebar__count">(<?php echo (int) $cat->count; ?>)</span>
                 </a>

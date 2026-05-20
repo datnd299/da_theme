@@ -6,6 +6,38 @@
 defined('ABSPATH') || exit;
 
 get_header();
+
+$archive_title = is_shop() ? __('All Products', 'dawp') : woocommerce_page_title(false);
+$archive_summary = __('Browse tire options with clear product details, pricing, and fitment reminders.', 'dawp');
+$archive_eyebrow = __('Tizezap Tire Shop', 'dawp');
+$archive_cover = get_theme_file_uri('/assets/img/gallery/Tizezap/tire-hero-road.png');
+$archive_tags = [
+    __('Tire size', 'dawp'),
+    __('Rim size', 'dawp'),
+    __('Vehicle fit', 'dawp'),
+];
+
+if ( is_product_category() ) {
+    $cat = get_queried_object();
+    $category_data = function_exists('dawp_tire_category_data') ? dawp_tire_category_data($cat->slug) : null;
+
+    if ($category_data) {
+        $archive_summary = $category_data['summary'] ?? $category_data['description'];
+        $archive_eyebrow = $category_data['eyebrow'] ?? __('Shop Tire Category', 'dawp');
+        $archive_cover = function_exists('dawp_tire_category_cover_url')
+            ? dawp_tire_category_cover_url($cat->slug)
+            : $archive_cover;
+        $archive_tags = $category_data['tags'] ?? $archive_tags;
+    } elseif (! empty($cat->description)) {
+        $archive_summary = wp_strip_all_tags($cat->description);
+    }
+} elseif ( is_product_tag() ) {
+    $tag = get_queried_object();
+
+    if (! empty($tag->description)) {
+        $archive_summary = wp_strip_all_tags($tag->description);
+    }
+}
 ?>
 
 <div class="shop-page">
@@ -32,20 +64,34 @@ get_header();
         <?php endif; ?>
     </nav>
 
-    <?php
-    // Page heading
-    ?>
-    <div class="shop-header">
-        <h1 class="shop-header__title">
-            <?php
-            if ( is_product_category() || is_product_tag() ) {
-                woocommerce_page_title();
-            } else {
-                echo 'All Products';
-            }
-            ?>
-        </h1>
-    </div>
+    <section class="shop-hero" aria-labelledby="shopArchiveTitle">
+        <img
+            class="shop-hero__image"
+            src="<?php echo esc_url($archive_cover); ?>"
+            alt="<?php echo esc_attr($archive_title); ?>"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+        >
+        <div class="shop-hero__shade"></div>
+        <div class="shop-hero__content">
+            <p class="shop-hero__eyebrow"><?php echo esc_html($archive_eyebrow); ?></p>
+            <h1 class="shop-hero__title" id="shopArchiveTitle"><?php echo esc_html($archive_title); ?></h1>
+            <p class="shop-hero__summary"><?php echo esc_html($archive_summary); ?></p>
+
+            <?php if (! empty($archive_tags)) : ?>
+                <div class="shop-hero__tags" aria-label="<?php esc_attr_e('Category highlights', 'dawp'); ?>">
+                    <?php foreach ($archive_tags as $tag) : ?>
+                        <span><?php echo esc_html($tag); ?></span>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
+            <p class="shop-hero__note">
+                <?php esc_html_e('Please confirm tire size, rim size, load index, speed rating, and vehicle compatibility before ordering.', 'dawp'); ?>
+            </p>
+        </div>
+    </section>
 
     <?php
     // Toolbar: count + filter toggle + sort
@@ -109,15 +155,7 @@ get_header();
 
             <?php
             // Categories widget
-            $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
-            $categories = get_terms([
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => true,
-                'parent'     => 0,
-                'exclude'    => $uncategorized ? [ (int) $uncategorized->term_id ] : [],
-                'orderby'    => 'name',
-                'order'      => 'ASC',
-            ]);
+            $categories = function_exists('dawp_tire_product_category_terms') ? dawp_tire_product_category_terms() : [];
             if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
             <div class="shop-sidebar__widget">
                 <h3 class="shop-sidebar__title">Categories</h3>

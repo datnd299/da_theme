@@ -1,358 +1,290 @@
 <?php
 /**
- * Template Name: FAQs
  * Template Part: page-faq
+ *
+ * @package dawp
  */
 
-get_header();
+$support_email = 'support@queens-bracelet.com';
+
+$faq_sections = [
+    [
+        'id' => 'orders',
+        'eyebrow' => __('Orders', 'dawp'),
+        'title' => __('Order Questions', 'dawp'),
+        'faqs' => [
+            [
+                'q' => __('How do I know my order was placed successfully?', 'dawp'),
+                'a' => __('After checkout, you should receive an order confirmation email with your order details. If you do not see it, check your spam or promotions folder first, then contact support with the email used at checkout.', 'dawp'),
+            ],
+            [
+                'q' => __('Can I change or cancel an order?', 'dawp'),
+                'a' => __('Contact us as soon as possible. We cannot guarantee changes after an order enters processing or fulfillment, but our support team will review what is still possible.', 'dawp'),
+            ],
+            [
+                'q' => __('Why has my order not shipped yet?', 'dawp'),
+                'a' => __('Orders are processed within 2-4 business days before dispatch. Processing includes order verification, payment confirmation, preparation, and fulfillment.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id' => 'shipping',
+        'eyebrow' => __('Shipping', 'dawp'),
+        'title' => __('Delivery & Tracking', 'dawp'),
+        'faqs' => [
+            [
+                'q' => __('How long does shipping take?', 'dawp'),
+                'a' => __('After dispatch, standard US shipping typically takes 5-10 business days depending on destination, carrier conditions, weather, holidays, and seasonal volume.', 'dawp'),
+            ],
+            [
+                'q' => __('Will I receive tracking information?', 'dawp'),
+                'a' => __('Yes. Tracking information is sent by email once your order ships. Please allow time for the carrier tracking page to update after the tracking number is created.', 'dawp'),
+            ],
+            [
+                'q' => __('Do business days include weekends or holidays?', 'dawp'),
+                'a' => __('No. Business days do not include weekends or public holidays. Processing and delivery can take longer during high-volume periods.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id' => 'returns',
+        'eyebrow' => __('Returns & Refunds', 'dawp'),
+        'title' => __('Return Policy Questions', 'dawp'),
+        'faqs' => [
+            [
+                'q' => __('What is your return window?', 'dawp'),
+                'a' => __('Customers may request a return within 30 days of delivery. Eligible jewelry must be unused, unworn, undamaged, in original condition, and returned with original packaging where applicable.', 'dawp'),
+            ],
+            [
+                'q' => __('What items may not qualify for return?', 'dawp'),
+                'a' => __('Items may be refused if they show wear, stains, odors, alteration, missing parts, damage, hygiene concerns, or missing original packaging where applicable.', 'dawp'),
+            ],
+            [
+                'q' => __('How are refunds handled?', 'dawp'),
+                'a' => __('After an approved return is received and inspected, we notify you of the refund status. Approved refunds are issued to the original payment method, and your provider may take several business days to post the funds.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id' => 'products',
+        'eyebrow' => __('Products & Sizing', 'dawp'),
+        'title' => __('Bracelet Details', 'dawp'),
+        'faqs' => [
+            [
+                'q' => __('How should I choose bracelet size?', 'dawp'),
+                'a' => __('Review the bracelet length, adjustable information, clasp type, and product description before checkout. If you are unsure, contact support before placing an order.', 'dawp'),
+            ],
+            [
+                'q' => __('Will colors and finishes match the photos exactly?', 'dawp'),
+                'a' => __('We aim to display product colors and finishes clearly, but slight differences may occur due to screen settings, photography lighting, production updates, or inventory changes.', 'dawp'),
+            ],
+            [
+                'q' => __('Do your bracelets make wellness or third-party brand claims?', 'dawp'),
+                'a' => __('No. Queen\'s Bracelet sells fashion bracelets and giftable jewelry. We avoid unsupported third-party brand, premium-material, medical, wellness, and guaranteed benefit claims.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id' => 'payments',
+        'eyebrow' => __('Payments & Privacy', 'dawp'),
+        'title' => __('Checkout Questions', 'dawp'),
+        'faqs' => [
+            [
+                'q' => __('Is checkout secure?', 'dawp'),
+                'a' => __('Checkout and payment information is handled through secure ecommerce systems. We use customer information to process orders, arrange shipping, send tracking, and provide support.', 'dawp'),
+            ],
+            [
+                'q' => __('Do you sell customer personal information?', 'dawp'),
+                'a' => __('No. We do not sell customer personal information to unrelated third parties. Necessary information may be shared with service providers that help operate payments, shipping, email, analytics, and support.', 'dawp'),
+            ],
+            [
+                'q' => __('Can prices or availability change?', 'dawp'),
+                'a' => __('Yes. Prices, promotions, and availability may change without notice. The final order total is shown at checkout before payment is completed.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id' => 'support',
+        'eyebrow' => __('Support', 'dawp'),
+        'title' => __('Getting Help', 'dawp'),
+        'faqs' => [
+            [
+                'q' => __('How can I contact Queen\'s Bracelet?', 'dawp'),
+                'a' => __('Use the Contact Us page or email support@queens-bracelet.com. For order questions, include your order number and the email address used at checkout.', 'dawp'),
+            ],
+            [
+                'q' => __('What should I do if I received a damaged or incorrect item?', 'dawp'),
+                'a' => __('Contact us as soon as possible with your order number, checkout email, and clear photos of the product, packaging, and issue so support can review next steps.', 'dawp'),
+            ],
+            [
+                'q' => __('When is support available?', 'dawp'),
+                'a' => __('Business hours are Monday-Friday, 9:00 AM-6:00 PM EST. Response times may vary on weekends, holidays, or during high-volume periods.', 'dawp'),
+            ],
+        ],
+    ],
+];
 ?>
 
-<main id="primary" class="bg-white text-slickText font-body">
+<style>
+  .qb-page { --qb-blush:#ffb7c5; --qb-peach:#ffd6a5; --qb-mint:#cff5e7; --qb-gold:#d8a94e; --qb-plum:#2f1f35; --qb-gray:#f7f7fa; --qb-text:#4f4355; --qb-border:#eadfe8; background:#fff; color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page * { box-sizing:border-box; }
+  .qb-page a { text-decoration:none; }
+  .qb-wrap { width:min(100% - 32px,1280px); margin-inline:auto; }
+  .qb-section { padding:72px 0; }
+  .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+  .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(34px,4.2vw,58px); line-height:1.04; letter-spacing:0; }
+  .qb-copy { margin:18px 0 0; max-width:720px; color:var(--qb-text); font-size:17px; line-height:1.75; }
+  .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
+  .qb-button--secondary { background:#fff; color:var(--qb-plum); }
+  .qb-hero { overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.35),rgba(255,214,165,.38) 48%,rgba(207,245,231,.4)),#fff; }
+  .qb-hero__grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(320px,.98fr); gap:48px; align-items:center; padding:78px 0; }
+  .qb-panel, .qb-card, .qb-faq-section { border:1px solid var(--qb-border); border-radius:24px; background:#fff; box-shadow:0 18px 46px rgba(47,31,53,.08); }
+  .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
+  .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+  .qb-card { padding:22px; }
+  .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:#fff4f6; color:var(--qb-plum); font-size:13px; }
+  .qb-card h3, .qb-faq-section h2, .qb-mini-card strong { margin:18px 0 0; color:var(--qb-plum); }
+  .qb-card p, .qb-mini-card p, .qb-answer p { color:#675a6c; font-size:14px; line-height:1.65; }
+  .qb-soft { background:var(--qb-gray); }
+  .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
+  .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
+  .qb-dark-card { border-radius:24px; background:var(--qb-plum); padding:28px; color:#fff; }
+  .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
+  .qb-dark-card h2, .qb-dark-card p, .qb-dark-card a { color:#fff; }
+  .qb-dark-card p { color:rgba(255,255,255,.78); font-size:15px; line-height:1.7; }
+  .qb-side-nav { display:grid; gap:10px; margin-top:22px; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-faq-stack { display:grid; gap:22px; }
+  .qb-faq-section { padding:clamp(24px,4vw,40px); }
+  .qb-faq-section:nth-child(even) { background:#fffafc; }
+  .qb-faq-section h2 { font-size:clamp(25px,3vw,38px); line-height:1.12; font-family:Georgia,"Times New Roman",serif; }
+  .qb-accordion { overflow:hidden; margin-top:24px; border:1px solid var(--qb-border); border-radius:18px; background:#fff; }
+  .qb-faq-item + .qb-faq-item { border-top:1px solid var(--qb-border); }
+  .qb-faq-toggle { display:flex; width:100%; align-items:center; justify-content:space-between; gap:18px; border:0; background:#fff; padding:18px; color:var(--qb-plum); text-align:left; font:inherit; font-weight:800; cursor:pointer; }
+  .qb-faq-toggle:hover { background:#fff8fa; }
+  .qb-faq-toggle span:first-child { line-height:1.35; }
+  .qb-faq-icon { display:inline-flex; width:34px; height:34px; flex:0 0 34px; align-items:center; justify-content:center; border-radius:999px; background:var(--qb-plum); color:#fff; font-weight:800; }
+  .qb-answer { display:none; padding:0 18px 20px; }
+  .qb-faq-toggle[aria-expanded="true"] .qb-faq-icon { background:var(--qb-gold); color:var(--qb-plum); }
+  .qb-mini-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; }
+  .qb-mini-card { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:18px; }
+  .qb-plum { background:var(--qb-plum); color:#fff; }
+  .qb-plum .qb-title, .qb-plum .qb-copy { color:#fff; }
+  .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  @media (max-width:1080px) { .qb-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-mini-grid { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+</style>
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slickBlack text-white">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-        <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-slickActive/20 blur-3xl"></div>
-        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-slickLime/10 blur-3xl"></div>
-
-        <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-            <div class="max-w-4xl">
-                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-slickLime">
-                    <?php esc_html_e('Help Center', 'dawp'); ?>
-                </p>
-
-                <h1 class="font-heading text-5xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
-                </h1>
-
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-                    <?php esc_html_e('Find quick answers about orders, shipping, returns, sizing, payments, and customer support at Slicktee.', 'dawp'); ?>
-                </p>
-            </div>
+<div class="qb-page qb-faq">
+  <section class="qb-hero">
+    <div class="qb-wrap qb-hero__grid">
+      <div>
+        <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
+        <h1 class="qb-title"><?php esc_html_e('Answers for bracelet orders and store policies.', 'dawp'); ?></h1>
+        <p class="qb-copy"><?php esc_html_e('Find clear answers about ordering, shipping, tracking, returns, refunds, bracelet sizing, product details, payments, privacy, and support at Queen\'s Bracelet.', 'dawp'); ?></p>
+        <div class="qb-actions">
+          <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
         </div>
-    </section>
-
-    <!-- Quick Help Cards -->
-    <section class="bg-slickSoft py-12 lg:py-16">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">01</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Orders', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Learn how order processing, confirmation, and tracking work.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">02</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Shipping', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Review delivery timelines and shipment expectations.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">03</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Returns', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Understand return eligibility, refund review, and order issues.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">04</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Support', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Contact us when you need help with an order or product question.', 'dawp'); ?>
-                </p>
-            </div>
-
+      </div>
+      <div class="qb-panel">
+        <p class="qb-eyebrow"><?php esc_html_e('Quick Policy Facts', 'dawp'); ?></p>
+        <div class="qb-mini-grid">
+          <div class="qb-mini-card"><strong><?php esc_html_e('Processing', 'dawp'); ?></strong><p><?php esc_html_e('2-4 business days before dispatch.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('US Shipping', 'dawp'); ?></strong><p><?php esc_html_e('5-10 business days after dispatch.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Returns', 'dawp'); ?></strong><p><?php esc_html_e('30 days from delivery for eligible items.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Support', 'dawp'); ?></strong><p><?php echo esc_html($support_email); ?></p></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- FAQ Content -->
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+  <section class="qb-section">
+    <div class="qb-wrap qb-summary-grid">
+      <div class="qb-card"><b>01</b><h3><?php esc_html_e('Orders', 'dawp'); ?></h3><p><?php esc_html_e('Order confirmation, processing, changes, and cancellation questions.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Shipping', 'dawp'); ?></h3><p><?php esc_html_e('Delivery timelines, tracking updates, and business day definitions.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Returns', 'dawp'); ?></h3><p><?php esc_html_e('Return eligibility, inspection, refund timing, and order issue review.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Products', 'dawp'); ?></h3><p><?php esc_html_e('Bracelet sizing, material notes, finishes, care details, and safe product claims.', 'dawp'); ?></p></div>
+    </div>
+  </section>
 
-            <!-- Sidebar -->
-            <aside class="lg:sticky lg:top-32 lg:self-start">
-                <div class="rounded-3xl bg-slickBlack p-7 text-white shadow-xl shadow-black/10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('FAQ Categories', 'dawp'); ?>
-                    </p>
+  <section class="qb-section qb-soft">
+    <div class="qb-wrap qb-content-grid">
+      <aside class="qb-sidebar">
+        <div class="qb-dark-card">
+          <p class="qb-eyebrow"><?php esc_html_e('FAQ Categories', 'dawp'); ?></p>
+          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Find answers faster.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('These answers match our Shipping & Returns, Privacy Policy, and Terms & Conditions pages.', 'dawp'); ?></p>
+          <nav class="qb-side-nav" aria-label="<?php esc_attr_e('FAQ categories', 'dawp'); ?>">
+            <?php foreach ($faq_sections as $section) : ?>
+              <a href="#<?php echo esc_attr($section['id']); ?>"><?php echo esc_html($section['eyebrow']); ?></a>
+            <?php endforeach; ?>
+          </nav>
+        </div>
+      </aside>
 
-                    <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                        <?php esc_html_e('Answers Without The Noise.', 'dawp'); ?>
-                    </h2>
-
-                    <p class="mt-5 text-sm leading-7 text-white/80">
-                        <?php esc_html_e('Use these sections to quickly find the information you need before or after placing a Slicktee order.', 'dawp'); ?>
-                    </p>
-
-                    <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('FAQ navigation', 'dawp'); ?>">
-                        <a href="#orders" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Orders', 'dawp'); ?>
-                        </a>
-                        <a href="#shipping" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Shipping', 'dawp'); ?>
-                        </a>
-                        <a href="#returns" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Returns & Refunds', 'dawp'); ?>
-                        </a>
-                        <a href="#products" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Products & Sizing', 'dawp'); ?>
-                        </a>
-                        <a href="#payments" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Payments', 'dawp'); ?>
-                        </a>
-                        <a href="#support" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Support', 'dawp'); ?>
-                        </a>
-                    </nav>
+      <div class="qb-faq-stack">
+        <?php foreach ($faq_sections as $section) : ?>
+          <section id="<?php echo esc_attr($section['id']); ?>" class="qb-faq-section">
+            <p class="qb-eyebrow"><?php echo esc_html($section['eyebrow']); ?></p>
+            <h2><?php echo esc_html($section['title']); ?></h2>
+            <div class="qb-accordion">
+              <?php foreach ($section['faqs'] as $faq) : ?>
+                <div class="qb-faq-item">
+                  <button type="button" class="qb-faq-toggle" aria-expanded="false">
+                    <span><?php echo esc_html($faq['q']); ?></span>
+                    <span class="qb-faq-icon" aria-hidden="true">+</span>
+                  </button>
+                  <div class="qb-answer">
+                    <p><?php echo esc_html($faq['a']); ?></p>
+                  </div>
                 </div>
-            </aside>
-
-            <!-- FAQ Body -->
-            <div class="space-y-8">
-
-                <?php
-                $faq_sections = [
-                    [
-                        'id'       => 'orders',
-                        'eyebrow'  => __('Orders', 'dawp'),
-                        'title'    => __('Order Questions', 'dawp'),
-                        'bg'       => 'bg-white shadow-sm',
-                        'faqs'     => [
-                            [
-                                'q' => __('How do I know if my order was placed successfully?', 'dawp'),
-                                'a' => __('After checkout, you should receive an order confirmation email with your order details. If you do not see it, check your spam or promotions folder first, then contact support if you still need help.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Can I change or cancel my order after placing it?', 'dawp'),
-                                'a' => __('Contact us as soon as possible if you need to change or cancel an order. We cannot guarantee changes after an order has entered processing or fulfillment, but we will do our best to help.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Why has my order not shipped yet?', 'dawp'),
-                                'a' => __('Orders are typically processed within 2–4 business days. Processing time includes order verification, preparation, and fulfillment before dispatch.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'shipping',
-                        'eyebrow'  => __('Shipping', 'dawp'),
-                        'title'    => __('Delivery & Tracking', 'dawp'),
-                        'bg'       => 'bg-slickSoft',
-                        'faqs'     => [
-                            [
-                                'q' => __('How long does shipping take?', 'dawp'),
-                                'a' => __('After dispatch, standard US shipping typically takes 5–10 business days depending on destination, carrier conditions, and seasonal volume.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Will I receive tracking information?', 'dawp'),
-                                'a' => __('Yes. Tracking information is sent by email once your order ships. Please allow some time for the carrier tracking page to update after the tracking number is created.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Do business days include weekends or holidays?', 'dawp'),
-                                'a' => __('No. Business days do not include weekends or public holidays. Delivery and processing may take slightly longer during high-volume periods.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'returns',
-                        'eyebrow'  => __('Returns & Refunds', 'dawp'),
-                        'title'    => __('Return Policy Questions', 'dawp'),
-                        'bg'       => 'bg-white shadow-sm',
-                        'faqs'     => [
-                            [
-                                'q' => __('What is your return window?', 'dawp'),
-                                'a' => __('Customers may request a return within 30 days of delivery. Eligible items must be unused, unwashed, unworn, in original condition, and returned with original packaging where applicable.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('What items are not eligible for return?', 'dawp'),
-                                'a' => __('Items may not qualify if they show wear, stains, odors, damage, washing, alteration, or missing original packaging where applicable.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('How long does a refund take?', 'dawp'),
-                                'a' => __('Once a returned item is received and inspected, we will notify you about the approval status. Approved refunds are processed back to the original payment method. Your payment provider may take several business days to post the refund.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'products',
-                        'eyebrow'  => __('Products & Sizing', 'dawp'),
-                        'title'    => __('Apparel Questions', 'dawp'),
-                        'bg'       => 'bg-slickSoft',
-                        'faqs'     => [
-                            [
-                                'q' => __('How should I choose my size?', 'dawp'),
-                                'a' => __('Review the product description and size information before placing an order. If you are between sizes or unsure about fit, contact our support team before checkout.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Will product colors look exactly like the photos?', 'dawp'),
-                                'a' => __('We aim to display product colors accurately, but slight differences may occur due to screen settings, photography lighting, or production updates.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Are your designs original?', 'dawp'),
-                                'a' => __('Slicktee focuses on clean, brand-led graphic apparel. We avoid copyright-heavy fan merch, celebrity images, anime references, offensive designs, and unauthorized third-party graphics.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'payments',
-                        'eyebrow'  => __('Payments', 'dawp'),
-                        'title'    => __('Checkout & Payment Questions', 'dawp'),
-                        'bg'       => 'bg-white shadow-sm',
-                        'faqs'     => [
-                            [
-                                'q' => __('Is checkout secure?', 'dawp'),
-                                'a' => __('Yes. Payment and checkout information is handled through secure ecommerce systems. We focus on providing a clear and trustworthy shopping experience.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Why was my payment declined?', 'dawp'),
-                                'a' => __('Payments may be declined by your bank, card provider, or payment processor for several reasons. Check your billing details and contact your payment provider if the issue continues.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Can prices change?', 'dawp'),
-                                'a' => __('Prices, product availability, and promotions may change without notice. The final order total will be shown at checkout before payment is completed.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'support',
-                        'eyebrow'  => __('Support', 'dawp'),
-                        'title'    => __('Getting Help', 'dawp'),
-                        'bg'       => 'bg-slickSoft',
-                        'faqs'     => [
-                            [
-                                'q' => __('How can I contact Slicktee?', 'dawp'),
-                                'a' => __('You can contact us through the Contact Us page or email support@slicktee.com. Include your order number if your question is order-related.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('What should I do if I received a damaged or incorrect item?', 'dawp'),
-                                'a' => __('Contact us as soon as possible with your order number and clear photos of the issue. Our support team will review your case and help with the next steps.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('When is customer support available?', 'dawp'),
-                                'a' => __('Our business hours are Monday through Friday, 9:00 AM – 6:00 PM EST. Response times may vary during weekends, holidays, or high-volume periods.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                ];
-                ?>
-
-                <?php foreach ($faq_sections as $section) : ?>
-                    <section id="<?php echo esc_attr($section['id']); ?>" class="rounded-3xl border border-[#E5E7EB] <?php echo esc_attr($section['bg']); ?> p-7 lg:p-10">
-                        <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                            <?php echo esc_html($section['eyebrow']); ?>
-                        </p>
-
-                        <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                            <?php echo esc_html($section['title']); ?>
-                        </h2>
-
-                        <div class="mt-7 divide-y divide-[#E5E7EB] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white">
-                            <?php foreach ($section['faqs'] as $index => $faq) : ?>
-                                <div class="faq-item">
-                                    <button type="button"
-                                            class="faq-toggle flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition hover:bg-slickSoft"
-                                            aria-expanded="false">
-                                        <span class="font-heading text-xl font-black uppercase leading-tight tracking-[-0.03em] text-slickText">
-                                            <?php echo esc_html($faq['q']); ?>
-                                        </span>
-
-                                        <span class="faq-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slickBlack text-lg font-black text-white transition">
-                                            +
-                                        </span>
-                                    </button>
-
-                                    <div class="faq-answer hidden px-5 pb-6">
-                                        <p class="max-w-3xl text-base leading-8 text-slickMuted">
-                                            <?php echo esc_html($faq['a']); ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
-                    </section>
-                <?php endforeach; ?>
-
-                <!-- Contact CTA -->
-                <section class="overflow-hidden rounded-3xl bg-slickBlack text-white shadow-xl shadow-black/10">
-                    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
-                        <div class="p-7 lg:p-10">
-                            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                                <?php esc_html_e('Still Need Help?', 'dawp'); ?>
-                            </p>
-
-                            <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                                <?php esc_html_e('Our Support Team Keeps It Clear.', 'dawp'); ?>
-                            </h2>
-
-                            <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
-                                <?php esc_html_e('If you cannot find the answer you need, contact Slicktee support and we will help you with order, product, shipping, or return questions.', 'dawp'); ?>
-                            </p>
-
-                            <div class="mt-8 flex flex-wrap gap-4">
-                                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                                    <?php esc_html_e('Contact Support', 'dawp'); ?>
-                                </a>
-
-                                <a href="mailto:support@slicktee.com"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                                    <?php esc_html_e('Email Us', 'dawp'); ?>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="min-h-[300px] bg-slickGreen">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/contact_banner.png'); ?>"
-                                 alt="<?php esc_attr_e('Slicktee customer support FAQ assistance', 'dawp'); ?>"
-                                 class="h-full w-full object-cover opacity-85">
-                        </div>
-                    </div>
-                </section>
-
+              <?php endforeach; ?>
             </div>
-        </div>
-    </section>
+          </section>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
 
-</main>
+  <section class="qb-section qb-plum">
+    <div class="qb-wrap">
+      <p class="qb-eyebrow"><?php esc_html_e('Still Need Help?', 'dawp'); ?></p>
+      <h2 class="qb-title"><?php esc_html_e('Support is available for policy and order questions.', 'dawp'); ?></h2>
+      <p class="qb-copy"><?php esc_html_e('For order-related messages, include your order number and the email address used at checkout. Business hours are Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
+      <div class="qb-actions">
+        <a class="qb-button" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
+        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+      </div>
+      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Related policy links', 'dawp'); ?>">
+        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+      </nav>
+    </div>
+  </section>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const toggles = document.querySelectorAll('.faq-toggle');
+  document.querySelectorAll('.qb-faq-toggle').forEach(function (toggle) {
+    toggle.addEventListener('click', function () {
+      var expanded = toggle.getAttribute('aria-expanded') === 'true';
+      var answer = toggle.parentElement.querySelector('.qb-answer');
+      var icon = toggle.querySelector('.qb-faq-icon');
 
-    toggles.forEach(function (toggle) {
-        toggle.addEventListener('click', function () {
-            const item = toggle.closest('.faq-item');
-            const answer = item.querySelector('.faq-answer');
-            const icon = item.querySelector('.faq-icon');
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-
-            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-            answer.classList.toggle('hidden');
-
-            if (icon) {
-                icon.textContent = expanded ? '+' : '–';
-                icon.classList.toggle('bg-slickActive', !expanded);
-                icon.classList.toggle('text-slickBlack', !expanded);
-                icon.classList.toggle('bg-slickBlack', expanded);
-                icon.classList.toggle('text-white', expanded);
-            }
-        });
+      toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      if (answer) {
+        answer.style.display = expanded ? 'none' : 'block';
+      }
+      if (icon) {
+        icon.textContent = expanded ? '+' : '-';
+      }
     });
+  });
 });
 </script>
-
-<?php
-get_footer();

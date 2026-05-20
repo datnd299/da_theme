@@ -2,10 +2,11 @@
 function dawp_main_menu_items() {
     return [
         ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Graphic Tees', 'dawp'),  'url' => home_url('/product-category/graphic-tees/')],
-        ['title' => __('Oversize Tees', 'dawp'),  'url' => home_url('/product-category/oversize-tees/')],
-        ['title' => __('Casual Hoodies', 'dawp'),        'url' => home_url('/product-category/casual-hoodies/')],
-        ['title' => __('Streetwear Essentials', 'dawp'),       'url' => home_url('/product-category/streetwear-essentials/')],
+        ['title' => __('Charm Bracelets', 'dawp'),      'url' => home_url('/product-category/charm-bracelets/')],
+        ['title' => __('Owl Bracelets', 'dawp'),        'url' => home_url('/product-category/owl-bracelets/')],
+        ['title' => __('Beaded Bracelets', 'dawp'),     'url' => home_url('/product-category/beaded-bracelets/')],
+        ['title' => __('Chain Bracelets', 'dawp'),      'url' => home_url('/product-category/chain-bracelets/')],
+        ['title' => __('Gift Bracelets', 'dawp'),       'url' => home_url('/product-category/gift-bracelets/')],
     ];
 }
 function dawp_is_current_url($url) {
@@ -21,10 +22,11 @@ function dawp_footer_columns() {
             'title' => 'Shop',
             'links' => [
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Graphic Tees', 'dawp'),  'url' => home_url('/product-category/graphic-tees/')],
-        ['title' => __('Oversize Tees', 'dawp'),  'url' => home_url('/product-category/oversize-tees/')],
-        ['title' => __('Casual Hoodies', 'dawp'),        'url' => home_url('/product-category/casual-hoodies/')],
-        ['title' => __('Streetwear Essentials', 'dawp'),       'url' => home_url('/product-category/streetwear-essentials/')],
+                ['title' => __('Charm Bracelets', 'dawp'),      'url' => home_url('/product-category/charm-bracelets/')],
+                ['title' => __('Owl Bracelets', 'dawp'),        'url' => home_url('/product-category/owl-bracelets/')],
+                ['title' => __('Beaded Bracelets', 'dawp'),     'url' => home_url('/product-category/beaded-bracelets/')],
+                ['title' => __('Chain Bracelets', 'dawp'),      'url' => home_url('/product-category/chain-bracelets/')],
+                ['title' => __('Gift Bracelets', 'dawp'),       'url' => home_url('/product-category/gift-bracelets/')],
             ],
         ],
         [

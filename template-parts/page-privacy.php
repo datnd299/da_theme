@@ -1,384 +1,175 @@
 <?php
 /**
- * Template Name: Privacy Policy
- * Template Part: page-privacy-policy
+ * Template Part: page-privacy
+ *
+ * @package dawp
  */
 
-get_header();
+$support_email = 'support@queens-bracelet.com';
 ?>
 
-<main id="primary" class="bg-white text-slickText font-body">
+<style>
+  .qb-page { --qb-blush:#ffb7c5; --qb-peach:#ffd6a5; --qb-mint:#cff5e7; --qb-gold:#d8a94e; --qb-plum:#2f1f35; --qb-gray:#f7f7fa; --qb-text:#4f4355; --qb-border:#eadfe8; background:#fff; color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page * { box-sizing:border-box; }
+  .qb-page a { text-decoration:none; }
+  .qb-wrap { width:min(100% - 32px,1280px); margin-inline:auto; }
+  .qb-section { padding:72px 0; }
+  .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+  .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(34px,4.2vw,58px); line-height:1.04; letter-spacing:0; }
+  .qb-copy { margin:18px 0 0; max-width:720px; color:var(--qb-text); font-size:17px; line-height:1.75; }
+  .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
+  .qb-button--secondary { background:#fff; color:var(--qb-plum); }
+  .qb-plum .qb-button { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
+  .qb-plum .qb-button:hover { border-color:#fff; background:#fff; color:var(--qb-plum); }
+  .qb-plum .qb-button--secondary { border-color:rgba(255,255,255,.7); background:#fff; color:var(--qb-plum); }
+  .qb-hero { overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.35),rgba(255,214,165,.38) 48%,rgba(207,245,231,.4)),#fff; }
+  .qb-hero__grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(320px,.98fr); gap:48px; align-items:center; padding:78px 0; }
+  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:24px; background:#fff; box-shadow:0 18px 46px rgba(47,31,53,.08); }
+  .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
+  .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+  .qb-card { padding:22px; }
+  .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:#fff4f6; color:var(--qb-plum); font-size:13px; }
+  .qb-card h3, .qb-policy-card h2, .qb-mini-card strong { margin:18px 0 0; color:var(--qb-plum); }
+  .qb-card p, .qb-policy-card p, .qb-policy-card li, .qb-mini-card p { color:#675a6c; font-size:14px; line-height:1.65; }
+  .qb-soft { background:var(--qb-gray); }
+  .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
+  .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
+  .qb-dark-card { border-radius:24px; background:var(--qb-plum); padding:28px; color:#fff; }
+  .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
+  .qb-dark-card h2, .qb-dark-card p, .qb-dark-card a { color:#fff; }
+  .qb-dark-card p { color:rgba(255,255,255,.78); font-size:15px; line-height:1.7; }
+  .qb-side-nav { display:grid; gap:10px; margin-top:22px; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-policy-stack { display:grid; gap:22px; }
+  .qb-policy-card { padding:clamp(24px,4vw,40px); }
+  .qb-policy-card:nth-child(even) { background:#fffafc; }
+  .qb-policy-card h2 { font-size:clamp(25px,3vw,38px); line-height:1.12; font-family:Georgia,"Times New Roman",serif; }
+  .qb-policy-card h2 + p, .qb-policy-card h2 + ul { margin-top:clamp(14px,1.8vw,20px); }
+  .qb-policy-card ul { display:grid; gap:10px; margin:18px 0 0; padding-left:1.15rem; list-style:disc outside; }
+  .qb-mini-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; }
+  .qb-mini-card { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:18px; }
+  .qb-plum { background:var(--qb-plum); color:#fff; }
+  .qb-plum .qb-title, .qb-plum .qb-copy { color:#fff; }
+  .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  @media (max-width:1080px) { .qb-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-mini-grid { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+</style>
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slickBlack text-white">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-        <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-slickActive/20 blur-3xl"></div>
-        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-slickLime/10 blur-3xl"></div>
-
-        <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-            <div class="max-w-4xl">
-                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-slickLime">
-                    <?php esc_html_e('Customer Privacy', 'dawp'); ?>
-                </p>
-
-                <h1 class="font-heading text-5xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Privacy Policy', 'dawp'); ?>
-                </h1>
-
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-                    <?php esc_html_e('Learn how Slicktee collects, uses, protects, and manages customer information when you browse or shop with us.', 'dawp'); ?>
-                </p>
-            </div>
+<div class="qb-page qb-privacy">
+  <section class="qb-hero">
+    <div class="qb-wrap qb-hero__grid">
+      <div>
+        <p class="qb-eyebrow"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
+        <h1 class="qb-title"><?php esc_html_e('How customer information is used and protected.', 'dawp'); ?></h1>
+        <p class="qb-copy"><?php esc_html_e("This Privacy Policy explains how Queen's Bracelet collects, uses, shares, and protects information when customers browse our bracelet boutique, place orders, request support, or use our ecommerce services.", 'dawp'); ?></p>
+        <div class="qb-actions">
+          <a class="qb-button" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
+          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
         </div>
-    </section>
-
-    <!-- Quick Trust Cards -->
-    <section class="bg-slickSoft py-12 lg:py-16">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
-                    01
-                </div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Secure Checkout', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Payment and checkout information is handled through secure ecommerce systems.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">
-                    02
-                </div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Order Support', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('We use customer details to process orders, provide tracking, and support purchases.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
-                    03
-                </div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('No Data Selling', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('We do not sell customer personal information to unrelated third parties.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">
-                    04
-                </div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Clear Contact', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Customers may contact us with privacy questions at any time.', 'dawp'); ?>
-                </p>
-            </div>
-
+      </div>
+      <div class="qb-panel">
+        <p class="qb-eyebrow"><?php esc_html_e('Privacy Snapshot', 'dawp'); ?></p>
+        <div class="qb-mini-grid">
+          <div class="qb-mini-card"><strong><?php esc_html_e('Order Use', 'dawp'); ?></strong><p><?php esc_html_e('Information is used to process orders, ship products, send tracking, and provide support.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Secure Checkout', 'dawp'); ?></strong><p><?php esc_html_e('Payment details are handled through secure ecommerce payment systems.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('No Data Selling', 'dawp'); ?></strong><p><?php esc_html_e('We do not sell customer personal information to unrelated third parties.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Privacy Help', 'dawp'); ?></strong><p><?php esc_html_e('Customers may contact support with privacy questions or information requests.', 'dawp'); ?></p></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Main Policy Content -->
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+  <section class="qb-section">
+    <div class="qb-wrap qb-summary-grid">
+      <div class="qb-card"><b>01</b><h3><?php esc_html_e('Collected Details', 'dawp'); ?></h3><p><?php esc_html_e('Name, email, shipping address, billing details, phone number, order details, and messages when needed.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Purpose', 'dawp'); ?></h3><p><?php esc_html_e('We use information for checkout, shipping, tracking, returns, fraud prevention, support, and site improvement.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Service Providers', 'dawp'); ?></h3><p><?php esc_html_e('Necessary details may be shared with providers that help operate payments, fulfillment, shipping, email, analytics, and support.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Contact', 'dawp'); ?></h3><p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p></div>
+    </div>
+  </section>
 
-            <!-- Sidebar -->
-            <aside class="lg:sticky lg:top-32 lg:self-start">
-                <div class="rounded-3xl bg-slickBlack p-7 text-white shadow-xl shadow-black/10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('Policy Sections', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                        <?php esc_html_e('Privacy Made Clear.', 'dawp'); ?>
-                    </h2>
-
-                    <p class="mt-5 text-sm leading-7 text-white/80">
-                        <?php esc_html_e('This page explains what information we collect, why we collect it, how it is used, and how customers can contact us.', 'dawp'); ?>
-                    </p>
-
-                    <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('Privacy policy navigation', 'dawp'); ?>">
-                        <a href="#information" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Information We Collect', 'dawp'); ?>
-                        </a>
-                        <a href="#usage" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('How We Use Data', 'dawp'); ?>
-                        </a>
-                        <a href="#cookies" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Cookies', 'dawp'); ?>
-                        </a>
-                        <a href="#sharing" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Information Sharing', 'dawp'); ?>
-                        </a>
-                        <a href="#security" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Security', 'dawp'); ?>
-                        </a>
-                        <a href="#rights" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Your Rights', 'dawp'); ?>
-                        </a>
-                        <a href="#contact" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Contact Us', 'dawp'); ?>
-                        </a>
-                    </nav>
-                </div>
-            </aside>
-
-            <!-- Policy Body -->
-            <div class="space-y-8">
-
-                <!-- Intro -->
-                <section class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Overview', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Our Commitment To Privacy', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('Slicktee respects your privacy. This Privacy Policy explains how we collect, use, store, and protect information when you visit our website, place an order, contact support, or interact with our online store.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('By using our website, you agree to the practices described in this Privacy Policy. We may update this policy from time to time to reflect changes in our store, legal requirements, or ecommerce operations.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Information We Collect -->
-                <section id="information" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Information We Collect', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Customer & Order Information', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('When you place an order or interact with Slicktee, we may collect information needed to complete your purchase and provide support. This may include your name, email address, shipping address, billing address, phone number, order details, and communication history.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('We may also collect basic technical information such as browser type, device type, pages viewed, referral source, IP address, and website usage data to help improve our website performance and shopping experience.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="mt-8 rounded-2xl border border-[#E5E7EB] bg-white p-6">
-                        <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                            <?php esc_html_e('Examples Of Information Collected', 'dawp'); ?>
-                        </h3>
-
-                        <ul class="mt-5 grid gap-3 text-sm leading-6 text-slickMuted sm:grid-cols-2">
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Name and contact details', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Shipping and billing address', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Order and transaction details', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Website usage information', 'dawp'); ?>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- How We Use Information -->
-                <section id="usage" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('How We Use Information', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('How Your Information Helps Us Serve You', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('We use customer information to process orders, confirm payments, arrange shipping, send tracking updates, respond to customer service requests, manage returns, prevent fraud, improve our website, and communicate important store updates.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('If you choose to join our newsletter, we may use your email address to send product updates, new drop announcements, and promotional messages. You may unsubscribe from marketing emails at any time.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Cookies -->
-                <section id="cookies" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Cookies & Tracking', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Cookies Help Improve Your Shopping Experience', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('Our website may use cookies and similar technologies to remember preferences, keep items in your cart, improve site performance, understand traffic patterns, and support ecommerce functionality.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('You can control or disable cookies through your browser settings. Some website features may not function properly if cookies are disabled.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Sharing -->
-                <section id="sharing" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Information Sharing', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('When Information May Be Shared', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('We may share necessary information with trusted service providers who help operate our store, process payments, fulfill orders, ship products, send emails, provide analytics, or support customer service.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('These providers only receive information needed to perform their services. We do not sell customer personal information to unrelated third parties.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('We may also disclose information if required by law, legal process, fraud prevention, or to protect the rights and safety of Slicktee, our customers, or others.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Security -->
-                <section id="security" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Security', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Protecting Customer Information', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('We use reasonable administrative, technical, and organizational measures to help protect customer information from unauthorized access, misuse, loss, or disclosure.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('While no online system can be guaranteed completely secure, we work to maintain a safe and trustworthy ecommerce environment for our customers.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Your Rights -->
-                <section id="rights" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Your Choices', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Access, Update, Or Request Help', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('You may contact us to request help with your personal information, update order contact details, ask privacy questions, or request that we review information associated with your customer account.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Marketing emails include unsubscribe options. You may opt out of promotional email communication at any time.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Children -->
-                <section class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Children’s Privacy', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Our Store Is Intended For Adults', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('Slicktee is intended for use by adults or individuals who have permission from a parent or guardian to shop online. We do not knowingly collect personal information from children without appropriate consent.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Policy Updates -->
-                <section class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Policy Updates', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Changes To This Privacy Policy', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('We may update this Privacy Policy from time to time. Any updates will be posted on this page with the revised content. We encourage customers to review this page periodically.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Contact CTA -->
-                <section id="contact" class="overflow-hidden rounded-3xl bg-slickBlack text-white shadow-xl shadow-black/10">
-                    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
-                        <div class="p-7 lg:p-10">
-                            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                                <?php esc_html_e('Privacy Questions?', 'dawp'); ?>
-                            </p>
-
-                            <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                                <?php esc_html_e('We Keep Support Clear.', 'dawp'); ?>
-                            </h2> 
-
-                            <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
-                                <?php esc_html_e('If you have questions about this Privacy Policy or how your information is handled, contact our support team and we will help you review your request.', 'dawp'); ?>
-                            </p>
-
-                            <div class="mt-8 flex flex-wrap gap-4">
-                                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                                    <?php esc_html_e('Contact Support', 'dawp'); ?>
-                                </a>
-
-                                <a href="mailto:support@slicktee.com"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                                    <?php esc_html_e('Email Us', 'dawp'); ?>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="min-h-[300px] bg-slickGreen">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/contact_banner.png'); ?>"
-                                 alt="<?php esc_attr_e('Slicktee customer privacy and support', 'dawp'); ?>"
-                                 class="h-full w-full object-cover opacity-85">
-                        </div>
-                    </div>
-                </section>
-
-            </div>
+  <section class="qb-section qb-soft">
+    <div class="qb-wrap qb-content-grid">
+      <aside class="qb-sidebar">
+        <div class="qb-dark-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Privacy Sections', 'dawp'); ?></p>
+          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Transparent by design.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Review what we collect, why we collect it, when information is shared, and how to contact us.', 'dawp'); ?></p>
+          <nav class="qb-side-nav" aria-label="<?php esc_attr_e('Privacy sections', 'dawp'); ?>">
+            <a href="#collect"><?php esc_html_e('Information We Collect', 'dawp'); ?></a>
+            <a href="#use"><?php esc_html_e('How We Use It', 'dawp'); ?></a>
+            <a href="#cookies"><?php esc_html_e('Cookies', 'dawp'); ?></a>
+            <a href="#sharing"><?php esc_html_e('Sharing', 'dawp'); ?></a>
+            <a href="#security"><?php esc_html_e('Security', 'dawp'); ?></a>
+            <a href="#rights"><?php esc_html_e('Your Choices', 'dawp'); ?></a>
+          </nav>
         </div>
-    </section>
+      </aside>
 
-</main>
+      <div class="qb-policy-stack">
+        <section id="collect" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Information We Collect', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Customer, order, and website information.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('When you place an order or contact Queen\'s Bracelet, we may collect your name, email address, shipping address, billing address, phone number, order details, payment confirmation status, and communication history.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We may also collect technical information such as IP address, browser type, device type, pages viewed, referral source, cookies, and website usage information.', 'dawp'); ?></p>
+        </section>
+        <section id="use" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('How We Use Information', 'dawp'); ?></p>
+          <h2><?php esc_html_e('We use data to run a clear ecommerce store.', 'dawp'); ?></h2>
+          <ul>
+            <li><?php esc_html_e('Process payments, confirm orders, and prepare shipments.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Send order confirmations, tracking updates, and customer service replies.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Review return requests, refunds, damaged item claims, and order issues.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Improve website performance, prevent fraud, maintain security, and comply with legal obligations.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Send bracelet updates or promotions if you subscribe to marketing emails. You may unsubscribe at any time.', 'dawp'); ?></li>
+          </ul>
+        </section>
+        <section id="cookies" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Cookies & Tracking', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Cookies support cart, checkout, and site performance.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Our website may use cookies and similar technologies to remember preferences, keep cart items active, support checkout, analyze traffic, and improve the shopping experience.', 'dawp'); ?></p>
+          <p><?php esc_html_e('You can control cookies through browser settings. Some store features may not work correctly if cookies are disabled.', 'dawp'); ?></p>
+        </section>
+        <section id="sharing" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Information Sharing', 'dawp'); ?></p>
+          <h2><?php esc_html_e('We share only what is needed to operate the store.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Necessary information may be shared with trusted service providers for payment processing, fraud prevention, order fulfillment, shipping, email communication, analytics, hosting, and customer support.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We do not sell customer personal information to unrelated third parties. We may disclose information if required by law, legal process, security needs, or to protect customers and our business.', 'dawp'); ?></p>
+        </section>
+        <section id="security" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Security & Retention', 'dawp'); ?></p>
+          <h2><?php esc_html_e('We use reasonable safeguards.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('We use reasonable administrative, technical, and organizational measures to help protect customer information from unauthorized access, loss, misuse, or disclosure.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Order and customer records may be retained as needed for accounting, legal, support, fraud prevention, and business operations. No online system can be guaranteed completely secure.', 'dawp'); ?></p>
+        </section>
+        <section id="rights" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Your Choices', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Access, update, unsubscribe, or ask questions.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Customers may contact us to request help reviewing, updating, or correcting information associated with an order or customer account. Marketing emails include unsubscribe options.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Queen\'s Bracelet is intended for adults or customers with permission to shop online. We do not knowingly collect personal information from children without appropriate consent.', 'dawp'); ?></p>
+          <div class="qb-actions">
+            <a class="qb-button" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Privacy Support', 'dawp'); ?></a>
+            <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
 
-<?php
-get_footer();
+  <section class="qb-section qb-plum">
+    <div class="qb-wrap">
+      <p class="qb-eyebrow"><?php esc_html_e('Policy Updates', 'dawp'); ?></p>
+      <h2 class="qb-title"><?php esc_html_e('We may update this Privacy Policy.', 'dawp'); ?></h2>
+      <p class="qb-copy"><?php esc_html_e('Updates will be posted on this page. Continued website use after an update means the current Privacy Policy applies to your use of Queen\'s Bracelet.', 'dawp'); ?></p>
+      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Related policy links', 'dawp'); ?>">
+        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+      </nav>
+    </div>
+  </section>
+</div>

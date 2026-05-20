@@ -1,328 +1,1041 @@
+<?php
+/**
+ * Homepage template for Queen's Bracelet.
+ *
+ * @package dawp
+ */
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-[#0B0F0D] text-white">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-      <div class="absolute -right-20 top-20 h-72 w-72 rounded-full bg-[#A3E635]/20 blur-3xl"></div>
-      <div class="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-[#22C55E]/20 blur-3xl"></div>
+if (!function_exists('qb_home_category_url')) {
+    function qb_home_category_url($slug) {
+        if (taxonomy_exists('product_cat')) {
+            $term = get_term_by('slug', $slug, 'product_cat');
+            if ($term && !is_wp_error($term)) {
+                $link = get_term_link($term);
+                if (!is_wp_error($link)) {
+                    return $link;
+                }
+            }
+        }
 
-      <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
-        <div class="max-w-2xl">
-          <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[#A3E635]">
-            Graphic Apparel / Streetwear Essentials
-          </p>
+        return home_url('/product-category/' . trailingslashit($slug));
+    }
+}
 
-          <h1 class="text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl">
-            Clean Fits. Bold Energy.
-          </h1>
+if (!function_exists('qb_home_category_image')) {
+    function qb_home_category_image($slugs) {
+        if (!class_exists('WooCommerce') || !taxonomy_exists('product_cat')) {
+            return '';
+        }
 
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/85">
-            Modern graphic tees, oversized silhouettes, casual hoodies, and everyday streetwear essentials built for clean style without the noise.
-          </p>
+        foreach ((array) $slugs as $slug) {
+            $term = get_term_by('slug', $slug, 'product_cat');
+            if (!$term || is_wp_error($term)) {
+                continue;
+            }
 
-          <div class="mt-9 flex flex-wrap gap-4">
-            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#22C55E] px-7 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Now
-            </a>
+            $thumbnail_id = absint(get_term_meta($term->term_id, 'thumbnail_id', true));
+            if ($thumbnail_id) {
+                $image = wp_get_attachment_image_url($thumbnail_id, 'large');
+                if ($image) {
+                    return $image;
+                }
+            }
 
-            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">
-              Explore Graphic Tees
-            </a>
-          </div>
+            $products = wc_get_products([
+                'limit'    => 1,
+                'status'   => 'publish',
+                'category' => [$slug],
+            ]);
+
+            if (!empty($products)) {
+                $image = wp_get_attachment_image_url($products[0]->get_image_id(), 'large');
+                if ($image) {
+                    return $image;
+                }
+            }
+        }
+
+        return '';
+    }
+}
+
+if (!function_exists('qb_home_asset_image')) {
+    function qb_home_asset_image($filename) {
+        $relative_path = 'assets/images/home/' . ltrim($filename, '/');
+        $file_path = trailingslashit(get_template_directory()) . $relative_path;
+
+        if (file_exists($file_path)) {
+            return trailingslashit(get_template_directory_uri()) . $relative_path;
+        }
+
+        return '';
+    }
+}
+
+if (!function_exists('qb_home_products')) {
+    function qb_home_products($limit = 4, $categories = []) {
+        if (!function_exists('wc_get_products')) {
+            return [];
+        }
+
+        $args = [
+            'limit'   => $limit,
+            'orderby' => 'date',
+            'order'   => 'DESC',
+            'status'  => 'publish',
+        ];
+
+        if (!empty($categories)) {
+            $args['category'] = array_values(array_unique(array_filter((array) $categories)));
+        }
+
+        return wc_get_products($args);
+    }
+}
+
+if (!function_exists('qb_home_first_product_image')) {
+    function qb_home_first_product_image($categories, $size = 'large') {
+        $products = qb_home_products(1, $categories);
+
+        if (empty($products)) {
+            return '';
+        }
+
+        $image_id = $products[0]->get_image_id();
+
+        return $image_id ? wp_get_attachment_image_url($image_id, $size) : '';
+    }
+}
+
+$shop_url  = home_url('/shop/');
+
+$categories = [
+    [
+        'slug'  => 'charm-bracelets',
+        'title' => 'Charm Bracelets',
+        'copy'  => 'Meaningful charm styles for personal expression and daily wear.',
+        'image' => 'Charm_Bracelets.png',
+        'query_slugs' => ['charm-bracelets', 'handmade-bracelets'],
+    ],
+    [
+        'slug'  => 'owl-bracelets',
+        'title' => 'Owl Bracelets',
+        'copy'  => 'Owl-inspired designs with a thoughtful, symbolic charm look.',
+        'image' => 'Owl_Bracelets.png',
+        'query_slugs' => ['owl-bracelets'],
+    ],
+    [
+        'slug'  => 'beaded-bracelets',
+        'title' => 'Beaded Bracelets',
+        'copy'  => 'Easy-to-layer beaded styles for casual elegance.',
+        'image' => 'Beaded_Bracelets.png',
+        'query_slugs' => ['beaded-bracelets', 'beaded-jewelry'],
+    ],
+    [
+        'slug'  => 'chain-bracelets',
+        'title' => 'Chain Bracelets',
+        'copy'  => 'Polished gold-tone and silver-tone styles for everyday outfits.',
+        'image' => 'Chain_Bracelets.png',
+        'query_slugs' => ['chain-bracelets'],
+    ],
+    [
+        'slug'  => 'gift-bracelets',
+        'title' => 'Gift Bracelets',
+        'copy'  => 'Thoughtful bracelet styles made for birthdays, holidays, and special moments.',
+        'image' => 'Gift_Bracelets.png',
+        'query_slugs' => ['gift-bracelets', 'artisan-gifts'],
+    ],
+];
+
+$homepage_product_slugs = [];
+
+foreach ($categories as $category) {
+    $homepage_product_slugs = array_merge($homepage_product_slugs, $category['query_slugs']);
+}
+
+$homepage_product_slugs = array_values(array_unique($homepage_product_slugs));
+$featured_products = qb_home_products(4, $homepage_product_slugs);
+$hero_image = qb_home_asset_image('Modern_Bracelets_Giftable_Jewelry.png') ?: qb_home_first_product_image(['charm-bracelets', 'owl-bracelets', 'gift-bracelets', 'handmade-bracelets', 'artisan-gifts']);
+
+if (!$hero_image && function_exists('wc_placeholder_img_src')) {
+    $hero_image = wc_placeholder_img_src('large');
+}
+?>
+
+<style>
+  .qb-home {
+    --qb-blush: #ffb7c5;
+    --qb-peach: #ffd6a5;
+    --qb-lavender: #d8c7ff;
+    --qb-mint: #cff5e7;
+    --qb-gold: #d8a94e;
+    --qb-plum: #2f1f35;
+    --qb-gray: #f7f7fa;
+    --qb-text: #4f4355;
+    --qb-border: #eadfe8;
+    background: #fff;
+    color: var(--qb-text);
+    font-family: "DM Sans", "Inter", system-ui, sans-serif;
+  }
+
+  .qb-home * {
+    box-sizing: border-box;
+  }
+
+  .qb-home a {
+    text-decoration: none;
+  }
+
+  .qb-wrap {
+    width: min(100% - 32px, 1280px);
+    margin-inline: auto;
+  }
+
+  .qb-section {
+    padding: 72px 0;
+  }
+
+  .qb-eyebrow {
+    margin: 0 0 12px;
+    color: var(--qb-gold);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
+
+  .qb-title {
+    margin: 0;
+    color: var(--qb-plum);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 4.4vw, 58px);
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  .qb-copy {
+    margin: 18px 0 0;
+    max-width: 660px;
+    color: var(--qb-text);
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  .qb-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .qb-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0 24px;
+    border: 1px solid var(--qb-plum);
+    background: var(--qb-plum);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    transition: .2s ease;
+  }
+
+  .qb-button:hover {
+    border-color: var(--qb-gold);
+    background: var(--qb-gold);
+    color: var(--qb-plum);
+  }
+
+  .qb-button--secondary {
+    background: #fff;
+    color: var(--qb-plum);
+  }
+
+  .qb-button--secondary:hover {
+    border-color: var(--qb-plum);
+    background: #fff4f6;
+    color: var(--qb-plum);
+  }
+
+  .qb-hero {
+    overflow: hidden;
+    background:
+      linear-gradient(135deg, rgba(255,183,197,.35), rgba(255,214,165,.38) 48%, rgba(207,245,231,.4)),
+      #fff;
+  }
+
+  .qb-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(320px, .98fr);
+    gap: 48px;
+    align-items: center;
+    padding: 78px 0;
+  }
+
+  .qb-hero__trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .qb-pill {
+    border: 1px solid rgba(47,31,53,.12);
+    border-radius: 999px;
+    background: rgba(255,255,255,.68);
+    padding: 9px 14px;
+    color: var(--qb-plum);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .qb-hero__media {
+    position: relative;
+    min-height: 520px;
+  }
+
+  .qb-photo-card {
+    overflow: hidden;
+    border: 10px solid rgba(255,255,255,.72);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 24px 70px rgba(47,31,53,.16);
+  }
+
+  .qb-photo-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  .qb-note {
+    position: absolute;
+    right: -6px;
+    bottom: 34px;
+    width: min(280px, 70%);
+    border: 1px solid rgba(216,169,78,.28);
+    border-radius: 20px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 18px 42px rgba(47,31,53,.14);
+  }
+
+  .qb-note strong {
+    display: block;
+    color: var(--qb-plum);
+    font-size: 15px;
+  }
+
+  .qb-note span {
+    display: block;
+    margin-top: 6px;
+    color: var(--qb-text);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .qb-heading-row {
+    display: flex;
+    gap: 24px;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 34px;
+  }
+
+  .qb-heading-row .qb-copy {
+    margin-top: 0;
+    max-width: 520px;
+  }
+
+  .qb-category-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .qb-category-card {
+    display: flex;
+    min-height: 350px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--qb-border);
+    border-radius: 22px;
+    background: #fff;
+    color: var(--qb-plum);
+    box-shadow: 0 12px 32px rgba(47,31,53,.07);
+  }
+
+  .qb-category-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .45s ease;
+  }
+
+  .qb-category-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .qb-category-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(47,31,53,.84), rgba(47,31,53,.32) 48%, rgba(255,255,255,.08));
+  }
+
+  .qb-category-card__body {
+    position: relative;
+    z-index: 1;
+    align-self: end;
+    padding: 20px;
+    color: #fff;
+  }
+
+  .qb-category-card h3,
+  .qb-feature h3,
+  .qb-gift-card h3,
+  .qb-trust-card h3,
+  .qb-product-card h3 {
+    margin: 0;
+    color: inherit;
+  }
+
+  .qb-category-card h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    line-height: 1.08;
+  }
+
+  .qb-category-card p {
+    margin: 10px 0 0;
+    color: rgba(255,255,255,.88);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .qb-feature {
+    background: linear-gradient(135deg, rgba(216,199,255,.3), rgba(247,247,250,1));
+  }
+
+  .qb-feature__grid,
+  .qb-gift__grid {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: 42px;
+    align-items: center;
+  }
+
+  .qb-feature__panel {
+    border: 1px solid var(--qb-border);
+    border-radius: 24px;
+    background: rgba(255,255,255,.86);
+    padding: clamp(26px, 4vw, 46px);
+    box-shadow: 0 18px 46px rgba(47,31,53,.08);
+  }
+
+  .qb-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .qb-list li {
+    border: 1px solid rgba(216,169,78,.22);
+    border-radius: 16px;
+    background: #fff;
+    padding: 13px 14px;
+    color: var(--qb-plum);
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .qb-safe-note {
+    margin-top: 24px;
+    border-left: 3px solid var(--qb-gold);
+    padding-left: 14px;
+    color: #68586d;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .qb-products {
+    background: #fff;
+  }
+
+  .qb-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .qb-product-card {
+    overflow: hidden;
+    border: 1px solid var(--qb-border);
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(47,31,53,.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+
+  .qb-product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(47,31,53,.12);
+  }
+
+  .qb-product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: var(--qb-gray);
+  }
+
+  .qb-product-card__body {
+    padding: 18px;
+  }
+
+  .qb-product-card h3 {
+    min-height: 44px;
+    color: var(--qb-plum);
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .qb-product-card__meta {
+    margin: 8px 0 0;
+    color: #77687b;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .qb-product-card__price {
+    margin-top: 10px;
+    color: var(--qb-plum);
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  .qb-product-card__link {
+    display: inline-flex;
+    width: 100%;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+    border-radius: 999px;
+    background: var(--qb-plum);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .qb-gift {
+    background: linear-gradient(135deg, rgba(255,214,165,.36), rgba(255,183,197,.2));
+  }
+
+  .qb-gift-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 26px;
+  }
+
+  .qb-gift-card {
+    border: 1px solid rgba(47,31,53,.09);
+    border-radius: 18px;
+    background: rgba(255,255,255,.74);
+    padding: 18px;
+  }
+
+  .qb-gift-card h3 {
+    color: var(--qb-plum);
+    font-size: 17px;
+  }
+
+  .qb-gift-card p {
+    margin: 8px 0 0;
+    color: #65596b;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .qb-trust {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 12% 14%, rgba(255,183,197,.28), transparent 26%),
+      radial-gradient(circle at 88% 10%, rgba(207,245,231,.36), transparent 28%),
+      linear-gradient(135deg, rgba(255,214,165,.24), rgba(255,255,255,1) 42%, rgba(216,199,255,.2));
+    color: var(--qb-text);
+  }
+
+  .qb-trust .qb-wrap {
+    position: relative;
+    z-index: 1;
+  }
+
+  .qb-trust .qb-title,
+  .qb-trust .qb-copy {
+    color: var(--qb-plum);
+  }
+
+  .qb-trust .qb-copy {
+    max-width: 720px;
+  }
+
+  .qb-trust__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 34px;
+  }
+
+  .qb-trust-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(47,31,53,.08);
+    border-radius: 20px;
+    background: rgba(255,255,255,.84);
+    padding: 24px;
+    box-shadow: 0 14px 38px rgba(47,31,53,.08);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+
+  .qb-trust-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    background: var(--trust-accent, var(--qb-gold));
+  }
+
+  .qb-trust-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(216,169,78,.34);
+    box-shadow: 0 20px 48px rgba(47,31,53,.14);
+  }
+
+  .qb-trust-card--secure {
+    --trust-accent: #d8a94e;
+    --trust-soft: rgba(216,169,78,.14);
+  }
+
+  .qb-trust-card--tracking {
+    --trust-accent: #66b89a;
+    --trust-soft: rgba(102,184,154,.15);
+  }
+
+  .qb-trust-card--returns {
+    --trust-accent: #ff9aa9;
+    --trust-soft: rgba(255,154,169,.16);
+  }
+
+  .qb-trust-card--details {
+    --trust-accent: #9b86d8;
+    --trust-soft: rgba(155,134,216,.16);
+  }
+
+  .qb-trust-card__icon {
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border: 1px solid rgba(47,31,53,.08);
+    border-radius: 16px;
+    background: var(--trust-soft, rgba(216,169,78,.14));
+    color: var(--qb-plum);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: .08em;
+  }
+
+  .qb-trust-card h3 {
+    color: var(--qb-plum);
+    font-size: 18px;
+  }
+
+  .qb-trust-card p {
+    margin: 10px 0 0;
+    color: #65596b;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .qb-policy-box {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 28px;
+    border: 1px solid rgba(47,31,53,.08);
+    border-radius: 22px;
+    background: rgba(255,255,255,.72);
+    padding: 14px;
+    box-shadow: 0 18px 46px rgba(47,31,53,.08);
+  }
+
+  .qb-policy-box p {
+    position: relative;
+    margin: 0;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,247,249,.82));
+    padding: 18px 18px 18px 22px;
+    color: #5f5266;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .qb-policy-box p::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 18px;
+    bottom: 18px;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--qb-gold), var(--qb-blush));
+  }
+
+  .qb-policy-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .qb-policy-links a {
+    border: 1px solid rgba(47,31,53,.12);
+    border-radius: 999px;
+    background: rgba(255,255,255,.78);
+    padding: 10px 14px;
+    color: var(--qb-plum);
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 8px 22px rgba(47,31,53,.05);
+    transition: .2s ease;
+  }
+
+  .qb-policy-links a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(216,169,78,.5);
+    color: var(--qb-plum);
+    background: #fff;
+  }
+
+  @media (max-width: 1080px) {
+    .qb-category-grid,
+    .qb-product-grid,
+    .qb-trust__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 780px) {
+    .qb-section {
+      padding: 56px 0;
+    }
+
+    .qb-hero__grid,
+    .qb-feature__grid,
+    .qb-gift__grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .qb-hero__grid {
+      padding: 58px 0;
+    }
+
+    .qb-hero__media {
+      min-height: auto;
+    }
+
+    .qb-note {
+      position: static;
+      width: auto;
+      margin-top: 14px;
+    }
+
+    .qb-heading-row {
+      display: block;
+    }
+
+    .qb-heading-row .qb-copy {
+      margin-top: 14px;
+    }
+
+    .qb-category-grid,
+    .qb-product-grid,
+    .qb-trust__grid,
+    .qb-policy-box,
+    .qb-gift-card-grid,
+    .qb-list {
+      grid-template-columns: 1fr;
+    }
+
+    .qb-category-card {
+      min-height: 300px;
+    }
+
+    .qb-actions {
+      flex-direction: column;
+    }
+
+    .qb-button {
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="qb-home">
+  <section class="qb-hero">
+    <div class="qb-wrap qb-hero__grid">
+      <div>
+        <p class="qb-eyebrow"><?php esc_html_e('Modern Bracelets & Giftable Jewelry', 'dawp'); ?></p>
+        <h1 class="qb-title"><?php esc_html_e("Bracelets For Everyday Confidence", 'dawp'); ?></h1>
+        <p class="qb-copy">
+          <?php esc_html_e('Discover elegant and modern bracelets designed for daily styling, meaningful gifts, and personal expression.', 'dawp'); ?>
+        </p>
+
+        <div class="qb-actions">
+          <a class="qb-button" href="<?php echo esc_url($shop_url); ?>">
+            <?php esc_html_e('Shop Bracelets', 'dawp'); ?>
+          </a>
+          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(qb_home_category_url('charm-bracelets')); ?>">
+            <?php esc_html_e('Explore Charm Bracelets', 'dawp'); ?>
+          </a>
         </div>
 
-        <div class="relative">
-          <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/image_banner%231.png'); ?>" alt="Modern streetwear graphic tee outfit" class="aspect-[4/5] w-full rounded-[1.35rem] object-cover" />
-          </div>
-
-          <div class="absolute -bottom-7 -left-4 hidden max-w-[250px] rounded-2xl border border-white/10 bg-white p-5 text-[#111827] shadow-2xl lg:block">
-            <p class="text-xs font-black uppercase tracking-[0.2em] text-[#123D2A]">Built For Daily Wear</p>
-            <p class="mt-2 text-sm leading-6 text-[#6B7280]">Clean graphics. Easy fits. Street-ready comfort.</p>
-          </div>
+        <div class="qb-hero__trust" aria-label="<?php esc_attr_e('Store highlights', 'dawp'); ?>">
+          <span class="qb-pill"><?php esc_html_e('Fresh styles', 'dawp'); ?></span>
+          <span class="qb-pill"><?php esc_html_e('Giftable details', 'dawp'); ?></span>
+          <span class="qb-pill"><?php esc_html_e('Everyday bracelet looks', 'dawp'); ?></span>
         </div>
       </div>
-    </section>
 
-    <!-- Featured Categories -->
-    <section class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Shop By Category</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Streetwear Core</h2>
-          </div>
-          <p class="max-w-xl text-base leading-7 text-[#6B7280]">
-            Focused collections for graphic tees, oversized fits, hoodies, and everyday streetwear essentials.
-          </p>
+      <div class="qb-hero__media">
+        <div class="qb-photo-card">
+          <?php if ($hero_image) : ?>
+            <img src="<?php echo esc_url($hero_image); ?>" alt="<?php esc_attr_e('Elegant bracelet style from Queen\'s Bracelet', 'dawp'); ?>">
+          <?php endif; ?>
         </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/graphic_tee1.png'); ?>" alt="Graphic tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Graphic Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Original tee styles for everyday rotation.</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversize tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Oversize Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Relaxed silhouettes with modern street fit.</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/hoodie%231.png'); ?>" alt="Hoodies collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Hoodies</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Clean layering pieces for casual outfits.</p>
-              </div>
-            </div>
-          </a>
-
-          <a href="<?php echo esc_url(home_url('/product-category/streetwear-essentials/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/banner_image%232.png'); ?>" alt="Streetwear essentials collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Essentials</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Minimal apparel built for easy styling.</p>
-              </div>
-            </div>
-          </a>
+        <div class="qb-note">
+          <strong><?php esc_html_e('Bracelet-focused boutique', 'dawp'); ?></strong>
+          <span><?php esc_html_e('Charm, owl, beaded, chain, and gift-ready bracelet styles for simple everyday elegance.', 'dawp'); ?></span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- New Arrivals -->
-    <section id="new-arrivals" class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Fresh Drops</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">New Arrivals</h2>
-          </div>
+  <section class="qb-section">
+    <div class="qb-wrap">
+      <div class="qb-heading-row">
+        <div>
+          <p class="qb-eyebrow"><?php esc_html_e('Shop By Bracelet Style', 'dawp'); ?></p>
+          <h2 class="qb-title"><?php esc_html_e('Find Your Bracelet Look', 'dawp'); ?></h2>
+        </div>
+        <p class="qb-copy">
+          <?php esc_html_e('Browse clear bracelet categories made for everyday outfits, meaningful details, and thoughtful gifts.', 'dawp'); ?>
+        </p>
+      </div>
 
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden rounded-md border border-[#0B0F0D] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#0B0F0D] hover:text-white sm:inline-flex">
-            View All
+      <div class="qb-category-grid">
+        <?php foreach ($categories as $category) : ?>
+          <?php $category_image = qb_home_asset_image($category['image']) ?: qb_home_category_image($category['query_slugs']); ?>
+          <a class="qb-category-card" href="<?php echo esc_url(qb_home_category_url($category['slug'])); ?>">
+            <?php if ($category_image) : ?>
+              <img src="<?php echo esc_url($category_image); ?>" alt="<?php echo esc_attr($category['title']); ?>">
+            <?php endif; ?>
+            <span class="qb-category-card__body">
+              <h3><?php echo esc_html($category['title']); ?></h3>
+              <p><?php echo esc_html($category['copy']); ?></p>
+            </span>
           </a>
-        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
 
-        <?php
-        $new_arrivals = wc_get_products([
-          'limit'   => 4,
-          'orderby' => 'date',
-          'order'   => 'DESC',
-          'status'  => 'publish',
-        ]);
-        ?>
-
-        <?php if ($new_arrivals) : ?>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <?php foreach ($new_arrivals as $product) :
-            $img_url  = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url  = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
-            $price    = $product->get_price_html();
-            $link     = get_permalink($product->get_id());
-            $name     = $product->get_name();
-          ?>
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
-            </div>
-            <div class="p-4">
-              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
-              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
-              <a href="<?php echo esc_url($link); ?>" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-slickBlack px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">View Product</a>
-            </div>
-          </article>
-          <?php endforeach; ?>
-        </div>
+  <section class="qb-section qb-feature">
+    <div class="qb-wrap qb-feature__grid">
+      <div class="qb-photo-card">
+        <?php $owl_image = qb_home_asset_image('Charm_Owl_Bracelets.png') ?: qb_home_category_image(['owl-bracelets', 'charm-bracelets', 'handmade-bracelets']) ?: $hero_image; ?>
+        <?php if ($owl_image) : ?>
+          <img src="<?php echo esc_url($owl_image); ?>" alt="<?php esc_attr_e('Owl-inspired charm bracelet detail', 'dawp'); ?>">
         <?php endif; ?>
       </div>
-    </section>
 
-    <!-- Lifestyle Banner -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Everyday_street_style.png'); ?>" alt="Urban lifestyle streetwear outfit" class="aspect-[4/3] w-full rounded-2xl object-cover" />
-        </div>
+      <div class="qb-feature__panel">
+        <p class="qb-eyebrow"><?php esc_html_e('Charm & Owl Bracelets', 'dawp'); ?></p>
+        <h2 class="qb-title"><?php esc_html_e('Meaningful details made for everyday expression.', 'dawp'); ?></h2>
+        <p class="qb-copy">
+          <?php esc_html_e("From simple charm bracelets to owl-inspired designs, Queen's Bracelet offers feminine jewelry pieces that feel personal, easy to wear, and thoughtful to gift.", 'dawp'); ?>
+        </p>
 
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Everyday Street Style</p>
-          <h2 class="text-4xl font-black uppercase leading-none tracking-[-0.05em] lg:text-6xl">
-            Apparel That Moves With Your Day.
-          </h2>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/82">
-            Slicktee focuses on clean graphics, relaxed fits, and modern essentials that work from city streets to weekend plans.
-          </p>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-8 inline-flex rounded-md bg-[#22C55E] px-7 py-4 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Shop Now
+        <ul class="qb-list">
+          <li><?php esc_html_e('Owl-inspired charms', 'dawp'); ?></li>
+          <li><?php esc_html_e('Everyday bracelet styles', 'dawp'); ?></li>
+          <li><?php esc_html_e('Giftable designs', 'dawp'); ?></li>
+          <li><?php esc_html_e('Personal expression', 'dawp'); ?></li>
+        </ul>
+
+        <p class="qb-safe-note">
+          <?php esc_html_e('Please review material, bracelet length, clasp type, and care details on each product page before ordering.', 'dawp'); ?>
+        </p>
+
+        <div class="qb-actions">
+          <a class="qb-button" href="<?php echo esc_url(qb_home_category_url('charm-bracelets')); ?>">
+            <?php esc_html_e('Shop Charm Bracelets', 'dawp'); ?>
+          </a>
+          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(qb_home_category_url('owl-bracelets')); ?>">
+            <?php esc_html_e('View Owl Bracelets', 'dawp'); ?>
           </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Graphic Tee Collection -->
-    <section id="graphic-tees" class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Core Collection</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">
-            Graphic Tees Without The Noise
-          </h2>
-          <p class="mt-4 text-base leading-7 text-[#6B7280]">
-            Original apparel-focused designs made for daily wear. No fan merch, no copyright-heavy graphics, no meme spam.
+  <?php if (!empty($featured_products)) : ?>
+    <section class="qb-section qb-products">
+      <div class="qb-wrap">
+        <div class="qb-heading-row">
+          <div>
+            <p class="qb-eyebrow"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
+            <h2 class="qb-title"><?php esc_html_e('Fresh bracelet styles for daily looks and thoughtful gifts.', 'dawp'); ?></h2>
+          </div>
+          <p class="qb-copy">
+            <?php esc_html_e('Browse charm bracelets, beaded styles, chain bracelets, and gift-ready pieces selected for everyday confidence.', 'dawp'); ?>
           </p>
         </div>
 
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div class="rounded-3xl bg-[#123D2A] p-8 text-white lg:col-span-1">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Original Direction</p>
-            <h3 class="mt-4 text-3xl font-black uppercase tracking-[-0.05em]">Clean Graphics</h3>
-            <p class="mt-4 text-white/82">Minimal, wearable tee designs that look sharp without feeling loud.</p>
-            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="mt-7 inline-flex rounded-md bg-[#22C55E] px-6 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Graphic Tees
-            </a>
-          </div>
-
-          <div class="overflow-hidden rounded-3xl bg-[#0B0F0D] lg:col-span-2">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Original_direction.png'); ?>" alt="Graphic tee collection banner" class="h-full min-h-[360px] w-full object-cover opacity-90" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Oversized + Hoodies -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversize tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Relaxed Fit</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversize Tees</h3>
-            <p class="mt-3 text-white/82">Built for layering, movement, and clean streetwear silhouettes.</p>
-          </div>
-        </a>
-
-        <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/casoul_hoodie.png'); ?>" alt="Casual hoodie streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Layer Ready</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Casual Hoodies</h3>
-            <p class="mt-3 text-white/82">Simple hoodie essentials with modern streetwear energy.</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Brand Values -->
-    <section class="bg-[#123D2A] py-16 text-white lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Brand Philosophy</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">
-            Built Like A Real Apparel Brand
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">01</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Comfortable Everyday Fits</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Soft apparel made for repeat wear.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">02</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Clean Modern Styling</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Minimal streetwear without visual clutter.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">03</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Original Graphic Apparel</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Brand-led graphics, not copied fan merch.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">04</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Secure Online Shopping</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Clear policies, support, and checkout trust.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Best Sellers -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Customer Picks</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Best Sellers</h2>
-        </div>
-
-        <?php
-        $best_sellers = wc_get_products([
-          'limit'   => 4,
-          'orderby' => 'date',
-          'order'   => 'ASC',
-          'status'  => 'publish',
-        ]);
-        ?>
-
-        <?php if ($best_sellers) : ?>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <?php foreach ($best_sellers as $product) :
-            $img_url = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
-            $price   = $product->get_price_html();
-            $link    = get_permalink($product->get_id());
-            $name    = $product->get_name();
-          ?>
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
-            </a>
-            <div class="p-4">
-              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
-              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
-            </div>
-          </article>
+        <div class="qb-product-grid">
+          <?php foreach ($featured_products as $product) : ?>
+            <?php
+            $product_image = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
+            $product_image = $product_image ?: (function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('woocommerce_thumbnail') : '');
+            ?>
+            <article class="qb-product-card">
+              <a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
+                <?php if ($product_image) : ?>
+                  <img src="<?php echo esc_url($product_image); ?>" alt="<?php echo esc_attr($product->get_name()); ?>">
+                <?php endif; ?>
+              </a>
+              <div class="qb-product-card__body">
+                <h3><?php echo esc_html($product->get_name()); ?></h3>
+                <p class="qb-product-card__meta"><?php esc_html_e('Review material, size, and care details before ordering.', 'dawp'); ?></p>
+                <div class="qb-product-card__price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
+                <a class="qb-product-card__link" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
+                  <?php esc_html_e('View Product', 'dawp'); ?>
+                </a>
+              </div>
+            </article>
           <?php endforeach; ?>
         </div>
-        <?php endif; ?>
       </div>
     </section>
+  <?php endif; ?>
 
-    <!-- Newsletter -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Stay Connected</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">Stay Updated On New Drops</h2>
-          <p class="mt-4 max-w-xl text-white/80">
-            Get updates on new graphic tees, oversized fits, hoodie releases, and clean streetwear essentials.
-          </p>
+  <section class="qb-section qb-gift">
+    <div class="qb-wrap qb-gift__grid">
+      <div>
+        <p class="qb-eyebrow"><?php esc_html_e('Giftable Jewelry', 'dawp'); ?></p>
+        <h2 class="qb-title"><?php esc_html_e('Small pieces with thoughtful meaning.', 'dawp'); ?></h2>
+        <p class="qb-copy">
+          <?php esc_html_e("Whether you are choosing a bracelet for yourself or someone special, Queen's Bracelet brings together easy-to-wear styles that feel personal, polished, and gift-ready.", 'dawp'); ?>
+        </p>
+
+        <div class="qb-gift-card-grid">
+          <div class="qb-gift-card">
+            <h3><?php esc_html_e('Birthday Gifts', 'dawp'); ?></h3>
+            <p><?php esc_html_e('Elegant bracelet styles for personal, easy-to-wear birthday moments.', 'dawp'); ?></p>
+          </div>
+          <div class="qb-gift-card">
+            <h3><?php esc_html_e('Holiday Gifts', 'dawp'); ?></h3>
+            <p><?php esc_html_e('Giftable pieces for festive outfits and thoughtful seasonal giving.', 'dawp'); ?></p>
+          </div>
+          <div class="qb-gift-card">
+            <h3><?php esc_html_e('Everyday Reminders', 'dawp'); ?></h3>
+            <p><?php esc_html_e('Simple charm details for daily style and personal expression.', 'dawp'); ?></p>
+          </div>
         </div>
 
-        <form class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row" action="#" method="post">
-          <label for="slicktee-email" class="sr-only">Email address</label>
-          <input id="slicktee-email" type="email" name="email" placeholder="Enter your email" class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-[#111827] placeholder:text-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#A3E635]" />
-          <button type="submit" class="min-h-12 rounded-md bg-[#22C55E] px-6 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Join
-          </button>
-        </form>
+        <div class="qb-actions">
+          <a class="qb-button" href="<?php echo esc_url(qb_home_category_url('gift-bracelets')); ?>">
+            <?php esc_html_e('Explore Gift Bracelets', 'dawp'); ?>
+          </a>
+        </div>
       </div>
-    </section>
+
+      <div class="qb-photo-card">
+        <?php $gift_image = qb_home_asset_image('Giftable_Jewelry.png') ?: qb_home_category_image(['gift-bracelets', 'artisan-gifts']) ?: $hero_image; ?>
+        <?php if ($gift_image) : ?>
+          <img src="<?php echo esc_url($gift_image); ?>" alt="<?php esc_attr_e('Giftable bracelet style', 'dawp'); ?>">
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="qb-section qb-trust">
+    <div class="qb-wrap">
+      <p class="qb-eyebrow"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
+      <h2 class="qb-title"><?php esc_html_e('Clear support from checkout to delivery.', 'dawp'); ?></h2>
+      <p class="qb-copy">
+        <?php esc_html_e('Shop bracelet styles with clear product details, order tracking, and customer support when you need help.', 'dawp'); ?>
+      </p>
+
+      <div class="qb-trust__grid">
+        <div class="qb-trust-card qb-trust-card--secure">
+          <span class="qb-trust-card__icon" aria-hidden="true">SSL</span>
+          <h3><?php esc_html_e('Secure Checkout', 'dawp'); ?></h3>
+          <p><?php esc_html_e('A clear shopping flow with protected order and payment details.', 'dawp'); ?></p>
+        </div>
+        <div class="qb-trust-card qb-trust-card--tracking">
+          <span class="qb-trust-card__icon" aria-hidden="true">TRK</span>
+          <h3><?php esc_html_e('Tracking Included', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Tracking information is provided once an order ships.', 'dawp'); ?></p>
+        </div>
+        <div class="qb-trust-card qb-trust-card--returns">
+          <span class="qb-trust-card__icon" aria-hidden="true">30</span>
+          <h3><?php esc_html_e('30-Day Returns', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Eligible unused, unworn, and undamaged jewelry items may be returned within 30 days of delivery.', 'dawp'); ?></p>
+        </div>
+        <div class="qb-trust-card qb-trust-card--details">
+          <span class="qb-trust-card__icon" aria-hidden="true">FIT</span>
+          <h3><?php esc_html_e('Material & Size Details', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Product pages should include bracelet length, finish, clasp details, and care instructions.', 'dawp'); ?></p>
+        </div>
+      </div>
+
+      <div class="qb-policy-box">
+        <p><?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Eligible jewelry returns should be unused, unworn, undamaged, and in original condition with packaging where applicable.', 'dawp'); ?></p>
+        <p><?php esc_html_e('For order support, contact support@queens-bracelet.com during Monday-Friday business hours, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
+      </div>
+
+      <div class="qb-actions">
+        <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>">
+          <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+        </a>
+        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>">
+          <?php esc_html_e('Contact Support', 'dawp'); ?>
+        </a>
+      </div>
+
+      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Store policy links', 'dawp'); ?>">
+        <a href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Us', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms of Service', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+      </nav>
+    </div>
+  </section>
+</div>

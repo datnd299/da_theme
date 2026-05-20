@@ -1,502 +1,548 @@
+# Queen's Bracelet — Home Plan
 
----
+## Homepage Goal
 
-## 3. `home_plan.md`
+Build a professional, fresh, and feminine bracelet boutique homepage focused on charm bracelets, owl bracelets, beaded bracelets, chain bracelets, and giftable jewelry.
 
-```md
-# Slicktee Home Plan
+Main homepage message:
 
-## Homepage Objective
+```txt
+Bracelets For Everyday Confidence
+```
 
-The homepage should immediately communicate:
+The homepage must show clearly that Queen's Bracelet is:
 
-- youthful streetwear identity
-- graphic tee specialization
-- clean apparel branding
-- energetic green-based visual system
-- authentic ecommerce experience
-- GMC-safe merchant trust
+* A bracelet-focused jewelry boutique
+* Feminine, modern, fresh, and giftable
+* Focused on everyday bracelet styles and meaningful charm designs
+* Professional enough for GMC with clear categories, product details, customer care, and policy trust
 
-The storefront should feel like:
-
-“A real modern apparel brand focused on graphic tees, oversized tees, hoodies, and everyday streetwear essentials.”
-
-Avoid:
-- POD spam feeling
-- random marketplace layouts
-- overcrowded homepage sections
-- excessive promo messaging
-- pastel boutique styling
+Avoid making the homepage feel like a fake luxury jewelry store, random accessories marketplace, or designer-dupe shop.
 
 ---
 
 # Homepage Structure
 
-## 1. Hero Section
+Use 5 professional sections:
 
-### Purpose
+```txt
+1. Hero
+2. Shop By Bracelet Style
+3. Charm & Owl Bracelets Feature
+4. Giftable Jewelry For Her
+5. Customer Care / Trust
+```
 
-Establish brand identity instantly.
+Optional add-on:
 
-### Layout
+```txt
+New Arrivals / Best Sellers Product Grid
+```
 
-- Full-width clean hero
-- Dark green or black background
-- Large lifestyle streetwear image
-- Strong bold headline
-- Minimal supporting text
-- 1–2 CTA buttons
+This can be inserted after Section 3 if needed.
 
-### Content Direction
+---
 
-Headline examples:
-- Clean Fits. Bold Energy.
-- Graphic Apparel Made Simple
-- Streetwear For Everyday Motion
-- Modern Tees For Daily Rotation
+# Section 1 — Hero
 
-### CTA
+## Purpose
 
-Primary:
-- Shop New Arrivals
+Introduce Queen's Bracelet as a fresh, modern bracelet boutique for everyday confidence, meaningful gifts, and personal expression.
 
-Secondary:
-- Explore Graphic Tees
+## Content
 
-### Visual Direction
+Eyebrow:
+
+```txt
+Modern Bracelets & Giftable Jewelry
+```
+
+Headline:
+
+```txt
+Bracelets For Everyday Confidence
+```
+
+Subheadline:
+
+```txt
+Discover elegant and modern bracelets designed for daily styling, meaningful gifts, and personal expression.
+```
+
+Primary CTA:
+
+```txt
+Shop Bracelets
+```
+
+Secondary CTA:
+
+```txt
+Explore Charm Bracelets
+```
+
+Small trust line:
+
+```txt
+Fresh styles. Giftable details. Everyday bracelet looks.
+```
+
+## Image Direction
+
+Use a bright feminine jewelry lifestyle image:
+
+* Bracelet on wrist lifestyle shot
+* Bracelet on jewelry tray
+* Soft satin or linen background
+* Pastel accents: blush, peach, lavender, soft mint
+* Champagne gold details
+* Natural daylight
+* No fake designer logos
+* No text inside image
+* No heavy luxury diamond styling
+
+## Design Notes
+
+* Background: Clean White or soft Fresh Blush / Peach Glow gradient
+* Heading: Deep Plum `#2F1F35`
+* CTA: Deep Plum button with white text
+* Accent: Champagne Gold / Fresh Blush
+* Layout: 2-column hero, text left and visual right
+* Mobile: image above or below text, CTAs stacked if needed
+
+---
+
+# Section 2 — Shop By Bracelet Style
+
+## Purpose
+
+Show the main bracelet categories clearly and keep the store focused.
+
+This section helps customers quickly understand the product structure and improves trust/GMC clarity.
+
+## Categories
+
+```txt
+Charm Bracelets
+Owl Bracelets
+Beaded Bracelets
+Chain Bracelets
+Gift Bracelets
+```
+
+## Category Card Copy
+
+### Charm Bracelets
+
+```txt
+Meaningful charm styles for personal expression and daily wear.
+```
+
+### Owl Bracelets
+
+```txt
+Owl-inspired designs with a thoughtful, symbolic charm look.
+```
+
+### Beaded Bracelets
+
+```txt
+Easy-to-layer beaded styles for casual elegance.
+```
+
+### Chain Bracelets
+
+```txt
+Polished gold-tone and silver-tone styles for everyday outfits.
+```
+
+### Gift Bracelets
+
+```txt
+Thoughtful bracelet styles made for birthdays, holidays, and special moments.
+```
+
+## Image Direction
+
+Each card should show a clear bracelet product image:
+
+* Charm Bracelets: close-up charm bracelet on tray
+* Owl Bracelets: owl charm close-up
+* Beaded Bracelets: flat lay or stacked wrist look
+* Chain Bracelets: clean polished bracelet on satin/linen
+* Gift Bracelets: bracelet in gift box or packaging
+
+## Design Notes
+
+* Use image-heavy cards
+* Rounded corners 18–24px
+* White card background
+* Soft pastel hover effect
+* Keep text short
+* No fake reviews or discount badges
+
+---
+
+# Section 3 — Charm & Owl Bracelets Feature
+
+## Purpose
+
+Feature the strongest historical/social footprint: charm bracelets and owl bracelet designs.
+
+This section should create a clear brand identity and make Queen's Bracelet feel unique.
+
+## Content
+
+Eyebrow:
+
+```txt
+Charm & Owl Bracelets
+```
+
+Headline:
+
+```txt
+Meaningful details made for everyday expression.
+```
+
+Paragraph:
+
+```txt
+From simple charm bracelets to owl-inspired designs, Queen's Bracelet offers feminine jewelry pieces that feel personal, easy to wear, and thoughtful to gift.
+```
+
+Highlights:
+
+```txt
+Owl-inspired charms
+Everyday bracelet styles
+Giftable designs
+Personal expression
+```
+
+Primary CTA:
+
+```txt
+Shop Charm Bracelets
+```
+
+Secondary CTA:
+
+```txt
+View Owl Bracelets
+```
+
+## Image Direction
+
+Use editorial bracelet close-up imagery:
+
+* Owl charm bracelet close-up
+* Bracelet on wrist with soft daylight
+* Jewelry tray with pastel background
+* Charm details clearly visible
+* No fake luxury logos
+* No Pandora/Cartier/Tiffany resemblance claims
+
+## Design Notes
+
+* Background: Soft Gray or Lavender Mist light section
+* Layout: large image left, text card right
+* Accent icons can use Champagne Gold
+* Include safe product note if needed:
+
+```txt
+Please review material, bracelet length, and care details on each product page before ordering.
+```
+
+---
+
+# Optional Section — New Arrivals / Best Sellers
+
+## Purpose
+
+Add ecommerce strength and show real product availability.
+
+Recommended if the homepage needs stronger conversion intent.
+
+## Content
+
+Eyebrow:
+
+```txt
+New Arrivals
+```
+
+Headline:
+
+```txt
+Fresh bracelet styles for daily looks and thoughtful gifts.
+```
+
+Subtext:
+
+```txt
+Browse charm bracelets, beaded styles, chain bracelets, and gift-ready pieces selected for everyday confidence.
+```
+
+Product grid:
+
+* Desktop: 4 products
+* Mobile: 2 products per row if readable
+
+Product card should show:
+
+```txt
+Product image
+Product title
+Material / finish note
+Price
+CTA
+```
+
+Avoid:
+
+* Fake reviews
+* Countdown timers
+* Excessive sale badges
+* Fake luxury badges
+
+---
+
+# Section 4 — Giftable Jewelry For Her
+
+## Purpose
+
+Position bracelets as thoughtful gifts, which fits the niche and improves purchase intent.
+
+This section should feel feminine, warm, and professional.
+
+## Content
+
+Eyebrow:
+
+```txt
+Giftable Jewelry
+```
+
+Headline:
+
+```txt
+Small pieces with thoughtful meaning.
+```
+
+Paragraph:
+
+```txt
+Whether you are choosing a bracelet for yourself or someone special, Queen's Bracelet brings together easy-to-wear styles that feel personal, polished, and gift-ready.
+```
+
+Gift moments:
+
+```txt
+Birthday gifts
+Holiday gifts
+Friendship bracelets
+Everyday reminders
+Simple personal treats
+```
+
+CTA:
+
+```txt
+Explore Gift Bracelets
+```
+
+## Image Direction
+
+* Bracelet in gift box
+* Jewelry pouch or soft packaging
+* Wrist lifestyle shot with gift mood
+* Gold-tone bracelet on blush/cream satin
+* Soft daylight
+* No fake luxury packaging or brand logos
+
+## Design Notes
+
+* Background: Peach Glow / Fresh Blush very light
+* Use 3 small gift-moment cards
+* Add warm but not overly emotional copy
+* Keep it elegant and clean
+
+---
+
+# Section 5 — Customer Care / Trust
+
+## Purpose
+
+Build trust for GMC and make the store feel professional.
+
+This section should answer practical concerns: shipping, returns, support, material details, bracelet size, and care.
+
+## Content
+
+Eyebrow:
+
+```txt
+Customer Care
+```
+
+Headline:
+
+```txt
+Clear support from checkout to delivery.
+```
+
+Short paragraph:
+
+```txt
+Shop bracelet styles with clear product details, order tracking, and customer support when you need help.
+```
+
+Trust cards:
+
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Material & Size Details
+```
+
+Shipping note:
+
+```txt
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+```
+
+Return note:
+
+```txt
+Eligible unused, unworn, and undamaged jewelry items may be returned within 30 days of delivery in original condition.
+```
+
+Product detail note:
+
+```txt
+Please review bracelet length, material or finish, clasp type, and care instructions before placing an order.
+```
+
+Primary CTA:
+
+```txt
+View Shipping & Returns
+```
+
+Secondary CTA:
+
+```txt
+Contact Support
+```
+
+## Design Notes
+
+* Background: Deep Plum `#2F1F35`
+* Text: White
+* Accent: Champagne Gold / Fresh Blush
+* Trust cards can use white/10 background or white cards depending layout
+* Keep policy copy clear and concise
+
+---
+
+# Homepage Image List
+
+Needed images:
+
+1. Hero image: bracelet lifestyle / jewelry tray / wrist shot
+2. Category image: Charm Bracelets
+3. Category image: Owl Bracelets
+4. Category image: Beaded Bracelets
+5. Category image: Chain Bracelets
+6. Category image: Gift Bracelets
+7. Feature image: owl charm bracelet close-up
+8. Gift section image: bracelet in gift box or soft packaging
+9. Optional product grid images
+10. Optional customer care / packaging image
+
+Image rules:
+
+* No text inside image
+* No fake designer logos
+* No luxury replica mood
+* No healing/medical crystal visuals
+* No supplier collage
+* Bracelet must be clearly visible
+* Use bright, fresh, feminine photography
+
+---
+
+# Copy Rules
 
 Use:
-- urban lifestyle photography
-- oversized tee styling
-- green / black / white palette
-- authentic streetwear poses
-- high contrast text
+
+```txt
+elegant
+modern
+charm bracelet
+everyday style
+giftable
+personal expression
+gold-tone
+silver-tone
+bracelet style
+thoughtful gift
+fresh styles
+```
 
 Avoid:
-- heavy graphic clutter
-- AI-looking visuals
-- crowded collages
-- low contrast text
+
+```txt
+Cartier inspired
+Pandora dupe
+Tiffany style
+luxury replica
+designer inspired
+real gold unless verified
+genuine gemstone unless verified
+healing guaranteed
+medical benefits
+```
 
 ---
 
-# 2. Featured Categories
+# Professional Website Requirements
 
-### Purpose
+Homepage should include or link to:
 
-Quickly establish product hierarchy.
+```txt
+About Us
+Contact Us
+Shipping Policy
+Return & Refund Policy
+Privacy Policy
+Terms of Service
+FAQ
+Track Order
+```
 
-### Layout
+Product pages should include:
 
-3–4 category blocks.
-
-### Categories
-
-- Graphic Tees
-- Oversized Tees
-- Hoodies
-- Streetwear Essentials
-
-### Visual Style
-
-- large clean imagery
-- minimal overlays
-- modern typography
-- high contrast cards
-- soft hover effects
-
----
-
-# 3. New Arrivals
-
-### Purpose
-
-Present fresh apparel immediately.
-
-### Layout
-
-- 4–8 featured products
-- clean product cards
-- balanced spacing
-- 2 columns on mobile
-- 4 columns on desktop
-
-### Product Card Rules
-
-Include:
-- image
-- title
-- price
-- simple CTA
-
-Avoid:
-- excessive labels
-- countdowns
-- cluttered badges
-- fake urgency
+```txt
+Material or finish
+Bracelet length / adjustable details
+Clasp type if available
+Charm details
+Care instructions
+Shipping note
+Return eligibility
+```
 
 ---
 
-# 4. Lifestyle Banner Section
-
-### Purpose
-
-Reinforce brand personality.
-
-### Layout
-
-Split layout:
-- large urban lifestyle image
-- short editorial-style text
-
-### Messaging
-
-Focus on:
-- comfort
-- confidence
-- modern styling
-- casual everyday wear
-- movement and daily use
-
-### Visual Direction
-
-Use:
-- city environments
-- neutral architecture
-- relaxed poses
-- oversized silhouettes
-- black/green high contrast section
-
----
-
-# 5. Graphic Tee Collection
-
-### Purpose
-
-Core conversion section.
-
-### Layout
-
-Grid-based apparel showcase or image + copy split.
-
-### Direction
-
-Products should feel:
-- curated
-- wearable
-- original
-- minimal
-- modern
-
-Messaging should avoid:
-- meme overload
-- copyrighted graphics
-- novelty spam
-- offensive humor
-
----
-
-# 6. Oversized Streetwear Section
-
-### Purpose
-
-Support modern streetwear positioning.
-
-### Content Direction
-
-Highlight:
-- relaxed fits
-- washed apparel
-- layering
-- neutral tones
-- effortless styling
-
-### Visual Style
-
-Use:
-- oversized silhouettes
-- urban photography
-- concrete backgrounds
-- clean studio textures
-- confident poses
-
----
-
-# 7. Hoodie Collection
-
-### Purpose
-
-Expand apparel depth.
-
-### Visual Direction
-
-- cozy urban lifestyle
-- minimal layering
-- clean modern photography
-- dark or green section background
-
-Avoid:
-- athletic branding vibe
-- sportswear-heavy layouts
-- loud gym aesthetic
-
----
-
-# 8. Brand Philosophy Section
-
-### Purpose
-
-Improve merchant authenticity.
-
-### Layout
-
-Simple icon/text grid.
-
-### Topics
-
-- Comfortable Everyday Fits
-- Clean Modern Styling
-- Original Graphic Apparel
-- Secure Online Shopping
-
-### Tone
-
-- short
-- confident
-- apparel-focused
-- youth-friendly
-
-Avoid:
-- fake emotional storytelling
-- corporate paragraphs
-- generic AI brand text
-
----
-
-# 9. Best Sellers
-
-### Purpose
-
-Build trust and natural product discovery.
-
-### Layout
-
-Clean product carousel or grid.
-
-### Rules
-
-Use:
-- apparel-focused presentation
-- balanced spacing
-- realistic pricing
-- clean card structure
-
-Avoid:
-- “viral” wording
-- fake urgency
-- aggressive discounting
-- fake reviews
-
----
-
-# 10. Social / Lifestyle Section
-
-### Purpose
-
-Create authentic fashion atmosphere.
-
-### Content
-
-- lifestyle apparel imagery
-- real-world styling inspiration
-- modern casual looks
-- streetwear fit inspiration
-
-### Visual Tone
-
-Should feel:
-- urban
-- relaxed
-- young
-- modern
-- authentic
-
-Avoid:
-- influencer overload
-- luxury fashion editorials
-- overly polished AI images
-
----
-
-# 11. Newsletter Section
-
-### Purpose
-
-Capture returning customers cleanly.
-
-### Layout
-
-Minimal:
-- short headline
-- email field
-- single CTA
-
-### Tone
-
-Examples:
-- Stay Updated On New Drops
-- Join The Slicktee Community
-- Get New Fits First
-
-Avoid:
-- spam discount messaging
-- popup-like design
-- aggressive email capture
-
----
-
-# Footer Structure
-
-## Include
-
-- Shop Links
-- Policies
-- Contact
-- Support Email
-- Social Icons
-
-## Footer Tone
-
-- dark
-- minimal
-- clean
-- high contrast
-
-Recommended:
-- black or deep green background
-- white text
-- green/lime accent
-
-Avoid:
-- cluttered columns
-- oversized legal text
-- low contrast links
-
----
-
-# Homepage Visual Rules
-
-## Color Direction
-
-Primary:
-- black
-- deep green
-- active green
-- white
-
-Accent:
-- lime energy
-- cool gray
-- soft white
-
-Avoid:
-- pink pastel
-- soft feminine boutique palette
-- neon overload
-- low contrast muted layouts
-
----
-
-# Typography Direction
-
-Typography should feel:
-- bold
-- modern
-- energetic
-- fashion-oriented
-- clean
-
-Use:
-- large headlines
-- uppercase headings
-- minimal paragraphs
-- strong spacing
-- clear CTAs
-
-Avoid:
-- decorative fonts
-- playful typography
-- futuristic gaming fonts
-- luxury serif tone
-
----
-
-# Image Direction
-
-## Photography Style
-
-Use:
-- realistic apparel photography
-- modern urban lifestyle
-- neutral lighting
-- clean compositions
-- streetwear poses
-
-Preferred environments:
-- city streets
-- modern interiors
-- concrete textures
-- minimal studio setups
-- outdoor urban corners
-
-Avoid:
-- fantasy visuals
-- overprocessed AI images
-- random mockups
-- fake celebrity styling
-- copyright graphics
-
----
-
-# Mobile UX Rules
-
-Homepage must:
-- scroll smoothly
-- load quickly
-- maintain spacing
-- prioritize product imagery
-- support easy thumb navigation
-- show strong contrast on mobile
-
-Avoid:
-- giant banners that hide content
-- cluttered product grids
-- tiny tap targets
-- unreadable text overlays
-
----
-
-# GMC Compliance Direction
-
-Homepage must clearly show:
-- apparel specialization
-- authentic branding
-- clean ecommerce behavior
-- transparent merchant structure
-- original product direction
-
-Avoid:
-- random products
-- excessive sales messaging
-- copyright-heavy designs
-- fake scarcity tactics
-- fake reviews
-- offensive graphic content
-
----
-
-# Strategic Goal
+# Final Homepage Feeling
 
 The homepage should feel like:
 
-“A youthful modern streetwear and graphic apparel brand with energetic green-based visuals, clean merchandising, strong contrast, and trustworthy ecommerce presentation.”
+```txt
+A fresh, modern, feminine bracelet boutique offering charm bracelets, owl bracelets, beaded styles, chain bracelets, and giftable jewelry for everyday confidence.
+```
+
+It must be bright, youthful, elegant, focused, trustworthy, professional, and GMC-safe.

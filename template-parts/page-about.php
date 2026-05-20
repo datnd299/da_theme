@@ -1,381 +1,543 @@
 <?php
 /**
- * Template Name: About Us
- * Template Part: page-about-us
+ * Template Part: page-about
+ *
+ * @package dawp
  */
 
-get_header();
+if (!function_exists('qb_about_category_url')) {
+    function qb_about_category_url($slug) {
+        if (taxonomy_exists('product_cat')) {
+            $term = get_term_by('slug', $slug, 'product_cat');
+            if ($term && !is_wp_error($term)) {
+                $link = get_term_link($term);
+                if (!is_wp_error($link)) {
+                    return $link;
+                }
+            }
+        }
+
+        return home_url('/product-category/' . trailingslashit($slug));
+    }
+}
+
+if (!function_exists('qb_about_image')) {
+    function qb_about_image($category_slug = '') {
+        if (function_exists('wc_get_products')) {
+            $args = [
+                'limit'  => 1,
+                'status' => 'publish',
+            ];
+
+            if ($category_slug) {
+                $args['category'] = [$category_slug];
+            }
+
+            $products = wc_get_products($args);
+            if (!empty($products)) {
+                $image = wp_get_attachment_image_url($products[0]->get_image_id(), 'large');
+                if ($image) {
+                    return $image;
+                }
+            }
+        }
+
+        return function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('large') : '';
+    }
+}
+
+$shop_url = home_url('/shop/');
+$hero_image = get_template_directory_uri() . '/assets/images/home/image_about.png';
+$owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two.png';
 ?>
 
-<main id="primary" class="bg-white text-slickText font-body">
+<style>
+  .qb-page {
+    --qb-blush: #ffb7c5;
+    --qb-peach: #ffd6a5;
+    --qb-lavender: #d8c7ff;
+    --qb-mint: #cff5e7;
+    --qb-gold: #d8a94e;
+    --qb-plum: #2f1f35;
+    --qb-gray: #f7f7fa;
+    --qb-text: #4f4355;
+    --qb-border: #eadfe8;
+    background: #fff;
+    color: var(--qb-text);
+    font-family: "DM Sans", "Inter", system-ui, sans-serif;
+  }
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slickBlack text-white">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-        <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-slickActive/20 blur-3xl"></div>
-        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-slickLime/10 blur-3xl"></div>
+  .qb-page * {
+    box-sizing: border-box;
+  }
 
-        <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
-            <div class="max-w-3xl">
-                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-slickLime">
-                    <?php esc_html_e('About Slicktee', 'dawp'); ?>
-                </p>
+  .qb-page a {
+    text-decoration: none;
+  }
 
-                <h1 class="font-heading text-5xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Clean Apparel For Daily Rotation.', 'dawp'); ?>
-                </h1>
+  .qb-wrap {
+    width: min(100% - 32px, 1280px);
+    margin-inline: auto;
+  }
 
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-                    <?php esc_html_e('Slicktee is a modern streetwear apparel brand built around graphic tees, oversized silhouettes, casual hoodies, and everyday essentials made for clean, confident styling.', 'dawp'); ?>
-                </p>
+  .qb-section {
+    padding: 72px 0;
+  }
 
-                <div class="mt-9 flex flex-wrap gap-4">
-                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-7 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                        <?php esc_html_e('Shop The Collection', 'dawp'); ?>
-                    </a>
+  .qb-eyebrow {
+    margin: 0 0 12px;
+    color: var(--qb-gold);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+  }
 
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                        <?php esc_html_e('Contact Us', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
+  .qb-title {
+    margin: 0;
+    color: var(--qb-plum);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 4.2vw, 58px);
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
 
-            <div class="relative">
-                <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/About_image.png'); ?>"
-                         alt="<?php esc_attr_e('Slicktee modern streetwear apparel style', 'dawp'); ?>"
-                         class="aspect-[4/5] w-full rounded-[1.35rem] object-cover">
-                </div>
+  .qb-copy {
+    margin: 18px 0 0;
+    max-width: 680px;
+    color: var(--qb-text);
+    font-size: 17px;
+    line-height: 1.75;
+  }
 
-                <div class="absolute -bottom-7 -left-4 hidden max-w-[260px] rounded-2xl border border-white/10 bg-white p-5 text-slickText shadow-2xl lg:block">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-slickGreen">
-                        <?php esc_html_e('Apparel First', 'dawp'); ?>
-                    </p>
-                    <p class="mt-2 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Graphic tees, relaxed fits, and essentials designed for everyday wear.', 'dawp'); ?>
-                    </p>
-                </div>
-            </div>
+  .qb-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .qb-button {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--qb-plum);
+    border-radius: 999px;
+    background: var(--qb-plum);
+    color: #fff;
+    padding: 0 24px;
+    font-size: 14px;
+    font-weight: 800;
+    transition: .2s ease;
+  }
+
+  .qb-button:hover {
+    border-color: var(--qb-gold);
+    background: var(--qb-gold);
+    color: var(--qb-plum);
+  }
+
+  .qb-button--secondary {
+    background: #fff;
+    color: var(--qb-plum);
+  }
+
+  .qb-button--secondary:hover {
+    border-color: var(--qb-plum);
+    background: #fff4f6;
+    color: var(--qb-plum);
+  }
+
+  .qb-plum .qb-button {
+    border-color: var(--qb-gold);
+    background: var(--qb-gold);
+    color: var(--qb-plum);
+  }
+
+  .qb-plum .qb-button:hover {
+    border-color: #fff;
+    background: #fff;
+    color: var(--qb-plum);
+  }
+
+  .qb-plum .qb-button--secondary {
+    border-color: rgba(255,255,255,.7);
+    background: #fff;
+    color: var(--qb-plum);
+  }
+
+  .qb-hero {
+    overflow: hidden;
+    background:
+      linear-gradient(135deg, rgba(255,183,197,.35), rgba(255,214,165,.38) 48%, rgba(207,245,231,.4)),
+      #fff;
+  }
+
+  .qb-hero__grid,
+  .qb-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(320px, .98fr);
+    gap: 48px;
+    align-items: center;
+  }
+
+  .qb-hero__grid {
+    padding: 78px 0;
+  }
+
+  .qb-photo {
+    overflow: hidden;
+    border: 10px solid rgba(255,255,255,.72);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 24px 70px rgba(47,31,53,.16);
+  }
+
+  .qb-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  .qb-pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .qb-pill {
+    border: 1px solid rgba(47,31,53,.12);
+    border-radius: 999px;
+    background: rgba(255,255,255,.72);
+    padding: 9px 14px;
+    color: var(--qb-plum);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .qb-soft {
+    background: var(--qb-gray);
+  }
+
+  .qb-plum {
+    background: var(--qb-plum);
+    color: #fff;
+  }
+
+  .qb-plum .qb-title,
+  .qb-plum .qb-copy {
+    color: #fff;
+  }
+
+  .qb-heading-row {
+    display: flex;
+    gap: 24px;
+    align-items: end;
+    justify-content: space-between;
+    margin-bottom: 34px;
+  }
+
+  .qb-heading-row .qb-copy {
+    margin-top: 0;
+    max-width: 540px;
+  }
+
+  .qb-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .qb-card,
+  .qb-care-card {
+    border: 1px solid var(--qb-border);
+    border-radius: 18px;
+    background: #fff;
+    padding: 22px;
+    box-shadow: 0 12px 32px rgba(47,31,53,.06);
+  }
+
+  .qb-card h3,
+  .qb-care-card h3 {
+    margin: 0;
+    color: var(--qb-plum);
+    font-size: 19px;
+    line-height: 1.25;
+  }
+
+  .qb-card p,
+  .qb-care-card p {
+    margin: 10px 0 0;
+    color: #675a6c;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .qb-list {
+    display: grid;
+    gap: 12px;
+    margin: 26px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .qb-list li {
+    border: 1px solid rgba(216,169,78,.22);
+    border-radius: 16px;
+    background: rgba(255,255,255,.82);
+    padding: 14px 16px;
+    color: var(--qb-plum);
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .qb-care-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .qb-policy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 34px;
+  }
+
+  .qb-policy-grid p {
+    margin: 0;
+    border-radius: 18px;
+    background: rgba(255,255,255,.1);
+    padding: 18px;
+    color: rgba(255,255,255,.8);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .qb-policy-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .qb-policy-links a {
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 999px;
+    padding: 10px 14px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .qb-policy-links a:hover {
+    border-color: var(--qb-gold);
+    color: var(--qb-peach);
+  }
+
+  @media (max-width: 1080px) {
+    .qb-card-grid,
+    .qb-care-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 780px) {
+    .qb-section {
+      padding: 56px 0;
+    }
+
+    .qb-hero__grid,
+    .qb-split {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .qb-hero__grid {
+      padding: 58px 0;
+    }
+
+    .qb-heading-row {
+      display: block;
+    }
+
+    .qb-heading-row .qb-copy {
+      margin-top: 14px;
+    }
+
+    .qb-card-grid,
+    .qb-care-grid,
+    .qb-policy-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .qb-actions {
+      flex-direction: column;
+    }
+
+    .qb-button {
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="qb-page qb-about">
+  <section class="qb-hero">
+    <div class="qb-wrap qb-hero__grid">
+      <div>
+        <p class="qb-eyebrow"><?php esc_html_e("About Queen's Bracelet", 'dawp'); ?></p>
+        <h1 class="qb-title"><?php esc_html_e('A Bracelet Boutique For Everyday Confidence.', 'dawp'); ?></h1>
+        <p class="qb-copy">
+          <?php esc_html_e("Queen's Bracelet is a bracelet-focused fashion jewelry boutique offering elegant, modern, and giftable bracelet styles for daily wear, meaningful details, and personal expression.", 'dawp'); ?>
+        </p>
+        <div class="qb-actions">
+          <a class="qb-button" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Bracelets', 'dawp'); ?></a>
+          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
         </div>
-    </section>
-
-    <!-- Brand Intro -->
-    <section class="bg-slickSoft py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                    <?php esc_html_e('Who We Are', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em] text-slickText lg:text-6xl">
-                    <?php esc_html_e('A modern graphic apparel brand without the noise.', 'dawp'); ?>
-                </h2>
-            </div>
-
-            <div class="space-y-5 text-base leading-8 text-slickMuted">
-                <p>
-                    <?php esc_html_e('Slicktee was built for people who want clean graphic apparel that fits naturally into everyday life. Our focus is simple: wearable tees, relaxed silhouettes, comfortable hoodies, and streetwear essentials that feel easy to style.', 'dawp'); ?>
-                </p>
-                <p>
-                    <?php esc_html_e('We are not here to create a random marketplace of loud novelty shirts. Slicktee is designed to feel like a focused apparel brand with consistent visuals, clean product presentation, and original streetwear direction.', 'dawp'); ?>
-                </p>
-                <p>
-                    <?php esc_html_e('Every page, collection, and product experience is built around clear browsing, strong visuals, and a trustworthy ecommerce structure.', 'dawp'); ?>
-                </p>
-            </div>
-
+        <div class="qb-pill-row" aria-label="<?php esc_attr_e('Brand highlights', 'dawp'); ?>">
+          <span class="qb-pill"><?php esc_html_e('Charm bracelets', 'dawp'); ?></span>
+          <span class="qb-pill"><?php esc_html_e('Owl bracelets', 'dawp'); ?></span>
+          <span class="qb-pill"><?php esc_html_e('Gift-ready styles', 'dawp'); ?></span>
         </div>
-    </section>
+      </div>
+      <div class="qb-photo">
+        <?php if ($hero_image) : ?>
+          <img src="<?php echo esc_url($hero_image); ?>" alt="<?php esc_attr_e('Elegant bracelet style from Queen\'s Bracelet', 'dawp'); ?>">
+        <?php endif; ?>
+      </div>
+    </div>
+  </section>
 
-    <!-- Brand Positioning Cards -->
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <section class="qb-section qb-soft">
+    <div class="qb-wrap qb-split">
+      <div>
+        <p class="qb-eyebrow"><?php esc_html_e('Who We Are', 'dawp'); ?></p>
+        <h2 class="qb-title"><?php esc_html_e('Bracelets made easy to choose, wear, and gift.', 'dawp'); ?></h2>
+      </div>
+      <div>
+        <p class="qb-copy">
+          <?php esc_html_e("Our store is built around one clear focus: women's bracelet styles. We bring together charm bracelets, owl-inspired bracelets, beaded pieces, chain styles, statement accents, and gift bracelets that feel feminine without pretending to be designer or luxury affiliated.", 'dawp'); ?>
+        </p>
+        <p class="qb-copy">
+          <?php esc_html_e('Every product experience should help customers understand the bracelet type, finish or material notes, length or adjustable fit, clasp details where available, care guidance, and whether the style is suitable for gifting.', 'dawp'); ?>
+        </p>
+      </div>
+    </div>
+  </section>
 
-            <div class="mb-10 max-w-3xl">
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                    <?php esc_html_e('Brand Direction', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText lg:text-5xl">
-                    <?php esc_html_e('Built For Clean Streetwear Energy.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-4 text-base leading-7 text-slickMuted">
-                    <?php esc_html_e('Slicktee keeps the product experience focused, modern, and apparel-native.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
-                        01
-                    </div>
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Graphic Tees', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Clean graphic apparel made for daily outfits, not one-time novelty wear.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">
-                        02
-                    </div>
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Relaxed Fits', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Oversized silhouettes and casual shapes that feel modern, easy, and wearable.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
-                        03
-                    </div>
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Streetwear Basics', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Everyday essentials made for layering, rotating, and styling without effort.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">
-                        04
-                    </div>
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Clear Shopping', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Focused categories, clean product cards, and transparent customer policies.', 'dawp'); ?>
-                    </p>
-                </div>
-
-            </div>
+  <section class="qb-section">
+    <div class="qb-wrap">
+      <div class="qb-heading-row">
+        <div>
+          <p class="qb-eyebrow"><?php esc_html_e('Our Bracelet Focus', 'dawp'); ?></p>
+          <h2 class="qb-title"><?php esc_html_e('A clear jewelry niche customers can trust.', 'dawp'); ?></h2>
         </div>
-    </section>
+        <p class="qb-copy">
+          <?php esc_html_e('We keep the store focused on bracelet categories instead of presenting a random marketplace of unrelated accessories.', 'dawp'); ?>
+        </p>
+      </div>
 
-    <!-- Image + Philosophy Section -->
-    <section class="bg-slickBlack py-16 text-white lg:py-24">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div class="qb-card-grid">
+        <a class="qb-card" href="<?php echo esc_url(qb_about_category_url('charm-bracelets')); ?>">
+          <h3><?php esc_html_e('Charm Bracelets', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Meaningful charm details designed for personal expression, everyday styling, and thoughtful gifting.', 'dawp'); ?></p>
+        </a>
+        <a class="qb-card" href="<?php echo esc_url(qb_about_category_url('owl-bracelets')); ?>">
+          <h3><?php esc_html_e('Owl Bracelets', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Owl-inspired bracelet designs with a symbolic charm look and easy daily styling appeal.', 'dawp'); ?></p>
+        </a>
+        <a class="qb-card" href="<?php echo esc_url(qb_about_category_url('beaded-bracelets')); ?>">
+          <h3><?php esc_html_e('Beaded Bracelets', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Beaded bracelet styles made for layering, casual outfits, and simple everyday elegance.', 'dawp'); ?></p>
+        </a>
+        <a class="qb-card" href="<?php echo esc_url(qb_about_category_url('chain-bracelets')); ?>">
+          <h3><?php esc_html_e('Chain Bracelets', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Gold-tone and silver-tone fashion chain styles that add a polished accent to daily looks.', 'dawp'); ?></p>
+        </a>
+      </div>
+    </div>
+  </section>
 
-            <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/about_image%233.png'); ?>"
-                     alt="<?php esc_attr_e('Urban streetwear outfit and apparel styling', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover">
-            </div>
+  <section class="qb-section qb-soft">
+    <div class="qb-wrap qb-split">
+      <div class="qb-photo">
+        <?php if ($owl_image) : ?>
+          <img src="<?php echo esc_url($owl_image); ?>" alt="<?php esc_attr_e('Owl-inspired bracelet detail', 'dawp'); ?>">
+        <?php endif; ?>
+      </div>
+      <div>
+        <p class="qb-eyebrow"><?php esc_html_e('Honest Product Direction', 'dawp'); ?></p>
+        <h2 class="qb-title"><?php esc_html_e('Fashion jewelry without misleading claims.', 'dawp'); ?></h2>
+        <p class="qb-copy">
+          <?php esc_html_e("Queen's Bracelet does not sell fake designer jewelry, replica bracelets, counterfeit charms, or products presented as affiliated with protected luxury brands.", 'dawp'); ?>
+        </p>
+        <ul class="qb-list">
+          <li><?php esc_html_e('No replica, dupe, or designer-inspired wording', 'dawp'); ?></li>
+          <li><?php esc_html_e('No unverified real gold, real silver, or gemstone claims', 'dawp'); ?></li>
+          <li><?php esc_html_e('No healing, medical, or guaranteed benefit claims', 'dawp'); ?></li>
+          <li><?php esc_html_e('Clear material, size, and care information on product pages', 'dawp'); ?></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Our Apparel Philosophy', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em] lg:text-6xl">
-                    <?php esc_html_e('Wearable first. Graphic second. Always clean.', 'dawp'); ?>
-                </h2>
-
-                <div class="mt-6 space-y-5 text-base leading-8 text-white/82">
-                    <p>
-                        <?php esc_html_e('We believe graphic apparel should be easy to wear, not hard to style. Every collection should feel intentional, clean, and useful for real outfits.', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <?php esc_html_e('That means strong product imagery, consistent fits, clear categories, and graphics that support the look instead of overpowering it.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                        <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
-                            <?php esc_html_e('No Random Marketplace Feel', 'dawp'); ?>
-                        </p>
-                        <p class="mt-2 text-sm leading-6 text-white/70">
-                            <?php esc_html_e('Focused apparel only.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                        <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
-                            <?php esc_html_e('No Copyright Noise', 'dawp'); ?>
-                        </p>
-                        <p class="mt-2 text-sm leading-6 text-white/70">
-                            <?php esc_html_e('Original, brand-led direction.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
+  <section class="qb-section">
+    <div class="qb-wrap">
+      <div class="qb-heading-row">
+        <div>
+          <p class="qb-eyebrow"><?php esc_html_e('Customer Care Standards', 'dawp'); ?></p>
+          <h2 class="qb-title"><?php esc_html_e('Details customers should know before ordering.', 'dawp'); ?></h2>
         </div>
-    </section>
+        <p class="qb-copy">
+          <?php esc_html_e('Transparent support, clear policies, and product details help customers make confident jewelry purchases.', 'dawp'); ?>
+        </p>
+      </div>
 
-    <!-- What We Avoid -->
-    <section class="bg-slickSoft py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-            <div class="mb-10 max-w-3xl">
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                    <?php esc_html_e('Why Slicktee Feels Different', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText lg:text-5xl">
-                    <?php esc_html_e('Not a POD spam store. Not a meme marketplace.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-4 text-base leading-7 text-slickMuted">
-                    <?php esc_html_e('The brand is built to feel focused, original, and apparel-native.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-
-                <div class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm">
-                    <p class="mb-4 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('We Avoid', 'dawp'); ?>
-                    </p>
-                    <h3 class="font-heading text-3xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Copyright-Heavy Graphics', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-4 text-sm leading-7 text-slickMuted">
-                        <?php esc_html_e('Slicktee is designed around clean original presentation, not celebrity images, anime references, fan merch, or trademarked designs.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm">
-                    <p class="mb-4 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('We Avoid', 'dawp'); ?>
-                    </p>
-                    <h3 class="font-heading text-3xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Overcrowded Product Walls', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-4 text-sm leading-7 text-slickMuted">
-                        <?php esc_html_e('Collections should feel curated and easy to browse, not like a marketplace filled with random shirt uploads.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm">
-                    <p class="mb-4 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('We Avoid', 'dawp'); ?>
-                    </p>
-                    <h3 class="font-heading text-3xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Fake Urgency Tactics', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-4 text-sm leading-7 text-slickMuted">
-                        <?php esc_html_e('No fake countdowns, exaggerated claims, or pressure-heavy shopping patterns. The experience should feel confident and clear.', 'dawp'); ?>
-                    </p>
-                </div>
-
-            </div>
+      <div class="qb-care-grid">
+        <div class="qb-care-card">
+          <h3><?php esc_html_e('Product Details', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Bracelet product pages should include type, finish or material notes, bracelet length, adjustability, clasp information where available, charm details, styling notes, and care instructions.', 'dawp'); ?></p>
         </div>
-    </section>
-
-    <!-- Trust / Values -->
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-            <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-                <div class="max-w-3xl">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Customer Trust', 'dawp'); ?>
-                    </p>
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText lg:text-5xl">
-                        <?php esc_html_e('Clear policies. Clean shopping. Real apparel focus.', 'dawp'); ?>
-                    </h2>
-                </div>
-
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
-                   class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickBlack px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">
-                    <?php esc_html_e('View Policies', 'dawp'); ?>
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Secure Checkout', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('A clear checkout flow designed for trustworthy ecommerce shopping.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Tracking Included', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Customers receive tracking details once an order ships.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('30-Day Returns', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Eligible unworn and unwashed items may be returned within 30 days.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                        <?php esc_html_e('Support Available', 'dawp'); ?>
-                    </h3>
-                    <p class="mt-3 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Contact support for order, shipping, product, or return questions.', 'dawp'); ?>
-                    </p>
-                </div>
-
-            </div>
+        <div class="qb-care-card">
+          <h3><?php esc_html_e('Shipping Timeline', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Orders are processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'); ?></p>
         </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="overflow-hidden bg-slickBlack text-white">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-24">
-
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Start Your Rotation', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em] lg:text-6xl">
-                    <?php esc_html_e('Find your next everyday fit.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
-                    <?php esc_html_e('Explore graphic tees, oversized staples, hoodies, and streetwear essentials made for clean daily styling.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                        <?php esc_html_e('Shop Now', 'dawp'); ?>
-                    </a>
-
-                    <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                        <?php esc_html_e('Graphic Tees', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
-
-            <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/about_image%232.png'); ?>"
-                     alt="<?php esc_attr_e('Slicktee everyday streetwear apparel collection', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover opacity-90">
-            </div>
-
+        <div class="qb-care-card">
+          <h3><?php esc_html_e('30-Day Returns', 'dawp'); ?></h3>
+          <p><?php esc_html_e('Customers may request eligible returns within 30 days of delivery. Jewelry should be unused, unworn, undamaged, in original condition, and returned with original packaging where applicable.', 'dawp'); ?></p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-</main>
+  <section class="qb-section qb-plum">
+    <div class="qb-wrap">
+      <p class="qb-eyebrow"><?php esc_html_e('Store Information', 'dawp'); ?></p>
+      <h2 class="qb-title"><?php esc_html_e('Support and policy information are easy to find.', 'dawp'); ?></h2>
+      <p class="qb-copy">
+        <?php esc_html_e("Queen's Bracelet serves customers shopping from the United States market. For order help, product questions, sizing, shipping, returns, or policy questions, contact our support team.", 'dawp'); ?>
+      </p>
 
-<?php
-get_footer();
+      <div class="qb-policy-grid">
+        <p><?php esc_html_e('Support email: support@queens-bracelet.com', 'dawp'); ?></p>
+        <p><?php esc_html_e('Business hours: Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Tracking information is provided once an order ships.', 'dawp'); ?></p>
+      </div>
+
+      <div class="qb-actions">
+        <a class="qb-button" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
+        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+      </div>
+
+      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Store policy links', 'dawp'); ?>">
+        <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms of Service', 'dawp'); ?></a>
+      </nav>
+    </div>
+  </section>
+</div>

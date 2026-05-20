@@ -1,196 +1,381 @@
+<?php
+/**
+ * Theme header for Queen's Bracelet.
+ *
+ * @package dawp
+ */
+
+$cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+$cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
+$account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
+$account_url = $account_url ?: home_url('/my-account/');
+
+$nav_items = [
+    ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
+    ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')],
+    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
+    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+];
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
-
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('bg-white text-slickText font-body antialiased'); ?>>
+<body <?php body_class('qb-site'); ?>>
 <?php wp_body_open(); ?>
 
-<?php
-$cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
-$cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
-$account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
+<style>
+  .qb-site-header {
+    --qb-blush: #ffb7c5;
+    --qb-cream: #fff8f4;
+    --qb-gold: #d8a94e;
+    --qb-plum: #2f1f35;
+    --qb-text: #4f4355;
+    --qb-border: #eadfe8;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid var(--qb-border);
+    background: rgba(255,255,255,.96);
+    color: var(--qb-text);
+    font-family: "DM Sans", "Inter", system-ui, sans-serif;
+    box-shadow: 0 10px 28px rgba(47,31,53,.07);
+    backdrop-filter: blur(14px);
+  }
 
-$nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [];
+  .qb-site-header * {
+    box-sizing: border-box;
+  }
 
-if (empty($nav_items)) {
-    $nav_items = [
-        [
-            'title' => 'New Arrivals',
-            'url'   => home_url('/shop/'),
-        ],
-        [
-            'title' => 'Graphic Tees',
-            'url'   => home_url('/product-category/graphic-tees/'),
-        ],
-        [
-            'title' => 'Oversized Tees',
-            'url'   => home_url('/product-category/oversize-tees/'),
-        ],
-        [
-            'title' => 'Hoodies',
-            'url'   => home_url('/product-category/casual-hoodies/'),
-        ],
-        [
-            'title' => 'Essentials',
-            'url'   => home_url('/product-category/streetwear-essentials/'),
-        ],
-    ];
-}
-?>
+  .qb-site-header a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-<!-- HEADER -->
-<header id="masthead" class="sticky top-0 z-50 bg-slickBlack text-white shadow-lg shadow-black/20" role="banner">
+  .qb-header-wrap {
+    width: min(100% - 32px, 1280px);
+    margin-inline: auto;
+  }
 
-    <!-- Announcement Bar -->
-    <div class="border-b border-white/10 bg-slickGreen">
-        <div class="mx-auto flex max-w-[1480px] items-center justify-center px-4 py-2 text-center text-xs font-black uppercase tracking-[0.18em] text-slickLime sm:px-6 lg:px-8">
-            <?php esc_html_e('New streetwear drops are live • Clean fits for everyday rotation', 'dawp'); ?>
+  .qb-announcement {
+    background: linear-gradient(90deg, rgba(255,183,197,.34), rgba(255,214,165,.42), rgba(216,199,255,.24));
+    color: var(--qb-plum);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .12em;
+    line-height: 1.4;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .qb-announcement .qb-header-wrap {
+    padding: 9px 0;
+  }
+
+  .qb-header-main {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: center;
+    min-height: 78px;
+  }
+
+  .qb-logo {
+    display: inline-flex;
+    align-items: center;
+    color: var(--qb-plum);
+    line-height: 1;
+  }
+
+  .qb-logo img {
+    display: block;
+    width: auto;
+    height: 54px;
+    max-width: 190px;
+    object-fit: contain;
+  }
+
+  .qb-header-nav {
+    display: flex;
+    justify-content: center;
+    gap: clamp(14px, 1.6vw, 26px);
+  }
+
+  .qb-header-nav a {
+    color: var(--qb-text);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    white-space: nowrap;
+    transition: color .2s ease;
+  }
+
+  .qb-header-nav a:hover {
+    color: var(--qb-gold);
+  }
+
+  .qb-header-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .qb-header-search {
+    display: flex;
+    align-items: center;
+  }
+
+  .qb-header-search input[type="search"] {
+    width: 180px;
+    min-height: 42px;
+    border: 1px solid var(--qb-border);
+    border-radius: 999px;
+    background: var(--qb-cream);
+    color: var(--qb-plum);
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+
+  .qb-header-search input[type="search"]:focus {
+    border-color: var(--qb-gold);
+    box-shadow: 0 0 0 3px rgba(216,169,78,.16);
+  }
+
+  .qb-icon-link,
+  .qb-menu-toggle,
+  .qb-search-toggle {
+    display: inline-flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--qb-border);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--qb-plum);
+    cursor: pointer;
+    transition: border-color .2s ease, background .2s ease, color .2s ease;
+  }
+
+  .qb-icon-link:hover,
+  .qb-menu-toggle:hover,
+  .qb-search-toggle:hover {
+    border-color: var(--qb-gold);
+    background: var(--qb-cream);
+    color: var(--qb-gold);
+  }
+
+  .qb-site-header .qb-cart-link {
+    display: inline-flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--qb-plum);
+    border-radius: 999px;
+    background: var(--qb-plum);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 0 17px;
+    box-shadow: 0 8px 18px rgba(47,31,53,.18);
+    transition: border-color .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+  }
+
+  .qb-site-header .qb-cart-link:hover {
+    border-color: var(--qb-gold);
+    background: var(--qb-gold);
+    color: var(--qb-plum);
+    box-shadow: 0 8px 18px rgba(216,169,78,.24);
+  }
+
+  .qb-search-toggle,
+  .qb-menu-toggle {
+    display: none;
+  }
+
+  .qb-mobile-panel {
+    display: none;
+    border-top: 1px solid var(--qb-border);
+    background: #fff;
+  }
+
+  .qb-mobile-panel.is-open {
+    display: block;
+  }
+
+  .qb-mobile-search form {
+    display: flex;
+    gap: 10px;
+    padding: 14px 0;
+  }
+
+  .qb-mobile-search input[type="search"] {
+    min-width: 0;
+    flex: 1;
+    min-height: 44px;
+    border: 1px solid var(--qb-border);
+    border-radius: 999px;
+    padding: 0 15px;
+    font: inherit;
+    outline: none;
+  }
+
+  .qb-mobile-search button {
+    border: 0;
+    border-radius: 999px;
+    background: var(--qb-plum);
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 0 18px;
+  }
+
+  .qb-mobile-nav {
+    display: grid;
+    gap: 4px;
+    padding: 12px 0 16px;
+  }
+
+  .qb-mobile-nav a {
+    border-radius: 12px;
+    color: var(--qb-plum);
+    font-size: 15px;
+    font-weight: 800;
+    padding: 12px 14px;
+  }
+
+  .qb-mobile-nav a:hover {
+    background: var(--qb-cream);
+  }
+
+  .qb-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1120px) {
+    .qb-header-nav,
+    .qb-header-search,
+    .qb-account-link {
+      display: none;
+    }
+
+    .qb-header-main {
+      grid-template-columns: auto auto;
+      justify-content: space-between;
+    }
+
+    .qb-search-toggle,
+    .qb-menu-toggle {
+      display: inline-flex;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .qb-announcement {
+      font-size: 10px;
+      letter-spacing: .08em;
+    }
+
+    .qb-header-main {
+      min-height: 70px;
+      gap: 14px;
+    }
+
+    .qb-logo img {
+      height: 46px;
+      max-width: 150px;
+    }
+
+    .qb-site-header .qb-cart-link {
+      width: 42px;
+      padding: 0;
+    }
+
+    .qb-cart-link .qb-cart-text {
+      display: none;
+    }
+  }
+</style>
+
+<header id="masthead" class="qb-site-header" role="banner">
+    <div class="qb-announcement">
+        <div class="qb-header-wrap">
+            <?php esc_html_e('Bracelet styles for everyday confidence, meaningful gifts, and personal expression', 'dawp'); ?>
         </div>
     </div>
 
-    <!-- Main Header -->
-    <div class="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-8 2xl:px-10">
-        <div class="flex h-20 items-center justify-between gap-4 xl:gap-6">
+    <div class="qb-header-wrap qb-header-main">
+        <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Queen's Bracelet home", 'dawp'); ?>">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/image.png'); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
+        </a>
 
-            <!-- Logo -->
-            <a href="<?php echo esc_url(home_url('/')); ?>"
-               class="shrink-0"
-               aria-label="<?php bloginfo('name'); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee.png'); ?>"
-                     alt="<?php bloginfo('name'); ?>"
-                     class="h-11 w-auto"
-                     width="190"
-                     height="44">
+        <nav class="qb-header-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
+            <?php foreach ($nav_items as $item) : ?>
+                <a href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
+            <?php endforeach; ?>
+        </nav>
+
+        <div class="qb-header-actions">
+            <form class="qb-header-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+                <label class="qb-sr-only" for="qb-header-search"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
+                <input id="qb-header-search" type="search" name="s" placeholder="<?php esc_attr_e('Search bracelets', 'dawp'); ?>">
+                <input type="hidden" name="post_type" value="product">
+            </form>
+
+            <button class="qb-search-toggle" type="button" aria-label="<?php esc_attr_e('Open search', 'dawp'); ?>" aria-controls="qb-mobile-search" onclick="document.getElementById('qb-mobile-search').classList.toggle('is-open')">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
+            </button>
+
+            <a class="qb-icon-link qb-account-link" href="<?php echo esc_url($account_url); ?>" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden flex-1 items-center justify-center gap-4 xl:gap-6 2xl:gap-7 lg:flex" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
-                <?php foreach ($nav_items as $item) : ?>
-                    <a href="<?php echo esc_url($item['url']); ?>"
-                       class="whitespace-nowrap text-sm font-black uppercase tracking-wide text-white/82 transition hover:text-slickLime">
-                        <?php echo esc_html($item['title']); ?>
-                    </a>
-                <?php endforeach; ?>
-            </nav>
+            <a class="qb-cart-link" href="<?php echo esc_url($cart_url); ?>" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
+                <span class="qb-cart-text"><?php esc_html_e('Bag', 'dawp'); ?></span>
+                <span>&nbsp;(<?php echo esc_html($cart_count); ?>)</span>
+            </a>
 
-            <!-- Header Actions -->
-            <div class="flex shrink-0 items-center gap-3 sm:gap-4">
-
-                <!-- Desktop Search -->
-                <form role="search"
-                      method="get"
-                      action="<?php echo esc_url(home_url('/')); ?>"
-                      class="hidden items-center sm:flex">
-
-                    <label for="slicktee-header-search" class="sr-only">
-                        <?php esc_html_e('Search products', 'dawp'); ?>
-                    </label>
-
-                    <input id="slicktee-header-search"
-                           type="search"
-                           name="s"
-                           placeholder="<?php esc_attr_e('Search', 'dawp'); ?>"
-                           class="h-10 w-36 rounded-md border border-white/10 bg-white/10 px-3 text-sm text-white placeholder:text-white/55 outline-none transition focus:border-slickActive focus:bg-white/15 lg:w-44">
-
-                    <input type="hidden" name="post_type" value="product">
-                </form>
-
-                <!-- Mobile Search Icon -->
-                <button type="button"
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime sm:hidden"
-                        aria-label="<?php esc_attr_e('Search', 'dawp'); ?>"
-                        onclick="document.getElementById('slicktee-mobile-search').classList.toggle('hidden')">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="M21 21l-4.35-4.35"></path>
-                    </svg>
-                </button>
-
-                <!-- Account -->
-                <a href="<?php echo esc_url($account_url); ?>"
-                   class="hidden h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime sm:inline-flex"
-                   aria-label="<?php esc_attr_e('My Account', 'dawp'); ?>">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </a>
-
-                <!-- Cart -->
-                <a href="<?php echo esc_url($cart_url); ?>"
-                   class="relative inline-flex min-h-10 items-center justify-center rounded-md bg-slickActive px-4 text-xs font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime"
-                   aria-label="<?php esc_attr_e('Shopping Cart', 'dawp'); ?>">
-                    <?php esc_html_e('Bag', 'dawp'); ?>
-                    <span class="ml-1">(<?php echo esc_html($cart_count); ?>)</span>
-                </a>
-
-                <!-- Mobile Menu Button -->
-                <button type="button"
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white/85 transition hover:border-slickActive hover:text-slickLime lg:hidden"
-                        aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>"
-                        onclick="document.getElementById('slicktee-mobile-menu').classList.toggle('hidden')">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-
-            </div>
+            <button class="qb-menu-toggle" type="button" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>" aria-controls="qb-mobile-menu" onclick="document.getElementById('qb-mobile-menu').classList.toggle('is-open')">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+            </button>
         </div>
     </div>
 
-    <!-- Mobile Search Bar -->
-    <div id="slicktee-mobile-search" class="hidden border-t border-white/10 bg-slickBlack sm:hidden">
-        <form role="search"
-              method="get"
-              action="<?php echo esc_url(home_url('/')); ?>"
-              class="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3">
-            <input type="search"
-                   name="s"
-                   placeholder="<?php esc_attr_e('Search products...', 'dawp'); ?>"
-                   autofocus
-                   class="h-10 flex-1 rounded-md border border-white/10 bg-white/10 px-3 text-sm text-white placeholder:text-white/55 outline-none focus:border-slickActive focus:bg-white/15">
-            <input type="hidden" name="post_type" value="product">
-            <button type="submit"
-                    class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-slickActive text-slickBlack transition hover:bg-slickLime"
-                    aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="M21 21l-4.35-4.35"></path>
-                </svg>
-            </button>
-        </form>
+    <div id="qb-mobile-search" class="qb-mobile-panel qb-mobile-search">
+        <div class="qb-header-wrap">
+            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+                <label class="qb-sr-only" for="qb-mobile-search-field"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
+                <input id="qb-mobile-search-field" type="search" name="s" placeholder="<?php esc_attr_e('Search bracelets...', 'dawp'); ?>">
+                <input type="hidden" name="post_type" value="product">
+                <button type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
+            </form>
+        </div>
     </div>
 
-    <!-- Mobile Navigation -->
-    <div id="slicktee-mobile-menu" class="hidden border-t border-white/10 bg-slickBlack lg:hidden">
-        <nav class="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
+    <div id="qb-mobile-menu" class="qb-mobile-panel">
+        <nav class="qb-header-wrap qb-mobile-nav" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
             <?php foreach ($nav_items as $item) : ?>
-                <a href="<?php echo esc_url($item['url']); ?>"
-                   class="rounded-md px-3 py-3 text-sm font-black uppercase tracking-wide text-white/82 transition hover:bg-white/10 hover:text-slickLime">
-                    <?php echo esc_html($item['title']); ?>
-                </a>
+                <a href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
             <?php endforeach; ?>
         </nav>
     </div>
-
 </header>
 
 <div id="content" class="site-content">

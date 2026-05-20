@@ -1,195 +1,221 @@
 <?php
 /**
- * Elite Shop Express — Shop / Archive Product Template
- * Design System: Trusted Hardware, conversion-first
- * Section 10: Category / Shop Page rules
+ * Shop and product category archive template for Queen's Bracelet.
+ *
+ * @package dawp
  */
+
 defined('ABSPATH') || exit;
+
+$is_category   = is_product_category();
+$queried_term  = $is_category ? get_queried_object() : null;
+$category_data = $is_category && $queried_term && !is_wp_error($queried_term) ? qb_get_product_category_data($queried_term->slug) : null;
+$shop_url      = get_permalink(wc_get_page_id('shop'));
+$shop_url      = $shop_url ?: home_url('/shop/');
+
+if ($category_data) {
+    $page_title  = $category_data['name'];
+    $headline    = $category_data['headline'];
+    $description = $category_data['description'];
+    $intro       = $category_data['intro'];
+    $hero_image  = qb_theme_asset_image_url($category_data['image']);
+    $highlights  = $category_data['highlights'];
+} elseif ($is_category && $queried_term && !is_wp_error($queried_term)) {
+    $page_title  = $queried_term->name;
+    $headline    = $queried_term->name;
+    $description = $queried_term->description ?: 'Browse bracelet styles selected for everyday outfits, thoughtful gifts, and simple personal expression.';
+    $intro       = 'Review product material, bracelet length, clasp details, and care information on each product page before ordering.';
+    $hero_image  = '';
+    $highlights  = ['Everyday bracelet styles', 'Giftable jewelry pieces', 'Clear product details'];
+} else {
+    $page_title  = 'All Bracelets';
+    $headline    = 'Bracelets for everyday confidence, charm, and personal expression.';
+    $description = 'Discover elegant and modern bracelets designed for daily styling, meaningful gifts, and personal expression.';
+    $intro       = 'Shop charm bracelets, owl bracelets, beaded bracelets, chain bracelets, and giftable styles from Queen\'s Bracelet.';
+    $hero_image  = qb_theme_asset_image_url('Modern_Bracelets_Giftable_Jewelry.png');
+    $highlights  = ['Charm and owl bracelets', 'Beaded and chain styles', 'Giftable jewelry for her'];
+}
+
+if (!$hero_image && function_exists('wc_placeholder_img_src')) {
+    $hero_image = wc_placeholder_img_src('large');
+}
+
+$defined_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
 
 get_header();
 ?>
 
 <div class="shop-page">
-<div class="shop-container">
+    <section class="shop-hero">
+        <div class="shop-container shop-hero__grid">
+            <div class="shop-hero__content">
+                <nav class="shop-breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
+                    <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>
+                    <span aria-hidden="true">/</span>
+                    <?php if ($is_category) : ?>
+                        <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop', 'dawp'); ?></a>
+                        <span aria-hidden="true">/</span>
+                        <span><?php echo esc_html($page_title); ?></span>
+                    <?php else : ?>
+                        <span><?php esc_html_e('Shop', 'dawp'); ?></span>
+                    <?php endif; ?>
+                </nav>
 
-    <?php
-    // ── Breadcrumb ─────────────────────────────────────────
-    ?>
-    <nav class="shop-breadcrumb" aria-label="Breadcrumb">
-        <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
-        <span aria-hidden="true">›</span>
-        <?php if ( is_product_category() ) :
-            $cat = get_queried_object(); ?>
-            <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
-            <span><?php echo esc_html( $cat->name ); ?></span>
-        <?php elseif ( is_product_tag() ) :
-            $tag = get_queried_object(); ?>
-            <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
-            <span><?php echo esc_html( $tag->name ); ?></span>
-        <?php else : ?>
-            <span>Shop</span>
-        <?php endif; ?>
-    </nav>
+                <p class="shop-eyebrow"><?php esc_html_e('Queen\'s Bracelet Collection', 'dawp'); ?></p>
+                <h1 class="shop-hero__title"><?php echo esc_html($headline); ?></h1>
+                <p class="shop-hero__copy"><?php echo esc_html($description); ?></p>
+                <p class="shop-hero__intro"><?php echo esc_html($intro); ?></p>
 
-    <?php
-    // ── Page heading ───────────────────────────────────────
-    ?>
-    <div class="shop-header">
-        <h1 class="shop-header__title">
-            <?php
-            if ( is_product_category() || is_product_tag() ) {
-                woocommerce_page_title();
-            } else {
-                echo 'All Products';
-            }
-            ?>
-        </h1>
-    </div>
+                <div class="shop-hero__highlights" aria-label="<?php esc_attr_e('Collection highlights', 'dawp'); ?>">
+                    <?php foreach ($highlights as $highlight) : ?>
+                        <span><?php echo esc_html($highlight); ?></span>
+                    <?php endforeach; ?>
+                </div>
+            </div>
 
-    <?php
-    // ── Toolbar: count + filter toggle + sort ──────────────
-    ?>
-    <div class="shop-toolbar">
-        <div class="shop-toolbar__left">
-            <span class="shop-toolbar__count">
-                <?php
-                global $wp_query;
-                $total = $wp_query->found_posts;
-                printf(
-                    '%d %s',
-                    $total,
-                    $total === 1 ? 'product' : 'products'
-                );
-                ?>
-            </span>
-            <button
-                class="shop-filter-btn"
-                id="shopFilterBtn"
-                aria-expanded="false"
-                aria-controls="shopSidebar"
-            >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <line x1="4" y1="6" x2="20" y2="6"/>
-                    <line x1="8" y1="12" x2="20" y2="12"/>
-                    <line x1="12" y1="18" x2="20" y2="18"/>
-                </svg>
-                Filter
-            </button>
+            <?php if ($hero_image) : ?>
+                <div class="shop-hero__media">
+                    <img src="<?php echo esc_url($hero_image); ?>" alt="<?php echo esc_attr($page_title); ?>">
+                </div>
+            <?php endif; ?>
         </div>
+    </section>
 
-        <?php woocommerce_catalog_ordering(); ?>
-    </div>
+    <div class="shop-container">
+        <?php if (!empty($defined_categories)) : ?>
+            <nav class="shop-collections" aria-label="<?php esc_attr_e('Bracelet collections', 'dawp'); ?>">
+                <a class="<?php echo !$is_category ? 'is-active' : ''; ?>" href="<?php echo esc_url($shop_url); ?>">
+                    <?php esc_html_e('All Bracelets', 'dawp'); ?>
+                </a>
+                <?php foreach ($defined_categories as $slug => $category) : ?>
+                    <a class="<?php echo $queried_term && !is_wp_error($queried_term) && $queried_term->slug === $slug ? 'is-active' : ''; ?>" href="<?php echo esc_url(qb_product_category_url($slug)); ?>">
+                        <?php echo esc_html($category['name']); ?>
+                    </a>
+                <?php endforeach; ?>
+            </nav>
+        <?php endif; ?>
 
-    <?php
-    // ── Sidebar overlay (mobile bottom sheet backdrop) ─────
-    ?>
-    <div class="shop-sidebar-overlay" id="shopSidebarOverlay" aria-hidden="true"></div>
-
-    <?php
-    // ── Layout ─────────────────────────────────────────────
-    ?>
-    <div class="shop-layout">
-
-        <?php // ── Sidebar ────────────────────────────────── ?>
-        <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
-            <div class="shop-sidebar__header">
-                <h2 class="shop-sidebar__mobile-title">Filter Products</h2>
-                <button
-                    class="shop-sidebar__close"
-                    id="shopSidebarClose"
-                    aria-label="Close filters"
-                >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
+        <div class="shop-toolbar">
+            <div class="shop-toolbar__left">
+                <span class="shop-toolbar__count">
+                    <?php
+                    global $wp_query;
+                    $total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
+                    printf(
+                        esc_html(_n('%d product', '%d products', $total, 'dawp')),
+                        $total
+                    );
+                    ?>
+                </span>
+                <button class="shop-filter-btn" id="shopFilterBtn" aria-expanded="false" aria-controls="shopSidebar" type="button">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="8" y1="12" x2="20" y2="12"></line>
+                        <line x1="12" y1="18" x2="20" y2="18"></line>
                     </svg>
+                    <?php esc_html_e('Filter', 'dawp'); ?>
                 </button>
             </div>
 
-            <?php
-            // Categories widget
-            $categories = get_terms([
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => true,
-                'parent'     => 0,
-                'exclude'    => [ get_term_by('slug', 'uncategorized', 'product_cat')->term_id ?? 0 ],
-            ]);
-            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
-            <div class="shop-sidebar__widget">
-                <h3 class="shop-sidebar__title">Categories</h3>
-                <ul class="shop-sidebar__categories">
-                    <li>
-                        <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
-                            All Products
-                        </a>
-                    </li>
-                    <?php foreach ( $categories as $cat ) :
-                        $is_current = ( is_product_category( $cat->slug ) ); ?>
+            <?php woocommerce_catalog_ordering(); ?>
+        </div>
+
+        <div class="shop-sidebar-overlay" id="shopSidebarOverlay" aria-hidden="true"></div>
+
+        <div class="shop-layout">
+            <aside class="shop-sidebar" id="shopSidebar" aria-label="<?php esc_attr_e('Product filters', 'dawp'); ?>">
+                <div class="shop-sidebar__header">
+                    <h2 class="shop-sidebar__mobile-title"><?php esc_html_e('Filter Products', 'dawp'); ?></h2>
+                    <button class="shop-sidebar__close" id="shopSidebarClose" aria-label="<?php esc_attr_e('Close filters', 'dawp'); ?>" type="button">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="shop-sidebar__widget">
+                    <h3 class="shop-sidebar__title"><?php esc_html_e('Bracelet Styles', 'dawp'); ?></h3>
+                    <ul class="shop-sidebar__categories">
                         <li>
-                            <a
-                                href="<?php echo esc_url( get_term_link( $cat ) ); ?>"
-                                <?php if ( $is_current ) echo 'aria-current="page"'; ?>
-                            >
-                                <?php echo esc_html( $cat->name ); ?>
-                                <span class="count">(<?php echo (int) $cat->count; ?>)</span>
+                            <a href="<?php echo esc_url($shop_url); ?>" <?php echo !$is_category ? 'aria-current="page"' : ''; ?>>
+                                <span><?php esc_html_e('All Bracelets', 'dawp'); ?></span>
                             </a>
                         </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <?php endif; ?>
+                        <?php foreach ($defined_categories as $slug => $category) : ?>
+                            <?php
+                            $term = taxonomy_exists('product_cat') ? get_term_by('slug', $slug, 'product_cat') : null;
+                            $count = $term && !is_wp_error($term) ? (int) $term->count : 0;
+                            $current = $queried_term && !is_wp_error($queried_term) && $queried_term->slug === $slug;
+                            ?>
+                            <li>
+                                <a href="<?php echo esc_url(qb_product_category_url($slug)); ?>" <?php echo $current ? 'aria-current="page"' : ''; ?>>
+                                    <span><?php echo esc_html($category['name']); ?></span>
+                                    <span class="count"><?php echo esc_html($count); ?></span>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
-            <?php
-            // Price filter / other widgets
-            if ( is_active_sidebar('shop-sidebar') ) {
-                dynamic_sidebar('shop-sidebar');
-            }
-            ?>
-        </aside>
+                <div class="shop-sidebar__note">
+                    <strong><?php esc_html_e('Before ordering', 'dawp'); ?></strong>
+                    <p><?php esc_html_e('Review bracelet length, material or finish, clasp details, and care instructions on each product page.', 'dawp'); ?></p>
+                </div>
 
-        <?php // ── Main Product Area ────────────────────────── ?>
-        <main class="shop-main" id="main-content">
+                <?php
+                if (is_active_sidebar('shop-sidebar')) {
+                    dynamic_sidebar('shop-sidebar');
+                }
+                ?>
+            </aside>
 
-            <?php if ( woocommerce_product_loop() ) : ?>
+            <main class="shop-main" id="main-content">
+                <?php if (woocommerce_product_loop()) : ?>
+                    <?php woocommerce_product_loop_start(); ?>
 
-                <?php woocommerce_product_loop_start(); ?>
-
-                    <?php while ( have_posts() ) : the_post(); ?>
+                    <?php while (have_posts()) : ?>
+                        <?php the_post(); ?>
                         <?php wc_get_template_part('content', 'product'); ?>
                     <?php endwhile; ?>
 
-                <?php woocommerce_product_loop_end(); ?>
+                    <?php woocommerce_product_loop_end(); ?>
 
-                <?php // Pagination ?>
-                <div class="shop-pagination">
-                    <?php do_action('woocommerce_after_shop_loop'); ?>
-                </div>
+                    <div class="shop-pagination">
+                        <?php do_action('woocommerce_after_shop_loop'); ?>
+                    </div>
+                <?php else : ?>
+                    <div class="shop-empty">
+                        <h2><?php esc_html_e('No bracelets found in this collection.', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('Browse all bracelet styles or check back as new pieces are added.', 'dawp'); ?></p>
+                        <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse All Bracelets', 'dawp'); ?></a>
+                    </div>
+                <?php endif; ?>
+            </main>
+        </div>
 
-            <?php else : ?>
-                <div class="shop-empty">
-                    <p>No products found in this collection.</p>
-                    <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
-                        Browse all products →
-                    </a>
-                </div>
-            <?php endif; ?>
-
-        </main><!-- .shop-main -->
-    </div><!-- .shop-layout -->
-
-</div><!-- .shop-container -->
-</div><!-- .shop-page -->
+        <section class="shop-care">
+            <div>
+                <h2><?php esc_html_e('Material, Size & Care Details', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Queen\'s Bracelet product pages should include available material or finish notes, bracelet length or adjustable fit information, clasp details where available, and simple jewelry care guidance.', 'dawp'); ?></p>
+            </div>
+            <div>
+                <h2><?php esc_html_e('Giftable Bracelet Shopping', 'dawp'); ?></h2>
+                <p><?php esc_html_e('These collections are positioned for everyday fashion styling and thoughtful gifting without fake luxury, replica, designer-inspired, or medical benefit claims.', 'dawp'); ?></p>
+            </div>
+        </section>
+    </div>
+</div>
 
 <script>
 (function () {
-    var filterBtn   = document.getElementById('shopFilterBtn');
-    var sidebar     = document.getElementById('shopSidebar');
-    var overlay     = document.getElementById('shopSidebarOverlay');
-    var closeBtn    = document.getElementById('shopSidebarClose');
+    var filterBtn = document.getElementById('shopFilterBtn');
+    var sidebar = document.getElementById('shopSidebar');
+    var overlay = document.getElementById('shopSidebarOverlay');
+    var closeBtn = document.getElementById('shopSidebarClose');
 
     function openSidebar() {
+        if (!sidebar || !overlay || !filterBtn) return;
         sidebar.classList.add('is-open');
         overlay.classList.add('is-open');
         overlay.removeAttribute('aria-hidden');
@@ -198,6 +224,7 @@ get_header();
     }
 
     function closeSidebar() {
+        if (!sidebar || !overlay || !filterBtn) return;
         sidebar.classList.remove('is-open');
         overlay.classList.remove('is-open');
         overlay.setAttribute('aria-hidden', 'true');
@@ -205,18 +232,11 @@ get_header();
         document.body.style.overflow = '';
     }
 
-    if (filterBtn && sidebar) {
-        filterBtn.addEventListener('click', openSidebar);
-    }
-    if (overlay) {
-        overlay.addEventListener('click', closeSidebar);
-    }
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeSidebar);
-    }
-    // Close on Escape
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && sidebar.classList.contains('is-open')) {
+    if (filterBtn) filterBtn.addEventListener('click', openSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && sidebar && sidebar.classList.contains('is-open')) {
             closeSidebar();
         }
     });

@@ -1,392 +1,183 @@
 <?php
 /**
- * Template Name: Terms & Conditions
  * Template Part: page-terms-conditions
+ *
+ * @package dawp
  */
 
-get_header();
+$support_email = 'support@queens-bracelet.com';
 ?>
 
-<main id="primary" class="bg-white text-slickText font-body">
+<style>
+  .qb-page { --qb-blush:#ffb7c5; --qb-peach:#ffd6a5; --qb-mint:#cff5e7; --qb-gold:#d8a94e; --qb-plum:#2f1f35; --qb-gray:#f7f7fa; --qb-text:#4f4355; --qb-border:#eadfe8; background:#fff; color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page * { box-sizing:border-box; }
+  .qb-page a { text-decoration:none; }
+  .qb-wrap { width:min(100% - 32px,1280px); margin-inline:auto; }
+  .qb-section { padding:72px 0; }
+  .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
+  .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(34px,4.2vw,58px); line-height:1.04; letter-spacing:0; }
+  .qb-copy { margin:18px 0 0; max-width:720px; color:var(--qb-text); font-size:17px; line-height:1.75; }
+  .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
+  .qb-button--secondary { background:#fff; color:var(--qb-plum); }
+  .qb-hero { overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.35),rgba(255,214,165,.38) 48%,rgba(207,245,231,.4)),#fff; }
+  .qb-hero__grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(320px,.98fr); gap:48px; align-items:center; padding:78px 0; }
+  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:24px; background:#fff; box-shadow:0 18px 46px rgba(47,31,53,.08); }
+  .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
+  .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+  .qb-card { padding:22px; }
+  .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:#fff4f6; color:var(--qb-plum); font-size:13px; }
+  .qb-card h3, .qb-policy-card h2, .qb-mini-card strong { margin:18px 0 0; color:var(--qb-plum); }
+  .qb-card p, .qb-policy-card p, .qb-policy-card li, .qb-mini-card p { color:#675a6c; font-size:14px; line-height:1.65; }
+  .qb-soft { background:var(--qb-gray); }
+  .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
+  .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
+  .qb-dark-card { border-radius:24px; background:var(--qb-plum); padding:28px; color:#fff; }
+  .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
+  .qb-dark-card h2, .qb-dark-card p, .qb-dark-card a { color:#fff; }
+  .qb-dark-card p { color:rgba(255,255,255,.78); font-size:15px; line-height:1.7; }
+  .qb-side-nav { display:grid; gap:10px; margin-top:22px; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-policy-stack { display:grid; gap:22px; }
+  .qb-policy-card { padding:clamp(24px,4vw,40px); }
+  .qb-policy-card:nth-child(even) { background:#fffafc; }
+  .qb-policy-card h2 { font-size:clamp(25px,3vw,38px); line-height:1.12; font-family:Georgia,"Times New Roman",serif; }
+  .qb-policy-card h2 + p, .qb-policy-card h2 + ul { margin-top:clamp(14px,1.8vw,20px); }
+  .qb-policy-card ul { display:grid; gap:10px; margin:18px 0 0; padding-left:1.15rem; list-style:disc outside; }
+  .qb-mini-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; }
+  .qb-mini-card { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:18px; }
+  .qb-plum { background:var(--qb-plum); color:#fff; }
+  .qb-plum .qb-title, .qb-plum .qb-copy { color:#fff; }
+  .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+  .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
+  @media (max-width:1080px) { .qb-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-mini-grid { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+</style>
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slickBlack text-white">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-        <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-slickActive/20 blur-3xl"></div>
-        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-slickLime/10 blur-3xl"></div>
-
-        <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-            <div class="max-w-4xl">
-                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-slickLime">
-                    <?php esc_html_e('Store Terms', 'dawp'); ?>
-                </p>
-
-                <h1 class="font-heading text-5xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
-                </h1>
-
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-                    <?php esc_html_e('Please review the terms that apply when browsing Slicktee, placing orders, using our website, or interacting with our ecommerce services.', 'dawp'); ?>
-                </p>
-            </div>
+<div class="qb-page qb-terms">
+  <section class="qb-hero">
+    <div class="qb-wrap qb-hero__grid">
+      <div>
+        <p class="qb-eyebrow"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
+        <h1 class="qb-title"><?php esc_html_e('Clear terms for browsing and shopping.', 'dawp'); ?></h1>
+        <p class="qb-copy"><?php esc_html_e("These Terms & Conditions explain the rules that apply when you use Queen's Bracelet, browse bracelet products, place orders, contact support, or use our ecommerce services.", 'dawp'); ?></p>
+        <div class="qb-actions">
+          <a class="qb-button" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop Bracelets', 'dawp'); ?></a>
+          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
         </div>
-    </section>
-
-    <!-- Quick Summary Cards -->
-    <section class="bg-slickSoft py-12 lg:py-16">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">01</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Website Use', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Use our website lawfully and responsibly when browsing or shopping.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">02</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Orders & Payments', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Orders are subject to availability, verification, and successful payment.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">03</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Product Info', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('We aim to present products clearly, but details may vary slightly.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">04</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Customer Policies', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Shipping, returns, privacy, and support policies are part of these terms.', 'dawp'); ?>
-                </p>
-            </div>
-
+      </div>
+      <div class="qb-panel">
+        <p class="qb-eyebrow"><?php esc_html_e('Terms Snapshot', 'dawp'); ?></p>
+        <div class="qb-mini-grid">
+          <div class="qb-mini-card"><strong><?php esc_html_e('Lawful Use', 'dawp'); ?></strong><p><?php esc_html_e('Use the website responsibly and only for lawful shopping and support purposes.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Order Review', 'dawp'); ?></strong><p><?php esc_html_e('Orders are subject to availability, payment approval, verification, and fraud screening.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Product Details', 'dawp'); ?></strong><p><?php esc_html_e('Review bracelet size, finish, material notes, clasp details, and care instructions before ordering.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Policies Apply', 'dawp'); ?></strong><p><?php esc_html_e('Shipping, returns, refunds, privacy, and support policies are part of these terms.', 'dawp'); ?></p></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Main Content -->
-    <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+  <section class="qb-section">
+    <div class="qb-wrap qb-summary-grid">
+      <div class="qb-card"><b>01</b><h3><?php esc_html_e('Website Use', 'dawp'); ?></h3><p><?php esc_html_e('Customers agree to use our bracelet boutique without disrupting security, checkout, accounts, or other users.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Orders', 'dawp'); ?></h3><p><?php esc_html_e('Accurate billing, shipping, and contact information is required to complete order processing and delivery.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Product Accuracy', 'dawp'); ?></h3><p><?php esc_html_e('We aim for clear product details, but colors, sizing, finish, and availability may vary slightly.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Support', 'dawp'); ?></h3><p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p></div>
+    </div>
+  </section>
 
-            <!-- Sidebar -->
-            <aside class="lg:sticky lg:top-32 lg:self-start">
-                <div class="rounded-3xl bg-slickBlack p-7 text-white shadow-xl shadow-black/10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('Terms Overview', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                        <?php esc_html_e('Clear Rules For Shopping.', 'dawp'); ?>
-                    </h2>
-
-                    <p class="mt-5 text-sm leading-7 text-white/80">
-                        <?php esc_html_e('These terms explain how customers may use our website, place orders, and interact with Slicktee services.', 'dawp'); ?>
-                    </p>
-
-                    <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('Terms navigation', 'dawp'); ?>">
-                        <a href="#acceptance" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Acceptance Of Terms', 'dawp'); ?>
-                        </a>
-                        <a href="#website-use" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Website Use', 'dawp'); ?>
-                        </a>
-                        <a href="#orders" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Orders & Payments', 'dawp'); ?>
-                        </a>
-                        <a href="#products" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Product Information', 'dawp'); ?>
-                        </a>
-                        <a href="#shipping-returns" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
-                        </a>
-                        <a href="#intellectual-property" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Intellectual Property', 'dawp'); ?>
-                        </a>
-                        <a href="#limitations" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Limitations', 'dawp'); ?>
-                        </a>
-                        <a href="#contact" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Contact Us', 'dawp'); ?>
-                        </a>
-                    </nav>
-                </div>
-            </aside>
-
-            <!-- Terms Body -->
-            <div class="space-y-8">
-
-                <!-- Acceptance -->
-                <section id="acceptance" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Acceptance Of Terms', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Using Slicktee Means You Accept These Terms', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('By accessing our website, browsing products, creating an account, placing an order, or using any Slicktee service, you agree to be bound by these Terms & Conditions and any policies referenced on this website.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('If you do not agree with these terms, please do not use our website or place an order through our store.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Website Use -->
-                <section id="website-use" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Website Use', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Responsible Use Of Our Store', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('You agree to use this website only for lawful purposes and in a way that does not damage, disable, interfere with, or disrupt the website, checkout system, customer accounts, or other users.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('You may not attempt to access restricted areas, misuse website features, upload harmful code, interfere with security systems, or use our store for fraudulent activity.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="mt-8 rounded-2xl border border-[#E5E7EB] bg-white p-6">
-                        <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                            <?php esc_html_e('Prohibited Activities', 'dawp'); ?>
-                        </h3>
-
-                        <ul class="mt-5 grid gap-3 text-sm leading-6 text-slickMuted sm:grid-cols-2">
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Fraudulent purchases or payment misuse', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Unauthorized access attempts', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Copying website content without permission', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Interfering with website functionality', 'dawp'); ?>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Orders -->
-                <section id="orders" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Orders & Payments', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Order Acceptance And Payment', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('All orders placed through Slicktee are subject to product availability, payment authorization, fraud screening, and order verification. We reserve the right to cancel or refuse any order when necessary.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Customers are responsible for providing accurate billing, shipping, and contact information. Incorrect details may cause delays, failed delivery, or order cancellation.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Prices, promotions, and product availability may change without notice. The final order total will be shown at checkout before payment is completed.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Products -->
-                <section id="products" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Product Information', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Product Details, Colors, And Fit', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('We aim to display product names, images, descriptions, pricing, sizing, and availability as accurately as possible. However, slight variations may occur due to screen settings, photography, production updates, or inventory changes.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Customers should review size charts, product descriptions, and care information before placing an order. If you need help choosing a size or style, please contact our support team before checkout.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Shipping & Returns -->
-                <section id="shipping-returns" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Customer Policy References', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('Shipping, delivery, tracking, returns, refunds, and order issue procedures are described in our Shipping & Return Policy. That policy is part of these Terms & Conditions.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('By placing an order, you agree to review and follow the requirements for returns, including eligibility conditions and return request timelines.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="mt-7">
-                        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
-                           class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickBlack px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">
-                            <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Intellectual Property -->
-                <section id="intellectual-property" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Intellectual Property', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Brand, Content, And Design Rights', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('All website content, branding, page layouts, product presentation, graphics, text, images, logos, and design elements are owned by or licensed to Slicktee unless otherwise stated.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('You may not copy, reproduce, distribute, modify, resell, or commercially exploit website content without written permission from Slicktee.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Slicktee is committed to original apparel presentation and does not support unauthorized use of copyrighted, trademarked, celebrity, or protected third-party materials.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- User Content -->
-                <section class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('User Content', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Reviews, Messages, And Submissions', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('If you submit reviews, messages, comments, photos, or other content to Slicktee, you are responsible for ensuring that the content is accurate, lawful, and does not violate the rights of others.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('We reserve the right to remove content that is misleading, offensive, unlawful, spam-like, or inconsistent with our store policies.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Limitation -->
-                <section id="limitations" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Limitations', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Service Availability And Limitations', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('We work to keep our website accurate, available, and secure, but we do not guarantee that the website will always be uninterrupted, error-free, or free from technical issues.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('To the fullest extent permitted by law, Slicktee is not responsible for indirect, incidental, or consequential damages arising from website use, order delays, carrier issues, or misuse of our services.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Updates -->
-                <section class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Terms Updates', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Changes To These Terms', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('We may update these Terms & Conditions from time to time. Any updates will be posted on this page. Continued use of the website after updates means you accept the revised terms.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Contact CTA -->
-                <section id="contact" class="overflow-hidden rounded-3xl bg-slickBlack text-white shadow-xl shadow-black/10">
-                    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
-                        <div class="p-7 lg:p-10">
-                            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                                <?php esc_html_e('Questions About Terms?', 'dawp'); ?>
-                            </p>
-
-                            <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                                <?php esc_html_e('We Keep Support Direct.', 'dawp'); ?>
-                            </h2>
-
-                            <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
-                                <?php esc_html_e('If you have questions about these Terms & Conditions, your order, or our store policies, contact the Slicktee support team.', 'dawp'); ?>
-                            </p>
-
-                            <div class="mt-8 flex flex-wrap gap-4">
-                                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                                    <?php esc_html_e('Contact Support', 'dawp'); ?>
-                                </a>
-
-                                <a href="mailto:support@slicktee.com"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                                    <?php esc_html_e('Email Us', 'dawp'); ?>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="min-h-[300px] bg-slickGreen">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/contact_banner.png'); ?>"
-                                 alt="<?php esc_attr_e('Slicktee customer terms and support', 'dawp'); ?>"
-                                 class="h-full w-full object-cover opacity-85">
-                        </div>
-                    </div>
-                </section>
-
-            </div>
+  <section class="qb-section qb-soft">
+    <div class="qb-wrap qb-content-grid">
+      <aside class="qb-sidebar">
+        <div class="qb-dark-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Terms Sections', 'dawp'); ?></p>
+          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Know the basics before checkout.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('These terms connect website use, orders, product information, customer policies, and support expectations.', 'dawp'); ?></p>
+          <nav class="qb-side-nav" aria-label="<?php esc_attr_e('Terms sections', 'dawp'); ?>">
+            <a href="#acceptance"><?php esc_html_e('Acceptance', 'dawp'); ?></a>
+            <a href="#website-use"><?php esc_html_e('Website Use', 'dawp'); ?></a>
+            <a href="#orders"><?php esc_html_e('Orders & Payments', 'dawp'); ?></a>
+            <a href="#products"><?php esc_html_e('Products', 'dawp'); ?></a>
+            <a href="#policies"><?php esc_html_e('Policies', 'dawp'); ?></a>
+            <a href="#intellectual"><?php esc_html_e('Intellectual Property', 'dawp'); ?></a>
+            <a href="#limitations"><?php esc_html_e('Limitations', 'dawp'); ?></a>
+          </nav>
         </div>
-    </section>
+      </aside>
 
-</main>
+      <div class="qb-policy-stack">
+        <section id="acceptance" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Acceptance Of Terms', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Using Queen\'s Bracelet means you accept these terms.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('By accessing our website, browsing products, creating an account, placing an order, or contacting support, you agree to these Terms & Conditions and the policies referenced on this website.', 'dawp'); ?></p>
+          <p><?php esc_html_e('If you do not agree with these terms, please do not use the website or place an order.', 'dawp'); ?></p>
+        </section>
+        <section id="website-use" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Website Use', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Use the store responsibly and lawfully.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('You agree not to damage, disable, overload, misuse, or interfere with the website, checkout, customer accounts, security systems, or other users.', 'dawp'); ?></p>
+          <ul>
+            <li><?php esc_html_e('Do not attempt unauthorized access to restricted areas or systems.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Do not use the store for fraudulent orders, payment misuse, spam, or harmful code.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Do not copy, scrape, reproduce, or commercially exploit website content without permission.', 'dawp'); ?></li>
+          </ul>
+        </section>
+        <section id="orders" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Orders & Payments', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Orders require accurate information and payment approval.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Orders are subject to product availability, payment authorization, fraud screening, and order verification. We may cancel or refuse orders when necessary, including suspected fraud, inaccurate information, pricing errors, or unavailable products.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Customers are responsible for providing accurate billing, shipping, email, and phone details. Incorrect information may cause delays, failed delivery, or cancellation.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Prices, promotions, and availability may change without notice. The final order total is shown at checkout before payment is completed.', 'dawp'); ?></p>
+        </section>
+        <section id="products" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Product Information', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Review product details before ordering.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Queen\'s Bracelet focuses on fashion bracelets and giftable jewelry. Product pages may include material or finish notes, bracelet length, adjustable details, clasp information, charm details, care instructions, and styling guidance.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We aim to present product names, images, descriptions, prices, and availability clearly. Slight differences may occur due to screen settings, photography, production updates, or inventory changes.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We do not make unsupported third-party brand, premium-material, medical, wellness, or guaranteed benefit claims for our products.', 'dawp'); ?></p>
+        </section>
+        <section id="policies" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Shipping, Returns & Privacy', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Store policies are part of these terms.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Our Shipping & Returns page explains processing times, delivery estimates, tracking, return eligibility, refund review, and order issue procedures. Our Privacy Policy explains how customer information is handled.', 'dawp'); ?></p>
+          <div class="qb-actions">
+            <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+            <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
+          </div>
+        </section>
+        <section id="intellectual" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Intellectual Property', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Brand, content, and design rights.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Website content, branding, product presentation, page layouts, graphics, text, images, and design elements are owned by or licensed to Queen\'s Bracelet unless otherwise stated.', 'dawp'); ?></p>
+          <p><?php esc_html_e('You may not copy, reproduce, distribute, modify, resell, or commercially exploit website content without written permission.', 'dawp'); ?></p>
+        </section>
+        <section id="limitations" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Limitations & Updates', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Website availability and policy changes.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('We work to keep the website accurate, available, and secure, but we cannot guarantee uninterrupted or error-free access. Carrier delays, technical issues, and third-party service limitations may occur.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We may update these Terms & Conditions from time to time. Updates will be posted on this page. Continued website use after updates means you accept the revised terms.', 'dawp'); ?></p>
+          <div class="qb-actions">
+            <a class="qb-button" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
+            <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('View FAQ', 'dawp'); ?></a>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
 
-<?php
-get_footer();
+  <section class="qb-section qb-plum">
+    <div class="qb-wrap">
+      <p class="qb-eyebrow"><?php esc_html_e('Customer Transparency', 'dawp'); ?></p>
+      <h2 class="qb-title"><?php esc_html_e('Policies are available before checkout.', 'dawp'); ?></h2>
+      <p class="qb-copy"><?php esc_html_e('Customers should review bracelet product details, shipping expectations, return conditions, privacy information, and these terms before placing an order.', 'dawp'); ?></p>
+      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Related policy links', 'dawp'); ?>">
+        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+      </nav>
+    </div>
+  </section>
+</div>

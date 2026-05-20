@@ -4,14 +4,14 @@ add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2)
 add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_number', 9);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SLK-' . $order_id;
+    return 'SO-' . $order_id;
 }
 
 function dawp_normalize_tracking_order_number($order_id) {
     $order_id = trim((string) $order_id);
 
-    if (preg_match('/^SLK[-\s#]*(\d+)$/i', $order_id, $matches)) {
-        return $matches[1];
+    if (preg_match('/^(SO|SLK)[-\s#]*(\d+)$/i', $order_id, $matches)) {
+        return $matches[2];
     }
 
     return $order_id;
@@ -26,12 +26,30 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-slider');
 }
 
+add_filter('document_title_parts', 'dawp_brand_document_title_parts', 20);
+function dawp_brand_document_title_parts($parts) {
+    $brand_name = 'Scott Osterbind';
+    $brand_slogan = 'Handmade Jewelry & Vintage-Inspired Accessories';
+
+    if (is_front_page() || is_home()) {
+        $parts['title'] = $brand_name . ' - ' . $brand_slogan;
+        unset($parts['site'], $parts['tagline']);
+
+        return $parts;
+    }
+
+    $parts['site'] = $brand_name;
+    unset($parts['tagline']);
+
+    return $parts;
+}
+
 add_action('wp_head', 'dawp_favicon_links', 100);
 add_action('login_head', 'dawp_favicon_links', 100);
 function dawp_favicon_links() {
-    $favicon_32 = get_theme_file_uri('/assets/img/favicon-tire-32.png');
-    $favicon_512 = get_theme_file_uri('/assets/img/favicon-tire.png');
-    $apple_touch_icon = get_theme_file_uri('/assets/img/apple-touch-icon.png');
+    $favicon_32 = get_theme_file_uri('/assets/img/favicon-scott-32.png');
+    $favicon_512 = get_theme_file_uri('/assets/img/favicon-scott.png');
+    $apple_touch_icon = get_theme_file_uri('/assets/img/apple-touch-icon-scott.png');
     ?>
     <link rel="icon" href="<?php echo esc_url($favicon_32); ?>" sizes="32x32" type="image/png">
     <link rel="icon" href="<?php echo esc_url($favicon_512); ?>" sizes="512x512" type="image/png">
@@ -62,7 +80,7 @@ function theme_search_template($template) {
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', ['dawp-tw-main'], '1.0.4');
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', ['dawp-tw-main'], '1.0.5');
 
     if ( is_front_page() ) {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
@@ -78,10 +96,10 @@ function dawp_scripts() {
             wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.3');
             dawp_remove_styles();
         } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.4');
+            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.5');
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
-            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.9');
+            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.10');
         } elseif ( is_woocommerce()  ) {
             wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.6');
             dawp_remove_styles();

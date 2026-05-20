@@ -1,22 +1,22 @@
 /* ===================================================
    CART PAGE — WooCommerce Block Cart
-   Slicktee Brand · Mobile-first · Pure CSS · No @apply
+   Scott Osterbind Brand - Mobile-first - Pure CSS - No @apply
    =================================================== */
 
 /* === 1. PAGE WRAPPER === */
 .wc-block-cart {
-  --cart-bg: #F4F6F8;
+  --cart-bg: #F8F1E7;
   --cart-surface: #FFFFFF;
-  --cart-surface-soft: #EFF6FF;
-  --cart-text: #0B1F33;
-  --cart-text-strong: #0B1F33;
-  --cart-muted: #5B6472;
-  --cart-border: #D7DEE8;
-  --cart-primary: #2563EB;
-  --cart-primary-hover: #0B1F33;
+  --cart-surface-soft: #FFF8EF;
+  --cart-text: #5A3825;
+  --cart-text-strong: #5A3825;
+  --cart-muted: #7A6D62;
+  --cart-border: #D8C3A5;
+  --cart-primary: #9A6242;
+  --cart-primary-hover: #5A3825;
   --cart-primary-contrast: #FFFFFF;
-  --cart-accent: #F97316;
-  --cart-focus: rgba(37, 99, 235, 0.18);
+  --cart-accent: #C8A45D;
+  --cart-focus: rgba(154, 98, 66, 0.18);
   --cart-danger: #C0392B;
   max-width: 1280px;
   margin: 0 auto;
@@ -26,18 +26,18 @@
 }
 
 .wp-block-woocommerce-empty-cart-block {
-  --cart-bg: #F4F6F8;
+  --cart-bg: #F8F1E7;
   --cart-surface: #FFFFFF;
-  --cart-surface-soft: #EFF6FF;
-  --cart-text: #0B1F33;
-  --cart-text-strong: #0B1F33;
-  --cart-muted: #5B6472;
-  --cart-border: #D7DEE8;
-  --cart-primary: #2563EB;
-  --cart-primary-hover: #0B1F33;
+  --cart-surface-soft: #FFF8EF;
+  --cart-text: #5A3825;
+  --cart-text-strong: #5A3825;
+  --cart-muted: #7A6D62;
+  --cart-border: #D8C3A5;
+  --cart-primary: #9A6242;
+  --cart-primary-hover: #5A3825;
   --cart-primary-contrast: #FFFFFF;
-  --cart-accent: #F97316;
-  --cart-focus: rgba(37, 99, 235, 0.18);
+  --cart-accent: #C8A45D;
+  --cart-focus: rgba(154, 98, 66, 0.18);
   --cart-danger: #C0392B;
 }
 
@@ -446,7 +446,7 @@
   top: 6px;
   font-size: 0.6875rem;
   transform: none;
-  color: #9CA3AF;
+  color: #A79889;
 }
 
 /* Apply button */
@@ -669,7 +669,7 @@
 
 .wc-block-grid__product:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(11, 15, 13, 0.10);
+  box-shadow: 0 8px 24px rgba(90, 56, 37, 0.12);
 }
 
 .wc-block-grid__product-link {

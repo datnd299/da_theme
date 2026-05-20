@@ -1,65 +1,77 @@
-# Tizezap — Site.md
+# Scott Osterbind — Site.md
 
 ## Store Information
 
-* **Domain:** tizezap.com
-* **Brand Name:** Tizezap
+* **Domain:** scottosterbind.com
+* **Brand Name:** Scott Osterbind
 * **Language:** English
-* **Store Type:** Tire & Auto Essentials Store
+* **Store Type:** Handmade Jewelry & Vintage Accessories Boutique
 * **Primary Market:** United States
-* **Core Products:** Car tires, SUV tires, light truck tires, trailer tires, all-season tires, winter tires, performance tires
-* **Support Email:** [support@tizezap.com](mailto:support@tizezap.com)
+* **Core Products:** Handmade bracelets, beaded jewelry, vintage accessories, curated apparel, artisan gifts
+* **Support Email:** [support@scottosterbind.com](mailto:support@scottosterbind.com)
 * **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
 ## Brand Positioning
 
-Tizezap is an online tire store focused on reliable tires for everyday driving, road comfort, vehicle compatibility, and practical tire shopping.
+Scott Osterbind is an artisan jewelry and vintage accessories boutique focused on handmade bracelets, beaded jewelry, curated vintage-style finds, and small creative gifts.
 
 Core message:
 
-> Reliable tires for everyday driving.
+> Handmade jewelry and curated vintage accessories with a personal, creative feel.
 
-Expanded message:
+The website should feel:
 
-> Tizezap helps drivers find suitable tires for cars, SUVs, trucks, trailers, and seasonal driving needs with clear product details and practical support.
-
-The store should feel:
-
-* Automotive
-* Reliable
-* Practical
-* Clean
-* Technical but easy to understand
+* Handmade
+* Warm
+* Artistic
+* Vintage-inspired
+* Curated
+* Personal
+* Boutique-like
 * Trustworthy
-* Road-ready
 * GMC-safe
 
-The store should not feel like:
+The website should not feel like:
 
-* A random auto parts store
-* A racing-only tire shop
-* A fake discount tire site
-* A used tire marketplace
-* A site making exaggerated safety claims
+* A generic jewelry marketplace
+* A luxury diamond jewelry store
+* A fake designer accessories shop
+* A random dropshipping store
+* A fast-fashion apparel store
+
+---
+
+## Historical / Brand Footprint Direction
+
+The rebuilt website should stay close to the brand’s previous creative footprint:
+
+* Handmade jewelry
+* Bead bracelets
+* Vintage curation
+* Accessories
+* Creative market / artisan aesthetic
+* Small-batch handmade feel
+
+The goal is not to completely change the niche. The goal is to make the old direction cleaner, more professional, and more suitable for GMC approval.
 
 ---
 
 ## Core Store Concept
 
-Tizezap sells tires for different vehicle needs and driving conditions.
+Scott Osterbind offers handmade and curated pieces for people who appreciate personal style, creative details, and vintage-inspired accessories.
 
-The site should help customers shop by:
+The store should focus on:
 
-* Tire type
-* Vehicle type
-* Driving condition
-* Tire size
-* Rim size
-* Product specifications
+* Handmade bracelets
+* Beaded jewelry
+* Vintage accessories
+* Curated apparel pieces
+* Artisan giftable items
+* Small-batch creative products
 
-The main focus is not hype or extreme performance claims. The focus is clear tire selection, dependable road use, and easy product comparison.
+Products should feel personal and intentional, not mass-produced or random.
 
 ---
 
@@ -67,139 +79,181 @@ The main focus is not hype or extreme performance claims. The focus is clear tir
 
 Primary audience:
 
-* Car owners
-* SUV and crossover owners
-* Light truck drivers
-* Trailer owners
-* Everyday commuters
-* Drivers replacing worn tires
-* Customers looking for seasonal tires
-* People comparing tire options online
+* Women and men aged 20–45
+* Handmade jewelry shoppers
+* Etsy-style shoppers
+* Vintage accessory lovers
+* Indie fashion customers
+* Gift shoppers
+* People who like boho, artisan, or creative market aesthetics
 
 Customer needs:
 
-* Find tires that fit their vehicle
-* Understand tire size and specifications
-* Choose tires for everyday driving
-* Compare all-season, winter, performance, SUV, truck, and trailer tires
-* Get clear shipping and return information
+* Unique handmade accessories
+* Simple giftable jewelry
+* Beaded bracelets with character
+* Vintage-inspired fashion details
+* Curated accessories with story
+* Products that feel personal and not overly commercial
 
 ---
 
 ## Main Product Categories
 
-Keep categories focused and tire-specific:
+Keep categories focused and close to the old footprint:
 
-1. **All-Season Tires**
-2. **SUV & Crossover Tires**
-3. **Light Truck Tires**
-4. **Performance Tires**
-5. **Trailer Tires**
-6. **Winter Tires**
+1. **Handmade Bracelets**
+2. **Beaded Jewelry**
+3. **Vintage Accessories**
+4. **Curated Apparel**
+5. **Artisan Gifts**
 
 Short menu option:
 
-1. **All-Season Tires**
-2. **SUV & Truck Tires**
-3. **Performance Tires**
-4. **Trailer Tires**
-5. **Winter Tires**
-
-Additional shopping filters:
-
-* Shop By Tire Size
-* Shop By Rim Size
-* Shop By Vehicle Type
-* Shop By Brand
+1. **Bracelets**
+2. **Jewelry**
+3. **Vintage Finds**
+4. **Accessories**
+5. **Gifts**
 
 ---
 
 ## Category Direction
 
-### All-Season Tires
+### Handmade Bracelets
 
-For everyday driving in varied conditions.
+For bead bracelets and handmade wristwear.
 
-Safe copy:
+Products may include:
 
-> Tires designed for practical year-round driving and everyday road use.
-
-### SUV & Crossover Tires
-
-For SUVs, crossovers, and family vehicles.
-
-Safe copy:
-
-> Tire options for SUVs and crossovers, built for daily driving, comfort, and road stability.
-
-### Light Truck Tires
-
-For pickup trucks and light-duty work vehicles.
+* Bead bracelets
+* Stretch bracelets
+* Stone bracelets
+* Layering bracelets
+* Handmade wrist accessories
 
 Safe copy:
 
-> Tires for light trucks, hauling needs, and everyday utility driving.
+> Handmade bracelets designed with simple materials, creative details, and everyday personal style.
 
-### Performance Tires
+### Beaded Jewelry
 
-For drivers who want sharper handling and sporty road feel.
+For jewelry pieces built around beads, stones, textures, and handmade details.
 
-Safe copy:
+Products may include:
 
-> Tires designed for responsive handling and performance-inspired driving.
-
-### Trailer Tires
-
-For trailers, utility trailers, and towing support.
-
-Safe copy:
-
-> Trailer tire options for towing, utility use, and road-ready trailer needs.
-
-### Winter Tires
-
-For cold-weather and winter driving conditions.
+* Beaded bracelets
+* Beaded necklaces
+* Small handmade jewelry pieces
+* Layering jewelry
+* Creative accessory sets
 
 Safe copy:
 
-> Tires designed for colder temperatures and winter road conditions.
+> Beaded jewelry pieces made for everyday expression and creative personal styling.
+
+### Vintage Accessories
+
+For curated vintage-inspired or vintage-style accessories.
+
+Products may include:
+
+* Vintage-style hats
+* Scarves
+* Bags
+* Belts
+* Small accessories
+* Curated accent pieces
+
+Safe copy:
+
+> Curated accessories with vintage character and everyday styling potential.
+
+Important: Do not claim an item is authentic vintage unless it is actually vintage and clearly described.
+
+### Curated Apparel
+
+For limited apparel pieces that fit the handmade/vintage aesthetic.
+
+Products may include:
+
+* Vintage-style clothing
+* Curated shirts
+* Hats
+* Layering pieces
+* Creative casual apparel
+
+Safe copy:
+
+> Curated apparel pieces selected for creative everyday style and vintage-inspired looks.
+
+### Artisan Gifts
+
+For small giftable handmade or curated items.
+
+Products may include:
+
+* Bracelet gifts
+* Jewelry sets
+* Accessory bundles
+* Small curated finds
+* Creative gift items
+
+Safe copy:
+
+> Small handmade and curated pieces made for thoughtful everyday gifting.
 
 ---
 
-## Product Information Requirements
+## Product Style Rules
 
-Every tire product page should clearly show:
+Products should generally feel:
 
-* Tire size
-* Rim size
-* Load index
-* Speed rating
-* Tire type
-* Vehicle compatibility guidance
-* Season / driving condition
-* Tread pattern if available
-* Brand / model
-* Quantity included
-* Shipping information
-* Return eligibility
+* Handmade
+* Curated
+* Warm
+* Creative
+* Vintage-inspired
+* Personal
+* Giftable
+* Everyday wearable
 
-Important note to include on product pages:
+Preferred product details:
 
-> Please confirm your tire size, rim size, and vehicle compatibility before placing an order.
+* Natural beads
+* Stone textures
+* Warm metals
+* Leather accents
+* Wood details
+* Vintage fabric textures
+* Neutral and earthy colors
+* Small-batch presentation
+
+Avoid products that feel:
+
+* Counterfeit
+* Fake designer
+* Mass dropshipped
+* Luxury replica
+* Random general store
+* Trademark/copyright risky
+* Overly fast-fashion
 
 ---
 
 ## Products To Avoid
 
-For GMC safety, avoid:
+For GMC safety, do not sell or promote:
 
-* Used tires unless clearly disclosed and compliant
-* Counterfeit tire brands
-* Fake brand names or unauthorized logos
-* Misleading warranty claims
-* Unsafe or damaged tire products
-* Racing-only products marketed for regular road use without clarity
-* Extreme claims such as accident-proof or safest tire guaranteed
+* Fake designer jewelry or accessories
+* Replica vintage luxury products
+* Counterfeit branded apparel
+* Copyrighted character merchandise
+* Misleading gemstone claims
+* Unverified healing/medical crystal claims
+* Adult products
+* Weapons or restricted accessories
+* Products with protected logos or team marks without authorization
 
 ---
 
@@ -207,69 +261,61 @@ For GMC safety, avoid:
 
 Tone should be:
 
-* Clear
-* Practical
-* Reliable
-* Technical but easy to understand
-* Customer-friendly
-* Safety-aware without exaggerated claims
+* Warm
+* Personal
+* Creative
+* Simple
+* Honest
+* Artisan
+* Story-driven
+* Not overly luxury
 
 Good words:
 
-* reliable
-* everyday driving
-* road-ready
-* compatible
-* all-season
-* traction
-* handling
-* comfort
-* utility
-* tire size
-* vehicle fit
+* handmade
+* curated
+* vintage-inspired
+* beaded
+* personal style
+* creative details
+* everyday expression
+* small-batch feel
+* thoughtful gift
 
 Avoid words:
 
-* safest tire guaranteed
-* accident-proof
-* fits every vehicle
-* lifetime warranty unless verified
-* best tire in the world
-* unbeatable performance
-* 100% guaranteed grip
+* luxury replica
+* designer inspired
+* healing guaranteed
+* medical crystal benefits
+* rare gemstone unless verified
+* authentic vintage unless confirmed
+* limited stock pressure
+* crazy deal
 
 ---
 
 ## Visual Direction
 
-Use clean automotive imagery:
+Use warm artisan boutique imagery:
 
-* Tire close-ups
-* Tread detail shots
-* Car on road
-* SUV on highway
-* Truck / trailer tire scenes
-* Garage or tire shop setting
-* Clean product photography
-* Road lifestyle visuals
-
-Visual style:
-
-* Navy
-* Black
-* Steel gray
-* White
-* Electric blue accent
-* Realistic lighting
-* Strong product clarity
+* Handmade bracelet close-ups
+* Beads on linen or wood
+* Jewelry tray styling
+* Artisan workspace
+* Vintage accessories on neutral fabric
+* Natural sunlight
+* Warm cream, sand, clay, olive, muted gold, charcoal tones
+* Human hands making or arranging jewelry if available
 
 Avoid:
 
-* Overly aggressive racing visuals unless for performance section
-* Fake brand logos
-* Text-heavy supplier images
-* Dirty/unsafe tire imagery
-* Low-quality product screenshots
+* Glossy luxury diamond styling
+* Heavy black/gold luxury design
+* Supplier collage images
+* Fake designer branding
+* Overly polished corporate jewelry visuals
+* AI fashion editorial that feels disconnected from handmade products
 
 ---
 
@@ -277,14 +323,17 @@ Avoid:
 
 Recommended palette:
 
-* Deep Navy
-* Charcoal Black
-* Steel Gray
-* Clean White
-* Electric Blue
-* Safety Orange accent used lightly
+* Warm Cream
+* Sand Beige
+* Clay Brown
+* Vintage Brown
+* Dusty Olive
+* Muted Gold
+* Charcoal
 
-The site should feel automotive, trustworthy, and technical.
+The site should feel warm, handmade, grounded, and boutique-like.
+
+Avoid neon colors, luxury black/gold overload, and generic ecommerce blue/red sale styling.
 
 ---
 
@@ -292,48 +341,55 @@ The site should feel automotive, trustworthy, and technical.
 
 Recommended homepage flow:
 
-1. **Hero — Reliable Tires For Everyday Driving**
-2. **Shop By Tire Category**
-3. **All-Season & Daily Driving Tires**
-4. **SUV, Truck & Trailer Tires**
-5. **Customer Care / Fitment & Trust**
+1. **Hero — Handmade Jewelry & Vintage Accessories**
+2. **Shop By Category**
+3. **Handmade Bracelets Feature**
+4. **Vintage Accessories & Curated Finds**
+5. **Artisan Story / Customer Care Trust**
 
 Hero headline:
 
-> Reliable Tires For Everyday Driving
+> Handmade Jewelry & Vintage Accessories With A Personal Feel
 
 Hero subheadline:
 
-> Find all-season, SUV, truck, trailer, winter, and performance tires with clear product details to help you choose the right fit for your vehicle.
+> Explore handmade bracelets, beaded jewelry, vintage-inspired accessories, curated apparel, and small artisan gifts made for everyday expression.
 
 Main CTA:
 
-* Shop Tires
-* Find Your Tire Size
+* Shop Handmade Bracelets
+* Explore Vintage Finds
 
 ---
 
-## Trust & Policy Requirements
+## GMC-Safe Rules
 
-The website must include:
+The site must present itself as a legitimate handmade jewelry and accessories boutique.
 
-* About Us
-* Contact Us
+Must include:
+
+* Clear product categories
+* About Us page
+* Contact page
 * Shipping Policy
 * Return & Refund Policy
 * Privacy Policy
 * Terms of Service
 * FAQ
-* Track Your Order
+* Track Order page
+* Product material notes
+* Product size/fit details where relevant
+* Handmade/curated description accuracy
 
-Trust information should include:
+Avoid:
 
-* Support email
-* Business hours
-* Tire fitment reminder
-* Shipping timeline
-* Return conditions
-* Clear product specifications
+* Fake designer claims
+* Replica product language
+* Unverified gemstone/healing claims
+* Fake reviews
+* Countdown timers
+* Misleading vintage claims
+* Counterfeit branding
 
 ---
 
@@ -341,7 +397,7 @@ Trust information should include:
 
 Orders are processed within **2–4 business days**.
 
-After dispatch, standard US shipping typically takes **5–10 business days** depending on destination, product availability, tire size, carrier conditions, and delivery location.
+After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
 
 Tracking information is provided once an order ships.
 
@@ -351,17 +407,15 @@ Tracking information is provided once an order ships.
 
 Customers may request returns within **30 days** of delivery.
 
-Eligible tires should be:
+Eligible items should be:
 
 * Unused
-* Unmounted
+* Unworn
 * Undamaged
 * In original condition
-* Returned with original labels/packaging where applicable
+* Returned with original packaging where applicable
 
-Mounted, driven-on, damaged, or incorrectly ordered tires may not be eligible for return unless required by applicable law or approved by support.
-
-Customers should confirm size and compatibility before ordering.
+For handmade or curated items, product condition must be carefully checked before return approval.
 
 ---
 
@@ -369,53 +423,26 @@ Customers should confirm size and compatibility before ordering.
 
 Product descriptions should include:
 
-* Tire type
-* Best use case
-* Size and specification details
-* Vehicle type guidance
-* Driving condition
-* Tread/handling notes if available
-* Fitment reminder
-* Shipping and return note
+* Product type
+* Materials
+* Size / length / fit where relevant
+* Handmade or curated note
+* Styling use case
+* Care instructions
+* Gift suitability if applicable
 
 Safe product copy example:
 
-> This all-season tire is designed for everyday road use and daily driving needs. Please confirm your tire size, rim size, and vehicle compatibility before ordering.
+> This handmade beaded bracelet is designed for everyday styling and layering. Each piece may have slight natural variations due to handmade details and material texture.
 
 Avoid:
 
-* Guaranteed safety claims
-* Accident-proof claims
-* Fits every vehicle claims
-* Fake warranty statements
-* Unsupported performance claims
+* Healing or medical crystal claims
+* Fake luxury language
+* Designer-inspired wording
+* Misleading gemstone claims
 * Keyword stuffing
-
----
-
-## GMC-Safe Rules
-
-Tizezap must appear as a legitimate tire store with clear product data and transparent policies.
-
-Must include:
-
-* Tire categories
-* Fitment/size reminders
-* Product specifications
-* Contact information
-* Shipping and return policies
-* Clear warranty wording if applicable
-* No fake reviews
-* No counterfeit branding
-
-Avoid:
-
-* Misleading compatibility claims
-* Exaggerated safety claims
-* Fake discounts
-* Countdown timers
-* Unauthorized brand logos
-* Used/damaged products without disclosure
+* Unsupported authenticity claims
 
 ---
 
@@ -423,14 +450,14 @@ Avoid:
 
 The final website should feel like:
 
-> A clean and trustworthy online tire store helping drivers find reliable tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
+> A warm artisan boutique offering handmade bracelets, beaded jewelry, vintage accessories, curated apparel, and thoughtful small gifts.
 
 Customers should feel:
 
-* The store is focused on tires
-* Product details are clear
-* Compatibility matters are explained
-* The website feels professional and automotive
-* Shipping, returns, and support are transparent
+* The store has a clear handmade/vintage direction
+* Products feel personal and curated
+* The brand is creative but trustworthy
+* Product details and policies are clear
+* The website is GMC-safe and professional
 
-The site should never feel like a random auto parts store, fake discount tire shop, or unsafe tire marketplace.
+The site should never feel like a counterfeit accessory shop, random marketplace, or generic jewelry dropshipping store.

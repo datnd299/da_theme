@@ -1,31 +1,31 @@
 <?php
 /**
- * One Shop Vibe - Shop / Archive Product Template
- * Design System: Beauty essentials, conversion-first
+ * Scott Osterbind - Shop / Archive Product Template
+ * Design System: artisan jewelry boutique
  */
 defined('ABSPATH') || exit;
 
 get_header();
 
 $archive_title = is_shop() ? __('All Products', 'dawp') : woocommerce_page_title(false);
-$archive_summary = __('Browse tire options with clear product details, pricing, and fitment reminders.', 'dawp');
-$archive_eyebrow = __('Tizezap Tire Shop', 'dawp');
-$archive_cover = get_theme_file_uri('/assets/img/gallery/Tizezap/tire-hero-road.png');
+$archive_summary = __('Browse handmade jewelry, beaded pieces, vintage-inspired accessories, curated apparel, and thoughtful small gifts.', 'dawp');
+$archive_eyebrow = __('Scott Osterbind Shop', 'dawp');
+$archive_cover = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/hero-artisan-jewelry.png');
 $archive_tags = [
-    __('Tire size', 'dawp'),
-    __('Rim size', 'dawp'),
-    __('Vehicle fit', 'dawp'),
+    __('Handmade details', 'dawp'),
+    __('Curated finds', 'dawp'),
+    __('Giftable pieces', 'dawp'),
 ];
 
 if ( is_product_category() ) {
     $cat = get_queried_object();
-    $category_data = function_exists('dawp_tire_category_data') ? dawp_tire_category_data($cat->slug) : null;
+    $category_data = function_exists('dawp_product_category_data') ? dawp_product_category_data($cat->slug) : null;
 
     if ($category_data) {
         $archive_summary = $category_data['summary'] ?? $category_data['description'];
-        $archive_eyebrow = $category_data['eyebrow'] ?? __('Shop Tire Category', 'dawp');
-        $archive_cover = function_exists('dawp_tire_category_cover_url')
-            ? dawp_tire_category_cover_url($cat->slug)
+        $archive_eyebrow = $category_data['eyebrow'] ?? __('Shop Collection', 'dawp');
+        $archive_cover = function_exists('dawp_product_category_cover_url')
+            ? dawp_product_category_cover_url($cat->slug)
             : $archive_cover;
         $archive_tags = $category_data['tags'] ?? $archive_tags;
     } elseif (! empty($cat->description)) {
@@ -88,7 +88,7 @@ if ( is_product_category() ) {
             <?php endif; ?>
 
             <p class="shop-hero__note">
-                <?php esc_html_e('Please confirm tire size, rim size, load index, speed rating, and vehicle compatibility before ordering.', 'dawp'); ?>
+                <?php esc_html_e('Please review materials, size or fit details, care notes, and handmade or curated item descriptions before ordering.', 'dawp'); ?>
             </p>
         </div>
     </section>
@@ -155,7 +155,7 @@ if ( is_product_category() ) {
 
             <?php
             // Categories widget
-            $categories = function_exists('dawp_tire_product_category_terms') ? dawp_tire_product_category_terms() : [];
+            $categories = function_exists('dawp_product_category_terms') ? dawp_product_category_terms() : [];
             if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
             <div class="shop-sidebar__widget">
                 <h3 class="shop-sidebar__title">Categories</h3>

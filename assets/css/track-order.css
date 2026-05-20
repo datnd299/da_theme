@@ -1,23 +1,24 @@
 /* =============================================================
-   TRACK ORDER PAGE - Tizezap
+   TRACK ORDER PAGE - Scott Osterbind
    ============================================================= */
 
 .track-order-page {
-  --track-navy: #0B1F33;
-  --track-blue: #2563EB;
-  --track-blue-soft: #EFF6FF;
-  --track-orange: #F97316;
-  --track-orange-soft: #FFF7ED;
-  --track-ink: #111827;
-  --track-heading: #0B1F33;
-  --track-muted: #4B5563;
-  --track-soft-muted: #5B6472;
-  --track-border: #E5E7EB;
-  --track-panel: #F4F6F8;
+  --track-ink: #24211E;
+  --track-heading: #5A3825;
+  --track-accent: #9A6242;
+  --track-accent-dark: #5A3825;
+  --track-gold: #C8A45D;
+  --track-olive: #7A7B52;
+  --track-cream: #F8F1E7;
+  --track-cream-strong: #EFE2D0;
+  --track-muted: #5F554E;
+  --track-soft-muted: #7A6D62;
+  --track-border: #D8C3A5;
+  --track-panel: #FBF7F0;
   --track-white: #FFFFFF;
   --track-danger: #C0392B;
   --track-success: #5C8A6A;
-  --track-shadow: 0 16px 40px rgba(11, 31, 51, 0.08);
+  --track-shadow: 0 16px 40px rgba(90, 56, 37, 0.1);
 
   background: var(--track-white);
   color: var(--track-ink);
@@ -30,8 +31,8 @@
   padding: 4rem 1rem;
   color: var(--track-white);
   background:
-    linear-gradient(135deg, rgba(37, 99, 235, 0.36) 0%, rgba(11, 31, 51, 0.98) 48%, rgba(249, 115, 22, 0.28) 100%),
-    var(--track-navy);
+    linear-gradient(135deg, rgba(90, 56, 37, 0.95) 0%, rgba(36, 33, 30, 0.92) 52%, rgba(122, 123, 82, 0.82) 100%),
+    var(--track-heading);
 }
 
 .track-hero::after {
@@ -39,10 +40,10 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.28;
+    linear-gradient(90deg, rgba(248, 241, 231, 0.12) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(248, 241, 231, 0.1) 1px, transparent 1px);
+  background-size: 72px 72px;
+  opacity: 0.22;
   pointer-events: none;
 }
 
@@ -68,9 +69,9 @@
   min-height: 2.125rem;
   padding: 0.45rem 0.85rem;
   border-radius: 8px;
-  color: #FDBA74;
-  background: rgba(249, 115, 22, 0.14);
-  border: 1px solid rgba(249, 115, 22, 0.34);
+  color: var(--track-cream);
+  background: rgba(248, 241, 231, 0.12);
+  border: 1px solid rgba(248, 241, 231, 0.28);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -91,7 +92,7 @@
 .track-hero__desc {
   max-width: 38rem;
   margin: 0;
-  color: #D7DEE8;
+  color: rgba(248, 241, 231, 0.84);
   font-size: 1.0625rem;
   line-height: 1.75;
 }
@@ -125,16 +126,19 @@
 }
 
 .track-hero__button--primary {
-  background: var(--track-blue);
-  color: var(--track-white);
+  background: var(--track-cream);
+  border: 1px solid var(--track-cream);
+  color: var(--track-heading);
 }
 
 .track-hero__button--primary:hover {
-  background: var(--track-orange);
+  background: var(--track-gold);
+  border-color: var(--track-gold);
+  color: var(--track-white);
 }
 
 .track-hero__button--ghost {
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(248, 241, 231, 0.38);
   color: var(--track-white);
 }
 
@@ -153,7 +157,7 @@
 }
 
 .track-form-card--hero {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 24px 60px rgba(36, 33, 30, 0.24);
 }
 
 .track-form-card__header {
@@ -163,7 +167,7 @@
 }
 
 .track-form-card__header span {
-  color: var(--track-orange);
+  color: var(--track-accent);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -196,7 +200,7 @@
 
 .track-form-section {
   padding: 3.5rem 1rem 4rem;
-  background: var(--track-panel);
+  background: linear-gradient(180deg, var(--track-cream) 0%, var(--track-panel) 100%);
 }
 
 .track-form-section__inner {
@@ -209,14 +213,14 @@
 .track-status-card {
   border: 1px solid var(--track-border);
   border-radius: 8px;
-  background: var(--track-white);
+  background: rgba(255, 255, 255, 0.88);
   padding: 1.25rem;
   box-shadow: var(--track-shadow);
 }
 
 .track-status-card__eyebrow {
   display: block;
-  color: var(--track-orange);
+  color: var(--track-accent);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -240,7 +244,7 @@
   padding: 1rem;
   border: 1px solid var(--track-border);
   border-radius: 8px;
-  background: var(--track-panel);
+  background: var(--track-cream);
 }
 
 .track-status-list span {
@@ -248,7 +252,7 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 8px;
-  background: var(--track-blue);
+  background: var(--track-accent);
   color: var(--track-white);
 }
 
@@ -300,8 +304,8 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.25rem 1.5rem;
-  background: var(--track-blue-soft);
-  border: 1px solid #BFDBFE;
+  background: var(--track-white);
+  border: 1px solid var(--track-border);
   border-radius: 8px;
 }
 
@@ -310,7 +314,7 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 8px;
-  background: var(--track-blue);
+  background: var(--track-olive);
   color: var(--track-white);
   display: flex;
   align-items: center;
@@ -333,9 +337,9 @@
 }
 
 .track-help-box__text a {
-  color: var(--track-blue);
+  color: var(--track-accent);
   font-weight: 900;
-  text-decoration-color: #BFDBFE;
+  text-decoration-color: var(--track-gold);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
 }
@@ -362,7 +366,7 @@
 }
 
 .track-badge svg {
-  color: var(--track-orange);
+  color: var(--track-accent);
   flex-shrink: 0;
 }
 
@@ -385,8 +389,9 @@
 }
 
 .track-more-section__label {
-  color: #C2410C;
-  background: var(--track-orange-soft);
+  color: var(--track-accent-dark);
+  background: var(--track-cream);
+  border-color: var(--track-border);
   margin-bottom: 0.5rem;
 }
 
@@ -417,7 +422,7 @@
   min-height: 10.5rem;
   padding: 1.5rem;
   border: 1px solid var(--track-border);
-  border-top: 4px solid var(--track-blue);
+  border-top: 4px solid var(--track-accent);
   border-radius: 8px;
   background: var(--track-panel);
   text-decoration: none;
@@ -425,17 +430,17 @@
 }
 
 .track-more-card:nth-child(2) {
-  border-top-color: var(--track-orange);
+  border-top-color: var(--track-gold);
 }
 
 .track-more-card:nth-child(3) {
-  border-top-color: var(--track-ink);
+  border-top-color: var(--track-olive);
 }
 
 .track-more-card:hover {
   background: var(--track-white);
-  border-color: var(--track-blue);
-  box-shadow: 0 12px 28px rgba(11, 31, 51, 0.1);
+  border-color: var(--track-accent);
+  box-shadow: 0 12px 28px rgba(90, 56, 37, 0.12);
 }
 
 .track-more-card__title {
@@ -482,24 +487,25 @@
 
 .track-category-link::after {
   content: ">";
-  color: var(--track-orange);
+  color: var(--track-accent);
   font-weight: 900;
 }
 
 .track-category-link--all {
-  background: var(--track-navy);
-  border-color: var(--track-navy);
+  background: var(--track-heading);
+  border-color: var(--track-heading);
   color: var(--track-white);
 }
 
 .track-category-link:hover {
-  border-color: var(--track-blue);
-  background: var(--track-blue-soft);
-  color: var(--track-blue);
+  border-color: var(--track-accent);
+  background: var(--track-cream);
+  color: var(--track-accent-dark);
 }
 
 .track-category-link--all:hover {
-  background: var(--track-blue);
+  background: var(--track-accent);
+  border-color: var(--track-accent);
   color: var(--track-white);
 }
 
@@ -582,16 +588,16 @@
 
 .form-row input.input-text:focus,
 .woocommerce-form-row input.input-text:focus {
-  border-color: var(--track-blue) !important;
+  border-color: var(--track-accent) !important;
   background: var(--track-white) !important;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18) !important;
+  box-shadow: 0 0 0 3px rgba(154, 98, 66, 0.18) !important;
 }
 
 .form-row button.button,
 .woocommerce-form-row button.button {
   width: 100% !important;
   min-height: 3.5rem !important;
-  background: var(--track-blue) !important;
+  background: var(--track-accent) !important;
   color: var(--track-white) !important;
   padding: 1rem 2rem !important;
   border-radius: 8px !important;
@@ -602,17 +608,17 @@
   text-transform: uppercase !important;
   cursor: pointer !important;
   border: none !important;
-  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.2) !important;
+  box-shadow: 0 12px 26px rgba(154, 98, 66, 0.22) !important;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
   margin-top: 0.5rem !important;
 }
 
 .form-row button.button:hover,
 .woocommerce-form-row button.button:hover {
-  background: var(--track-navy) !important;
+  background: var(--track-heading) !important;
   color: var(--track-white) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 16px 32px rgba(11, 31, 51, 0.2) !important;
+  box-shadow: 0 16px 32px rgba(90, 56, 37, 0.22) !important;
 }
 
 .form-row button.button:active,
@@ -645,8 +651,8 @@
 .order-info {
   color: var(--track-muted);
   line-height: 1.7;
-  background: var(--track-blue-soft);
-  border: 1px solid #BFDBFE;
+  background: var(--track-cream);
+  border: 1px solid var(--track-border);
 }
 
 .order-info mark {
@@ -661,7 +667,7 @@
 
 .order-info mark.order-status {
   color: var(--track-white);
-  background: var(--track-blue);
+  background: var(--track-accent);
   padding: 0.125rem 0.625rem;
   border-radius: 999px;
   font-size: 0.8125rem;
@@ -692,8 +698,8 @@
 }
 
 .track-back-button:hover {
-  border-color: var(--track-blue);
-  background: var(--track-blue-soft);
+  border-color: var(--track-accent);
+  background: var(--track-cream);
   color: var(--track-heading);
   transform: translateY(-2px);
 }
@@ -709,7 +715,7 @@
   color: var(--track-heading);
   margin: 0 0 1rem;
   padding-bottom: 0.75rem;
-  border-bottom: 3px solid var(--track-orange);
+  border-bottom: 3px solid var(--track-gold);
   display: inline-block;
   text-transform: uppercase;
 }
@@ -762,7 +768,7 @@
 }
 
 .woocommerce-table__product-name a:hover {
-  color: var(--track-blue);
+  color: var(--track-accent);
 }
 
 .product-quantity,

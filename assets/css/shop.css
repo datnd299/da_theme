@@ -1,27 +1,27 @@
 /* ============================================================
-   Shop Page - Tizezap
-   Tire & auto essentials: clean, technical, road-ready
+   Shop Page - Scott Osterbind
+   Handmade jewelry and vintage accessories boutique
    ============================================================ */
 
 /* CSS Variables */
 :root {
   --shop-bg:                var(--color-background, #FFFFFF);
-  --shop-bg-subtle:         #F4F6F8;
-  --shop-bg-soft:           #EFF6FF;
-  --shop-bg-accent:         #2563EB;
-  --shop-text-primary:      #0B1F33;
-  --shop-text-secondary:    #334155;
-  --shop-text-muted:        #5B6472;
-  --shop-border:            #D7DEE8;
-  --shop-accent:            #F97316;
-  --shop-accent-hover:      #EA580C;
-  --shop-sale:              #0B1F33;
-  --shop-original-price:    #94A3B8;
-  --shop-focus:             #2563EB;
+  --shop-bg-subtle:         #F8F1E7;
+  --shop-bg-soft:           #FFF8EF;
+  --shop-bg-accent:         #9A6242;
+  --shop-text-primary:      #5A3825;
+  --shop-text-secondary:    #4F463F;
+  --shop-text-muted:        #7A6D62;
+  --shop-border:            #D8C3A5;
+  --shop-accent:            #C8A45D;
+  --shop-accent-hover:      #9A6242;
+  --shop-sale:              #7A4A2E;
+  --shop-original-price:    #A79889;
+  --shop-focus:             #9A6242;
   --shop-on-dark:           #FFFFFF;
-  --shop-shadow:            0 1px 4px rgba(11, 31, 51, 0.08);
-  --shop-shadow-hover:      0 16px 38px rgba(11, 31, 51, 0.16);
-  --shop-overlay:           rgba(11, 31, 51, 0.58);
+  --shop-shadow:            0 1px 4px rgba(90, 56, 37, 0.08);
+  --shop-shadow-hover:      0 16px 38px rgba(90, 56, 37, 0.16);
+  --shop-overlay:           rgba(36, 33, 30, 0.58);
   --font-primary:           var(--font-sans, 'Inter', system-ui, -apple-system, sans-serif);
   --container-max:          1280px;
   --container-pad-mobile:   16px;
@@ -79,7 +79,7 @@
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 24px;
-  background: #0B1F33;
+  background: #5A3825;
   color: #FFFFFF;
   box-shadow: var(--shop-shadow);
 }
@@ -95,8 +95,8 @@
 }
 .shop-hero__shade {
   background:
-    linear-gradient(90deg, rgba(11, 31, 51, 0.95) 0%, rgba(11, 31, 51, 0.78) 46%, rgba(11, 31, 51, 0.20) 100%),
-    linear-gradient(0deg, rgba(11, 31, 51, 0.56), rgba(11, 31, 51, 0.08));
+    linear-gradient(90deg, rgba(90, 56, 37, 0.94) 0%, rgba(90, 56, 37, 0.74) 48%, rgba(90, 56, 37, 0.16) 100%),
+    linear-gradient(0deg, rgba(36, 33, 30, 0.44), rgba(36, 33, 30, 0.06));
 }
 .shop-hero__content {
   position: relative;
@@ -110,10 +110,10 @@
   min-height: 32px;
   margin: 0 0 14px;
   padding: 7px 12px;
-  border: 1px solid rgba(251, 146, 60, 0.48);
+  border: 1px solid rgba(200, 164, 93, 0.56);
   border-radius: 6px;
-  background: rgba(249, 115, 22, 0.18);
-  color: #FDBA74;
+  background: rgba(248, 241, 231, 0.18);
+  color: #F4D9A4;
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -175,7 +175,7 @@
 }
 @media (max-width: 700px) {
   .shop-hero__shade {
-    background: linear-gradient(180deg, rgba(11, 31, 51, 0.94) 0%, rgba(11, 31, 51, 0.78) 100%);
+    background: linear-gradient(180deg, rgba(90, 56, 37, 0.94) 0%, rgba(90, 56, 37, 0.78) 100%);
   }
 }
 
@@ -259,7 +259,7 @@
 .woocommerce-ordering select:focus,
 .shop-sort select:focus {
   border-color: var(--shop-focus);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  box-shadow: 0 0 0 3px rgba(154, 98, 66, 0.18);
 }
 .woocommerce-ordering {
   margin-bottom: 0;
@@ -541,7 +541,7 @@ ul.products {
 }
 .product-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(37, 99, 235, 0.52);
+  border-color: rgba(200, 164, 93, 0.72);
   box-shadow: var(--shop-shadow-hover);
 }
 

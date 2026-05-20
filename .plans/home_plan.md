@@ -1,21 +1,23 @@
-# Tizezap — Home Plan
+# Scott Osterbind — Home Plan
 
 ## Homepage Goal
 
-Build a clean, professional tire ecommerce homepage for drivers looking for reliable tires for cars, SUVs, trucks, trailers, winter driving, and performance needs.
+Build a warm artisan boutique homepage for handmade bracelets, beaded jewelry, vintage accessories, curated apparel, and artisan gifts.
 
 Main homepage message:
 
 ```txt
-Reliable Tires For Everyday Driving
+Handmade Jewelry & Vintage Accessories With A Personal Feel
 ```
 
-The homepage must make customers understand:
+The homepage should make visitors understand:
 
-* Tizezap sells tires, not general auto parts
-* Customers can shop by tire type and vehicle need
-* Tire size and compatibility must be checked before purchase
-* Product details, shipping, returns, and support are clear
+* Scott Osterbind focuses on handmade and curated pieces
+* The main products are bracelets, beaded jewelry, vintage accessories, apparel, and gifts
+* The brand feels personal, warm, creative, and boutique-like
+* The site is professional enough for GMC with clear categories, policies, and customer care
+
+Avoid making the homepage feel like luxury jewelry, fast fashion, fake designer accessories, or a random dropshipping store.
 
 ---
 
@@ -25,10 +27,10 @@ Use 5 sections:
 
 ```txt
 1. Hero
-2. Shop By Tire Category
-3. All-Season & Daily Driving Tires
-4. SUV, Truck & Trailer Tires
-5. Customer Care / Fitment & Trust
+2. Shop By Category
+3. Handmade Bracelets Feature
+4. Vintage Accessories & Curated Finds
+5. Artisan Story / Customer Care Trust
 ```
 
 ---
@@ -37,262 +39,300 @@ Use 5 sections:
 
 ## Purpose
 
-Introduce Tizezap as a trustworthy tire store for everyday drivers.
+Introduce Scott Osterbind as a handmade jewelry and vintage accessories boutique with a warm, personal, creative feel.
 
 ## Content
 
 Eyebrow:
 
 ```txt
-Tire & Auto Essentials
+Handmade Jewelry & Vintage Accessories
 ```
 
 Headline:
 
 ```txt
-Reliable Tires For Everyday Driving
+Handmade Jewelry & Vintage Accessories With A Personal Feel
 ```
 
 Subheadline:
 
 ```txt
-Find all-season, SUV, truck, trailer, winter, and performance tires with clear product details to help you choose the right fit for your vehicle.
+Explore handmade bracelets, beaded jewelry, vintage-inspired accessories, curated apparel, and small artisan gifts made for everyday expression.
 ```
 
 Primary CTA:
 
 ```txt
-Shop Tires
+Shop Handmade Bracelets
 ```
 
 Secondary CTA:
 
 ```txt
-Find Your Tire Size
+Explore Vintage Finds
 ```
 
-Fitment reminder:
+Small trust line:
 
 ```txt
-Please confirm your tire size, rim size, and vehicle compatibility before placing an order.
+Curated pieces. Handmade details. Everyday personal style.
 ```
 
 ## Image Direction
 
-Use a clean automotive hero image:
+Use a warm artisan lifestyle image:
 
-* Car or SUV on road
-* Tire close-up / tread detail
-* Garage or tire shop scene
-* Clean lighting, automotive mood
-* No fake logos
+* Handmade bracelets on linen or wood
+* Beads, jewelry tray, natural light
+* Artisan workspace or hands arranging beads
+* Warm cream, clay, brown, olive, muted gold tones
+* No fake designer logos
 * No text inside image
-* No aggressive racing-only visual
+* No luxury diamond styling
+
+## Design Notes
+
+* Background: Warm Cream `#F8F1E7`
+* Heading: Vintage Brown `#5A3825`
+* CTA: Clay Brown `#9A6242`
+* Use large organic imagery and generous whitespace
 
 ---
 
-# Section 2 — Shop By Tire Category
+# Section 2 — Shop By Category
 
 ## Purpose
 
-Show tire categories clearly so customers can shop by need.
+Show the main categories clearly and keep the store focused on handmade/vintage goods.
 
 ## Categories
 
 ```txt
-All-Season Tires
-SUV & Crossover Tires
-Light Truck Tires
-Performance Tires
-Trailer Tires
-Winter Tires
+Handmade Bracelets
+Beaded Jewelry
+Vintage Accessories
+Curated Apparel
+Artisan Gifts
 ```
 
 ## Card Copy
 
-### All-Season Tires
+### Handmade Bracelets
 
 ```txt
-Practical tire options for year-round everyday driving.
+Beaded and handmade wristwear with everyday character.
 ```
 
-### SUV & Crossover Tires
+### Beaded Jewelry
 
 ```txt
-Tires for SUVs, crossovers, family vehicles, and daily road use.
+Creative jewelry pieces made with beads, texture, and personal detail.
 ```
 
-### Light Truck Tires
+### Vintage Accessories
 
 ```txt
-Tire options for pickup trucks, utility driving, and hauling needs.
+Curated accessories with vintage-inspired charm and styling potential.
 ```
 
-### Performance Tires
+### Curated Apparel
 
 ```txt
-Tires designed for responsive handling and performance-inspired driving.
+Apparel pieces selected for creative everyday style.
 ```
 
-### Trailer Tires
+### Artisan Gifts
 
 ```txt
-Road-ready tire options for trailers and towing support.
+Small handmade and curated pieces made for thoughtful gifting.
 ```
 
-### Winter Tires
+## Image Direction
 
-```txt
-Tires designed for colder temperatures and winter road conditions.
-```
+Each card should use a realistic product/lifestyle image:
+
+* Bracelets: close-up of bead bracelets
+* Beaded Jewelry: beads/jewelry tray detail
+* Vintage Accessories: hat/scarf/bag on fabric
+* Curated Apparel: apparel flat lay with bracelet styling
+* Artisan Gifts: small giftable jewelry/accessory set
 
 ## Design Notes
 
-* Use clean image-heavy cards
-* White cards with light borders
-* Show category name clearly
-* Keep copy short
-* Avoid sale-heavy badges
+* Use soft cards with Sand Beige border
+* Warm Cream or White background
+* Rounded corners
+* Keep text short and readable
+* No sale badges or fake review elements
 
 ---
 
-# Section 3 — All-Season & Daily Driving Tires
+# Section 3 — Handmade Bracelets Feature
 
 ## Purpose
 
-Feature the safest and broadest category for everyday drivers.
+Feature the strongest historical product direction: bead bracelets and handmade wristwear.
 
 ## Content
 
 Eyebrow:
 
 ```txt
-All-Season Tires
+Handmade Bracelets
 ```
 
 Headline:
 
 ```txt
-Built for practical everyday road use.
+Small handmade pieces made for everyday expression.
 ```
 
 Paragraph:
 
 ```txt
-Explore tire options made for daily driving, road comfort, and year-round use. Review tire size, rim size, load index, and speed rating before choosing the right fit.
+From beaded bracelets to simple layering pieces, Scott Osterbind focuses on handmade details, natural textures, and personal accessories that feel easy to wear and thoughtful to gift.
 ```
 
 Highlights:
 
 ```txt
-Everyday driving
-Year-round use
-Road comfort
-Clear tire specs
+Beaded details
+Layering-friendly
+Giftable pieces
+Handmade character
 ```
 
 CTA:
 
 ```txt
-Shop All-Season Tires
+Shop Bracelets
 ```
 
 ## Image Direction
 
-* Sedan or crossover on clean road
-* Tire tread close-up
-* Product tire image with clean background
-* No extreme racing claims
+* Beaded bracelets stacked on linen
+* Hands arranging beads
+* Natural stones, wood, warm metals
+* Close-up texture and handmade feel
+* Natural sunlight
+
+## Design Notes
+
+* Background: Sand Beige or Warm Cream
+* Use image + text split layout
+* Add handmade note:
+
+```txt
+Handmade pieces may include slight natural variations in color, texture, or bead pattern.
+```
 
 ---
 
-# Section 4 — SUV, Truck & Trailer Tires
+# Section 4 — Vintage Accessories & Curated Finds
 
 ## Purpose
 
-Feature vehicle-specific categories with practical use cases.
+Show the vintage/curated side of the brand while staying GMC-safe and avoiding misleading “authentic vintage” claims.
 
 ## Content
 
 Eyebrow:
 
 ```txt
-SUV, Truck & Trailer Tires
+Vintage Accessories & Curated Finds
 ```
 
 Headline:
 
 ```txt
-Tire options for utility, towing, and larger vehicles.
+Curated details for creative everyday style.
 ```
 
 Paragraph:
 
 ```txt
-Find tire categories for SUVs, crossovers, light trucks, and trailers with product details that help support better fitment decisions.
+Discover vintage-inspired accessories, curated apparel pieces, and small creative finds selected for personal style, texture, and everyday wearability.
 ```
 
 Mini cards:
 
-### SUV & Crossover Tires
+### Vintage Accessories
 
 ```txt
-For family vehicles, road trips, and daily SUV driving.
+Accessories with warm character and vintage-inspired styling.
 ```
 
-### Light Truck Tires
+### Curated Apparel
 
 ```txt
-For pickup trucks, hauling needs, and everyday utility use.
+Simple apparel pieces selected to pair with jewelry and accessories.
 ```
 
-### Trailer Tires
+### Artisan Gifts
 
 ```txt
-For trailers, towing support, and road-ready utility needs.
+Thoughtful handmade and curated finds for everyday gifting.
 ```
 
 CTA:
 
 ```txt
-Explore Vehicle-Specific Tires
+Explore Curated Finds
 ```
 
 ## Image Direction
 
-* SUV highway scene
-* Pickup truck or trailer tire close-up
-* Garage/tire service vibe
-* No dirty or unsafe tire imagery
+* Hat/scarf/bag on linen or vintage fabric
+* Curated apparel flat lay with jewelry
+* Warm wood, clay, olive, cream tones
+* No fake designer logos
+* No counterfeit or replica cues
+
+## Design Notes
+
+* Background: Clean White or Warm Cream
+* Use 2–3 image cards
+* Include safe note if needed:
+
+```txt
+Vintage-inspired items are described clearly on each product page. Authentic vintage claims should only be used when verified.
+```
 
 ---
 
-# Section 5 — Customer Care / Fitment & Trust
+# Section 5 — Artisan Story / Customer Care Trust
 
 ## Purpose
 
-Build trust and support GMC compliance.
+Combine brand story with GMC trust elements.
 
-This section should make customers feel safe ordering tires online by clearly explaining fitment, shipping, returns, and support.
+This section should make the store feel human, creative, and reliable.
 
 ## Content
 
 Eyebrow:
 
 ```txt
-Customer Care
+Artisan Story
 ```
 
 Headline:
 
 ```txt
-Clear support from tire selection to delivery.
+Curated with warmth, detail, and everyday style in mind.
 ```
 
-Short paragraph:
+Story paragraph:
 
 ```txt
-Tizezap provides clear product details, tire fitment reminders, order tracking, and customer support to help you shop with confidence.
+Scott Osterbind brings together handmade jewelry, beaded pieces, vintage-inspired accessories, and curated finds with a personal creative point of view. Each item is selected or made to feel thoughtful, wearable, and expressive.
+```
+
+Trust heading:
+
+```txt
+Shop With Confidence
 ```
 
 Trust cards:
@@ -301,25 +341,25 @@ Trust cards:
 Secure Checkout
 Tracking Included
 30-Day Returns
-Clear Tire Specifications
-```
-
-Fitment note:
-
-```txt
-Please confirm your tire size, rim size, load index, speed rating, and vehicle compatibility before placing an order.
+Clear Product Details
 ```
 
 Shipping note:
 
 ```txt
-Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch depending on product availability, tire size, carrier conditions, and delivery location.
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
 ```
 
 Return note:
 
 ```txt
-Eligible unused, unmounted, and undamaged tires may be returned within 30 days of delivery in original condition.
+Eligible unused, unworn, and undamaged items may be returned within 30 days of delivery in original condition.
+```
+
+Handmade note:
+
+```txt
+Handmade pieces may include slight natural variations in color, texture, or bead pattern.
 ```
 
 Primary CTA:
@@ -336,11 +376,10 @@ Contact Support
 
 ## Design Notes
 
-* Use Deep Navy background
-* White text
-* Electric Blue for CTA
-* Safety Orange only for fitment reminder
-* Keep copy direct and practical
+* Use Vintage Brown or Charcoal background for trust block
+* Use Warm Cream/White text contrast carefully
+* Muted Gold can highlight icons or trust labels
+* Keep policy copy clear and not too long
 
 ---
 
@@ -351,13 +390,13 @@ If needed, add a short product grid before Section 5.
 Title:
 
 ```txt
-Popular Tire Options
+New Handmade & Curated Finds
 ```
 
 Subtext:
 
 ```txt
-Browse tire options for everyday driving, SUVs, trucks, trailers, and seasonal road needs.
+Browse bracelets, beaded jewelry, vintage accessories, and small artisan gifts selected for everyday expression.
 ```
 
 Grid:
@@ -369,13 +408,12 @@ Product cards should show:
 
 ```txt
 Product name
-Tire size
-Tire type
+Material or category note
 Price
 CTA
 ```
 
-Avoid fake reviews, countdown timers, and exaggerated safety claims.
+Avoid fake reviews, countdown timers, and luxury-style badges.
 
 ---
 
@@ -383,25 +421,25 @@ Avoid fake reviews, countdown timers, and exaggerated safety claims.
 
 Needed images:
 
-1. Hero image: car/SUV on road or tire close-up
-2. Category image: All-Season Tires
-3. Category image: SUV & Crossover Tires
-4. Category image: Light Truck Tires
-5. Category image: Performance Tires
-6. Category image: Trailer Tires
-7. Category image: Winter Tires
-8. Feature image: all-season daily driving tire
-9. Feature image: SUV/truck/trailer tire scene
-10. Optional customer support / tire shop image
+1. Hero image: handmade bracelets / beads / artisan workspace
+2. Category image: Handmade Bracelets
+3. Category image: Beaded Jewelry
+4. Category image: Vintage Accessories
+5. Category image: Curated Apparel
+6. Category image: Artisan Gifts
+7. Feature image: bracelet close-up on linen/wood
+8. Feature image: vintage accessories or curated apparel flat lay
+9. Optional brand story image: hands making jewelry or studio workspace
+10. Optional customer care / packaging image
 
 Image rules:
 
-* No fake logos
-* No text inside image
-* No dirty/unsafe tire visuals
-* No racing-only vibe unless for performance category
-* Use realistic automotive photography
-* Product/tread details should be clear
+* No fake designer logos
+* No text inside product images
+* No misleading gemstone/healing visuals
+* No glossy luxury diamond styling
+* No supplier collage
+* Show handmade texture and material clearly
 
 ---
 
@@ -410,28 +448,29 @@ Image rules:
 Use:
 
 ```txt
-reliable
-everyday driving
-road-ready
-all-season
-vehicle compatibility
-clear tire specs
-fitment reminder
-tire size
-rim size
-load index
-speed rating
+handmade
+curated
+vintage-inspired
+beaded
+personal style
+creative details
+everyday expression
+small-batch feel
+thoughtful gift
+natural texture
 ```
 
 Avoid:
 
 ```txt
-accident-proof
-safest tire guaranteed
-fits every vehicle
-best tire in the world
-100% guaranteed grip
-lifetime warranty unless verified
+luxury replica
+designer inspired
+healing guaranteed
+medical crystal benefits
+authentic vintage unless verified
+rare gemstone unless verified
+crazy deal
+limited stock pressure
 ```
 
 ---
@@ -441,7 +480,7 @@ lifetime warranty unless verified
 The homepage should feel like:
 
 ```txt
-A clean, trustworthy online tire store helping drivers find tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
+A warm artisan boutique offering handmade bracelets, beaded jewelry, vintage accessories, curated apparel, and thoughtful small gifts.
 ```
 
-It must be tire-focused, professional, easy to navigate, and clear about size/fitment before purchase.
+It must be personal, creative, curated, trustworthy, handmade, vintage-inspired, and GMC-safe.

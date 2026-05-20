@@ -1,5 +1,5 @@
 <?php
-$categories = function_exists('dawp_tire_product_category_terms') ? dawp_tire_product_category_terms() : [];
+$categories = function_exists('dawp_product_category_terms') ? dawp_product_category_terms() : [];
 ?>
 <div class="shop-sidebar__header">
     <h2 class="shop-sidebar__mobile-title"><?php esc_html_e('Filters', 'dawp'); ?></h2>

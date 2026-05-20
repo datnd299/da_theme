@@ -26,7 +26,7 @@ function dawp_handle_contact_form() {
         dawp_contact_redirect($redirect_url, 'invalid');
     }
 
-    $to = 'support@tizezap.com';
+    $to = 'support@scottosterbind.com';
     $site_name = wp_specialchars_decode(get_bloginfo('name'), ENT_QUOTES);
     $mail_subject = $subject !== ''
         ? sprintf('[%s] %s', $site_name, $subject)

@@ -33,10 +33,7 @@ function dawp_virtual_page_map() {
         'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
         'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
         'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
-        'track-order'   => ['slug' => 'track-order',          'title' => 'Track Order', 'css' => 'track-order.css'],
-        'shop-by-rim-size' => ['slug' => 'shop-by-rim-size',  'title' => 'Shop By Rim Size', 'css' => 'rim-size.css'],
-        'shop-by-brand' => ['slug' => 'shop-by-brand',  'title' => 'Shop By Brand', 'css' => 'rim-size.css'],
-        'shop-by-vehicle-type' => ['slug' => 'shop-by-vehicle-type', 'title' => 'Shop By Vehicle Type', 'css' => 'rim-size.css'],
+        'track-order'       => ['slug' => 'track-order',       'title' => 'Track Order', 'css' => 'track-order.css'],
     ];
 }
 

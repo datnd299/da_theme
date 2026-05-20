@@ -3,358 +3,545 @@
  * Template Part: page-home
  */
 
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
+$gallery_uri = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/');
 
 $images = [
-    'hero'        => $tizezap_gallery_uri . 'tire-hero-road.png',
-    'all_season'  => $tizezap_gallery_uri . 'category-all-season-tires.png',
-    'suv'         => $tizezap_gallery_uri . 'category-suv-crossover-tires.png',
-    'light_truck' => $tizezap_gallery_uri . 'category-light-truck-tires.png',
-    'performance' => $tizezap_gallery_uri . 'category-performance-tires.png',
-    'trailer'     => $tizezap_gallery_uri . 'category-trailer-tires.png',
-    'winter'      => $tizezap_gallery_uri . 'category-winter-tires.png',
-    'suv_trailer' => $tizezap_gallery_uri . 'suv-trailer-tires.png',
+    'hero'          => $gallery_uri . 'hero-artisan-jewelry.png',
+    'bracelets'     => $gallery_uri . 'handmade-bracelets.png',
+    'curated'       => $gallery_uri . 'vintage-curated-finds.png',
+    'beaded'        => $gallery_uri . 'beaded-jewelry-ai.png',
+    'brand_story'   => $gallery_uri . 'brand-story-ai.png',
 ];
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))
     : home_url('/shop/');
 
-$term_url = static function ($slug) {
-    return function_exists('dawp_product_category_url')
-        ? dawp_product_category_url($slug)
-        : home_url('/product-category/' . sanitize_title($slug) . '/');
+$category_url = static function ($slug) {
+    if (taxonomy_exists('product_cat')) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+
+        if ($term && ! is_wp_error($term)) {
+            $link = get_term_link($term);
+
+            if (! is_wp_error($link)) {
+                return $link;
+            }
+        }
+    }
+
+    return home_url('/product-category/' . sanitize_title($slug) . '/');
 };
 
 $categories = [
     [
-        'title' => __('All-Season Tires', 'dawp'),
-        'copy'  => __('Practical tire options for year-round everyday driving.', 'dawp'),
-        'url'   => $term_url('all-season-tires'),
-        'image' => $images['all_season'],
+        'title' => __('Handmade Bracelets', 'dawp'),
+        'copy'  => __('Beaded and handmade wristwear with everyday character.', 'dawp'),
+        'url'   => $category_url('handmade-bracelets'),
+        'image' => $images['bracelets'],
     ],
     [
-        'title' => __('SUV & Crossover Tires', 'dawp'),
-        'copy'  => __('Tires for SUVs, crossovers, family vehicles, and daily road use.', 'dawp'),
-        'url'   => $term_url('suv-crossover-tires'),
-        'image' => $images['suv'],
+        'title' => __('Beaded Jewelry', 'dawp'),
+        'copy'  => __('Creative jewelry pieces made with beads, texture, and personal detail.', 'dawp'),
+        'url'   => $category_url('beaded-jewelry'),
+        'image' => $images['beaded'],
     ],
     [
-        'title' => __('Light Truck Tires', 'dawp'),
-        'copy'  => __('Tire options for pickup trucks, utility driving, and hauling needs.', 'dawp'),
-        'url'   => $term_url('light-truck-tires'),
-        'image' => $images['light_truck'],
+        'title' => __('Vintage Accessories', 'dawp'),
+        'copy'  => __('Curated accessories with vintage-inspired charm and styling potential.', 'dawp'),
+        'url'   => $category_url('vintage-accessories'),
+        'image' => $images['curated'],
     ],
     [
-        'title' => __('Performance Tires', 'dawp'),
-        'copy'  => __('Tires designed for responsive handling and performance-inspired driving.', 'dawp'),
-        'url'   => $term_url('performance-tires'),
-        'image' => $images['performance'],
+        'title' => __('Curated Apparel', 'dawp'),
+        'copy'  => __('Apparel pieces selected for creative everyday style.', 'dawp'),
+        'url'   => $category_url('curated-apparel'),
+        'image' => $images['curated'],
     ],
     [
-        'title' => __('Trailer Tires', 'dawp'),
-        'copy'  => __('Road-ready tire options for trailers and towing support.', 'dawp'),
-        'url'   => $term_url('trailer-tires'),
-        'image' => $images['trailer'],
+        'title' => __('Artisan Gifts', 'dawp'),
+        'copy'  => __('Small handmade and curated pieces made for thoughtful gifting.', 'dawp'),
+        'url'   => $category_url('artisan-gifts'),
+        'image' => $images['bracelets'],
     ],
     [
-        'title' => __('Winter Tires', 'dawp'),
-        'copy'  => __('Tires designed for colder temperatures and winter road conditions.', 'dawp'),
-        'url'   => $term_url('winter-tires'),
-        'image' => $images['winter'],
+        'title' => __('Our Brand Story', 'dawp'),
+        'copy'  => __('Learn about the creative point of view behind our handmade jewelry, curated finds, and thoughtful everyday style.', 'dawp'),
+        'url'   => home_url('/about-us/'),
+        'image' => $images['brand_story'],
+        'cta'   => __('Learn About Us', 'dawp'),
     ],
 ];
 
-$daily_highlights = [
-    __('Everyday driving', 'dawp'),
-    __('Year-round use', 'dawp'),
-    __('Road comfort', 'dawp'),
-    __('Clear tire specs', 'dawp'),
+$bracelet_highlights = [
+    __('Beaded details', 'dawp'),
+    __('Layering-friendly', 'dawp'),
+    __('Giftable pieces', 'dawp'),
+    __('Handmade character', 'dawp'),
 ];
 
-$vehicle_cards = [
+$curated_cards = [
     [
-        'title' => __('SUV & Crossover Tires', 'dawp'),
-        'copy'  => __('For family vehicles, road trips, and daily SUV driving.', 'dawp'),
-        'url'   => $term_url('suv-crossover-tires'),
+        'title' => __('Vintage Accessories', 'dawp'),
+        'copy'  => __('Accessories with warm character and vintage-inspired styling.', 'dawp'),
     ],
     [
-        'title' => __('Light Truck Tires', 'dawp'),
-        'copy'  => __('For pickup trucks, hauling needs, and everyday utility use.', 'dawp'),
-        'url'   => $term_url('light-truck-tires'),
+        'title' => __('Curated Apparel', 'dawp'),
+        'copy'  => __('Simple apparel pieces selected to pair with jewelry and accessories.', 'dawp'),
     ],
     [
-        'title' => __('Trailer Tires', 'dawp'),
-        'copy'  => __('For trailers, towing support, and road-ready utility needs.', 'dawp'),
-        'url'   => $term_url('trailer-tires'),
+        'title' => __('Artisan Gifts', 'dawp'),
+        'copy'  => __('Thoughtful handmade and curated finds for everyday gifting.', 'dawp'),
     ],
 ];
 
-$trust_cards = [
+$gift_cards = [
+    [
+        'title' => __('Bracelet Gifts', 'dawp'),
+        'copy'  => __('Easy-to-wear handmade bracelets with beaded texture and personal character.', 'dawp'),
+        'image' => $images['bracelets'],
+        'url'   => $category_url('handmade-bracelets'),
+    ],
+    [
+        'title' => __('Beaded Jewelry Sets', 'dawp'),
+        'copy'  => __('Creative jewelry pieces made for layering, everyday styling, and thoughtful gifting.', 'dawp'),
+        'image' => $images['hero'],
+        'url'   => $category_url('beaded-jewelry'),
+    ],
+    [
+        'title' => __('Curated Small Finds', 'dawp'),
+        'copy'  => __('Vintage-inspired accessories and small curated pieces with warm boutique character.', 'dawp'),
+        'image' => $images['curated'],
+        'url'   => $category_url('artisan-gifts'),
+    ],
+];
+
+$trust_items = [
     __('Secure Checkout', 'dawp'),
     __('Tracking Included', 'dawp'),
     __('30-Day Returns', 'dawp'),
-    __('Clear Tire Specifications', 'dawp'),
+    __('Clear Product Details', 'dawp'),
 ];
+
+$home_products = null;
+
+if (class_exists('WooCommerce')) {
+    $product_tax_query = [];
+
+    if (function_exists('wc_get_product_visibility_term_ids')) {
+        $product_visibility_terms = wc_get_product_visibility_term_ids();
+
+        if (! empty($product_visibility_terms['exclude-from-catalog'])) {
+            $product_tax_query[] = [
+                'taxonomy' => 'product_visibility',
+                'field'    => 'term_taxonomy_id',
+                'terms'    => [$product_visibility_terms['exclude-from-catalog']],
+                'operator' => 'NOT IN',
+            ];
+        }
+    }
+
+    $home_product_args = [
+        'post_type'           => 'product',
+        'post_status'         => 'publish',
+        'posts_per_page'      => 4,
+        'ignore_sticky_posts' => true,
+        'orderby'             => 'date',
+        'order'               => 'DESC',
+    ];
+
+    if (! empty($product_tax_query)) {
+        $home_product_args['tax_query'] = $product_tax_query;
+    }
+
+    $home_products = new WP_Query($home_product_args);
+}
 ?>
 
-<div id="primary" class="bg-white font-body text-[#111827]">
+<div id="primary" class="bg-white font-body text-[#24211E]">
 
     <!-- Hero -->
-    <section class="relative min-h-[680px] overflow-hidden bg-[#0B1F33] text-white sm:min-h-[720px]">
-        <img src="<?php echo esc_url($images['hero']); ?>"
-             alt="<?php esc_attr_e('SUV tire on an open road for everyday driving', 'dawp'); ?>"
-             class="absolute inset-0 h-full w-full object-cover"
-             loading="eager"
-             fetchpriority="high">
-        <div class="absolute inset-0 bg-[#0B1F33]/72 lg:bg-[linear-gradient(90deg,rgba(11,31,51,0.94)_0%,rgba(11,31,51,0.78)_42%,rgba(11,31,51,0.24)_100%)]"></div>
-
-        <div class="relative mx-auto flex min-h-[680px] max-w-7xl items-center px-4 py-16 sm:min-h-[720px] sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <p class="mb-5 inline-flex rounded-md border border-[#FDBA74]/50 bg-[#F97316]/18 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#FDBA74]">
-                    <?php esc_html_e('Tire & Auto Essentials', 'dawp'); ?>
+    <section class="relative overflow-hidden bg-[#F8F1E7]">
+        <div class="mx-auto grid min-h-[640px] max-w-7xl grid-cols-1 items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:px-8 lg:py-20">
+            <div class="relative z-10">
+                <p class="mb-5 inline-flex rounded-full border border-[#C8A45D]/60 bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#7A7B52]">
+                    <?php esc_html_e('Handmade Jewelry & Vintage Accessories', 'dawp'); ?>
                 </p>
 
-                <h1 class="font-heading text-5xl font-black leading-[0.98] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Reliable Tires For Everyday Driving', 'dawp'); ?>
+                <h1 class="font-heading text-5xl font-black leading-[0.98] text-[#5A3825] sm:text-6xl lg:text-7xl">
+                    <?php esc_html_e('Handmade Jewelry & Vintage Accessories With A Personal Feel', 'dawp'); ?>
                 </h1>
 
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#E5E7EB]">
-                    <?php esc_html_e('Find all-season, SUV, truck, trailer, winter, and performance tires with clear product details to help you choose the right fit for your vehicle.', 'dawp'); ?>
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#4F463F]">
+                    <?php esc_html_e('Explore handmade bracelets, beaded jewelry, vintage-inspired accessories, curated apparel, and small artisan gifts made for everyday expression.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($shop_url); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
-                        <?php esc_html_e('Shop Tires', 'dawp'); ?>
+                    <a href="<?php echo esc_url($category_url('handmade-bracelets')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#9A6242] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#5A3825]">
+                        <?php esc_html_e('Shop Handmade Bracelets', 'dawp'); ?>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/shop-by-rim-size/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#FDBA74]/70 bg-white/10 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F97316] hover:text-white">
-                        <?php esc_html_e('Find Your Tire Size', 'dawp'); ?>
+                    <a href="<?php echo esc_url($category_url('vintage-accessories')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#9A6242] bg-white px-7 text-sm font-black uppercase tracking-wide text-[#5A3825] transition hover:bg-[#F8F1E7]">
+                        <?php esc_html_e('Explore Vintage Finds', 'dawp'); ?>
                     </a>
                 </div>
 
-                <div class="mt-6 flex flex-wrap gap-3 text-xs font-black uppercase tracking-[0.16em] text-[#FDBA74]">
-                    <span class="inline-flex items-center gap-2">
-                        <span class="h-2 w-2 rounded-full bg-[#F97316]"></span>
-                        <?php esc_html_e('Fast Category Browsing', 'dawp'); ?>
-                    </span>
-                    <span class="inline-flex items-center gap-2">
-                        <span class="h-2 w-2 rounded-full bg-[#F97316]"></span>
-                        <?php esc_html_e('Fitment-Focused Details', 'dawp'); ?>
-                    </span>
-                </div>
-
-                <p class="mt-7 max-w-2xl border-l-4 border-[#F97316] bg-[#111827]/60 p-4 text-sm font-semibold leading-6 text-white">
-                    <?php esc_html_e('Please confirm your tire size, rim size, and vehicle compatibility before placing an order.', 'dawp'); ?>
+                <p class="mt-7 border-l-4 border-l-[#C8A45D] bg-white p-4 text-sm font-bold leading-7 text-[#5A3825]">
+                    <?php esc_html_e('Curated pieces. Handmade details. Everyday personal style.', 'dawp'); ?>
                 </p>
+            </div>
+
+            <div class="relative">
+                <div class="overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-xl">
+                    <img src="<?php echo esc_url($images['hero']); ?>"
+                         alt="<?php esc_attr_e('Warm artisan jewelry workspace with handmade bracelets and beaded details', 'dawp'); ?>"
+                         class="aspect-[4/3] w-full object-cover"
+                         loading="eager"
+                         fetchpriority="high">
+                </div>
+
+                <div class="absolute -bottom-6 left-6 right-6 rounded-lg border border-[#D8C3A5] bg-white p-5 shadow-xl sm:left-auto sm:right-8 sm:w-80">
+                    <p class="text-xs font-black uppercase tracking-[0.16em] text-[#9A6242]">
+                        <?php esc_html_e('Small-Batch Feel', 'dawp'); ?>
+                    </p>
+                    <p class="mt-2 text-sm font-semibold leading-6 text-[#4F463F]">
+                        <?php esc_html_e('Handmade and curated items are presented with clear materials, care notes, and product details.', 'dawp'); ?>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Shop By Tire Category -->
-    <section class="bg-[#F4F6F8] py-14 lg:py-20">
+    <!-- Shop By Category -->
+    <section class="bg-white py-14 lg:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-                <div>
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#F97316]">
-                        <?php esc_html_e('Shop By Tire Category', 'dawp'); ?>
-                    </p>
-                    <h2 class="max-w-2xl font-heading text-4xl font-black leading-tight text-[#0B1F33] lg:text-5xl">
-                        <?php esc_html_e('Choose tires by vehicle need and road condition.', 'dawp'); ?>
-                    </h2>
-                </div>
-                <a href="<?php echo esc_url($shop_url); ?>"
-                   class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#F97316] bg-white px-6 text-sm font-black uppercase tracking-wide text-[#C2410C] transition hover:bg-[#FFF7ED]">
-                    <?php esc_html_e('View All Tires', 'dawp'); ?>
-                </a>
+            <div class="max-w-3xl">
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#9A6242]">
+                    <?php esc_html_e('Shop By Category', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#5A3825] lg:text-5xl">
+                    <?php esc_html_e('Focused collections for handmade and vintage-inspired style.', 'dawp'); ?>
+                </h2>
+                <p class="mt-5 text-base leading-8 text-[#4F463F]">
+                    <?php esc_html_e('Browse clear product groups built around bracelets, beaded details, curated accessories, apparel, and thoughtful everyday gifts.', 'dawp'); ?>
+                </p>
             </div>
 
             <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 <?php foreach ($categories as $category) : ?>
                     <a href="<?php echo esc_url($category['url']); ?>"
-                       class="group overflow-hidden rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#F97316] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#F97316] hover:shadow-md">
+                       class="group overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#9A6242] hover:shadow-md">
                         <img src="<?php echo esc_url($category['image']); ?>"
                              alt="<?php echo esc_attr($category['title']); ?>"
-                             class="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                             class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
                              loading="lazy">
-                        <div class="p-5">
-                            <h3 class="font-heading text-xl font-black text-[#0B1F33]">
+                        <span class="block p-5">
+                            <span class="block font-heading text-2xl font-black leading-tight text-[#5A3825]">
                                 <?php echo esc_html($category['title']); ?>
-                            </h3>
-                            <p class="mt-2 text-sm leading-6 text-[#4B5563]">
-                                <?php echo esc_html($category['copy']); ?>
-                            </p>
-                            <span class="mt-4 inline-flex text-sm font-black uppercase tracking-wide text-[#C2410C]">
-                                <?php esc_html_e('Shop Category', 'dawp'); ?>
                             </span>
-                        </div>
+                            <span class="mt-3 block text-sm leading-7 text-[#4F463F]">
+                                <?php echo esc_html($category['copy']); ?>
+                            </span>
+                            <span class="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#9A6242]">
+                                <?php echo esc_html($category['cta'] ?? __('Shop Category', 'dawp')); ?>
+                                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </span>
+                        </span>
                     </a>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <!-- All-Season & Daily Driving Tires -->
-    <section class="bg-white py-14 lg:py-20">
+    <!-- Find What You Came For -->
+    <section class="bg-[#F8F1E7] py-14 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#9A6242]">
+                        <?php esc_html_e('Find What You Came For', 'dawp'); ?>
+                    </p>
+                    <h2 class="font-heading text-4xl font-black leading-tight text-[#5A3825] lg:text-5xl">
+                        <?php esc_html_e('Fresh handmade and curated pieces from the shop.', 'dawp'); ?>
+                    </h2>
+                    <p class="mt-5 text-base leading-8 text-[#4F463F]">
+                        <?php esc_html_e('Browse recent products with clear details, warm materials, and everyday styling potential.', 'dawp'); ?>
+                    </p>
+                </div>
+
+                <a href="<?php echo esc_url($shop_url); ?>"
+                   class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#9A6242] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#5A3825]">
+                    <?php esc_html_e('View All Products', 'dawp'); ?>
+                </a>
+            </div>
+
+            <?php if ($home_products instanceof WP_Query && $home_products->have_posts()) : ?>
+                <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    <?php while ($home_products->have_posts()) : ?>
+                        <?php
+                        $home_products->the_post();
+                        $product = wc_get_product(get_the_ID());
+
+                        if (! $product || ! $product->is_visible()) {
+                            continue;
+                        }
+
+                        $product_cats = get_the_terms($product->get_id(), 'product_cat');
+                        $product_cat_name = (! is_wp_error($product_cats) && ! empty($product_cats)) ? $product_cats[0]->name : '';
+                        ?>
+                        <a href="<?php the_permalink(); ?>"
+                           class="group overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#9A6242] hover:shadow-md"
+                           aria-label="<?php the_title_attribute(); ?>">
+                            <span class="relative block overflow-hidden bg-[#EFE4D6]">
+                                <?php
+                                echo $product->get_image(
+                                    'woocommerce_single',
+                                    [
+                                        'class'   => 'aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]',
+                                        'loading' => 'lazy',
+                                    ]
+                                );
+                                ?>
+
+                                <?php if ($product->is_on_sale()) : ?>
+                                    <span class="absolute left-4 top-4 rounded-full bg-[#7A7B52] px-3 py-1 text-xs font-black uppercase tracking-wide text-white">
+                                        <?php esc_html_e('Sale', 'dawp'); ?>
+                                    </span>
+                                <?php endif; ?>
+                            </span>
+
+                            <span class="block p-5">
+                                <?php if ($product_cat_name) : ?>
+                                    <span class="mb-2 block text-xs font-black uppercase tracking-[0.16em] text-[#9A6242]">
+                                        <?php echo esc_html($product_cat_name); ?>
+                                    </span>
+                                <?php endif; ?>
+
+                                <span class="block min-h-14 font-heading text-xl font-black leading-tight text-[#5A3825] transition group-hover:text-[#9A6242]">
+                                    <?php the_title(); ?>
+                                </span>
+
+                                <span class="mt-4 block text-base font-black text-[#24211E]">
+                                    <?php echo wp_kses_post($product->get_price_html()); ?>
+                                </span>
+
+                                <span class="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#7A7B52]">
+                                    <?php esc_html_e('View Product', 'dawp'); ?>
+                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path d="M5 12h14"></path>
+                                        <path d="m12 5 7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </span>
+                        </a>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                </div>
+            <?php else : ?>
+                <div class="mt-10 rounded-lg border border-[#D8C3A5] bg-white p-6 text-sm font-semibold leading-7 text-[#5A3825]">
+                    <?php esc_html_e('Products are being added to the shop. Check back soon or browse the full catalog.', 'dawp'); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+
+    <!-- Handmade Bracelets Feature -->
+    <section class="bg-[#F8F1E7] py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+            <div class="overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-sm">
+                <img src="<?php echo esc_url($images['bracelets']); ?>"
+                     alt="<?php esc_attr_e('Handmade beaded bracelets arranged on warm linen texture', 'dawp'); ?>"
+                     class="aspect-[4/3] w-full object-cover"
+                     loading="lazy">
+            </div>
+
             <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#F97316]">
-                    <?php esc_html_e('All-Season Tires', 'dawp'); ?>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#9A6242]">
+                    <?php esc_html_e('Handmade Bracelets', 'dawp'); ?>
                 </p>
-
-                <h2 class="font-heading text-4xl font-black leading-tight text-[#0B1F33] lg:text-5xl">
-                    <?php esc_html_e('Built for practical everyday road use.', 'dawp'); ?>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#5A3825] lg:text-5xl">
+                    <?php esc_html_e('Small handmade pieces made for everyday expression.', 'dawp'); ?>
                 </h2>
-
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Explore tire options made for daily driving, road comfort, and year-round use. Review tire size, rim size, load index, and speed rating before choosing the right fit.', 'dawp'); ?>
+                <p class="mt-5 text-base leading-8 text-[#4F463F]">
+                    <?php esc_html_e('From beaded bracelets to simple layering pieces, Scott Osterbind focuses on handmade details, natural textures, and personal accessories that feel easy to wear and thoughtful to gift.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    <?php foreach ($daily_highlights as $highlight) : ?>
-                        <div class="flex min-h-12 items-center gap-3 rounded-lg border border-[#FED7AA] bg-[#FFF7ED] px-4">
-                            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#F97316] text-white">
+                    <?php foreach ($bracelet_highlights as $highlight) : ?>
+                        <div class="flex min-h-12 items-center gap-3 rounded-lg border border-[#D8C3A5] bg-white px-4">
+                            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#7A7B52] text-white">
                                 <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                                 </svg>
                             </span>
-                            <span class="text-sm font-bold text-[#111827]"><?php echo esc_html($highlight); ?></span>
+                            <span class="text-sm font-bold text-[#24211E]"><?php echo esc_html($highlight); ?></span>
                         </div>
                     <?php endforeach; ?>
                 </div>
 
+                <p class="mt-7 rounded-lg border border-[#C8A45D]/60 bg-white p-5 text-sm font-semibold leading-7 text-[#5A3825]">
+                    <?php esc_html_e('Handmade pieces may include slight natural variations in color, texture, or bead pattern.', 'dawp'); ?>
+                </p>
+
                 <div class="mt-8">
-                    <a href="<?php echo esc_url($term_url('all-season-tires')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0B1F33]">
-                        <?php esc_html_e('Shop All-Season Tires', 'dawp'); ?>
+                    <a href="<?php echo esc_url($category_url('handmade-bracelets')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#9A6242] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#5A3825]">
+                        <?php esc_html_e('Shop Bracelets', 'dawp'); ?>
                     </a>
                 </div>
-            </div>
-
-            <div class="overflow-hidden rounded-lg border border-[#FED7AA] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['all_season']); ?>"
-                     alt="<?php esc_attr_e('Close-up of all-season tire tread in a clean service bay', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- SUV, Truck & Trailer Tires -->
-    <section class="bg-[#F4F6F8] py-14 lg:py-20">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div class="overflow-hidden rounded-lg border border-[#E5E7EB] bg-white shadow-sm lg:order-1">
-                <img src="<?php echo esc_url($images['suv_trailer']); ?>"
-                     alt="<?php esc_attr_e('SUV towing a utility trailer with visible tire detail', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
-            </div>
-
-            <div class="lg:order-2">
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#F97316]">
-                    <?php esc_html_e('SUV, Truck & Trailer Tires', 'dawp'); ?>
+    <!-- Vintage Accessories & Curated Finds -->
+    <section class="bg-white py-14 lg:py-20">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:px-8">
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#9A6242]">
+                    <?php esc_html_e('Vintage Accessories & Curated Finds', 'dawp'); ?>
                 </p>
-
-                <h2 class="font-heading text-4xl font-black leading-tight text-[#0B1F33] lg:text-5xl">
-                    <?php esc_html_e('Tire options for utility, towing, and larger vehicles.', 'dawp'); ?>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#5A3825] lg:text-5xl">
+                    <?php esc_html_e('Curated details for creative everyday style.', 'dawp'); ?>
                 </h2>
-
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#4B5563]">
-                    <?php esc_html_e('Find tire categories for SUVs, crossovers, light trucks, and trailers with product details that help support better fitment decisions.', 'dawp'); ?>
+                <p class="mt-5 text-base leading-8 text-[#4F463F]">
+                    <?php esc_html_e('Discover vintage-inspired accessories, curated apparel pieces, and small creative finds selected for personal style, texture, and everyday wearability.', 'dawp'); ?>
                 </p>
 
-                <div class="mt-8 grid grid-cols-1 gap-4">
-                    <?php foreach ($vehicle_cards as $card) : ?>
-                        <a href="<?php echo esc_url($card['url']); ?>"
-                           class="rounded-lg border border-[#E5E7EB] border-l-4 border-l-[#F97316] bg-white p-5 transition hover:border-[#F97316] hover:shadow-sm">
-                            <h3 class="text-lg font-black text-[#0B1F33]"><?php echo esc_html($card['title']); ?></h3>
-                            <p class="mt-2 text-sm leading-6 text-[#4B5563]"><?php echo esc_html($card['copy']); ?></p>
-                        </a>
+                <div class="mt-7 space-y-4">
+                    <?php foreach ($curated_cards as $card) : ?>
+                        <div class="rounded-lg border border-[#D8C3A5] bg-[#F8F1E7] p-5">
+                            <h3 class="font-heading text-xl font-black text-[#5A3825]"><?php echo esc_html($card['title']); ?></h3>
+                            <p class="mt-2 text-sm leading-7 text-[#4F463F]"><?php echo esc_html($card['copy']); ?></p>
+                        </div>
                     <?php endforeach; ?>
                 </div>
 
+                <p class="mt-6 text-sm font-semibold leading-7 text-[#7A7B52]">
+                    <?php esc_html_e('Vintage-inspired items are described clearly on each product page. Authentic vintage claims should only be used when verified.', 'dawp'); ?>
+                </p>
+
                 <div class="mt-8">
-                    <a href="<?php echo esc_url(home_url('/shop-by-vehicle-type/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#0B1F33] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F97316]">
-                        <?php esc_html_e('Explore Vehicle-Specific Tires', 'dawp'); ?>
+                    <a href="<?php echo esc_url($category_url('vintage-accessories')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#9A6242] bg-white px-7 text-sm font-black uppercase tracking-wide text-[#5A3825] transition hover:bg-[#F8F1E7]">
+                        <?php esc_html_e('Explore Curated Finds', 'dawp'); ?>
                     </a>
                 </div>
+            </div>
+
+            <div class="overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-sm">
+                <img src="<?php echo esc_url($images['curated']); ?>"
+                     alt="<?php esc_attr_e('Vintage-inspired accessories and curated style pieces arranged on neutral fabric', 'dawp'); ?>"
+                     class="aspect-[4/3] w-full object-cover"
+                     loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- Customer Care / Fitment & Trust -->
-    <section id="fitment-check" class="scroll-mt-24 bg-[#0B1F33] py-14 text-white lg:py-20">
+    <!-- Artisan Gifts -->
+    <section class="bg-[#F8F1E7] py-14 lg:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
-                <div>
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#FDBA74]">
-                        <?php esc_html_e('Customer Care', 'dawp'); ?>
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                <div class="max-w-3xl">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#9A6242]">
+                        <?php esc_html_e('Artisan Gifts', 'dawp'); ?>
                     </p>
-
-                    <h2 class="font-heading text-4xl font-black leading-tight text-white lg:text-5xl">
-                        <?php esc_html_e('Clear support from tire selection to delivery.', 'dawp'); ?>
+                    <h2 class="font-heading text-4xl font-black leading-tight text-[#5A3825] lg:text-5xl">
+                        <?php esc_html_e('Small handmade and curated pieces for thoughtful gifting.', 'dawp'); ?>
                     </h2>
-
-                    <p class="mt-5 max-w-2xl text-base leading-8 text-[#D1D5DB]">
-                        <?php esc_html_e('Tizezap provides clear product details, tire fitment reminders, order tracking, and customer support to help you shop with confidence.', 'dawp'); ?>
+                    <p class="mt-5 text-base leading-8 text-[#4F463F]">
+                        <?php esc_html_e('Find bracelet gifts, beaded jewelry, accessory bundles, and small curated finds that feel personal, creative, and easy to give.', 'dawp'); ?>
                     </p>
-
-                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
-                           class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
-                            <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
-                        </a>
-                        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                           class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/40 bg-transparent px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
-                            <?php esc_html_e('Contact Support', 'dawp'); ?>
-                        </a>
-                    </div>
                 </div>
 
-                <div class="space-y-5">
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <?php foreach ($trust_cards as $trust) : ?>
-                            <div class="rounded-lg border border-white/10 bg-white/10 p-5">
-                                <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-[#F97316] text-white">
-                                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                </div>
-                                <h3 class="text-base font-black text-white"><?php echo esc_html($trust); ?></h3>
+                <a href="<?php echo esc_url($category_url('artisan-gifts')); ?>"
+                   class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#9A6242] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#5A3825]">
+                    <?php esc_html_e('Shop Artisan Gifts', 'dawp'); ?>
+                </a>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+                <?php foreach ($gift_cards as $card) : ?>
+                    <a href="<?php echo esc_url($card['url']); ?>"
+                       class="group overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#9A6242] hover:shadow-md">
+                        <img src="<?php echo esc_url($card['image']); ?>"
+                             alt="<?php echo esc_attr($card['title']); ?>"
+                             class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                             loading="lazy">
+                        <span class="block p-5">
+                            <span class="block font-heading text-xl font-black leading-tight text-[#5A3825]">
+                                <?php echo esc_html($card['title']); ?>
+                            </span>
+                            <span class="mt-3 block text-sm leading-7 text-[#4F463F]">
+                                <?php echo esc_html($card['copy']); ?>
+                            </span>
+                            <span class="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#7A7B52]">
+                                <?php esc_html_e('View Gift Ideas', 'dawp'); ?>
+                                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </span>
+                        </span>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artisan Story / Customer Care Trust -->
+    <section class="bg-[#24211E] py-14 text-white lg:py-20">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-8">
+            <div>
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#C8A45D]">
+                    <?php esc_html_e('Artisan Story', 'dawp'); ?>
+                </p>
+                <h2 class="font-heading text-4xl font-black leading-tight text-white lg:text-5xl">
+                    <?php esc_html_e('Curated with warmth, detail, and everyday style in mind.', 'dawp'); ?>
+                </h2>
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#F8F1E7]">
+                    <?php esc_html_e('Scott Osterbind brings together handmade jewelry, beaded pieces, vintage-inspired accessories, and curated finds with a personal creative point of view. Each item is selected or made to feel thoughtful, wearable, and expressive.', 'dawp'); ?>
+                </p>
+            </div>
+
+            <div class="space-y-5">
+                <div>
+                    <h3 class="font-heading text-3xl font-black text-white">
+                        <?php esc_html_e('Shop With Confidence', 'dawp'); ?>
+                    </h3>
+                    <div class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <?php foreach ($trust_items as $item) : ?>
+                            <div class="rounded-lg border border-white/10 border-l-4 border-l-[#C8A45D] bg-white/10 p-5">
+                                <h4 class="text-base font-black text-white"><?php echo esc_html($item); ?></h4>
                             </div>
                         <?php endforeach; ?>
                     </div>
+                </div>
 
-                    <div class="rounded-lg border border-[#F97316]/50 bg-[#F97316]/12 p-5">
-                        <p class="text-sm font-black uppercase tracking-[0.16em] text-[#FDBA74]">
-                            <?php esc_html_e('Fitment Reminder', 'dawp'); ?>
-                        </p>
-                        <p class="mt-3 text-sm font-semibold leading-7 text-white">
-                            <?php esc_html_e('Please confirm your tire size, rim size, load index, speed rating, and vehicle compatibility before placing an order.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                        <div class="rounded-lg border border-white/10 bg-white p-5 text-[#111827]">
-                            <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Shipping Timeline', 'dawp'); ?></h3>
-                            <p class="mt-2 text-sm leading-7 text-[#4B5563]">
-                                <?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch depending on product availability, tire size, carrier conditions, and delivery location.', 'dawp'); ?>
-                            </p>
-                        </div>
-
-                        <div class="rounded-lg border border-white/10 bg-white p-5 text-[#111827]">
-                            <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Return Eligibility', 'dawp'); ?></h3>
-                            <p class="mt-2 text-sm leading-7 text-[#4B5563]">
-                                <?php esc_html_e('Eligible unused, unmounted, and undamaged tires may be returned within 30 days of delivery in original condition.', 'dawp'); ?>
-                            </p>
-                        </div>
-                    </div>
-
-                    <p class="text-sm leading-7 text-[#D1D5DB]">
-                        <?php esc_html_e('Support: support@tizezap.com. Business hours: Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?>
+                <div class="rounded-lg border border-[#C8A45D]/50 bg-[#F8F1E7]/12 p-5">
+                    <p class="text-sm font-semibold leading-7 text-[#F8F1E7]">
+                        <?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch, and tracking information is provided once an order ships.', 'dawp'); ?>
                     </p>
+                    <p class="mt-3 text-sm font-semibold leading-7 text-[#F8F1E7]">
+                        <?php esc_html_e('Eligible unused, unworn, and undamaged items may be returned within 30 days of delivery in original condition.', 'dawp'); ?>
+                    </p>
+                    <p class="mt-3 text-sm font-semibold leading-7 text-[#F8F1E7]">
+                        <?php esc_html_e('Handmade pieces may include slight natural variations in color, texture, or bead pattern.', 'dawp'); ?>
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#C8A45D] px-7 text-sm font-black uppercase tracking-wide text-[#24211E] transition hover:bg-white">
+                        <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
+                       class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C8A45D] bg-transparent px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#24211E]">
+                        <?php esc_html_e('Contact Support', 'dawp'); ?>
+                    </a>
                 </div>
             </div>
         </div>

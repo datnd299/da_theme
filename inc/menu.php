@@ -2,8 +2,8 @@
 function dawp_product_category_links($limit = 5) {
     $fallback = [];
 
-    if (function_exists('dawp_tire_category_definitions')) {
-        foreach (dawp_tire_category_definitions() as $slug => $category) {
+    if (function_exists('dawp_product_category_definitions')) {
+        foreach (dawp_product_category_definitions() as $slug => $category) {
             $fallback[] = [
                 'title' => $category['name'],
                 'url'   => function_exists('dawp_product_category_url')
@@ -17,28 +17,18 @@ function dawp_product_category_links($limit = 5) {
         return array_slice($fallback, 0, $limit);
     }
 
-    $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
-    $exclude = $uncategorized ? [(int) $uncategorized->term_id] : [];
-    $terms = get_terms([
-        'taxonomy'   => 'product_cat',
-        'hide_empty' => true,
-        'parent'     => 0,
-        'exclude'    => $exclude,
-        'orderby'    => 'name',
-        'order'      => 'ASC',
-        'number'     => $limit,
-    ]);
+    $terms = function_exists('dawp_product_category_terms') ? dawp_product_category_terms() : [];
 
-    if (is_wp_error($terms) || empty($terms)) {
+    if (empty($terms) || is_wp_error($terms)) {
         return array_slice($fallback, 0, $limit);
     }
 
-    return array_map(function ($term) {
+    return array_slice(array_map(function ($term) {
         return [
             'title' => $term->name,
             'url'   => get_term_link($term),
         ];
-    }, $terms);
+    }, $terms), 0, $limit);
 }
 
 function dawp_main_menu_items() {
@@ -59,9 +49,6 @@ function dawp_footer_columns() {
             'title' => 'Shop',
             'links' => array_merge([
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-                ['title' => __('Shop By Rim Size', 'dawp'),    'url' => home_url('/shop-by-rim-size/')],
-                ['title' => __('Shop By Vehicle Type', 'dawp'), 'url' => home_url('/shop-by-vehicle-type/')],
-                ['title' => __('Shop By Brand', 'dawp'),       'url' => home_url('/shop-by-brand/')],
             ], dawp_product_category_links(5)),
         ],
         [

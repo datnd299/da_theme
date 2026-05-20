@@ -191,7 +191,7 @@ if ($track_order_form) {
                     <p class="track-more-card__desc"><?php esc_html_e('Our support team is here to help with order and delivery questions.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
+                    <h3 class="track-more-card__title"><?php esc_html_e('FAQs', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Find quick answers to our most common customer questions.', 'dawp'); ?></p>
                 </a>
             </div>

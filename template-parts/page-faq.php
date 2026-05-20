@@ -232,8 +232,8 @@ $faq_sections = [
 
             <div class="mt-12 grid gap-10 lg:mt-14 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-10">
                 <aside class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm lg:sticky lg:top-24">
-                    <p class="text-xs font-black uppercase tracking-[0.16em] text-[#5B6472]"><?php esc_html_e('FAQ Sections', 'dawp'); ?></p>
-                    <nav class="mt-5 space-y-3" aria-label="<?php esc_attr_e('FAQ sections', 'dawp'); ?>">
+                    <p class="text-xs font-black uppercase tracking-[0.16em] text-[#5B6472]"><?php esc_html_e('FAQs Sections', 'dawp'); ?></p>
+                    <nav class="mt-5 space-y-3" aria-label="<?php esc_attr_e('FAQs sections', 'dawp'); ?>">
                         <?php foreach ($faq_sections as $section) : ?>
                             <a class="block rounded-md border border-transparent px-4 py-3 text-sm font-bold leading-5 text-[#111827] transition hover:border-[var(--faq-accent)] hover:bg-[var(--faq-tint)]" style="--faq-accent: <?php echo esc_attr($section['accent']); ?>; --faq-tint: <?php echo esc_attr($section['tint']); ?>;" href="#<?php echo esc_attr($section['id']); ?>">
                                 <?php echo esc_html($section['label']); ?>

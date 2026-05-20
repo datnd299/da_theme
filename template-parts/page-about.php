@@ -6,9 +6,9 @@
 $gallery_uri = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/');
 
 $images = [
-    'hero'      => $gallery_uri . 'hero-artisan-jewelry.png',
-    'bracelets' => $gallery_uri . 'handmade-bracelets.png',
-    'curated'   => $gallery_uri . 'vintage-curated-finds.png',
+    'hero'      => $gallery_uri . 'about-hero-artisan-studio.png',
+    'bracelets' => $gallery_uri . 'about-story-handmade-details.png',
+    'curated'   => $gallery_uri . 'about-curated-accessories.png',
 ];
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
@@ -265,7 +265,7 @@ $trust_items = [
                     </a>
                     <a href="<?php echo esc_url(home_url('/faq/')); ?>"
                        class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C8A45D] bg-transparent px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#24211E]">
-                        <?php esc_html_e('View FAQ', 'dawp'); ?>
+                        <?php esc_html_e('View FAQs', 'dawp'); ?>
                     </a>
                 </div>
             </div>

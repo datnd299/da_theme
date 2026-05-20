@@ -6,11 +6,16 @@
 $gallery_uri = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/');
 
 $images = [
-    'hero'          => $gallery_uri . 'hero-artisan-jewelry.png',
-    'bracelets'     => $gallery_uri . 'handmade-bracelets.png',
-    'curated'       => $gallery_uri . 'vintage-curated-finds.png',
-    'beaded'        => $gallery_uri . 'beaded-jewelry-ai.png',
-    'brand_story'   => $gallery_uri . 'brand-story-ai.png',
+    'hero'              => $gallery_uri . 'hero-artisan-jewelry.png',
+    'bracelets'         => $gallery_uri . 'handmade-bracelets.png',
+    'curated'           => $gallery_uri . 'vintage-curated-finds.png',
+    'beaded'            => $gallery_uri . 'beaded-jewelry-ai.png',
+    'brand_story'       => $gallery_uri . 'brand-story-ai.png',
+    'bracelets_feature' => $gallery_uri . 'home-bracelets-feature-v2.png',
+    'curated_feature'   => $gallery_uri . 'home-curated-feature-v2.png',
+    'gift_bracelet'     => $gallery_uri . 'gift-bracelet-box-v2.png',
+    'gift_beaded'       => $gallery_uri . 'gift-beaded-set-v2.png',
+    'gift_curated'      => $gallery_uri . 'gift-curated-finds-v2.png',
 ];
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
@@ -99,19 +104,19 @@ $gift_cards = [
     [
         'title' => __('Bracelet Gifts', 'dawp'),
         'copy'  => __('Easy-to-wear handmade bracelets with beaded texture and personal character.', 'dawp'),
-        'image' => $images['bracelets'],
+        'image' => $images['gift_bracelet'],
         'url'   => $category_url('handmade-bracelets'),
     ],
     [
         'title' => __('Beaded Jewelry Sets', 'dawp'),
         'copy'  => __('Creative jewelry pieces made for layering, everyday styling, and thoughtful gifting.', 'dawp'),
-        'image' => $images['hero'],
+        'image' => $images['gift_beaded'],
         'url'   => $category_url('beaded-jewelry'),
     ],
     [
         'title' => __('Curated Small Finds', 'dawp'),
         'copy'  => __('Vintage-inspired accessories and small curated pieces with warm boutique character.', 'dawp'),
-        'image' => $images['curated'],
+        'image' => $images['gift_curated'],
         'url'   => $category_url('artisan-gifts'),
     ],
 ];
@@ -353,7 +358,7 @@ if (class_exists('WooCommerce')) {
     <section class="bg-[#F8F1E7] py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div class="overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['bracelets']); ?>"
+                <img src="<?php echo esc_url($images['bracelets_feature']); ?>"
                      alt="<?php esc_attr_e('Handmade beaded bracelets arranged on warm linen texture', 'dawp'); ?>"
                      class="aspect-[4/3] w-full object-cover"
                      loading="lazy">
@@ -433,7 +438,7 @@ if (class_exists('WooCommerce')) {
             </div>
 
             <div class="overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['curated']); ?>"
+                <img src="<?php echo esc_url($images['curated_feature']); ?>"
                      alt="<?php esc_attr_e('Vintage-inspired accessories and curated style pieces arranged on neutral fabric', 'dawp'); ?>"
                      class="aspect-[4/3] w-full object-cover"
                      loading="lazy">

@@ -28,7 +28,7 @@ function dawp_handle_virtual_pages() {
 function dawp_virtual_page_map() {
     return [
         'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
-        'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
+        'faq'              => ['slug' => 'faq',              'title' => 'FAQs', 'css' => 'tw-faq.css'],
         'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
         'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
         'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],

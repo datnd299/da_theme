@@ -31,7 +31,7 @@ All file content must follow `.plans/site.md` and `.plans/design_system.md`.
 - `template-parts/page-home.php` → Homepage content (HTML + PHP + Tailwind)  
 - `template-parts/page-contact.php` → Contact page  
 - `template-parts/page-about.php` → About Us page  
-- `template-parts/page-faq.php` → FAQ page  
+- `template-parts/page-faq.php` → FAQs page  
 - `template-parts/page-privacy.php` → Privacy Policy page  
 - `template-parts/page-shipping-returns.php` → Shipping & Returns page  
 - `template-parts/page-terms.php` → Terms & Conditions page  

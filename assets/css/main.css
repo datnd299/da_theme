@@ -641,6 +641,67 @@
   background: #FFFFFF;
 }
 
+.woocommerce-account .woocommerce-EditAccountForm {
+  width: 100%;
+}
+
+.woocommerce-account .woocommerce-EditAccountForm fieldset {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.woocommerce-account .woocommerce-EditAccountForm fieldset legend {
+  width: auto;
+  margin: 0 0 var(--space-md);
+  padding: 0 var(--space-sm);
+  color: #2D2633;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.woocommerce-account .woocommerce-EditAccountForm .form-row-first,
+.woocommerce-account .woocommerce-EditAccountForm .form-row-last,
+.woocommerce-account .woocommerce-EditAccountForm .form-row-wide {
+  float: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.woocommerce-account .woocommerce-EditAccountForm .clear {
+  display: none;
+}
+
+.woocommerce-account .woocommerce-EditAccountForm .password-input {
+  position: relative;
+  display: block;
+}
+
+.woocommerce-account .woocommerce-EditAccountForm .password-input input.input-text {
+  padding-right: 48px;
+}
+
+.woocommerce-account .woocommerce-EditAccountForm .show-password-input {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6F625D;
+  font-size: 0;
+  line-height: 1;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.woocommerce-account .woocommerce-EditAccountForm .show-password-input::before {
+  content: "\1F441";
+  font-size: 15px;
+}
+
 .woocommerce-account .woocommerce-Address-title {
   display: flex;
   align-items: center;

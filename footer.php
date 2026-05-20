@@ -37,10 +37,10 @@ $footer_shop_links = [
 ];
 
 $footer_help_links = [
+    ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
     ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
     ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
     ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-    ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
 ];
 
 $footer_policy_links = [

@@ -6,8 +6,8 @@
 $gallery_uri = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/');
 
 $images = [
-    'hero'    => $gallery_uri . 'hero-artisan-jewelry.png',
-    'curated' => $gallery_uri . 'vintage-curated-finds.png',
+    'hero'    => $gallery_uri . 'contact-support-workspace.png',
+    'curated' => $gallery_uri . 'contact-sizing-details.png',
 ];
 
 $contact_cards = [
@@ -270,7 +270,7 @@ $help_topics = [
                     </a>
                     <a href="<?php echo esc_url(home_url('/faq/')); ?>"
                        class="rounded-lg border border-[#D8C3A5] bg-white p-5 text-[#24211E] transition hover:-translate-y-1 hover:shadow-md">
-                        <h3 class="text-base font-black text-[#5A3825]"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
+                        <h3 class="text-base font-black text-[#5A3825]"><?php esc_html_e('FAQs', 'dawp'); ?></h3>
                         <p class="mt-2 text-sm leading-6 text-[#4F463F]"><?php esc_html_e('Find common support answers.', 'dawp'); ?></p>
                     </a>
                 </div>

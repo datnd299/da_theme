@@ -55,7 +55,7 @@ function dawp_footer_columns() {
             'title' => 'Help',
             'links' => [
                 ['title' => 'About Us',           'url' => home_url('/about-us/')],
-                ['title' => 'FAQ',                'url' => home_url('/faq/')],
+                ['title' => 'FAQs',               'url' => home_url('/faq/')],
                 ['title' => 'Contact Us',         'url' => home_url('/contact-us/')],
                 ['title' => 'Track Order',        'url' => home_url('/track-order/')],
                 ['title' => 'Shipping & Returns', 'url' => home_url('/shipping-returns/')],

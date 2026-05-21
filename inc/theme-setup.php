@@ -36,7 +36,7 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.2');
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], time());
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
@@ -47,7 +47,7 @@ function dawp_scripts() {
     
     if ( class_exists( 'WooCommerce' ) ) {
         if ( is_account_page() ) {
-            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', [], '1.0.0');
+            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', [], time());
         } elseif ( is_product() ) {
             wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.2');
             dawp_remove_styles();

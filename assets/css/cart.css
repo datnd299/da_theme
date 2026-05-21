@@ -270,7 +270,8 @@
 
 /* === 4. ORDER SUMMARY SIDEBAR === */
 .wc-block-cart__sidebar {
-  background: #F7F8F5;
+  background: var(--qb-cart-cream);
+  border: 1px solid var(--qb-cart-border);
   border-radius: 16px;
   padding: 24px;
   box-sizing: border-box;
@@ -290,7 +291,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #111827;
+  color: var(--qb-cart-plum);
   margin: 0 0 20px;
 }
 
@@ -306,20 +307,20 @@
   align-items: baseline;
   gap: 12px;
   padding: 11px 0;
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid var(--qb-cart-border);
 }
 
 .wc-block-components-totals-item__label {
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  color: #6B7280;
+  color: var(--qb-cart-muted);
 }
 
 .wc-block-components-totals-item__value {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--qb-cart-plum);
   text-align: right;
 }
 
@@ -335,19 +336,19 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #111827;
+  color: var(--qb-cart-plum);
 }
 
 .wc-block-components-totals-footer-item .wc-block-formatted-money-amount {
   font-family: var(--font-sans);
   font-size: 1.375rem;
   font-weight: 900;
-  color: #0B0F0D;
+  color: var(--qb-cart-plum);
 }
 
 /* === 5. COUPON === */
 .wc-block-components-totals-coupon {
-  border-bottom: 1px solid #E5E7EB;
+  border-bottom: 1px solid var(--qb-cart-border);
 }
 
 .wc-block-components-panel__button {
@@ -361,14 +362,14 @@
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 700;
-  color: #6B7280;
+  color: var(--qb-cart-muted);
   cursor: pointer;
   text-align: left;
   transition: color 0.2s;
 }
 
 .wc-block-components-panel__button:hover {
-  color: #111827;
+  color: var(--qb-cart-plum);
 }
 
 .wc-block-components-panel__button-icon {
@@ -399,9 +400,9 @@
   padding: 12px 12px 0;
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  color: #111827;
-  background: #FFFFFF;
-  border: 1.5px solid #E5E7EB;
+  color: var(--qb-cart-plum);
+  background: var(--qb-cart-bg);
+  border: 1.5px solid var(--qb-cart-border);
   border-radius: 8px;
   box-sizing: border-box;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -409,8 +410,8 @@
 
 .wc-block-components-text-input input:focus {
   outline: none;
-  border-color: #22C55E;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+  border-color: var(--qb-cart-gold);
+  box-shadow: 0 0 0 3px rgba(216, 169, 78, 0.16);
 }
 
 .wc-block-components-text-input label {
@@ -420,7 +421,7 @@
   transform: translateY(-50%);
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  color: #6B7280;
+  color: var(--qb-cart-muted);
   pointer-events: none;
   transition: all 0.15s;
   background: transparent;
@@ -431,7 +432,7 @@
   top: 6px;
   font-size: 0.6875rem;
   transform: none;
-  color: #9CA3AF;
+  color: var(--qb-cart-muted);
 }
 
 /* Apply button */
@@ -443,8 +444,8 @@
   font-weight: 900;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #0B0F0D;
-  background: #22C55E;
+  color: #ffffff;
+  background: var(--qb-cart-plum);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -453,7 +454,7 @@
 }
 
 .wc-block-components-totals-coupon__button:hover:not(:disabled) {
-  background: #A3E635;
+  background: var(--qb-cart-gold);
 }
 
 .wc-block-components-totals-coupon__button:disabled {
@@ -482,8 +483,8 @@
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0B0F0D;
-  background: #22C55E;
+  color: #ffffff;
+  background: var(--qb-cart-plum);
   border: none;
   border-radius: 10px;
   text-decoration: none;
@@ -493,7 +494,7 @@
 }
 
 .wc-block-cart__submit-button:hover {
-  background: #A3E635;
+  background: var(--qb-cart-gold);
 }
 
 .wc-block-cart__submit-button:active {
@@ -502,7 +503,7 @@
 
 .wc-block-cart__submit-button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.30);
+  box-shadow: 0 0 0 3px rgba(216, 169, 78, 0.28);
 }
 
 /* === 7. SKELETON LOADING === */
@@ -588,8 +589,8 @@
   font-size: 1.375rem;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
-  color: #111827;
+  letter-spacing: 0;
+  color: var(--qb-cart-plum);
   margin: 0 0 8px;
   display: flex;
   flex-direction: column;
@@ -600,14 +601,14 @@
 .wc-block-cart__empty-cart__title svg {
   width: 52px;
   height: 52px;
-  color: #6B7280;
+  color: var(--qb-cart-muted);
   opacity: 0.4;
 }
 
 .wp-block-woocommerce-empty-cart-block .wp-block-separator {
   border: none;
   margin: 20px auto 32px;
-  color: #E5E7EB;
+  color: var(--qb-cart-border);
 }
 
 .wp-block-woocommerce-empty-cart-block .wp-block-heading:not(.wc-block-cart__empty-cart__title) {
@@ -616,7 +617,7 @@
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #111827;
+  color: var(--qb-cart-plum);
   margin: 0 0 20px;
 }
 
@@ -641,8 +642,8 @@
 .wc-block-grid__product {
   display: flex;
   flex-direction: column;
-  background: #FFFFFF;
-  border: 1px solid #E5E7EB;
+  background: var(--qb-cart-bg);
+  border: 1px solid var(--qb-cart-border);
   border-radius: 16px;
   overflow: hidden;
   text-align: left;
@@ -651,7 +652,7 @@
 
 .wc-block-grid__product:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(11, 15, 13, 0.10);
+  box-shadow: var(--qb-cart-shadow);
 }
 
 .wc-block-grid__product-link {
@@ -664,7 +665,7 @@
 .wc-block-grid__product-image {
   aspect-ratio: 1;
   overflow: hidden;
-  background: #F7F8F5;
+  background: var(--qb-cart-cream);
 }
 
 .wc-block-grid__product-image img {
@@ -684,7 +685,7 @@
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--qb-cart-plum);
   padding: 10px 10px 4px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -699,7 +700,7 @@
   font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 900;
-  color: #22C55E;
+  color: var(--qb-cart-gold);
   padding: 2px 10px 8px;
   min-height: 1.6em;
 }
@@ -720,8 +721,8 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  color: #0B0F0D;
-  background: #22C55E;
+  color: #ffffff;
+  background: var(--qb-cart-plum);
   border-radius: 8px;
   box-sizing: border-box;
   min-height: 44px;
@@ -732,5 +733,5 @@
 }
 
 .wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
-  background: #A3E635;
+  background: var(--qb-cart-gold);
 }

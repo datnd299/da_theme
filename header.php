@@ -241,6 +241,7 @@ $nav_items = [
                 <form role="search"
                       method="get"
                       action="<?php echo esc_url(home_url('/')); ?>"
+                      autocomplete="off"
                       class="hidden items-center xl:flex">
                     <label for="scott-header-search" class="sr-only">
                         <?php esc_html_e('Search products', 'dawp'); ?>
@@ -248,6 +249,7 @@ $nav_items = [
                     <input id="scott-header-search"
                            type="search"
                            name="s"
+                           autocomplete="off"
                            placeholder="<?php esc_attr_e('Search jewelry...', 'dawp'); ?>"
                            class="h-10 w-48 rounded-full border border-[#D8C3A5] bg-[#F8F1E7] px-4 text-sm text-[#24211E] placeholder:text-[#7A7B52] outline-none transition focus:border-[#9A6242] focus:bg-white focus:ring-2 focus:ring-[#9A6242]/20">
                     <input type="hidden" name="post_type" value="product">
@@ -297,9 +299,11 @@ $nav_items = [
         <form role="search"
               method="get"
               action="<?php echo esc_url(home_url('/')); ?>"
+              autocomplete="off"
               class="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3">
             <input type="search"
                    name="s"
+                   autocomplete="off"
                    placeholder="<?php esc_attr_e('Search bracelets, jewelry, or gifts...', 'dawp'); ?>"
                    class="h-10 flex-1 rounded-full border border-[#D8C3A5] bg-[#F8F1E7] px-4 text-sm text-[#24211E] placeholder:text-[#7A7B52] outline-none focus:border-[#9A6242] focus:bg-white focus:ring-2 focus:ring-[#9A6242]/20">
             <input type="hidden" name="post_type" value="product">

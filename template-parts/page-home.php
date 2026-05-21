@@ -6,16 +6,15 @@
 $gallery_uri = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/');
 
 $images = [
-    'hero'              => $gallery_uri . 'hero-artisan-jewelry.png',
-    'bracelets'         => $gallery_uri . 'handmade-bracelets.png',
+    'hero'              => $gallery_uri . 'Home_Image/Handmade_Jewelry_Vintage_Accessories.png',
+    'bracelets'         => $gallery_uri . 'Home_Image/Handmade_Bracelets.png',
     'curated'           => $gallery_uri . 'vintage-curated-finds.png',
-    'beaded'            => $gallery_uri . 'beaded-jewelry-ai.png',
+    'beaded'            => $gallery_uri . 'Home_Image/Beaded_Jewelry.png',
     'brand_story'       => $gallery_uri . 'brand-story-ai.png',
     'bracelets_feature' => $gallery_uri . 'home-bracelets-feature-v2.png',
     'curated_feature'   => $gallery_uri . 'home-curated-feature-v2.png',
-    'gift_bracelet'     => $gallery_uri . 'gift-bracelet-box-v2.png',
-    'gift_beaded'       => $gallery_uri . 'gift-beaded-set-v2.png',
-    'gift_curated'      => $gallery_uri . 'gift-curated-finds-v2.png',
+    'curated_apparel'   => $gallery_uri . 'Home_Image/Curated Apparel_home.png',
+    'artisan_gifts'     => $gallery_uri . 'Home_Image/Artisan_Gifts.png',
 ];
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
@@ -61,13 +60,13 @@ $categories = [
         'title' => __('Curated Apparel', 'dawp'),
         'copy'  => __('Apparel pieces selected for creative everyday style.', 'dawp'),
         'url'   => $category_url('curated-apparel'),
-        'image' => $images['curated'],
+        'image' => $images['curated_apparel'],
     ],
     [
         'title' => __('Artisan Gifts', 'dawp'),
         'copy'  => __('Small handmade and curated pieces made for thoughtful gifting.', 'dawp'),
         'url'   => $category_url('artisan-gifts'),
-        'image' => $images['bracelets'],
+        'image' => $images['artisan_gifts'],
     ],
     [
         'title' => __('Our Brand Story', 'dawp'),
@@ -97,27 +96,6 @@ $curated_cards = [
     [
         'title' => __('Artisan Gifts', 'dawp'),
         'copy'  => __('Thoughtful handmade and curated finds for everyday gifting.', 'dawp'),
-    ],
-];
-
-$gift_cards = [
-    [
-        'title' => __('Bracelet Gifts', 'dawp'),
-        'copy'  => __('Easy-to-wear handmade bracelets with beaded texture and personal character.', 'dawp'),
-        'image' => $images['gift_bracelet'],
-        'url'   => $category_url('handmade-bracelets'),
-    ],
-    [
-        'title' => __('Beaded Jewelry Sets', 'dawp'),
-        'copy'  => __('Creative jewelry pieces made for layering, everyday styling, and thoughtful gifting.', 'dawp'),
-        'image' => $images['gift_beaded'],
-        'url'   => $category_url('beaded-jewelry'),
-    ],
-    [
-        'title' => __('Curated Small Finds', 'dawp'),
-        'copy'  => __('Vintage-inspired accessories and small curated pieces with warm boutique character.', 'dawp'),
-        'image' => $images['gift_curated'],
-        'url'   => $category_url('artisan-gifts'),
     ],
 ];
 
@@ -442,57 +420,6 @@ if (class_exists('WooCommerce')) {
                      alt="<?php esc_attr_e('Vintage-inspired accessories and curated style pieces arranged on neutral fabric', 'dawp'); ?>"
                      class="aspect-[4/3] w-full object-cover"
                      loading="lazy">
-            </div>
-        </div>
-    </section>
-
-    <!-- Artisan Gifts -->
-    <section class="bg-[#F8F1E7] py-14 lg:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-                <div class="max-w-3xl">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#9A6242]">
-                        <?php esc_html_e('Artisan Gifts', 'dawp'); ?>
-                    </p>
-                    <h2 class="font-heading text-4xl font-black leading-tight text-[#5A3825] lg:text-5xl">
-                        <?php esc_html_e('Small handmade and curated pieces for thoughtful gifting.', 'dawp'); ?>
-                    </h2>
-                    <p class="mt-5 text-base leading-8 text-[#4F463F]">
-                        <?php esc_html_e('Find bracelet gifts, beaded jewelry, accessory bundles, and small curated finds that feel personal, creative, and easy to give.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <a href="<?php echo esc_url($category_url('artisan-gifts')); ?>"
-                   class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#9A6242] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#5A3825]">
-                    <?php esc_html_e('Shop Artisan Gifts', 'dawp'); ?>
-                </a>
-            </div>
-
-            <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-                <?php foreach ($gift_cards as $card) : ?>
-                    <a href="<?php echo esc_url($card['url']); ?>"
-                       class="group overflow-hidden rounded-lg border border-[#D8C3A5] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#9A6242] hover:shadow-md">
-                        <img src="<?php echo esc_url($card['image']); ?>"
-                             alt="<?php echo esc_attr($card['title']); ?>"
-                             class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                             loading="lazy">
-                        <span class="block p-5">
-                            <span class="block font-heading text-xl font-black leading-tight text-[#5A3825]">
-                                <?php echo esc_html($card['title']); ?>
-                            </span>
-                            <span class="mt-3 block text-sm leading-7 text-[#4F463F]">
-                                <?php echo esc_html($card['copy']); ?>
-                            </span>
-                            <span class="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#7A7B52]">
-                                <?php esc_html_e('View Gift Ideas', 'dawp'); ?>
-                                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="M5 12h14"></path>
-                                    <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                            </span>
-                        </span>
-                    </a>
-                <?php endforeach; ?>
             </div>
         </div>
     </section>

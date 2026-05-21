@@ -86,6 +86,36 @@
   -webkit-font-smoothing: antialiased;
 }
 
+body.dawp-mobile-menu-open {
+  overflow: hidden;
+}
+
+#tizezap-mobile-menu {
+  position: fixed;
+  top: var(--tizezap-mobile-panel-top, 0);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 49;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+#tizezap-mobile-menu nav {
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+
+@media (min-width: 1024px) {
+  body.dawp-mobile-menu-open {
+    overflow: auto;
+  }
+
+  #tizezap-mobile-menu {
+    position: static;
+  }
+}
+
 .page-shell {
   background: #FDFDFD;
 }

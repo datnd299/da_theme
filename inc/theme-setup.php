@@ -62,7 +62,7 @@ function theme_search_template($template) {
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', ['dawp-tw-main'], '1.0.4');
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', ['dawp-tw-main'], '1.0.5');
 
     if ( is_front_page() ) {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
@@ -88,7 +88,7 @@ function dawp_scripts() {
         }
     }
 
-    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.2', true);
+    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.3', true);
 
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
 }

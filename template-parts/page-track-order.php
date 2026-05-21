@@ -74,7 +74,7 @@
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Learn about our shipping times, rates, and delivery details.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="track-more-card">
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Our boutique team is here to help, Mon–Sat 10 AM–6 PM PST.', 'dawp'); ?></p>
                 </a>

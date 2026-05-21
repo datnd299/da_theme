@@ -35,7 +35,7 @@
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
                         <circle cx="12" cy="10" r="3"/>
                     </svg>
-                    885 Roselyn Lakes, South Vidashire, IL 37334
+                    195 unit 2 Cordgrass Lp, Murrells Inlet, SC 29576-3595
                 </li>
 
                 <li class="flex items-start gap-2.5 text-white/40">

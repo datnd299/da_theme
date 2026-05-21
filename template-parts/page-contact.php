@@ -46,7 +46,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Our Address</h3>
-          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">885 Roselyn Lakes, South Vidashire, IL 37334</p>
+          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">195 unit 2 Cordgrass Lp, Murrells Inlet, SC 29576-3595</p>
         </div>
       </div>
 

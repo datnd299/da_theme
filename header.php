@@ -29,6 +29,25 @@
                 max-width: 180px;
             }
         }
+
+        #masthead .scott-mega-shell {
+            width: min(980px, calc(100vw - 32px));
+        }
+
+        #masthead .scott-mega-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.7fr);
+            gap: 0;
+        }
+
+        #masthead .scott-mega-heading-row {
+            padding-bottom: 1rem;
+        }
+
+        #masthead .scott-mega-feature,
+        #masthead .scott-mega-feature-content {
+            min-height: 360px;
+        }
     </style>
 </head>
 
@@ -130,7 +149,7 @@ $nav_items = [
             <nav class="hidden flex-1 items-center justify-center gap-5 lg:flex xl:gap-7" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
                     <?php if (! empty($item['mega'])) : ?>
-                        <div class="group/menu relative">
+                        <div class="group/menu">
                             <a href="<?php echo esc_url($item['url']); ?>"
                                class="inline-flex h-20 items-center gap-1 whitespace-nowrap text-sm font-black uppercase tracking-wide text-[#24211E] transition hover:text-[#9A6242] focus:text-[#9A6242] focus:outline-none">
                                 <?php echo esc_html($item['title']); ?>
@@ -139,16 +158,16 @@ $nav_items = [
                                 </svg>
                             </a>
 
-                            <div class="invisible absolute left-1/2 top-full w-[min(1120px,calc(100vw-32px))] -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:translate-y-0 group-focus-within/menu:opacity-100">
+                            <div class="scott-mega-shell invisible absolute left-1/2 top-full -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:translate-y-0 group-focus-within/menu:opacity-100">
                                 <div class="overflow-hidden rounded-lg border border-[#D8C3A5] bg-white text-left shadow-xl">
-                                    <div class="grid grid-cols-[minmax(0,1.45fr)_minmax(280px,0.75fr)] gap-0">
-                                        <div class="p-6">
-                                            <div class="flex items-end justify-between gap-5 border-b border-[#D8C3A5] pb-5">
+                                    <div class="scott-mega-grid">
+                                        <div class="p-5">
+                                            <div class="scott-mega-heading-row flex items-end justify-between gap-4 border-b border-[#D8C3A5]">
                                                 <div>
                                                     <p class="text-xs font-black uppercase tracking-[0.18em] text-[#9A6242]">
                                                         <?php esc_html_e('Shop Collections', 'dawp'); ?>
                                                     </p>
-                                                    <h2 class="mt-2 font-heading text-2xl font-black leading-tight text-[#5A3825]">
+                                                    <h2 class="mt-2 font-heading text-xl font-black leading-tight text-[#5A3825]">
                                                         <?php esc_html_e('Handmade and vintage-inspired finds', 'dawp'); ?>
                                                     </h2>
                                                 </div>
@@ -158,10 +177,10 @@ $nav_items = [
                                                 </a>
                                             </div>
 
-                                            <div class="mt-5 grid grid-cols-2 gap-3">
+                                            <div class="mt-4 grid grid-cols-2 gap-3">
                                                 <?php foreach ($shop_categories as $category) : ?>
                                                     <a href="<?php echo esc_url($category['url']); ?>"
-                                                       class="group/category rounded-lg border border-[#D8C3A5] bg-[#F8F1E7] p-4 transition hover:border-[#9A6242] hover:bg-white hover:shadow-sm">
+                                                       class="group/category rounded-lg border border-[#D8C3A5] bg-[#F8F1E7] p-3 transition hover:border-[#9A6242] hover:bg-white hover:shadow-sm">
                                                         <span class="flex items-center justify-between gap-3">
                                                             <span class="text-sm font-black text-[#5A3825] group-hover/category:text-[#9A6242]">
                                                                 <?php echo esc_html($category['title']); ?>
@@ -180,17 +199,17 @@ $nav_items = [
                                         </div>
 
                                         <a href="<?php echo esc_url($featured_collection['url']); ?>"
-                                           class="group/feature relative block min-h-[420px] overflow-hidden bg-[#24211E] text-white">
+                                           class="scott-mega-feature group/feature relative block overflow-hidden bg-[#24211E] text-white">
                                             <img src="<?php echo esc_url($featured_collection['image']); ?>"
                                                  alt="<?php echo esc_attr($featured_collection['title']); ?>"
                                                  class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/feature:scale-[1.03]"
                                                  loading="lazy">
                                             <span class="absolute inset-0 bg-[#24211E]/80"></span>
-                                            <span class="relative flex h-full min-h-[420px] flex-col justify-end p-6">
+                                            <span class="scott-mega-feature-content relative flex h-full flex-col justify-end p-5">
                                                 <span class="mb-3 inline-flex w-fit rounded-full bg-[#C8A45D] px-3 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-[#24211E]">
                                                     <?php esc_html_e('Featured', 'dawp'); ?>
                                                 </span>
-                                                <span class="font-heading text-3xl font-black leading-tight">
+                                                <span class="font-heading text-2xl font-black leading-tight">
                                                     <?php echo esc_html($featured_collection['title']); ?>
                                                 </span>
                                                 <span class="mt-3 text-sm font-medium leading-6 text-[#F8F1E7]">

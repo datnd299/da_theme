@@ -95,13 +95,13 @@ $nav_items = [
     </div>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between gap-4">
+        <div class="flex h-24 items-center justify-between gap-4">
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex shrink-0 items-center gap-3"
                aria-label="<?php echo esc_attr($brand_name); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/dist/shopshive/assets/img/Logo.png'); ?>"
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo_header.png'); ?>"
                      alt="<?php echo esc_attr($brand_name); ?>"
-                     class="h-14 w-auto">
+                     class="h-20 w-auto">
             </a>
 
             <nav class="hidden flex-1 items-center justify-center gap-5 lg:flex xl:gap-7" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
@@ -109,7 +109,7 @@ $nav_items = [
                     <?php if (! empty($item['mega'])) : ?>
                         <div class="group/menu relative">
                             <a href="<?php echo esc_url($item['url']); ?>"
-                               class="inline-flex h-20 items-center gap-1 whitespace-nowrap text-sm font-black uppercase tracking-wide text-[#111827] transition hover:text-[#2563EB] focus:text-[#2563EB] focus:outline-none">
+                               class="inline-flex h-24 items-center gap-1 whitespace-nowrap text-sm font-black uppercase tracking-wide text-[#111827] transition hover:text-[#2563EB] focus:text-[#2563EB] focus:outline-none">
                                 <?php echo esc_html($item['title']); ?>
                                 <svg class="h-4 w-4 transition group-hover/menu:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="m6 9 6 6 6-6"></path>

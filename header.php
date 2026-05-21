@@ -333,9 +333,9 @@ $nav_items = [
         </nav>
 
         <div class="qb-header-actions">
-            <form class="qb-header-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+            <form class="qb-header-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
                 <label class="qb-sr-only" for="qb-header-search"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
-                <input id="qb-header-search" type="search" name="s" placeholder="<?php esc_attr_e('Search bracelets', 'dawp'); ?>">
+                <input id="qb-header-search" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search bracelets', 'dawp'); ?>">
                 <input type="hidden" name="post_type" value="product">
             </form>
 
@@ -360,9 +360,9 @@ $nav_items = [
 
     <div id="qb-mobile-search" class="qb-mobile-panel qb-mobile-search">
         <div class="qb-header-wrap">
-            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
                 <label class="qb-sr-only" for="qb-mobile-search-field"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
-                <input id="qb-mobile-search-field" type="search" name="s" placeholder="<?php esc_attr_e('Search bracelets...', 'dawp'); ?>">
+                <input id="qb-mobile-search-field" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search bracelets...', 'dawp'); ?>">
                 <input type="hidden" name="post_type" value="product">
                 <button type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
             </form>

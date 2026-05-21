@@ -351,9 +351,9 @@ $footer_policy_links = [
                     <img class="qb-footer-logo" src="<?php echo esc_url($footer_logo); ?>" alt="<?php esc_attr_e("Queen's Bracelet", 'dawp'); ?>">
                 </a>
 
-                <form class="qb-footer-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+                <form class="qb-footer-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
                     <label class="qb-sr-only" for="qb-footer-search"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
-                    <input id="qb-footer-search" type="search" name="s" placeholder="<?php esc_attr_e('Search bracelet styles', 'dawp'); ?>">
+                    <input id="qb-footer-search" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search bracelet styles', 'dawp'); ?>">
                     <input type="hidden" name="post_type" value="product">
                     <button type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
                 </form>

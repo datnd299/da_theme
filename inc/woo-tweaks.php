@@ -10,6 +10,29 @@ add_filter('loop_shop_per_page', function() { return 12; });
 // Disable all default WooCommerce CSS
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
+add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_id', 9);
+
+function dawp_normalize_tracking_order_id($order_id) {
+    $tracking_id = trim((string) $order_id);
+
+    if ($tracking_id === '') {
+        return $order_id;
+    }
+
+    $tracking_id = ltrim($tracking_id, '#');
+    $tracking_id = trim($tracking_id);
+
+    if (ctype_digit($tracking_id)) {
+        return $tracking_id;
+    }
+
+    if (preg_match('/^QB\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
+        return $matches[1];
+    }
+
+    return $order_id;
+}
+
 add_action('woocommerce_before_account_navigation', 'dawp_my_account_page_title', 5);
 add_action('woocommerce_before_customer_login_form', 'dawp_my_account_page_title', 5);
 

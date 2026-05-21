@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQ page for LBQ Shop.
+ * FAQs page for LBQ Shop.
  *
  * @package dawp
  */
@@ -139,7 +139,7 @@ $quick_links = [
     <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="faq-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('FAQ', 'dawp'); ?></p>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
                 <h1 id="faq-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
                     <?php esc_html_e('Quick answers for shopping with LBQ Shop.', 'dawp'); ?>
                 </h1>

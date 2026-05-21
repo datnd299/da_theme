@@ -83,7 +83,7 @@ $help_links = [
         'url'   => $contact_url,
     ],
     [
-        'title' => __('FAQ', 'dawp'),
+        'title' => __('FAQs', 'dawp'),
         'copy'  => __('Find quick answers about orders, products, privacy, and store policies.', 'dawp'),
         'url'   => $faq_url,
     ],

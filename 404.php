@@ -64,7 +64,7 @@ $support_links = [
         'url'   => home_url('/contact-us/'),
     ],
     [
-        'title' => __('FAQ', 'dawp'),
+        'title' => __('FAQs', 'dawp'),
         'url'   => home_url('/faq/'),
     ],
 ];

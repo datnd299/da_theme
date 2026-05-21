@@ -224,7 +224,7 @@ $render_icon = static function ($icon) {
                             <?php esc_html_e('Contact Support', 'dawp'); ?>
                         </a>
                         <a href="<?php echo esc_url($faq_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
-                            <?php esc_html_e('Read FAQ', 'dawp'); ?>
+                            <?php esc_html_e('Read FAQs', 'dawp'); ?>
                         </a>
                     </div>
                 </div>

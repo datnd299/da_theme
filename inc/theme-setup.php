@@ -397,11 +397,7 @@ function dawp_scripts() {
             wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.2');
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
-<<<<<<< HEAD
             wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.8');
-=======
-            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.2');
->>>>>>> e5261e9f6e57a9306e8e3d54dd02c675bce5b72e
         } elseif ( is_woocommerce()  ) {
             wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.2');
             dawp_remove_styles();

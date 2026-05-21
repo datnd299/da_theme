@@ -70,7 +70,7 @@ $help_topics = [
         'url'   => $shipping_url,
     ],
     [
-        'title' => __('FAQ', 'dawp'),
+        'title' => __('FAQs', 'dawp'),
         'copy'  => __('Find quick answers about products, checkout, tracking, privacy, and customer support.', 'dawp'),
         'url'   => $faq_url,
     ],

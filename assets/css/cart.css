@@ -5,18 +5,19 @@
 
 /* === 1. PAGE WRAPPER === */
 .wc-block-cart {
-  --cart-bg: #F8F1E7;
+  --cart-bg: #FAF6EA;
   --cart-surface: #FFFFFF;
-  --cart-surface-soft: #FFF8EF;
-  --cart-text: #5A3825;
-  --cart-text-strong: #5A3825;
-  --cart-muted: #7A6D62;
-  --cart-border: #D8C3A5;
-  --cart-primary: #9A6242;
-  --cart-primary-hover: #5A3825;
+  --cart-surface-soft: #FAF6EA;
+  --cart-text: #1F6F68;
+  --cart-text-strong: #1F6F68;
+  --cart-muted: #64748B;
+  --cart-border: #E8D9A6;
+  --cart-primary: #C89B3C;
+  --cart-primary-hover: #1F6F68;
+  --cart-primary-text: #FFFFFF;
   --cart-primary-contrast: #FFFFFF;
-  --cart-accent: #C8A45D;
-  --cart-focus: rgba(154, 98, 66, 0.18);
+  --cart-accent: #C89B3C;
+  --cart-focus: rgba(200, 155, 60, 0.20);
   --cart-danger: #C0392B;
   max-width: 1280px;
   margin: 0 auto;
@@ -26,18 +27,19 @@
 }
 
 .wp-block-woocommerce-empty-cart-block {
-  --cart-bg: #F8F1E7;
+  --cart-bg: #FAF6EA;
   --cart-surface: #FFFFFF;
-  --cart-surface-soft: #FFF8EF;
-  --cart-text: #5A3825;
-  --cart-text-strong: #5A3825;
-  --cart-muted: #7A6D62;
-  --cart-border: #D8C3A5;
-  --cart-primary: #9A6242;
-  --cart-primary-hover: #5A3825;
+  --cart-surface-soft: #FAF6EA;
+  --cart-text: #1F6F68;
+  --cart-text-strong: #1F6F68;
+  --cart-muted: #64748B;
+  --cart-border: #E8D9A6;
+  --cart-primary: #C89B3C;
+  --cart-primary-hover: #1F6F68;
+  --cart-primary-text: #FFFFFF;
   --cart-primary-contrast: #FFFFFF;
-  --cart-accent: #C8A45D;
-  --cart-focus: rgba(154, 98, 66, 0.18);
+  --cart-accent: #C89B3C;
+  --cart-focus: rgba(200, 155, 60, 0.20);
   --cart-danger: #C0392B;
 }
 
@@ -458,7 +460,7 @@
   font-weight: 900;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--cart-primary-text);
   background: var(--cart-primary);
   border: none;
   border-radius: 8px;
@@ -498,7 +500,7 @@
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--cart-primary-text);
   background: var(--cart-primary);
   border: none;
   border-radius: 8px;
@@ -738,7 +740,7 @@
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--cart-primary-text);
   background: var(--cart-primary);
   border-radius: 8px;
   box-sizing: border-box;

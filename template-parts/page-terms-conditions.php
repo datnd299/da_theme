@@ -25,17 +25,17 @@ $term_cards = [
 ];
 ?>
 
-<div id="primary" class="bg-[#F8F1E7] font-body text-[#24211E]">
-    <section class="bg-[#24211E] py-14 text-white lg:py-20">
+<div id="primary" class="bg-[#F7F5EF] font-body text-[#1F2937]">
+    <section class="bg-[#1B4F49] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Scott Osterbind Store Terms', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C89B3C]"><?php esc_html_e('Scott Osterbind Store Terms', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
             </h1>
-            <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#F8F1E7]">
+            <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#FAF6EA]">
                 <?php esc_html_e('The terms that apply when you browse Scott Osterbind, create an account, place an order, use our services, or contact support.', 'dawp'); ?>
             </p>
-            <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#D8C3A5]">
+            <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#E8D9A6]">
                 <?php esc_html_e('Last Updated: May 20, 2026', 'dawp'); ?>
             </p>
         </div>
@@ -45,31 +45,31 @@ $term_cards = [
         <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <?php foreach ($term_cards as $card) : ?>
-                    <div class="rounded-lg border border-[#D8C3A5] border-t-4 border-t-[#9A6242] bg-white p-5 shadow-sm">
-                        <p class="text-sm font-bold uppercase tracking-wide text-[#7A7B52]"><?php echo esc_html($card['label']); ?></p>
-                        <p class="mt-2 font-heading text-2xl font-black text-[#5A3825]"><?php echo esc_html($card['value']); ?></p>
+                    <div class="rounded-lg border border-[#E8D9A6] border-t-4 border-t-[#C89B3C] bg-white p-5 shadow-sm">
+                        <p class="text-sm font-bold uppercase tracking-wide text-[#6E9B8E]"><?php echo esc_html($card['label']); ?></p>
+                        <p class="mt-2 font-heading text-2xl font-black text-[#1F6F68]"><?php echo esc_html($card['value']); ?></p>
                     </div>
                 <?php endforeach; ?>
             </div>
 
             <div class="mt-10 grid gap-8 lg:grid-cols-[250px_minmax(0,1fr)] lg:items-start">
-                <aside class="rounded-lg border border-[#D8C3A5] bg-white p-4 shadow-sm lg:sticky lg:top-24">
-                    <p class="text-xs font-black uppercase tracking-[0.16em] text-[#9A6242]"><?php esc_html_e('Policy Sections', 'dawp'); ?></p>
+                <aside class="rounded-lg border border-[#E8D9A6] bg-white p-4 shadow-sm lg:sticky lg:top-24">
+                    <p class="text-xs font-black uppercase tracking-[0.16em] text-[#C89B3C]"><?php esc_html_e('Policy Sections', 'dawp'); ?></p>
                     <nav class="mt-4 space-y-2" aria-label="<?php esc_attr_e('Terms and conditions sections', 'dawp'); ?>">
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#9A6242] hover:bg-[#F8F1E7]" href="#terms-overview"><?php esc_html_e('Overview', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#7A7B52] hover:bg-[#F8F1E7]" href="#orders-billing"><?php esc_html_e('Orders & Billing', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#9A6242] hover:bg-[#F8F1E7]" href="#products-services"><?php esc_html_e('Products & Details', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#C8A45D] hover:bg-[#F8F1E7]" href="#prohibited-uses"><?php esc_html_e('Prohibited Uses', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#C8A45D] hover:bg-[#F8F1E7]" href="#contact-terms"><?php esc_html_e('Contact', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#C89B3C] hover:bg-[#F7F5EF]" href="#terms-overview"><?php esc_html_e('Overview', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#6E9B8E] hover:bg-[#F7F5EF]" href="#orders-billing"><?php esc_html_e('Orders & Billing', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#C89B3C] hover:bg-[#F7F5EF]" href="#products-services"><?php esc_html_e('Products & Details', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#C89B3C] hover:bg-[#F7F5EF]" href="#prohibited-uses"><?php esc_html_e('Prohibited Uses', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#C89B3C] hover:bg-[#F7F5EF]" href="#contact-terms"><?php esc_html_e('Contact', 'dawp'); ?></a>
                     </nav>
                 </aside>
 
-                <article class="rounded-lg border border-[#D8C3A5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
-                    <div class="max-w-none text-base leading-8 text-[#4F463F]
-                        [&_a]:font-semibold [&_a]:text-[#9A6242] [&_a]:underline [&_a]:decoration-[#C8A45D] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-[#5A3825]
-                        [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#D8C3A5] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#5A3825] md:[&_h2]:text-3xl
-                        [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#24211E] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
-                        <p class="rounded-lg border border-[#C8A45D]/60 bg-[#F8F1E7] p-4 font-medium text-[#5A3825]"><?php esc_html_e('Please read these Terms & Conditions carefully before using our website or placing an order. By accessing Scott Osterbind or buying from us, you agree to these terms and any policies referenced on this page.', 'dawp'); ?></p>
+                <article class="rounded-lg border border-[#E8D9A6] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+                    <div class="max-w-none text-base leading-8 text-[#475569]
+                        [&_a]:font-semibold [&_a]:text-[#C89B3C] [&_a]:underline [&_a]:decoration-[#C89B3C] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-[#1F6F68]
+                        [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#E8D9A6] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#1F6F68] md:[&_h2]:text-3xl
+                        [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#1F2937] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
+                        <p class="rounded-lg border border-[#C89B3C]/60 bg-[#F7F5EF] p-4 font-medium text-[#1F6F68]"><?php esc_html_e('Please read these Terms & Conditions carefully before using our website or placing an order. By accessing Scott Osterbind or buying from us, you agree to these terms and any policies referenced on this page.', 'dawp'); ?></p>
 
                         <h2 id="terms-overview"><?php esc_html_e('1. Overview and Acceptance of Terms', 'dawp'); ?></h2>
                         <p><?php esc_html_e('This website is operated by Scott Osterbind. Throughout the site, the terms "we", "us", and "our" refer to Scott Osterbind. We offer this website, including information, products, tools, and services available from this site, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.', 'dawp'); ?></p>
@@ -89,7 +89,7 @@ $term_cards = [
 
                         <h2 id="products-services"><?php esc_html_e('5. Products, Materials, and Handmade Variation', 'dawp'); ?></h2>
                         <p><?php esc_html_e('Scott Osterbind sells handmade jewelry, beaded pieces, vintage-inspired accessories, curated apparel, and artisan gifts. Product pages may include product type, materials, dimensions or fit where relevant, handmade or curated notes, care instructions, quantity included, shipping information, and return eligibility when available.', 'dawp'); ?></p>
-                        <p class="rounded-lg border border-[#C8A45D]/60 bg-[#F8F1E7] p-4 font-medium text-[#5A3825]"><?php esc_html_e('Handmade and curated items may include slight natural variations in color, texture, bead pattern, finish, sizing, or material character. These variations are part of the handmade or curated nature of the item and are not automatically defects.', 'dawp'); ?></p>
+                        <p class="rounded-lg border border-[#C89B3C]/60 bg-[#F7F5EF] p-4 font-medium text-[#1F6F68]"><?php esc_html_e('Handmade and curated items may include slight natural variations in color, texture, bead pattern, finish, sizing, or material character. These variations are part of the handmade or curated nature of the item and are not automatically defects.', 'dawp'); ?></p>
                         <p><?php esc_html_e('We make reasonable efforts to display product colors, textures, dimensions, materials, and images accurately. However, device screens, lighting, natural materials, handmade production, supplier variations, and packaging updates may make the actual product appear different from the website display.', 'dawp'); ?></p>
                         <p><?php esc_html_e('We do not sell counterfeit products, fake designer items, unauthorized replicas, or products using protected logos without authorization. We also do not make medical, healing, or guaranteed wellness claims for beads, stones, crystals, or materials.', 'dawp'); ?></p>
                         <p><?php esc_html_e('We reserve the right, but are not obligated, to limit sales of products or services to any person, household, geographic region, jurisdiction, account, payment method, or shipping address. Any offer for any product or service made on this site is void where prohibited.', 'dawp'); ?></p>

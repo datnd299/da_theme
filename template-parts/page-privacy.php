@@ -6,17 +6,17 @@
 $support_email = 'support@scottosterbind.com';
 ?>
 
-<div id="primary" class="bg-[#F8F1E7] font-body text-[#24211E]">
-    <section class="bg-[#24211E] py-14 text-white lg:py-20">
+<div id="primary" class="bg-[#F7F5EF] font-body text-[#1F2937]">
+    <section class="bg-[#1B4F49] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Scott Osterbind Privacy', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C89B3C]"><?php esc_html_e('Scott Osterbind Privacy', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Privacy Policy', 'dawp'); ?>
             </h1>
-            <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#F8F1E7]">
+            <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#FAF6EA]">
                 <?php esc_html_e('How we collect, use, protect, and share customer information for browsing, checkout, fulfillment, returns, and support.', 'dawp'); ?>
             </p>
-            <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#D8C3A5]">
+            <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#E8D9A6]">
                 <?php esc_html_e('Last Updated: May 20, 2026', 'dawp'); ?>
             </p>
         </div>
@@ -25,23 +25,23 @@ $support_email = 'support@scottosterbind.com';
     <section class="py-12 lg:py-16">
         <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-8 lg:grid-cols-[250px_minmax(0,1fr)] lg:items-start">
-                <aside class="rounded-lg border border-[#D8C3A5] bg-white p-4 shadow-sm lg:sticky lg:top-24">
-                    <p class="text-xs font-black uppercase tracking-[0.16em] text-[#9A6242]"><?php esc_html_e('Privacy Sections', 'dawp'); ?></p>
+                <aside class="rounded-lg border border-[#E8D9A6] bg-white p-4 shadow-sm lg:sticky lg:top-24">
+                    <p class="text-xs font-black uppercase tracking-[0.16em] text-[#C89B3C]"><?php esc_html_e('Privacy Sections', 'dawp'); ?></p>
                     <nav class="mt-4 space-y-2" aria-label="<?php esc_attr_e('Privacy policy sections', 'dawp'); ?>">
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#9A6242] hover:bg-[#F8F1E7]" href="#privacy-overview"><?php esc_html_e('Overview', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#9A6242] hover:bg-[#F8F1E7]" href="#information-collect"><?php esc_html_e('Information We Collect', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#7A7B52] hover:bg-[#F8F1E7]" href="#privacy-use"><?php esc_html_e('How We Use It', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#C8A45D] hover:bg-[#F8F1E7]" href="#privacy-rights"><?php esc_html_e('Rights & Choices', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#24211E] transition hover:border-[#C8A45D] hover:bg-[#F8F1E7]" href="#privacy-contact"><?php esc_html_e('Contact', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#C89B3C] hover:bg-[#F7F5EF]" href="#privacy-overview"><?php esc_html_e('Overview', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#C89B3C] hover:bg-[#F7F5EF]" href="#information-collect"><?php esc_html_e('Information We Collect', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#6E9B8E] hover:bg-[#F7F5EF]" href="#privacy-use"><?php esc_html_e('How We Use It', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#C89B3C] hover:bg-[#F7F5EF]" href="#privacy-rights"><?php esc_html_e('Rights & Choices', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#1F2937] transition hover:border-[#C89B3C] hover:bg-[#F7F5EF]" href="#privacy-contact"><?php esc_html_e('Contact', 'dawp'); ?></a>
                     </nav>
                 </aside>
 
-                <article class="rounded-lg border border-[#D8C3A5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
-                    <div class="max-w-none text-base leading-8 text-[#4F463F]
-                        [&_a]:font-semibold [&_a]:text-[#9A6242] [&_a]:underline [&_a]:decoration-[#C8A45D] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-[#5A3825]
-                        [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#D8C3A5] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#5A3825] md:[&_h2]:text-3xl
-                        [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#24211E] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
-                        <p id="privacy-overview" class="scroll-mt-24 rounded-lg border border-[#C8A45D]/60 bg-[#F8F1E7] p-4 font-medium text-[#5A3825]"><?php esc_html_e('This Privacy Policy explains how Scott Osterbind ("we", "us", or "our") collects, uses, shares, protects, and retains personal information when you visit scottosterbind.com, create an account, contact us, use tracking or support features, or purchase handmade jewelry, vintage-inspired accessories, curated apparel, or artisan gifts from our online store.', 'dawp'); ?></p>
+                <article class="rounded-lg border border-[#E8D9A6] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+                    <div class="max-w-none text-base leading-8 text-[#475569]
+                        [&_a]:font-semibold [&_a]:text-[#C89B3C] [&_a]:underline [&_a]:decoration-[#C89B3C] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-[#1F6F68]
+                        [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#E8D9A6] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#1F6F68] md:[&_h2]:text-3xl
+                        [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#1F2937] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
+                        <p id="privacy-overview" class="scroll-mt-24 rounded-lg border border-[#C89B3C]/60 bg-[#F7F5EF] p-4 font-medium text-[#1F6F68]"><?php esc_html_e('This Privacy Policy explains how Scott Osterbind ("we", "us", or "our") collects, uses, shares, protects, and retains personal information when you visit scottosterbind.com, create an account, contact us, use tracking or support features, or purchase handmade jewelry, vintage-inspired accessories, curated apparel, or artisan gifts from our online store.', 'dawp'); ?></p>
 
                         <h2><?php esc_html_e('1. Scope of This Privacy Policy', 'dawp'); ?></h2>
                         <p><?php esc_html_e('This policy applies to personal information collected through our website, checkout, customer account features, contact forms, order support, email communications, advertising activity, analytics tools, and related ecommerce services. It does not apply to websites, applications, payment providers, shipping carriers, social platforms, or other third parties that we do not own or control.', 'dawp'); ?></p>

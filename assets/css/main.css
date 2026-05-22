@@ -26,7 +26,7 @@
   /* Golden yellow - primary CTA, highlights */
   --color-accent-hover: #EABF44;
   /* Golden yellow darker - hover state */
-  --color-accent-soft: #E8D8C8;
+  --color-accent-soft: #E8D9A6;
   /* Soft Beige — subtle highlights, badges */
   --color-accent-blush: #DCD5FF;
   /* Soft lavender - secondary brand color */
@@ -87,7 +87,7 @@
 }
 
 .page-shell {
-  background: #FDFDFD;
+  background: #F7F5EF;
 }
 
 .page-shell__inner {
@@ -262,7 +262,7 @@
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   color: var(--color-foreground);
-  background: #F6F7F9;
+  background: #F1F5F9;
   border: 1.5px solid #E5E7EB;
   border-radius: var(--radius-md);
   outline: none;
@@ -409,7 +409,7 @@
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   color: var(--color-foreground);
-  background: #F6F7F9;
+  background: #F1F5F9;
   border: 1px solid #E5E7EB;
   border-radius: var(--radius-md);
   outline: none;
@@ -504,7 +504,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #FFFFFF;
-  background: #2D2633;
+  background: #1B4F49;
   border: none;
   border-radius: var(--radius-pill);
   cursor: pointer;
@@ -569,7 +569,7 @@
   padding: 0 var(--space-md);
   border: 1px solid #CFC6BF;
   border-radius: var(--radius-pill);
-  background: #FDFBF8;
+  background: #F7F5EF;
   color: #2D2633;
   font-size: 0.8125rem;
   font-weight: 900;
@@ -584,7 +584,7 @@
 .woocommerce-account .woocommerce-MyAccount-navigation .is-active a,
 .woocommerce-account .woocommerce-MyAccount-navigation a:hover {
   border-color: #2D2633;
-  background: #2D2633;
+  background: #1B4F49;
   color: #FFFFFF;
 }
 
@@ -592,7 +592,7 @@
   padding: var(--space-xl);
   border: 1px solid #D6CCC4;
   border-radius: var(--radius-md);
-  background: #FFFDFB;
+  background: #FFFFFF;
   box-shadow: 0 16px 40px rgba(47, 42, 40, 0.08);
   color: var(--color-foreground);
 }
@@ -742,7 +742,7 @@
 
 .woocommerce-account .woocommerce-MyAccount-content th,
 .woocommerce-account table.shop_table th {
-  background: #F4EFEA;
+  background: #F1F5F9;
   color: #2D2633;
   font-size: 0.75rem;
   font-weight: 900;
@@ -756,7 +756,7 @@
 }
 
 .woocommerce-account .woocommerce-MyAccount-content tbody tr:nth-child(even) td {
-  background: #FBF8F4;
+  background: #F7F5EF;
 }
 
 .woocommerce-account .woocommerce-MyAccount-content .button,
@@ -769,7 +769,7 @@
   padding: 0 var(--space-lg);
   border: 1px solid #2D2633;
   border-radius: var(--radius-pill);
-  background: #2D2633;
+  background: #1B4F49;
   color: #FFFFFF;
   font-size: 0.8125rem;
   font-weight: 900;
@@ -837,13 +837,13 @@
   border: 1px solid #D6CCC4;
   border-left: 4px solid #F7C948;
   border-radius: var(--radius-md);
-  background: #FFF9E8;
+  background: #FAF6EA;
   color: var(--color-foreground);
 }
 
 .woocommerce-account .woocommerce-error {
   border-left-color: var(--color-alert);
-  background: #FFF3F1;
+  background: #FFF1F2;
 }
 
 .woocommerce-account address {

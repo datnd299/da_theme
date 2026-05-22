@@ -7,8 +7,8 @@ $faq_sections = [
     [
         'id' => 'faq-shipping',
         'label' => __('Shipping', 'dawp'),
-        'accent' => '#9A6242',
-        'tint' => '#F8F1E7',
+        'accent' => '#C89B3C',
+        'tint' => '#FAF6EA',
         'items' => [
             [
                 'question' => __('How long does order processing and delivery take?', 'dawp'),
@@ -50,8 +50,8 @@ $faq_sections = [
     [
         'id' => 'faq-returns',
         'label' => __('Returns & Refunds', 'dawp'),
-        'accent' => '#F97316',
-        'tint' => '#FFF7ED',
+        'accent' => '#C89B3C',
+        'tint' => '#FAF6EA',
         'items' => [
             [
                 'question' => __('What is Scott Osterbind\'s return window?', 'dawp'),
@@ -143,8 +143,8 @@ $faq_sections = [
     [
         'id' => 'faq-privacy-terms',
         'label' => __('Privacy & Terms', 'dawp'),
-        'accent' => '#7A7B52',
-        'tint' => '#F8F1E7',
+        'accent' => '#6E9B8E',
+        'tint' => '#FAF6EA',
         'items' => [
             [
                 'question' => __('How does Scott Osterbind use my personal information?', 'dawp'),
@@ -193,14 +193,14 @@ $faq_sections = [
 ];
 ?>
 
-<div id="primary" class="bg-[#F8F1E7] font-body text-[#24211E]">
-    <section class="bg-[#5A3825] py-14 text-white lg:py-20">
+<div id="primary" class="bg-[#F7F5EF] font-body text-[#1F2937]">
+    <section class="bg-[#205E58] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Scott Osterbind Help Center', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C89B3C]"><?php esc_html_e('Scott Osterbind Help Center', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
             </h1>
-            <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#F8F1E7]">
+            <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#FAF6EA]">
                 <?php esc_html_e('Clear answers about handmade and curated products, checkout, shipping, returns, refunds, privacy, and the terms that apply when you shop with Scott Osterbind.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#B8C3D1]">
@@ -212,19 +212,19 @@ $faq_sections = [
     <section class="py-14 lg:py-20">
         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-                <div class="rounded-lg border border-[#D8C3A5] border-t-4 border-t-[#9A6242] bg-white p-6 shadow-sm">
+                <div class="rounded-lg border border-[#E8D9A6] border-t-4 border-t-[#C89B3C] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Processing', 'dawp'); ?></p>
                     <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('2-4 Business Days', 'dawp'); ?></p>
                 </div>
-                <div class="rounded-lg border border-[#D8C3A5] border-t-4 border-t-[#9A6242] bg-white p-6 shadow-sm">
+                <div class="rounded-lg border border-[#E8D9A6] border-t-4 border-t-[#C89B3C] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('US Transit', 'dawp'); ?></p>
                     <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('5-10 Business Days', 'dawp'); ?></p>
                 </div>
-                <div class="rounded-lg border border-[#D8C3A5] border-t-4 border-t-[#C8A45D] bg-white p-6 shadow-sm">
+                <div class="rounded-lg border border-[#E8D9A6] border-t-4 border-t-[#C89B3C] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Returns', 'dawp'); ?></p>
                     <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('30-Day Window', 'dawp'); ?></p>
                 </div>
-                <div class="rounded-lg border border-[#D8C3A5] border-t-4 border-t-[#7A7B52] bg-white p-6 shadow-sm">
+                <div class="rounded-lg border border-[#E8D9A6] border-t-4 border-t-[#6E9B8E] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Support', 'dawp'); ?></p>
                     <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('1-2 Business Days', 'dawp'); ?></p>
                 </div>
@@ -274,9 +274,9 @@ $faq_sections = [
                         </section>
                     <?php endforeach; ?>
 
-                    <section class="rounded-lg border border-[#E5E7EB] bg-[#0B1F33] p-6 text-white shadow-sm sm:p-8 lg:p-10">
+                    <section class="rounded-lg border border-[#E5E7EB] bg-[#164E63] p-6 text-white shadow-sm sm:p-8 lg:p-10">
                         <div class="mx-auto max-w-3xl text-center">
-                            <div class="mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#F97316] text-white">
+                            <div class="mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#C89B3C] text-white">
                                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
@@ -286,7 +286,7 @@ $faq_sections = [
                                 <?php esc_html_e('Email support@scottosterbind.com with your order number when available. Support typically replies within 1-2 business days, Monday through Friday, excluding holidays.', 'dawp'); ?>
                             </p>
                             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-                                <a href="mailto:support@scottosterbind.com" class="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-black uppercase tracking-wide text-[#0B1F33] transition hover:bg-[#C8A45D] hover:text-[#24211E]">
+                                <a href="mailto:support@scottosterbind.com" class="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-black uppercase tracking-wide text-[#0B1F33] transition hover:bg-[#C89B3C] hover:text-white">
                                     <?php esc_html_e('Email Support', 'dawp'); ?>
                                 </a>
                                 <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">

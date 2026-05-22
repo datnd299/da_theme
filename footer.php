@@ -111,20 +111,20 @@ $footer_payment_methods = [
     }
 </style>
 
-<footer id="colophon" class="bg-[#24211E] text-white" role="contentinfo">
-    <section class="border-b border-[#D8C3A5] bg-[#F8F1E7] text-[#24211E]">
+<footer id="colophon" class="bg-[#1B4F49] text-white" role="contentinfo">
+    <section class="border-b border-[#E8D9A6] bg-[#F7F5EF] text-[#1F2937]">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
             <?php foreach ($trust_items as $item) : ?>
-                <div class="rounded-lg border border-[#D8C3A5] bg-white p-5 shadow-sm">
-                    <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#7A7B52] text-white">
+                <div class="rounded-lg border border-[#E8D9A6] bg-white p-5 shadow-sm">
+                    <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#6E9B8E] text-white">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                         </svg>
                     </div>
-                    <p class="font-heading text-lg font-black leading-snug text-[#5A3825]">
+                    <p class="font-heading text-lg font-black leading-snug text-[#1F6F68]">
                         <?php echo esc_html($item['title']); ?>
                     </p>
-                    <p class="mt-2 text-sm leading-6 text-[#4F463F]">
+                    <p class="mt-2 text-sm leading-6 text-[#475569]">
                         <?php echo esc_html($item['copy']); ?>
                     </p>
                 </div>
@@ -178,7 +178,7 @@ $footer_payment_methods = [
                 <div class="mt-5 space-y-1.5 text-sm leading-6 text-white/75">
                     <p>
                         <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
-                        <a href="mailto:support@scottosterbind.com" class="transition hover:text-[#C8A45D]">support@scottosterbind.com</a>
+                        <a href="mailto:support@scottosterbind.com" class="transition hover:text-[#C89B3C]">support@scottosterbind.com</a>
                     </p>
                     <p>
                         <strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong>
@@ -186,18 +186,18 @@ $footer_payment_methods = [
                     </p>
                 </div>
 
-                <div class="mt-4 rounded-lg border border-[#C8A45D]/50 bg-[#F8F1E7]/12 px-4 py-3">
-                    <p class="text-xs font-black uppercase tracking-[0.14em] text-[#C8A45D]">
+                <div class="mt-4 rounded-lg border border-[#C89B3C]/50 bg-[#EEF6F2]/14 px-4 py-3">
+                    <p class="text-xs font-black uppercase tracking-[0.14em] text-[#C89B3C]">
                         <?php esc_html_e('Handmade Note', 'dawp'); ?>
                     </p>
-                    <p class="mt-1 text-xs font-semibold leading-5 text-[#F8F1E7]">
+                    <p class="mt-1 text-xs font-semibold leading-5 text-[#FAF6EA]">
                         <?php esc_html_e('Handmade pieces may include slight natural variations in color, texture, or bead pattern.', 'dawp'); ?>
                     </p>
                 </div>
             </div>
 
             <nav aria-label="<?php esc_attr_e('Footer shop navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#C8A45D]">
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#C89B3C]">
                     <?php esc_html_e('Shop', 'dawp'); ?>
                 </h3>
 
@@ -205,7 +205,7 @@ $footer_payment_methods = [
                     <?php foreach ($footer_shop_links as $link) : ?>
                         <li>
                             <a href="<?php echo esc_url($link['url']); ?>"
-                               class="text-sm font-bold text-white/72 transition hover:text-[#C8A45D]">
+                               class="text-sm font-bold text-white/72 transition hover:text-[#C89B3C]">
                                 <?php echo esc_html($link['title']); ?>
                             </a>
                         </li>
@@ -214,7 +214,7 @@ $footer_payment_methods = [
             </nav>
 
             <nav aria-label="<?php esc_attr_e('Footer help navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#C8A45D]">
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#C89B3C]">
                     <?php esc_html_e('Policy', 'dawp'); ?>
                 </h3>
 
@@ -222,7 +222,7 @@ $footer_payment_methods = [
                     <?php foreach ($footer_help_links as $link) : ?>
                         <li>
                             <a href="<?php echo esc_url($link['url']); ?>"
-                               class="text-sm font-bold text-white/72 transition hover:text-[#C8A45D]">
+                               class="text-sm font-bold text-white/72 transition hover:text-[#C89B3C]">
                                 <?php echo esc_html($link['title']); ?>
                             </a>
                         </li>
@@ -231,7 +231,7 @@ $footer_payment_methods = [
             </nav>
 
             <nav aria-label="<?php esc_attr_e('Footer policy navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#C8A45D]">
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#C89B3C]">
                     <?php esc_html_e('Company', 'dawp'); ?>
                 </h3>
 
@@ -240,7 +240,7 @@ $footer_payment_methods = [
                         <?php if (! empty($link['url'])) : ?>
                             <li>
                                 <a href="<?php echo esc_url($link['url']); ?>"
-                                   class="text-sm font-bold text-white/72 transition hover:text-[#C8A45D]">
+                                   class="text-sm font-bold text-white/72 transition hover:text-[#C89B3C]">
                                     <?php echo esc_html($link['title']); ?>
                                 </a>
                             </li>
@@ -277,7 +277,7 @@ $footer_payment_methods = [
                 </ul>
             </div>
 
-            <p class="font-black uppercase tracking-[0.18em] text-[#C8A45D]">
+            <p class="font-black uppercase tracking-[0.18em] text-[#C89B3C]">
                 <?php esc_html_e('Handmade. Curated. Personal.', 'dawp'); ?>
             </p>
         </div>

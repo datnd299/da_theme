@@ -122,7 +122,7 @@
 
 .rim-button--primary:hover,
 .rim-button--dark:hover {
-    background: #f97316;
+    background: #d97757;
     color: #fff;
 }
 
@@ -283,12 +283,12 @@
 }
 
 .tz-tab-link.active {
-    background: #f97316;
+    background: #d97757;
     color: #fff;
 }
 
 .tz-tab-link.active small {
-    color: #fff7ed;
+    color: #fffbeb;
 }
 
 .tz-content {
@@ -361,9 +361,9 @@
 
 .tz-item:hover {
     transform: translateY(-3px);
-    border-color: #f97316;
+    border-color: #d97757;
     background: #fff;
-    color: #c2410c;
+    color: #1F6F68;
     box-shadow: 0 8px 18px rgba(249, 115, 22, 0.15);
 }
 
@@ -371,7 +371,7 @@
     margin: 18px 0 0;
     border: 1px solid #fed7aa;
     border-radius: 8px;
-    background: #fff7ed;
+    background: #fffbeb;
     padding: 16px 18px;
     color: #9a3412;
     font-weight: 800;
@@ -474,7 +474,7 @@
 
 .brand-card:hover {
     transform: translateY(-3px);
-    border-color: #f97316;
+    border-color: #d97757;
     background: #fff;
     box-shadow: 0 8px 18px rgba(249, 115, 22, 0.15);
 }

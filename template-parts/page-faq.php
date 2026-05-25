@@ -1,358 +1,275 @@
 <?php
 /**
- * Template Name: FAQs
- * Template Part: page-faq
+ * FAQ template part.
+ *
+ * @package dawp
  */
 
-get_header();
+$faq_highlights = [
+    [
+        'number' => '01',
+        'title'  => __('Orders', 'dawp'),
+        'copy'   => __('Find help with checkout, confirmations, order updates, and order details.', 'dawp'),
+        'color'  => '#2563EB',
+    ],
+    [
+        'number' => '02',
+        'title'  => __('Shipping', 'dawp'),
+        'copy'   => __('Review cutoff timing, handling, delivery estimates, and tracking updates.', 'dawp'),
+        'color'  => '#06B6D4',
+    ],
+    [
+        'number' => '03',
+        'title'  => __('Returns', 'dawp'),
+        'copy'   => __('Understand 30-day return eligibility, exchanges, labels, and refund timing.', 'dawp'),
+        'color'  => '#C026D3',
+    ],
+    [
+        'number' => '04',
+        'title'  => __('Support', 'dawp'),
+        'copy'   => __('Contact our team for product, order, shipping, return, and privacy questions.', 'dawp'),
+        'color'  => '#65A30D',
+    ],
+];
+
+$faq_sections = [
+    [
+        'id'      => 'shopping',
+        'eyebrow' => __('Shopping & Products', 'dawp'),
+        'title'   => __('Everyday essentials and lifestyle finds.', 'dawp'),
+        'items'   => [
+            [
+                'question' => __('What does Elite Shop Express sell?', 'dawp'),
+                'answer'   => __('Elite Shop Express offers practical everyday products across home essentials, beauty and personal care accessories, fashion accessories, lifestyle accessories, and giftable finds.', 'dawp'),
+            ],
+            [
+                'question' => __('Are your products medical treatments or branded replicas?', 'dawp'),
+                'answer'   => __('No. Our store is focused on mainstream lifestyle products and practical accessories. We do not position products as medical treatments, miracle solutions, counterfeit goods, luxury replicas, or unsupported branded items.', 'dawp'),
+            ],
+            [
+                'question' => __('How should I choose the right product?', 'dawp'),
+                'answer'   => __('Please review each product page for the item type, intended use, key features, sizing or material details where relevant, included items, and care or use notes. Contact support before ordering if you need help with a product detail.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id'      => 'orders',
+        'eyebrow' => __('Orders & Payment', 'dawp'),
+        'title'   => __('Checkout, confirmations, and order accuracy.', 'dawp'),
+        'items'   => [
+            [
+                'question' => __('What happens after I place an order?', 'dawp'),
+                'answer'   => __('After checkout, your order is reviewed and prepared for fulfillment. You should receive order information using the contact details provided at checkout, and tracking is provided once available.', 'dawp'),
+            ],
+            [
+                'question' => __('Can I change my shipping address after ordering?', 'dawp'),
+                'answer'   => __('Contact support as soon as possible with your order number and checkout email address. We cannot guarantee changes after an order begins fulfillment or has shipped, so accurate checkout information is important.', 'dawp'),
+            ],
+            [
+                'question' => __('Why was my order not accepted or delayed?', 'dawp'),
+                'answer'   => __('Orders may be delayed or unable to be fulfilled because of incorrect shipping information, payment review, suspected fraud, inventory issues, pricing errors, carrier interruptions, holidays, or other fulfillment restrictions.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id'      => 'shipping',
+        'eyebrow' => __('Shipping & Tracking', 'dawp'),
+        'title'   => __('Delivery timing and shipment updates.', 'dawp'),
+        'items'   => [
+            [
+                'question' => __('What is your order cutoff time?', 'dawp'),
+                'answer'   => __('Elite Shop Express uses a 2:00 PM Pacific Standard Time order cutoff. Orders placed after the cutoff may begin processing on the next eligible fulfillment day.', 'dawp'),
+            ],
+            [
+                'question' => __('How long does delivery take?', 'dawp'),
+                'answer'   => __('Our current Shipping & Returns policy lists handling time as 0-1 business days, Monday through Saturday, and total estimated delivery time as 0-1 business days for all destinations. Public holidays, carrier interruptions, address issues, or payment review may affect this estimate.', 'dawp'),
+            ],
+            [
+                'question' => __('When will I receive tracking information?', 'dawp'),
+                'answer'   => __('Tracking information is provided once available. Please allow time for the carrier tracking page to update after a tracking number is created.', 'dawp'),
+            ],
+            [
+                'question' => __('Where can I track my order?', 'dawp'),
+                'answer'   => __('Use the Track Order page with your order details to review shipment updates. If tracking is not updating, contact support with your order number and checkout email address.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id'      => 'returns',
+        'eyebrow' => __('Returns & Refunds', 'dawp'),
+        'title'   => __('Return eligibility, exchanges, and refund review.', 'dawp'),
+        'items'   => [
+            [
+                'question' => __('What is your return window?', 'dawp'),
+                'answer'   => __('Return requests must be made within 30 days. Eligible products must be new, unopened in original packaging, or otherwise unused.', 'dawp'),
+            ],
+            [
+                'question' => __('Do you accept exchanges?', 'dawp'),
+                'answer'   => __('Yes. We accept exchanges for eligible products by mail. Contact support before sending anything back so our team can review your request and provide the next steps.', 'dawp'),
+            ],
+            [
+                'question' => __('Who pays for return shipping?', 'dawp'),
+                'answer'   => __('Return label cost is the customer\'s responsibility unless support confirms otherwise for an approved order issue. Return labels are download-and-print labels when available.', 'dawp'),
+            ],
+            [
+                'question' => __('When are refunds processed?', 'dawp'),
+                'answer'   => __('Approved refunds are processed within 10 days after the returned item is received and reviewed. Your bank, card provider, or payment service may take additional time to post the refund.', 'dawp'),
+            ],
+            [
+                'question' => __('What should I do if my item arrives damaged, incorrect, or missing?', 'dawp'),
+                'answer'   => __('Contact us as soon as possible with your order number and clear photos of the product, packaging, and shipping label where relevant. Our support team will review the issue and help with the next available resolution.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id'      => 'privacy',
+        'eyebrow' => __('Privacy & Support', 'dawp'),
+        'title'   => __('Customer information and contact details.', 'dawp'),
+        'items'   => [
+            [
+                'question' => __('How do you use customer information?', 'dawp'),
+                'answer'   => __('Customer information may be used to process orders, send confirmations, provide shipping and tracking updates, respond to support requests, manage returns and refunds, improve website performance, prevent misuse, and comply with applicable obligations.', 'dawp'),
+            ],
+            [
+                'question' => __('Do you share information with service providers?', 'dawp'),
+                'answer'   => __('We may share information with trusted service providers that help operate the store, including payment processors, shipping carriers, fulfillment partners, analytics providers, email services, fraud prevention tools, and customer support systems.', 'dawp'),
+            ],
+            [
+                'question' => __('How can I contact Elite Shop Express?', 'dawp'),
+                'answer'   => __('Email support@eliteshopexpress.com for order, shipping, return, product, account, or privacy questions. Support is available Monday through Friday, 9:00 AM - 6:00 PM EST.', 'dawp'),
+            ],
+        ],
+    ],
+];
+
+$schema_questions = [];
+foreach ($faq_sections as $section) {
+    foreach ($section['items'] as $item) {
+        $schema_questions[] = [
+            '@type'          => 'Question',
+            'name'           => wp_strip_all_tags($item['question']),
+            'acceptedAnswer' => [
+                '@type' => 'Answer',
+                'text'  => wp_strip_all_tags($item['answer']),
+            ],
+        ];
+    }
+}
+
+$faq_schema = [
+    '@context'   => 'https://schema.org',
+    '@type'      => 'FAQPage',
+    'mainEntity' => $schema_questions,
+];
 ?>
 
-<main id="primary" class="bg-white text-slickText font-body">
+<div class="bg-white font-body text-[#101828]">
+    <script type="application/ld+json">
+        <?php echo wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+    </script>
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slickBlack text-white">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-        <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-slickActive/20 blur-3xl"></div>
-        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-slickLime/10 blur-3xl"></div>
-
-        <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+    <section class="relative overflow-hidden bg-[#F3F7FB]">
+        <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
             <div class="max-w-4xl">
-                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-slickLime">
-                    <?php esc_html_e('Help Center', 'dawp'); ?>
-                </p>
-
-                <h1 class="font-heading text-5xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
+                <p class="mb-5 inline-flex rounded-full bg-[#DBEAFE] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]">
                     <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
+                </p>
+                <h1 class="font-heading text-4xl font-black uppercase leading-[0.98] text-[#101828] sm:text-5xl lg:text-[4.25rem]">
+                    <?php esc_html_e('Clear answers for shopping with Elite Shop Express.', 'dawp'); ?>
                 </h1>
-
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-                    <?php esc_html_e('Find quick answers about orders, shipping, returns, sizing, payments, and customer support at Slicktee.', 'dawp'); ?>
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#475467]">
+                    <?php esc_html_e('Find common information about everyday products, checkout, shipping, tracking, returns, refunds, privacy, and support before or after placing an order.', 'dawp'); ?>
                 </p>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <?php foreach ($faq_highlights as $item) : ?>
+                    <article class="border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-white" style="background-color: <?php echo esc_attr($item['color']); ?>">
+                            <?php echo esc_html($item['number']); ?>
+                        </div>
+                        <h2 class="font-heading text-xl font-black uppercase leading-tight text-[#101828]">
+                            <?php echo esc_html($item['title']); ?>
+                        </h2>
+                        <p class="mt-3 text-sm leading-6 text-[#475467]">
+                            <?php echo esc_html($item['copy']); ?>
+                        </p>
+                    </article>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <!-- Quick Help Cards -->
-    <section class="bg-slickSoft py-12 lg:py-16">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">01</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Orders', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Learn how order processing, confirmation, and tracking work.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">02</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Shipping', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Review delivery timelines and shipment expectations.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">03</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Returns', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Understand return eligibility, refund review, and order issues.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">04</div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Support', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Contact us when you need help with an order or product question.', 'dawp'); ?>
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- FAQ Content -->
     <section class="bg-white py-16 lg:py-24">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-
-            <!-- Sidebar -->
             <aside class="lg:sticky lg:top-32 lg:self-start">
-                <div class="rounded-3xl bg-slickBlack p-7 text-white shadow-xl shadow-black/10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('FAQ Categories', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                        <?php esc_html_e('Answers Without The Noise.', 'dawp'); ?>
-                    </h2>
-
-                    <p class="mt-5 text-sm leading-7 text-white/80">
-                        <?php esc_html_e('Use these sections to quickly find the information you need before or after placing a Slicktee order.', 'dawp'); ?>
-                    </p>
-
+                <div class="rounded-[2rem] bg-[#101828] p-7 text-white shadow-xl shadow-[#101828]/10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('FAQ Topics', 'dawp'); ?></p>
+                    <h2 class="font-heading text-3xl font-black uppercase leading-tight"><?php esc_html_e('Jump to a topic.', 'dawp'); ?></h2>
                     <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('FAQ navigation', 'dawp'); ?>">
-                        <a href="#orders" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Orders', 'dawp'); ?>
-                        </a>
-                        <a href="#shipping" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Shipping', 'dawp'); ?>
-                        </a>
-                        <a href="#returns" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Returns & Refunds', 'dawp'); ?>
-                        </a>
-                        <a href="#products" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Products & Sizing', 'dawp'); ?>
-                        </a>
-                        <a href="#payments" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Payments', 'dawp'); ?>
-                        </a>
-                        <a href="#support" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Support', 'dawp'); ?>
-                        </a>
+                        <?php foreach ($faq_sections as $section) : ?>
+                            <a href="#<?php echo esc_attr($section['id']); ?>" class="rounded-2xl border border-white/10 px-4 py-3 transition hover:border-[#67E8F9] hover:text-[#67E8F9]">
+                                <?php echo esc_html($section['eyebrow']); ?>
+                            </a>
+                        <?php endforeach; ?>
                     </nav>
                 </div>
             </aside>
 
-            <!-- FAQ Body -->
-            <div class="space-y-8">
-
-                <?php
-                $faq_sections = [
-                    [
-                        'id'       => 'orders',
-                        'eyebrow'  => __('Orders', 'dawp'),
-                        'title'    => __('Order Questions', 'dawp'),
-                        'bg'       => 'bg-white shadow-sm',
-                        'faqs'     => [
-                            [
-                                'q' => __('How do I know if my order was placed successfully?', 'dawp'),
-                                'a' => __('After checkout, you should receive an order confirmation email with your order details. If you do not see it, check your spam or promotions folder first, then contact support if you still need help.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Can I change or cancel my order after placing it?', 'dawp'),
-                                'a' => __('Contact us as soon as possible if you need to change or cancel an order. We cannot guarantee changes after an order has entered processing or fulfillment, but we will do our best to help.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Why has my order not shipped yet?', 'dawp'),
-                                'a' => __('Orders are typically processed within 2–4 business days. Processing time includes order verification, preparation, and fulfillment before dispatch.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'shipping',
-                        'eyebrow'  => __('Shipping', 'dawp'),
-                        'title'    => __('Delivery & Tracking', 'dawp'),
-                        'bg'       => 'bg-slickSoft',
-                        'faqs'     => [
-                            [
-                                'q' => __('How long does shipping take?', 'dawp'),
-                                'a' => __('After dispatch, standard US shipping typically takes 5–10 business days depending on destination, carrier conditions, and seasonal volume.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Will I receive tracking information?', 'dawp'),
-                                'a' => __('Yes. Tracking information is sent by email once your order ships. Please allow some time for the carrier tracking page to update after the tracking number is created.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Do business days include weekends or holidays?', 'dawp'),
-                                'a' => __('No. Business days do not include weekends or public holidays. Delivery and processing may take slightly longer during high-volume periods.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'returns',
-                        'eyebrow'  => __('Returns & Refunds', 'dawp'),
-                        'title'    => __('Return Policy Questions', 'dawp'),
-                        'bg'       => 'bg-white shadow-sm',
-                        'faqs'     => [
-                            [
-                                'q' => __('What is your return window?', 'dawp'),
-                                'a' => __('Customers may request a return within 30 days of delivery. Eligible items must be unused, unwashed, unworn, in original condition, and returned with original packaging where applicable.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('What items are not eligible for return?', 'dawp'),
-                                'a' => __('Items may not qualify if they show wear, stains, odors, damage, washing, alteration, or missing original packaging where applicable.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('How long does a refund take?', 'dawp'),
-                                'a' => __('Once a returned item is received and inspected, we will notify you about the approval status. Approved refunds are processed back to the original payment method. Your payment provider may take several business days to post the refund.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'products',
-                        'eyebrow'  => __('Products & Sizing', 'dawp'),
-                        'title'    => __('Apparel Questions', 'dawp'),
-                        'bg'       => 'bg-slickSoft',
-                        'faqs'     => [
-                            [
-                                'q' => __('How should I choose my size?', 'dawp'),
-                                'a' => __('Review the product description and size information before placing an order. If you are between sizes or unsure about fit, contact our support team before checkout.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Will product colors look exactly like the photos?', 'dawp'),
-                                'a' => __('We aim to display product colors accurately, but slight differences may occur due to screen settings, photography lighting, or production updates.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Are your designs original?', 'dawp'),
-                                'a' => __('Slicktee focuses on clean, brand-led graphic apparel. We avoid copyright-heavy fan merch, celebrity images, anime references, offensive designs, and unauthorized third-party graphics.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'payments',
-                        'eyebrow'  => __('Payments', 'dawp'),
-                        'title'    => __('Checkout & Payment Questions', 'dawp'),
-                        'bg'       => 'bg-white shadow-sm',
-                        'faqs'     => [
-                            [
-                                'q' => __('Is checkout secure?', 'dawp'),
-                                'a' => __('Yes. Payment and checkout information is handled through secure ecommerce systems. We focus on providing a clear and trustworthy shopping experience.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Why was my payment declined?', 'dawp'),
-                                'a' => __('Payments may be declined by your bank, card provider, or payment processor for several reasons. Check your billing details and contact your payment provider if the issue continues.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('Can prices change?', 'dawp'),
-                                'a' => __('Prices, product availability, and promotions may change without notice. The final order total will be shown at checkout before payment is completed.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                    [
-                        'id'       => 'support',
-                        'eyebrow'  => __('Support', 'dawp'),
-                        'title'    => __('Getting Help', 'dawp'),
-                        'bg'       => 'bg-slickSoft',
-                        'faqs'     => [
-                            [
-                                'q' => __('How can I contact Slicktee?', 'dawp'),
-                                'a' => __('You can contact us through the Contact Us page or email support@slicktee.com. Include your order number if your question is order-related.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('What should I do if I received a damaged or incorrect item?', 'dawp'),
-                                'a' => __('Contact us as soon as possible with your order number and clear photos of the issue. Our support team will review your case and help with the next steps.', 'dawp'),
-                            ],
-                            [
-                                'q' => __('When is customer support available?', 'dawp'),
-                                'a' => __('Our business hours are Monday through Friday, 9:00 AM – 6:00 PM EST. Response times may vary during weekends, holidays, or high-volume periods.', 'dawp'),
-                            ],
-                        ],
-                    ],
-                ];
-                ?>
-
+            <div class="space-y-6">
                 <?php foreach ($faq_sections as $section) : ?>
-                    <section id="<?php echo esc_attr($section['id']); ?>" class="rounded-3xl border border-[#E5E7EB] <?php echo esc_attr($section['bg']); ?> p-7 lg:p-10">
-                        <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                            <?php echo esc_html($section['eyebrow']); ?>
-                        </p>
+                    <section id="<?php echo esc_attr($section['id']); ?>" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                        <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php echo esc_html($section['eyebrow']); ?></p>
+                        <h2 class="font-heading text-3xl font-black uppercase leading-tight text-[#101828] lg:text-4xl"><?php echo esc_html($section['title']); ?></h2>
 
-                        <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                            <?php echo esc_html($section['title']); ?>
-                        </h2>
-
-                        <div class="mt-7 divide-y divide-[#E5E7EB] overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white">
-                            <?php foreach ($section['faqs'] as $index => $faq) : ?>
-                                <div class="faq-item">
-                                    <button type="button"
-                                            class="faq-toggle flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition hover:bg-slickSoft"
-                                            aria-expanded="false">
-                                        <span class="font-heading text-xl font-black uppercase leading-tight tracking-[-0.03em] text-slickText">
-                                            <?php echo esc_html($faq['q']); ?>
-                                        </span>
-
-                                        <span class="faq-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slickBlack text-lg font-black text-white transition">
-                                            +
-                                        </span>
-                                    </button>
-
-                                    <div class="faq-answer hidden px-5 pb-6">
-                                        <p class="max-w-3xl text-base leading-8 text-slickMuted">
-                                            <?php echo esc_html($faq['a']); ?>
-                                        </p>
-                                    </div>
-                                </div>
+                        <div class="mt-7 space-y-4">
+                            <?php foreach ($section['items'] as $item) : ?>
+                                <details class="group border border-[#E5E7EB] bg-white p-5 shadow-sm">
+                                    <summary class="flex cursor-pointer list-none items-start justify-between gap-5 font-heading text-lg font-black uppercase leading-tight text-[#101828]">
+                                        <span><?php echo esc_html($item['question']); ?></span>
+                                        <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#DBEAFE] text-sm text-[#2563EB] transition group-open:rotate-45">+</span>
+                                    </summary>
+                                    <p class="mt-4 text-base leading-8 text-[#475467]">
+                                        <?php echo esc_html($item['answer']); ?>
+                                    </p>
+                                </details>
                             <?php endforeach; ?>
                         </div>
                     </section>
                 <?php endforeach; ?>
-
-                <!-- Contact CTA -->
-                <section class="overflow-hidden rounded-3xl bg-slickBlack text-white shadow-xl shadow-black/10">
-                    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
-                        <div class="p-7 lg:p-10">
-                            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                                <?php esc_html_e('Still Need Help?', 'dawp'); ?>
-                            </p>
-
-                            <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                                <?php esc_html_e('Our Support Team Keeps It Clear.', 'dawp'); ?>
-                            </h2>
-
-                            <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
-                                <?php esc_html_e('If you cannot find the answer you need, contact Slicktee support and we will help you with order, product, shipping, or return questions.', 'dawp'); ?>
-                            </p>
-
-                            <div class="mt-8 flex flex-wrap gap-4">
-                                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                                    <?php esc_html_e('Contact Support', 'dawp'); ?>
-                                </a>
-
-                                <a href="mailto:support@slicktee.com"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                                    <?php esc_html_e('Email Us', 'dawp'); ?>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="min-h-[300px] bg-slickGreen">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/contact_banner.png'); ?>"
-                                 alt="<?php esc_attr_e('Slicktee customer support FAQ assistance', 'dawp'); ?>"
-                                 class="h-full w-full object-cover opacity-85">
-                        </div>
-                    </div>
-                </section>
-
             </div>
         </div>
     </section>
 
-</main>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const toggles = document.querySelectorAll('.faq-toggle');
-
-    toggles.forEach(function (toggle) {
-        toggle.addEventListener('click', function () {
-            const item = toggle.closest('.faq-item');
-            const answer = item.querySelector('.faq-answer');
-            const icon = item.querySelector('.faq-icon');
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-
-            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-            answer.classList.toggle('hidden');
-
-            if (icon) {
-                icon.textContent = expanded ? '+' : '–';
-                icon.classList.toggle('bg-slickActive', !expanded);
-                icon.classList.toggle('text-slickBlack', !expanded);
-                icon.classList.toggle('bg-slickBlack', expanded);
-                icon.classList.toggle('text-white', expanded);
-            }
-        });
-    });
-});
-</script>
-
-<?php
-get_footer();
+    <section class="bg-[#101828] py-12 text-white lg:py-16">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[0.74fr_1.26fr] lg:items-start lg:px-8">
+            <div class="max-w-xl">
+                <p class="mb-2 text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Still Need Help?', 'dawp'); ?></p>
+                <h2 class="font-heading text-3xl font-black uppercase leading-tight lg:text-[2.1rem]"><?php esc_html_e('Use the full policy pages or contact support.', 'dawp'); ?></h2>
+                <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('For order-related questions, include your order number and the email address used at checkout so our team can review your request clearly.', 'dawp'); ?></p>
+            </div>
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Policy', 'dawp'); ?></span>
+                    <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></span>
+                    <span class="mt-2 block text-sm leading-6 text-white/65"><?php esc_html_e('Review delivery estimates, 30-day returns, exchanges, labels, and refunds.', 'dawp'); ?></span>
+                </a>
+                <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Tracking', 'dawp'); ?></span>
+                    <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Track Order', 'dawp'); ?></span>
+                    <span class="mt-2 block text-sm leading-6 text-white/65"><?php esc_html_e('Use your order details to review available shipment updates.', 'dawp'); ?></span>
+                </a>
+                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Privacy', 'dawp'); ?></span>
+                    <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Privacy Policy', 'dawp'); ?></span>
+                    <span class="mt-2 block text-sm leading-6 text-white/65"><?php esc_html_e('Learn how order, support, and website information may be handled.', 'dawp'); ?></span>
+                </a>
+                <a href="mailto:support@eliteshopexpress.com" class="border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Email', 'dawp'); ?></span>
+                    <span class="mt-3 block break-words font-heading text-lg font-black uppercase leading-tight">support@eliteshopexpress.com</span>
+                    <span class="mt-2 block text-sm leading-6 text-white/65"><?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?></span>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>

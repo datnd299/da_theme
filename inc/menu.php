@@ -1,12 +1,6 @@
 <?php
 function dawp_main_menu_items() {
-    return [
-        ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Graphic Tees', 'dawp'),  'url' => home_url('/product-category/graphic-tees/')],
-        ['title' => __('Oversize Tees', 'dawp'),  'url' => home_url('/product-category/oversize-tees/')],
-        ['title' => __('Casual Hoodies', 'dawp'),        'url' => home_url('/product-category/casual-hoodies/')],
-        ['title' => __('Streetwear Essentials', 'dawp'),       'url' => home_url('/product-category/streetwear-essentials/')],
-    ];
+    return dawp_product_category_links();
 }
 function dawp_is_current_url($url) {
     $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
@@ -19,13 +13,7 @@ function dawp_footer_columns() {
     return [
         [
             'title' => 'Shop',
-            'links' => [
-                ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Graphic Tees', 'dawp'),  'url' => home_url('/product-category/graphic-tees/')],
-        ['title' => __('Oversize Tees', 'dawp'),  'url' => home_url('/product-category/oversize-tees/')],
-        ['title' => __('Casual Hoodies', 'dawp'),        'url' => home_url('/product-category/casual-hoodies/')],
-        ['title' => __('Streetwear Essentials', 'dawp'),       'url' => home_url('/product-category/streetwear-essentials/')],
-            ],
+            'links' => dawp_product_category_links(),
         ],
         [
             'title' => 'Help',

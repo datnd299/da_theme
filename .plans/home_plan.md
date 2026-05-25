@@ -1,502 +1,564 @@
+# Elite Shop Express — Home Plan
 
----
+## Homepage Goal
 
-## 3. `home_plan.md`
+Build a colorful, ultra-modern lifestyle ecommerce homepage for everyday essentials, home products, beauty & personal care, accessories, lifestyle finds, and giftable items.
 
-```md
-# Slicktee Home Plan
+Main homepage message:
 
-## Homepage Objective
+```txt
+Everyday Essentials, Delivered With Ease
+```
 
-The homepage should immediately communicate:
+The homepage must make customers understand:
 
-- youthful streetwear identity
-- graphic tee specialization
-- clean apparel branding
-- energetic green-based visual system
-- authentic ecommerce experience
-- GMC-safe merchant trust
+* Elite Shop Express is a curated lifestyle ecommerce store
+* Products are practical, useful, and easy to understand
+* Categories are organized, not random
+* The visual style is modern, bright, and current
+* The store has clear trust, support, shipping, and return information
 
-The storefront should feel like:
-
-“A real modern apparel brand focused on graphic tees, oversized tees, hoodies, and everyday streetwear essentials.”
-
-Avoid:
-- POD spam feeling
-- random marketplace layouts
-- overcrowded homepage sections
-- excessive promo messaging
-- pastel boutique styling
+Avoid making the homepage feel like a chaotic general store, cheap marketplace, fake branded shop, or risky viral product site.
 
 ---
 
 # Homepage Structure
 
-## 1. Hero Section
+Use 5 sections:
 
-### Purpose
+```txt
+1. Hero
+2. Shop By Category
+3. Home & Lifestyle Essentials
+4. Beauty, Personal Care & Accessories
+5. Customer Care / Trust
+```
 
-Establish brand identity instantly.
+Optional add-on:
 
-### Layout
+```txt
+New Everyday Finds / Product Grid
+```
 
-- Full-width clean hero
-- Dark green or black background
-- Large lifestyle streetwear image
-- Strong bold headline
-- Minimal supporting text
-- 1–2 CTA buttons
+This can be inserted after Section 2 or before Section 5 if stronger ecommerce intent is needed.
 
-### Content Direction
+---
 
-Headline examples:
-- Clean Fits. Bold Energy.
-- Graphic Apparel Made Simple
-- Streetwear For Everyday Motion
-- Modern Tees For Daily Rotation
+# Section 1 — Hero
 
-### CTA
+## Purpose
 
-Primary:
-- Shop New Arrivals
+Introduce Elite Shop Express as a modern lifestyle store for practical everyday products.
 
-Secondary:
-- Explore Graphic Tees
+The first impression should be bright, current, trustworthy, and product-focused.
 
-### Visual Direction
+## Content
+
+Eyebrow:
+
+```txt
+Modern Lifestyle Essentials
+```
+
+Headline:
+
+```txt
+Everyday Essentials, Delivered With Ease
+```
+
+Subheadline:
+
+```txt
+Discover practical home, beauty, personal care, accessory, and lifestyle products selected for simple daily needs.
+```
+
+Primary CTA:
+
+```txt
+Shop Everyday Essentials
+```
+
+Secondary CTA:
+
+```txt
+Explore Categories
+```
+
+Small trust line:
+
+```txt
+Useful finds. Clear support. Simple everyday shopping.
+```
+
+## Image Direction
+
+Use a bright modern lifestyle hero image:
+
+* Clean product arrangement with home, beauty, personal care, and lifestyle accessories
+* Modern desk / home counter / lifestyle flat lay
+* Bright lighting
+* Color accents: Electric Blue, Vivid Cyan, Coral Pop, Fresh Lime, Soft Lavender
+* Product-first composition
+* No text inside image
+* No fake luxury logos
+* No medical before/after visuals
+* No chaotic product collage
+
+## Design Notes
+
+* Background: Soft gradient `#F3F7FB → #DDD6FE`
+* Main accent: Electric Blue `#2563EB`
+* Secondary accent: Vivid Cyan `#06B6D4`
+* CTA: Electric Blue or gradient `#2563EB → #06B6D4`
+* Use floating product cards or glassmorphism-style panels
+* Keep hero copy concise and easy to scan
+
+---
+
+# Section 2 — Shop By Category
+
+## Purpose
+
+Make the store feel curated and organized instead of general/random.
+
+This section should clearly show the main categories.
+
+## Categories
+
+```txt
+Home Essentials
+Beauty & Personal Care
+Fashion Accessories
+Lifestyle Accessories
+Giftable Finds
+```
+
+## Category Card Copy
+
+### Home Essentials
+
+```txt
+Practical products for organized daily living.
+```
+
+### Beauty & Personal Care
+
+```txt
+Simple self-care and beauty items for everyday routines.
+```
+
+### Fashion Accessories
+
+```txt
+Easy accessories that add style to daily looks.
+```
+
+### Lifestyle Accessories
+
+```txt
+Useful finds for travel, organization, and daily convenience.
+```
+
+### Giftable Finds
+
+```txt
+Thoughtful everyday products made for simple gifting.
+```
+
+## Image Direction
+
+Each card should use a bright lifestyle/product image:
+
+* Home Essentials: organized home counter or storage product
+* Beauty & Personal Care: clean vanity / personal care flat lay
+* Fashion Accessories: pouch, hair accessory, small bag, scarf
+* Lifestyle Accessories: travel pouch, desk item, organization accessory
+* Giftable Finds: colorful giftable product arrangement
+
+## Design Notes
+
+* Use large rounded cards 24–32px
+* White or gradient-accent background
+* Product image should dominate
+* Add small colorful badges/icons if needed
+* Hover: slight lift + soft shadow
+* Avoid too many colors in one card
+
+---
+
+# Optional Section — New Everyday Finds
+
+## Purpose
+
+Add stronger ecommerce conversion and show product availability.
+
+## Content
+
+Eyebrow:
+
+```txt
+New Everyday Finds
+```
+
+Headline:
+
+```txt
+Fresh picks for simple daily needs.
+```
+
+Subtext:
+
+```txt
+Browse practical products selected for home routines, personal care, accessories, travel, and thoughtful gifting.
+```
+
+Product grid:
+
+* Desktop: 4 products
+* Mobile: 2 products per row if readable
+
+Product card should show:
+
+```txt
+Product image
+Product title
+Short category/benefit tag
+Price
+CTA
+```
+
+Optional badges:
+
+```txt
+New
+Giftable
+Everyday Pick
+Trending Find
+```
+
+## Design Notes
+
+* Product cards: Cloud White, rounded 22–28px
+* Background: Cool Mist
+* Use clean modern shadows
+* No fake reviews
+* No countdown timers
+* No excessive sale badges
+
+---
+
+# Section 3 — Home & Lifestyle Essentials
+
+## Purpose
+
+Feature the safe, mainstream side of the store first.
+
+This section helps customers see the brand as useful and practical, not random.
+
+## Content
+
+Eyebrow:
+
+```txt
+Home & Lifestyle Essentials
+```
+
+Headline:
+
+```txt
+Practical finds for organized daily living.
+```
+
+Paragraph:
+
+```txt
+Explore everyday products for home routines, storage, organization, travel, and simple lifestyle needs — selected to make daily tasks easier without overcomplicating your space.
+```
+
+Highlights:
+
+```txt
+Home organization
+Daily convenience
+Travel-friendly finds
+Useful lifestyle accessories
+```
+
+Primary CTA:
+
+```txt
+Shop Home Essentials
+```
+
+Secondary CTA:
+
+```txt
+Explore Lifestyle Finds
+```
+
+## Image Direction
+
+Use modern home/lifestyle imagery:
+
+* Organized countertop
+* Storage product in a clean home setting
+* Desk or travel accessory lifestyle scene
+* Bright natural light
+* Minimal clutter
+* Color accent props allowed
+
+## Design Notes
+
+* Background: Clean White or Cool Mist
+* Use image + text split layout
+* Add floating colored accent shapes lightly
+* Use Electric Blue/Vivid Cyan highlights
+* Keep copy practical and GMC-safe
+
+---
+
+# Section 4 — Beauty, Personal Care & Accessories
+
+## Purpose
+
+Feature beauty/personal care and fashion accessories while staying safe and non-medical.
+
+This section should feel colorful, modern, and lifestyle-focused.
+
+## Content
+
+Eyebrow:
+
+```txt
+Beauty, Personal Care & Accessories
+```
+
+Headline:
+
+```txt
+Simple essentials for routines, style, and self-care.
+```
+
+Paragraph:
+
+```txt
+From personal care accessories to beauty organizers and everyday style pieces, Elite Shop Express brings together practical finds designed for simple routines and polished daily living.
+```
+
+Mini cards:
+
+### Beauty & Personal Care
+
+```txt
+Everyday items for simple self-care and beauty routines.
+```
+
+### Fashion Accessories
+
+```txt
+Small style pieces for daily outfits and personal looks.
+```
+
+### Giftable Finds
+
+```txt
+Useful products that make thoughtful everyday gifts.
+```
+
+CTA:
+
+```txt
+Explore Personal Care & Accessories
+```
+
+## Image Direction
+
+Use lifestyle imagery:
+
+* Beauty/personal care flat lay
+* Pouch, small accessory, organizer, travel item
+* Bright clean background
+* Soft Lavender / Coral Pop accents
+* No medical treatment visuals
+* No fake luxury branding
+
+## Design Notes
+
+* Background: Soft Lavender or gradient accent block
+* Use 2–3 rounded mini cards
+* Accent colors: Coral Pop, Fresh Lime, Vivid Cyan
+* Keep product language practical, not claim-heavy
+
+---
+
+# Section 5 — Customer Care / Trust
+
+## Purpose
+
+Build GMC trust and make the store feel reliable despite being lifestyle/multi-category.
+
+This section should clearly communicate support, shipping, returns, product details, and personal care hygiene notes.
+
+## Content
+
+Eyebrow:
+
+```txt
+Customer Care
+```
+
+Headline:
+
+```txt
+Clear support from checkout to delivery.
+```
+
+Short paragraph:
+
+```txt
+Shop everyday essentials with clear product details, order tracking, and customer support when you need help.
+```
+
+Trust cards:
+
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Clear Product Details
+```
+
+Shipping note:
+
+```txt
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+```
+
+Return note:
+
+```txt
+Eligible unused and undamaged items may be returned within 30 days of delivery in original condition. Personal care items may be subject to hygiene and original condition requirements.
+```
+
+Primary CTA:
+
+```txt
+View Shipping & Returns
+```
+
+Secondary CTA:
+
+```txt
+Contact Support
+```
+
+## Design Notes
+
+* Background: Midnight Navy `#101828`
+* Text: White
+* Accent: Electric Blue / Vivid Cyan
+* Use modern icon cards
+* Optional Soft Gold / Fresh Lime micro accents
+* Keep policy copy clear and concise
+
+---
+
+# Homepage Image List
+
+Needed images:
+
+1. Hero image: colorful modern lifestyle product arrangement
+2. Category image: Home Essentials
+3. Category image: Beauty & Personal Care
+4. Category image: Fashion Accessories
+5. Category image: Lifestyle Accessories
+6. Category image: Giftable Finds
+7. Feature image: home/lifestyle essentials
+8. Feature image: beauty/personal care/accessories
+9. Optional product grid images
+10. Optional customer support / packaging / delivery image
+
+Image rules:
+
+* No text inside image
+* No fake luxury logos
+* No medical before/after visuals
+* No spy/surveillance visuals
+* No supplier collage
+* No watermarks
+* Bright, modern, clean, realistic lifestyle photography
+
+---
+
+# Copy Rules
 
 Use:
-- urban lifestyle photography
-- oversized tee styling
-- green / black / white palette
-- authentic streetwear poses
-- high contrast text
+
+```txt
+everyday essentials
+practical finds
+simple daily needs
+home essentials
+personal care
+lifestyle products
+useful accessories
+organized living
+thoughtful gifts
+modern lifestyle
+```
 
 Avoid:
-- heavy graphic clutter
-- AI-looking visuals
-- crowded collages
-- low contrast text
+
+```txt
+miracle product
+life-changing guaranteed
+crazy deal
+viral must-have
+secret device
+medical-grade unless verified
+designer inspired
+luxury dupe
+fake branded
+```
 
 ---
 
-# 2. Featured Categories
+# Professional Website Requirements
 
-### Purpose
+Homepage should include or link to:
 
-Quickly establish product hierarchy.
+```txt
+About Us
+Contact Us
+Shipping Policy
+Return & Refund Policy
+Privacy Policy
+Terms of Service
+FAQ
+Track Order
+```
 
-### Layout
+Product pages should include:
 
-3–4 category blocks.
-
-### Categories
-
-- Graphic Tees
-- Oversized Tees
-- Hoodies
-- Streetwear Essentials
-
-### Visual Style
-
-- large clean imagery
-- minimal overlays
-- modern typography
-- high contrast cards
-- soft hover effects
-
----
-
-# 3. New Arrivals
-
-### Purpose
-
-Present fresh apparel immediately.
-
-### Layout
-
-- 4–8 featured products
-- clean product cards
-- balanced spacing
-- 2 columns on mobile
-- 4 columns on desktop
-
-### Product Card Rules
-
-Include:
-- image
-- title
-- price
-- simple CTA
-
-Avoid:
-- excessive labels
-- countdowns
-- cluttered badges
-- fake urgency
+```txt
+Product type
+Main use case
+Key features
+Material or size if relevant
+What is included
+Care/use instructions if needed
+Shipping note
+Return eligibility
+```
 
 ---
 
-# 4. Lifestyle Banner Section
-
-### Purpose
-
-Reinforce brand personality.
-
-### Layout
-
-Split layout:
-- large urban lifestyle image
-- short editorial-style text
-
-### Messaging
-
-Focus on:
-- comfort
-- confidence
-- modern styling
-- casual everyday wear
-- movement and daily use
-
-### Visual Direction
-
-Use:
-- city environments
-- neutral architecture
-- relaxed poses
-- oversized silhouettes
-- black/green high contrast section
-
----
-
-# 5. Graphic Tee Collection
-
-### Purpose
-
-Core conversion section.
-
-### Layout
-
-Grid-based apparel showcase or image + copy split.
-
-### Direction
-
-Products should feel:
-- curated
-- wearable
-- original
-- minimal
-- modern
-
-Messaging should avoid:
-- meme overload
-- copyrighted graphics
-- novelty spam
-- offensive humor
-
----
-
-# 6. Oversized Streetwear Section
-
-### Purpose
-
-Support modern streetwear positioning.
-
-### Content Direction
-
-Highlight:
-- relaxed fits
-- washed apparel
-- layering
-- neutral tones
-- effortless styling
-
-### Visual Style
-
-Use:
-- oversized silhouettes
-- urban photography
-- concrete backgrounds
-- clean studio textures
-- confident poses
-
----
-
-# 7. Hoodie Collection
-
-### Purpose
-
-Expand apparel depth.
-
-### Visual Direction
-
-- cozy urban lifestyle
-- minimal layering
-- clean modern photography
-- dark or green section background
-
-Avoid:
-- athletic branding vibe
-- sportswear-heavy layouts
-- loud gym aesthetic
-
----
-
-# 8. Brand Philosophy Section
-
-### Purpose
-
-Improve merchant authenticity.
-
-### Layout
-
-Simple icon/text grid.
-
-### Topics
-
-- Comfortable Everyday Fits
-- Clean Modern Styling
-- Original Graphic Apparel
-- Secure Online Shopping
-
-### Tone
-
-- short
-- confident
-- apparel-focused
-- youth-friendly
-
-Avoid:
-- fake emotional storytelling
-- corporate paragraphs
-- generic AI brand text
-
----
-
-# 9. Best Sellers
-
-### Purpose
-
-Build trust and natural product discovery.
-
-### Layout
-
-Clean product carousel or grid.
-
-### Rules
-
-Use:
-- apparel-focused presentation
-- balanced spacing
-- realistic pricing
-- clean card structure
-
-Avoid:
-- “viral” wording
-- fake urgency
-- aggressive discounting
-- fake reviews
-
----
-
-# 10. Social / Lifestyle Section
-
-### Purpose
-
-Create authentic fashion atmosphere.
-
-### Content
-
-- lifestyle apparel imagery
-- real-world styling inspiration
-- modern casual looks
-- streetwear fit inspiration
-
-### Visual Tone
-
-Should feel:
-- urban
-- relaxed
-- young
-- modern
-- authentic
-
-Avoid:
-- influencer overload
-- luxury fashion editorials
-- overly polished AI images
-
----
-
-# 11. Newsletter Section
-
-### Purpose
-
-Capture returning customers cleanly.
-
-### Layout
-
-Minimal:
-- short headline
-- email field
-- single CTA
-
-### Tone
-
-Examples:
-- Stay Updated On New Drops
-- Join The Slicktee Community
-- Get New Fits First
-
-Avoid:
-- spam discount messaging
-- popup-like design
-- aggressive email capture
-
----
-
-# Footer Structure
-
-## Include
-
-- Shop Links
-- Policies
-- Contact
-- Support Email
-- Social Icons
-
-## Footer Tone
-
-- dark
-- minimal
-- clean
-- high contrast
-
-Recommended:
-- black or deep green background
-- white text
-- green/lime accent
-
-Avoid:
-- cluttered columns
-- oversized legal text
-- low contrast links
-
----
-
-# Homepage Visual Rules
-
-## Color Direction
-
-Primary:
-- black
-- deep green
-- active green
-- white
-
-Accent:
-- lime energy
-- cool gray
-- soft white
-
-Avoid:
-- pink pastel
-- soft feminine boutique palette
-- neon overload
-- low contrast muted layouts
-
----
-
-# Typography Direction
-
-Typography should feel:
-- bold
-- modern
-- energetic
-- fashion-oriented
-- clean
-
-Use:
-- large headlines
-- uppercase headings
-- minimal paragraphs
-- strong spacing
-- clear CTAs
-
-Avoid:
-- decorative fonts
-- playful typography
-- futuristic gaming fonts
-- luxury serif tone
-
----
-
-# Image Direction
-
-## Photography Style
-
-Use:
-- realistic apparel photography
-- modern urban lifestyle
-- neutral lighting
-- clean compositions
-- streetwear poses
-
-Preferred environments:
-- city streets
-- modern interiors
-- concrete textures
-- minimal studio setups
-- outdoor urban corners
-
-Avoid:
-- fantasy visuals
-- overprocessed AI images
-- random mockups
-- fake celebrity styling
-- copyright graphics
-
----
-
-# Mobile UX Rules
-
-Homepage must:
-- scroll smoothly
-- load quickly
-- maintain spacing
-- prioritize product imagery
-- support easy thumb navigation
-- show strong contrast on mobile
-
-Avoid:
-- giant banners that hide content
-- cluttered product grids
-- tiny tap targets
-- unreadable text overlays
-
----
-
-# GMC Compliance Direction
-
-Homepage must clearly show:
-- apparel specialization
-- authentic branding
-- clean ecommerce behavior
-- transparent merchant structure
-- original product direction
-
-Avoid:
-- random products
-- excessive sales messaging
-- copyright-heavy designs
-- fake scarcity tactics
-- fake reviews
-- offensive graphic content
-
----
-
-# Strategic Goal
+# Final Homepage Feeling
 
 The homepage should feel like:
 
-“A youthful modern streetwear and graphic apparel brand with energetic green-based visuals, clean merchandising, strong contrast, and trustworthy ecommerce presentation.”
+```txt
+A colorful, ultra-modern lifestyle ecommerce store offering practical home, beauty, personal care, accessory, and giftable everyday products.
+```
+
+It must be bright, current, organized, product-focused, trustworthy, and GMC-safe — never random, risky, or marketplace-like.

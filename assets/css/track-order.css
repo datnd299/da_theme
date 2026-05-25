@@ -1,23 +1,24 @@
 /* =============================================================
-   TRACK ORDER PAGE - Slicktee palette
+   TRACK ORDER PAGE - Elite Shop Express palette
    ============================================================= */
 
 .track-order-page {
-  --track-black: #0B0F0D;
-  --track-green: #123D2A;
-  --track-active: #22C55E;
-  --track-lime: #A3E635;
-  --track-soft: #F7F8F5;
-  --track-text: #111827;
-  --track-muted: #6B7280;
-  --track-border: #DDE4DC;
+  --track-black: #101828;
+  --track-green: #2563EB;
+  --track-active: #2563EB;
+  --track-lime: #67E8F9;
+  --track-soft: #F3F7FB;
+  --track-field: #F8FAFC;
+  --track-text: #101828;
+  --track-muted: #475467;
+  --track-border: #E5E7EB;
   --track-white: #FFFFFF;
   --track-danger: #DC2626;
-  --track-success: #16A34A;
-  --track-shadow: 0 18px 48px rgba(11, 15, 13, 0.1);
+  --track-success: #65A30D;
+  --track-shadow: 0 18px 48px rgba(16, 24, 40, 0.1);
 
   background:
-    radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 28rem),
+    radial-gradient(circle at top right, rgba(37, 99, 235, 0.1), transparent 28rem),
     linear-gradient(180deg, var(--track-soft) 0%, var(--track-white) 54%);
   color: var(--track-text);
 }
@@ -26,8 +27,8 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at top right, rgba(34, 197, 94, 0.35), transparent 34%),
-    linear-gradient(135deg, var(--track-black) 0%, var(--track-green) 58%, var(--track-black) 100%);
+    radial-gradient(circle at top right, rgba(103, 232, 249, 0.22), transparent 34%),
+    linear-gradient(135deg, var(--track-black) 0%, #0B1220 58%, var(--track-black) 100%);
   color: var(--track-white);
   padding: 5rem 1rem;
 }
@@ -40,7 +41,7 @@
   width: 18rem;
   height: 18rem;
   border-radius: 999px;
-  background: rgba(163, 230, 53, 0.16);
+  background: rgba(37, 99, 235, 0.16);
   filter: blur(48px);
   pointer-events: none;
 }
@@ -56,9 +57,9 @@
 .track-hero__label {
   display: inline-block;
   padding: 0.4rem 1rem;
-  border: 1px solid rgba(163, 230, 53, 0.3);
+  border: 1px solid rgba(103, 232, 249, 0.28);
   border-radius: 999px;
-  background-color: rgba(163, 230, 53, 0.1);
+  background-color: rgba(103, 232, 249, 0.1);
   color: var(--track-lime);
   font-size: 0.75rem;
   font-weight: 900;
@@ -121,7 +122,7 @@
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(90deg, var(--track-active), var(--track-lime));
+  background: linear-gradient(90deg, var(--track-active), #06B6D4);
 }
 
 .track-form-card__body {
@@ -154,7 +155,7 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 999px;
-  background-color: rgba(34, 197, 94, 0.12);
+  background-color: #DBEAFE;
   color: var(--track-green);
   display: flex;
   align-items: center;
@@ -262,7 +263,7 @@
 .track-more-card:hover {
   background-color: var(--track-white);
   border-color: var(--track-active);
-  box-shadow: 0 12px 28px rgba(11, 15, 13, 0.08);
+  box-shadow: 0 12px 28px rgba(16, 24, 40, 0.08);
   transform: translateY(-2px);
 }
 
@@ -348,7 +349,7 @@
   padding: 0.875rem 1rem !important;
   border-radius: 8px !important;
   border: 1.5px solid var(--track-border) !important;
-  background-color: var(--track-soft) !important;
+  background-color: var(--track-field) !important;
   color: var(--track-text) !important;
   font-size: 0.9375rem !important;
   font-family: var(--font-sans) !important;
@@ -366,7 +367,7 @@
 .woocommerce-form-row input.input-text:focus {
   border-color: var(--track-active) !important;
   background-color: var(--track-white) !important;
-  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.28) !important;
+  box-shadow: 0 0 0 3px rgba(219, 234, 254, 0.95) !important;
 }
 
 .form-row button.button,
@@ -374,7 +375,7 @@
   width: 100% !important;
   min-height: 3.5rem !important;
   background-color: var(--track-active) !important;
-  color: var(--track-black) !important;
+  color: var(--track-white) !important;
   padding: 1rem 2rem !important;
   border-radius: 8px !important;
   font-weight: 900 !important;
@@ -384,16 +385,16 @@
   text-transform: uppercase !important;
   cursor: pointer !important;
   border: none !important;
-  box-shadow: 0 12px 26px rgba(34, 197, 94, 0.22) !important;
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22) !important;
   transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
   margin-top: 0.5rem !important;
 }
 
 .form-row button.button:hover,
 .woocommerce-form-row button.button:hover {
-  background-color: var(--track-lime) !important;
+  background-color: #06B6D4 !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 16px 32px rgba(34, 197, 94, 0.28) !important;
+  box-shadow: 0 16px 32px rgba(37, 99, 235, 0.28) !important;
 }
 
 .form-row button.button:active,
@@ -433,8 +434,8 @@
 }
 
 .woocommerce-message {
-  background-color: rgba(34, 197, 94, 0.1) !important;
-  border: 1px solid rgba(34, 197, 94, 0.24) !important;
+  background-color: #ECFEFF !important;
+  border: 1px solid rgba(6, 182, 212, 0.24) !important;
   border-radius: 10px !important;
   padding: 1rem 1.25rem !important;
   color: var(--track-green) !important;
@@ -465,7 +466,7 @@
 
 .order-info mark.order-status {
   color: var(--track-black);
-  background-color: var(--track-lime);
+  background-color: #DBEAFE;
   padding: 0.125rem 0.625rem;
   border-radius: 999px;
   font-size: 0.8125rem;

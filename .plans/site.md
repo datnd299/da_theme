@@ -1,352 +1,470 @@
-h# Slicktee
+# Elite Shop Express — Site.md
 
 ## Store Information
 
-- **Website:** slicktee.com
-- **Language:** English
-- **Store Type:** Graphic Tee & Modern Streetwear Apparel Brand
-- **Primary Market:** United States
-- **Brand Positioning:** Youthful Graphic Apparel / Everyday Streetwear
-- **Support Email:** support@slicktee.com
-- **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM (EST)
+* **Domain:** eliteshopexpress.com
+* **Brand Name:** Elite Shop Express
+* **Language:** English
+* **Store Type:** Everyday Essentials & Lifestyle Finds Store
+* **Primary Market:** United States
+* **Core Products:** Home essentials, beauty & personal care items, fashion accessories, lifestyle accessories, giftable finds
+* **Support Email:** [support@eliteshopexpress.com](mailto:support@eliteshopexpress.com)
+* **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
-# Brand Positioning
+## Brand Positioning
 
-Slicktee is a modern streetwear apparel brand focused on graphic tees, oversized t-shirts, casual hoodies, and everyday outfit essentials.
+Elite Shop Express is a clean lifestyle ecommerce store focused on practical everyday essentials for home, beauty, personal care, accessories, and simple daily living.
 
-The brand should feel:
-- Youthful
-- Energetic
-- Clean
-- Urban
-- Creative
-- Confident
-- Apparel-focused
-- Easy to wear
+Core message:
 
-The storefront should feel like a real apparel brand, not a generic print-on-demand store.
+> Everyday essentials, delivered with ease.
 
-Avoid making the website feel like:
-- Random POD spam
-- Meme shirt marketplace
-- Copyright fan merch store
-- Generic dropshipping ecommerce
-- Aggressive hypebeast store
-- Mixed-category marketplace
+Expanded message:
 
----
+> Elite Shop Express helps customers discover practical home, beauty, personal care, accessory, and lifestyle products selected for simple daily needs.
 
-# Historical Direction
+The store should feel:
 
-Slicktee aligns with:
-- Graphic t-shirts
-- Casual apparel
-- Streetwear basics
-- Urban tee culture
-- Youth fashion
-- Creative everyday outfits
-- Simple ecommerce apparel branding
+* Clean
+* Modern
+* Practical
+* Trustworthy
+* Easy to shop
+* Lifestyle-focused
+* Organized
+* GMC-safe
 
-Avoid pivoting into:
-- Electronics
-- Pet products
-- Home goods
-- Supplements
-- Automotive
-- Random gadgets
-- Unrelated accessories
+The store should not feel like:
+
+* A random dropshipping marketplace
+* A chaotic general store
+* A discount-only product site
+* A risky gadget/beauty claim store
+* A fake branded products shop
 
 ---
 
-# Core Audience
+## Historical / Footprint Direction
 
-## Primary Audience
+The domain appears to have ecommerce / Shopify-style history, with signals around multi-category products and unique everyday items.
 
-- Men and women aged 18–35
-- Graphic tee buyers
-- Streetwear-inspired shoppers
-- Casual outfit customers
-- Online fashion shoppers
-- Young creative buyers
-- Students and young professionals
+Because the old niche is broad, the rebuild should not present itself as a “general store.” Instead, it should be refined into a clean lifestyle store with focused everyday categories.
 
-## Secondary Audience
+Use this positioning:
 
-- Hoodie shoppers
-- Oversized tee customers
-- Minimal streetwear fans
-- Gift shoppers looking for casual apparel
+> Everyday Essentials & Lifestyle Finds
+
+Avoid broad wording like:
+
+* Everything store
+* Best products across all categories
+* 20+ partner brands unless verified
+* Random viral finds
 
 ---
 
-# Customer Psychology
+## Core Store Concept
 
-Customers shop for:
-- Comfortable everyday tees
-- Clean graphic apparel
-- Easy outfit styling
-- Casual confidence
-- Streetwear basics
-- Wearable statement pieces
-- Minimal but creative designs
+Elite Shop Express offers practical lifestyle products for daily routines.
 
-The shopping experience should feel:
-- Fast
-- Clean
-- Bold
-- Energetic
-- Youthful
-- Authentic
-- Easy to browse
+The store should focus on:
+
+* Home essentials
+* Beauty and personal care accessories
+* Fashion accessories
+* Lifestyle accessories
+* Giftable everyday finds
+
+Products should feel useful, simple, and easy to understand.
 
 ---
 
-# Categories
+## Target Audience
 
-- **New Arrivals**
-- **Best Sellers**
-- **Graphic Tees**
-- **Oversized Tees**
-- **Streetwear Essentials**
-- **Casual Hoodies**
-- **Vintage Wash**
-- **Minimal Apparel**
-- **Accessories**
+Primary audience:
+
+* Adults aged 20–45
+* Online shoppers looking for everyday products
+* Home and lifestyle buyers
+* Beauty and personal care shoppers
+* Gift shoppers
+* Customers who prefer simple, practical products
+
+Customer needs:
+
+* Practical items for daily life
+* Easy home and lifestyle accessories
+* Simple beauty/personal care products
+* Giftable everyday products
+* Clear product information
+* Trustworthy shopping experience
 
 ---
 
-# Homepage Direction
+## Main Product Categories
 
-The homepage should focus on:
-- Strong streetwear branding
-- Clean lifestyle visuals
-- Youthful product discovery
-- Graphic tee positioning
-- Oversized apparel styling
-- Modern ecommerce trust
-- Easy navigation
+Keep categories focused and not too broad:
 
-Recommended sections:
-- Hero banner
-- Featured categories
-- New arrivals
-- Graphic tees
-- Oversized tees
-- Hoodie collection
-- Streetwear essentials
-- Best sellers
-- Brand values
-- Newsletter
+1. **Home Essentials**
+2. **Beauty & Personal Care**
+3. **Fashion Accessories**
+4. **Lifestyle Accessories**
+5. **Giftable Finds**
+
+Short menu option:
+
+1. **Home**
+2. **Personal Care**
+3. **Accessories**
+4. **Lifestyle Finds**
+5. **Gifts**
+
+---
+
+## Category Direction
+
+### Home Essentials
+
+For simple products that support everyday home routines.
+
+Safe copy:
+
+> Practical home items selected for simple daily use and organized living.
+
+Possible products:
+
+* Home organizers
+* Kitchen helpers
+* Storage items
+* Cleaning accessories
+* Small home convenience products
+
+Avoid dangerous tools, chemicals, or exaggerated claims.
+
+### Beauty & Personal Care
+
+For non-medical beauty and personal care accessories.
+
+Safe copy:
+
+> Simple beauty and personal care items designed for everyday routines.
+
+Possible products:
+
+* Beauty accessories
+* Grooming tools
+* Hair care accessories
+* Makeup organizers
+* Personal care tools
+
+Avoid medical claims, skincare treatment claims, supplements, and permanent-result promises.
+
+### Fashion Accessories
+
+For simple wearable accessories.
+
+Safe copy:
+
+> Everyday fashion accessories made to add simple style to daily looks.
+
+Possible products:
+
+* Hair accessories
+* Pouches
+* Small bags
+* Scarves
+* Simple jewelry-style accessories
+
+Avoid fake designer, replica, luxury dupe, and counterfeit products.
+
+### Lifestyle Accessories
+
+For practical items used in daily routines, travel, organization, and convenience.
+
+Safe copy:
+
+> Useful lifestyle accessories for daily routines, travel, and simple organization.
+
+Possible products:
+
+* Travel pouches
+* Desk accessories
+* Everyday carry items
+* Organization tools
+* Practical daily-use accessories
+
+Avoid spy gadgets, surveillance products, restricted items, or high-risk electronics.
+
+### Giftable Finds
+
+For small useful products that work as gifts.
+
+Safe copy:
+
+> Practical everyday finds made for thoughtful gifting and simple daily use.
+
+Possible products:
+
+* Beauty gifts
+* Home gifts
+* Accessory gifts
+* Lifestyle gift items
+
+Avoid fake urgency and misleading gift value claims.
+
+---
+
+## Product Style Rules
+
+Products should feel:
+
+* Practical
+* Useful
+* Clean
+* Everyday-friendly
+* Giftable
+* Easy to explain
+* Safe for mainstream ecommerce
+
+Avoid products that feel:
+
+* Counterfeit
+* Medical claim-heavy
+* Adult-oriented
+* Weapon-related
+* Spy/surveillance-focused
+* Supplement/weight-loss focused
+* Too random or unrelated to the main categories
+
+---
+
+## Products To Avoid
+
+For GMC safety, do not sell or promote:
+
+* Supplements
+* Weight loss products
+* Medical devices
+* Skin treatment/cure products
+* Fake branded fashion
+* Counterfeit accessories
+* Adult products
+* Spy cameras or hidden recording devices
+* Weapons or self-defense items
+* Nicotine, CBD, THC, alcohol
+* Hazardous chemicals
+* Copyrighted character products without authorization
+
+---
+
+## Brand Voice
+
+Tone should be:
+
+* Clean
+* Helpful
+* Practical
+* Friendly
+* Clear
+* Modern
+* Not hype-heavy
+
+Good words:
+
+* everyday essentials
+* practical finds
+* simple daily needs
+* lifestyle products
+* home essentials
+* personal care
+* useful accessories
+* easy routines
+* thoughtful gifts
+
+Avoid words:
+
+* miracle product
+* life-changing guaranteed
+* crazy deal
+* viral must-have
+* secret device
+* medical-grade unless verified
+* designer inspired
+* luxury dupe
+* fake branded
+
+---
+
+## Visual Direction
+
+Use clean modern lifestyle imagery:
+
+* Bright home scenes
+* Organized countertops
+* Beauty/personal care flat lays
+* Fashion accessories on clean surfaces
+* Lifestyle products in simple daily-use settings
+* Giftable product arrangements
+
+Visual style:
+
+* Clean white
+* Soft gray
+* warm beige
+* deep navy
+* subtle gold or blue accent
+* natural light
+* minimal clutter
 
 Avoid:
-- Product spam grids
-- Fake urgency countdowns
-- Loud discount banners
-- Copyright-heavy graphic references
-- Marketplace-style layouts
+
+* Chaotic product collages
+* Red discount graphics
+* Supplier screenshots
+* Fake luxury logos
+* Medical before/after visuals
+* Spy/surveillance visuals
 
 ---
 
-# Visual Direction
+## Color Direction
 
-## Design Style
+Recommended palette:
 
-- Clean modern ecommerce
-- Energetic green-based palette
-- Strong black and white contrast
-- Bold typography
-- Large lifestyle images
-- Spacious product grids
-- Minimal visual clutter
-- Mobile-first shopping experience
+* Deep Navy
+* Clean White
+* Soft Gray
+* Warm Beige
+* Electric Blue Accent
+* Soft Gold Accent
+* Charcoal
 
-## Visual Tone
+The site should feel modern, trustworthy, organized, and lifestyle-focused.
 
-The website should feel:
-- Urban
-- Young
-- Active
-- Confident
-- Modern
-- Apparel-native
-- Creative but trustworthy
+---
+
+## Homepage Direction
+
+Recommended homepage flow:
+
+1. **Hero — Everyday Essentials, Delivered With Ease**
+2. **Shop By Category**
+3. **Home & Lifestyle Essentials**
+4. **Beauty, Personal Care & Accessories**
+5. **Customer Care / Trust**
+
+Hero headline:
+
+> Everyday Essentials, Delivered With Ease
+
+Hero subheadline:
+
+> Discover practical home, beauty, personal care, accessory, and lifestyle products selected for simple daily needs.
+
+Main CTA:
+
+* Shop Everyday Essentials
+* Explore Categories
+
+---
+
+## GMC-Safe Rules
+
+The site must present itself as a legitimate lifestyle ecommerce store with focused categories and clear policies.
+
+Must include:
+
+* About Us page
+* Contact page
+* Shipping Policy
+* Return & Refund Policy
+* Privacy Policy
+* Terms of Service
+* FAQ
+* Track Order page
+* Product descriptions
+* Product specifications where relevant
+* Support email
 
 Avoid:
-- Cheap POD visuals
-- Fake hypebeast styling
-- Overcrowded graphics
-- Neon chaos
-- Low-quality mockups
-- AI-looking product imagery
+
+* Random product dumping
+* Fake reviews
+* Countdown timers
+* Unsupported claims
+* Medical claims
+* Fake brand affiliation
+* Counterfeit goods
+* Too many unrelated categories
 
 ---
 
-# Product Content Direction
-
-Descriptions should feel:
-- Short
-- Clear
-- Confident
-- Apparel-focused
-- Fit-driven
-- Styling-oriented
-- Comfort-driven
-
-Content should include:
-- Fit notes
-- Fabric feel
-- Styling ideas
-- Everyday use cases
-- Care information when relevant
-
-Avoid:
-- Keyword stuffing
-- Robotic AI descriptions
-- Fake scarcity messaging
-- Copyrighted character references
-- Offensive or controversial claims
-
----
-
-# Collection Direction
-
-Collections should feel curated and brand-led.
-
-Each collection should:
-- Include short intro copy
-- Present products cleanly
-- Maintain consistent image style
-- Group items by fit, graphic style, or apparel type
-- Feel intentional rather than auto-generated
-
-The browsing experience should feel like a real apparel brand catalog.
-
----
-
-# Brand Trust Signals
-
-## Required Pages
-
-- About Us
-- Contact Us
-- Shipping Policy
-- Return & Refund Policy
-- Privacy Policy
-- Terms of Service
-- FAQ
-- Track Your Order
-
-## Required Trust Elements
-
-- Visible support email
-- Clear shipping timelines
-- Transparent return policy
-- Secure checkout messaging
-- Consistent apparel branding
-- Mobile-friendly UX
-- Clean footer navigation
-
----
-
-# Shipping Information
+## Shipping Information
 
 Orders are processed within **2–4 business days**.
 
-After dispatch, standard US shipping typically takes **5–10 business days**.
+After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
 
-Customers receive tracking information once orders ship.
-
-## Shipping Benefits
-
-- Standard shipping available on all orders
-- Tracking included
-- Secure packaging
-- Responsive customer support
+Tracking information is provided once an order ships.
 
 ---
 
-# Return Policy Direction
+## Return Policy Direction
 
 Customers may request returns within **30 days** of delivery.
 
-Eligible returns should be:
-- Unused
-- Unwashed
-- Unworn
-- In original condition
-- Returned with original packaging where applicable
+Eligible items should be:
 
-The return process should feel:
-- Clear
-- Fair
-- Simple
-- Customer-friendly
+* Unused
+* Undamaged
+* In original condition
+* Returned with original packaging where applicable
+
+Personal care items may be subject to hygiene and original condition requirements.
 
 ---
 
-# Tone of Voice
+## Product Copy Rules
 
-The website tone should be:
-- Clean
-- Direct
-- Confident
-- Youthful
-- Modern
-- Casual
-- Streetwear-inspired
+Product descriptions should include:
+
+* Product type
+* Main use case
+* Key features
+* Material or size if relevant
+* What is included
+* Care/use instructions if needed
+* Shipping/return note if relevant
+
+Safe copy example:
+
+> This practical home organizer is designed to support simple daily routines and help keep everyday items easy to find.
 
 Avoid:
-- Corporate language
-- Overhyped slang
-- Fake luxury positioning
-- Aggressive sales copy
-- Offensive humor
+
+* Medical claims
+* Fake luxury language
+* Fake brand references
+* Keyword stuffing
+* Unrealistic results
+* Overpromising product benefits
 
 ---
 
-# GMC & Compliance Direction
+## Strategic Build Goal
 
-The storefront must feel like a legitimate apparel ecommerce brand with strong topical consistency and authentic merchant behavior.
+The final website should feel like:
 
-## GMC Priorities
+> A clean and trustworthy lifestyle ecommerce store offering practical home, beauty, personal care, accessory, and giftable everyday products.
 
-- Apparel-focused niche relevance
-- Clean graphic tee positioning
-- Original branded content
-- Transparent policies
-- Realistic ecommerce presentation
-- Mobile-friendly shopping flow
-- Consistent product imagery
-- Trustworthy checkout experience
+Customers should feel:
 
-Avoid:
-- Mixed-category spam
-- Thin AI-generated pages
-- Fake reviews
-- Fake urgency
-- Excessive discount messaging
-- Copyrighted graphics
-- Celebrity or trademarked designs
-- Offensive or adult graphic content
+* The store is organized, not random
+* Product categories are clear
+* Products are practical and easy to understand
+* Policies and support are transparent
+* The website is professional and GMC-safe
 
----
-
-# Store Promises
-
-- Clean graphic apparel
-- Comfortable everyday fits
-- Youthful streetwear essentials
-- Simple and secure ordering
-- Clear customer policies
-- Responsive support
-- Authentic apparel brand experience
-
----
-
-# Strategic Build Goal
-
-The storefront should feel like:
-
-“A youthful modern streetwear apparel brand built for everyday graphic tee customers, with original designs, clean shopping, strong contrast, and trustworthy ecommerce presentation.”
+The site should never feel like a chaotic general store, risky product marketplace, or fake branded dropshipping shop.

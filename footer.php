@@ -5,150 +5,111 @@
  * @package dawp
  */
 
-$current_year = date_i18n('Y');
+$current_year  = date_i18n('Y');
+$support_email = 'support@eliteshopexpress.com';
 
-$footer_shop_links = [
-    ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-    ['title' => __('Graphic Tees', 'dawp'), 'url' => home_url('/product-category/graphic-tees/')],
-    ['title' => __('Oversized Tees', 'dawp'), 'url' => home_url('/product-category/oversize-tees/')],
-    ['title' => __('Casual Hoodies', 'dawp'), 'url' => home_url('/product-category/casual-hoodies/')],
-    ['title' => __('Streetwear Essentials', 'dawp'), 'url' => home_url('/product-category/streetwear-essentials/')],
-];
+$footer_shop_links = dawp_product_category_links();
 
-$footer_help_links = [
-    ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
-    ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
-    ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-    ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-];
-
-$footer_policy_links = [
+$footer_care_links = [
     ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
     ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
     ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
     ['title' => __('My Account', 'dawp'), 'url' => get_permalink(get_option('woocommerce_myaccount_page_id')) ?: home_url('/my-account/')],
     ['title' => __('Cart', 'dawp'), 'url' => function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/')],
 ];
+
+$footer_policy_links = [
+    ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
+    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
+    ['title' => __('Terms of Service', 'dawp'), 'url' => home_url('/terms-conditions/')],
+];
+
+$trust_items = [
+    [
+        'title' => __('Clear Support', 'dawp'),
+        'copy'  => __('Customer care is available Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'),
+    ],
+    [
+        'title' => __('Tracking Included', 'dawp'),
+        'copy'  => __('Tracking details are provided once an order ships.', 'dawp'),
+    ],
+    [
+        'title' => __('30-Day Returns', 'dawp'),
+        'copy'  => __('Eligible unused and undamaged items may be returned within 30 days of delivery.', 'dawp'),
+    ],
+    [
+        'title' => __('Practical Product Details', 'dawp'),
+        'copy'  => __('Product pages are organized around use case, features, and relevant specifications.', 'dawp'),
+    ],
+];
 ?>
 
 </div><!-- #content -->
 
-<footer id="colophon" class="bg-slickBlack text-white" role="contentinfo">
-    <section class="border-b border-white/10 bg-slickGreen">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
-                    <?php esc_html_e('Secure Checkout', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-white/70">
-                    <?php esc_html_e('Clear payment flow and protected order details.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
-                    <?php esc_html_e('Tracking Included', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-white/70">
-                    <?php esc_html_e('Shipment updates are sent after dispatch.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
-                    <?php esc_html_e('30-Day Returns', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-white/70">
-                    <?php esc_html_e('Eligible unworn items may be returned.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
-                <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
-                    <?php esc_html_e('Support Available', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-white/70">
-                    <?php esc_html_e('Help with orders, sizing, shipping, and returns.', 'dawp'); ?>
-                </p>
-            </div>
+<footer id="colophon" class="bg-[#101828] text-white" role="contentinfo">
+    <section class="border-b border-white/10 bg-[#0B1220]">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 py-8 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+            <?php foreach ($trust_items as $item) : ?>
+                <div class="border border-white/10 bg-white/5 p-5">
+                    <p class="font-heading text-2xl font-black uppercase leading-tight text-white">
+                        <?php echo esc_html($item['title']); ?>
+                    </p>
+                    <p class="mt-2 text-sm leading-6 text-white/70">
+                        <?php echo esc_html($item['copy']); ?>
+                    </p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </section>
 
-    <section class="relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.24),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_64%,#0B0F0D_100%)]"></div>
-
-        <div class="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.85fr] lg:px-8 lg:py-20">
+    <section class="bg-[#101828]">
+        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.85fr] lg:px-8 lg:py-20">
             <div>
                 <a href="<?php echo esc_url(home_url('/')); ?>"
-                   class="inline-flex shrink-0"
-                   aria-label="<?php bloginfo('name'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee.png'); ?>"
-                         alt="<?php bloginfo('name'); ?>"
-                         class="h-11 w-auto"
-                         width="190"
-                         height="44">
+                   class="inline-flex leading-none"
+                   aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'Elite Shop Express'); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/footer-logo.png'); ?>"
+                         alt="<?php echo esc_attr(get_bloginfo('name') ?: 'Elite Shop Express'); ?>"
+                         class="h-auto w-[220px] max-w-full object-contain sm:w-[240px]"
+                         width="189"
+                         height="60">
                 </a>
-
-                <p class="mt-5 max-w-md text-base leading-8 text-white/78">
-                    <?php esc_html_e('Modern graphic tees, oversized silhouettes, casual hoodies, and everyday streetwear essentials built for clean daily rotation.', 'dawp'); ?>
-                </p>
 
                 <form role="search"
                       method="get"
                       action="<?php echo esc_url(home_url('/')); ?>"
-                      class="mt-7 flex max-w-md flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row">
-                    <label for="slicktee-footer-search" class="sr-only">
+                      autocomplete="off"
+                      class="mt-7 flex max-w-md flex-col gap-3 border border-white/10 bg-white/5 p-3 sm:flex-row">
+                    <label for="elite-footer-search" class="sr-only">
                         <?php esc_html_e('Search products', 'dawp'); ?>
                     </label>
 
-                    <input id="slicktee-footer-search"
+                    <input id="elite-footer-search"
                            type="search"
                            name="s"
-                           placeholder="<?php esc_attr_e('Search apparel', 'dawp'); ?>"
-                           class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-slickText placeholder:text-slickMuted outline-none transition focus:border-slickActive focus:ring-2 focus:ring-slickLime">
+                           autocomplete="off"
+                           placeholder="<?php esc_attr_e('Search everyday essentials', 'dawp'); ?>"
+                           class="min-h-12 flex-1 rounded-full border border-white/10 bg-white px-4 text-[#101828] placeholder:text-[#667085] outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#DBEAFE]">
 
                     <input type="hidden" name="post_type" value="product">
 
                     <button type="submit"
-                            class="min-h-12 rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
+                            class="min-h-12 rounded-full bg-[#2563EB] px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#06B6D4]">
                         <?php esc_html_e('Search', 'dawp'); ?>
                     </button>
                 </form>
 
                 <div class="mt-6 flex flex-wrap gap-3">
-                    <a href="mailto:support@slicktee.com"
-                       class="inline-flex min-h-10 items-center justify-center rounded-md border border-white/15 px-4 text-xs font-black uppercase tracking-wide text-white/85 transition hover:border-slickLime hover:text-slickLime">
-                        support@slicktee.com
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>"
+                       class="inline-flex min-h-10 items-center justify-center rounded-full border border-white/15 px-4 text-xs font-black uppercase tracking-wide text-white/85 transition hover:border-[#67E8F9] hover:text-[#67E8F9]">
+                        <?php echo esc_html($support_email); ?>
                     </a>
-
-                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                       class="inline-flex min-h-10 items-center justify-center rounded-md bg-white px-4 text-xs font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                        <?php esc_html_e('Shop New Drops', 'dawp'); ?>
-                    </a>
-
-                    <a href="https://www.facebook.com/slickteeshirt/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 text-white/85 transition hover:border-slickLime hover:text-slickLime"
-                       aria-label="<?php esc_attr_e('Visit Slicktee on Facebook', 'dawp'); ?>">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path fill="currentColor" d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.01 3.66 9.16 8.44 9.91v-7.01H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2V8.6h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.9h-2.33v7.01C18.34 21.22 22 17.07 22 12.06Z" />
-                        </svg>
-                    </a>
-                </div>
-
-                <div class="mt-4 max-w-md rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('Address', 'dawp'); ?>
-                    </p>
-                    <p class="mt-2 text-sm font-bold leading-6 text-white/80">
-                        <?php esc_html_e('---', 'dawp'); ?>
-                    </p>
                 </div>
             </div>
 
             <nav aria-label="<?php esc_attr_e('Footer shop navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.18em] text-[#67E8F9]">
                     <?php esc_html_e('Shop', 'dawp'); ?>
                 </h3>
 
@@ -156,7 +117,7 @@ $footer_policy_links = [
                     <?php foreach ($footer_shop_links as $link) : ?>
                         <li>
                             <a href="<?php echo esc_url($link['url']); ?>"
-                               class="text-sm font-bold text-white/72 transition hover:text-slickLime">
+                               class="text-sm font-bold text-white/72 transition hover:text-[#67E8F9]">
                                 <?php echo esc_html($link['title']); ?>
                             </a>
                         </li>
@@ -164,50 +125,41 @@ $footer_policy_links = [
                 </ul>
             </nav>
 
-            <nav aria-label="<?php esc_attr_e('Footer help navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Help & Policy', 'dawp'); ?>
+            <nav aria-label="<?php esc_attr_e('Footer customer care navigation', 'dawp'); ?>">
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.18em] text-[#67E8F9]">
+                    <?php esc_html_e('Customer Care', 'dawp'); ?>
                 </h3>
 
                 <ul class="space-y-3">
-                    <?php foreach ($footer_help_links as $link) : ?>
-                        <li>
-                            <a href="<?php echo esc_url($link['url']); ?>"
-                               class="text-sm font-bold text-white/72 transition hover:text-slickLime">
-                                <?php echo esc_html($link['title']); ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
-
-            <nav aria-label="<?php esc_attr_e('Footer policy navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Link', 'dawp'); ?>
-                </h3>
-
-                <ul class="space-y-3">
-                    <?php foreach ($footer_policy_links as $link) : ?>
+                    <?php foreach ($footer_care_links as $link) : ?>
                         <?php if (!empty($link['url'])) : ?>
                             <li>
                                 <a href="<?php echo esc_url($link['url']); ?>"
-                                   class="text-sm font-bold text-white/72 transition hover:text-slickLime">
+                                   class="text-sm font-bold text-white/72 transition hover:text-[#67E8F9]">
                                     <?php echo esc_html($link['title']); ?>
                                 </a>
                             </li>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
+            </nav>
 
-                <div class="mt-7 rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('Business Hours', 'dawp'); ?>
-                    </p>
-                    <p class="mt-2 text-sm font-bold leading-6 text-white/80">
-                        <?php esc_html_e('Monday - Friday', 'dawp'); ?><br>
-                        <?php esc_html_e('9:00 AM - 6:00 PM EST', 'dawp'); ?>
-                    </p>
-                </div>
+            <nav aria-label="<?php esc_attr_e('Footer policy navigation', 'dawp'); ?>">
+                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.18em] text-[#67E8F9]">
+                    <?php esc_html_e('Policies', 'dawp'); ?>
+                </h3>
+
+                <ul class="space-y-3">
+                    <?php foreach ($footer_policy_links as $link) : ?>
+                        <li>
+                            <a href="<?php echo esc_url($link['url']); ?>"
+                               class="text-sm font-bold text-white/72 transition hover:text-[#67E8F9]">
+                                <?php echo esc_html($link['title']); ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+
             </nav>
         </div>
     </section>
@@ -215,22 +167,22 @@ $footer_policy_links = [
     <div class="border-t border-white/10">
         <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-white/60 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <p>
-                &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('Slicktee'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
+                &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('Elite Shop Express'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
             </p>
 
-            <div class="flex flex-col items-center gap-2">
-                <p class="text-xs font-black uppercase tracking-[0.2em] text-white/40">
-                    <?php esc_html_e('Payment Methods', 'dawp'); ?>
+            <div class="flex flex-col gap-2 lg:items-center">
+                <p class="text-xs font-black uppercase tracking-[0.18em] text-white/45">
+                    <?php esc_html_e('Accepted Payment Methods', 'dawp'); ?>
                 </p>
                 <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment-methods.webp'); ?>"
                      alt="<?php esc_attr_e('Accepted payment methods: Visa, Mastercard, Discover, American Express, PayPal', 'dawp'); ?>"
-                     class="h-7 w-auto opacity-70"
+                     class="h-7 w-auto opacity-85"
                      width="340"
                      height="44">
             </div>
 
-            <p class="font-black uppercase tracking-[0.18em] text-slickLime">
-                <?php esc_html_e('Clean fits for everyday rotation', 'dawp'); ?>
+            <p class="font-black uppercase tracking-[0.18em] text-[#67E8F9]">
+                <?php esc_html_e('Everyday essentials, delivered with ease', 'dawp'); ?>
             </p>
         </div>
     </div>

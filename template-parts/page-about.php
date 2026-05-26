@@ -102,12 +102,12 @@ $care_cards = [
     ],
     [
         'title' => __('Realistic Shipping', 'dawp'),
-        'copy'  => __('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'),
+        'copy'  => __('Orders use a 2:00 PM PST cut off, 0-1 business day handling, Monday through Saturday fulfillment, and 0 business day transit in the current policy settings.', 'dawp'),
         'icon'  => 'truck',
     ],
     [
         'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unused items may be returned within 30 days of delivery, with hygiene and original-condition requirements where relevant.', 'dawp'),
+        'copy'  => __('Returns and exchanges are accepted within 30 days of delivery for eligible new products that meet the policy conditions.', 'dawp'),
         'icon'  => 'refresh',
     ],
 ];

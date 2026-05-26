@@ -28,12 +28,16 @@ $faq_groups = [
         'label' => __('Orders & Shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('How long does order processing take?', 'dawp'),
-                'answer'   => __('Orders are processed within 2-4 business days before dispatch. Processing does not include weekends or holidays.', 'dawp'),
+                'question' => __('What is the order cut off time?', 'dawp'),
+                'answer'   => __('The daily order cut off time is 2:00 PM Pacific Standard Time (Los Angeles). Orders placed after the cut off time are processed from the next business day.', 'dawp'),
             ],
             [
-                'question' => __('How long does standard US shipping take?', 'dawp'),
-                'answer'   => __('After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'),
+                'question' => __('How long does handling take?', 'dawp'),
+                'answer'   => __('Current handling time is 0-1 business days from the order cut off to when the shipment is ready for transit. Orders are fulfilled Monday through Saturday.', 'dawp'),
+            ],
+            [
+                'question' => __('How long does transit take?', 'dawp'),
+                'answer'   => __('Transit time is currently listed as 0 business days for all destinations in the provided policy settings. Public holidays may affect the final delivery estimate.', 'dawp'),
             ],
             [
                 'question' => __('Will I receive tracking information?', 'dawp'),
@@ -50,19 +54,23 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What is the return window?', 'dawp'),
-                'answer'   => __('You may request a return within 30 days of delivery for eligible items.', 'dawp'),
+                'answer'   => __('You may request a return or exchange within 30 days of delivery for eligible products.', 'dawp'),
             ],
             [
-                'question' => __('What condition must returned items be in?', 'dawp'),
-                'answer'   => __('Returned items must be unused, undamaged, in original condition, and include original packaging, tags, inserts, or accessories where applicable.', 'dawp'),
+                'question' => __('Which products are eligible for return?', 'dawp'),
+                'answer'   => __('Returns are accepted for defective and non-defective products. Eligible products must be new, including unopened products in original packaging or products that have never been used.', 'dawp'),
             ],
             [
-                'question' => __('Are beauty accessories and personal-use items returnable?', 'dawp'),
-                'answer'   => __('They may be eligible if they meet hygiene and condition requirements. Items that show use, damage, or hygiene concerns may not qualify for return.', 'dawp'),
+                'question' => __('Do you accept exchanges?', 'dawp'),
+                'answer'   => __('Yes. Exchanges are accepted for eligible new products within the 30-day return window.', 'dawp'),
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('Customers are responsible for return shipping costs unless the item arrived damaged, defective, or incorrect.', 'dawp'),
+                'answer'   => __('Customers are responsible for the return label cost. The return method is by mail, and the return label option is download and print.', 'dawp'),
+            ],
+            [
+                'question' => __('Are there restocking fees or refund delays?', 'dawp'),
+                'answer'   => __('There is no restocking fee. After a return is received and approved, refunds are processed within 10 days.', 'dawp'),
             ],
         ],
     ],
@@ -119,7 +127,7 @@ $quick_links = [
     ],
     [
         'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review processing, delivery estimates, return eligibility, and refunds.', 'dawp'),
+        'copy'  => __('Review cut off time, handling, transit, return eligibility, label cost, and refunds.', 'dawp'),
         'url'   => $shipping_url,
     ],
     [

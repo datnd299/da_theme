@@ -17,56 +17,98 @@ $faq_url        = home_url('/faq/');
 
 $policy_cards = [
     [
-        'label' => __('Order Processing', 'dawp'),
-        'value' => __('2-4 business days', 'dawp'),
-        'copy'  => __('Orders are prepared and packed before they are handed to the carrier.', 'dawp'),
+        'label' => __('Order Cut Off', 'dawp'),
+        'value' => __('2:00 PM PST', 'dawp'),
+        'copy'  => __('Orders placed after the cut off time are counted from the next business day.', 'dawp'),
         'icon'  => 'calendar',
     ],
     [
-        'label' => __('Standard US Shipping', 'dawp'),
-        'value' => __('5-10 business days', 'dawp'),
-        'copy'  => __('Estimated delivery timing begins after dispatch and may vary by destination or carrier conditions.', 'dawp'),
+        'label' => __('Handling Time', 'dawp'),
+        'value' => __('0-1 business days', 'dawp'),
+        'copy'  => __('Orders are prepared for shipment Monday through Saturday.', 'dawp'),
         'icon'  => 'truck',
     ],
     [
         'label' => __('Return Window', 'dawp'),
         'value' => __('30 days from delivery', 'dawp'),
-        'copy'  => __('Eligible items must be unused, undamaged, and in original condition.', 'dawp'),
+        'copy'  => __('Returns and exchanges are accepted for new products that meet the policy conditions.', 'dawp'),
         'icon'  => 'refresh',
     ],
 ];
 
 $shipping_steps = [
     [
-        'title' => __('Order confirmation', 'dawp'),
-        'copy'  => __('After checkout, you will receive an order confirmation at the email address used during purchase.', 'dawp'),
+        'title' => __('Order cut off', 'dawp'),
+        'copy'  => __('The daily order cut off time is 2:00 PM Pacific Standard Time (Los Angeles). Orders placed after the cut off time are processed from the next business day.', 'dawp'),
+        'meta'  => __('2:00 PM PST', 'dawp'),
     ],
     [
-        'title' => __('Processing', 'dawp'),
-        'copy'  => __('Most orders are processed within 2-4 business days, excluding weekends and holidays.', 'dawp'),
+        'title' => __('Handling time', 'dawp'),
+        'copy'  => __('Handling time is the time between order cut off and when the shipment is ready for transit. Current handling time is 0-1 business days.', 'dawp'),
+        'meta'  => __('0-1 business days', 'dawp'),
     ],
     [
-        'title' => __('Shipment and tracking', 'dawp'),
-        'copy'  => __('Tracking information is provided once your order ships. Tracking may take a short time to update after the carrier receives the package.', 'dawp'),
+        'title' => __('Fulfillment days', 'dawp'),
+        'copy'  => __('Orders are fulfilled Monday through Saturday. Public holidays may affect the final delivery estimate.', 'dawp'),
+        'meta'  => __('Mon - Sat', 'dawp'),
     ],
     [
-        'title' => __('Delivery', 'dawp'),
-        'copy'  => __('Standard US shipping typically takes 5-10 business days after dispatch, depending on the destination and carrier conditions.', 'dawp'),
+        'title' => __('Transit time', 'dawp'),
+        'copy'  => __('Transit time is currently listed as 0 business days for all destinations in the provided policy settings.', 'dawp'),
+        'meta'  => __('0 business days', 'dawp'),
     ],
 ];
 
 $return_requirements = [
+    __('Returns are accepted for defective and non-defective products.', 'dawp'),
+    __('Exchanges are accepted.', 'dawp'),
+    __('Only new products are eligible, including unopened products in original packaging or products that have never been used.', 'dawp'),
     __('Return requests must be made within 30 days of delivery.', 'dawp'),
-    __('Items must be unused, undamaged, and in original condition.', 'dawp'),
-    __('Original packaging, tags, inserts, or accessories should be included where applicable.', 'dawp'),
-    __('Beauty accessories and personal-use items must meet hygiene and condition requirements to be eligible.', 'dawp'),
 ];
 
 $return_process = [
-    __('Email support with your order number, the item you would like to return, and the reason for the request.', 'dawp'),
-    __('Wait for return instructions before sending anything back so the return can be matched to your order.', 'dawp'),
-    __('Pack the item securely with its original packaging where applicable.', 'dawp'),
-    __('Once the return is received and inspected, eligible refunds are issued to the original payment method.', 'dawp'),
+    __('Email support with your order number, item details, and whether you need a return or exchange.', 'dawp'),
+    __('Wait for instructions before mailing the item back so the return can be matched to your order.', 'dawp'),
+    __('Return the item by mail. The return label option is download and print.', 'dawp'),
+    __('After the return is received and approved, refunds are processed within 10 days.', 'dawp'),
+];
+
+$shipping_facts = [
+    [
+        'label' => __('Time zone', 'dawp'),
+        'value' => __('(GMT-08:00) Pacific Standard Time (Los Angeles)', 'dawp'),
+    ],
+    [
+        'label' => __('Fulfilled', 'dawp'),
+        'value' => __('Mon - Sat', 'dawp'),
+    ],
+    [
+        'label' => __('Shipped', 'dawp'),
+        'value' => __('Mon - Sat', 'dawp'),
+    ],
+    [
+        'label' => __('All destinations', 'dawp'),
+        'value' => __('0-1 business days', 'dawp'),
+    ],
+];
+
+$return_facts = [
+    [
+        'label' => __('Return method', 'dawp'),
+        'value' => __('By mail', 'dawp'),
+    ],
+    [
+        'label' => __('Currency', 'dawp'),
+        'value' => __('USD', 'dawp'),
+    ],
+    [
+        'label' => __('Return label cost', 'dawp'),
+        'value' => __('Customer responsibility', 'dawp'),
+    ],
+    [
+        'label' => __('Restocking fee', 'dawp'),
+        'value' => __('No cost', 'dawp'),
+    ],
 ];
 
 $render_icon = static function ($icon) {
@@ -89,10 +131,10 @@ $render_icon = static function ($icon) {
                 <div>
                     <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></p>
                     <h1 id="shipping-returns-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                        <?php esc_html_e('Clear delivery timelines and fair return support.', 'dawp'); ?>
+                        <?php esc_html_e('Shipping and return policy details.', 'dawp'); ?>
                     </h1>
                     <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
-                        <?php esc_html_e('LBQ Shop ships beauty and fashion accessories with transparent processing, tracking, and return details so you know what to expect before and after checkout.', 'dawp'); ?>
+                        <?php esc_html_e('LBQ Shop keeps the policy settings visible so you can review cut off time, handling time, return eligibility, label cost, and refund timing before or after checkout.', 'dawp'); ?>
                     </p>
                 </div>
 
@@ -119,14 +161,23 @@ $render_icon = static function ($icon) {
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
                 <h2 id="shipping-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
-                    <?php esc_html_e('How your order moves from checkout to delivery.', 'dawp'); ?>
+                    <?php esc_html_e('Estimated delivery is based on cut off, handling, and transit time.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Orders are processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on the delivery address and carrier conditions.', 'dawp'); ?>
+                    <?php esc_html_e('The provided shipping settings use a 2:00 PM PST order cut off, 0-1 business day handling time, Monday through Saturday fulfillment, and 0 business day transit time for all destinations.', 'dawp'); ?>
                 </p>
                 <a href="<?php echo esc_url($track_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
                     <?php esc_html_e('Track Your Order', 'dawp'); ?>
                 </a>
+
+                <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                    <?php foreach ($shipping_facts as $fact) : ?>
+                        <div class="rounded-md border border-[#E8DAD4] bg-white p-4">
+                            <p class="text-xs font-extrabold uppercase tracking-[0.12em] text-[#A96870]"><?php echo esc_html($fact['label']); ?></p>
+                            <p class="mt-2 text-sm font-bold leading-6 text-[#2F2A28]"><?php echo esc_html($fact['value']); ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
 
             <div class="grid gap-4">
@@ -134,7 +185,8 @@ $render_icon = static function ($icon) {
                     <article class="rounded-md border border-[#E8DAD4] bg-white p-5 shadow-sm">
                         <div class="flex gap-4">
                             <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[#FBEDEA] text-sm font-extrabold text-[#8A4F56]"><?php echo esc_html($index + 1); ?></span>
-                            <div>
+                            <div class="min-w-0">
+                                <p class="mb-2 inline-flex rounded-md bg-[#FFF3F1] px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-[#8A4F56]"><?php echo esc_html($step['meta']); ?></p>
                                 <h3 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($step['title']); ?></h3>
                                 <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($step['copy']); ?></p>
                             </div>
@@ -150,10 +202,10 @@ $render_icon = static function ($icon) {
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
                 <h2 id="returns-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
-                    <?php esc_html_e('Returns are available for eligible unused items.', 'dawp'); ?>
+                    <?php esc_html_e('Returns and exchanges are accepted for eligible new products.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('You may request a return within 30 days of delivery. Because many LBQ Shop products are beauty accessories or personal-use items, eligibility depends on hygiene, condition, and original packaging where applicable.', 'dawp'); ?>
+                    <?php esc_html_e('The provided policy accepts returns for defective and non-defective products, accepts exchanges, and uses a 30-day return window. Eligible products must be new and meet the stated condition requirements.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 rounded-md border border-[#E8DAD4] bg-white p-6">
@@ -173,6 +225,14 @@ $render_icon = static function ($icon) {
 
             <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
                 <h3 class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('How to request a return', 'dawp'); ?></h3>
+                <div class="mt-5 grid gap-3 sm:grid-cols-2">
+                    <?php foreach ($return_facts as $fact) : ?>
+                        <div class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-4">
+                            <p class="text-xs font-extrabold uppercase tracking-[0.12em] text-[#A96870]"><?php echo esc_html($fact['label']); ?></p>
+                            <p class="mt-2 text-sm font-bold leading-6 text-[#2F2A28]"><?php echo esc_html($fact['value']); ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
                 <div class="mt-6 grid gap-4">
                     <?php foreach ($return_process as $index => $process) : ?>
                         <div class="flex gap-4 border-b border-[#E8DAD4] pb-4 last:border-0 last:pb-0">
@@ -185,7 +245,7 @@ $render_icon = static function ($icon) {
                 <div class="mt-7 rounded-md bg-[#FFFDFC] p-5">
                     <h4 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php esc_html_e('Refunds and return shipping', 'dawp'); ?></h4>
                     <p class="mt-3 text-sm leading-6 text-[#6F625D]">
-                        <?php esc_html_e('Refunds are issued to the original payment method after the returned item is received and inspected. Customers are responsible for return shipping costs unless the item arrived damaged, defective, or incorrect.', 'dawp'); ?>
+                        <?php esc_html_e('Customers are responsible for the return label cost. There is no restocking fee, and approved refunds are processed within 10 days after the return is received and reviewed.', 'dawp'); ?>
                     </p>
                 </div>
             </div>

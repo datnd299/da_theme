@@ -69,15 +69,17 @@ $sections = [
     [
         'title' => __('6. Shipping, Tracking, and Delivery', 'dawp'),
         'copy'  => [
-            __('Orders are processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'),
-            __('Tracking information is provided once an order ships. Delivery estimates are not guarantees and may be affected by carrier delays, weather, holidays, address issues, or other events outside our direct control.', 'dawp'),
+            __('The daily order cut off time is 2:00 PM Pacific Standard Time (Los Angeles). Orders placed after the cut off time are processed from the next business day.', 'dawp'),
+            __('Current handling time is 0-1 business days from the order cut off to when the shipment is ready for transit. Orders are fulfilled Monday through Saturday, and transit time is currently listed as 0 business days for all destinations in the provided policy settings.', 'dawp'),
+            __('Tracking information is provided once an order ships. Public holidays, carrier delays, weather, address issues, or other events outside our direct control may affect the final delivery estimate.', 'dawp'),
         ],
     ],
     [
         'title' => __('7. Returns and Refunds', 'dawp'),
         'copy'  => [
-            __('Customers may request returns within 30 days of delivery. Eligible items must be unused, undamaged, in original condition, and returned with original packaging where applicable.', 'dawp'),
-            __('Beauty accessories and personal-use items must meet hygiene and condition requirements. Refunds are issued to the original payment method after returned items are received and inspected.', 'dawp'),
+            __('Customers may request returns or exchanges within 30 days of delivery. Returns are accepted for defective and non-defective products.', 'dawp'),
+            __('Eligible products must be new, including unopened products in original packaging or products that have never been used. The return method is by mail, and customers are responsible for the return label cost.', 'dawp'),
+            __('There is no restocking fee. Approved refunds are processed within 10 days after the return is received and reviewed.', 'dawp'),
         ],
     ],
     [

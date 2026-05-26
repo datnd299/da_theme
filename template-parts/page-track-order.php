@@ -74,7 +74,7 @@ $category_links = [
 $help_links = [
     [
         'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review processing, delivery estimates, returns, and refund details.', 'dawp'),
+        'copy'  => __('Review cut off time, handling, transit, returns, label cost, and refund details.', 'dawp'),
         'url'   => $shipping_url,
     ],
     [
@@ -124,14 +124,14 @@ $policy_links = [
                         <span class="track-timeline__icon" aria-hidden="true">2</span>
                         <div>
                             <h2><?php esc_html_e('Processing', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Orders are prepared within 2-4 business days.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Orders are prepared within 0-1 business days after the 2:00 PM PST cut off.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">3</span>
                         <div>
                             <h2><?php esc_html_e('On the way', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Transit time is currently listed as 0 business days for all destinations.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -199,7 +199,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('2-4 Day Processing', 'dawp'); ?>
+                    <?php esc_html_e('0-1 Day Handling', 'dawp'); ?>
                 </div>
             </div>
         </div>

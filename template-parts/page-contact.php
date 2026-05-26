@@ -66,7 +66,7 @@ $help_topics = [
     ],
     [
         'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review processing times, standard US delivery estimates, return eligibility, and refunds.', 'dawp'),
+        'copy'  => __('Review cut off time, handling, transit, return eligibility, label cost, and refunds.', 'dawp'),
         'url'   => $shipping_url,
     ],
     [
@@ -159,19 +159,19 @@ $render_icon = static function ($icon) {
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Orders are processed within 2-4 business days.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Orders use a 2:00 PM PST cut off and 0-1 business day handling time.', 'dawp'); ?></span>
                         </div>
                         <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Transit time is currently listed as 0 business days for all destinations.', 'dawp'); ?></span>
                         </div>
                         <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Eligible unused items may be returned within 30 days of delivery.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Returns and exchanges are accepted within 30 days of delivery for eligible new products.', 'dawp'); ?></span>
                         </div>
                     </div>
 

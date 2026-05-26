@@ -84,8 +84,9 @@ $footer_columns = [
         <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 text-sm text-white/80 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <p class="font-semibold text-[#F6D5CF]"><?php esc_html_e('Pretty, practical accessories for beauty routines, travel, and everyday style.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <span><?php esc_html_e('Processing: 2-4 business days', 'dawp'); ?></span>
-                <span><?php esc_html_e('US shipping: 5-10 business days after dispatch', 'dawp'); ?></span>
+                <span><?php esc_html_e('Cut off: 2:00 PM PST', 'dawp'); ?></span>
+                <span><?php esc_html_e('Handling: 0-1 business days', 'dawp'); ?></span>
+                <span><?php esc_html_e('Transit: 0 business days', 'dawp'); ?></span>
                 <span><?php esc_html_e('30-day eligible returns', 'dawp'); ?></span>
             </div>
         </div>

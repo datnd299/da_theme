@@ -1,4 +1,4 @@
-import { execSync } from 'child_process';
+import { execFileSync } from 'child_process';
 import {
   readFileSync, writeFileSync, existsSync,
   mkdirSync, statSync, readdirSync, copyFileSync, rmSync,
@@ -12,6 +12,18 @@ import { minify as terserMinify } from 'terser';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
+
+function run(command, args, options = {}) {
+  execFileSync(command, args, {
+    cwd: root,
+    stdio: 'inherit',
+    ...options,
+  });
+}
+
+function quotePowerShell(value) {
+  return `'${String(value).replaceAll("'", "''")}'`;
+}
 
 // ── Parse style.css ─────────────────────────────────────────────
 const styleCss = readFileSync(resolve(root, 'style.css'), 'utf8');
@@ -39,7 +51,7 @@ console.log('');
 
 // ── Build Tailwind ──────────────────────────────────────────────
 console.log('Building Tailwind CSS...');
-execSync('node scripts/build-tw.js', { cwd: root, stdio: 'inherit' });
+run(process.execPath, [join(root, 'scripts', 'build-tw.js')]);
 console.log('');
 
 // ── Prepare dist ────────────────────────────────────────────────
@@ -231,6 +243,18 @@ const zipPath  = join(distRoot, zipFile);
 if (existsSync(zipPath)) rmSync(zipPath);
 
 console.log(`Packaging → dist/${zipFile}`);
-execSync(`zip -r ${zipFile} ${themeSlug}`, { cwd: distRoot, stdio: 'inherit' });
+if (process.platform === 'win32') {
+  const source = quotePowerShell(join(distRoot, themeSlug));
+  const destination = quotePowerShell(zipPath);
+
+  run('powershell.exe', [
+    '-NoProfile',
+    '-ExecutionPolicy', 'Bypass',
+    '-Command',
+    `Compress-Archive -LiteralPath ${source} -DestinationPath ${destination} -Force`,
+  ], { cwd: distRoot });
+} else {
+  run('zip', ['-r', zipFile, themeSlug], { cwd: distRoot });
+}
 
 console.log(`\nDone → dist/${zipFile}`);

@@ -1,4 +1,10 @@
-import { execSync } from 'child_process';
+import { spawnSync } from 'child_process';
+import { dirname, join, resolve } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const root = resolve(__dirname, '..');
+const tailwindCli = join(root, 'node_modules', '@tailwindcss', 'cli', 'dist', 'index.mjs');
 
 const builds = [
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-ship.css', content: './template-parts/page-shipping-returns.php' },
@@ -14,9 +20,27 @@ const builds = [
 ];
 
 for (const { input, output, content } of builds) {
-  const cmd = `npx @tailwindcss/cli -i ${input} -o ${output} --content "${content}" --minify`;
   console.log(`Building ${output}...`);
-  execSync(cmd, { stdio: 'inherit' });
+
+  const result = spawnSync(process.execPath, [
+    tailwindCli,
+    '-i', input,
+    '-o', output,
+    '--content', content,
+    '--minify',
+  ], {
+    cwd: root,
+    stdio: 'inherit',
+    shell: false,
+  });
+
+  if (result.error) {
+    throw result.error;
+  }
+
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1);
+  }
 }
 
 console.log('All builds completed.');

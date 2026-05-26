@@ -60,7 +60,31 @@ const distDir = resolve(root, 'dist', themeSlug);
 if (existsSync(distDir)) rmSync(distDir, { recursive: true });
 mkdirSync(distDir, { recursive: true });
 
-const EXCLUDE = new Set(['node_modules', '.git', 'dist', 'scripts', '.plans', '.agent', '.claude', 'package.json', 'package-lock.json', 'README.md', 'skills-lock.json', 'yarn.lock']);
+const EXCLUDE = new Set([
+  'node_modules',
+  '.git',
+  'dist',
+  'scripts',
+  '.plans',
+  '.agent',
+  '.claude',
+  'package.json',
+  'package-lock.json',
+  'README.md',
+  'CLAUDE.md',
+  'skills-lock.json',
+  'yarn.lock',
+  'replace_colors.js',
+  'Slichtee',
+  'gallery1.jpg',
+  'gallery2.jpg',
+  'gallery3.jpg',
+  'gallery4.jpg',
+  'gallery5.jpg',
+  'gallery6.jpg',
+  'slicktee-logo.svg',
+  'slicktee.png',
+]);
 
 function shouldSkip(name) {
   return EXCLUDE.has(name) || name.startsWith('.') || name.endsWith('.zip');
@@ -244,17 +268,17 @@ if (existsSync(zipPath)) rmSync(zipPath);
 
 console.log(`Packaging → dist/${zipFile}`);
 if (process.platform === 'win32') {
-  const source = quotePowerShell(join(distRoot, themeSlug));
+  const source = quotePowerShell(join(distRoot, themeSlug, '*'));
   const destination = quotePowerShell(zipPath);
 
   run('powershell.exe', [
     '-NoProfile',
     '-ExecutionPolicy', 'Bypass',
     '-Command',
-    `Compress-Archive -LiteralPath ${source} -DestinationPath ${destination} -Force`,
+    `Compress-Archive -Path ${source} -DestinationPath ${destination} -Force`,
   ], { cwd: distRoot });
 } else {
-  run('zip', ['-r', zipFile, themeSlug], { cwd: distRoot });
+  run('zip', ['-r', join('..', zipFile), '.'], { cwd: join(distRoot, themeSlug) });
 }
 
 console.log(`\nDone → dist/${zipFile}`);

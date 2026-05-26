@@ -1,10 +1,14 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
-add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
+add_filter('woocommerce_order_number', 'dawp_woocommerce_order_prefix', 10, 2);
 
-function custom_woocommerce_order_prefix($order_id, $order) {
+if (!function_exists('dawp_woocommerce_order_prefix')) {
+function dawp_woocommerce_order_prefix($order_id, $order) {
     return 'SLK-' . $order_id;
 }
+}
+
+if (!function_exists('dawp_setup')) {
 function dawp_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -13,10 +17,12 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
+}
 
 add_action('wp_head', 'dawp_favicon', 1);
 add_action('admin_head', 'dawp_favicon', 1);
 add_action('login_head', 'dawp_favicon', 1);
+if (!function_exists('dawp_favicon')) {
 function dawp_favicon() {
     $favicon_url = get_template_directory_uri() . '/assets/img/image.png';
     ?>
@@ -24,8 +30,10 @@ function dawp_favicon() {
     <link rel="apple-touch-icon" href="<?php echo esc_url($favicon_url); ?>">
     <?php
 }
+}
 
 add_action('template_redirect', 'redirect_search_to_product');
+if (!function_exists('redirect_search_to_product')) {
 function redirect_search_to_product() {
     // Chỉ xử lý khi là trang search và chưa có post_type
     if (is_search() && !isset($_GET['post_type'])) {
@@ -35,7 +43,10 @@ function redirect_search_to_product() {
         exit;
     }
 }
+}
+
 add_filter('template_include', 'theme_search_template');
+if (!function_exists('theme_search_template')) {
 function theme_search_template($template) {
     if (is_search() && get_query_var('post_type') === 'product') {
         $new_template = locate_template(array('woocommerce/archive-product.php'));
@@ -45,12 +56,16 @@ function theme_search_template($template) {
     }
     return $template;
 }
+}
 
+if (!function_exists('dawp_hidden_product_category_slugs')) {
 function dawp_hidden_product_category_slugs() {
     return ['mens-shoes'];
 }
+}
 
 add_filter('get_terms', 'dawp_hide_removed_product_categories', 10, 4);
+if (!function_exists('dawp_hide_removed_product_categories')) {
 function dawp_hide_removed_product_categories($terms, $taxonomies, $args, $term_query) {
     if (is_wp_error($terms) || !in_array('product_cat', (array) $taxonomies, true)) {
         return $terms;
@@ -62,8 +77,10 @@ function dawp_hide_removed_product_categories($terms, $taxonomies, $args, $term_
         return !is_object($term) || empty($term->slug) || !in_array($term->slug, $hidden_slugs, true);
     }));
 }
+}
 
 add_action('template_redirect', 'dawp_redirect_removed_product_categories');
+if (!function_exists('dawp_redirect_removed_product_categories')) {
 function dawp_redirect_removed_product_categories() {
     if (!function_exists('is_product_category') || !is_product_category()) {
         return;
@@ -75,8 +92,10 @@ function dawp_redirect_removed_product_categories() {
         exit;
     }
 }
+}
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
+if (!function_exists('dawp_scripts')) {
 function dawp_scripts() {
     wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.2');
 
@@ -123,7 +142,9 @@ function dawp_scripts() {
         );
     }
 }
+}
 
+if (!function_exists('dawp_remove_styles')) {
 function dawp_remove_styles() {
     wp_dequeue_style( 'wc-blocks-style' );
     // wp_dequeue_style( 'photoswipe-default-skin' );
@@ -170,4 +191,5 @@ function dawp_remove_styles() {
             }
         }
     }
+}
 }

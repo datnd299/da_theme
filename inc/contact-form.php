@@ -8,6 +8,7 @@
 add_action('wp_ajax_dawp_contact_form', 'dawp_handle_contact_form');
 add_action('wp_ajax_nopriv_dawp_contact_form', 'dawp_handle_contact_form');
 
+if (!function_exists('dawp_handle_contact_form')) {
 function dawp_handle_contact_form() {
     if (
         ! isset($_POST['nonce']) ||
@@ -94,4 +95,5 @@ function dawp_handle_contact_form() {
     wp_send_json_success(
         ['message' => __('Thanks, your message has been sent. Our support team will reply as soon as possible.', 'dawp')]
     );
+}
 }

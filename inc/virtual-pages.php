@@ -1,5 +1,6 @@
 <?php
 add_action('template_redirect', 'dawp_handle_virtual_pages');
+if (!function_exists('dawp_handle_virtual_pages')) {
 function dawp_handle_virtual_pages() {
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $virtual_pages = dawp_virtual_page_map();
@@ -24,7 +25,9 @@ function dawp_handle_virtual_pages() {
     get_footer();
     exit;
 }
+}
 
+if (!function_exists('dawp_virtual_page_map')) {
 function dawp_virtual_page_map() {
     return [
         'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
@@ -36,8 +39,10 @@ function dawp_virtual_page_map() {
         'track-order'   => ['slug' => 'track-order',          'title' => 'Track Order', 'css' => 'track-order.css'],
     ];
 }
+}
 
 add_filter('document_title_parts', 'dawp_virtual_page_title');
+if (!function_exists('dawp_virtual_page_title')) {
 function dawp_virtual_page_title($parts) {
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $map = dawp_virtual_page_map();
@@ -46,10 +51,12 @@ function dawp_virtual_page_title($parts) {
     }
     return $parts;
 }
+}
 
 
 add_action('wp_enqueue_scripts', 'dawp_virtual_page_assets');
 
+if (!function_exists('dawp_virtual_page_assets')) {
 function dawp_virtual_page_assets() {
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $pages = dawp_virtual_page_map();
@@ -62,7 +69,7 @@ function dawp_virtual_page_assets() {
     $css_file_name = ltrim($pages[$request_uri]['css'], '/');
 
     // Đường dẫn vật lý
-    if (str_contains($css_file_name, 'tw-')) {
+    if (false !== strpos($css_file_name, 'tw-')) {
         $css_file_path = get_template_directory() . '/assets/css/tw/' . $css_file_name;
         $css_file_url = get_template_directory_uri() . '/assets/css/tw/' . $css_file_name;
     } else {
@@ -77,4 +84,4 @@ function dawp_virtual_page_assets() {
         file_exists($css_file_path) ? filemtime($css_file_path) : '1.0.0'
     );
 }
-
+}

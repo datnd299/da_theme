@@ -1,6 +1,10 @@
 <!-- Handed Shoes — Homepage HTML -->
 <!-- Built for a craft-inspired men’s formal footwear store -->
 
+<?php
+$home_img_base = get_template_directory_uri() . '/assets/img/Home/';
+?>
+
 <main class="bg-[#F4EEE6] text-[#121212]">
   <!-- ================= HERO ================= -->
   <section class="relative overflow-hidden bg-[#121212] text-white">
@@ -38,7 +42,7 @@
         <div class="absolute -bottom-5 -right-5 h-40 w-40 rounded-full bg-[#A96538]/20 blur-3xl"></div>
         <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-3 shadow-2xl shadow-black/40 backdrop-blur-sm">
           <img
-            src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=1200&q=85"
+            src="<?php echo esc_url($home_img_base . 'section_one.png'); ?>"
             alt="Premium men’s formal dress shoes on a refined dark surface"
             class="h-[420px] w-full rounded-[1.5rem] object-cover object-center sm:h-[520px]"
           />
@@ -63,7 +67,7 @@
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <a href="/product-category/oxford-shoes/" class="group overflow-hidden rounded-3xl border border-[#3A2418]/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="h-56 overflow-hidden bg-[#121212]">
-            <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=900&q=85" alt="Oxford shoes for formal office style" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+            <img src="<?php echo esc_url($home_img_base . 'Oxford_Shoes.png'); ?>" alt="Oxford shoes for formal office style" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
           </div>
           <div class="p-5">
             <h3 class="font-serif text-2xl font-semibold text-[#121212]">Oxford Shoes</h3>
@@ -74,7 +78,7 @@
 
         <a href="/product-category/brogue-shoes/" class="group overflow-hidden rounded-3xl border border-[#3A2418]/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="h-56 overflow-hidden bg-[#121212]">
-            <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=900&q=85" alt="Brogue shoe detailing close-up" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+            <img src="<?php echo esc_url($home_img_base . 'Brogue.png'); ?>" alt="Brogue shoe detailing close-up" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
           </div>
           <div class="p-5">
             <h3 class="font-serif text-2xl font-semibold text-[#121212]">Brogue Shoes</h3>
@@ -85,7 +89,7 @@
 
         <a href="/product-category/loafers/" class="group overflow-hidden rounded-3xl border border-[#3A2418]/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="h-56 overflow-hidden bg-[#121212]">
-            <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=900&q=85" alt="Men’s loafers for smart casual outfits" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+            <img src="<?php echo esc_url($home_img_base . 'Loafers.png'); ?>" alt="Men’s loafers for smart casual outfits" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
           </div>
           <div class="p-5">
             <h3 class="font-serif text-2xl font-semibold text-[#121212]">Loafers</h3>
@@ -96,7 +100,7 @@
 
         <a href="/product-category/monk-strap-shoes/" class="group overflow-hidden rounded-3xl border border-[#3A2418]/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="h-56 overflow-hidden bg-[#121212]">
-            <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=900&q=85" alt="Monk strap shoes with buckle detail" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+            <img src="<?php echo esc_url($home_img_base . 'Monk_Strap_Shoes.png'); ?>" alt="Monk strap shoes with buckle detail" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
           </div>
           <div class="p-5">
             <h3 class="font-serif text-2xl font-semibold text-[#121212]">Monk Strap Shoes</h3>
@@ -114,9 +118,9 @@
       <div class="relative order-2 lg:order-1">
         <div class="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border border-[#A96538]/20"></div>
         <img
-          src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=1200&q=85"
-          alt="Oxford shoes styled for office and formal occasions"
-          class="relative h-[420px] w-full rounded-[2rem] object-cover shadow-2xl shadow-[#3A2418]/15"
+          src="<?php echo esc_url($home_img_base . 'Brogue_Shoes.png'); ?>"
+          alt="Formal dress shoes styled for office and formal occasions"
+          class="relative h-[420px] w-full rounded-[2rem] object-cover object-center shadow-2xl shadow-[#3A2418]/15"
         />
       </div>
 
@@ -170,7 +174,7 @@
 
       <div class="grid gap-5 lg:grid-cols-3">
         <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
-          <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=900&q=85" alt="Brogue shoe detail close-up" class="h-64 w-full object-cover opacity-90" />
+          <img src="<?php echo esc_url($home_img_base . 'Loafers_collection.png'); ?>" alt="Refined formal shoe detail close-up" class="h-64 w-full object-cover object-center opacity-90" />
           <div class="p-6">
             <h3 class="font-serif text-2xl font-semibold text-[#F4EEE6]">Brogue Shoes</h3>
             <p class="mt-3 text-sm leading-7 text-white/65">Perforation-inspired detailing for a classic dress shoe look.</p>
@@ -178,7 +182,7 @@
         </article>
 
         <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
-          <img src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=900&q=85" alt="Loafers styled for smart casual wear" class="h-64 w-full object-cover opacity-90" />
+          <img src="<?php echo esc_url($home_img_base . 'Loafers_two.png'); ?>" alt="Loafers styled for smart casual wear" class="h-64 w-full object-cover object-center opacity-90" />
           <div class="p-6">
             <h3 class="font-serif text-2xl font-semibold text-[#F4EEE6]">Loafers</h3>
             <p class="mt-3 text-sm leading-7 text-white/65">Easy slip-on styling for business casual and refined daily wear.</p>
@@ -186,7 +190,7 @@
         </article>
 
         <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
-          <img src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=900&q=85" alt="Monk strap shoe buckle detail" class="h-64 w-full object-cover opacity-90" />
+          <img src="<?php echo esc_url($home_img_base . 'Monk_Strap_Shoes_two.png'); ?>" alt="Monk strap shoe buckle detail" class="h-64 w-full object-cover object-center opacity-90" />
           <div class="p-6">
             <h3 class="font-serif text-2xl font-semibold text-[#F4EEE6]">Monk Strap Shoes</h3>
             <p class="mt-3 text-sm leading-7 text-white/65">Strap-and-buckle details for a distinctive formal finish.</p>

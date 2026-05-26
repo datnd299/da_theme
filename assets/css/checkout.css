@@ -14,25 +14,175 @@
   padding-right: 1rem;
 }
 
-/* Override Text Colors & Borders */
+/* WooCommerce Block Checkout */
+.wp-block-woocommerce-checkout,
+.wp-block-woocommerce-checkout * {
+  font-family: var(--font-sans);
+}
+
+.wp-block-woocommerce-checkout a,
+.woocommerce-checkout a,
+.woocommerce-order a {
+  color: var(--color-accent);
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.wp-block-woocommerce-checkout a:hover,
+.woocommerce-checkout a:hover,
+.woocommerce-order a:hover {
+  color: var(--color-accent-hover);
+}
+
+.wp-block-woocommerce-checkout .wc-block-checkout__main,
+.wp-block-woocommerce-checkout .wc-block-checkout__sidebar,
+.wp-block-woocommerce-checkout .wc-block-components-sidebar,
+.wp-block-woocommerce-checkout .wc-block-components-main {
+  color: var(--color-foreground);
+}
+
+.wp-block-woocommerce-checkout .wc-block-checkout__sidebar,
+.wp-block-woocommerce-checkout .wc-block-components-sidebar {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step,
+.wp-block-woocommerce-checkout .wc-block-components-panel,
+.wp-block-woocommerce-checkout .wc-block-components-order-summary,
+.wp-block-woocommerce-checkout .wc-block-components-totals-wrapper {
+  border-color: var(--color-border);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step__title,
+.wp-block-woocommerce-checkout .wc-block-components-title,
+.wp-block-woocommerce-checkout .wc-block-components-order-summary__button-text,
+.wp-block-woocommerce-checkout .wc-block-components-totals-footer-item .wc-block-components-totals-item__label,
+.wp-block-woocommerce-checkout .wc-block-components-totals-footer-item .wc-block-components-totals-item__value,
+.wp-block-woocommerce-checkout .wc-block-formatted-money-amount {
+  color: var(--color-foreground);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step__description,
+.wp-block-woocommerce-checkout .wc-block-components-totals-item__label,
+.wp-block-woocommerce-checkout .wc-block-components-product-metadata,
+.wp-block-woocommerce-checkout .wc-block-components-product-details,
+.wp-block-woocommerce-checkout .wc-block-components-order-summary-item__quantity,
+.wp-block-woocommerce-checkout .wc-block-components-payment-method-label,
+.wp-block-woocommerce-checkout .wc-block-components-checkbox__label {
+  color: var(--color-foreground-muted);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-totals-item,
+.wp-block-woocommerce-checkout .wc-block-components-order-summary-item,
+.wp-block-woocommerce-checkout .wc-block-components-panel__button {
+  border-color: var(--color-border);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-panel__button,
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step__heading-content {
+  color: var(--color-accent);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-panel__button:hover,
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step__heading-content:hover {
+  color: var(--color-accent-hover);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkbox .wc-block-components-checkbox__input,
+.wp-block-woocommerce-checkout input[type="checkbox"],
+.wp-block-woocommerce-checkout input[type="radio"] {
+  accent-color: var(--color-accent);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkbox .wc-block-components-checkbox__mark {
+  fill: var(--color-background);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkbox .wc-block-components-checkbox__input:checked {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 .wp-block-woocommerce-checkout .wc-block-components-text-input input,
-.wp-block-woocommerce-checkout .wc-blocks-components-select__select {
-  border-color: var(--color-surface-alt) !important;
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select,
+.wp-block-woocommerce-checkout .wc-block-components-combobox .wc-block-components-combobox-control input.components-combobox-control__input {
+  border-color: var(--color-border) !important;
   color: var(--color-foreground) !important;
   border-radius: var(--radius-sm) !important;
-  background-color: transparent !important;
+  background-color: var(--color-background) !important;
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-text-input input:focus,
-.wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus {
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus,
+.wp-block-woocommerce-checkout .wc-block-components-combobox .wc-block-components-combobox-control input.components-combobox-control__input:focus {
   border-color: var(--color-accent) !important;
   outline: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-text-input label,
-.wp-block-woocommerce-checkout .wc-blocks-components-select__label {
+.wp-block-woocommerce-checkout .wc-blocks-components-select__label,
+.wp-block-woocommerce-checkout .wc-block-components-combobox .components-base-control__label {
   color: var(--color-foreground-muted) !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-validation-error,
+.wp-block-woocommerce-checkout .wc-block-components-validation-error p {
+  color: var(--color-alert);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-notice-banner {
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  border-color: var(--color-accent);
+  color: var(--color-foreground);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-notice-banner.is-error {
+  background: color-mix(in srgb, var(--color-alert) 10%, transparent);
+  border-color: var(--color-alert);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-button,
+.wp-block-woocommerce-checkout .wc-block-components-totals-coupon__button,
+.woocommerce-checkout .button,
+.woocommerce-checkout button.button {
+  background-color: var(--color-accent) !important;
+  color: var(--color-background) !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-button:hover:not(:disabled),
+.wp-block-woocommerce-checkout .wc-block-components-totals-coupon__button:hover:not(:disabled),
+.woocommerce-checkout .button:hover,
+.woocommerce-checkout button.button:hover {
+  background-color: var(--color-accent-hover) !important;
+  color: var(--color-background) !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-button:disabled,
+.wp-block-woocommerce-checkout .wc-block-components-totals-coupon__button:disabled,
+.woocommerce-checkout .button:disabled,
+.woocommerce-checkout button.button:disabled {
+  background-color: var(--color-muted) !important;
+  color: var(--color-background) !important;
+  opacity: 0.45;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-payment-methods__save-card-info,
+.wp-block-woocommerce-checkout .wc-block-components-radio-control__option {
+  background: var(--color-background);
+  border-color: var(--color-border);
+  color: var(--color-foreground);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-radio-control__option-checked {
+  background: var(--color-surface);
+  border-color: var(--color-accent);
 }
 
 /* Override Place Order Button */

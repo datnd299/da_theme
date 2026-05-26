@@ -85,11 +85,6 @@
                 <img class="h-8 w-auto rounded bg-white px-2 py-1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Payment/image copy 2.png'); ?>" alt="<?php esc_attr_e('Payment method', 'dawp'); ?>">
                 <img class="h-8 w-auto rounded bg-white px-2 py-1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Payment/image copy 3.png'); ?>" alt="<?php esc_attr_e('Payment method', 'dawp'); ?>">
             </div>
-            <ul class="flex flex-wrap items-center justify-center gap-4">
-                <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms', 'dawp'); ?></a></li>
-                <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy', 'dawp'); ?></a></li>
-                <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping', 'dawp'); ?></a></li>
-            </ul>
         </div>
     </div>
 </footer>

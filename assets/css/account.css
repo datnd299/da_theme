@@ -21,6 +21,11 @@
   width: 100%;
 }
 
+.account-page .woocommerce::before,
+.account-page .woocommerce::after {
+  display: none;
+}
+
 .account-page .woocommerce > h2,
 .account-page .woocommerce > .woocommerce-form-login,
 .account-page .woocommerce > .woocommerce-form-register,
@@ -90,6 +95,7 @@
 .account-page #customer_login > .u-column1,
 .account-page #customer_login > .u-column2 {
   width: 100%;
+  float: none;
 }
 
 .account-page #customer_login::before,
@@ -230,7 +236,15 @@
 }
 
 /* Logged-in account layout */
+.account-page .woocommerce:has(.woocommerce-MyAccount-navigation) {
+  display: grid;
+  gap: 24px;
+  align-items: start;
+}
+
 .account-page .woocommerce-MyAccount-navigation {
+  float: none;
+  width: 100%;
   margin: 0 0 24px;
   padding: 0;
 }
@@ -270,6 +284,8 @@
 }
 
 .account-page .woocommerce-MyAccount-content {
+  float: none;
+  width: 100%;
   padding: 24px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -286,6 +302,11 @@
 
 .account-page .woocommerce-MyAccount-content p:last-child {
   margin-bottom: 0;
+}
+
+.account-page .woocommerce-MyAccount-content strong {
+  color: var(--color-foreground);
+  font-weight: 700;
 }
 
 .account-page mark {
@@ -345,6 +366,26 @@
   line-height: 1.65;
 }
 
+.account-page .woocommerce-EditAccountForm,
+.account-page .woocommerce-address-fields,
+.account-page .woocommerce-form-row {
+  max-width: 720px;
+}
+
+.account-page fieldset {
+  margin: 24px 0 0;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.account-page legend {
+  padding: 0 8px;
+  color: var(--color-foreground);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
 @media (min-width: 768px) {
   .account-page {
     padding: 64px 24px 96px;
@@ -361,8 +402,12 @@
 }
 
 @media (min-width: 1024px) {
+  .account-page .woocommerce:has(.woocommerce-MyAccount-navigation) {
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 32px;
+  }
+
   .account-page .woocommerce-MyAccount-navigation {
-    float: left;
     width: 260px;
     margin: 0;
   }
@@ -373,14 +418,8 @@
   }
 
   .account-page .woocommerce-MyAccount-content {
-    float: right;
-    width: calc(100% - 292px);
-  }
-
-  .account-page .woocommerce::after {
-    content: "";
-    display: table;
-    clear: both;
+    width: 100%;
+    min-width: 0;
   }
 }
 

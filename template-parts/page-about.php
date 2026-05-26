@@ -8,7 +8,7 @@
       <div class="relative">
         <div class="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border border-[#A96538]/20"></div>
         <img
-          src="https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=1200&q=85"
+          src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Home/Oxford_Shoes.png'); ?>"
           alt="Close-up of polished men’s dress shoes with refined detailing"
           class="relative h-[420px] w-full rounded-[2rem] object-cover shadow-2xl shadow-[#3A2418]/15"
         />
@@ -104,7 +104,7 @@
       <div class="relative">
         <div class="absolute -bottom-5 -left-5 h-40 w-40 rounded-full bg-[#A96538]/20 blur-3xl"></div>
         <img
-          src="https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=1200&q=85"
+          src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Home/section_one.png'); ?>"
           alt="Men’s dress shoes with polished craft-inspired styling"
           class="relative h-[460px] w-full rounded-[2rem] object-cover shadow-2xl shadow-black/40"
         />

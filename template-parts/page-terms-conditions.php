@@ -1,352 +1,403 @@
 <?php
 /**
- * Template Part: Terms & Conditions Page
- * 
- * This template follows Google Merchant Center (GMC) standards and the Shop Kelli Design System.
- * It provides a comprehensive, detailed legal agreement for users.
+ * Handed Shoes - Terms & Conditions Page
+ * GMC-safe purchase terms with transparent ordering, payment, shipping, returns, and contact details.
  */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+$store_name     = 'Handed Shoes';
+$website_domain = 'handedshoes.com';
+$support_email  = 'support@handedshoes.com';
+$contact_url    = home_url('/contact-us/');
+$privacy_url    = home_url('/privacy-policy/');
+$shipping_url   = home_url('/shipping-policy/');
+$returns_url    = home_url('/refund-return-policy/');
+$track_url      = home_url('/track-order/');
+$business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)';
+$response_time  = 'We aim to reply within 1 business day.';
+$last_updated   = 'May 27, 2026';
+
+$summary_cards = [
+    [
+        'label' => 'Transparent Checkout',
+        'copy'  => 'Product prices, shipping options, taxes if applicable, and order totals are shown before payment.',
+        'icon'  => 'card',
+    ],
+    [
+        'label' => 'Clear Policies',
+        'copy'  => 'Shipping, returns, refunds, privacy, and contact information are available before purchase.',
+        'icon'  => 'file',
+    ],
+    [
+        'label' => 'Customer Support',
+        'copy'  => 'Contact us with order, product, shipping, return, or account questions.',
+        'icon'  => 'mail',
+    ],
+];
+
+$purchase_terms = [
+    [
+        'title' => 'Product Information',
+        'copy'  => 'We work to present product titles, descriptions, images, sizes, colors, materials, pricing, and availability accurately. Slight color differences may occur due to screen settings, lighting, or photography.',
+    ],
+    [
+        'title' => 'Pricing And Availability',
+        'copy'  => 'Prices and availability may change without notice. If an item is unavailable after purchase, we may contact you to offer a replacement, wait option, or refund.',
+    ],
+    [
+        'title' => 'Order Review',
+        'copy'  => 'Customers are responsible for reviewing product details, size, quantity, billing information, shipping address, and contact information before placing an order.',
+    ],
+    [
+        'title' => 'Order Acceptance',
+        'copy'  => 'An order confirmation means we received your order request. We may refuse, cancel, or limit an order when required due to inventory, payment, fraud, pricing, address, or policy issues.',
+    ],
+];
+
+$customer_responsibilities = [
+    'Provide accurate account, billing, payment, shipping, and contact information.',
+    'Use the website only for lawful purposes and in a way that does not harm the website or other users.',
+    'Review footwear size, product details, shipping timelines, return eligibility, and checkout totals before purchase.',
+    'Contact us promptly if you notice an order issue, incorrect address, unauthorized transaction, damaged package, or delivery problem.',
+];
+
+$prohibited_uses = [
+    'Fraudulent orders, chargeback abuse, unauthorized payment use, or false claims.',
+    'Attempts to interfere with site security, payment processing, checkout, account access, or order systems.',
+    'Copying, scraping, reselling, or using website content, images, product data, or branding without permission.',
+    'Posting or transmitting unlawful, harmful, misleading, abusive, infringing, or malicious content.',
+];
+
+$legal_sections = [
+    [
+        'title' => 'Intellectual Property',
+        'copy'  => 'All website content, branding, text, graphics, images, layout, icons, product presentation, and other materials are owned by or licensed to Handed Shoes and are protected by applicable intellectual property laws.',
+    ],
+    [
+        'title' => 'Third-Party Services',
+        'copy'  => 'Our website may use third-party services for payment processing, shipping, analytics, fraud prevention, customer support, or embedded features. Those services may have their own terms and privacy practices.',
+    ],
+    [
+        'title' => 'Website Availability',
+        'copy'  => 'We aim to keep the website available and accurate, but we do not guarantee uninterrupted, error-free, or fully secure access. We may update, suspend, or discontinue parts of the website when needed.',
+    ],
+    [
+        'title' => 'Limitation Of Liability',
+        'copy'  => 'To the fullest extent permitted by law, Handed Shoes is not liable for indirect, incidental, special, consequential, punitive, or similar damages arising from website use, products, delays, or service interruptions.',
+    ],
+];
+
+$render_icon = static function ($icon) {
+    $icons = [
+        'card'  => '<rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>',
+        'file'  => '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
+        'mail'  => '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/>',
+        'check' => '<path d="m20 6-11 11-5-5"/>',
+        'box'   => '<path d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/>',
+        'truck' => '<path d="M10 17h4V5H3v12h2"/><path d="M14 8h4l3 3v6h-3"/><circle cx="7" cy="17" r="2"/><circle cx="16" cy="17" r="2"/>',
+        'alert' => '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>',
+    ];
+
+    return $icons[$icon] ?? $icons['check'];
+};
 ?>
 
-<section class="bg-surface py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-5xl">
-        <!-- Header -->
-        <div class="text-center mb-16">
-            <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Legal Agreement</span>
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Terms of Service</h1>
-            <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
-                Welcome to Shop Kelli. Please read these terms of service carefully before using our website or purchasing our boutique pieces.
-            </p>
-            <p class="italic text-sm text-foreground-muted mt-4">Last Updated: May 7, 2026</p>
+<main class="bg-[#F4EEE6] text-[#121212]">
+  <!-- ================= HERO ================= -->
+  <section class="relative overflow-hidden bg-[#121212] text-white" aria-labelledby="terms-title">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(169,101,56,0.32),transparent_36%),linear-gradient(135deg,#121212_0%,#3A2418_60%,#121212_100%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4EEE6] to-transparent"></div>
+
+    <div class="relative mx-auto grid max-w-7xl items-end gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10 lg:py-28">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#B8955A]">Terms & Conditions</p>
+        <h1 id="terms-title" class="mt-5 font-serif text-5xl font-semibold leading-[1.02] text-[#F4EEE6] sm:text-6xl lg:text-7xl">
+          Clear Purchase Terms For Handed Shoes Customers
+        </h1>
+        <p class="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
+          These Terms & Conditions explain the rules for using <?php echo esc_html($website_domain); ?>, placing orders, making payments, receiving shipments, requesting returns, and contacting <?php echo esc_html($store_name); ?>.
+        </p>
+        <p class="mt-5 text-sm leading-7 text-white/60">Last updated: <?php echo esc_html($last_updated); ?></p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+            Shipping Policy
+          </a>
+          <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#F4EEE6] transition hover:bg-[#A96538] hover:text-white">
+            Return & Refund Policy
+          </a>
         </div>
+      </div>
 
-        <div class="space-y-10">
-            <!-- 1. Overview -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">1. Overview</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        This website is operated by **Shop Kelli**. Throughout the site, the terms “we”, “us” and “our” refer to Shop Kelli. Shop Kelli offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.
-                    </p>
-                    <p>
-                        By visiting our site and/or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions (“Terms of Service”, “Terms”), including those additional terms and conditions and policies referenced herein and/or available by hyperlink. These Terms of Service apply to all users of the site, including without limitation users who are browsers, vendors, customers, merchants, and/or contributors of content.
-                    </p>
-                    <p>
-                        Please read these Terms of Service carefully before accessing or using our website. By accessing or using any part of the site, you agree to be bound by these Terms of Service. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services.
-                    </p>
-                </div>
+      <div class="grid gap-4 sm:grid-cols-3">
+        <?php foreach ($summary_cards as $card) : ?>
+          <article class="rounded-3xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm">
+            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#A96538] text-white">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+              </svg>
             </div>
-
-            <!-- 2. Online Store Terms -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">2. Online Store Terms</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.
-                    </p>
-                    <p>
-                        You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).
-                    </p>
-                    <p>
-                        You must not transmit any worms or viruses or any code of a destructive nature. A breach or violation of any of the Terms will result in an immediate termination of your Services.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 3. General Conditions -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">3. General Conditions</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        We reserve the right to refuse service to anyone for any reason at any time.
-                    </p>
-                    <p>
-                        You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. **Credit card information is always encrypted during transfer over networks.**
-                    </p>
-                    <p>
-                        You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the website through which the service is provided, without express written permission by us.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 4. Accuracy & Completeness -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">4. Accuracy, Completeness & Timeliness</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        We are not responsible if information made available on this site is not accurate, complete or current. The material on this site is provided for general information only and should not be relied upon or used as the sole basis for making decisions without consulting primary, more accurate, more complete or more timely sources of information. Any reliance on the material on this site is at your own risk.
-                    </p>
-                    <p>
-                        This site may contain certain historical information. Historical information, necessarily, is not current and is provided for your reference only. We reserve the right to modify the contents of this site at any time, but we have no obligation to update any information on our site.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 5. Modifications to the Service and Prices -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">5. Modifications to Service and Prices</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        Prices for our products are subject to change without notice.
-                    </p>
-                    <p>
-                        We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) without notice at any time.
-                    </p>
-                    <p>
-                        We shall not be liable to you or to any third-party for any modification, price change, suspension or discontinuance of the Service.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 6. Products or Services -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">6. Products or Services</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our **Return Policy**.
-                    </p>
-                    <p>
-                        We have made every effort to display as accurately as possible the colors and images of our products that appear at the store. We cannot guarantee that your computer monitor's display of any color will be accurate.
-                    </p>
-                    <p>
-                        We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis. We reserve the right to limit the quantities of any products or services that we offer. All descriptions of products or product pricing are subject to change at anytime without notice, at the sole discretion of us.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 7. Accuracy of Billing and Account Information -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">7. Billing and Account Information</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        We reserve the right to refuse any order you place with us. We may, in our sole discretion, limit or cancel quantities purchased per person, per household or per order. These restrictions may include orders placed by or under the same customer account, the same credit card, and/or orders that use the same billing and/or shipping address.
-                    </p>
-                    <p>
-                        In the event that we make a change to or cancel an order, we may attempt to notify you by contacting the e-mail and/or billing address/phone number provided at the time the order was made.
-                    </p>
-                    <p>
-                        You agree to provide current, complete and accurate purchase and account information for all purchases made at our store. You agree to promptly update your account and other information, including your email address and credit card numbers and expiration dates, so that we can complete your transactions and contact you as needed.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 8. User Comments, Feedback and Other Submissions -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">8. User Comments & Feedback</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        If, at our request, you send certain specific submissions (for example contest entries) or without a request from us you send creative ideas, suggestions, proposals, plans, or other materials, whether online, by email, by postal mail, or otherwise (collectively, 'comments'), you agree that we may, at any time, without restriction, edit, copy, publish, distribute, translate and otherwise use in any medium any comments that you forward to us.
-                    </p>
-                    <p>
-                        We are and shall be under no obligation (1) to maintain any comments in confidence; (2) to pay compensation for any comments; or (3) to respond to any comments.
-                    </p>
-                    <p>
-                        We may, but have no obligation to, monitor, edit or remove content that we determine in our sole discretion are unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene or otherwise objectionable or violates any party’s intellectual property or these Terms of Service.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 9. Personal Information -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">9. Personal Information</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        Your submission of personal information through the store is governed by our **Privacy Policy**. Please review our Privacy Policy to understand how we collect, use, and protect your data.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 10. Errors, Inaccuracies and Omissions -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">10. Errors & Omissions</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        Occasionally there may be information on our site or in the Service that contains typographical errors, inaccuracies or omissions that may relate to product descriptions, pricing, promotions, offers, product shipping charges, transit times and availability.
-                    </p>
-                    <p>
-                        We reserve the right to correct any errors, inaccuracies or omissions, and to change or update information or cancel orders if any information in the Service or on any related website is inaccurate at any time without prior notice (including after you have submitted your order).
-                    </p>
-                </div>
-            </div>
-
-            <!-- 11. Prohibited Uses -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">11. Prohibited Uses</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        In addition to other prohibitions as set forth in the Terms of Service, you are prohibited from using the site or its content: (a) for any unlawful purpose; (b) to solicit others to perform or participate in any unlawful acts; (c) to violate any international, federal, provincial or state regulations, rules, laws, or local ordinances; (d) to infringe upon or violate our intellectual property rights or the intellectual property rights of others; (e) to harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation, religion, ethnicity, race, age, national origin, or disability.
-                    </p>
-                    <p>
-                        We reserve the right to terminate your use of the Service or any related website for violating any of the prohibited uses.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 12. Disclaimer of Warranties; Limitation of Liability -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">12. Limitation of Liability</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        We do not guarantee, represent or warrant that your use of our service will be uninterrupted, timely, secure or error-free.
-                    </p>
-                    <p>
-                        You agree that from time to time we may remove the service for indefinite periods of time or cancel the service at any time, without notice to you.
-                    </p>
-                    <p>
-                        In no case shall Shop Kelli, our directors, officers, employees, affiliates, agents, contractors, interns, suppliers, service providers or licensors be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind, including, without limitation lost profits, lost revenue, lost savings, loss of data, replacement costs, or any similar damages.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 13. Indemnification -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"></path><path d="m3.34 7 1.2 12c.1 1.1 1 2 2.1 2H17.3c1.1 0 2-.9 2.1-2l1.2-12"></path><path d="M2 7h20"></path><path d="M10 2a2 2 0 0 1 4 0"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">13. Indemnification</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        You agree to indemnify, defend and hold harmless Shop Kelli and our parent, subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns and employees, harmless from any claim or demand, including reasonable attorneys’ fees, made by any third-party due to or arising out of your breach of these Terms of Service.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 14. Severability & Termination -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">14. Termination</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        The obligations and liabilities of the parties incurred prior to the termination date shall survive the termination of this agreement for all purposes.
-                    </p>
-                    <p>
-                        These Terms of Service are effective unless and until terminated by either you or us. You may terminate these Terms of Service at any time by notifying us that you no longer wish to use our Services, or when you cease using our site.
-                    </p>
-                    <p>
-                        If in our sole judgment you fail, or we suspect that you have failed, to comply with any term or provision of these Terms of Service, we also may terminate this agreement at any time without notice and you will remain liable for all amounts due up to and including the date of termination.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 15. Governing Law -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">15. Governing Law</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        These Terms of Service and any separate agreements whereby we provide you Services shall be governed by and construed in accordance with the laws of **Merced, CA 95340**.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 16. Contact Information -->
-            <div class="bg-background p-8 md:p-12 rounded-2xl shadow-card border border-border transition-all duration-normal">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    </div>
-                    <h2 class="font-heading text-2xl md:text-3xl text-foreground font-semibold">16. Contact Information</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        Questions about the Terms of Service should be sent to us at **support@shopkelli.com**.
-                    </p>
-                    
-                    <div class="bg-surface-alt p-8 rounded-2xl border-l-4 border-accent shadow-sm">
-                        <h4 class="font-bold text-foreground text-lg mb-2">Shop Kelli Boutique</h4>
-                        <div class="space-y-1 text-foreground-muted">
-                            <p>1777 Canal St, Merced, CA 95340</p>
-
-                            <p>Email: support@shopkelli.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <p class="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[#B8955A]"><?php echo esc_html($card['label']); ?></p>
+            <p class="mt-3 text-sm leading-6 text-white/65"><?php echo esc_html($card['copy']); ?></p>
+          </article>
+        <?php endforeach; ?>
+      </div>
     </div>
-</section>
+  </section>
+
+  <!-- ================= AGREEMENT OVERVIEW ================= -->
+  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24" aria-labelledby="terms-overview-title">
+    <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Agreement Overview</p>
+        <h2 id="terms-overview-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+          By using this website or placing an order, you agree to these terms.
+        </h2>
+        <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+          If you do not agree with these Terms & Conditions, please do not use the website or place an order. These terms apply to all visitors, customers, account holders, and anyone who accesses or uses our online store.
+        </p>
+        <p class="mt-4 text-sm leading-7 text-[#3A2418]/60">
+          You must be at least the age of majority in your jurisdiction, or use the website with permission from a parent or legal guardian.
+        </p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <?php foreach ($purchase_terms as $term) : ?>
+          <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-5 shadow-sm">
+            <h3 class="font-serif text-xl font-semibold text-[#121212]"><?php echo esc_html($term['title']); ?></h3>
+            <p class="mt-3 text-sm leading-7 text-[#3A2418]/72"><?php echo esc_html($term['copy']); ?></p>
+          </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ORDERS / PAYMENTS ================= -->
+  <section class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="orders-payments-title">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <div class="mb-10 max-w-3xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Orders And Payments</p>
+        <h2 id="orders-payments-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+          Checkout must be accurate, secure, and complete before payment.
+        </h2>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-2">
+        <article class="rounded-[2rem] border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#A96538]">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <?php echo $render_icon('card'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            </svg>
+          </div>
+          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#121212]">Payment Terms</h3>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+            We accept the payment methods shown at checkout. Payment must be authorized and completed before an order can be processed. Payment information is submitted through secure checkout and handled by payment processors according to their security standards.
+          </p>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+            If a payment is declined, flagged, reversed, or suspected of being unauthorized, we may pause, cancel, or request additional verification for the order.
+          </p>
+        </article>
+
+        <article class="rounded-[2rem] border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#A96538]">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <?php echo $render_icon('alert'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            </svg>
+          </div>
+          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#121212]">Errors, Cancellations, And Limits</h3>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+            We may correct errors, update inaccurate information, cancel orders, limit quantities, or refuse service when necessary, including for suspected fraud, inventory issues, pricing errors, restricted locations, payment problems, or violations of these terms.
+          </p>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+            Customers may request cancellation within the window stated in our Return & Refund Policy if the order has not been processed or shipped.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SHIPPING / RETURNS ================= -->
+  <section class="bg-[#121212] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="shipping-returns-title">
+    <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
+      <article class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+        <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#A96538] text-white">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <?php echo $render_icon('truck'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+          </svg>
+        </div>
+        <p class="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Shipping</p>
+        <h2 id="shipping-returns-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4EEE6] sm:text-5xl">
+          Shipping terms are part of your purchase.
+        </h2>
+        <p class="mt-5 text-sm leading-7 text-white/68">
+          Processing times, transit times, delivery estimates, shipping locations, carrier details, tracking, delivery issues, and address responsibilities are explained in our Shipping Policy.
+        </p>
+        <a href="<?php echo esc_url($shipping_url); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+          View Shipping Policy
+        </a>
+      </article>
+
+      <article class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+        <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#A96538] text-white">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <?php echo $render_icon('box'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+          </svg>
+        </div>
+        <p class="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Returns And Refunds</p>
+        <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4EEE6] sm:text-5xl">
+          Returns follow our published return policy.
+        </h2>
+        <p class="mt-5 text-sm leading-7 text-white/68">
+          Return windows, footwear condition requirements, return shipping costs, refund timing, exchanges, damaged items, lost packages, and non-returnable items are explained in our Return & Refund Policy.
+        </p>
+        <a href="<?php echo esc_url($returns_url); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+          View Return Policy
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CUSTOMER RESPONSIBILITIES ================= -->
+  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24" aria-labelledby="customer-responsibilities-title">
+    <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Customer Responsibilities</p>
+        <h2 id="customer-responsibilities-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+          Customers are responsible for accurate information and lawful use.
+        </h2>
+        <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+          These responsibilities help us process orders, prevent avoidable shipping issues, reduce fraud, and provide support when something needs attention.
+        </p>
+      </div>
+
+      <div class="rounded-[2rem] border border-[#3A2418]/10 bg-white p-6 shadow-sm">
+        <ul class="grid gap-3 sm:grid-cols-2">
+          <?php foreach ($customer_responsibilities as $item) : ?>
+            <li class="flex gap-3 rounded-2xl border border-[#3A2418]/10 bg-[#F4EEE6] p-4 text-sm leading-6 text-[#3A2418]/72">
+              <svg class="mt-1 h-4 w-4 shrink-0 text-[#A96538]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+              </svg>
+              <span><?php echo esc_html($item); ?></span>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROHIBITED USES ================= -->
+  <section class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="prohibited-uses-title">
+    <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
+      <div>
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Prohibited Uses</p>
+        <h2 id="prohibited-uses-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+          The website may not be used for harmful, fraudulent, or unlawful activity.
+        </h2>
+        <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+          We may suspend access, cancel orders, refuse service, or take other appropriate action when these terms are violated.
+        </p>
+      </div>
+
+      <div class="rounded-[2rem] border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
+        <ul class="grid gap-3">
+          <?php foreach ($prohibited_uses as $item) : ?>
+            <li class="flex gap-3 rounded-2xl border border-[#3A2418]/10 bg-white p-4 text-sm leading-6 text-[#3A2418]/72">
+              <svg class="mt-1 h-4 w-4 shrink-0 text-[#A96538]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+              </svg>
+              <span><?php echo esc_html($item); ?></span>
+            </li>
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LEGAL DETAILS ================= -->
+  <section class="bg-[#3A2418] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="legal-details-title">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <div class="mb-10 max-w-3xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Legal Details</p>
+        <h2 id="legal-details-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4EEE6] sm:text-5xl">
+          Additional terms for website use and purchases.
+        </h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2">
+        <?php foreach ($legal_sections as $section) : ?>
+          <article class="rounded-3xl border border-white/10 bg-white/[0.06] p-6">
+            <h3 class="font-serif text-2xl font-semibold text-[#F4EEE6]"><?php echo esc_html($section['title']); ?></h3>
+            <p class="mt-3 text-sm leading-7 text-white/68"><?php echo esc_html($section['copy']); ?></p>
+          </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRIVACY / CHANGES / GOVERNING LAW ================= -->
+  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24" aria-labelledby="terms-final-title">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <div class="grid gap-5 md:grid-cols-3">
+        <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
+          <h2 id="terms-final-title" class="font-serif text-2xl font-semibold text-[#121212]">Privacy</h2>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+            Personal information submitted through the website is handled according to our Privacy Policy.
+          </p>
+          <a href="<?php echo esc_url($privacy_url); ?>" class="mt-5 inline-flex text-sm font-bold text-[#A96538] transition hover:text-[#121212]">View Privacy Policy</a>
+        </article>
+
+        <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
+          <h2 class="font-serif text-2xl font-semibold text-[#121212]">Changes To These Terms</h2>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+            We may update these Terms & Conditions from time to time. The latest version will be posted on this page with the last updated date.
+          </p>
+        </article>
+
+        <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
+          <h2 class="font-serif text-2xl font-semibold text-[#121212]">Governing Law</h2>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+            These terms are governed by applicable laws in the jurisdiction where Handed Shoes operates, without limiting any mandatory consumer protection rights that may apply to you.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="bg-[#121212] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="terms-contact-title">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <div class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+        <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Contact Information</p>
+            <h2 id="terms-contact-title" class="mt-3 font-serif text-4xl font-semibold text-[#F4EEE6]">Questions about these Terms & Conditions?</h2>
+            <p class="mt-4 text-sm leading-7 text-white/70">
+              Email <a class="font-bold text-[#B8955A] underline decoration-[#B8955A]/40 underline-offset-4 transition hover:text-white" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a> or use our contact page. Business hours: <?php echo esc_html($business_hours); ?>. <?php echo esc_html($response_time); ?>
+            </p>
+            <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#B8955A]">Store Name</p>
+                <p class="mt-2 text-sm font-bold leading-6 text-white/90"><?php echo esc_html($store_name); ?></p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#B8955A]">Website</p>
+                <p class="mt-2 text-sm font-bold leading-6 text-white/90"><?php echo esc_html($website_domain); ?></p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#B8955A]">Email</p>
+                <p class="mt-2 text-sm font-bold leading-6 text-white/90"><?php echo esc_html($support_email); ?></p>
+              </div>
+              <a href="<?php echo esc_url($track_url); ?>" class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm font-bold leading-6 text-white/90 transition hover:border-[#B8955A] hover:text-[#B8955A]">Track Order</a>
+            </div>
+          </div>
+
+          <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+            Contact Support
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

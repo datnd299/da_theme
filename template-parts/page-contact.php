@@ -104,7 +104,6 @@ add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_
             <a href="/track-order/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Track Order →</a>
             <a href="/shipping-policy/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Shipping Policy →</a>
             <a href="/refund-return-policy/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Return & Refund Policy →</a>
-            <a href="/size-guide/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Size Guide →</a>
             <a href="/faq/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">FAQs →</a>
           </div>
         </div>
@@ -205,7 +204,7 @@ add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_
       <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
           <h3 class="font-serif text-2xl font-semibold text-[#121212]">Size & Fit</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Ask about size guide, fit notes, and shoe style differences before ordering.</p>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Ask about fit notes and shoe style differences before ordering.</p>
         </article>
         <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
           <h3 class="font-serif text-2xl font-semibold text-[#121212]">Shipping</h3>

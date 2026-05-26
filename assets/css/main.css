@@ -6,35 +6,36 @@
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #FFFFFF;
-  /* Warm White — page background */
-  --color-surface: #FAF7F2;
-  /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
-  /* Soft Gray — hover states, alt sections */
+  --color-background: #F4EEE6;
+  /* Warm Cream — page background */
+  --color-surface: #FFFFFF;
+  /* Warm Cream — section / card background */
+  --color-surface-alt: #EFE4D8;
+  /* Warm Cream darker — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
-  /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
-  /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
-  /* Light text — captions, breadcrumbs */
+  --color-foreground: #121212;
+  /* Charcoal Black — headings, product names */
+  --color-foreground-muted: #3A2418;
+  /* Espresso Brown — descriptions, meta */
+  --color-muted: #8C7464;
+  /* Leather taupe — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C98A8A;
-  /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #B87575;
-  /* Dusty Rose darker — hover state */
-  --color-accent-soft: #E8D8C8;
-  /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DFA39A;
-  /* Warm Blush — secondary brand color */
+  --color-accent: #A96538;
+  /* Cognac Leather — primary CTA, highlights */
+  --color-accent-hover: #121212;
+  /* Charcoal Black — primary CTA hover */
+  --color-accent-soft: #B8955A;
+  /* Muted Brass — subtle highlights, badges */
+  --color-accent-blush: #5B1F23;
+  /* Oxblood — secondary brand color */
+  --color-oxblood: #5B1F23;
 
   /* === UI === */
-  --color-border: #E6DDD6;
-  /* Border — cards, dividers */
-  --color-alert: #C0392B;
+  --color-border: #E0D2C4;
+  /* Warm border — cards, dividers */
+  --color-alert: #5B1F23;
   /* Error / alert */
   --color-success: #5C8A6A;
   /* Success — muted green, fits boutique palette */
@@ -50,11 +51,11 @@
   --color-text-primary: var(--color-foreground);
   --color-text-secondary: var(--color-foreground-muted);
   --color-text-muted: var(--color-muted);
-  --color-sale: var(--color-accent-hover);
+  --color-sale: var(--color-oxblood);
   --color-original-price: var(--color-muted);
   --color-navy: var(--color-foreground);
-  --color-navy-light: var(--color-accent-hover);
-  --shadow-md: 0 4px 12px rgba(47, 42, 40, 0.12);
+  --color-navy-light: var(--color-accent);
+  --shadow-md: 0 4px 12px rgba(58, 36, 24, 0.12);
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -77,8 +78,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(58, 36, 24, 0.08);
+  --shadow-card-hover: 0 6px 20px rgba(58, 36, 24, 0.14);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);

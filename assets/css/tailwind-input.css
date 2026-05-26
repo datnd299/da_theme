@@ -2,24 +2,25 @@
 
 @theme {
   /* === COLORS — Backgrounds === */
-  --color-background:  #FFFFFF;   /* Warm White */
-  --color-surface:     #FAF7F2;   /* Soft Cream */
-  --color-surface-alt: #F5F3F1;   /* Soft Gray */
+  --color-background:  #F4EEE6;   /* Warm Cream */
+  --color-surface:     #FFFFFF;   /* Clean White */
+  --color-surface-alt: #EFE4D8;   /* Warm Cream darker */
 
   /* === COLORS — Text === */
-  --color-foreground:        #2F2A28;
-  --color-foreground-muted:  #6F625D;
-  --color-muted:             #9A8C86;
+  --color-foreground:        #121212; /* Charcoal Black */
+  --color-foreground-muted:  #3A2418; /* Espresso Brown */
+  --color-muted:             #8C7464; /* Leather taupe */
 
   /* === COLORS — Brand === */
-  --color-accent:       #C98A8A;  /* Dusty Rose */
-  --color-accent-hover: #B87575;
-  --color-accent-soft:  #E8D8C8;  /* Soft Beige */
-  --color-accent-blush: #DFA39A;  /* Warm Blush */
+  --color-accent:       #A96538;  /* Cognac Leather */
+  --color-accent-hover: #121212;  /* Charcoal Black */
+  --color-accent-soft:  #B8955A;  /* Muted Brass */
+  --color-accent-blush: #5B1F23;  /* Oxblood */
+  --color-oxblood:      #5B1F23;
 
   /* === COLORS — UI === */
-  --color-border:   #E6DDD6;
-  --color-alert:    #C0392B;
+  --color-border:   #E0D2C4;
+  --color-alert:    #5B1F23;
   --color-success:  #5C8A6A;
 
   /* === BORDER RADIUS === */
@@ -29,8 +30,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card:       0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card:       0 1px 4px rgba(58, 36, 24, 0.08);
+  --shadow-card-hover: 0 6px 20px rgba(58, 36, 24, 0.14);
 
   /* === TYPOGRAPHY === */
   --font-sans:    'Lato', 'Inter', system-ui, sans-serif;

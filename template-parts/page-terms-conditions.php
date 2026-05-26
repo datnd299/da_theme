@@ -32,7 +32,7 @@
       </div>
       <div class="flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#F2A8BC]/40 rounded-full px-5 py-2.5">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-        <span class="text-xs font-semibold text-[#2B2B2B]">30-Day Returns</span>
+        <span class="text-xs font-semibold text-[#2B2B2B]">30-Day Return Support</span>
       </div>
     </div>
   </div>
@@ -204,9 +204,9 @@
             <h2 class="text-[#2B2B2B] font-semibold text-xl" style="font-family:'Playfair Display',serif">Shipping &amp; Delivery</h2>
           </div>
           <div class="text-[14px] text-[#2B2B2B]/70 leading-relaxed space-y-4">
-            <p>Orders placed before <strong class="text-[#2B2B2B]">2:00 PM Pacific Standard Time (Los Angeles)</strong> are handled using the same business-day cutoff. Handling time is <strong class="text-[#2B2B2B]">0-1 business days</strong>, fulfilled Monday through Saturday.</p>
-            <p>Carrier transit time is currently estimated at <strong class="text-[#2B2B2B]">0 business days</strong> for all destinations, making the total estimated delivery time <strong class="text-[#2B2B2B]">0-1 business days</strong>. These estimates may be adjusted after cutoff times, during public holidays, or due to carrier exceptions beyond our reasonable control.</p>
-            <p>For full details, please review our <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="text-[#E8567A] hover:underline">Shipping &amp; Returns Policy</a>.</p>
+            <p>Orders placed before <strong class="text-[#2B2B2B]">5:00 PM Pacific Standard Time (Los Angeles)</strong> are handled using the same business-day cutoff. Handling time is <strong class="text-[#2B2B2B]">1-2 business days</strong>, Monday through Friday.</p>
+            <p>Carrier transit time is currently estimated at <strong class="text-[#2B2B2B]">5-7 business days</strong>, making the total estimated delivery time usually <strong class="text-[#2B2B2B]">6-9 business days</strong>. These estimates may be adjusted after cutoff times, during public holidays, for bulky items, or due to carrier exceptions beyond our reasonable control.</p>
+            <p>For full details, please review our <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="text-[#E8567A] hover:underline">Shipping Policy</a>.</p>
           </div>
         </div>
 
@@ -219,9 +219,9 @@
             <h2 class="text-[#2B2B2B] font-semibold text-xl" style="font-family:'Playfair Display',serif">Returns &amp; Refunds</h2>
           </div>
           <div class="text-[14px] text-[#2B2B2B]/70 leading-relaxed space-y-4">
-            <p>We accept returns for defective and non-defective products, and we accept exchanges on eligible items within <strong class="text-[#2B2B2B]">30 days</strong> of delivery. Products must be new, unused, and in their original condition with packaging and tags intact.</p>
-            <p>Returns are accepted by mail using a download-and-print return label. Return label cost is the customer's responsibility unless support confirms otherwise. There is <strong class="text-[#2B2B2B]">no restocking fee</strong>, and refunds are processed within <strong class="text-[#2B2B2B]">10 days</strong> after the returned item is received and inspected.</p>
-            <p>For complete information, please see our <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="text-[#E8567A] hover:underline">Returns Policy</a>.</p>
+            <p>Most items may be returned within <strong class="text-[#2B2B2B]">30 days from the day you receive your order</strong>, unless the product page states a different return window. Items must be unused, in original condition, and returned with original packaging, tags or labels, accessories, manuals, and parts.</p>
+            <p>Our restocking fee is <strong class="text-[#2B2B2B]">$0</strong> for eligible returns. We cover return shipping or provide a prepaid return label for defective, damaged, incorrect, or incomplete orders. For customer remorse, wrong size, wrong color, wrong model, preference changes, or order mistakes, the customer pays the actual return shipping cost.</p>
+            <p>For complete information, please see our <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="text-[#E8567A] hover:underline">Return &amp; Refund Policy</a>.</p>
           </div>
         </div>
 
@@ -341,7 +341,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <div>
                   <p class="text-xs font-semibold text-[#2B2B2B] mb-0.5">Business Hours</p>
-                  <p class="text-[#2B2B2B]/70">Mon – Sat, 10:00 AM – 6:00 PM PST</p>
+                  <p class="text-[#2B2B2B]/70">Mon - Fri, 9:00 AM - 5:00 PM PST</p>
                 </div>
               </div>
             </div>
@@ -368,7 +368,7 @@
           We're Here To Help
         </h2>
         <p class="text-white/80 text-[15px] mb-10 max-w-lg mx-auto leading-relaxed">
-          Our support team is available Monday through Saturday, 10:00 AM – 6:00 PM PST. Don't hesitate to reach out with any questions.
+          Our support team is available Monday through Friday, 9:00 AM - 5:00 PM PST. Don't hesitate to reach out with any questions.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -379,7 +379,7 @@
           </a>
         </div>
 
-        <p class="mt-6 text-white/50 text-xs">Mon – Sat &nbsp;·&nbsp; 10:00 AM – 6:00 PM PST</p>
+        <p class="mt-6 text-white/50 text-xs">Mon - Fri &nbsp;·&nbsp; 9:00 AM - 5:00 PM PST</p>
       </div>
     </div>
 

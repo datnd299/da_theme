@@ -143,8 +143,8 @@
 
       <div>
         <p class="text-4xl lg:text-5xl font-light text-[#E8567A] mb-2"
-           style="font-family:'Cormorant Garamond',Georgia,serif">30</p>
-        <p class="text-xs uppercase tracking-[0.15em] text-white/60">Day Easy Returns</p>
+           style="font-family:'Cormorant Garamond',Georgia,serif">7</p>
+        <p class="text-xs uppercase tracking-[0.15em] text-white/60">Business Day Claim Review</p>
       </div>
     </div>
   </div>
@@ -170,7 +170,7 @@
             </div>
             <div>
               <h4 class="font-semibold text-[#2B2B2B] mb-1">Fast Delivery Estimate</h4>
-              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Orders use a 2:00 PM PST cutoff, with 0-1 business day handling and 0 business day transit estimates.</p>
+              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Orders use a 5:00 PM PST cutoff, with 1-2 business day handling and 5-7 business day transit estimates.</p>
             </div>
           </li>
 
@@ -179,8 +179,8 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
             </div>
             <div>
-              <h4 class="font-semibold text-[#2B2B2B] mb-1">Hassle-Free 30-Day Returns</h4>
-              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Returns and exchanges are accepted within 30 days for new, unused products.</p>
+              <h4 class="font-semibold text-[#2B2B2B] mb-1">30-Day Easy Returns</h4>
+              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Most items may be returned within 30 days if unused, in original condition, and returned with original packaging, tags, accessories, manuals, and parts.</p>
             </div>
           </li>
 
@@ -200,7 +200,7 @@
             </div>
             <div>
               <h4 class="font-semibold text-[#2B2B2B] mb-1">Real People. Real Support.</h4>
-              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Our team is available Mon–Sat, 10 AM–6 PM PST. Email us at support@shopshive.com.</p>
+              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Our team is available Mon-Fri, 9 AM-5 PM PST. Email us at support@shopshive.com.</p>
             </div>
           </li>
         </ul>
@@ -283,7 +283,7 @@
         </div>
         <h4 class="font-semibold text-[#2B2B2B]" style="font-family:'Playfair Display',serif">Business Hours</h4>
         <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          Mon – Sat, 10:00 AM – 6:00 PM PST
+          Mon - Fri, 9:00 AM - 5:00 PM PST
         </p>
       </div>
 
@@ -294,7 +294,7 @@
         <h4 class="font-semibold text-[#2B2B2B]" style="font-family:'Playfair Display',serif">Email Us</h4>
         <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
           <a href="mailto:support@shopshive.com" class="hover:text-[#E8567A] transition-colors">support@shopshive.com</a><br>
-          We reply within 24 hours
+          We aim to reply within 1 business day
         </p>
       </div>
     </div>
@@ -309,7 +309,7 @@
       Ready to Open the Door?
     </h2>
     <p class="text-white/80 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-      Discover hundreds of styles made for the modern woman, with 0-1 business day delivery estimates.
+      Discover hundreds of styles made for the modern woman, with 6-9 business day delivery estimates.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="<?php echo esc_url(home_url('/shop/')); ?>"

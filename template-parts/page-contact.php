@@ -35,7 +35,7 @@
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Email Us</h3>
           <a href="mailto:support@shopshive.com" class="text-[14px] text-[#E8567A] font-medium hover:underline">support@shopshive.com</a>
-          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">We reply within 24 hours</p>
+          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">We aim to reply within 1 business day</p>
         </div>
       </div>
 
@@ -57,7 +57,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Business Hours</h3>
-          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">Monday - Saturday<br>10:00 AM - 6:00 PM PST</p>
+          <p class="text-[14px] text-[#2B2B2B]/65 leading-snug">Monday - Friday<br>9:00 AM - 5:00 PM PST</p>
         </div>
       </div>
 
@@ -152,7 +152,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <p class="font-semibold text-[14px] text-[#2B2B2B]">Reply within 24 hours</p>
+                <p class="font-semibold text-[14px] text-[#2B2B2B]">Reply within 1 business day</p>
                 <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">We read every message and respond promptly on business days.</p>
               </div>
             </li>
@@ -161,8 +161,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <p class="font-semibold text-[14px] text-[#2B2B2B]">0-1 business day delivery estimate</p>
-                <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">Orders use a 2:00 PM PST cutoff, with 0-1 business day handling and 0 business day transit estimates.</p>
+                <p class="font-semibold text-[14px] text-[#2B2B2B]">6-9 business day delivery estimate</p>
+                <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">Orders use a 5:00 PM PST cutoff, with 1-2 business day handling and 5-7 business day transit estimates.</p>
               </div>
             </li>
             <li class="flex items-start gap-4">
@@ -170,8 +170,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <p class="font-semibold text-[14px] text-[#2B2B2B]">30-day mail returns</p>
-                <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">Returns and exchanges are accepted within 30 days for new, unused products.</p>
+                <p class="font-semibold text-[14px] text-[#2B2B2B]">30-day return support</p>
+                <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">Most items may be returned within 30 days if they meet our return policy conditions.</p>
               </div>
             </li>
           </ul>
@@ -213,7 +213,7 @@
         Common Questions
       </h2>
       <p class="mt-4 text-[14px] text-[#2B2B2B]/60 max-w-md mx-auto leading-relaxed">
-        Find quick answers below - or reach out and we'll get back to you within 24 hours.
+        Find quick answers below - or reach out and we aim to get back to you within 1 business day.
       </p>
     </div>
 
@@ -221,8 +221,8 @@
 
       <?php
         $faqs = [
-          ['q' => 'How long does shipping take?',         'a' => 'The current estimated delivery time is 0-1 business days for all destinations, based on a 2:00 PM PST cutoff.'],
-          ['q' => 'Can I return or exchange my order?',   'a' => 'Yes - we accept returns and exchanges within 30 days of delivery for new, unused products.'],
+          ['q' => 'How long does shipping take?',         'a' => 'The current estimated delivery time is usually 6-9 business days, based on a 5:00 PM PST cutoff.'],
+          ['q' => 'Can I return or exchange my order?',   'a' => 'Most items may be returned within 30 days from the day you receive your order if they are unused, in original condition, and returned with original packaging, tags, accessories, manuals, and parts. Exchanges depend on stock availability.'],
           ['q' => 'How do I track my order?',             'a' => 'Once your order ships, you\'ll receive a tracking link via email. You can also use our Track Order page.'],
           ['q' => 'What payment methods do you accept?',  'a' => 'We accept all major credit cards (Visa, Mastercard, Amex, Discover) via our secure checkout.'],
         ];
@@ -259,7 +259,7 @@
       While You're Here -<br><em>Discover Something Beautiful</em>
     </h2>
     <p class="text-white/60 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-      Hundreds of styles, 0-1 business day delivery estimates, and 30-day returns. Fashion that truly opens doors.
+      Hundreds of styles, 6-9 business day delivery estimates, and a clear 30-day return process for eligible items.
     </p>
     <a href="<?php echo esc_url( home_url('/shop/') ); ?>"
        class="inline-flex items-center gap-2 px-8 py-4 bg-[#E8567A] text-white text-sm font-semibold rounded-full hover:bg-[#d14469] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">

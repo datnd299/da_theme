@@ -43,7 +43,7 @@
                         <circle cx="12" cy="12" r="10"/>
                         <polyline points="12 6 12 12 16 14"/>
                     </svg>
-                    Mon–Sat, 10:00 AM – 6:00 PM PST
+                    Mon-Fri, 9:00 AM - 5:00 PM PST
                 </li>
 
             </ul>
@@ -111,12 +111,12 @@
 
                     <li class="flex items-center gap-2">
                         <span class="w-1 h-1 rounded-full bg-accent shrink-0"></span>
-                        <?php esc_html_e('0-1 Business Day Delivery Estimate', 'dawp'); ?>
+                        <?php esc_html_e('6-9 Business Day Delivery Estimate', 'dawp'); ?>
                     </li>
 
                     <li class="flex items-center gap-2">
                         <span class="w-1 h-1 rounded-full bg-accent shrink-0"></span>
-                        <?php esc_html_e('30-Day Returns', 'dawp'); ?>
+                        <?php esc_html_e('30-Day Returns For Eligible Items', 'dawp'); ?>
                     </li>
 
                     <li class="flex items-center gap-2">
@@ -183,7 +183,7 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="hover:text-[#F2A8BC] transition-colors">
                         <?php esc_html_e('Shipping', 'dawp'); ?>
                     </a>

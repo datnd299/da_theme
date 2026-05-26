@@ -418,7 +418,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 mt-0.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <div>
                   <p class="text-xs font-semibold text-[#2B2B2B] mb-0.5">Business Hours</p>
-                  <p class="text-[#2B2B2B]/70">Mon – Sat, 10:00 AM – 6:00 PM PST</p>
+                  <p class="text-[#2B2B2B]/70">Mon - Fri, 9:00 AM - 5:00 PM PST</p>
                 </div>
               </div>
             </div>
@@ -445,7 +445,7 @@
           We Value Your Privacy
         </h2>
         <p class="text-white/80 text-[15px] mb-10 max-w-lg mx-auto leading-relaxed">
-          Our team is happy to answer any questions about how we handle your data. Reach out Monday through Saturday, 10:00 AM – 6:00 PM PST.
+          Our team is happy to answer any questions about how we handle your data. Reach out Monday through Friday, 9:00 AM - 5:00 PM PST.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -456,7 +456,7 @@
           </a>
         </div>
 
-        <p class="mt-6 text-white/50 text-xs">Mon – Sat &nbsp;·&nbsp; 10:00 AM – 6:00 PM PST</p>
+        <p class="mt-6 text-white/50 text-xs">Mon - Fri &nbsp;·&nbsp; 9:00 AM - 5:00 PM PST</p>
       </div>
     </div>
 

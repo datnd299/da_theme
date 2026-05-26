@@ -19,7 +19,7 @@
     <p class="text-base lg:text-lg text-[#2B2B2B]/70 max-w-xl leading-relaxed mb-10">
       Everything you need to know about shopping with Shopshive — from orders and shipping to returns and sizing.
     </p>
-    <a href="<?php echo esc_url( home_url('/contact/') ); ?>"
+    <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>"
        class="inline-flex items-center gap-2 px-7 py-3.5 border border-[#E8567A] text-[#E8567A] text-sm font-semibold rounded-full hover:bg-[#E8567A] hover:text-white transition-all duration-300">
       Still Have Questions? Contact Us
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -39,27 +39,31 @@
           'items'    => [
             [
               'q' => 'What is your delivery estimate?',
-              'a' => 'The current estimated delivery time is 0-1 business days for all destinations within the United States. Delivery estimates may move to the next eligible business day after cutoff times, public holidays, or carrier exceptions.',
+              'a' => 'The current estimated delivery time is usually 6-9 business days within the United States, including 1-2 business days for handling and 5-7 business days for carrier transit.',
             ],
             [
               'q' => 'What is the order cutoff time?',
-              'a' => 'The order cutoff time is 2:00 PM Pacific Standard Time (Los Angeles). Orders placed after that cutoff may be handled on the next eligible business day.',
+              'a' => 'The order cutoff time is 5:00 PM PST, Los Angeles. Orders placed after that cutoff start processing the next business day.',
             ],
             [
               'q' => 'How long is handling and transit time?',
-              'a' => 'Handling time is 0-1 business days, fulfilled Monday through Saturday. Carrier transit time is currently estimated at 0 business days for all destinations.',
+              'a' => 'Handling time is 1-2 business days, Monday through Friday. Carrier transit time is currently estimated at 5-7 business days, Monday through Friday.',
             ],
             [
               'q' => 'Do you ship internationally?',
-              'a' => 'Currently we ship within the United States only. We\'re working on expanding internationally — stay tuned by following us on Facebook and Pinterest for updates.',
+              'a' => 'Currently we ship customer orders within the United States only. Some items may have restrictions due to size, weight, carrier limits, or local regulations.',
+            ],
+            [
+              'q' => 'How much does shipping cost?',
+              'a' => 'Most U.S. orders qualify for free shipping with no minimum, unless the product page or checkout states otherwise. Any paid shipping cost is shown at checkout before payment is submitted.',
             ],
             [
               'q' => 'How do I track my order?',
-              'a' => 'Once your order ships, you\'ll receive a confirmation email with your tracking number and a direct link to follow your package. You can also visit our Track Order page anytime and enter your order number.',
+              'a' => 'Once your order ships, tracking information is sent to the email address used at checkout. Tracking may take a short time to update after the carrier receives the package.',
             ],
             [
               'q' => 'My package shows delivered but I haven\'t received it. What should I do?',
-              'a' => 'We\'re sorry to hear that! Please first check around your property and with neighbors or building management. If it\'s still missing after 24 hours, email us at support@shopshive.com and we\'ll investigate right away.',
+              'a' => 'Please first check around your property and with neighbors or building management. If it is still missing, email us at support@shopshive.com with your order number and delivery address so we can help review it.',
             ],
           ],
         ],
@@ -68,24 +72,32 @@
           'icon'     => '<polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>',
           'items'    => [
             [
-              'q' => 'What is your return policy?',
-              'a' => 'We accept returns for defective and non-defective products within 30 days of delivery. Products must be new, unused, and in their original condition with packaging and tags intact.',
+              'q' => 'What is your return and refund policy?',
+              'a' => 'Most items may be returned within 30 days from the day you receive your order, unless the product page states a different return window. Items must be unused, in original condition, and returned with original packaging, tags or labels, accessories, manuals, and parts.',
             ],
             [
-              'q' => 'How do I start a return or exchange?',
-              'a' => 'Email support@shopshive.com with your order number and reason for return or exchange. Our team will provide mail return instructions and a download-and-print return label.',
+              'q' => 'Do you charge a restocking fee?',
+              'a' => 'No. Our restocking fee is $0 for eligible returns.',
             ],
             [
-              'q' => 'Who pays for the return label?',
-              'a' => 'Returns are accepted by mail. Return labels are download-and-print labels, and return label cost is the customer\'s responsibility unless support confirms otherwise.',
+              'q' => 'Who pays for return shipping?',
+              'a' => 'We cover return shipping or provide a prepaid return label for defective, damaged, incorrect, or incomplete orders. For customer remorse, wrong size, wrong color, wrong model, preference changes, or order mistakes, the customer pays the actual return shipping cost.',
             ],
             [
-              'q' => 'When will I receive my refund?',
-              'a' => 'Refunds are processed within 10 days after your returned item is received and inspected. There is no restocking fee.',
+              'q' => 'How do I start a return?',
+              'a' => 'Contact support with your order number, the email used at checkout, the item you want to return, and the reason for return. Please wait for return approval and instructions before sending anything back.',
             ],
             [
-              'q' => 'Can I exchange for a different size or color?',
-              'a' => 'Yes. We accept exchanges on eligible items within 30 days of delivery, subject to stock availability and the item being new and unused.',
+              'q' => 'What should I include for damaged, defective, or incorrect items?',
+              'a' => 'Please include photos or video of the item and packaging, including the shipping label when relevant. This helps us verify the issue and resolve it faster.',
+            ],
+            [
+              'q' => 'How long does a refund take?',
+              'a' => 'After we receive and inspect an approved return, the refund is processed to the original payment method whenever possible. It typically takes up to 7 days for the refund to appear, depending on your bank or payment provider.',
+            ],
+            [
+              'q' => 'Can I exchange an item?',
+              'a' => 'Yes, exchanges for a different size, color, or model may be available depending on stock. In some cases, the fastest option is to return the original item for a refund and place a new order.',
             ],
           ],
         ],
@@ -99,7 +111,7 @@
             ],
             [
               'q' => 'Can I modify or cancel my order after placing it?',
-              'a' => 'We process orders quickly, so please contact us immediately at support@shopshive.com if you need to modify or cancel. If your order has already shipped, you\'ll need to use our return process instead.',
+              'a' => 'You may request cancellation within 9 hours from the time your order is placed. Email support@shopshive.com with your order number as soon as possible.',
             ],
             [
               'q' => 'I entered the wrong shipping address. What can I do?',
@@ -107,7 +119,7 @@
             ],
             [
               'q' => 'My order says "processing" for a long time. Is this normal?',
-              'a' => 'Orders are prepared for shipment within 0-1 business days, Monday through Saturday. If your order has been processing longer than expected, please reach out and we\'ll look into it right away.',
+              'a' => 'Orders are prepared for shipment within 1-2 business days, Monday through Friday. Orders placed after 5:00 PM PST begin processing the next business day. If your order has been processing longer than expected, please reach out and we will look into it.',
             ],
             [
               'q' => 'Will I receive an order confirmation?',
@@ -147,7 +159,7 @@
           'items'    => [
             [
               'q' => 'How can I contact Shopshive customer support?',
-              'a' => 'You can reach us by email at support@shopshive.com. We\'re available Monday through Saturday, 10:00 AM to 6:00 PM PST. We aim to respond to all emails within 24 hours.',
+              'a' => 'You can reach us by email at support@shopshive.com. We are available Monday through Friday, 9:00 AM to 5:00 PM PST. We aim to respond within 1 business day.',
             ],
             [
               'q' => 'Do I need an account to shop?',
@@ -248,7 +260,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Business Hours</h3>
-          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">Mon – Sat, 10 AM – 6 PM PST</p>
+          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">Mon - Fri, 9 AM - 5 PM PST</p>
         </div>
       </div>
 
@@ -259,7 +271,7 @@
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Email Us</h3>
           <a href="mailto:support@shopshive.com" class="text-[14px] text-[#E8567A] font-medium hover:underline">support@shopshive.com</a>
-          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">We reply within 24 hours</p>
+          <p class="text-[12px] text-[#2B2B2B]/50 mt-1">We aim to reply within 1 business day</p>
         </div>
       </div>
 
@@ -269,7 +281,7 @@
         </div>
         <div>
           <h3 class="font-semibold text-[#2B2B2B] mb-1" style="font-family:'Playfair Display',serif">Send A Message</h3>
-          <a href="<?php echo esc_url( home_url('/contact/') ); ?>" class="text-[14px] text-[#E8567A] font-medium hover:underline">Contact Form</a>
+          <a href="<?php echo esc_url( home_url('/contact-us/') ); ?>" class="text-[14px] text-[#E8567A] font-medium hover:underline">Contact Form</a>
           <p class="text-[12px] text-[#2B2B2B]/50 mt-1">Quick &amp; easy online form</p>
         </div>
       </div>
@@ -287,7 +299,7 @@
       Ready To Find Your<br><em>Next Favorite Look?</em>
     </h2>
     <p class="text-white/60 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-      Hundreds of styles, 0-1 business day delivery estimates, and 30-day returns.
+      Hundreds of styles, 6-9 business day delivery estimates, and a clear 30-day return process for eligible items.
     </p>
     <a href="<?php echo esc_url( home_url('/shop/') ); ?>"
        class="inline-flex items-center gap-2 px-8 py-4 bg-[#E8567A] text-white text-sm font-semibold rounded-full hover:bg-[#d14469] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">

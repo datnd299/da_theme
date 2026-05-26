@@ -70,13 +70,13 @@
                 <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth boutique experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Learn about our shipping times, rates, and delivery details.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our boutique team is here to help, Mon–Sat 10 AM–6 PM PST.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Our boutique team is here to help, Mon-Fri 9 AM-5 PM PST.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>

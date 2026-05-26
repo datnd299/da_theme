@@ -385,7 +385,7 @@
         </div>
         <div>
           <p class="text-sm font-semibold text-[#2B2B2B] mb-0.5">Fast Delivery</p>
-          <p class="text-xs text-[#D4B8A0]">0-1 business day estimate</p>
+          <p class="text-xs text-[#D4B8A0]">6-9 business day estimate</p>
         </div>
       </div>
 
@@ -398,7 +398,7 @@
         </div>
         <div>
           <p class="text-sm font-semibold text-[#2B2B2B] mb-0.5">30-Day Returns</p>
-          <p class="text-xs text-[#D4B8A0]">New, unused products</p>
+          <p class="text-xs text-[#D4B8A0]">For eligible items</p>
         </div>
       </div>
 
@@ -422,7 +422,7 @@
         </div>
         <div>
           <p class="text-sm font-semibold text-[#2B2B2B] mb-0.5">Live Support</p>
-          <p class="text-xs text-[#D4B8A0]">Mon-Sat, 10-6 PST</p>
+          <p class="text-xs text-[#D4B8A0]">Mon-Fri, 9-5 PST</p>
         </div>
       </div>
 

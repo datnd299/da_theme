@@ -273,7 +273,7 @@
         </div>
         <h4 class="font-semibold text-[#2B2B2B]" style="font-family:'Playfair Display',serif">Our Address</h4>
         <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          885 Roselyn Lakes, South Vidashire, IL 37334
+          195 unit 2 Cordgrass Lp, Murrells Inlet, SC 29576-3595
         </p>
       </div>
 

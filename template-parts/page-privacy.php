@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $terms_url      = home_url('/terms-conditions/');
 

@@ -10,10 +10,11 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
-$shipping_url   = home_url('/shipping-returns/');
+$shipping_url   = home_url('/shipping-policy/');
+$returns_url    = home_url('/return-refund-policy/');
 $terms_url      = home_url('/terms-conditions/');
 $privacy_url    = home_url('/privacy-policy/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -73,9 +74,14 @@ $category_links = [
 
 $help_links = [
     [
-        'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review cut off time, handling, transit, returns, label cost, and refund details.', 'dawp'),
+        'title' => __('Shipping Policy', 'dawp'),
+        'copy'  => __('Review cut off time, handling, transit, delivery estimates, and tracking details.', 'dawp'),
         'url'   => $shipping_url,
+    ],
+    [
+        'title' => __('Return & Refund Policy', 'dawp'),
+        'copy'  => __('Review return eligibility, exchanges, return shipping costs, restocking fees, and refunds.', 'dawp'),
+        'url'   => $returns_url,
     ],
     [
         'title' => __('Contact Support', 'dawp'),
@@ -91,6 +97,7 @@ $help_links = [
 
 $policy_links = [
     ['title' => __('Terms', 'dawp'), 'url' => $terms_url],
+    ['title' => __('Returns', 'dawp'), 'url' => $returns_url],
     ['title' => __('Privacy', 'dawp'), 'url' => $privacy_url],
     ['title' => __('My Account', 'dawp'), 'url' => $account_url],
 ];
@@ -124,14 +131,14 @@ $policy_links = [
                         <span class="track-timeline__icon" aria-hidden="true">2</span>
                         <div>
                             <h2><?php esc_html_e('Processing', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Orders are prepared within 0-1 business days after the 2:00 PM PST cut off.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Orders are prepared within 1-2 business days after the 5:00 PM PST cut off.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">3</span>
                         <div>
                             <h2><?php esc_html_e('On the way', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Transit time is currently listed as 0 business days for all destinations.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Standard transit usually takes 5-7 business days after dispatch.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -199,7 +206,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('0-1 Day Handling', 'dawp'); ?>
+                    <?php esc_html_e('1-2 Day Handling', 'dawp'); ?>
                 </div>
             </div>
         </div>

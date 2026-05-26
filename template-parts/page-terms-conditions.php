@@ -10,7 +10,8 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email = 'support@lbqshop.com';
-$shipping_url  = home_url('/shipping-returns/');
+$shipping_url  = home_url('/shipping-policy/');
+$returns_url   = home_url('/return-refund-policy/');
 $privacy_url   = home_url('/privacy-policy/');
 $contact_url   = home_url('/contact-us/');
 
@@ -69,8 +70,8 @@ $sections = [
     [
         'title' => __('6. Shipping, Tracking, and Delivery', 'dawp'),
         'copy'  => [
-            __('The daily order cut off time is 2:00 PM Pacific Standard Time (Los Angeles). Orders placed after the cut off time are processed from the next business day.', 'dawp'),
-            __('Current handling time is 0-1 business days from the order cut off to when the shipment is ready for transit. Orders are fulfilled Monday through Saturday, and transit time is currently listed as 0 business days for all destinations in the provided policy settings.', 'dawp'),
+            __('The daily order cut off time is 5:00 PM Pacific Standard Time (Los Angeles). Orders placed after the cut off time are processed from the next business day.', 'dawp'),
+            __('Current handling time is 1-2 business days from the order cut off to when the shipment is ready for transit. Orders are fulfilled Monday through Friday, excluding holidays, and standard transit usually takes 5-7 business days after dispatch.', 'dawp'),
             __('Tracking information is provided once an order ships. Public holidays, carrier delays, weather, address issues, or other events outside our direct control may affect the final delivery estimate.', 'dawp'),
         ],
     ],
@@ -78,8 +79,8 @@ $sections = [
         'title' => __('7. Returns and Refunds', 'dawp'),
         'copy'  => [
             __('Customers may request returns or exchanges within 30 days of delivery. Returns are accepted for defective and non-defective products.', 'dawp'),
-            __('Eligible products must be new, including unopened products in original packaging or products that have never been used. The return method is by mail, and customers are responsible for the return label cost.', 'dawp'),
-            __('There is no restocking fee. Approved refunds are processed within 10 days after the return is received and reviewed.', 'dawp'),
+            __('Eligible products must be unused, in original condition, and returned with original packaging, tags or labels, accessories, manuals, and parts. Return authorization is required before sending items back.', 'dawp'),
+            __('There is no restocking fee. We cover return shipping for defective, damaged, or incorrect products; customers pay actual return shipping for change-of-mind returns. Approved refunds are processed to the original payment method and typically appear within up to 7 days depending on the bank or payment provider.', 'dawp'),
         ],
     ],
     [
@@ -153,7 +154,10 @@ $sections = [
                     </p>
                     <div class="mt-6 grid gap-3">
                         <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-5 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
-                            <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
+                            <?php esc_html_e('Shipping Policy', 'dawp'); ?>
+                        </a>
+                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-5 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                            <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                         </a>
                         <a href="<?php echo esc_url($privacy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-5 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
                             <?php esc_html_e('Privacy Policy', 'dawp'); ?>

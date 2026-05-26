@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
 $store_address  = __('4803 N Milwaukee AveChicago, IL 60630', 'dawp');
 $instagram_url  = 'https://www.instagram.com/thelbqshop/';
 $facebook_url   = 'https://www.facebook.com/lacedbyQ/';
@@ -68,7 +68,8 @@ $footer_columns = [
         'title' => __('Store Policy', 'dawp'),
         'links' => [
             ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
-            ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+            ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+            ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
             ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
             ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
         ],
@@ -84,10 +85,10 @@ $footer_columns = [
         <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 text-sm text-white/80 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <p class="font-semibold text-[#F6D5CF]"><?php esc_html_e('Pretty, practical accessories for beauty routines, travel, and everyday style.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <span><?php esc_html_e('Cut off: 2:00 PM PST', 'dawp'); ?></span>
-                <span><?php esc_html_e('Handling: 0-1 business days', 'dawp'); ?></span>
-                <span><?php esc_html_e('Transit: 0 business days', 'dawp'); ?></span>
-                <span><?php esc_html_e('30-day eligible returns', 'dawp'); ?></span>
+                <span><?php esc_html_e('Cut off: 5:00 PM PST', 'dawp'); ?></span>
+                <span><?php esc_html_e('Handling: 1-2 business days', 'dawp'); ?></span>
+                <span><?php esc_html_e('Transit: 5-7 business days', 'dawp'); ?></span>
+                <span><?php esc_html_e('30-day easy returns', 'dawp'); ?></span>
             </div>
         </div>
     </div>
@@ -217,7 +218,8 @@ $footer_columns = [
         <div class="mt-8 flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/60 lg:flex-row lg:items-center lg:justify-between">
             <p>&copy; <?php echo esc_html(gmdate('Y')); ?> LBQ Shop. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
+                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
                 <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
                 <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
                 <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQs', 'dawp'); ?></a>

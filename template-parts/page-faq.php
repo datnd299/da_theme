@@ -10,14 +10,15 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$shipping_url = home_url('/shipping-returns/');
+$shipping_url = home_url('/shipping-policy/');
+$returns_url  = home_url('/return-refund-policy/');
 $privacy_url  = home_url('/privacy-policy/');
 $terms_url    = home_url('/terms-conditions/');
 $track_url    = home_url('/track-order/');
@@ -29,15 +30,15 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What is the order cut off time?', 'dawp'),
-                'answer'   => __('The daily order cut off time is 2:00 PM Pacific Standard Time (Los Angeles). Orders placed after the cut off time are processed from the next business day.', 'dawp'),
+                'answer'   => __('The daily order cut off time is 5:00 PM Pacific Standard Time (Los Angeles). Orders placed after the cut off time are processed from the next business day.', 'dawp'),
             ],
             [
                 'question' => __('How long does handling take?', 'dawp'),
-                'answer'   => __('Current handling time is 0-1 business days from the order cut off to when the shipment is ready for transit. Orders are fulfilled Monday through Saturday.', 'dawp'),
+                'answer'   => __('Current handling time is 1-2 business days from the order cut off to when the shipment is ready for transit. Orders are fulfilled Monday through Friday, excluding holidays.', 'dawp'),
             ],
             [
                 'question' => __('How long does transit take?', 'dawp'),
-                'answer'   => __('Transit time is currently listed as 0 business days for all destinations in the provided policy settings. Public holidays may affect the final delivery estimate.', 'dawp'),
+                'answer'   => __('Standard transit usually takes 5-7 business days after dispatch. Most orders are delivered within 6-9 business days, though public holidays and carrier delays may affect the final estimate.', 'dawp'),
             ],
             [
                 'question' => __('Will I receive tracking information?', 'dawp'),
@@ -58,19 +59,19 @@ $faq_groups = [
             ],
             [
                 'question' => __('Which products are eligible for return?', 'dawp'),
-                'answer'   => __('Returns are accepted for defective and non-defective products. Eligible products must be new, including unopened products in original packaging or products that have never been used.', 'dawp'),
+                'answer'   => __('Returns are accepted for eligible defective and non-defective products. Items must be unused, in original condition, and returned with original packaging, tags or labels, accessories, manuals, and parts.', 'dawp'),
             ],
             [
                 'question' => __('Do you accept exchanges?', 'dawp'),
-                'answer'   => __('Yes. Exchanges are accepted for eligible new products within the 30-day return window.', 'dawp'),
+                'answer'   => __('Yes. Exchanges are accepted for eligible unused products within the 30-day return window and are subject to stock availability.', 'dawp'),
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('Customers are responsible for the return label cost. The return method is by mail, and the return label option is download and print.', 'dawp'),
+                'answer'   => __('Return shipping depends on the reason for the return. We cover return shipping for defective, damaged, or incorrect products; customers pay actual return shipping for change-of-mind returns.', 'dawp'),
             ],
             [
                 'question' => __('Are there restocking fees or refund delays?', 'dawp'),
-                'answer'   => __('There is no restocking fee. After a return is received and approved, refunds are processed within 10 days.', 'dawp'),
+                'answer'   => __('There is no restocking fee. After a return is received, inspected, and approved, refunds are processed to the original payment method and typically appear within up to 7 days depending on your bank or payment provider.', 'dawp'),
             ],
         ],
     ],
@@ -126,9 +127,14 @@ $quick_links = [
         'url'   => $track_url,
     ],
     [
-        'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review cut off time, handling, transit, return eligibility, label cost, and refunds.', 'dawp'),
+        'title' => __('Shipping Policy', 'dawp'),
+        'copy'  => __('Review cut off time, handling, transit, fulfillment days, and tracking.', 'dawp'),
         'url'   => $shipping_url,
+    ],
+    [
+        'title' => __('Return & Refund Policy', 'dawp'),
+        'copy'  => __('Review return eligibility, exchanges, return shipping costs, restocking fees, and refunds.', 'dawp'),
+        'url'   => $returns_url,
     ],
     [
         'title' => __('Privacy Policy', 'dawp'),

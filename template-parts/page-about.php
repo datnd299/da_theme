@@ -16,7 +16,7 @@ if (!$shop_url) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
 
 $lbq_category_url = static function ($slug) {
     if (function_exists('get_term_by')) {
@@ -102,12 +102,12 @@ $care_cards = [
     ],
     [
         'title' => __('Realistic Shipping', 'dawp'),
-        'copy'  => __('Orders use a 2:00 PM PST cut off, 0-1 business day handling, Monday through Saturday fulfillment, and 0 business day transit in the current policy settings.', 'dawp'),
+        'copy'  => __('Orders use a 5:00 PM PST cut off, 1-2 business day handling, Monday through Friday fulfillment, and 5-7 business day standard transit.', 'dawp'),
         'icon'  => 'truck',
     ],
     [
         'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Returns and exchanges are accepted within 30 days of delivery for eligible new products that meet the policy conditions.', 'dawp'),
+        'copy'  => __('Returns and exchanges are accepted within 30 days of delivery for eligible unused items in original condition.', 'dawp'),
         'icon'  => 'refresh',
     ],
 ];

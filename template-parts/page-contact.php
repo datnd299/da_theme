@@ -10,12 +10,13 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
 $website_url    = home_url('/');
 $website_label  = wp_parse_url($website_url, PHP_URL_HOST) ?: $website_url;
 $track_url      = home_url('/track-order/');
 $faq_url        = home_url('/faq/');
-$shipping_url   = home_url('/shipping-returns/');
+$shipping_url   = home_url('/shipping-policy/');
+$returns_url    = home_url('/return-refund-policy/');
 $privacy_url    = home_url('/privacy-policy/');
 $terms_url      = home_url('/terms-conditions/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -65,9 +66,14 @@ $help_topics = [
         'url'   => $track_url,
     ],
     [
-        'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review cut off time, handling, transit, return eligibility, label cost, and refunds.', 'dawp'),
+        'title' => __('Shipping Policy', 'dawp'),
+        'copy'  => __('Review cut off time, handling, transit, delivery estimates, and order tracking.', 'dawp'),
         'url'   => $shipping_url,
+    ],
+    [
+        'title' => __('Return & Refund Policy', 'dawp'),
+        'copy'  => __('Review return eligibility, return shipping costs, exchanges, restocking fees, and refunds.', 'dawp'),
+        'url'   => $returns_url,
     ],
     [
         'title' => __('FAQs', 'dawp'),
@@ -159,19 +165,19 @@ $render_icon = static function ($icon) {
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Orders use a 2:00 PM PST cut off and 0-1 business day handling time.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Orders use a 5:00 PM PST cut off and 1-2 business day handling time.', 'dawp'); ?></span>
                         </div>
                         <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Transit time is currently listed as 0 business days for all destinations.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Standard transit usually takes 5-7 business days after dispatch.', 'dawp'); ?></span>
                         </div>
                         <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Returns and exchanges are accepted within 30 days of delivery for eligible new products.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Returns and exchanges are accepted within 30 days of delivery for eligible unused items in original condition.', 'dawp'); ?></span>
                         </div>
                     </div>
 
@@ -308,7 +314,7 @@ $render_icon = static function ($icon) {
                 </a>
             </div>
 
-            <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
                 <?php foreach ($help_topics as $topic) : ?>
                     <a href="<?php echo esc_url($topic['url']); ?>" class="group rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#C87F86] hover:shadow-xl hover:shadow-[#8A4F56]/10">
                         <h3 class="font-heading text-lg font-extrabold text-[#2F2A28] transition group-hover:text-[#8A4F56]"><?php echo esc_html($topic['title']); ?></h3>
@@ -336,7 +342,10 @@ $render_icon = static function ($icon) {
                     </div>
                     <div class="flex flex-col gap-3 sm:flex-row">
                         <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
-                            <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
+                            <?php esc_html_e('Shipping Policy', 'dawp'); ?>
+                        </a>
+                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                            <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                         </a>
                         <a href="<?php echo esc_url($terms_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
                             <?php esc_html_e('Terms & Conditions', 'dawp'); ?>

@@ -371,6 +371,12 @@ $footer_policy_links = [
                         </svg>
                         <?php esc_html_e('Mon-Fri 9AM-6PM EST', 'dawp'); ?>
                     </span>
+                    <span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7Zm0 17.17C9.83 16.6 7 12.52 7 9a5 5 0 0 1 10 0c0 3.52-2.83 7.6-5 10.17ZM12 6.5A2.5 2.5 0 1 0 12 11.5 2.5 2.5 0 0 0 12 6.5Zm0 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <?php esc_html_e('127 Wood Rd, Rochester, NY 14626', 'dawp'); ?>
+                    </span>
                     <a href="https://www.facebook.com/queens.bracelet/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Facebook', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.25 10.44 22v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.25 22 17.08 22 12.06Z"/>

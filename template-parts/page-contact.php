@@ -527,6 +527,10 @@ $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET
             <span><?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?></span>
           </li>
           <li>
+            <strong><?php esc_html_e('Address', 'dawp'); ?></strong>
+            <span><?php esc_html_e('127 Wood Rd, Rochester, NY 14626', 'dawp'); ?></span>
+          </li>
+          <li>
             <strong><?php esc_html_e('Primary Market', 'dawp'); ?></strong>
             <span><?php esc_html_e('United States customers shopping bracelet and fashion jewelry styles.', 'dawp'); ?></span>
           </li>

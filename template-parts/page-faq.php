@@ -49,7 +49,7 @@
                             </span>
                         </button>
                         <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We aim to process orders quickly! If you need to change or cancel an order, please contact us at **support@shopkelli.com** within 2 hours of placing your order. Once an order has been processed for shipping, we are unable to make changes.</p>
+                            <p>We aim to process orders quickly. If you need to change or cancel an order, please contact us at <a href="mailto:support@shopkelli.com" class="text-accent hover:underline font-medium">support@shopkelli.com</a> within 2 hours of placing your order. Once an order has been processed for shipping, we are unable to make changes.</p>
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@
                             </span>
                         </button>
                         <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Orders are typically processed within 1-2 business days. Shipping via Standard Delivery usually takes 3-5 business days within the United States. For more detailed timelines, please visit our <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="text-accent hover:underline font-medium">Shipping Policy</a>.</p>
+                            <p>Orders placed before our 2:00 PM PST cutoff are typically handled within 0-1 business days, Monday-Saturday. Estimated total delivery time is 0-1 business days, with tracking emailed once your order is ready for delivery. For full details, please visit our <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="text-accent hover:underline font-medium">Shipping Policy</a>.</p>
                         </div>
                     </div>
 
@@ -97,19 +97,19 @@
                             </span>
                         </button>
                         <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We offer **FREE Standard Shipping on all orders** within the United States!</p>
+                            <p>We offer free standard shipping on all orders within the United States.</p>
                         </div>
                     </div>
 
                     <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
                         <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Do you ship internationally?</span>
+                            <span class="font-medium text-lg text-foreground pr-8">Where do you ship?</span>
                             <span class="faq-icon text-accent transition-transform duration-normal">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                             </span>
                         </button>
                         <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Currently, Shop Kelli ships only within the United States. We are looking into international shipping options for the future, so stay tuned!</p>
+                            <p>Shop Kelli currently serves customers in the United States only.</p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                             </span>
                         </button>
                         <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We want you to love your purchase! We accept returns within **30 days** of delivery for items in their original, unwashed, and unworn condition with tags attached. For full details, please see our <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="text-accent hover:underline font-medium">Return & Refund Policy</a>.</p>
+                            <p>We accept returns within 30 days of delivery for eligible new-condition items. Items must be unused, unworn, in original condition, and returned with original tags and packaging. For full details, please see our <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="text-accent hover:underline font-medium">Return & Refund Policy</a>.</p>
                         </div>
                     </div>
 
@@ -145,7 +145,7 @@
                             </span>
                         </button>
                         <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To start a return, simply email us at **support@shopkelli.com** with your order number and the items you wish to return. We will provide you with instructions and a return shipping address.</p>
+                            <p>To start a return or exchange, email us at <a href="mailto:support@shopkelli.com" class="text-accent hover:underline font-medium">support@shopkelli.com</a> with your order number and the item details. Return label and return shipping costs are the customer's responsibility unless your item arrived damaged, defective, or incorrect.</p>
                         </div>
                     </div>
                 </div>

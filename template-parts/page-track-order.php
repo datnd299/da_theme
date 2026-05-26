@@ -72,7 +72,7 @@
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our shipping times, rates, and delivery details.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our 0-1 business day delivery estimate, free U.S. standard shipping, and returns.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>

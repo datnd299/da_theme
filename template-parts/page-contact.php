@@ -150,7 +150,7 @@
             <div class="grid md:grid-cols-3 gap-8 text-center">
                 <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
                     <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our standard shipping times and processing details.', 'dawp'); ?></p>
+                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our 2:00 PM PST cutoff, 0-1 business day delivery estimate, and free U.S. standard shipping details.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
                     <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h3>

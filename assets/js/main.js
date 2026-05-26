@@ -93,4 +93,78 @@ document.addEventListener('DOMContentLoaded', () => {
             if (initGalleryThumbsScroll() || checkCount++ > 15) clearInterval(interval);
         }, 300);
     }
+
+    const contactForm = document.querySelector('.dawp-contact-form');
+
+    if (contactForm) {
+        const submitButton = contactForm.querySelector('.dawp-contact-form__submit');
+        const buttonText = contactForm.querySelector('.dawp-contact-form__button-text');
+        const statusBox = contactForm.querySelector('.dawp-contact-form__status');
+        const defaultButtonText = buttonText ? buttonText.textContent : '';
+
+        const showStatus = (message, type) => {
+            if (!statusBox) return;
+
+            statusBox.textContent = message;
+            statusBox.classList.remove('hidden', 'border-[#B7E4C7]', 'bg-[#F0FFF4]', 'text-[#1B5E20]', 'border-[#F5C2C7]', 'bg-[#FFF5F6]', 'text-[#9F1239]');
+            statusBox.classList.add(
+                type === 'success' ? 'border-[#B7E4C7]' : 'border-[#F5C2C7]',
+                type === 'success' ? 'bg-[#F0FFF4]' : 'bg-[#FFF5F6]',
+                type === 'success' ? 'text-[#1B5E20]' : 'text-[#9F1239]'
+            );
+        };
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+
+            const formData = new FormData(contactForm);
+            const ajaxUrl = window.dawpContactForm?.ajaxUrl || contactForm.getAttribute('action');
+            const nonce = window.dawpContactForm?.nonce;
+
+            if (nonce) {
+                formData.set('nonce', nonce);
+            }
+
+            if (submitButton) {
+                submitButton.disabled = true;
+            }
+
+            if (buttonText) {
+                buttonText.textContent = 'Sending...';
+            }
+
+            try {
+                const response = await fetch(ajaxUrl, {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'same-origin',
+                });
+                const payload = await response.json();
+                const message = payload?.data?.message || 'Something went wrong. Please try again.';
+
+                if (!response.ok || !payload.success) {
+                    showStatus(message, 'error');
+                    return;
+                }
+
+                contactForm.reset();
+                showStatus(message, 'success');
+            } catch (error) {
+                showStatus('We could not send your message right now. Please email support@houseofshoesonline.com directly.', 'error');
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                }
+
+                if (buttonText) {
+                    buttonText.textContent = defaultButtonText;
+                }
+            }
+        });
+    }
 });

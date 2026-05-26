@@ -2,6 +2,49 @@
 /**
  * Template Part: Track Your Order
  */
+
+if ( isset( $_REQUEST['orderid'] ) ) {
+    $raw_order_id = wc_clean( wp_unslash( $_REQUEST['orderid'] ) );
+    $order_email  = empty( $_REQUEST['order_email'] ) ? '' : sanitize_email( wp_unslash( $_REQUEST['order_email'] ) );
+    $candidates   = array();
+    $order_id     = '';
+
+    if ( preg_match( '/\bSLK[-\s#:]*(\d+)\b/i', $raw_order_id, $prefixed_match ) ) {
+        $candidates[] = $prefixed_match[1];
+    }
+
+    if ( preg_match_all( '/\d+/', $raw_order_id, $number_matches ) ) {
+        $candidates = array_merge( $candidates, $number_matches[0] );
+        $candidates = array_values( array_unique( $candidates ) );
+    }
+
+    if ( $order_email && function_exists( 'wc_get_order' ) ) {
+        foreach ( $candidates as $candidate ) {
+            $candidate_order = wc_get_order( $candidate );
+
+            if ( $candidate_order && strtolower( $candidate_order->get_billing_email() ) === strtolower( $order_email ) ) {
+                $order_id = $candidate;
+                break;
+            }
+        }
+    }
+
+    if ( '' === $order_id && ! empty( $candidates ) ) {
+        $order_id = $candidates[0];
+    }
+
+    if ( '' !== $order_id ) {
+        $_REQUEST['orderid'] = $order_id;
+
+        if ( isset( $_POST['orderid'] ) ) {
+            $_POST['orderid'] = $order_id;
+        }
+
+        if ( isset( $_GET['orderid'] ) ) {
+            $_GET['orderid'] = $order_id;
+        }
+    }
+}
 ?>
 
 <main class="track-order-page">

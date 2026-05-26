@@ -2,92 +2,115 @@
 /**
  * Template Part: Track Your Order
  */
+
+$support_email = 'support@brogeshoes.com';
+$support_hours = __('Monday-Friday, 9:00 AM-5:00 PM PST', 'dawp');
 ?>
 
-<main class="track-order-page">
+<section class="track-order-page">
+    <div class="track-shell">
+        <header class="track-hero" aria-labelledby="track-order-title">
+            <div class="track-hero__copy">
+                <span class="track-kicker"><?php esc_html_e('Order Tracking', 'dawp'); ?></span>
+                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your Broge Shoes order.', 'dawp'); ?></h1>
+                <p class="track-hero__desc">
+                    <?php esc_html_e('Use the order number and billing email from your confirmation email to check the latest available status for your shipment.', 'dawp'); ?>
+                </p>
+            </div>
 
-    <!-- Hero Section -->
-    <section class="track-hero">
-        <div class="track-hero__inner">
-            <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
-            <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
-            <p class="track-hero__desc">
-                <?php esc_html_e('Enter your order details below to see your shipment status. We\'ll let you know exactly where your boutique treasures are on their way to you.', 'dawp'); ?>
-            </p>
-        </div>
-    </section>
+            <div class="track-hero__status" aria-label="<?php esc_attr_e('Order support summary', 'dawp'); ?>">
+                <div>
+                    <span><?php esc_html_e('Handling', 'dawp'); ?></span>
+                    <strong><?php esc_html_e('1-2 business days', 'dawp'); ?></strong>
+                </div>
+                <div>
+                    <span><?php esc_html_e('Transit', 'dawp'); ?></span>
+                    <strong><?php esc_html_e('5-7 business days', 'dawp'); ?></strong>
+                </div>
+            </div>
+        </header>
 
-    <!-- Form Section -->
-    <section class="track-form-section">
-        <div class="track-form-section__inner">
+        <div class="track-workspace">
+            <div class="track-panel track-panel--form">
+                <div class="track-panel__header">
+                    <span class="track-panel__icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10H3"></path><path d="M7 15h.01"></path><path d="M11 15h2"></path><rect width="18" height="14" x="3" y="5" rx="2"></rect></svg>
+                    </span>
+                    <div>
+                        <h2><?php esc_html_e('Enter order details', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('Both fields are required so we can match your order securely.', 'dawp'); ?></p>
+                    </div>
+                </div>
 
-            <!-- Form Card -->
-            <div class="track-form-card">
-                <div class="track-form-card__body">
+                <div class="track-form-card">
                     <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
                 </div>
             </div>
 
-            <!-- Help Box -->
-            <div class="track-help-box">
-                <div class="track-help-box__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-                </div>
-                <div class="track-help-box__content">
-                    <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
-                    <p class="track-help-box__text">
-                        <?php esc_html_e('If you have any trouble, please reach out to our boutique team at ', 'dawp'); ?>
-                        <a href="mailto:support@shopkelli.com">support@shopkelli.com</a>
-                        <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
+            <aside class="track-panel track-panel--support" aria-labelledby="track-support-title">
+                <div class="track-support-card">
+                    <span class="track-panel__icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg>
+                    </span>
+                    <h2 id="track-support-title"><?php esc_html_e('Need tracking help?', 'dawp'); ?></h2>
+                    <p>
+                        <?php esc_html_e('If your order status is unclear, contact our support team with your order number and shipping address.', 'dawp'); ?>
                     </p>
+                    <a class="track-support-card__email" href="mailto:<?php echo esc_attr($support_email); ?>">
+                        <?php echo esc_html($support_email); ?>
+                    </a>
+                    <a class="track-button track-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>">
+                        <?php esc_html_e('Contact Support', 'dawp'); ?>
+                    </a>
+                    <p class="track-support-card__hours"><?php echo esc_html($support_hours); ?></p>
                 </div>
-            </div>
 
-            <!-- Trust Badges -->
-            <div class="track-badges">
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                    <?php esc_html_e('Secure Tracking', 'dawp'); ?>
-                </div>
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    <?php esc_html_e('Real-time Updates', 'dawp'); ?>
-                </div>
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                    <?php esc_html_e('Order Protection', 'dawp'); ?>
-                </div>
-            </div>
-
+                <ol class="track-timeline" aria-label="<?php esc_attr_e('Typical order timeline', 'dawp'); ?>">
+                    <li>
+                        <span></span>
+                        <div>
+                            <strong><?php esc_html_e('Order confirmed', 'dawp'); ?></strong>
+                            <p><?php esc_html_e('A confirmation email is sent after checkout.', 'dawp'); ?></p>
+                        </div>
+                    </li>
+                    <li>
+                        <span></span>
+                        <div>
+                            <strong><?php esc_html_e('Prepared for shipment', 'dawp'); ?></strong>
+                            <p><?php esc_html_e('Most orders are handled within 1-2 business days.', 'dawp'); ?></p>
+                        </div>
+                    </li>
+                    <li>
+                        <span></span>
+                        <div>
+                            <strong><?php esc_html_e('Tracking updates', 'dawp'); ?></strong>
+                            <p><?php esc_html_e('Carrier scans may take time to appear after handoff.', 'dawp'); ?></p>
+                        </div>
+                    </li>
+                </ol>
+            </aside>
         </div>
-    </section>
 
-    <!-- More Ways Section -->
-    <section class="track-more-section">
-        <div class="track-more-section__inner">
-            <div class="track-more-section__header">
-                <h2 class="track-more-section__title"><?php esc_html_e('More Ways We Can Help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth boutique experience.', 'dawp'); ?></p>
+        <div class="track-resources" aria-labelledby="track-resources-title">
+            <div class="track-resources__header">
+                <span class="track-kicker"><?php esc_html_e('Customer Care', 'dawp'); ?></span>
+                <h2 id="track-resources-title"><?php esc_html_e('Useful order links', 'dawp'); ?></h2>
             </div>
-            <div class="track-more-grid">
-                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our 1-3 business day processing time, 3-5 business day transit time, and free U.S. standard shipping.', 'dawp'); ?></p>
+
+            <div class="track-resource-grid">
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-resource-card">
+                    <span><?php esc_html_e('Shipping', 'dawp'); ?></span>
+                    <strong><?php esc_html_e('Delivery timelines and carrier notes', 'dawp'); ?></strong>
                 </a>
-                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Review our 30-day return window, exchange rules, and refund processing details.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="track-resource-card">
+                    <span><?php esc_html_e('Returns', 'dawp'); ?></span>
+                    <strong><?php esc_html_e('Eligibility, exchanges, and refunds', 'dawp'); ?></strong>
                 </a>
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our boutique team is here to help, Mon–Sat 10 AM–6 PM PST.', 'dawp'); ?></p>
-                </a>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Find quick answers to our most common customer questions.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-resource-card">
+                    <span><?php esc_html_e('FAQ', 'dawp'); ?></span>
+                    <strong><?php esc_html_e('Fast answers before contacting us', 'dawp'); ?></strong>
                 </a>
             </div>
         </div>
-    </section>
-
-</main>
+    </div>
+</section>

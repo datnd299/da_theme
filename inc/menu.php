@@ -55,7 +55,8 @@ function dawp_footer_columns() {
             'title' => 'Policy',
             'links' => [
                 ['title' => 'FAQs',               'url' => home_url('/faq/')],
-                ['title' => 'Shipping & Returns',  'url' => home_url('/shipping-returns/')],
+                ['title' => 'Shipping Policy',     'url' => home_url('/shipping-policy/')],
+                ['title' => 'Refund & Return Policy', 'url' => home_url('/refund-return-policy/')],
                 ['title' => 'Privacy Policy',      'url' => home_url('/privacy-policy/')],
                 ['title' => 'Terms & Conditions',  'url' => home_url('/terms-conditions/')],
             ],

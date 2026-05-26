@@ -148,13 +148,13 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8 text-center">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
                     <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our 2:00 PM PST cutoff, 0-1 business day delivery estimate, and free U.S. standard shipping details.', 'dawp'); ?></p>
+                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our 5:00 PM Pacific Standard Time cutoff, 1-3 business day processing time, 3-5 business day transit time, and free U.S. standard shipping details.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Learn how we protect your personal information and data.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
+                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h3>
+                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Review our 30-day return window, return condition requirements, exchange details, and refund timing.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
                     <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h3>

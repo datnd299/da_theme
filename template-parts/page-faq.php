@@ -85,7 +85,7 @@
                             </span>
                         </button>
                         <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Orders placed before our 2:00 PM PST cutoff are typically handled within 0-1 business days, Monday-Saturday. Estimated total delivery time is 0-1 business days, with tracking emailed once your order is ready for delivery. For full details, please visit our <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="text-accent hover:underline font-medium">Shipping Policy</a>.</p>
+                            <p>Orders placed before our 5:00 PM Pacific Standard Time cutoff are typically processed within 1-3 business days, Monday-Friday. Shipping transit time is 3-5 business days after processing is complete, so estimated total delivery time is 4-8 business days. For full details, please visit our <a href="<?php echo esc_url( home_url( '/shipping-policy/' ) ); ?>" class="text-accent hover:underline font-medium">Shipping Policy</a>.</p>
                         </div>
                     </div>
 
@@ -133,7 +133,7 @@
                             </span>
                         </button>
                         <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We accept returns within 30 days of delivery for eligible new-condition items. Items must be unused, unworn, in original condition, and returned with original tags and packaging. For full details, please see our <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="text-accent hover:underline font-medium">Return & Refund Policy</a>.</p>
+                            <p>We accept returns within 30 days of delivery for eligible new-condition items. Items must be unused, unworn, in original condition, and returned with original tags and packaging. For full details, please see our <a href="<?php echo esc_url( home_url( '/refund-return-policy/' ) ); ?>" class="text-accent hover:underline font-medium">Refund & Return Policy</a>.</p>
                         </div>
                     </div>
 
@@ -206,7 +206,8 @@
 
         <!-- Policy Links Footer -->
         <div class="mt-16 pt-8 border-t border-border flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted">
-            <a href="<?php echo esc_url( home_url( '/shipping-returns/' ) ); ?>" class="hover:text-accent transition-colors">Shipping & Returns</a>
+            <a href="<?php echo esc_url( home_url( '/shipping-policy/' ) ); ?>" class="hover:text-accent transition-colors">Shipping Policy</a>
+            <a href="<?php echo esc_url( home_url( '/refund-return-policy/' ) ); ?>" class="hover:text-accent transition-colors">Refund & Return Policy</a>
             <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-accent transition-colors">Privacy Policy</a>
             <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>" class="hover:text-accent transition-colors">Terms of Service</a>
         </div>

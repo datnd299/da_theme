@@ -211,7 +211,7 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="hover:text-white transition-colors">
 
                         <?php esc_html_e('Shipping', 'dawp'); ?>

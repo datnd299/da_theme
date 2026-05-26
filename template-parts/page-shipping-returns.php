@@ -27,16 +27,21 @@
             </div>
 
             <div class="lg:col-span-9 space-y-8">
-                <div class="grid md:grid-cols-3 gap-4">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div class="bg-background p-6 rounded-lg border border-border shadow-card">
                         <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Order Cutoff</p>
-                        <p class="text-foreground text-2xl font-bold">2:00 PM</p>
+                        <p class="text-foreground text-2xl font-bold">5:00 PM</p>
                         <p class="text-foreground-muted text-sm mt-2">Pacific Standard Time</p>
                     </div>
                     <div class="bg-background p-6 rounded-lg border border-border shadow-card">
                         <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Handling Time</p>
-                        <p class="text-foreground text-2xl font-bold">0-1 Business Days</p>
-                        <p class="text-foreground-muted text-sm mt-2">Orders are fulfilled Monday-Saturday.</p>
+                        <p class="text-foreground text-2xl font-bold">1-3 Business Days</p>
+                        <p class="text-foreground-muted text-sm mt-2">Orders are fulfilled Monday-Friday.</p>
+                    </div>
+                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
+                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Transit Time</p>
+                        <p class="text-foreground text-2xl font-bold">3-5 Business Days</p>
+                        <p class="text-foreground-muted text-sm mt-2">After processing is complete.</p>
                     </div>
                     <div class="bg-background p-6 rounded-lg border border-border shadow-card">
                         <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Shipping Cost</p>
@@ -66,19 +71,19 @@
                                 </div>
                                 <div class="flex justify-between gap-4 border-b border-border pb-3">
                                     <dt class="text-foreground-muted">Order cutoff time</dt>
-                                    <dd class="text-foreground font-semibold text-right">2:00 PM PST</dd>
+                                    <dd class="text-foreground font-semibold text-right">5:00 PM Pacific Standard Time</dd>
                                 </div>
                                 <div class="flex justify-between gap-4 border-b border-border pb-3">
                                     <dt class="text-foreground-muted">Handling time</dt>
-                                    <dd class="text-foreground font-semibold text-right">0-1 business days</dd>
+                                    <dd class="text-foreground font-semibold text-right">1-3 business days</dd>
                                 </div>
                                 <div class="flex justify-between gap-4 border-b border-border pb-3">
                                     <dt class="text-foreground-muted">Fulfillment days</dt>
-                                    <dd class="text-foreground font-semibold text-right">Monday-Saturday</dd>
+                                    <dd class="text-foreground font-semibold text-right">Monday-Friday</dd>
                                 </div>
                                 <div class="flex justify-between gap-4">
                                     <dt class="text-foreground-muted">Transit time</dt>
-                                    <dd class="text-foreground font-semibold text-right">0 business days</dd>
+                                    <dd class="text-foreground font-semibold text-right">3-5 business days</dd>
                                 </div>
                             </dl>
                         </div>
@@ -92,7 +97,15 @@
                                 </li>
                                 <li class="flex gap-3">
                                     <span class="mt-1 h-2 w-2 rounded-full bg-accent shrink-0"></span>
-                                    <span>Estimated total delivery time is 0-1 business days after the order is placed before the daily cutoff.</span>
+                                    <span>Orders are processed within 1-3 business days after the order is placed before the daily cutoff.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="mt-1 h-2 w-2 rounded-full bg-accent shrink-0"></span>
+                                    <span>Shipping transit time is 3-5 business days after processing is complete.</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="mt-1 h-2 w-2 rounded-full bg-accent shrink-0"></span>
+                                    <span>Estimated total delivery time is 4-8 business days.</span>
                                 </li>
                                 <li class="flex gap-3">
                                     <span class="mt-1 h-2 w-2 rounded-full bg-accent shrink-0"></span>
@@ -148,7 +161,7 @@
                         </div>
                     </div>
 
-                    <div class="grid md:grid-cols-3 gap-4 mb-8">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                         <div class="border border-border rounded-lg p-5">
                             <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Method</p>
                             <p class="text-foreground font-semibold">By mail</p>
@@ -160,6 +173,10 @@
                         <div class="border border-border rounded-lg p-5">
                             <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Restocking Fee</p>
                             <p class="text-foreground font-semibold">No cost</p>
+                        </div>
+                        <div class="border border-border rounded-lg p-5">
+                            <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Return Address</p>
+                            <p class="text-foreground font-semibold">1777 Canal St, Merced, CA 95340</p>
                         </div>
                     </div>
 

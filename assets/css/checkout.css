@@ -25,7 +25,7 @@
 
 .wp-block-woocommerce-checkout .wc-block-components-text-input input:focus,
 .wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus {
-  border-color: var(--color-foreground) !important;
+  border-color: var(--color-accent) !important;
   outline: none !important;
   box-shadow: none !important;
 }
@@ -47,7 +47,7 @@
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button:hover {
-  background-color: var(--color-foreground) !important;
+  background-color: var(--color-accent-hover) !important;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md) !important;
 }
@@ -68,14 +68,14 @@
 
 /* Success Notice */
 .woocommerce-notice--success.woocommerce-thankyou-order-received {
-  background-color: rgba(0, 210, 106, 0.1);
+  background-color: color-mix(in srgb, var(--color-success) 10%, transparent);
   color: var(--color-success);
   padding: 1.5rem;
   border-radius: var(--radius-md);
   text-align: center;
   font-weight: 600;
   margin-bottom: 2rem;
-  border: 1px solid rgba(0, 210, 106, 0.2);
+  border: 1px solid color-mix(in srgb, var(--color-success) 22%, transparent);
 }
 
 /* Order Overview List */

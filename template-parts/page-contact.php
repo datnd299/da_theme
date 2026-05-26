@@ -1,166 +1,225 @@
 <?php
 /**
- * Template Name: Contact Us
- * Template Part: page-contact
+ * Handed Shoes — Contact Us Page + Working WordPress Contact Form
+ *
+ * IMPORTANT:
+ * - The HTML page section can be used in your Contact page template.
+ * - The form submits to admin-post.php using action="handedshoes_contact_submit".
+ * - For the form to work, place the handler block below in functions.php or a small custom plugin.
  */
+
+/* =========================================================
+ * CONTACT FORM HANDLER — place in functions.php or plugin
+ * ========================================================= */
+if (!function_exists('handedshoes_contact_form_handler')) {
+    function handedshoes_contact_form_handler() {
+        if (!isset($_POST['handedshoes_contact_nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['handedshoes_contact_nonce'])), 'handedshoes_contact_form')) {
+            wp_safe_redirect(home_url('/contact-us/?contact_status=invalid'));
+            exit;
+        }
+
+        // Honeypot spam check.
+        if (!empty($_POST['website'])) {
+            wp_safe_redirect(home_url('/contact-us/?contact_status=success'));
+            exit;
+        }
+
+        $name        = isset($_POST['customer_name']) ? sanitize_text_field(wp_unslash($_POST['customer_name'])) : '';
+        $email       = isset($_POST['customer_email']) ? sanitize_email(wp_unslash($_POST['customer_email'])) : '';
+        $subject     = isset($_POST['contact_subject']) ? sanitize_text_field(wp_unslash($_POST['contact_subject'])) : '';
+        $order       = isset($_POST['order_number']) ? sanitize_text_field(wp_unslash($_POST['order_number'])) : '';
+        $message     = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
+        $consent     = isset($_POST['contact_consent']) ? sanitize_text_field(wp_unslash($_POST['contact_consent'])) : '';
+
+        if (empty($name) || empty($email) || empty($subject) || empty($message) || empty($consent) || !is_email($email)) {
+            wp_safe_redirect(home_url('/contact-us/?contact_status=error'));
+            exit;
+        }
+
+        $to           = 'support@handedshoes.com';
+        $mail_subject = 'New Contact Request — Handed Shoes: ' . $subject;
+        $body         = "New contact request from Handed Shoes website:\n\n";
+        $body        .= "Name: {$name}\n";
+        $body        .= "Email: {$email}\n";
+        $body        .= "Subject: {$subject}\n";
+        $body        .= "Order Number: " . ($order ? $order : 'Not provided') . "\n\n";
+        $body        .= "Message:\n{$message}\n\n";
+        $body        .= "Submitted from: " . home_url('/contact-us/') . "\n";
+
+        $headers = [
+            'Content-Type: text/plain; charset=UTF-8',
+            'Reply-To: ' . $name . ' <' . $email . '>',
+        ];
+
+        $sent = wp_mail($to, $mail_subject, $body, $headers);
+
+        if ($sent) {
+            wp_safe_redirect(home_url('/contact-us/?contact_status=success'));
+        } else {
+            wp_safe_redirect(home_url('/contact-us/?contact_status=error'));
+        }
+        exit;
+    }
+}
+
+add_action('admin_post_handedshoes_contact_submit', 'handedshoes_contact_form_handler');
+add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_form_handler');
 ?>
 
-<main class="bg-[#FAF7F2]">
-    <!-- Header Section -->
-    <section class="py-16 lg:py-24 px-4 bg-white border-b border-[#E6DDD6]">
-        <div class="max-w-3xl mx-auto text-center space-y-6">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-[#c98a8a]/10 text-[#c98a8a] text-sm font-bold uppercase tracking-widest">
-                <?php esc_html_e('Get in Touch', 'dawp'); ?>
-            </div>
-            <h1 class="text-4xl lg:text-5xl font-serif text-[#2F2A28]">
-                <?php esc_html_e('We’d Love to Hear from You', 'dawp'); ?>
-            </h1>
-            <p class="text-lg text-[#6F625D] leading-relaxed">
-                <?php esc_html_e('Whether you have a question about sizing, styling, or your recent order, our boutique team is here to help you every step of the way.', 'dawp'); ?>
-            </p>
+<!-- Handed Shoes — Contact Us Page HTML -->
+<main class="bg-[#F4EEE6] text-[#121212]">
+  <!-- ================= CONTACT FORM + INFO ================= -->
+  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
+      <!-- Contact Info -->
+      <aside class="space-y-5">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Customer Support</p>
+          <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+            Clear help before and after your order.
+          </h2>
+          <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+            Please include your order number if your message is about an existing purchase. For footwear questions, mention the product name, size, color, and the issue you need help with.
+          </p>
         </div>
-    </section>
 
-    <!-- Contact Info & Form Section -->
-    <section class="py-20 px-4 lg:px-8">
-        <div class="max-w-[1280px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20">
-            
-            <!-- Left Side: Contact Details -->
-            <div class="lg:col-span-5 space-y-12">
-                
-                <!-- Brand Support Image -->
-                <div class="relative rounded-3xl overflow-hidden shadow-lg aspect-[16/10]">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/support_contact.png'); ?>" 
-                         alt="Shop Kelli Support Desk" 
-                         class="w-full h-full object-cover">
-                </div>
-
-                <div class="grid gap-8">
-                    <!-- Support Hours -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Boutique Hours', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <?php esc_html_e('Mon – Sat, 10:00 AM – 6:00 PM (PST)', 'dawp'); ?><br>
-                                <?php esc_html_e('Closed on Sundays', 'dawp'); ?>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Email Support -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Email Support', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <a href="mailto:support@shopkelli.com" class="hover:text-[#c98a8a] transition-colors">support@shopkelli.com</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Physical Address (GMC Priority) -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Our Location', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Right Side: Contact Form -->
-            <div class="lg:col-span-7 bg-white p-8 lg:p-12 rounded-3xl border border-[#E6DDD6] shadow-sm">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label for="contact_name" class="text-sm font-bold text-[#2F2A28]">
-                                <?php esc_html_e('Your Name', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                            </label>
-                            <input type="text" id="contact_name" name="name" required
-                                   class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28]"
-                                   placeholder="<?php esc_attr_e('e.g. Sarah Johnson', 'dawp'); ?>">
-                        </div>
-                        <div class="space-y-2">
-                            <label for="contact_email" class="text-sm font-bold text-[#2F2A28]">
-                                <?php esc_html_e('Email Address', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                            </label>
-                            <input type="email" id="contact_email" name="email" required
-                                   class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28]"
-                                   placeholder="<?php esc_attr_e('sarah@example.com', 'dawp'); ?>">
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label for="contact_subject" class="text-sm font-bold text-[#2F2A28]">
-                            <?php esc_html_e('Subject', 'dawp'); ?>
-                        </label>
-                        <select id="contact_subject" name="subject"
-                                class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] transition-all text-[#2F2A28]">
-                            <option value="general"><?php esc_html_e('General Inquiry', 'dawp'); ?></option>
-                            <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
-                            <option value="styling"><?php esc_html_e('Styling Help', 'dawp'); ?></option>
-                            <option value="return"><?php esc_html_e('Returns & Exchanges', 'dawp'); ?></option>
-                        </select>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label for="contact_message" class="text-sm font-bold text-[#2F2A28]">
-                            <?php esc_html_e('Your Message', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                        </label>
-                        <textarea id="contact_message" name="message" rows="5" required
-                                  class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28] resize-none"
-                                  placeholder="<?php esc_attr_e('How can we help you today?', 'dawp'); ?>"></textarea>
-                    </div>
-
-                    <button type="submit"
-                            class="w-full py-4 px-8 bg-[#c98a8a] text-white font-bold rounded-xl hover:bg-[#b37a7a] transition-all shadow-md active:scale-[0.98]">
-                        <?php esc_html_e('Send Message', 'dawp'); ?>
-                    </button>
-
-                    <p id="contact-msg" aria-live="polite" style="display:none" class="text-sm text-center font-bold"></p>
-
-                    <p class="text-xs text-[#9A8C86] text-center italic">
-                        <?php esc_html_e('Our boutique team typically responds within 24 business hours.', 'dawp'); ?>
-                    </p>
-                </form>
-            </div>
-
+        <div class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#A96538]">Email</p>
+          <a href="mailto:support@handedshoes.com" class="mt-2 inline-flex text-lg font-bold text-[#121212] hover:text-[#A96538]">support@handedshoes.com</a>
         </div>
-    </section>
 
-    <!-- Quick Help Section -->
-    <section class="py-20 px-4 bg-white border-t border-[#E6DDD6]">
-        <div class="max-w-[1280px] mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl lg:text-3xl font-serif text-[#2F2A28]"><?php esc_html_e('Quick Answers', 'dawp'); ?></h2>
-                <p class="text-[#6F625D] mt-2"><?php esc_html_e('Find what you need even faster.', 'dawp'); ?></p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our 5:00 PM Pacific Standard Time cutoff, 1-3 business day processing time, 3-5 business day transit time, and free U.S. standard shipping details.', 'dawp'); ?></p>
-                </a>
-                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Review our 30-day return window, return condition requirements, exchange details, and refund timing.', 'dawp'); ?></p>
-                </a>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Find answers to our most common customer inquiries.', 'dawp'); ?></p>
-                </a>
-            </div>
+        <div class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#A96538]">Business Hours</p>
+          <p class="mt-2 text-sm leading-7 text-[#3A2418]/72">Monday – Friday, 9:00 AM – 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)</p>
         </div>
-    </section>
+
+        <div class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#A96538]">Response Time</p>
+          <p class="mt-2 text-sm leading-7 text-[#3A2418]/72">We aim to reply within 1 business day.</p>
+        </div>
+
+        <div class="rounded-3xl border border-[#3A2418]/10 bg-[#121212] p-6 text-white shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#B8955A]">Helpful Links</p>
+          <div class="mt-5 grid gap-3">
+            <a href="/track-order/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Track Order →</a>
+            <a href="/shipping-policy/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Shipping Policy →</a>
+            <a href="/refund-return-policy/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Return & Refund Policy →</a>
+            <a href="/size-guide/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Size Guide →</a>
+            <a href="/faq/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">FAQs →</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Contact Form -->
+      <div class="rounded-[2rem] border border-[#3A2418]/10 bg-white p-6 shadow-2xl shadow-[#3A2418]/10 sm:p-8 lg:p-10">
+        <?php if (isset($_GET['contact_status'])) : ?>
+          <?php if ($_GET['contact_status'] === 'success') : ?>
+            <div class="mb-6 rounded-2xl border border-green-200 bg-green-50 p-4 text-sm font-semibold text-green-800">
+              Thank you. Your message has been sent successfully. Our support team will reply as soon as possible.
+            </div>
+          <?php elseif ($_GET['contact_status'] === 'invalid') : ?>
+            <div class="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-800">
+              Security verification failed. Please refresh the page and try again.
+            </div>
+          <?php else : ?>
+            <div class="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-sm font-semibold text-red-800">
+              We could not send your message. Please check all required fields or email us directly.
+            </div>
+          <?php endif; ?>
+        <?php endif; ?>
+
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Send A Message</p>
+        <h2 class="mt-3 font-serif text-4xl font-semibold text-[#121212]">How can we help?</h2>
+        <p class="mt-4 text-sm leading-7 text-[#3A2418]/70">
+          Fill out the form below. Fields marked with an asterisk are required.
+        </p>
+
+        <form class="mt-8 grid gap-5" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+          <input type="hidden" name="action" value="handedshoes_contact_submit" />
+          <?php wp_nonce_field('handedshoes_contact_form', 'handedshoes_contact_nonce'); ?>
+
+          <!-- Honeypot field: hidden from users -->
+          <div class="hidden" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="customer_name" class="mb-2 block text-sm font-bold text-[#121212]">Full Name *</label>
+              <input id="customer_name" name="customer_name" type="text" required autocomplete="name" class="min-h-12 w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 text-sm text-[#121212] outline-none transition placeholder:text-[#3A2418]/40 focus:border-[#A96538] focus:bg-white" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="customer_email" class="mb-2 block text-sm font-bold text-[#121212]">Email Address *</label>
+              <input id="customer_email" name="customer_email" type="email" required autocomplete="email" class="min-h-12 w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 text-sm text-[#121212] outline-none transition placeholder:text-[#3A2418]/40 focus:border-[#A96538] focus:bg-white" placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label for="contact_subject" class="mb-2 block text-sm font-bold text-[#121212]">Subject *</label>
+              <select id="contact_subject" name="contact_subject" required class="min-h-12 w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 text-sm text-[#121212] outline-none transition focus:border-[#A96538] focus:bg-white">
+                <option value="">Select a topic</option>
+                <option value="Order Support">Order Support</option>
+                <option value="Shipping Question">Shipping Question</option>
+                <option value="Return Or Refund">Return Or Refund</option>
+                <option value="Size Or Fit Help">Size Or Fit Help</option>
+                <option value="Product Question">Product Question</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label for="order_number" class="mb-2 block text-sm font-bold text-[#121212]">Order Number</label>
+              <input id="order_number" name="order_number" type="text" class="min-h-12 w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 text-sm text-[#121212] outline-none transition placeholder:text-[#3A2418]/40 focus:border-[#A96538] focus:bg-white" placeholder="Optional" />
+            </div>
+          </div>
+
+          <div>
+            <label for="message" class="mb-2 block text-sm font-bold text-[#121212]">Message *</label>
+            <textarea id="message" name="message" required rows="7" class="w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 py-3 text-sm text-[#121212] outline-none transition placeholder:text-[#3A2418]/40 focus:border-[#A96538] focus:bg-white" placeholder="Tell us how we can help. For order questions, include product name, size, color, and any useful details."></textarea>
+          </div>
+
+          <label class="flex gap-3 rounded-2xl border border-[#3A2418]/10 bg-[#F4EEE6] p-4 text-sm leading-6 text-[#3A2418]/75">
+            <input type="checkbox" name="contact_consent" value="yes" required class="mt-1 h-4 w-4 rounded border-[#3A2418]/25 text-[#A96538]" />
+            <span>I confirm that the information provided is accurate and agree to be contacted by Handed Shoes regarding this request.</span>
+          </label>
+
+          <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-8 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[#121212]">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SUPPORT TOPICS ================= -->
+  <section class="bg-white py-16 sm:py-20 lg:py-24">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+      <div class="mb-10 max-w-3xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Support Topics</p>
+        <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+          Common questions we can help with.
+        </h2>
+      </div>
+
+      <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Size & Fit</h3>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Ask about size guide, fit notes, and shoe style differences before ordering.</p>
+        </article>
+        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Shipping</h3>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Get help with tracking, delivery timelines, multiple packages, or delivery issues.</p>
+        </article>
+        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Returns</h3>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Review return eligibility, footwear condition rules, and refund steps.</p>
+        </article>
+        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Product Details</h3>
+          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Ask about shoe type, closure, material or finish, care instructions, and styling use.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 </main>

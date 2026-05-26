@@ -43,6 +43,19 @@
   --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
   --font-heading: 'Playfair Display', 'Georgia', serif;
 
+  /* === LEGACY WOOCOMMERCE ALIASES === */
+  --font-primary: var(--font-sans);
+  --color-bg: var(--color-background);
+  --color-bg-subtle: var(--color-surface);
+  --color-text-primary: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-muted);
+  --color-text-muted: var(--color-muted);
+  --color-sale: var(--color-accent-hover);
+  --color-original-price: var(--color-muted);
+  --color-navy: var(--color-foreground);
+  --color-navy-light: var(--color-accent-hover);
+  --shadow-md: 0 4px 12px rgba(47, 42, 40, 0.12);
+
   /* === SPACING === */
   --space-xs: 4px;
   --space-sm: 8px;

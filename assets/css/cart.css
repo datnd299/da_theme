@@ -426,11 +426,11 @@
   border-radius: 8px;
   cursor: pointer;
   flex-shrink: 0;
-  transition: opacity 0.2s;
+  transition: background 0.2s;
 }
 
 .wc-block-components-totals-coupon__button:hover:not(:disabled) {
-  opacity: 0.8;
+  background: var(--color-accent-hover);
 }
 
 .wc-block-components-totals-coupon__button:disabled {
@@ -465,11 +465,11 @@
   text-decoration: none;
   cursor: pointer;
   box-sizing: border-box;
-  transition: opacity 0.2s, transform 0.15s;
+  transition: background 0.2s, transform 0.15s;
 }
 
 .wc-block-cart__submit-button:hover {
-  opacity: 0.85;
+  background: var(--color-accent-hover);
 }
 
 .wc-block-cart__submit-button:active {
@@ -700,9 +700,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s;
+  transition: background 0.2s;
 }
 
 .wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
-  opacity: 0.8;
+  background: var(--color-accent-hover);
 }

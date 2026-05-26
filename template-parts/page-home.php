@@ -1,328 +1,394 @@
+<?php
+/**
+ * Template Part: Home
+ *
+ * @package dawp
+ */
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-[#0B0F0D] text-white">
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-      <div class="absolute -right-20 top-20 h-72 w-72 rounded-full bg-[#A3E635]/20 blur-3xl"></div>
-      <div class="absolute -left-24 bottom-10 h-80 w-80 rounded-full bg-[#22C55E]/20 blur-3xl"></div>
+$shop_url             = home_url('/shop/');
+$support_email        = 'support@houseofshoesonline.com';
+$shipping_returns_url = home_url('/shipping-returns/');
+$contact_url          = home_url('/contact-us/');
+$size_guide_url       = home_url('/size-guide/');
 
-      <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8 lg:py-28">
+if (!function_exists('dawp_home_category_url')) {
+    function dawp_home_category_url($slug) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+
+        if ($term && !is_wp_error($term)) {
+            $link = get_term_link($term);
+            if (!is_wp_error($link)) {
+                return $link;
+            }
+        }
+
+        return home_url('/product-category/' . trailingslashit($slug));
+    }
+}
+
+if (!function_exists('dawp_home_category_image')) {
+    function dawp_home_category_image($slug) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+
+        if ($term && !is_wp_error($term)) {
+            $thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+            $image_url    = $thumbnail_id ? wp_get_attachment_image_url($thumbnail_id, 'large') : '';
+
+            if ($image_url) {
+                return $image_url;
+            }
+        }
+
+        if (function_exists('wc_placeholder_img_src')) {
+            return wc_placeholder_img_src('large');
+        }
+
+        return get_template_directory_uri() . '/assets/img/payment-methods.webp';
+    }
+}
+
+if (!function_exists('dawp_home_first_product_image')) {
+    function dawp_home_first_product_image($category_slug = '') {
+        if (!function_exists('wc_get_products')) {
+            return function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('large') : '';
+        }
+
+        $args = [
+            'limit'  => 1,
+            'status' => 'publish',
+        ];
+
+        if ($category_slug) {
+            $args['category'] = [$category_slug];
+        }
+
+        $products = wc_get_products($args);
+        $product  = $products ? $products[0] : null;
+
+        if ($product) {
+            $image_url = wp_get_attachment_image_url($product->get_image_id(), 'large');
+            if ($image_url) {
+                return $image_url;
+            }
+        }
+
+        return function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('large') : '';
+    }
+}
+
+$categories = [
+    [
+        'name' => __('Everyday Sneakers', 'dawp'),
+        'slug' => 'everyday-sneakers',
+        'copy' => __('Casual sneakers for daily outfits and easy movement.', 'dawp'),
+        'badge' => __('Daily Wear', 'dawp'),
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Image/sneaker_two.png',
+    ],
+    [
+        'name' => __('Comfort Shoes', 'dawp'),
+        'slug' => 'comfort-shoes',
+        'copy' => __('Soft everyday styles made for walking, errands, and daily routines.', 'dawp'),
+        'badge' => __('Comfort Style', 'dawp'),
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Image/comfort_shoes.png',
+    ],
+    [
+        'name' => __('Sandals & Slides', 'dawp'),
+        'slug' => 'sandals-slides',
+        'copy' => __('Easy warm-weather footwear for relaxed days and casual looks.', 'dawp'),
+        'badge' => __('Easy Wear', 'dawp'),
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Image/Slides.png',
+    ],
+    [
+        'name' => __('Slippers', 'dawp'),
+        'slug' => 'slippers',
+        'copy' => __('Soft house shoes for simple comfort at home.', 'dawp'),
+        'badge' => __('Home Comfort', 'dawp'),
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Image/Slippers.png',
+    ],
+    [
+        'name' => __('Boots', 'dawp'),
+        'slug' => 'boots',
+        'copy' => __('Everyday boot styles for seasonal outfits and confident steps.', 'dawp'),
+        'badge' => __('Seasonal Style', 'dawp'),
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Image/boots_new.png',
+    ],
+];
+
+$new_arrivals = function_exists('wc_get_products') ? wc_get_products([
+    'limit'   => 3,
+    'orderby' => 'date',
+    'order'   => 'DESC',
+    'status'  => 'publish',
+]) : [];
+?>
+
+<!-- Hero -->
+<section class="relative overflow-hidden bg-[#FFF7FB] text-[#141217]">
+    <div class="absolute left-0 top-0 h-1 w-full bg-[linear-gradient(90deg,#E6007E,#FF4FB8,#7C3AED)]"></div>
+    <div class="absolute inset-y-0 right-0 hidden w-[46%] bg-[linear-gradient(135deg,#F3E8FF_0%,#F4DDE8_100%)] lg:block"></div>
+
+    <div class="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 lg:min-h-[650px] lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8 lg:py-20">
         <div class="max-w-2xl">
-          <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[#A3E635]">
-            Graphic Apparel / Streetwear Essentials
-          </p>
-
-          <h1 class="text-5xl font-black uppercase leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl">
-            Clean Fits. Bold Energy.
-          </h1>
-
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/85">
-            Modern graphic tees, oversized silhouettes, casual hoodies, and everyday streetwear essentials built for clean style without the noise.
-          </p>
-
-          <div class="mt-9 flex flex-wrap gap-4">
-            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#22C55E] px-7 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Now
-            </a>
-
-            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B0F0D]">
-              Explore Graphic Tees
-            </a>
-          </div>
-        </div>
-
-        <div class="relative">
-          <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/image_banner%231.png'); ?>" alt="Modern streetwear graphic tee outfit" class="aspect-[4/5] w-full rounded-[1.35rem] object-cover" />
-          </div>
-
-          <div class="absolute -bottom-7 -left-4 hidden max-w-[250px] rounded-2xl border border-white/10 bg-white p-5 text-[#111827] shadow-2xl lg:block">
-            <p class="text-xs font-black uppercase tracking-[0.2em] text-[#123D2A]">Built For Daily Wear</p>
-            <p class="mt-2 text-sm leading-6 text-[#6B7280]">Clean graphics. Easy fits. Street-ready comfort.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Categories -->
-    <section class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Shop By Category</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Streetwear Core</h2>
-          </div>
-          <p class="max-w-xl text-base leading-7 text-[#6B7280]">
-            Focused collections for graphic tees, oversized fits, hoodies, and everyday streetwear essentials.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/graphic_tee1.png'); ?>" alt="Graphic tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Graphic Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Original tee styles for everyday rotation.</p>
-              </div>
+            <div class="mb-7 flex flex-wrap items-center gap-3">
+                <span class="inline-flex rounded-full bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#E6007E] shadow-sm shadow-[#141217]/5">
+                    <?php esc_html_e('Modern Footwear Boutique', 'dawp'); ?>
+                </span>
+                <span class="hidden h-px w-16 bg-[#F0C7DC] sm:block"></span>
+                <span class="text-sm font-extrabold text-[#7C3AED]">
+                    <?php esc_html_e('Sneakers, sandals, boots & more', 'dawp'); ?>
+                </span>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversize tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Oversize Tees</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Relaxed silhouettes with modern street fit.</p>
-              </div>
+            <h1 class="font-heading text-5xl font-black leading-[0.94] text-[#141217] sm:text-6xl lg:text-7xl">
+                <?php esc_html_e('Everyday Shoes With Boutique Energy', 'dawp'); ?>
+            </h1>
+
+            <p class="mt-6 max-w-xl text-lg leading-8 text-[#5E5363]">
+                <?php esc_html_e('Shop comfortable everyday shoes, sneakers, sandals, slippers, and boots selected for easy outfits and confident steps.', 'dawp'); ?>
+            </p>
+
+            <div class="mt-9 flex flex-wrap gap-4">
+                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#E6007E] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#7C3AED]">
+                    <?php esc_html_e('Shop Shoes', 'dawp'); ?>
+                </a>
+
+                <a href="<?php echo esc_url(dawp_home_category_url('boots')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6007E] bg-white px-7 text-sm font-black uppercase tracking-wide text-[#E6007E] transition hover:bg-[#F3E8FF]">
+                    <?php esc_html_e('Explore Boots', 'dawp'); ?>
+                </a>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/hoodie%231.png'); ?>" alt="Hoodies collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Hoodies</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Clean layering pieces for casual outfits.</p>
-              </div>
+            <div class="mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
+                <a href="<?php echo esc_url(dawp_home_category_url('everyday-sneakers')); ?>" class="group border-l-4 border-[#7C3AED] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                    <span class="text-xs font-black uppercase tracking-[0.16em] text-[#7C3AED]"><?php esc_html_e('01', 'dawp'); ?></span>
+                    <span class="mt-2 block font-heading text-xl font-black leading-tight text-[#141217]"><?php esc_html_e('Sneakers', 'dawp'); ?></span>
+                </a>
+                <a href="<?php echo esc_url(dawp_home_category_url('sandals-slides')); ?>" class="group border-l-4 border-[#FF4FB8] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                    <span class="text-xs font-black uppercase tracking-[0.16em] text-[#E6007E]"><?php esc_html_e('02', 'dawp'); ?></span>
+                    <span class="mt-2 block font-heading text-xl font-black leading-tight text-[#141217]"><?php esc_html_e('Sandals & Slides', 'dawp'); ?></span>
+                </a>
             </div>
-          </a>
+        </div>
 
-          <a href="<?php echo esc_url(home_url('/product-category/streetwear-essentials/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/banner_image%232.png'); ?>" alt="Streetwear essentials collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
-            <div class="absolute bottom-0 left-0 right-0 p-5">
-              <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
-              <h3 class="text-2xl font-black uppercase leading-none tracking-[-0.04em] text-white">Essentials</h3>
-              <p class="mt-3 text-sm font-semibold leading-6 text-white/90">Minimal apparel built for easy styling.</p>
-              </div>
+        <div class="relative lg:pl-6">
+            <div class="grid grid-cols-[0.82fr_1.18fr] gap-4 sm:gap-5">
+                <div class="space-y-4 pt-8 sm:space-y-5 lg:pt-16">
+                    <a href="<?php echo esc_url(dawp_home_category_url('boots')); ?>" class="group block overflow-hidden rounded-[1.6rem] bg-white p-3 shadow-xl shadow-[#E6007E]/10 transition hover:-translate-y-1">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/boots.png'); ?>"
+                             alt="<?php esc_attr_e('Everyday boots from House of Shoes Online', 'dawp'); ?>"
+                             class="aspect-[4/5] w-full rounded-[1.1rem] bg-[#F6F5F7] object-cover transition duration-500 group-hover:scale-105">
+                    </a>
+                </div>
+
+                <div class="space-y-4 sm:space-y-5">
+                    <div class="mt-5 grid grid-cols-2 gap-4 sm:gap-5">
+                        <div class="bg-white p-5 shadow-sm">
+                            <p class="text-xs font-black uppercase tracking-[0.16em] text-[#7C3AED]"><?php esc_html_e('Fit First', 'dawp'); ?></p>
+                            <p class="mt-2 text-sm font-bold leading-6 text-[#5E5363]"><?php esc_html_e('Clear size guidance and product details before checkout.', 'dawp'); ?></p>
+                        </div>
+                        <a href="<?php echo esc_url(dawp_home_category_url('everyday-sneakers')); ?>" class="group block overflow-hidden rounded-[1.25rem] bg-white p-2 shadow-sm transition hover:-translate-y-1">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/sneaker.png'); ?>"
+                                 alt="<?php esc_attr_e('Everyday sneakers from House of Shoes Online', 'dawp'); ?>"
+                                 class="aspect-square w-full rounded-[0.9rem] bg-[#F6F5F7] object-cover transition duration-500 group-hover:scale-105">
+                        </a>
+                    </div>
+                    <a href="<?php echo esc_url(dawp_home_category_url('sandals-slides')); ?>" class="group block overflow-hidden rounded-[1.6rem] bg-[#141217] p-3 shadow-xl shadow-[#141217]/10 transition hover:-translate-y-1">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/Sandals_Women.png'); ?>"
+                             alt="<?php esc_attr_e('Sandals and slides from House of Shoes Online', 'dawp'); ?>"
+                             class="aspect-[5/4] w-full rounded-[1.1rem] bg-[#F6F5F7] object-cover opacity-95 transition duration-500 group-hover:scale-105">
+                    </a>
+                </div>
             </div>
-          </a>
+
+            <div class="pointer-events-none absolute -right-8 top-8 hidden h-24 w-24 rounded-full border border-white/80 lg:block"></div>
+            <div class="pointer-events-none absolute -bottom-8 left-6 hidden h-20 w-20 rounded-full bg-[#E6007E]/10 lg:block"></div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- New Arrivals -->
-    <section id="new-arrivals" class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 flex items-end justify-between gap-6">
-          <div>
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Fresh Drops</p>
-            <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">New Arrivals</h2>
-          </div>
+<!-- Shop By Footwear Style -->
+<section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-start">
+            <div class="lg:sticky lg:top-8">
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]"><?php esc_html_e('Shop By Footwear Style', 'dawp'); ?></p>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#141217] lg:text-5xl"><?php esc_html_e('Footwear categories made easy to browse.', 'dawp'); ?></h2>
+                <p class="mt-5 max-w-xl text-base leading-7 text-[#6F625D]">
+                    <?php esc_html_e('Find everyday sneakers, comfort shoes, sandals, slides, slippers, and boots without confusing marketplace clutter.', 'dawp'); ?>
+                </p>
 
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden rounded-md border border-[#0B0F0D] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#0B0F0D] hover:text-white sm:inline-flex">
-            View All
-          </a>
-        </div>
-
-        <?php
-        $new_arrivals = wc_get_products([
-          'limit'   => 4,
-          'orderby' => 'date',
-          'order'   => 'DESC',
-          'status'  => 'publish',
-        ]);
-        ?>
-
-        <?php if ($new_arrivals) : ?>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <?php foreach ($new_arrivals as $product) :
-            $img_url  = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url  = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
-            $price    = $product->get_price_html();
-            $link     = get_permalink($product->get_id());
-            $name     = $product->get_name();
-          ?>
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
+                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#141217] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#E6007E]">
+                    <?php esc_html_e('Browse All Shoes', 'dawp'); ?>
+                </a>
             </div>
-            <div class="p-4">
-              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
-              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
-              <a href="<?php echo esc_url($link); ?>" class="mt-4 inline-flex w-full items-center justify-center rounded-md bg-slickBlack px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">View Product</a>
+
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <?php foreach ($categories as $index => $category) : ?>
+                    <a href="<?php echo esc_url(dawp_home_category_url($category['slug'])); ?>" class="group relative overflow-hidden rounded-[1.5rem] border border-[#EEE5EF] bg-[#F6F5F7] shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#E6007E]/10 <?php echo 0 === $index ? 'sm:col-span-2' : ''; ?>">
+                        <img src="<?php echo esc_url($category['image']); ?>"
+                             alt="<?php echo esc_attr($category['name']); ?>"
+                             class="<?php echo 0 === $index ? 'aspect-[16/8]' : 'aspect-[4/3]'; ?> w-full object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,rgba(20,18,23,0)_0%,rgba(20,18,23,0.82)_100%)] p-5 pt-16 text-white">
+                            <span class="inline-flex rounded-full bg-white/90 px-3 py-1 text-xs font-black uppercase tracking-wide text-[#7C3AED]">
+                                <?php echo esc_html($category['badge']); ?>
+                            </span>
+                            <h3 class="mt-3 font-heading text-2xl font-black leading-tight">
+                                <?php echo esc_html($category['name']); ?>
+                            </h3>
+                            <p class="mt-2 max-w-xl text-sm leading-6 text-white/82">
+                                <?php echo esc_html($category['copy']); ?>
+                            </p>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
             </div>
-          </article>
-          <?php endforeach; ?>
         </div>
-        <?php endif; ?>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Lifestyle Banner -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Everyday_street_style.png'); ?>" alt="Urban lifestyle streetwear outfit" class="aspect-[4/3] w-full rounded-2xl object-cover" />
-        </div>
+<?php if ($new_arrivals) : ?>
+<!-- New Arrivals -->
+<section class="bg-[#F6F5F7] py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-stretch">
+            <div class="rounded-[2rem] bg-white p-7 shadow-sm lg:p-9">
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#141217] lg:text-5xl"><?php esc_html_e('Fresh footwear styles for everyday steps.', 'dawp'); ?></h2>
+                <p class="mt-4 text-base leading-7 text-[#6F625D]">
+                    <?php esc_html_e('Browse footwear selected for daily routines, casual outfits, and clear product details.', 'dawp'); ?>
+                </p>
 
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Everyday Street Style</p>
-          <h2 class="text-4xl font-black uppercase leading-none tracking-[-0.05em] lg:text-6xl">
-            Apparel That Moves With Your Day.
-          </h2>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-white/82">
-            Slicktee focuses on clean graphics, relaxed fits, and modern essentials that work from city streets to weekend plans.
-          </p>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-8 inline-flex rounded-md bg-[#22C55E] px-7 py-4 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Shop Now
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Graphic Tee Collection -->
-    <section id="graphic-tees" class="bg-[#F7F8F5] py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Core Collection</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">
-            Graphic Tees Without The Noise
-          </h2>
-          <p class="mt-4 text-base leading-7 text-[#6B7280]">
-            Original apparel-focused designs made for daily wear. No fan merch, no copyright-heavy graphics, no meme spam.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div class="rounded-3xl bg-[#123D2A] p-8 text-white lg:col-span-1">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Original Direction</p>
-            <h3 class="mt-4 text-3xl font-black uppercase tracking-[-0.05em]">Clean Graphics</h3>
-            <p class="mt-4 text-white/82">Minimal, wearable tee designs that look sharp without feeling loud.</p>
-            <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="mt-7 inline-flex rounded-md bg-[#22C55E] px-6 py-3 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-              Shop Graphic Tees
-            </a>
-          </div>
-
-          <div class="overflow-hidden rounded-3xl bg-[#0B0F0D] lg:col-span-2">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Original_direction.png'); ?>" alt="Graphic tee collection banner" class="h-full min-h-[360px] w-full object-cover opacity-90" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Oversized + Hoodies -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversize tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Relaxed Fit</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversize Tees</h3>
-            <p class="mt-3 text-white/82">Built for layering, movement, and clean streetwear silhouettes.</p>
-          </div>
-        </a>
-
-        <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/casoul_hoodie.png'); ?>" alt="Casual hoodie streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
-          <div class="p-8">
-            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Layer Ready</p>
-            <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Casual Hoodies</h3>
-            <p class="mt-3 text-white/82">Simple hoodie essentials with modern streetwear energy.</p>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- Brand Values -->
-    <section class="bg-[#123D2A] py-16 text-white lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10 max-w-3xl">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Brand Philosophy</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">
-            Built Like A Real Apparel Brand
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">01</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Comfortable Everyday Fits</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Soft apparel made for repeat wear.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">02</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Clean Modern Styling</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Minimal streetwear without visual clutter.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">03</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Original Graphic Apparel</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Brand-led graphics, not copied fan merch.</p>
-          </div>
-
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#A3E635] text-sm font-black text-[#0B0F0D]">04</div>
-            <h3 class="text-lg font-black uppercase leading-snug">Secure Online Shopping</h3>
-            <p class="mt-3 text-sm leading-6 text-white/75">Clear policies, support, and checkout trust.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Best Sellers -->
-    <section class="bg-white py-16 lg:py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mb-10">
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#22C55E]">Customer Picks</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] text-[#111827] lg:text-5xl">Best Sellers</h2>
-        </div>
-
-        <?php
-        $best_sellers = wc_get_products([
-          'limit'   => 4,
-          'orderby' => 'date',
-          'order'   => 'ASC',
-          'status'  => 'publish',
-        ]);
-        ?>
-
-        <?php if ($best_sellers) : ?>
-        <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          <?php foreach ($best_sellers as $product) :
-            $img_url = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
-            $price   = $product->get_price_html();
-            $link    = get_permalink($product->get_id());
-            $name    = $product->get_name();
-          ?>
-          <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
-            <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
-            </a>
-            <div class="p-4">
-              <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
-              <div class="mt-1 font-black text-slickGreen"><?php echo $price; ?></div>
+                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6007E] bg-white px-7 text-sm font-black uppercase tracking-wide text-[#E6007E] transition hover:bg-[#F3E8FF]">
+                    <?php esc_html_e('View All', 'dawp'); ?>
+                </a>
             </div>
-          </article>
-          <?php endforeach; ?>
-        </div>
-        <?php endif; ?>
-      </div>
-    </section>
 
-    <!-- Newsletter -->
-    <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
-          <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Stay Connected</p>
-          <h2 class="text-4xl font-black uppercase tracking-[-0.05em] lg:text-5xl">Stay Updated On New Drops</h2>
-          <p class="mt-4 max-w-xl text-white/80">
-            Get updates on new graphic tees, oversized fits, hoodie releases, and clean streetwear essentials.
-          </p>
+            <div class="grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-5">
+                <?php foreach ($new_arrivals as $product) :
+                    $img_url = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
+                    $img_url = $img_url ?: (function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('woocommerce_thumbnail') : '');
+                    $price   = $product->get_price_html();
+                    $link    = get_permalink($product->get_id());
+                    $name    = $product->get_name();
+                ?>
+                    <article class="group overflow-hidden rounded-[1.5rem] border border-[#EEE5EF] bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#7C3AED]/10 lg:even:mt-10">
+                        <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-white">
+                            <img src="<?php echo esc_url($img_url); ?>"
+                                 alt="<?php echo esc_attr($name); ?>"
+                                 class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105">
+                        </a>
+                        <div class="p-4">
+                            <p class="mb-2 inline-flex rounded-full bg-[#F4DDE8] px-3 py-1 text-[11px] font-black uppercase tracking-wide text-[#141217]">
+                                <?php esc_html_e('New', 'dawp'); ?>
+                            </p>
+                            <h3 class="line-clamp-2 text-sm font-black leading-6 text-[#141217] sm:text-base"><?php echo esc_html($name); ?></h3>
+                            <p class="mt-2 text-xs font-bold leading-5 text-[#6F625D]"><?php esc_html_e('Review size, fit note, material details, and return conditions before ordering.', 'dawp'); ?></p>
+                            <div class="mt-3 font-black text-[#E6007E]"><?php echo wp_kses_post($price); ?></div>
+                            <a href="<?php echo esc_url($link); ?>" class="mt-4 inline-flex w-full items-center justify-center rounded-full bg-[#141217] px-4 py-3 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#E6007E]">
+                                <?php esc_html_e('View Product', 'dawp'); ?>
+                            </a>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+            </div>
         </div>
+    </div>
+</section>
+<?php endif; ?>
 
-        <form class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row" action="#" method="post">
-          <label for="slicktee-email" class="sr-only">Email address</label>
-          <input id="slicktee-email" type="email" name="email" placeholder="Enter your email" class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-[#111827] placeholder:text-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#A3E635]" />
-          <button type="submit" class="min-h-12 rounded-md bg-[#22C55E] px-6 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
-            Join
-          </button>
-        </form>
-      </div>
-    </section>
+<!-- Sneakers & Statement Shoes -->
+<section class="bg-white py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 overflow-hidden rounded-[2rem] border border-[#EEE5EF] bg-[#F6F5F7] lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="p-6 sm:p-8 lg:p-10">
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]"><?php esc_html_e('Sneakers & Casual Shoes', 'dawp'); ?></p>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#141217] lg:text-5xl">
+                    <?php esc_html_e('Easy styles for daily outfits and confident moments.', 'dawp'); ?>
+                </h2>
+                <p class="mt-5 text-lg leading-8 text-[#6F625D]">
+                    <?php esc_html_e('From casual sneakers to slip-on everyday shoes, House of Shoes Online offers footwear styles designed for simple routines, easy outfits, and comfortable daily wear.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-7 flex flex-wrap gap-3 text-sm font-black text-[#141217]">
+                    <div class="rounded-full bg-white px-4 py-3"><?php esc_html_e('Daily wear', 'dawp'); ?></div>
+                    <div class="rounded-full bg-white px-4 py-3"><?php esc_html_e('Casual outfits', 'dawp'); ?></div>
+                    <div class="rounded-full bg-white px-4 py-3"><?php esc_html_e('Easy movement', 'dawp'); ?></div>
+                    <div class="rounded-full bg-white px-4 py-3"><?php esc_html_e('Boutique style', 'dawp'); ?></div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap gap-4">
+                    <a href="<?php echo esc_url(dawp_home_category_url('everyday-sneakers')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#E6007E] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#7C3AED]">
+                        <?php esc_html_e('Shop Sneakers', 'dawp'); ?>
+                    </a>
+
+                    <a href="<?php echo esc_url(dawp_home_category_url('comfort-shoes')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6007E] px-7 text-sm font-black uppercase tracking-wide text-[#E6007E] transition hover:bg-[#F3E8FF]">
+                        <?php esc_html_e('Shop Comfort Shoes', 'dawp'); ?>
+                    </a>
+                </div>
+
+                <p class="mt-6 rounded-2xl border border-[#F0C7DC] bg-[#FFF7FB] p-4 text-sm font-bold leading-6 text-[#6F625D]">
+                    <?php esc_html_e('Please review the size guide and fit note before ordering footwear.', 'dawp'); ?>
+                </p>
+            </div>
+
+            <div class="flex flex-col bg-white p-4 sm:p-6">
+                <div class="flex-1 overflow-hidden rounded-[1.75rem] bg-[#F3E8FF] p-3">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/shoes_comfort.png'); ?>"
+                         alt="<?php esc_attr_e('Sneakers and casual shoes', 'dawp'); ?>"
+                         class="h-full w-full min-h-[350px] rounded-[1.2rem] object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Easy-Wear Footwear -->
+<section class="bg-[#F4DDE8] py-16 lg:py-24">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch">
+            <div class="overflow-hidden rounded-[2rem] bg-white p-3 shadow-2xl shadow-[#141217]/10 lg:order-2">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/bootsboots.png'); ?>"
+                     alt="<?php esc_attr_e('Sandals slides slippers and casual boots', 'dawp'); ?>"
+                     class="aspect-[5/4] h-full w-full rounded-[1.35rem] object-cover">
+            </div>
+
+            <div class="lg:order-1">
+                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#7C3AED]"><?php esc_html_e('Sandals, Slides & Slippers', 'dawp'); ?></p>
+                <h2 class="font-heading text-4xl font-black leading-tight text-[#141217] lg:text-5xl">
+                    <?php esc_html_e('Relaxed footwear for home, errands, and easy days.', 'dawp'); ?>
+                </h2>
+                <p class="mt-5 text-lg leading-8 text-[#5E5363]">
+                    <?php esc_html_e('Explore sandals, slides, slippers, and casual boots made for simple comfort, casual outfits, and everyday routines at home or on the go.', 'dawp'); ?>
+                </p>
+
+                <div class="mt-8 grid gap-4">
+                    <a href="<?php echo esc_url(dawp_home_category_url('sandals-slides')); ?>" class="grid grid-cols-[auto_1fr] gap-4 rounded-3xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3E8FF] text-sm font-black text-[#7C3AED]">01</span>
+                        <span>
+                            <h3 class="font-heading text-2xl font-black text-[#141217]"><?php esc_html_e('Sandals & Slides', 'dawp'); ?></h3>
+                            <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Easy slip-on styles for warm days and casual wear.', 'dawp'); ?></p>
+                        </span>
+                    </a>
+                    <a href="<?php echo esc_url(dawp_home_category_url('slippers')); ?>" class="grid grid-cols-[auto_1fr] gap-4 rounded-3xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3E8FF] text-sm font-black text-[#7C3AED]">02</span>
+                        <span>
+                            <h3 class="font-heading text-2xl font-black text-[#141217]"><?php esc_html_e('Slippers', 'dawp'); ?></h3>
+                            <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Soft house shoes for comfort-focused home routines.', 'dawp'); ?></p>
+                        </span>
+                    </a>
+                    <a href="<?php echo esc_url(dawp_home_category_url('boots')); ?>" class="grid grid-cols-[auto_1fr] gap-4 rounded-3xl bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3E8FF] text-sm font-black text-[#7C3AED]">03</span>
+                        <span>
+                            <h3 class="font-heading text-2xl font-black text-[#141217]"><?php esc_html_e('Boots', 'dawp'); ?></h3>
+                            <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Seasonal boot styles for everyday outfits and confident steps.', 'dawp'); ?></p>
+                        </span>
+                    </a>
+                </div>
+
+                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#141217] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#E6007E]">
+                    <?php esc_html_e('Explore Easy-Wear Footwear', 'dawp'); ?>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+

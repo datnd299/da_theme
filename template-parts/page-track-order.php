@@ -12,7 +12,7 @@
             <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
             <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
             <p class="track-hero__desc">
-                <?php esc_html_e('Enter your order details below to see your shipment status. We\'ll help you follow your Slicktee order from checkout to delivery.', 'dawp'); ?>
+                <?php esc_html_e('Enter your order details below to see your shipment status. We\'ll help you follow your House of Shoes Online order from checkout to delivery.', 'dawp'); ?>
             </p>
         </div>
     </section>
@@ -36,8 +36,8 @@
                 <div class="track-help-box__content">
                     <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
                     <p class="track-help-box__text">
-                        <?php esc_html_e('If you have any trouble, please reach out to the Slicktee support team at ', 'dawp'); ?>
-                        <a href="mailto:support@slicktee.com">support@slicktee.com</a>
+                        <?php esc_html_e('If you have any trouble, please reach out to the House of Shoes Online support team at ', 'dawp'); ?>
+                        <a href="mailto:support@houseofshoesonline.com">support@houseofshoesonline.com</a>
                         <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
                     </p>
                 </div>
@@ -67,7 +67,7 @@
         <div class="track-more-section__inner">
             <div class="track-more-section__header">
                 <h2 class="track-more-section__title"><?php esc_html_e('More Ways We Can Help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth Slicktee shopping experience.', 'dawp'); ?></p>
+                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth shopping experience at House of Shoes Online.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
@@ -76,7 +76,7 @@
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our Slicktee support team is here to help with order and delivery questions.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Our support team is here to help with order and delivery questions.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>

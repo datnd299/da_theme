@@ -7,41 +7,47 @@
 :root {
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
-  /* Warm White — page background */
-  --color-surface: rgb(231, 231, 231);
-  /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
-  /* Soft Gray — hover states, alt sections */
+  /* Clean White — page background */
+  --color-surface: #F6F5F7;
+  /* Soft Gray — section / card background */
+  --color-surface-alt: #F3E8FF;
+  /* Lavender Mist — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
-  /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
+  --color-foreground: #141217;
+  /* Charcoal Black — primary text */
+  --color-foreground-muted: #4B4554;
   /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
+  --color-muted: #B8B3BE;
   /* Light text — captions, breadcrumbs */
 
-  /* === BRAND === */
-  --color-accent: #22c55e;
-  /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #498f63;
-  /* Dusty Rose darker — hover state */
-  --color-accent-soft: #E8D8C8;
-  /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #22c55e;
-  /* Warm Blush — secondary brand color */
+  /* === BRAND (House of Shoes) === */
+  --color-accent: #E6007E;
+  /* House Pink — primary CTA, highlights */
+  --color-accent-hover: #7C3AED;
+  /* Violet Glow — hover state */
+  --color-accent-soft: #F3E8FF;
+  /* Lavender Mist — subtle highlights, badges */
+  --color-accent-blush: #F4DDE8;
+  /* Rose Beige — secondary brand color */
+  --color-accent-fuchsia: #FF4FB8;
+  /* Soft Fuchsia — badges, hover accents */
+
+  /* === DARK BOUTIQUE === */
+  --color-dark: #141217;
+  --color-dark-deep: #2A1538;
 
   /* === UI === */
-  --color-border: #E6DDD6;
+  --color-border: #E8DDF0;
   /* Border — cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */
   --color-success: #5C8A6A;
-  /* Success — muted green, fits boutique palette */
+  /* Success state */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Lato', 'Georgia', serif;
+  --font-sans: 'Inter', 'Lato', system-ui, sans-serif;
+  --font-heading: 'Inter', 'Georgia', serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -226,7 +232,7 @@
   font-weight: 900;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #111827;
+  color: var(--color-foreground);
 }
 
 #contact-form-1 .wpcf7-form-control-wrap {
@@ -242,9 +248,9 @@
   padding: 12px var(--space-md);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  color: #111827;
-  background: #F7F8F5;
-  border: 1.5px solid #E5E7EB;
+  color: var(--color-foreground);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
   border-radius: var(--radius-md);
   outline: none;
   box-sizing: border-box;
@@ -255,8 +261,8 @@
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #22C55E;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 18%, transparent);
 }
 
 #contact-form-1 input.wpcf7-not-valid,
@@ -289,16 +295,16 @@
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0B0F0D;
-  background: #22C55E;
+  color: var(--color-background);
+  background: var(--color-accent);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-pill);
   cursor: pointer;
   transition: background var(--duration-normal) var(--ease-fluid);
 }
 
 #contact-form-1 input[type="submit"]:hover {
-  background: #A3E635;
+  background: var(--color-accent-hover);
 }
 
 #contact-form-1 .wpcf7-spinner {
@@ -313,12 +319,12 @@
   font-family: var(--font-sans);
   font-size: 0.875rem;
   line-height: 1.5;
-  color: #111827;
+  color: var(--color-foreground);
 }
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
-  background: rgba(34, 197, 94, 0.1);
-  border-left: 3px solid #22C55E;
+  background: color-mix(in srgb, var(--color-success) 12%, transparent);
+  border-left: 3px solid var(--color-success);
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,

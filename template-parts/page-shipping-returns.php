@@ -1,308 +1,274 @@
 <?php
 /**
- * Template Name: Shipping & Return Policy
- * Template Part: page-shipping-return
+ * Template Part: page-shipping-returns
  */
-
-get_header();
 ?>
 
-<main id="primary" class="bg-white text-slickText font-body">
+<main id="primary" class="bg-white font-body text-[#141217]">
 
-    <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-slickBlack text-white">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,197,94,0.35),transparent_34%),linear-gradient(135deg,#0B0F0D_0%,#123D2A_58%,#0B0F0D_100%)]"></div>
-        <div class="absolute -right-24 top-16 h-80 w-80 rounded-full bg-slickActive/20 blur-3xl"></div>
-        <div class="absolute -left-24 bottom-0 h-80 w-80 rounded-full bg-slickLime/10 blur-3xl"></div>
+    <section class="relative overflow-hidden bg-[#141217] text-white">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(230,0,126,0.34),transparent_32%),linear-gradient(135deg,#141217_0%,#2A1538_58%,#141217_100%)]"></div>
 
         <div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
             <div class="max-w-4xl">
-                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-slickLime">
+                <p class="mb-5 text-sm font-black uppercase tracking-[0.24em] text-[#FF4FB8]">
                     <?php esc_html_e('Customer Care', 'dawp'); ?>
                 </p>
 
-                <h1 class="font-heading text-5xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Shipping & Return Policy', 'dawp'); ?>
+                <h1 class="font-heading text-5xl font-black leading-[0.94] text-white sm:text-6xl lg:text-7xl">
+                    <?php esc_html_e('Shipping & Returns Policy', 'dawp'); ?>
                 </h1>
 
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/85">
-                    <?php esc_html_e('Clear delivery timelines, simple return rules, and transparent support for every Slicktee order.', 'dawp'); ?>
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/82">
+                    <?php esc_html_e('Clear delivery, return, exchange, and refund terms for House of Shoes Online orders.', 'dawp'); ?>
                 </p>
+
+                <div class="mt-8 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
+                    <div class="border-l-4 border-[#E6007E] bg-white/8 p-5">
+                        <p class="text-xs font-black uppercase tracking-[0.18em] text-[#FF4FB8]"><?php esc_html_e('Order Cutoff', 'dawp'); ?></p>
+                        <p class="mt-2 font-heading text-2xl font-black"><?php esc_html_e('2:00 PM PST', 'dawp'); ?></p>
+                    </div>
+
+                    <div class="border-l-4 border-[#FF4FB8] bg-white/8 p-5">
+                        <p class="text-xs font-black uppercase tracking-[0.18em] text-[#FF4FB8]"><?php esc_html_e('Delivery Time', 'dawp'); ?></p>
+                        <p class="mt-2 font-heading text-2xl font-black"><?php esc_html_e('0-1 Business Days', 'dawp'); ?></p>
+                    </div>
+
+                    <div class="border-l-4 border-[#7C3AED] bg-white/8 p-5">
+                        <p class="text-xs font-black uppercase tracking-[0.18em] text-[#FF4FB8]"><?php esc_html_e('Returns', 'dawp'); ?></p>
+                        <p class="mt-2 font-heading text-2xl font-black"><?php esc_html_e('30 Days', 'dawp'); ?></p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Quick Summary Cards -->
-    <section class="bg-slickSoft py-12 lg:py-16">
+    <section class="bg-[#F6F5F7] py-12 lg:py-16">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+            <?php
+            $summary_cards = [
+                ['number' => '01', 'title' => __('Fast Processing', 'dawp'), 'copy' => __('Orders placed before 2:00 PM PST can begin fulfillment the same business day.', 'dawp')],
+                ['number' => '02', 'title' => __('Mon-Sat Fulfillment', 'dawp'), 'copy' => __('Handling and shipping operate Monday through Saturday, excluding public holidays.', 'dawp')],
+                ['number' => '03', 'title' => __('Mail Returns', 'dawp'), 'copy' => __('Approved returns are accepted by mail. Customers download, print, and use the return label.', 'dawp')],
+                ['number' => '04', 'title' => __('No Restocking Fee', 'dawp'), 'copy' => __('Eligible returns are not charged a restocking fee after inspection approval.', 'dawp')],
+            ];
+            ?>
 
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
-                    01
+            <?php foreach ($summary_cards as $card) : ?>
+                <div class="rounded-2xl border border-[#EEE5EF] bg-white p-6 shadow-sm">
+                    <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#E6007E] text-sm font-black text-white">
+                        <?php echo esc_html($card['number']); ?>
+                    </div>
+                    <h2 class="font-heading text-2xl font-black leading-tight text-[#141217]">
+                        <?php echo esc_html($card['title']); ?>
+                    </h2>
+                    <p class="mt-3 text-sm leading-6 text-[#5E5363]">
+                        <?php echo esc_html($card['copy']); ?>
+                    </p>
                 </div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('2–4 Business Days', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Order processing before your package leaves our fulfillment workflow.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">
-                    02
-                </div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('5–10 Business Days', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Standard US shipping time after dispatch, depending on destination.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">
-                    03
-                </div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('Tracking Included', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Tracking details are sent once your order has shipped.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">
-                    04
-                </div>
-                <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                    <?php esc_html_e('30-Day Returns', 'dawp'); ?>
-                </h3>
-                <p class="mt-3 text-sm leading-6 text-slickMuted">
-                    <?php esc_html_e('Eligible unworn and unwashed items may be returned within 30 days.', 'dawp'); ?>
-                </p>
-            </div>
-
+            <?php endforeach; ?>
         </div>
     </section>
 
-    <!-- Main Content -->
     <section class="bg-white py-16 lg:py-24">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
 
-            <!-- Sidebar -->
             <aside class="lg:sticky lg:top-32 lg:self-start">
-                <div class="rounded-3xl bg-slickBlack p-7 text-white shadow-xl shadow-black/10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('Policy Overview', 'dawp'); ?>
+                <div class="rounded-3xl bg-[#141217] p-7 text-white shadow-xl shadow-[#141217]/10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#FF4FB8]">
+                        <?php esc_html_e('Policy Sections', 'dawp'); ?>
                     </p>
 
-                    <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                        <?php esc_html_e('Simple. Clear. No Guesswork.', 'dawp'); ?>
+                    <h2 class="font-heading text-4xl font-black leading-none">
+                        <?php esc_html_e('Order Terms At A Glance.', 'dawp'); ?>
                     </h2>
 
                     <p class="mt-5 text-sm leading-7 text-white/80">
-                        <?php esc_html_e('We keep shipping, returns, and refunds straightforward so customers know what to expect before and after purchase.', 'dawp'); ?>
+                        <?php esc_html_e('Use these sections to review our shipping timeline, return eligibility, exchange terms, return costs, and refund timing before placing an order.', 'dawp'); ?>
                     </p>
 
-                    <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('Policy navigation', 'dawp'); ?>">
-                        <a href="#shipping" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Shipping Information', 'dawp'); ?>
-                        </a>
-                        <a href="#tracking" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Tracking Information', 'dawp'); ?>
-                        </a>
-                        <a href="#returns" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Return Policy', 'dawp'); ?>
-                        </a>
-                        <a href="#refunds" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Refunds', 'dawp'); ?>
-                        </a>
-                        <a href="#order-issues" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Order Issues', 'dawp'); ?>
-                        </a>
-                        <a href="#contact" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-slickLime hover:text-slickLime">
-                            <?php esc_html_e('Need Help?', 'dawp'); ?>
-                        </a>
+                    <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('Shipping and returns navigation', 'dawp'); ?>">
+                        <a href="#shipping" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-[#FF4FB8] hover:text-[#FF4FB8]"><?php esc_html_e('Shipping Timeline', 'dawp'); ?></a>
+                        <a href="#delivery" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-[#FF4FB8] hover:text-[#FF4FB8]"><?php esc_html_e('Delivery Estimate', 'dawp'); ?></a>
+                        <a href="#returns" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-[#FF4FB8] hover:text-[#FF4FB8]"><?php esc_html_e('Returns & Exchanges', 'dawp'); ?></a>
+                        <a href="#return-costs" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-[#FF4FB8] hover:text-[#FF4FB8]"><?php esc_html_e('Return Costs', 'dawp'); ?></a>
+                        <a href="#refunds" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-[#FF4FB8] hover:text-[#FF4FB8]"><?php esc_html_e('Refunds', 'dawp'); ?></a>
+                        <a href="#support" class="rounded-md border border-white/10 px-4 py-3 transition hover:border-[#FF4FB8] hover:text-[#FF4FB8]"><?php esc_html_e('Support', 'dawp'); ?></a>
                     </nav>
                 </div>
             </aside>
 
-            <!-- Policy Body -->
             <div class="space-y-8">
 
-                <!-- Shipping Information -->
-                <section id="shipping" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Shipping Information', 'dawp'); ?>
+                <section id="shipping" class="rounded-3xl border border-[#EEE5EF] bg-white p-7 shadow-sm lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]">
+                        <?php esc_html_e('Shipping Policy', 'dawp'); ?>
                     </p>
 
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Order Processing & Delivery', 'dawp'); ?>
+                    <h2 class="font-heading text-4xl font-black leading-tight text-[#141217]">
+                        <?php esc_html_e('Order Cutoff, Handling, And Shipping Days', 'dawp'); ?>
                     </h2>
 
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('Orders are typically processed within 2–4 business days after your order is placed. Processing time includes order verification, preparation, and fulfillment before dispatch.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('After your order has been dispatched, standard US shipping typically takes 5–10 business days depending on destination, carrier conditions, and seasonal shipping volume.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Business days do not include weekends or public holidays. During high-volume periods, delivery may take slightly longer than usual.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Tracking -->
-                <section id="tracking" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Tracking Information', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Tracking Your Order', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('Once your order ships, you will receive tracking information by email. Please allow some time for the carrier tracking page to update after the tracking number is created.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('If your tracking has not updated after several business days, contact our support team and we will help review the status of your order.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="mt-7">
-                        <a href="<?php echo esc_url(home_url('/track-your-order/')); ?>"
-                           class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickBlack px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-slickGreen">
-                            <?php esc_html_e('Track Your Order', 'dawp'); ?>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Return Policy -->
-                <section id="returns" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Return Policy', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('30-Day Return Window', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('Customers may request a return within 30 days of delivery. To be eligible, items must be unused, unwashed, unworn, in original condition, and returned with original packaging where applicable.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('For apparel items, products must be free from wear, stains, odors, damage, or alteration. Items that do not meet these conditions may not qualify for return approval.', 'dawp'); ?>
-                        </p>
-                    </div>
-
-                    <div class="mt-8 rounded-2xl border border-[#E5E7EB] bg-slickSoft p-6">
-                        <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
-                            <?php esc_html_e('Eligible Return Conditions', 'dawp'); ?>
-                        </h3>
-
-                        <ul class="mt-5 grid gap-3 text-sm leading-6 text-slickMuted sm:grid-cols-2">
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Unused and unworn item', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Unwashed apparel', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Original condition', 'dawp'); ?>
-                            </li>
-                            <li class="flex gap-3">
-                                <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-slickActive"></span>
-                                <?php esc_html_e('Original packaging where applicable', 'dawp'); ?>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Refunds -->
-                <section id="refunds" class="rounded-3xl border border-[#E5E7EB] bg-slickSoft p-7 lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Refunds', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Refund Review Process', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('Once a returned item is received and inspected, we will notify you about the approval status of your refund. Approved refunds are processed back to the original payment method.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Depending on your payment provider, it may take several business days for the refund to appear on your statement.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Shipping costs, if applicable, may not be refundable unless the return is due to an error on our side.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Order Issues -->
-                <section id="order-issues" class="rounded-3xl border border-[#E5E7EB] bg-white p-7 shadow-sm lg:p-10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickActive">
-                        <?php esc_html_e('Order Issues', 'dawp'); ?>
-                    </p>
-
-                    <h2 class="font-heading text-4xl font-black uppercase tracking-[-0.04em] text-slickText">
-                        <?php esc_html_e('Damaged, Incorrect, or Missing Items', 'dawp'); ?>
-                    </h2>
-
-                    <div class="mt-6 space-y-5 text-base leading-8 text-slickMuted">
-                        <p>
-                            <?php esc_html_e('If you receive a damaged, incorrect, or incomplete order, please contact us as soon as possible with your order number and clear photos of the issue.', 'dawp'); ?>
-                        </p>
-                        <p>
-                            <?php esc_html_e('Our support team will review your case and help with the next steps. We recommend contacting us promptly so we can resolve the issue efficiently.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Contact CTA -->
-                <section id="contact" class="overflow-hidden rounded-3xl bg-slickBlack text-white shadow-xl shadow-black/10">
-                    <div class="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
-                        <div class="p-7 lg:p-10">
-                            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                                <?php esc_html_e('Need Help?', 'dawp'); ?>
-                            </p>
-
-                            <h2 class="font-heading text-4xl font-black uppercase leading-none tracking-[-0.04em]">
-                                <?php esc_html_e('Support That Keeps It Clear.', 'dawp'); ?>
-                            </h2>
-
-                            <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
-                                <?php esc_html_e('If you have questions about shipping, returns, tracking, or order issues, reach out and our team will help you as soon as possible.', 'dawp'); ?>
-                            </p>
-
-                            <div class="mt-8 flex flex-wrap gap-4">
-                                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                                    <?php esc_html_e('Contact Support', 'dawp'); ?>
-                                </a>
-
-                                <a href="mailto:support@slicktee.com"
-                                   class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/25 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slickBlack">
-                                    <?php esc_html_e('Email Us', 'dawp'); ?>
-                                </a>
-                            </div>
+                    <div class="mt-7 grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-2xl bg-[#F6F5F7] p-6">
+                            <p class="text-xs font-black uppercase tracking-[0.18em] text-[#7C3AED]"><?php esc_html_e('Order Cutoff Time', 'dawp'); ?></p>
+                            <p class="mt-2 text-2xl font-black text-[#141217]"><?php esc_html_e('2:00 PM', 'dawp'); ?></p>
+                            <p class="mt-2 text-sm leading-6 text-[#5E5363]"><?php esc_html_e('Pacific Standard Time, Los Angeles timezone.', 'dawp'); ?></p>
                         </div>
 
-                        <div class="min-h-[300px] bg-slickGreen">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/contact_banner.png'); ?>"
-                                 alt="<?php esc_attr_e('Slicktee customer support assistance', 'dawp'); ?>"
-                                 class="h-full w-full object-cover opacity-85">
+                        <div class="rounded-2xl bg-[#F6F5F7] p-6">
+                            <p class="text-xs font-black uppercase tracking-[0.18em] text-[#7C3AED]"><?php esc_html_e('Handling Time', 'dawp'); ?></p>
+                            <p class="mt-2 text-2xl font-black text-[#141217]"><?php esc_html_e('0-1 Business Days', 'dawp'); ?></p>
+                            <p class="mt-2 text-sm leading-6 text-[#5E5363]"><?php esc_html_e('Orders are fulfilled Monday through Saturday.', 'dawp'); ?></p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-[#5E5363]">
+                        <p>
+                            <?php esc_html_e('Orders placed before the 2:00 PM PST cutoff may begin handling on the same business day. Orders placed after the cutoff may begin handling on the next business day.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('Handling time is the time between order placement and when the shipment is ready for carrier transit. Public holidays and carrier interruptions may affect the estimate.', 'dawp'); ?>
+                        </p>
+                    </div>
+                </section>
+
+                <section id="delivery" class="rounded-3xl border border-[#EEE5EF] bg-[#F6F5F7] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]">
+                        <?php esc_html_e('Delivery Estimate', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black leading-tight text-[#141217]">
+                        <?php esc_html_e('Estimated Delivery Is 0-1 Business Days', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-7 overflow-hidden rounded-2xl border border-[#EEE5EF] bg-white">
+                        <div class="grid grid-cols-1 divide-y divide-[#EEE5EF] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+                            <div class="p-6">
+                                <p class="text-xs font-black uppercase tracking-[0.18em] text-[#7C3AED]"><?php esc_html_e('Destination', 'dawp'); ?></p>
+                                <p class="mt-2 font-heading text-2xl font-black text-[#141217]"><?php esc_html_e('All Destinations', 'dawp'); ?></p>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-xs font-black uppercase tracking-[0.18em] text-[#7C3AED]"><?php esc_html_e('Transit Time', 'dawp'); ?></p>
+                                <p class="mt-2 font-heading text-2xl font-black text-[#141217]"><?php esc_html_e('0 Days', 'dawp'); ?></p>
+                            </div>
+                            <div class="p-6">
+                                <p class="text-xs font-black uppercase tracking-[0.18em] text-[#7C3AED]"><?php esc_html_e('Total Delivery', 'dawp'); ?></p>
+                                <p class="mt-2 font-heading text-2xl font-black text-[#141217]"><?php esc_html_e('0-1 Business Days', 'dawp'); ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mt-6 text-base leading-8 text-[#5E5363]">
+                        <?php esc_html_e('Estimated delivery time is calculated from the order cutoff, handling time, and transit time provided for the shipment. If an order is placed over a public holiday, the estimate may be adjusted.', 'dawp'); ?>
+                    </p>
+                </section>
+
+                <section id="returns" class="rounded-3xl border border-[#EEE5EF] bg-white p-7 shadow-sm lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]">
+                        <?php esc_html_e('Returns & Exchanges', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black leading-tight text-[#141217]">
+                        <?php esc_html_e('30-Day Returns For New Footwear', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-[#5E5363]">
+                        <p>
+                            <?php esc_html_e('We accept returns for defective and non-defective products. We also accept exchanges when the requested replacement item is available.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('Return requests must be made within 30 days of delivery. Items must be new, unused, unworn, unopened where applicable, and returned in original packaging with all included accessories or materials.', 'dawp'); ?>
+                        </p>
+                    </div>
+
+                    <div class="mt-7 grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-2xl border border-[#EEE5EF] bg-[#F6F5F7] p-6">
+                            <h3 class="font-heading text-2xl font-black leading-tight text-[#141217]"><?php esc_html_e('Accepted Product Condition', 'dawp'); ?></h3>
+                            <p class="mt-3 text-sm leading-6 text-[#5E5363]"><?php esc_html_e('Only new products are eligible. Footwear must not show wear, stains, odors, damage, washing, or alteration.', 'dawp'); ?></p>
+                        </div>
+
+                        <div class="rounded-2xl border border-[#EEE5EF] bg-[#F6F5F7] p-6">
+                            <h3 class="font-heading text-2xl font-black leading-tight text-[#141217]"><?php esc_html_e('Return Method', 'dawp'); ?></h3>
+                            <p class="mt-3 text-sm leading-6 text-[#5E5363]"><?php esc_html_e('Returns are accepted by mail. In-store returns and drop-off location returns are not available.', 'dawp'); ?></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="return-costs" class="rounded-3xl border border-[#EEE5EF] bg-[#F6F5F7] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]">
+                        <?php esc_html_e('Return Costs', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black leading-tight text-[#141217]">
+                        <?php esc_html_e('Return Label And Restocking Terms', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-7 grid gap-4 lg:grid-cols-3">
+                        <div class="rounded-2xl bg-white p-6 shadow-sm">
+                            <p class="text-xs font-black uppercase tracking-[0.18em] text-[#7C3AED]"><?php esc_html_e('Currency', 'dawp'); ?></p>
+                            <p class="mt-2 text-2xl font-black text-[#141217]"><?php esc_html_e('USD', 'dawp'); ?></p>
+                        </div>
+
+                        <div class="rounded-2xl bg-white p-6 shadow-sm">
+                            <p class="text-xs font-black uppercase tracking-[0.18em] text-[#7C3AED]"><?php esc_html_e('Return Label', 'dawp'); ?></p>
+                            <p class="mt-2 text-2xl font-black text-[#141217]"><?php esc_html_e('Download & Print', 'dawp'); ?></p>
+                        </div>
+
+                        <div class="rounded-2xl bg-white p-6 shadow-sm">
+                            <p class="text-xs font-black uppercase tracking-[0.18em] text-[#7C3AED]"><?php esc_html_e('Restocking Fee', 'dawp'); ?></p>
+                            <p class="mt-2 text-2xl font-black text-[#141217]"><?php esc_html_e('No Cost', 'dawp'); ?></p>
+                        </div>
+                    </div>
+
+                    <p class="mt-6 text-base leading-8 text-[#5E5363]">
+                        <?php esc_html_e('Customers are responsible for return label and return shipping costs unless our support team confirms that a different remedy applies to a defective, damaged, or incorrect item case.', 'dawp'); ?>
+                    </p>
+                </section>
+
+                <section id="refunds" class="rounded-3xl border border-[#EEE5EF] bg-white p-7 shadow-sm lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]">
+                        <?php esc_html_e('Refund Processing', 'dawp'); ?>
+                    </p>
+
+                    <h2 class="font-heading text-4xl font-black leading-tight text-[#141217]">
+                        <?php esc_html_e('Approved Refunds Are Processed Within 10 Days', 'dawp'); ?>
+                    </h2>
+
+                    <div class="mt-6 space-y-5 text-base leading-8 text-[#5E5363]">
+                        <p>
+                            <?php esc_html_e('After your returned item is received, we inspect it against the return eligibility requirements. We will notify you once the return is approved or declined.', 'dawp'); ?>
+                        </p>
+                        <p>
+                            <?php esc_html_e('Approved refunds are processed to the original payment method within 10 days. Your bank, card issuer, or payment provider may take additional time to post the refund to your account.', 'dawp'); ?>
+                        </p>
+                    </div>
+                </section>
+
+                <section id="support" class="overflow-hidden rounded-3xl bg-[#141217] text-white shadow-xl shadow-[#141217]/10">
+                    <div class="p-7 lg:p-10">
+                        <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#FF4FB8]">
+                            <?php esc_html_e('Need Help?', 'dawp'); ?>
+                        </p>
+
+                        <h2 class="font-heading text-4xl font-black leading-tight lg:text-5xl">
+                            <?php esc_html_e('Contact Us Before Sending A Return.', 'dawp'); ?>
+                        </h2>
+
+                        <p class="mt-5 max-w-3xl text-base leading-8 text-white/80">
+                            <?php esc_html_e('Before mailing a return, contact our support team with your order number and the reason for the request. For defective, damaged, or incorrect items, include clear photos so we can review the issue quickly.', 'dawp'); ?>
+                        </p>
+
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
+                               class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#E6007E] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#7C3AED]">
+                                <?php esc_html_e('Contact Support', 'dawp'); ?>
+                            </a>
+
+                            <a href="mailto:support@houseofshoesonline.com"
+                               class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#141217]">
+                                <?php esc_html_e('Email Us', 'dawp'); ?>
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -312,6 +278,3 @@ get_header();
     </section>
 
 </main>
-
-<?php
-get_footer();

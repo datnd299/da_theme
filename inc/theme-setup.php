@@ -34,6 +34,36 @@ function theme_search_template($template) {
     return $template;
 }
 
+function dawp_hidden_product_category_slugs() {
+    return ['mens-shoes'];
+}
+
+add_filter('get_terms', 'dawp_hide_removed_product_categories', 10, 4);
+function dawp_hide_removed_product_categories($terms, $taxonomies, $args, $term_query) {
+    if (is_wp_error($terms) || !in_array('product_cat', (array) $taxonomies, true)) {
+        return $terms;
+    }
+
+    $hidden_slugs = dawp_hidden_product_category_slugs();
+
+    return array_values(array_filter((array) $terms, function ($term) use ($hidden_slugs) {
+        return !is_object($term) || empty($term->slug) || !in_array($term->slug, $hidden_slugs, true);
+    }));
+}
+
+add_action('template_redirect', 'dawp_redirect_removed_product_categories');
+function dawp_redirect_removed_product_categories() {
+    if (!function_exists('is_product_category') || !is_product_category()) {
+        return;
+    }
+
+    $term = get_queried_object();
+    if ($term && !empty($term->slug) && in_array($term->slug, dawp_hidden_product_category_slugs(), true)) {
+        wp_safe_redirect(get_permalink(wc_get_page_id('shop')));
+        exit;
+    }
+}
+
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
     wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.2');
@@ -43,6 +73,10 @@ function dawp_scripts() {
     if ( is_front_page() ) {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
         dawp_remove_styles();
+    }
+
+    if ( is_404() ) {
+        wp_enqueue_style('dawp-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', [], '1.0.2');
     }
     
     if ( class_exists( 'WooCommerce' ) ) {

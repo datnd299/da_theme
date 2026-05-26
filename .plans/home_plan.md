@@ -1,502 +1,589 @@
+# House of Shoes Online — Home Plan
 
----
+## Homepage Goal
 
-## 3. `home_plan.md`
+Build a clean, modern footwear homepage for everyday sneakers, comfort shoes, sandals, slides, slippers, boots, women’s shoes, and men’s shoes.
 
-```md
-# Slicktee Home Plan
+Main homepage message:
 
-## Homepage Objective
+```txt
+Everyday Shoes For Comfort & Style
+```
 
-The homepage should immediately communicate:
+The homepage must show clearly that House of Shoes Online is:
 
-- youthful streetwear identity
-- graphic tee specialization
-- clean apparel branding
-- energetic green-based visual system
-- authentic ecommerce experience
-- GMC-safe merchant trust
+* A footwear-focused ecommerce store
+* Modern, urban, clean, and easy to shop
+* Focused on everyday shoes, comfort, and casual style
+* Professional enough for GMC with size guide, fit notes, return policy, and product details
 
-The storefront should feel like:
-
-“A real modern apparel brand focused on graphic tees, oversized tees, hoodies, and everyday streetwear essentials.”
-
-Avoid:
-- POD spam feeling
-- random marketplace layouts
-- overcrowded homepage sections
-- excessive promo messaging
-- pastel boutique styling
+Avoid making the homepage feel like a fake branded sneaker shop, luxury replica store, medical orthopedic claim site, or random fashion marketplace.
 
 ---
 
 # Homepage Structure
 
-## 1. Hero Section
+Use 5 sections:
 
-### Purpose
+```txt
+1. Hero
+2. Shop By Footwear Style
+3. Sneakers & Casual Shoes
+4. Sandals, Slides & Slippers
+5. Customer Care / Size & Returns Trust
+```
 
-Establish brand identity instantly.
+Optional add-on:
 
-### Layout
+```txt
+New Arrivals / Best Sellers Product Grid
+```
 
-- Full-width clean hero
-- Dark green or black background
-- Large lifestyle streetwear image
-- Strong bold headline
-- Minimal supporting text
-- 1–2 CTA buttons
+This can be placed after Section 2 or Section 3 if the homepage needs stronger ecommerce conversion.
 
-### Content Direction
+---
 
-Headline examples:
-- Clean Fits. Bold Energy.
-- Graphic Apparel Made Simple
-- Streetwear For Everyday Motion
-- Modern Tees For Daily Rotation
+# Section 1 — Hero
 
-### CTA
+## Purpose
 
-Primary:
-- Shop New Arrivals
+Introduce House of Shoes Online as a modern footwear store for everyday comfort, style, and confident movement.
 
-Secondary:
-- Explore Graphic Tees
+## Content
 
-### Visual Direction
+Eyebrow:
+
+```txt
+Modern Footwear For Daily Movement
+```
+
+Headline:
+
+```txt
+Everyday Shoes For Comfort & Style
+```
+
+Subheadline:
+
+```txt
+Discover comfortable shoes, sneakers, sandals, slippers, and boots made for daily routines, easy outfits, and confident steps.
+```
+
+Primary CTA:
+
+```txt
+Shop Shoes
+```
+
+Secondary CTA:
+
+```txt
+Explore Sneakers
+```
+
+Small trust line:
+
+```txt
+Comfort-focused styles. Clear size guidance. Easy everyday wear.
+```
+
+## Image Direction
+
+Use a clean modern footwear lifestyle image:
+
+* Sneakers or comfort shoes in an urban walking scene
+* Product-focused studio shot with lifestyle feel
+* Shoes clearly visible
+* Clean white, soft gray, warm beige, muted blue, tan accents
+* No fake major brand logos
+* No text inside image
+* No medical foot visuals
+* No supplier collage
+
+## Design Notes
+
+* Background: Clean White or Soft Gray
+* Heading: Deep Navy `#101828`
+* Primary CTA: Muted Blue `#3B82F6`
+* Accent: Tan Leather `#B9825B`
+* Layout: text left, image right
+* Mobile: stack image and text cleanly
+
+---
+
+# Section 2 — Shop By Footwear Style
+
+## Purpose
+
+Show main footwear categories clearly and keep the store focused.
+
+This section helps customers understand the store structure quickly and improves GMC trust.
+
+## Categories
+
+```txt
+Everyday Sneakers
+Comfort Shoes
+Sandals & Slides
+Slippers
+Boots
+Women’s Shoes
+Men’s Shoes
+```
+
+If homepage needs fewer cards, use only:
+
+```txt
+Sneakers
+Comfort Shoes
+Sandals & Slides
+Slippers
+Boots
+```
+
+## Category Card Copy
+
+### Everyday Sneakers
+
+```txt
+Casual sneakers for daily outfits and easy movement.
+```
+
+### Comfort Shoes
+
+```txt
+Soft everyday styles made for walking, errands, and daily routines.
+```
+
+### Sandals & Slides
+
+```txt
+Easy warm-weather footwear for relaxed days and casual looks.
+```
+
+### Slippers
+
+```txt
+Soft house shoes for simple comfort at home.
+```
+
+### Boots
+
+```txt
+Everyday boot styles for seasonal outfits and confident steps.
+```
+
+### Women’s Shoes
+
+```txt
+Women’s everyday footwear for comfort and casual style.
+```
+
+### Men’s Shoes
+
+```txt
+Men’s casual footwear for daily wear and easy movement.
+```
+
+## Image Direction
+
+Each card should use a clear footwear product image:
+
+* Sneakers: clean sneaker product/lifestyle shot
+* Comfort Shoes: walking shoe or slip-on style
+* Sandals & Slides: casual sandals on warm neutral surface
+* Slippers: cozy home footwear scene
+* Boots: seasonal boot lifestyle or studio shot
+* Women’s/Men’s Shoes: everyday footwear lifestyle image
+
+## Design Notes
+
+* Use image-heavy cards
+* Rounded corners 18–24px
+* White or Warm Beige card backgrounds
+* Light hover lift effect
+* Keep text short and readable
+* No fake reviews, no brand logo emphasis
+
+---
+
+# Optional Section — New Arrivals / Best Sellers
+
+## Purpose
+
+Add product visibility and conversion strength.
+
+## Content
+
+Eyebrow:
+
+```txt
+New Arrivals
+```
+
+Headline:
+
+```txt
+Fresh footwear styles for everyday steps.
+```
+
+Subtext:
+
+```txt
+Browse sneakers, comfort shoes, sandals, slippers, and boots selected for daily routines and casual outfits.
+```
+
+Product grid:
+
+* Desktop: 4 products
+* Mobile: 2 products per row if readable
+
+Product card should show:
+
+```txt
+Product image
+Product title
+Size availability note if useful
+Price
+CTA
+```
+
+Optional badges:
+
+```txt
+New
+Comfort Pick
+Everyday Style
+Best Seller
+```
+
+Avoid:
+
+* Fake reviews
+* Countdown timers
+* Excessive sale badges
+* Fake brand labels
+
+---
+
+# Section 3 — Sneakers & Casual Shoes
+
+## Purpose
+
+Feature sneakers and casual shoes as the main everyday footwear category.
+
+## Content
+
+Eyebrow:
+
+```txt
+Sneakers & Casual Shoes
+```
+
+Headline:
+
+```txt
+Easy styles for daily outfits and movement.
+```
+
+Paragraph:
+
+```txt
+From casual sneakers to slip-on everyday shoes, House of Shoes Online offers footwear styles designed for simple routines, easy outfits, and comfortable daily wear.
+```
+
+Highlights:
+
+```txt
+Daily wear
+Casual outfits
+Easy movement
+Comfort-focused styles
+```
+
+Primary CTA:
+
+```txt
+Shop Sneakers
+```
+
+Secondary CTA:
+
+```txt
+View Comfort Shoes
+```
+
+## Image Direction
+
+* Sneakers in studio or urban walking scene
+* Close-up of sole, upper, or material texture
+* Model walking in casual outfit
+* No unauthorized major brand logos
+* No hypebeast reseller vibe
+
+## Design Notes
+
+* Background: Soft Gray or Clean White
+* Layout: image + text split
+* Use Muted Blue accent for CTA
+* Add a small size guide reminder:
+
+```txt
+Please review the size guide and fit note before ordering.
+```
+
+---
+
+# Section 4 — Sandals, Slides & Slippers
+
+## Purpose
+
+Feature easy-wear footwear for relaxed daily use, home comfort, and warm-weather needs.
+
+## Content
+
+Eyebrow:
+
+```txt
+Sandals, Slides & Slippers
+```
+
+Headline:
+
+```txt
+Relaxed footwear for home, errands, and easy days.
+```
+
+Paragraph:
+
+```txt
+Explore sandals, slides, and slippers made for simple comfort, casual outfits, and everyday routines at home or on the go.
+```
+
+Mini cards:
+
+### Sandals & Slides
+
+```txt
+Easy slip-on styles for warm days and casual wear.
+```
+
+### Slippers
+
+```txt
+Soft house shoes for comfort-focused home routines.
+```
+
+### Boots
+
+```txt
+Seasonal boot styles for everyday outfits and confident steps.
+```
+
+CTA:
+
+```txt
+Explore Easy-Wear Footwear
+```
+
+## Image Direction
+
+* Sandals/slides on neutral surface or casual lifestyle scene
+* Slippers in cozy home setting
+* Boots in seasonal casual outfit scene
+* Warm Beige / Tan Leather tones
+* No medical foot claim visuals
+
+## Design Notes
+
+* Background: Warm Beige `#EFE3D3`
+* Use 2–3 rounded mini cards
+* Accent: Tan Leather `#B9825B`
+* Keep language casual, clear, and safe
+
+---
+
+# Section 5 — Customer Care / Size & Returns Trust
+
+## Purpose
+
+Build professional trust and support GMC compliance.
+
+Because footwear sizing and returns matter, this section should be clear and practical.
+
+## Content
+
+Eyebrow:
+
+```txt
+Customer Care
+```
+
+Headline:
+
+```txt
+Clear support for size, fit, shipping, and returns.
+```
+
+Short paragraph:
+
+```txt
+Shop footwear with clear size guidance, fit notes, order tracking, and customer support when you need help.
+```
+
+Trust cards:
+
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Size Guide & Fit Notes
+```
+
+Size / fit note:
+
+```txt
+Please review the size guide, fit note, material details, and return conditions before placing an order.
+```
+
+Shipping note:
+
+```txt
+Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+```
+
+Return note:
+
+```txt
+Eligible unworn, undamaged footwear may be returned within 30 days of delivery in original condition and packaging where applicable.
+```
+
+Primary CTA:
+
+```txt
+View Shipping & Returns
+```
+
+Secondary CTA:
+
+```txt
+Contact Support
+```
+
+## Design Notes
+
+* Background: Deep Navy `#101828`
+* Text: White
+* CTA: Muted Blue
+* Accent: Tan Leather
+* Trust cards can use white/10 panels or clean white cards
+* Keep practical notes visible but concise
+
+---
+
+# Homepage Image List
+
+Needed images:
+
+1. Hero image: everyday sneakers / comfort shoes lifestyle
+2. Category image: Everyday Sneakers
+3. Category image: Comfort Shoes
+4. Category image: Sandals & Slides
+5. Category image: Slippers
+6. Category image: Boots
+7. Category image: Women’s Shoes
+8. Category image: Men’s Shoes
+9. Feature image: sneakers/casual shoes
+10. Feature image: sandals/slides/slippers
+11. Optional customer care / packaging image
+
+Image rules:
+
+* No text inside image
+* No fake major brand logos
+* No supplier collage
+* No medical foot visuals
+* No counterfeit-looking product designs
+* Shoes should be clearly visible
+* Use bright, clean, realistic footwear photography
+
+---
+
+# Copy Rules
 
 Use:
-- urban lifestyle photography
-- oversized tee styling
-- green / black / white palette
-- authentic streetwear poses
-- high contrast text
+
+```txt
+everyday shoes
+comfort
+casual style
+daily wear
+confident steps
+easy movement
+sneakers
+sandals
+slides
+slippers
+boots
+size guide
+fit note
+```
 
 Avoid:
-- heavy graphic clutter
-- AI-looking visuals
-- crowded collages
-- low contrast text
+
+```txt
+official Nike
+Adidas original
+Crocs authentic unless verified
+designer replica
+luxury inspired
+1:1 copy
+guaranteed pain relief
+medical orthopedic unless verified
+doctor recommended unless verified
+```
 
 ---
 
-# 2. Featured Categories
+# Professional Website Requirements
 
-### Purpose
+Homepage should include or link to:
 
-Quickly establish product hierarchy.
+```txt
+About Us
+Contact Us
+Shipping Policy
+Return & Refund Policy
+Privacy Policy
+Terms of Service
+FAQ
+Track Order
+Size Guide
+```
 
-### Layout
+Product pages should include:
 
-3–4 category blocks.
-
-### Categories
-
-- Graphic Tees
-- Oversized Tees
-- Hoodies
-- Streetwear Essentials
-
-### Visual Style
-
-- large clean imagery
-- minimal overlays
-- modern typography
-- high contrast cards
-- soft hover effects
-
----
-
-# 3. New Arrivals
-
-### Purpose
-
-Present fresh apparel immediately.
-
-### Layout
-
-- 4–8 featured products
-- clean product cards
-- balanced spacing
-- 2 columns on mobile
-- 4 columns on desktop
-
-### Product Card Rules
-
-Include:
-- image
-- title
-- price
-- simple CTA
-
-Avoid:
-- excessive labels
-- countdowns
-- cluttered badges
-- fake urgency
+```txt
+Shoe type
+Gender / target use if relevant
+Available sizes
+Color options
+Material / upper / sole if known
+Fit note
+Care instructions
+Shipping note
+Return condition
+Size guide link
+```
 
 ---
 
-# 4. Lifestyle Banner Section
-
-### Purpose
-
-Reinforce brand personality.
-
-### Layout
-
-Split layout:
-- large urban lifestyle image
-- short editorial-style text
-
-### Messaging
-
-Focus on:
-- comfort
-- confidence
-- modern styling
-- casual everyday wear
-- movement and daily use
-
-### Visual Direction
-
-Use:
-- city environments
-- neutral architecture
-- relaxed poses
-- oversized silhouettes
-- black/green high contrast section
-
----
-
-# 5. Graphic Tee Collection
-
-### Purpose
-
-Core conversion section.
-
-### Layout
-
-Grid-based apparel showcase or image + copy split.
-
-### Direction
-
-Products should feel:
-- curated
-- wearable
-- original
-- minimal
-- modern
-
-Messaging should avoid:
-- meme overload
-- copyrighted graphics
-- novelty spam
-- offensive humor
-
----
-
-# 6. Oversized Streetwear Section
-
-### Purpose
-
-Support modern streetwear positioning.
-
-### Content Direction
-
-Highlight:
-- relaxed fits
-- washed apparel
-- layering
-- neutral tones
-- effortless styling
-
-### Visual Style
-
-Use:
-- oversized silhouettes
-- urban photography
-- concrete backgrounds
-- clean studio textures
-- confident poses
-
----
-
-# 7. Hoodie Collection
-
-### Purpose
-
-Expand apparel depth.
-
-### Visual Direction
-
-- cozy urban lifestyle
-- minimal layering
-- clean modern photography
-- dark or green section background
-
-Avoid:
-- athletic branding vibe
-- sportswear-heavy layouts
-- loud gym aesthetic
-
----
-
-# 8. Brand Philosophy Section
-
-### Purpose
-
-Improve merchant authenticity.
-
-### Layout
-
-Simple icon/text grid.
-
-### Topics
-
-- Comfortable Everyday Fits
-- Clean Modern Styling
-- Original Graphic Apparel
-- Secure Online Shopping
-
-### Tone
-
-- short
-- confident
-- apparel-focused
-- youth-friendly
-
-Avoid:
-- fake emotional storytelling
-- corporate paragraphs
-- generic AI brand text
-
----
-
-# 9. Best Sellers
-
-### Purpose
-
-Build trust and natural product discovery.
-
-### Layout
-
-Clean product carousel or grid.
-
-### Rules
-
-Use:
-- apparel-focused presentation
-- balanced spacing
-- realistic pricing
-- clean card structure
-
-Avoid:
-- “viral” wording
-- fake urgency
-- aggressive discounting
-- fake reviews
-
----
-
-# 10. Social / Lifestyle Section
-
-### Purpose
-
-Create authentic fashion atmosphere.
-
-### Content
-
-- lifestyle apparel imagery
-- real-world styling inspiration
-- modern casual looks
-- streetwear fit inspiration
-
-### Visual Tone
-
-Should feel:
-- urban
-- relaxed
-- young
-- modern
-- authentic
-
-Avoid:
-- influencer overload
-- luxury fashion editorials
-- overly polished AI images
-
----
-
-# 11. Newsletter Section
-
-### Purpose
-
-Capture returning customers cleanly.
-
-### Layout
-
-Minimal:
-- short headline
-- email field
-- single CTA
-
-### Tone
-
-Examples:
-- Stay Updated On New Drops
-- Join The Slicktee Community
-- Get New Fits First
-
-Avoid:
-- spam discount messaging
-- popup-like design
-- aggressive email capture
-
----
-
-# Footer Structure
-
-## Include
-
-- Shop Links
-- Policies
-- Contact
-- Support Email
-- Social Icons
-
-## Footer Tone
-
-- dark
-- minimal
-- clean
-- high contrast
-
-Recommended:
-- black or deep green background
-- white text
-- green/lime accent
-
-Avoid:
-- cluttered columns
-- oversized legal text
-- low contrast links
-
----
-
-# Homepage Visual Rules
-
-## Color Direction
-
-Primary:
-- black
-- deep green
-- active green
-- white
-
-Accent:
-- lime energy
-- cool gray
-- soft white
-
-Avoid:
-- pink pastel
-- soft feminine boutique palette
-- neon overload
-- low contrast muted layouts
-
----
-
-# Typography Direction
-
-Typography should feel:
-- bold
-- modern
-- energetic
-- fashion-oriented
-- clean
-
-Use:
-- large headlines
-- uppercase headings
-- minimal paragraphs
-- strong spacing
-- clear CTAs
-
-Avoid:
-- decorative fonts
-- playful typography
-- futuristic gaming fonts
-- luxury serif tone
-
----
-
-# Image Direction
-
-## Photography Style
-
-Use:
-- realistic apparel photography
-- modern urban lifestyle
-- neutral lighting
-- clean compositions
-- streetwear poses
-
-Preferred environments:
-- city streets
-- modern interiors
-- concrete textures
-- minimal studio setups
-- outdoor urban corners
-
-Avoid:
-- fantasy visuals
-- overprocessed AI images
-- random mockups
-- fake celebrity styling
-- copyright graphics
-
----
-
-# Mobile UX Rules
-
-Homepage must:
-- scroll smoothly
-- load quickly
-- maintain spacing
-- prioritize product imagery
-- support easy thumb navigation
-- show strong contrast on mobile
-
-Avoid:
-- giant banners that hide content
-- cluttered product grids
-- tiny tap targets
-- unreadable text overlays
-
----
-
-# GMC Compliance Direction
-
-Homepage must clearly show:
-- apparel specialization
-- authentic branding
-- clean ecommerce behavior
-- transparent merchant structure
-- original product direction
-
-Avoid:
-- random products
-- excessive sales messaging
-- copyright-heavy designs
-- fake scarcity tactics
-- fake reviews
-- offensive graphic content
-
----
-
-# Strategic Goal
+# Final Homepage Feeling
 
 The homepage should feel like:
 
-“A youthful modern streetwear and graphic apparel brand with energetic green-based visuals, clean merchandising, strong contrast, and trustworthy ecommerce presentation.”
+```txt
+A clean, modern footwear store offering sneakers, comfort shoes, sandals, slides, slippers, boots, and everyday shoe styles for confident daily steps.
+```
+
+It must be footwear-focused, modern, practical, stylish, trustworthy, professional, and GMC-safe.

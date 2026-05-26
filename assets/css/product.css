@@ -1,27 +1,29 @@
 /* ============================================================
-   Product Page — Slicktee
-   Streetwear brand: clean, bold, conversion-first
+   Product Page — House of Shoes
+   Boutique brand: elegant, feminine, conversion-first
    ============================================================ */
 
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
-  --color-bg:             #ffffff;
-  --color-bg-subtle:      #F7F8F5;
-  --color-text-primary:   #111827;
-  --color-text-secondary: #374151;
-  --color-text-muted:     #6B7280;
-  --color-border:         #E5E7EB;
-  --color-accent:         #22C55E;
-  --color-accent-hover:   #A3E635;
-  --color-sale:           #22C55E;
-  --color-navy:           #0B0F0D;
-  --color-navy-light:     #123D2A;
-  --font-primary:         'Inter', system-ui, -apple-system, sans-serif;
+  --color-bg:             #FFFFFF;
+  --color-bg-subtle:      #F6F5F7;
+  --color-text-primary:   #141217;
+  --color-text-secondary: #4B4554;
+  --color-text-muted:     #B8B3BE;
+  --color-border:         #E8DDF0;
+  --color-accent:         #E6007E;
+  --color-accent-hover:   #7C3AED;
+  --color-accent-soft:    #F3E8FF;
+  --color-accent-blush:   #F4DDE8;
+  --color-sale:           #E6007E;
+  --color-dark:           #141217;
+  --color-dark-deep:      #2A1538;
+  --font-primary:         'Inter', 'Lato', system-ui, sans-serif;
   --radius-md:            8px;
-  --radius-lg:            16px;
+  --radius-lg:            14px;
   --radius-xl:            24px;
-  --shadow-card:          0 1px 4px rgba(0, 0, 0, 0.06);
-  --shadow-card-hover:    0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-card:          0 1px 4px rgba(20, 18, 23, 0.06);
+  --shadow-card-hover:    0 6px 24px rgba(20, 18, 23, 0.14);
 }
 
 /* === 1. PAGE LAYOUT === */
@@ -296,8 +298,8 @@ body.single-product {
 
 .variations_form .value select:focus {
   outline: none;
-  border-color: var(--color-navy);
-  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
 }
 
 /* Reset variations link */
@@ -361,7 +363,7 @@ form.cart:not(.variations_form) {
 
 .quantity .qty:focus {
   outline: none;
-  border-color: var(--color-navy);
+  border-color: var(--color-accent);
 }
 
 /* Add to cart button */
@@ -374,7 +376,7 @@ form.cart:not(.variations_form) {
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-navy);
+  color: #FFFFFF;
   background: var(--color-accent);
   border: none;
   border-radius: var(--radius-md);
@@ -392,7 +394,7 @@ form.cart:not(.variations_form) {
 
 .single_add_to_cart_button.button:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 25%, transparent);
 }
 
 .single_add_to_cart_button.button.disabled,
@@ -797,7 +799,7 @@ form.cart:not(.variations_form) {
 .comment-form input[type="email"]:focus,
 .comment-form textarea:focus {
   outline: none;
-  border-color: var(--color-navy);
+  border-color: var(--color-accent);
 }
 
 .comment-form textarea {
@@ -899,7 +901,7 @@ form.cart:not(.variations_form) {
 }
 
 .comment-form-comment textarea:focus {
-  border-color: var(--color-navy);
+  border-color: var(--color-accent);
 }
 
 /* Submit button */
@@ -912,7 +914,7 @@ form.cart:not(.variations_form) {
   align-items: center;
   justify-content: center;
   background: var(--color-accent);
-  color: var(--color-navy);
+  color: #FFFFFF;
   font-family: var(--font-primary);
   font-size: 0.875rem;
   font-weight: 900;
@@ -1095,8 +1097,8 @@ form.cart:not(.variations_form) {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: var(--color-navy);
-  color: #ffffff;
+  background: var(--color-dark);
+  color: #FFFFFF;
   font-family: var(--font-primary);
   font-size: 0.75rem;
   font-weight: 900;
@@ -1114,7 +1116,7 @@ form.cart:not(.variations_form) {
 
 .related.products .button:hover {
   background: var(--color-accent);
-  color: var(--color-navy);
+  color: #FFFFFF;
 }
 
 .related.products .button:active {

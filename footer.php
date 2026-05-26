@@ -104,9 +104,9 @@ $footer_payment_methods = [
                 <a href="<?php echo esc_url(home_url('/')); ?>"
                    class="inline-flex items-center gap-3"
                    aria-label="<?php echo esc_attr($brand_name); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/dist/shopshive/assets/img/logolight.png'); ?>"
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo_footer.png'); ?>"
                          alt="<?php echo esc_attr($brand_name); ?>"
-                         class="h-16 w-auto">
+                         class="h-24 w-auto">
                 </a>
 
                 <div class="mt-4 space-y-1.5 text-sm leading-6 text-white/75">

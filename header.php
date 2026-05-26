@@ -95,28 +95,28 @@ $nav_items = [
     </div>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between gap-4">
+        <div class="flex h-24 items-center justify-between gap-4">
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex shrink-0 items-center gap-3"
                aria-label="<?php echo esc_attr($brand_name); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/dist/shopshive/assets/img/Logo.png'); ?>"
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo_header.png'); ?>"
                      alt="<?php echo esc_attr($brand_name); ?>"
-                     class="h-14 w-auto">
+                     class="h-20 w-auto">
             </a>
 
             <nav class="hidden flex-1 items-center justify-center gap-5 lg:flex xl:gap-7" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
                     <?php if (! empty($item['mega'])) : ?>
-                        <div class="group/menu relative">
+                        <div class="group/menu">
                             <a href="<?php echo esc_url($item['url']); ?>"
-                               class="inline-flex h-20 items-center gap-1 whitespace-nowrap text-sm font-black uppercase tracking-wide text-[#111827] transition hover:text-[#2563EB] focus:text-[#2563EB] focus:outline-none">
+                               class="inline-flex h-24 items-center gap-1 whitespace-nowrap text-sm font-black uppercase tracking-wide text-[#111827] transition hover:text-[#2563EB] focus:text-[#2563EB] focus:outline-none">
                                 <?php echo esc_html($item['title']); ?>
                                 <svg class="h-4 w-4 transition group-hover/menu:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="m6 9 6 6 6-6"></path>
                                 </svg>
                             </a>
 
-                            <div class="invisible absolute left-1/2 top-full w-[min(1120px,calc(100vw-32px))] -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:translate-y-0 group-focus-within/menu:opacity-100">
+                            <div class="invisible absolute left-1/2 top-full w-[min(1040px,calc(100vw-32px))] -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:translate-y-0 group-focus-within/menu:opacity-100">
                                 <div class="overflow-hidden rounded-lg border border-[#D7DEE8] bg-white text-left shadow-xl">
                                     <div class="grid grid-cols-[minmax(0,1.45fr)_minmax(280px,0.75fr)] gap-0">
                                         <div class="p-6">
@@ -221,9 +221,11 @@ $nav_items = [
                 </form>
 
                 <button type="button"
+                        id="tizezap-mobile-search-toggle"
                         class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0B1F33] transition hover:bg-[#F4F6F8] xl:hidden"
                         aria-label="<?php esc_attr_e('Search', 'dawp'); ?>"
-                        onclick="document.getElementById('tizezap-mobile-search').classList.toggle('hidden')">
+                        aria-controls="tizezap-mobile-search"
+                        aria-expanded="false">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="M21 21l-4.35-4.35"></path>
@@ -247,9 +249,11 @@ $nav_items = [
                 </a>
 
                 <button type="button"
+                        id="tizezap-mobile-menu-toggle"
                         class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0B1F33] transition hover:bg-[#F4F6F8] lg:hidden"
                         aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>"
-                        onclick="document.getElementById('tizezap-mobile-menu').classList.toggle('hidden')">
+                        aria-controls="tizezap-mobile-menu"
+                        aria-expanded="false">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="12" x2="21" y2="12"></line>

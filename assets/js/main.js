@@ -27,6 +27,74 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const masthead = document.getElementById('masthead');
+    const mobileMenuToggle = document.getElementById('tizezap-mobile-menu-toggle');
+    const mobileMenu = document.getElementById('tizezap-mobile-menu');
+    const mobileSearchToggle = document.getElementById('tizezap-mobile-search-toggle');
+    const mobileSearch = document.getElementById('tizezap-mobile-search');
+
+    const setMobilePanelTop = () => {
+        if (!masthead) return;
+        document.documentElement.style.setProperty(
+            '--tizezap-mobile-panel-top',
+            `${Math.max(0, masthead.getBoundingClientRect().bottom)}px`
+        );
+    };
+
+    const closeMobileMenu = () => {
+        if (!mobileMenu || !mobileMenuToggle) return;
+        mobileMenu.classList.add('hidden');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('dawp-mobile-menu-open');
+    };
+
+    const closeMobileSearch = () => {
+        if (!mobileSearch || !mobileSearchToggle) return;
+        mobileSearch.classList.add('hidden');
+        mobileSearchToggle.setAttribute('aria-expanded', 'false');
+    };
+
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+
+            if (isOpen) {
+                closeMobileMenu();
+                return;
+            }
+
+            closeMobileSearch();
+            setMobilePanelTop();
+            mobileMenu.classList.remove('hidden');
+            mobileMenuToggle.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('dawp-mobile-menu-open');
+        });
+
+        window.addEventListener('resize', setMobilePanelTop, { passive: true });
+        window.addEventListener('orientationchange', setMobilePanelTop, { passive: true });
+        window.addEventListener('scroll', () => {
+            if (!mobileMenu.classList.contains('hidden')) {
+                setMobilePanelTop();
+            }
+        }, { passive: true });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    }
+
+    if (mobileSearchToggle && mobileSearch) {
+        mobileSearchToggle.addEventListener('click', () => {
+            const isOpen = !mobileSearch.classList.contains('hidden');
+
+            closeMobileMenu();
+            mobileSearch.classList.toggle('hidden', isOpen);
+            mobileSearchToggle.setAttribute('aria-expanded', String(!isOpen));
+        });
+    }
+
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');

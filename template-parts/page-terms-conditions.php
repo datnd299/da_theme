@@ -204,8 +204,8 @@
             <h2 class="text-[#2B2B2B] font-semibold text-xl" style="font-family:'Playfair Display',serif">Shipping &amp; Delivery</h2>
           </div>
           <div class="text-[14px] text-[#2B2B2B]/70 leading-relaxed space-y-4">
-            <p>We offer <strong class="text-[#2B2B2B]">free standard shipping</strong> on all orders within the United States. Estimated delivery times are <strong class="text-[#2B2B2B]">5–10 business days</strong> after order processing (1–3 business days). These are estimates and not guaranteed.</p>
-            <p>Shopshive is not liable for delays caused by carriers, weather, customs, or other circumstances beyond our reasonable control. Risk of loss and title for items purchased pass to you upon delivery to the carrier.</p>
+            <p>Orders placed before <strong class="text-[#2B2B2B]">2:00 PM Pacific Standard Time (Los Angeles)</strong> are handled using the same business-day cutoff. Handling time is <strong class="text-[#2B2B2B]">0-1 business days</strong>, fulfilled Monday through Saturday.</p>
+            <p>Carrier transit time is currently estimated at <strong class="text-[#2B2B2B]">0 business days</strong> for all destinations, making the total estimated delivery time <strong class="text-[#2B2B2B]">0-1 business days</strong>. These estimates may be adjusted after cutoff times, during public holidays, or due to carrier exceptions beyond our reasonable control.</p>
             <p>For full details, please review our <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="text-[#E8567A] hover:underline">Shipping &amp; Returns Policy</a>.</p>
           </div>
         </div>
@@ -219,8 +219,8 @@
             <h2 class="text-[#2B2B2B] font-semibold text-xl" style="font-family:'Playfair Display',serif">Returns &amp; Refunds</h2>
           </div>
           <div class="text-[14px] text-[#2B2B2B]/70 leading-relaxed space-y-4">
-            <p>We accept returns and exchanges within <strong class="text-[#2B2B2B]">30 days</strong> of the delivery date, provided items are unworn, unwashed, and have all original tags attached. Items marked "Final Sale" are not eligible for return.</p>
-            <p>Refunds are issued to the original payment method within <strong class="text-[#2B2B2B]">5–7 business days</strong> of us receiving and inspecting the returned item. Shipping costs for returns are the customer's responsibility unless the item is damaged or incorrect.</p>
+            <p>We accept returns for defective and non-defective products, and we accept exchanges on eligible items within <strong class="text-[#2B2B2B]">30 days</strong> of delivery. Products must be new, unused, and in their original condition with packaging and tags intact.</p>
+            <p>Returns are accepted by mail using a download-and-print return label. Return label cost is the customer's responsibility unless support confirms otherwise. There is <strong class="text-[#2B2B2B]">no restocking fee</strong>, and refunds are processed within <strong class="text-[#2B2B2B]">10 days</strong> after the returned item is received and inspected.</p>
             <p>For complete information, please see our <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="text-[#E8567A] hover:underline">Returns Policy</a>.</p>
           </div>
         </div>

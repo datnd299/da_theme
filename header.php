@@ -38,7 +38,7 @@ $nav_items   = dawp_main_menu_items();
 <!-- Utility Bar -->
 <div class="hidden md:flex bg-[#E8567A] text-white py-2">
     <div class="max-w-[1280px] w-full mx-auto px-6 flex items-center justify-center text-xs font-medium tracking-wide" style="font-family:'DM Sans',sans-serif">
-        <span>✦ Free Shipping on All Orders ✦</span>
+        <span>✦ 0-1 Business Day Delivery Estimate ✦</span>
     </div>
 </div>
 

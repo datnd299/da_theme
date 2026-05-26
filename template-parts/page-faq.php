@@ -38,12 +38,16 @@
           'icon'     => '<path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
           'items'    => [
             [
-              'q' => 'Do you offer free shipping?',
-              'a' => 'Yes — we offer free shipping on every single order, with no minimum purchase required. We ship to all addresses across the United States.',
+              'q' => 'What is your delivery estimate?',
+              'a' => 'The current estimated delivery time is 0-1 business days for all destinations within the United States. Delivery estimates may move to the next eligible business day after cutoff times, public holidays, or carrier exceptions.',
             ],
             [
-              'q' => 'How long does shipping take?',
-              'a' => 'Standard shipping typically takes 5–10 business days after your order is processed. Processing usually takes 1–2 business days. You\'ll receive a tracking link by email as soon as your package ships.',
+              'q' => 'What is the order cutoff time?',
+              'a' => 'The order cutoff time is 2:00 PM Pacific Standard Time (Los Angeles). Orders placed after that cutoff may be handled on the next eligible business day.',
+            ],
+            [
+              'q' => 'How long is handling and transit time?',
+              'a' => 'Handling time is 0-1 business days, fulfilled Monday through Saturday. Carrier transit time is currently estimated at 0 business days for all destinations.',
             ],
             [
               'q' => 'Do you ship internationally?',
@@ -65,23 +69,23 @@
           'items'    => [
             [
               'q' => 'What is your return policy?',
-              'a' => 'We accept returns and exchanges within 30 days of delivery. Items must be unworn, unwashed, and in their original condition with tags attached. We want you to love every piece — if you don\'t, we\'ll make it right.',
+              'a' => 'We accept returns for defective and non-defective products within 30 days of delivery. Products must be new, unused, and in their original condition with packaging and tags intact.',
             ],
             [
               'q' => 'How do I start a return or exchange?',
-              'a' => 'Simply email us at support@shopshive.com with your order number and reason for the return. Our team will provide return instructions within 24 hours.',
+              'a' => 'Email support@shopshive.com with your order number and reason for return or exchange. Our team will provide mail return instructions and a download-and-print return label.',
             ],
             [
-              'q' => 'Are returns free?',
-              'a' => 'For exchanges, we cover the cost of the new shipment. For refunds, customers are responsible for return shipping costs. We recommend using a trackable shipping service for your return.',
+              'q' => 'Who pays for the return label?',
+              'a' => 'Returns are accepted by mail. Return labels are download-and-print labels, and return label cost is the customer\'s responsibility unless support confirms otherwise.',
             ],
             [
               'q' => 'When will I receive my refund?',
-              'a' => 'Once we receive and inspect your return, we\'ll process your refund within 3–5 business days. The funds will appear on your original payment method within 5–10 business days depending on your bank.',
+              'a' => 'Refunds are processed within 10 days after your returned item is received and inspected. There is no restocking fee.',
             ],
             [
               'q' => 'Can I exchange for a different size or color?',
-              'a' => 'Absolutely — exchanges for a different size or color are easy. Contact us within 30 days and we\'ll ship the replacement as soon as we receive your original item back, subject to stock availability.',
+              'a' => 'Yes. We accept exchanges on eligible items within 30 days of delivery, subject to stock availability and the item being new and unused.',
             ],
           ],
         ],
@@ -103,7 +107,7 @@
             ],
             [
               'q' => 'My order says "processing" for a long time. Is this normal?',
-              'a' => 'Orders typically process within 1–2 business days. If your order has been processing for more than 3 business days, please reach out to us and we\'ll look into it right away.',
+              'a' => 'Orders are prepared for shipment within 0-1 business days, Monday through Saturday. If your order has been processing longer than expected, please reach out and we\'ll look into it right away.',
             ],
             [
               'q' => 'Will I receive an order confirmation?',
@@ -283,7 +287,7 @@
       Ready To Find Your<br><em>Next Favorite Look?</em>
     </h2>
     <p class="text-white/60 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-      Hundreds of styles, free shipping on every order, and hassle-free 30-day returns.
+      Hundreds of styles, 0-1 business day delivery estimates, and 30-day returns.
     </p>
     <a href="<?php echo esc_url( home_url('/shop/') ); ?>"
        class="inline-flex items-center gap-2 px-8 py-4 bg-[#E8567A] text-white text-sm font-semibold rounded-full hover:bg-[#d14469] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">

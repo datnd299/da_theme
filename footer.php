@@ -111,7 +111,7 @@
 
                     <li class="flex items-center gap-2">
                         <span class="w-1 h-1 rounded-full bg-accent shrink-0"></span>
-                        <?php esc_html_e('Free Shipping on All Orders', 'dawp'); ?>
+                        <?php esc_html_e('0-1 Business Day Delivery Estimate', 'dawp'); ?>
                     </li>
 
                     <li class="flex items-center gap-2">

@@ -1,7 +1,7 @@
 <?php
 /**
- * Shipping & Returns template part — Shopshive
- * Sections: Hero · Shipping Policy · Returns & Exchanges · Process Steps · Contact CTA
+ * Shipping & Returns template part - Shopshive
+ * Sections: Hero, Shipping Policy, Returns & Exchanges, Process Steps, FAQ, Contact CTA
  */
 ?>
 
@@ -17,22 +17,21 @@
       Shipping &amp; <em>Returns</em>
     </h1>
     <p class="text-base lg:text-lg text-[#2B2B2B]/70 max-w-2xl leading-relaxed">
-      We want your shopping experience to be seamless from checkout to your doorstep — and back if needed. Here's everything you need to know.
+      Clear timelines, simple mail returns, and support when you need it. Here is how shipping, exchanges, and refunds work at Shopshive.
     </p>
 
-    <!-- Quick highlights -->
     <div class="mt-10 flex flex-wrap justify-center gap-4">
       <div class="flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#F2A8BC]/40 rounded-full px-5 py-2.5">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        <span class="text-xs font-semibold text-[#2B2B2B]">Free Shipping On All Orders</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span class="text-xs font-semibold text-[#2B2B2B]">0-1 Business Day Delivery</span>
       </div>
       <div class="flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#F2A8BC]/40 rounded-full px-5 py-2.5">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
         <span class="text-xs font-semibold text-[#2B2B2B]">30-Day Returns &amp; Exchanges</span>
       </div>
       <div class="flex items-center gap-2 bg-white/70 backdrop-blur-sm border border-[#F2A8BC]/40 rounded-full px-5 py-2.5">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span class="text-xs font-semibold text-[#2B2B2B]">Secure &amp; Trusted</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 8h16"/><path d="M8 4v16"/></svg>
+        <span class="text-xs font-semibold text-[#2B2B2B]">Returns By Mail</span>
       </div>
     </div>
   </div>
@@ -41,7 +40,6 @@
 <!-- ===== SHIPPING POLICY ===== -->
 <section class="bg-[#FDF8F4] py-20 lg:py-28" aria-label="Shipping policy">
   <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
-
     <div class="text-center mb-14">
       <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#E8567A] mb-4">Getting It To You</p>
       <h2 class="text-[#2B2B2B] leading-tight"
@@ -49,79 +47,62 @@
         Shipping Policy
       </h2>
       <p class="mt-4 text-[14px] text-[#2B2B2B]/60 max-w-xl mx-auto leading-relaxed">
-        Every order ships free, no minimum required. We partner with trusted carriers to deliver your fashion quickly and safely.
+        Delivery estimates are based on order cutoff, handling time, and carrier transit time for all destinations.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <?php
+        $shipping_items = [
+          [
+            'title' => 'Order Cutoff',
+            'copy'  => 'Orders placed before 2:00 PM Pacific Standard Time (Los Angeles) are handled using the same business-day cutoff.',
+            'icon'  => '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+          ],
+          [
+            'title' => 'Handling Time',
+            'copy'  => 'Orders are prepared for shipment within 0-1 business days. Handling is fulfilled Monday through Saturday.',
+            'icon'  => '<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/>',
+          ],
+          [
+            'title' => 'Transit Time',
+            'copy'  => 'Carrier transit time is currently estimated at 0 business days for all destinations, with shipments moving Monday through Saturday.',
+            'icon'  => '<rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>',
+          ],
+          [
+            'title' => 'Total Delivery Time',
+            'copy'  => 'Estimated delivery time for all customer locations is 0-1 business days after the order is placed.',
+            'icon'  => '<path d="M20 6 9 17l-5-5"/>',
+          ],
+          [
+            'title' => 'Order Tracking',
+            'copy'  => 'Once your order ships, you will receive tracking details by email. You can also check your status on our Track Order page.',
+            'icon'  => '<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>',
+          ],
+          [
+            'title' => 'Shipping Area',
+            'copy'  => 'We currently ship to customer addresses within the United States. Delivery estimates may be adjusted during holidays or carrier exceptions.',
+            'icon'  => '<circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
+          ],
+        ];
 
-      <!-- Free Shipping -->
+        foreach ( $shipping_items as $item ) :
+      ?>
       <div class="bg-white rounded-2xl p-8 shadow-sm border border-[#F5E6DC] hover:shadow-md transition-shadow duration-300">
         <div class="w-12 h-12 rounded-full bg-[#F5E6DC] flex items-center justify-center mb-6">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><?php echo wp_kses( $item['icon'], [ 'circle' => [ 'cx' => true, 'cy' => true, 'r' => true ], 'polyline' => [ 'points' => true ], 'path' => [ 'd' => true ], 'rect' => [ 'x' => true, 'y' => true, 'width' => true, 'height' => true ], 'polygon' => [ 'points' => true ], 'line' => [ 'x1' => true, 'y1' => true, 'x2' => true, 'y2' => true ] ] ); ?></svg>
         </div>
-        <h3 class="text-[#2B2B2B] font-semibold text-lg mb-3" style="font-family:'Playfair Display',serif">Free Standard Shipping</h3>
-        <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed">
-          We offer <strong class="text-[#2B2B2B]">free shipping on all orders</strong> across the United States — no minimum spend, no hidden fees, no surprises at checkout.
-        </p>
+        <h3 class="text-[#2B2B2B] font-semibold text-lg mb-3" style="font-family:'Playfair Display',serif"><?php echo esc_html( $item['title'] ); ?></h3>
+        <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed"><?php echo esc_html( $item['copy'] ); ?></p>
       </div>
+      <?php endforeach; ?>
+    </div>
 
-      <!-- Processing Time -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-[#F5E6DC] hover:shadow-md transition-shadow duration-300">
-        <div class="w-12 h-12 rounded-full bg-[#F5E6DC] flex items-center justify-center mb-6">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3 class="text-[#2B2B2B] font-semibold text-lg mb-3" style="font-family:'Playfair Display',serif">Order Processing</h3>
-        <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed">
-          Orders are processed within <strong class="text-[#2B2B2B]">1–3 business days</strong> after payment is confirmed. You'll receive an email with tracking information once your order ships.
-        </p>
-      </div>
-
-      <!-- Delivery Time -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-[#F5E6DC] hover:shadow-md transition-shadow duration-300">
-        <div class="w-12 h-12 rounded-full bg-[#F5E6DC] flex items-center justify-center mb-6">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 0 1-2.827 0l-4.244-4.243a8 8 0 1 1 11.314 0z"/><path d="M15 11a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/></svg>
-        </div>
-        <h3 class="text-[#2B2B2B] font-semibold text-lg mb-3" style="font-family:'Playfair Display',serif">Estimated Delivery</h3>
-        <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed">
-          Standard delivery takes <strong class="text-[#2B2B2B]">5–10 business days</strong> depending on your location within the United States. Most orders arrive sooner.
-        </p>
-      </div>
-
-      <!-- Tracking -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-[#F5E6DC] hover:shadow-md transition-shadow duration-300">
-        <div class="w-12 h-12 rounded-full bg-[#F5E6DC] flex items-center justify-center mb-6">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3 class="text-[#2B2B2B] font-semibold text-lg mb-3" style="font-family:'Playfair Display',serif">Order Tracking</h3>
-        <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed">
-          Once your order ships, you'll get a tracking number by email. You can also track your order anytime on our
-          <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="text-[#E8567A] hover:underline">Track Order</a> page.
-        </p>
-      </div>
-
-      <!-- Shipping Area -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-[#F5E6DC] hover:shadow-md transition-shadow duration-300">
-        <div class="w-12 h-12 rounded-full bg-[#F5E6DC] flex items-center justify-center mb-6">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        </div>
-        <h3 class="text-[#2B2B2B] font-semibold text-lg mb-3" style="font-family:'Playfair Display',serif">Where We Ship</h3>
-        <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed">
-          We currently ship to all states within the <strong class="text-[#2B2B2B]">United States</strong>, including Alaska and Hawaii. We are unable to ship to P.O. Boxes at this time.
-        </p>
-      </div>
-
-      <!-- Delays -->
-      <div class="bg-white rounded-2xl p-8 shadow-sm border border-[#F5E6DC] hover:shadow-md transition-shadow duration-300">
-        <div class="w-12 h-12 rounded-full bg-[#F5E6DC] flex items-center justify-center mb-6">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
-        <h3 class="text-[#2B2B2B] font-semibold text-lg mb-3" style="font-family:'Playfair Display',serif">Possible Delays</h3>
-        <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed">
-          Delivery times may be longer during peak seasons (holidays, sales events) or due to carrier delays outside our control. We'll always keep you informed.
-        </p>
-      </div>
-
+    <div class="mt-10 bg-[#F5E6DC] border border-[#F2A8BC]/40 rounded-2xl p-6 lg:p-8">
+      <h3 class="text-[#2B2B2B] font-semibold text-lg mb-2" style="font-family:'Playfair Display',serif">Estimated delivery summary</h3>
+      <p class="text-[14px] text-[#2B2B2B]/65 leading-relaxed">
+        For all destinations, the current estimated delivery time is <strong class="text-[#2B2B2B]">0-1 business days</strong>. If an order is placed after the cutoff time, or during a public holiday, the estimate may move to the next eligible business day.
+      </p>
     </div>
   </div>
 </section>
@@ -129,10 +110,7 @@
 <!-- ===== RETURNS & EXCHANGES ===== -->
 <section class="bg-[#F5E6DC] py-20 lg:py-28" aria-label="Returns and exchanges policy">
   <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
-
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-
-      <!-- Left: Policy Details -->
       <div>
         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#E8567A] mb-4">Hassle-Free</p>
         <h2 class="mb-6 text-[#2B2B2B] leading-tight"
@@ -140,110 +118,75 @@
           Returns &amp; Exchanges
         </h2>
         <p class="text-[14px] lg:text-[15px] text-[#2B2B2B]/70 leading-relaxed mb-8">
-          We want you to love what you ordered. If something isn't right, we make it easy to return or exchange your items within <strong class="text-[#2B2B2B]">30 days</strong> of the delivery date.
+          We accept returns for both defective and non-defective products, and we accept exchanges on eligible items. Products must be new and returned within 30 days.
         </p>
 
         <ul class="space-y-5">
-          <li class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#E8567A]/15 flex items-center justify-center mt-0.5">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-[#2B2B2B] text-[15px] mb-1">30-Day Return Window</h4>
-              <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">Items can be returned or exchanged within 30 days of delivery. The clock starts from the date your package is delivered.</p>
-            </div>
-          </li>
+          <?php
+            $return_points = [
+              [ 'title' => 'Returns Accepted', 'copy' => 'We accept returns for defective and non-defective products.' ],
+              [ 'title' => 'Exchanges Accepted', 'copy' => 'Eligible products can be exchanged when you need a different size, color, or replacement.' ],
+              [ 'title' => 'Product Condition', 'copy' => 'Returned products must be new, unused, and in their original condition with packaging and tags intact.' ],
+              [ 'title' => '30-Day Return Window', 'copy' => 'You have 30 days from delivery to request a return or exchange.' ],
+            ];
 
+            foreach ( $return_points as $point ) :
+          ?>
           <li class="flex items-start gap-4">
             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#E8567A]/15 flex items-center justify-center mt-0.5">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <div>
-              <h4 class="font-semibold text-[#2B2B2B] text-[15px] mb-1">Items Must Be Unworn &amp; Unwashed</h4>
-              <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">Returned items must be in their original condition — unworn, unwashed, and with all original tags attached. Items showing signs of wear or damage may not be accepted.</p>
+              <h4 class="font-semibold text-[#2B2B2B] text-[15px] mb-1"><?php echo esc_html( $point['title'] ); ?></h4>
+              <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed"><?php echo esc_html( $point['copy'] ); ?></p>
             </div>
           </li>
-
-          <li class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#E8567A]/15 flex items-center justify-center mt-0.5">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-[#2B2B2B] text-[15px] mb-1">Free Exchanges</h4>
-              <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">Need a different size or color? We offer free exchanges on eligible items. Simply contact us and we'll guide you through the process.</p>
-            </div>
-          </li>
-
-          <li class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#E8567A]/15 flex items-center justify-center mt-0.5">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-[#2B2B2B] text-[15px] mb-1">Refunds Processed Promptly</h4>
-              <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">Once we receive and inspect your return, refunds are issued to your original payment method within <strong class="text-[#2B2B2B]">5–7 business days</strong>.</p>
-            </div>
-          </li>
+          <?php endforeach; ?>
         </ul>
       </div>
 
-      <!-- Right: Non-Returnable + Process -->
       <div class="space-y-6">
-
-        <!-- Non-returnable items -->
         <div class="bg-white rounded-2xl p-8 shadow-sm border border-white">
           <div class="flex items-center gap-3 mb-5">
             <div class="w-10 h-10 rounded-full bg-[#F5E6DC] flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 8h16"/><path d="M8 4v16"/></svg>
             </div>
-            <h3 class="font-semibold text-[#2B2B2B] text-lg" style="font-family:'Playfair Display',serif">Non-Returnable Items</h3>
+            <h3 class="font-semibold text-[#2B2B2B] text-lg" style="font-family:'Playfair Display',serif">Return Method &amp; Label</h3>
           </div>
-          <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed mb-4">The following items are final sale and cannot be returned or exchanged:</p>
+          <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed mb-4">
+            Returns are accepted <strong class="text-[#2B2B2B]">by mail</strong>. Return labels are provided as download-and-print labels, and return label cost is the customer's responsibility unless our support team confirms otherwise.
+          </p>
           <ul class="space-y-2">
-            <?php
-              $non_returnable = [
-                'Swimwear and intimate apparel',
-                'Items marked as "Final Sale"',
-                'Items with removed or damaged tags',
-                'Items showing signs of wear, washing, or alteration',
-                'Gift cards',
-              ];
-              foreach ( $non_returnable as $item ) :
-            ?>
-            <li class="flex items-center gap-3 text-[13px] text-[#2B2B2B]/60">
-              <span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#D4B8A0]"></span>
-              <?php echo esc_html($item); ?>
-            </li>
-            <?php endforeach; ?>
+            <li class="flex items-center gap-3 text-[13px] text-[#2B2B2B]/60"><span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#D4B8A0]"></span>Currency: USD</li>
+            <li class="flex items-center gap-3 text-[13px] text-[#2B2B2B]/60"><span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#D4B8A0]"></span>Return label: Download and print</li>
+            <li class="flex items-center gap-3 text-[13px] text-[#2B2B2B]/60"><span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#D4B8A0]"></span>Return label cost: Customer responsibility</li>
           </ul>
         </div>
 
-        <!-- Damaged / Wrong Items -->
         <div class="bg-white rounded-2xl p-8 shadow-sm border border-white">
           <div class="flex items-center gap-3 mb-5">
             <div class="w-10 h-10 rounded-full bg-[#F5E6DC] flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
             </div>
-            <h3 class="font-semibold text-[#2B2B2B] text-lg" style="font-family:'Playfair Display',serif">Damaged or Wrong Items?</h3>
+            <h3 class="font-semibold text-[#2B2B2B] text-lg" style="font-family:'Playfair Display',serif">Fees &amp; Refunds</h3>
           </div>
-          <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-            If you received a damaged, defective, or incorrect item, we sincerely apologize. Please contact us within <strong class="text-[#2B2B2B]">7 days</strong> of delivery with a photo and your order number. We'll make it right — fast.
+          <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed mb-4">
+            There is <strong class="text-[#2B2B2B]">no restocking fee</strong>. Refunds are processed within <strong class="text-[#2B2B2B]">10 days</strong> after the returned item is received and inspected.
           </p>
           <a href="mailto:support@shopshive.com"
-             class="inline-flex items-center gap-2 mt-5 text-[#E8567A] text-[13px] font-semibold hover:underline">
+             class="inline-flex items-center gap-2 text-[#E8567A] text-[13px] font-semibold hover:underline">
             Email support@shopshive.com
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== HOW TO RETURN — STEPS ===== -->
+<!-- ===== HOW TO RETURN - STEPS ===== -->
 <section class="bg-[#FDF8F4] py-20 lg:py-28" aria-label="How to return an order">
   <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
-
     <div class="text-center mb-14">
       <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#E8567A] mb-4">Simple Process</p>
       <h2 class="text-[#2B2B2B] leading-tight"
@@ -251,51 +194,46 @@
         How To Start A Return
       </h2>
       <p class="mt-4 text-[14px] text-[#2B2B2B]/60 max-w-xl mx-auto leading-relaxed">
-        Returning an item is quick and simple. Follow these three steps to get started.
+        Use the mail return process below within 30 days of delivery.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-
-      <!-- Connector line (desktop) -->
       <div class="hidden md:block absolute top-[52px] left-[calc(16.67%+16px)] right-[calc(16.67%+16px)] h-px bg-[#F2A8BC]/50 z-0"></div>
 
-      <!-- Step 1 -->
+      <?php
+        $steps = [
+          [
+            'label' => 'Step 01',
+            'title' => 'Contact Us',
+            'copy'  => 'Email support@shopshive.com with your order number and reason for return or exchange.',
+            'icon'  => '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+          ],
+          [
+            'label' => 'Step 02',
+            'title' => 'Download & Print',
+            'copy'  => 'Use the return instructions and download-and-print label provided by our support team.',
+            'icon'  => '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>',
+          ],
+          [
+            'label' => 'Step 03',
+            'title' => 'Ship & Refund',
+            'copy'  => 'Mail the new, unused item back to us. Refunds are processed within 10 days after inspection.',
+            'icon'  => '<rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>',
+          ],
+        ];
+
+        foreach ( $steps as $step ) :
+      ?>
       <div class="relative z-10 flex flex-col items-center text-center">
         <div class="w-16 h-16 rounded-full bg-[#E8567A] flex items-center justify-center mb-6 shadow-lg shadow-[#E8567A]/20">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><?php echo wp_kses( $step['icon'], [ 'path' => [ 'd' => true ], 'polyline' => [ 'points' => true ], 'line' => [ 'x1' => true, 'y1' => true, 'x2' => true, 'y2' => true ], 'rect' => [ 'x' => true, 'y' => true, 'width' => true, 'height' => true, 'rx' => true, 'ry' => true ] ] ); ?></svg>
         </div>
-        <span class="text-xs font-bold uppercase tracking-[0.15em] text-[#E8567A] mb-2">Step 01</span>
-        <h3 class="font-semibold text-[#2B2B2B] text-lg mb-3" style="font-family:'Playfair Display',serif">Contact Us</h3>
-        <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          Email us at <a href="mailto:support@shopshive.com" class="text-[#E8567A] hover:underline">support@shopshive.com</a> with your order number and reason for return. Our team will respond within 24 hours.
-        </p>
+        <span class="text-xs font-bold uppercase tracking-[0.15em] text-[#E8567A] mb-2"><?php echo esc_html( $step['label'] ); ?></span>
+        <h3 class="font-semibold text-[#2B2B2B] text-lg mb-3" style="font-family:'Playfair Display',serif"><?php echo esc_html( $step['title'] ); ?></h3>
+        <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed"><?php echo esc_html( $step['copy'] ); ?></p>
       </div>
-
-      <!-- Step 2 -->
-      <div class="relative z-10 flex flex-col items-center text-center">
-        <div class="w-16 h-16 rounded-full bg-[#E8567A] flex items-center justify-center mb-6 shadow-lg shadow-[#E8567A]/20">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-        </div>
-        <span class="text-xs font-bold uppercase tracking-[0.15em] text-[#E8567A] mb-2">Step 02</span>
-        <h3 class="font-semibold text-[#2B2B2B] text-lg mb-3" style="font-family:'Playfair Display',serif">Pack &amp; Ship</h3>
-        <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          Securely pack the item(s) in their original or similar packaging with tags still attached. Use the return shipping label we provide or ship to the address given by our support team.
-        </p>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="relative z-10 flex flex-col items-center text-center">
-        <div class="w-16 h-16 rounded-full bg-[#E8567A] flex items-center justify-center mb-6 shadow-lg shadow-[#E8567A]/20">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-        <span class="text-xs font-bold uppercase tracking-[0.15em] text-[#E8567A] mb-2">Step 03</span>
-        <h3 class="font-semibold text-[#2B2B2B] text-lg mb-3" style="font-family:'Playfair Display',serif">Get Refunded</h3>
-        <p class="text-[13px] text-[#2B2B2B]/60 leading-relaxed">
-          Once your return is received and inspected, we'll issue your refund or ship your exchange. Refunds go back to your original payment method within <strong class="text-[#2B2B2B]">5–7 business days</strong>.
-        </p>
-      </div>
-
+      <?php endforeach; ?>
     </div>
   </div>
 </section>
@@ -312,46 +250,44 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-
       <?php
         $faqs = [
           [
-            'q' => 'Is shipping really free on all orders?',
-            'a' => 'Yes! We offer free standard shipping on every single order within the United States — no minimum order value, no exceptions.',
+            'q' => 'What is your delivery estimate?',
+            'a' => 'The current estimated delivery time is 0-1 business days for all destinations.',
           ],
           [
-            'q' => 'How long does delivery take?',
-            'a' => 'Orders are processed within 1–3 business days and typically delivered within 5–10 business days after shipping.',
+            'q' => 'What is the order cutoff time?',
+            'a' => 'The order cutoff time is 2:00 PM Pacific Standard Time, Los Angeles.',
           ],
           [
-            'q' => 'Can I return sale items?',
-            'a' => 'Items marked as "Final Sale" cannot be returned. All other sale items are eligible for return or exchange within 30 days.',
+            'q' => 'Do you accept returns and exchanges?',
+            'a' => 'Yes. We accept returns for defective and non-defective products, and we accept exchanges on eligible items.',
           ],
           [
-            'q' => 'How do I track my order?',
-            'a' => 'You\'ll receive a tracking number by email once your order ships. You can also use our Track Order page anytime.',
+            'q' => 'How long do I have to return an item?',
+            'a' => 'Returns must be requested within 30 days of delivery. Products must be new and unused.',
           ],
           [
-            'q' => 'What if my item arrives damaged?',
-            'a' => 'We\'re so sorry! Email us at support@shopshive.com within 7 days with your order number and a photo — we\'ll resolve it quickly.',
+            'q' => 'Who pays for the return label?',
+            'a' => 'Return labels are download-and-print labels, and label cost is the customer responsibility unless support confirms otherwise.',
           ],
           [
             'q' => 'How long does a refund take?',
-            'a' => 'Once we receive and inspect your return, refunds are processed within 5–7 business days to your original payment method.',
+            'a' => 'Refunds are processed within 10 days after your returned item is received and inspected.',
           ],
         ];
         foreach ( $faqs as $faq ) :
       ?>
       <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition-colors duration-300">
-        <h4 class="font-semibold text-white text-[15px] mb-2"><?php echo esc_html($faq['q']); ?></h4>
-        <p class="text-[13px] text-white/60 leading-relaxed"><?php echo esc_html($faq['a']); ?></p>
+        <h4 class="font-semibold text-white text-[15px] mb-2"><?php echo esc_html( $faq['q'] ); ?></h4>
+        <p class="text-[13px] text-white/60 leading-relaxed"><?php echo esc_html( $faq['a'] ); ?></p>
       </div>
       <?php endforeach; ?>
-
     </div>
 
     <div class="text-center mt-10">
-      <a href="<?php echo esc_url(home_url('/faq/')); ?>"
+      <a href="<?php echo esc_url( home_url( '/faq/' ) ); ?>"
          class="inline-flex items-center gap-2 text-[#F2A8BC] text-sm font-semibold hover:text-white transition-colors duration-300">
         View All FAQs
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -363,9 +299,7 @@
 <!-- ===== CONTACT / SUPPORT CTA ===== -->
 <section class="bg-[#FDF8F4] py-20 lg:py-24" aria-label="Contact support">
   <div class="max-w-[1280px] mx-auto px-6 lg:px-12">
-
     <div class="bg-[#E8567A] rounded-3xl px-8 py-14 lg:py-16 lg:px-16 text-center relative overflow-hidden">
-      <!-- Decorative circles -->
       <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-white/10 pointer-events-none"></div>
       <div class="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none"></div>
 
@@ -376,7 +310,7 @@
           We're Here To Help
         </h2>
         <p class="text-white/80 text-[15px] mb-10 max-w-lg mx-auto leading-relaxed">
-          Our support team is available Monday through Saturday, 10:00 AM – 6:00 PM PST. Reach out anytime — we're happy to help.
+          Our support team is available Monday through Saturday, 10:00 AM - 6:00 PM PST. Reach out anytime and we will guide you through shipping, return, or exchange questions.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -387,9 +321,8 @@
           </a>
         </div>
 
-        <p class="mt-6 text-white/50 text-xs">Mon – Sat &nbsp;·&nbsp; 10:00 AM – 6:00 PM PST</p>
+        <p class="mt-6 text-white/50 text-xs">Mon - Sat &nbsp;·&nbsp; 10:00 AM - 6:00 PM PST</p>
       </div>
     </div>
-
   </div>
 </section>

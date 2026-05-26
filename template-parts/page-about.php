@@ -169,8 +169,8 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
             <div>
-              <h4 class="font-semibold text-[#2B2B2B] mb-1">Free Shipping On Every Order</h4>
-              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">No minimum spend required. We ship all orders across the United States, completely free.</p>
+              <h4 class="font-semibold text-[#2B2B2B] mb-1">Fast Delivery Estimate</h4>
+              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Orders use a 2:00 PM PST cutoff, with 0-1 business day handling and 0 business day transit estimates.</p>
             </div>
           </li>
 
@@ -180,7 +180,7 @@
             </div>
             <div>
               <h4 class="font-semibold text-[#2B2B2B] mb-1">Hassle-Free 30-Day Returns</h4>
-              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Not in love with your purchase? Exchange or return within 30 days — no questions asked.</p>
+              <p class="text-[14px] text-[#2B2B2B]/60 leading-relaxed">Returns and exchanges are accepted within 30 days for new, unused products.</p>
             </div>
           </li>
 
@@ -309,7 +309,7 @@
       Ready to Open the Door?
     </h2>
     <p class="text-white/80 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-      Discover hundreds of styles made for the modern woman. Free shipping on every order.
+      Discover hundreds of styles made for the modern woman, with 0-1 business day delivery estimates.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="<?php echo esc_url(home_url('/shop/')); ?>"

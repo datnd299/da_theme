@@ -384,8 +384,8 @@
           </svg>
         </div>
         <div>
-          <p class="text-sm font-semibold text-[#2B2B2B] mb-0.5">Free Shipping</p>
-          <p class="text-xs text-[#D4B8A0]">On all orders</p>
+          <p class="text-sm font-semibold text-[#2B2B2B] mb-0.5">Fast Delivery</p>
+          <p class="text-xs text-[#D4B8A0]">0-1 business day estimate</p>
         </div>
       </div>
 
@@ -398,7 +398,7 @@
         </div>
         <div>
           <p class="text-sm font-semibold text-[#2B2B2B] mb-0.5">30-Day Returns</p>
-          <p class="text-xs text-[#D4B8A0]">Easy &amp; hassle-free</p>
+          <p class="text-xs text-[#D4B8A0]">New, unused products</p>
         </div>
       </div>
 
@@ -422,7 +422,7 @@
         </div>
         <div>
           <p class="text-sm font-semibold text-[#2B2B2B] mb-0.5">Live Support</p>
-          <p class="text-xs text-[#D4B8A0]">Mon–Sat, 10–6 PST</p>
+          <p class="text-xs text-[#D4B8A0]">Mon-Sat, 10-6 PST</p>
         </div>
       </div>
 

@@ -161,8 +161,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <p class="font-semibold text-[14px] text-[#2B2B2B]">Free shipping on all orders</p>
-                <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">No minimum. We cover shipping costs across the United States.</p>
+                <p class="font-semibold text-[14px] text-[#2B2B2B]">0-1 business day delivery estimate</p>
+                <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">Orders use a 2:00 PM PST cutoff, with 0-1 business day handling and 0 business day transit estimates.</p>
               </div>
             </li>
             <li class="flex items-start gap-4">
@@ -170,8 +170,8 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8567A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
               </div>
               <div>
-                <p class="font-semibold text-[14px] text-[#2B2B2B]">Hassle-free 30-day returns</p>
-                <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">Not satisfied? Exchange or return within 30 days, no questions asked.</p>
+                <p class="font-semibold text-[14px] text-[#2B2B2B]">30-day mail returns</p>
+                <p class="text-[13px] text-[#2B2B2B]/55 leading-snug mt-0.5">Returns and exchanges are accepted within 30 days for new, unused products.</p>
               </div>
             </li>
           </ul>
@@ -221,8 +221,8 @@
 
       <?php
         $faqs = [
-          ['q' => 'How long does shipping take?',         'a' => 'Standard shipping takes 5-10 business days. We ship free on all orders, with no minimum required.'],
-          ['q' => 'Can I return or exchange my order?',   'a' => 'Yes - we offer hassle-free exchanges and returns within 30 days of delivery, no questions asked.'],
+          ['q' => 'How long does shipping take?',         'a' => 'The current estimated delivery time is 0-1 business days for all destinations, based on a 2:00 PM PST cutoff.'],
+          ['q' => 'Can I return or exchange my order?',   'a' => 'Yes - we accept returns and exchanges within 30 days of delivery for new, unused products.'],
           ['q' => 'How do I track my order?',             'a' => 'Once your order ships, you\'ll receive a tracking link via email. You can also use our Track Order page.'],
           ['q' => 'What payment methods do you accept?',  'a' => 'We accept all major credit cards (Visa, Mastercard, Amex, Discover) via our secure checkout.'],
         ];
@@ -259,7 +259,7 @@
       While You're Here -<br><em>Discover Something Beautiful</em>
     </h2>
     <p class="text-white/60 text-base mb-8 max-w-lg mx-auto leading-relaxed">
-      Hundreds of styles, free shipping, and 30-day returns. Fashion that truly opens doors.
+      Hundreds of styles, 0-1 business day delivery estimates, and 30-day returns. Fashion that truly opens doors.
     </p>
     <a href="<?php echo esc_url( home_url('/shop/') ); ?>"
        class="inline-flex items-center gap-2 px-8 py-4 bg-[#E8567A] text-white text-sm font-semibold rounded-full hover:bg-[#d14469] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">

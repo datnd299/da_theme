@@ -14,13 +14,13 @@ function dawp_newsletter_subscribe() {
 
     $site_name = get_bloginfo('name');
     $subject   = 'Thank you for joining ' . $site_name . '!';
-    $message   = "Hi there,\n\nThank you for joining our boutique community! We're so glad to have you.\n\nYou'll be the first to know about new arrivals, seasonal collections, and warm family-friendly style inspiration.\n\nWith love,\nThe " . $site_name . " Team";
+    $message   = "Hi there,\n\nThank you for joining Broge Shoes. You will be the first to know about new formal footwear arrivals, store updates, and customer support information.\n\nThe " . $site_name . " Team";
     $headers   = ['Content-Type: text/plain; charset=UTF-8'];
 
     $sent = wp_mail($email, $subject, $message, $headers);
 
     if ($sent) {
-        wp_send_json_success(['message' => 'Thank you for joining us! A warm welcome is on its way to your inbox.']);
+        wp_send_json_success(['message' => 'Thank you for joining us. A welcome email is on its way.']);
     } else {
         wp_send_json_error(['message' => 'Something went wrong. Please try again later.']);
     }
@@ -34,33 +34,54 @@ function dawp_contact_submit() {
         wp_send_json_error(['message' => 'Invalid request.']);
     }
 
-    $name    = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));
-    $email   = sanitize_email(wp_unslash($_POST['email'] ?? ''));
-    $subject = sanitize_text_field(wp_unslash($_POST['subject'] ?? 'general'));
-    $message = sanitize_textarea_field(wp_unslash($_POST['message'] ?? ''));
+    $honeypot        = sanitize_text_field(wp_unslash($_POST['website'] ?? ''));
+    $privacy_confirm = sanitize_text_field(wp_unslash($_POST['privacy_confirm'] ?? ''));
+    $name            = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));
+    $email           = sanitize_email(wp_unslash($_POST['email'] ?? ''));
+    $subject         = sanitize_key(wp_unslash($_POST['subject'] ?? 'general'));
+    $order_number    = sanitize_text_field(wp_unslash($_POST['order_number'] ?? ''));
+    $message         = sanitize_textarea_field(wp_unslash($_POST['message'] ?? ''));
+
+    if ($honeypot !== '') {
+        wp_send_json_success(['message' => 'Thank you. Your message has been received.']);
+    }
 
     if (empty($name) || !is_email($email) || empty($message)) {
-        wp_send_json_error(['message' => 'Please fill in all required fields.']);
+        wp_send_json_error(['message' => 'Please enter your name, a valid email address, and a message.']);
+    }
+
+    if ($privacy_confirm !== '1') {
+        wp_send_json_error(['message' => 'Please confirm the privacy notice before sending your message.']);
     }
 
     $site_name   = get_bloginfo('name');
     $admin_email = get_option('admin_email');
 
     $subject_labels = [
-        'general' => 'General Inquiry',
-        'order'   => 'Order Status',
-        'styling' => 'Styling Help',
-        'return'  => 'Returns & Exchanges',
+        'general' => 'General Question',
+        'order'   => 'Order or Tracking',
+        'sizing'  => 'Sizing or Product Help',
+        'return'  => 'Return or Refund',
+        'privacy' => 'Privacy Request',
     ];
-    $subject_label = $subject_labels[$subject] ?? 'General Inquiry';
+    $subject_label = $subject_labels[$subject] ?? 'General Question';
 
     $admin_subject = '[' . $site_name . '] Contact: ' . $subject_label . ' from ' . $name;
-    $admin_body    = "Name: {$name}\nEmail: {$email}\nSubject: {$subject_label}\n\n{$message}";
-    wp_mail($admin_email, $admin_subject, $admin_body, ['Reply-To: ' . $name . ' <' . $email . '>']);
+    $admin_body    = "Name: {$name}\nEmail: {$email}\nTopic: {$subject_label}\nOrder Number: " . ($order_number ?: 'Not provided') . "\n\nMessage:\n{$message}";
+    $admin_headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+        'Reply-To: ' . $name . ' <' . $email . '>',
+    ];
 
-    $confirm_subject = 'We received your message – ' . $site_name;
-    $confirm_body    = "Hi {$name},\n\nThank you for reaching out! We've received your message and our boutique team will get back to you within 24 business hours.\n\nWith love,\nThe {$site_name} Team";
+    $sent_admin = wp_mail($admin_email, $admin_subject, $admin_body, $admin_headers);
+
+    if (!$sent_admin) {
+        wp_send_json_error(['message' => 'We could not send your message right now. Please email support@brogeshoes.com directly.']);
+    }
+
+    $confirm_subject = 'We received your message - ' . $site_name;
+    $confirm_body    = "Hi {$name},\n\nThank you for contacting Broge Shoes. We received your message and our support team will reply during our Monday-Friday, 9:00 AM-5:00 PM PST business hours.\n\nTopic: {$subject_label}\nOrder Number: " . ($order_number ?: 'Not provided') . "\n\nFor urgent updates, you can also email support@brogeshoes.com.\n\nThe {$site_name} Team";
     wp_mail($email, $confirm_subject, $confirm_body, ['Content-Type: text/plain; charset=UTF-8']);
 
-    wp_send_json_success(['message' => 'Thank you, ' . $name . '! Your message has been sent. We\'ll get back to you within 24 hours.']);
+    wp_send_json_success(['message' => 'Thank you, ' . $name . '. Your message has been sent. We will reply during our Monday-Friday, 9:00 AM-5:00 PM PST business hours.']);
 }

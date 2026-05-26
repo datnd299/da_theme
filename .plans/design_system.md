@@ -1,476 +1,389 @@
-# Shop Kelli Design System
+# Broge Shoes — Design System
 
 ## Design Goal
 
-Create a warm, trustworthy, and modern WooCommerce boutique experience for women and young girls.
+Build a short, luxury-inspired men’s formal footwear website for:
 
-The website should feel like:
+```txt
+Formal Shoes
+Leather Dress Shoes
+Brogue Shoes
+```
 
-* A real local boutique
-* Family-oriented
-* Community-driven
-* Lifestyle-focused
-* Mobile-friendly
-* GMC-safe and trustworthy
+The site should feel:
 
-The design must support:
+* Luxury
+* Masculine
+* Refined
+* Polished
+* Formal
+* Premium but trustworthy
+* Minimal and elegant
+* GMC-safe
 
-* Women & children fashion shopping
-* Mommy & daughter collections
-* Seasonal boutique merchandising
-* Clean ecommerce usability
-* Authentic merchant presentation
-
-Avoid making the store feel like:
-
-* Generic dropshipping ecommerce
-* Overstock marketplaces
-* Aggressive fast fashion
-* Random mixed-category stores
-* Scam-like ecommerce
+Avoid making the site feel like a sneaker store, fake luxury shop, replica brand, or random footwear marketplace.
 
 ---
 
-# Brand Visual Identity
+## Visual Direction
 
-The visual identity should feel:
+Core style:
 
-* Warm
-* Feminine
-* Cheerful
-* Soft
-* Boutique-inspired
-* Family-friendly
+```txt
+Modern Luxury Men’s Dress Footwear
+```
 
-The storefront should resemble a trusted boutique expanding online rather than a mass ecommerce warehouse.
+Visual mood:
 
-Use:
+* Dark premium backgrounds
+* Warm leather tones
+* Clean shoe photography
+* Close-up stitching and brogue details
+* Office, wedding, evening, and formal lifestyle scenes
+* Minimal copy
+* Strong product focus
 
-* Lifestyle-focused imagery
-* Soft feminine visual direction
-* Spacious layouts
-* Curated merchandising
-* Seasonal storytelling
-
-Avoid:
-
-* Dark luxury aesthetics
-* Tech-style ecommerce
-* Harsh color palettes
-* Flashy sales-heavy layouts
-* Overcrowded pages
+The website should feel like a premium men’s shoe boutique, not a discount shoe catalog.
 
 ---
 
-# Color System
+## Color Palette
 
-## Primary Background Colors
+### Charcoal Black
 
-* Warm White: #FFFFFF
-* Soft Cream: #FAF7F2
+```txt
+#111111
+```
 
-## Brand Colors
+Use for header, footer, hero overlays, trust sections, and luxury contrast.
 
-* Dusty Rose: #c98a8aff
-* Soft Beige: #E8D8C8
-* Warm Blush: #DFA39A
+### Espresso Brown
 
-## Text Colors
+```txt
+#3B2416
+```
 
-* Primary Text: #2F2A28
-* Secondary Text: #6F625D
-* Light Text: #9A8C86
+Use for leather-inspired sections, formal category blocks, and rich backgrounds.
 
-## Border & UI Colors
+### Cognac Leather
 
-* Border Color: #E6DDD6
-* Soft Gray Background: #F5F3F1
+```txt
+#A66A3F
+```
 
-Avoid:
+Use for accents, buttons, icons, category tags, and hover states.
 
-* Neon colors
-* Pure black-heavy layouts
-* Aggressive red sale-heavy design
-* Overly saturated palettes
+### Warm Cream
 
----
+```txt
+#F5EFE6
+```
 
-# Typography System
+Use for light backgrounds, content sections, and product grid areas.
 
-Typography should feel:
+### Champagne Gold
 
-* Elegant
-* Soft
-* Readable
-* Boutique-oriented
-* Mobile-friendly
+```txt
+#C8A45D
+```
 
-## Font Direction
+Use lightly for premium dividers, small icons, badges, and refined highlights.
 
-Headings:
+### Deep Navy
 
-* Elegant serif or soft modern display font
+```txt
+#101827
+```
 
-Body Text:
+Use as an alternative dark section color for professional office-style sections.
 
-* Clean sans-serif font
+### Clean White
 
-Buttons:
+```txt
+#FFFFFF
+```
 
-* Simple and readable
-* Medium weight
-* Friendly appearance
-
-Avoid:
-
-* Overly decorative fonts
-* Corporate typography
-* Hard condensed fonts
-* Childish typography
+Use for product cards, forms, and readable content areas.
 
 ---
 
-# Layout Rules
+## Typography
 
-The layout should feel clean, spacious, and easy to browse.
+Recommended fonts:
 
-## General Layout
+```txt
+Playfair Display
+Cormorant Garamond
+Inter
+Manrope
+Plus Jakarta Sans
+```
 
-* Mobile-first design
-* Spacious white space
-* Clean visual hierarchy
-* Consistent spacing system
-* Soft section separation
-* Easy navigation
+Rules:
 
-Avoid:
-
-* Cluttered layouts
-* Overstock-style pages
-* Tiny spacing
-* Crowded product grids
+* Headings: elegant serif or bold modern sans-serif
+* Body: clean sans-serif for readability
+* Product titles: clear and concise
+* Buttons: short, uppercase or semi-uppercase if suitable
+* Avoid playful, decorative, or streetwear fonts
 
 ---
 
-# WooCommerce Product Grid Rules
+## Layout Style
 
-## Desktop Layout
+Use a luxury ecommerce layout:
 
-* 3–4 columns maximum
+* Large cinematic hero
+* Dark/light contrast sections
+* Minimal category cards
+* Premium product grids
+* Strong whitespace
+* Close-up detail sections
+* Size/fit trust block
+* Clean policy/support links
 
-## Mobile Layout
+Recommended width:
 
-* 2 columns
+```txt
+max-w-7xl
+```
 
-## Product Card Rules
+Spacing:
 
-Each product card should include:
+```txt
+Desktop: py-20 / py-24
+Mobile: py-14 / py-16
+```
 
-* Clean product image
-* Consistent image ratio
+Border radius:
+
+```txt
+Cards: 12–18px
+Buttons: 8–12px or full pill
+Images: 16–24px
+```
+
+---
+
+## Homepage Sections
+
+Use 5 sections:
+
+```txt
+1. Hero — Modern Formal Shoes For Classy Steps
+2. Shop By Style
+3. Formal Shoes For Work & Events
+4. Leather Dress Shoes & Brogue Details
+5. Customer Care / Size & Returns Trust
+```
+
+Keep the homepage polished, focused, and not overloaded.
+
+---
+
+## Category Style
+
+Main categories:
+
+```txt
+Formal Shoes
+Leather Dress Shoes
+Brogue Shoes
+```
+
+Category cards should include:
+
+```txt
+Large product image
+Category name
+One short premium line
+CTA link
+```
+
+Example:
+
+```txt
+Brogue Shoes
+Classic detailing for formal and smart-casual looks.
+```
+
+---
+
+## Image Direction
+
+Use realistic premium footwear imagery:
+
+* Black and brown dress shoes on dark surface
+* Cognac leather shoes on warm neutral background
+* Brogue perforation close-ups
+* Stitching, sole, lace, and material detail shots
+* Men wearing dress shoes with suits or smart casual outfits
+* Office, wedding, evening, or formal occasion settings
+
+Image rules:
+
+* No fake designer logos
+* No sneaker-heavy visuals
+* No supplier collages
+* No text inside images
+* No medical foot visuals
+* Shoes must be clearly visible
+
+---
+
+## Product Card Style
+
+Product cards should feel premium and simple:
+
+* Clean White or Warm Cream background
+* Thin border
+* Subtle shadow
+* Large shoe image
 * Product title
-* Visible pricing
-* Simple CTA button
+* Price
+* Material/finish note if useful
+* Size availability note if useful
+* Simple CTA
 
-Product cards should feel:
+Optional badges:
 
-* Minimal
-* Boutique-oriented
-* Easy to scan
-* Visually balanced
-
-Avoid:
-
-* Crowded badges
-* Excessive labels
-* Overly aggressive sale tags
-* Flashing promotional elements
-
----
-
-# Product Page Rules
-
-Each product page should include:
-
-* Large image gallery
-* Clear product title
-* Visible pricing
-* Variant selection
-* Add-to-cart button above the fold
-* Shipping reassurance
-* Return reassurance
-* Product description
-* Related products section
-
-The product page should feel:
-
-* Clean
-* Trustworthy
-* Lifestyle-focused
-* Easy to navigate
+```txt
+Formal Pick
+Brogue Detail
+Office Ready
+Occasion Style
+```
 
 Avoid:
 
-* Long cluttered layouts
-* Fake urgency timers
-* Aggressive upsell spam
-* Overwhelming product blocks
+* Too many sale badges
+* Fake reviews
+* Countdown timers
+* Fake brand labels
+* Keyword-stuffed product names
 
 ---
-
-# Homepage Design Rules
-
-The homepage should be lifestyle-first rather than product-spam-first.
-
-## Required Sections
-
-* Hero banner
-* New Arrivals
-* Mommy & Me Collection
-* Girls Collection
-* Seasonal Collections
-* Boutique Favorites
-* Trust Section
-* Newsletter or community section
-
-## Homepage Style
-
-Use:
-
-* Warm lifestyle imagery
-* Seasonal storytelling
-* Soft overlays
-* Curated product presentation
-* Friendly boutique messaging
-
-Avoid:
-
-* Overstock homepage layouts
-* Dense product walls
-* Aggressive sale banners
-* Flash sale countdowns
-
----
-
-# Header Rules
-
-The header should feel:
-
-* Clean
-* Boutique-oriented
-* Easy to navigate
-
-## Header Elements
-
-Include:
-
-* Logo
-* Main navigation
-* Search
-* Account icon
-* Cart icon
-
-Navigation should remain simple and uncluttered.
-
-Avoid:
-
-* Mega-menu overload
-* Too many categories
-* Aggressive announcement bars
-
----
-
-# Footer Rules
-
-The footer should reinforce merchant trust and brand authenticity.
-
-## Required Footer Links
-
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
-
-## Footer Style
-
-* Clean layout
-* Soft background
-* Simple typography
-* Organized link groups
-* Visible support information
-
----
-
-# Image Rules
-
-Images should feel:
-
-* Natural
-* Bright
-* Warm
-* Family-friendly
-* Lifestyle-oriented
-* Boutique-inspired
-
-## Product Images
-
-Use:
-
-* Consistent image ratios
-* Soft lighting
-* Clean backgrounds
-* Natural poses
-* Seasonal styling
-
-Avoid:
-
-* Overly edited imagery
-* AI-looking product photos
-* Luxury runway imagery
-* Dark moody visuals
-* Unrelated stock photos
-
----
-
-# Component Rules
 
 ## Buttons
 
-Buttons should:
+### Primary Button
 
-* Use rounded corners
-* Have soft hover effects
-* Use readable text
-* Feel friendly and modern
+```txt
+Background: #A66A3F
+Text: #FFFFFF
+Hover: #111111
+```
 
-Avoid:
+### Secondary Button
 
-* Harsh gradients
-* Flashing animations
-* Aggressive red CTA buttons
+```txt
+Background: transparent
+Border: #A66A3F
+Text: #A66A3F
+Hover background: #F5EFE6
+```
 
-## Cards
+### Dark Button
 
-Cards should:
+```txt
+Background: #111111
+Text: #FFFFFF
+Hover: #A66A3F
+```
 
-* Use clean white backgrounds
-* Include subtle borders or soft shadows
-* Maintain consistent spacing
+Button style:
 
-## Banners
-
-Banners should:
-
-* Combine lifestyle imagery with short text
-* Feel clean and seasonal
-* Avoid overcrowded text
-
----
-
-# Mobile UX Rules
-
-The website must be optimized for mobile-first shopping.
-
-## Mobile Priorities
-
-* Fast scrolling
-* Clear navigation
-* Easy product browsing
-* Thumb-friendly buttons
-* Clean checkout flow
-* Lightweight layouts
-
-Avoid:
-
-* Large popup interruptions
-* Tiny clickable areas
-* Heavy animations
-* Complex navigation systems
+* Clean
+* Strong
+* Refined
+* No flashy animation
 
 ---
 
-# Product Content Rules
+## Trust Elements
 
-Descriptions should feel:
+Always include:
 
-* Natural
-* Friendly
-* Lifestyle-focused
-* Seasonal
-* Easy to understand
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Size Guide
+Fit Notes
+Material Details
+Care Instructions
+```
 
-Include:
+Trust section style:
 
-* Styling suggestions
-* Comfort-focused messaging
-* Everyday wear scenarios
-* Family-oriented tone
-
-Avoid:
-
-* Keyword stuffing
-* Robotic AI copy
-* Fake scarcity language
-* Overly technical descriptions
+* Charcoal Black or Deep Navy background
+* White text
+* Cognac Leather / Champagne Gold accents
 
 ---
 
-# GMC Compliance Rules
+## Product Page Requirements
 
-The storefront must feel like a legitimate boutique retail business.
+Every product page should include:
 
-## Required Trust Signals
+```txt
+Shoe type
+Available sizes
+Color options
+Material or finish
+Upper / lining / sole details if available
+Closure type
+Fit note
+Care instructions
+Shipping note
+Return condition
+Size guide link
+```
 
-* Visible contact information
-* Consistent branding
-* Transparent policies
-* Realistic shipping timelines
-* Secure checkout messaging
-* Mobile-friendly UX
-* Authentic product presentation
+Important material rule:
 
-## GMC Priorities
-
-* Strong topical consistency
-* Women & children fashion relevance
-* Boutique-style merchant behavior
-* Realistic ecommerce structure
-* Original branded content
-
-Avoid:
-
-* Mixed-category spam
-* Fake reviews
-* Fake urgency
-* Thin AI-generated pages
-* Excessive discount messaging
-* Random unrelated products
+```txt
+Only use genuine leather, pure leather, full-grain leather, or Goodyear welted if verified by product data.
+```
 
 ---
 
-# Forbidden Design Patterns
+## GMC-Safe Rules
 
-Never use:
+Do not use:
 
-* Dark luxury ecommerce style
-* Tech startup visual direction
-* Overstock warehouse layouts
-* Marketplace-style product spam
-* Flashing urgency banners
-* Fake countdown timers
-* Excessive popup spam
-* Harsh neon colors
-* Random visual inconsistency
-* Generic dropshipping aesthetics
+```txt
+fake branded shoes
+replica / dupe wording
+designer-inspired claims
+unauthorized logos
+unverified leather claims
+medical orthopedic claims
+fake reviews
+countdown timers
+```
+
+Safe wording:
+
+```txt
+formal shoes
+dress shoes
+brogue shoes
+polished style
+office-ready
+occasion-ready
+classic detailing
+confident steps
+smart casual
+refined footwear
+```
 
 ---
 
-# Strategic Design Direction
+## Final Design Feeling
 
-The final storefront should feel like:
+Broge Shoes should look like:
 
-“A trusted local boutique for women and young girls with a warm community-oriented shopping experience and a polished modern WooCommerce presence.”
+> A luxury-inspired men’s formal footwear boutique offering formal shoes, leather dress shoes, and brogue shoes for office days, smart casual looks, and special occasions.
+
+The website must feel refined, masculine, polished, trustworthy, and GMC-safe.

@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css — Shop Kelli Design System
+   main.css - Broge Shoes Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -8,40 +8,52 @@
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
   /* Warm White — page background */
-  --color-surface: #FAF7F2;
-  /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
-  /* Soft Gray — hover states, alt sections */
+  --color-surface: #F5EFE6;
+  /* Warm cream - section / card background */
+  --color-surface-alt: #EFE5D8;
+  /* Aged leather cream - hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
-  /* Primary text — headings, product names */
+  --color-foreground: #221812;
+  /* Primary text - headings, product names */
   --color-foreground-muted: #6F625D;
-  /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
-  /* Light text — captions, breadcrumbs */
+  /* Secondary text - descriptions, meta */
+  --color-muted: #8A7668;
+  /* Light text - captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C98A8A;
-  /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #B87575;
-  /* Dusty Rose darker — hover state */
-  --color-accent-soft: #E8D8C8;
-  /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DFA39A;
-  /* Warm Blush — secondary brand color */
+  --color-accent: #A66A3F;
+  /* Cognac - primary CTA, highlights */
+  --color-accent-hover: #111111;
+  /* Charcoal - hover state */
+  --color-accent-soft: #E6D5BC;
+  /* Leather cream - subtle highlights, badges */
+  --color-accent-blush: #C8A45D;
+  /* Antique gold - secondary brand color */
 
   /* === UI === */
-  --color-border: #E6DDD6;
-  /* Border — cards, dividers */
+  --color-border: #E3D4C3;
+  /* Border - cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */
   --color-success: #5C8A6A;
-  /* Success — muted green, fits boutique palette */
+  /* Success - muted green, fits warm brand palette */
 
   /* === TYPOGRAPHY === */
   --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
   --font-heading: 'Playfair Display', 'Georgia', serif;
+
+  /* === WOOCOMMERCE COMPATIBILITY ALIASES === */
+  --font-primary: var(--font-sans);
+  --color-bg: var(--color-background);
+  --color-bg-subtle: var(--color-surface);
+  --color-text-primary: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-muted);
+  --color-text-muted: var(--color-muted);
+  --color-navy: var(--color-foreground);
+  --color-navy-light: var(--color-accent-hover);
+  --color-sale: var(--color-accent);
+  --color-original-price: var(--color-muted);
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -64,8 +76,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(34, 24, 18, 0.08);
+  --shadow-card-hover: 0 6px 20px rgba(34, 24, 18, 0.14);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);

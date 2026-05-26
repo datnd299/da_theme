@@ -5,6 +5,7 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     padding-top: 80px;
+    overflow-x: hidden;
 }
 .wp-block-woocommerce-checkout {
   max-width: 80rem;
@@ -12,22 +13,90 @@
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  box-sizing: border-box;
+  color: var(--color-foreground);
+}
+
+.wp-block-woocommerce-checkout *,
+.wp-block-woocommerce-checkout *::before,
+.wp-block-woocommerce-checkout *::after,
+.woocommerce-checkout *,
+.woocommerce-checkout *::before,
+.woocommerce-checkout *::after {
+  box-sizing: border-box;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-sidebar-layout,
+.wp-block-woocommerce-checkout .wc-block-checkout__main,
+.wp-block-woocommerce-checkout .wc-block-checkout__sidebar,
+.wp-block-woocommerce-checkout .wc-block-components-main,
+.wp-block-woocommerce-checkout .wc-block-components-sidebar {
+  min-width: 0;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-sidebar-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .wp-block-woocommerce-checkout .wc-block-components-sidebar-layout {
+    grid-template-columns: minmax(0, 1fr) 380px;
+    align-items: start;
+  }
+
+  .wp-block-woocommerce-checkout .wc-block-checkout__sidebar,
+  .wp-block-woocommerce-checkout .wc-block-components-sidebar {
+    position: sticky;
+    top: 6rem;
+  }
+}
+
+.wp-block-woocommerce-checkout .wc-block-checkout__sidebar,
+.wp-block-woocommerce-checkout .wc-block-components-sidebar,
+.wp-block-woocommerce-checkout .wc-block-components-order-summary {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-order-summary {
+  overflow: hidden;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step__title,
+.wp-block-woocommerce-checkout .wc-block-components-title {
+  color: var(--color-foreground);
+  font-family: var(--font-heading);
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step__description,
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step__content,
+.wp-block-woocommerce-checkout .wc-block-components-order-summary__button-text,
+.wp-block-woocommerce-checkout .wc-block-components-product-metadata {
+  color: var(--color-foreground-muted);
 }
 
 /* Override Text Colors & Borders */
 .wp-block-woocommerce-checkout .wc-block-components-text-input input,
-.wp-block-woocommerce-checkout .wc-blocks-components-select__select {
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select,
+.wp-block-woocommerce-checkout .wc-block-components-textarea,
+.wp-block-woocommerce-checkout .wc-block-components-combobox .wc-block-components-combobox-control input.components-combobox-control__input {
   border-color: var(--color-surface-alt) !important;
   color: var(--color-foreground) !important;
   border-radius: var(--radius-sm) !important;
-  background-color: transparent !important;
+  background-color: var(--color-background) !important;
+  box-shadow: none !important;
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-text-input input:focus,
-.wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus {
-  border-color: var(--color-foreground) !important;
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus,
+.wp-block-woocommerce-checkout .wc-block-components-textarea:focus,
+.wp-block-woocommerce-checkout .wc-block-components-combobox .wc-block-components-combobox-control input.components-combobox-control__input:focus {
+  border-color: var(--color-accent) !important;
   outline: none !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent) !important;
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-text-input label,
@@ -47,9 +116,8 @@
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button:hover {
-  background-color: var(--color-foreground) !important;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md) !important;
+  background-color: var(--color-accent-hover) !important;
+  box-shadow: var(--shadow-card-hover) !important;
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button:active {

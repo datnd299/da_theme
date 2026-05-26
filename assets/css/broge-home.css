@@ -1,0 +1,533 @@
+.broge-home {
+  --broge-charcoal: #111111;
+  --broge-brown: #3b2416;
+  --broge-cognac: #a66a3f;
+  --broge-cream: #f5efe6;
+  --broge-gold: #c8a45d;
+  --broge-navy: #101827;
+  --broge-white: #ffffff;
+  --broge-text: #221812;
+  --broge-muted: #6f625d;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--broge-text);
+  background: var(--broge-white);
+}
+
+.broge-home *,
+.broge-home *::before,
+.broge-home *::after {
+  box-sizing: border-box;
+}
+
+.broge-container {
+  width: min(100% - 32px, 1280px);
+  margin-inline: auto;
+}
+
+.broge-section {
+  padding: 72px 0;
+}
+
+.broge-section h2,
+.broge-hero h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.broge-section h2 {
+  max-width: 720px;
+  font-size: clamp(2rem, 3vw, 3.25rem);
+}
+
+.broge-section p,
+.broge-hero p {
+  margin: 0;
+}
+
+.broge-eyebrow {
+  color: var(--broge-gold);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.broge-eyebrow--dark {
+  color: var(--broge-cognac);
+}
+
+.broge-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.broge-btn:hover {
+  transform: translateY(-1px);
+}
+
+.broge-btn--primary {
+  color: var(--broge-white);
+  background: var(--broge-cognac);
+}
+
+.broge-btn--primary:hover {
+  background: var(--broge-charcoal);
+}
+
+.broge-btn--ghost {
+  color: var(--broge-cream);
+  border-color: color-mix(in srgb, var(--broge-gold) 55%, transparent);
+  background: transparent;
+}
+
+.broge-btn--ghost:hover {
+  color: var(--broge-white);
+  border-color: var(--broge-cognac);
+  background: color-mix(in srgb, var(--broge-cognac) 22%, transparent);
+}
+
+.broge-btn--dark {
+  color: var(--broge-white);
+  background: var(--broge-charcoal);
+}
+
+.broge-btn--dark:hover {
+  background: var(--broge-cognac);
+}
+
+.broge-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.broge-hero {
+  overflow: hidden;
+  padding: 64px 0 72px;
+  color: var(--broge-white);
+  background:
+    linear-gradient(115deg, rgba(17, 17, 17, 0.98) 0%, rgba(17, 17, 17, 0.94) 46%, rgba(59, 36, 22, 0.9) 100%),
+    var(--broge-charcoal);
+}
+
+.broge-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: 46px;
+  align-items: center;
+}
+
+.broge-hero__content {
+  display: grid;
+  gap: 22px;
+  max-width: 620px;
+  position: relative;
+  z-index: 2;
+}
+
+.broge-hero h1 {
+  max-width: 590px;
+  font-size: clamp(2.45rem, 4.8vw, 4.9rem);
+  line-height: 1.04;
+}
+
+.broge-hero__lead {
+  max-width: 560px;
+  color: rgba(245, 239, 230, 0.88);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
+
+.broge-hero__trust {
+  color: rgba(245, 239, 230, 0.74);
+  font-size: 0.92rem;
+}
+
+.broge-hero__media {
+  height: clamp(430px, 42vw, 540px);
+  border: 1px solid rgba(200, 164, 93, 0.28);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+}
+
+.broge-hero__media img,
+.broge-split__media img,
+.broge-details__media img,
+.broge-policy-card img,
+.broge-category-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.broge-hero__media img {
+  object-position: center;
+}
+
+.broge-split__media img,
+.broge-policy-card img {
+  object-position: center 58%;
+}
+
+.broge-details__media img,
+.broge-category-card__image img {
+  object-position: center;
+}
+
+.broge-section-head {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.broge-section-head p:last-child {
+  color: var(--broge-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.broge-shop-style,
+.broge-feedback {
+  background: var(--broge-cream);
+}
+
+.broge-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.broge-category-card {
+  display: grid;
+  grid-template-rows: minmax(260px, 18vw) 1fr;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(59, 36, 22, 0.12);
+  border-radius: 16px;
+  color: inherit;
+  background: var(--broge-white);
+  text-decoration: none;
+  box-shadow: 0 16px 36px rgba(34, 24, 18, 0.08);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.broge-category-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(166, 106, 63, 0.42);
+  box-shadow: 0 22px 46px rgba(34, 24, 18, 0.13);
+}
+
+.broge-category-card__image {
+  overflow: hidden;
+  background: var(--broge-charcoal);
+}
+
+.broge-category-card__image img {
+  transition: transform 420ms ease;
+}
+
+.broge-category-card:hover img {
+  transform: scale(1.045);
+}
+
+.broge-category-card__body {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+}
+
+.broge-category-card__title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.broge-category-card__copy {
+  color: var(--broge-muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.broge-text-link {
+  margin-top: 4px;
+  color: var(--broge-cognac);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.broge-formal {
+  background: var(--broge-white);
+}
+
+.broge-split,
+.broge-details__grid,
+.broge-care__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+  gap: 52px;
+  align-items: center;
+}
+
+.broge-split__media,
+.broge-details__media {
+  height: clamp(430px, 42vw, 540px);
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 18px 48px rgba(34, 24, 18, 0.15);
+}
+
+.broge-split__content,
+.broge-details__content {
+  display: grid;
+  gap: 18px;
+}
+
+.broge-split__content > p,
+.broge-details__content > p,
+.broge-care p {
+  color: var(--broge-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.broge-check-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 8px 0 6px;
+  padding: 0;
+  list-style: none;
+}
+
+.broge-check-list li {
+  min-height: 46px;
+  padding: 12px 14px 12px 34px;
+  position: relative;
+  border: 1px solid rgba(166, 106, 63, 0.16);
+  border-radius: 12px;
+  background: rgba(245, 239, 230, 0.72);
+  color: var(--broge-text);
+  font-weight: 700;
+}
+
+.broge-check-list li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  left: 15px;
+  top: 19px;
+  border-radius: 999px;
+  background: var(--broge-cognac);
+}
+
+.broge-details,
+.broge-care {
+  color: var(--broge-white);
+  background:
+    linear-gradient(135deg, rgba(17, 17, 17, 0.98), rgba(59, 36, 22, 0.96) 62%, rgba(16, 24, 39, 0.98)),
+    var(--broge-charcoal);
+}
+
+.broge-details__grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+}
+
+.broge-details__content > p,
+.broge-care p {
+  color: rgba(245, 239, 230, 0.82);
+}
+
+.broge-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 8px 0;
+}
+
+.broge-mini-card,
+.broge-trust-card,
+.broge-policy-card {
+  border: 1px solid rgba(200, 164, 93, 0.2);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.broge-mini-card {
+  padding: 18px;
+}
+
+.broge-mini-card h3 {
+  margin: 0 0 8px;
+  color: var(--broge-white);
+  font-size: 0.98rem;
+}
+
+.broge-mini-card p {
+  color: rgba(245, 239, 230, 0.72);
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.broge-care__grid {
+  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+  align-items: start;
+}
+
+.broge-care__grid > div:first-child {
+  display: grid;
+  gap: 18px;
+}
+
+.broge-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.broge-trust-card {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 18px;
+  color: var(--broge-white);
+  font-weight: 800;
+}
+
+.broge-policy-card {
+  overflow: hidden;
+}
+
+.broge-policy-card img {
+  height: clamp(260px, 24vw, 320px);
+}
+
+.broge-policy-card__body {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+}
+
+.broge-feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.broge-feedback-card {
+  min-height: 210px;
+  padding: 26px;
+  border: 1px solid rgba(59, 36, 22, 0.12);
+  border-radius: 16px;
+  background: var(--broge-white);
+  box-shadow: 0 12px 32px rgba(34, 24, 18, 0.07);
+}
+
+.broge-feedback-card h3 {
+  margin: 0 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.broge-feedback-card p {
+  color: var(--broge-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.broge-feedback__cta {
+  margin-top: 30px;
+}
+
+@media (max-width: 1023px) {
+  .broge-section {
+    padding: 58px 0;
+  }
+
+  .broge-hero__grid,
+  .broge-split,
+  .broge-details__grid,
+  .broge-care__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .broge-hero {
+    padding-top: 48px;
+  }
+
+  .broge-hero__media,
+  .broge-split__media,
+  .broge-details__media {
+    height: 390px;
+  }
+
+  .broge-category-grid,
+  .broge-feedback-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .broge-category-card {
+    grid-template-rows: 320px 1fr;
+  }
+
+  .broge-mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .broge-container {
+    width: min(100% - 28px, 1280px);
+  }
+
+  .broge-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .broge-hero__media,
+  .broge-split__media,
+  .broge-details__media {
+    height: 300px;
+  }
+
+  .broge-btn {
+    width: 100%;
+  }
+
+  .broge-category-card {
+    grid-template-rows: 240px 1fr;
+  }
+
+  .broge-check-list,
+  .broge-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .broge-policy-card img {
+    height: 230px;
+  }
+}

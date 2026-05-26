@@ -6,6 +6,52 @@
  */
 defined('ABSPATH') || exit;
 
+$broge_category_pages = [
+    'formal-shoes' => [
+        'label'      => __('Formal Shoes', 'dawp'),
+        'eyebrow'    => __("Men's Formal Footwear", 'dawp'),
+        'lead'       => __('Clean, polished shoes for office days, formal events, dinners, and smart casual outfits.', 'dawp'),
+        'image'      => 'broge-category-formal-shoes.png',
+        'image_alt'  => __('Formal leather shoes styled for work and special occasions', 'dawp'),
+        'highlights' => [
+            __('Office-ready polish', 'dawp'),
+            __('Event and dinner styling', 'dawp'),
+            __('Smart casual pairing', 'dawp'),
+        ],
+    ],
+    'leather-dress-shoes' => [
+        'label'      => __('Leather Dress Shoes', 'dawp'),
+        'eyebrow'    => __('Refined Dress Footwear', 'dawp'),
+        'lead'       => __('Leather dress shoes with a refined finish for business wear, formal occasions, and confident everyday presentation.', 'dawp'),
+        'image'      => 'broge-category-leather-dress-shoes.png',
+        'image_alt'  => __('Polished leather dress shoes with a refined formal finish', 'dawp'),
+        'highlights' => [
+            __('Business-ready finish', 'dawp'),
+            __('Classic formal profile', 'dawp'),
+            __('Easy suit pairing', 'dawp'),
+        ],
+    ],
+    'brogue-shoes' => [
+        'label'      => __('Brogue Shoes', 'dawp'),
+        'eyebrow'    => __('Classic Brogue Detail', 'dawp'),
+        'lead'       => __('Brogue shoes with decorative detailing for formal looks, evening style, and sharp smart casual outfits.', 'dawp'),
+        'image'      => 'broge-category-brogue-shoes.png',
+        'image_alt'  => __('Close up brogue shoes with perforated detailing and stitching', 'dawp'),
+        'highlights' => [
+            __('Detailed brogue styling', 'dawp'),
+            __('Formal and smart casual', 'dawp'),
+            __('Distinctive classic look', 'dawp'),
+        ],
+    ],
+];
+
+$queried_category = is_product_category() ? get_queried_object() : null;
+$active_category_page = (
+    $queried_category instanceof WP_Term
+    && isset($broge_category_pages[$queried_category->slug])
+) ? $broge_category_pages[$queried_category->slug] : null;
+$img_base = get_template_directory_uri() . '/assets/img/';
+
 get_header();
 ?>
 
@@ -36,17 +82,57 @@ get_header();
     <?php
     // ── Page heading ───────────────────────────────────────
     ?>
-    <div class="shop-header">
-        <h1 class="shop-header__title">
-            <?php
-            if ( is_product_category() || is_product_tag() ) {
-                woocommerce_page_title();
-            } else {
-                echo 'All Products';
-            }
-            ?>
-        </h1>
-    </div>
+    <?php if ( $active_category_page ) : ?>
+        <section class="shop-category-hero" aria-labelledby="shop-category-title">
+            <div class="shop-category-hero__content">
+                <p class="shop-category-hero__eyebrow"><?php echo esc_html( $active_category_page['eyebrow'] ); ?></p>
+                <h1 id="shop-category-title"><?php woocommerce_page_title(); ?></h1>
+                <p class="shop-category-hero__lead">
+                    <?php echo esc_html( $active_category_page['lead'] ); ?>
+                </p>
+                <ul class="shop-category-hero__highlights">
+                    <?php foreach ( $active_category_page['highlights'] as $highlight ) : ?>
+                        <li><?php echo esc_html( $highlight ); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <div class="shop-category-hero__meta" aria-label="<?php esc_attr_e('Category summary', 'dawp'); ?>">
+                    <span><?php printf( esc_html( _n( '%d product', '%d products', (int) $queried_category->count, 'dawp' ) ), (int) $queried_category->count ); ?></span>
+                    <span><?php esc_html_e('Size and fit notes on product pages', 'dawp'); ?></span>
+                </div>
+            </div>
+            <div class="shop-category-hero__media">
+                <img src="<?php echo esc_url( $img_base . $active_category_page['image'] ); ?>"
+                     alt="<?php echo esc_attr( $active_category_page['image_alt'] ); ?>"
+                     loading="eager">
+            </div>
+        </section>
+
+        <nav class="shop-category-tabs" aria-label="<?php esc_attr_e('Product categories', 'dawp'); ?>">
+            <?php foreach ( $broge_category_pages as $slug => $category_page ) :
+                $term = get_term_by( 'slug', $slug, 'product_cat' );
+                $url = $term ? get_term_link( $term ) : home_url( '/product-category/' . $slug . '/' );
+                if ( is_wp_error( $url ) ) {
+                    $url = home_url( '/product-category/' . $slug . '/' );
+                }
+                ?>
+                <a href="<?php echo esc_url( $url ); ?>" <?php echo $queried_category->slug === $slug ? 'aria-current="page"' : ''; ?>>
+                    <?php echo esc_html( $category_page['label'] ); ?>
+                </a>
+            <?php endforeach; ?>
+        </nav>
+    <?php else : ?>
+        <div class="shop-header">
+            <h1 class="shop-header__title">
+                <?php
+                if ( is_product_category() || is_product_tag() ) {
+                    woocommerce_page_title();
+                } else {
+                    echo 'All Products';
+                }
+                ?>
+            </h1>
+        </div>
+    <?php endif; ?>
 
     <?php
     // ── Toolbar: count + filter toggle + sort ──────────────

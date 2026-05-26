@@ -141,6 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
             const submitBtn = form.querySelector('button[type="submit"]');
             const origText  = submitBtn.textContent;
 

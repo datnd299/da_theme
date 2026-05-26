@@ -1,141 +1,160 @@
 <?php
 /**
  * Template Part: Privacy Policy Page
- * 
- * This template follows Google Merchant Center (GMC) standards and the Shop Kelli Design System.
  */
 ?>
 
 <section class="bg-surface py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <div class="text-center mb-16">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-14">
+            <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Merchant Policies</span>
             <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Privacy Policy</h1>
-            <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
-                At Shop Kelli, your privacy is a priority. This policy explains how we collect, use, and protect your personal information when you visit or shop at our boutique.
+            <p class="text-foreground-muted text-lg max-w-3xl mx-auto leading-relaxed">
+                Broge Shoes respects your privacy. This policy explains what information we collect, how we use it, and how customers can contact us about their personal information.
             </p>
+            <p class="italic text-sm text-foreground-muted mt-4">Last Updated: May 26, 2026</p>
         </div>
 
-        <div class="space-y-12">
-            <!-- Introduction Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Our Commitment</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>
-                        Shop Kelli ("we", "us", or "our") operates **shopkelli.com**. We are committed to maintaining the trust and confidence of our visitors. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our store.
-                    </p>
-                    <p class="italic text-sm">Last Updated: May 7, 2026</p>
-                </div>
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+            <div class="hidden lg:block lg:col-span-3 sticky top-24">
+                <nav class="space-y-3">
+                    <a href="#privacy-overview" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Overview</a>
+                    <a href="#information-collected" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Information Collected</a>
+                    <a href="#how-we-use-information" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">How We Use Data</a>
+                    <a href="#sharing-information" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Sharing</a>
+                    <a href="#your-rights" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Your Rights</a>
+                    <a href="#privacy-contact" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Contact</a>
+                </nav>
             </div>
 
-            <!-- Information Collection Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            <div class="lg:col-span-9 space-y-8">
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
+                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Store</p>
+                        <p class="text-foreground text-2xl font-bold">Broge Shoes</p>
+                        <p class="text-foreground-muted text-sm mt-2">Men's formal footwear store.</p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Information We Collect</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <div>
-                        <h3 class="text-foreground font-semibold text-xl mb-3">Order Information</h3>
-                        <p>When you make a purchase or attempt to make a purchase through the Site, we collect certain information from you, including your name, billing address, shipping address, payment information (including credit card numbers), email address, and phone number. We refer to this information as "Order Information."</p>
+                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
+                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Website</p>
+                        <p class="text-foreground text-2xl font-bold">brogeshoes.com</p>
+                        <p class="text-foreground-muted text-sm mt-2">Official online store.</p>
                     </div>
-
-                    <div>
-                        <h3 class="text-foreground font-semibold text-xl mb-3">Device Information</h3>
-                        <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. We refer to this automatically-collected information as "Device Information."</p>
+                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
+                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Support</p>
+                        <p class="text-foreground text-2xl font-bold">Email</p>
+                        <p class="text-foreground-muted text-sm mt-2">support@brogeshoes.com</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- How We Use Information Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <div id="privacy-overview" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="font-heading text-3xl text-foreground font-semibold">Privacy Overview</h2>
+                            <p class="text-foreground-muted mt-2">This policy applies when you visit our site, create an account, contact us, or place an order.</p>
+                        </div>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">How We Use Your Data</h2>
+                    <div class="text-foreground-muted leading-relaxed space-y-4">
+                        <p>Broge Shoes ("we", "us", or "our") operates brogeshoes.com and sells men's formal shoes, leather dress shoes, and brogue shoes to customers in the United States.</p>
+                        <p>We collect only the information reasonably needed to operate our website, process orders, provide customer support, prevent fraud, improve our store, and comply with applicable legal obligations.</p>
+                    </div>
                 </div>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We use the Order Information that we collect generally to fulfill any orders placed through the Site (including processing your payment information, arranging for shipping, and providing you with invoices and/or order confirmations).</p>
-                    <p>Additionally, we use this Order Information to:</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Communicate with you;</li>
-                        <li>Screen our orders for potential risk or fraud; and</li>
-                        <li>When in line with the preferences you have shared with us, provide you with information or advertising relating to our boutique products or services.</li>
+                <div id="information-collected" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
+                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">Information We Collect</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-surface p-6 rounded-lg border border-border">
+                            <h3 class="text-foreground font-semibold text-xl mb-4">Order and Account Information</h3>
+                            <p class="text-foreground-muted leading-relaxed">When you make or attempt to make a purchase, we may collect your name, billing address, shipping address, email address, phone number, order details, product selections, size or color selections, and payment-related information needed to complete checkout.</p>
+                        </div>
+                        <div class="bg-surface p-6 rounded-lg border border-border">
+                            <h3 class="text-foreground font-semibold text-xl mb-4">Device and Site Information</h3>
+                            <p class="text-foreground-muted leading-relaxed">When you browse our site, we may collect information such as IP address, browser type, device type, pages viewed, referring pages, approximate location, cookie identifiers, and interaction data that helps us keep the site secure and functional.</p>
+                        </div>
+                        <div class="bg-surface p-6 rounded-lg border border-border">
+                            <h3 class="text-foreground font-semibold text-xl mb-4">Customer Support Information</h3>
+                            <p class="text-foreground-muted leading-relaxed">If you contact us, we may collect your message, order number, photos you provide for damaged or incorrect items, return details, and other information needed to answer your request.</p>
+                        </div>
+                        <div class="bg-surface p-6 rounded-lg border border-border">
+                            <h3 class="text-foreground font-semibold text-xl mb-4">Payment Information</h3>
+                            <p class="text-foreground-muted leading-relaxed">Payments are handled through secure payment providers. We do not intentionally store full credit card numbers on our website. Payment providers may process payment details according to their own security and privacy standards.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="how-we-use-information" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
+                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">How We Use Your Information</h2>
+                    <ul class="space-y-4 text-foreground-muted">
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span>Process payments, confirm orders, arrange shipment, and provide order updates.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span>Respond to questions about products, size guidance, shipping, returns, refunds, and exchanges.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span>Screen orders and site activity for fraud, abuse, unauthorized transactions, or security risks.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span>Improve product information, site performance, customer experience, and store operations.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span>Send transactional messages and, when permitted, marketing messages related to Broge Shoes products and services.</span></li>
+                        <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span>Comply with tax, accounting, chargeback, legal, and regulatory requirements.</span></li>
                     </ul>
                 </div>
-            </div>
 
-            <!-- Sharing Information Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                <div id="sharing-information" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
+                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">How We Share Information</h2>
+                    <div class="text-foreground-muted leading-relaxed space-y-4">
+                        <p>We may share personal information with service providers that help us operate our store, including payment processors, ecommerce platform providers, shipping carriers, analytics providers, email services, fraud prevention tools, hosting providers, and customer support tools.</p>
+                        <p>We may also disclose information if required to comply with applicable laws, respond to lawful requests, protect our rights, prevent fraud, resolve disputes, or enforce our policies.</p>
+                        <p>We do not sell customer personal information as a standalone business model. If our practices change, we will update this policy as required by applicable law.</p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Sharing Your Information</h2>
                 </div>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use WooCommerce to power our online store. We also use Google Analytics to help us understand how our customers use the Site.</p>
-                    <p>Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.</p>
-                </div>
-            </div>
-
-            <!-- Cookies Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
+                <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
+                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">Cookies and Similar Technologies</h2>
+                    <div class="text-foreground-muted leading-relaxed space-y-4">
+                        <p>Our site may use cookies, pixels, tags, and similar technologies to keep the shopping cart working, remember preferences, understand site traffic, measure performance, protect against fraud, and support advertising or remarketing where permitted.</p>
+                        <p>You can usually manage cookies through your browser settings. Disabling some cookies may affect checkout, cart, account, or site functionality.</p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Cookies & Tracking</h2>
                 </div>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We use cookies to enhance your experience on our Site. Cookies are small data files that are placed on your device or computer and often include an anonymous unique identifier.</p>
-                    <p>For more information about cookies, and how to disable cookies, visit <a href="http://www.allaboutcookies.org" target="_blank" class="text-accent hover:underline">allaboutcookies.org</a>.</p>
-                </div>
-            </div>
-
-            <!-- Your Rights Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
+                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">Data Retention and Security</h2>
+                    <div class="text-foreground-muted leading-relaxed space-y-4">
+                        <p>We keep personal information for as long as needed to provide our services, maintain business records, complete transactions, resolve disputes, prevent fraud, and meet legal obligations.</p>
+                        <p>We use reasonable administrative, technical, and organizational safeguards designed to protect personal information. No website, payment system, or internet transmission can be guaranteed to be completely secure.</p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Your Rights</h2>
                 </div>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>If you are a resident of certain territories (including the EU or California), you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.</p>
-                </div>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <div id="your-rights" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
+                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">Your Privacy Choices and Rights</h2>
+                    <div class="text-foreground-muted leading-relaxed space-y-4">
+                        <p>Depending on where you live, you may have the right to request access to, correction of, deletion of, or a copy of personal information we hold about you. You may also have the right to object to or restrict certain processing.</p>
+                        <p>You can opt out of promotional emails by using the unsubscribe link in the email or by contacting us. Transactional emails about orders, shipping, returns, refunds, account activity, or policy updates may still be sent when necessary.</p>
+                        <p>To make a privacy request, contact us at <a href="mailto:support@brogeshoes.com" class="text-accent hover:underline font-medium">support@brogeshoes.com</a>. We may need to verify your identity before completing a request.</p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Contact Us</h2>
                 </div>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at **support@shopkelli.com** or by mail using the details provided below:</p>
-                    
-                    <div class="bg-surface-alt p-6 rounded-md border-l-4 border-accent">
-                        <p class="font-bold text-foreground">Shop Kelli Boutique</p>
-                        <p>1777 Canal St, Merced, CA 95340</p>
-                        <p>Attn: Privacy Compliance Officer</p>
-                    </div>
+                <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
+                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">Children's Privacy</h2>
+                    <p class="text-foreground-muted leading-relaxed">Our website is intended for general ecommerce use by adults and is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided personal information to us, contact us so we can review and remove it where required.</p>
+                </div>
+
+                <div id="privacy-contact" class="bg-surface p-10 rounded-lg border border-dashed border-accent/30">
+                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">Contact Information</h2>
+                    <dl class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-background p-5 rounded-lg border border-border">
+                            <dt class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Store Name</dt>
+                            <dd class="text-foreground font-semibold">Broge Shoes</dd>
+                        </div>
+                        <div class="bg-background p-5 rounded-lg border border-border">
+                            <dt class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Website</dt>
+                            <dd class="text-foreground font-semibold">brogeshoes.com</dd>
+                        </div>
+                        <div class="bg-background p-5 rounded-lg border border-border">
+                            <dt class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Email</dt>
+                            <dd><a href="mailto:support@brogeshoes.com" class="text-foreground font-semibold hover:text-accent">support@brogeshoes.com</a></dd>
+                        </div>
+                        <div class="bg-background p-5 rounded-lg border border-border">
+                            <dt class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Business Hours</dt>
+                            <dd class="text-foreground font-semibold">Monday-Friday, 9:00 AM-5:00 PM PST</dd>
+                        </div>
+                    </dl>
                 </div>
             </div>
         </div>

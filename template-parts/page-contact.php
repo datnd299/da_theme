@@ -24,6 +24,12 @@ $contact_cards = [
         'icon'  => 'clock',
     ],
     [
+        'title' => __('Address', 'dawp'),
+        'copy'  => __('2822 Holsted Dr, Murfreesboro, TN 37128', 'dawp'),
+        'url'   => '',
+        'icon'  => 'location',
+    ],
+    [
         'title' => __('Order Help', 'dawp'),
         'copy'  => __('Include your order number, email address, product name, and a short description so we can review your request faster.', 'dawp'),
         'url'   => '',
@@ -97,6 +103,11 @@ $help_topics = [
                                         <?php elseif ($card['icon'] === 'clock') : ?>
                                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        <?php elseif ($card['icon'] === 'location') : ?>
+                                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s7-4.35 7-11a7 7 0 10-14 0c0 6.65 7 11 7 11z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10.5a2 2 0 100-4 2 2 0 000 4z" />
                                             </svg>
                                         <?php else : ?>
                                             <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

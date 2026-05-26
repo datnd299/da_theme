@@ -181,19 +181,15 @@ $footer_payment_methods = [
                         <a href="mailto:support@scottosterbind.com" class="transition hover:text-[#C89B3C]">support@scottosterbind.com</a>
                     </p>
                     <p>
+                        <strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
+                        <?php esc_html_e('2822 Holsted Dr, Murfreesboro, TN 37128', 'dawp'); ?>
+                    </p>
+                    <p>
                         <strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong>
                         <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?>
                     </p>
                 </div>
 
-                <div class="mt-4 rounded-lg border border-[#C89B3C]/50 bg-[#EEF6F2]/14 px-4 py-3">
-                    <p class="text-xs font-black uppercase tracking-[0.14em] text-[#C89B3C]">
-                        <?php esc_html_e('Handmade Note', 'dawp'); ?>
-                    </p>
-                    <p class="mt-1 text-xs font-semibold leading-5 text-[#FAF6EA]">
-                        <?php esc_html_e('Handmade pieces may include slight natural variations in color, texture, or bead pattern.', 'dawp'); ?>
-                    </p>
-                </div>
             </div>
 
             <nav aria-label="<?php esc_attr_e('Footer shop navigation', 'dawp'); ?>">

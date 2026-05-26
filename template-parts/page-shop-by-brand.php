@@ -119,40 +119,10 @@ $brand_groups = [
 ];
 
 $brand_url = static function ($brand) use ($shop_url) {
-    $slug = sanitize_title($brand['slug'] ?? $brand['name']);
-
-    foreach (['product_brand', 'pa_brand'] as $taxonomy) {
-        if (! taxonomy_exists($taxonomy)) {
-            continue;
-        }
-
-        $term = get_term_by('slug', $slug, $taxonomy);
-        if (! $term || is_wp_error($term)) {
-            $term = get_term_by('name', $brand['name'], $taxonomy);
-        }
-
-        if ($term && ! is_wp_error($term)) {
-            $link = get_term_link($term);
-            if (! is_wp_error($link)) {
-                return $link;
-            }
-        }
-    }
-
-    if (taxonomy_exists('product_cat')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-        if ($term && ! is_wp_error($term)) {
-            $link = get_term_link($term);
-            if (! is_wp_error($link)) {
-                return $link;
-            }
-        }
-    }
-
     return add_query_arg([
         's' => $brand['name'],
         'post_type' => 'product',
-    ], home_url('/'));
+    ], $shop_url);
 };
 
 $all_brands = [];
@@ -240,7 +210,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
                     <div class="tz-panel__top">
                         <div>
                             <h3><?php echo esc_html(sprintf(__('%s tire brands', 'dawp'), $group)); ?></h3>
-                            <p><?php esc_html_e('Tap a brand to open matching Tizezap products or the brand archive when it exists.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Tap a brand to search matching Tizezap products by brand keyword.', 'dawp'); ?></p>
                         </div>
                         <?php if ('premium' === $group_id) : ?>
                             <span><?php esc_html_e('Top picks', 'dawp'); ?></span>

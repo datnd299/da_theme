@@ -21,9 +21,9 @@ function dawp_newsletter_subscribe() {
 
     if ($sent) {
         wp_send_json_success(['message' => 'Thank you for joining us! A warm welcome is on its way to your inbox.']);
-    } else {
-        wp_send_json_error(['message' => 'Something went wrong. Please try again later.']);
     }
+
+    wp_send_json_error(['message' => 'Something went wrong. Please try again later.']);
 }
 
 add_action('wp_ajax_nopriv_dawp_contact', 'dawp_contact_submit');
@@ -56,11 +56,23 @@ function dawp_contact_submit() {
 
     $admin_subject = '[' . $site_name . '] Contact: ' . $subject_label . ' from ' . $name;
     $admin_body    = "Name: {$name}\nEmail: {$email}\nSubject: {$subject_label}\n\n{$message}";
-    wp_mail($admin_email, $admin_subject, $admin_body, ['Reply-To: ' . $name . ' <' . $email . '>']);
+    $admin_sent    = wp_mail(
+        $admin_email,
+        $admin_subject,
+        $admin_body,
+        [
+            'Content-Type: text/plain; charset=UTF-8',
+            'Reply-To: ' . $name . ' <' . $email . '>',
+        ]
+    );
 
-    $confirm_subject = 'We received your message – ' . $site_name;
+    if (!$admin_sent) {
+        wp_send_json_error(['message' => 'We could not send your message right now. Please email support directly.']);
+    }
+
+    $confirm_subject = 'We received your message - ' . $site_name;
     $confirm_body    = "Hi {$name},\n\nThank you for reaching out! We've received your message and our boutique team will get back to you within 24 business hours.\n\nWith love,\nThe {$site_name} Team";
     wp_mail($email, $confirm_subject, $confirm_body, ['Content-Type: text/plain; charset=UTF-8']);
 
-    wp_send_json_success(['message' => 'Thank you, ' . $name . '! Your message has been sent. We\'ll get back to you within 24 hours.']);
+    wp_send_json_success(['message' => 'Thank you, ' . $name . '! Your message has been sent. We will get back to you within 24 hours.']);
 }

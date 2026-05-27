@@ -1,18 +1,38 @@
 /* =============================================================
-   TRACK ORDER PAGE — Shop Kelli
+   TRACK ORDER PAGE - Handcraft Shoe
    Pure CSS only. References CSS variables from main.css.
    ============================================================= */
 
 /* ── Page wrapper ─────────────────────────────────────────── */
 .track-order-page {
-    background-color: var(--color-surface);
+    --track-ink: #17212B;
+    --track-pine: #2F4A43;
+    --track-pine-deep: #243A35;
+    --track-sage: #A7B7A5;
+    --track-fog: #E7E8E3;
+    --track-ivory: #F7F3EC;
+    --track-charcoal: #202326;
+    --track-slate: #6E7472;
+    --color-background: var(--track-ivory);
+    --color-surface: #FFFFFF;
+    --color-surface-alt: var(--track-fog);
+    --color-foreground: var(--track-charcoal);
+    --color-foreground-muted: var(--track-slate);
+    --color-border: #D8DAD4;
+    --color-accent: var(--track-pine);
+    --color-accent-hover: var(--track-pine-deep);
+    --color-accent-soft: var(--track-sage);
+    background-color: var(--color-background);
 }
 
 /* ── Hero ─────────────────────────────────────────────────── */
 .track-hero {
-    background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
+    background:
+        linear-gradient(135deg, rgba(23,33,43,.94), rgba(47,74,67,.9)),
+        var(--track-ivory);
+    border-bottom: 1px solid rgba(247,243,236,.14);
     padding: 4rem 1rem;
+    color: #fff;
 }
 
 .track-hero__inner {
@@ -25,8 +45,8 @@
     display: inline-block;
     padding: 0.375rem 1rem;
     border-radius: var(--radius-pill);
-    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
-    color: var(--color-accent);
+    background-color: rgba(247,243,236,.08);
+    color: rgba(247,243,236,.88);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -38,14 +58,14 @@
     font-family: var(--font-heading);
     font-size: 2.25rem;
     font-weight: 700;
-    color: var(--color-foreground);
+    color: #fff;
     line-height: 1.15;
     margin: 0 0 1.25rem;
 }
 
 .track-hero__desc {
     font-size: 1.0625rem;
-    color: var(--color-foreground-muted);
+    color: rgba(247,243,236,.82);
     line-height: 1.7;
     max-width: 38rem;
     margin: 0 auto;
@@ -76,7 +96,7 @@
     background-color: var(--color-background);
     border: 1px solid var(--color-border);
     border-radius: 1.5rem;
-    box-shadow: 0 8px 32px rgba(47, 42, 40, 0.08);
+    box-shadow: 0 8px 32px rgba(23, 33, 43, 0.08);
     overflow: hidden;
     position: relative;
 }
@@ -254,7 +274,13 @@
     }
 
     .track-more-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .track-more-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -448,7 +474,7 @@
 }
 
 .woocommerce-error li::before {
-    content: '⚠' !important;
+    content: '!' !important;
 }
 
 .woocommerce-message {

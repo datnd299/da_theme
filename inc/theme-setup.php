@@ -75,7 +75,8 @@ function dawp_redirect_removed_product_categories() {
 
     $term = get_queried_object();
     if ($term && !empty($term->slug) && in_array($term->slug, dawp_hidden_product_category_slugs(), true)) {
-        wp_safe_redirect(get_permalink(wc_get_page_id('shop')));
+        $shop_url = function_exists('wc_get_page_id') ? get_permalink(wc_get_page_id('shop')) : home_url('/shop/');
+        wp_safe_redirect($shop_url ?: home_url('/shop/'));
         exit;
     }
 }
@@ -172,7 +173,7 @@ function dawp_remove_styles() {
     
     foreach ( $wp_styles->registered as $handle => $style ) {
         foreach ( $blocked_files as $file ) {
-            if ( strpos( $style->src, $file ) !== false ) {
+            if ( is_string( $style->src ) && strpos( $style->src, $file ) !== false ) {
                 wp_dequeue_style( $handle );
                 wp_deregister_style( $handle );
             }

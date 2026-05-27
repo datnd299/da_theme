@@ -4,7 +4,9 @@
  */
 
 if ( isset( $_REQUEST['orderid'] ) ) {
-    $raw_order_id = wc_clean( wp_unslash( $_REQUEST['orderid'] ) );
+    $raw_order_id = function_exists( 'wc_clean' )
+        ? wc_clean( wp_unslash( $_REQUEST['orderid'] ) )
+        : sanitize_text_field( wp_unslash( $_REQUEST['orderid'] ) );
     $order_email  = empty( $_REQUEST['order_email'] ) ? '' : sanitize_email( wp_unslash( $_REQUEST['order_email'] ) );
     $candidates   = array();
     $order_id     = '';
@@ -67,7 +69,13 @@ if ( isset( $_REQUEST['orderid'] ) ) {
             <!-- Form Card -->
             <div class="track-form-card">
                 <div class="track-form-card__body">
-                    <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
+                    <?php
+                    if ( shortcode_exists( 'woocommerce_order_tracking' ) ) {
+                        echo do_shortcode( '[woocommerce_order_tracking]' );
+                    } else {
+                        esc_html_e( 'Order tracking is currently unavailable. Please contact support with your order number.', 'dawp' );
+                    }
+                    ?>
                 </div>
             </div>
 

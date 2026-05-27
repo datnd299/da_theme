@@ -110,11 +110,14 @@ get_header();
 
             <?php
             // Categories widget
+            $uncategorized = get_term_by('slug', 'uncategorized', 'product_cat');
+            $exclude_categories = $uncategorized && ! is_wp_error($uncategorized) ? [ (int) $uncategorized->term_id ] : [];
+
             $categories = get_terms([
                 'taxonomy'   => 'product_cat',
                 'hide_empty' => true,
                 'parent'     => 0,
-                'exclude'    => [ get_term_by('slug', 'uncategorized', 'product_cat')->term_id ?? 0 ],
+                'exclude'    => $exclude_categories,
             ]);
             if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
             <div class="shop-sidebar__widget">

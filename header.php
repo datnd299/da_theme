@@ -15,9 +15,20 @@
 <?php wp_body_open(); ?>
 
 <?php
-$cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+$cart_count = 0;
+if (function_exists('WC') && WC() && isset(WC()->cart) && WC()->cart) {
+    $cart_count = WC()->cart->get_cart_contents_count();
+}
+
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
-$account_url = get_permalink(get_option('woocommerce_myaccount_page_id')) ?: home_url('/my-account/');
+$account_url = home_url('/my-account/');
+$account_id  = (int) get_option('woocommerce_myaccount_page_id');
+if ($account_id > 0) {
+    $account_permalink = get_permalink($account_id);
+    if ($account_permalink) {
+        $account_url = $account_permalink;
+    }
+}
 
 $nav_items = [
     ['title' => __('Home', 'dawp'), 'url' => home_url('/')],

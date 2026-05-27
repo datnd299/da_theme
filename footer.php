@@ -133,73 +133,24 @@ $footer_policy_links = [
     text-transform: uppercase;
   }
 
-  .qb-footer-search {
-    display: flex;
-    max-width: 430px;
-    gap: 8px;
-    margin-top: 18px;
-    border: 1px solid var(--qb-border);
-    border-radius: 14px;
-    background: rgba(255,255,255,.62);
-    padding: 8px;
-  }
-
-  .qb-footer-search input[type="search"] {
-    min-width: 0;
-    flex: 1;
-    min-height: 38px;
-    border: 1px solid var(--qb-border);
-    border-radius: 999px;
-    background: #fff;
-    color: var(--qb-plum);
-    font: inherit;
-    outline: none;
-    padding: 0 14px;
-  }
-
-  .qb-footer-search button {
-    display: inline-flex;
-    min-height: 38px;
-    align-items: center;
-    justify-content: center;
-    border: 0;
-    border-radius: 999px;
-    background: var(--qb-gold);
-    color: var(--qb-plum);
-    font: inherit;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 0 16px;
-    cursor: pointer;
-    transition: background .2s ease;
-    white-space: nowrap;
-  }
-
-  .qb-footer-search button:hover {
-    background: var(--qb-peach);
-  }
-
   .qb-footer-contact {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 24px;
     max-width: 430px;
   }
 
   .qb-footer-contact a,
   .qb-footer-contact span {
     display: inline-flex;
-    min-height: 34px;
     align-items: center;
     gap: 7px;
-    border: 1px solid var(--qb-border);
-    border-radius: 999px;
     color: var(--qb-text);
     font-size: 12px;
     font-weight: 700;
     line-height: 1.2;
-    padding: 0 11px;
   }
 
   .qb-footer-contact svg {
@@ -211,13 +162,11 @@ $footer_policy_links = [
   }
 
   .qb-footer-contact a:hover {
-    border-color: var(--qb-gold);
     color: var(--qb-plum);
   }
 
   .qb-footer-contact a:last-child {
-    flex: 1 1 150px;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .qb-footer-col h3 {
@@ -304,15 +253,9 @@ $footer_policy_links = [
       padding: 48px 0;
     }
 
-    .qb-footer-search {
-      flex-direction: column;
-    }
-
     .qb-footer-contact a,
     .qb-footer-contact span {
-      width: 100%;
-      border-radius: 12px;
-      padding: 9px 11px;
+      width: auto;
     }
 
     .qb-footer-bottom__inner {
@@ -351,26 +294,19 @@ $footer_policy_links = [
                     <img class="qb-footer-logo" src="<?php echo esc_url($footer_logo); ?>" alt="<?php esc_attr_e("Queen's Bracelet", 'dawp'); ?>">
                 </a>
 
-                <form class="qb-footer-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
-                    <label class="qb-sr-only" for="qb-footer-search"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
-                    <input id="qb-footer-search" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search bracelet styles', 'dawp'); ?>">
-                    <input type="hidden" name="post_type" value="product">
-                    <button type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
-                </form>
-
                 <div class="qb-footer-contact">
-                    <a href="mailto:support@queens-bracelet.com" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.38l7 4.38 7-4.38V6.5a.5.5 0 0 0-.5-.5h-13Zm13 12a.5.5 0 0 0 .5-.5V9.25l-6.47 4.04a1 1 0 0 1-1.06 0L5 9.25v8.25a.5.5 0 0 0 .5.5h13Z"/>
-                        </svg>
-                        support@queens-bracelet.com
-                    </a>
                     <span>
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm1-13h-2v5.35l4.25 2.55 1-1.62L13 11.35V7Z"/>
                         </svg>
                         <?php esc_html_e('Mon-Fri 9AM-6PM EST', 'dawp'); ?>
                     </span>
+                    <a href="mailto:support@queens-bracelet.com" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.38l7 4.38 7-4.38V6.5a.5.5 0 0 0-.5-.5h-13Zm13 12a.5.5 0 0 0 .5-.5V9.25l-6.47 4.04a1 1 0 0 1-1.06 0L5 9.25v8.25a.5.5 0 0 0 .5.5h13Z"/>
+                        </svg>
+                        support@queens-bracelet.com
+                    </a>
                     <span>
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7Zm0 17.17C9.83 16.6 7 12.52 7 9a5 5 0 0 1 10 0c0 3.52-2.83 7.6-5 10.17ZM12 6.5A2.5 2.5 0 1 0 12 11.5 2.5 2.5 0 0 0 12 6.5Zm0 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/>

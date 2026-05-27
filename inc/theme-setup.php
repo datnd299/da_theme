@@ -1,6 +1,9 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
+add_filter('pre_get_document_title', 'dawp_document_title');
+remove_action('wp_head', 'wp_site_icon', 99);
+add_action('wp_head', 'dawp_logo_favicon', 100);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
     return 'QB-' . $order_id;
@@ -13,6 +16,19 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
+
+function dawp_document_title() {
+    return 'For Everyday Confidence';
+}
+
+function dawp_logo_favicon() {
+    $logo_url = get_template_directory_uri() . '/assets/images/home/image.png';
+    ?>
+    <link rel="icon" href="<?php echo esc_url($logo_url); ?>" type="image/png">
+    <link rel="apple-touch-icon" href="<?php echo esc_url($logo_url); ?>">
+    <?php
+}
+
 add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
     // Chỉ xử lý khi là trang search và chưa có post_type

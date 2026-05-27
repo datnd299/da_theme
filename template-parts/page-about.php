@@ -216,6 +216,13 @@ $categories = array(
     .hcs-about-final { padding: 80px 0 92px; text-align: center; }
     .hcs-about-final .hcs-about-title { max-width: 780px; margin: 0 auto 18px; font-size: clamp(34px, 5vw, 58px); }
     .hcs-about-final .hcs-about-copy { max-width: 700px; margin: 0 auto 28px; }
+    .hcs-about img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-inline: auto;
+        object-position: center center;
+    }
     @media (max-width: 1023px) {
         .hcs-about-split,
         .hcs-about-trust,
@@ -225,12 +232,25 @@ $categories = array(
         .hcs-about-image { aspect-ratio: 3 / 2; }
     }
     @media (max-width: 700px) {
-        .hcs-about-hero { min-height: 560px; }
+        .hcs-about-hero {
+            min-height: 560px;
+            background-position: 72% center;
+        }
         .hcs-about-hero-content { padding: 74px 0 46px; }
         .hcs-about-section { padding: 62px 0; }
         .hcs-about-head { display: block; }
         .hcs-about-values,
         .hcs-about-categories { grid-template-columns: 1fr; }
+        .hcs-about-image {
+            width: min(100%, 520px);
+            margin-inline: auto;
+            background-position: center center;
+        }
+        .hcs-about img {
+            margin-inline: auto;
+            object-fit: cover;
+            object-position: center center;
+        }
         .hcs-about-story,
         .hcs-about-panel { padding: 24px; }
     }

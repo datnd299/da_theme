@@ -6,6 +6,9 @@
 
 /* === 1. PAGE LAYOUT === */
 body.single-product {
+  --color-accent: var(--color-pine);
+  --color-accent-hover: var(--color-ink);
+  --color-accent-soft: var(--color-sage);
   overflow-x: hidden;
   font-family: var(--font-primary);
   background-color: var(--color-bg);

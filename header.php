@@ -5,483 +5,653 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
     <style>
-        #mobile-drawer {
-            transform: translateX(-100%);
-            transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+        :root {
+            --hcs-ink: #17212B;
+            --hcs-pine: #2F4A43;
+            --hcs-sage: #A7B7A5;
+            --hcs-rose: #B87C7C;
+            --hcs-fog: #E7E8E3;
+            --hcs-ivory: #F7F3EC;
+            --hcs-charcoal: #202326;
+            --hcs-slate: #6E7472;
         }
-        #mobile-drawer.is-open { transform: translateX(0); }
-        #drawer-overlay {
+        .hcs-header-shell,
+        .hcs-header-shell * {
+            box-sizing: border-box;
+        }
+        .hcs-header-shell a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .hcs-topbar {
+            background: var(--hcs-ink);
+            color: rgba(247, 243, 236, .88);
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        .hcs-header-wrap {
+            width: min(100% - 32px, 1180px);
+            margin: 0 auto;
+        }
+        .hcs-topbar-inner {
+            min-height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            text-align: center;
+        }
+        .hcs-topbar-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--hcs-sage);
+            display: inline-block;
+        }
+        #site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(247, 243, 236, .96);
+            border-bottom: 1px solid rgba(23, 33, 43, .1);
+            box-shadow: 0 10px 30px rgba(23, 33, 43, .06);
+            backdrop-filter: blur(12px);
+            color: var(--hcs-charcoal);
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        #site-header.hcs-is-scrolled {
+            box-shadow: 0 14px 34px rgba(23, 33, 43, .12);
+        }
+        .hcs-mainbar {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+        }
+        .hcs-brand {
+            display: inline-flex;
+            align-items: center;
+            min-width: max-content;
+        }
+        .hcs-brand-logo {
+            display: block;
+            width: auto;
+            height: 54px;
+            max-width: 210px;
+            object-fit: contain;
+        }
+        .hcs-desktop-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            flex: 1;
+        }
+        .hcs-nav-item,
+        .hcs-nav-trigger {
+            min-height: 42px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 13px;
+            border-radius: 999px;
+            border: 0;
+            background: transparent;
+            color: var(--hcs-charcoal);
+            cursor: pointer;
+            font: inherit;
+            font-size: 14px;
+            font-weight: 800;
+            white-space: nowrap;
+            transition: background .18s ease, color .18s ease;
+        }
+        .hcs-nav-item:hover,
+        .hcs-nav-item[aria-current="page"],
+        .hcs-nav-trigger:hover,
+        .hcs-nav-group:hover .hcs-nav-trigger {
+            background: var(--hcs-fog);
+            color: var(--hcs-pine);
+        }
+        .hcs-nav-group {
+            position: relative;
+        }
+        .hcs-megamenu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 50%;
+            transform: translate(-50%, -6px);
+            width: min(720px, calc(100vw - 40px));
+            padding: 18px;
+            border-radius: 22px;
+            background: #fff;
+            border: 1px solid rgba(23, 33, 43, .12);
+            box-shadow: 0 24px 55px rgba(23, 33, 43, .18);
             opacity: 0;
+            visibility: hidden;
             pointer-events: none;
-            transition: opacity 0.28s ease;
+            transition: opacity .2s ease, transform .2s ease, visibility 0s .2s;
         }
-        #drawer-overlay.is-open { opacity: 1; pointer-events: auto; }
-        #site-header.scrolled { backdrop-filter: blur(8px); }
-
-        /* Megamenu — hidden on mobile */
-        #megamenu-shop { display: none; }
-        @media (min-width: 1024px) {
-            #megamenu-shop {
-                display: block;
-                position: absolute;
-                top: calc(100% + 8px);
-                left: 0;
-                width: 660px;
-                z-index: 100;
-                border-radius: 12px;
-                overflow: hidden;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-8px);
-                pointer-events: none;
-                transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s 0.22s;
-            }
-            #megamenu-shop.is-open {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-                pointer-events: auto;
-                transition: opacity 0.22s ease, transform 0.22s ease;
-            }
+        .hcs-nav-group:hover .hcs-megamenu,
+        .hcs-nav-group:focus-within .hcs-megamenu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translate(-50%, 0);
+            transition: opacity .2s ease, transform .2s ease;
         }
-        .mega-link {
+        .hcs-megamenu-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 18px;
+        }
+        .hcs-mega-links {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+        .hcs-mega-link {
+            display: grid;
+            gap: 6px;
+            padding: 15px;
+            min-height: 116px;
+            border-radius: 18px;
+            background: var(--hcs-ivory);
+            border: 1px solid rgba(23, 33, 43, .08);
+            transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+        }
+        .hcs-mega-link:hover {
+            transform: translateY(-1px);
+            border-color: rgba(184, 124, 124, .45);
+            box-shadow: 0 12px 24px rgba(23, 33, 43, .08);
+        }
+        .hcs-mega-link strong {
+            color: var(--hcs-ink);
+            font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            line-height: 1.05;
+        }
+        .hcs-mega-link span {
+            color: var(--hcs-slate);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        .hcs-mega-panel {
+            border-radius: 18px;
+            padding: 18px;
+            background: var(--hcs-pine);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 22px;
+        }
+        .hcs-mega-panel p {
+            margin: 0;
+            color: rgba(247, 243, 236, .8);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .hcs-mega-panel strong {
+            display: block;
+            font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+            font-size: 28px;
+            line-height: 1.05;
+            margin-bottom: 8px;
+        }
+        .hcs-mini-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            width: max-content;
+            border-radius: 999px;
+            padding: 10px 16px;
+            background: var(--hcs-rose);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+            transition: background .18s ease;
+        }
+        .hcs-mini-btn:hover {
+            background: var(--hcs-ink);
+        }
+        .hcs-actions {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.875rem;
-            color: #2F2A28;
-            padding: 5px 0;
-            transition: color 0.15s ease, padding-left 0.15s ease;
+            min-width: max-content;
         }
-        .mega-link:hover { color: #A64B55; padding-left: 4px; }
-        .mega-link-dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: #DFA39A;
-            flex-shrink: 0;
+        .hcs-search {
+            width: 230px;
+            position: relative;
         }
-
-        /* Mobile drawer sub-nav */
-        .drawer-sub-nav {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.28s ease;
+        .hcs-search input {
+            width: 100%;
+            height: 42px;
+            border: 1px solid rgba(23, 33, 43, .14);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--hcs-charcoal);
+            font: inherit;
+            font-size: 13px;
+            padding: 0 42px 0 16px;
+            outline: none;
         }
-        .drawer-sub-nav.is-open { max-height: 700px; }
-        .sub-chevron { transition: transform 0.22s ease; }
+        .hcs-search input:focus {
+            border-color: var(--hcs-pine);
+            box-shadow: 0 0 0 3px rgba(167, 183, 165, .36);
+        }
+        .hcs-search button,
+        .hcs-icon-btn {
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            color: var(--hcs-pine);
+            cursor: pointer;
+            transition: background .18s ease, color .18s ease;
+        }
+        .hcs-search button {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .hcs-icon-btn {
+            background: var(--hcs-fog);
+        }
+        .hcs-icon-btn:hover,
+        .hcs-search button:hover {
+            background: var(--hcs-pine);
+            color: #fff;
+        }
+        .hcs-cart-btn {
+            position: relative;
+        }
+        .hcs-cart-count {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            min-width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5px;
+            border-radius: 999px;
+            background: var(--hcs-pine);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            line-height: 1;
+        }
+        .hcs-cart-btn:hover .hcs-cart-count {
+            background: var(--hcs-pine);
+            color: #fff;
+        }
+        .hcs-mobile-toggle {
+            display: none;
+        }
+        .hcs-mobile-search {
+            display: none;
+            padding: 0 0 14px;
+        }
+        .hcs-drawer-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 80;
+            background: rgba(23, 33, 43, .56);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .24s ease, visibility 0s .24s;
+        }
+        .hcs-drawer-overlay.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transition: opacity .24s ease;
+        }
+        .hcs-mobile-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 90;
+            width: min(88vw, 390px);
+            height: 100%;
+            overflow-y: auto;
+            background: var(--hcs-ivory);
+            box-shadow: 24px 0 55px rgba(23, 33, 43, .26);
+            transform: translateX(-100%);
+            transition: transform .28s ease;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+        .hcs-mobile-drawer.is-open {
+            transform: translateX(0);
+        }
+        .hcs-drawer-head {
+            min-height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 16px;
+            border-bottom: 1px solid rgba(23, 33, 43, .1);
+        }
+        .hcs-drawer-section {
+            padding: 16px;
+        }
+        .hcs-drawer-eyebrow {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--hcs-pine);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        .hcs-drawer-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 0;
+            color: var(--hcs-charcoal);
+            font-size: 15px;
+            font-weight: 800;
+            border-bottom: 1px solid rgba(23, 33, 43, .08);
+        }
+        .hcs-drawer-card {
+            margin-top: 16px;
+            border-radius: 18px;
+            padding: 18px;
+            background: var(--hcs-pine);
+            color: #fff;
+        }
+        .hcs-drawer-card p {
+            margin: 0 0 14px;
+            color: rgba(247, 243, 236, .82);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        @media (max-width: 1120px) {
+            .hcs-search {
+                width: 190px;
+            }
+        }
+        @media (max-width: 960px) {
+            .hcs-desktop-nav,
+            .hcs-search,
+            .hcs-account-btn {
+                display: none;
+            }
+            .hcs-mobile-toggle {
+                display: inline-flex;
+            }
+            .hcs-mainbar {
+                min-height: 68px;
+            }
+            .hcs-topbar-inner {
+                justify-content: flex-start;
+                overflow-x: auto;
+                white-space: nowrap;
+                scrollbar-width: none;
+            }
+            .hcs-topbar-inner::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        @media (max-width: 520px) {
+            .hcs-header-wrap {
+                width: min(100% - 24px, 1180px);
+            }
+            .hcs-brand-logo {
+                height: 42px;
+                max-width: 170px;
+            }
+            .hcs-icon-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
     </style>
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
 <?php
-$cart_count    = WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
-$cart_url      = wc_get_cart_url();
-$account_url   = get_permalink(get_option('woocommerce_myaccount_page_id'));
-$nav_items     = dawp_main_menu_items();
-$mega_sections = dawp_megamenu_sections();
+$cart_count  = 0;
+$cart_url    = home_url('/cart/');
+$account_url = home_url('/my-account/');
+
+if (class_exists('WooCommerce')) {
+    $cart_count = WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+    $cart_url   = function_exists('wc_get_cart_url') ? wc_get_cart_url() : $cart_url;
+
+    $account_page_id = get_option('woocommerce_myaccount_page_id');
+    if ($account_page_id) {
+        $account_url = get_permalink($account_page_id);
+    }
+}
+
+$main_links = array(
+    array('title' => __('Home', 'dawp'), 'url' => home_url('/')),
+    array('title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')),
+    array('title' => __('About', 'dawp'), 'url' => home_url('/about-us/')),
+    array('title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')),
+);
 ?>
 
-<!-- Utility Bar — desktop only -->
-<div class="hidden md:flex bg-[#A64B55] text-white py-1.5">
-    <div class="max-w-[1280px] w-full mx-auto px-6 flex items-center justify-center gap-6 text-xs text-white">
-        <span>Free Shipping on All Orders</span>
-    </div>
-</div>
-
-<!-- Main Header -->
-<header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-[#A64B55] shadow-sm" role="banner">
-    <div class="max-w-[1280px] mx-auto px-4 lg:px-6 h-14 lg:h-16 flex items-center justify-between gap-3">
-
-        <!-- Hamburger (mobile) -->
-        <button id="menu-toggle"
-                class="flex lg:hidden items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors shrink-0"
-                aria-expanded="false"
-                aria-controls="mobile-drawer"
-                aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-            </svg>
-        </button>
-
-        <!-- Logo -->
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="shrink-0" aria-label="Shopkelli">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
-                 alt="Shopkelli"
-                 class="h-8 w-auto"
-                 loading="eager"
-                 fetchpriority="high">
-        </a>
-
-        <!-- Nav (desktop) -->
-        <nav class="hidden lg:flex items-center gap-0.5 flex-1 px-4"
-             aria-label="<?php esc_attr_e('Main Navigation', 'dawp'); ?>">
-            <?php foreach ($nav_items as $item) :
-                $is_current = dawp_is_current_url($item['url']);
-                $has_mega   = !empty($item['megamenu']);
-            ?>
-            <?php if ($has_mega) : ?>
-            <div id="megamenu-trigger" class="relative">
-                <a href="<?php echo esc_url($item['url']); ?>"
-                   id="megamenu-btn"
-                   class="flex items-center gap-1 px-3 py-2 text-sm font-bold rounded-md whitespace-nowrap transition-colors
-                          <?php echo $is_current ? 'text-white bg-white/20' : 'text-white hover:bg-white/10'; ?>"
-                   <?php if ($is_current) echo 'aria-current="page"'; ?>>
-                    <?php echo esc_html($item['title']); ?>
-                    <svg id="megamenu-chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transition:transform 0.22s ease;">
-                        <polyline points="6 9 12 15 18 9"/>
-                    </svg>
-                </a>
-                <div id="megamenu-shop"
-                     role="region"
-                     aria-label="<?php esc_attr_e('Shop Categories', 'dawp'); ?>">
-                    <div class="bg-white border border-[#E6DDD6] shadow-2xl">
-                        <div class="px-5 py-5">
-                            <div class="grid grid-cols-3 gap-5">
-
-                                <?php foreach ($mega_sections as $section) : ?>
-                                <div>
-                                    <h3 class="text-[11px] font-bold uppercase tracking-widest text-[#A64B55] mb-3 pb-2 border-b border-[#E6DDD6]">
-                                        <?php echo esc_html($section['title']); ?>
-                                    </h3>
-                                    <ul class="space-y-0.5">
-                                        <?php foreach ($section['links'] as $link) : ?>
-                                        <li>
-                                            <a href="<?php echo esc_url($link['url']); ?>" class="mega-link">
-                                                <span class="mega-link-dot"></span>
-                                                <?php echo esc_html($link['title']); ?>
-                                            </a>
-                                        </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                                <?php endforeach; ?>
-
-                                <!-- Lifestyle image column -->
-                                <div class="relative rounded-xl overflow-hidden" style="min-height:150px;">
-                                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mother_and_daughter_in_boutique_202605071526.jpeg'); ?>"
-                                         alt="Shop Kelli Boutique"
-                                         class="absolute inset-0 w-full h-full object-cover">
-                                    <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(166,75,85,0.55) 0%,transparent 55%);"></div>
-                                    <div class="absolute bottom-0 left-0 right-0 p-3">
-                                        <p class="text-white text-xs font-semibold leading-tight drop-shadow">
-                                            <?php esc_html_e('Warm styles for every season', 'dawp'); ?>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Featured CTA column -->
-                                <div class="flex flex-col">
-                                    <h3 class="text-[11px] font-bold uppercase tracking-widest text-[#A64B55] mb-3 pb-2 border-b border-[#E6DDD6]">
-                                        <?php esc_html_e('Our Boutique', 'dawp'); ?>
-                                    </h3>
-                                    <div class="flex-1 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] p-4 flex flex-col justify-between">
-                                        <div>
-                                            <p class="text-[10px] font-semibold uppercase tracking-wider text-[#9A8C86] mb-1">
-                                                <?php esc_html_e('Full Collection', 'dawp'); ?>
-                                            </p>
-                                            <p class="text-sm font-bold text-[#2F2A28] leading-snug">
-                                                <?php esc_html_e('Shop Everything We Love', 'dawp'); ?>
-                                            </p>
-                                            <p class="text-xs text-[#6F625D] mt-1.5 leading-relaxed">
-                                                <?php esc_html_e('Browse our complete boutique — women, girls, and family styles all in one place.', 'dawp'); ?>
-                                            </p>
-                                        </div>
-                                        <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                                           class="mt-3 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#A64B55] text-white text-xs font-semibold hover:bg-[#8f3e48] transition-colors">
-                                            <?php esc_html_e('Shop All Products', 'dawp'); ?>
-                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php else : ?>
-            <a href="<?php echo esc_url($item['url']); ?>"
-               class="px-3 py-2 text-sm font-bold rounded-md whitespace-nowrap transition-colors
-                      <?php echo $is_current ? 'text-white bg-white/20' : 'text-white hover:bg-white/10'; ?>"
-               <?php if ($is_current) echo 'aria-current="page"'; ?>>
-                <?php echo esc_html($item['title']); ?>
-            </a>
-            <?php endif; ?>
-            <?php endforeach; ?>
-        </nav>
-
-        <!-- Search (desktop) -->
-        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>"
-              class="hidden lg:flex items-center flex-1 max-w-xs">
-            <div class="relative w-full">
-                <input type="search"
-                       name="s"
-                       value="<?php echo esc_attr(get_search_query()); ?>"
-                       placeholder="<?php esc_attr_e('Search products…', 'dawp'); ?>"
-                       class="w-full h-9 pl-4 pr-10 text-sm bg-white/15 border border-white/30 rounded-md text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-white/20 transition-colors">
-                <button type="submit"
-                        class="absolute right-0 top-0 h-9 w-9 flex items-center justify-center text-white/60 hover:text-white transition-colors"
-                        aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-                    </svg>
-                </button>
-            </div>
-        </form>
-
-        <!-- Actions -->
-        <div class="flex items-center gap-1 shrink-0">
-
-            <!-- Search icon (mobile) -->
-            <button id="mobile-search-toggle"
-                    class="flex lg:hidden items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-                    aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-                </svg>
-            </button>
-
-            <!-- Account (desktop) -->
-            <a href="<?php echo esc_url($account_url); ?>"
-               class="hidden lg:flex items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-               aria-label="<?php esc_attr_e('My Account', 'dawp'); ?>">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-                </svg>
-            </a>
-
-            <!-- Cart -->
-            <a href="<?php echo esc_url($cart_url); ?>"
-               class="relative flex items-center justify-center w-10 h-10 rounded-md text-white hover:bg-white/10 transition-colors"
-               aria-label="<?php printf(esc_attr__('Cart (%d items)', 'dawp'), $cart_count); ?>">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
-                </svg>
-                <?php if ($cart_count > 0) : ?>
-                <span class="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] flex items-center justify-center rounded-full bg-white text-[#A64B55] text-[10px] font-bold leading-none px-1 shadow-sm"
-                      aria-hidden="true">
-                    <?php echo esc_html($cart_count); ?>
-                </span>
-                <?php endif; ?>
-            </a>
-
+<div class="hcs-header-shell">
+    <div class="hcs-topbar">
+        <div class="hcs-header-wrap hcs-topbar-inner" aria-label="<?php esc_attr_e('Store highlights', 'dawp'); ?>">
+            <span><?php esc_html_e('Secure Checkout', 'dawp'); ?></span>
+            <span class="hcs-topbar-dot" aria-hidden="true"></span>
+            <span><?php esc_html_e('Tracking Included', 'dawp'); ?></span>
+            <span class="hcs-topbar-dot" aria-hidden="true"></span>
+            <span><?php esc_html_e('30-Day Returns', 'dawp'); ?></span>
+            <span class="hcs-topbar-dot" aria-hidden="true"></span>
+            <span><?php esc_html_e('Support Mon-Fri, 9 AM-5 PM PST', 'dawp'); ?></span>
         </div>
     </div>
 
-    <!-- Mobile search bar -->
-    <div id="mobile-search-bar" class="hidden lg:hidden border-t border-white/20 px-4 py-3 bg-[#963C46]">
-        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="relative">
-            <input type="search"
-                   name="s"
-                   value="<?php echo esc_attr(get_search_query()); ?>"
-                   placeholder="<?php esc_attr_e('Search products…', 'dawp'); ?>"
-                   class="w-full h-10 pl-4 pr-10 text-sm bg-white/20 border border-white/30 rounded-md text-white placeholder:text-white/70 focus:outline-none focus:border-white transition-colors">
-            <button type="submit"
-                    class="absolute right-0 top-0 h-10 w-10 flex items-center justify-center text-white/60"
-                    aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-                </svg>
-            </button>
-        </form>
-    </div>
-
-
-</header>
-
-<!-- Drawer overlay -->
-<div id="drawer-overlay"
-     class="fixed inset-0 z-40 bg-black/50"
-     aria-hidden="true"></div>
-
-<!-- Mobile drawer -->
-<aside id="mobile-drawer"
-       class="fixed top-0 left-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm bg-[#A64B55] overflow-y-auto shadow-2xl"
-       aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
-
-    <!-- Drawer header -->
-    <div class="flex items-center justify-between px-4 h-14 border-b border-white/10">
-        <a href="<?php echo esc_url(home_url('/')); ?>">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
-                 alt="Shopkelli"
-                 class="h-7 w-auto">
-        </a>
-        <button id="drawer-close"
-                class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors"
-                aria-label="<?php esc_attr_e('Close menu', 'dawp'); ?>">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
-        </button>
-    </div>
-
-    <!-- Drawer nav -->
-    <nav class="py-2" aria-label="<?php esc_attr_e('Mobile Menu', 'dawp'); ?>">
-        <?php foreach ($nav_items as $item) :
-            $is_current = dawp_is_current_url($item['url']);
-            $has_mega   = !empty($item['megamenu']);
-        ?>
-        <?php if ($has_mega) : ?>
-        <!-- Shop All with expandable sub-nav -->
-        <div class="border-b border-white/10">
-            <div class="flex items-center">
-                <a href="<?php echo esc_url($item['url']); ?>"
-                   class="flex-1 flex items-center px-5 py-3.5 text-sm font-medium text-white/90 hover:text-white transition-colors">
-                    <?php echo esc_html($item['title']); ?>
-                </a>
-                <button class="drawer-sub-toggle w-12 h-12 flex items-center justify-center text-white/60 hover:text-white transition-colors shrink-0"
+    <header id="site-header" role="banner">
+        <div class="hcs-header-wrap">
+            <div class="hcs-mainbar">
+                <button id="hcs-menu-toggle"
+                        class="hcs-icon-btn hcs-mobile-toggle"
+                        type="button"
                         aria-expanded="false"
-                        aria-label="<?php esc_attr_e('Expand shop categories', 'dawp'); ?>">
-                    <svg class="sub-chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <polyline points="6 9 12 15 18 9"/>
+                        aria-controls="hcs-mobile-drawer"
+                        aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>">
+                    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
                     </svg>
                 </button>
-            </div>
-            <div class="drawer-sub-nav bg-[#8B3A44]">
-                <?php foreach ($mega_sections as $section) : ?>
-                <div class="px-5 py-3 border-t border-white/5">
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-white/45 mb-2">
-                        <?php echo esc_html($section['title']); ?>
-                    </p>
-                    <?php foreach ($section['links'] as $link) : ?>
-                    <a href="<?php echo esc_url($link['url']); ?>"
-                       class="flex items-center gap-2 py-1.5 text-sm text-white/75 hover:text-white transition-colors">
-                        <span class="w-1 h-1 rounded-full bg-white/40 shrink-0"></span>
-                        <?php echo esc_html($link['title']); ?>
-                    </a>
+
+                <a class="hcs-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Handcraft Shoe home', 'dawp'); ?>">
+                    <img class="hcs-brand-logo"
+                         src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo.png')); ?>"
+                         alt="<?php esc_attr_e('Handcraft Shoe', 'dawp'); ?>">
+                </a>
+
+                <nav class="hcs-desktop-nav" aria-label="<?php esc_attr_e('Main Navigation', 'dawp'); ?>">
+                    <?php foreach ($main_links as $link) : ?>
+                        <a class="hcs-nav-item"
+                           href="<?php echo esc_url($link['url']); ?>"
+                           <?php echo function_exists('dawp_is_current_url') && dawp_is_current_url($link['url']) ? 'aria-current="page"' : ''; ?>>
+                            <?php echo esc_html($link['title']); ?>
+                        </a>
                     <?php endforeach; ?>
-                </div>
-                <?php endforeach; ?>
-                <div class="px-5 py-4 border-t border-white/10">
-                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                       class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-white/20 text-white text-sm font-semibold hover:bg-white/30 transition-colors">
-                        <?php esc_html_e('View All Products', 'dawp'); ?>
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                </nav>
+
+                <div class="hcs-actions">
+                    <form class="hcs-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
+                        <label class="screen-reader-text" for="hcs-search-field"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                        <input id="hcs-search-field"
+                               type="search"
+                               name="s"
+                               value=""
+                               autocomplete="off"
+                               placeholder="<?php esc_attr_e('Search footwear...', 'dawp'); ?>">
+                        <input type="hidden" name="post_type" value="product">
+                        <button type="submit" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </form>
+
+                    <button id="hcs-mobile-search-toggle"
+                            class="hcs-icon-btn hcs-mobile-toggle"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="hcs-mobile-search"
+                            aria-label="<?php esc_attr_e('Open search', 'dawp'); ?>">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="M21 21l-4.35-4.35"></path>
+                        </svg>
+                    </button>
+
+                    <a class="hcs-icon-btn hcs-account-btn"
+                       href="<?php echo esc_url($account_url); ?>"
+                       aria-label="<?php esc_attr_e('My Account', 'dawp'); ?>">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="8" r="4"></circle>
+                            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path>
                         </svg>
                     </a>
+
+                    <a class="hcs-icon-btn hcs-cart-btn"
+                       href="<?php echo esc_url($cart_url); ?>"
+                       aria-label="<?php printf(esc_attr__('Cart (%d items)', 'dawp'), (int) $cart_count); ?>">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                        <?php if ($cart_count > 0) : ?>
+                            <span class="hcs-cart-count" aria-hidden="true"><?php echo esc_html($cart_count); ?></span>
+                        <?php endif; ?>
+                    </a>
                 </div>
             </div>
+
+            <div id="hcs-mobile-search" class="hcs-mobile-search">
+                <form class="hcs-search" style="display:block;width:100%;" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
+                    <label class="screen-reader-text" for="hcs-mobile-search-field"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                    <input id="hcs-mobile-search-field"
+                           type="search"
+                           name="s"
+                           value=""
+                           autocomplete="off"
+                           placeholder="<?php esc_attr_e('Search footwear...', 'dawp'); ?>">
+                    <input type="hidden" name="post_type" value="product">
+                    <button type="submit" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="M21 21l-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
         </div>
-        <?php else : ?>
-        <a href="<?php echo esc_url($item['url']); ?>"
-           class="flex items-center px-5 py-3.5 text-sm font-medium border-b border-white/10 transition-colors
-                  <?php echo $is_current ? 'text-white bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/5'; ?>"
-           <?php if ($is_current) echo 'aria-current="page"'; ?>>
-            <?php echo esc_html($item['title']); ?>
-        </a>
-        <?php endif; ?>
-        <?php endforeach; ?>
+    </header>
 
-        <!-- My Account -->
-        <a href="<?php echo esc_url($account_url); ?>"
-           class="flex items-center gap-2.5 px-5 py-3.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/5 border-t border-white/20 mt-2 transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-            </svg>
-            <?php esc_html_e('My Account', 'dawp'); ?>
-        </a>
-    </nav>
+    <div id="hcs-drawer-overlay" class="hcs-drawer-overlay" aria-hidden="true"></div>
 
-    <!-- Drawer footer -->
-    <div class="px-5 py-5 border-t border-white/10"></div>
-</aside>
+    <aside id="hcs-mobile-drawer" class="hcs-mobile-drawer" aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
+        <div class="hcs-drawer-head">
+            <a class="hcs-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Handcraft Shoe home', 'dawp'); ?>">
+                <img class="hcs-brand-logo"
+                     src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo.png')); ?>"
+                     alt="<?php esc_attr_e('Handcraft Shoe', 'dawp'); ?>">
+            </a>
+            <button id="hcs-drawer-close" class="hcs-icon-btn" type="button" aria-label="<?php esc_attr_e('Close menu', 'dawp'); ?>">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+
+        <nav class="hcs-drawer-section" aria-label="<?php esc_attr_e('Mobile Menu', 'dawp'); ?>">
+            <?php foreach ($main_links as $link) : ?>
+                <a class="hcs-drawer-link" href="<?php echo esc_url($link['url']); ?>">
+                    <?php echo esc_html($link['title']); ?>
+                    <span aria-hidden="true">&rarr;</span>
+                </a>
+            <?php endforeach; ?>
+        </nav>
+    </aside>
+</div>
 
 <script>
 (function () {
-    var header      = document.getElementById('site-header');
-    var toggle      = document.getElementById('menu-toggle');
-    var drawer      = document.getElementById('mobile-drawer');
-    var overlay     = document.getElementById('drawer-overlay');
-    var closeBtn    = document.getElementById('drawer-close');
-    var srchToggle  = document.getElementById('mobile-search-toggle');
-    var srchBar     = document.getElementById('mobile-search-bar');
-    var megaTrigger = document.getElementById('megamenu-trigger');
-    var megaPanel   = document.getElementById('megamenu-shop');
-    var megaChevron = document.getElementById('megamenu-chevron');
+    var header = document.getElementById('site-header');
+    var menuToggle = document.getElementById('hcs-menu-toggle');
+    var drawer = document.getElementById('hcs-mobile-drawer');
+    var overlay = document.getElementById('hcs-drawer-overlay');
+    var closeBtn = document.getElementById('hcs-drawer-close');
+    var searchToggle = document.getElementById('hcs-mobile-search-toggle');
+    var searchBar = document.getElementById('hcs-mobile-search');
 
-    /* --- Mobile drawer --- */
-    function openDrawer() {
-        drawer.classList.add('is-open');
-        overlay.classList.add('is-open');
-        toggle.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+    function setDrawer(open) {
+        if (!drawer || !overlay || !menuToggle) return;
+        drawer.classList.toggle('is-open', open);
+        overlay.classList.toggle('is-open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        document.body.style.overflow = open ? 'hidden' : '';
     }
-    function closeDrawer() {
-        drawer.classList.remove('is-open');
-        overlay.classList.remove('is-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-    }
-    if (toggle)   toggle.addEventListener('click', function () {
-        drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
-    });
-    if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-    if (overlay)  overlay.addEventListener('click', closeDrawer);
 
-    /* --- Search bar (mobile) --- */
-    if (srchToggle && srchBar) {
-        srchToggle.addEventListener('click', function () {
-            var hidden = srchBar.classList.toggle('hidden');
-            if (!hidden) srchBar.querySelector('input').focus();
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function () {
+            setDrawer(!drawer.classList.contains('is-open'));
+        });
+    }
+    if (closeBtn) closeBtn.addEventListener('click', function () { setDrawer(false); });
+    if (overlay) overlay.addEventListener('click', function () { setDrawer(false); });
+
+    if (searchToggle && searchBar) {
+        searchToggle.addEventListener('click', function () {
+            var open = searchBar.style.display !== 'block';
+            searchBar.style.display = open ? 'block' : 'none';
+            searchToggle.setAttribute('aria-expanded', String(open));
+            if (open) {
+                var input = searchBar.querySelector('input[type="search"]');
+                if (input) input.focus();
+            }
         });
     }
 
-    /* --- Scroll effect --- */
     if (header) {
-        window.addEventListener('scroll', function () {
-            header.classList.toggle('scrolled', window.scrollY > 4);
-        }, { passive: true });
+        var onScroll = function () {
+            header.classList.toggle('hcs-is-scrolled', window.scrollY > 8);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
     }
 
-    /* --- Megamenu (desktop hover + click) --- */
-    var megaTimer;
-    function openMega() {
-        clearTimeout(megaTimer);
-        if (!megaPanel) return;
-        megaPanel.classList.add('is-open');
-        if (megaChevron) megaChevron.style.transform = 'rotate(180deg)';
-    }
-    function scheduleMegaClose() {
-        megaTimer = setTimeout(function () {
-            if (!megaPanel) return;
-            megaPanel.classList.remove('is-open');
-            if (megaChevron) megaChevron.style.transform = '';
-        }, 120);
-    }
-    if (megaTrigger && megaPanel) {
-        megaTrigger.addEventListener('mouseenter', openMega);
-        megaTrigger.addEventListener('mouseleave', scheduleMegaClose);
-        megaPanel.addEventListener('mouseenter', function () { clearTimeout(megaTimer); });
-        megaPanel.addEventListener('mouseleave', scheduleMegaClose);
-    }
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-            closeDrawer();
-            clearTimeout(megaTimer);
-            if (megaPanel) {
-                megaPanel.classList.remove('is-open');
-                if (megaChevron) megaChevron.style.transform = '';
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            setDrawer(false);
+            if (searchBar && searchToggle) {
+                searchBar.style.display = 'none';
+                searchToggle.setAttribute('aria-expanded', 'false');
             }
         }
-    });
-
-    /* --- Mobile drawer sub-nav toggle --- */
-    document.querySelectorAll('.drawer-sub-toggle').forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            var row    = btn.parentElement;
-            var subNav = row.nextElementSibling;
-            var chevron = btn.querySelector('.sub-chevron');
-            var isOpen  = subNav.classList.toggle('is-open');
-            btn.setAttribute('aria-expanded', String(isOpen));
-            if (chevron) chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
-        });
     });
 })();
 </script>

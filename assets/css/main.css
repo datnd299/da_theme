@@ -6,33 +6,36 @@
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #FFFFFF;
+  --color-background: #F7F3EC;
   /* Warm White — page background */
-  --color-surface: #FAF7F2;
+  --color-surface: #FFFFFF;
   /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
+  --color-surface-alt: #E7E8E3;
   /* Soft Gray — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
+  --color-foreground: #202326;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
+  --color-foreground-muted: #6E7472;
   /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
+  --color-muted: #8A918E;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C98A8A;
+  --color-ink: #17212B;
+  --color-pine: #2F4A43;
+  --color-sage: #A7B7A5;
+  --color-accent: #B87C7C;
   /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #B87575;
+  --color-accent-hover: #17212B;
   /* Dusty Rose darker — hover state */
-  --color-accent-soft: #E8D8C8;
+  --color-accent-soft: #DADFD5;
   /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DFA39A;
+  --color-accent-blush: #C99696;
   /* Warm Blush — secondary brand color */
 
   /* === UI === */
-  --color-border: #E6DDD6;
+  --color-border: #D8DAD4;
   /* Border — cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */
@@ -64,14 +67,24 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(23, 33, 43, 0.06);
+  --shadow-card-hover: 0 10px 28px rgba(23, 33, 43, 0.12);
+  --shadow-md: 0 8px 18px rgba(23, 33, 43, 0.10);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
   --duration-fast: 150ms;
   --duration-normal: 250ms;
   --duration-slow: 400ms;
+
+  /* WooCommerce legacy aliases */
+  --color-bg: var(--color-background);
+  --color-bg-subtle: var(--color-surface-alt);
+  --color-text-primary: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-muted);
+  --color-text-muted: var(--color-muted);
+  --color-sale: var(--color-accent);
+  --font-primary: var(--font-sans);
 }
 
 /* =============================================================

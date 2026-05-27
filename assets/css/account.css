@@ -5,7 +5,7 @@
 
 .account-page {
   min-height: 62vh;
-  padding: 48px 16px 72px;
+  padding: 40px var(--container-pad-mobile) 72px;
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
@@ -21,17 +21,18 @@
   width: 100%;
 }
 
-.account-page .woocommerce > h2,
-.account-page .woocommerce > .woocommerce-form-login,
-.account-page .woocommerce > .woocommerce-form-register,
-.account-page .woocommerce > .woocommerce-ResetPassword {
-  max-width: 520px;
-  margin-left: auto;
-  margin-right: auto;
+.account-page .woocommerce::before,
+.account-page .woocommerce::after,
+.account-page #customer_login::before,
+.account-page #customer_login::after,
+.account-page .form-row::before,
+.account-page .form-row::after {
+  display: none;
 }
 
 .account-page h2,
 .account-page h3,
+.account-page legend,
 .account-page .woocommerce-MyAccount-content > p:first-child {
   margin: 0 0 18px;
   color: var(--color-foreground);
@@ -44,13 +45,9 @@
   font-weight: 700;
 }
 
-.account-page .woocommerce > h2 {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.account-page h3 {
-  font-size: 1.125rem;
+.account-page h3,
+.account-page legend {
+  font-size: 1.05rem;
   font-weight: 700;
 }
 
@@ -61,7 +58,19 @@
 }
 
 .account-page a:hover {
-  color: var(--color-accent-hover);
+  color: var(--color-accent);
+}
+
+.account-page .woocommerce-notices-wrapper {
+  grid-column: 1 / -1;
+  max-width: none;
+  padding: 0;
+}
+
+.account-page .woocommerce-message,
+.account-page .woocommerce-info,
+.account-page .woocommerce-error {
+  margin: 0 0 18px;
 }
 
 /* Logged-out login/register screen */
@@ -70,15 +79,16 @@
   grid-template-columns: 1fr;
   gap: 24px;
   align-items: start;
-  max-width: 980px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
 .account-page #customer_login > .u-column1,
 .account-page #customer_login > .u-column2,
-.account-page .woocommerce-form-login,
-.account-page .woocommerce-form-register,
-.account-page .woocommerce-ResetPassword {
+.account-page .woocommerce > .woocommerce-form-login,
+.account-page .woocommerce > .woocommerce-form-register,
+.account-page .woocommerce > .woocommerce-ResetPassword {
+  width: 100%;
   padding: 28px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -87,19 +97,23 @@
   box-sizing: border-box;
 }
 
-.account-page #customer_login > .u-column1,
-.account-page #customer_login > .u-column2 {
-  width: 100%;
-}
-
-.account-page #customer_login::before,
-.account-page #customer_login::after {
-  display: none;
-}
-
 .account-page #customer_login .woocommerce-form-login,
 .account-page #customer_login .woocommerce-form-register {
   margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.account-page .woocommerce > .woocommerce-form-login,
+.account-page .woocommerce > .woocommerce-form-register,
+.account-page .woocommerce > .woocommerce-ResetPassword,
+.account-page .woocommerce > h2 {
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .account-page .form-row {
@@ -108,11 +122,6 @@
   gap: 8px;
   margin: 0 0 16px;
   padding: 0;
-}
-
-.account-page .form-row::before,
-.account-page .form-row::after {
-  display: none;
 }
 
 .account-page .form-row label {
@@ -134,12 +143,13 @@
 .account-page input[type="text"],
 .account-page input[type="tel"],
 .account-page textarea,
-.account-page select {
+.account-page select,
+.account-page .select2-container .select2-selection--single {
   width: 100%;
   min-height: 46px;
   padding: 11px 13px;
   color: var(--color-foreground);
-  background: var(--color-background);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   font-family: var(--font-sans);
@@ -154,9 +164,24 @@
   min-height: 120px;
 }
 
+.account-page .select2-container .select2-selection--single {
+  height: 46px;
+}
+
+.account-page .select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding: 0;
+  color: var(--color-foreground);
+  line-height: 22px;
+}
+
+.account-page .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 44px;
+}
+
 .account-page input:focus,
 .account-page textarea:focus,
-.account-page select:focus {
+.account-page select:focus,
+.account-page .select2-container--open .select2-selection--single {
   border-color: var(--color-accent);
   outline: none;
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 18%, transparent);
@@ -216,14 +241,11 @@
   transform: translateY(1px);
 }
 
-.account-page .lost_password {
-  margin: 6px 0 0;
-  color: var(--color-foreground-muted);
-  font-size: 0.9rem;
-}
-
-.account-page .woocommerce-privacy-policy-text {
-  margin: 0 0 18px;
+.account-page .lost_password,
+.account-page .woocommerce-privacy-policy-text,
+.account-page .woocommerce-password-strength,
+.account-page .woocommerce-password-hint {
+  margin: 8px 0 0;
   color: var(--color-foreground-muted);
   font-size: 0.875rem;
   line-height: 1.6;
@@ -231,13 +253,13 @@
 
 /* Logged-in account layout */
 .account-page .woocommerce-MyAccount-navigation {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   padding: 0;
 }
 
 .account-page .woocommerce-MyAccount-navigation ul {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
   gap: 8px;
   margin: 0;
   padding: 0;
@@ -270,6 +292,7 @@
 }
 
 .account-page .woocommerce-MyAccount-content {
+  min-width: 0;
   padding: 24px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -295,12 +318,20 @@
   color: var(--color-foreground);
 }
 
+.account-page fieldset {
+  margin: 20px 0 0;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
 /* Tables and address cards */
 .account-page table.shop_table {
   width: 100%;
   margin: 0 0 24px;
-  border-collapse: collapse;
-  background: var(--color-background);
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -339,6 +370,23 @@
   border-radius: var(--radius-md);
 }
 
+.account-page .woocommerce-Address-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 12px;
+}
+
+.account-page .woocommerce-Address-title h3 {
+  margin: 0;
+}
+
+.account-page .woocommerce-Address-title .edit {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
 .account-page address {
   color: var(--color-foreground-muted);
   font-style: normal;
@@ -347,7 +395,7 @@
 
 @media (min-width: 768px) {
   .account-page {
-    padding: 64px 24px 96px;
+    padding: 56px var(--container-pad-desktop) 96px;
   }
 
   .account-page #customer_login {
@@ -361,26 +409,22 @@
 }
 
 @media (min-width: 1024px) {
+  .account-page .woocommerce:has(.woocommerce-MyAccount-navigation) {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+
   .account-page .woocommerce-MyAccount-navigation {
-    float: left;
-    width: 260px;
+    position: sticky;
+    top: 96px;
     margin: 0;
   }
 
   .account-page .woocommerce-MyAccount-navigation ul {
     display: flex;
     flex-direction: column;
-  }
-
-  .account-page .woocommerce-MyAccount-content {
-    float: right;
-    width: calc(100% - 292px);
-  }
-
-  .account-page .woocommerce::after {
-    content: "";
-    display: table;
-    clear: both;
   }
 }
 
@@ -391,11 +435,15 @@
 
   .account-page #customer_login > .u-column1,
   .account-page #customer_login > .u-column2,
-  .account-page .woocommerce-form-login,
-  .account-page .woocommerce-form-register,
-  .account-page .woocommerce-ResetPassword,
+  .account-page .woocommerce > .woocommerce-form-login,
+  .account-page .woocommerce > .woocommerce-form-register,
+  .account-page .woocommerce > .woocommerce-ResetPassword,
   .account-page .woocommerce-MyAccount-content {
     padding: 20px;
+  }
+
+  .account-page .woocommerce-MyAccount-navigation ul {
+    grid-template-columns: 1fr 1fr;
   }
 
   .account-page table.shop_table {

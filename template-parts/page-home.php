@@ -1,302 +1,374 @@
-<main>
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-[#FAF7F2] to-[#FFF6F3] py-10 md:py-16">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_0.95fr] lg:gap-12">
-        <div>
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Women & Children Boutique</p>
-          <h1 class="font-serif text-5xl leading-[0.95] tracking-[-0.04em] text-[#2F2A28] md:text-7xl">
-            Sweet styles for everyday moments.
-          </h1>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-[#6F625D]">
-            Discover warm, wearable boutique fashion for women and young girls, from seasonal outfits to mommy and daughter favorites.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#2F2A28] hover:border-[#2F2A28]">
-              Shop Collections
-            </a>
-            <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:-translate-y-0.5 hover:bg-[#FAF7F2]">
-              Our Brand Story
-            </a>
-          </div>
-        </div>
+<?php
+/**
+ * Template Part: page-home
+ */
 
-        <div class="relative">
-          <div class="overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/banner_baby.png'); ?>" alt="Mother and daughter boutique lifestyle fashion" />
-          </div>
-          <div class="absolute -left-6 bottom-7 hidden h-[270px] w-[230px] overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
-            <img class="h-full w-full object-cover" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/fashion_baby.png'); ?>" alt="Women's casual boutique style" />
-          </div>
-          <div class="absolute bottom-8 right-6 hidden max-w-[240px] rounded-2xl bg-white p-5 shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
-            <strong class="mb-1 block text-[#2F2A28]">Curated with care</strong>
-            <p class="text-sm leading-6 text-[#6F625D]">Family-friendly styles for seasons, weekends, and everyday wear.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+$home_image = get_template_directory_uri() . '/assets/img/handcraft-footwear-home.png';
+$everyday_image = get_template_directory_uri() . '/assets/img/Everyday_Leather_Shoes.png';
 
-    <!-- Shop By Collection -->
-    <section class="py-14 md:py-20" id="women">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Shop By Collection</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Warm boutique favorites</h2>
-          </div>
-          <p class="max-w-lg text-[#6F625D]">Browse curated categories designed for women, young girls, and special family moments.</p>
-        </div>
+$categories = array(
+    array(
+        'title' => __('Handmade Leather Shoes', 'dawp'),
+        'text'  => __('Handmade leather shoes with natural character, crafted details, and everyday wearability.', 'dawp'),
+        'url'   => home_url('/product-category/handmade-leather-shoes/'),
+        'image' => get_template_directory_uri() . '/assets/img/Handmade_Leather_Shoes.png',
+        'pos'   => 'center center',
+    ),
+    array(
+        'title' => __('Leather Sandals', 'dawp'),
+        'text'  => __('Simple leather sandals designed for warm days, relaxed outfits, and easy everyday comfort.', 'dawp'),
+        'url'   => home_url('/product-category/leather-sandals/'),
+        'image' => get_template_directory_uri() . '/assets/img/Leather_Sandals.png',
+        'pos'   => 'center center',
+    ),
+    array(
+        'title' => __('Leather Boots', 'dawp'),
+        'text'  => __('Leather boots with a crafted look for confident daily wear and seasonal styling.', 'dawp'),
+        'url'   => home_url('/product-category/leather-boots/'),
+        'image' => get_template_directory_uri() . '/assets/img/Leather_Boots.png',
+        'pos'   => 'center center',
+    ),
+    array(
+        'title' => __('Custom Leather Footwear', 'dawp'),
+        'text'  => __('Custom leather footwear options for customers looking for a more personal fit, finish, or style direction.', 'dawp'),
+        'url'   => home_url('/product-category/custom-leather-footwear/'),
+        'image' => get_template_directory_uri() . '/assets/img/Custom_Leather_Footwear.png',
+        'pos'   => 'center center',
+    ),
+);
 
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/product-category/girls-dresses/')); ?>" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/babygirls_dress.png'); ?>" alt="Girls Dresses collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Girls Dresses</h3>
-              <p class="mt-1 text-sm text-white/90">Sweet floral patterns and twirl-worthy styles.</p>
+$trust_items = array(
+    __('Secure Checkout', 'dawp'),
+    __('Tracking Included', 'dawp'),
+    __('30-Day Returns', 'dawp'),
+    __('Fit Notes', 'dawp'),
+    __('Material Details', 'dawp'),
+    __('Leather Care Instructions', 'dawp'),
+    __('Custom Footwear Notes', 'dawp'),
+);
+?>
+
+<style>
+    .hcs-home {
+        --hcs-ink: #17212B;
+        --hcs-pine: #2F4A43;
+        --hcs-pine-deep: #243A35;
+        --hcs-sage: #A7B7A5;
+        --hcs-rose: #8B3A44;
+        --hcs-fog: #E7E8E3;
+        --hcs-ivory: #F7F3EC;
+        --hcs-charcoal: #202326;
+        --hcs-slate: #6E7472;
+        background: var(--hcs-ivory);
+        color: var(--hcs-charcoal);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .hcs-wrap { width: min(100% - 32px, 1180px); margin: 0 auto; }
+    .hcs-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--hcs-pine);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+    }
+    .hcs-eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--hcs-rose); }
+    .hcs-title {
+        font-family: Georgia, "Times New Roman", serif;
+        line-height: 1.05;
+        letter-spacing: 0;
+        color: var(--hcs-ink);
+    }
+    .hcs-copy { color: var(--hcs-slate); line-height: 1.75; }
+    .hcs-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 13px 22px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 14px;
+        transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .hcs-btn:hover { transform: translateY(-1px); }
+    .hcs-btn:focus-visible { outline: 3px solid rgba(167,183,165,.72); outline-offset: 3px; }
+    .hcs-btn-primary { background: var(--hcs-pine); color: #fff; border: 1px solid var(--hcs-pine); }
+    .hcs-btn-primary:hover { background: var(--hcs-pine-deep); border-color: var(--hcs-pine-deep); color: #fff; }
+    .hcs-btn-secondary { border: 1px solid var(--hcs-pine); color: var(--hcs-pine); background: transparent; }
+    .hcs-btn-secondary:hover { background: var(--hcs-fog); color: var(--hcs-pine); }
+    .hcs-hero .hcs-btn-secondary:hover { background: rgba(255,255,255,.12); color: #fff; border-color: #fff; }
+    .hcs-hero {
+        min-height: 690px;
+        display: grid;
+        align-items: end;
+        position: relative;
+        overflow: hidden;
+        background-image: linear-gradient(90deg, rgba(23,33,43,.88) 0%, rgba(23,33,43,.68) 42%, rgba(23,33,43,.18) 100%), var(--hcs-hero-image);
+        background-size: cover;
+        background-position: center;
+    }
+    .hcs-hero-content { padding: 96px 0 72px; max-width: 710px; }
+    .hcs-hero .hcs-eyebrow, .hcs-hero .hcs-copy { color: rgba(247,243,236,.86); }
+    .hcs-hero .hcs-eyebrow::before { background: var(--hcs-sage); }
+    .hcs-hero .hcs-title { color: #fff; font-size: clamp(44px, 7vw, 82px); }
+    .hcs-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .hcs-hero-panel {
+        margin-top: 52px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        border: 1px solid rgba(247,243,236,.22);
+        background: rgba(247,243,236,.08);
+        backdrop-filter: blur(8px);
+        border-radius: 20px;
+        overflow: hidden;
+    }
+    .hcs-hero-panel div { padding: 20px; border-right: 1px solid rgba(247,243,236,.18); }
+    .hcs-hero-panel div:last-child { border-right: 0; }
+    .hcs-hero-panel strong { display: block; color: #fff; font-size: 15px; margin-bottom: 5px; }
+    .hcs-hero-panel span { display: block; color: rgba(247,243,236,.76); font-size: 13px; line-height: 1.5; }
+    .hcs-section { padding: 86px 0; }
+    .hcs-section-alt { background: var(--hcs-fog); }
+    .hcs-section-head { display: flex; justify-content: space-between; gap: 32px; align-items: end; margin-bottom: 34px; }
+    .hcs-section-head .hcs-title { font-size: clamp(32px, 4vw, 50px); margin-top: 12px; }
+    .hcs-section-head .hcs-copy { max-width: 480px; }
+    .hcs-cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .hcs-cat {
+        min-height: 320px;
+        border-radius: 22px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(23,33,43,.12);
+        background: #fff;
+        box-shadow: 0 14px 34px rgba(23,33,43,.08);
+    }
+    .hcs-cat-media {
+        position: absolute;
+        inset: 0;
+        background-image: var(--hcs-card-image);
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: var(--hcs-card-position);
+        transform: scale(1.01);
+        transition: transform .35s ease;
+    }
+    .hcs-cat:hover .hcs-cat-media { transform: scale(1.05); }
+    .hcs-cat::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(23,33,43,0) 18%, rgba(23,33,43,.18) 48%, rgba(23,33,43,.86) 100%);
+    }
+    .hcs-cat-content { position: absolute; z-index: 2; left: 22px; right: 22px; bottom: 22px; color: #fff; }
+    .hcs-cat-content h3 { font-family: Georgia, "Times New Roman", serif; font-size: 27px; line-height: 1.1; margin-bottom: 10px; }
+    .hcs-cat-content p { color: rgba(247,243,236,.84); line-height: 1.6; font-size: 14px; margin-bottom: 18px; }
+    .hcs-cat-link { color: #fff; font-weight: 800; font-size: 14px; border-bottom: 2px solid var(--hcs-sage); padding-bottom: 4px; }
+    .hcs-split { display: grid; grid-template-columns: 1fr .95fr; gap: 58px; align-items: center; }
+    .hcs-image-frame {
+        border-radius: 24px;
+        min-height: 560px;
+        background-image: var(--hcs-hero-image);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: 12px solid #fff;
+        box-shadow: 0 18px 42px rgba(23,33,43,.12);
+    }
+    .hcs-detail-list { display: grid; gap: 16px; margin-top: 30px; }
+    .hcs-detail {
+        display: grid;
+        grid-template-columns: 46px 1fr;
+        gap: 15px;
+        padding: 18px;
+        border-radius: 18px;
+        background: #fff;
+        border: 1px solid rgba(23,33,43,.08);
+    }
+    .hcs-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: rgba(167,183,165,.32);
+        color: var(--hcs-pine);
+    }
+    .hcs-detail h3 { font-size: 17px; font-weight: 800; color: var(--hcs-ink); margin-bottom: 4px; }
+    .hcs-detail p { color: var(--hcs-slate); line-height: 1.6; font-size: 14px; }
+    .hcs-feature-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 22px; }
+    .hcs-feature-card {
+        padding: 34px;
+        border-radius: 24px;
+        background: #fff;
+        border: 1px solid rgba(23,33,43,.1);
+    }
+    .hcs-feature-card.dark { background: var(--hcs-pine); color: #fff; }
+    .hcs-feature-card.dark .hcs-title, .hcs-feature-card.dark .hcs-copy { color: #fff; }
+    .hcs-feature-card .hcs-title { font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 16px; }
+    .hcs-feature-card ul { display: grid; gap: 12px; margin-top: 22px; }
+    .hcs-feature-card li { color: inherit; line-height: 1.55; padding-left: 24px; position: relative; }
+    .hcs-feature-card li::before { content: ""; width: 8px; height: 8px; border-radius: 99px; background: var(--hcs-pine); position: absolute; left: 0; top: .55em; }
+    .hcs-feature-card.dark li::before { background: #fff; box-shadow: 0 0 0 3px rgba(167,183,165,.28); }
+    .hcs-trust { background: var(--hcs-ink); color: #fff; padding: 78px 0; }
+    .hcs-trust-head { display: grid; grid-template-columns: .95fr 1.05fr; gap: 42px; align-items: center; margin-bottom: 34px; }
+    .hcs-trust .hcs-title { color: #fff; font-size: clamp(32px, 4vw, 52px); }
+    .hcs-trust .hcs-copy { color: rgba(247,243,236,.78); }
+    .hcs-trust-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .hcs-trust-item { padding: 18px; border-radius: 16px; border: 1px solid rgba(247,243,236,.14); background: rgba(247,243,236,.06); font-weight: 800; color: #fff; }
+    .hcs-final { padding: 80px 0 92px; text-align: center; }
+    .hcs-final .hcs-title { font-size: clamp(34px, 5vw, 58px); max-width: 760px; margin: 0 auto 18px; }
+    .hcs-final .hcs-copy { max-width: 680px; margin: 0 auto 28px; }
+    @media (max-width: 1023px) {
+        .hcs-hero { min-height: 620px; }
+        .hcs-cats, .hcs-trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .hcs-split, .hcs-feature-grid, .hcs-trust-head { grid-template-columns: 1fr; }
+        .hcs-image-frame { min-height: 430px; }
+    }
+    @media (max-width: 700px) {
+        .hcs-hero-content { padding: 74px 0 46px; }
+        .hcs-hero-panel, .hcs-cats, .hcs-trust-grid { grid-template-columns: 1fr; }
+        .hcs-hero-panel div { border-right: 0; border-bottom: 1px solid rgba(247,243,236,.18); }
+        .hcs-section { padding: 62px 0; }
+        .hcs-section-head { display: block; }
+        .hcs-cat { min-height: 300px; }
+        .hcs-feature-card { padding: 24px; }
+    }
+</style>
+
+<div class="hcs-home" style="--hcs-hero-image: url('<?php echo esc_url($home_image); ?>');">
+    <section class="hcs-hero" aria-label="<?php esc_attr_e('Handcraft Shoe homepage hero', 'dawp'); ?>">
+        <div class="hcs-wrap">
+            <div class="hcs-hero-content">
+                <span class="hcs-eyebrow"><?php esc_html_e('Handcraft Shoe', 'dawp'); ?></span>
+                <h1 class="hcs-title"><?php esc_html_e('Handmade Leather Footwear With Natural Character', 'dawp'); ?></h1>
+                <p class="hcs-copy" style="margin-top:22px;font-size:18px;max-width:650px;">
+                    <?php esc_html_e('Discover handmade leather shoes, leather sandals, leather boots, and custom leather footwear designed for daily wear, relaxed style, and timeless leather appeal.', 'dawp'); ?>
+                </p>
+                <div class="hcs-hero-actions">
+                    <a class="hcs-btn hcs-btn-primary" href="<?php echo esc_url(home_url('/product-category/handmade-leather-shoes/')); ?>">
+                        <?php esc_html_e('Shop Handmade Leather Shoes', 'dawp'); ?>
+                    </a>
+                    <a class="hcs-btn hcs-btn-secondary" href="<?php echo esc_url(home_url('/product-category/leather-boots/')); ?>" style="color:#fff;border-color:rgba(247,243,236,.72);">
+                        <?php esc_html_e('Explore Leather Boots', 'dawp'); ?>
+                    </a>
+                </div>
+                <div class="hcs-hero-panel" aria-label="<?php esc_attr_e('Store highlights', 'dawp'); ?>">
+                    <div><strong><?php esc_html_e('Natural Character', 'dawp'); ?></strong><span><?php esc_html_e('Leather finish, crafted details, and timeless everyday style.', 'dawp'); ?></span></div>
+                    <div><strong><?php esc_html_e('Clear Fit Notes', 'dawp'); ?></strong><span><?php esc_html_e('Sizing, care, and return guidance made easy to review.', 'dawp'); ?></span></div>
+                    <div><strong><?php esc_html_e('Customer Care', 'dawp'); ?></strong><span><?php esc_html_e('Support available Monday to Friday, 9:00 AM to 5:00 PM PST.', 'dawp'); ?></span></div>
+                </div>
             </div>
-          </a>
+        </div>
+    </section>
 
-          <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" id="mommy-me" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mom&me_collection.png'); ?>" alt="Mommy & Me collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Mommy & Me</h3>
-              <p class="mt-1 text-sm text-white/90">Matching outfits for you and your mini-me.</p>
+    <section class="hcs-section">
+        <div class="hcs-wrap">
+            <div class="hcs-section-head">
+                <div>
+                    <span class="hcs-eyebrow"><?php esc_html_e('Shop By Leather Style', 'dawp'); ?></span>
+                    <h2 class="hcs-title"><?php esc_html_e('Four focused ways to find your next pair.', 'dawp'); ?></h2>
+                </div>
+                <p class="hcs-copy"><?php esc_html_e('Browse a clear leather footwear collection built around everyday shoes, warm-weather sandals, seasonal boots, and custom-style options.', 'dawp'); ?></p>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/women-casual/')); ?>" id="women-casual" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/women_casual.png'); ?>" alt="Women Casual collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Women Casual</h3>
-              <p class="mt-1 text-sm text-white/90">Effortless pieces for your everyday look.</p>
+            <div class="hcs-cats">
+                <?php foreach ($categories as $category) : ?>
+                    <a class="hcs-cat" href="<?php echo esc_url($category['url']); ?>" style="--hcs-card-image: url('<?php echo esc_url($category['image']); ?>'); --hcs-card-position: <?php echo esc_attr($category['pos']); ?>;">
+                        <span class="hcs-cat-media" aria-hidden="true"></span>
+                        <span class="hcs-cat-content">
+                            <h3><?php echo esc_html($category['title']); ?></h3>
+                            <p><?php echo esc_html($category['text']); ?></p>
+                            <span class="hcs-cat-link"><?php esc_html_e('Shop This Style', 'dawp'); ?></span>
+                        </span>
+                    </a>
+                <?php endforeach; ?>
             </div>
-          </a>
+        </div>
+    </section>
 
-          <a href="<?php echo esc_url(home_url('/product-category/baby-girl-boutique/')); ?>" id="baby-girl" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Baby_girls.png'); ?>" alt="Baby Girl collection" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Baby Girl</h3>
-              <p class="mt-1 text-sm text-white/90">Soft fabrics and adorable first outfits.</p>
+    <section class="hcs-section hcs-section-alt">
+        <div class="hcs-wrap hcs-split">
+            <div class="hcs-image-frame" style="background-image: url('<?php echo esc_url($everyday_image); ?>');" aria-hidden="true"></div>
+            <div>
+                <span class="hcs-eyebrow"><?php esc_html_e('Everyday Leather Shoes', 'dawp'); ?></span>
+                <h2 class="hcs-title" style="font-size:clamp(34px,4vw,54px);margin-top:12px;">
+                    <?php esc_html_e('Crafted detail for daily routines and smart casual style.', 'dawp'); ?>
+                </h2>
+                <p class="hcs-copy" style="margin-top:18px;">
+                    <?php esc_html_e('Our handmade leather shoes are presented for customers who value natural leather character, clean silhouettes, and dependable everyday wearability. Product pages should always be checked for exact material, size, fit, and care details.', 'dawp'); ?>
+                </p>
+                <div class="hcs-detail-list">
+                    <div class="hcs-detail">
+                        <span class="hcs-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 20h12"/><path d="M7 16c3 1 7 1 10 0"/><path d="M8 4h8l1 12H7L8 4z"/></svg>
+                        </span>
+                        <div><h3><?php esc_html_e('Built Around Wearability', 'dawp'); ?></h3><p><?php esc_html_e('Casual leather shoes, slip-ons, and lace-up styles selected for practical daily outfits.', 'dawp'); ?></p></div>
+                    </div>
+                    <div class="hcs-detail">
+                        <span class="hcs-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16"/><path d="M7 7v13"/><path d="M17 7v13"/><path d="M9 4h6l2 3H7l2-3z"/></svg>
+                        </span>
+                        <div><h3><?php esc_html_e('Leather Care Guidance', 'dawp'); ?></h3><p><?php esc_html_e('Care notes help customers understand storage, cleaning, and finish maintenance before purchase.', 'dawp'); ?></p></div>
+                    </div>
+                </div>
+                <div style="margin-top:28px;">
+                    <a class="hcs-btn hcs-btn-primary" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Browse All Footwear', 'dawp'); ?></a>
+                </div>
             </div>
-          </a>
         </div>
-      </div>
     </section>
 
-    <!-- New Arrivals -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20" id="new-arrivals">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex items-end justify-between gap-5">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Trending Now</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Top picks for you</h2>
-          </div>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:bg-[#FAF7F2] sm:inline-flex">View All</a>
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
-          <?php
-          $top_picks = wc_get_products( array(
-            'status'  => 'publish',
-            'limit'   => 4,
-            'orderby' => 'date',
-            'order'   => 'DESC',
-          ) );
-          foreach ( $top_picks as $product ) :
-            $img_url = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' );
-            if ( ! $img_url ) $img_url = wc_placeholder_img_src( 'woocommerce_thumbnail' );
-          ?>
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-              <img class="aspect-square w-full object-cover" src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
-            </a>
-            <div class="p-3 md:p-4">
-              <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
-              <p class="mt-1 font-bold text-[#C98A8A]"><?php echo $product->get_price_html(); ?></p>
-              <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
+    <section class="hcs-section">
+        <div class="hcs-wrap hcs-feature-grid">
+            <div class="hcs-feature-card dark">
+                <h2 class="hcs-title"><?php esc_html_e('Leather Sandals & Leather Boots', 'dawp'); ?></h2>
+                <p class="hcs-copy"><?php esc_html_e('Move between relaxed warm-weather sandals and crafted-look leather boots with a collection that stays focused on natural material appeal and practical styling.', 'dawp'); ?></p>
+                <ul>
+                    <li><?php esc_html_e('Sandals for warm days, easy outfits, and relaxed daily wear.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Boots for seasonal wardrobes, casual styling, and confident daily use.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Clear product notes for closure type, sole details, color options, and fit.', 'dawp'); ?></li>
+                </ul>
             </div>
-          </article>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mommy & Me Feature -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-6 lg:grid-cols-2">
-        <div class="overflow-hidden rounded-[28px] bg-[#F5F3F1]">
-          <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mom&me.png'); ?>" alt="Mommy and daughter boutique outfits" />
-        </div>
-        <div class="rounded-[28px] border border-[#E6DDD6] bg-white p-8 shadow-[0_12px_30px_rgba(47,42,40,0.08)] md:p-10">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Mommy & Me</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Matching moments made beautifully simple.</h2>
-          <p class="mt-5 text-[#6F625D]">
-            Create sweet everyday memories with coordinated boutique styles for mothers and daughters. Soft colors, easy silhouettes, and seasonal pieces made for family photos, weekends, and special days.
-          </p>
-          <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28] hover:border-[#2F2A28]">Shop Matching Styles</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seasonal Picks -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Seasonal Boutique Picks</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Style for every little occasion</h2>
-          </div>
-          <p class="max-w-lg text-[#6F625D]">Simple seasonal collections help customers shop naturally without overwhelming the experience.</p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Spring Styles</h3>
-            <p class="mt-3 text-[#6F625D]">Light layers, soft dresses, and cheerful everyday outfits for warmer days.</p>
-          </div>
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Girls Holiday Looks</h3>
-            <p class="mt-3 text-[#6F625D]">Sweet pieces for family gatherings, photos, celebrations, and special moments.</p>
-          </div>
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Summer Favorites</h3>
-            <p class="mt-3 text-[#6F625D]">Comfortable boutique essentials for sunny weekends and casual family outings.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Boutique Favorites -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex items-end justify-between gap-5">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Loved By The Boutique</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Boutique favorites</h2>
-          </div>
-
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
-          <?php
-          $favorites = wc_get_products( array(
-            'status'   => 'publish',
-            'limit'    => 4,
-            'orderby'  => 'date',
-            'order'    => 'ASC',
-          ) );
-          if ( empty( $favorites ) ) {
-            $favorites = wc_get_products( array(
-              'status'  => 'publish',
-              'limit'   => 4,
-              'orderby' => 'date',
-              'order'   => 'ASC',
-            ) );
-          }
-          foreach ( $favorites as $product ) :
-            $img_url = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' );
-            if ( ! $img_url ) $img_url = wc_placeholder_img_src( 'woocommerce_thumbnail' );
-          ?>
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-              <img class="aspect-square w-full object-cover" src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
-            </a>
-            <div class="p-3 md:p-4">
-              <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
-              <p class="mt-1 font-bold text-[#C98A8A]"><?php echo $product->get_price_html(); ?></p>
-              <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
+            <div class="hcs-feature-card">
+                <span class="hcs-eyebrow"><?php esc_html_e('Custom Leather Footwear', 'dawp'); ?></span>
+                <h2 class="hcs-title" style="margin-top:12px;"><?php esc_html_e('Personal options, explained clearly before checkout.', 'dawp'); ?></h2>
+                <p class="hcs-copy"><?php esc_html_e('Where custom leather footwear is available, product pages should explain customization choices, sizing requirements, production timing, and any return limitations for custom, personalized, or modified footwear.', 'dawp'); ?></p>
+                <ul>
+                    <li><?php esc_html_e('Customization options are shown only where supported by product data.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Measurement and fit information should be reviewed before ordering.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Return conditions for custom footwear are stated clearly on relevant products.', 'dawp'); ?></li>
+                </ul>
+                <div style="margin-top:26px;">
+                    <a class="hcs-btn hcs-btn-secondary" href="<?php echo esc_url(home_url('/product-category/custom-leather-footwear/')); ?>"><?php esc_html_e('Explore Custom Options', 'dawp'); ?></a>
+                </div>
             </div>
-          </article>
-          <?php endforeach; ?>
         </div>
-      </div>
     </section>
 
-    <!-- Trust Section -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">01</div>
-          <h3 class="font-serif text-2xl">Free Shipping</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Free standard shipping on U.S. orders with tracking included.</p>
+    <section class="hcs-trust">
+        <div class="hcs-wrap">
+            <div class="hcs-trust-head">
+                <h2 class="hcs-title"><?php esc_html_e('The details that make shopping easier.', 'dawp'); ?></h2>
+                <p class="hcs-copy"><?php esc_html_e('Handcraft Shoe keeps the buying experience transparent with practical information about sizing, shipping, returns, product materials, and care. No countdown timers, fake claims, or unclear category paths.', 'dawp'); ?></p>
+            </div>
+            <div class="hcs-trust-grid">
+                <?php foreach ($trust_items as $item) : ?>
+                    <div class="hcs-trust-item"><?php echo esc_html($item); ?></div>
+                <?php endforeach; ?>
+            </div>
         </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">02</div>
-          <h3 class="font-serif text-2xl">30-Day Returns</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Returns on eligible new-condition items within 30 days of delivery.</p>
-        </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">03</div>
-          <h3 class="font-serif text-2xl">Secure Checkout</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">A clean and protected checkout experience for every order.</p>
-        </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">04</div>
-          <h3 class="font-serif text-2xl">Friendly Support</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Helpful boutique customer support for order and product questions.</p>
-        </div>
-      </div>
     </section>
 
-    <!-- About Brand -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-8 rounded-[28px] bg-[#FAF7F2] p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div class="overflow-hidden rounded-2xl">
-          <img class="h-[360px] w-full object-cover md:h-[420px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/mom_baby_store.png'); ?>" alt="Warm local boutique shopping experience" />
+    <section class="hcs-final">
+        <div class="hcs-wrap">
+            <h2 class="hcs-title"><?php esc_html_e('Find handmade leather footwear for daily wear and timeless character.', 'dawp'); ?></h2>
+            <p class="hcs-copy"><?php esc_html_e('Shop shoes, sandals, boots, and custom-style leather footwear with clear product notes, customer support, and policy pages designed to help you choose with confidence.', 'dawp'); ?></p>
+            <div class="hcs-hero-actions" style="justify-content:center;">
+                <a class="hcs-btn hcs-btn-primary" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop All Footwear', 'dawp'); ?></a>
+            </div>
         </div>
-        <div class="p-2 md:p-6">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Our Boutique Story</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">A warm shopping place for women and young girls.</h2>
-          <p class="mt-5 max-w-xl text-[#6F625D]">
-            Shop Kelli brings together curated women’s clothing, girls outfits, and seasonal boutique pieces for families who love comfortable, cheerful, and easy-to-wear style.
-          </p>
-          <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:bg-[#FAF7F2]">Learn About Us</a>
-        </div>
-      </div>
     </section>
-
-    <!-- Newsletter -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-8 rounded-[28px] bg-[#2F2A28] p-8 text-white md:p-12 lg:grid-cols-2">
-        <div>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Join the boutique community</h2>
-          <p class="mt-4 text-white/80">Get updates on new arrivals, seasonal collections, and warm family-friendly style inspiration.</p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <form id="newsletter-form" class="flex flex-col gap-3 rounded-2xl bg-white/10 p-2 sm:flex-row sm:rounded-full">
-            <input class="min-h-12 flex-1 bg-transparent px-4 text-white placeholder:text-white/70 outline-none" type="email" placeholder="Enter your email" aria-label="Email address" required />
-            <button class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-white hover:text-[#2F2A28]" type="submit">
-              Sign Up
-            </button>
-          </form>
-          <p id="newsletter-msg" aria-live="polite" style="display:none" class="text-center text-sm text-white/80"></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 text-center">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Boutique Life</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">From our gallery</h2>
-        </div>
-        <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-          <?php
-          $gallery_imgs = ['gallery1','gallery2','gallery3','gallery4','gallery5','gallery6'];
-          foreach ( $gallery_imgs as $img ) : ?>
-          <div class="group overflow-hidden rounded-2xl">
-            <img
-              class="h-60 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/gallery/' . $img . '.jpg' ); ?>"
-              alt="Boutique lifestyle photo"
-            />
-          </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
-  </main>
+</div>

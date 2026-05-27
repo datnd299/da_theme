@@ -1,476 +1,448 @@
-# Shop Kelli Design System
+# Handcraft Shoe — Design System
 
 ## Design Goal
 
-Create a warm, trustworthy, and modern WooCommerce boutique experience for women and young girls.
+Build a nostalgic, artisan-inspired handmade leather footwear website for:
 
-The website should feel like:
+```txt
+Handmade Leather Shoes
+Leather Sandals
+Leather Boots
+Custom Leather Footwear
+```
 
-* A real local boutique
-* Family-oriented
-* Community-driven
-* Lifestyle-focused
-* Mobile-friendly
-* GMC-safe and trustworthy
+The site should feel:
 
-The design must support:
+```txt
+nostalgic
+handmade
+artisanal
+calm
+natural
+premium but approachable
+trustworthy
+GMC-safe
+```
 
-* Women & children fashion shopping
-* Mommy & daughter collections
-* Seasonal boutique merchandising
-* Clean ecommerce usability
-* Authentic merchant presentation
+Important color rule:
 
-Avoid making the store feel like:
+```txt
+Do not use yellow or brown as primary brand colors.
+```
 
-* Generic dropshipping ecommerce
-* Overstock marketplaces
-* Aggressive fast fashion
-* Random mixed-category stores
-* Scam-like ecommerce
+The design should still feel suitable for handmade leather footwear, but with a more unique vintage mood instead of the usual brown/gold leather palette.
 
 ---
 
-# Brand Visual Identity
+## Core Style
 
-The visual identity should feel:
+```txt
+Nostalgic Artisan Footwear
+```
 
-* Warm
-* Feminine
-* Cheerful
-* Soft
-* Boutique-inspired
-* Family-friendly
+Visual mood:
 
-The storefront should resemble a trusted boutique expanding online rather than a mass ecommerce warehouse.
+* Handmade workshop feeling
+* Soft vintage atmosphere
+* Muted natural colors
+* Editorial product photography
+* Close-up stitching, straps, leather texture, soles, and custom details
+* Quiet, trustworthy, slow-crafted feeling
+* Clean ecommerce layout
+
+Avoid:
+
+```txt
+modern sneaker look
+fake luxury look
+yellow/gold-heavy palette
+brown leather-store cliché
+supplier collage style
+high-saturation marketplace UI
+```
+
+---
+
+## Color Palette
+
+### Ink Navy
+
+```txt
+#17212B
+```
+
+Use for header, footer, hero overlays, strong text, and premium contrast sections.
+
+### Vintage Pine
+
+```txt
+#2F4A43
+```
+
+Use for primary brand sections, trust blocks, and artisan/natural mood.
+
+### Faded Sage
+
+```txt
+#A7B7A5
+```
+
+Use for soft backgrounds, category highlights, hover states, and calm vintage accents.
+
+### Clay Rose
+
+```txt
+#B87C7C
+```
+
+Use for CTA buttons, small accents, badges, and warm human detail without using brown/yellow.
+
+### Fog Gray
+
+```txt
+#E7E8E3
+```
+
+Use for neutral sections, product grid backgrounds, forms, and policy pages.
+
+### Soft Ivory
+
+```txt
+#F7F3EC
+```
+
+Use for main light background and readable content areas.
+
+### Charcoal Ink
+
+```txt
+#202326
+```
+
+Use for body text, product titles, and navigation text.
+
+### Muted Slate
+
+```txt
+#6E7472
+```
+
+Use for descriptions, helper text, product metadata, and policy notes.
+
+---
+
+## Color Usage Rules
+
+* Main background: Soft Ivory `#F7F3EC`
+* Alternate section background: Fog Gray `#E7E8E3`
+* Dark sections: Ink Navy `#17212B` or Vintage Pine `#2F4A43`
+* Primary CTA: Clay Rose `#B87C7C`
+* Secondary CTA: transparent or Soft Ivory with Vintage Pine border
+* Text: Charcoal Ink `#202326`
+* Supporting text: Muted Slate `#6E7472`
+* Gentle accents: Faded Sage `#A7B7A5`
+
+Avoid:
+
+```txt
+gold
+yellow
+mustard
+cognac
+camel
+espresso brown
+neon colors
+red discount UI
+```
+
+---
+
+## Typography
+
+Recommended fonts:
+
+```txt
+Cormorant Garamond
+Playfair Display
+Libre Baskerville
+Inter
+Manrope
+Source Sans 3
+```
+
+Rules:
+
+* Headings: elegant serif, nostalgic and editorial
+* Body: clean sans-serif, readable and calm
+* Product titles: short and clear
+* Buttons: simple, confident, not flashy
+* Avoid playful, tech, or streetwear fonts
+
+---
+
+## Layout Style
+
+Use a calm, editorial ecommerce layout:
+
+```txt
+large nostalgic hero
+4 category cards
+artisan detail sections
+product-focused grids
+custom footwear explanation block
+size / care / returns trust block
+customer feedback or brand values section
+```
+
+Design rules:
+
+* Strong whitespace
+* Soft rounded cards 16–24px
+* Thin borders
+* Subtle shadows
+* Large product imagery
+* Editorial spacing
+* No cluttered discount banners
+* No countdown timers
+
+---
+
+## Category Style
+
+Main categories:
+
+```txt
+Handmade Leather Shoes
+Leather Sandals
+Leather Boots
+Custom Leather Footwear
+```
+
+Each category card should include:
+
+```txt
+large product/lifestyle image
+category name
+one short use-case line
+CTA link
+```
+
+Example:
+
+```txt
+Leather Sandals
+Simple leather sandals for relaxed days and warm-weather wear.
+```
+
+Category cards should feel handcrafted, calm, and premium — not marketplace-like.
+
+---
+
+## Image Direction
 
 Use:
 
-* Lifestyle-focused imagery
-* Soft feminine visual direction
-* Spacious layouts
-* Curated merchandising
-* Seasonal storytelling
+* Handmade leather shoes on neutral vintage surfaces
+* Leather sandals in soft natural light
+* Leather boots in rustic but clean studio scenes
+* Custom leather footwear details
+* Close-up stitching, straps, soles, texture, and craft details
+* Artisan workspace mood without overclaiming production details
+* Soft shadows, muted colors, no harsh lighting
 
 Avoid:
 
-* Dark luxury aesthetics
-* Tech-style ecommerce
-* Harsh color palettes
-* Flashy sales-heavy layouts
-* Overcrowded pages
+```txt
+fake designer logos
+sneaker imagery
+supplier collages
+medical foot visuals
+text inside images
+overly glossy luxury replica mood
+yellow/brown-heavy backgrounds
+```
 
 ---
 
-# Color System
+## Product Card Style
 
-## Primary Background Colors
+Product cards should show:
 
-* Warm White: #FFFFFF
-* Soft Cream: #FAF7F2
+```txt
+clean product image
+product title
+price
+material / leather type if verified
+size availability note if useful
+simple CTA
+```
 
-## Brand Colors
+Style:
 
-* Dusty Rose: #c98a8aff
-* Soft Beige: #E8D8C8
-* Warm Blush: #DFA39A
+* Soft Ivory or white background
+* Thin Fog Gray border
+* Rounded 18–24px
+* Subtle shadow
+* Large image area
+* Minimal badges
 
-## Text Colors
+Optional badges:
 
-* Primary Text: #2F2A28
-* Secondary Text: #6F625D
-* Light Text: #9A8C86
+```txt
+Handmade Style
+Leather Finish
+Custom Option
+Everyday Wear
+```
 
-## Border & UI Colors
+Badge style:
 
-* Border Color: #E6DDD6
-* Soft Gray Background: #F5F3F1
-
-Avoid:
-
-* Neon colors
-* Pure black-heavy layouts
-* Aggressive red sale-heavy design
-* Overly saturated palettes
-
----
-
-# Typography System
-
-Typography should feel:
-
-* Elegant
-* Soft
-* Readable
-* Boutique-oriented
-* Mobile-friendly
-
-## Font Direction
-
-Headings:
-
-* Elegant serif or soft modern display font
-
-Body Text:
-
-* Clean sans-serif font
-
-Buttons:
-
-* Simple and readable
-* Medium weight
-* Friendly appearance
-
-Avoid:
-
-* Overly decorative fonts
-* Corporate typography
-* Hard condensed fonts
-* Childish typography
+* Faded Sage background
+* Ink Navy text
+* No loud sale badges
 
 ---
-
-# Layout Rules
-
-The layout should feel clean, spacious, and easy to browse.
-
-## General Layout
-
-* Mobile-first design
-* Spacious white space
-* Clean visual hierarchy
-* Consistent spacing system
-* Soft section separation
-* Easy navigation
-
-Avoid:
-
-* Cluttered layouts
-* Overstock-style pages
-* Tiny spacing
-* Crowded product grids
-
----
-
-# WooCommerce Product Grid Rules
-
-## Desktop Layout
-
-* 3–4 columns maximum
-
-## Mobile Layout
-
-* 2 columns
-
-## Product Card Rules
-
-Each product card should include:
-
-* Clean product image
-* Consistent image ratio
-* Product title
-* Visible pricing
-* Simple CTA button
-
-Product cards should feel:
-
-* Minimal
-* Boutique-oriented
-* Easy to scan
-* Visually balanced
-
-Avoid:
-
-* Crowded badges
-* Excessive labels
-* Overly aggressive sale tags
-* Flashing promotional elements
-
----
-
-# Product Page Rules
-
-Each product page should include:
-
-* Large image gallery
-* Clear product title
-* Visible pricing
-* Variant selection
-* Add-to-cart button above the fold
-* Shipping reassurance
-* Return reassurance
-* Product description
-* Related products section
-
-The product page should feel:
-
-* Clean
-* Trustworthy
-* Lifestyle-focused
-* Easy to navigate
-
-Avoid:
-
-* Long cluttered layouts
-* Fake urgency timers
-* Aggressive upsell spam
-* Overwhelming product blocks
-
----
-
-# Homepage Design Rules
-
-The homepage should be lifestyle-first rather than product-spam-first.
-
-## Required Sections
-
-* Hero banner
-* New Arrivals
-* Mommy & Me Collection
-* Girls Collection
-* Seasonal Collections
-* Boutique Favorites
-* Trust Section
-* Newsletter or community section
-
-## Homepage Style
-
-Use:
-
-* Warm lifestyle imagery
-* Seasonal storytelling
-* Soft overlays
-* Curated product presentation
-* Friendly boutique messaging
-
-Avoid:
-
-* Overstock homepage layouts
-* Dense product walls
-* Aggressive sale banners
-* Flash sale countdowns
-
----
-
-# Header Rules
-
-The header should feel:
-
-* Clean
-* Boutique-oriented
-* Easy to navigate
-
-## Header Elements
-
-Include:
-
-* Logo
-* Main navigation
-* Search
-* Account icon
-* Cart icon
-
-Navigation should remain simple and uncluttered.
-
-Avoid:
-
-* Mega-menu overload
-* Too many categories
-* Aggressive announcement bars
-
----
-
-# Footer Rules
-
-The footer should reinforce merchant trust and brand authenticity.
-
-## Required Footer Links
-
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
-
-## Footer Style
-
-* Clean layout
-* Soft background
-* Simple typography
-* Organized link groups
-* Visible support information
-
----
-
-# Image Rules
-
-Images should feel:
-
-* Natural
-* Bright
-* Warm
-* Family-friendly
-* Lifestyle-oriented
-* Boutique-inspired
-
-## Product Images
-
-Use:
-
-* Consistent image ratios
-* Soft lighting
-* Clean backgrounds
-* Natural poses
-* Seasonal styling
-
-Avoid:
-
-* Overly edited imagery
-* AI-looking product photos
-* Luxury runway imagery
-* Dark moody visuals
-* Unrelated stock photos
-
----
-
-# Component Rules
 
 ## Buttons
 
-Buttons should:
+Primary button:
 
-* Use rounded corners
-* Have soft hover effects
-* Use readable text
-* Feel friendly and modern
+```txt
+Background: #B87C7C
+Text: #FFFFFF
+Hover: #17212B
+```
+
+Secondary button:
+
+```txt
+Background: transparent
+Border: #2F4A43
+Text: #2F4A43
+Hover background: #E7E8E3
+```
+
+Dark button:
+
+```txt
+Background: #17212B
+Text: #FFFFFF
+Hover: #2F4A43
+```
+
+Button style:
+
+* Rounded 999px or 14px
+* Medium-bold text
+* Smooth hover only
+* No flashy animation
+
+---
+
+## Trust Elements
+
+Always include:
+
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Size Guide
+Fit Notes
+Material Details
+Leather Care Instructions
+Custom Footwear Notes
+```
+
+Trust block style:
+
+* Ink Navy or Vintage Pine background
+* Soft Ivory text
+* Faded Sage / Clay Rose accents
+
+---
+
+## Product Page Requirements
+
+Every product page should include:
+
+```txt
+Footwear type
+Available sizes
+Color options
+Material or leather type if verified
+Upper / lining / sole details if available
+Closure or strap details
+Handmade/custom notes if applicable
+Fit note
+Leather care instructions
+Shipping note
+Return condition
+Size guide link
+```
+
+For custom leather footwear, include:
+
+```txt
+Customization options
+Sizing or measurement instructions
+Production time if different from standard items
+Return limitations for custom/personalized products
+```
+
+---
+
+## GMC-Safe Rules
+
+Do not use unless verified:
+
+```txt
+genuine leather
+full-grain leather
+vegetable-tanned leather
+hand-stitched
+hand-dyed
+made-to-order
+custom-fit
+bespoke
+Goodyear welted
+orthopedic
+pain relief
+```
 
 Avoid:
 
-* Harsh gradients
-* Flashing animations
-* Aggressive red CTA buttons
+```txt
+fake branded shoes
+replica / dupe wording
+designer-inspired claims
+unauthorized logos
+fake reviews
+countdown timers
+misleading handmade claims
+```
 
-## Cards
+Safe wording:
 
-Cards should:
-
-* Use clean white backgrounds
-* Include subtle borders or soft shadows
-* Maintain consistent spacing
-
-## Banners
-
-Banners should:
-
-* Combine lifestyle imagery with short text
-* Feel clean and seasonal
-* Avoid overcrowded text
-
----
-
-# Mobile UX Rules
-
-The website must be optimized for mobile-first shopping.
-
-## Mobile Priorities
-
-* Fast scrolling
-* Clear navigation
-* Easy product browsing
-* Thumb-friendly buttons
-* Clean checkout flow
-* Lightweight layouts
-
-Avoid:
-
-* Large popup interruptions
-* Tiny clickable areas
-* Heavy animations
-* Complex navigation systems
+```txt
+handmade leather shoes
+leather sandals
+leather boots
+custom leather footwear
+natural leather character
+crafted details
+leather finish
+everyday durability
+relaxed daily wear
+custom-style options
+```
 
 ---
 
-# Product Content Rules
+## Final Feeling
 
-Descriptions should feel:
+Handcraft Shoe should look like:
 
-* Natural
-* Friendly
-* Lifestyle-focused
-* Seasonal
-* Easy to understand
+> A nostalgic artisan leather footwear store offering handmade leather shoes, leather sandals, leather boots, and custom leather footwear with calm, crafted, trustworthy character.
 
-Include:
-
-* Styling suggestions
-* Comfort-focused messaging
-* Everyday wear scenarios
-* Family-oriented tone
-
-Avoid:
-
-* Keyword stuffing
-* Robotic AI copy
-* Fake scarcity language
-* Overly technical descriptions
-
----
-
-# GMC Compliance Rules
-
-The storefront must feel like a legitimate boutique retail business.
-
-## Required Trust Signals
-
-* Visible contact information
-* Consistent branding
-* Transparent policies
-* Realistic shipping timelines
-* Secure checkout messaging
-* Mobile-friendly UX
-* Authentic product presentation
-
-## GMC Priorities
-
-* Strong topical consistency
-* Women & children fashion relevance
-* Boutique-style merchant behavior
-* Realistic ecommerce structure
-* Original branded content
-
-Avoid:
-
-* Mixed-category spam
-* Fake reviews
-* Fake urgency
-* Thin AI-generated pages
-* Excessive discount messaging
-* Random unrelated products
-
----
-
-# Forbidden Design Patterns
-
-Never use:
-
-* Dark luxury ecommerce style
-* Tech startup visual direction
-* Overstock warehouse layouts
-* Marketplace-style product spam
-* Flashing urgency banners
-* Fake countdown timers
-* Excessive popup spam
-* Harsh neon colors
-* Random visual inconsistency
-* Generic dropshipping aesthetics
-
----
-
-# Strategic Design Direction
-
-The final storefront should feel like:
-
-“A trusted local boutique for women and young girls with a warm community-oriented shopping experience and a polished modern WooCommerce presence.”
+The website must feel handmade, warm, nostalgic, professional, and GMC-safe — without relying on yellow or brown as the main design colors.

@@ -1,240 +1,469 @@
 <?php
 /**
- * Template Part: FAQ Page
- * 
- * This template follows Google Merchant Center (GMC) standards and the Shop Kelli Design System.
- * It provides clear, transparent answers to common customer questions, building trust and reducing support load.
+ * Template Part: Handcraft Shoe - FAQ Page
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+$store_name     = 'Handcraft Shoe';
+$website_domain = 'handcraftshoe.com';
+$support_email  = 'support@handcraftshoe.com';
+$contact_url    = home_url( '/contact-us/' );
+$shipping_url   = home_url( '/shipping-policy/' );
+$returns_url    = home_url( '/refund-return-policy/' );
+$terms_url      = home_url( '/terms-conditions/' );
+$privacy_url    = home_url( '/privacy-policy/' );
+$track_url      = home_url( '/track-order/' );
+$shop_url       = home_url( '/shop/' );
+
+$quick_facts = array(
+    array( 'label' => 'Shipping', 'value' => '6-9 Business Days', 'note' => 'Estimated total delivery after order processing and transit.' ),
+    array( 'label' => 'Returns', 'value' => '30 Days', 'note' => 'Eligible unworn footwear may be returned from delivery date.' ),
+    array( 'label' => 'Support', 'value' => 'Mon-Fri', 'note' => '9:00 AM - 5:00 PM PST, Los Angeles.' ),
+    array( 'label' => 'Tracking', 'value' => 'Included', 'note' => 'Tracking details are emailed after the carrier receives your package.' ),
+);
+
+$faq_groups = array(
+    'orders-payments' => array(
+        'title' => 'Orders & Payments',
+        'icon'  => '<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/>',
+        'items' => array(
+            array(
+                'question' => 'What products does Handcraft Shoe sell?',
+                'answer'   => sprintf(
+                    '%s offers handmade leather shoes, leather sandals, leather boots, and custom leather footwear. Product pages include available details for material, size, fit, color, care, customization, and return limitations where applicable.',
+                    $store_name
+                ),
+            ),
+            array(
+                'question' => 'Can I cancel or change my order?',
+                'answer'   => 'You may request a cancellation within 9 hours after placing the order, as long as the order has not been processed or shipped. If you need to change shipping details, size, color, or product options, contact support as soon as possible.',
+            ),
+            array(
+                'question' => 'Why was my order reviewed, changed, or canceled?',
+                'answer'   => 'Orders may be reviewed, limited, changed, or canceled when we detect payment issues, suspected fraud, inventory problems, pricing errors, shipping restrictions, incomplete information, or product availability changes.',
+            ),
+        ),
+    ),
+    'shipping-delivery' => array(
+        'title' => 'Shipping & Delivery',
+        'icon'  => '<path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>',
+        'items' => array(
+            array(
+                'question' => 'Where do you ship?',
+                'answer'   => 'We currently ship eligible orders within the United States. Some products may have restrictions due to size, weight, carrier limits, product type, custom production needs, destination, or local regulations.',
+            ),
+            array(
+                'question' => 'How long does shipping take?',
+                'answer'   => 'Orders have a 5:00 PM PST cutoff. Handling time is usually 1-2 business days, Monday to Friday, excluding holidays. Transit time is usually 5-7 business days after processing and carrier pickup, so estimated delivery is usually 6-9 business days.',
+            ),
+            array(
+                'question' => 'How much does shipping cost?',
+                'answer'   => 'Shipping costs, available methods, and any applicable fees are shown at checkout before payment is completed. Some products may show special shipping rules on the product page or at checkout.',
+            ),
+            array(
+                'question' => 'How do I track my package?',
+                'answer'   => 'Once your order ships, tracking information is sent to the email address used at checkout. Please allow up to 24-48 hours for the tracking page to update after the carrier receives the package.',
+                'link'     => array( 'url' => $track_url, 'label' => 'Track Your Order' ),
+            ),
+        ),
+    ),
+    'returns-exchanges' => array(
+        'title' => 'Returns & Exchanges',
+        'icon'  => '<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/>',
+        'items' => array(
+            array(
+                'question' => 'What is your return window?',
+                'answer'   => 'Eligible items may be returned within 30 days from the day your order is delivered. Footwear must be unused, unworn, undamaged, and in original condition with original packaging, tags, inserts, accessories, and documents where applicable.',
+            ),
+            array(
+                'question' => 'Do you charge a restocking fee?',
+                'answer'   => 'No. We do not charge a restocking fee for eligible returns.',
+            ),
+            array(
+                'question' => 'Who pays return shipping?',
+                'answer'   => 'We cover return shipping or provide a prepaid return label when you received an incorrect item, defective item, or carrier-damaged item. For customer remorse, incorrect size selection, wrong color selection, change of mind, or orders placed by mistake, the customer is responsible for actual return shipping costs.',
+            ),
+            array(
+                'question' => 'How do I start a return or exchange?',
+                'answer'   => 'Contact support before sending anything back. Include your order number, email used at checkout, item details, reason for return, and photos if the item is damaged, defective, incorrect, or missing parts. Returns sent without authorization may not be accepted.',
+                'link'     => array( 'url' => $returns_url, 'label' => 'Read Return Policy' ),
+            ),
+        ),
+    ),
+    'products-sizing' => array(
+        'title' => 'Products, Sizing & Leather Care',
+        'icon'  => '<path d="M6 20h12"/><path d="M7 16c3 1 7 1 10 0"/><path d="M8 4h8l1 12H7z"/>',
+        'items' => array(
+            array(
+                'question' => 'How should I choose my size?',
+                'answer'   => 'Review the size guide, product-page fit notes, measurement details, and style-specific information before ordering. Leather footwear fit can vary by silhouette, sole, closure, material, and handmade construction.',
+            ),
+            array(
+                'question' => 'Will leather color and texture look exactly like the photos?',
+                'answer'   => 'Natural leather may show variation in color, grain, texture, markings, and finish. Screen settings can also affect how colors appear online. Product images and descriptions should be reviewed as guidance for each item.',
+            ),
+            array(
+                'question' => 'Can custom leather footwear be returned?',
+                'answer'   => 'Custom, personalized, made-to-order, or modified footwear may have return limitations unless defective, damaged, incorrect, or required by applicable law. Please review customization notes and return conditions before placing a custom order.',
+            ),
+            array(
+                'question' => 'How should I care for leather footwear?',
+                'answer'   => 'Follow the care notes shown on each product page. In general, keep leather footwear dry when possible, wipe away surface dirt with a soft cloth, store away from direct heat, and use leather care products suitable for the specific finish.',
+            ),
+        ),
+    ),
+    'support-policies' => array(
+        'title' => 'Support & Policies',
+        'icon'  => '<path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>',
+        'items' => array(
+            array(
+                'question' => 'When is customer support available?',
+                'answer'   => 'Customer support is available Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles).',
+            ),
+            array(
+                'question' => 'What should I include when contacting support?',
+                'answer'   => 'Please include your order number, email used at checkout, delivery address if relevant, tracking number if available, photos if applicable, and a short description of the issue.',
+            ),
+            array(
+                'question' => 'Where can I read the full store policies?',
+                'answer'   => 'You can review the Shipping Policy, Return & Refund Policy, Privacy Policy, and Terms of Service for full details about shopping with Handcraft Shoe.',
+            ),
+        ),
+    ),
+);
 ?>
 
-<section class="bg-surface py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <!-- Header -->
-        <div class="text-center mb-16">
-            <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Common Questions</span>
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Frequently Asked Questions</h1>
-            <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
-                Everything you need to know about our boutique pieces, shipping, and more. Can't find the answer you're looking for? <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="text-accent hover:underline font-medium">Contact our friendly team</a>.
+<style>
+    .hcs-faq {
+        --hcs-ink: #17212B;
+        --hcs-pine: #2F4A43;
+        --hcs-pine-deep: #243A35;
+        --hcs-sage: #A7B7A5;
+        --hcs-rose: #8B3A44;
+        --hcs-fog: #E7E8E3;
+        --hcs-ivory: #F7F3EC;
+        --hcs-charcoal: #202326;
+        --hcs-slate: #6E7472;
+        background: var(--hcs-ivory);
+        color: var(--hcs-charcoal);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .hcs-faq-wrap { width: min(100% - 32px, 1180px); margin: 0 auto; }
+    .hcs-faq-hero {
+        padding: 82px 0 48px;
+        background: linear-gradient(135deg, rgba(23,33,43,.94), rgba(47,74,67,.9));
+        color: #fff;
+    }
+    .hcs-faq-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(247,243,236,.86);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+    }
+    .hcs-faq-eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--hcs-sage); }
+    .hcs-faq-title {
+        max-width: 880px;
+        margin: 14px 0 0;
+        color: inherit;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(42px, 6vw, 72px);
+        font-weight: 600;
+        line-height: 1.05;
+        letter-spacing: 0;
+    }
+    .hcs-faq-lead {
+        max-width: 760px;
+        margin-top: 22px;
+        color: rgba(247,243,236,.78);
+        font-size: 18px;
+        line-height: 1.75;
+    }
+    .hcs-faq-main { padding: 54px 0 86px; }
+    .hcs-faq-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 32px; align-items: start; }
+    .hcs-faq-nav { position: sticky; top: 96px; display: grid; gap: 10px; }
+    .hcs-faq-nav a {
+        display: block;
+        padding: 14px 16px;
+        border: 1px solid rgba(23,33,43,.1);
+        border-radius: 16px;
+        background: #fff;
+        color: var(--hcs-ink);
+        font-size: 14px;
+        font-weight: 800;
+        box-shadow: 0 10px 24px rgba(23,33,43,.05);
+        text-decoration: none;
+        transition: border-color .2s ease, color .2s ease, transform .2s ease;
+    }
+    .hcs-faq-nav a:hover { border-color: var(--hcs-pine); color: var(--hcs-pine); transform: translateY(-1px); }
+    .hcs-faq-content { display: grid; gap: 22px; }
+    .hcs-faq-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .hcs-faq-fact,
+    .hcs-faq-card,
+    .hcs-faq-contact {
+        border: 1px solid rgba(23,33,43,.1);
+        background: #fff;
+        box-shadow: 0 14px 34px rgba(23,33,43,.08);
+    }
+    .hcs-faq-fact { padding: 22px; border-radius: 18px; }
+    .hcs-faq-label {
+        margin: 0 0 9px;
+        color: var(--hcs-pine);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+    }
+    .hcs-faq-fact strong { display: block; color: var(--hcs-ink); font-size: 22px; line-height: 1.15; }
+    .hcs-faq-fact span,
+    .hcs-faq-copy { color: var(--hcs-slate); line-height: 1.75; }
+    .hcs-faq-fact span { display: block; margin-top: 10px; font-size: 14px; }
+    .hcs-faq-card { padding: 34px; border-radius: 24px; }
+    .hcs-faq-card-head {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 22px;
+    }
+    .hcs-faq-icon {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 16px;
+        background: rgba(167,183,165,.32);
+        color: var(--hcs-pine);
+    }
+    .hcs-faq-card h2,
+    .hcs-faq-contact h2 {
+        margin: 0;
+        color: var(--hcs-ink);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(28px, 3vw, 38px);
+        font-weight: 600;
+        line-height: 1.14;
+    }
+    .hcs-faq-card-head p { margin: 8px 0 0; }
+    .hcs-faq-items { display: grid; gap: 12px; }
+    .hcs-faq-item {
+        border: 1px solid rgba(23,33,43,.08);
+        border-radius: 18px;
+        background: var(--hcs-ivory);
+        overflow: hidden;
+    }
+    .hcs-faq-item summary {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 34px;
+        gap: 16px;
+        align-items: center;
+        min-height: 72px;
+        padding: 18px 20px;
+        color: var(--hcs-ink);
+        font-size: 17px;
+        font-weight: 800;
+        cursor: pointer;
+        list-style: none;
+    }
+    .hcs-faq-item summary::-webkit-details-marker { display: none; }
+    .hcs-faq-item summary span:last-child {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--hcs-pine);
+        transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .hcs-faq-item[open] summary span:last-child { transform: rotate(180deg); background: var(--hcs-pine); color: #fff; }
+    .hcs-faq-answer {
+        padding: 0 20px 22px;
+        color: var(--hcs-slate);
+        line-height: 1.75;
+    }
+    .hcs-faq-answer p { margin: 0; }
+    .hcs-faq-answer a,
+    .hcs-faq-copy a {
+        color: var(--hcs-pine);
+        font-weight: 800;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+    .hcs-faq-feature {
+        background: var(--hcs-pine);
+        color: #fff;
+        border-color: rgba(23,33,43,.04);
+    }
+    .hcs-faq-feature h2,
+    .hcs-faq-feature .hcs-faq-copy { color: #fff; }
+    .hcs-faq-feature .hcs-faq-item {
+        background: rgba(247,243,236,.07);
+        border-color: rgba(247,243,236,.14);
+    }
+    .hcs-faq-feature .hcs-faq-item summary { color: #fff; }
+    .hcs-faq-feature .hcs-faq-answer { color: rgba(247,243,236,.78); }
+    .hcs-faq-feature .hcs-faq-icon { background: rgba(247,243,236,.1); color: var(--hcs-sage); }
+    .hcs-faq-contact {
+        padding: 32px;
+        border-radius: 24px;
+        background: var(--hcs-fog);
+    }
+    .hcs-faq-contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+    .hcs-faq-contact-item { padding: 18px; border: 1px solid rgba(23,33,43,.08); border-radius: 16px; background: #fff; }
+    .hcs-faq-contact-item dt { margin-bottom: 7px; color: var(--hcs-pine); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .hcs-faq-contact-item dd { margin: 0; color: var(--hcs-ink); font-weight: 800; line-height: 1.55; overflow-wrap: anywhere; }
+    .hcs-faq-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .hcs-faq-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 13px 22px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+        transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+    }
+    .hcs-faq-btn:hover { transform: translateY(-1px); }
+    .hcs-faq-btn-primary { background: var(--hcs-pine); border: 1px solid var(--hcs-pine); color: #fff; }
+    .hcs-faq-btn-primary:hover { background: var(--hcs-pine-deep); border-color: var(--hcs-pine-deep); color: #fff; }
+    .hcs-faq-btn-secondary { background: #fff; border: 1px solid var(--hcs-pine); color: var(--hcs-pine); }
+    .hcs-faq-btn-secondary:hover { background: var(--hcs-ivory); color: var(--hcs-pine); }
+    .hcs-faq-policy-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 22px;
+        justify-content: center;
+        padding-top: 22px;
+        border-top: 1px solid rgba(23,33,43,.1);
+    }
+    .hcs-faq-policy-links a { color: var(--hcs-slate); font-size: 14px; font-weight: 800; text-decoration: none; }
+    .hcs-faq-policy-links a:hover { color: var(--hcs-pine); }
+    @media (max-width: 1023px) {
+        .hcs-faq-layout { grid-template-columns: 1fr; }
+        .hcs-faq-nav { display: none; }
+        .hcs-faq-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 700px) {
+        .hcs-faq-hero { padding: 64px 0 38px; }
+        .hcs-faq-main { padding: 36px 0 62px; }
+        .hcs-faq-facts,
+        .hcs-faq-contact-grid { grid-template-columns: 1fr; }
+        .hcs-faq-card,
+        .hcs-faq-contact { padding: 24px; }
+        .hcs-faq-card-head { grid-template-columns: 1fr; }
+        .hcs-faq-item summary { grid-template-columns: minmax(0, 1fr) 30px; padding: 16px; font-size: 16px; }
+        .hcs-faq-answer { padding: 0 16px 18px; }
+    }
+</style>
+
+<div class="hcs-faq">
+    <section class="hcs-faq-hero">
+        <div class="hcs-faq-wrap">
+            <span class="hcs-faq-eyebrow"><?php esc_html_e( 'Frequently Asked Questions', 'dawp' ); ?></span>
+            <h1 class="hcs-faq-title"><?php esc_html_e( 'Answers for shopping handmade leather footwear.', 'dawp' ); ?></h1>
+            <p class="hcs-faq-lead">
+                <?php
+                printf(
+                    esc_html__( 'Find clear answers about orders, shipping, returns, sizing, leather care, custom footwear, and support at %s.', 'dawp' ),
+                    esc_html( $store_name )
+                );
+                ?>
             </p>
         </div>
+    </section>
 
-        <div class="space-y-12">
-            <!-- category: Orders & Payments -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Orders & Payments</h2>
+    <section class="hcs-faq-main">
+        <div class="hcs-faq-wrap hcs-faq-layout">
+            <aside class="hcs-faq-nav" aria-label="<?php esc_attr_e( 'FAQ sections', 'dawp' ); ?>">
+                <?php foreach ( $faq_groups as $section_id => $group ) : ?>
+                    <a href="#<?php echo esc_attr( $section_id ); ?>"><?php echo esc_html( $group['title'] ); ?></a>
+                <?php endforeach; ?>
+                <a href="#contact-information"><?php esc_html_e( 'Contact Information', 'dawp' ); ?></a>
+            </aside>
+
+            <div class="hcs-faq-content">
+                <div class="hcs-faq-facts">
+                    <?php foreach ( $quick_facts as $fact ) : ?>
+                        <div class="hcs-faq-fact">
+                            <p class="hcs-faq-label"><?php echo esc_html( $fact['label'] ); ?></p>
+                            <strong><?php echo esc_html( $fact['value'] ); ?></strong>
+                            <span><?php echo esc_html( $fact['note'] ); ?></span>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
 
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What payment methods do you accept?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                <?php foreach ( $faq_groups as $section_id => $group ) : ?>
+                    <div id="<?php echo esc_attr( $section_id ); ?>" class="hcs-faq-card <?php echo 'returns-exchanges' === $section_id ? 'hcs-faq-feature' : ''; ?>">
+                        <div class="hcs-faq-card-head">
+                            <span class="hcs-faq-icon" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo wp_kses( $group['icon'], array( 'rect' => array( 'x' => true, 'y' => true, 'width' => true, 'height' => true, 'rx' => true ), 'path' => array( 'd' => true ), 'circle' => array( 'cx' => true, 'cy' => true, 'r' => true ) ) ); ?></svg>
                             </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, Apple Pay, and Google Pay. All transactions are securely processed and encrypted for your safety.</p>
+                            <div>
+                                <h2><?php echo esc_html( $group['title'] ); ?></h2>
+                                <p class="hcs-faq-copy"><?php esc_html_e( 'Tap a question to view the answer.', 'dawp' ); ?></p>
+                            </div>
+                        </div>
+
+                        <div class="hcs-faq-items">
+                            <?php foreach ( $group['items'] as $index => $item ) : ?>
+                                <details class="hcs-faq-item" <?php echo 0 === $index ? 'open' : ''; ?>>
+                                    <summary>
+                                        <span><?php echo esc_html( $item['question'] ); ?></span>
+                                        <span aria-hidden="true">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                                        </span>
+                                    </summary>
+                                    <div class="hcs-faq-answer">
+                                        <p><?php echo esc_html( $item['answer'] ); ?></p>
+                                        <?php if ( ! empty( $item['link'] ) ) : ?>
+                                            <p style="margin-top:12px;"><a href="<?php echo esc_url( $item['link']['url'] ); ?>"><?php echo esc_html( $item['link']['label'] ); ?></a></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </details>
+                            <?php endforeach; ?>
                         </div>
                     </div>
+                <?php endforeach; ?>
 
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Can I modify or cancel my order after it's placed?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We aim to process orders quickly. If you need to change or cancel an order, please contact us at <a href="mailto:support@shopkelli.com" class="text-accent hover:underline font-medium">support@shopkelli.com</a> within 2 hours of placing your order. Once an order has been processed for shipping, we are unable to make changes.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I track my order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Once your order ships, you will receive an email with your tracking number and a link to follow its journey. You can also track your order directly on our <a href="<?php echo esc_url( home_url( '/track-order/' ) ); ?>" class="text-accent hover:underline font-medium">Order Tracking page</a>.</p>
-                        </div>
+                <div id="contact-information" class="hcs-faq-contact">
+                    <h2><?php esc_html_e( 'Still Have Questions?', 'dawp' ); ?></h2>
+                    <p class="hcs-faq-copy">
+                        <?php
+                        printf(
+                            esc_html__( 'Contact %s support and include your order number, checkout email, tracking number, and photos if your question involves shipping damage, defects, or missing items.', 'dawp' ),
+                            esc_html( $store_name )
+                        );
+                        ?>
+                    </p>
+                    <dl class="hcs-faq-contact-grid">
+                        <div class="hcs-faq-contact-item"><dt><?php esc_html_e( 'Store Name', 'dawp' ); ?></dt><dd><?php echo esc_html( $store_name ); ?></dd></div>
+                        <div class="hcs-faq-contact-item"><dt><?php esc_html_e( 'Website', 'dawp' ); ?></dt><dd><?php echo esc_html( $website_domain ); ?></dd></div>
+                        <div class="hcs-faq-contact-item"><dt><?php esc_html_e( 'Email', 'dawp' ); ?></dt><dd><a href="mailto:<?php echo esc_attr( $support_email ); ?>"><?php echo esc_html( $support_email ); ?></a></dd></div>
+                        <div class="hcs-faq-contact-item"><dt><?php esc_html_e( 'Service Hours', 'dawp' ); ?></dt><dd><?php esc_html_e( 'Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp' ); ?></dd></div>
+                    </dl>
+                    <div class="hcs-faq-actions">
+                        <a class="hcs-faq-btn hcs-faq-btn-primary" href="<?php echo esc_url( $contact_url ); ?>"><?php esc_html_e( 'Contact Support', 'dawp' ); ?></a>
+                        <a class="hcs-faq-btn hcs-faq-btn-secondary" href="mailto:<?php echo esc_attr( $support_email ); ?>"><?php esc_html_e( 'Email Us', 'dawp' ); ?></a>
+                        <a class="hcs-faq-btn hcs-faq-btn-secondary" href="<?php echo esc_url( $shop_url ); ?>"><?php esc_html_e( 'Shop Footwear', 'dawp' ); ?></a>
                     </div>
                 </div>
-            </div>
 
-            <!-- category: Shipping & Delivery -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Shipping & Delivery</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How long will it take to receive my order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Orders placed before our 5:00 PM Pacific Standard Time cutoff are typically processed within 1-3 business days, Monday-Friday. Shipping transit time is 3-5 business days after processing is complete, so estimated total delivery time is 4-8 business days. For full details, please visit our <a href="<?php echo esc_url( home_url( '/shipping-policy/' ) ); ?>" class="text-accent hover:underline font-medium">Shipping Policy</a>.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What are your shipping costs?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We offer free standard shipping on all orders within the United States.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Where do you ship?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Shop Kelli currently serves customers in the United States only.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- category: Returns & Exchanges -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><polyline points="3 3 3 8 8 8"></polyline></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Returns & Exchanges</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What is your return policy?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We accept returns within 30 days of delivery for eligible new-condition items. Items must be unused, unworn, in original condition, and returned with original tags and packaging. For full details, please see our <a href="<?php echo esc_url( home_url( '/refund-return-policy/' ) ); ?>" class="text-accent hover:underline font-medium">Refund & Return Policy</a>.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I start a return?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To start a return or exchange, email us at <a href="mailto:support@shopkelli.com" class="text-accent hover:underline font-medium">support@shopkelli.com</a> with your order number and the item details. Return label and return shipping costs are the customer's responsibility unless your item arrived damaged, defective, or incorrect.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- category: Product & Sizing -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Product & Sizing</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I know which size to order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We include specific sizing information on each product page. Since we carry various boutique brands, fit can vary slightly. If you're between sizes, we generally recommend sizing up for kids' items to allow for growth!</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How should I care for my boutique pieces?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To keep your items looking beautiful, we recommend following the care instructions on the label. Most of our delicate pieces benefit from hand washing or a gentle machine cycle in cold water, followed by hanging to dry.</p>
-                        </div>
-                    </div>
-                </div>
+                <nav class="hcs-faq-policy-links" aria-label="<?php esc_attr_e( 'Store policies', 'dawp' ); ?>">
+                    <a href="<?php echo esc_url( $shipping_url ); ?>"><?php esc_html_e( 'Shipping Policy', 'dawp' ); ?></a>
+                    <a href="<?php echo esc_url( $returns_url ); ?>"><?php esc_html_e( 'Return & Refund Policy', 'dawp' ); ?></a>
+                    <a href="<?php echo esc_url( $terms_url ); ?>"><?php esc_html_e( 'Terms of Service', 'dawp' ); ?></a>
+                    <a href="<?php echo esc_url( $privacy_url ); ?>"><?php esc_html_e( 'Privacy Policy', 'dawp' ); ?></a>
+                </nav>
             </div>
         </div>
-
-        <!-- Still Have Questions? -->
-        <div class="mt-20 bg-accent-soft p-10 md:p-16 rounded-3xl text-center">
-            <h3 class="font-heading text-3xl text-foreground font-bold mb-4">Still have questions?</h3>
-            <p class="text-foreground-muted text-lg mb-8 max-w-xl mx-auto">
-                Our family is here to help yours. Reach out anytime and we'll get back to you as soon as possible.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
-                    Contact Support
-                </a>
-                <a href="mailto:support@shopkelli.com" class="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground font-semibold rounded-full border border-border hover:bg-surface-alt transition-colors">
-                    Email Us Directly
-                </a>
-            </div>
-        </div>
-
-        <!-- Policy Links Footer -->
-        <div class="mt-16 pt-8 border-t border-border flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted">
-            <a href="<?php echo esc_url( home_url( '/shipping-policy/' ) ); ?>" class="hover:text-accent transition-colors">Shipping Policy</a>
-            <a href="<?php echo esc_url( home_url( '/refund-return-policy/' ) ); ?>" class="hover:text-accent transition-colors">Refund & Return Policy</a>
-            <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>" class="hover:text-accent transition-colors">Terms of Service</a>
-        </div>
-    </div>
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const faqTriggers = document.querySelectorAll('.faq-trigger');
-    
-    faqTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
-            const item = this.parentElement;
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('.faq-icon');
-            
-            // Toggle current item
-            const isOpen = !content.classList.contains('hidden');
-            
-            if (isOpen) {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        });
-    });
-});
-</script>
+    </section>
+</div>

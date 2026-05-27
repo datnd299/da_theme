@@ -67,50 +67,50 @@ add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_
 ?>
 
 <!-- Handed Shoes — Contact Us Page HTML -->
-<main class="bg-[#F4EEE6] text-[#121212]">
+<main class="bg-[#F4F5F6] text-[#0B0B0D]">
   <!-- ================= CONTACT FORM + INFO ================= -->
-  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24">
+  <section class="bg-[#F4F5F6] py-16 sm:py-20 lg:py-24">
     <div class="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
       <!-- Contact Info -->
       <aside class="space-y-5">
         <div>
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Customer Support</p>
-          <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Customer Support</p>
+          <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
             Clear help before and after your order.
           </h2>
-          <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+          <p class="mt-5 text-base leading-8 text-[#5B5D63]/72">
             Please include your order number if your message is about an existing purchase. For footwear questions, mention the product name, size, color, and the issue you need help with.
           </p>
         </div>
 
-        <div class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#A96538]">Email</p>
-          <a href="mailto:support@handedshoes.com" class="mt-2 inline-flex text-lg font-bold text-[#121212] hover:text-[#A96538]">support@handedshoes.com</a>
+        <div class="rounded-3xl border border-[#5B5D63]/10 bg-white p-6 shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#5B5D63]">Email</p>
+          <a href="mailto:support@handedshoes.com" class="mt-2 inline-flex text-lg font-bold text-[#0B0B0D] hover:text-[#0B0B0D]">support@handedshoes.com</a>
         </div>
 
-        <div class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#A96538]">Business Hours</p>
-          <p class="mt-2 text-sm leading-7 text-[#3A2418]/72">Monday – Friday, 9:00 AM – 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)</p>
+        <div class="rounded-3xl border border-[#5B5D63]/10 bg-white p-6 shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#5B5D63]">Business Hours</p>
+          <p class="mt-2 text-sm leading-7 text-[#5B5D63]/72">Monday – Friday, 9:00 AM – 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)</p>
         </div>
 
-        <div class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#A96538]">Response Time</p>
-          <p class="mt-2 text-sm leading-7 text-[#3A2418]/72">We aim to reply within 1 business day.</p>
+        <div class="rounded-3xl border border-[#5B5D63]/10 bg-white p-6 shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#5B5D63]">Response Time</p>
+          <p class="mt-2 text-sm leading-7 text-[#5B5D63]/72">We aim to reply within 1 business day.</p>
         </div>
 
-        <div class="rounded-3xl border border-[#3A2418]/10 bg-[#121212] p-6 text-white shadow-sm">
-          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#B8955A]">Helpful Links</p>
+        <div class="rounded-3xl border border-[#5B5D63]/10 bg-[#0B0B0D] p-6 text-white shadow-sm">
+          <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#5B5D63]">Helpful Links</p>
           <div class="mt-5 grid gap-3">
-            <a href="/track-order/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Track Order →</a>
-            <a href="/shipping-policy/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Shipping Policy →</a>
-            <a href="/refund-return-policy/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">Return & Refund Policy →</a>
-            <a href="/faq/" class="text-sm font-bold text-white/85 hover:text-[#B8955A]">FAQs →</a>
+            <a href="/track-order/" class="text-sm font-bold text-white/85 hover:text-[#5B5D63]">Track Order →</a>
+            <a href="/shipping-policy/" class="text-sm font-bold text-white/85 hover:text-[#5B5D63]">Shipping Policy →</a>
+            <a href="/refund-return-policy/" class="text-sm font-bold text-white/85 hover:text-[#5B5D63]">Return & Refund Policy →</a>
+            <a href="/faq/" class="text-sm font-bold text-white/85 hover:text-[#5B5D63]">FAQs →</a>
           </div>
         </div>
       </aside>
 
       <!-- Contact Form -->
-      <div class="rounded-[2rem] border border-[#3A2418]/10 bg-white p-6 shadow-2xl shadow-[#3A2418]/10 sm:p-8 lg:p-10">
+      <div class="rounded-[2rem] border border-[#5B5D63]/10 bg-white p-6 shadow-2xl shadow-[#5B5D63]/10 sm:p-8 lg:p-10">
         <?php if (isset($_GET['contact_status'])) : ?>
           <?php if ($_GET['contact_status'] === 'success') : ?>
             <div class="mb-6 rounded-2xl border border-green-200 bg-green-50 p-4 text-sm font-semibold text-green-800">
@@ -127,9 +127,9 @@ add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_
           <?php endif; ?>
         <?php endif; ?>
 
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Send A Message</p>
-        <h2 class="mt-3 font-serif text-4xl font-semibold text-[#121212]">How can we help?</h2>
-        <p class="mt-4 text-sm leading-7 text-[#3A2418]/70">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Send A Message</p>
+        <h2 class="mt-3 font-serif text-4xl font-semibold text-[#0B0B0D]">How can we help?</h2>
+        <p class="mt-4 text-sm leading-7 text-[#5B5D63]/70">
           Fill out the form below. Fields marked with an asterisk are required.
         </p>
 
@@ -145,19 +145,19 @@ add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_
 
           <div class="grid gap-5 sm:grid-cols-2">
             <div>
-              <label for="customer_name" class="mb-2 block text-sm font-bold text-[#121212]">Full Name *</label>
-              <input id="customer_name" name="customer_name" type="text" required autocomplete="name" class="min-h-12 w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 text-sm text-[#121212] outline-none transition placeholder:text-[#3A2418]/40 focus:border-[#A96538] focus:bg-white" placeholder="Your name" />
+              <label for="customer_name" class="mb-2 block text-sm font-bold text-[#0B0B0D]">Full Name *</label>
+              <input id="customer_name" name="customer_name" type="text" required autocomplete="name" class="min-h-12 w-full rounded-2xl border border-[#5B5D63]/15 bg-[#F4F5F6] px-4 text-sm text-[#0B0B0D] outline-none transition placeholder:text-[#5B5D63]/40 focus:border-[#0B0B0D] focus:bg-white" placeholder="Your name" />
             </div>
             <div>
-              <label for="customer_email" class="mb-2 block text-sm font-bold text-[#121212]">Email Address *</label>
-              <input id="customer_email" name="customer_email" type="email" required autocomplete="email" class="min-h-12 w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 text-sm text-[#121212] outline-none transition placeholder:text-[#3A2418]/40 focus:border-[#A96538] focus:bg-white" placeholder="you@example.com" />
+              <label for="customer_email" class="mb-2 block text-sm font-bold text-[#0B0B0D]">Email Address *</label>
+              <input id="customer_email" name="customer_email" type="email" required autocomplete="email" class="min-h-12 w-full rounded-2xl border border-[#5B5D63]/15 bg-[#F4F5F6] px-4 text-sm text-[#0B0B0D] outline-none transition placeholder:text-[#5B5D63]/40 focus:border-[#0B0B0D] focus:bg-white" placeholder="you@example.com" />
             </div>
           </div>
 
           <div class="grid gap-5 sm:grid-cols-2">
             <div>
-              <label for="contact_subject" class="mb-2 block text-sm font-bold text-[#121212]">Subject *</label>
-              <select id="contact_subject" name="contact_subject" required class="min-h-12 w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 text-sm text-[#121212] outline-none transition focus:border-[#A96538] focus:bg-white">
+              <label for="contact_subject" class="mb-2 block text-sm font-bold text-[#0B0B0D]">Subject *</label>
+              <select id="contact_subject" name="contact_subject" required class="min-h-12 w-full rounded-2xl border border-[#5B5D63]/15 bg-[#F4F5F6] px-4 text-sm text-[#0B0B0D] outline-none transition focus:border-[#0B0B0D] focus:bg-white">
                 <option value="">Select a topic</option>
                 <option value="Order Support">Order Support</option>
                 <option value="Shipping Question">Shipping Question</option>
@@ -168,22 +168,22 @@ add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_
               </select>
             </div>
             <div>
-              <label for="order_number" class="mb-2 block text-sm font-bold text-[#121212]">Order Number</label>
-              <input id="order_number" name="order_number" type="text" class="min-h-12 w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 text-sm text-[#121212] outline-none transition placeholder:text-[#3A2418]/40 focus:border-[#A96538] focus:bg-white" placeholder="Optional" />
+              <label for="order_number" class="mb-2 block text-sm font-bold text-[#0B0B0D]">Order Number</label>
+              <input id="order_number" name="order_number" type="text" class="min-h-12 w-full rounded-2xl border border-[#5B5D63]/15 bg-[#F4F5F6] px-4 text-sm text-[#0B0B0D] outline-none transition placeholder:text-[#5B5D63]/40 focus:border-[#0B0B0D] focus:bg-white" placeholder="Optional" />
             </div>
           </div>
 
           <div>
-            <label for="message" class="mb-2 block text-sm font-bold text-[#121212]">Message *</label>
-            <textarea id="message" name="message" required rows="7" class="w-full rounded-2xl border border-[#3A2418]/15 bg-[#F4EEE6] px-4 py-3 text-sm text-[#121212] outline-none transition placeholder:text-[#3A2418]/40 focus:border-[#A96538] focus:bg-white" placeholder="Tell us how we can help. For order questions, include product name, size, color, and any useful details."></textarea>
+            <label for="message" class="mb-2 block text-sm font-bold text-[#0B0B0D]">Message *</label>
+            <textarea id="message" name="message" required rows="7" class="w-full rounded-2xl border border-[#5B5D63]/15 bg-[#F4F5F6] px-4 py-3 text-sm text-[#0B0B0D] outline-none transition placeholder:text-[#5B5D63]/40 focus:border-[#0B0B0D] focus:bg-white" placeholder="Tell us how we can help. For order questions, include product name, size, color, and any useful details."></textarea>
           </div>
 
-          <label class="flex gap-3 rounded-2xl border border-[#3A2418]/10 bg-[#F4EEE6] p-4 text-sm leading-6 text-[#3A2418]/75">
-            <input type="checkbox" name="contact_consent" value="yes" required class="mt-1 h-4 w-4 rounded border-[#3A2418]/25 text-[#A96538]" />
+          <label class="flex gap-3 rounded-2xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-4 text-sm leading-6 text-[#5B5D63]/75">
+            <input type="checkbox" name="contact_consent" value="yes" required class="mt-1 h-4 w-4 rounded border-[#5B5D63]/25 text-[#0B0B0D]" />
             <span>I confirm that the information provided is accurate and agree to be contacted by Handed Shoes regarding this request.</span>
           </label>
 
-          <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-8 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[#121212]">
+          <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#0B0B0D] px-8 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[#2F3033]">
             Send Message
           </button>
         </form>
@@ -195,30 +195,31 @@ add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_
   <section class="bg-white py-16 sm:py-20 lg:py-24">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
       <div class="mb-10 max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Support Topics</p>
-        <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Support Topics</p>
+        <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           Common questions we can help with.
         </h2>
       </div>
 
       <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
-          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Size & Fit</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Ask about fit notes and shoe style differences before ordering.</p>
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Size & Fit</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/70">Ask about fit notes and shoe style differences before ordering.</p>
         </article>
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
-          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Shipping</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Get help with tracking, delivery timelines, multiple packages, or delivery issues.</p>
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Shipping</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/70">Get help with tracking, delivery timelines, multiple packages, or delivery issues.</p>
         </article>
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
-          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Returns</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Review return eligibility, footwear condition rules, and refund steps.</p>
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Returns</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/70">Review return eligibility, footwear condition rules, and refund steps.</p>
         </article>
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
-          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Product Details</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/70">Ask about shoe type, closure, material or finish, care instructions, and styling use.</p>
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Product Details</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/70">Ask about shoe type, closure, material or finish, care instructions, and styling use.</p>
         </article>
       </div>
     </div>
   </section>
 </main>
+

@@ -3,13 +3,13 @@
    ============================================================= */
 
 .track-order-page {
-    background: #F4EEE6;
-    color: #121212;
+    background: #F4F5F6;
+    color: #0B0B0D;
 }
 
 .track-eyebrow {
     margin: 0;
-    color: #A96538;
+    color: #5B5D63;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.2em;
@@ -19,7 +19,7 @@
 
 .track-section-title {
     margin: 0;
-    color: #121212;
+    color: #0B0B0D;
     font-family: var(--font-heading, "Playfair Display", Georgia, serif);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 600;
@@ -28,7 +28,7 @@
 
 .track-section-copy {
     margin: 1rem 0 0;
-    color: rgba(58, 36, 24, 0.72);
+    color: rgba(91, 93, 99, 0.72);
     font-size: 1rem;
     line-height: 1.8;
 }
@@ -37,7 +37,7 @@
 .track-hero {
     position: relative;
     overflow: hidden;
-    background: #121212;
+    background: #0B0B0D;
     color: #fff;
 }
 
@@ -46,8 +46,8 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at top right, rgba(169, 101, 56, 0.34), transparent 36%),
-        linear-gradient(135deg, #121212 0%, #3A2418 62%, #121212 100%);
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.18), transparent 36%),
+        linear-gradient(135deg, #0B0B0D 0%, #1A1A1D 54%, #050506 100%);
 }
 
 .track-hero::after {
@@ -57,7 +57,7 @@
     bottom: 0;
     left: 0;
     height: 6rem;
-    background: linear-gradient(to top, #F4EEE6, transparent);
+    background: linear-gradient(to top, #F4F5F6, transparent);
 }
 
 .track-hero__inner {
@@ -73,7 +73,7 @@
 .track-hero__title {
     max-width: 44rem;
     margin: 1.25rem 0 0;
-    color: #F4EEE6;
+    color: #F4F5F6;
     font-family: var(--font-heading, "Playfair Display", Georgia, serif);
     font-size: clamp(2.8rem, 7vw, 4.5rem);
     font-weight: 600;
@@ -112,23 +112,23 @@
 }
 
 .track-button--primary {
-    background: #A96538;
+    background: #0B0B0D;
     color: #fff;
 }
 
 .track-button--primary:hover {
-    background: #fff;
-    color: #121212;
+    background: #2F3033;
+    color: #fff;
 }
 
 .track-button--secondary {
-    border: 1px solid #A96538;
-    color: #F4EEE6;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
 }
 
 .track-button--secondary:hover {
-    background: #A96538;
-    color: #fff;
+    background: #fff;
+    color: #0B0B0D;
 }
 
 .track-status-card {
@@ -150,7 +150,7 @@
 }
 
 .track-status-card__top span {
-    color: #B8955A;
+    color: #5B5D63;
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.16em;
@@ -158,7 +158,7 @@
 }
 
 .track-status-card__top strong {
-    color: #F4EEE6;
+    color: #F4F5F6;
     font-family: var(--font-heading, "Playfair Display", Georgia, serif);
     font-size: 1.25rem;
     font-weight: 600;
@@ -182,15 +182,15 @@
     width: 0.875rem;
     height: 0.875rem;
     margin-top: 0.3rem;
-    border: 3px solid #A96538;
+    border: 3px solid #0B0B0D;
     border-radius: 999px;
-    background: #F4EEE6;
-    box-shadow: 0 0 0 6px rgba(169, 101, 56, 0.18);
+    background: #F4F5F6;
+    box-shadow: 0 0 0 6px rgba(11, 11, 13, 0.18);
 }
 
 .track-status-list strong {
     display: block;
-    color: #F4EEE6;
+    color: #F4F5F6;
     font-size: 1rem;
 }
 
@@ -204,7 +204,7 @@
 /* Form section */
 .track-form-section {
     padding: 4rem 1.25rem;
-    background: #F4EEE6;
+    background: #F4F5F6;
 }
 
 .track-form-section__inner {
@@ -242,19 +242,19 @@
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 999px;
-    background: #F4EEE6;
-    color: #A96538;
+    background: #F4F5F6;
+    color: #0B0B0D;
 }
 
 .track-info-item strong {
     display: block;
-    color: #121212;
+    color: #0B0B0D;
     font-size: 0.95rem;
 }
 
 .track-info-item p {
     margin: 0.25rem 0 0;
-    color: rgba(58, 36, 24, 0.72);
+    color: rgba(91, 93, 99, 0.72);
     font-size: 0.875rem;
     line-height: 1.55;
 }
@@ -278,7 +278,7 @@
 
 .track-form-card__header h2 {
     margin: 0.75rem 0 0;
-    color: #121212;
+    color: #0B0B0D;
     font-family: var(--font-heading, "Playfair Display", Georgia, serif);
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 600;
@@ -307,29 +307,29 @@
     width: 2.75rem;
     height: 2.75rem;
     border-radius: 999px;
-    background: #F4EEE6;
-    color: #A96538;
+    background: #F4F5F6;
+    color: #0B0B0D;
 }
 
 .track-help-box__title {
     margin: 0;
-    color: #121212;
+    color: #0B0B0D;
     font-size: 0.975rem;
     font-weight: 700;
 }
 
 .track-help-box__text {
     margin: 0.4rem 0 0;
-    color: rgba(58, 36, 24, 0.72);
+    color: rgba(91, 93, 99, 0.72);
     font-size: 0.875rem;
     line-height: 1.7;
 }
 
 .track-help-box__text a {
-    color: #A96538;
+    color: #0B0B0D;
     font-weight: 700;
     text-decoration: underline;
-    text-decoration-color: rgba(169, 101, 56, 0.35);
+    text-decoration-color: rgba(91, 93, 99, 0.35);
     text-underline-offset: 4px;
 }
 
@@ -360,14 +360,14 @@
     padding: 1.5rem;
     border: 1px solid rgba(58, 36, 24, 0.1);
     border-radius: 1.5rem;
-    background: #F4EEE6;
+    background: #F4F5F6;
     color: inherit;
     text-decoration: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .track-more-card:hover {
-    border-color: #B8955A;
+    border-color: #5B5D63;
     box-shadow: 0 16px 30px rgba(58, 36, 24, 0.1);
     transform: translateY(-2px);
 }
@@ -380,12 +380,12 @@
     height: 2.75rem;
     border-radius: 999px;
     background: #fff;
-    color: #A96538;
+    color: #0B0B0D;
 }
 
 .track-more-card__title {
     margin: 1.25rem 0 0;
-    color: #121212;
+    color: #0B0B0D;
     font-family: var(--font-heading, "Playfair Display", Georgia, serif);
     font-size: 1.35rem;
     font-weight: 600;
@@ -394,7 +394,7 @@
 
 .track-more-card__desc {
     margin: 0.75rem 0 0;
-    color: rgba(58, 36, 24, 0.72);
+    color: rgba(91, 93, 99, 0.72);
     font-size: 0.875rem;
     line-height: 1.7;
 }
@@ -412,7 +412,7 @@
 
 .woocommerce-form-track-order > p:not(.form-row) {
     margin: 0 0 0.5rem !important;
-    color: rgba(58, 36, 24, 0.72) !important;
+    color: rgba(91, 93, 99, 0.72) !important;
     font-size: 0.95rem !important;
     line-height: 1.75 !important;
 }
@@ -442,7 +442,7 @@
 .woocommerce-form-row label {
     display: block !important;
     margin: 0 !important;
-    color: #121212 !important;
+    color: #0B0B0D !important;
     font-family: var(--font-sans, Lato, system-ui, sans-serif) !important;
     font-size: 0.875rem !important;
     font-weight: 700 !important;
@@ -455,8 +455,8 @@
     padding: 0.8rem 1rem !important;
     border: 1px solid rgba(58, 36, 24, 0.15) !important;
     border-radius: 1rem !important;
-    background: #F4EEE6 !important;
-    color: #121212 !important;
+    background: #F4F5F6 !important;
+    color: #0B0B0D !important;
     font-family: var(--font-sans, Lato, system-ui, sans-serif) !important;
     font-size: 0.95rem !important;
     outline: none !important;
@@ -465,9 +465,9 @@
 
 .form-row input.input-text:focus,
 .woocommerce-form-row input.input-text:focus {
-    border-color: #A96538 !important;
+    border-color: #0B0B0D !important;
     background: #fff !important;
-    box-shadow: 0 0 0 3px rgba(169, 101, 56, 0.14) !important;
+    box-shadow: 0 0 0 3px rgba(11, 11, 13, 0.14) !important;
 }
 
 .form-row button.button,
@@ -481,7 +481,7 @@
     padding: 0.85rem 1.75rem !important;
     border: 0 !important;
     border-radius: 999px !important;
-    background: #A96538 !important;
+    background: #0B0B0D !important;
     color: #fff !important;
     cursor: pointer !important;
     font-family: var(--font-sans, Lato, system-ui, sans-serif) !important;
@@ -494,7 +494,7 @@
 
 .form-row button.button:hover,
 .woocommerce-form-row button.button:hover {
-    background: #121212 !important;
+    background: #0B0B0D !important;
     transform: translateY(-1px) !important;
 }
 
@@ -528,8 +528,8 @@
     padding: 1rem 1.25rem;
     border: 1px solid rgba(58, 36, 24, 0.1);
     border-radius: 1rem;
-    background: #F4EEE6;
-    color: rgba(58, 36, 24, 0.72);
+    background: #F4F5F6;
+    color: rgba(91, 93, 99, 0.72);
     font-size: 0.95rem;
     line-height: 1.7;
 }
@@ -537,7 +537,7 @@
 .order-info mark {
     padding: 0;
     background: transparent;
-    color: #121212;
+    color: #0B0B0D;
     font-weight: 700;
 }
 
@@ -545,8 +545,8 @@
     display: inline-flex;
     padding: 0.125rem 0.6rem;
     border-radius: 999px;
-    background: rgba(169, 101, 56, 0.12);
-    color: #A96538;
+    background: rgba(11, 11, 13, 0.12);
+    color: #0B0B0D;
     font-size: 0.8rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -560,8 +560,8 @@
     display: inline-block;
     margin: 0 0 1rem;
     padding-bottom: 0.6rem;
-    border-bottom: 2px solid #A96538;
-    color: #121212;
+    border-bottom: 2px solid #0B0B0D;
+    color: #0B0B0D;
     font-family: var(--font-heading, "Playfair Display", Georgia, serif);
     font-size: 1.35rem;
     font-weight: 600;
@@ -582,8 +582,8 @@
 
 .woocommerce-table--order-details thead th {
     border-top: 0;
-    background: #F4EEE6;
-    color: rgba(58, 36, 24, 0.72);
+    background: #F4F5F6;
+    color: rgba(91, 93, 99, 0.72);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -598,13 +598,13 @@
 }
 
 .woocommerce-table__product-name a {
-    color: #121212;
+    color: #0B0B0D;
     font-weight: 700;
     text-decoration: none;
 }
 
 .woocommerce-table__product-name a:hover {
-    color: #A96538;
+    color: #0B0B0D;
 }
 
 .woocommerce-table--order-details tfoot tr:last-child th,

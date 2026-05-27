@@ -105,16 +105,16 @@ $render_icon = static function ($icon) {
 };
 ?>
 
-<main class="bg-[#F4EEE6] text-[#121212]">
+<main class="bg-[#F4F5F6] text-[#0B0B0D]">
   <!-- ================= HERO ================= -->
-  <section class="relative overflow-hidden bg-[#121212] text-white" aria-labelledby="terms-title">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(169,101,56,0.32),transparent_36%),linear-gradient(135deg,#121212_0%,#3A2418_60%,#121212_100%)]"></div>
-    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4EEE6] to-transparent"></div>
+  <section class="relative overflow-hidden bg-[#0B0B0D] text-white" aria-labelledby="terms-title">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_34%),linear-gradient(135deg,#0B0B0D_0%,#1A1A1D_54%,#050506_100%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4F5F6] to-transparent"></div>
 
     <div class="relative mx-auto grid max-w-7xl items-end gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10 lg:py-28">
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#B8955A]">Terms & Conditions</p>
-        <h1 id="terms-title" class="mt-5 font-serif text-5xl font-semibold leading-[1.02] text-[#F4EEE6] sm:text-6xl lg:text-7xl">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/60">Terms & Conditions</p>
+        <h1 id="terms-title" class="mt-5 font-serif text-5xl font-semibold leading-[1.02] text-[#F4F5F6] sm:text-6xl lg:text-7xl">
           Clear Purchase Terms For Handed Shoes Customers
         </h1>
         <p class="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
@@ -122,10 +122,10 @@ $render_icon = static function ($icon) {
         </p>
         <p class="mt-5 text-sm leading-7 text-white/60">Last updated: <?php echo esc_html($last_updated); ?></p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+          <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#0B0B0D] transition hover:bg-[#D9DADD]">
             Shipping Policy
           </a>
-          <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#F4EEE6] transition hover:bg-[#A96538] hover:text-white">
+          <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#0B0B0D]">
             Return & Refund Policy
           </a>
         </div>
@@ -134,12 +134,12 @@ $render_icon = static function ($icon) {
       <div class="grid gap-4 sm:grid-cols-3">
         <?php foreach ($summary_cards as $card) : ?>
           <article class="rounded-3xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm">
-            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#A96538] text-white">
+            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B0B0D] text-white">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
               </svg>
             </div>
-            <p class="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[#B8955A]"><?php echo esc_html($card['label']); ?></p>
+            <p class="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-white/60"><?php echo esc_html($card['label']); ?></p>
             <p class="mt-3 text-sm leading-6 text-white/65"><?php echo esc_html($card['copy']); ?></p>
           </article>
         <?php endforeach; ?>
@@ -148,26 +148,26 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= AGREEMENT OVERVIEW ================= -->
-  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24" aria-labelledby="terms-overview-title">
+  <section class="bg-[#F4F5F6] py-16 sm:py-20 lg:py-24" aria-labelledby="terms-overview-title">
     <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Agreement Overview</p>
-        <h2 id="terms-overview-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Agreement Overview</p>
+        <h2 id="terms-overview-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           By using this website or placing an order, you agree to these terms.
         </h2>
-        <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+        <p class="mt-5 text-base leading-8 text-[#5B5D63]/72">
           If you do not agree with these Terms & Conditions, please do not use the website or place an order. These terms apply to all visitors, customers, account holders, and anyone who accesses or uses our online store.
         </p>
-        <p class="mt-4 text-sm leading-7 text-[#3A2418]/60">
+        <p class="mt-4 text-sm leading-7 text-[#5B5D63]/60">
           You must be at least the age of majority in your jurisdiction, or use the website with permission from a parent or legal guardian.
         </p>
       </div>
 
       <div class="grid gap-4 sm:grid-cols-2">
         <?php foreach ($purchase_terms as $term) : ?>
-          <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-5 shadow-sm">
-            <h3 class="font-serif text-xl font-semibold text-[#121212]"><?php echo esc_html($term['title']); ?></h3>
-            <p class="mt-3 text-sm leading-7 text-[#3A2418]/72"><?php echo esc_html($term['copy']); ?></p>
+          <article class="rounded-3xl border border-[#5B5D63]/10 bg-white p-5 shadow-sm">
+            <h3 class="font-serif text-xl font-semibold text-[#0B0B0D]"><?php echo esc_html($term['title']); ?></h3>
+            <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72"><?php echo esc_html($term['copy']); ?></p>
           </article>
         <?php endforeach; ?>
       </div>
@@ -178,39 +178,39 @@ $render_icon = static function ($icon) {
   <section class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="orders-payments-title">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
       <div class="mb-10 max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Orders And Payments</p>
-        <h2 id="orders-payments-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Orders And Payments</p>
+        <h2 id="orders-payments-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           Checkout must be accurate, secure, and complete before payment.
         </h2>
       </div>
 
       <div class="grid gap-6 lg:grid-cols-2">
-        <article class="rounded-[2rem] border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
-          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#A96538]">
+        <article class="rounded-[2rem] border border-[#5B5D63]/10 bg-[#F4F5F6] p-6 shadow-sm">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0B0B0D]">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <?php echo $render_icon('card'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </svg>
           </div>
-          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#121212]">Payment Terms</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#0B0B0D]">Payment Terms</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             We accept the payment methods shown at checkout. Payment must be authorized and completed before an order can be processed. Payment information is submitted through secure checkout and handled by payment processors according to their security standards.
           </p>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             If a payment is declined, flagged, reversed, or suspected of being unauthorized, we may pause, cancel, or request additional verification for the order.
           </p>
         </article>
 
-        <article class="rounded-[2rem] border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
-          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#A96538]">
+        <article class="rounded-[2rem] border border-[#5B5D63]/10 bg-[#F4F5F6] p-6 shadow-sm">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0B0B0D]">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <?php echo $render_icon('alert'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </svg>
           </div>
-          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#121212]">Errors, Cancellations, And Limits</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#0B0B0D]">Errors, Cancellations, And Limits</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             We may correct errors, update inaccurate information, cancel orders, limit quantities, or refuse service when necessary, including for suspected fraud, inventory issues, pricing errors, restricted locations, payment problems, or violations of these terms.
           </p>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             Customers may request cancellation within the window stated in our Return & Refund Policy if the order has not been processed or shipped.
           </p>
         </article>
@@ -219,40 +219,40 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= SHIPPING / RETURNS ================= -->
-  <section class="bg-[#121212] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="shipping-returns-title">
+  <section class="bg-[#0B0B0D] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="shipping-returns-title">
     <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
       <article class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
-        <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#A96538] text-white">
+        <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B0B0D] text-white">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <?php echo $render_icon('truck'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
           </svg>
         </div>
-        <p class="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Shipping</p>
-        <h2 id="shipping-returns-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4EEE6] sm:text-5xl">
+        <p class="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-white/60">Shipping</p>
+        <h2 id="shipping-returns-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4F5F6] sm:text-5xl">
           Shipping terms are part of your purchase.
         </h2>
         <p class="mt-5 text-sm leading-7 text-white/68">
           Processing times, transit times, delivery estimates, shipping locations, carrier details, tracking, delivery issues, and address responsibilities are explained in our Shipping Policy.
         </p>
-        <a href="<?php echo esc_url($shipping_url); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+        <a href="<?php echo esc_url($shipping_url); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#0B0B0D] transition hover:bg-[#D9DADD]">
           View Shipping Policy
         </a>
       </article>
 
       <article class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
-        <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#A96538] text-white">
+        <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B0B0D] text-white">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <?php echo $render_icon('box'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
           </svg>
         </div>
-        <p class="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Returns And Refunds</p>
-        <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4EEE6] sm:text-5xl">
+        <p class="mt-5 text-xs font-bold uppercase tracking-[0.2em] text-white/60">Returns And Refunds</p>
+        <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4F5F6] sm:text-5xl">
           Returns follow our published return policy.
         </h2>
         <p class="mt-5 text-sm leading-7 text-white/68">
           Return windows, footwear condition requirements, return shipping costs, refund timing, exchanges, damaged items, lost packages, and non-returnable items are explained in our Return & Refund Policy.
         </p>
-        <a href="<?php echo esc_url($returns_url); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+        <a href="<?php echo esc_url($returns_url); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#0B0B0D] transition hover:bg-[#D9DADD]">
           View Return Policy
         </a>
       </article>
@@ -260,23 +260,23 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= CUSTOMER RESPONSIBILITIES ================= -->
-  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24" aria-labelledby="customer-responsibilities-title">
-    <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
+  <section class="bg-[#F4F5F6] py-16 sm:py-20 lg:py-24" aria-labelledby="customer-responsibilities-title">
+    <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:px-10">
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Customer Responsibilities</p>
-        <h2 id="customer-responsibilities-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Customer Responsibilities</p>
+        <h2 id="customer-responsibilities-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           Customers are responsible for accurate information and lawful use.
         </h2>
-        <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+        <p class="mt-5 text-base leading-8 text-[#5B5D63]/72">
           These responsibilities help us process orders, prevent avoidable shipping issues, reduce fraud, and provide support when something needs attention.
         </p>
       </div>
 
-      <div class="rounded-[2rem] border border-[#3A2418]/10 bg-white p-6 shadow-sm">
+      <div class="rounded-[2rem] border border-[#5B5D63]/10 bg-white p-6 shadow-sm lg:h-fit">
         <ul class="grid gap-3 sm:grid-cols-2">
           <?php foreach ($customer_responsibilities as $item) : ?>
-            <li class="flex gap-3 rounded-2xl border border-[#3A2418]/10 bg-[#F4EEE6] p-4 text-sm leading-6 text-[#3A2418]/72">
-              <svg class="mt-1 h-4 w-4 shrink-0 text-[#A96538]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <li class="flex gap-3 rounded-2xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-4 text-sm leading-6 text-[#5B5D63]/72">
+              <svg class="mt-1 h-4 w-4 shrink-0 text-[#0B0B0D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
               </svg>
               <span><?php echo esc_html($item); ?></span>
@@ -291,20 +291,20 @@ $render_icon = static function ($icon) {
   <section class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="prohibited-uses-title">
     <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Prohibited Uses</p>
-        <h2 id="prohibited-uses-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Prohibited Uses</p>
+        <h2 id="prohibited-uses-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           The website may not be used for harmful, fraudulent, or unlawful activity.
         </h2>
-        <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+        <p class="mt-5 text-base leading-8 text-[#5B5D63]/72">
           We may suspend access, cancel orders, refuse service, or take other appropriate action when these terms are violated.
         </p>
       </div>
 
-      <div class="rounded-[2rem] border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
+      <div class="rounded-[2rem] border border-[#5B5D63]/10 bg-[#F4F5F6] p-6 shadow-sm">
         <ul class="grid gap-3">
           <?php foreach ($prohibited_uses as $item) : ?>
-            <li class="flex gap-3 rounded-2xl border border-[#3A2418]/10 bg-white p-4 text-sm leading-6 text-[#3A2418]/72">
-              <svg class="mt-1 h-4 w-4 shrink-0 text-[#A96538]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <li class="flex gap-3 rounded-2xl border border-[#5B5D63]/10 bg-white p-4 text-sm leading-6 text-[#5B5D63]/72">
+              <svg class="mt-1 h-4 w-4 shrink-0 text-[#0B0B0D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
               </svg>
               <span><?php echo esc_html($item); ?></span>
@@ -316,11 +316,11 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= LEGAL DETAILS ================= -->
-  <section class="bg-[#3A2418] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="legal-details-title">
+  <section class="bg-[#1A1A1D] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="legal-details-title">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
       <div class="mb-10 max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Legal Details</p>
-        <h2 id="legal-details-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4EEE6] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/60">Legal Details</p>
+        <h2 id="legal-details-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4F5F6] sm:text-5xl">
           Additional terms for website use and purchases.
         </h2>
       </div>
@@ -328,7 +328,7 @@ $render_icon = static function ($icon) {
       <div class="grid gap-5 md:grid-cols-2">
         <?php foreach ($legal_sections as $section) : ?>
           <article class="rounded-3xl border border-white/10 bg-white/[0.06] p-6">
-            <h3 class="font-serif text-2xl font-semibold text-[#F4EEE6]"><?php echo esc_html($section['title']); ?></h3>
+            <h3 class="font-serif text-2xl font-semibold text-[#F4F5F6]"><?php echo esc_html($section['title']); ?></h3>
             <p class="mt-3 text-sm leading-7 text-white/68"><?php echo esc_html($section['copy']); ?></p>
           </article>
         <?php endforeach; ?>
@@ -337,27 +337,27 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= PRIVACY / CHANGES / GOVERNING LAW ================= -->
-  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24" aria-labelledby="terms-final-title">
+  <section class="bg-[#F4F5F6] py-16 sm:py-20 lg:py-24" aria-labelledby="terms-final-title">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
       <div class="grid gap-5 md:grid-cols-3">
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
-          <h2 id="terms-final-title" class="font-serif text-2xl font-semibold text-[#121212]">Privacy</h2>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-white p-6 shadow-sm">
+          <h2 id="terms-final-title" class="font-serif text-2xl font-semibold text-[#0B0B0D]">Privacy</h2>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             Personal information submitted through the website is handled according to our Privacy Policy.
           </p>
-          <a href="<?php echo esc_url($privacy_url); ?>" class="mt-5 inline-flex text-sm font-bold text-[#A96538] transition hover:text-[#121212]">View Privacy Policy</a>
+          <a href="<?php echo esc_url($privacy_url); ?>" class="mt-5 inline-flex text-sm font-bold text-[#0B0B0D] transition hover:text-[#0B0B0D]">View Privacy Policy</a>
         </article>
 
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
-          <h2 class="font-serif text-2xl font-semibold text-[#121212]">Changes To These Terms</h2>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-white p-6 shadow-sm">
+          <h2 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Changes To These Terms</h2>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             We may update these Terms & Conditions from time to time. The latest version will be posted on this page with the last updated date.
           </p>
         </article>
 
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-6 shadow-sm">
-          <h2 class="font-serif text-2xl font-semibold text-[#121212]">Governing Law</h2>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-white p-6 shadow-sm">
+          <h2 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Governing Law</h2>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             These terms are governed by applicable laws in the jurisdiction where Handed Shoes operates, without limiting any mandatory consumer protection rights that may apply to you.
           </p>
         </article>
@@ -366,34 +366,34 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= CONTACT ================= -->
-  <section class="bg-[#121212] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="terms-contact-title">
+  <section class="bg-[#0B0B0D] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="terms-contact-title">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
       <div class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
         <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Contact Information</p>
-            <h2 id="terms-contact-title" class="mt-3 font-serif text-4xl font-semibold text-[#F4EEE6]">Questions about these Terms & Conditions?</h2>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/60">Contact Information</p>
+            <h2 id="terms-contact-title" class="mt-3 font-serif text-4xl font-semibold text-[#F4F5F6]">Questions about these Terms & Conditions?</h2>
             <p class="mt-4 text-sm leading-7 text-white/70">
-              Email <a class="font-bold text-[#B8955A] underline decoration-[#B8955A]/40 underline-offset-4 transition hover:text-white" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a> or use our contact page. Business hours: <?php echo esc_html($business_hours); ?>. <?php echo esc_html($response_time); ?>
+              Email <a class="font-bold text-white/60 underline decoration-white/30 underline-offset-4 transition hover:text-white" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a> or use our contact page. Business hours: <?php echo esc_html($business_hours); ?>. <?php echo esc_html($response_time); ?>
             </p>
             <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:max-w-3xl">
               <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#B8955A]">Store Name</p>
+                <p class="text-xs font-bold uppercase tracking-[0.12em] text-white/60">Store Name</p>
                 <p class="mt-2 text-sm font-bold leading-6 text-white/90"><?php echo esc_html($store_name); ?></p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#B8955A]">Website</p>
+                <p class="text-xs font-bold uppercase tracking-[0.12em] text-white/60">Website</p>
                 <p class="mt-2 text-sm font-bold leading-6 text-white/90"><?php echo esc_html($website_domain); ?></p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p class="text-xs font-bold uppercase tracking-[0.12em] text-[#B8955A]">Email</p>
+                <p class="text-xs font-bold uppercase tracking-[0.12em] text-white/60">Email</p>
                 <p class="mt-2 text-sm font-bold leading-6 text-white/90"><?php echo esc_html($support_email); ?></p>
               </div>
-              <a href="<?php echo esc_url($track_url); ?>" class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm font-bold leading-6 text-white/90 transition hover:border-[#B8955A] hover:text-[#B8955A]">Track Order</a>
+              <a href="<?php echo esc_url($track_url); ?>" class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm font-bold leading-6 text-white/90 transition hover:border-white/30 hover:text-white">Track Order</a>
             </div>
           </div>
 
-          <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+          <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#0B0B0D] transition hover:bg-[#D9DADD]">
             Contact Support
           </a>
         </div>
@@ -401,3 +401,4 @@ $render_icon = static function ($icon) {
     </div>
   </section>
 </main>
+

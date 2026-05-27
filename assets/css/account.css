@@ -276,11 +276,16 @@
   box-sizing: border-box;
 }
 
-.account-page .woocommerce-MyAccount-navigation a:hover,
-.account-page .woocommerce-MyAccount-navigation .is-active a {
+.account-page .woocommerce-MyAccount-navigation a:hover {
   color: var(--color-foreground);
-  background: var(--color-accent-soft);
-  border-color: var(--color-accent-soft);
+  background: var(--color-surface-alt);
+  border-color: var(--color-foreground-muted);
+}
+
+.account-page .woocommerce-MyAccount-navigation .is-active a {
+  color: var(--color-surface);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .account-page .woocommerce-MyAccount-content {

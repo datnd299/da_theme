@@ -203,16 +203,16 @@ $allowed_answer_html = [
             <?php endforeach; ?>
         </div>
 
-        <div class="mt-20 bg-accent-soft p-10 md:p-16 rounded-3xl text-center">
-            <h3 class="font-heading text-3xl text-foreground font-bold mb-4">Still have questions?</h3>
-            <p class="text-foreground-muted text-lg mb-8 max-w-xl mx-auto">
+        <div class="mt-20 rounded-3xl border border-[#D9DADD] bg-[#F4F5F6] p-10 text-center md:p-16">
+            <h3 class="font-heading text-3xl font-bold text-[#0B0B0D] mb-4">Still have questions?</h3>
+            <p class="text-[#5B5D63] text-lg mb-8 max-w-xl mx-auto">
                 Email us with your order number and details. Business hours: <?php echo esc_html($business_hours); ?>. <?php echo esc_html($response_time); ?>
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
+                <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex items-center justify-center rounded-full bg-[#0B0B0D] px-8 py-4 font-semibold text-white shadow-lg shadow-[#5B5D63]/10 transition-colors hover:bg-[#2F3033]">
                     Contact Support
                 </a>
-                <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground font-semibold rounded-full border border-border hover:bg-surface-alt transition-colors">
+                <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex items-center justify-center rounded-full border border-[#D9DADD] bg-white px-8 py-4 font-semibold text-[#0B0B0D] transition-colors hover:bg-[#D9DADD]">
                     Email Us Directly
                 </a>
             </div>
@@ -244,3 +244,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+

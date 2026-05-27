@@ -1,18 +1,18 @@
 </div><!-- #content -->
 
-<footer id="colophon" class="bg-[#121212] text-white" role="contentinfo">
-    <div class="border-y border-white/10 bg-[#3A2418]">
+<footer id="colophon" class="bg-[#0B0B0D] text-white" role="contentinfo">
+    <div class="border-y border-white/10 bg-[#1A1A1D]">
         <div class="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:grid-cols-3 sm:px-8 lg:px-10">
             <div>
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#B8955A]"><?php esc_html_e('Secure Checkout', 'dawp'); ?></p>
+                <p class="text-xs font-bold uppercase tracking-[0.18em] text-white/85"><?php esc_html_e('Secure Checkout', 'dawp'); ?></p>
                 <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Clear payment flow for confident ordering.', 'dawp'); ?></p>
             </div>
             <div>
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#B8955A]"><?php esc_html_e('Tracking Included', 'dawp'); ?></p>
+                <p class="text-xs font-bold uppercase tracking-[0.18em] text-white/85"><?php esc_html_e('Tracking Included', 'dawp'); ?></p>
                 <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Order tracking is provided after dispatch.', 'dawp'); ?></p>
             </div>
             <div>
-                <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#B8955A]"><?php esc_html_e('30-Day Returns', 'dawp'); ?></p>
+                <p class="text-xs font-bold uppercase tracking-[0.18em] text-white/85"><?php esc_html_e('30-Day Returns', 'dawp'); ?></p>
                 <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Eligible unworn footwear may be returned.', 'dawp'); ?></p>
             </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="mt-5 space-y-4 text-sm text-white/72">
                 <a class="block transition-colors hover:text-white" href="mailto:support@handedshoes.com">support@handedshoes.com</a>
                 <a
-                    class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-[#B8955A] hover:bg-white/10 hover:text-white"
+                    class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white"
                     href="https://www.facebook.com/handedfootwear/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -44,7 +44,7 @@
         </div>
 
         <div>
-            <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-[#B8955A]"><?php esc_html_e('Shop', 'dawp'); ?></h2>
+            <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-white/85"><?php esc_html_e('Shop', 'dawp'); ?></h2>
             <ul class="mt-5 space-y-3 text-sm text-white/72">
                 <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop All', 'dawp'); ?></a></li>
                 <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/product-category/oxford-shoes/')); ?>"><?php esc_html_e('Oxford Shoes', 'dawp'); ?></a></li>
@@ -55,7 +55,7 @@
         </div>
 
         <div>
-            <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-[#B8955A]"><?php esc_html_e('Support', 'dawp'); ?></h2>
+            <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-white/85"><?php esc_html_e('Support', 'dawp'); ?></h2>
             <ul class="mt-5 space-y-3 text-sm text-white/72">
                 <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Us', 'dawp'); ?></a></li>
                 <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a></li>
@@ -65,7 +65,7 @@
         </div>
 
         <div>
-            <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-[#B8955A]"><?php esc_html_e('Customer Care', 'dawp'); ?></h2>
+            <h2 class="text-xs font-bold uppercase tracking-[0.18em] text-white/85"><?php esc_html_e('Customer Care', 'dawp'); ?></h2>
             <ul class="mt-5 space-y-3 text-sm text-white/72">
                 <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQs', 'dawp'); ?></a></li>
                 <li><a class="transition-colors hover:text-white" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a></li>

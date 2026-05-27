@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Noto+Sans:wght@400;500;600;700&family=Noto+Serif:wght@600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
     <style>
         #mobile-drawer {
@@ -26,7 +26,7 @@
         }
         #site-header.scrolled {
             backdrop-filter: blur(10px);
-            background: rgba(18, 18, 18, 0.94);
+            background: rgba(11, 11, 13, 0.94);
         }
     </style>
 </head>
@@ -46,7 +46,7 @@ $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink(
 $cart_count = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
 ?>
 
-<header id="site-header" class="sticky top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#121212] text-white shadow-lg" role="banner">
+<header id="site-header" class="sticky top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0B0B0D] text-white shadow-lg shadow-black/40" role="banner">
     <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-5 px-5 sm:px-8 lg:px-10">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center" aria-label="<?php esc_attr_e('Handed Shoes Home', 'dawp'); ?>">
             <img
@@ -60,7 +60,7 @@ $cart_count = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_conte
             <?php foreach ($header_nav_items as $item) : ?>
                 <?php $is_current = function_exists('dawp_is_current_url') && dawp_is_current_url($item['url']); ?>
                 <a href="<?php echo esc_url($item['url']); ?>"
-                   class="rounded-full px-4 py-2 text-sm font-bold uppercase tracking-wider transition-colors <?php echo $is_current ? 'bg-[#A96538] text-white' : 'text-white/78 hover:bg-white/10 hover:text-white'; ?>"
+                   class="rounded-full px-4 py-2 text-sm font-bold uppercase tracking-wider transition-colors <?php echo $is_current ? 'bg-white text-[#0B0B0D]' : 'text-white/78 hover:bg-white/10 hover:text-white'; ?>"
                    <?php if ($is_current) echo 'aria-current="page"'; ?>>
                     <?php echo esc_html($item['title']); ?>
                 </a>
@@ -79,7 +79,7 @@ $cart_count = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_conte
                     <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
                 </svg>
                 <?php if ($cart_count > 0) : ?>
-                    <span class="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#A96538] px-1 text-[11px] font-bold leading-none text-white">
+                    <span class="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-white px-1 text-[11px] font-bold leading-none text-[#0B0B0D]">
                         <?php echo esc_html($cart_count); ?>
                     </span>
                 <?php endif; ?>
@@ -113,7 +113,7 @@ $cart_count = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_conte
 <div id="drawer-overlay" class="fixed inset-0 z-40 bg-black/60" aria-hidden="true"></div>
 
 <aside id="mobile-drawer"
-       class="fixed top-0 left-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm overflow-y-auto bg-[#121212] text-white shadow-2xl lg:hidden"
+       class="fixed top-0 left-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm overflow-y-auto bg-[#0B0B0D] text-white shadow-2xl lg:hidden"
        aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
     <div class="flex h-16 items-center justify-between border-b border-white/10 px-5">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center" aria-label="<?php esc_attr_e('Handed Shoes Home', 'dawp'); ?>">
@@ -137,7 +137,7 @@ $cart_count = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_conte
         <?php foreach ($header_nav_items as $item) : ?>
             <?php $is_current = function_exists('dawp_is_current_url') && dawp_is_current_url($item['url']); ?>
             <a href="<?php echo esc_url($item['url']); ?>"
-               class="flex items-center border-b border-white/10 px-5 py-4 text-sm font-bold uppercase tracking-wider transition-colors <?php echo $is_current ? 'bg-white/10 text-white' : 'text-white/78 hover:bg-white/5 hover:text-white'; ?>"
+               class="flex items-center border-b border-white/10 px-5 py-4 text-sm font-bold uppercase tracking-wider transition-colors <?php echo $is_current ? 'bg-white text-[#0B0B0D]' : 'text-white/78 hover:bg-white/5 hover:text-white'; ?>"
                <?php if ($is_current) echo 'aria-current="page"'; ?>>
                 <?php echo esc_html($item['title']); ?>
             </a>

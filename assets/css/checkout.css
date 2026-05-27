@@ -21,14 +21,14 @@
 }
 
 .wp-block-woocommerce-checkout a,
-.woocommerce-checkout a,
+#content .woocommerce-checkout a,
 .woocommerce-order a {
   color: var(--color-accent);
   text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
 }
 
 .wp-block-woocommerce-checkout a:hover,
-.woocommerce-checkout a:hover,
+#content .woocommerce-checkout a:hover,
 .woocommerce-order a:hover {
   color: var(--color-accent-hover);
 }
@@ -146,8 +146,8 @@
 
 .wp-block-woocommerce-checkout .wc-block-components-button,
 .wp-block-woocommerce-checkout .wc-block-components-totals-coupon__button,
-.woocommerce-checkout .button,
-.woocommerce-checkout button.button {
+#content .woocommerce-checkout .button,
+#content .woocommerce-checkout button.button {
   background-color: var(--color-accent) !important;
   color: var(--color-background) !important;
   border: none !important;
@@ -158,16 +158,16 @@
 
 .wp-block-woocommerce-checkout .wc-block-components-button:hover:not(:disabled),
 .wp-block-woocommerce-checkout .wc-block-components-totals-coupon__button:hover:not(:disabled),
-.woocommerce-checkout .button:hover,
-.woocommerce-checkout button.button:hover {
+#content .woocommerce-checkout .button:hover,
+#content .woocommerce-checkout button.button:hover {
   background-color: var(--color-accent-hover) !important;
   color: var(--color-background) !important;
 }
 
 .wp-block-woocommerce-checkout .wc-block-components-button:disabled,
 .wp-block-woocommerce-checkout .wc-block-components-totals-coupon__button:disabled,
-.woocommerce-checkout .button:disabled,
-.woocommerce-checkout button.button:disabled {
+#content .woocommerce-checkout .button:disabled,
+#content .woocommerce-checkout button.button:disabled {
   background-color: var(--color-muted) !important;
   color: var(--color-background) !important;
   opacity: 0.45;
@@ -524,25 +524,25 @@
   gap: 0 1rem;
 }
 
-.woocommerce-checkout .form-row {
+#content .woocommerce-checkout .form-row {
   width: 100%;
   margin-bottom: 1rem;
   padding: 0;
 }
 
-.woocommerce-checkout .form-row-first,
-.woocommerce-checkout .form-row-last {
+#content .woocommerce-checkout .form-row-first,
+#content .woocommerce-checkout .form-row-last {
   width: calc(50% - 0.5rem);
   flex: 1 1 140px;
 }
 
-.woocommerce-checkout .form-row-wide {
+#content .woocommerce-checkout .form-row-wide {
   width: 100%;
   flex: 1 1 100%;
 }
 
 /* Labels */
-.woocommerce-checkout .form-row label {
+#content .woocommerce-checkout .form-row label {
   display: block;
   font-size: 0.8125rem;
   font-weight: 600;
@@ -552,21 +552,21 @@
   margin-bottom: 0.375rem;
 }
 
-.woocommerce-checkout .form-row label .optional {
+#content .woocommerce-checkout .form-row label .optional {
   font-weight: 400;
   text-transform: none;
   letter-spacing: normal;
   color: var(--color-muted);
 }
 
-.woocommerce-checkout .form-row .required {
+#content .woocommerce-checkout .form-row .required {
   color: var(--color-alert);
   font-weight: 700;
 }
 
 /* Text inputs & textarea */
-.woocommerce-checkout .input-text,
-.woocommerce-checkout textarea.input-text {
+#content .woocommerce-checkout .input-text,
+#content .woocommerce-checkout textarea.input-text {
   width: 100%;
   padding: 0.625rem 0.875rem;
   border: 1px solid var(--color-border);
@@ -581,20 +581,20 @@
   box-sizing: border-box;
 }
 
-.woocommerce-checkout .input-text:focus,
-.woocommerce-checkout textarea.input-text:focus {
+#content .woocommerce-checkout .input-text:focus,
+#content .woocommerce-checkout textarea.input-text:focus {
   outline: none;
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
 }
 
-.woocommerce-checkout textarea.input-text {
+#content .woocommerce-checkout textarea.input-text {
   resize: vertical;
   min-height: 80px;
 }
 
 /* Native selects (country, state when not select2) */
-.woocommerce-checkout select {
+#content .woocommerce-checkout select {
   width: 100%;
   padding: 0.625rem 0.875rem;
   border: 1px solid var(--color-border);
@@ -612,26 +612,26 @@
   transition: border-color var(--duration-fast) var(--ease-fluid);
 }
 
-.woocommerce-checkout select:focus {
+#content .woocommerce-checkout select:focus {
   outline: none;
   border-color: var(--color-accent);
 }
 
 /* Validation states */
-.woocommerce-checkout .woocommerce-invalid .input-text,
-.woocommerce-checkout .woocommerce-invalid select {
+#content .woocommerce-checkout .woocommerce-invalid .input-text,
+#content .woocommerce-checkout .woocommerce-invalid select {
   border-color: var(--color-alert);
 }
 
-.woocommerce-checkout .woocommerce-validated .input-text,
-.woocommerce-checkout .woocommerce-validated select {
+#content .woocommerce-checkout .woocommerce-validated .input-text,
+#content .woocommerce-checkout .woocommerce-validated select {
   border-color: var(--color-success);
 }
 
 /* Validation error message */
-.woocommerce-checkout .validate-required em,
-.woocommerce-checkout .woocommerce-invalid .woocommerce-error,
-.woocommerce-checkout .form-row .woocommerce-error {
+#content .woocommerce-checkout .validate-required em,
+#content .woocommerce-checkout .woocommerce-invalid .woocommerce-error,
+#content .woocommerce-checkout .form-row .woocommerce-error {
   color: var(--color-alert);
   font-size: 0.8125rem;
   margin-top: 0.25rem;

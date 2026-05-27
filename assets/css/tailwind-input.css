@@ -2,24 +2,24 @@
 
 @theme {
   /* === COLORS — Backgrounds === */
-  --color-background:  #F4EEE6;   /* Warm Cream */
+  --color-background:  #F4F5F6;   /* Warm Cream */
   --color-surface:     #FFFFFF;   /* Clean White */
-  --color-surface-alt: #EFE4D8;   /* Warm Cream darker */
+  --color-surface-alt: #D9DADD;   /* Warm Cream darker */
 
   /* === COLORS — Text === */
-  --color-foreground:        #121212; /* Charcoal Black */
-  --color-foreground-muted:  #3A2418; /* Espresso Brown */
-  --color-muted:             #8C7464; /* Leather taupe */
+  --color-foreground:        #0B0B0D; /* Charcoal Black */
+  --color-foreground-muted:  #5B5D63; /* Espresso Brown */
+  --color-muted:             #5B5D63; /* Leather taupe */
 
   /* === COLORS — Brand === */
-  --color-accent:       #A96538;  /* Cognac Leather */
-  --color-accent-hover: #121212;  /* Charcoal Black */
-  --color-accent-soft:  #B8955A;  /* Muted Brass */
+  --color-accent:       #0B0B0D;  /* Cognac Leather */
+  --color-accent-hover: #2F3033;  /* Charcoal Black */
+  --color-accent-soft:  #5B5D63;  /* Muted Brass */
   --color-accent-blush: #5B1F23;  /* Oxblood */
   --color-oxblood:      #5B1F23;
 
   /* === COLORS — UI === */
-  --color-border:   #E0D2C4;
+  --color-border:   #D9DADD;
   --color-alert:    #5B1F23;
   --color-success:  #5C8A6A;
 
@@ -30,12 +30,13 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card:       0 1px 4px rgba(58, 36, 24, 0.08);
-  --shadow-card-hover: 0 6px 20px rgba(58, 36, 24, 0.14);
+  --shadow-card:       0 1px 4px rgba(91, 93, 99, 0.08);
+  --shadow-card-hover: 0 6px 20px rgba(91, 93, 99, 0.14);
 
   /* === TYPOGRAPHY === */
-  --font-sans:    'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans:    'Lato', 'Noto Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif:   'Playfair Display', 'Noto Serif', 'Georgia', serif;
+  --font-heading: 'Playfair Display', 'Noto Serif', 'Georgia', serif;
 
   /* === TRANSITIONS === */
   --ease-fluid:      cubic-bezier(0.4, 0, 0.2, 1);

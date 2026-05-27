@@ -6,34 +6,34 @@
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #F4EEE6;
+  --color-background: #F4F5F6;
   /* Warm Cream — page background */
   --color-surface: #FFFFFF;
   /* Warm Cream — section / card background */
-  --color-surface-alt: #EFE4D8;
+  --color-surface-alt: #D9DADD;
   /* Warm Cream darker — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #121212;
+  --color-foreground: #0B0B0D;
   /* Charcoal Black — headings, product names */
-  --color-foreground-muted: #3A2418;
+  --color-foreground-muted: #5B5D63;
   /* Espresso Brown — descriptions, meta */
-  --color-muted: #8C7464;
+  --color-muted: #5B5D63;
   /* Leather taupe — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #A96538;
+  --color-accent: #0B0B0D;
   /* Cognac Leather — primary CTA, highlights */
-  --color-accent-hover: #121212;
+  --color-accent-hover: #2F3033;
   /* Charcoal Black — primary CTA hover */
-  --color-accent-soft: #B8955A;
+  --color-accent-soft: #5B5D63;
   /* Muted Brass — subtle highlights, badges */
   --color-accent-blush: #5B1F23;
   /* Oxblood — secondary brand color */
   --color-oxblood: #5B1F23;
 
   /* === UI === */
-  --color-border: #E0D2C4;
+  --color-border: #D9DADD;
   /* Warm border — cards, dividers */
   --color-alert: #5B1F23;
   /* Error / alert */
@@ -41,8 +41,8 @@
   /* Success — muted green, fits boutique palette */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Lato', 'Noto Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Playfair Display', 'Noto Serif', 'Georgia', serif;
 
   /* === LEGACY WOOCOMMERCE ALIASES === */
   --font-primary: var(--font-sans);
@@ -55,7 +55,7 @@
   --color-original-price: var(--color-muted);
   --color-navy: var(--color-foreground);
   --color-navy-light: var(--color-accent);
-  --shadow-md: 0 4px 12px rgba(58, 36, 24, 0.12);
+  --shadow-md: 0 4px 12px rgba(91, 93, 99, 0.12);
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -78,8 +78,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(58, 36, 24, 0.08);
-  --shadow-card-hover: 0 6px 20px rgba(58, 36, 24, 0.14);
+  --shadow-card: 0 1px 4px rgba(91, 93, 99, 0.08);
+  --shadow-card-hover: 0 6px 20px rgba(91, 93, 99, 0.14);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -92,12 +92,55 @@
    BASE
    ============================================================= */
 
-#content {
+html,
+body {
   font-family: var(--font-sans);
+  color: var(--color-foreground);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-sans);
+}
+
+#content,
+#site-header,
+#mobile-drawer,
+#colophon {
+  font-family: var(--font-sans);
+}
+
+#content {
   background-color: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+}
+
+.font-heading,
+.font-serif,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+#site-header,
+#mobile-drawer,
+#colophon,
+.woocommerce,
+.woocommerce-page,
+.woocommerce-notices-wrapper {
+  font-family: var(--font-sans);
 }
 
 /* =============================================================

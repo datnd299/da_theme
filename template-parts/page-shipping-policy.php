@@ -116,26 +116,26 @@ $render_icon = static function ($icon) {
 };
 ?>
 
-<main class="bg-[#F4EEE6] text-[#121212]">
+<main class="bg-[#F4F5F6] text-[#0B0B0D]">
   <!-- ================= HERO ================= -->
-  <section class="relative overflow-hidden bg-[#121212] text-white" aria-labelledby="shipping-policy-title">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(169,101,56,0.32),transparent_36%),linear-gradient(135deg,#121212_0%,#3A2418_60%,#121212_100%)]"></div>
-    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4EEE6] to-transparent"></div>
+  <section class="relative overflow-hidden bg-[#0B0B0D] text-white" aria-labelledby="shipping-policy-title">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_34%),linear-gradient(135deg,#0B0B0D_0%,#1A1A1D_54%,#050506_100%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4F5F6] to-transparent"></div>
 
     <div class="relative mx-auto grid max-w-7xl items-end gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10 lg:py-28">
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.22em] text-[#B8955A]">Shipping Policy</p>
-        <h1 id="shipping-policy-title" class="mt-5 font-serif text-5xl font-semibold leading-[1.02] text-[#F4EEE6] sm:text-6xl lg:text-7xl">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/60">Shipping Policy</p>
+        <h1 id="shipping-policy-title" class="mt-5 font-serif text-5xl font-semibold leading-[1.02] text-[#F4F5F6] sm:text-6xl lg:text-7xl">
           Clear Shipping Details From Checkout To Delivery
         </h1>
         <p class="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
           <?php echo esc_html($store_name); ?> provides clear shipping timelines, order cutoff details, tracking information, and customer support for delivery questions before and after your order is placed.
         </p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="<?php echo esc_url($track_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+          <a href="<?php echo esc_url($track_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#0B0B0D] transition hover:bg-[#D9DADD]">
             Track Your Order
           </a>
-          <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#F4EEE6] transition hover:bg-[#A96538] hover:text-white">
+          <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#0B0B0D]">
             Contact Support
           </a>
         </div>
@@ -144,13 +144,13 @@ $render_icon = static function ($icon) {
       <div class="grid gap-4 sm:grid-cols-3">
         <?php foreach ($hero_cards as $card) : ?>
           <article class="rounded-3xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-sm">
-            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#A96538] text-white">
+            <div class="flex h-11 w-11 items-center justify-center rounded-full bg-[#0B0B0D] text-white">
               <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
               </svg>
             </div>
-            <p class="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-[#B8955A]"><?php echo esc_html($card['label']); ?></p>
-            <h2 class="mt-2 font-serif text-lg font-semibold leading-snug text-[#F4EEE6]"><?php echo esc_html($card['value']); ?></h2>
+            <p class="mt-4 text-xs font-bold uppercase tracking-[0.14em] text-white/60"><?php echo esc_html($card['label']); ?></p>
+            <h2 class="mt-2 font-serif text-lg font-semibold leading-snug text-[#F4F5F6]"><?php echo esc_html($card['value']); ?></h2>
             <p class="mt-3 text-sm leading-6 text-white/65"><?php echo esc_html($card['copy']); ?></p>
           </article>
         <?php endforeach; ?>
@@ -159,22 +159,22 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= SHIPPING OVERVIEW ================= -->
-  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24" aria-labelledby="shipping-overview-title">
+  <section class="bg-[#F4F5F6] py-16 sm:py-20 lg:py-24" aria-labelledby="shipping-overview-title">
     <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Shipping Overview</p>
-        <h2 id="shipping-overview-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Shipping Overview</p>
+        <h2 id="shipping-overview-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           Estimated delivery is based on cutoff, handling, and transit time.
         </h2>
-        <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+        <p class="mt-5 text-base leading-8 text-[#5B5D63]/72">
           Your estimated delivery time is calculated from the order cutoff time, order handling time, and carrier transit time. Orders placed after the cutoff begin processing on the next business day.
         </p>
 
         <div class="mt-8 grid gap-3 sm:grid-cols-2">
           <?php foreach ($overview_facts as $fact) : ?>
-            <div class="rounded-3xl border border-[#3A2418]/10 bg-white p-5 shadow-sm">
-              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#A96538]"><?php echo esc_html($fact['label']); ?></p>
-              <p class="mt-2 text-sm font-bold leading-6 text-[#121212]"><?php echo esc_html($fact['value']); ?></p>
+            <div class="rounded-3xl border border-[#5B5D63]/10 bg-white p-5 shadow-sm">
+              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#5B5D63]"><?php echo esc_html($fact['label']); ?></p>
+              <p class="mt-2 text-sm font-bold leading-6 text-[#0B0B0D]"><?php echo esc_html($fact['value']); ?></p>
             </div>
           <?php endforeach; ?>
         </div>
@@ -182,13 +182,13 @@ $render_icon = static function ($icon) {
 
       <div class="grid gap-4">
         <?php foreach ($timeline_steps as $index => $step) : ?>
-          <article class="rounded-3xl border border-[#3A2418]/10 bg-white p-5 shadow-sm">
+          <article class="rounded-3xl border border-[#5B5D63]/10 bg-white p-5 shadow-sm">
             <div class="flex gap-4">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#A96538] text-sm font-bold text-white"><?php echo esc_html($index + 1); ?></span>
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#0B0B0D] text-sm font-bold text-white"><?php echo esc_html($index + 1); ?></span>
               <div>
-                <p class="mb-2 inline-flex rounded-full bg-[#F4EEE6] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#A96538]"><?php echo esc_html($step['meta']); ?></p>
-                <h3 class="font-serif text-xl font-semibold text-[#121212]"><?php echo esc_html($step['title']); ?></h3>
-                <p class="mt-2 text-sm leading-7 text-[#3A2418]/72"><?php echo esc_html($step['copy']); ?></p>
+                <p class="mb-2 inline-flex rounded-full bg-[#F4F5F6] px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-[#5B5D63]"><?php echo esc_html($step['meta']); ?></p>
+                <h3 class="font-serif text-xl font-semibold text-[#0B0B0D]"><?php echo esc_html($step['title']); ?></h3>
+                <p class="mt-2 text-sm leading-7 text-[#5B5D63]/72"><?php echo esc_html($step['copy']); ?></p>
               </div>
             </div>
           </article>
@@ -201,45 +201,45 @@ $render_icon = static function ($icon) {
   <section class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="shipping-locations-title">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
       <div class="mb-10 max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Shipping Details</p>
-        <h2 id="shipping-locations-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Shipping Details</p>
+        <h2 id="shipping-locations-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           Locations, carriers, and shipping costs.
         </h2>
       </div>
 
       <div class="grid gap-5 lg:grid-cols-3">
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
-          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#A96538]">
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6 shadow-sm">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0B0B0D]">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <?php echo $render_icon('map'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </svg>
           </div>
-          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#121212]">Shipping Locations</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#0B0B0D]">Shipping Locations</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             <?php echo esc_html(sprintf('%s currently ships to the %s. Some items may have shipping restrictions due to size, weight, carrier limits, product type, or local regulations.', $store_name, $shipping_region)); ?>
           </p>
         </article>
 
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
-          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#A96538]">
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6 shadow-sm">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0B0B0D]">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <?php echo $render_icon('truck'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </svg>
           </div>
-          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#121212]">Shipping Carriers</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#0B0B0D]">Shipping Carriers</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             Orders may be shipped using trusted carriers such as USPS, UPS, FedEx, DHL, regional carriers, or specialized carriers for oversized items when applicable.
           </p>
         </article>
 
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6 shadow-sm">
-          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#A96538]">
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6 shadow-sm">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#0B0B0D]">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
             </svg>
           </div>
-          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#121212]">Shipping Costs</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">
+          <h3 class="mt-5 font-serif text-2xl font-semibold text-[#0B0B0D]">Shipping Costs</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">
             Shipping costs, available shipping methods, and any applicable fees are shown at checkout before payment is completed. Oversized or special-handling items may have different shipping requirements.
           </p>
         </article>
@@ -248,11 +248,11 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= TRACKING / MULTIPLE PACKAGES ================= -->
-  <section class="bg-[#121212] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="tracking-title">
+  <section class="bg-[#0B0B0D] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="tracking-title">
     <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
       <article class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Tracking Your Order</p>
-        <h2 id="tracking-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4EEE6] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/60">Tracking Your Order</p>
+        <h2 id="tracking-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4F5F6] sm:text-5xl">
           Tracking is sent after your order ships.
         </h2>
         <p class="mt-5 text-sm leading-7 text-white/68">
@@ -261,14 +261,14 @@ $render_icon = static function ($icon) {
         <p class="mt-4 text-sm leading-7 text-white/68">
           Please allow up to 24–48 hours for tracking information to update after the carrier receives the package.
         </p>
-        <a href="<?php echo esc_url($track_url); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+        <a href="<?php echo esc_url($track_url); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#0B0B0D] transition hover:bg-[#D9DADD]">
           Track Your Order
         </a>
       </article>
 
       <article class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Multiple Packages</p>
-        <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4EEE6] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/60">Multiple Packages</p>
+        <h2 class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#F4F5F6] sm:text-5xl">
           Some orders may arrive separately.
         </h2>
         <p class="mt-5 text-sm leading-7 text-white/68">
@@ -282,27 +282,27 @@ $render_icon = static function ($icon) {
   </section>
 
   <!-- ================= DELIVERY ISSUES ================= -->
-  <section class="bg-[#F4EEE6] py-16 sm:py-20 lg:py-24" aria-labelledby="delivery-issues-title">
+  <section class="bg-[#F4F5F6] py-16 sm:py-20 lg:py-24" aria-labelledby="delivery-issues-title">
     <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:px-10">
       <div>
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Delivery Issues</p>
-        <h2 id="delivery-issues-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Delivery Issues</p>
+        <h2 id="delivery-issues-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           Contact us if your shipment needs attention.
         </h2>
-        <p class="mt-5 text-base leading-8 text-[#3A2418]/72">
+        <p class="mt-5 text-base leading-8 text-[#5B5D63]/72">
           If you experience a delivery issue, contact our support team with your order number, email used at checkout, delivery address, tracking number, photos if applicable, and a short description of the issue.
         </p>
-        <a href="<?php echo esc_url($contact_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#121212] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[#A96538]">
+        <a href="<?php echo esc_url($contact_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#0B0B0D] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-[#2F3033]">
           Contact Support
         </a>
       </div>
 
-      <div class="rounded-[2rem] border border-[#3A2418]/10 bg-white p-6 shadow-sm">
-        <h3 class="font-serif text-3xl font-semibold text-[#121212]">Common delivery issues include:</h3>
+      <div class="rounded-[2rem] border border-[#5B5D63]/10 bg-white p-6 shadow-sm">
+        <h3 class="font-serif text-3xl font-semibold text-[#0B0B0D]">Common delivery issues include:</h3>
         <ul class="mt-6 grid gap-3 sm:grid-cols-2">
           <?php foreach ($delivery_issues as $issue) : ?>
-            <li class="flex gap-3 rounded-2xl border border-[#3A2418]/10 bg-[#F4EEE6] p-4 text-sm leading-6 text-[#3A2418]/72">
-              <svg class="mt-1 h-4 w-4 shrink-0 text-[#A96538]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <li class="flex gap-3 rounded-2xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-4 text-sm leading-6 text-[#5B5D63]/72">
+              <svg class="mt-1 h-4 w-4 shrink-0 text-[#0B0B0D]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
               </svg>
               <span><?php echo esc_html($issue); ?></span>
@@ -317,54 +317,54 @@ $render_icon = static function ($icon) {
   <section class="bg-white py-16 sm:py-20 lg:py-24" aria-labelledby="shipping-details-title">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
       <div class="mb-10 max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#A96538]">Additional Shipping Details</p>
-        <h2 id="shipping-details-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#121212] sm:text-5xl">
+        <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#5B5D63]">Additional Shipping Details</p>
+        <h2 id="shipping-details-title" class="mt-4 font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
           Address accuracy, lost packages, damaged packages, and delays.
         </h2>
       </div>
 
       <div class="grid gap-5 md:grid-cols-2">
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
-          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Incorrect Shipping Address</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">Customers are responsible for entering a complete and accurate shipping address at checkout. If you notice an address error, contact us as soon as possible. We can only update the address if the order has not yet been processed or shipped.</p>
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Incorrect Shipping Address</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">Customers are responsible for entering a complete and accurate shipping address at checkout. If you notice an address error, contact us as soon as possible. We can only update the address if the order has not yet been processed or shipped.</p>
         </article>
 
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
-          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Lost Packages</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">If a package appears lost or has no tracking updates for an extended period, contact us within 30 days of the expected delivery date or latest tracking status. We will review the tracking information and may contact the carrier.</p>
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Lost Packages</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">If a package appears lost or has no tracking updates for an extended period, contact us within 30 days of the expected delivery date or latest tracking status. We will review the tracking information and may contact the carrier.</p>
         </article>
 
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
-          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Damaged Packages</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">If your order arrives damaged, contact us within 30 days of delivery with your order number, photos of the damaged item, photos of the outer packaging, and photos of the shipping label. Please keep the item and packaging until the issue is resolved.</p>
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Damaged Packages</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">If your order arrives damaged, contact us within 30 days of delivery with your order number, photos of the damaged item, photos of the outer packaging, and photos of the shipping label. Please keep the item and packaging until the issue is resolved.</p>
         </article>
 
-        <article class="rounded-3xl border border-[#3A2418]/10 bg-[#F4EEE6] p-6">
-          <h3 class="font-serif text-2xl font-semibold text-[#121212]">Restrictions And Delays</h3>
-          <p class="mt-3 text-sm leading-7 text-[#3A2418]/72">Some products may be subject to restrictions due to size, weight, carrier limitations, product type, or local regulations. Delays may occur due to weather, holidays, high order volume, warehouse delays, carrier conditions, or incomplete shipping information.</p>
+        <article class="rounded-3xl border border-[#5B5D63]/10 bg-[#F4F5F6] p-6">
+          <h3 class="font-serif text-2xl font-semibold text-[#0B0B0D]">Restrictions And Delays</h3>
+          <p class="mt-3 text-sm leading-7 text-[#5B5D63]/72">Some products may be subject to restrictions due to size, weight, carrier limitations, product type, or local regulations. Delays may occur due to weather, holidays, high order volume, warehouse delays, carrier conditions, or incomplete shipping information.</p>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ================= SUPPORT CTA ================= -->
-  <section class="bg-[#3A2418] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="shipping-support-title">
+  <section class="bg-[#1A1A1D] py-16 text-white sm:py-20 lg:py-24" aria-labelledby="shipping-support-title">
     <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
       <div class="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 sm:p-8">
         <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
-            <p class="text-xs font-bold uppercase tracking-[0.2em] text-[#B8955A]">Customer Support</p>
-            <h2 id="shipping-support-title" class="mt-3 font-serif text-4xl font-semibold text-[#F4EEE6]">Need help with shipping or delivery?</h2>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-white/60">Customer Support</p>
+            <h2 id="shipping-support-title" class="mt-3 font-serif text-4xl font-semibold text-[#F4F5F6]">Need help with shipping or delivery?</h2>
             <p class="mt-4 text-sm leading-7 text-white/70">
-              Email <a class="font-bold text-[#B8955A] underline decoration-[#B8955A]/40 underline-offset-4 transition hover:text-white" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a> with your order number and tracking details. Business hours: <?php echo esc_html($business_hours); ?>. <?php echo esc_html($response_time); ?>
+              Email <a class="font-bold text-white/60 underline decoration-white/30 underline-offset-4 transition hover:text-white" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a> with your order number and tracking details. Business hours: <?php echo esc_html($business_hours); ?>. <?php echo esc_html($response_time); ?>
             </p>
           </div>
 
           <div class="flex flex-col gap-3 sm:flex-row">
-            <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#A96538] px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+            <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#0B0B0D] transition hover:bg-[#D9DADD]">
               Contact Support
             </a>
-            <a href="<?php echo esc_url($faq_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-transparent px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#121212]">
+            <a href="<?php echo esc_url($faq_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-transparent px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#0B0B0D]">
               Read FAQs
             </a>
           </div>
@@ -373,3 +373,4 @@ $render_icon = static function ($icon) {
     </div>
   </section>
 </main>
+

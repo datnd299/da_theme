@@ -6,15 +6,15 @@
 .wc-block-cart,
 .wp-block-woocommerce-empty-cart-block {
   --color-background: #FFFFFF;
-  --color-surface: #F4EEE6;
-  --color-surface-alt: #E7D8CA;
-  --color-foreground: #3A2418;
-  --color-foreground-muted: #6B5141;
-  --color-muted: #9B7F6B;
-  --color-accent: #A96538;
-  --color-accent-hover: #3A2418;
-  --color-accent-soft: #EAD7C6;
-  --color-border: #E2D2C4;
+  --color-surface: #F4F5F6;
+  --color-surface-alt: #D9DADD;
+  --color-foreground: #0B0B0D;
+  --color-foreground-muted: #5B5D63;
+  --color-muted: #5B5D63;
+  --color-accent: #0B0B0D;
+  --color-accent-hover: #2F3033;
+  --color-accent-soft: #D9DADD;
+  --color-border: #D9DADD;
   --color-alert: #C0392B;
 }
 

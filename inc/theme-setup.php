@@ -32,19 +32,6 @@ function dawp_favicon() {
 }
 }
 
-add_action('template_redirect', 'redirect_search_to_product');
-if (!function_exists('redirect_search_to_product')) {
-function redirect_search_to_product() {
-    // Chỉ xử lý khi là trang search và chưa có post_type
-    if (is_search() && !isset($_GET['post_type'])) {
-        wp_safe_redirect(
-            add_query_arg('post_type', 'product', $_SERVER['REQUEST_URI'])
-        );
-        exit;
-    }
-}
-}
-
 add_filter('template_include', 'theme_search_template');
 if (!function_exists('theme_search_template')) {
 function theme_search_template($template) {

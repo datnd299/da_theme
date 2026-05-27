@@ -68,7 +68,6 @@ $nav_items = [
                            name="s"
                            placeholder="<?php esc_attr_e('Search shoes', 'dawp'); ?>"
                            class="h-10 w-36 rounded-full border border-[#EEE5EF] bg-[#F6F5F7] px-4 text-sm text-[#141217] placeholder:text-[#6F625D] outline-none transition focus:border-[#E6007E] focus:bg-white lg:w-44">
-                    <input type="hidden" name="post_type" value="product">
                 </form>
 
                 <button type="button"
@@ -121,7 +120,6 @@ $nav_items = [
                    placeholder="<?php esc_attr_e('Search shoes...', 'dawp'); ?>"
                    autofocus
                    class="h-10 flex-1 rounded-full border border-[#EEE5EF] bg-[#F6F5F7] px-4 text-sm text-[#141217] placeholder:text-[#6F625D] outline-none focus:border-[#E6007E] focus:bg-white">
-            <input type="hidden" name="post_type" value="product">
             <button type="submit"
                     class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#E6007E] text-white transition hover:bg-[#7C3AED]"
                     aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">

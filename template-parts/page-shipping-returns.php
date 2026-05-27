@@ -9,25 +9,25 @@ $policy_cards = [
     [
         'number' => '01',
         'title'  => __('Order Cutoff', 'dawp'),
-        'copy'   => __('Orders placed by 2:00 PM Pacific Standard Time are reviewed for same-day fulfillment timing.', 'dawp'),
+        'copy'   => __('5:00 PM Pacific Standard Time.', 'dawp'),
         'color'  => '#2563EB',
     ],
     [
         'number' => '02',
-        'title'  => __('Fast Handling', 'dawp'),
-        'copy'   => __('Orders are prepared in 0-1 business days, Monday through Saturday, after the order cutoff.', 'dawp'),
+        'title'  => __('Handling Time', 'dawp'),
+        'copy'   => __('Orders are fulfilled within 1-3 business days, Monday through Friday.', 'dawp'),
         'color'  => '#06B6D4',
     ],
     [
         'number' => '03',
-        'title'  => __('Delivery Estimate', 'dawp'),
-        'copy'   => __('Estimated delivery time for all destinations is 0-1 business days based on our current store policy.', 'dawp'),
+        'title'  => __('Transit Time', 'dawp'),
+        'copy'   => __('After processing is complete, U.S. transit typically takes 3-5 business days.', 'dawp'),
         'color'  => '#C026D3',
     ],
     [
         'number' => '04',
-        'title'  => __('30-Day Returns', 'dawp'),
-        'copy'   => __('We accept returns and exchanges by mail for eligible new products within 30 days.', 'dawp'),
+        'title'  => __('Shipping Cost', 'dawp'),
+        'copy'   => __('Free standard shipping on U.S. orders.', 'dawp'),
         'color'  => '#65A30D',
     ],
 ];
@@ -36,44 +36,46 @@ $sections = [
     [
         'id'      => 'shipping',
         'eyebrow' => __('Shipping Policy', 'dawp'),
-        'title'   => __('Order cutoff, handling, and delivery time.', 'dawp'),
+        'title'   => __('Processing, shipping, and delivery time.', 'dawp'),
         'body'    => [
-            __('Elite Shop Express uses a 2:00 PM Pacific Standard Time order cutoff. Orders placed after the cutoff may begin processing on the next eligible fulfillment day.', 'dawp'),
-            __('Handling time is 0-1 business days. Fulfillment is available Monday through Saturday and includes order review, preparation, packing, and handoff for shipment.', 'dawp'),
-            __('Transit time is currently listed as 0 business days for all destinations in our store policy settings, with shipping available Monday through Saturday.', 'dawp'),
-            __('The total estimated delivery time for all destinations is 0-1 business days, calculated from the order cutoff, handling time, and transit time. Public holidays, carrier interruptions, address issues, or payment review may affect this estimate.', 'dawp'),
+            __('Orders placed before the 5:00 PM Pacific Standard Time cutoff begin processing after payment is confirmed. Orders placed after the cutoff may begin processing on the next business day.', 'dawp'),
+            __('Handling time is 1-3 business days, Monday through Friday. Handling includes order review, preparation, packing, and handoff for shipment.', 'dawp'),
+            __('After processing is complete, standard transit within the United States typically takes 3-5 business days depending on destination and carrier conditions.', 'dawp'),
+            __('Standard shipping is free on U.S. orders.', 'dawp'),
+            __('Estimated delivery dates are not guaranteed. Weather, public holidays, high order volume, incorrect addresses, customs or carrier interruptions, and other conditions outside our control may affect delivery timing.', 'dawp'),
         ],
     ],
     [
         'id'      => 'tracking',
-        'eyebrow' => __('Delivery Estimate', 'dawp'),
-        'title'   => __('How estimated delivery is calculated.', 'dawp'),
+        'eyebrow' => __('Tracking', 'dawp'),
+        'title'   => __('Shipment updates after dispatch.', 'dawp'),
         'body'    => [
-            __('Estimated delivery time is based on the time an order is placed, the order cutoff time, handling time, and transit time.', 'dawp'),
-            __('If an order is placed before 2:00 PM Pacific Standard Time, the same day may count toward the handling timeline when fulfillment is available. Orders placed after the cutoff are calculated from the next eligible fulfillment day.', 'dawp'),
-            __('Tracking information is provided once available. Please allow time for the carrier tracking page to update after a tracking number is created.', 'dawp'),
+            __('Tracking information is provided once it becomes available from the fulfillment or carrier system.', 'dawp'),
+            __('A tracking number may show limited movement at first. Please allow time for the carrier tracking page to update after the label is created or the package is scanned.', 'dawp'),
+            __('If tracking has not updated for an extended period, contact support with your order number and checkout email address so we can review the shipment status.', 'dawp'),
         ],
     ],
     [
         'id'      => 'returns',
         'eyebrow' => __('Return Policy', 'dawp'),
-        'title'   => __('Returns and exchanges accepted by mail.', 'dawp'),
+        'title'   => __('Return eligibility for shoes.', 'dawp'),
         'body'    => [
-            __('We accept returns for both defective and non-defective products, and we accept exchanges for eligible products.', 'dawp'),
-            __('Return requests must be made within 30 days. Eligible products must be new, unopened in original packaging, or otherwise unused.', 'dawp'),
-            __('Returns are accepted by mail. In-store returns and drop-off location returns are not available for this policy.', 'dawp'),
-            __('To request a return or exchange, contact support before sending anything back. Include your order number, checkout email address, item name, and reason for the request.', 'dawp'),
+            __('Return requests must be made within 30 days after delivery. Items sent back without first contacting support may not be accepted.', 'dawp'),
+            __('To be eligible for return, shoes must be unworn, unused, undamaged, and returned in the original shoebox and packaging with all included tags, inserts, and accessories where applicable.', 'dawp'),
+            __('Please do not place tape, labels, or postage directly on the original shoebox. The shoebox should be placed inside a separate shipping box or mailer before return shipment.', 'dawp'),
+            __('Returns are accepted by mail only. In-store returns and drop-off location returns are not available under this policy.', 'dawp'),
+            __('To request a return, contact support with your order number, checkout email address, item name, and reason for the request before sending anything back.', 'dawp'),
         ],
     ],
     [
         'id'      => 'refunds',
-        'eyebrow' => __('Return Costs', 'dawp'),
-        'title'   => __('Return labels, restocking fees, and refunds.', 'dawp'),
+        'eyebrow' => __('Refunds', 'dawp'),
+        'title'   => __('Return costs and refund processing.', 'dawp'),
         'body'    => [
-            __('Return label currency is USD. If needed, return-related amounts may be converted into the customer\'s local currency by the payment or carrier provider.', 'dawp'),
-            __('Return labels are download-and-print labels when available. Return label cost is the customer\'s responsibility unless support confirms otherwise for an approved order issue.', 'dawp'),
-            __('There is no restocking fee for eligible returns accepted under this policy.', 'dawp'),
-            __('Approved refunds are processed within 10 days after the returned item is received and reviewed. Your bank, card provider, or payment service may take additional time to post the refund.', 'dawp'),
+            __('Customers are responsible for return shipping costs unless support confirms a different resolution for an approved damaged, defective, incorrect, or missing item issue.', 'dawp'),
+            __('Original shipping charges, upgraded shipping fees, and any duties, taxes, or carrier fees are not refundable unless required by law or confirmed by support for an approved order issue.', 'dawp'),
+            __('Returned items are inspected after receipt. If the return is approved, the refund is issued to the original payment method.', 'dawp'),
+            __('Approved refunds are processed within 10 business days after the returned item is received and inspected. Your bank, card provider, or payment service may take additional time to post the refund.', 'dawp'),
         ],
     ],
     [
@@ -81,8 +83,8 @@ $sections = [
         'eyebrow' => __('Order Issues', 'dawp'),
         'title'   => __('Damaged, incorrect, or missing items.', 'dawp'),
         'body'    => [
-            __('If an item arrives damaged, incorrect, or missing from your package, contact us as soon as possible with your order number and clear photos of the product, packaging, and shipping label where relevant.', 'dawp'),
-            __('Our support team will review the details and help with the next available resolution based on the order issue, return eligibility, exchange availability, and product condition.', 'dawp'),
+            __('If an item arrives damaged, defective, incorrect, or missing from your package, contact us as soon as possible with your order number and clear photos of the product, packaging, and shipping label where relevant.', 'dawp'),
+            __('Our support team will review the details and provide the next available resolution based on the order issue, return eligibility, item condition, and available inventory.', 'dawp'),
         ],
     ],
 ];
@@ -96,10 +98,10 @@ $sections = [
                     <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
                 </p>
                 <h1 class="font-heading text-4xl font-black uppercase leading-[0.98] text-[#101828] sm:text-5xl lg:text-[4.25rem]">
-                    <?php esc_html_e('Fast delivery and clear return rules.', 'dawp'); ?>
+                    <?php esc_html_e('Shipping and return policy.', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-[#475467]">
-                    <?php esc_html_e('Review how Elite Shop Express handles order cutoff timing, 0-1 business day estimated delivery, 30-day returns, exchanges, return labels, and refund processing.', 'dawp'); ?>
+                    <?php esc_html_e('Review processing time, standard delivery expectations, tracking updates, 30-day return eligibility, shoe packaging requirements, return costs, and refund processing.', 'dawp'); ?>
                 </p>
             </div>
 
@@ -158,18 +160,18 @@ $sections = [
             <div class="max-w-xl">
                 <p class="mb-2 text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Need Help?', 'dawp'); ?></p>
                 <h2 class="font-heading text-3xl font-black uppercase leading-tight lg:text-[2.1rem]"><?php esc_html_e('Contact support before sending a return.', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Include your order number, checkout email, item name, and return or exchange reason so we can review your request clearly.', 'dawp'); ?></p>
+                <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Include your order number, checkout email, item name, photos when relevant, and return reason so we can review your request clearly.', 'dawp'); ?></p>
             </div>
             <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <a href="mailto:support@eliteshopexpress.com" class="border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Email', 'dawp'); ?></span>
+                <a href="mailto:support@eliteshopexpress.com" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Email', 'dawp'); ?></span>
                     <span class="mt-3 block break-words font-heading text-lg font-black uppercase leading-tight">support@eliteshopexpress.com</span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65"><?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?></span>
+                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?></span>
                 </a>
-                <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Tracking', 'dawp'); ?></span>
+                <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Tracking', 'dawp'); ?></span>
                     <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Check Order Status', 'dawp'); ?></span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65"><?php esc_html_e('Use your order details to review shipment updates.', 'dawp'); ?></span>
+                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('Use your order details to review shipment updates.', 'dawp'); ?></span>
                 </a>
             </div>
         </div>

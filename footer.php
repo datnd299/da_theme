@@ -7,6 +7,7 @@
 
 $current_year  = date_i18n('Y');
 $support_email = 'support@eliteshopexpress.com';
+$support_address = '123 Market Street, New York, NY 10001';
 
 $footer_shop_links = dawp_product_category_links();
 
@@ -20,7 +21,7 @@ $footer_care_links = [
 
 $footer_policy_links = [
     ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
-    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Shipping & Return Policy', 'dawp'), 'url' => home_url('/shipping-returns/')],
     ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
     ['title' => __('Terms of Service', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
@@ -36,7 +37,7 @@ $trust_items = [
     ],
     [
         'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unused and undamaged items may be returned within 30 days of delivery.', 'dawp'),
+        'copy'  => __('Eligible unworn and undamaged shoes may be returned within 30 days of delivery.', 'dawp'),
     ],
     [
         'title' => __('Practical Product Details', 'dawp'),
@@ -76,35 +77,22 @@ $trust_items = [
                          height="60">
                 </a>
 
-                <form role="search"
-                      method="get"
-                      action="<?php echo esc_url(home_url('/')); ?>"
-                      autocomplete="off"
-                      class="mt-7 flex max-w-md flex-col gap-3 border border-white/10 bg-white/5 p-3 sm:flex-row">
-                    <label for="elite-footer-search" class="sr-only">
-                        <?php esc_html_e('Search products', 'dawp'); ?>
-                    </label>
-
-                    <input id="elite-footer-search"
-                           type="search"
-                           name="s"
-                           autocomplete="off"
-                           placeholder="<?php esc_attr_e('Search everyday essentials', 'dawp'); ?>"
-                           class="min-h-12 flex-1 rounded-full border border-white/10 bg-white px-4 text-[#101828] placeholder:text-[#667085] outline-none transition focus:border-[#2563EB] focus:ring-2 focus:ring-[#DBEAFE]">
-
-                    <input type="hidden" name="post_type" value="product">
-
-                    <button type="submit"
-                            class="min-h-12 rounded-full bg-[#2563EB] px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#06B6D4]">
-                        <?php esc_html_e('Search', 'dawp'); ?>
-                    </button>
-                </form>
-
-                <div class="mt-6 flex flex-wrap gap-3">
+                <div class="mt-7 space-y-3 text-sm font-bold text-white/75">
                     <a href="mailto:<?php echo esc_attr($support_email); ?>"
-                       class="inline-flex min-h-10 items-center justify-center rounded-full border border-white/15 px-4 text-xs font-black uppercase tracking-wide text-white/85 transition hover:border-[#67E8F9] hover:text-[#67E8F9]">
-                        <?php echo esc_html($support_email); ?>
+                       class="inline-flex items-center gap-3 transition hover:text-[#67E8F9]">
+                        <svg class="h-5 w-5 flex-none text-[#67E8F9]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span><?php echo esc_html($support_email); ?></span>
                     </a>
+                    <p class="flex items-start gap-3">
+                        <svg class="mt-0.5 h-5 w-5 flex-none text-[#67E8F9]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                        <span><?php echo esc_html($support_address); ?></span>
+                    </p>
                 </div>
             </div>
 

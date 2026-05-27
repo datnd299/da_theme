@@ -68,7 +68,7 @@ $sections = [
         'body'    => [
             __('Orders are processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'),
             __('Tracking information is provided once an order ships. Delivery timelines are estimates and may be affected by carrier delays, weather, holidays, high-volume periods, or address issues.', 'dawp'),
-            __('Eligible returns may be requested within 30 days of delivery. Items must be unused, undamaged, and in original condition with original packaging where applicable. Personal care items may be subject to hygiene and original condition requirements.', 'dawp'),
+            __('Eligible returns may be requested within 30 days of delivery. Shoes must be unworn, unused, undamaged, and returned in the original shoebox and packaging with included tags, inserts, and accessories where applicable.', 'dawp'),
         ],
     ],
     [
@@ -165,15 +165,15 @@ $sections = [
                 <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Shipping, return, and privacy details help set clear expectations before and after checkout.', 'dawp'); ?></p>
             </div>
             <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></span>
+                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></span>
                     <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Delivery and return rules', 'dawp'); ?></span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65"><?php esc_html_e('Processing, tracking, return window, and refund review details.', 'dawp'); ?></span>
+                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('Processing, tracking, return window, shoe packaging, and refund review details.', 'dawp'); ?></span>
                 </a>
-                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></span>
+                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></span>
                     <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Customer information use', 'dawp'); ?></span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65"><?php esc_html_e('How order, support, and website information may be handled.', 'dawp'); ?></span>
+                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('How order, support, and website information may be handled.', 'dawp'); ?></span>
                 </a>
             </div>
         </div>

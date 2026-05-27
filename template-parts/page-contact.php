@@ -19,7 +19,7 @@ $quick_help = [
     [
         'number' => '02',
         'title'  => __('Shipping & Returns', 'dawp'),
-        'copy'   => __('Review processing times, delivery expectations, return eligibility, and personal care item notes.', 'dawp'),
+        'copy'   => __('Review processing times, delivery expectations, return eligibility, shoe packaging requirements, and refund timing.', 'dawp'),
         'url'    => home_url('/shipping-returns/'),
         'color'  => '#06B6D4',
     ],
@@ -46,7 +46,7 @@ $quick_help = [
         <div class="absolute bottom-0 left-0 h-28 w-full bg-white"></div>
 
         <div class="relative mx-auto max-w-7xl px-4 pb-14 pt-10 sm:px-6 lg:px-8 lg:pb-20 lg:pt-16">
-            <div class="grid grid-cols-1 gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
                 <div class="max-w-4xl">
                     <p class="mb-5 inline-flex rounded-full bg-[#DBEAFE] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]">
                         <?php esc_html_e('Contact Elite Shop Express', 'dawp'); ?>
@@ -73,19 +73,23 @@ $quick_help = [
                     </div>
                 </div>
 
-                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 lg:justify-self-end">
                     <a href="mailto:support@eliteshopexpress.com"
-                       class="group border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#2563EB]/30 hover:shadow-xl hover:shadow-[#101828]/10">
-                        <span class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#2563EB] text-sm font-black text-white">@</span>
-                        <span class="block text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('Support Email', 'dawp'); ?></span>
-                        <span class="mt-2 block break-words text-base font-black leading-6 text-[#101828] group-hover:text-[#2563EB]">support@eliteshopexpress.com</span>
+                       class="group grid grid-cols-[auto_1fr] items-center gap-5 border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#2563EB]/30 hover:shadow-xl hover:shadow-[#101828]/10 lg:w-[26rem]">
+                        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-[#2563EB] text-sm font-black text-white">@</span>
+                        <span class="min-w-0">
+                            <span class="block text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('Support Email', 'dawp'); ?></span>
+                            <span class="mt-2 block break-words text-base font-black leading-6 text-[#101828] group-hover:text-[#2563EB]">support@eliteshopexpress.com</span>
+                        </span>
                     </a>
 
-                    <div class="border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                        <span class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#101828] text-sm font-black text-white">9-6</span>
-                        <span class="block text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('Business Hours', 'dawp'); ?></span>
-                        <span class="mt-2 block text-base font-black leading-6 text-[#101828]"><?php esc_html_e('Monday - Friday', 'dawp'); ?></span>
-                        <span class="mt-1 block text-sm leading-6 text-[#475467]"><?php esc_html_e('9:00 AM - 6:00 PM EST', 'dawp'); ?></span>
+                    <div class="grid grid-cols-[auto_1fr] items-center gap-5 border border-[#E5E7EB] bg-white p-6 shadow-sm lg:w-[26rem]">
+                        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-[#101828] text-sm font-black text-white">9-6</span>
+                        <span class="min-w-0">
+                            <span class="block text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('Business Hours', 'dawp'); ?></span>
+                            <span class="mt-2 block text-base font-black leading-6 text-[#101828]"><?php esc_html_e('Monday - Friday', 'dawp'); ?></span>
+                            <span class="mt-1 block text-sm leading-6 text-[#475467]"><?php esc_html_e('9:00 AM - 6:00 PM EST', 'dawp'); ?></span>
+                        </span>
                     </div>
                 </div>
             </div>

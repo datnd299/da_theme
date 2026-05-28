@@ -29,7 +29,6 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-hero__grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(320px,.98fr); gap:48px; align-items:center; padding:78px 0; }
   .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:24px; background:#fff; box-shadow:0 18px 46px rgba(47,31,53,.08); }
   .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
-  .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
   .qb-card { padding:22px; }
   .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:#fff4f6; color:var(--qb-plum); font-size:13px; }
   .qb-card h3, .qb-policy-card h2, .qb-mini-card strong { margin:18px 0 0; color:var(--qb-plum); }
@@ -61,8 +60,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-plum .qb-title, .qb-plum .qb-copy { color:#fff; }
   .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
   .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
-  @media (max-width:1080px) { .qb-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-mini-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-mini-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
 </style>
 
 <div class="qb-page qb-privacy">
@@ -86,15 +84,6 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <div class="qb-mini-card"><strong><?php esc_html_e('Privacy Help', 'dawp'); ?></strong><p><?php esc_html_e('Customers may contact support with privacy questions or information requests.', 'dawp'); ?></p></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="qb-section">
-    <div class="qb-wrap qb-summary-grid">
-      <div class="qb-card"><b>01</b><h3><?php esc_html_e('How We Collect', 'dawp'); ?></h3><p><?php esc_html_e('We collect information directly from you, automatically through site use, and from trusted third-party services.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>02</b><h3><?php esc_html_e('How We Use It', 'dawp'); ?></h3><p><?php esc_html_e('We use information for orders, shipping, support, fraud prevention, website improvement, and opt-in marketing.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Service Providers', 'dawp'); ?></h3><p><?php esc_html_e('Necessary details may be shared with providers for payments, shipping, analytics, hosting, email, and customer support.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Contact', 'dawp'); ?></h3><p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p></div>
     </div>
   </section>
 
@@ -264,12 +253,8 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
               <span><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></span>
             </div>
             <div class="qb-contact-item">
-              <strong><?php esc_html_e('Support Portal', 'dawp'); ?></strong>
-              <span><a href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us page', 'dawp'); ?></a></span>
-            </div>
-            <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

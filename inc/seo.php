@@ -20,11 +20,11 @@ function dawp_get_virtual_seo() {
         ],
         'contact-us' => [
             'title'       => "Contact Us – Queen's Bracelet",
-            'description' => "Contact Queen's Bracelet for help with orders, returns, or product inquiries. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST.",
+            'description' => "Contact Queen's Bracelet for help with orders, returns, or product inquiries. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.",
         ],
         'shipping-policy' => [
             'title'       => "Shipping Policy – Queen's Bracelet",
-            'description' => "Review Queen's Bracelet shipping policy, including U.S. shipping locations, 5:00 PM PST cutoff, 1-2 business day handling, 5-7 business day transit, free standard shipping, tracking, and delivery support.",
+            'description' => "Review Queen's Bracelet shipping policy, including U.S. shipping locations, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, tracking, and delivery support.",
         ],
         'return-refund-policy' => [
             'title'       => "Return & Refund Policy – Queen's Bracelet",

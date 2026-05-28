@@ -31,7 +31,6 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-mini-card { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:18px; }
   .qb-mini-card strong { display:block; color:var(--qb-plum); font-size:15px; }
   .qb-mini-card p { margin:7px 0 0; color:#675a6c; font-size:14px; line-height:1.65; }
-  .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
   .qb-card { padding:22px; background:#fff; }
   .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:#fff4f6; color:var(--qb-plum); font-size:13px; }
   .qb-card h3 { margin:18px 0 0; color:var(--qb-plum); font-size:19px; }
@@ -64,8 +63,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-plum .qb-button { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
   .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
-  @media (max-width:1080px) { .qb-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-mini-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; gap:30px; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-mini-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; gap:30px; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
 </style>
 
 <div class="qb-page qb-shipping-policy">
@@ -86,24 +84,14 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <div class="qb-mini-grid">
           <div class="qb-mini-card"><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><p><?php esc_html_e('United States customers.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><p><?php esc_html_e('5:00 PM PST, Los Angeles time.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Handling Time', 'dawp'); ?></strong><p><?php esc_html_e('1-2 business days.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Handling Time', 'dawp'); ?></strong><p><?php esc_html_e('1-3 business days.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Transit Time', 'dawp'); ?></strong><p><?php esc_html_e('5-7 business days.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Estimated Delivery', 'dawp'); ?></strong><p><?php esc_html_e('Usually 6-9 business days.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Shipping Cost', 'dawp'); ?></strong><p><?php esc_html_e('Free standard U.S. shipping unless noted at checkout.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Estimated Delivery', 'dawp'); ?></strong><p><?php esc_html_e('Usually 6-10 business days.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Shipping Cost', 'dawp'); ?></strong><p><?php esc_html_e('Free standard U.S. shipping', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Business Days', 'dawp'); ?></strong><p><?php esc_html_e('Monday-Friday, excluding holidays.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Tracking', 'dawp'); ?></strong><p><?php esc_html_e('Emailed after shipment.', 'dawp'); ?></p></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="qb-section">
-    <div class="qb-wrap qb-summary-grid">
-      <div class="qb-card"><b>01</b><h3><?php esc_html_e('U.S. Shipping', 'dawp'); ?></h3><p><?php esc_html_e('We currently ship Queen\'s Bracelet orders within the United States.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Cutoff', 'dawp'); ?></h3><p><?php esc_html_e('Orders placed after 5:00 PM PST begin processing the next business day.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Order Prep', 'dawp'); ?></h3><p><?php esc_html_e('Orders are confirmed, packed, and handed to the carrier within 1-2 business days.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Delivery Window', 'dawp'); ?></h3><p><?php esc_html_e('Standard U.S. shipping usually takes 5-7 business days in transit, with delivery usually estimated at 6-9 business days.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>05</b><h3><?php esc_html_e('Support', 'dawp'); ?></h3><p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p></div>
     </div>
   </section>
 
@@ -141,9 +129,9 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <ul>
             <li><?php esc_html_e('Order cutoff time: 5:00 PM (GMT-08:00) Pacific Standard Time, Los Angeles.', 'dawp'); ?></li>
             <li><?php esc_html_e('Orders placed after the cutoff start processing the next business day.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Order handling time: 1-2 business days, Monday to Friday.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Order handling time: 1-3 business days, Monday to Friday.', 'dawp'); ?></li>
             <li><?php esc_html_e('Transit time: 5-7 business days, Monday to Friday.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Estimated delivery time: usually 6-9 business days.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Estimated delivery time: usually 6-10 business days.', 'dawp'); ?></li>
           </ul>
           <p class="qb-note"><?php esc_html_e('Business days do not include weekends or public holidays. Delivery estimates are not guaranteed dates, but they reflect the usual shipping window for standard U.S. orders.', 'dawp'); ?></p>
           <h3><?php esc_html_e('Notes for multi-item orders', 'dawp'); ?></h3>
@@ -165,9 +153,9 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <h2><?php esc_html_e('Standard U.S. shipping is free unless checkout shows otherwise.', 'dawp'); ?></h2>
           <ul>
             <li><?php esc_html_e('Free Shipping: Most U.S. orders qualify for free standard shipping.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Paid Shipping: If a shipping charge applies to your item, address, or selected service, the exact cost will be shown at checkout before payment.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Optional Paid Shipping: Customers may choose a faster or assisted shipping service when available. Any additional shipping cost will be shown clearly at checkout before payment.', 'dawp'); ?></li>
           </ul>
-          <p><?php esc_html_e('Please review the checkout page carefully before placing your order, especially if your address requires a different carrier service or delivery method.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Please review the checkout page carefully before placing your order, especially if you select an upgraded shipping service or your address requires a different carrier service or delivery method.', 'dawp'); ?></p>
         </section>
 
         <section id="issues" class="qb-policy-card">
@@ -225,7 +213,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

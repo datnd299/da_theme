@@ -1072,10 +1072,10 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
       </div>
 
       <div class="qb-policy-box">
-        <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-2 business days, and fulfillment runs Monday-Friday excluding public holidays.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Standard U.S. shipping is free unless checkout shows otherwise, with 5-7 business day transit and usually 6-9 business days estimated delivery.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Eligible returns are accepted by mail within 30 days from delivery date after contacting support first. There is no restocking fee, and refunds are processed within 10 days after inspection approval.', 'dawp'); ?></p>
-        <p><?php esc_html_e('For order support, contact support@queens-bracelet.com. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-3 business days, and fulfillment runs Monday-Friday excluding public holidays.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Standard U.S. shipping is free unless checkout shows otherwise, with 5-7 business day transit and usually 6-10 business days estimated delivery.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Eligible returns are accepted by mail within 30 days from delivery date after contacting support first. There is no restocking fee, and refunds are processed within 7 days after inspection approval.', 'dawp'); ?></p>
+        <p><?php esc_html_e('For order support, contact support@queens-bracelet.com. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
       </div>
 
       <div class="qb-actions">

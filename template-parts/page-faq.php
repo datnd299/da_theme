@@ -23,7 +23,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM Pacific Standard Time cutoff and a 1-2 business day handling time. Fulfillment takes place Monday-Friday, excluding public holidays.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM Pacific Standard Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding public holidays.', 'dawp'),
             ],
         ],
     ],
@@ -34,7 +34,7 @@ $faq_sections = [
         'faqs' => [
             [
                 'q' => __('How long does shipping take?', 'dawp'),
-                'a' => __('Standard U.S. transit time is usually 5-7 business days. Estimated delivery is usually 6-9 business days. Standard shipping is free on most U.S. orders unless checkout shows otherwise.', 'dawp'),
+                'a' => __('Standard U.S. transit time is usually 5-7 business days. Estimated delivery is usually 6-10 business days. Standard shipping is free on most U.S. orders unless checkout shows otherwise.', 'dawp'),
             ],
             [
                 'q' => __('Will I receive tracking information?', 'dawp'),
@@ -65,7 +65,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('How are refunds handled?', 'dawp'),
-                'a' => __('Refunds are processed within 10 days after inspection approval and issued to the original payment method. Your payment provider may take additional time to post the funds.', 'dawp'),
+                'a' => __('Refunds are processed within 7 days after inspection approval and issued to the original payment method. Your payment provider may take additional time to post the funds.', 'dawp'),
             ],
         ],
     ],
@@ -122,7 +122,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('When is support available?', 'dawp'),
-                'a' => __('Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST. Response times may vary on weekends, holidays, or during high-volume periods.', 'dawp'),
+                'a' => __('Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST. Response times may vary on weekends, holidays, or during high-volume periods.', 'dawp'),
             ],
         ],
     ],
@@ -198,21 +198,12 @@ $faq_sections = [
       <div class="qb-panel">
         <p class="qb-eyebrow"><?php esc_html_e('Quick Policy Facts', 'dawp'); ?></p>
         <div class="qb-mini-grid">
-          <div class="qb-mini-card"><strong><?php esc_html_e('Handling', 'dawp'); ?></strong><p><?php esc_html_e('1-2 business days, Monday-Friday.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Handling', 'dawp'); ?></strong><p><?php esc_html_e('1-3 business days, Monday-Friday.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('U.S. Transit', 'dawp'); ?></strong><p><?php esc_html_e('5-7 business days.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Returns', 'dawp'); ?></strong><p><?php esc_html_e('30 days from delivery date by mail. Contact support first.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Refunds', 'dawp'); ?></strong><p><?php esc_html_e('10 days after inspection approval. No restocking fee.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Refunds', 'dawp'); ?></strong><p><?php esc_html_e('7 days after inspection approval. No restocking fee.', 'dawp'); ?></p></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="qb-section">
-    <div class="qb-wrap qb-summary-grid">
-      <div class="qb-card"><b>01</b><h3><?php esc_html_e('Orders', 'dawp'); ?></h3><p><?php esc_html_e('Order confirmation, processing, changes, and cancellation questions.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Shipping', 'dawp'); ?></h3><p><?php esc_html_e('5:00 PM PST cutoff, 1-2 business day handling, free standard U.S. shipping unless noted at checkout, and 5-7 business day transit.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Returns', 'dawp'); ?></h3><p><?php esc_html_e('30-day return window, mail returns, no restocking fee, and 10-day refund timing after approval.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Products', 'dawp'); ?></h3><p><?php esc_html_e('Bracelet sizing, material notes, finishes, care details, and safe product claims.', 'dawp'); ?></p></div>
     </div>
   </section>
 
@@ -259,7 +250,7 @@ $faq_sections = [
     <div class="qb-wrap">
       <p class="qb-eyebrow"><?php esc_html_e('Still Need Help?', 'dawp'); ?></p>
       <h2 class="qb-title"><?php esc_html_e('Support is available for policy and order questions.', 'dawp'); ?></h2>
-      <p class="qb-copy"><?php esc_html_e('For order-related messages, include your order number and the email address used at checkout. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
+      <p class="qb-copy"><?php esc_html_e('For order-related messages, include your order number and the email address used at checkout. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
       <div class="qb-actions">
         <a class="qb-button" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
         <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>

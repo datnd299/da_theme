@@ -84,18 +84,9 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <div class="qb-mini-card"><strong><?php esc_html_e('Acceptance', 'dawp'); ?></strong><p><?php esc_html_e('Using the website or purchasing from us means you agree to these Terms and linked policies.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Online Store', 'dawp'); ?></strong><p><?php esc_html_e('Orders, account details, product information, pricing, shipping, returns, and checkout are covered here.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Responsible Use', 'dawp'); ?></strong><p><?php esc_html_e('The site may not be used for unlawful, fraudulent, harmful, or unauthorized purposes.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Support', 'dawp'); ?></strong><p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Support', 'dawp'); ?></strong><p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="qb-section">
-    <div class="qb-wrap qb-summary-grid">
-      <div class="qb-card"><b>01</b><h3><?php esc_html_e('Service Terms', 'dawp'); ?></h3><p><?php esc_html_e('These Terms apply to browsers, customers, account holders, partners, and content contributors.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Orders', 'dawp'); ?></h3><p><?php esc_html_e('Accurate billing, shipping, payment, and account information is required for every transaction.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Products', 'dawp'); ?></h3><p><?php esc_html_e('Products, availability, prices, images, policies, and promotions may change as permitted by law.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Contact', 'dawp'); ?></h3><p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('We aim to reply within 1 business day.', 'dawp'); ?></p></div>
     </div>
   </section>
 
@@ -316,12 +307,8 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
               <span><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></span>
             </div>
             <div class="qb-contact-item">
-              <strong><?php esc_html_e('Support Portal', 'dawp'); ?></strong>
-              <span><a href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a></span>
-            </div>
-            <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>

@@ -525,7 +525,7 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
           </li>
           <li>
             <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
-            <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></span>
+            <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
           </li>
           <?php if ($store_address) : ?>
             <li>
@@ -582,7 +582,7 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
 
         <?php if ('sent' === $contact_status) : ?>
           <div class="qb-form-message qb-form-message--success" role="status">
-            <?php esc_html_e('Thanks, your message has been sent. Our support team will reply during Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?>
+            <?php esc_html_e('Thanks, your message has been sent. Our support team will reply during Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
           </div>
         <?php elseif ('invalid' === $contact_status) : ?>
           <div class="qb-form-message qb-form-message--error" role="alert">
@@ -655,7 +655,7 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
         <div class="qb-form-fallback">
           <?php esc_html_e('If the contact form is unavailable, email us directly at', 'dawp'); ?>
           <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>.
-          <?php esc_html_e('Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?>
+          <?php esc_html_e('Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
         </div>
       </div>
     </div>
@@ -710,9 +710,9 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
       </p>
 
       <div class="qb-policy-strip">
-        <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-2 business days, with fulfillment Monday-Friday excluding public holidays.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Standard U.S. shipping is free unless checkout shows otherwise, with 5-7 business day transit and usually 6-9 business days estimated delivery.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Returns are by mail within 30 days from delivery date after contacting support first. No restocking fee applies, and refunds are processed within 10 days after inspection approval.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-3 business days, with fulfillment Monday-Friday excluding public holidays.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Standard U.S. shipping is free unless checkout shows otherwise, with 5-7 business day transit and usually 6-10 business days estimated delivery.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Returns are by mail within 30 days from delivery date after contacting support first. No restocking fee applies, and refunds are processed within 7 days after inspection approval.', 'dawp'); ?></p>
       </div>
 
       <div class="qb-actions">

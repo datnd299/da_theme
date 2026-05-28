@@ -16,7 +16,17 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
         <div class="product-card__shell">
             <div class="product-card__inner">
                 <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+                    <?php
+                    echo $product->get_image(
+                        'woocommerce_single',
+                        [
+                            'class'    => 'product-card__img',
+                            'loading'  => 'lazy',
+                            'decoding' => 'async',
+                            'sizes'    => '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw',
+                        ]
+                    );
+                    ?>
                 </div>
 
                 <?php if ($product->is_on_sale()) : ?>

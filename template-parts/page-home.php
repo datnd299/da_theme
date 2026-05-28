@@ -177,11 +177,9 @@ if (class_exists('WooCommerce')) {
 
             <div class="relative">
                 <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-xl">
-                    <img src="<?php echo esc_url($images['hero']); ?>"
+                    <img <?php echo dawp_responsive_image_attrs($images['hero'], 760, 570, [[400, 300], [760, 570], [1024, 768], [1300, 975]], '(max-width: 1023px) 100vw, 680px', 'aspect-[4/3] w-full object-cover', 'eager', 'high'); ?>
                          alt="<?php esc_attr_e('Warm artisan jewelry workspace with handmade bracelets and beaded details', 'dawp'); ?>"
-                         class="aspect-[4/3] w-full object-cover"
-                         loading="eager"
-                         fetchpriority="high">
+                    >
                 </div>
 
                 <div class="absolute -bottom-6 left-6 right-6 rounded-lg border border-[#E8D9A6] bg-white p-5 shadow-xl sm:left-auto sm:right-8 sm:w-80">
@@ -215,10 +213,9 @@ if (class_exists('WooCommerce')) {
                 <?php foreach ($categories as $category) : ?>
                     <a href="<?php echo esc_url($category['url']); ?>"
                        class="group overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#C89B3C] hover:shadow-md">
-                        <img src="<?php echo esc_url($category['image']); ?>"
+                        <img <?php echo dawp_responsive_image_attrs($category['image'], 520, 390, [[360, 270], [520, 390], [768, 576]], '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw', 'aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]', 'lazy'); ?>
                              alt="<?php echo esc_attr($category['title']); ?>"
-                             class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                             loading="lazy">
+                        >
                         <span class="block p-5">
                             <span class="block font-heading text-2xl font-black leading-tight text-[#1F6F68]">
                                 <?php echo esc_html($category['title']); ?>
@@ -284,8 +281,10 @@ if (class_exists('WooCommerce')) {
                                 echo $product->get_image(
                                     'woocommerce_single',
                                     [
-                                        'class'   => 'aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]',
-                                        'loading' => 'lazy',
+                                        'class'    => 'aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]',
+                                        'loading'  => 'lazy',
+                                        'decoding' => 'async',
+                                        'sizes'    => '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw',
                                     ]
                                 );
                                 ?>
@@ -336,10 +335,9 @@ if (class_exists('WooCommerce')) {
     <section class="bg-[#F7F5EF] py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['bracelets_feature']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['bracelets_feature'], 700, 525, [[400, 300], [700, 525], [1024, 768]], '(max-width: 1023px) 100vw, 50vw', 'aspect-[4/3] w-full object-cover', 'lazy'); ?>
                      alt="<?php esc_attr_e('Handmade beaded bracelets arranged on warm linen texture', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
+                >
             </div>
 
             <div>
@@ -416,10 +414,9 @@ if (class_exists('WooCommerce')) {
             </div>
 
             <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['curated_feature']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['curated_feature'], 760, 570, [[400, 300], [760, 570], [1024, 768]], '(max-width: 1023px) 100vw, 52vw', 'aspect-[4/3] w-full object-cover', 'lazy'); ?>
                      alt="<?php esc_attr_e('Vintage-inspired accessories and curated style pieces arranged on neutral fabric', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
+                >
             </div>
         </div>
     </section>

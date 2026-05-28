@@ -7,6 +7,7 @@
 
 $current_year = date_i18n('Y');
 $brand_name   = 'Scott Osterbind';
+$store_address = dawp_get_woocommerce_store_address();
 
 $term_url = static function ($slug) {
     if (taxonomy_exists('product_cat')) {
@@ -139,12 +140,8 @@ $footer_payment_methods = [
                    class="inline-flex items-center gap-3"
                    aria-label="<?php echo esc_attr($brand_name); ?>">
                     <img
-                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Logo_Scott.png'); ?>"
+                        <?php echo dawp_responsive_image_attrs(get_template_directory_uri() . '/assets/img/gallery/Logo_Scott.png', 160, 160, [[80, 80], [160, 160], [320, 320]], '80px', 'h-20 w-auto', 'lazy'); ?>
                         alt="<?php echo esc_attr($brand_name); ?>"
-                        width="220"
-                        height="80"
-                        loading="lazy"
-                        class="h-20 w-auto"
                     >
                 </a>
 
@@ -153,10 +150,12 @@ $footer_payment_methods = [
                         <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
                         <a href="mailto:support@scottosterbind.com" class="transition hover:text-[#C89B3C]">support@scottosterbind.com</a>
                     </p>
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
-                        <?php esc_html_e('2822 Holsted Dr, Murfreesboro, TN 37128', 'dawp'); ?>
-                    </p>
+                    <?php if ($store_address !== '') : ?>
+                        <p>
+                            <strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
+                            <?php echo esc_html($store_address); ?>
+                        </p>
+                    <?php endif; ?>
                     <p>
                         <strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong>
                         <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?>
@@ -261,12 +260,8 @@ $footer_payment_methods = [
                     <?php foreach ($footer_payment_methods as $method) : ?>
                         <li>
                             <img
-                                src="<?php echo esc_url($method['image']); ?>"
+                                <?php echo dawp_responsive_image_attrs($method['image'], 80, 48, [[80, 48], [160, 96]], '80px', 'h-7 w-auto rounded bg-white shadow-sm', 'lazy'); ?>
                                 alt="<?php echo esc_attr($method['label']); ?>"
-                                width="80"
-                                height="48"
-                                loading="lazy"
-                                class="h-7 w-auto rounded bg-white shadow-sm"
                             >
                         </li>
                     <?php endforeach; ?>

@@ -66,12 +66,8 @@ if ( is_product_category() ) {
 
     <section class="shop-hero" aria-labelledby="shopArchiveTitle">
         <img
-            class="shop-hero__image"
-            src="<?php echo esc_url($archive_cover); ?>"
+            <?php echo dawp_responsive_image_attrs($archive_cover, 1280, 674, [[480, 253], [768, 405], [1280, 674], [1600, 843]], '(max-width: 1280px) 100vw, 1280px', 'shop-hero__image', 'eager', 'high'); ?>
             alt="<?php echo esc_attr($archive_title); ?>"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
         >
         <div class="shop-hero__shade"></div>
         <div class="shop-hero__content">

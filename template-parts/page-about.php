@@ -95,11 +95,9 @@ $trust_items = [
 
             <div class="relative">
                 <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-xl">
-                    <img src="<?php echo esc_url($images['hero']); ?>"
+                    <img <?php echo dawp_responsive_image_attrs($images['hero'], 760, 570, [[400, 300], [760, 570], [1024, 768]], '(max-width: 1023px) 100vw, 680px', 'aspect-[4/3] w-full object-cover', 'eager', 'high'); ?>
                          alt="<?php esc_attr_e('Artisan jewelry workspace with beads, bracelets, and warm handmade details', 'dawp'); ?>"
-                         class="aspect-[4/3] w-full object-cover"
-                         loading="eager"
-                         fetchpriority="high">
+                    >
                 </div>
 
                 <div class="absolute -bottom-6 left-6 right-6 rounded-lg border border-[#E8D9A6] bg-white p-5 shadow-xl sm:left-auto sm:right-8 sm:w-80">
@@ -139,10 +137,9 @@ $trust_items = [
             </div>
 
             <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['bracelets']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['bracelets'], 700, 525, [[400, 300], [700, 525], [1024, 768]], '(max-width: 1023px) 100vw, 50vw', 'aspect-[4/3] w-full object-cover', 'lazy'); ?>
                      alt="<?php esc_attr_e('Handmade beaded bracelets arranged on warm neutral fabric', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
+                >
             </div>
         </div>
     </section>
@@ -179,10 +176,9 @@ $trust_items = [
     <section class="bg-white py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['curated']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['curated'], 700, 525, [[400, 300], [700, 525], [1024, 768]], '(max-width: 1023px) 100vw, 50vw', 'aspect-[4/3] w-full object-cover', 'lazy'); ?>
                      alt="<?php esc_attr_e('Vintage-inspired accessories and curated apparel details on neutral fabric', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
+                >
             </div>
 
             <div>

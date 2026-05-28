@@ -4,6 +4,7 @@
  */
 
 $gallery_uri = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/');
+$store_address = dawp_get_woocommerce_store_address();
 
 $images = [
     'hero'    => $gallery_uri . 'contact-support-workspace.png',
@@ -23,18 +24,22 @@ $contact_cards = [
         'url'   => '',
         'icon'  => 'clock',
     ],
-    [
+];
+
+if ($store_address !== '') {
+    $contact_cards[] = [
         'title' => __('Address', 'dawp'),
-        'copy'  => __('2822 Holsted Dr, Murfreesboro, TN 37128', 'dawp'),
+        'copy'  => $store_address,
         'url'   => '',
         'icon'  => 'location',
-    ],
-    [
-        'title' => __('Order Help', 'dawp'),
-        'copy'  => __('Include your order number, email address, product name, and a short description so we can review your request faster.', 'dawp'),
-        'url'   => '',
-        'icon'  => 'clipboard',
-    ],
+    ];
+}
+
+$contact_cards[] = [
+    'title' => __('Order Help', 'dawp'),
+    'copy'  => __('Include your order number, email address, product name, and a short description so we can review your request faster.', 'dawp'),
+    'url'   => '',
+    'icon'  => 'clipboard',
 ];
 
 $help_topics = [
@@ -65,11 +70,9 @@ $help_topics = [
             </div>
 
             <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-xl">
-                <img src="<?php echo esc_url($images['hero']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['hero'], 760, 570, [[400, 300], [760, 570], [1024, 768]], '(max-width: 1023px) 100vw, 680px', 'aspect-[4/3] w-full object-cover', 'eager', 'high'); ?>
                      alt="<?php esc_attr_e('Warm artisan jewelry workspace for Scott Osterbind customer support', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="eager"
-                     fetchpriority="high">
+                >
             </div>
         </div>
     </section>
@@ -210,10 +213,9 @@ $help_topics = [
     <section class="bg-[#F7F5EF] py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['curated']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['curated'], 700, 525, [[400, 300], [700, 525], [1024, 768]], '(max-width: 1023px) 100vw, 50vw', 'aspect-[4/3] w-full object-cover', 'lazy'); ?>
                      alt="<?php esc_attr_e('Curated vintage-inspired accessories for product and order support', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
+                >
             </div>
 
             <div>

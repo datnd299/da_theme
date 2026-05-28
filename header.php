@@ -141,9 +141,8 @@ $nav_items = [
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex shrink-0 items-center"
                aria-label="<?php echo esc_attr($brand_name); ?>">
-                <img src="<?php echo esc_url($brand_logo); ?>"
-                     alt="<?php echo esc_attr($brand_name); ?>"
-                     class="scott-header-logo">
+                <img <?php echo dawp_responsive_image_attrs($brand_logo, 135, 68, [[135, 68], [270, 136]], '135px', 'scott-header-logo', 'eager', 'high'); ?>
+                     alt="<?php echo esc_attr($brand_name); ?>">
             </a>
 
             <nav class="hidden flex-1 items-center justify-center gap-5 lg:flex xl:gap-7" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
@@ -200,10 +199,8 @@ $nav_items = [
 
                                         <a href="<?php echo esc_url($featured_collection['url']); ?>"
                                            class="scott-mega-feature group/feature relative block overflow-hidden bg-[#1B4F49] text-white">
-                                            <img src="<?php echo esc_url($featured_collection['image']); ?>"
-                                                 alt="<?php echo esc_attr($featured_collection['title']); ?>"
-                                                 class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/feature:scale-[1.03]"
-                                                 loading="lazy">
+                                            <img <?php echo dawp_responsive_image_attrs($featured_collection['image'], 520, 390, [[320, 240], [520, 390], [768, 576]], '(max-width: 1023px) 100vw, 320px', 'absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/feature:scale-[1.03]', 'lazy'); ?>
+                                                 alt="<?php echo esc_attr($featured_collection['title']); ?>">
                                             <span class="absolute inset-0 bg-[#1B4F49]/82"></span>
                                             <span class="scott-mega-feature-content relative flex h-full flex-col justify-end p-5">
                                                 <span class="mb-3 inline-flex w-fit rounded-full bg-[#C89B3C] px-3 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-white">

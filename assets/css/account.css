@@ -5,20 +5,32 @@
 
 .account-page {
   min-height: 62vh;
-  padding: 48px 16px 72px;
-  background: var(--color-background);
+  padding: 48px 16px 80px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 56%, transparent) 0%, var(--color-background) 360px);
   color: var(--color-foreground);
   font-family: var(--font-sans);
   box-sizing: border-box;
 }
 
 .account-page__container {
-  width: min(100%, 1120px);
+  width: min(100%, 1180px);
   margin: 0 auto;
 }
 
 .account-page .woocommerce {
   width: 100%;
+}
+
+.account-page .woocommerce::before,
+.account-page .woocommerce::after {
+  display: none;
+}
+
+.account-page .woocommerce-notices-wrapper {
+  max-width: none;
+  padding: 0;
+  margin: 0 0 18px;
 }
 
 .account-page .woocommerce > h2,
@@ -230,17 +242,31 @@
 }
 
 /* Logged-in account layout */
+.account-page .woocommerce:has(.woocommerce-MyAccount-navigation) {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
 .account-page .woocommerce-MyAccount-navigation {
-  margin: 0 0 24px;
+  position: sticky;
+  top: 104px;
+  margin: 0;
   padding: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
 }
 
 .account-page .woocommerce-MyAccount-navigation ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   margin: 0;
-  padding: 0;
+  padding: 8px;
   list-style: none;
 }
 
@@ -251,10 +277,10 @@
 .account-page .woocommerce-MyAccount-navigation a {
   display: flex;
   align-items: center;
-  min-height: 44px;
-  padding: 10px 14px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  min-height: 46px;
+  padding: 11px 14px;
+  background: transparent;
+  border: 1px solid transparent;
   border-radius: var(--radius-sm);
   color: var(--color-foreground-muted);
   font-size: 0.9rem;
@@ -265,17 +291,23 @@
 .account-page .woocommerce-MyAccount-navigation a:hover,
 .account-page .woocommerce-MyAccount-navigation .is-active a {
   color: var(--color-foreground);
-  background: var(--color-accent-soft);
-  border-color: var(--color-accent-soft);
+  background: color-mix(in srgb, var(--color-accent-soft) 62%, var(--color-background));
+  border-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
 }
 
 .account-page .woocommerce-MyAccount-content {
-  padding: 24px;
+  min-width: 0;
+  padding: 28px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
   box-sizing: border-box;
+}
+
+.account-page .woocommerce-MyAccount-content > h2,
+.account-page .woocommerce-MyAccount-content > h3 {
+  margin-bottom: 20px;
 }
 
 .account-page .woocommerce-MyAccount-content p {
@@ -319,6 +351,7 @@
   background: var(--color-surface-alt);
   font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -361,26 +394,25 @@
 }
 
 @media (min-width: 1024px) {
+  .account-page .woocommerce-MyAccount-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .account-page .woocommerce:has(.woocommerce-MyAccount-navigation) {
+    display: block;
+  }
+
   .account-page .woocommerce-MyAccount-navigation {
-    float: left;
-    width: 260px;
-    margin: 0;
+    position: static;
+    margin-bottom: 20px;
   }
 
   .account-page .woocommerce-MyAccount-navigation ul {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .account-page .woocommerce-MyAccount-content {
-    float: right;
-    width: calc(100% - 292px);
-  }
-
-  .account-page .woocommerce::after {
-    content: "";
-    display: table;
-    clear: both;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+    gap: 8px;
   }
 }
 
@@ -402,5 +434,9 @@
     display: block;
     overflow-x: auto;
     white-space: nowrap;
+  }
+
+  .account-page .woocommerce-MyAccount-navigation ul {
+    grid-template-columns: 1fr;
   }
 }

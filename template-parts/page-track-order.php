@@ -12,7 +12,7 @@
             <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
             <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
             <p class="track-hero__desc">
-                <?php esc_html_e('Enter your order details below to see your shipment status. We\'ll let you know exactly where your boutique treasures are on their way to you.', 'dawp'); ?>
+                <?php esc_html_e('Enter your order details below to see your shipment status. We\'ll let you know exactly where your Myveganblog order is on its way to you.', 'dawp'); ?>
             </p>
         </div>
     </section>
@@ -36,8 +36,8 @@
                 <div class="track-help-box__content">
                     <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
                     <p class="track-help-box__text">
-                        <?php esc_html_e('If you have any trouble, please reach out to our boutique team at ', 'dawp'); ?>
-                        <a href="mailto:support@shopkelli.com">support@shopkelli.com</a>
+                        <?php esc_html_e('If you have any trouble, please reach out to our team at ', 'dawp'); ?>
+                        <a href="mailto:support@myveganblog.com">support@myveganblog.com</a>
                         <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
                     </p>
                 </div>
@@ -67,7 +67,7 @@
         <div class="track-more-section__inner">
             <div class="track-more-section__header">
                 <h2 class="track-more-section__title"><?php esc_html_e('More Ways We Can Help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth boutique experience.', 'dawp'); ?></p>
+                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth Myveganblog experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
@@ -80,7 +80,7 @@
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our boutique team is here to help, Mon–Sat 10 AM–6 PM PST.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Business Hours: Monday-Friday, 9:00 AM-5:00 PM, GMT-08:00.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>

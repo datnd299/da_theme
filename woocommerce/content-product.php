@@ -1,44 +1,67 @@
 <?php
 /**
- * Content-product: single product card in the shop loop.
+ * Product card used in shop and product taxonomy archives.
  */
 defined('ABSPATH') || exit;
 
 global $product;
-if (empty($product) || !$product->is_visible()) return;
 
-$cats     = get_the_terms($product->get_id(), 'product_cat');
-$cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
+if (empty($product) || ! $product->is_visible()) {
+    return;
+}
+
+$product_id    = $product->get_id();
+$categories    = get_the_terms($product_id, 'product_cat');
+$category_name = (! is_wp_error($categories) && ! empty($categories)) ? $categories[0]->name : '';
+$rating_count  = $product->get_rating_count();
+$average       = $product->get_average_rating();
 ?>
+
 <li <?php wc_product_class('product-card', $product); ?>>
-    <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">
+    <div class="product-card__media">
+        <a href="<?php the_permalink(); ?>" class="product-card__image-link" aria-label="<?php the_title_attribute(); ?>">
+            <?php echo $product->get_image('woocommerce_thumbnail', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+        </a>
 
-        <div class="product-card__shell">
-            <div class="product-card__inner">
-                <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
-                </div>
-
-                <?php if ($product->is_on_sale()) : ?>
-                    <span class="product-card__badge">Sale</span>
-                <?php endif; ?>
-
-                <div class="product-card__cta" aria-hidden="true">
-                    <span>View</span>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                </div>
-            </div>
+        <div class="product-card__badges">
+            <?php if ($product->is_on_sale()) : ?>
+                <span class="product-card__badge product-card__badge--sale"><?php esc_html_e('Sale', 'dawp'); ?></span>
+            <?php endif; ?>
+            <?php if (! $product->is_in_stock()) : ?>
+                <span class="product-card__badge product-card__badge--stock"><?php esc_html_e('Out of stock', 'dawp'); ?></span>
+            <?php endif; ?>
         </div>
+    </div>
 
-        <div class="product-card__meta">
-            <div class="product-card__info">
-                <h3 class="product-card__title"><?php the_title(); ?></h3>
-                <?php if ($cat_name) : ?>
-                    <span class="product-card__cat"><?php echo esc_html($cat_name); ?></span>
-                <?php endif; ?>
+    <div class="product-card__body">
+        <?php if ($category_name) : ?>
+            <span class="product-card__cat"><?php echo esc_html($category_name); ?></span>
+        <?php endif; ?>
+
+        <h3 class="product-card__title">
+            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+        </h3>
+
+        <?php if ($rating_count > 0) : ?>
+            <div class="product-card__rating">
+                <?php echo wc_get_rating_html($average, $rating_count); ?>
+                <span><?php echo esc_html(number_format_i18n($rating_count)); ?></span>
             </div>
-            <div class="product-card__price"><?php echo $product->get_price_html(); ?></div>
-        </div>
+        <?php endif; ?>
 
-    </a>
+        <div class="product-card__footer">
+            <div class="product-card__price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
+            <?php
+            woocommerce_template_loop_add_to_cart([
+                'class' => implode(' ', array_filter([
+                    'button',
+                    'product-card__button',
+                    'product_type_' . $product->get_type(),
+                    $product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+                    $product->supports('ajax_add_to_cart') && $product->is_purchasable() && $product->is_in_stock() ? 'ajax_add_to_cart' : '',
+                ])),
+            ]);
+            ?>
+        </div>
+    </div>
 </li>

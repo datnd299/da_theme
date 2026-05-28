@@ -14,7 +14,7 @@ function dawp_newsletter_subscribe() {
 
     $site_name = get_bloginfo('name');
     $subject   = 'Thank you for joining ' . $site_name . '!';
-    $message   = "Hi there,\n\nThank you for joining our boutique community! We're so glad to have you.\n\nYou'll be the first to know about new arrivals, seasonal collections, and warm family-friendly style inspiration.\n\nWith love,\nThe " . $site_name . " Team";
+    $message   = "Hi there,\n\nThank you for joining the Myveganblog community. We're glad to have you here.\n\nYou'll be the first to know about new women's shoes, sandals, handbags, fashion accessories, and polished everyday style updates.\n\nWith care,\nThe " . $site_name . " Team";
     $headers   = ['Content-Type: text/plain; charset=UTF-8'];
 
     $sent = wp_mail($email, $subject, $message, $headers);
@@ -34,33 +34,56 @@ function dawp_contact_submit() {
         wp_send_json_error(['message' => 'Invalid request.']);
     }
 
-    $name    = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));
-    $email   = sanitize_email(wp_unslash($_POST['email'] ?? ''));
-    $subject = sanitize_text_field(wp_unslash($_POST['subject'] ?? 'general'));
-    $message = sanitize_textarea_field(wp_unslash($_POST['message'] ?? ''));
+    $website = sanitize_text_field(wp_unslash($_POST['website'] ?? ''));
+    if ($website !== '') {
+        wp_send_json_success(['message' => 'Thank you! Your message has been sent.']);
+    }
+
+    $name         = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));
+    $email        = sanitize_email(wp_unslash($_POST['email'] ?? ''));
+    $subject      = sanitize_text_field(wp_unslash($_POST['subject'] ?? 'general'));
+    $order_number = sanitize_text_field(wp_unslash($_POST['order_number'] ?? ''));
+    $message      = sanitize_textarea_field(wp_unslash($_POST['message'] ?? ''));
 
     if (empty($name) || !is_email($email) || empty($message)) {
         wp_send_json_error(['message' => 'Please fill in all required fields.']);
     }
 
     $site_name   = get_bloginfo('name');
-    $admin_email = get_option('admin_email');
+    $support_email = 'support@myveganblog.com';
 
     $subject_labels = [
         'general' => 'General Inquiry',
         'order'   => 'Order Status',
-        'styling' => 'Styling Help',
+        'sizing'  => 'Sizing Help',
         'return'  => 'Returns & Exchanges',
     ];
     $subject_label = $subject_labels[$subject] ?? 'General Inquiry';
 
     $admin_subject = '[' . $site_name . '] Contact: ' . $subject_label . ' from ' . $name;
-    $admin_body    = "Name: {$name}\nEmail: {$email}\nSubject: {$subject_label}\n\n{$message}";
-    wp_mail($admin_email, $admin_subject, $admin_body, ['Reply-To: ' . $name . ' <' . $email . '>']);
+    $admin_body    = "Name: {$name}\nEmail: {$email}\nSubject: {$subject_label}";
+    if ($order_number !== '') {
+        $admin_body .= "\nOrder Number: {$order_number}";
+    }
+    $admin_body .= "\n\n{$message}";
 
-    $confirm_subject = 'We received your message – ' . $site_name;
-    $confirm_body    = "Hi {$name},\n\nThank you for reaching out! We've received your message and our boutique team will get back to you within 24 business hours.\n\nWith love,\nThe {$site_name} Team";
+    $admin_sent = wp_mail(
+        $support_email,
+        $admin_subject,
+        $admin_body,
+        [
+            'Content-Type: text/plain; charset=UTF-8',
+            'Reply-To: ' . $name . ' <' . $email . '>',
+        ]
+    );
+
+    if (!$admin_sent) {
+        wp_send_json_error(['message' => 'Something went wrong. Please email us directly at support@myveganblog.com.']);
+    }
+
+    $confirm_subject = 'We received your message - ' . $site_name;
+    $confirm_body    = "Hi {$name},\n\nThank you for reaching out! We've received your message and our team will get back to you within 24 business hours.\n\nWith care,\nThe {$site_name} Team";
     wp_mail($email, $confirm_subject, $confirm_body, ['Content-Type: text/plain; charset=UTF-8']);
 
-    wp_send_json_success(['message' => 'Thank you, ' . $name . '! Your message has been sent. We\'ll get back to you within 24 hours.']);
+    wp_send_json_success(['message' => 'Thank you, ' . $name . '! Your message has been sent. We\'ll get back to you within 24 business hours.']);
 }

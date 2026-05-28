@@ -13,11 +13,10 @@ function dawp_megamenu_sections() {
         [
             'title' => __('Categories', 'dawp'),
             'links' => [
-                ['title' => __('Girls Dresses',       'dawp'), 'url' => home_url('/product-category/girls-dresses/')],
-                ['title' => __('Mommy & Me',          'dawp'), 'url' => home_url('/product-category/mommy-me-matching-sets/')],
-                ['title' => __('Women Casual',        'dawp'), 'url' => home_url('/product-category/women-casual/')],
-                ['title' => __('Baby Girl',           'dawp'), 'url' => home_url('/product-category/baby-girl-boutique/')],
-                ['title' => __('Boutique Accessories','dawp'), 'url' => home_url('/product-category/boutique-accessories/')],
+                ['title' => __('Women\'s Leather Shoes', 'dawp'), 'url' => home_url('/product-category/womens-leather-shoes/')],
+                ['title' => __('Women\'s Sandals',       'dawp'), 'url' => home_url('/product-category/womens-sandals/')],
+                ['title' => __('Women\'s Handbags',      'dawp'), 'url' => home_url('/product-category/womens-handbags/')],
+                ['title' => __('Fashion Accessories',    'dawp'), 'url' => home_url('/product-category/fashion-accessories/')],
             ],
         ],
     ];
@@ -36,11 +35,10 @@ function dawp_footer_columns() {
             'title' => 'Shop',
             'links' => [
                 ['title' => __('Shop All',            'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Girls Dresses',       'dawp'), 'url' => home_url('/product-category/girls-dresses/')],
-                ['title' => __('Mommy & Me',          'dawp'), 'url' => home_url('/product-category/mommy-me-matching-sets/')],
-                ['title' => __('Women Casual',        'dawp'), 'url' => home_url('/product-category/women-casual/')],
-                ['title' => __('Baby Girl',           'dawp'), 'url' => home_url('/product-category/baby-girl-boutique/')],
-                ['title' => __('Boutique Accessories','dawp'), 'url' => home_url('/product-category/boutique-accessories/')],
+                ['title' => __('Women\'s Leather Shoes', 'dawp'), 'url' => home_url('/product-category/womens-leather-shoes/')],
+                ['title' => __('Women\'s Sandals',       'dawp'), 'url' => home_url('/product-category/womens-sandals/')],
+                ['title' => __('Women\'s Handbags',      'dawp'), 'url' => home_url('/product-category/womens-handbags/')],
+                ['title' => __('Fashion Accessories',    'dawp'), 'url' => home_url('/product-category/fashion-accessories/')],
             ],
         ],
         [

@@ -1,9 +1,25 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
+add_filter('pre_option_blogname', 'dawp_site_name');
+add_action('wp_head', 'dawp_output_favicon');
+add_action('admin_head', 'dawp_output_favicon');
+add_action('login_head', 'dawp_output_favicon');
+
+function dawp_site_name() {
+    return 'Myveganblog';
+}
+
+function dawp_output_favicon() {
+    $favicon_url = get_template_directory_uri() . '/assets/img/gallery/Logo_all (10).png';
+    ?>
+    <link rel="icon" href="<?php echo esc_url($favicon_url); ?>" type="image/png">
+    <link rel="apple-touch-icon" href="<?php echo esc_url($favicon_url); ?>">
+    <?php
+}
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SK-' . $order_id;
+    return 'MVB-' . $order_id;
 }
 function dawp_setup() {
     add_theme_support('title-tag');
@@ -44,25 +60,35 @@ function dawp_scripts() {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
         dawp_remove_styles();
     }
+
+    if ( is_404() ) {
+        wp_enqueue_style('dawp-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', [], '1.0.2');
+    }
     
     if ( class_exists( 'WooCommerce' ) ) {
         if ( is_product() ) {
             wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.6');
             dawp_remove_styles();
         } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.6');
+            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.1.0');
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
-            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.6');
+            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.7');
+        } elseif ( is_account_page() ) {
+            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', [], '1.0.7');
         } elseif ( is_woocommerce()  ) {
-            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.6');
+            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.7');
             dawp_remove_styles();
         }
     }
 
     wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.2', true);
 
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    wp_localize_script('dawp-main', 'dawpAjax', [
+        'url'          => admin_url('admin-ajax.php'),
+        'nonce'        => wp_create_nonce('dawp_newsletter_nonce'),
+        'contactNonce' => wp_create_nonce('dawp_contact_nonce'),
+    ]);
 }
 
 function dawp_remove_styles() {

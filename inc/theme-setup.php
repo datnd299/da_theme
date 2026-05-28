@@ -52,13 +52,20 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.7');
+    $dir = get_template_directory();
+    $uri = get_template_directory_uri();
 
-    wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
+    $main_css    = $dir . '/assets/css/main.css';
+    $tw_main_css = $dir . '/assets/css/tw/tw-main.css';
+
+    wp_enqueue_style('dawp-main',    $uri . '/assets/css/main.css',        [], file_exists($main_css)    ? filemtime($main_css)    : '1.0.0');
+    wp_enqueue_style('dawp-tw-main', $uri . '/assets/css/tw/tw-main.css',  [], file_exists($tw_main_css) ? filemtime($tw_main_css) : '1.0.0');
 
     if ( is_front_page() ) {
-        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
-        wp_enqueue_style('dawp-broge-home', get_template_directory_uri() . '/assets/css/broge-home.css', ['dawp-home'], '1.0.0');
+        $home_css       = $dir . '/assets/css/tw/tw-home.css';
+        $broge_home_css = $dir . '/assets/css/broge-home.css';
+        wp_enqueue_style('dawp-home',       $uri . '/assets/css/tw/tw-home.css',  [], file_exists($home_css)       ? filemtime($home_css)       : '1.0.0');
+        wp_enqueue_style('dawp-broge-home', $uri . '/assets/css/broge-home.css',  ['dawp-home'], file_exists($broge_home_css) ? filemtime($broge_home_css) : '1.0.0');
         dawp_remove_styles();
     }
     

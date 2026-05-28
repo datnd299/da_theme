@@ -148,6 +148,21 @@ $footer_payment_methods = [
                     >
                 </a>
 
+                <div class="mt-5 space-y-1.5 text-sm leading-6 text-white/75">
+                    <p>
+                        <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
+                        <a href="mailto:support@scottosterbind.com" class="transition hover:text-[#C89B3C]">support@scottosterbind.com</a>
+                    </p>
+                    <p>
+                        <strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
+                        <?php esc_html_e('2822 Holsted Dr, Murfreesboro, TN 37128', 'dawp'); ?>
+                    </p>
+                    <p>
+                        <strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong>
+                        <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?>
+                    </p>
+                </div>
+
                 <div class="mt-5 flex flex-wrap gap-3" aria-label="<?php esc_attr_e('Social links', 'dawp'); ?>">
                     <a
                         href="https://www.facebook.com/beadbracelets"
@@ -173,21 +188,6 @@ $footer_payment_methods = [
                             <path d="M7.1 3h9.99c.41 0 .64.1.74.52.17.73.3 1.47.47 2.2l-.38.12c-.62-1.17-1.58-1.71-2.88-1.71H10.2v6.41h3.92c1 0 1.55-.37 1.79-1.36h.39v4.12h-.39c-.26-1.02-.78-1.38-1.79-1.38H10.2v6.78h5.08c1.38 0 2.33-.62 3.08-1.86l.37.14c-.2.79-.39 1.59-.6 2.38-.11.4-.31.52-.72.52H7.1v-.37c.9-.16 1.14-.42 1.14-1.33V4.69c0-.88-.24-1.14-1.14-1.32V3z" />
                         </svg>
                     </a>
-                </div>
-
-                <div class="mt-5 space-y-1.5 text-sm leading-6 text-white/75">
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
-                        <a href="mailto:support@scottosterbind.com" class="transition hover:text-[#C89B3C]">support@scottosterbind.com</a>
-                    </p>
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
-                        <?php esc_html_e('2822 Holsted Dr, Murfreesboro, TN 37128', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong>
-                        <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?>
-                    </p>
                 </div>
 
             </div>

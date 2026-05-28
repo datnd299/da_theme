@@ -1062,7 +1062,7 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
         <div class="qb-trust-card qb-trust-card--returns">
           <span class="qb-trust-card__icon" aria-hidden="true">30</span>
           <h3><?php esc_html_e('30-Day Returns', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Eligible unused, unworn, and undamaged jewelry items may be returned within 30 days of delivery.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Eligible items may be returned by mail within 30 days from the delivery date after contacting support first.', 'dawp'); ?></p>
         </div>
         <div class="qb-trust-card qb-trust-card--details">
           <span class="qb-trust-card__icon" aria-hidden="true">FIT</span>
@@ -1072,8 +1072,9 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
       </div>
 
       <div class="qb-policy-box">
-        <p><?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Eligible jewelry returns should be unused, unworn, undamaged, and in original condition with packaging where applicable.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-3 business days, and fulfillment runs Monday-Friday.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Standard U.S. shipping is free, with 3-5 business day transit after processing is complete.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Eligible returns are accepted by mail within 30 days from delivery date after contacting support first. There is no restocking fee, and refunds are processed within 10 days after inspection approval.', 'dawp'); ?></p>
         <p><?php esc_html_e('For order support, contact support@queens-bracelet.com during Monday-Friday business hours, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
       </div>
 

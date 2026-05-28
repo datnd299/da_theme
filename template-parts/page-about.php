@@ -527,11 +527,11 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
         </div>
         <div class="qb-care-card">
           <h3><?php esc_html_e('Shipping Timeline', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Orders are processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Orders have a 5:00 PM Pacific Standard Time cutoff, 1-3 business day handling, Monday-Friday fulfillment, free standard U.S. shipping, and 3-5 business day transit after processing.', 'dawp'); ?></p>
         </div>
         <div class="qb-care-card">
           <h3><?php esc_html_e('30-Day Returns', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Customers may request eligible returns within 30 days of delivery. Jewelry should be unused, unworn, undamaged, in original condition, and returned with original packaging where applicable.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Customers may request eligible returns within 30 days from the delivery date. Returns are by mail after contacting support first, with no restocking fee.', 'dawp'); ?></p>
         </div>
       </div>
     </div>
@@ -548,7 +548,7 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
       <div class="qb-policy-grid">
         <p><?php esc_html_e('Support email: support@queens-bracelet.com', 'dawp'); ?></p>
         <p><?php esc_html_e('Business hours: Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Tracking information is provided once an order ships.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Refunds are processed within 10 days after inspection approval.', 'dawp'); ?></p>
       </div>
 
       <div class="qb-actions">

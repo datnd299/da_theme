@@ -29,7 +29,7 @@ $support_email = 'support@queens-bracelet.com';
   .qb-hero__grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(320px,.98fr); gap:48px; align-items:center; padding:78px 0; }
   .qb-hero-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:24px; background:rgba(255,255,255,.86); box-shadow:0 18px 46px rgba(47,31,53,.08); }
   .qb-hero-panel { padding:clamp(24px,4vw,44px); }
-  .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+  .qb-summary-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:18px; }
   .qb-card { padding:22px; background:#fff; }
   .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:#fff4f6; color:var(--qb-plum); font-size:13px; }
   .qb-card h3, .qb-policy-card h2, .qb-mini-card strong { margin:18px 0 0; color:var(--qb-plum); }
@@ -66,7 +66,7 @@ $support_email = 'support@queens-bracelet.com';
       <div>
         <p class="qb-eyebrow"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Clear delivery and return expectations.', 'dawp'); ?></h1>
-        <p class="qb-copy"><?php esc_html_e("Queen's Bracelet provides transparent order processing, standard US delivery timelines, tracking updates, and a 30-day return window for eligible jewelry items.", 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e("Queen's Bracelet provides transparent order cutoff, handling, fulfillment, transit, shipping cost, return, and refund expectations for U.S. orders.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -75,10 +75,14 @@ $support_email = 'support@queens-bracelet.com';
       <div class="qb-hero-panel">
         <p class="qb-eyebrow"><?php esc_html_e('Policy Snapshot', 'dawp'); ?></p>
         <div class="qb-mini-grid">
-          <div class="qb-mini-card"><strong><?php esc_html_e('Processing', 'dawp'); ?></strong><p><?php esc_html_e('Orders are processed within 2-4 business days before dispatch.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('US Delivery', 'dawp'); ?></strong><p><?php esc_html_e('Standard shipping usually takes 5-10 business days after dispatch.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><p><?php esc_html_e('5:00 PM, Pacific Standard Time.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Handling Time', 'dawp'); ?></strong><p><?php esc_html_e('1-3 business days. Orders are fulfilled Monday-Friday.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Fulfillment Days', 'dawp'); ?></strong><p><?php esc_html_e('Monday-Friday.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Transit Time', 'dawp'); ?></strong><p><?php esc_html_e('3-5 business days after processing is complete.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Shipping Cost', 'dawp'); ?></strong><p><?php esc_html_e('Free standard shipping on U.S. orders.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Tracking', 'dawp'); ?></strong><p><?php esc_html_e('Tracking information is emailed once an order ships.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Returns', 'dawp'); ?></strong><p><?php esc_html_e('Eligible items may be returned within 30 days of delivery.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Returns', 'dawp'); ?></strong><p><?php esc_html_e('30 days from delivery date. Return by mail after contacting support first.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Refunds', 'dawp'); ?></strong><p><?php esc_html_e('Refunds are processed within 10 days after inspection approval.', 'dawp'); ?></p></div>
         </div>
       </div>
     </div>
@@ -86,10 +90,11 @@ $support_email = 'support@queens-bracelet.com';
 
   <section class="qb-section">
     <div class="qb-wrap qb-summary-grid">
-      <div class="qb-card"><b>01</b><h3><?php esc_html_e('Processing Time', 'dawp'); ?></h3><p><?php esc_html_e('Please allow 2-4 business days for order verification, preparation, and fulfillment before shipment.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Delivery Time', 'dawp'); ?></h3><p><?php esc_html_e('After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Return Window', 'dawp'); ?></h3><p><?php esc_html_e('Return requests must be submitted within 30 days of delivery for eligible jewelry items.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Support Email', 'dawp'); ?></h3><p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a><br><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>01</b><h3><?php esc_html_e('Order Cutoff', 'dawp'); ?></h3><p><?php esc_html_e('Orders placed by 5:00 PM Pacific Standard Time begin the fulfillment process according to our business day schedule.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Handling Time', 'dawp'); ?></h3><p><?php esc_html_e('Please allow 1-3 business days for order verification, preparation, and fulfillment. Orders are fulfilled Monday-Friday.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Fulfillment Days', 'dawp'); ?></h3><p><?php esc_html_e('Orders are fulfilled Monday-Friday.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>04</b><h3><?php esc_html_e('Transit Time', 'dawp'); ?></h3><p><?php esc_html_e('After processing is complete, standard U.S. transit time is 3-5 business days.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>05</b><h3><?php esc_html_e('Shipping Cost', 'dawp'); ?></h3><p><?php esc_html_e('Standard shipping is free on U.S. orders.', 'dawp'); ?></p></div>
     </div>
   </section>
 
@@ -113,35 +118,43 @@ $support_email = 'support@queens-bracelet.com';
       <div class="qb-policy-stack">
         <section id="shipping" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Shipping Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Order processing and standard US delivery.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Orders are processed within 2-4 business days after checkout. Processing includes order verification, payment confirmation, item preparation, and fulfillment before dispatch.', 'dawp'); ?></p>
-          <p><?php esc_html_e('After dispatch, standard US shipping typically takes 5-10 business days. Delivery times may vary by destination, carrier workload, weather, holidays, and seasonal volume.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Order processing and standard U.S. delivery.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Order Cutoff: 5:00 PM, Pacific Standard Time.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Handling Time: 1-3 business days. Orders are fulfilled Monday-Friday.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Fulfillment Days: Monday-Friday.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Transit Time: 3-5 business days after processing is complete.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Shipping Cost: Free standard shipping on U.S. orders.', 'dawp'); ?></p>
           <p><?php esc_html_e('Business days do not include weekends or public holidays. If an order contains multiple items, shipments may arrive separately depending on fulfillment availability.', 'dawp'); ?></p>
         </section>
 
         <section id="tracking" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Tracking Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Tracking is provided after dispatch.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Tracking is provided after shipment.', 'dawp'); ?></h2>
           <p><?php esc_html_e('Once your order ships, tracking information will be sent to the email address used at checkout. Carrier tracking pages may take time to update after a tracking number is created.', 'dawp'); ?></p>
           <p><?php esc_html_e('If tracking has not updated after several business days, contact support with your order number and checkout email so we can help review the status.', 'dawp'); ?></p>
         </section>
 
         <section id="returns" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Return Policy', 'dawp'); ?></p>
-          <h2><?php esc_html_e('30-day return window for eligible jewelry.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Customers may request a return within 30 days of delivery. To qualify, jewelry must be unused, unworn, undamaged, in original condition, and returned with original packaging where applicable.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('30-day return window from delivery date.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Return Window: 30 days from delivery date.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Return Method: By mail. Contact support first before sending any item back.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Restocking Fee: None. No restocking fee applies to eligible returns.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Customers may request a return within 30 days from the delivery date. To qualify, jewelry must be unused, unworn, undamaged, in original condition, and returned with original packaging where applicable.', 'dawp'); ?></p>
           <ul>
             <li><?php esc_html_e('Items must show no signs of wear, stains, odors, alteration, missing parts, or damage.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Returns must be reviewed and approved by support before items are sent back.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Returns must be reviewed and approved by support before items are mailed back.', 'dawp'); ?></li>
             <li><?php esc_html_e('Items that raise hygiene concerns or arrive outside return requirements may be refused.', 'dawp'); ?></li>
           </ul>
         </section>
 
         <section id="refunds" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Refunds', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Refunds are reviewed after inspection.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Refunds are processed after inspection approval.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Refund Timing: 10 days after inspection approval.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Restocking Fee: None. No restocking fee is deducted from eligible approved returns.', 'dawp'); ?></p>
           <p><?php esc_html_e('When an approved return is received, we inspect the item and notify you of the refund status. Approved refunds are issued to the original payment method.', 'dawp'); ?></p>
-          <p><?php esc_html_e('Payment providers may take several business days to post a refund after it is processed. Original shipping costs, when applicable, may not be refundable unless the return is due to an error on our side.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Payment providers may take additional time to post a refund after it is processed. Original shipping costs, when applicable, may not be refundable unless the return is due to an error on our side.', 'dawp'); ?></p>
         </section>
 
         <section id="issues" class="qb-policy-card">
@@ -162,7 +175,7 @@ $support_email = 'support@queens-bracelet.com';
     <div class="qb-wrap">
       <p class="qb-eyebrow"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
       <h2 class="qb-title"><?php esc_html_e('Policy information stays connected.', 'dawp'); ?></h2>
-      <p class="qb-copy"><?php esc_html_e('Please review product material notes, bracelet length or adjustable sizing, clasp information, care instructions, shipping timelines, return requirements, privacy practices, and terms before ordering.', 'dawp'); ?></p>
+      <p class="qb-copy"><?php esc_html_e('Please review product material notes, bracelet length or adjustable sizing, clasp information, care instructions, shipping timelines, return method, refund timing, privacy practices, and terms before ordering.', 'dawp'); ?></p>
       <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Related policy links', 'dawp'); ?>">
         <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
         <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>

@@ -92,7 +92,7 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
         <div class="track-more-section__inner">
             <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
                 <strong><?php esc_html_e('Shipping Policy', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Review processing time, delivery estimates, and returns.', 'dawp'); ?></span>
+                <span><?php esc_html_e('Review cutoff, handling, free U.S. shipping, returns, and refunds.', 'dawp'); ?></span>
             </a>
             <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                 <strong><?php esc_html_e('FAQ', 'dawp'); ?></strong>

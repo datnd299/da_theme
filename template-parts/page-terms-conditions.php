@@ -141,7 +141,7 @@ $support_email = 'support@queens-bracelet.com';
         <section id="policies" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Shipping, Returns & Privacy', 'dawp'); ?></p>
           <h2><?php esc_html_e('Store policies are part of these terms.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Our Shipping & Returns page explains processing times, delivery estimates, tracking, return eligibility, refund review, and order issue procedures. Our Privacy Policy explains how customer information is handled.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Our Shipping & Returns page explains order cutoff, handling time, fulfillment days, transit time, shipping cost, tracking, return method, restocking fee, refund timing, and order issue procedures. Our Privacy Policy explains how customer information is handled.', 'dawp'); ?></p>
           <div class="qb-actions">
             <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>

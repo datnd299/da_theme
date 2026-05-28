@@ -564,7 +564,7 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
 
         <div class="qb-info-card">
           <strong><?php esc_html_e('Return Requests', 'dawp'); ?></strong>
-          <p><?php esc_html_e('Customers may request eligible returns within 30 days of delivery. Jewelry must be unused, unworn, undamaged, in original condition, and returned with packaging where applicable.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Customers may request eligible returns by mail within 30 days from the delivery date. Contact support first before sending any item back.', 'dawp'); ?></p>
         </div>
 
         <div class="qb-info-card">
@@ -675,7 +675,7 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
         <a class="qb-help-card" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>">
           <b>01</b>
           <h3><?php esc_html_e('Shipping & Returns', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Review processing times, delivery expectations, tracking details, return eligibility, and refund steps.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Review order cutoff, handling time, free U.S. shipping, return method, no restocking fee, and refund timing.', 'dawp'); ?></p>
         </a>
         <a class="qb-help-card" href="<?php echo esc_url(home_url('/track-order/')); ?>">
           <b>02</b>
@@ -705,9 +705,9 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
       </p>
 
       <div class="qb-policy-strip">
-        <p><?php esc_html_e('Orders are processed within 2-4 business days before dispatch.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Eligible unused, unworn, and undamaged jewelry items may be returned within 30 days of delivery.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-3 business days, with fulfillment Monday-Friday.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Standard U.S. shipping is free, with 3-5 business day transit after processing is complete.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Returns are by mail within 30 days from delivery date after contacting support first. No restocking fee applies, and refunds are processed within 10 days after inspection approval.', 'dawp'); ?></p>
       </div>
 
       <div class="qb-actions">

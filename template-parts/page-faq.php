@@ -23,7 +23,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders are processed within 2-4 business days before dispatch. Processing includes order verification, payment confirmation, preparation, and fulfillment.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM Pacific Standard Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday.', 'dawp'),
             ],
         ],
     ],
@@ -34,7 +34,7 @@ $faq_sections = [
         'faqs' => [
             [
                 'q' => __('How long does shipping take?', 'dawp'),
-                'a' => __('After dispatch, standard US shipping typically takes 5-10 business days depending on destination, carrier conditions, weather, holidays, and seasonal volume.', 'dawp'),
+                'a' => __('After processing is complete, standard U.S. transit time is 3-5 business days. Standard shipping is free on U.S. orders.', 'dawp'),
             ],
             [
                 'q' => __('Will I receive tracking information?', 'dawp'),
@@ -42,7 +42,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Do business days include weekends or holidays?', 'dawp'),
-                'a' => __('No. Business days do not include weekends or public holidays. Processing and delivery can take longer during high-volume periods.', 'dawp'),
+                'a' => __('No. Business days do not include weekends or public holidays. Orders are fulfilled Monday-Friday.', 'dawp'),
             ],
         ],
     ],
@@ -53,7 +53,11 @@ $faq_sections = [
         'faqs' => [
             [
                 'q' => __('What is your return window?', 'dawp'),
-                'a' => __('Customers may request a return within 30 days of delivery. Eligible jewelry must be unused, unworn, undamaged, in original condition, and returned with original packaging where applicable.', 'dawp'),
+                'a' => __('Customers may request a return within 30 days from the delivery date. Returns are handled by mail, and customers must contact support first before sending any item back.', 'dawp'),
+            ],
+            [
+                'q' => __('Do you charge a restocking fee?', 'dawp'),
+                'a' => __('No. There is no restocking fee for eligible approved returns.', 'dawp'),
             ],
             [
                 'q' => __('What items may not qualify for return?', 'dawp'),
@@ -61,7 +65,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('How are refunds handled?', 'dawp'),
-                'a' => __('After an approved return is received and inspected, we notify you of the refund status. Approved refunds are issued to the original payment method, and your provider may take several business days to post the funds.', 'dawp'),
+                'a' => __('Refunds are processed within 10 days after inspection approval and issued to the original payment method. Your payment provider may take additional time to post the funds.', 'dawp'),
             ],
         ],
     ],
@@ -193,10 +197,10 @@ $faq_sections = [
       <div class="qb-panel">
         <p class="qb-eyebrow"><?php esc_html_e('Quick Policy Facts', 'dawp'); ?></p>
         <div class="qb-mini-grid">
-          <div class="qb-mini-card"><strong><?php esc_html_e('Processing', 'dawp'); ?></strong><p><?php esc_html_e('2-4 business days before dispatch.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('US Shipping', 'dawp'); ?></strong><p><?php esc_html_e('5-10 business days after dispatch.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Returns', 'dawp'); ?></strong><p><?php esc_html_e('30 days from delivery for eligible items.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Support', 'dawp'); ?></strong><p><?php echo esc_html($support_email); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Handling', 'dawp'); ?></strong><p><?php esc_html_e('1-3 business days, Monday-Friday.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('U.S. Transit', 'dawp'); ?></strong><p><?php esc_html_e('3-5 business days after processing.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Returns', 'dawp'); ?></strong><p><?php esc_html_e('30 days from delivery date by mail. Contact support first.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Refunds', 'dawp'); ?></strong><p><?php esc_html_e('10 days after inspection approval. No restocking fee.', 'dawp'); ?></p></div>
         </div>
       </div>
     </div>
@@ -205,8 +209,8 @@ $faq_sections = [
   <section class="qb-section">
     <div class="qb-wrap qb-summary-grid">
       <div class="qb-card"><b>01</b><h3><?php esc_html_e('Orders', 'dawp'); ?></h3><p><?php esc_html_e('Order confirmation, processing, changes, and cancellation questions.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Shipping', 'dawp'); ?></h3><p><?php esc_html_e('Delivery timelines, tracking updates, and business day definitions.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Returns', 'dawp'); ?></h3><p><?php esc_html_e('Return eligibility, inspection, refund timing, and order issue review.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Shipping', 'dawp'); ?></h3><p><?php esc_html_e('5:00 PM PST cutoff, 1-3 business day handling, free U.S. shipping, and 3-5 business day transit.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>03</b><h3><?php esc_html_e('Returns', 'dawp'); ?></h3><p><?php esc_html_e('30-day return window, mail returns, no restocking fee, and 10-day refund timing after approval.', 'dawp'); ?></p></div>
       <div class="qb-card"><b>04</b><h3><?php esc_html_e('Products', 'dawp'); ?></h3><p><?php esc_html_e('Bracelet sizing, material notes, finishes, care details, and safe product claims.', 'dawp'); ?></p></div>
     </div>
   </section>

@@ -321,7 +321,18 @@ get_header();
               ?>
               <a class="qb-404__product" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
                 <?php if ($product_image) : ?>
-                  <img src="<?php echo esc_url($product_image); ?>" alt="<?php echo esc_attr($product->get_name()); ?>">
+                  <?php
+                  echo qb_responsive_image(
+                      $product_image,
+                      $product->get_name(),
+                      [
+                          'width'  => 116,
+                          'height' => 116,
+                          'widths' => [58, 116, 174],
+                          'sizes'  => '58px',
+                      ]
+                  );
+                  ?>
                 <?php endif; ?>
                 <span>
                   <strong><?php echo esc_html($product->get_name()); ?></strong>

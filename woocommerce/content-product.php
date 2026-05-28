@@ -9,6 +9,9 @@ if (empty($product) || !$product->is_visible()) return;
 
 $cats     = get_the_terms($product->get_id(), 'product_cat');
 $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
+$image_id = $product->get_image_id();
+$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'woocommerce_single') : '';
+$image_url = $image_url ?: (function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('woocommerce_single') : '');
 ?>
 <li <?php wc_product_class('product-card', $product); ?>>
     <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">
@@ -16,7 +19,19 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
         <div class="product-card__shell">
             <div class="product-card__inner">
                 <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+                    <?php
+                    echo qb_responsive_image(
+                        $image_url,
+                        $product->get_name(),
+                        [
+                            'class'  => 'product-card__img',
+                            'width'  => 560,
+                            'height' => 560,
+                            'widths' => [240, 320, 420, 560],
+                            'sizes'  => '(max-width: 760px) 50vw, (max-width: 1180px) 33vw, 25vw',
+                        ]
+                    );
+                    ?>
                 </div>
 
                 <?php if ($product->is_on_sale()) : ?>

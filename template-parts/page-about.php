@@ -405,7 +405,20 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
       </div>
       <div class="qb-photo">
         <?php if ($hero_image) : ?>
-          <img src="<?php echo esc_url($hero_image); ?>" alt="<?php esc_attr_e('Elegant bracelet style from Queen\'s Bracelet', 'dawp'); ?>">
+          <?php
+          echo qb_responsive_image(
+              $hero_image,
+              __("Elegant bracelet style from Queen's Bracelet", 'dawp'),
+              [
+                  'width'         => 900,
+                  'height'        => 1125,
+                  'widths'        => [420, 640, 768, 900],
+                  'sizes'         => '(max-width: 780px) calc(100vw - 32px), 48vw',
+                  'loading'       => 'eager',
+                  'fetchpriority' => 'high',
+              ]
+          );
+          ?>
         <?php endif; ?>
       </div>
     </div>
@@ -465,7 +478,18 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
     <div class="qb-wrap qb-split">
       <div class="qb-photo">
         <?php if ($owl_image) : ?>
-          <img src="<?php echo esc_url($owl_image); ?>" alt="<?php esc_attr_e('Owl-inspired bracelet detail', 'dawp'); ?>">
+          <?php
+          echo qb_responsive_image(
+              $owl_image,
+              __('Owl-inspired bracelet detail', 'dawp'),
+              [
+                  'width'  => 900,
+                  'height' => 1125,
+                  'widths' => [420, 640, 768, 900],
+                  'sizes'  => '(max-width: 780px) calc(100vw - 32px), 48vw',
+              ]
+          );
+          ?>
         <?php endif; ?>
       </div>
       <div>

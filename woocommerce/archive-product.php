@@ -75,7 +75,20 @@ get_header();
 
             <?php if ($hero_image) : ?>
                 <div class="shop-hero__media">
-                    <img src="<?php echo esc_url($hero_image); ?>" alt="<?php echo esc_attr($page_title); ?>">
+                    <?php
+                    echo qb_responsive_image(
+                        $hero_image,
+                        $page_title,
+                        [
+                            'width'         => 900,
+                            'height'        => 1125,
+                            'widths'        => [420, 640, 768, 900],
+                            'sizes'         => '(max-width: 860px) calc(100vw - 32px), 44vw',
+                            'loading'       => 'eager',
+                            'fetchpriority' => 'high',
+                        ]
+                    );
+                    ?>
                 </div>
             <?php endif; ?>
         </div>

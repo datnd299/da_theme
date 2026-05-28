@@ -7,6 +7,7 @@
 
 $support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
 $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
+$store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
 <style>
@@ -526,10 +527,12 @@ $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET
             <strong><?php esc_html_e('Business Hours', 'dawp'); ?></strong>
             <span><?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?></span>
           </li>
-          <li>
-            <strong><?php esc_html_e('Address', 'dawp'); ?></strong>
-            <span><?php esc_html_e('127 Wood Rd, Rochester, NY 14626', 'dawp'); ?></span>
-          </li>
+          <?php if ($store_address) : ?>
+            <li>
+              <strong><?php esc_html_e('Address', 'dawp'); ?></strong>
+              <span><?php echo esc_html($store_address); ?></span>
+            </li>
+          <?php endif; ?>
           <li>
             <strong><?php esc_html_e('Primary Market', 'dawp'); ?></strong>
             <span><?php esc_html_e('United States customers shopping bracelet and fashion jewelry styles.', 'dawp'); ?></span>

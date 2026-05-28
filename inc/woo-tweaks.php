@@ -46,3 +46,40 @@ function dawp_my_account_page_title() {
 
     echo '<h1 class="qb-account-title">' . esc_html($title) . '</h1>';
 }
+
+function dawp_get_store_address_line() {
+    $address_1 = trim(wp_strip_all_tags((string) get_option('woocommerce_store_address', '')));
+    $address_2 = trim(wp_strip_all_tags((string) get_option('woocommerce_store_address_2', '')));
+    $city      = trim(wp_strip_all_tags((string) get_option('woocommerce_store_city', '')));
+    $postcode  = trim(wp_strip_all_tags((string) get_option('woocommerce_store_postcode', '')));
+
+    $default_location = (string) get_option('woocommerce_default_country', '');
+    $country          = $default_location;
+    $state            = '';
+
+    if (strpos($default_location, ':') !== false) {
+        list($country, $state) = array_pad(explode(':', $default_location, 2), 2, '');
+    }
+
+    $country = trim(wp_strip_all_tags($country));
+    $state   = trim(wp_strip_all_tags($state));
+
+    $city_region = trim(implode(', ', array_filter([$city, trim($state . ' ' . $postcode)])));
+    $parts       = array_filter([$address_1, $address_2, $city_region]);
+
+    if ($country && 'US' !== strtoupper($country)) {
+        $country_name = $country;
+
+        if (function_exists('WC') && WC() && isset(WC()->countries)) {
+            $countries = WC()->countries->get_countries();
+
+            if (isset($countries[$country])) {
+                $country_name = $countries[$country];
+            }
+        }
+
+        $parts[] = $country_name;
+    }
+
+    return implode(', ', $parts);
+}

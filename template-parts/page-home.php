@@ -824,7 +824,20 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
       <div class="qb-hero__media">
         <div class="qb-photo-card">
           <?php if ($hero_image) : ?>
-            <img src="<?php echo esc_url($hero_image); ?>" alt="<?php esc_attr_e('Elegant bracelet style from Queen\'s Bracelet', 'dawp'); ?>">
+            <?php
+            echo qb_responsive_image(
+                $hero_image,
+                __("Elegant bracelet style from Queen's Bracelet", 'dawp'),
+                [
+                    'width'         => 900,
+                    'height'        => 1125,
+                    'widths'        => [420, 640, 768, 900],
+                    'sizes'         => '(max-width: 780px) calc(100vw - 32px), 48vw',
+                    'loading'       => 'eager',
+                    'fetchpriority' => 'high',
+                ]
+            );
+            ?>
           <?php endif; ?>
         </div>
         <div class="qb-note">
@@ -852,7 +865,18 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
           <?php $category_image = qb_home_asset_image($category['image']) ?: qb_home_category_image($category['query_slugs']); ?>
           <a class="qb-category-card" href="<?php echo esc_url(qb_home_category_url($category['slug'])); ?>">
             <?php if ($category_image) : ?>
-              <img src="<?php echo esc_url($category_image); ?>" alt="<?php echo esc_attr($category['title']); ?>">
+              <?php
+              echo qb_responsive_image(
+                  $category_image,
+                  $category['title'],
+                  [
+                      'width'  => 504,
+                      'height' => 673,
+                      'widths' => [240, 320, 400, 504],
+                      'sizes'  => '(max-width: 780px) calc(100vw - 32px), (max-width: 1080px) 50vw, 20vw',
+                  ]
+              );
+              ?>
             <?php endif; ?>
             <span class="qb-category-card__body">
               <h3><?php echo esc_html($category['title']); ?></h3>
@@ -869,7 +893,18 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
       <div class="qb-photo-card">
         <?php $owl_image = qb_home_asset_image('Charm_Owl_Bracelets.png') ?: qb_home_category_image(['owl-bracelets', 'charm-bracelets', 'handmade-bracelets']) ?: $hero_image; ?>
         <?php if ($owl_image) : ?>
-          <img src="<?php echo esc_url($owl_image); ?>" alt="<?php esc_attr_e('Owl-inspired charm bracelet detail', 'dawp'); ?>">
+          <?php
+          echo qb_responsive_image(
+              $owl_image,
+              __('Owl-inspired charm bracelet detail', 'dawp'),
+              [
+                  'width'  => 900,
+                  'height' => 1125,
+                  'widths' => [420, 640, 768, 900],
+                  'sizes'  => '(max-width: 780px) calc(100vw - 32px), 46vw',
+              ]
+          );
+          ?>
         <?php endif; ?>
       </div>
 
@@ -925,7 +960,18 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
             <article class="qb-product-card">
               <a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
                 <?php if ($product_image) : ?>
-                  <img src="<?php echo esc_url($product_image); ?>" alt="<?php echo esc_attr($product->get_name()); ?>">
+                  <?php
+                  echo qb_responsive_image(
+                      $product_image,
+                      $product->get_name(),
+                      [
+                          'width'  => 420,
+                          'height' => 525,
+                          'widths' => [240, 320, 420, 560],
+                          'sizes'  => '(max-width: 780px) calc(100vw - 32px), (max-width: 1080px) 50vw, 25vw',
+                      ]
+                  );
+                  ?>
                 <?php endif; ?>
               </a>
               <div class="qb-product-card__body">
@@ -977,7 +1023,18 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
       <div class="qb-photo-card">
         <?php $gift_image = qb_home_asset_image('Giftable_Jewelry.png') ?: qb_home_category_image(['gift-bracelets', 'artisan-gifts']) ?: $hero_image; ?>
         <?php if ($gift_image) : ?>
-          <img src="<?php echo esc_url($gift_image); ?>" alt="<?php esc_attr_e('Giftable bracelet style', 'dawp'); ?>">
+          <?php
+          echo qb_responsive_image(
+              $gift_image,
+              __('Giftable bracelet style', 'dawp'),
+              [
+                  'width'  => 900,
+                  'height' => 1125,
+                  'widths' => [420, 640, 768, 900],
+                  'sizes'  => '(max-width: 780px) calc(100vw - 32px), 46vw',
+              ]
+          );
+          ?>
         <?php endif; ?>
       </div>
     </div>

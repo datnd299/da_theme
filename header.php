@@ -323,7 +323,19 @@ $nav_items = [
 
     <div class="qb-header-wrap qb-header-main">
         <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Queen's Bracelet home", 'dawp'); ?>">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/image.png'); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>">
+            <?php
+            echo qb_responsive_image(
+                get_template_directory_uri() . '/assets/images/home/image.png',
+                get_bloginfo('name'),
+                [
+                    'width'   => 190,
+                    'height'  => 190,
+                    'widths'  => [92, 150, 190, 300],
+                    'sizes'   => '(max-width: 520px) 150px, 190px',
+                    'loading' => 'eager',
+                ]
+            );
+            ?>
         </a>
 
         <nav class="qb-header-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">

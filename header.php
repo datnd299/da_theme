@@ -66,11 +66,15 @@ $nav_items = [
         </button>
 
         <a href="<?php echo esc_url(home_url('/')); ?>" class="shrink-0" aria-label="<?php echo esc_attr($site_name); ?>">
-            <img
-                src="<?php echo esc_url($logo_url); ?>"
-                alt="<?php echo esc_attr($site_name); ?>"
-                class="h-12 w-auto lg:h-14"
-                decoding="async">
+            <?php echo dawp_responsive_image($logo_url, [
+                'alt'     => $site_name,
+                'width'   => 120,
+                'height'  => 60,
+                'class'   => 'h-12 w-auto lg:h-14',
+                'loading' => 'eager',
+                'sizes'   => '(min-width: 1024px) 112px, 96px',
+                'srcset'  => [[96, 48], [112, 56], [120, 60]],
+            ]); ?>
         </a>
 
         <nav class="hidden flex-1 items-center justify-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Main Navigation', 'dawp'); ?>">
@@ -159,11 +163,15 @@ $nav_items = [
 <aside id="mobile-drawer" class="fixed left-0 top-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm overflow-y-auto bg-white shadow-2xl" aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
     <div class="flex h-16 items-center justify-between border-b border-[#E6DDD6] px-4">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="shrink-0" aria-label="<?php echo esc_attr($site_name); ?>">
-            <img
-                src="<?php echo esc_url($logo_url); ?>"
-                alt="<?php echo esc_attr($site_name); ?>"
-                class="h-12 w-auto"
-                decoding="async">
+            <?php echo dawp_responsive_image($logo_url, [
+                'alt'     => $site_name,
+                'width'   => 120,
+                'height'  => 60,
+                'class'   => 'h-12 w-auto',
+                'loading' => 'lazy',
+                'sizes'   => '96px',
+                'srcset'  => [[96, 48], [120, 60]],
+            ]); ?>
         </a>
         <button id="drawer-close" class="flex h-10 w-10 items-center justify-center rounded-md text-[#2F2A28] transition-colors hover:bg-[#F4ECE5]" aria-label="<?php esc_attr_e('Close menu', 'dawp'); ?>">
             <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">

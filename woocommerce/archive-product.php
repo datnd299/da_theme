@@ -103,7 +103,16 @@ $sidebar_categories = get_terms([
 
         <header class="shop-hero">
             <div class="shop-hero__media" aria-hidden="true">
-                <img src="<?php echo esc_url($shop_hero_image); ?>" alt="" loading="eager">
+                <?php echo dawp_responsive_image($shop_hero_image, [
+                    'alt'           => '',
+                    'width'         => 1600,
+                    'height'        => 720,
+                    'class'         => '',
+                    'loading'       => 'eager',
+                    'fetchpriority' => 'high',
+                    'sizes'         => '100vw',
+                    'srcset'        => [[640, 288], [960, 432], [1280, 576], [1600, 720]],
+                ]); ?>
             </div>
             <div class="shop-hero__content">
                 <p class="shop-hero__eyebrow"><?php esc_html_e('Curated boutique edit', 'dawp'); ?></p>

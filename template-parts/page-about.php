@@ -49,7 +49,16 @@ $trust_items = [
 <main class="bg-[#F8F3EC] text-[#2F2A28]">
     <section class="relative overflow-hidden bg-[#241F1D] text-white">
         <div class="absolute inset-0">
-            <img src="<?php echo esc_url($about_images['hero']); ?>" alt="<?php esc_attr_e('Women\'s shoes and accessories styled for everyday outfits', 'dawp'); ?>" class="h-full w-full object-cover opacity-62" loading="eager">
+            <?php echo dawp_responsive_image($about_images['hero'], [
+                'alt'           => __('Women\'s shoes and accessories styled for everyday outfits', 'dawp'),
+                'width'         => 1600,
+                'height'        => 900,
+                'class'         => 'h-full w-full object-cover opacity-62',
+                'loading'       => 'eager',
+                'fetchpriority' => 'high',
+                'sizes'         => '100vw',
+                'srcset'        => [[640, 360], [960, 540], [1280, 720], [1600, 900]],
+            ]); ?>
             <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,31,29,0.96)_0%,rgba(36,31,29,0.76)_46%,rgba(36,31,29,0.18)_100%)]"></div>
         </div>
 
@@ -88,7 +97,14 @@ $trust_items = [
     <section class="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div class="mx-auto grid w-[min(100%,1180px)] items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
             <div class="overflow-hidden rounded-[8px] bg-[#2F2A28]">
-                <img src="<?php echo esc_url($about_images['boutique']); ?>" alt="<?php esc_attr_e('Women browsing a fashion boutique', 'dawp'); ?>" class="aspect-[4/5] w-full object-cover opacity-95" loading="lazy">
+                <?php echo dawp_responsive_image($about_images['boutique'], [
+                    'alt'     => __('Women browsing a fashion boutique', 'dawp'),
+                    'width'   => 680,
+                    'height'  => 850,
+                    'class'   => 'aspect-[4/5] w-full object-cover opacity-95',
+                    'sizes'   => '(min-width: 1024px) 540px, 100vw',
+                    'srcset'  => [[360, 450], [573, 716], [680, 850]],
+                ]); ?>
             </div>
             <div class="lg:pl-8">
                 <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Our Point Of View', 'dawp'); ?></span>
@@ -138,7 +154,14 @@ $trust_items = [
     <section class="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div class="mx-auto grid w-[min(100%,1180px)] gap-4 lg:grid-cols-[1.1fr_0.9fr]">
             <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="group relative min-h-[480px] overflow-hidden rounded-[8px] bg-[#2F2A28]">
-                <img src="<?php echo esc_url($about_images['handbag']); ?>" alt="<?php esc_attr_e('Women\'s handbag styled with accessories', 'dawp'); ?>" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                <?php echo dawp_responsive_image($about_images['handbag'], [
+                    'alt'     => __('Women\'s handbag styled with accessories', 'dawp'),
+                    'width'   => 820,
+                    'height'  => 620,
+                    'class'   => 'absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105',
+                    'sizes'   => '(min-width: 1024px) 620px, 100vw',
+                    'srcset'  => [[480, 363], [573, 433], [820, 620]],
+                ]); ?>
                 <div class="absolute inset-0 bg-gradient-to-t from-[#2F2A28]/92 via-[#2F2A28]/24 to-transparent"></div>
                 <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                     <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Wardrobe First', 'dawp'); ?></span>
@@ -149,7 +172,14 @@ $trust_items = [
 
             <div class="grid gap-4">
                 <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="group grid min-h-[232px] grid-cols-[42%_1fr] overflow-hidden rounded-[8px] border border-[#D8CEC6] bg-white transition-colors hover:bg-[#F4ECE5]">
-                    <img src="<?php echo esc_url($about_images['market']); ?>" alt="<?php esc_attr_e('Women\'s handbag on a neutral background', 'dawp'); ?>" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                    <?php echo dawp_responsive_image($about_images['market'], [
+                        'alt'     => __('Women\'s handbag on a neutral background', 'dawp'),
+                        'width'   => 360,
+                        'height'  => 360,
+                        'class'   => 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105',
+                        'sizes'   => '(min-width: 1024px) 235px, 42vw',
+                        'srcset'  => [[220, 220], [360, 360], [573, 573]],
+                    ]); ?>
                     <div class="flex flex-col justify-end p-5 sm:p-6">
                         <span class="text-xs font-bold text-[#C98A8A]"><?php esc_html_e('Product Details', 'dawp'); ?></span>
                         <h3 class="mt-3 font-serif text-2xl leading-tight text-[#2F2A28]"><?php esc_html_e('Better choices for daily outfits.', 'dawp'); ?></h3>

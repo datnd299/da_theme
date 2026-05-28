@@ -7,11 +7,16 @@
 <main class="bg-surface text-foreground">
     <section class="relative overflow-hidden bg-foreground text-white">
         <div class="absolute inset-0">
-            <img
-                src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/All_image/image copy 8.png'); ?>"
-                alt="<?php esc_attr_e('Assorted women\'s handbags styled for customer care', 'dawp'); ?>"
-                class="h-full w-full object-cover opacity-45"
-            >
+            <?php echo dawp_responsive_image(get_template_directory_uri() . '/assets/img/All_image/image copy 8.png', [
+                'alt'           => __('Assorted women\'s handbags styled for customer care', 'dawp'),
+                'width'         => 1600,
+                'height'        => 720,
+                'class'         => 'h-full w-full object-cover opacity-45',
+                'loading'       => 'eager',
+                'fetchpriority' => 'high',
+                'sizes'         => '100vw',
+                'srcset'        => [[640, 288], [960, 432], [1280, 576], [1600, 720]],
+            ]); ?>
             <div class="absolute inset-0 bg-foreground/60"></div>
         </div>
 
@@ -65,7 +70,7 @@
                             </span>
                             <div>
                                 <h3 class="font-bold text-foreground"><?php esc_html_e('Location', 'dawp'); ?></h3>
-                                <p class="mt-1 leading-7 text-foreground-muted"><?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?></p>
+                                <p class="mt-1 leading-7 text-foreground-muted"><?php echo esc_html(dawp_store_address()); ?></p>
                             </div>
                         </div>
                     </div>

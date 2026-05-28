@@ -32,6 +32,7 @@ $footer_payment_methods = [
 
 $support_email = 'support@myveganblog.com';
 $business_hours = __('Business Hours: Monday-Friday, 9:00 AM-5:00 PM, GMT-08:00', 'dawp');
+$business_address = dawp_store_address();
 $site_name     = get_bloginfo('name');
 $logo_url      = get_template_directory_uri() . '/assets/img/gallery/Logo_all (10).png';
 ?>
@@ -40,12 +41,15 @@ $logo_url      = get_template_directory_uri() . '/assets/img/gallery/Logo_all (1
     <div class="mx-auto grid w-[min(100%,1280px)] gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr] lg:px-6 lg:py-16">
         <div>
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block rounded-md bg-white px-3 py-2" aria-label="<?php echo esc_attr($site_name); ?>">
-                <img
-                    src="<?php echo esc_url($logo_url); ?>"
-                    alt="<?php echo esc_attr($site_name); ?>"
-                    class="h-10 w-auto"
-                    loading="lazy"
-                    decoding="async">
+                <?php echo dawp_responsive_image($logo_url, [
+                    'alt'     => $site_name,
+                    'width'   => 120,
+                    'height'  => 60,
+                    'class'   => 'h-10 w-auto',
+                    'loading' => 'lazy',
+                    'sizes'   => '80px',
+                    'srcset'  => [[80, 40], [120, 60]],
+                ]); ?>
             </a>
             <ul class="mt-6 space-y-3 text-sm text-white/78">
                 <li class="inline-flex items-start gap-2">
@@ -69,7 +73,7 @@ $logo_url      = get_template_directory_uri() . '/assets/img/gallery/Logo_all (1
                         <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <?php esc_html_e('Online Myveganblog support', 'dawp'); ?>
+                    <span><?php echo esc_html($business_address); ?></span>
                 </li>
                 <li>
                     <a href="https://www.facebook.com/VegetarianShoes/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-white">
@@ -135,12 +139,15 @@ $logo_url      = get_template_directory_uri() . '/assets/img/gallery/Logo_all (1
                 <div class="flex flex-wrap items-center justify-center gap-2">
                     <?php foreach ($footer_payment_methods as $method) : ?>
                         <span class="inline-flex h-9 items-center justify-center rounded bg-white px-2">
-                            <img
-                                src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Payment/' . $method['file']); ?>"
-                                alt="<?php echo esc_attr($method['label']); ?>"
-                                class="h-6 w-auto"
-                                loading="lazy"
-                                decoding="async">
+                            <?php echo dawp_responsive_image(get_template_directory_uri() . '/assets/img/Payment/' . $method['file'], [
+                                'alt'     => $method['label'],
+                                'width'   => 320,
+                                'height'  => 104,
+                                'class'   => 'h-6 w-auto',
+                                'loading' => 'lazy',
+                                'sizes'   => '74px',
+                                'srcset'  => [[74, 24], [148, 48], [320, 104]],
+                            ]); ?>
                         </span>
                     <?php endforeach; ?>
                 </div>

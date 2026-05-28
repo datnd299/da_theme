@@ -124,7 +124,16 @@ $trust_cards = [
     <!-- Hero -->
     <section class="relative overflow-hidden bg-[#241F1D] text-white">
         <div class="absolute inset-0">
-            <img src="<?php echo esc_url($stock_images['hero']); ?>" alt="<?php esc_attr_e('Women\'s shoes and accessories styled for everyday outfits', 'dawp'); ?>" class="h-full w-full object-cover opacity-60" loading="eager">
+            <?php echo dawp_responsive_image($stock_images['hero'], [
+                'alt'           => __('Women\'s shoes and accessories styled for everyday outfits', 'dawp'),
+                'width'         => 1600,
+                'height'        => 900,
+                'class'         => 'h-full w-full object-cover opacity-60',
+                'loading'       => 'eager',
+                'fetchpriority' => 'high',
+                'sizes'         => '100vw',
+                'srcset'        => [[640, 360], [960, 540], [1280, 720], [1600, 900], [2000, 1125]],
+            ]); ?>
             <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,31,29,0.96)_0%,rgba(36,31,29,0.78)_42%,rgba(36,31,29,0.16)_100%)]"></div>
         </div>
         <div class="relative mx-auto grid min-h-[660px] w-[min(100%,1180px)] content-end px-4 pb-8 pt-20 sm:px-6 lg:px-8 lg:pb-12">
@@ -183,7 +192,14 @@ $trust_cards = [
 
             <div class="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
                 <a href="<?php echo esc_url($collections[0]['url']); ?>" class="group relative min-h-[460px] overflow-hidden rounded-[8px] bg-[#2F2A28]">
-                    <img src="<?php echo esc_url($collections[0]['image']); ?>" alt="<?php echo esc_attr($collections[0]['title']); ?>" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                    <?php echo dawp_responsive_image($collections[0]['image'], [
+                        'alt'     => $collections[0]['title'],
+                        'width'   => 680,
+                        'height'  => 680,
+                        'class'   => 'absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105',
+                        'sizes'   => '(min-width: 1024px) 400px, 100vw',
+                        'srcset'  => [[360, 360], [573, 573], [680, 680]],
+                    ]); ?>
                     <div class="absolute inset-0 bg-gradient-to-t from-[#2F2A28]/90 via-[#2F2A28]/20 to-transparent"></div>
                     <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8">
                         <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Start Here', 'dawp'); ?></span>
@@ -195,7 +211,14 @@ $trust_cards = [
                 <div class="grid gap-4">
                     <?php foreach (array_slice($collections, 1) as $index => $collection) : ?>
                         <a href="<?php echo esc_url($collection['url']); ?>" class="group grid min-h-[160px] grid-cols-[104px_1fr] overflow-hidden rounded-[8px] border border-[#D8CEC6] bg-[#F8F3EC] transition-colors hover:bg-[#F4ECE5] sm:grid-cols-[120px_1fr]">
-                            <img src="<?php echo esc_url($collection['image']); ?>" alt="<?php echo esc_attr($collection['title']); ?>" class="h-full min-h-[160px] w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
+                            <?php echo dawp_responsive_image($collection['image'], [
+                                'alt'     => $collection['title'],
+                                'width'   => 240,
+                                'height'  => 240,
+                                'class'   => 'h-full min-h-[160px] w-full object-cover transition-transform duration-500 group-hover:scale-105',
+                                'sizes'   => '(min-width: 640px) 120px, 104px',
+                                'srcset'  => [[104, 160], [120, 184], [240, 368]],
+                            ]); ?>
                             <div class="flex flex-col justify-between gap-4 p-4">
                                 <span class="text-xs font-bold text-[#C98A8A]"><?php echo esc_html(str_pad((string) ($index + 2), 2, '0', STR_PAD_LEFT)); ?></span>
                                 <div>
@@ -233,7 +256,14 @@ $trust_cards = [
     <section class="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div class="mx-auto grid w-[min(100%,1180px)] items-center gap-8 lg:grid-cols-2">
             <div class="overflow-hidden rounded-[28px] border-8 border-white shadow-[0_18px_44px_rgba(47,42,40,0.12)]">
-                <img src="<?php echo esc_url($stock_images['feature']); ?>" alt="<?php esc_attr_e('Women\'s fashion boutique with shoes and accessories', 'dawp'); ?>" class="aspect-[5/4] w-full object-cover" loading="lazy">
+                <?php echo dawp_responsive_image($stock_images['feature'], [
+                    'alt'     => __('Women\'s fashion boutique with shoes and accessories', 'dawp'),
+                    'width'   => 760,
+                    'height'  => 608,
+                    'class'   => 'aspect-[5/4] w-full object-cover',
+                    'sizes'   => '(min-width: 1024px) 560px, 100vw',
+                    'srcset'  => [[400, 320], [573, 458], [760, 608]],
+                ]); ?>
             </div>
             <div class="rounded-[28px] border border-[#D8CEC6] bg-white p-8 shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:p-10">
                 <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Polished Shoes For Daily Looks', 'dawp'); ?></span>
@@ -284,7 +314,14 @@ $trust_cards = [
     <section class="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div class="mx-auto grid w-[min(100%,1180px)] overflow-hidden rounded-[28px] bg-[#2F2A28] lg:grid-cols-[0.9fr_1.1fr]">
             <div class="min-h-[360px]">
-                <img src="<?php echo esc_url($stock_images['about']); ?>" alt="<?php esc_attr_e('Women\'s handbag styled with everyday accessories', 'dawp'); ?>" class="h-full w-full object-cover" loading="lazy">
+                <?php echo dawp_responsive_image($stock_images['about'], [
+                    'alt'     => __('Women\'s handbag styled with everyday accessories', 'dawp'),
+                    'width'   => 700,
+                    'height'  => 560,
+                    'class'   => 'h-full w-full object-cover',
+                    'sizes'   => '(min-width: 1024px) 500px, 100vw',
+                    'srcset'  => [[400, 320], [573, 458], [700, 560]],
+                ]); ?>
             </div>
             <div class="p-8 text-white sm:p-10 lg:p-14">
                 <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Our Boutique Direction', 'dawp'); ?></span>

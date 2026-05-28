@@ -1072,15 +1072,18 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
       </div>
 
       <div class="qb-policy-box">
-        <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-3 business days, and fulfillment runs Monday-Friday.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Standard U.S. shipping is free, with 3-5 business day transit after processing is complete.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-2 business days, and fulfillment runs Monday-Friday excluding public holidays.', 'dawp'); ?></p>
+        <p><?php esc_html_e('Standard U.S. shipping is free unless checkout shows otherwise, with 5-7 business day transit and usually 6-9 business days estimated delivery.', 'dawp'); ?></p>
         <p><?php esc_html_e('Eligible returns are accepted by mail within 30 days from delivery date after contacting support first. There is no restocking fee, and refunds are processed within 10 days after inspection approval.', 'dawp'); ?></p>
-        <p><?php esc_html_e('For order support, contact support@queens-bracelet.com during Monday-Friday business hours, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
+        <p><?php esc_html_e('For order support, contact support@queens-bracelet.com. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
       </div>
 
       <div class="qb-actions">
-        <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>">
-          <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+        <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>">
+          <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
+        </a>
+        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>">
+          <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
         </a>
         <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>">
           <?php esc_html_e('Contact Support', 'dawp'); ?>
@@ -1090,6 +1093,8 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
       <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Store policy links', 'dawp'); ?>">
         <a href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Us', 'dawp'); ?></a>
         <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
         <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
         <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms of Service', 'dawp'); ?></a>
         <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>

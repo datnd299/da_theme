@@ -18,7 +18,7 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
                     <?php esc_html_e('Use your order number and checkout email to review the latest status for your Queen\'s Bracelet purchase.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
-                    <a class="track-button" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+                    <a class="track-button" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
                     <a class="track-button track-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
                 </div>
             </div>
@@ -90,9 +90,13 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
 
     <section class="track-more-section">
         <div class="track-more-section__inner">
-            <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
+            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
                 <strong><?php esc_html_e('Shipping Policy', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Review cutoff, handling, free U.S. shipping, returns, and refunds.', 'dawp'); ?></span>
+                <span><?php esc_html_e('Review cutoff, handling, free U.S. shipping, transit, and tracking.', 'dawp'); ?></span>
+            </a>
+            <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="track-more-card">
+                <strong><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></strong>
+                <span><?php esc_html_e('Review return eligibility, return method, fees, and refund timing.', 'dawp'); ?></span>
             </a>
             <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                 <strong><?php esc_html_e('FAQ', 'dawp'); ?></strong>

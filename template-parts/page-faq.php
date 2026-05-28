@@ -23,7 +23,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM Pacific Standard Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM Pacific Standard Time cutoff and a 1-2 business day handling time. Fulfillment takes place Monday-Friday, excluding public holidays.', 'dawp'),
             ],
         ],
     ],
@@ -34,7 +34,7 @@ $faq_sections = [
         'faqs' => [
             [
                 'q' => __('How long does shipping take?', 'dawp'),
-                'a' => __('After processing is complete, standard U.S. transit time is 3-5 business days. Standard shipping is free on U.S. orders.', 'dawp'),
+                'a' => __('Standard U.S. transit time is usually 5-7 business days. Estimated delivery is usually 6-9 business days. Standard shipping is free on most U.S. orders unless checkout shows otherwise.', 'dawp'),
             ],
             [
                 'q' => __('Will I receive tracking information?', 'dawp'),
@@ -122,7 +122,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('When is support available?', 'dawp'),
-                'a' => __('Business hours are Monday-Friday, 9:00 AM-6:00 PM EST. Response times may vary on weekends, holidays, or during high-volume periods.', 'dawp'),
+                'a' => __('Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST. Response times may vary on weekends, holidays, or during high-volume periods.', 'dawp'),
             ],
         ],
     ],
@@ -190,15 +190,16 @@ $faq_sections = [
         <h1 class="qb-title"><?php esc_html_e('Answers for bracelet orders and store policies.', 'dawp'); ?></h1>
         <p class="qb-copy"><?php esc_html_e('Find clear answers about ordering, shipping, tracking, returns, refunds, bracelet sizing, product details, payments, privacy, and support at Queen\'s Bracelet.', 'dawp'); ?></p>
         <div class="qb-actions">
-          <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+          <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
+          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
         </div>
       </div>
       <div class="qb-panel">
         <p class="qb-eyebrow"><?php esc_html_e('Quick Policy Facts', 'dawp'); ?></p>
         <div class="qb-mini-grid">
-          <div class="qb-mini-card"><strong><?php esc_html_e('Handling', 'dawp'); ?></strong><p><?php esc_html_e('1-3 business days, Monday-Friday.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('U.S. Transit', 'dawp'); ?></strong><p><?php esc_html_e('3-5 business days after processing.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('Handling', 'dawp'); ?></strong><p><?php esc_html_e('1-2 business days, Monday-Friday.', 'dawp'); ?></p></div>
+          <div class="qb-mini-card"><strong><?php esc_html_e('U.S. Transit', 'dawp'); ?></strong><p><?php esc_html_e('5-7 business days.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Returns', 'dawp'); ?></strong><p><?php esc_html_e('30 days from delivery date by mail. Contact support first.', 'dawp'); ?></p></div>
           <div class="qb-mini-card"><strong><?php esc_html_e('Refunds', 'dawp'); ?></strong><p><?php esc_html_e('10 days after inspection approval. No restocking fee.', 'dawp'); ?></p></div>
         </div>
@@ -209,7 +210,7 @@ $faq_sections = [
   <section class="qb-section">
     <div class="qb-wrap qb-summary-grid">
       <div class="qb-card"><b>01</b><h3><?php esc_html_e('Orders', 'dawp'); ?></h3><p><?php esc_html_e('Order confirmation, processing, changes, and cancellation questions.', 'dawp'); ?></p></div>
-      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Shipping', 'dawp'); ?></h3><p><?php esc_html_e('5:00 PM PST cutoff, 1-3 business day handling, free U.S. shipping, and 3-5 business day transit.', 'dawp'); ?></p></div>
+      <div class="qb-card"><b>02</b><h3><?php esc_html_e('Shipping', 'dawp'); ?></h3><p><?php esc_html_e('5:00 PM PST cutoff, 1-2 business day handling, free standard U.S. shipping unless noted at checkout, and 5-7 business day transit.', 'dawp'); ?></p></div>
       <div class="qb-card"><b>03</b><h3><?php esc_html_e('Returns', 'dawp'); ?></h3><p><?php esc_html_e('30-day return window, mail returns, no restocking fee, and 10-day refund timing after approval.', 'dawp'); ?></p></div>
       <div class="qb-card"><b>04</b><h3><?php esc_html_e('Products', 'dawp'); ?></h3><p><?php esc_html_e('Bracelet sizing, material notes, finishes, care details, and safe product claims.', 'dawp'); ?></p></div>
     </div>
@@ -221,7 +222,7 @@ $faq_sections = [
         <div class="qb-dark-card">
           <p class="qb-eyebrow"><?php esc_html_e('FAQ Categories', 'dawp'); ?></p>
           <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Find answers faster.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('These answers match our Shipping & Returns, Privacy Policy, and Terms & Conditions pages.', 'dawp'); ?></p>
+          <p><?php esc_html_e('These answers match our Shipping Policy, Return & Refund Policy, Privacy Policy, and Terms & Conditions pages.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('FAQ categories', 'dawp'); ?>">
             <?php foreach ($faq_sections as $section) : ?>
               <a href="#<?php echo esc_attr($section['id']); ?>"><?php echo esc_html($section['eyebrow']); ?></a>
@@ -258,13 +259,14 @@ $faq_sections = [
     <div class="qb-wrap">
       <p class="qb-eyebrow"><?php esc_html_e('Still Need Help?', 'dawp'); ?></p>
       <h2 class="qb-title"><?php esc_html_e('Support is available for policy and order questions.', 'dawp'); ?></h2>
-      <p class="qb-copy"><?php esc_html_e('For order-related messages, include your order number and the email address used at checkout. Business hours are Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
+      <p class="qb-copy"><?php esc_html_e('For order-related messages, include your order number and the email address used at checkout. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?></p>
       <div class="qb-actions">
         <a class="qb-button" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
         <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
       </div>
       <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Related policy links', 'dawp'); ?>">
-        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
         <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
         <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
         <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>

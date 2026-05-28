@@ -22,7 +22,8 @@ $footer_shop_links = [
 
 $footer_help_links = [
     ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
-    ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+    ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
     ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
     ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
@@ -312,7 +313,7 @@ $footer_policy_links = [
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm1-13h-2v5.35l4.25 2.55 1-1.62L13 11.35V7Z"/>
                         </svg>
-                        <?php esc_html_e('Mon-Fri 9AM-6PM EST', 'dawp'); ?>
+                        <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'); ?>
                     </span>
                     <a href="mailto:support@queens-bracelet.com" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">

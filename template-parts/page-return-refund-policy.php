@@ -188,7 +188,7 @@ $support_portal = home_url('/contact-us/');
           </div>
           <div class="qb-address-box">
             <strong><?php esc_html_e("Queen's Bracelet - Returns Department", 'dawp'); ?></strong>
-            <span><?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?></span>
+            <span><?php esc_html_e('127 WOOD RD, Rochester, NY 14626', 'dawp'); ?></span>
           </div>
           <div class="qb-actions">
             <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>

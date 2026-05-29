@@ -95,19 +95,6 @@ get_header();
     </section>
 
     <div class="shop-container">
-        <?php if (!empty($defined_categories)) : ?>
-            <nav class="shop-collections" aria-label="<?php esc_attr_e('Bracelet collections', 'dawp'); ?>">
-                <a class="<?php echo !$is_category ? 'is-active' : ''; ?>" href="<?php echo esc_url($shop_url); ?>">
-                    <?php esc_html_e('All Bracelets', 'dawp'); ?>
-                </a>
-                <?php foreach ($defined_categories as $slug => $category) : ?>
-                    <a class="<?php echo $queried_term && !is_wp_error($queried_term) && $queried_term->slug === $slug ? 'is-active' : ''; ?>" href="<?php echo esc_url(qb_product_category_url($slug)); ?>">
-                        <?php echo esc_html($category['name']); ?>
-                    </a>
-                <?php endforeach; ?>
-            </nav>
-        <?php endif; ?>
-
         <div class="shop-toolbar">
             <div class="shop-toolbar__left">
                 <span class="shop-toolbar__count">

@@ -63,7 +63,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
   .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
   @media (max-width:1080px) { .qb-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-mini-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { display:none; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } .qb-panel { overflow:hidden; } .qb-panel .qb-mini-grid { display:flex; grid-template-columns:none; gap:14px; margin-inline:calc(clamp(24px,4vw,44px) * -1); padding:0 clamp(24px,4vw,44px) 8px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; } .qb-panel .qb-mini-grid::-webkit-scrollbar { display:none; } .qb-panel .qb-mini-card { flex:0 0 min(82vw,300px); scroll-snap-align:start; } }
 </style>
 
 <div class="qb-page qb-terms">
@@ -116,7 +116,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <p class="qb-eyebrow"><?php esc_html_e('Overview', 'dawp'); ?></p>
           <h2><?php esc_html_e('This website is operated by Queen\'s Bracelet.', 'dawp'); ?></h2>
           <p><?php echo esc_html(sprintf('Throughout the site, the terms "we," "us," and "our" refer to %s. We provide this website, including all information, tools, products, and services available from this site, to you conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.', $brand_name)); ?></p>
-          <p><?php esc_html_e('By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by these Terms of Service ("Terms"), including any additional terms, conditions, and policies referenced here or available by hyperlink, including our Privacy Policy, Shipping Policy, and Refund & Return Policy.', 'dawp'); ?></p>
+          <p><?php esc_html_e('By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by these Terms of Service ("Terms"), including any additional terms, conditions, and policies referenced here or available by hyperlink, including our Privacy Policy, Shipping Policy, and Return & Refund Policy.', 'dawp'); ?></p>
           <p><?php esc_html_e('These Terms apply to all users of the site, including without limitation browsers, customers, account holders, merchants/partners (if applicable), and contributors of content.', 'dawp'); ?></p>
           <p><?php esc_html_e('Please read these Terms carefully before accessing or using our website. If you do not agree to all the terms and conditions, you may not access the website or use any services.', 'dawp'); ?></p>
         </section>
@@ -167,7 +167,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <li><?php esc_html_e('Discontinue any product at any time.', 'dawp'); ?></li>
             <li><?php esc_html_e('Refuse orders that appear to be placed by dealers, resellers, or distributors unless approved by us.', 'dawp'); ?></li>
           </ul>
-          <p><?php esc_html_e('All products are subject to our Refund & Return Policy, including category-specific exceptions stated on product pages.', 'dawp'); ?></p>
+          <p><?php esc_html_e('All products are subject to our Return & Refund Policy, including category-specific exceptions stated on product pages.', 'dawp'); ?></p>
         </section>
 
         <section id="billing" class="qb-policy-card">
@@ -272,7 +272,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <section id="entire-agreement" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('17. Entire Agreement', 'dawp'); ?></p>
           <h2><?php esc_html_e('These Terms and posted policies form the full agreement.', 'dawp'); ?></h2>
-          <p><?php echo esc_html(sprintf('These Terms, together with any policies or operating rules posted by us on this site, including our Privacy Policy, Shipping Policy, and Refund & Return Policy, constitute the entire agreement between you and %s regarding your use of the Service and supersede any prior or contemporaneous agreements, communications, or proposals.', $brand_name)); ?></p>
+          <p><?php echo esc_html(sprintf('These Terms, together with any policies or operating rules posted by us on this site, including our Privacy Policy, Shipping Policy, and Return & Refund Policy, constitute the entire agreement between you and %s regarding your use of the Service and supersede any prior or contemporaneous agreements, communications, or proposals.', $brand_name)); ?></p>
         </section>
 
         <section id="governing-law" class="qb-policy-card">
@@ -320,18 +320,4 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
     </div>
   </section>
 
-  <section class="qb-section qb-plum">
-    <div class="qb-wrap">
-      <p class="qb-eyebrow"><?php esc_html_e('Related Policies', 'dawp'); ?></p>
-      <h2 class="qb-title"><?php esc_html_e('These Terms work with our store policies.', 'dawp'); ?></h2>
-      <p class="qb-copy"><?php esc_html_e('Review shipping, returns, refunds, privacy, FAQs, and support details before placing an order.', 'dawp'); ?></p>
-      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Related policy links', 'dawp'); ?>">
-        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
-      </nav>
-    </div>
-  </section>
 </div>

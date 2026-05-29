@@ -5,7 +5,13 @@
  * @package dawp
  */
 
-$support_email = 'support@queens-bracelet.com';
+$store_name        = "Queen's Bracelet";
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
+$store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
+$support_portal    = home_url('/contact-us/');
+$shipping_policy   = home_url('/shipping-policy/');
+$return_policy     = home_url('/return-refund-policy/');
+$track_order_page   = home_url('/track-order/');
 
 $faq_sections = [
     [
@@ -15,15 +21,19 @@ $faq_sections = [
         'faqs' => [
             [
                 'q' => __('How do I know my order was placed successfully?', 'dawp'),
-                'a' => __('After checkout, you should receive an order confirmation email with your order details. If you do not see it, check your spam or promotions folder first, then contact support with the email used at checkout.', 'dawp'),
+                'a' => __('After checkout, you should receive an order confirmation email with your order details. If you do not see it, check your spam or promotions folder first, then contact support with the email address used at checkout.', 'dawp'),
             ],
             [
-                'q' => __('Can I change or cancel an order?', 'dawp'),
-                'a' => __('Contact us as soon as possible. We cannot guarantee changes after an order enters processing or fulfillment, but our support team will review what is still possible.', 'dawp'),
+                'q' => __('Can I change an order after checkout?', 'dawp'),
+                'a' => __('Contact us as soon as possible if you need to update order details. Orders placed before 5:00 PM PST begin processing the same business day, while orders placed after 5:00 PM PST or over the weekend begin processing the next business day. We cannot guarantee changes after an order enters processing or fulfillment, but our support team will review what is still possible.', 'dawp'),
+            ],
+            [
+                'q' => __('Can I cancel my order after placing it?', 'dawp'),
+                'a' => __('Please contact support as soon as possible if you need to cancel. If the order has already entered fulfillment, been processed for shipment, or shipped, cancellation may no longer be available. After delivery, eligible items may be returned according to our Return & Refund Policy.', 'dawp'),
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM Pacific Standard Time cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding public holidays.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM PST cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some custom, high-demand, or separately packed jewelry items may require additional processing time.', 'dawp'),
             ],
         ],
     ],
@@ -33,16 +43,24 @@ $faq_sections = [
         'title' => __('Delivery & Tracking', 'dawp'),
         'faqs' => [
             [
+                'q' => __('Where do you ship?', 'dawp'),
+                'a' => __('We currently ship exclusively within the United States domestic market. If a product, destination, or carrier limitation prevents delivery to your specific address, checkout will notify you before payment is processed.', 'dawp'),
+            ],
+            [
+                'q' => __('How much does standard shipping cost?', 'dawp'),
+                'a' => __('Standard U.S. shipping is free nationwide for every order with no minimum purchase requirement. If expedited or assisted shipping is available for your destination, the exact cost will be shown clearly at checkout before payment.', 'dawp'),
+            ],
+            [
                 'q' => __('How long does shipping take?', 'dawp'),
-                'a' => __('Standard U.S. transit time is usually 5-7 business days. Estimated delivery is usually 6-10 business days. Standard shipping is free on most U.S. orders unless checkout shows otherwise.', 'dawp'),
+                'a' => __('Order handling usually takes 1-3 business days and transit usually takes 5-7 business days, for a total estimated delivery time of 6-10 business days. Business days do not include weekends or official U.S. public holidays.', 'dawp'),
             ],
             [
                 'q' => __('Will I receive tracking information?', 'dawp'),
-                'a' => __('Yes. Tracking information is sent by email once your order ships. Please allow time for the carrier tracking page to update after the tracking number is created.', 'dawp'),
+                'a' => __('Yes. Once your order is dispatched, we send a shipping confirmation email with a direct tracking link and courier details to the email address used at checkout. Orders may ship with USPS, UPS, FedEx, or DHL depending on the final carrier selected at fulfillment.', 'dawp'),
             ],
             [
-                'q' => __('Do business days include weekends or holidays?', 'dawp'),
-                'a' => __('No. Business days do not include weekends or public holidays. Orders are fulfilled Monday-Friday.', 'dawp'),
+                'q' => __('Do multi-item orders ship together?', 'dawp'),
+                'a' => __('Some multi-item jewelry orders may ship separately when items are prepared from different fulfillment batches or require distinct packing methods. If that happens, you will receive separate tracking numbers at no additional cost.', 'dawp'),
             ],
         ],
     ],
@@ -53,19 +71,42 @@ $faq_sections = [
         'faqs' => [
             [
                 'q' => __('What is your return window?', 'dawp'),
-                'a' => __('Customers may request a return within 30 days from the delivery date. Returns are handled by mail, and customers must contact support first before sending any item back.', 'dawp'),
+                'a' => __('You may initiate a return request within 30 days of delivery. Please contact support before sending anything back because unauthorized returns cannot be tracked or processed at our warehouse.', 'dawp'),
+            ],
+            [
+                'q' => __('What condition must a return be in?', 'dawp'),
+                'a' => __('Eligible returns must be unworn, unused, undamaged, and in original, unaltered condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
             ],
             [
                 'q' => __('Do you charge a restocking fee?', 'dawp'),
-                'a' => __('No. There is no restocking fee for eligible approved returns.', 'dawp'),
+                'a' => __('No. We do not charge restocking fees for eligible approved returns.', 'dawp'),
             ],
             [
-                'q' => __('What items may not qualify for return?', 'dawp'),
-                'a' => __('Items may be refused if they show wear, stains, odors, alteration, missing parts, damage, hygiene concerns, or missing original packaging where applicable.', 'dawp'),
+                'q' => __('Who pays return shipping?', 'dawp'),
+                'a' => __('We cover 100% of return shipping costs or provide a prepaid shipping label when the item is defective, damaged, incorrect, missing essential parts, or not functioning as intended. For customer remorse returns, such as wrong item, size, color, model, fit preference, or no longer wanting the item, the customer is responsible for return shipping, and the actual return label cost may be deducted from the final refund amount.', 'dawp'),
             ],
             [
                 'q' => __('How are refunds handled?', 'dawp'),
-                'a' => __('Refunds are processed within 7 days after inspection approval and issued to the original payment method. Your payment provider may take additional time to post the funds.', 'dawp'),
+                'a' => __('After your return package is received at our warehouse, we inspect the item within 1-2 business days. If approved, the refund is processed automatically back to the original payment method within 7 business days. If you have not received your refund after 15 business days from approval, please check with your bank or card provider first, then contact us.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'id' => 'delivery-issues',
+        'eyebrow' => __('Delivery Issues', 'dawp'),
+        'title' => __('Damaged, Delayed, or Missing Packages', 'dawp'),
+        'faqs' => [
+            [
+                'q' => __('What should I do if my order arrived damaged?', 'dawp'),
+                'a' => __('Contact us within 30 days of delivery with your order number, checkout email, and clear photos of the item and shipping packaging, including the shipping label. We will review the issue and arrange a replacement or full refund at no cost to you when approved.', 'dawp'),
+            ],
+            [
+                'q' => __('What if tracking says delivered but I did not receive the package?', 'dawp'),
+                'a' => __('Please contact support within 30 days of the recorded delivery date with your order number, checkout email, and confirmed delivery address. We will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'),
+            ],
+            [
+                'q' => __('What if tracking has stopped updating?', 'dawp'),
+                'a' => __('If tracking has not updated for an extended period or your delivery is delayed beyond the estimated 6-10 business day delivery window, contact support so we can review the shipment and open an investigation with the carrier. Please include your order number, checkout email, confirmed delivery address, and photos of the outer packaging if the shipment arrived damaged.', 'dawp'),
             ],
         ],
     ],
@@ -107,102 +148,122 @@ $faq_sections = [
             ],
         ],
     ],
-    [
-        'id' => 'support',
-        'eyebrow' => __('Support', 'dawp'),
-        'title' => __('Getting Help', 'dawp'),
-        'faqs' => [
-            [
-                'q' => __('How can I contact Queen\'s Bracelet?', 'dawp'),
-                'a' => __('Use the Contact Us page or email support@queens-bracelet.com. For order questions, include your order number and the email address used at checkout.', 'dawp'),
-            ],
-            [
-                'q' => __('What should I do if I received a damaged or incorrect item?', 'dawp'),
-                'a' => __('Contact us as soon as possible with your order number, checkout email, and clear photos of the product, packaging, and issue so support can review next steps.', 'dawp'),
-            ],
-            [
-                'q' => __('When is support available?', 'dawp'),
-                'a' => __('Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST. Response times may vary on weekends, holidays, or during high-volume periods.', 'dawp'),
-            ],
-        ],
-    ],
 ];
 ?>
 
 <style>
   .qb-page { --qb-blush:#ffb7c5; --qb-peach:#ffd6a5; --qb-mint:#cff5e7; --qb-gold:#d8a94e; --qb-plum:#2f1f35; --qb-gray:#f7f7fa; --qb-text:#4f4355; --qb-border:#eadfe8; background:#fff; color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
-  .qb-page a { text-decoration:none; }
-  .qb-wrap { width:min(100% - 32px,1280px); margin-inline:auto; }
-  .qb-section { padding:72px 0; }
-  .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
-  .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(34px,4.2vw,58px); line-height:1.04; letter-spacing:0; }
-  .qb-copy { margin:18px 0 0; max-width:720px; color:var(--qb-text); font-size:17px; line-height:1.75; }
-  .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
-  .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum); }
-  .qb-button--secondary { background:#fff; color:var(--qb-plum); }
-  .qb-hero { overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.35),rgba(255,214,165,.38) 48%,rgba(207,245,231,.4)),#fff; }
-  .qb-hero__grid { display:grid; grid-template-columns:minmax(0,1.02fr) minmax(320px,.98fr); gap:48px; align-items:center; padding:78px 0; }
-  .qb-panel, .qb-card, .qb-faq-section { border:1px solid var(--qb-border); border-radius:24px; background:#fff; box-shadow:0 18px 46px rgba(47,31,53,.08); }
-  .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
-  .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
-  .qb-card { padding:22px; }
-  .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:#fff4f6; color:var(--qb-plum); font-size:13px; }
-  .qb-card h3, .qb-faq-section h2, .qb-mini-card strong { margin:18px 0 0; color:var(--qb-plum); }
-  .qb-card p, .qb-mini-card p, .qb-answer p { color:#675a6c; font-size:14px; line-height:1.65; }
+  .qb-page a { color:inherit; text-decoration:none; }
+  .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
+  .qb-section { padding:68px 0; }
+  .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+  .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
+  .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
+  .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
+  .qb-button--secondary:hover { border-color:var(--qb-plum); background:#fff4f6; color:var(--qb-plum) !important; }
+  .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.36),rgba(255,214,165,.36) 46%,rgba(207,245,231,.42)),#fff; }
+  .qb-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.42); filter:blur(8px); }
+  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(216,169,78,.22); border-radius:999px; background:rgba(255,255,255,.2); }
+  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr); gap:44px; align-items:center; padding:78px 0 84px; }
+  .qb-hero__content { max-width:720px; }
+  .qb-hero .qb-copy { max-width:690px; }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(47,31,53,.08); }
+  .qb-hero-panel { padding:clamp(22px,3vw,32px); }
+  .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
+  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#675a6c; font-size:14px; line-height:1.6; }
+  .qb-glance-list strong { display:block; margin-bottom:5px; color:var(--qb-plum); font-size:14px; line-height:1.25; }
   .qb-soft { background:var(--qb-gray); }
-  .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
-  .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
-  .qb-dark-card { border-radius:24px; background:var(--qb-plum); padding:28px; color:#fff; }
+  .qb-content-grid { display:grid; grid-template-columns:280px minmax(0,1fr); gap:32px; align-items:start; }
+  .qb-sidebar { position:sticky; top:110px; }
+  .qb-dark-card { border-radius:20px; background:var(--qb-plum); padding:24px; color:#fff; }
   .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
-  .qb-dark-card h2, .qb-dark-card p, .qb-dark-card a { color:#fff; }
-  .qb-dark-card p { color:rgba(255,255,255,.78); font-size:15px; line-height:1.7; }
-  .qb-side-nav { display:grid; gap:10px; margin-top:22px; }
-  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
-  .qb-faq-stack { display:grid; gap:22px; }
-  .qb-faq-section { padding:clamp(24px,4vw,40px); }
-  .qb-faq-section:nth-child(even) { background:#fffafc; }
-  .qb-faq-section h2 { font-size:clamp(25px,3vw,38px); line-height:1.12; font-family:Georgia,"Times New Roman",serif; }
-  .qb-accordion { overflow:hidden; margin-top:24px; border:1px solid var(--qb-border); border-radius:18px; background:#fff; }
+  .qb-dark-card h2 { margin:0; color:#fff; font-family:Georgia,"Times New Roman",serif; font-size:28px; line-height:1.12; }
+  .qb-dark-card p { margin:14px 0 0; color:rgba(255,255,255,.78); font-size:14px; line-height:1.65; }
+  .qb-dark-card a { color:#fff; }
+  .qb-side-nav { display:grid; gap:9px; margin-top:20px; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 13px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-policy-stack { display:grid; gap:20px; }
+  .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
+  .qb-policy-card:nth-child(even) { background:#fffafc; }
+  .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
+  .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
+  .qb-policy-card h2 + .qb-policy-card__intro { margin-top:14px; }
+  .qb-policy-card p, .qb-policy-card li { color:#675a6c; font-size:15px; line-height:1.72; }
+  .qb-policy-card p { margin:14px 0 0; }
+  .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
+  .qb-policy-card ul { list-style:disc outside; }
+  .qb-policy-card ol { list-style:decimal outside; }
+  .qb-accordion { overflow:hidden; margin-top:22px; border:1px solid var(--qb-border); border-radius:18px; background:#fff; }
   .qb-faq-item + .qb-faq-item { border-top:1px solid var(--qb-border); }
   .qb-faq-toggle { display:flex; width:100%; align-items:center; justify-content:space-between; gap:18px; border:0; background:#fff; padding:18px; color:var(--qb-plum); text-align:left; font:inherit; font-weight:800; cursor:pointer; }
   .qb-faq-toggle:hover { background:#fff8fa; }
   .qb-faq-toggle span:first-child { line-height:1.35; }
-  .qb-faq-icon { display:inline-flex; width:34px; height:34px; flex:0 0 34px; align-items:center; justify-content:center; border-radius:999px; background:var(--qb-plum); color:#fff; font-weight:800; }
+  .qb-faq-icon { display:inline-flex; width:34px; height:34px; flex:0 0 34px; align-items:center; justify-content:center; border-radius:999px; background:var(--qb-plum); color:#fff; font-size:18px; font-weight:800; line-height:1; }
   .qb-answer { display:none; padding:0 18px 20px; }
+  .qb-answer p { color:#675a6c; font-size:15px; line-height:1.72; }
   .qb-faq-toggle[aria-expanded="true"] .qb-faq-icon { background:var(--qb-gold); color:var(--qb-plum); }
-  .qb-mini-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; }
-  .qb-mini-card { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:18px; }
-  .qb-plum { background:var(--qb-plum); color:#fff; }
-  .qb-plum .qb-title, .qb-plum .qb-copy { color:#fff; }
-  .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
-  .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
-  @media (max-width:1080px) { .qb-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
-  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-mini-grid { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+  .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
+  .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
+  .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
+  .qb-contact-item span { display:block; margin-top:7px; color:#675a6c; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+  @media (max-width:920px) { .qb-hero__grid, .qb-content-grid { grid-template-columns:1fr; } .qb-sidebar { position:static; } }
+  @media (max-width:680px) {
+    .qb-section { padding:44px 0; }
+    .qb-hero__grid { gap:28px; padding:46px 0 50px; }
+    .qb-hero-panel { margin-inline:-4px; padding:18px 0 18px 18px; overflow:hidden; }
+    .qb-hero-panel .qb-eyebrow { margin-bottom:14px; }
+    .qb-glance-list {
+      display:flex;
+      gap:12px;
+      margin-top:0;
+      overflow-x:auto;
+      padding:0 18px 4px 0;
+      scroll-padding-left:0;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .qb-glance-list::-webkit-scrollbar { display:none; }
+    .qb-glance-list { scrollbar-width:none; }
+    .qb-glance-list li {
+      flex:0 0 min(78vw,300px);
+      min-height:104px;
+      scroll-snap-align:start;
+    }
+    .qb-sidebar { display:none; }
+    .qb-contact-card { grid-template-columns:1fr; }
+    .qb-actions { flex-direction:column; }
+    .qb-button { width:100%; }
+  }
 </style>
 
 <div class="qb-page qb-faq">
   <section class="qb-hero">
     <div class="qb-wrap qb-hero__grid">
-      <div>
+      <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
-        <h1 class="qb-title"><?php esc_html_e('Answers for bracelet orders and store policies.', 'dawp'); ?></h1>
-        <p class="qb-copy"><?php esc_html_e('Find clear answers about ordering, shipping, tracking, returns, refunds, bracelet sizing, product details, payments, privacy, and support at Queen\'s Bracelet.', 'dawp'); ?></p>
+        <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
+        <p class="qb-copy"><?php esc_html_e('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, bracelet details, checkout, privacy, and customer support at Queen\'s Bracelet.', 'dawp'); ?></p>
         <div class="qb-actions">
-          <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
-          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
-          <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
+          <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
+          <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
         </div>
       </div>
-      <div class="qb-panel">
-        <p class="qb-eyebrow"><?php esc_html_e('Quick Policy Facts', 'dawp'); ?></p>
-        <div class="qb-mini-grid">
-          <div class="qb-mini-card"><strong><?php esc_html_e('Handling', 'dawp'); ?></strong><p><?php esc_html_e('1-3 business days, Monday-Friday.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('U.S. Transit', 'dawp'); ?></strong><p><?php esc_html_e('5-7 business days.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Returns', 'dawp'); ?></strong><p><?php esc_html_e('30 days from delivery date by mail. Contact support first.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Refunds', 'dawp'); ?></strong><p><?php esc_html_e('7 days after inspection approval. No restocking fee.', 'dawp'); ?></p></div>
-        </div>
+
+      <div class="qb-hero-panel">
+        <p class="qb-eyebrow"><?php esc_html_e('Quick Answers', 'dawp'); ?></p>
+        <ul class="qb-glance-list">
+          <li><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Standard Time, Monday-Friday', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Refund Timing', 'dawp'); ?></strong><?php esc_html_e('Within 7 business days after approval', 'dawp'); ?></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -212,19 +273,20 @@ $faq_sections = [
       <aside class="qb-sidebar">
         <div class="qb-dark-card">
           <p class="qb-eyebrow"><?php esc_html_e('FAQ Categories', 'dawp'); ?></p>
-          <h2 class="qb-title" style="font-size:clamp(28px,3vw,42px);"><?php esc_html_e('Find answers faster.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('These answers match our Shipping Policy, Return & Refund Policy, Privacy Policy, and Terms & Conditions pages.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Find answers faster.', 'dawp'); ?></h2>
+          <p><?php esc_html_e('These answers are aligned with our Shipping Policy and Return & Refund Policy pages.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('FAQ categories', 'dawp'); ?>">
             <?php foreach ($faq_sections as $section) : ?>
               <a href="#<?php echo esc_attr($section['id']); ?>"><?php echo esc_html($section['eyebrow']); ?></a>
             <?php endforeach; ?>
+            <a href="#contact-info"><?php esc_html_e('Contact Information', 'dawp'); ?></a>
           </nav>
         </div>
       </aside>
 
-      <div class="qb-faq-stack">
+      <div class="qb-policy-stack">
         <?php foreach ($faq_sections as $section) : ?>
-          <section id="<?php echo esc_attr($section['id']); ?>" class="qb-faq-section">
+          <section id="<?php echo esc_attr($section['id']); ?>" class="qb-policy-card">
             <p class="qb-eyebrow"><?php echo esc_html($section['eyebrow']); ?></p>
             <h2><?php echo esc_html($section['title']); ?></h2>
             <div class="qb-accordion">
@@ -235,33 +297,59 @@ $faq_sections = [
                     <span class="qb-faq-icon" aria-hidden="true">+</span>
                   </button>
                   <div class="qb-answer">
-                    <p><?php echo esc_html($faq['a']); ?></p>
+                    <?php echo wp_kses_post(wpautop($faq['a'])); ?>
                   </div>
                 </div>
               <?php endforeach; ?>
             </div>
           </section>
         <?php endforeach; ?>
-      </div>
-    </div>
-  </section>
 
-  <section class="qb-section qb-plum">
-    <div class="qb-wrap">
-      <p class="qb-eyebrow"><?php esc_html_e('Still Need Help?', 'dawp'); ?></p>
-      <h2 class="qb-title"><?php esc_html_e('Support is available for policy and order questions.', 'dawp'); ?></h2>
-      <p class="qb-copy"><?php esc_html_e('For order-related messages, include your order number and the email address used at checkout. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
-      <div class="qb-actions">
-        <a class="qb-button" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
-        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+        <section id="policy-links" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Related Policies', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Read the full policy details.', 'dawp'); ?></h2>
+          <p class="qb-policy-card__intro"><?php esc_html_e('For complete terms, review the dedicated policy pages before placing an order or starting a return request.', 'dawp'); ?></p>
+          <div class="qb-actions">
+            <a class="qb-button" href="<?php echo esc_url($shipping_policy); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
+            <a class="qb-button qb-button--secondary" href="<?php echo esc_url($return_policy); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
+            <a class="qb-button qb-button--secondary" href="<?php echo esc_url($track_order_page); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+          </div>
+        </section>
+
+        <section id="contact-info" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Still Need Help?', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Contact Information', 'dawp'); ?></h2>
+          <p class="qb-policy-card__intro"><?php esc_html_e('For order-related messages, include your order number and the email address used at checkout so our support team can help faster.', 'dawp'); ?></p>
+          <div class="qb-contact-card">
+            <div class="qb-contact-item">
+              <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>
+              <span><?php echo esc_html($store_name); ?></span>
+            </div>
+            <?php if ($store_address) : ?>
+              <div class="qb-contact-item">
+                <strong><?php esc_html_e('Address', 'dawp'); ?></strong>
+                <span><?php echo esc_html($store_address); ?></span>
+              </div>
+            <?php endif; ?>
+            <div class="qb-contact-item">
+              <strong><?php esc_html_e('Email', 'dawp'); ?></strong>
+              <span><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></span>
+            </div>
+            <div class="qb-contact-item">
+              <strong><?php esc_html_e('Contact Support', 'dawp'); ?></strong>
+              <span><a href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Us page', 'dawp'); ?></a></span>
+            </div>
+            <div class="qb-contact-item">
+              <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+            </div>
+            <div class="qb-contact-item">
+              <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>
+              <span><?php esc_html_e('We aim to reply within 1 business day. Response times may vary on weekends, holidays, or high-volume periods.', 'dawp'); ?></span>
+            </div>
+          </div>
+        </section>
       </div>
-      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Related policy links', 'dawp'); ?>">
-        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
-      </nav>
     </div>
   </section>
 </div>

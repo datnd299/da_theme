@@ -389,7 +389,7 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
     <div class="qb-wrap qb-hero__grid">
       <div>
         <p class="qb-eyebrow"><?php esc_html_e("About Queen's Bracelet", 'dawp'); ?></p>
-        <h1 class="qb-title"><?php esc_html_e('A Bracelet Boutique For Everyday Confidence.', 'dawp'); ?></h1>
+        <h1 class="qb-title"><?php esc_html_e('For The Stories You Wear Every Day.', 'dawp'); ?></h1>
         <p class="qb-copy">
           <?php esc_html_e("Queen's Bracelet is a bracelet-focused fashion jewelry boutique offering elegant, modern, and giftable bracelet styles for daily wear, meaningful details, and personal expression.", 'dawp'); ?>
         </p>

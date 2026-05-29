@@ -145,8 +145,7 @@
 }
 
 .track-support-section,
-.track-category-section,
-.track-more-section {
+.track-category-section {
   padding: clamp(3.5rem, 6vw, 5rem) 1rem;
 }
 
@@ -170,8 +169,7 @@
 
 .track-step,
 .track-help-box,
-.track-category-card,
-.track-more-card {
+.track-category-card {
   border: 1px solid var(--track-border);
   background: var(--track-white);
   box-shadow: 0 1px 4px rgba(47, 31, 53, .04);
@@ -258,8 +256,7 @@
   background: var(--track-soft);
 }
 
-.track-category-section__inner,
-.track-more-section__inner {
+.track-category-section__inner {
   width: min(100% - 2rem, 1180px);
   margin: 0 auto;
 }
@@ -295,43 +292,23 @@
   transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease, background .2s ease;
 }
 
-.track-category-card strong,
-.track-more-card strong {
+.track-category-card strong {
   color: var(--track-plum);
   font-size: 1rem;
   font-weight: 900;
 }
 
-.track-category-card span,
-.track-more-card span {
+.track-category-card span {
   color: var(--track-muted);
   font-size: .875rem;
   line-height: 1.65;
 }
 
-.track-category-card:hover,
-.track-more-card:hover {
+.track-category-card:hover {
   border-color: rgba(216, 169, 78, .55);
   background: var(--track-cream);
   box-shadow: var(--track-shadow);
   transform: translateY(-2px);
-}
-
-.track-more-section {
-  background: var(--track-white);
-}
-
-.track-more-section__inner {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.track-more-card {
-  display: grid;
-  gap: .5rem;
-  border-radius: 18px;
-  padding: 1.35rem;
 }
 
 .woocommerce-form-track-order {
@@ -631,15 +608,13 @@
 
   .track-hero__inner,
   .track-support-section__inner,
-  .track-category-section__inner,
-  .track-more-section__inner {
+  .track-category-section__inner {
     width: 100%;
   }
 
   .track-hero__actions,
   .track-step-list,
-  .track-category-grid,
-  .track-more-section__inner {
+  .track-category-grid {
     grid-template-columns: 1fr;
   }
 
@@ -652,8 +627,7 @@
   }
 
   .track-support-section,
-  .track-category-section,
-  .track-more-section {
+  .track-category-section {
     padding: 3rem 1rem;
   }
 

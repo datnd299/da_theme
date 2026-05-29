@@ -378,54 +378,6 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
     color: #923030;
   }
 
-  .qb-help-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
-  }
-
-  .qb-help-card {
-    display: block;
-    min-height: 220px;
-    border: 1px solid var(--qb-border);
-    border-radius: 18px;
-    background: #fff;
-    padding: 22px;
-    color: var(--qb-text);
-    box-shadow: 0 12px 32px rgba(47,31,53,.06);
-    transition: transform .2s ease, box-shadow .2s ease;
-  }
-
-  .qb-help-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 40px rgba(47,31,53,.12);
-  }
-
-  .qb-help-card b {
-    display: inline-flex;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: #fff4f6;
-    color: var(--qb-plum);
-    font-size: 13px;
-  }
-
-  .qb-help-card h3 {
-    margin: 18px 0 0;
-    color: var(--qb-plum);
-    font-size: 19px;
-  }
-
-  .qb-help-card p {
-    margin: 10px 0 0;
-    color: #675a6c;
-    font-size: 14px;
-    line-height: 1.65;
-  }
-
   .qb-plum {
     background: var(--qb-plum);
     color: #fff;
@@ -453,12 +405,6 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
     line-height: 1.65;
   }
 
-  @media (max-width: 1080px) {
-    .qb-help-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
   @media (max-width: 780px) {
     .qb-section {
       padding: 56px 0;
@@ -478,7 +424,6 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
       position: static;
     }
 
-    .qb-help-grid,
     .qb-policy-strip {
       grid-template-columns: 1fr;
     }
@@ -657,46 +602,6 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
           <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>.
           <?php esc_html_e('Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="qb-section">
-    <div class="qb-wrap">
-      <div style="display:flex;gap:24px;align-items:end;justify-content:space-between;margin-bottom:34px;flex-wrap:wrap;">
-        <div>
-          <p class="qb-eyebrow"><?php esc_html_e('Quick Help', 'dawp'); ?></p>
-          <h2 class="qb-title"><?php esc_html_e('Find common information faster.', 'dawp'); ?></h2>
-        </div>
-        <a class="qb-button" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Your Order', 'dawp'); ?></a>
-      </div>
-
-      <div class="qb-help-grid">
-        <a class="qb-help-card" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>">
-          <b>01</b>
-          <h3><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Review U.S. shipping locations, handling time, free standard shipping, transit timing, and tracking expectations.', 'dawp'); ?></p>
-        </a>
-        <a class="qb-help-card" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>">
-          <b>02</b>
-          <h3><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Review return method, eligibility, no restocking fee, and refund timing after inspection approval.', 'dawp'); ?></p>
-        </a>
-        <a class="qb-help-card" href="<?php echo esc_url(home_url('/track-order/')); ?>">
-          <b>03</b>
-          <h3><?php esc_html_e('Track Order', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Use your order information to review shipment status once tracking has been provided.', 'dawp'); ?></p>
-        </a>
-        <a class="qb-help-card" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>">
-          <b>04</b>
-          <h3><?php esc_html_e('Terms Of Service', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Read the terms that apply when browsing our store, placing orders, and using ecommerce services.', 'dawp'); ?></p>
-        </a>
-        <a class="qb-help-card" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">
-          <b>04</b>
-          <h3><?php esc_html_e('Privacy Policy', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Learn how customer information is used for checkout, order processing, shipping, and support.', 'dawp'); ?></p>
-        </a>
       </div>
     </div>
   </section>

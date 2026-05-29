@@ -23,9 +23,11 @@ function dawp_document_title() {
 
 function dawp_logo_favicon() {
     $logo_url = get_template_directory_uri() . '/assets/images/home/image.png';
+    $favicon_url = function_exists('qb_i0_image_url') ? qb_i0_image_url($logo_url, 32, 32) : $logo_url;
+    $apple_touch_icon_url = function_exists('qb_i0_image_url') ? qb_i0_image_url($logo_url, 180, 180) : $logo_url;
     ?>
-    <link rel="icon" href="<?php echo esc_url($logo_url); ?>" type="image/png">
-    <link rel="apple-touch-icon" href="<?php echo esc_url($logo_url); ?>">
+    <link rel="icon" href="<?php echo esc_url($favicon_url); ?>" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="<?php echo esc_url($apple_touch_icon_url); ?>" sizes="180x180">
     <?php
 }
 

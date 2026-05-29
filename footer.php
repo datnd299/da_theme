@@ -69,40 +69,6 @@ $footer_policy_links = [
     margin-inline: auto;
   }
 
-  .qb-footer-trust {
-    border-bottom: 1px solid var(--qb-border);
-    background: rgba(255,255,255,.28);
-  }
-
-  .qb-footer-trust__grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    padding: 28px 0;
-  }
-
-  .qb-footer-trust__item {
-    border: 1px solid var(--qb-border);
-    border-radius: 18px;
-    background: rgba(255,255,255,.62);
-    padding: 18px;
-  }
-
-  .qb-footer-trust__item strong {
-    display: block;
-    color: var(--qb-plum);
-    font-size: 15px;
-    font-weight: 800;
-  }
-
-  .qb-footer-trust__item span {
-    display: block;
-    margin-top: 7px;
-    color: var(--qb-text);
-    font-size: 13px;
-    line-height: 1.55;
-  }
-
   .qb-footer-main {
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(160px, .7fr));
@@ -234,7 +200,6 @@ $footer_policy_links = [
   }
 
   @media (max-width: 980px) {
-    .qb-footer-trust__grid,
     .qb-footer-main {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -245,7 +210,6 @@ $footer_policy_links = [
   }
 
   @media (max-width: 680px) {
-    .qb-footer-trust__grid,
     .qb-footer-main {
       grid-template-columns: 1fr;
     }
@@ -268,27 +232,6 @@ $footer_policy_links = [
 </style>
 
 <footer id="colophon" class="qb-site-footer" role="contentinfo">
-    <section class="qb-footer-trust" aria-label="<?php esc_attr_e('Customer care highlights', 'dawp'); ?>">
-        <div class="qb-footer-wrap qb-footer-trust__grid">
-            <div class="qb-footer-trust__item">
-                <strong><?php esc_html_e('Secure Checkout', 'dawp'); ?></strong>
-                <span><?php esc_html_e('A clear shopping flow with protected order and payment details.', 'dawp'); ?></span>
-            </div>
-            <div class="qb-footer-trust__item">
-                <strong><?php esc_html_e('Tracking Included', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Tracking information is provided once your order ships.', 'dawp'); ?></span>
-            </div>
-            <div class="qb-footer-trust__item">
-                <strong><?php esc_html_e('30-Day Returns', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Eligible unused and unworn jewelry items may be returned within 30 days.', 'dawp'); ?></span>
-            </div>
-            <div class="qb-footer-trust__item">
-                <strong><?php esc_html_e('Product Details', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Review material, length, clasp, and care notes before ordering.', 'dawp'); ?></span>
-            </div>
-        </div>
-    </section>
-
     <section>
         <div class="qb-footer-wrap qb-footer-main">
             <div class="qb-footer-brand">

@@ -954,8 +954,8 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
         <div class="qb-product-grid">
           <?php foreach ($featured_products as $product) : ?>
             <?php
-            $product_image = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $product_image = $product_image ?: (function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('woocommerce_thumbnail') : '');
+            $product_image = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_single');
+            $product_image = $product_image ?: (function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('woocommerce_single') : '');
             ?>
             <article class="qb-product-card">
               <a href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
@@ -1078,27 +1078,6 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
         <p><?php esc_html_e('For order support, contact support@queens-bracelet.com. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
       </div>
 
-      <div class="qb-actions">
-        <a class="qb-button" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>">
-          <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
-        </a>
-        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>">
-          <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
-        </a>
-        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>">
-          <?php esc_html_e('Contact Support', 'dawp'); ?>
-        </a>
-      </div>
-
-      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Store policy links', 'dawp'); ?>">
-        <a href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Us', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms of Service', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
-      </nav>
     </div>
   </section>
 </div>

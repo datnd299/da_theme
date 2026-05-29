@@ -18,8 +18,13 @@ function qb_i0_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
         return $url;
     }
 
-    $path = $parts['path'];
     $host = $parts['host'];
+
+    if (!qb_can_use_i0_image_cdn($host)) {
+        return $url;
+    }
+
+    $path = $parts['path'];
 
     if ('i0.wp.com' === $host) {
         $path = preg_replace('#^/+#', '', $path);
@@ -38,7 +43,42 @@ function qb_i0_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
     return add_query_arg($query, 'https://i0.wp.com/' . ltrim($path, '/'));
 }
 
+function qb_can_use_i0_image_cdn($host) {
+    $host = strtolower(trim((string) $host, '[]'));
+
+    if (!$host || 'localhost' === $host || qb_string_ends_with($host, '.local') || qb_string_ends_with($host, '.test')) {
+        return false;
+    }
+
+    if (filter_var($host, FILTER_VALIDATE_IP)) {
+        if (filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    return true;
+}
+
+function qb_string_ends_with($value, $suffix) {
+    $value = (string) $value;
+    $suffix = (string) $suffix;
+
+    if ('' === $suffix) {
+        return true;
+    }
+
+    return substr($value, -strlen($suffix)) === $suffix;
+}
+
 function qb_i0_srcset($url, $intrinsic_width, $intrinsic_height, $widths, $mode = 'resize') {
+    $parts = wp_parse_url($url);
+
+    if (!empty($parts['host']) && !qb_can_use_i0_image_cdn($parts['host'])) {
+        return '';
+    }
+
     $srcset = [];
     $ratio = $intrinsic_width && $intrinsic_height ? $intrinsic_height / $intrinsic_width : 0;
 

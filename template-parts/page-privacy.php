@@ -47,9 +47,14 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-policy-card:nth-child(even) { background:#fffafc; }
   .qb-policy-card h2 { font-size:clamp(25px,3vw,38px); line-height:1.12; font-family:Georgia,"Times New Roman",serif; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; }
-  .qb-policy-card h2 + p, .qb-policy-card h2 + ul { margin-top:clamp(14px,1.8vw,20px); }
+  .qb-policy-card h2 + p, .qb-policy-card h2 + ul, .qb-policy-card h2 + ol { margin-top:clamp(14px,1.8vw,20px); }
   .qb-policy-card ul { display:grid; gap:10px; margin:18px 0 0; padding-left:1.15rem; list-style:disc outside; }
+  .qb-policy-card ol { display:grid; gap:12px; margin:18px 0 0; padding-left:1.25rem; list-style:decimal outside; }
   .qb-policy-card p { margin:16px 0 0; }
+  .qb-policy-section { margin-top:clamp(24px,3vw,34px); }
+  .qb-policy-section h3 { margin-top:0; }
+  .qb-policy-section p, .qb-policy-section ul, .qb-policy-section ol { margin-top:12px; }
+  .qb-policy-section + .qb-policy-section { margin-top:clamp(26px,3.2vw,38px); padding-top:clamp(22px,2.8vw,30px); border-top:1px solid var(--qb-border); }
   .qb-mini-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; }
   .qb-mini-card { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:18px; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:24px; }
@@ -60,7 +65,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-plum .qb-title, .qb-plum .qb-copy { color:#fff; }
   .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
   .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
-  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-mini-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { position:static; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+  @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { display:none; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } .qb-panel { padding:22px 0 22px 22px; overflow:hidden; } .qb-panel .qb-eyebrow { padding-right:22px; } .qb-mini-grid { display:flex; grid-template-columns:none; gap:12px; margin-top:18px; overflow-x:auto; padding:0 22px 4px 0; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; } .qb-mini-grid::-webkit-scrollbar { display:none; } .qb-mini-card { flex:0 0 min(82vw,300px); min-height:164px; scroll-snap-align:start; } }
 </style>
 
 <div class="qb-page qb-privacy">
@@ -69,7 +74,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div>
         <p class="qb-eyebrow"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
-        <p class="qb-copy"><?php esc_html_e("Last updated: February 23, 2026. This Privacy Policy explains how Queen's Bracelet collects, uses, and protects your personal information when you visit queens-bracelet.com or use our services.", 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e("This Privacy Policy explains how Queen's Bracelet collects, uses, and protects your personal information when you visit queens-bracelet.com or use our services.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
@@ -197,18 +202,35 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <section id="messaging" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Queen\'s Bracelet Messaging Terms and Conditions', 'dawp'); ?></p>
           <h2><?php esc_html_e('These terms apply if you opt in to SMS messaging.', 'dawp'); ?></h2>
-          <ol>
-            <li><?php esc_html_e('The messaging program may include general conversational messaging to answer questions and provide support to customers, promotional offers or discounts, and promotion of our products or services.', 'dawp'); ?></li>
-            <li><?php esc_html_e('You can cancel the SMS service at any time. Text STOP to the phone number from which you received messages. After you send STOP, we will send an SMS confirmation that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, sign up as you did the first time and we will start sending SMS messages to you again.', 'dawp'); ?></li>
-            <li><?php printf(
+          <p><?php esc_html_e('Review the program details, opt-out instructions, support options, carrier limits, and message rate information before subscribing.', 'dawp'); ?></p>
+          <div class="qb-policy-section">
+            <h3><?php esc_html_e('Program Messages', 'dawp'); ?></h3>
+            <p><?php esc_html_e('The messaging program may include general conversational messaging to answer questions and provide support to customers, promotional offers or discounts, and promotion of our products or services.', 'dawp'); ?></p>
+          </div>
+          <div class="qb-policy-section">
+            <h3><?php esc_html_e('How to Opt Out', 'dawp'); ?></h3>
+            <p><?php esc_html_e('You can cancel the SMS service at any time. Text STOP to the phone number from which you received messages. After you send STOP, we will send an SMS confirmation that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, sign up as you did the first time and we will start sending SMS messages to you again.', 'dawp'); ?></p>
+          </div>
+          <div class="qb-policy-section">
+            <h3><?php esc_html_e('Help and Support', 'dawp'); ?></h3>
+            <p><?php printf(
                 /* translators: %s: support email address. */
                 esc_html__('If you are experiencing issues with the messaging program, reply with HELP for more assistance, or get help directly at %s.', 'dawp'),
                 '<a href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>'
-            ); ?></li>
-            <li><?php esc_html_e('Carriers are not liable for delayed or undelivered messages.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Message and data rates may apply for any messages sent to you from us and to us from you. Message frequency will vary based on communication needs. If you have questions about your text plan or data plan, contact your wireless provider.', 'dawp'); ?></li>
-            <li><?php esc_html_e('If you have questions regarding privacy, please read the rest of this Privacy Policy.', 'dawp'); ?></li>
-          </ol>
+            ); ?></p>
+          </div>
+          <div class="qb-policy-section">
+            <h3><?php esc_html_e('Carrier Delivery and Rates', 'dawp'); ?></h3>
+            <ul>
+              <li><?php esc_html_e('Carriers are not liable for delayed or undelivered messages.', 'dawp'); ?></li>
+              <li><?php esc_html_e('Message and data rates may apply for any messages sent to you from us and to us from you.', 'dawp'); ?></li>
+              <li><?php esc_html_e('Message frequency will vary based on communication needs. If you have questions about your text plan or data plan, contact your wireless provider.', 'dawp'); ?></li>
+            </ul>
+          </div>
+          <div class="qb-policy-section">
+            <h3><?php esc_html_e('Privacy Questions', 'dawp'); ?></h3>
+            <p><?php esc_html_e('If you have questions regarding privacy, please read the rest of this Privacy Policy.', 'dawp'); ?></p>
+          </div>
         </section>
 
         <section id="rights" class="qb-policy-card">
@@ -263,21 +285,6 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           </div>
         </section>
       </div>
-    </div>
-  </section>
-
-  <section class="qb-section qb-plum">
-    <div class="qb-wrap">
-      <p class="qb-eyebrow"><?php esc_html_e('Policy Updates', 'dawp'); ?></p>
-      <h2 class="qb-title"><?php esc_html_e('We may update this Privacy Policy.', 'dawp'); ?></h2>
-      <p class="qb-copy"><?php esc_html_e('Any updates will be posted on this page with a revised date. Continued website use after an update means the current Privacy Policy applies to your use of Queen\'s Bracelet.', 'dawp'); ?></p>
-      <nav class="qb-policy-links" aria-label="<?php esc_attr_e('Related policy links', 'dawp'); ?>">
-        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
-      </nav>
     </div>
   </section>
 </div>

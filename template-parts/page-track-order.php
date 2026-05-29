@@ -88,26 +88,5 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
         </section>
     <?php endif; ?>
 
-    <section class="track-more-section">
-        <div class="track-more-section__inner">
-            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
-                <strong><?php esc_html_e('Shipping Policy', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Review cutoff, handling, free U.S. shipping, transit, and tracking.', 'dawp'); ?></span>
-            </a>
-            <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="track-more-card">
-                <strong><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Review return eligibility, return method, fees, and refund timing.', 'dawp'); ?></span>
-            </a>
-            <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
-                <strong><?php esc_html_e('FAQ', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Find quick answers for orders, products, and support.', 'dawp'); ?></span>
-            </a>
-            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
-                <strong><?php esc_html_e('Contact Us', 'dawp'); ?></strong>
-                <span><?php esc_html_e('Get direct help with an order or delivery question.', 'dawp'); ?></span>
-            </a>
-        </div>
-    </section>
-
 </main>
 

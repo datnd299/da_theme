@@ -25,23 +25,19 @@ $support_portal = home_url('/contact-us/');
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
   .qb-button--secondary:hover { border-color:var(--qb-plum); background:#fff4f6; color:var(--qb-plum) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .qb-hero { overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.34),rgba(255,214,165,.35) 48%,rgba(207,245,231,.38)),#fff; }
-  .qb-hero__grid { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr); gap:42px; align-items:center; padding:76px 0; }
+  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.36),rgba(255,214,165,.36) 46%,rgba(207,245,231,.42)),#fff; }
+  .qb-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.42); filter:blur(8px); }
+  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(216,169,78,.22); border-radius:999px; background:rgba(255,255,255,.2); }
+  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr); gap:44px; align-items:center; padding:78px 0 84px; }
+  .qb-hero__content { max-width:720px; }
+  .qb-hero .qb-copy { max-width:690px; }
   .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(47,31,53,.08); }
-  .qb-hero-panel { padding:clamp(24px,4vw,38px); }
-  .qb-mini-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:20px; }
-  .qb-mini-card { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
-  .qb-mini-card strong { display:block; color:var(--qb-plum); font-size:14px; }
-  .qb-mini-card p { margin:7px 0 0; color:#675a6c; font-size:14px; line-height:1.55; }
+  .qb-hero-panel { padding:clamp(22px,3vw,32px); }
+  .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
+  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#675a6c; font-size:14px; line-height:1.6; }
+  .qb-glance-list strong { display:block; margin-bottom:5px; color:var(--qb-plum); font-size:14px; line-height:1.25; }
   .qb-soft { background:var(--qb-gray); }
-  .qb-content-grid { display:grid; grid-template-columns:280px minmax(0,1fr); gap:32px; align-items:start; }
-  .qb-sidebar { position:sticky; top:110px; }
-  .qb-dark-card { border-radius:20px; background:var(--qb-plum); padding:24px; color:#fff; }
-  .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
-  .qb-dark-card h2 { margin:0; color:#fff; font-family:Georgia,"Times New Roman",serif; font-size:28px; line-height:1.12; }
-  .qb-dark-card p { margin:14px 0 0; color:rgba(255,255,255,.78); font-size:14px; line-height:1.65; }
-  .qb-side-nav { display:grid; gap:9px; margin-top:20px; }
-  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 13px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-content-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
   .qb-policy-stack { display:grid; gap:20px; }
   .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
   .qb-policy-card:nth-child(even) { background:#fffafc; }
@@ -53,21 +49,57 @@ $support_portal = home_url('/contact-us/');
   .qb-policy-card ul { list-style:disc outside; }
   .qb-policy-card ol { list-style:decimal outside; }
   .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 16px 16px 0; background:#fff8e8; padding:15px 18px; }
+  .qb-split-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px; }
+  .qb-info-panel { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
+  .qb-info-panel--soft { background:#fffafc; }
+  .qb-info-panel h3 { margin:0; }
+  .qb-step-list { counter-reset:return-step; display:grid; gap:14px; margin-top:18px; }
+  .qb-step { position:relative; border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px 18px 18px 58px; }
+  .qb-step::before { counter-increment:return-step; content:counter(return-step); position:absolute; left:18px; top:18px; width:28px; height:28px; border-radius:999px; display:grid; place-items:center; background:var(--qb-plum); color:#fff; font-size:13px; font-weight:800; }
+  .qb-step h3 { margin:0; }
+  .qb-address-box { margin-top:18px; border:1px solid rgba(216,169,78,.38); border-radius:16px; background:#fff8e8; padding:18px; color:var(--qb-plum); }
+  .qb-address-box strong { display:block; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
   .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
   .qb-contact-item span { display:block; margin-top:7px; color:#675a6c; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
-  @media (max-width:920px) { .qb-hero__grid, .qb-content-grid { grid-template-columns:1fr; } .qb-sidebar { position:static; } }
-  @media (max-width:680px) { .qb-section { padding:52px 0; } .qb-hero__grid { padding:56px 0; gap:28px; } .qb-mini-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+  @media (max-width:920px) { .qb-hero__grid, .qb-content-grid, .qb-split-grid { grid-template-columns:1fr; } }
+  @media (max-width:680px) {
+    .qb-section { padding:44px 0; }
+    .qb-hero__grid { gap:28px; padding:46px 0 50px; }
+    .qb-hero-panel { margin-inline:-4px; padding:18px 0 18px 18px; overflow:hidden; }
+    .qb-hero-panel .qb-eyebrow { margin-bottom:14px; }
+    .qb-glance-list {
+      display:flex;
+      gap:12px;
+      margin-top:0;
+      overflow-x:auto;
+      padding:0 18px 4px 0;
+      scroll-padding-left:0;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+    }
+    .qb-glance-list::-webkit-scrollbar { display:none; }
+    .qb-glance-list { scrollbar-width:none; }
+    .qb-glance-list li {
+      flex:0 0 min(78vw,300px);
+      min-height:104px;
+      scroll-snap-align:start;
+    }
+    .qb-contact-card { grid-template-columns:1fr; }
+    .qb-actions { flex-direction:column; }
+    .qb-button { width:100%; }
+    .qb-step { padding-left:18px; padding-top:58px; }
+  }
 </style>
 
 <div class="qb-page qb-return-refund-policy">
   <section class="qb-hero">
     <div class="qb-wrap qb-hero__grid">
-      <div>
-        <p class="qb-eyebrow"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></p>
-        <h1 class="qb-title"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h1>
-        <p class="qb-copy"><?php echo esc_html(sprintf('At %s, we want you to shop with confidence. If you are not satisfied with your purchase for any reason, we offer a clear and customer-friendly return process for most items sold on our website.', $store_name)); ?></p>
+      <div class="qb-hero__content">
+        <p class="qb-eyebrow"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
+        <h1 class="qb-title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
+        <p class="qb-copy"><?php esc_html_e('We want you to be completely satisfied with your purchase. Unless specified under the Non-Returnable Items section below, all products purchased from our store can be returned within 30 days of delivery, subject to the conditions below.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
@@ -75,150 +107,123 @@ $support_portal = home_url('/contact-us/');
       </div>
 
       <div class="qb-hero-panel">
-        <p class="qb-eyebrow"><?php esc_html_e('Return Policy Overview', 'dawp'); ?></p>
-        <div class="qb-mini-grid">
-          <div class="qb-mini-card"><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><p><?php esc_html_e('30 days from the day you receive your order.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Condition', 'dawp'); ?></strong><p><?php esc_html_e('Unused, uninstalled, and in original condition.', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><p><?php esc_html_e('Free', 'dawp'); ?></p></div>
-          <div class="qb-mini-card"><strong><?php esc_html_e('Free Return Shipping', 'dawp'); ?></strong><p><?php esc_html_e('Free return shipping when the issue is our fault.', 'dawp'); ?></p></div>
-        </div>
+        <p class="qb-eyebrow"><?php esc_html_e('At a Glance', 'dawp'); ?></p>
+        <ul class="qb-glance-list">
+          <li><strong><?php esc_html_e('Return window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery.', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Condition', 'dawp'); ?></strong><?php esc_html_e('Unworn, unused, undamaged, and in original, unaltered condition.', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Restocking fee', 'dawp'); ?></strong><?php esc_html_e('Free. We do not charge restocking fees for eligible returns.', 'dawp'); ?></li>
+          <li><strong><?php esc_html_e('Refund processing', 'dawp'); ?></strong><?php esc_html_e('Original payment method within 7 business days after approval.', 'dawp'); ?></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <section class="qb-section qb-soft">
     <div class="qb-wrap qb-content-grid">
-      <aside class="qb-sidebar">
-        <div class="qb-dark-card">
-          <p class="qb-eyebrow"><?php esc_html_e('Policy Sections', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Review the return process.', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Use these sections to find return eligibility, costs, scenarios, refund timing, exchanges, and contact details.', 'dawp'); ?></p>
-          <nav class="qb-side-nav" aria-label="<?php esc_attr_e('Return and refund policy sections', 'dawp'); ?>">
-            <a href="#exchanges"><?php esc_html_e('Exchanges', 'dawp'); ?></a>
-            <a href="#easy-returns"><?php esc_html_e('30-Day Easy Returns', 'dawp'); ?></a>
-            <a href="#overview"><?php esc_html_e('Return Policy Overview', 'dawp'); ?></a>
-            <a href="#return-costs"><?php esc_html_e('Return Shipping Fee', 'dawp'); ?></a>
-            <a href="#scenarios"><?php esc_html_e('Common Scenarios', 'dawp'); ?></a>
-            <a href="#how-to-return"><?php esc_html_e('How to Return', 'dawp'); ?></a>
-            <a href="#refund-process"><?php esc_html_e('Refund Process', 'dawp'); ?></a>
-            <a href="#non-returnable"><?php esc_html_e('Non-Returnable Items', 'dawp'); ?></a>
-            <a href="#questions"><?php esc_html_e('Questions?', 'dawp'); ?></a>
-            <a href="#contact-info"><?php esc_html_e('Contact Information', 'dawp'); ?></a>
-          </nav>
-        </div>
-      </aside>
-
       <div class="qb-policy-stack">
-        <section id="exchanges" class="qb-policy-card">
-          <h2><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
-          <p><?php esc_html_e('If you would like to exchange an item for a different size, color, or model, contact our customer support team. Exchanges are subject to stock availability.', 'dawp'); ?></p>
-          <p><?php esc_html_e('In some cases, the fastest option is to return the original item for a refund and place a new order.', 'dawp'); ?></p>
-        </section>
-
-        <section id="easy-returns" class="qb-policy-card">
-          <h2><?php esc_html_e('30-Day Easy Returns', 'dawp'); ?></h2>
-          <p><?php esc_html_e('You have 30 days from the day you receive your order to request a return for most items.', 'dawp'); ?></p>
-          <p><?php esc_html_e('To be eligible, items must be unused, uninstalled (if applicable), in original condition, and returned with all original packaging, tags/labels, manuals, accessories, and included parts. Items should be packed securely to prevent damage during return shipping.', 'dawp'); ?></p>
-          <p class="qb-callout"><?php esc_html_e('Restocking Fee: Free - we do not charge restocking fees for eligible returns.', 'dawp'); ?></p>
-        </section>
-
-        <section id="overview" class="qb-policy-card">
-          <h2><?php esc_html_e('Return Policy Overview', 'dawp'); ?></h2>
+        <section id="return-eligibility" class="qb-policy-card">
+          <h2><?php esc_html_e('Return Eligibility', 'dawp'); ?></h2>
+          <p><?php esc_html_e('To be eligible for a return, your item must meet the following criteria:', 'dawp'); ?></p>
           <ul>
-            <li><?php esc_html_e('Return Window: 30 days from the day you receive your order (unless the product page states a different return window).', 'dawp'); ?></li>
-            <li><?php esc_html_e('Condition: Items must be unused, uninstalled, in original condition, and returned with original packaging, tags/labels, accessories, manuals, and parts.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Easy Returns: Our support team will assist you through the process from return approval to refund confirmation.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Restocking Fee: Free - we do not charge any restocking fees for eligible returns.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Condition: Items must be unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Packaging: Items must be returned with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and any included accessories.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Restocking Fee: Free. We do not charge any restocking fees for eligible returns.', 'dawp'); ?></li>
           </ul>
         </section>
 
         <section id="return-costs" class="qb-policy-card">
-          <h2><?php esc_html_e('Return Shipping Fee', 'dawp'); ?></h2>
-          <h3><?php esc_html_e('For Defective or Incorrect Products: No cost to the customer', 'dawp'); ?></h3>
-          <p><?php esc_html_e('We cover return shipping (or provide a prepaid label) if:', 'dawp'); ?></p>
-          <ul>
-            <li><?php esc_html_e('You received the wrong item,', 'dawp'); ?></li>
-            <li><?php esc_html_e('The item arrived damaged due to the carrier,', 'dawp'); ?></li>
-            <li><?php esc_html_e('The item is defective, missing essential parts, or not functioning as intended.', 'dawp'); ?></li>
-          </ul>
-          <p><?php esc_html_e('We may request photos/videos of the item and packaging to help resolve the issue quickly.', 'dawp'); ?></p>
-
-          <h3><?php esc_html_e('For Customer Remorse (Change of Mind): The customer pays the actual return shipping cost', 'dawp'); ?></h3>
-          <p><?php esc_html_e('The customer pays the actual return shipping cost when:', 'dawp'); ?></p>
-          <ul>
-            <li><?php esc_html_e('You ordered the wrong item, it does not fit, or it does not match your preference,', 'dawp'); ?></li>
-            <li><?php esc_html_e('You no longer want the item,', 'dawp'); ?></li>
-            <li><?php esc_html_e('You made a mistake in selecting size/color/model/compatibility.', 'dawp'); ?></li>
-          </ul>
-          <p class="qb-callout"><?php esc_html_e('Original shipping costs are non-refundable.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Return Shipping Fees', 'dawp'); ?></h2>
+          <p><?php esc_html_e('Who pays for return shipping depends on the reason for the return.', 'dawp'); ?></p>
+          <div class="qb-split-grid">
+            <div class="qb-info-panel">
+              <h3><?php esc_html_e('Defective, Damaged, or Incorrect Products', 'dawp'); ?></h3>
+              <p><?php esc_html_e('No cost to customer. We cover 100% of the return shipping costs or provide a prepaid shipping label if:', 'dawp'); ?></p>
+              <ul>
+                <li><?php esc_html_e('You received the wrong item.', 'dawp'); ?></li>
+                <li><?php esc_html_e('The item arrived damaged due to the carrier.', 'dawp'); ?></li>
+                <li><?php esc_html_e('The item is defective, missing essential parts, or not functioning as intended.', 'dawp'); ?></li>
+              </ul>
+              <p><?php esc_html_e('We may request photos or videos of the item and packaging to verify the issue and expedite your request.', 'dawp'); ?></p>
+            </div>
+            <div class="qb-info-panel qb-info-panel--soft">
+              <h3><?php esc_html_e('Customer Remorse', 'dawp'); ?></h3>
+              <p><?php esc_html_e('The customer is responsible for the return shipping cost if:', 'dawp'); ?></p>
+              <ul>
+                <li><?php esc_html_e('You ordered the wrong item, size, color, model, or compatibility.', 'dawp'); ?></li>
+                <li><?php esc_html_e('The item does not fit or does not match your personal preference.', 'dawp'); ?></li>
+                <li><?php esc_html_e('You simply no longer want the item.', 'dawp'); ?></li>
+              </ul>
+              <p><?php esc_html_e('The actual return shipping cost of the provided prepaid label will be deducted from your final refund amount. Original shipping costs are non-refundable.', 'dawp'); ?></p>
+            </div>
+          </div>
         </section>
 
-        <section id="scenarios" class="qb-policy-card">
-          <h2><?php esc_html_e('Common Return Scenarios', 'dawp'); ?></h2>
-          <h3><?php esc_html_e('Order Cancellations (After Ordering)', 'dawp'); ?></h3>
-          <p><?php esc_html_e('You may request an order cancellation within 9 hours after placing the order, as long as the order has not been processed or shipped.', 'dawp'); ?></p>
-          <p><?php esc_html_e('Once an order has been shipped, it can no longer be canceled; you may request a return after delivery in accordance with this policy.', 'dawp'); ?></p>
-
+        <section id="delivery-issues" class="qb-policy-card">
+          <h2><?php esc_html_e('Common Delivery Issues', 'dawp'); ?></h2>
           <h3><?php esc_html_e('Damaged on Arrival', 'dawp'); ?></h3>
-          <p><?php esc_html_e('If your order arrives damaged, please contact us within 30 days of delivery and include photos of the item and the packaging (shipping label included). We will help with a replacement or refund at no cost to you.', 'dawp'); ?></p>
+          <p><?php esc_html_e('If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will arrange a replacement or full refund at no cost to you.', 'dawp'); ?></p>
 
-          <h3><?php esc_html_e('Wrong Product / Missing Items', 'dawp'); ?></h3>
-          <p><?php esc_html_e('If you received the wrong product or your order is missing items/parts, please contact us within 30 days of delivery. We may request photos for verification.', 'dawp'); ?></p>
-
-          <h3><?php esc_html_e('Never Arrived / Lost Packages', 'dawp'); ?></h3>
-          <p><?php esc_html_e('If your package shows no tracking updates for an extended period or is marked "Delivered" but you did not receive it, please contact us within 30 days of the delivery date/tracking status.', 'dawp'); ?></p>
-          <p><?php esc_html_e('We will investigate with the carrier and, if confirmed lost or misdelivered, we will arrange a replacement or refund as appropriate.', 'dawp'); ?></p>
+          <h3><?php esc_html_e('Lost Packages / Never Arrived', 'dawp'); ?></h3>
+          <p><?php esc_html_e('If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'); ?></p>
         </section>
 
         <section id="how-to-return" class="qb-policy-card">
           <h2><?php esc_html_e('How to Return an Item', 'dawp'); ?></h2>
-          <ol>
-            <li><?php esc_html_e('Contact Us: Use our contact page or email support with your order number and reason for return.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Pack Your Item: Repack the item securely in its original packaging, including all accessories, tags/labels, manuals, and documents.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Send It Back: Ship your return using the instructions provided in your return authorization email. You may use the carrier or method recommended in that email.', 'dawp'); ?></li>
-          </ol>
-          <p><?php esc_html_e('Return Authorization Required: Please do not send items back without first receiving return approval/authorization. Return instructions and the return shipping address will be provided in the return authorization email after we review your request.', 'dawp'); ?></p>
-          <?php if ($store_address) : ?>
-            <p><?php echo esc_html(sprintf('Return Address: The return address is our website store address: %s. Please contact support before sending any item back so we can confirm the correct return instructions for your order.', $store_address)); ?></p>
-          <?php endif; ?>
-          <p><?php esc_html_e('What to include in your request: Order number, the email used at checkout, item(s) you want to return, reason for return, and photos/video if the item is damaged/defective or the package arrived damaged.', 'dawp'); ?></p>
-          <p><?php esc_html_e('Packaging requirement: Please include all parts, accessories, manuals, and original packaging when returning an item.', 'dawp'); ?></p>
+          <p><?php esc_html_e('Please follow our official 3-step process. Do not ship any item back without prior authorization, as unauthorized returns cannot be tracked or processed at our warehouse.', 'dawp'); ?></p>
+          <div class="qb-step-list">
+            <div class="qb-step">
+              <h3><?php esc_html_e('Submit Your Return Request', 'dawp'); ?></h3>
+              <p><?php esc_html_e('Email us or use our Contact Page within 30 days of delivery. Please provide your order number, the email used at checkout, the specific item(s) you wish to return, and the reason for the return with photos or videos if damaged.', 'dawp'); ?></p>
+            </div>
+            <div class="qb-step">
+              <h3><?php esc_html_e('Receive Approval & Pack Your Item', 'dawp'); ?></h3>
+              <p><?php esc_html_e('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number along with a prepaid shipping label.', 'dawp'); ?></p>
+              <p><?php esc_html_e('Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box.', 'dawp'); ?></p>
+            </div>
+            <div class="qb-step">
+              <h3><?php esc_html_e('Ship It Back to Our Returns Center', 'dawp'); ?></h3>
+              <p><?php esc_html_e('Print the prepaid shipping label, attach it to the outside of your shipping box, and drop it off at the designated carrier location.', 'dawp'); ?></p>
+            </div>
+          </div>
+          <div class="qb-address-box">
+            <strong><?php esc_html_e("Queen's Bracelet - Returns Department", 'dawp'); ?></strong>
+            <span><?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?></span>
+          </div>
           <div class="qb-actions">
             <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
+            <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
           </div>
         </section>
 
+        <section id="exchanges" class="qb-policy-card">
+          <h2><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
+          <p><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different size, color, or model, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
+        </section>
+
         <section id="refund-process" class="qb-policy-card">
-          <h2><?php esc_html_e('Refund Process', 'dawp'); ?></h2>
-          <h3><?php esc_html_e('Inspection:', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Once we receive your return, we will inspect the item to ensure it meets our return criteria.', 'dawp'); ?></p>
-          <h3><?php esc_html_e('Refund Timing:', 'dawp'); ?></h3>
-          <p><?php esc_html_e('After approval, your refund will be processed to the original payment method. It typically takes up to 7 days for the refund to appear, depending on your bank or payment provider. If your return is approved but the item is missing parts, shows signs of use, or is returned in non-original condition, we may be unable to issue a refund and may offer to send the item back to you.', 'dawp'); ?></p>
-          <h3><?php esc_html_e('Refund Method', 'dawp'); ?></h3>
-          <p><?php esc_html_e('Approved refunds are issued to the original payment method whenever possible. If the original payment method is unavailable, we may offer an alternative method (such as store credit) only with your consent.', 'dawp'); ?></p>
+          <h2><?php esc_html_e('Refund Process & Timing', 'dawp'); ?></h2>
+          <ul>
+            <li><?php esc_html_e('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'); ?></li>
+          </ul>
+          <div class="qb-actions">
+            <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
+          </div>
         </section>
 
         <section id="non-returnable" class="qb-policy-card">
           <h2><?php esc_html_e('Non-Returnable Items', 'dawp'); ?></h2>
-          <p><?php esc_html_e('For hygiene, safety, and product integrity reasons, some items are not eligible for return. These items will be clearly marked as non-returnable on their product pages. Examples may include (but are not limited to):', 'dawp'); ?></p>
+          <p><?php esc_html_e('The following items are strictly non-returnable and final sale:', 'dawp'); ?></p>
           <ul>
-            <li><?php esc_html_e('Items marked Final Sale / Non-Returnable', 'dawp'); ?></li>
-            <li><?php esc_html_e('Gift cards or digital products/downloads', 'dawp'); ?></li>
-            <li><?php esc_html_e('Personal care, hygiene, and intimate items', 'dawp'); ?></li>
-            <li><?php esc_html_e('Perishable goods (food, beverages, supplements if applicable)', 'dawp'); ?></li>
-            <li><?php esc_html_e('Items that have been used, installed, assembled, modified, or damaged after delivery', 'dawp'); ?></li>
-            <li><?php esc_html_e('Items missing original packaging, serial number labels, accessories, manuals, or included parts', 'dawp'); ?></li>
-            <li><?php esc_html_e('Certain hazardous materials or restricted items that cannot be shipped back safely', 'dawp'); ?></li>
+            <li><?php esc_html_e('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Gift cards or digital products/downloads.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Personalized, engraved, resized, or custom-made items.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Intimate apparel, swimwear, or hygiene-sensitive items such as earrings where the product seal has been broken.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Items that have been worn, washed, altered, or damaged after delivery.', 'dawp'); ?></li>
           </ul>
-        </section>
-
-        <section id="questions" class="qb-policy-card">
-          <h2><?php esc_html_e('Questions?', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Visit our FAQs page here or contact our customer service team.', 'dawp'); ?></p>
-          <div class="qb-actions">
-            <a class="qb-button" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('Visit FAQs', 'dawp'); ?></a>
-            <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Contact Customer Service', 'dawp'); ?></a>
-          </div>
         </section>
 
         <section id="contact-info" class="qb-policy-card">
@@ -231,10 +236,6 @@ $support_portal = home_url('/contact-us/');
             <?php if ($store_address) : ?>
               <div class="qb-contact-item">
                 <strong><?php esc_html_e('Address', 'dawp'); ?></strong>
-                <span><?php echo esc_html($store_address); ?></span>
-              </div>
-              <div class="qb-contact-item">
-                <strong><?php esc_html_e('Return Address', 'dawp'); ?></strong>
                 <span><?php echo esc_html($store_address); ?></span>
               </div>
             <?php endif; ?>

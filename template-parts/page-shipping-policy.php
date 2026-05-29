@@ -19,6 +19,7 @@ $support_portal = home_url('/contact-us/');
   .qb-section { padding:68px 0; }
   .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
   .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
+  .qb-updated { margin:16px 0 0; color:var(--qb-plum); font-size:14px; font-weight:800; line-height:1.4; }
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
   .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
@@ -98,6 +99,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e("Queen's Bracelet currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>

@@ -18,6 +18,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-section { padding:72px 0; }
   .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }
   .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(34px,4.2vw,58px); line-height:1.04; letter-spacing:0; }
+  .qb-updated { margin:16px 0 0; color:var(--qb-plum); font-size:14px; font-weight:800; line-height:1.4; }
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:30px; }
   .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 24px; font-size:14px; font-weight:800; transition:.2s ease; }
@@ -72,6 +73,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div>
         <p class="qb-eyebrow"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Terms of Service', 'dawp'); ?></h1>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php echo esc_html(sprintf('This Terms of Service document outlines the conditions under which %s provides access to its website and services.', $brand_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop Bracelets', 'dawp'); ?></a>

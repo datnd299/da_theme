@@ -173,9 +173,9 @@ $faq_sections = [
   .qb-hero .qb-copy { max-width:690px; }
   .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(47,31,53,.08); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
-  .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
-  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#675a6c; font-size:14px; line-height:1.6; }
-  .qb-glance-list strong { display:block; margin-bottom:5px; color:var(--qb-plum); font-size:14px; line-height:1.25; }
+  .qb-glance-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0 0; padding:0; list-style:none; }
+  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:12px; background:#fff; padding:12px 13px; color:#675a6c; font-size:13px; line-height:1.45; }
+  .qb-glance-list strong { display:block; margin-bottom:3px; color:var(--qb-plum); font-size:13px; line-height:1.2; }
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:280px minmax(0,1fr); gap:32px; align-items:start; }
   .qb-sidebar { position:sticky; top:110px; }
@@ -229,8 +229,8 @@ $faq_sections = [
     .qb-glance-list::-webkit-scrollbar { display:none; }
     .qb-glance-list { scrollbar-width:none; }
     .qb-glance-list li {
-      flex:0 0 min(78vw,300px);
-      min-height:104px;
+      flex:0 0 min(72vw,260px);
+      min-height:88px;
       scroll-snap-align:start;
     }
     .qb-sidebar { display:none; }

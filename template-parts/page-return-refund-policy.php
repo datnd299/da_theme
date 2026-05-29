@@ -19,6 +19,7 @@ $support_portal = home_url('/contact-us/');
   .qb-section { padding:68px 0; }
   .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
   .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
+  .qb-updated { margin:16px 0 0; color:var(--qb-plum); font-size:14px; font-weight:800; line-height:1.4; }
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
   .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
@@ -99,6 +100,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
         <p class="qb-copy"><?php esc_html_e('We want you to be completely satisfied with your purchase. Unless specified under the Non-Returnable Items section below, all products purchased from our store can be returned within 30 days of delivery, subject to the conditions below.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -134,27 +136,14 @@ $support_portal = home_url('/contact-us/');
 
         <section id="return-costs" class="qb-policy-card">
           <h2><?php esc_html_e('Return Shipping Fees', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Who pays for return shipping depends on the reason for the return.', 'dawp'); ?></p>
           <div class="qb-split-grid">
             <div class="qb-info-panel">
-              <h3><?php esc_html_e('Defective, Damaged, or Incorrect Products', 'dawp'); ?></h3>
-              <p><?php esc_html_e('No cost to customer. We cover 100% of the return shipping costs or provide a prepaid shipping label if:', 'dawp'); ?></p>
-              <ul>
-                <li><?php esc_html_e('You received the wrong item.', 'dawp'); ?></li>
-                <li><?php esc_html_e('The item arrived damaged due to the carrier.', 'dawp'); ?></li>
-                <li><?php esc_html_e('The item is defective, missing essential parts, or not functioning as intended.', 'dawp'); ?></li>
-              </ul>
-              <p><?php esc_html_e('We may request photos or videos of the item and packaging to verify the issue and expedite your request.', 'dawp'); ?></p>
+              <h3><?php esc_html_e('Defective, Damaged, or Incorrect Products (Wrong item, carrier damage, or defective):', 'dawp'); ?></h3>
+              <p><?php esc_html_e('No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.', 'dawp'); ?></p>
             </div>
             <div class="qb-info-panel qb-info-panel--soft">
-              <h3><?php esc_html_e('Customer Remorse', 'dawp'); ?></h3>
-              <p><?php esc_html_e('The customer is responsible for the return shipping cost if:', 'dawp'); ?></p>
-              <ul>
-                <li><?php esc_html_e('You ordered the wrong item, size, color, model, or compatibility.', 'dawp'); ?></li>
-                <li><?php esc_html_e('The item does not fit or does not match your personal preference.', 'dawp'); ?></li>
-                <li><?php esc_html_e('You simply no longer want the item.', 'dawp'); ?></li>
-              </ul>
-              <p><?php esc_html_e('The actual return shipping cost of the provided prepaid label will be deducted from your final refund amount. Original shipping costs are non-refundable.', 'dawp'); ?></p>
+              <h3><?php esc_html_e("Customer Remorse (Ordered wrong item/size/color, changed mind, or doesn't fit):", 'dawp'); ?></h3>
+              <p><?php esc_html_e('The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.', 'dawp'); ?></p>
             </div>
           </div>
         </section>
@@ -206,6 +195,7 @@ $support_portal = home_url('/contact-us/');
           <ul>
             <li><?php esc_html_e('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'); ?></li>
             <li><?php esc_html_e('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns.', 'dawp'); ?></li>
             <li><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
             <li><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'); ?></li>
           </ul>

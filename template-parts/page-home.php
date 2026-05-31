@@ -452,7 +452,7 @@ if (class_exists('WooCommerce')) {
 
                 <div class="rounded-lg border border-[#C89B3C]/50 bg-[#EEF6F2]/14 p-5">
                     <p class="text-sm font-semibold leading-7 text-[#FAF6EA]">
-                        <?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch, and tracking information is provided once an order ships.', 'dawp'); ?>
+                        <?php esc_html_e('Orders are processed within 1-3 business days. Standard US shipping typically takes 5-7 business days after dispatch, Monday to Friday, and tracking information is provided once an order ships.', 'dawp'); ?>
                     </p>
                     <p class="mt-3 text-sm font-semibold leading-7 text-[#FAF6EA]">
                         <?php esc_html_e('Eligible unused, unworn, and undamaged items may be returned within 30 days of delivery in original condition.', 'dawp'); ?>
@@ -463,9 +463,9 @@ if (class_exists('WooCommerce')) {
                 </div>
 
                 <div class="flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#C89B3C] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#123D39]">
-                        <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+                        <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
                     </a>
                     <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
                        class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C89B3C] bg-transparent px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#1F2937]">

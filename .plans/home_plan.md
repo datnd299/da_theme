@@ -347,7 +347,7 @@ Clear Product Details
 Shipping note:
 
 ```txt
-Orders are processed within 2–4 business days. Standard US shipping typically takes 5–10 business days after dispatch.
+Orders are processed within 1–3 business days. Standard US shipping typically takes 5–7 business days after dispatch, Monday to Friday. Estimated delivery time is 6–10 business days from the date of purchase.
 ```
 
 Return note:

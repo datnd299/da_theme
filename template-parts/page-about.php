@@ -255,9 +255,9 @@ $trust_items = [
                 </div>
 
                 <div class="flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#C89B3C] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#123D39]">
-                        <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
+                        <?php esc_html_e('Shipping Policy', 'dawp'); ?>
                     </a>
                     <a href="<?php echo esc_url(home_url('/faq/')); ?>"
                        class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C89B3C] bg-transparent px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#1F2937]">

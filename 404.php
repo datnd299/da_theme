@@ -132,10 +132,14 @@ if (function_exists('dawp_product_category_definitions')) {
   </section>
 
   <section class="bg-white py-10">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
-      <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="rounded-lg border border-[#E8D9A6] bg-[#F7F5EF] p-5 transition hover:border-[#C89B3C] hover:bg-white hover:shadow-sm">
-        <p class="text-sm font-black text-[#1F6F68]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></p>
-        <p class="mt-2 text-sm leading-6 text-[#475569]"><?php esc_html_e('Check processing, delivery, and return details.', 'dawp'); ?></p>
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+      <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="rounded-lg border border-[#E8D9A6] bg-[#F7F5EF] p-5 transition hover:border-[#C89B3C] hover:bg-white hover:shadow-sm">
+        <p class="text-sm font-black text-[#1F6F68]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
+        <p class="mt-2 text-sm leading-6 text-[#475569]"><?php esc_html_e('Check processing, delivery, and tracking details.', 'dawp'); ?></p>
+      </a>
+      <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="rounded-lg border border-[#E8D9A6] bg-[#F7F5EF] p-5 transition hover:border-[#C89B3C] hover:bg-white hover:shadow-sm">
+        <p class="text-sm font-black text-[#1F6F68]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
+        <p class="mt-2 text-sm leading-6 text-[#475569]"><?php esc_html_e('Review return eligibility and refund timing.', 'dawp'); ?></p>
       </a>
       <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="rounded-lg border border-[#E8D9A6] bg-[#F7F5EF] p-5 transition hover:border-[#C89B3C] hover:bg-white hover:shadow-sm">
         <p class="text-sm font-black text-[#1F6F68]"><?php esc_html_e('Track Order', 'dawp'); ?></p>

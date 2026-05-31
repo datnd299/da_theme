@@ -4,25 +4,6 @@
  */
 
 $support_email = 'support@scottosterbind.com';
-
-$term_cards = [
-    [
-        'label' => __('Applies To', 'dawp'),
-        'value' => __('Website Use', 'dawp'),
-    ],
-    [
-        'label' => __('Checkout', 'dawp'),
-        'value' => __('Order Terms', 'dawp'),
-    ],
-    [
-        'label' => __('Products', 'dawp'),
-        'value' => __('Handmade & Curated', 'dawp'),
-    ],
-    [
-        'label' => __('Support', 'dawp'),
-        'value' => __('Business Hours', 'dawp'),
-    ],
-];
 ?>
 
 <div id="primary" class="bg-[#F7F5EF] font-body text-[#1F2937]">
@@ -43,16 +24,7 @@ $term_cards = [
 
     <section class="py-12 lg:py-16">
         <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <?php foreach ($term_cards as $card) : ?>
-                    <div class="rounded-lg border border-[#E8D9A6] border-t-4 border-t-[#C89B3C] bg-white p-5 shadow-sm">
-                        <p class="text-sm font-bold uppercase tracking-wide text-[#6E9B8E]"><?php echo esc_html($card['label']); ?></p>
-                        <p class="mt-2 font-heading text-2xl font-black text-[#1F6F68]"><?php echo esc_html($card['value']); ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-
-            <div class="mt-10 grid gap-8 lg:grid-cols-[250px_minmax(0,1fr)] lg:items-start">
+            <div class="grid gap-8 lg:grid-cols-[250px_minmax(0,1fr)] lg:items-start">
                 <aside class="rounded-lg border border-[#E8D9A6] bg-white p-4 shadow-sm lg:sticky lg:top-24">
                     <p class="text-xs font-black uppercase tracking-[0.16em] text-[#C89B3C]"><?php esc_html_e('Policy Sections', 'dawp'); ?></p>
                     <nav class="mt-4 space-y-2" aria-label="<?php esc_attr_e('Terms and conditions sections', 'dawp'); ?>">
@@ -101,7 +73,9 @@ $term_cards = [
                         <h2><?php esc_html_e('7. Shipping, Returns, Exchanges, and Refunds', 'dawp'); ?></h2>
                         <p>
                             <?php esc_html_e('Shipping, delivery estimates, address issues, return eligibility, item condition requirements, exchanges, and refunds are explained in our ', 'dawp'); ?>
-                            <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns Policy', 'dawp'); ?></a>.
+                            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
+                            <?php esc_html_e(' and ', 'dawp'); ?>
+                            <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>.
                         </p>
                         <p><?php esc_html_e('A return request is not automatically approved. We may require an order number, product photos, packaging photos, carrier information, or other details before approving a return, replacement, refund, or store credit. Unauthorized returns may be refused or returned to sender.', 'dawp'); ?></p>
 

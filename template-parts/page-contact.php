@@ -266,15 +266,20 @@ $help_topics = [
                         <?php esc_html_e('Review policy information before opening a support request.', 'dawp'); ?>
                     </h2>
                     <p class="mt-5 max-w-2xl text-base leading-8 text-[#FAF6EA]">
-                        <?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch, depending on destination and carrier conditions.', 'dawp'); ?>
+                        <?php esc_html_e('Orders are processed within 1-3 business days. Standard US shipping typically takes 5-7 business days after dispatch, Monday to Friday, depending on destination and carrier conditions.', 'dawp'); ?>
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="rounded-lg border border-[#E8D9A6] bg-white p-5 text-[#1F2937] transition hover:-translate-y-1 hover:shadow-md">
-                        <h3 class="text-base font-black text-[#1F6F68]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></h3>
-                        <p class="mt-2 text-sm leading-6 text-[#475569]"><?php esc_html_e('Read timelines and return conditions.', 'dawp'); ?></p>
+                        <h3 class="text-base font-black text-[#1F6F68]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
+                        <p class="mt-2 text-sm leading-6 text-[#475569]"><?php esc_html_e('Read processing, tracking, and delivery timelines.', 'dawp'); ?></p>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"
+                       class="rounded-lg border border-[#E8D9A6] bg-white p-5 text-[#1F2937] transition hover:-translate-y-1 hover:shadow-md">
+                        <h3 class="text-base font-black text-[#1F6F68]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h3>
+                        <p class="mt-2 text-sm leading-6 text-[#475569]"><?php esc_html_e('Review return conditions and refund timing.', 'dawp'); ?></p>
                     </a>
                     <a href="<?php echo esc_url(home_url('/track-order/')); ?>"
                        class="rounded-lg border border-[#E8D9A6] bg-white p-5 text-[#1F2937] transition hover:-translate-y-1 hover:shadow-md">

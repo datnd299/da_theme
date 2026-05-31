@@ -182,7 +182,7 @@ if ($track_order_form) {
                 <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and current shop categories for a smoother Scott Osterbind order experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Learn about our shipping times, rates, and delivery details.', 'dawp'); ?></p>
                 </a>

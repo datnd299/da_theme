@@ -130,8 +130,8 @@ $nav_items = [
     <div class="bg-[#205E58] text-white">
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.16em] sm:flex-row sm:px-6 lg:px-8">
             <span><?php esc_html_e('Handmade jewelry and curated vintage-inspired accessories', 'dawp'); ?></span>
-            <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="text-[#FAF6EA] transition hover:text-[#C89B3C]">
-                <?php esc_html_e('2-4 day processing | Tracking included | 30-day returns', 'dawp'); ?>
+            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="text-[#FAF6EA] transition hover:text-[#C89B3C]">
+                <?php esc_html_e('1-3 day processing | Tracking included | 30-day returns', 'dawp'); ?>
             </a>
         </div>
     </div>

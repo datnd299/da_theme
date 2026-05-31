@@ -395,9 +395,11 @@ Avoid:
 
 ## Shipping Information
 
-Orders are processed within **2–4 business days**.
+Orders are processed within **1–3 business days**.
 
-After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
+After dispatch, standard US shipping typically takes **5–7 business days**, Monday to Friday, depending on destination and carrier conditions.
+
+Estimated delivery time is **6–10 business days** from the date of purchase.
 
 Tracking information is provided once an order ships.
 

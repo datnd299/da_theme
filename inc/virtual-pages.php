@@ -142,6 +142,20 @@ function dawp_current_virtual_page_seo() {
     return $seo[$key] ?? [];
 }
 
+function dawp_is_rank_math_active() {
+    return defined('RANK_MATH_VERSION') || class_exists('RankMath');
+}
+
+add_filter('pre_get_document_title', 'dawp_virtual_page_document_title');
+function dawp_virtual_page_document_title($title) {
+    if (dawp_is_rank_math_active()) {
+        return $title;
+    }
+
+    $seo = dawp_current_virtual_page_seo();
+    return !empty($seo['title']) ? $seo['title'] : $title;
+}
+
 add_filter('document_title_parts', 'dawp_virtual_page_title');
 function dawp_virtual_page_title($parts) {
     $seo = dawp_current_virtual_page_seo();
@@ -177,6 +191,18 @@ function dawp_rank_math_virtual_page_robots($robots) {
 
     $robots['index']  = 'index';
     $robots['follow'] = 'follow';
+
+    return $robots;
+}
+
+add_filter('wp_robots', 'dawp_virtual_page_wp_robots');
+function dawp_virtual_page_wp_robots($robots) {
+    if (dawp_is_rank_math_active() || empty(dawp_current_virtual_page_seo())) {
+        return $robots;
+    }
+
+    $robots['index']  = true;
+    $robots['follow'] = true;
 
     return $robots;
 }
@@ -300,6 +326,64 @@ function dawp_virtual_page_faq_schema_items() {
         },
         $items
     );
+}
+
+add_action('wp_head', 'dawp_virtual_page_fallback_seo_tags', 2);
+function dawp_virtual_page_fallback_seo_tags() {
+    if (dawp_is_rank_math_active()) {
+        return;
+    }
+
+    $seo = dawp_current_virtual_page_seo();
+    if (empty($seo)) {
+        return;
+    }
+
+    $schema = [
+        '@context'    => 'https://schema.org',
+        '@type'       => $seo['schema_type'] ?? 'WebPage',
+        '@id'         => trailingslashit($seo['canonical']) . '#webpage',
+        'url'         => $seo['canonical'],
+        'name'        => $seo['title'],
+        'description' => $seo['description'],
+        'isPartOf'    => ['@id' => home_url('/#website')],
+        'publisher'   => ['@id' => home_url('/#organization')],
+        'inLanguage'  => get_bloginfo('language'),
+    ];
+
+    if (!empty($seo['image'])) {
+        $schema['primaryImageOfPage'] = [
+            '@type' => 'ImageObject',
+            'url'   => $seo['image'],
+        ];
+    }
+
+    if (($seo['schema_type'] ?? '') === 'FAQPage') {
+        $schema['mainEntity'] = dawp_virtual_page_faq_schema_items();
+    }
+    ?>
+    <meta name="description" content="<?php echo esc_attr($seo['description']); ?>">
+    <?php if (!empty($seo['keywords'])) : ?>
+    <meta name="keywords" content="<?php echo esc_attr($seo['keywords']); ?>">
+    <?php endif; ?>
+    <link rel="canonical" href="<?php echo esc_url($seo['canonical']); ?>">
+    <meta property="og:locale" content="<?php echo esc_attr(get_locale()); ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<?php echo esc_attr($seo['title']); ?>">
+    <meta property="og:description" content="<?php echo esc_attr($seo['description']); ?>">
+    <meta property="og:url" content="<?php echo esc_url($seo['canonical']); ?>">
+    <meta property="og:site_name" content="<?php echo esc_attr(get_bloginfo('name')); ?>">
+    <?php if (!empty($seo['image'])) : ?>
+    <meta property="og:image" content="<?php echo esc_url($seo['image']); ?>">
+    <?php endif; ?>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?php echo esc_attr($seo['title']); ?>">
+    <meta name="twitter:description" content="<?php echo esc_attr($seo['description']); ?>">
+    <?php if (!empty($seo['image'])) : ?>
+    <meta name="twitter:image" content="<?php echo esc_url($seo['image']); ?>">
+    <?php endif; ?>
+    <script type="application/ld+json"><?php echo wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?></script>
+    <?php
 }
 
 

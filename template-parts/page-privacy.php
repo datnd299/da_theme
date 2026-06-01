@@ -15,37 +15,7 @@
             <p class="italic text-sm text-foreground-muted mt-4">Last Updated: May 26, 2026</p>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
-            <div class="hidden lg:block lg:col-span-3 sticky top-24">
-                <nav class="space-y-3">
-                    <a href="#privacy-overview" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Overview</a>
-                    <a href="#information-collected" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Information Collected</a>
-                    <a href="#how-we-use-information" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">How We Use Data</a>
-                    <a href="#sharing-information" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Sharing</a>
-                    <a href="#your-rights" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Your Rights</a>
-                    <a href="#privacy-contact" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium">Contact</a>
-                </nav>
-            </div>
-
-            <div class="lg:col-span-9 space-y-8">
-                <div class="grid md:grid-cols-3 gap-4">
-                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
-                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Store</p>
-                        <p class="text-foreground text-2xl font-bold">Broge Shoes</p>
-                        <p class="text-foreground-muted text-sm mt-2">Men's formal footwear store.</p>
-                    </div>
-                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
-                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Website</p>
-                        <p class="text-foreground text-2xl font-bold">brogeshoes.com</p>
-                        <p class="text-foreground-muted text-sm mt-2">Official online store.</p>
-                    </div>
-                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
-                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Support</p>
-                        <p class="text-foreground text-2xl font-bold">Email</p>
-                        <p class="text-foreground-muted text-sm mt-2">support@brogeshoes.com</p>
-                    </div>
-                </div>
-
+        <div class="space-y-8">
                 <div id="privacy-overview" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
                     <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-8">
                         <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent shrink-0">
@@ -135,28 +105,6 @@
                     <p class="text-foreground-muted leading-relaxed">Our website is intended for general ecommerce use by adults and is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided personal information to us, contact us so we can review and remove it where required.</p>
                 </div>
 
-                <div id="privacy-contact" class="bg-surface p-10 rounded-lg border border-dashed border-accent/30">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6">Contact Information</h2>
-                    <dl class="grid md:grid-cols-2 gap-4 text-sm">
-                        <div class="bg-background p-5 rounded-lg border border-border">
-                            <dt class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Store Name</dt>
-                            <dd class="text-foreground font-semibold">Broge Shoes</dd>
-                        </div>
-                        <div class="bg-background p-5 rounded-lg border border-border">
-                            <dt class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Website</dt>
-                            <dd class="text-foreground font-semibold">brogeshoes.com</dd>
-                        </div>
-                        <div class="bg-background p-5 rounded-lg border border-border">
-                            <dt class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Email</dt>
-                            <dd><a href="mailto:support@brogeshoes.com" class="text-foreground font-semibold hover:text-accent">support@brogeshoes.com</a></dd>
-                        </div>
-                        <div class="bg-background p-5 rounded-lg border border-border">
-                            <dt class="text-accent font-semibold uppercase text-xs tracking-widest mb-2">Business Hours</dt>
-                            <dd class="text-foreground font-semibold">Monday-Friday, 9:00 AM-5:00 PM PST</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
         </div>
     </div>
 </section>

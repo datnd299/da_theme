@@ -6,7 +6,7 @@
 
 $support_email = 'support@brogeshoes.com';
 $support_hours = __('Monday-Friday, 9:00 AM-5:00 PM PST', 'dawp');
-$support_image = get_template_directory_uri() . '/assets/img/broge-customer-care.png';
+$store_address = dawp_get_woocommerce_store_address();
 ?>
 
 <section class="bg-surface py-16 md:py-24">
@@ -24,9 +24,17 @@ $support_image = get_template_directory_uri() . '/assets/img/broge-customer-care
                 </div>
 
                 <div class="bg-background rounded-lg border border-border shadow-card overflow-hidden mb-6">
-                    <img src="<?php echo esc_url($support_image); ?>"
-                         alt="<?php esc_attr_e('Broge Shoes customer support desk', 'dawp'); ?>"
-                         class="w-full aspect-[16/10] object-cover">
+                    <?php
+                    echo dawp_responsive_theme_image('broge-customer-care.png', __('Broge Shoes customer support desk', 'dawp'), [
+                        'class' => 'w-full aspect-[16/10] object-cover',
+                        'width' => 760,
+                        'height' => 507,
+                        'src_width' => 760,
+                        'widths' => [400, 640, 760, 1024],
+                        'sizes' => '(max-width: 1023px) calc(100vw - 32px), 42vw',
+                        'loading' => 'lazy',
+                    ]);
+                    ?>
                     <div class="p-6">
                         <dl class="space-y-5">
                             <div class="flex gap-4">
@@ -48,12 +56,12 @@ $support_image = get_template_directory_uri() . '/assets/img/broge-customer-care
                                 </dd>
                             </div>
                             <div class="flex gap-4">
-                                <dt class="w-11 h-11 rounded-full bg-accent-soft text-accent flex items-center justify-center shrink-0" aria-label="<?php esc_attr_e('Store', 'dawp'); ?>">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9h18l-1-5H4L3 9z"></path><path d="M4 9v11h16V9"></path><path d="M9 20v-6h6v6"></path></svg>
+                                <dt class="w-11 h-11 rounded-full bg-accent-soft text-accent flex items-center justify-center shrink-0" aria-label="<?php esc_attr_e('Address', 'dawp'); ?>">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 4.5-8 11-8 11S4 14.5 4 10a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                 </dt>
                                 <dd>
-                                    <p class="text-foreground font-semibold"><?php esc_html_e('Store', 'dawp'); ?></p>
-                                    <p class="text-foreground-muted"><?php esc_html_e('Broge Shoes - men\'s formal footwear.', 'dawp'); ?></p>
+                                    <p class="text-foreground font-semibold"><?php esc_html_e('Address', 'dawp'); ?></p>
+                                    <p class="text-foreground-muted"><?php echo esc_html($store_address); ?></p>
                                 </dd>
                             </div>
                         </dl>

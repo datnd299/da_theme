@@ -21,7 +21,7 @@ $support_hours = __('Monday-Friday, 9:00 AM-5:00 PM PST', 'dawp');
             <div class="track-hero__status" aria-label="<?php esc_attr_e('Order support summary', 'dawp'); ?>">
                 <div>
                     <span><?php esc_html_e('Handling', 'dawp'); ?></span>
-                    <strong><?php esc_html_e('1-2 business days', 'dawp'); ?></strong>
+                    <strong><?php esc_html_e('1-3 business days', 'dawp'); ?></strong>
                 </div>
                 <div>
                     <span><?php esc_html_e('Transit', 'dawp'); ?></span>
@@ -77,7 +77,7 @@ $support_hours = __('Monday-Friday, 9:00 AM-5:00 PM PST', 'dawp');
                         <span></span>
                         <div>
                             <strong><?php esc_html_e('Prepared for shipment', 'dawp'); ?></strong>
-                            <p><?php esc_html_e('Most orders are handled within 1-2 business days.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Most orders are handled within 1-3 business days.', 'dawp'); ?></p>
                         </div>
                     </li>
                     <li>

@@ -42,7 +42,6 @@ $nav_items   = [
     ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
     ['title' => __('About Us', 'dawp'),   'url' => home_url('/about-us/')],
 ];
-$logo_url = get_template_directory_uri() . '/assets/img/Logo.png';
 ?>
 
 <div class="hidden md:block bg-[#3B2416] text-[#F5EFE6]">
@@ -67,9 +66,18 @@ $logo_url = get_template_directory_uri() . '/assets/img/Logo.png';
         </button>
 
         <a href="<?php echo esc_url(home_url('/')); ?>" class="shrink-0 flex items-center text-white" aria-label="<?php esc_attr_e('Broge Shoes Home', 'dawp'); ?>">
-            <img src="<?php echo esc_url($logo_url); ?>"
-                 alt="<?php esc_attr_e('Broge Shoes', 'dawp'); ?>"
-                 class="h-12 w-auto max-w-[180px] object-contain">
+            <?php
+            echo dawp_responsive_theme_image('Logo.png', __('Broge Shoes', 'dawp'), [
+                'class' => 'h-12 w-auto max-w-[180px] object-contain',
+                'width' => 180,
+                'height' => 105,
+                'src_width' => 360,
+                'widths' => [160, 240, 360],
+                'sizes' => '180px',
+                'loading' => 'eager',
+                'fetchpriority' => 'high',
+            ]);
+            ?>
         </a>
 
         <nav class="hidden lg:flex items-center justify-center gap-1 flex-1" aria-label="<?php esc_attr_e('Main Navigation', 'dawp'); ?>">
@@ -164,9 +172,17 @@ $logo_url = get_template_directory_uri() . '/assets/img/Logo.png';
        aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
     <div class="flex items-center justify-between px-4 h-16 border-b border-white/10">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center text-white">
-            <img src="<?php echo esc_url($logo_url); ?>"
-                 alt="<?php esc_attr_e('Broge Shoes', 'dawp'); ?>"
-                 class="h-11 w-auto max-w-[170px] object-contain">
+            <?php
+            echo dawp_responsive_theme_image('Logo.png', __('Broge Shoes', 'dawp'), [
+                'class' => 'h-11 w-auto max-w-[170px] object-contain',
+                'width' => 170,
+                'height' => 99,
+                'src_width' => 340,
+                'widths' => [160, 240, 340],
+                'sizes' => '170px',
+                'loading' => 'eager',
+            ]);
+            ?>
         </a>
         <button id="drawer-close"
                 class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors"

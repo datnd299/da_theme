@@ -1,6 +1,4 @@
 <?php
-$img_base = get_template_directory_uri() . '/assets/img/';
-
 $categories = [
     [
         'title' => __('Formal Shoes', 'dawp'),
@@ -87,10 +85,17 @@ $feedback_cards = [
                 <p class="broge-hero__trust"><?php esc_html_e('Polished styles. Clear size guidance. Reliable customer support.', 'dawp'); ?></p>
             </div>
             <div class="broge-hero__media">
-                <img src="<?php echo esc_url($img_base . 'broge-hero-formal-shoes.png'); ?>"
-                     alt="<?php esc_attr_e('Brown brogue dress shoes on a dark premium surface', 'dawp'); ?>"
-                     loading="eager"
-                     fetchpriority="high">
+                <?php
+                echo dawp_responsive_theme_image('broge-hero-formal-shoes.png', __('Brown brogue dress shoes on a dark premium surface', 'dawp'), [
+                    'width' => 1300,
+                    'height' => 650,
+                    'src_width' => 1300,
+                    'widths' => [480, 768, 1024, 1300],
+                    'sizes' => '(max-width: 1023px) calc(100vw - 32px), 56vw',
+                    'loading' => 'eager',
+                    'fetchpriority' => 'high',
+                ]);
+                ?>
             </div>
         </div>
     </section>
@@ -105,9 +110,16 @@ $feedback_cards = [
                 <?php foreach ($categories as $category) : ?>
                     <a class="broge-category-card" href="<?php echo esc_url($category['url']); ?>">
                         <span class="broge-category-card__image">
-                            <img src="<?php echo esc_url($img_base . $category['image']); ?>"
-                                 alt="<?php echo esc_attr($category['title']); ?>"
-                                 loading="lazy">
+                            <?php
+                            echo dawp_responsive_theme_image($category['image'], $category['title'], [
+                                'width' => 640,
+                                'height' => 640,
+                                'src_width' => 640,
+                                'widths' => [320, 480, 640],
+                                'sizes' => '(max-width: 1023px) calc(100vw - 32px), 33vw',
+                                'loading' => 'lazy',
+                            ]);
+                            ?>
                         </span>
                         <span class="broge-category-card__body">
                             <span class="broge-category-card__title"><?php echo esc_html($category['title']); ?></span>
@@ -123,9 +135,16 @@ $feedback_cards = [
     <section class="broge-section broge-formal" aria-labelledby="broge-formal-title">
         <div class="broge-container broge-split">
             <div class="broge-split__media">
-                <img src="<?php echo esc_url($img_base . 'broge-work-events.png'); ?>"
-                     alt="<?php esc_attr_e('Formal shoes arranged with a suit for work and events', 'dawp'); ?>"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_theme_image('broge-work-events.png', __('Formal shoes arranged with a suit for work and events', 'dawp'), [
+                    'width' => 900,
+                    'height' => 600,
+                    'src_width' => 900,
+                    'widths' => [480, 768, 900, 1200],
+                    'sizes' => '(max-width: 1023px) calc(100vw - 32px), 50vw',
+                    'loading' => 'lazy',
+                ]);
+                ?>
             </div>
             <div class="broge-split__content">
                 <p class="broge-eyebrow broge-eyebrow--dark"><?php esc_html_e('Formal Shoes', 'dawp'); ?></p>
@@ -167,9 +186,16 @@ $feedback_cards = [
                 </div>
             </div>
             <div class="broge-details__media">
-                <img src="<?php echo esc_url($img_base . 'broge-category-brogue-shoes.png'); ?>"
-                     alt="<?php esc_attr_e('Close-up brogue perforation and stitching details', 'dawp'); ?>"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_theme_image('broge-category-brogue-shoes.png', __('Close-up brogue perforation and stitching details', 'dawp'), [
+                    'width' => 900,
+                    'height' => 900,
+                    'src_width' => 900,
+                    'widths' => [480, 768, 900, 1200],
+                    'sizes' => '(max-width: 1023px) calc(100vw - 32px), 52vw',
+                    'loading' => 'lazy',
+                ]);
+                ?>
             </div>
         </div>
     </section>
@@ -187,12 +213,19 @@ $feedback_cards = [
                 </div>
             </div>
             <div class="broge-policy-card">
-                <img src="<?php echo esc_url($img_base . 'broge-customer-care.png'); ?>"
-                     alt="<?php esc_attr_e('Dress shoes packed with care instructions and size guidance', 'dawp'); ?>"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_theme_image('broge-customer-care.png', __('Dress shoes packed with care instructions and size guidance', 'dawp'), [
+                    'width' => 900,
+                    'height' => 600,
+                    'src_width' => 900,
+                    'widths' => [480, 768, 900, 1200],
+                    'sizes' => '(max-width: 1023px) calc(100vw - 32px), 58vw',
+                    'loading' => 'lazy',
+                ]);
+                ?>
                 <div class="broge-policy-card__body">
                     <p><?php esc_html_e('Please review the size guide, fit note, material or finish, care instructions, and return conditions before placing an order.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('Orders placed before 5:00 PM Pacific Standard Time begin processing the same business day. Orders placed after the cutoff begin processing the next business day. Handling time is 1-2 business days and transit usually takes 5-7 business days.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Orders placed before 5:00 PM Pacific Standard Time begin processing the same business day. Orders placed after the cutoff begin processing the next business day. Handling time is 1-3 business days, transit usually takes 5-7 business days, and total estimated delivery is 6-10 business days.', 'dawp'); ?></p>
                     <p><?php esc_html_e('Eligible footwear must be unworn, undamaged, free of outdoor wear, stains, heavy creasing, or sole marks, and returned with original packaging where applicable within 30 days of delivery.', 'dawp'); ?></p>
                     <div class="broge-actions">
                         <a class="broge-btn broge-btn--primary" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>">

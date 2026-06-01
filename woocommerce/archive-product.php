@@ -50,7 +50,6 @@ $active_category_page = (
     $queried_category instanceof WP_Term
     && isset($broge_category_pages[$queried_category->slug])
 ) ? $broge_category_pages[$queried_category->slug] : null;
-$img_base = get_template_directory_uri() . '/assets/img/';
 
 get_header();
 ?>
@@ -101,9 +100,17 @@ get_header();
                 </div>
             </div>
             <div class="shop-category-hero__media">
-                <img src="<?php echo esc_url( $img_base . $active_category_page['image'] ); ?>"
-                     alt="<?php echo esc_attr( $active_category_page['image_alt'] ); ?>"
-                     loading="eager">
+                <?php
+                echo dawp_responsive_theme_image($active_category_page['image'], $active_category_page['image_alt'], [
+                    'width' => 900,
+                    'height' => 900,
+                    'src_width' => 900,
+                    'widths' => [480, 768, 900, 1200],
+                    'sizes' => '(max-width: 899px) calc(100vw - 32px), 54vw',
+                    'loading' => 'eager',
+                    'fetchpriority' => 'high',
+                ]);
+                ?>
             </div>
         </section>
 

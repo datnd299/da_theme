@@ -4,8 +4,6 @@
  * Template Part: page-about
  */
 
-$img_base = get_template_directory_uri() . '/assets/img/';
-
 $categories = [
     [
         'title' => __('Formal Shoes', 'dawp'),
@@ -424,10 +422,17 @@ $trust_items = [
             </div>
             <div class="broge-about__hero-story">
                 <div class="broge-about__hero-media">
-                    <img src="<?php echo esc_url($img_base . 'broge-hero-formal-shoes.png'); ?>"
-                         alt="<?php esc_attr_e('Brown brogue dress shoes on a refined dark surface', 'dawp'); ?>"
-                         loading="eager"
-                         fetchpriority="high">
+                    <?php
+                    echo dawp_responsive_theme_image('broge-hero-formal-shoes.png', __('Brown brogue dress shoes on a refined dark surface', 'dawp'), [
+                        'width' => 1100,
+                        'height' => 550,
+                        'src_width' => 1100,
+                        'widths' => [480, 768, 1024, 1100],
+                        'sizes' => '(max-width: 1023px) calc(100vw - 28px), 48vw',
+                        'loading' => 'eager',
+                        'fetchpriority' => 'high',
+                    ]);
+                    ?>
                     <div class="broge-about__hero-label">
                         <?php esc_html_e('Formal-first catalog direction with clear fit, finish, shipping, and return details.', 'dawp'); ?>
                     </div>
@@ -453,9 +458,16 @@ $trust_items = [
     <section class="broge-about__section broge-about__intro" aria-labelledby="broge-story-title">
         <div class="broge-about__container broge-about__split">
             <div class="broge-about__split-media">
-                <img src="<?php echo esc_url($img_base . 'broge-work-events.png'); ?>"
-                     alt="<?php esc_attr_e('Formal dress shoes arranged with business outfit details', 'dawp'); ?>"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_theme_image('broge-work-events.png', __('Formal dress shoes arranged with business outfit details', 'dawp'), [
+                    'width' => 900,
+                    'height' => 600,
+                    'src_width' => 900,
+                    'widths' => [480, 768, 900, 1200],
+                    'sizes' => '(max-width: 1023px) calc(100vw - 28px), 50vw',
+                    'loading' => 'lazy',
+                ]);
+                ?>
             </div>
             <div class="broge-about__content">
                 <p class="broge-about__eyebrow broge-about__eyebrow--dark"><?php esc_html_e('Our Focus', 'dawp'); ?></p>
@@ -542,12 +554,19 @@ $trust_items = [
                 </div>
             </div>
             <article class="broge-about__care-card">
-                <img src="<?php echo esc_url($img_base . 'broge-customer-care.png'); ?>"
-                     alt="<?php esc_attr_e('Dress shoes with customer care and product guidance details', 'dawp'); ?>"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_theme_image('broge-customer-care.png', __('Dress shoes with customer care and product guidance details', 'dawp'), [
+                    'width' => 900,
+                    'height' => 600,
+                    'src_width' => 900,
+                    'widths' => [480, 768, 900, 1200],
+                    'sizes' => '(max-width: 1023px) calc(100vw - 28px), 54vw',
+                    'loading' => 'lazy',
+                ]);
+                ?>
                 <div class="broge-about__care-card-body">
                     <p><?php esc_html_e('Eligible footwear must be unworn, undamaged, free of outdoor wear, stains, heavy creasing, or sole marks, and returned with original packaging where applicable within 30 days of delivery.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('Orders placed before 5:00 PM Pacific Standard Time begin processing the same business day. Orders placed after the cutoff begin processing on the next business day.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Orders placed before 5:00 PM Pacific Standard Time begin processing the same business day. Orders placed after the cutoff begin processing on the next business day. Handling time is 1-3 business days, transit usually takes 5-7 business days, and total estimated delivery is 6-10 business days.', 'dawp'); ?></p>
                 </div>
             </article>
         </div>

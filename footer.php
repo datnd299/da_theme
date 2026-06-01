@@ -1,7 +1,5 @@
 </div><!-- #content -->
 
-<?php $logo_url = get_template_directory_uri() . '/assets/img/Logo.png'; ?>
-
 <footer id="colophon" class="bg-[#111111] text-[#F5EFE6]" role="contentinfo">
     <div class="border-b border-white/10 bg-[#3B2416]">
         <div class="max-w-[1280px] mx-auto px-4 lg:px-6 py-8 grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -32,9 +30,17 @@
     <div class="max-w-[1280px] mx-auto px-4 lg:px-6 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
         <div class="sm:col-span-2">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex h-12 w-40 overflow-hidden rounded-sm text-white mb-6" aria-label="<?php esc_attr_e('Broge Shoes Home', 'dawp'); ?>">
-                <img src="<?php echo esc_url($logo_url); ?>"
-                     alt="<?php esc_attr_e('Broge Shoes', 'dawp'); ?>"
-                     class="h-full w-full scale-125 object-cover object-[50%_27%]">
+                <?php
+                echo dawp_responsive_theme_image('Logo.png', __('Broge Shoes', 'dawp'), [
+                    'class' => 'h-full w-full scale-125 object-cover object-[50%_27%]',
+                    'width' => 160,
+                    'height' => 93,
+                    'src_width' => 320,
+                    'widths' => [160, 240, 320],
+                    'sizes' => '160px',
+                    'loading' => 'lazy',
+                ]);
+                ?>
             </a>
 
             <ul class="space-y-3 text-sm text-[#F5EFE6]/80">
@@ -46,6 +52,13 @@
                         </svg>
                         support@brogeshoes.com
                     </a>
+                </li>
+                <li class="flex items-start gap-2">
+                    <svg class="shrink-0 mt-0.5 text-[#C8A45D]" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M20 10c0 4.5-8 11-8 11S4 14.5 4 10a8 8 0 0 1 16 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <?php echo esc_html(dawp_get_woocommerce_store_address()); ?>
                 </li>
                 <li class="flex items-start gap-2">
                     <svg class="shrink-0 mt-0.5 text-[#C8A45D]" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -86,13 +99,13 @@
                 <li><a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('About Us', 'dawp'); ?></a></li>
                 <li><a href="<?php echo esc_url(home_url('/my-account/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('My Account', 'dawp'); ?></a></li>
                 <li><a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Track Order', 'dawp'); ?></a></li>
-                <li><a href="<?php echo esc_url(home_url('/faq/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('FAQ', 'dawp'); ?></a></li>
             </ul>
         </div>
 
         <div>
             <h4 class="text-sm font-extrabold uppercase tracking-[0.14em] text-white mb-5"><?php esc_html_e('Policies', 'dawp'); ?></h4>
             <ul class="space-y-3">
+                <li><a href="<?php echo esc_url(home_url('/faq/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('FAQ', 'dawp'); ?></a></li>
                 <li><a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a></li>
                 <li><a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a></li>
                 <li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a></li>

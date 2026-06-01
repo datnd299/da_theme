@@ -4,162 +4,117 @@
  */
 
 $support_email = 'support@brogeshoes.com';
+$support_hours = __('Within 24 business hours.', 'dawp');
+$store_name = __('Broge Shoes', 'dawp');
 ?>
 
 <section class="bg-surface py-16 md:py-24">
     <div class="container mx-auto px-4 max-w-6xl">
         <div class="text-center mb-14">
-            <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block"><?php esc_html_e('Shipping Policy', 'dawp'); ?></span>
+            <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block"><?php esc_html_e('Merchant Policies', 'dawp'); ?></span>
             <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
             <p class="text-foreground-muted text-lg max-w-3xl mx-auto leading-relaxed">
-                <?php esc_html_e('Clear delivery timelines, shipping locations, carrier details, and tracking support for Broge Shoes orders.', 'dawp'); ?>
+                <?php esc_html_e('Broge Shoes provides clear shipping timelines, carrier information, and delivery support for men\'s formal shoes, leather dress shoes, and brogue shoes shipped within the United States.', 'dawp'); ?>
             </p>
+            <p class="italic text-sm text-foreground-muted mt-4"><?php esc_html_e('Last Updated: May 26, 2026', 'dawp'); ?></p>
         </div>
 
-        <div class="grid lg:grid-cols-12 gap-8 items-start">
-            <div class="hidden lg:block lg:col-span-3 sticky top-24">
-                <nav class="space-y-3" aria-label="<?php esc_attr_e('Shipping policy sections', 'dawp'); ?>">
-                    <a href="#shipping-locations" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium"><?php esc_html_e('Shipping Locations', 'dawp'); ?></a>
-                    <a href="#processing-cutoff" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium"><?php esc_html_e('Processing & Cutoff', 'dawp'); ?></a>
-                    <a href="#estimated-delivery" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium"><?php esc_html_e('Estimated Delivery', 'dawp'); ?></a>
-                    <a href="#tracking-order" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium"><?php esc_html_e('Tracking Your Order', 'dawp'); ?></a>
-                    <a href="#delivery-issues" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium"><?php esc_html_e('Delivery Issues', 'dawp'); ?></a>
-                    <a href="#shipping-support" class="block p-4 rounded-lg bg-background border border-border hover:border-accent hover:text-accent transition-all font-medium"><?php esc_html_e('Customer Support', 'dawp'); ?></a>
-                </nav>
+        <div class="space-y-8">
+            <div class="bg-background p-8 md:p-10 rounded-lg shadow-card border border-border">
+                <h2 class="font-heading text-3xl md:text-5xl text-foreground font-semibold mb-4"><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
+                <div class="text-foreground-muted leading-relaxed space-y-4">
+                    <p><?php printf(esc_html__('We currently ship exclusively within the United States. %s serves customers shopping from the United States domestic market.', 'dawp'), esc_html($store_name)); ?></p>
+                    <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
+                </div>
+                <div class="mt-4 bg-accent-soft p-6 rounded-lg border border-accent/20">
+                    <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Some men\'s formal footwear orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
+                </div>
             </div>
 
-            <div class="lg:col-span-9 space-y-8">
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
-                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2"><?php esc_html_e('Order Cutoff', 'dawp'); ?></p>
-                        <p class="text-foreground text-2xl font-bold"><?php esc_html_e('5:00 PM', 'dawp'); ?></p>
-                        <p class="text-foreground-muted text-sm mt-2"><?php esc_html_e('Monday-Friday, 9:00 AM-5:00 PM PST', 'dawp'); ?></p>
+            <div class="bg-background p-8 md:p-10 rounded-lg shadow-card border border-border">
+                <h2 class="font-heading text-3xl md:text-5xl text-foreground font-semibold mb-4"><?php esc_html_e('Shipping Fees & Costs', 'dawp'); ?></h2>
+                <p class="text-foreground-muted leading-relaxed mb-6"><?php esc_html_e('We believe in full transparency with no hidden fees at checkout. Our shipping costs are structured as follows:', 'dawp'); ?></p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-background p-6 rounded-lg border border-border">
+                        <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Standard U.S. Shipping', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.', 'dawp'); ?></p>
                     </div>
-                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
-                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2"><?php esc_html_e('Handling Time', 'dawp'); ?></p>
-                        <p class="text-foreground text-2xl font-bold"><?php esc_html_e('1-2 Business Days', 'dawp'); ?></p>
-                        <p class="text-foreground-muted text-sm mt-2"><?php esc_html_e('Monday to Friday.', 'dawp'); ?></p>
-                    </div>
-                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
-                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2"><?php esc_html_e('Transit Time', 'dawp'); ?></p>
-                        <p class="text-foreground text-2xl font-bold"><?php esc_html_e('5-7 Business Days', 'dawp'); ?></p>
-                        <p class="text-foreground-muted text-sm mt-2"><?php esc_html_e('After order handling is complete.', 'dawp'); ?></p>
-                    </div>
-                    <div class="bg-background p-6 rounded-lg border border-border shadow-card">
-                        <p class="text-accent font-semibold uppercase text-xs tracking-widest mb-2"><?php esc_html_e('Delivery Estimate', 'dawp'); ?></p>
-                        <p class="text-foreground text-2xl font-bold"><?php esc_html_e('6-9 Business Days', 'dawp'); ?></p>
-                        <p class="text-foreground-muted text-sm mt-2"><?php esc_html_e('Most standard orders.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <div id="shipping-locations" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('Shipping Locations', 'dawp'); ?></h2>
-                    <div class="text-foreground-muted leading-relaxed space-y-4">
-                        <p><?php esc_html_e('Broge Shoes ships eligible orders to delivery addresses within the United States. Carrier service may vary by destination, address type, holidays, and regional service availability.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('If an address cannot be serviced, our support team will contact you using the information provided at checkout.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <div id="processing-cutoff" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('Order Processing & Cutoff Time', 'dawp'); ?></h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-surface p-6 rounded-lg border border-border">
-                            <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Processing Schedule', 'dawp'); ?></h3>
-                            <dl class="space-y-4 text-sm">
-                                <div class="flex justify-between gap-4 border-b border-border pb-3">
-                                    <dt class="text-foreground-muted"><?php esc_html_e('Order cutoff time', 'dawp'); ?></dt>
-                                    <dd class="text-foreground font-semibold text-right"><?php esc_html_e('5:00 PM PST', 'dawp'); ?></dd>
-                                </div>
-                                <div class="flex justify-between gap-4 border-b border-border pb-3">
-                                    <dt class="text-foreground-muted"><?php esc_html_e('Handling time', 'dawp'); ?></dt>
-                                    <dd class="text-foreground font-semibold text-right"><?php esc_html_e('1-2 business days', 'dawp'); ?></dd>
-                                </div>
-                                <div class="flex justify-between gap-4">
-                                    <dt class="text-foreground-muted"><?php esc_html_e('Business days', 'dawp'); ?></dt>
-                                    <dd class="text-foreground font-semibold text-right"><?php esc_html_e('Monday-Friday, 9:00 AM-5:00 PM PST', 'dawp'); ?></dd>
-                                </div>
-                            </dl>
-                        </div>
-
-                        <div class="bg-surface p-6 rounded-lg border border-border">
-                            <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('After Cutoff', 'dawp'); ?></h3>
-                            <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Orders placed after 5:00 PM (GMT-08:00) Pacific Standard Time begin processing on the next business day. Weekend and holiday orders begin processing on the next available business day.', 'dawp'); ?></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="estimated-delivery" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('Estimated Delivery Time', 'dawp'); ?></h2>
-                    <div class="text-foreground-muted leading-relaxed space-y-4">
-                        <p><?php esc_html_e('Standard order handling usually takes 1-2 business days, Monday to Friday. Transit time usually takes 5-7 business days, Monday to Friday, after handling is complete.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Most orders are delivered in approximately 6-9 business days. Some items may take longer, including bulky items, special handling items, oversized or freight items, or items shipped directly from a brand or partner. We will keep customers updated when additional time is needed.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <div id="shipping-carriers" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('Shipping Carriers & Costs', 'dawp'); ?></h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-surface p-6 rounded-lg border border-border">
-                            <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Shipping Carriers', 'dawp'); ?></h3>
-                            <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('We use available carrier services based on package size, delivery address, and shipping availability. Tracking details are sent when your order is prepared for shipment.', 'dawp'); ?></p>
-                        </div>
-                        <div class="bg-surface p-6 rounded-lg border border-border">
-                            <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Shipping Costs', 'dawp'); ?></h3>
-                            <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Shipping costs, if applicable, are shown at checkout before you place your order. Any special shipping adjustment will be communicated before fulfillment.', 'dawp'); ?></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="multiple-packages" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('Multiple Packages', 'dawp'); ?></h2>
-                    <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Orders containing multiple items may ship in separate packages. If this happens, each package may have a different tracking number and delivery date.', 'dawp'); ?></p>
-                </div>
-
-                <div id="tracking-order" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('Tracking Your Order', 'dawp'); ?></h2>
-                    <div class="text-foreground-muted leading-relaxed space-y-4">
-                        <p><?php esc_html_e('After your order ships, tracking information will be sent to the email address used at checkout. Tracking updates may take time to appear after a carrier receives the package.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('You can also visit the order tracking page for the latest available status.', 'dawp'); ?></p>
-                        <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-full font-medium hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20"><?php esc_html_e('Track Order', 'dawp'); ?></a>
-                    </div>
-                </div>
-
-                <div id="delivery-issues" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('Delivery Issues', 'dawp'); ?></h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="bg-surface p-6 rounded-lg border border-border">
-                            <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Incorrect Shipping Address', 'dawp'); ?></h3>
-                            <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Please review your shipping address carefully before placing an order. If you notice an error, contact us as soon as possible. We cannot guarantee changes after fulfillment begins.', 'dawp'); ?></p>
-                        </div>
-                        <div class="bg-surface p-6 rounded-lg border border-border">
-                            <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Lost Packages', 'dawp'); ?></h3>
-                            <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('If tracking shows no movement or a delivered package cannot be found, contact support with your order number and shipping address so we can help review the issue.', 'dawp'); ?></p>
-                        </div>
-                        <div class="bg-surface p-6 rounded-lg border border-border">
-                            <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Damaged Packages', 'dawp'); ?></h3>
-                            <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('If a package or item arrives damaged, contact us promptly with your order number and clear photos of the package and product so we can assist.', 'dawp'); ?></p>
-                        </div>
-                        <div class="bg-surface p-6 rounded-lg border border-border">
-                            <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Shipping Restrictions', 'dawp'); ?></h3>
-                            <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Some addresses, locations, or items may be restricted by carrier service, package size, special handling needs, or shipping availability.', 'dawp'); ?></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="delays" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('Delays', 'dawp'); ?></h2>
-                    <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Weather, holidays, carrier disruptions, high order volume, customs or routing issues, and special handling requirements may extend delivery timelines. We will share updates when we receive relevant shipping information.', 'dawp'); ?></p>
-                </div>
-
-                <div id="shipping-support" class="text-center bg-surface p-10 rounded-lg border border-dashed border-accent/30">
-                    <h2 class="font-heading text-3xl text-foreground font-semibold mb-4"><?php esc_html_e('Need Help With Shipping?', 'dawp'); ?></h2>
-                    <p class="text-foreground-muted mb-8 max-w-2xl mx-auto"><?php esc_html_e('Broge Shoes customer support is available Monday-Friday, 9:00 AM-5:00 PM PST.', 'dawp'); ?></p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex items-center justify-center bg-accent text-white px-8 py-3 rounded-full font-medium hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20"><?php esc_html_e('Email Support', 'dawp'); ?></a>
-                        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex items-center justify-center bg-white text-foreground border border-border px-8 py-3 rounded-full font-medium hover:bg-surface transition-colors"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+                    <div class="bg-background p-6 rounded-lg border border-border">
+                        <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Optional Upgraded Shipping', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('If expedited or assisted shipping services are available for your destination, the exact cost will be displayed clearly on the checkout page before you complete your payment.', 'dawp'); ?></p>
                     </div>
                 </div>
             </div>
+
+            <div class="bg-background p-8 md:p-10 rounded-lg shadow-card border border-border">
+                <h2 class="font-heading text-3xl md:text-5xl text-foreground font-semibold mb-4"><?php esc_html_e('Order Processing & Delivery Times', 'dawp'); ?></h2>
+                <p class="text-foreground-muted leading-relaxed mb-6"><?php esc_html_e('All shipping and handling timelines are calculated in business days, Monday through Friday, excluding standard U.S. public holidays.', 'dawp'); ?></p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-background p-5 rounded-lg border border-border">
+                        <h3 class="text-foreground font-bold mb-2"><?php esc_html_e('Order Cutoff Time', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('5:00 PM (GMT-08:00) Pacific Standard Time.', 'dawp'); ?></p>
+                    </div>
+                    <div class="bg-background p-5 rounded-lg border border-border">
+                        <h3 class="text-foreground font-bold mb-2"><?php esc_html_e('Order Handling Time', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('1-3 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></p>
+                    </div>
+                    <div class="bg-background p-5 rounded-lg border border-border">
+                        <h3 class="text-foreground font-bold mb-2"><?php esc_html_e('Transit Time', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('5-7 business days, Monday to Friday.', 'dawp'); ?></p>
+                    </div>
+                    <div class="bg-background p-5 rounded-lg border border-border">
+                        <h3 class="text-foreground font-bold mb-2"><?php esc_html_e('Estimated Delivery Time', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('6-10 business days total from the date of purchase.', 'dawp'); ?></p>
+                    </div>
+                </div>
+                <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Delivery estimates are carefully calculated windows reflecting our standard delivery benchmarks. While we and our courier partners work diligently to meet these timelines, unexpected delays due to extreme weather, carrier capacity issues, or regional holidays may occasionally occur.', 'dawp'); ?></p>
+            </div>
+
+            <div class="bg-background p-8 md:p-10 rounded-lg shadow-card border border-border">
+                <h2 class="font-heading text-3xl md:text-5xl text-foreground font-semibold mb-4"><?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?></h2>
+                <div class="text-foreground-muted leading-relaxed space-y-4">
+                    <p><?php esc_html_e('If your purchase includes multiple pairs of shoes or diverse men\'s formal footwear items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand formal footwear items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
+                </div>
+            </div>
+
+            <div class="bg-background p-8 md:p-10 rounded-lg shadow-card border border-border">
+                <h2 class="font-heading text-3xl md:text-5xl text-foreground font-semibold mb-4"><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
+                <p class="text-foreground-muted leading-relaxed mb-6"><?php printf(esc_html__('To guarantee safe and efficient delivery, %s partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'), esc_html($store_name)); ?></p>
+                <div class="flex flex-wrap gap-4 mb-6">
+                    <span class="inline-flex items-center justify-center px-7 py-2 rounded-full border border-border text-foreground font-bold text-sm"><?php esc_html_e('USPS', 'dawp'); ?></span>
+                    <span class="inline-flex items-center justify-center px-7 py-2 rounded-full border border-border text-foreground font-bold text-sm"><?php esc_html_e('UPS', 'dawp'); ?></span>
+                    <span class="inline-flex items-center justify-center px-7 py-2 rounded-full border border-border text-foreground font-bold text-sm"><?php esc_html_e('FedEx', 'dawp'); ?></span>
+                    <span class="inline-flex items-center justify-center px-7 py-2 rounded-full border border-border text-foreground font-bold text-sm"><?php esc_html_e('DHL', 'dawp'); ?></span>
+                </div>
+                <p class="text-foreground-muted leading-relaxed mb-8"><?php esc_html_e('The final carrier service is dynamically selected when your package is securely labeled and prepared at our fulfillment center. Once your order is dispatched, an automated shipping confirmation email containing a direct tracking link and courier details will be sent to your registered email address.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-7 text-sm font-bold text-foreground transition hover:bg-surface">
+                    <?php esc_html_e('Track Order', 'dawp'); ?>
+                </a>
+            </div>
+
+            <div class="bg-background p-8 md:p-10 rounded-lg shadow-card border border-border">
+                <h2 class="font-heading text-3xl md:text-5xl text-foreground font-semibold mb-4"><?php esc_html_e('Resolving Delivery Issues & Damaged Shipments', 'dawp'); ?></h2>
+                <div class="text-foreground-muted leading-relaxed space-y-4">
+                    <p><?php esc_html_e('Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
+                </div>
+                <ul class="space-y-4 text-foreground-muted mt-6">
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Your exact Order Number, such as #BS1001.', 'dawp'); ?></span></li>
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('The specific Email Address utilized during checkout.', 'dawp'); ?></span></li>
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('The full and complete Delivery Address.', 'dawp'); ?></span></li>
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Clear, well-lit photos if the package container or shoe item arrived damaged.', 'dawp'); ?></span></li>
+                </ul>
+                <div class="flex flex-col sm:flex-row gap-4 mt-8">
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-7 text-sm font-bold text-white transition hover:bg-accent-hover">
+                        <?php esc_html_e('Contact Support', 'dawp'); ?>
+                    </a>
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-7 text-sm font-bold text-foreground transition hover:bg-surface">
+                        <?php echo esc_html($support_email); ?>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

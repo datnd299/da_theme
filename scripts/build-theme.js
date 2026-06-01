@@ -268,7 +268,7 @@ if (existsSync(zipPath)) rmSync(zipPath);
 
 console.log(`Packaging → dist/${zipFile}`);
 if (process.platform === 'win32') {
-  const source = quotePowerShell(join(distRoot, themeSlug, '*'));
+  const source = quotePowerShell(join(distRoot, themeSlug));
   const destination = quotePowerShell(zipPath);
 
   run('powershell.exe', [
@@ -278,7 +278,7 @@ if (process.platform === 'win32') {
     `Compress-Archive -Path ${source} -DestinationPath ${destination} -Force`,
   ], { cwd: distRoot });
 } else {
-  run('zip', ['-r', join('..', zipFile), '.'], { cwd: join(distRoot, themeSlug) });
+  run('zip', ['-r', zipFile, themeSlug], { cwd: distRoot });
 }
 
 console.log(`\nDone → dist/${zipFile}`);

@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-2 lg:grid-cols-4 lg:px-10 lg:py-16">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-10 lg:py-16">
         <div>
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('Handed Shoes Home', 'dawp'); ?>">
                 <img
@@ -28,7 +28,27 @@
                 >
             </a>
             <div class="mt-5 space-y-4 text-sm text-white/72">
-                <a class="block transition-colors hover:text-white" href="mailto:support@handedshoes.com">support@handedshoes.com</a>
+                <a class="flex items-start gap-3 transition-colors hover:text-white" href="mailto:support@handedshoes.com">
+                    <svg class="mt-1 h-4 w-4 flex-shrink-0 text-white/55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 6h16v12H4z"></path>
+                        <path d="m4 7 8 6 8-6"></path>
+                    </svg>
+                    <span>support@handedshoes.com</span>
+                </a>
+                <p class="flex items-start gap-3 leading-6">
+                    <svg class="mt-1 h-4 w-4 flex-shrink-0 text-white/55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"></path>
+                        <circle cx="12" cy="10" r="2.5"></circle>
+                    </svg>
+                    <span>912 Airport Center Rd, Allentown, PA 18109</span>
+                </p>
+                <p class="flex items-start gap-3 leading-6">
+                    <svg class="mt-1 h-4 w-4 flex-shrink-0 text-white/55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <path d="M12 7v5l3 2"></path>
+                    </svg>
+                    <span><?php esc_html_e('Business Hours: Monday-Friday, 9:00 AM-5:00 PM PST.', 'dawp'); ?></span>
+                </p>
                 <a
                     class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/75 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white"
                     href="https://www.facebook.com/handedfootwear/"

@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) {
 
 $store_name      = 'Handed Shoes';
 $support_email   = 'support@handedshoes.com';
+$store_address   = '912 Airport Center Rd, Allentown, PA 18109';
 $contact_url     = home_url('/contact-us/');
 $track_url       = home_url('/track-order/');
 $shipping_url    = home_url('/shipping-policy/');
@@ -19,12 +20,12 @@ $return_url      = home_url('/refund-return-policy/');
 $size_url        = home_url('/size-guide/');
 $privacy_url     = home_url('/privacy-policy/');
 $terms_url       = home_url('/terms-conditions/');
-$business_hours  = 'Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)';
-$response_time   = 'We aim to reply within 1 business day.';
-$order_cutoff    = '5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles)';
-$handling_time   = '1-2 business days, Monday to Friday';
+$business_hours  = 'Monday-Friday, 9:00 AM-5:00 PM PST.';
+$response_time   = 'We aim to reply within 1 business day. Response times may vary on weekends, holidays, or high-volume periods.';
+$order_cutoff    = '5:00 PM (GMT-08:00) Pacific Standard Time';
+$handling_time   = '1-3 business days';
 $transit_time    = '5-7 business days, Monday to Friday';
-$estimated_time  = 'usually 6-9 business days';
+$estimated_time  = '6-10 business days total from the date of purchase';
 
 $faq_categories = [
     [
@@ -58,7 +59,7 @@ $faq_categories = [
             [
                 'question' => 'How long does delivery usually take?',
                 'answer'   => sprintf(
-                    'Orders placed before the %1$s cutoff can begin processing the same business day. Handling time is %2$s, and standard transit time is %3$s after dispatch. Most orders are delivered within %4$s. Some bulky, oversized, special-handling, freight, or partner-shipped items may take longer.',
+                    'Orders placed before the %1$s cutoff can begin processing the same business day. Orders placed after cutoff begin processing the following business day. Handling time is %2$s, and standard transit time is %3$s after dispatch. Estimated delivery time is %4$s. Standard U.S. public holidays, carrier capacity issues, extreme weather, regional holidays, or specialized footwear handling may cause occasional delays.',
                     esc_html($order_cutoff),
                     esc_html($handling_time),
                     esc_html($transit_time),
@@ -75,7 +76,7 @@ $faq_categories = [
             [
                 'question' => 'How much does shipping cost?',
                 'answer'   => sprintf(
-                    'Shipping costs, available shipping methods, and any applicable fees are shown at checkout before payment is completed. Oversized or special-handling items may have different shipping requirements. See the <a href="%s" class="text-accent hover:underline font-medium">Shipping Policy</a> for full details.',
+                    'Standard U.S. shipping is free nationwide with no minimum purchase requirement. If expedited or assisted shipping services are available for your destination, the exact cost will be displayed at checkout before payment is completed. See the <a href="%s" class="text-accent hover:underline font-medium">Shipping Policy</a> for full details.',
                     esc_url($shipping_url)
                 ),
             ],
@@ -85,7 +86,7 @@ $faq_categories = [
             ],
             [
                 'question' => 'What should I do if my package is delayed, lost, or marked delivered but not received?',
-                'answer'   => 'Contact support with your order number, delivery address, tracking number, and a short description of the issue. If a package appears lost or has no tracking updates for an extended period, contact us within 30 days of the expected delivery date or latest tracking status so we can review the tracking information and may contact the carrier.',
+                'answer'   => 'Contact support with your order number, the email used at checkout, full delivery address, tracking number if available, and a short description of the issue. If a package appears lost, has no tracking updates for an extended period, or is marked delivered but not received, contact us within 30 days of the recorded delivery date so we can review the tracking information and investigate with the carrier.',
             ],
             [
                 'question' => 'Can I change my shipping address after ordering?',
@@ -100,7 +101,7 @@ $faq_categories = [
             [
                 'question' => 'What is your return window?',
                 'answer'   => sprintf(
-                    'You may request a return within 30 days from the day your order is delivered, unless the product page states a different return window. Eligible items must be unused, unworn, undamaged, in original condition, and returned with original packaging, tags, labels, accessories, manuals, and included parts where applicable. Read the full <a href="%s" class="text-accent hover:underline font-medium">Refund & Return Policy</a>.',
+                    'You must initiate your return request within 30 days of delivery. Eligible items must be unworn, unused, undamaged, and in their original, unaltered condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and any included accessories. Read the full <a href="%s" class="text-accent hover:underline font-medium">Refund & Return Policy</a>.',
                     esc_url($return_url)
                 ),
             ],
@@ -118,15 +119,15 @@ $faq_categories = [
             ],
             [
                 'question' => 'Who pays for return shipping?',
-                'answer'   => 'We cover return shipping or provide a prepaid return label when you received the wrong item, the item arrived damaged due to the carrier, or the item is defective, missing essential parts, or not functioning as intended. For customer remorse, change of mind, wrong size, wrong color, wrong model, compatibility issues, or orders placed by mistake, the customer pays the actual return shipping cost. Original shipping costs are non-refundable.',
+                'answer'   => 'For defective, damaged, or incorrect products, we cover 100% of return shipping costs and provide a downloadable, printable prepaid shipping label by email. For customer remorse, including wrong item, wrong size, wrong color, changed mind, or does not fit, the customer is responsible for return shipping, and the actual prepaid label cost will be deducted from the final refund amount.',
             ],
             [
                 'question' => 'How long does a refund take?',
-                'answer'   => 'Once we receive your return, we inspect the item to confirm it meets our return criteria. After approval, the refund is processed to the original payment method whenever possible. It typically takes up to 7 days for the refund to appear, depending on your bank or payment provider.',
+                'answer'   => 'Once your return package is received at our warehouse, we inspect the item within 1-2 business days to confirm it meets our return criteria. If approved, the refund is issued to your original payment method within 7 business days of inspection. If you have not received your refund after 15 business days of approval, check with your bank or credit card company first, then contact us.',
             ],
             [
                 'question' => 'Can I exchange for another size, color, or model?',
-                'answer'   => 'Yes, exchanges may be available and are subject to stock availability. In some cases, the fastest option is to return the original item for a refund and place a new order.',
+                'answer'   => 'We do not process direct one-for-one product exchanges. To get a different size, color, or model, follow the return process for the original purchase and place a new order on our website.',
             ],
         ],
     ],
@@ -140,7 +141,7 @@ $faq_categories = [
             ],
             [
                 'question' => 'What items are non-returnable?',
-                'answer'   => 'Non-returnable items may include items marked Final Sale or Non-Returnable, gift cards or digital products, personal care or hygiene items where applicable, used or worn footwear, modified or damaged items, items missing original packaging or included parts, and restricted items that cannot be shipped back safely.',
+                'answer'   => 'Non-returnable items include items explicitly marked Final Sale or Non-Returnable on the product page, gift cards or digital products/downloads, personalized, engraved, resized, or custom-made items, hygiene-sensitive items where the product seal has been broken, and items that have been worn, washed, altered, or damaged after delivery.',
             ],
             [
                 'question' => 'How do I choose the right shoe size?',
@@ -208,6 +209,9 @@ $allowed_answer_html = [
             <p class="text-[#5B5D63] text-lg mb-8 max-w-xl mx-auto">
                 Email us with your order number and details. Business hours: <?php echo esc_html($business_hours); ?>. <?php echo esc_html($response_time); ?>
             </p>
+            <p class="text-[#5B5D63] text-sm mb-8 max-w-xl mx-auto">
+                Returns Department: <?php echo esc_html($store_address); ?>
+            </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex items-center justify-center rounded-full bg-[#0B0B0D] px-8 py-4 font-semibold text-white shadow-lg shadow-[#5B5D63]/10 transition-colors hover:bg-[#2F3033]">
                     Contact Support
@@ -222,7 +226,7 @@ $allowed_answer_html = [
             <a href="<?php echo esc_url($shipping_url); ?>" class="hover:text-accent transition-colors">Shipping Policy</a>
             <a href="<?php echo esc_url($return_url); ?>" class="hover:text-accent transition-colors">Refund & Return Policy</a>
             <a href="<?php echo esc_url($privacy_url); ?>" class="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="<?php echo esc_url($terms_url); ?>" class="hover:text-accent transition-colors">Terms of Service</a>
+            <a href="<?php echo esc_url($terms_url); ?>" class="hover:text-accent transition-colors">Terms &amp; Conditions</a>
         </div>
     </div>
 </section>

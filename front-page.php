@@ -1,4 +1,5 @@
 <?php
+nocache_headers();
 get_header();
 ?>
 <main class="front-page-content">

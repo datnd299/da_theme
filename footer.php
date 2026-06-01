@@ -22,8 +22,14 @@
         <div>
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('Handed Shoes Home', 'dawp'); ?>">
                 <img
-                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/logo.png'); ?>"
+                    loading="lazy"
+                    decoding="async"
+                    width="128"
+                    height="128"
+                    src="<?php echo esc_url(dawp_theme_image_url('assets/img/gallery/logo.png', 128, 128, 'fit')); ?>"
                     alt="<?php esc_attr_e('Handed Shoes', 'dawp'); ?>"
+                    srcset="<?php echo esc_attr(dawp_theme_image_srcset('assets/img/gallery/logo.png', 955, 955, [64, 96, 128, 192])); ?>"
+                    sizes="64px"
                     class="h-16 w-16 rounded-full object-contain"
                 >
             </a>
@@ -40,7 +46,7 @@
                         <path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"></path>
                         <circle cx="12" cy="10" r="2.5"></circle>
                     </svg>
-                    <span>912 Airport Center Rd, Allentown, PA 18109</span>
+                    <span><?php echo esc_html(dawp_get_store_address()); ?></span>
                 </p>
                 <p class="flex items-start gap-3 leading-6">
                     <svg class="mt-1 h-4 w-4 flex-shrink-0 text-white/55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -100,10 +106,30 @@
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 py-5 text-xs text-white/60 md:flex-row sm:px-8 lg:px-10">
             <p>&copy; <?php echo esc_html(date('Y')); ?> <?php esc_html_e('Handed Shoes. All rights reserved.', 'dawp'); ?></p>
             <div class="flex flex-wrap items-center justify-center gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
-                <img class="h-8 w-auto rounded bg-white px-2 py-1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Payment/image.png'); ?>" alt="<?php esc_attr_e('Payment method', 'dawp'); ?>">
-                <img class="h-8 w-auto rounded bg-white px-2 py-1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Payment/image copy.png'); ?>" alt="<?php esc_attr_e('Payment method', 'dawp'); ?>">
-                <img class="h-8 w-auto rounded bg-white px-2 py-1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Payment/image copy 2.png'); ?>" alt="<?php esc_attr_e('Payment method', 'dawp'); ?>">
-                <img class="h-8 w-auto rounded bg-white px-2 py-1" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Payment/image copy 3.png'); ?>" alt="<?php esc_attr_e('Payment method', 'dawp'); ?>">
+                <?php echo dawp_responsive_theme_image('assets/img/gallery/Payment/image.png', esc_attr__('Payment method', 'dawp'), 320, 104, [
+                    'src_width' => 160,
+                    'widths' => [96, 160, 320],
+                    'sizes' => '96px',
+                    'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
+                ]); ?>
+                <?php echo dawp_responsive_theme_image('assets/img/gallery/Payment/image copy.png', esc_attr__('Payment method', 'dawp'), 320, 104, [
+                    'src_width' => 160,
+                    'widths' => [96, 160, 320],
+                    'sizes' => '96px',
+                    'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
+                ]); ?>
+                <?php echo dawp_responsive_theme_image('assets/img/gallery/Payment/image copy 2.png', esc_attr__('Payment method', 'dawp'), 320, 104, [
+                    'src_width' => 160,
+                    'widths' => [96, 160, 320],
+                    'sizes' => '96px',
+                    'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
+                ]); ?>
+                <?php echo dawp_responsive_theme_image('assets/img/gallery/Payment/image copy 3.png', esc_attr__('Payment method', 'dawp'), 320, 104, [
+                    'src_width' => 160,
+                    'widths' => [96, 160, 320],
+                    'sizes' => '96px',
+                    'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
+                ]); ?>
             </div>
         </div>
     </div>

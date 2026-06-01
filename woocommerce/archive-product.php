@@ -17,11 +17,11 @@ if (empty($archive_desc)) {
     $archive_desc = __('Refined Oxford shoes, brogues, loafers, and monk strap styles with clear product details, fit notes, and reliable checkout.', 'dawp');
 }
 
-$hero_image = '';
+$hero_image_id = 0;
 if (is_product_category() && isset($queried_object->term_id)) {
     $thumbnail_id = get_term_meta($queried_object->term_id, 'thumbnail_id', true);
     if ($thumbnail_id) {
-        $hero_image = wp_get_attachment_image_url($thumbnail_id, 'large');
+        $hero_image_id = (int) $thumbnail_id;
     }
 }
 
@@ -62,7 +62,7 @@ $clear_price_url   = remove_query_arg(['min_price', 'max_price', 'paged']);
             <?php endif; ?>
         </nav>
 
-        <header class="shop-hero<?php echo $hero_image ? ' shop-hero--with-image' : ''; ?>">
+        <header class="shop-hero<?php echo $hero_image_id ? ' shop-hero--with-image' : ''; ?>">
             <div class="shop-hero__content">
                 <span class="shop-hero__eyebrow"><?php esc_html_e('Handed Shoes', 'dawp'); ?></span>
                 <h1 class="shop-hero__title"><?php echo esc_html($archive_title); ?></h1>
@@ -75,8 +75,15 @@ $clear_price_url   = remove_query_arg(['min_price', 'max_price', 'paged']);
             </div>
 
             <div class="shop-hero__panel">
-                <?php if ($hero_image) : ?>
-                    <img src="<?php echo esc_url($hero_image); ?>" alt="<?php echo esc_attr($archive_title); ?>" loading="eager">
+                <?php if ($hero_image_id) : ?>
+                    <?php
+                    echo wp_get_attachment_image($hero_image_id, 'large', false, [
+                        'alt' => $archive_title,
+                        'loading' => 'eager',
+                        'decoding' => 'async',
+                        'sizes' => '(max-width: 900px) 90vw, 420px',
+                    ]);
+                    ?>
                 <?php else : ?>
                     <div class="shop-hero__stat">
                         <strong><?php echo esc_html(number_format_i18n($total_products)); ?></strong>

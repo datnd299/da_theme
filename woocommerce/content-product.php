@@ -17,6 +17,7 @@ $image_attrs  = [
     'class'    => 'product-card__img',
     'loading'  => $loop_index < 4 ? 'eager' : 'lazy',
     'decoding' => 'async',
+    'sizes'    => '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw',
 ];
 $stock_label  = $product->is_in_stock() ? __('Available', 'dawp') : __('Out of stock', 'dawp');
 $detail_label = $cat_name ? $cat_name : __('Dress Shoes', 'dawp');
@@ -27,7 +28,7 @@ $detail_label = $cat_name ? $cat_name : __('Dress Shoes', 'dawp');
         <div class="product-card__shell">
             <div class="product-card__inner">
                 <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', $image_attrs); ?>
+                    <?php echo $product->get_image('woocommerce_thumbnail', $image_attrs); ?>
                 </div>
 
                 <div class="product-card__badges">

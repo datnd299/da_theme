@@ -1,10 +1,6 @@
 <!-- Handed Shoes - Homepage HTML -->
 <!-- Built for a craft-inspired men's formal footwear store -->
 
-<?php
-$home_img_base = get_template_directory_uri() . '/assets/img/Home/';
-?>
-
 <main class="bg-[#F4F5F6] text-[#0B0B0D]">
   <!-- ================= HERO ================= -->
   <section class="relative overflow-hidden bg-[#0B0B0D] text-white">
@@ -41,11 +37,13 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
         <div class="absolute -left-5 -top-5 h-28 w-28 rounded-full border border-[#5B5D63]/30"></div>
         <div class="absolute -bottom-5 -right-5 h-40 w-40 rounded-full bg-[#0B0B0D]/20 blur-3xl"></div>
         <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-3 shadow-2xl shadow-black/40 backdrop-blur-sm">
-          <img
-            src="<?php echo esc_url($home_img_base . 'section_one.png'); ?>"
-            alt="Premium men&rsquo;s formal dress shoes on a refined dark surface"
-            class="h-[420px] w-full rounded-[1.5rem] object-cover object-center sm:h-[520px]"
-          />
+          <?php echo dawp_responsive_theme_image('assets/img/Home/section_one.png', 'Premium men&rsquo;s formal dress shoes on a refined dark surface', 750, 750, [
+            'src_width' => 750,
+            'widths' => [360, 520, 750],
+            'sizes' => '(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 600px',
+            'loading' => 'eager',
+            'class' => 'h-[420px] w-full rounded-[1.5rem] object-cover object-center sm:h-[520px]',
+          ]); ?>
         </div>
       </div>
     </div>
@@ -67,7 +65,12 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         <a href="/product-category/oxford-shoes/" class="group overflow-hidden rounded-3xl border border-[#5B5D63]/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="h-56 overflow-hidden bg-[#0B0B0D]">
-            <img src="<?php echo esc_url($home_img_base . 'Oxford_Shoes.png'); ?>" alt="Oxford shoes for formal office style" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
+            <?php echo dawp_responsive_theme_image('assets/img/Home/Oxford_Shoes.png', 'Oxford shoes for formal office style', 1500, 1500, [
+              'src_width' => 600,
+              'widths' => [300, 450, 600],
+              'sizes' => '(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 295px',
+              'class' => 'h-full w-full object-cover object-center transition duration-500 group-hover:scale-105',
+            ]); ?>
           </div>
           <div class="p-5">
             <h3 class="font-heading text-2xl font-semibold text-[#0B0B0D]">Oxford Shoes</h3>
@@ -78,7 +81,12 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
 
         <a href="/product-category/brogue-shoes/" class="group overflow-hidden rounded-3xl border border-[#5B5D63]/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="h-56 overflow-hidden bg-[#0B0B0D]">
-            <img src="<?php echo esc_url($home_img_base . 'Brogue.png'); ?>" alt="Brogue shoe detailing close-up" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
+            <?php echo dawp_responsive_theme_image('assets/img/Home/Brogue.png', 'Brogue shoe detailing close-up', 1480, 1480, [
+              'src_width' => 600,
+              'widths' => [300, 450, 600],
+              'sizes' => '(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 295px',
+              'class' => 'h-full w-full object-cover object-center transition duration-500 group-hover:scale-105',
+            ]); ?>
           </div>
           <div class="p-5">
             <h3 class="font-heading text-2xl font-semibold text-[#0B0B0D]">Brogue Shoes</h3>
@@ -89,7 +97,12 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
 
         <a href="/product-category/loafers/" class="group overflow-hidden rounded-3xl border border-[#5B5D63]/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="h-56 overflow-hidden bg-[#0B0B0D]">
-            <img src="<?php echo esc_url($home_img_base . 'Loafers.png'); ?>" alt="Men&rsquo;s loafers for smart casual outfits" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
+            <?php echo dawp_responsive_theme_image('assets/img/Home/Loafers.png', 'Men&rsquo;s loafers for smart casual outfits', 2000, 2000, [
+              'src_width' => 600,
+              'widths' => [300, 450, 600],
+              'sizes' => '(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 295px',
+              'class' => 'h-full w-full object-cover object-center transition duration-500 group-hover:scale-105',
+            ]); ?>
           </div>
           <div class="p-5">
             <h3 class="font-heading text-2xl font-semibold text-[#0B0B0D]">Loafers</h3>
@@ -100,7 +113,12 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
 
         <a href="/product-category/monk-strap-shoes/" class="group overflow-hidden rounded-3xl border border-[#5B5D63]/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
           <div class="h-56 overflow-hidden bg-[#0B0B0D]">
-            <img src="<?php echo esc_url($home_img_base . 'Monk_Strap_Shoes.png'); ?>" alt="Monk strap shoes with buckle detail" class="h-full w-full object-cover object-center transition duration-500 group-hover:scale-105" />
+            <?php echo dawp_responsive_theme_image('assets/img/Home/Monk_Strap_Shoes.png', 'Monk strap shoes with buckle detail', 2000, 2000, [
+              'src_width' => 600,
+              'widths' => [300, 450, 600],
+              'sizes' => '(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 295px',
+              'class' => 'h-full w-full object-cover object-center transition duration-500 group-hover:scale-105',
+            ]); ?>
           </div>
           <div class="p-5">
             <h3 class="font-heading text-2xl font-semibold text-[#0B0B0D]">Monk Strap Shoes</h3>
@@ -117,11 +135,12 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
     <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:px-10">
       <div class="relative order-2 lg:order-1">
         <div class="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border border-[#0B0B0D]/20"></div>
-        <img
-          src="<?php echo esc_url($home_img_base . 'Brogue_Shoes.png'); ?>"
-          alt="Formal dress shoes styled for office and formal occasions"
-          class="relative h-[420px] w-full rounded-[2rem] object-cover object-center shadow-2xl shadow-[#5B5D63]/15"
-        />
+        <?php echo dawp_responsive_theme_image('assets/img/Home/Brogue_Shoes.png', 'Formal dress shoes styled for office and formal occasions', 1000, 1000, [
+          'src_width' => 760,
+          'widths' => [420, 640, 760, 1000],
+          'sizes' => '(max-width: 1024px) 90vw, 590px',
+          'class' => 'relative h-[420px] w-full rounded-[2rem] object-cover object-center shadow-2xl shadow-[#5B5D63]/15',
+        ]); ?>
       </div>
 
       <div class="order-1 lg:order-2">
@@ -174,7 +193,12 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
 
       <div class="grid gap-5 lg:grid-cols-3">
         <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
-          <img src="<?php echo esc_url($home_img_base . 'Loafers_collection.png'); ?>" alt="Refined formal shoe detail close-up" class="h-64 w-full object-cover object-center opacity-90" />
+          <?php echo dawp_responsive_theme_image('assets/img/Home/Loafers_collection.png', 'Refined formal shoe detail close-up', 960, 640, [
+            'src_width' => 640,
+            'widths' => [360, 520, 640, 960],
+            'sizes' => '(max-width: 1024px) 90vw, 390px',
+            'class' => 'h-64 w-full object-cover object-center opacity-90',
+          ]); ?>
           <div class="p-6">
             <h3 class="font-heading text-2xl font-semibold text-[#F4F5F6]">Brogue Shoes</h3>
             <p class="mt-3 text-sm leading-7 text-white/65">Perforation-inspired detailing for a classic dress shoe look.</p>
@@ -182,7 +206,12 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
         </article>
 
         <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
-          <img src="<?php echo esc_url($home_img_base . 'Loafers_two.png'); ?>" alt="Loafers styled for smart casual wear" class="h-64 w-full object-cover object-center opacity-90" />
+          <?php echo dawp_responsive_theme_image('assets/img/Home/Loafers_two.png', 'Loafers styled for smart casual wear', 573, 573, [
+            'src_width' => 573,
+            'widths' => [320, 480, 573],
+            'sizes' => '(max-width: 1024px) 90vw, 390px',
+            'class' => 'h-64 w-full object-cover object-center opacity-90',
+          ]); ?>
           <div class="p-6">
             <h3 class="font-heading text-2xl font-semibold text-[#F4F5F6]">Loafers</h3>
             <p class="mt-3 text-sm leading-7 text-white/65">Easy slip-on styling for business casual and refined daily wear.</p>
@@ -190,7 +219,12 @@ $home_img_base = get_template_directory_uri() . '/assets/img/Home/';
         </article>
 
         <article class="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04]">
-          <img src="<?php echo esc_url($home_img_base . 'Monk_Strap_Shoes_two.png'); ?>" alt="Monk strap shoe buckle detail" class="h-64 w-full object-cover object-center opacity-90" />
+          <?php echo dawp_responsive_theme_image('assets/img/Home/Monk_Strap_Shoes_two.png', 'Monk strap shoe buckle detail', 1500, 1500, [
+            'src_width' => 640,
+            'widths' => [360, 520, 640],
+            'sizes' => '(max-width: 1024px) 90vw, 390px',
+            'class' => 'h-64 w-full object-cover object-center opacity-90',
+          ]); ?>
           <div class="p-6">
             <h3 class="font-heading text-2xl font-semibold text-[#F4F5F6]">Monk Strap Shoes</h3>
             <p class="mt-3 text-sm leading-7 text-white/65">Strap-and-buckle details for a distinctive formal finish.</p>

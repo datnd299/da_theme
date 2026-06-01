@@ -90,7 +90,7 @@ add_action('admin_post_nopriv_handedshoes_contact_submit', 'handedshoes_contact_
 
         <div class="rounded-3xl border border-[#5B5D63]/10 bg-white p-6 shadow-sm">
           <p class="text-xs font-bold uppercase tracking-[0.18em] text-[#5B5D63]">Address</p>
-          <p class="mt-2 text-sm leading-7 text-[#5B5D63]/72">912 Airport Center Rd, Allentown, PA 18109</p>
+          <p class="mt-2 text-sm leading-7 text-[#5B5D63]/72"><?php echo esc_html(dawp_get_store_address()); ?></p>
         </div>
 
         <div class="rounded-3xl border border-[#5B5D63]/10 bg-white p-6 shadow-sm">

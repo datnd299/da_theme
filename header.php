@@ -50,8 +50,14 @@ $cart_count = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_conte
     <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-5 px-5 sm:px-8 lg:px-10">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center" aria-label="<?php esc_attr_e('Handed Shoes Home', 'dawp'); ?>">
             <img
-                src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/logo.png'); ?>"
+                loading="eager"
+                decoding="async"
+                width="96"
+                height="96"
+                src="<?php echo esc_url(dawp_theme_image_url('assets/img/gallery/logo.png', 96, 96, 'fit')); ?>"
                 alt="<?php esc_attr_e('Handed Shoes', 'dawp'); ?>"
+                srcset="<?php echo esc_attr(dawp_theme_image_srcset('assets/img/gallery/logo.png', 955, 955, [44, 64, 96, 128])); ?>"
+                sizes="44px"
                 class="h-11 w-11 rounded-full object-contain"
             >
         </a>
@@ -118,8 +124,14 @@ $cart_count = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_conte
     <div class="flex h-16 items-center justify-between border-b border-white/10 px-5">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center" aria-label="<?php esc_attr_e('Handed Shoes Home', 'dawp'); ?>">
             <img
-                src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/logo.png'); ?>"
+                loading="eager"
+                decoding="async"
+                width="96"
+                height="96"
+                src="<?php echo esc_url(dawp_theme_image_url('assets/img/gallery/logo.png', 96, 96, 'fit')); ?>"
                 alt="<?php esc_attr_e('Handed Shoes', 'dawp'); ?>"
+                srcset="<?php echo esc_attr(dawp_theme_image_srcset('assets/img/gallery/logo.png', 955, 955, [44, 64, 96, 128])); ?>"
+                sizes="44px"
                 class="h-11 w-11 rounded-full object-contain"
             >
         </a>

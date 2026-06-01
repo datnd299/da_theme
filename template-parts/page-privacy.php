@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Handed Shoes';
 $website_domain = 'handedshoes.com';
 $support_email  = 'support@handedshoes.com';
-$store_address  = '912 Airport Center Rd, Allentown, PA 18109';
+$store_address  = dawp_get_store_address();
 $contact_url    = home_url('/contact-us/');
 $shop_url       = home_url('/shop/');
 $last_updated   = 'May 27, 2026';

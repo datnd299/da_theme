@@ -7,11 +7,12 @@
     <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:px-10">
       <div class="relative">
         <div class="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border border-[#0B0B0D]/20"></div>
-        <img
-          src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Home/Oxford_Shoes.png'); ?>"
-          alt="Close-up of polished men’s dress shoes with refined detailing"
-          class="relative h-[420px] w-full rounded-[2rem] object-cover shadow-2xl shadow-[#5B5D63]/15"
-        />
+        <?php echo dawp_responsive_theme_image('assets/img/Home/Oxford_Shoes.png', 'Close-up of polished men&rsquo;s dress shoes with refined detailing', 1500, 1500, [
+          'src_width' => 760,
+          'widths' => [420, 640, 760, 1000],
+          'sizes' => '(max-width: 1024px) 90vw, 520px',
+          'class' => 'relative h-[420px] w-full rounded-[2rem] object-cover shadow-2xl shadow-[#5B5D63]/15',
+        ]); ?>
       </div>
 
       <div>
@@ -103,11 +104,12 @@
 
       <div class="relative">
         <div class="absolute -bottom-5 -left-5 h-40 w-40 rounded-full bg-[#0B0B0D]/20 blur-3xl"></div>
-        <img
-          src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Home/section_one.png'); ?>"
-          alt="Men’s dress shoes with polished craft-inspired styling"
-          class="relative h-[460px] w-full rounded-[2rem] object-cover shadow-2xl shadow-black/40"
-        />
+        <?php echo dawp_responsive_theme_image('assets/img/Home/section_one.png', 'Men&rsquo;s dress shoes with polished craft-inspired styling', 750, 750, [
+          'src_width' => 750,
+          'widths' => [420, 640, 750],
+          'sizes' => '(max-width: 1024px) 90vw, 560px',
+          'class' => 'relative h-[460px] w-full rounded-[2rem] object-cover shadow-2xl shadow-black/40',
+        ]); ?>
       </div>
     </div>
   </section>

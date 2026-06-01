@@ -8,7 +8,8 @@
 
 $support_email        = 'support@houseofshoesonline.com';
 $contact_url          = home_url('/contact-us/');
-$shipping_returns_url = home_url('/shipping-returns/');
+$shipping_policy_url  = home_url('/shipping-policy/');
+$return_refund_url    = home_url('/return-refund-policy/');
 $privacy_url          = home_url('/privacy-policy/');
 $shop_url             = home_url('/shop/');
 ?>
@@ -29,6 +30,9 @@ $shop_url             = home_url('/shop/');
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-[#5E5363]">
                     <?php esc_html_e('Please review the terms that apply when browsing House of Shoes Online, placing footwear orders, using our website, or contacting customer support.', 'dawp'); ?>
                 </p>
+                <p class="mt-5 text-sm font-black uppercase tracking-[0.18em] text-[#7C3AED]">
+                    <?php esc_html_e('Last updated: May 22, 2026', 'dawp'); ?>
+                </p>
                 <div class="mt-8 flex flex-wrap gap-4">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#E6007E] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#7C3AED]">
                         <?php esc_html_e('Shop Shoes', 'dawp'); ?>
@@ -39,7 +43,7 @@ $shop_url             = home_url('/shop/');
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0">
                 <?php
                 $term_cards = [
                     ['number' => '01', 'title' => __('Website Use', 'dawp'), 'copy' => __('Use our footwear store lawfully and responsibly when browsing or shopping.', 'dawp')],
@@ -49,7 +53,7 @@ $shop_url             = home_url('/shop/');
                 ];
                 foreach ($term_cards as $card) :
                 ?>
-                    <div class="rounded-[1.5rem] border border-[#EEE5EF] bg-white p-6 shadow-sm">
+                    <div class="min-w-[82%] snap-start rounded-[1.5rem] border border-[#EEE5EF] bg-white p-6 shadow-sm sm:min-w-0">
                         <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3E8FF] text-sm font-black text-[#7C3AED]"><?php echo esc_html($card['number']); ?></span>
                         <h2 class="mt-5 font-heading text-2xl font-black leading-tight text-[#141217]"><?php echo esc_html($card['title']); ?></h2>
                         <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
@@ -61,7 +65,7 @@ $shop_url             = home_url('/shop/');
 
     <section class="bg-white py-16 lg:py-24">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-            <aside class="lg:sticky lg:top-32 lg:self-start">
+            <aside class="hidden lg:sticky lg:top-32 lg:block lg:self-start">
                 <div class="rounded-[2rem] bg-[#141217] p-7 text-white shadow-xl shadow-[#141217]/10">
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#FF4FB8]">
                         <?php esc_html_e('Terms Overview', 'dawp'); ?>
@@ -134,13 +138,16 @@ $shop_url             = home_url('/shop/');
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]"><?php esc_html_e('Shipping And Returns', 'dawp'); ?></p>
                     <h2 class="font-heading text-4xl font-black leading-tight text-[#141217]"><?php esc_html_e('Customer Policy References', 'dawp'); ?></h2>
                     <div class="mt-6 space-y-5 text-base leading-8 text-[#6F625D]">
-                        <p><?php esc_html_e('Shipping, delivery, tracking, return eligibility, refund handling, and order issue procedures are described in our Shipping & Returns policy. That policy is part of these Terms & Conditions.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Orders are typically processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Eligible footwear returns must generally be requested within 30 days of delivery and must be unworn, undamaged, in original condition, and returned with original packaging where applicable.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Shipping, delivery, tracking, return eligibility, refund handling, and order issue procedures are described in our Shipping Policy and Return & Refund Policy. Those policies are part of these Terms & Conditions.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Orders placed after the 5:00 PM (GMT-08:00) Pacific Standard Time cutoff begin processing the following business day. Estimated total delivery is 6-10 business days, excluding standard U.S. public holidays and carrier interruptions.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Eligible footwear returns must be requested within 30 days of delivery and must be unworn, unused, undamaged, clean, in original condition, and returned with original packaging where applicable.', 'dawp'); ?></p>
                     </div>
-                    <div class="mt-8">
-                        <a href="<?php echo esc_url($shipping_returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#141217] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#E6007E]">
-                            <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="<?php echo esc_url($shipping_policy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#141217] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#E6007E]">
+                            <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
+                        </a>
+                        <a href="<?php echo esc_url($return_refund_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6007E] px-7 text-sm font-black uppercase tracking-wide text-[#E6007E] transition hover:bg-[#F3E8FF]">
+                            <?php esc_html_e('View Return & Refund Policy', 'dawp'); ?>
                         </a>
                     </div>
                 </section>

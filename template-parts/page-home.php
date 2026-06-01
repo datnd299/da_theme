@@ -7,7 +7,6 @@
 
 $shop_url             = home_url('/shop/');
 $support_email        = 'support@houseofshoesonline.com';
-$shipping_returns_url = home_url('/shipping-returns/');
 $contact_url          = home_url('/contact-us/');
 $size_guide_url       = home_url('/size-guide/');
 
@@ -173,7 +172,13 @@ $new_arrivals = function_exists('wc_get_products') ? wc_get_products([
             <div class="grid grid-cols-[0.82fr_1.18fr] gap-4 sm:gap-5">
                 <div class="space-y-4 pt-8 sm:space-y-5 lg:pt-16">
                     <a href="<?php echo esc_url(dawp_home_category_url('boots')); ?>" class="group block overflow-hidden rounded-[1.6rem] bg-white p-3 shadow-xl shadow-[#E6007E]/10 transition hover:-translate-y-1">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/boots.png'); ?>"
+                        <img <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/gallery/Image/boots.png', [
+                                 'width'   => 520,
+                                 'height'  => 650,
+                                 'srcset'  => [[260, 325], [390, 488], [520, 650], [720, 900]],
+                                 'sizes'   => '(max-width: 1023px) 36vw, 260px',
+                                 'loading' => 'eager',
+                             ]); ?>
                              alt="<?php esc_attr_e('Everyday boots from House of Shoes Online', 'dawp'); ?>"
                              class="aspect-[4/5] w-full rounded-[1.1rem] bg-[#F6F5F7] object-cover transition duration-500 group-hover:scale-105">
                     </a>
@@ -186,13 +191,25 @@ $new_arrivals = function_exists('wc_get_products') ? wc_get_products([
                             <p class="mt-2 text-sm font-bold leading-6 text-[#5E5363]"><?php esc_html_e('Clear size guidance and product details before checkout.', 'dawp'); ?></p>
                         </div>
                         <a href="<?php echo esc_url(dawp_home_category_url('everyday-sneakers')); ?>" class="group block overflow-hidden rounded-[1.25rem] bg-white p-2 shadow-sm transition hover:-translate-y-1">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/sneaker.png'); ?>"
+                            <img <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/gallery/Image/sneaker.png', [
+                                     'width'   => 360,
+                                     'height'  => 360,
+                                     'srcset'  => [[180, 180], [280, 280], [360, 360], [520, 520]],
+                                     'sizes'   => '(max-width: 1023px) 38vw, 170px',
+                                     'loading' => 'eager',
+                                 ]); ?>
                                  alt="<?php esc_attr_e('Everyday sneakers from House of Shoes Online', 'dawp'); ?>"
                                  class="aspect-square w-full rounded-[0.9rem] bg-[#F6F5F7] object-cover transition duration-500 group-hover:scale-105">
                         </a>
                     </div>
                     <a href="<?php echo esc_url(dawp_home_category_url('sandals-slides')); ?>" class="group block overflow-hidden rounded-[1.6rem] bg-[#141217] p-3 shadow-xl shadow-[#141217]/10 transition hover:-translate-y-1">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/Sandals_Women.png'); ?>"
+                        <img <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/gallery/Image/Sandals_Women.png', [
+                                 'width'   => 640,
+                                 'height'  => 512,
+                                 'srcset'  => [[320, 256], [480, 384], [640, 512], [900, 720]],
+                                 'sizes'   => '(max-width: 1023px) 58vw, 360px',
+                                 'loading' => 'eager',
+                             ]); ?>
                              alt="<?php esc_attr_e('Sandals and slides from House of Shoes Online', 'dawp'); ?>"
                              class="aspect-[5/4] w-full rounded-[1.1rem] bg-[#F6F5F7] object-cover opacity-95 transition duration-500 group-hover:scale-105">
                     </a>
@@ -224,7 +241,12 @@ $new_arrivals = function_exists('wc_get_products') ? wc_get_products([
             <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <?php foreach ($categories as $index => $category) : ?>
                     <a href="<?php echo esc_url(dawp_home_category_url($category['slug'])); ?>" class="group relative overflow-hidden rounded-[1.5rem] border border-[#EEE5EF] bg-[#F6F5F7] shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#E6007E]/10 <?php echo 0 === $index ? 'sm:col-span-2' : ''; ?>">
-                        <img src="<?php echo esc_url($category['image']); ?>"
+                        <img <?php echo dawp_i0_img_attrs($category['image'], [
+                                 'width'  => 0 === $index ? 1200 : 640,
+                                 'height' => 0 === $index ? 600 : 480,
+                                 'srcset' => 0 === $index ? [[480, 240], [768, 384], [1024, 512], [1200, 600]] : [[320, 240], [480, 360], [640, 480], [900, 675]],
+                                 'sizes'  => 0 === $index ? '(max-width: 1023px) 100vw, 780px' : '(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 380px',
+                             ]); ?>
                              alt="<?php echo esc_attr($category['name']); ?>"
                              class="<?php echo 0 === $index ? 'aspect-[16/8]' : 'aspect-[4/3]'; ?> w-full object-cover transition duration-500 group-hover:scale-105">
                         <div class="absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,rgba(20,18,23,0)_0%,rgba(20,18,23,0.82)_100%)] p-5 pt-16 text-white">
@@ -272,7 +294,12 @@ $new_arrivals = function_exists('wc_get_products') ? wc_get_products([
                 ?>
                     <article class="group overflow-hidden rounded-[1.5rem] border border-[#EEE5EF] bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#7C3AED]/10 lg:even:mt-10">
                         <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-white">
-                            <img src="<?php echo esc_url($img_url); ?>"
+                            <img <?php echo dawp_i0_img_attrs($img_url, [
+                                     'width'  => 480,
+                                     'height' => 600,
+                                     'srcset' => [[240, 300], [360, 450], [480, 600], [640, 800]],
+                                     'sizes'  => '(max-width: 1023px) 50vw, 260px',
+                                 ]); ?>
                                  alt="<?php echo esc_attr($name); ?>"
                                  class="aspect-[4/5] w-full object-cover transition duration-500 group-hover:scale-105">
                         </a>
@@ -332,7 +359,12 @@ $new_arrivals = function_exists('wc_get_products') ? wc_get_products([
 
             <div class="flex flex-col bg-white p-4 sm:p-6">
                 <div class="flex-1 overflow-hidden rounded-[1.75rem] bg-[#F3E8FF] p-3">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/shoes_comfort.png'); ?>"
+                    <img <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/gallery/Image/shoes_comfort.png', [
+                             'width'  => 900,
+                             'height' => 900,
+                             'srcset' => [[360, 360], [640, 640], [900, 900], [1200, 1200]],
+                             'sizes'  => '(max-width: 1023px) 100vw, 520px',
+                         ]); ?>
                          alt="<?php esc_attr_e('Sneakers and casual shoes', 'dawp'); ?>"
                          class="h-full w-full min-h-[350px] rounded-[1.2rem] object-cover">
                 </div>
@@ -346,7 +378,12 @@ $new_arrivals = function_exists('wc_get_products') ? wc_get_products([
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch">
             <div class="overflow-hidden rounded-[2rem] bg-white p-3 shadow-2xl shadow-[#141217]/10 lg:order-2">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Image/bootsboots.png'); ?>"
+                <img <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/gallery/Image/bootsboots.png', [
+                         'width'  => 900,
+                         'height' => 720,
+                         'srcset' => [[360, 288], [640, 512], [900, 720], [1200, 960]],
+                         'sizes'  => '(max-width: 1023px) 100vw, 620px',
+                     ]); ?>
                      alt="<?php esc_attr_e('Sandals slides slippers and casual boots', 'dawp'); ?>"
                      class="aspect-[5/4] h-full w-full rounded-[1.35rem] object-cover">
             </div>

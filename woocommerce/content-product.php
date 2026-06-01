@@ -9,6 +9,12 @@ if (empty($product) || !$product->is_visible()) return;
 
 $cats     = get_the_terms($product->get_id(), 'product_cat');
 $cat_name = '';
+$image_id = $product->get_image_id();
+$image_url = $image_id ? wp_get_attachment_image_url($image_id, 'woocommerce_single') : '';
+
+if (!$image_url && function_exists('wc_placeholder_img_src')) {
+    $image_url = wc_placeholder_img_src('woocommerce_single');
+}
 
 if (!is_wp_error($cats) && !empty($cats)) {
     foreach ($cats as $cat) {
@@ -25,7 +31,14 @@ if (!is_wp_error($cats) && !empty($cats)) {
         <div class="product-card__shell">
             <div class="product-card__inner">
                 <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+                    <img <?php echo dawp_i0_img_attrs($image_url, [
+                             'width'  => 600,
+                             'height' => 600,
+                             'srcset' => [[300, 300], [450, 450], [600, 600], [900, 900]],
+                             'sizes'  => '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px',
+                         ]); ?>
+                         class="product-card__img"
+                         alt="<?php echo esc_attr($product->get_name()); ?>">
                 </div>
 
                 <?php if ($product->is_on_sale()) : ?>

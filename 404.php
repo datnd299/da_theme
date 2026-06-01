@@ -18,7 +18,8 @@ $quick_links = [
 
 $support_links = [
     ['title' => __('Track Order', 'dawp'),          'url' => home_url('/track-order/')],
-    ['title' => __('Shipping & Returns', 'dawp'),   'url' => home_url('/shipping-returns/')],
+    ['title' => __('Shipping Policy', 'dawp'),      'url' => home_url('/shipping-policy/')],
+    ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
     ['title' => __('FAQ', 'dawp'),                  'url' => home_url('/faq/')],
 ];
 ?>
@@ -58,7 +59,7 @@ $support_links = [
                     </a>
                 </div>
 
-                <div class="mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
+                <div class="mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
                     <?php foreach ($support_links as $index => $link) : ?>
                         <a href="<?php echo esc_url($link['url']); ?>" class="group border-l-4 <?php echo 1 === $index ? 'border-[#7C3AED]' : 'border-[#E6007E]'; ?> bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
                             <span class="text-xs font-black uppercase tracking-[0.16em] <?php echo 1 === $index ? 'text-[#7C3AED]' : 'text-[#E6007E]'; ?>">

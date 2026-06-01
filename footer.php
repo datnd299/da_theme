@@ -8,6 +8,7 @@
 $current_year  = date_i18n('Y');
 $support_email = 'support@houseofshoesonline.com';
 $site_name     = trim(get_bloginfo('name'));
+$address       = dawp_get_store_address();
 
 if ($site_name === '' || strtolower($site_name) === 'xxx') {
     $site_name = 'House of Shoes Online';
@@ -22,7 +23,8 @@ $footer_shop_links = [
 
 $footer_policy_links = [
     ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
-    ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+    ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
     ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
     ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
@@ -38,46 +40,6 @@ $footer_brand_links = [
 </div><!-- #content -->
 
 <footer id="colophon" class="bg-[linear-gradient(135deg,#141217_0%,#2A1538_100%)] text-white" role="contentinfo">
-    <section class="border-b border-white/10">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
-            <div class="rounded-3xl border border-white/10 bg-white/8 p-5">
-                <p class="font-heading text-2xl font-black text-white">
-                    <?php esc_html_e('Secure Checkout', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-white/72">
-                    <?php esc_html_e('Clear payment flow with protected order details.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-3xl border border-white/10 bg-white/8 p-5">
-                <p class="font-heading text-2xl font-black text-white">
-                    <?php esc_html_e('Tracking Included', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-white/72">
-                    <?php esc_html_e('Tracking information is provided once an order ships.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-3xl border border-white/10 bg-white/8 p-5">
-                <p class="font-heading text-2xl font-black text-white">
-                    <?php esc_html_e('30-Day Returns', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-white/72">
-                    <?php esc_html_e('Eligible unworn, undamaged footwear may be returned within 30 days.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-3xl border border-white/10 bg-white/8 p-5">
-                <p class="font-heading text-2xl font-black text-white">
-                    <?php esc_html_e('Size & Fit Notes', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-white/72">
-                    <?php esc_html_e('Review size, fit, material details, and return conditions before ordering.', 'dawp'); ?>
-                </p>
-            </div>
-        </div>
-    </section>
-
     <section class="relative overflow-hidden">
         <div class="absolute left-0 top-0 h-1 w-full bg-[linear-gradient(90deg,#E6007E,#FF4FB8,#7C3AED)]"></div>
 
@@ -86,25 +48,30 @@ $footer_brand_links = [
                 <a href="<?php echo esc_url(home_url('/')); ?>"
                    class="inline-flex max-w-xs items-center gap-3"
                    aria-label="<?php echo esc_attr($site_name); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/image.png'); ?>"
+                    <img <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/image.png', [
+                             'width'  => 88,
+                             'height' => 88,
+                             'srcset' => [[40, 40], [88, 88], [132, 132]],
+                             'sizes'  => '(max-width: 640px) 40px, 44px',
+                         ]); ?>
                          alt="<?php echo esc_attr($site_name); ?>"
-                         class="h-10 w-10 shrink-0 rounded-full object-contain sm:h-11 sm:w-11"
-                         width="900"
-                         height="900">
+                         class="h-10 w-10 shrink-0 rounded-full object-contain sm:h-11 sm:w-11">
                     <span class="font-heading text-base font-extrabold uppercase leading-snug tracking-[0.1em] text-white sm:text-lg">
                         <?php echo esc_html($site_name); ?>
                     </span>
                 </a>
 
-                <address class="mt-7 flex items-start gap-3 not-italic">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[#FF4FB8]">
-                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                    <p class="max-w-none text-sm font-bold text-white/72">
-                        4211 W Sahara Ave Ste C, Las Vegas, NV 89102
-                    </p>
-                </address>
+                <?php if ($address !== '') : ?>
+                    <address class="mt-7 flex items-start gap-3 not-italic">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[#FF4FB8]">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <p class="max-w-none text-sm font-bold text-white/72">
+                            <?php echo esc_html($address); ?>
+                        </p>
+                    </address>
+                <?php endif; ?>
 
                 <a href="mailto:<?php echo esc_attr($support_email); ?>"
                    class="mt-5 flex items-start gap-3 text-sm font-bold text-white/72 transition hover:text-white">
@@ -115,6 +82,14 @@ $footer_brand_links = [
                     </svg>
                     <span><?php echo esc_html($support_email); ?></span>
                 </a>
+
+                <div class="mt-5 flex items-start gap-3 text-sm font-bold text-white/72">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[#FF4FB8]" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span><?php esc_html_e('Business Hours: Monday-Friday, 9:00 AM-6:00 PM PST', 'dawp'); ?></span>
+                </div>
 
                 <div class="mt-5 flex">
                     <a href="https://www.facebook.com/vegashouseofshoes"
@@ -212,13 +187,14 @@ $footer_brand_links = [
                 <p class="text-xs font-black uppercase tracking-[0.18em] text-white/40">
                     <?php esc_html_e('Payment Methods', 'dawp'); ?>
                 </p>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment-methods.webp'); ?>"
+                <img <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/payment-methods.webp', [
+                         'width'  => 520,
+                         'height' => 76,
+                         'srcset' => [[260, 38], [390, 57], [520, 76]],
+                         'sizes'  => '(max-width: 640px) 260px, 260px',
+                     ]); ?>
                      alt="<?php esc_attr_e('Accepted payment methods: Visa, Mastercard, Discover, American Express, PayPal', 'dawp'); ?>"
-                     class="h-auto w-[260px] max-w-full opacity-95"
-                     width="2047"
-                     height="297"
-                     loading="lazy"
-                     decoding="async">
+                     class="h-auto w-[260px] max-w-full opacity-95">
             </div>
 
             <p class="font-black uppercase tracking-[0.18em] text-[#FF4FB8] lg:justify-self-end lg:text-right">

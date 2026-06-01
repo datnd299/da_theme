@@ -93,6 +93,33 @@
 }
 
 /* =============================================================
+   FOOTER BENEFITS
+   ============================================================= */
+
+@media (max-width: 1023px) {
+  .footer-benefits-slider {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .footer-benefits-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .footer-benefits-slider > * {
+    flex: 0 0 min(86vw, 340px);
+    min-height: 164px;
+    scroll-snap-align: start;
+  }
+}
+
+/* =============================================================
    WOOCOMMERCE NOTICES
    ============================================================= */
 

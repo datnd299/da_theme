@@ -50,11 +50,15 @@ $nav_items = [
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="inline-flex shrink-0 items-center"
                aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'House of Shoes Online'); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/image.png'); ?>"
+                <img <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/image.png', [
+                         'width'   => 96,
+                         'height'  => 96,
+                         'srcset'  => [[48, 48], [96, 96], [144, 144]],
+                         'sizes'   => '48px',
+                         'loading' => 'eager',
+                     ]); ?>
                      alt="<?php echo esc_attr(get_bloginfo('name') ?: 'House of Shoes Online'); ?>"
-                     class="h-12 w-12 rounded-full object-contain"
-                     width="900"
-                     height="900">
+                     class="h-12 w-12 rounded-full object-contain">
             </a>
 
             <nav class="hidden items-center justify-center gap-6 lg:flex" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">

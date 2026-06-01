@@ -33,7 +33,8 @@ All file content must follow `.plans/site.md` and `.plans/design_system.md`.
 - `template-parts/page-about.php` → About Us page  
 - `template-parts/page-faq.php` → FAQ page  
 - `template-parts/page-privacy.php` → Privacy Policy page  
-- `template-parts/page-shipping-returns.php` → Shipping & Returns page  
+- `template-parts/page-shipping-policy.php` → Shipping Policy page
+- `template-parts/page-return-refund-policy.php` → Return & Refund Policy page
 - `template-parts/page-terms.php` → Terms & Conditions page  
 - `404.php` → 404 page  
 

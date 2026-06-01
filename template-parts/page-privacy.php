@@ -27,6 +27,9 @@ $terms_url     = home_url('/terms-conditions/');
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-[#5E5363]">
                     <?php esc_html_e('Learn how House of Shoes Online collects, uses, and protects customer information when you browse footwear, place orders, request support, or use our website.', 'dawp'); ?>
                 </p>
+                <p class="mt-5 text-sm font-black uppercase tracking-[0.18em] text-[#7C3AED]">
+                    <?php esc_html_e('Last updated: May 22, 2026', 'dawp'); ?>
+                </p>
                 <div class="mt-8 flex flex-wrap gap-4">
                     <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#E6007E] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#7C3AED]">
                         <?php esc_html_e('Contact Support', 'dawp'); ?>
@@ -37,7 +40,7 @@ $terms_url     = home_url('/terms-conditions/');
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0">
                 <?php
                 $privacy_cards = [
                     ['number' => '01', 'title' => __('Order Data', 'dawp'), 'copy' => __('We collect the details needed to process footwear orders and provide customer care.', 'dawp')],
@@ -47,7 +50,7 @@ $terms_url     = home_url('/terms-conditions/');
                 ];
                 foreach ($privacy_cards as $card) :
                 ?>
-                    <div class="rounded-[1.5rem] border border-[#EEE5EF] bg-white p-6 shadow-sm">
+                    <div class="min-w-[82%] snap-start rounded-[1.5rem] border border-[#EEE5EF] bg-white p-6 shadow-sm sm:min-w-0">
                         <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#F3E8FF] text-sm font-black text-[#7C3AED]"><?php echo esc_html($card['number']); ?></span>
                         <h2 class="mt-5 font-heading text-2xl font-black leading-tight text-[#141217]"><?php echo esc_html($card['title']); ?></h2>
                         <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
@@ -59,7 +62,7 @@ $terms_url     = home_url('/terms-conditions/');
 
     <section class="bg-white py-16 lg:py-24">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-            <aside class="lg:sticky lg:top-32 lg:self-start">
+            <aside class="hidden lg:sticky lg:top-32 lg:block lg:self-start">
                 <div class="rounded-[2rem] bg-[#141217] p-7 text-white shadow-xl shadow-[#141217]/10">
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#FF4FB8]">
                         <?php esc_html_e('Policy Sections', 'dawp'); ?>

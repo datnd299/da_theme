@@ -7,7 +7,7 @@ const root = resolve(__dirname, '..');
 const tailwindCli = join(root, 'node_modules', '@tailwindcss', 'cli', 'dist', 'index.mjs');
 
 const builds = [
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-ship.css', content: './template-parts/page-shipping-returns.php' },
+  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-ship.css', content: './template-parts/page-shipping-policy.php,./template-parts/page-return-refund-policy.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-home.css', content: './template-parts/page-home.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-terms.css', content: './template-parts/page-terms-conditions.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-about.css', content: './template-parts/page-about.php' },

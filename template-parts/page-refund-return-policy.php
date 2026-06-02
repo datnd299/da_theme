@@ -11,11 +11,10 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Handed Shoes';
 $website_domain = 'handedshoes.com';
 $support_email  = 'support@handedshoes.com';
-$store_address  = dawp_get_store_address();
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $contact_url    = home_url('/contact-us/');
 $shop_url       = home_url('/shop/');
 $shipping_url   = home_url('/shipping-policy/');
-$home_img_base  = get_template_directory_uri() . '/assets/img/Home/';
 $return_address = $store_address;
 $business_hours = 'Monday-Friday, 9:00 AM-5:00 PM PST.';
 $response_time  = 'We aim to reply within 1 business day. Response times may vary on weekends, holidays, or high-volume periods.';
@@ -92,13 +91,13 @@ $contact_details = [
     <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(11,11,13,0.98)_0%,rgba(26,26,29,0.9)_52%,rgba(11,11,13,0.96)_100%)]"></div>
     <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4F5F6] to-transparent"></div>
 
-    <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-[1.02fr_0.98fr] lg:px-10 lg:py-24">
-      <div class="max-w-2xl">
+    <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+      <div class="max-w-4xl">
         <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/60">Refund &amp; Return Policy</p>
-        <h1 id="return-policy-cover-title" class="mt-5 font-serif text-5xl font-semibold leading-[1.02] text-[#F4F5F6] sm:text-6xl lg:text-7xl">
+        <h1 id="return-policy-cover-title" class="mt-5 max-w-3xl font-serif text-5xl font-semibold leading-[1.02] text-[#F4F5F6] sm:text-6xl lg:text-7xl">
           Shop Confidently With Clear Return Support
         </h1>
-        <p class="mt-6 max-w-xl text-base leading-8 text-white/72 sm:text-lg">
+        <p class="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
           Review return eligibility, footwear condition requirements, refund timing, and support steps before or after ordering formal shoes from <?php echo esc_html($store_name); ?>.
         </p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -111,16 +110,6 @@ $contact_details = [
         </div>
       </div>
 
-      <div class="relative">
-        <div class="absolute -left-5 -top-5 h-28 w-28 rounded-full border border-white/20"></div>
-        <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 p-3 shadow-2xl shadow-black/40 backdrop-blur-sm">
-          <img
-            src="<?php echo esc_url($home_img_base . 'section_one.png'); ?>"
-            alt="Men's formal dress shoes displayed on a refined dark surface"
-            class="h-[420px] w-full rounded-[1.5rem] object-cover object-center sm:h-[520px]"
-          />
-        </div>
-      </div>
     </div>
   </section>
 

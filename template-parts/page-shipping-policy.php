@@ -11,8 +11,9 @@ if (!defined('ABSPATH')) {
 $store_name      = 'Handed Shoes';
 $website_domain  = 'handedshoes.com';
 $support_email   = 'support@handedshoes.com';
-$store_address   = dawp_get_store_address();
+$store_address   = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $contact_url     = home_url('/contact-us/');
+$shop_url        = home_url('/shop/');
 $track_url       = home_url('/track-order/');
 $order_cutoff    = '5:00 PM (GMT-08:00) Pacific Standard Time';
 $handling_time   = '1-3 business days';
@@ -70,8 +71,34 @@ $contact_details = [
 ];
 ?>
 
-<main class="bg-[#F4F5F6] py-14 text-[#0B0B0D] sm:py-16 lg:py-20">
-  <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+<main class="bg-[#F4F5F6] text-[#0B0B0D]">
+  <section class="relative overflow-hidden bg-[#0B0B0D] text-white" aria-labelledby="shipping-policy-cover-title">
+    <div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(11,11,13,0.98)_0%,rgba(26,26,29,0.9)_52%,rgba(11,11,13,0.96)_100%)]"></div>
+    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#F4F5F6] to-transparent"></div>
+
+    <div class="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
+      <div class="max-w-4xl">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/60">Shipping Policy</p>
+        <h1 id="shipping-policy-cover-title" class="mt-5 max-w-3xl font-serif text-5xl font-semibold leading-[1.02] text-[#F4F5F6] sm:text-6xl lg:text-7xl">
+          Reliable Delivery For Every Formal Shoe Order
+        </h1>
+        <p class="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
+          Review shipping locations, delivery timelines, carrier tracking, and support details before ordering from <?php echo esc_html($store_name); ?>.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold uppercase tracking-[0.08em] text-[#0B0B0D] transition hover:bg-[#D9DADD]">
+            Shop Handed Shoes
+          </a>
+          <a href="<?php echo esc_url($track_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-7 text-sm font-bold uppercase tracking-[0.08em] text-white transition hover:bg-white hover:text-[#0B0B0D]">
+            Track Order
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16 lg:px-10 lg:py-20">
     <section class="rounded-[1.75rem] border border-[#D9DADD] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="shipping-locations-title">
       <h1 id="shipping-locations-title" class="font-serif text-4xl font-semibold leading-tight text-[#0B0B0D] sm:text-5xl">
         Shipping Locations &amp; Market

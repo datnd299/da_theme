@@ -46,7 +46,7 @@
                         <path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z"></path>
                         <circle cx="12" cy="10" r="2.5"></circle>
                     </svg>
-                    <span><?php echo esc_html(dawp_get_store_address()); ?></span>
+                    <span><?php echo esc_html(function_exists('dawp_get_store_address') ? dawp_get_store_address() : ''); ?></span>
                 </p>
                 <p class="flex items-start gap-3 leading-6">
                     <svg class="mt-1 h-4 w-4 flex-shrink-0 text-white/55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

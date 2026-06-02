@@ -3,9 +3,10 @@
  * Template Part: Privacy Policy Page
  */
 
-$support_email = 'support@brogeshoes.com';
-$business_address = dawp_get_woocommerce_store_address();
-$business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM EST';
+$store_name       = 'House of Shoes Online';
+$support_email    = 'support@houseofshoesonline.com';
+$business_address = dawp_get_store_address();
+$contact_url      = home_url('/contact-us/');
 ?>
 
 <section class="bg-surface py-16 md:py-24">
@@ -14,9 +15,9 @@ $business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM EST';
             <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block"><?php esc_html_e('Privacy Policy', 'dawp'); ?></span>
             <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
             <p class="text-foreground-muted text-lg max-w-3xl mx-auto leading-relaxed">
-                <?php esc_html_e('This Privacy Policy explains how Broge Shoes collects, uses, shares, protects, and retains personal information when you visit brogeshoes.com, create an account, contact us, or place an order.', 'dawp'); ?>
+                <?php esc_html_e('House of Shoes Online respects your privacy and explains how we collect, use, store, share, and protect your information when you visit houseofshoesonline.com, shop for footwear, place an order, contact customer support, or interact with our online store.', 'dawp'); ?>
             </p>
-            <p class="italic text-sm text-foreground-muted mt-4"><?php esc_html_e('Last Updated: May 26, 2026', 'dawp'); ?></p>
+            <p class="italic text-sm text-foreground-muted mt-4"><?php esc_html_e('Last Updated: June 2, 2026', 'dawp'); ?></p>
         </div>
 
         <div class="space-y-8">
@@ -27,30 +28,30 @@ $business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM EST';
                     </div>
                     <div>
                         <h2 class="font-heading text-3xl text-foreground font-semibold"><?php esc_html_e('Policy Overview', 'dawp'); ?></h2>
-                        <p class="text-foreground-muted mt-2"><?php esc_html_e('Broge Shoes operates brogeshoes.com and serves customers in the United States.', 'dawp'); ?></p>
+                        <p class="text-foreground-muted mt-2"><?php esc_html_e('House of Shoes Online operates houseofshoesonline.com and serves customers shopping for footwear in the United States.', 'dawp'); ?></p>
                     </div>
                 </div>
                 <div class="text-foreground-muted leading-relaxed space-y-4">
-                    <p><?php esc_html_e('Broge Shoes ("we", "us", or "our") operates the Site and specializes in selling premium men\'s formal shoes, leather dress shoes, and brogue shoes to consumers in the United States.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('By using our Site or placing an order, you agree to the collection and use of information in accordance with this policy.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('House of Shoes Online ("we", "us", or "our") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we handle information when you browse our Site, purchase footwear, request returns, or contact support.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('By using our Site or placing an order, you agree to the practices described in this Privacy Policy. If you do not agree with this policy, please do not use the website or submit personal information through it.', 'dawp'); ?></p>
                 </div>
             </div>
 
             <div id="information-we-collect" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
                 <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('1. Information We Collect', 'dawp'); ?></h2>
-                <p class="text-foreground-muted leading-relaxed mb-6"><?php esc_html_e('We collect only the information reasonably needed to operate our ecommerce store, process your purchases, and provide support.', 'dawp'); ?></p>
+                <p class="text-foreground-muted leading-relaxed mb-6"><?php esc_html_e('To fulfill your footwear orders and provide a seamless shopping experience, we collect only the information reasonably needed to operate our ecommerce store, process purchases, and provide support.', 'dawp'); ?></p>
                 <div class="grid md:grid-cols-3 gap-6">
                     <div class="bg-surface p-6 rounded-lg border border-border">
-                        <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Order and Account Information', 'dawp'); ?></h3>
-                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('When you make or attempt to make a purchase, we collect your full name, billing address, shipping address, email address, phone number, product selections including shoe sizes and color options, and necessary payment details.', 'dawp'); ?></p>
+                        <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Contact & Delivery Details', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Full name, email address, shipping address, billing address, and product selections including shoe sizes, styles, quantities, order numbers, transaction status, return history, refund history, and customer support messages.', 'dawp'); ?></p>
                     </div>
                     <div class="bg-surface p-6 rounded-lg border border-border">
-                        <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Device and Site Information', 'dawp'); ?></h3>
-                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('When you browse our Site, we automatically collect technical data such as your IP address, browser type, device type, pages viewed, referring URLs, approximate geographic location, and cookie identifiers to maintain store security.', 'dawp'); ?></p>
+                        <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Payment Information', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('Payment-related details required to complete your purchase safely. Your full payment card details are securely handled directly by authorized third-party payment processors and are never stored on our servers.', 'dawp'); ?></p>
                     </div>
                     <div class="bg-surface p-6 rounded-lg border border-border">
-                        <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Customer Support Information', 'dawp'); ?></h3>
-                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('If you contact us for size guidance or order issues, we collect your messages, order numbers, and any photos you provide, such as for damaged or incorrect item claims.', 'dawp'); ?></p>
+                        <h3 class="text-foreground font-semibold text-xl mb-4"><?php esc_html_e('Website Usage & Device Information', 'dawp'); ?></h3>
+                        <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('IP address, browser type, device type, pages viewed, referral source, cart activity, and session timing to help us maintain store security and website performance.', 'dawp'); ?></p>
                     </div>
                 </div>
             </div>
@@ -74,10 +75,11 @@ $business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM EST';
                 <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('3. How We Use Your Information', 'dawp'); ?></h2>
                 <p class="text-foreground-muted leading-relaxed mb-6"><?php esc_html_e('We utilize your data for clear and transparent business purposes, including to:', 'dawp'); ?></p>
                 <ul class="space-y-4 text-foreground-muted">
-                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Process payments, confirm orders, arrange shipping, and provide automated tracking updates.', 'dawp'); ?></span></li>
-                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Respond to customer inquiries regarding product details, size fitment, shipping, returns, and refunds.', 'dawp'); ?></span></li>
-                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Screen website activity and transactions for fraud, abuse, unauthorized access, or potential security risks.', 'dawp'); ?></span></li>
-                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Comply with global tax, accounting, payment network rules, and applicable regulatory obligations.', 'dawp'); ?></span></li>
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Process, confirm, fulfill, ship, track, deliver, and manage eligible returns or refunds for your footwear orders.', 'dawp'); ?></span></li>
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Process payments securely through third-party payment processors and prevent chargebacks or payment fraud.', 'dawp'); ?></span></li>
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Send order confirmations, tracking updates, return instructions, and important store or policy updates.', 'dawp'); ?></span></li>
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Provide customer support, respond to product or sizing questions, and investigate delivery issues.', 'dawp'); ?></span></li>
+                    <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-accent shrink-0"></span><span><?php esc_html_e('Send product updates and footwear category news if you subscribe to marketing emails. You may unsubscribe from promotional emails at any time through the unsubscribe link.', 'dawp'); ?></span></li>
                 </ul>
             </div>
 
@@ -85,17 +87,17 @@ $business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM EST';
                 <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('4. How We Share Information and Non-Sale of Data', 'dawp'); ?></h2>
                 <div class="text-foreground-muted leading-relaxed space-y-4">
                     <p><?php esc_html_e('We do not sell, rent, or trade your personal information to third parties for their commercial marketing purposes.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('We only share data with trusted service providers essential to running our store, such as ecommerce platform hosting, payment processors, shipping carriers, fraud prevention tools, and customer support analytics.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('We may also disclose information if required to comply with applicable laws, respond to lawful subpoenas, or protect our legal rights and the safety of our customers.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('We only share necessary information with trusted service providers who help operate our store, including payment processors and fraud prevention vendors, shipping carriers and fulfillment partners, website hosting, analytics, and infrastructure providers.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('We may also disclose information to legal authorities or professional advisers when strictly required by law, legal process, fraud investigation, or to protect the safety and rights of House of Shoes Online and our customers.', 'dawp'); ?></p>
                 </div>
             </div>
 
             <div id="cookies-choices" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
                 <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('5. Cookies and Privacy Choices', 'dawp'); ?></h2>
                 <div class="text-foreground-muted leading-relaxed space-y-4">
-                    <p><?php esc_html_e('We use cookies, pixels, and tracking tags to keep your shopping cart working properly, remember your preferences, and evaluate store performance.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('You can disable cookies via your browser settings, though doing so may interfere with checkout and account functionality.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('Depending on your geographic location, including various U.S. state privacy laws, you may have the right to access, correct, delete, or receive a copy of the personal data we hold about you.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Our website uses cookies and similar technologies to remember your preferences, keep items in your shopping cart, secure checkout, and understand website traffic patterns to improve site performance.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('You can control or disable cookies through your web browser settings. Certain features, including cart, checkout, and account login functions, may not work properly if cookies are disabled.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Depending on your geographic location, such as under the CCPA/CPRA in the U.S. or GDPR in Europe, you may have rights to access, correct, delete, port, or limit certain uses of your personal information.', 'dawp'); ?></p>
                 </div>
             </div>
 
@@ -107,17 +109,17 @@ $business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM EST';
 
                 <div id="governing-law" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
                     <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('7. Governing Law', 'dawp'); ?></h2>
-                    <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('This Privacy Policy and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of United States.', 'dawp'); ?></p>
+                    <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('This Privacy Policy and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the United States, where applicable to House of Shoes Online and its customers.', 'dawp'); ?></p>
                 </div>
             </div>
 
             <div id="contact-us" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
                 <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('8. Contact Us', 'dawp'); ?></h2>
-                <p class="text-foreground-muted leading-relaxed mb-8"><?php esc_html_e('For privacy questions, data deletion requests, or order-related privacy inquiries, please contact Broge Shoes through our official channels:', 'dawp'); ?></p>
+                <p class="text-foreground-muted leading-relaxed mb-8"><?php esc_html_e('For privacy questions, data access requests, or questions regarding our information practices, please contact House of Shoes Online through our official support channels:', 'dawp'); ?></p>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div class="bg-surface p-6 rounded-lg border border-border">
                         <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Brand Name', 'dawp'); ?></h3>
-                        <p class="text-foreground-muted"><?php esc_html_e('Broge Shoes', 'dawp'); ?></p>
+                        <p class="text-foreground-muted"><?php echo esc_html($store_name); ?></p>
                     </div>
                     <div class="bg-surface p-6 rounded-lg border border-border">
                         <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Customer Support Email', 'dawp'); ?></h3>
@@ -127,13 +129,9 @@ $business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM EST';
                         <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Physical Business Address', 'dawp'); ?></h3>
                         <p class="text-foreground-muted"><?php echo esc_html($business_address); ?></p>
                     </div>
-                    <div class="bg-surface p-6 rounded-lg border border-border">
-                        <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Business Hours', 'dawp'); ?></h3>
-                        <p class="text-foreground-muted"><?php echo esc_html($business_hours); ?></p>
-                    </div>
                     <div class="bg-surface p-6 rounded-lg border border-border sm:col-span-2">
-                        <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Website', 'dawp'); ?></h3>
-                        <a href="<?php echo esc_url(home_url('/')); ?>" class="text-accent hover:underline font-medium"><?php esc_html_e('brogeshoes.com', 'dawp'); ?></a>
+                        <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Contact Page', 'dawp'); ?></h3>
+                        <a href="<?php echo esc_url($contact_url); ?>" class="text-accent hover:underline font-medium"><?php echo esc_html($contact_url); ?></a>
                     </div>
                 </div>
             </div>

@@ -109,7 +109,7 @@
                 <li><a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a></li>
                 <li><a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a></li>
                 <li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a></li>
-                <li><a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Terms of Service', 'dawp'); ?></a></li>
+                <li><a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>" class="text-sm text-[#F5EFE6]/75 hover:text-white transition-colors"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a></li>
             </ul>
         </div>
     </div>

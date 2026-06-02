@@ -8,8 +8,8 @@
 $store_name    = 'House of Shoes Online';
 $support_email = 'support@houseofshoesonline.com';
 $address       = dawp_get_store_address();
-$contact_url   = home_url('/contact-us/');
-$track_url     = home_url('/track-order/');
+$contact_url   = 'https://houseofshoesonline.com/contact-us/';
+$track_url     = 'https://houseofshoesonline.com/track-order/';
 ?>
 
 <main id="primary" class="bg-[#F6F5F7] font-body text-[#141217]">
@@ -32,7 +32,7 @@ $track_url     = home_url('/track-order/');
                 </p>
 
                 <p class="mt-5 text-sm font-black uppercase tracking-[0.18em] text-[#7C3AED]">
-                    <?php esc_html_e('Last updated: May 22, 2026', 'dawp'); ?>
+                    <?php esc_html_e('Last updated: 20 May, 2026', 'dawp'); ?>
                 </p>
             </div>
         </div>
@@ -179,7 +179,7 @@ $track_url     = home_url('/track-order/');
                         <?php esc_html_e('Contact Support', 'dawp'); ?>
                     </a>
 
-                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#141217] px-7 text-sm font-black text-[#141217] transition hover:bg-[#141217] hover:text-white">
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 max-w-full items-center justify-center rounded-full border border-[#141217] px-7 text-center text-sm font-black text-[#141217] transition hover:bg-[#141217] hover:text-white max-[420px]:break-all">
                         <?php echo esc_html($support_email); ?>
                     </a>
                 </div>
@@ -195,23 +195,23 @@ $track_url     = home_url('/track-order/');
                 </p>
 
                 <div class="mt-7 rounded-[1.5rem] border border-[#EEE5EF] p-5 sm:p-6">
-                    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-                        <div class="rounded-[1rem] border border-[#EEE5EF] bg-white p-5">
+                    <div class="grid min-w-0 grid-cols-1 gap-4 lg:grid-cols-2">
+                        <div class="min-w-0 rounded-[1rem] border border-[#EEE5EF] bg-white p-5">
                             <h3 class="font-black text-[#141217]"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
                             <p class="mt-3 text-base leading-7 text-[#5E5363]"><?php echo esc_html($store_name); ?></p>
                         </div>
 
-                        <div class="rounded-[1rem] border border-[#EEE5EF] bg-white p-5">
+                        <div class="min-w-0 rounded-[1rem] border border-[#EEE5EF] bg-white p-5">
                             <h3 class="font-black text-[#141217]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></h3>
-                            <p class="mt-3 text-base leading-7 text-[#5E5363]"><?php echo esc_html($support_email); ?></p>
+                            <p class="mt-3 break-all text-base leading-7 text-[#5E5363]"><?php echo esc_html($support_email); ?></p>
                         </div>
 
-                        <div class="rounded-[1rem] border border-[#EEE5EF] bg-white p-5">
+                        <div class="min-w-0 rounded-[1rem] border border-[#EEE5EF] bg-white p-5">
                             <h3 class="font-black text-[#141217]"><?php esc_html_e('Address', 'dawp'); ?></h3>
                             <p class="mt-3 text-base leading-7 text-[#5E5363]"><?php echo esc_html($address); ?></p>
                         </div>
 
-                        <div class="rounded-[1rem] border border-[#EEE5EF] bg-white p-5">
+                        <div class="min-w-0 rounded-[1rem] border border-[#EEE5EF] bg-white p-5">
                             <h3 class="font-black text-[#141217]"><?php esc_html_e('Response Time', 'dawp'); ?></h3>
                             <p class="mt-3 text-base leading-7 text-[#5E5363]"><?php esc_html_e('Within 24 business hours.', 'dawp'); ?></p>
                         </div>

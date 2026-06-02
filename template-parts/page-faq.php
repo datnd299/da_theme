@@ -31,7 +31,7 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
                 </p>
 
                 <p class="mt-5 text-sm font-black uppercase tracking-[0.18em] text-[#7C3AED]">
-                    <?php esc_html_e('Last updated: May 22, 2026', 'dawp'); ?>
+                    <?php esc_html_e('Last updated: 20 May, 2026', 'dawp'); ?>
                 </p>
             </div>
         </div>
@@ -42,7 +42,7 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
 
             <div class="faq-topic-card rounded-[1.5rem] border border-[#EEE5EF] bg-white p-6 shadow-sm shadow-[#141217]/5">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#E6007E] text-sm font-black text-white">01</div>
-                <h3 class="font-heading text-2xl font-black text-[#141217]">
+                <h3 class="font-heading text-xl font-black leading-tight text-[#141217]">
                     <?php esc_html_e('Orders', 'dawp'); ?>
                 </h3>
                 <p class="mt-3 text-sm leading-6 text-[#5E5363]">
@@ -52,7 +52,7 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
 
             <div class="faq-topic-card rounded-[1.5rem] border border-[#EEE5EF] bg-white p-6 shadow-sm shadow-[#141217]/5">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FF4FB8] text-sm font-black text-white">02</div>
-                <h3 class="font-heading text-2xl font-black text-[#141217]">
+                <h3 class="font-heading text-xl font-black leading-tight text-[#141217]">
                     <?php esc_html_e('Shipping', 'dawp'); ?>
                 </h3>
                 <p class="mt-3 text-sm leading-6 text-[#5E5363]">
@@ -62,7 +62,7 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
 
             <div class="faq-topic-card rounded-[1.5rem] border border-[#EEE5EF] bg-white p-6 shadow-sm shadow-[#141217]/5">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#7C3AED] text-sm font-black text-white">03</div>
-                <h3 class="font-heading text-2xl font-black text-[#141217]">
+                <h3 class="font-heading text-xl font-black leading-tight text-[#141217]">
                     <?php esc_html_e('Returns', 'dawp'); ?>
                 </h3>
                 <p class="mt-3 text-sm leading-6 text-[#5E5363]">
@@ -72,7 +72,7 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
 
             <div class="faq-topic-card rounded-[1.5rem] border border-[#EEE5EF] bg-white p-6 shadow-sm shadow-[#141217]/5">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#141217] text-sm font-black text-white">04</div>
-                <h3 class="font-heading text-2xl font-black text-[#141217]">
+                <h3 class="font-heading text-xl font-black leading-tight text-[#141217]">
                     <?php esc_html_e('Support', 'dawp'); ?>
                 </h3>
                 <p class="mt-3 text-sm leading-6 text-[#5E5363]">
@@ -92,7 +92,7 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
                         <?php esc_html_e('FAQ Categories', 'dawp'); ?>
                     </p>
 
-                    <h2 class="font-heading text-4xl font-black leading-none">
+                    <h2 class="font-heading text-3xl font-black leading-tight">
                         <?php esc_html_e('Answers Without The Noise.', 'dawp'); ?>
                     </h2>
 
@@ -111,7 +111,7 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
                 </div>
             </aside>
 
-            <div class="space-y-8">
+            <div class="min-w-0 space-y-8">
 
                 <?php
                 $faq_sections = [
@@ -255,30 +255,30 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
                 ?>
 
                 <?php foreach ($faq_sections as $section) : ?>
-                    <section id="<?php echo esc_attr($section['id']); ?>" class="rounded-[1.5rem] border border-[#EEE5EF] <?php echo esc_attr($section['bg']); ?> p-7 lg:p-10">
+                    <section id="<?php echo esc_attr($section['id']); ?>" class="rounded-[2rem] border border-[#EEE5EF] <?php echo esc_attr($section['bg']); ?> p-7 lg:p-10">
                         <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#E6007E]">
                             <?php echo esc_html($section['eyebrow']); ?>
                         </p>
 
-                        <h2 class="font-heading text-4xl font-black leading-tight text-[#141217]">
+                        <h2 class="font-heading text-3xl font-black leading-tight text-[#141217] lg:text-[2.125rem]">
                             <?php echo esc_html($section['title']); ?>
                         </h2>
 
-                        <div class="mt-7 divide-y divide-[#EEE5EF] overflow-hidden rounded-[1rem] border border-[#EEE5EF] bg-white">
+                        <div class="mt-6 divide-y divide-[#EEE5EF] overflow-hidden rounded-[1.25rem] border border-[#EEE5EF] bg-white">
                             <?php foreach ($section['faqs'] as $faq) : ?>
                                 <div class="faq-item">
-                                    <button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition hover:bg-[#F6F5F7]" aria-expanded="false">
-                                        <span class="font-heading text-xl font-black leading-tight text-[#141217]">
+                                    <button type="button" class="faq-toggle flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-[#F6F5F7] sm:px-6" aria-expanded="false">
+                                        <span class="font-heading text-lg font-black leading-snug text-[#141217] lg:text-xl">
                                             <?php echo esc_html($faq['q']); ?>
                                         </span>
 
-                                        <span class="faq-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#141217] text-lg font-black text-white transition">
+                                        <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#141217] text-base font-black text-white transition">
                                             +
                                         </span>
                                     </button>
 
-                                    <div class="faq-answer hidden px-5 pb-6">
-                                        <p class="max-w-3xl text-base leading-8 text-[#5E5363]">
+                                    <div class="faq-answer hidden px-5 pb-5 sm:px-6">
+                                        <p class="max-w-3xl text-sm leading-7 text-[#5E5363] sm:text-base sm:leading-8">
                                             <?php echo esc_html($faq['a']); ?>
                                         </p>
                                     </div>
@@ -288,13 +288,13 @@ $customer_service_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST.';
                     </section>
                 <?php endforeach; ?>
 
-                <section class="overflow-hidden rounded-[1.5rem] bg-[#141217] text-white shadow-xl shadow-[#141217]/10">
+                <section class="overflow-hidden rounded-[2rem] bg-[#141217] text-white shadow-xl shadow-[#141217]/10">
                     <div class="p-7 lg:p-10">
                         <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#FF4FB8]">
                             <?php esc_html_e('Still Need Help?', 'dawp'); ?>
                         </p>
 
-                        <h2 class="font-heading text-4xl font-black leading-tight lg:text-5xl">
+                        <h2 class="font-heading text-3xl font-black leading-tight lg:text-[2.125rem]">
                             <?php esc_html_e('Our Support Team Keeps It Clear.', 'dawp'); ?>
                         </h2>
 

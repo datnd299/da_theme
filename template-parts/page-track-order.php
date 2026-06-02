@@ -121,19 +121,19 @@ if ( isset( $_REQUEST['orderid'] ) ) {
                 <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth shopping experience at House of Shoes Online.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
-                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
+                <a href="https://houseofshoesonline.com/shipping-policy/" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Learn about free standard U.S. shipping, 6-10 business day delivery, and tracking details.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="track-more-card">
+                <a href="https://houseofshoesonline.com/return-refund-policy/" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Review 30-day return eligibility, label costs, refund timing, and exchange details.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
+                <a href="https://houseofshoesonline.com/contact-us/" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Our support team is here to help with order and delivery questions.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
+                <a href="https://houseofshoesonline.com/faq/" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Find quick answers to our most common customer questions.', 'dawp'); ?></p>
                 </a>

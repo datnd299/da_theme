@@ -110,10 +110,10 @@ $address_lines = dawp_get_store_address_lines();
                         <p class="text-[15px] leading-relaxed text-[#6F625D]"><?php esc_html_e('Return requests must be made within 30 days of delivery. Footwear must be unworn, unused, undamaged, clean, and returned with all original packaging.', 'dawp'); ?></p>
                         
                         <div class="mt-6 flex flex-wrap gap-3">
-                            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex items-center gap-2 rounded-xl bg-[#F6F5F7] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#141217] transition-all hover:bg-[#E6007E] hover:text-white">
+                            <a href="https://houseofshoesonline.com/shipping-policy/" class="inline-flex items-center gap-2 rounded-xl bg-[#F6F5F7] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#141217] transition-all hover:bg-[#E6007E] hover:text-white">
                                 <?php esc_html_e('Shipping Policy', 'dawp'); ?> &rarr;
                             </a>
-                            <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="inline-flex items-center gap-2 rounded-xl bg-[#F6F5F7] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#141217] transition-all hover:bg-[#E6007E] hover:text-white">
+                            <a href="https://houseofshoesonline.com/return-refund-policy/" class="inline-flex items-center gap-2 rounded-xl bg-[#F6F5F7] px-5 py-3 text-sm font-black uppercase tracking-wide text-[#141217] transition-all hover:bg-[#E6007E] hover:text-white">
                                 <?php esc_html_e('Return & Refund Policy', 'dawp'); ?> &rarr;
                             </a>
                         </div>

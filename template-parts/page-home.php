@@ -257,7 +257,7 @@
 
         <div class="mt-7 space-y-4 text-sm leading-7 text-white/72">
           <p><strong class="text-[#F4F5F6]">Size note:</strong> Please review the size guide, fit note, material or finish, care instructions, and return conditions before placing an order.</p>
-          <p><strong class="text-[#F4F5F6]">Shipping note:</strong> Orders placed before 5:00 PM Pacific Standard Time begin processing the same business day. Orders placed after the cutoff begin processing the next business day. Handling time is 1&ndash;2 business days and transit usually takes 5&ndash;7 business days.</p>
+          <p><strong class="text-[#F4F5F6]">Shipping note:</strong> Orders placed before 5:00 PM (GMT-08:00) Pacific Standard Time can begin processing the same business day. Orders placed after the cutoff begin processing the following business day. Handling time is 1&ndash;3 business days, standard transit time is 5&ndash;7 business days Monday to Friday after dispatch, and estimated delivery is 6&ndash;10 business days total from the date of purchase.</p>
           <p><strong class="text-[#F4F5F6]">Return note:</strong> Eligible footwear must be unworn, undamaged, free of outdoor wear, stains, heavy creasing, or sole marks, and returned with original packaging where applicable within 30 days of delivery.</p>
         </div>
 

@@ -23,9 +23,11 @@ function dawp_setup() {
 
 function dawp_logo_favicon() {
     $favicon_path = get_template_directory() . '/assets/img/gallery/logo.png';
-    $favicon_url = get_template_directory_uri() . '/assets/img/gallery/logo.png';
+    $favicon_url = function_exists('dawp_theme_image_url')
+        ? dawp_theme_image_url('assets/img/gallery/logo.png', 192, 192, 'fit')
+        : get_template_directory_uri() . '/assets/img/gallery/logo.png';
 
-    if (file_exists($favicon_path)) {
+    if (file_exists($favicon_path) && !function_exists('dawp_theme_image_url')) {
         $favicon_url = add_query_arg('v', filemtime($favicon_path), $favicon_url);
     }
     ?>

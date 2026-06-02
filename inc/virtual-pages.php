@@ -237,12 +237,18 @@ function dawp_virtual_page_fallback_wp_robots($robots) {
 
 function dawp_get_virtual_page_image_url() {
     $image_path = get_template_directory() . '/assets/img/Home/section_one.png';
-    $image_url = get_template_directory_uri() . '/assets/img/Home/section_one.png';
+    $image_relative_path = 'assets/img/Home/section_one.png';
 
     if (!file_exists($image_path)) {
         $image_path = get_template_directory() . '/assets/img/gallery/logo.png';
-        $image_url = get_template_directory_uri() . '/assets/img/gallery/logo.png';
+        $image_relative_path = 'assets/img/gallery/logo.png';
     }
+
+    if (function_exists('dawp_theme_image_url')) {
+        return dawp_theme_image_url($image_relative_path, 1200, 1200, 'fit');
+    }
+
+    $image_url = get_template_directory_uri() . '/' . $image_relative_path;
 
     if (file_exists($image_path)) {
         $image_url = add_query_arg('v', filemtime($image_path), $image_url);

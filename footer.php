@@ -106,30 +106,36 @@
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-5 py-5 text-xs text-white/60 md:flex-row sm:px-8 lg:px-10">
             <p>&copy; <?php echo esc_html(date('Y')); ?> <?php esc_html_e('Handed Shoes. All rights reserved.', 'dawp'); ?></p>
             <div class="flex flex-wrap items-center justify-center gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
-                <?php echo dawp_responsive_theme_image('assets/img/gallery/Payment/image.png', esc_attr__('Payment method', 'dawp'), 320, 104, [
-                    'src_width' => 160,
-                    'widths' => [96, 160, 320],
-                    'sizes' => '96px',
-                    'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
-                ]); ?>
-                <?php echo dawp_responsive_theme_image('assets/img/gallery/Payment/image copy.png', esc_attr__('Payment method', 'dawp'), 320, 104, [
-                    'src_width' => 160,
-                    'widths' => [96, 160, 320],
-                    'sizes' => '96px',
-                    'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
-                ]); ?>
-                <?php echo dawp_responsive_theme_image('assets/img/gallery/Payment/image copy 2.png', esc_attr__('Payment method', 'dawp'), 320, 104, [
-                    'src_width' => 160,
-                    'widths' => [96, 160, 320],
-                    'sizes' => '96px',
-                    'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
-                ]); ?>
-                <?php echo dawp_responsive_theme_image('assets/img/gallery/Payment/image copy 3.png', esc_attr__('Payment method', 'dawp'), 320, 104, [
-                    'src_width' => 160,
-                    'widths' => [96, 160, 320],
-                    'sizes' => '96px',
-                    'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
-                ]); ?>
+                <?php
+                $payment_icons = [
+                    [
+                        'file' => 'image.png',
+                        'alt' => __('American Express', 'dawp'),
+                    ],
+                    [
+                        'file' => 'image copy.png',
+                        'alt' => __('PayPal', 'dawp'),
+                    ],
+                    [
+                        'file' => 'image copy 2.png',
+                        'alt' => __('American Express', 'dawp'),
+                    ],
+                    [
+                        'file' => 'image copy 3.png',
+                        'alt' => __('PayPal', 'dawp'),
+                    ],
+                ];
+                foreach ($payment_icons as $payment_icon) :
+                    ?>
+                    <?php
+                    echo dawp_responsive_theme_image('assets/img/gallery/Payment/' . $payment_icon['file'], $payment_icon['alt'], 320, 104, [
+                        'src_width' => 160,
+                        'widths' => [98, 160, 240, 320],
+                        'sizes' => '98px',
+                        'class' => 'h-8 w-auto rounded bg-white px-2 py-1',
+                    ]);
+                    ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

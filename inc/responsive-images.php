@@ -118,7 +118,10 @@ add_filter('wp_calculate_image_srcset', function ($sources) {
 
     foreach ($sources as $width => $source) {
         if (!empty($source['url'])) {
-            $sources[$width]['url'] = dawp_i0_from_url($source['url'], (int) $width, 0, 'w');
+            $height = !empty($source['height']) ? (int) $source['height'] : 0;
+            $sources[$width]['url'] = $height > 0
+                ? dawp_i0_from_url($source['url'], (int) $width, $height)
+                : dawp_i0_from_url($source['url'], (int) $width, 0, 'w');
         }
     }
 

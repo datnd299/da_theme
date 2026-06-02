@@ -6,6 +6,8 @@
 $support_email = 'support@brogeshoes.com';
 $support_hours = __('Within 24 business hours.', 'dawp');
 $store_name = __('Broge Shoes', 'dawp');
+$business_address = dawp_get_woocommerce_store_address() ?: __('1777 Canal St, Merced, CA 95340', 'dawp');
+$contact_url = home_url('/contact-us/');
 ?>
 
 <section class="bg-surface py-16 md:py-24">
@@ -112,6 +114,34 @@ $store_name = __('Broge Shoes', 'dawp');
                     <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-7 text-sm font-bold text-foreground transition hover:bg-surface">
                         <?php echo esc_html($support_email); ?>
                     </a>
+                </div>
+            </div>
+
+            <div id="contact-us" class="bg-background p-8 md:p-10 rounded-lg shadow-card border border-border">
+                <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] gap-8 lg:gap-12 items-start">
+                    <div>
+                        <h2 class="font-heading text-3xl md:text-5xl text-foreground font-semibold mb-4"><?php esc_html_e('Contact Us', 'dawp'); ?></h2>
+                        <p class="text-foreground-muted leading-relaxed mb-8"><?php esc_html_e('For privacy questions, data access requests, or questions regarding our information practices, please contact Broge Shoes through our official support channels.', 'dawp'); ?></p>
+                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-7 text-sm font-bold text-white transition hover:bg-accent-hover">
+                            <?php esc_html_e('Open Contact Page', 'dawp'); ?>
+                        </a>
+                    </div>
+                    <dl class="bg-surface rounded-lg border border-border divide-y divide-border overflow-hidden">
+                        <div class="p-5">
+                            <dt class="text-sm font-semibold text-foreground"><?php esc_html_e('Brand Name', 'dawp'); ?></dt>
+                            <dd class="text-foreground-muted mt-1"><?php echo esc_html($store_name); ?></dd>
+                        </div>
+                        <div class="p-5">
+                            <dt class="text-sm font-semibold text-foreground"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
+                            <dd class="mt-1">
+                                <a href="mailto:<?php echo esc_attr($support_email); ?>" class="text-accent hover:underline font-medium break-words"><?php echo esc_html($support_email); ?></a>
+                            </dd>
+                        </div>
+                        <div class="p-5">
+                            <dt class="text-sm font-semibold text-foreground"><?php esc_html_e('Physical Business Address', 'dawp'); ?></dt>
+                            <dd class="text-foreground-muted mt-1"><?php echo esc_html($business_address); ?></dd>
+                        </div>
+                    </dl>
                 </div>
             </div>
 

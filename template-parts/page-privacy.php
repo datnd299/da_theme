@@ -3,9 +3,9 @@
  * Template Part: Privacy Policy Page
  */
 
-$store_name       = 'House of Shoes Online';
-$support_email    = 'support@houseofshoesonline.com';
-$business_address = dawp_get_store_address();
+$store_name       = __('Broge Shoes', 'dawp');
+$support_email    = 'support@brogeshoes.com';
+$business_address = dawp_get_woocommerce_store_address();
 $contact_url      = home_url('/contact-us/');
 ?>
 
@@ -15,7 +15,7 @@ $contact_url      = home_url('/contact-us/');
             <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block"><?php esc_html_e('Privacy Policy', 'dawp'); ?></span>
             <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
             <p class="text-foreground-muted text-lg max-w-3xl mx-auto leading-relaxed">
-                <?php esc_html_e('House of Shoes Online respects your privacy and explains how we collect, use, store, share, and protect your information when you visit houseofshoesonline.com, shop for footwear, place an order, contact customer support, or interact with our online store.', 'dawp'); ?>
+                <?php esc_html_e('Broge Shoes respects your privacy and explains how we collect, use, store, share, and protect your information when you visit brogeshoes.com, shop for footwear, place an order, contact customer support, or interact with our online store.', 'dawp'); ?>
             </p>
             <p class="italic text-sm text-foreground-muted mt-4"><?php esc_html_e('Last Updated: June 2, 2026', 'dawp'); ?></p>
         </div>
@@ -28,11 +28,11 @@ $contact_url      = home_url('/contact-us/');
                     </div>
                     <div>
                         <h2 class="font-heading text-3xl text-foreground font-semibold"><?php esc_html_e('Policy Overview', 'dawp'); ?></h2>
-                        <p class="text-foreground-muted mt-2"><?php esc_html_e('House of Shoes Online operates houseofshoesonline.com and serves customers shopping for footwear in the United States.', 'dawp'); ?></p>
+                        <p class="text-foreground-muted mt-2"><?php esc_html_e('Broge Shoes operates brogeshoes.com and serves customers shopping for footwear in the United States.', 'dawp'); ?></p>
                     </div>
                 </div>
                 <div class="text-foreground-muted leading-relaxed space-y-4">
-                    <p><?php esc_html_e('House of Shoes Online ("we", "us", or "our") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we handle information when you browse our Site, purchase footwear, request returns, or contact support.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Broge Shoes ("we", "us", or "our") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we handle information when you browse our Site, purchase footwear, request returns, or contact support.', 'dawp'); ?></p>
                     <p><?php esc_html_e('By using our Site or placing an order, you agree to the practices described in this Privacy Policy. If you do not agree with this policy, please do not use the website or submit personal information through it.', 'dawp'); ?></p>
                 </div>
             </div>
@@ -88,7 +88,7 @@ $contact_url      = home_url('/contact-us/');
                 <div class="text-foreground-muted leading-relaxed space-y-4">
                     <p><?php esc_html_e('We do not sell, rent, or trade your personal information to third parties for their commercial marketing purposes.', 'dawp'); ?></p>
                     <p><?php esc_html_e('We only share necessary information with trusted service providers who help operate our store, including payment processors and fraud prevention vendors, shipping carriers and fulfillment partners, website hosting, analytics, and infrastructure providers.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('We may also disclose information to legal authorities or professional advisers when strictly required by law, legal process, fraud investigation, or to protect the safety and rights of House of Shoes Online and our customers.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('We may also disclose information to legal authorities or professional advisers when strictly required by law, legal process, fraud investigation, or to protect the safety and rights of Broge Shoes and our customers.', 'dawp'); ?></p>
                 </div>
             </div>
 
@@ -109,30 +109,35 @@ $contact_url      = home_url('/contact-us/');
 
                 <div id="governing-law" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
                     <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('7. Governing Law', 'dawp'); ?></h2>
-                    <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('This Privacy Policy and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the United States, where applicable to House of Shoes Online and its customers.', 'dawp'); ?></p>
+                    <p class="text-foreground-muted leading-relaxed"><?php esc_html_e('This Privacy Policy and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the United States, where applicable to Broge Shoes and its customers.', 'dawp'); ?></p>
                 </div>
             </div>
 
             <div id="contact-us" class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border">
-                <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('8. Contact Us', 'dawp'); ?></h2>
-                <p class="text-foreground-muted leading-relaxed mb-8"><?php esc_html_e('For privacy questions, data access requests, or questions regarding our information practices, please contact House of Shoes Online through our official support channels:', 'dawp'); ?></p>
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div class="bg-surface p-6 rounded-lg border border-border">
-                        <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Brand Name', 'dawp'); ?></h3>
-                        <p class="text-foreground-muted"><?php echo esc_html($store_name); ?></p>
+                <div class="grid lg:grid-cols-[minmax(0,1fr)_minmax(320px,420px)] gap-8 lg:gap-12 items-start">
+                    <div>
+                        <h2 class="font-heading text-3xl text-foreground font-semibold mb-6"><?php esc_html_e('8. Contact Us', 'dawp'); ?></h2>
+                        <p class="text-foreground-muted leading-relaxed mb-8"><?php esc_html_e('For privacy questions, data access requests, or questions regarding our information practices, please contact Broge Shoes through our official support channels.', 'dawp'); ?></p>
+                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-7 text-sm font-bold text-white transition hover:bg-accent-hover">
+                            <?php esc_html_e('Open Contact Page', 'dawp'); ?>
+                        </a>
                     </div>
-                    <div class="bg-surface p-6 rounded-lg border border-border">
-                        <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Customer Support Email', 'dawp'); ?></h3>
-                        <a href="mailto:<?php echo esc_attr($support_email); ?>" class="text-accent hover:underline font-medium"><?php echo esc_html($support_email); ?></a>
-                    </div>
-                    <div class="bg-surface p-6 rounded-lg border border-border">
-                        <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Physical Business Address', 'dawp'); ?></h3>
-                        <p class="text-foreground-muted"><?php echo esc_html($business_address); ?></p>
-                    </div>
-                    <div class="bg-surface p-6 rounded-lg border border-border sm:col-span-2">
-                        <h3 class="text-foreground font-semibold mb-2"><?php esc_html_e('Contact Page', 'dawp'); ?></h3>
-                        <a href="<?php echo esc_url($contact_url); ?>" class="text-accent hover:underline font-medium"><?php echo esc_html($contact_url); ?></a>
-                    </div>
+                    <dl class="bg-surface rounded-lg border border-border divide-y divide-border overflow-hidden">
+                        <div class="p-5">
+                            <dt class="text-sm font-semibold text-foreground"><?php esc_html_e('Brand Name', 'dawp'); ?></dt>
+                            <dd class="text-foreground-muted mt-1"><?php echo esc_html($store_name); ?></dd>
+                        </div>
+                        <div class="p-5">
+                            <dt class="text-sm font-semibold text-foreground"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
+                            <dd class="mt-1">
+                                <a href="mailto:<?php echo esc_attr($support_email); ?>" class="text-accent hover:underline font-medium break-words"><?php echo esc_html($support_email); ?></a>
+                            </dd>
+                        </div>
+                        <div class="p-5">
+                            <dt class="text-sm font-semibold text-foreground"><?php esc_html_e('Physical Business Address', 'dawp'); ?></dt>
+                            <dd class="text-foreground-muted mt-1"><?php echo esc_html($business_address); ?></dd>
+                        </div>
+                    </dl>
                 </div>
             </div>
         </div>

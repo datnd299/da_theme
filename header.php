@@ -26,31 +26,9 @@
             color: inherit;
             text-decoration: none;
         }
-        .hcs-topbar {
-            background: var(--hcs-ink);
-            color: rgba(247, 243, 236, .88);
-            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-        }
         .hcs-header-wrap {
             width: min(100% - 32px, 1180px);
             margin: 0 auto;
-        }
-        .hcs-topbar-inner {
-            min-height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 22px;
-            text-align: center;
-        }
-        .hcs-topbar-dot {
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            background: var(--hcs-sage);
-            display: inline-block;
         }
         #site-header {
             position: sticky;
@@ -399,15 +377,6 @@
             .hcs-mainbar {
                 min-height: 68px;
             }
-            .hcs-topbar-inner {
-                justify-content: flex-start;
-                overflow-x: auto;
-                white-space: nowrap;
-                scrollbar-width: none;
-            }
-            .hcs-topbar-inner::-webkit-scrollbar {
-                display: none;
-            }
         }
         @media (max-width: 520px) {
             .hcs-header-wrap {
@@ -448,21 +417,13 @@ $main_links = array(
     array('title' => __('About', 'dawp'), 'url' => home_url('/about-us/')),
     array('title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')),
 );
+
+$logo_url    = get_theme_file_uri('/assets/img/logo.png');
+$logo_src    = dawp_i0_image_url($logo_url, 210, 140);
+$logo_srcset = dawp_i0_srcset($logo_url, 1536, 1024, array(170, 210, 340, 420));
 ?>
 
 <div class="hcs-header-shell">
-    <div class="hcs-topbar">
-        <div class="hcs-header-wrap hcs-topbar-inner" aria-label="<?php esc_attr_e('Store highlights', 'dawp'); ?>">
-            <span><?php esc_html_e('Secure Checkout', 'dawp'); ?></span>
-            <span class="hcs-topbar-dot" aria-hidden="true"></span>
-            <span><?php esc_html_e('Tracking Included', 'dawp'); ?></span>
-            <span class="hcs-topbar-dot" aria-hidden="true"></span>
-            <span><?php esc_html_e('30-Day Returns', 'dawp'); ?></span>
-            <span class="hcs-topbar-dot" aria-hidden="true"></span>
-            <span><?php esc_html_e('Support Mon-Fri, 9 AM-5 PM PST', 'dawp'); ?></span>
-        </div>
-    </div>
-
     <header id="site-header" role="banner">
         <div class="hcs-header-wrap">
             <div class="hcs-mainbar">
@@ -481,7 +442,13 @@ $main_links = array(
 
                 <a class="hcs-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Handcraft Shoe home', 'dawp'); ?>">
                     <img class="hcs-brand-logo"
-                         src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo.png')); ?>"
+                         loading="eager"
+                         decoding="async"
+                         width="210"
+                         height="140"
+                         src="<?php echo esc_url($logo_src); ?>"
+                         srcset="<?php echo esc_attr($logo_srcset); ?>"
+                         sizes="(max-width: 520px) 170px, 210px"
                          alt="<?php esc_attr_e('Handcraft Shoe', 'dawp'); ?>">
                 </a>
 
@@ -576,7 +543,13 @@ $main_links = array(
         <div class="hcs-drawer-head">
             <a class="hcs-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Handcraft Shoe home', 'dawp'); ?>">
                 <img class="hcs-brand-logo"
-                     src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo.png')); ?>"
+                     loading="lazy"
+                     decoding="async"
+                     width="210"
+                     height="140"
+                     src="<?php echo esc_url($logo_src); ?>"
+                     srcset="<?php echo esc_attr($logo_srcset); ?>"
+                     sizes="170px"
                      alt="<?php esc_attr_e('Handcraft Shoe', 'dawp'); ?>">
             </a>
             <button id="hcs-drawer-close" class="hcs-icon-btn" type="button" aria-label="<?php esc_attr_e('Close menu', 'dawp'); ?>">

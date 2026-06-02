@@ -10,28 +10,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 $store_name     = 'Handcraft Shoe';
 $website_domain = 'handcraftshoe.com';
 $support_email  = 'support@handcraftshoe.com';
+$store_address  = dawp_get_store_address();
+$service_hours  = 'Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)';
 $contact_url    = home_url( '/contact-us/' );
 $privacy_url    = home_url( '/privacy-policy/' );
 $shipping_url   = home_url( '/shipping-policy/' );
 $returns_url    = home_url( '/refund-return-policy/' );
 
-$quick_facts = array(
-    array( 'label' => 'Store', 'value' => $store_name, 'note' => 'Handmade leather shoes, sandals, boots, and custom footwear.' ),
-    array( 'label' => 'Website', 'value' => $website_domain, 'note' => 'These terms apply to website use and purchases.' ),
-    array( 'label' => 'Support', 'value' => $support_email, 'note' => 'Contact us with order or policy questions.' ),
-    array( 'label' => 'Updated', 'value' => 'May 27, 2026', 'note' => 'Terms may be updated when our store changes.' ),
-);
-
-$nav_items = array(
-    'overview'            => 'Overview',
-    'store-terms'         => 'Store Terms',
-    'products-orders'     => 'Products & Orders',
-    'shipping-returns'    => 'Shipping & Returns',
-    'site-content'        => 'Site Content',
-    'prohibited-uses'     => 'Prohibited Uses',
-    'liability'           => 'Liability',
-    'contact-information' => 'Contact Information',
-);
 ?>
 
 <style>
@@ -83,44 +68,15 @@ $nav_items = array(
         line-height: 1.75;
     }
     .hcs-legal-main { padding: 54px 0 86px; }
-    .hcs-legal-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 32px; align-items: start; }
-    .hcs-legal-nav { position: sticky; top: 96px; display: grid; gap: 10px; }
-    .hcs-legal-nav a {
-        display: block;
-        padding: 14px 16px;
-        border: 1px solid rgba(23,33,43,.1);
-        border-radius: 16px;
-        background: #fff;
-        color: var(--hcs-ink);
-        font-size: 14px;
-        font-weight: 800;
-        box-shadow: 0 10px 24px rgba(23,33,43,.05);
-        text-decoration: none;
-        transition: border-color .2s ease, color .2s ease, transform .2s ease;
-    }
-    .hcs-legal-nav a:hover { border-color: var(--hcs-pine); color: var(--hcs-pine); transform: translateY(-1px); }
+    .hcs-legal-layout { display: grid; grid-template-columns: 1fr; align-items: start; }
     .hcs-legal-content { display: grid; gap: 22px; }
-    .hcs-legal-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-    .hcs-legal-fact,
     .hcs-legal-card,
     .hcs-legal-mini {
         border: 1px solid rgba(23,33,43,.1);
         background: #fff;
         box-shadow: 0 14px 34px rgba(23,33,43,.08);
     }
-    .hcs-legal-fact { padding: 22px; border-radius: 18px; }
-    .hcs-legal-label {
-        margin: 0 0 9px;
-        color: var(--hcs-pine);
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: .12em;
-        text-transform: uppercase;
-    }
-    .hcs-legal-fact strong { display: block; overflow-wrap: anywhere; color: var(--hcs-ink); font-size: 22px; line-height: 1.15; }
-    .hcs-legal-fact span,
     .hcs-legal-copy { color: var(--hcs-slate); line-height: 1.75; }
-    .hcs-legal-fact span { display: block; margin-top: 10px; font-size: 14px; }
     .hcs-legal-card { padding: 34px; border-radius: 24px; }
     .hcs-legal-card h2,
     .hcs-legal-mini h2,
@@ -196,13 +152,10 @@ $nav_items = array(
     .hcs-legal-copy a { color: var(--hcs-pine); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width: 1023px) {
         .hcs-legal-layout { grid-template-columns: 1fr; }
-        .hcs-legal-nav { display: none; }
-        .hcs-legal-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
         .hcs-legal-hero { padding: 64px 0 38px; }
         .hcs-legal-main { padding: 36px 0 62px; }
-        .hcs-legal-facts,
         .hcs-legal-grid,
         .hcs-legal-contact-grid { grid-template-columns: 1fr; }
         .hcs-legal-card,
@@ -213,12 +166,12 @@ $nav_items = array(
 <div class="hcs-legal">
     <section class="hcs-legal-hero">
         <div class="hcs-legal-wrap">
-            <span class="hcs-legal-eyebrow"><?php esc_html_e( 'Terms of Service', 'dawp' ); ?></span>
+            <span class="hcs-legal-eyebrow"><?php esc_html_e( 'Terms & Conditions', 'dawp' ); ?></span>
             <h1 class="hcs-legal-title"><?php esc_html_e( 'Terms for using Handcraft Shoe.', 'dawp' ); ?></h1>
             <p class="hcs-legal-lead">
                 <?php
                 printf(
-                    esc_html__( 'Please read these Terms of Service carefully before using %1$s or purchasing handmade leather footwear from %2$s.', 'dawp' ),
+                    esc_html__( 'Please read these Terms & Conditions carefully before using %1$s or purchasing handmade leather footwear from %2$s.', 'dawp' ),
                     esc_html( $website_domain ),
                     esc_html( $store_name )
                 );
@@ -229,157 +182,123 @@ $nav_items = array(
 
     <section class="hcs-legal-main">
         <div class="hcs-legal-wrap hcs-legal-layout">
-            <aside class="hcs-legal-nav" aria-label="<?php esc_attr_e( 'Terms of service sections', 'dawp' ); ?>">
-                <?php foreach ( $nav_items as $section_id => $label ) : ?>
-                    <a href="#<?php echo esc_attr( $section_id ); ?>"><?php echo esc_html( $label ); ?></a>
-                <?php endforeach; ?>
-            </aside>
-
             <div class="hcs-legal-content">
-                <div class="hcs-legal-facts">
-                    <?php foreach ( $quick_facts as $fact ) : ?>
-                        <div class="hcs-legal-fact">
-                            <p class="hcs-legal-label"><?php echo esc_html( $fact['label'] ); ?></p>
-                            <strong><?php echo esc_html( $fact['value'] ); ?></strong>
-                            <span><?php echo esc_html( $fact['note'] ); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
                 <div id="overview" class="hcs-legal-card">
-                    <h2><?php esc_html_e( '1. Overview', 'dawp' ); ?></h2>
-                    <p class="hcs-legal-copy"><?php echo esc_html( $store_name ); ?> operates <?php echo esc_html( $website_domain ); ?>. Throughout these Terms, "we," "us," and "our" refer to <?php echo esc_html( $store_name ); ?>.</p>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'By visiting our website, browsing products, creating an account, contacting support, or placing an order, you agree to these Terms of Service and to the policies referenced on this page.', 'dawp' ); ?></p>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'If you do not agree with these Terms, you should not use the website or purchase products from our store.', 'dawp' ); ?></p>
+                    <h2><?php esc_html_e( 'Terms & Conditions', 'dawp' ); ?></h2>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'Last updated: May 27, 2026', 'dawp' ); ?></p>
+                    <p class="hcs-legal-copy">
+                        <?php
+                        printf(
+                            esc_html__( 'Welcome to %1$s! These Terms & Conditions ("Terms") govern your access to and use of %2$s (the "Site"), including browsing our products, creating an account, interacting with our customer support, or purchasing standard and custom footwear from our online store.', 'dawp' ),
+                            esc_html( $store_name ),
+                            esc_html( $website_domain )
+                        );
+                        ?>
+                    </p>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'By visiting our Site or placing an order, you agree to be bound by these Terms and all policies referenced herein. If you do not agree with these Terms, you should not use the website or purchase products from our store.', 'dawp' ); ?></p>
                 </div>
 
                 <div id="store-terms" class="hcs-legal-card">
-                    <h2><?php esc_html_e( '2. Online Store Terms', 'dawp' ); ?></h2>
-                    <div class="hcs-legal-grid">
-                        <div class="hcs-legal-panel">
-                            <h3><?php esc_html_e( 'Eligibility', 'dawp' ); ?></h3>
-                            <p class="hcs-legal-copy"><?php esc_html_e( 'By using our store, you represent that you are at least the age of majority in your state or place of residence, or that you have permission from a parent or legal guardian.', 'dawp' ); ?></p>
-                        </div>
-                        <div class="hcs-legal-panel">
-                            <h3><?php esc_html_e( 'Lawful Use', 'dawp' ); ?></h3>
-                            <p class="hcs-legal-copy"><?php esc_html_e( 'You may not use our website, products, or services for any unlawful, unauthorized, abusive, fraudulent, or harmful purpose.', 'dawp' ); ?></p>
-                        </div>
-                    </div>
+                    <h2><?php esc_html_e( '1. Online Store Terms & Eligibility', 'dawp' ); ?></h2>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'By agreeing to these Terms, you represent that you are at least the age of majority in your state or country of residence, or that you have given us your consent to allow any of your minor dependents to use this Site.', 'dawp' ); ?></p>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'You are strictly prohibited from using our website, products, or services for any unlawful, unauthorized, abusive, or fraudulent purpose. You must not transmit any worms, viruses, or any code of a destructive nature.', 'dawp' ); ?></p>
                 </div>
 
-                <div id="products-orders" class="hcs-legal-card hcs-legal-dark">
-                    <h2><?php esc_html_e( '3. Products, Orders & Billing', 'dawp' ); ?></h2>
+                <div id="products-sizing" class="hcs-legal-card hcs-legal-dark">
+                    <h2><?php esc_html_e( '2. Products, Custom Footwear, and Sizing', 'dawp' ); ?></h2>
                     <div class="hcs-legal-grid">
                         <div class="hcs-legal-panel">
                             <h3><?php esc_html_e( 'Product Information', 'dawp' ); ?></h3>
-                            <p class="hcs-legal-copy"><?php esc_html_e( 'We work to present leather footwear product names, images, descriptions, sizes, colors, material notes, fit notes, care details, prices, and availability as accurately as possible.', 'dawp' ); ?></p>
-                            <ul class="hcs-legal-list">
-                                <li><?php esc_html_e( 'Natural leather character, color variation, texture, and finish may vary by item.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Screen settings may affect how colors appear online.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Material or handmade details should be reviewed on each product page before purchase.', 'dawp' ); ?></li>
-                            </ul>
+                            <p class="hcs-legal-copy"><?php esc_html_e( 'We work to present our leather footwear names, images, descriptions, sizes, colors, material notes, and care details as accurately as possible.', 'dawp' ); ?></p>
                         </div>
                         <div class="hcs-legal-panel">
-                            <h3><?php esc_html_e( 'Orders & Payment', 'dawp' ); ?></h3>
-                            <p class="hcs-legal-copy"><?php esc_html_e( 'You agree to provide current, complete, and accurate billing, shipping, contact, and account information for all purchases.', 'dawp' ); ?></p>
-                            <ul class="hcs-legal-list">
-                                <li><?php esc_html_e( 'We may refuse, limit, cancel, or review any order where fraud, abuse, pricing errors, inventory issues, or policy concerns are suspected.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'If we change or cancel an order, we may contact you using the email, phone, billing address, or shipping address provided at checkout.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Prices, promotions, product availability, and descriptions may change without notice.', 'dawp' ); ?></li>
-                            </ul>
+                            <h3><?php esc_html_e( 'Handmade & Leather Character', 'dawp' ); ?></h3>
+                            <p class="hcs-legal-copy"><?php esc_html_e( 'Because our products feature artisanal craftsmanship, natural leather characteristics, minor color variations, distinct textures, and finishes may vary slightly by individual item. Screen monitor settings may also affect how colors appear online.', 'dawp' ); ?></p>
                         </div>
                     </div>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'Custom, personalized, or modified leather footwear requires additional manufacturing and production time. Due to the bespoke nature of these products, custom items have return limitations unless they arrive defective, damaged, or incorrect. Customers are strictly responsible for reviewing our size guides, fit notes, and measurement instructions before finalized custom orders.', 'dawp' ); ?></p>
+                </div>
+
+                <div id="orders-billing" class="hcs-legal-card">
+                    <h2><?php esc_html_e( '3. Orders, Billing, and Secure Payment', 'dawp' ); ?></h2>
+                    <div class="hcs-legal-grid">
+                        <div class="hcs-legal-panel">
+                            <h3><?php esc_html_e( 'Information Accuracy', 'dawp' ); ?></h3>
+                            <p class="hcs-legal-copy"><?php esc_html_e( 'You agree to provide current, complete, and accurate billing, shipping, contact, and account information for all purchases made at our store.', 'dawp' ); ?></p>
+                        </div>
+                        <div class="hcs-legal-panel">
+                            <h3><?php esc_html_e( 'Order Limitations', 'dawp' ); ?></h3>
+                            <p class="hcs-legal-copy"><?php esc_html_e( 'We reserve the right to refuse, limit, or cancel any order where fraud, payment abuse, pricing errors, inventory stockouts, or policy violations are suspected. If we change or cancel an order, we will notify you via the email, billing address, or phone number provided at checkout.', 'dawp' ); ?></p>
+                        </div>
+                    </div>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'All prices displayed on our Site are in USD. Prices, promotions, and product availability are subject to change without notice. All applicable taxes and shipping charges are calculated dynamically and displayed clearly before final payment.', 'dawp' ); ?></p>
                 </div>
 
                 <div id="shipping-returns" class="hcs-legal-card">
-                    <h2><?php esc_html_e( '4. Shipping, Returns & Custom Footwear', 'dawp' ); ?></h2>
+                    <h2><?php esc_html_e( '4. Shipping, Returns, and Store Policies', 'dawp' ); ?></h2>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'Your purchases and transactions are directly bound by our dedicated store policies. Please review our specific guidelines via the active hyperlinks below:', 'dawp' ); ?></p>
                     <div class="hcs-legal-grid">
                         <div class="hcs-legal-panel">
-                            <h3><?php esc_html_e( 'Shipping', 'dawp' ); ?></h3>
-                            <p class="hcs-legal-copy"><?php esc_html_e( 'Shipping locations, order cutoff times, handling times, estimated delivery windows, carriers, tracking, and delivery issue procedures are explained in our Shipping Policy.', 'dawp' ); ?></p>
-                            <div class="hcs-legal-actions">
-                                <a class="hcs-legal-btn hcs-legal-btn-secondary" href="<?php echo esc_url( $shipping_url ); ?>"><?php esc_html_e( 'Shipping Policy', 'dawp' ); ?></a>
-                            </div>
+                            <h3><?php esc_html_e( 'Shipping Guidelines', 'dawp' ); ?></h3>
+                            <p class="hcs-legal-copy">
+                                <?php esc_html_e( 'Shipping locations, order cutoff times, handling times, delivery windows, and tracking details are explained in our full', 'dawp' ); ?>
+                                <a href="<?php echo esc_url( $shipping_url ); ?>"><?php esc_html_e( 'Shipping Policy', 'dawp' ); ?></a>.
+                            </p>
                         </div>
                         <div class="hcs-legal-panel">
-                            <h3><?php esc_html_e( 'Returns & Exchanges', 'dawp' ); ?></h3>
-                            <p class="hcs-legal-copy"><?php esc_html_e( 'Eligible returns, return costs, footwear condition requirements, refund timing, exchanges, and non-returnable items are explained in our Return & Refund Policy.', 'dawp' ); ?></p>
-                            <div class="hcs-legal-actions">
-                                <a class="hcs-legal-btn hcs-legal-btn-secondary" href="<?php echo esc_url( $returns_url ); ?>"><?php esc_html_e( 'Return & Refund Policy', 'dawp' ); ?></a>
-                            </div>
+                            <h3><?php esc_html_e( 'Returns Conditions', 'dawp' ); ?></h3>
+                            <p class="hcs-legal-copy">
+                                <?php esc_html_e( 'Eligible returns, footwear condition requirements (must be unworn, undamaged, free of outdoor creasing or sole marks), and refund timelines are explained in our', 'dawp' ); ?>
+                                <a href="<?php echo esc_url( $returns_url ); ?>"><?php esc_html_e( 'Return & Refund Policy', 'dawp' ); ?></a>.
+                            </p>
                         </div>
                     </div>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'Custom, personalized, made-to-order, or modified leather footwear may require additional production time and may have return limitations unless defective, damaged, incorrect, or required by applicable law. Please review product page details before ordering.', 'dawp' ); ?></p>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'Customers are responsible for reviewing size guides, fit notes, product details, customization notes, care instructions, and return conditions before purchase.', 'dawp' ); ?></p>
-                </div>
-
-                <div id="site-content" class="hcs-legal-card">
-                    <h2><?php esc_html_e( '5. Site Content, Accuracy & Third-Party Links', 'dawp' ); ?></h2>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'Information on our website is provided for general shopping and product reference. We may correct errors, inaccuracies, or omissions related to product descriptions, pricing, promotions, shipping charges, transit times, or availability at any time without prior notice.', 'dawp' ); ?></p>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'Our website may include links to third-party websites or tools. We are not responsible for the content, policies, services, or practices of third-party sites. Review third-party terms and privacy policies before using them.', 'dawp' ); ?></p>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'All website content, including text, images, layout, graphics, and branding, is owned by or licensed to us and may not be copied, sold, reproduced, or exploited without permission.', 'dawp' ); ?></p>
-                </div>
-
-                <div class="hcs-legal-card">
-                    <h2><?php esc_html_e( '6. User Comments, Feedback & Submissions', 'dawp' ); ?></h2>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'If you send reviews, comments, photos, ideas, suggestions, customization notes, or other submissions, you agree that we may use them to provide service, respond to your request, improve products, and operate our store.', 'dawp' ); ?></p>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'You agree that submissions must not violate any third-party rights, include unlawful material, contain malware, or be misleading, abusive, obscene, defamatory, or otherwise harmful.', 'dawp' ); ?></p>
-                </div>
-
-                <div class="hcs-legal-card">
-                    <h2><?php esc_html_e( '7. Personal Information', 'dawp' ); ?></h2>
-                    <p class="hcs-legal-copy">
-                        <?php esc_html_e( 'Your submission of personal information through the website is governed by our', 'dawp' ); ?>
-                        <a href="<?php echo esc_url( $privacy_url ); ?>"><?php esc_html_e( 'Privacy Policy', 'dawp' ); ?></a>.
-                    </p>
                 </div>
 
                 <div id="prohibited-uses" class="hcs-legal-card">
-                    <h2><?php esc_html_e( '8. Prohibited Uses', 'dawp' ); ?></h2>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'You are prohibited from using the website, store, or content for any unlawful or harmful purpose, including:', 'dawp' ); ?></p>
+                    <h2><?php esc_html_e( '5. Prohibited Uses', 'dawp' ); ?></h2>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'You are strictly prohibited from using the website, store, or its content for:', 'dawp' ); ?></p>
                     <ul class="hcs-legal-list">
-                        <li><?php esc_html_e( 'Violating laws, regulations, intellectual property rights, privacy rights, or security requirements.', 'dawp' ); ?></li>
-                        <li><?php esc_html_e( 'Submitting false, misleading, abusive, harassing, discriminatory, or harmful content.', 'dawp' ); ?></li>
-                        <li><?php esc_html_e( 'Uploading viruses, malware, automated scraping tools, or other code that could damage the website.', 'dawp' ); ?></li>
-                        <li><?php esc_html_e( 'Attempting unauthorized access to accounts, systems, payment flows, or customer information.', 'dawp' ); ?></li>
-                        <li><?php esc_html_e( 'Using our website or products for fraud, resale abuse, counterfeit activity, or other unauthorized commercial purposes.', 'dawp' ); ?></li>
+                        <li><?php esc_html_e( 'Violating any international, federal, or state laws, regulations, or intellectual property rights.', 'dawp' ); ?></li>
+                        <li><?php esc_html_e( 'Submitting false, misleading, fraudulent, or deceptive billing and identity information.', 'dawp' ); ?></li>
+                        <li><?php esc_html_e( 'Uploading viruses, malware, or utilizing automated scraping tools (bots, spiders) to harvest store content without permission.', 'dawp' ); ?></li>
+                        <li><?php esc_html_e( 'Attempting unauthorized access to accounts, payment gateways, or customer database systems.', 'dawp' ); ?></li>
                     </ul>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'We may suspend or terminate access for any prohibited use or violation of these Terms.', 'dawp' ); ?></p>
+                </div>
+
+                <div id="intellectual" class="hcs-legal-card">
+                    <h2><?php esc_html_e( '6. Intellectual Property & Site Content', 'dawp' ); ?></h2>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'All website content, including text, high-resolution product photography, graphic designs, website layouts, logos, icons, and software, is owned by or licensed to Handcraft Shoe and is protected by international copyright and intellectual property laws. You may not reproduce, copy, or exploit any content without our express written permission.', 'dawp' ); ?></p>
                 </div>
 
                 <div id="liability" class="hcs-legal-card hcs-legal-dark">
-                    <h2><?php esc_html_e( '9. Disclaimers & Limitation of Liability', 'dawp' ); ?></h2>
-                    <div class="hcs-legal-grid">
-                        <div class="hcs-legal-panel">
-                            <h3><?php esc_html_e( 'Service Availability', 'dawp' ); ?></h3>
-                            <p class="hcs-legal-copy"><?php esc_html_e( 'We do not guarantee that the website or service will be uninterrupted, timely, secure, or error-free. We may modify, suspend, or discontinue any part of the website or service at any time.', 'dawp' ); ?></p>
-                        </div>
-                        <div class="hcs-legal-panel">
-                            <h3><?php esc_html_e( 'Liability', 'dawp' ); ?></h3>
-                            <p class="hcs-legal-copy"><?php esc_html_e( 'To the fullest extent permitted by law, Handcraft Shoe and its service providers will not be liable for indirect, incidental, punitive, special, consequential, or similar damages arising from your use of the website, service, or products.', 'dawp' ); ?></p>
-                        </div>
-                    </div>
+                    <h2><?php esc_html_e( '7. Limitation of Liability', 'dawp' ); ?></h2>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'We do not guarantee that our website service will be completely uninterrupted, timely, secure, or error-free. To the fullest extent permitted by law, Handcraft Shoe shall not be liable for any indirect, incidental, punitive, special, or consequential damages arising from website usage, shipping carrier delays, or product fitment issues.', 'dawp' ); ?></p>
                 </div>
 
-                <div class="hcs-legal-card">
-                    <h2><?php esc_html_e( '10. Indemnification, Severability & Termination', 'dawp' ); ?></h2>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'You agree to indemnify and hold harmless Handcraft Shoe, its service providers, suppliers, and partners from claims, demands, losses, liabilities, or expenses arising from your breach of these Terms or violation of any law or third-party right.', 'dawp' ); ?></p>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'If any part of these Terms is found unenforceable, the remaining provisions will remain in effect. These Terms remain effective unless terminated by you or us. Obligations and liabilities incurred before termination will survive termination where appropriate.', 'dawp' ); ?></p>
-                </div>
-
-                <div class="hcs-legal-card">
-                    <h2><?php esc_html_e( '11. Governing Law & Changes To Terms', 'dawp' ); ?></h2>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'These Terms and any separate agreements for services or purchases are governed by applicable United States law, without regard to conflict of law principles, unless another law is required by your location.', 'dawp' ); ?></p>
-                    <p class="hcs-legal-copy"><?php esc_html_e( 'We may update, change, or replace any part of these Terms by posting updates on this page. Your continued use of the website after changes are posted means you accept the updated Terms.', 'dawp' ); ?></p>
+                <div id="governing-law" class="hcs-legal-card">
+                    <h2><?php esc_html_e( '8. Governing Law', 'dawp' ); ?></h2>
+                    <p class="hcs-legal-copy"><?php esc_html_e( 'These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the United States.', 'dawp' ); ?></p>
                 </div>
 
                 <div id="contact-information" class="hcs-legal-contact">
                     <h2 class="hcs-legal-title" style="font-size:clamp(30px,3vw,42px);"><?php esc_html_e( 'Contact Information', 'dawp' ); ?></h2>
+                    <p class="hcs-legal-copy">
+                        <?php
+                        printf(
+                            esc_html__( 'If you have questions, concerns, or require clarification regarding these Terms & Conditions, please contact %s directly through our official channels:', 'dawp' ),
+                            esc_html( $store_name )
+                        );
+                        ?>
+                    </p>
                     <dl class="hcs-legal-contact-grid">
                         <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Store Name', 'dawp' ); ?></dt><dd><?php echo esc_html( $store_name ); ?></dd></div>
+                        <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Customer Support Email', 'dawp' ); ?></dt><dd><a href="mailto:<?php echo esc_attr( $support_email ); ?>"><?php echo esc_html( $support_email ); ?></a></dd></div>
+                        <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Physical Business Address', 'dawp' ); ?></dt><dd><?php echo esc_html( $store_address ); ?></dd></div>
+                        <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Service Hours', 'dawp' ); ?></dt><dd><?php echo esc_html( $service_hours ); ?></dd></div>
+                        <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Contact Page', 'dawp' ); ?></dt><dd><a href="<?php echo esc_url( $contact_url ); ?>"><?php esc_html_e( 'Contact Us', 'dawp' ); ?></a></dd></div>
+                        <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Privacy Policy', 'dawp' ); ?></dt><dd><a href="<?php echo esc_url( $privacy_url ); ?>"><?php esc_html_e( 'Privacy Policy', 'dawp' ); ?></a></dd></div>
                         <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Website', 'dawp' ); ?></dt><dd><?php echo esc_html( $website_domain ); ?></dd></div>
-                        <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Email', 'dawp' ); ?></dt><dd><a href="mailto:<?php echo esc_attr( $support_email ); ?>"><?php echo esc_html( $support_email ); ?></a></dd></div>
-                        <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Service Hours', 'dawp' ); ?></dt><dd><?php esc_html_e( 'Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp' ); ?></dd></div>
                     </dl>
                     <div class="hcs-legal-actions">
                         <a class="hcs-legal-btn hcs-legal-btn-primary" href="<?php echo esc_url( $contact_url ); ?>"><?php esc_html_e( 'Contact Support', 'dawp' ); ?></a>

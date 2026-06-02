@@ -7,8 +7,15 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$about_hero_image = get_template_directory_uri() . '/assets/img/about-hero-workshop.png';
-$about_image      = get_template_directory_uri() . '/assets/img/handcraft-footwear-home.png';
+$about_hero_source = get_template_directory_uri() . '/assets/img/about-hero-workshop.png';
+$about_hero_image  = dawp_i0_image_url($about_hero_source, 1774, 887);
+$about_hero_tablet = dawp_i0_image_url($about_hero_source, 1180, 590);
+$about_hero_mobile = dawp_i0_image_url($about_hero_source, 760, 380);
+
+$about_image_source = get_template_directory_uri() . '/assets/img/handcraft-footwear-home.png';
+$about_image        = dawp_i0_image_url($about_image_source, 900, 600);
+$about_image_tablet = dawp_i0_image_url($about_image_source, 760, 507);
+$about_image_mobile = dawp_i0_image_url($about_image_source, 520, 347);
 $store_name    = 'Handcraft Shoe';
 $support_email = 'support@handcraftshoe.com';
 
@@ -56,6 +63,8 @@ $categories = array(
 
 <style>
     .hcs-about {
+        --hcs-about-hero-image: var(--hcs-about-hero-image-desktop);
+        --hcs-about-image: var(--hcs-about-image-desktop);
         --hcs-ink: #17212B;
         --hcs-pine: #2F4A43;
         --hcs-pine-deep: #243A35;
@@ -227,6 +236,7 @@ $categories = array(
         .hcs-about-split,
         .hcs-about-trust,
         .hcs-about-contact-grid { grid-template-columns: 1fr; }
+        .hcs-about { --hcs-about-hero-image: url('<?php echo esc_url( $about_hero_tablet ); ?>'); --hcs-about-image: url('<?php echo esc_url( $about_image_tablet ); ?>'); }
         .hcs-about-values,
         .hcs-about-categories { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .hcs-about-image { aspect-ratio: 3 / 2; }
@@ -236,6 +246,7 @@ $categories = array(
             min-height: 560px;
             background-position: 72% center;
         }
+        .hcs-about { --hcs-about-hero-image: url('<?php echo esc_url( $about_hero_mobile ); ?>'); --hcs-about-image: url('<?php echo esc_url( $about_image_mobile ); ?>'); }
         .hcs-about-hero-content { padding: 74px 0 46px; }
         .hcs-about-section { padding: 62px 0; }
         .hcs-about-head { display: block; }
@@ -256,7 +267,7 @@ $categories = array(
     }
 </style>
 
-<div class="hcs-about" style="--hcs-about-hero-image: url('<?php echo esc_url( $about_hero_image ); ?>'); --hcs-about-image: url('<?php echo esc_url( $about_image ); ?>');">
+<div class="hcs-about" style="--hcs-about-hero-image-desktop: url('<?php echo esc_url( $about_hero_image ); ?>'); --hcs-about-image-desktop: url('<?php echo esc_url( $about_image ); ?>');">
     <section class="hcs-about-hero" aria-label="<?php esc_attr_e( 'About Handcraft Shoe', 'dawp' ); ?>">
         <div class="hcs-about-wrap">
             <div class="hcs-about-hero-content">

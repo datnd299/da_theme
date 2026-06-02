@@ -18,13 +18,6 @@ $privacy_url    = home_url( '/privacy-policy/' );
 $track_url      = home_url( '/track-order/' );
 $shop_url       = home_url( '/shop/' );
 
-$quick_facts = array(
-    array( 'label' => 'Shipping', 'value' => '6-9 Business Days', 'note' => 'Estimated total delivery after order processing and transit.' ),
-    array( 'label' => 'Returns', 'value' => '30 Days', 'note' => 'Eligible unworn footwear may be returned from delivery date.' ),
-    array( 'label' => 'Support', 'value' => 'Mon-Fri', 'note' => '9:00 AM - 5:00 PM PST, Los Angeles.' ),
-    array( 'label' => 'Tracking', 'value' => 'Included', 'note' => 'Tracking details are emailed after the carrier receives your package.' ),
-);
-
 $faq_groups = array(
     'orders-payments' => array(
         'title' => 'Orders & Payments',
@@ -38,12 +31,16 @@ $faq_groups = array(
                 ),
             ),
             array(
-                'question' => 'Can I cancel or change my order?',
-                'answer'   => 'You may request a cancellation within 9 hours after placing the order, as long as the order has not been processed or shipped. If you need to change shipping details, size, color, or product options, contact support as soon as possible.',
+                'question' => 'Can I change my order or shipping address?',
+                'answer'   => 'If you notice an incorrect shipping address or order detail, contact support as soon as possible. We will try to help before fulfillment begins, but we cannot guarantee changes after an order has entered processing or shipped.',
             ),
             array(
                 'question' => 'Why was my order reviewed, changed, or canceled?',
-                'answer'   => 'Orders may be reviewed, limited, changed, or canceled when we detect payment issues, suspected fraud, inventory problems, pricing errors, shipping restrictions, incomplete information, or product availability changes.',
+                'answer'   => 'Orders may be reviewed, limited, changed, or canceled when fraud, payment abuse, pricing errors, inventory stockouts, shipping restrictions, incomplete information, or policy violations are suspected.',
+            ),
+            array(
+                'question' => 'Are payments secure?',
+                'answer'   => 'Yes. Checkout uses SSL encryption, and payments are handled by verified third-party payment providers that follow PCI-DSS standards. We do not store or have access to your full credit card details on our servers.',
             ),
         ),
     ),
@@ -57,11 +54,15 @@ $faq_groups = array(
             ),
             array(
                 'question' => 'How long does shipping take?',
-                'answer'   => 'Orders have a 5:00 PM PST cutoff. Handling time is usually 1-2 business days, Monday to Friday, excluding holidays. Transit time is usually 5-7 business days after processing and carrier pickup, so estimated delivery is usually 6-9 business days.',
+                'answer'   => 'Orders have a 5:00 PM PST cutoff. Handling time is usually 1-3 business days, Monday to Friday, excluding standard U.S. public holidays. Transit time is usually 5-7 business days, so estimated delivery is usually 6-10 business days from the purchase date.',
             ),
             array(
                 'question' => 'How much does shipping cost?',
-                'answer'   => 'Shipping costs, available methods, and any applicable fees are shown at checkout before payment is completed. Some products may show special shipping rules on the product page or at checkout.',
+                'answer'   => 'Standard U.S. shipping is free for all orders nationwide with no minimum purchase requirement. If expedited or assisted shipping is available for your destination, the exact cost will be shown clearly at checkout before payment.',
+            ),
+            array(
+                'question' => 'Which carriers do you use?',
+                'answer'   => 'Orders may ship with USPS, UPS, FedEx, or DHL. The final carrier is selected when your package is labeled and prepared for shipment.',
             ),
             array(
                 'question' => 'How do I track my package?',
@@ -88,8 +89,16 @@ $faq_groups = array(
             ),
             array(
                 'question' => 'How do I start a return or exchange?',
-                'answer'   => 'Contact support before sending anything back. Include your order number, email used at checkout, item details, reason for return, and photos if the item is damaged, defective, incorrect, or missing parts. Returns sent without authorization may not be accepted.',
+                'answer'   => 'Contact support before sending anything back. Include your order number, email used at checkout, item details, reason for return, and photos or videos if the item is damaged, defective, incorrect, or missing parts. Unauthorized returns cannot be tracked or processed.',
                 'link'     => array( 'url' => $returns_url, 'label' => 'Read Return Policy' ),
+            ),
+            array(
+                'question' => 'Do you offer direct exchanges?',
+                'answer'   => 'No. We do not process direct one-for-one exchanges. To get a different size, color, or model, return the eligible original item for a refund and place a new order on the website.',
+            ),
+            array(
+                'question' => 'When will I receive my refund?',
+                'answer'   => 'After your return reaches our returns center, we inspect it within 1-2 business days. If approved, the refund is issued to your original payment method within 7 business days. If you have not received it after 15 business days of approval, contact your bank or card provider first, then contact us.',
             ),
         ),
     ),
@@ -107,7 +116,7 @@ $faq_groups = array(
             ),
             array(
                 'question' => 'Can custom leather footwear be returned?',
-                'answer'   => 'Custom, personalized, made-to-order, or modified footwear may have return limitations unless defective, damaged, incorrect, or required by applicable law. Please review customization notes and return conditions before placing a custom order.',
+                'answer'   => 'Personalized, engraved, resized, or custom-made leather footwear is final sale and non-returnable unless it arrives defective, damaged, incorrect, or return rights are required by applicable law. Please review customization notes and measurements before placing a custom order.',
             ),
             array(
                 'question' => 'How should I care for leather footwear?',
@@ -130,6 +139,10 @@ $faq_groups = array(
             array(
                 'question' => 'Where can I read the full store policies?',
                 'answer'   => 'You can review the Shipping Policy, Return & Refund Policy, Privacy Policy, and Terms of Service for full details about shopping with Handcraft Shoe.',
+            ),
+            array(
+                'question' => 'How is my personal information used?',
+                'answer'   => 'We use order, custom footwear, device, and support information to process payments, prepare and ship orders, support returns and refunds, prevent fraud, maintain website functionality, and meet legal, tax, and accounting obligations. We do not sell, rent, or trade your personal information for third-party commercial marketing.',
             ),
         ),
     ),
@@ -185,45 +198,22 @@ $faq_groups = array(
         font-size: 18px;
         line-height: 1.75;
     }
-    .hcs-faq-main { padding: 54px 0 86px; }
-    .hcs-faq-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 32px; align-items: start; }
-    .hcs-faq-nav { position: sticky; top: 96px; display: grid; gap: 10px; }
-    .hcs-faq-nav a {
-        display: block;
-        padding: 14px 16px;
-        border: 1px solid rgba(23,33,43,.1);
-        border-radius: 16px;
-        background: #fff;
-        color: var(--hcs-ink);
+    .hcs-faq-updated {
+        margin: 18px 0 0;
+        color: rgba(247,243,236,.86);
         font-size: 14px;
         font-weight: 800;
-        box-shadow: 0 10px 24px rgba(23,33,43,.05);
-        text-decoration: none;
-        transition: border-color .2s ease, color .2s ease, transform .2s ease;
     }
-    .hcs-faq-nav a:hover { border-color: var(--hcs-pine); color: var(--hcs-pine); transform: translateY(-1px); }
+    .hcs-faq-main { padding: 54px 0 86px; }
+    .hcs-faq-layout { display: grid; grid-template-columns: 1fr; align-items: start; }
     .hcs-faq-content { display: grid; gap: 22px; }
-    .hcs-faq-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-    .hcs-faq-fact,
     .hcs-faq-card,
     .hcs-faq-contact {
         border: 1px solid rgba(23,33,43,.1);
         background: #fff;
         box-shadow: 0 14px 34px rgba(23,33,43,.08);
     }
-    .hcs-faq-fact { padding: 22px; border-radius: 18px; }
-    .hcs-faq-label {
-        margin: 0 0 9px;
-        color: var(--hcs-pine);
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: .12em;
-        text-transform: uppercase;
-    }
-    .hcs-faq-fact strong { display: block; color: var(--hcs-ink); font-size: 22px; line-height: 1.15; }
-    .hcs-faq-fact span,
     .hcs-faq-copy { color: var(--hcs-slate); line-height: 1.75; }
-    .hcs-faq-fact span { display: block; margin-top: 10px; font-size: 14px; }
     .hcs-faq-card { padding: 34px; border-radius: 24px; }
     .hcs-faq-card-head {
         display: grid;
@@ -337,25 +327,12 @@ $faq_groups = array(
     .hcs-faq-btn-primary:hover { background: var(--hcs-pine-deep); border-color: var(--hcs-pine-deep); color: #fff; }
     .hcs-faq-btn-secondary { background: #fff; border: 1px solid var(--hcs-pine); color: var(--hcs-pine); }
     .hcs-faq-btn-secondary:hover { background: var(--hcs-ivory); color: var(--hcs-pine); }
-    .hcs-faq-policy-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px 22px;
-        justify-content: center;
-        padding-top: 22px;
-        border-top: 1px solid rgba(23,33,43,.1);
-    }
-    .hcs-faq-policy-links a { color: var(--hcs-slate); font-size: 14px; font-weight: 800; text-decoration: none; }
-    .hcs-faq-policy-links a:hover { color: var(--hcs-pine); }
     @media (max-width: 1023px) {
         .hcs-faq-layout { grid-template-columns: 1fr; }
-        .hcs-faq-nav { display: none; }
-        .hcs-faq-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
         .hcs-faq-hero { padding: 64px 0 38px; }
         .hcs-faq-main { padding: 36px 0 62px; }
-        .hcs-faq-facts,
         .hcs-faq-contact-grid { grid-template-columns: 1fr; }
         .hcs-faq-card,
         .hcs-faq-contact { padding: 24px; }
@@ -378,29 +355,13 @@ $faq_groups = array(
                 );
                 ?>
             </p>
+            <p class="hcs-faq-updated"><?php esc_html_e( 'Last updated: May 27, 2026', 'dawp' ); ?></p>
         </div>
     </section>
 
     <section class="hcs-faq-main">
         <div class="hcs-faq-wrap hcs-faq-layout">
-            <aside class="hcs-faq-nav" aria-label="<?php esc_attr_e( 'FAQ sections', 'dawp' ); ?>">
-                <?php foreach ( $faq_groups as $section_id => $group ) : ?>
-                    <a href="#<?php echo esc_attr( $section_id ); ?>"><?php echo esc_html( $group['title'] ); ?></a>
-                <?php endforeach; ?>
-                <a href="#contact-information"><?php esc_html_e( 'Contact Information', 'dawp' ); ?></a>
-            </aside>
-
             <div class="hcs-faq-content">
-                <div class="hcs-faq-facts">
-                    <?php foreach ( $quick_facts as $fact ) : ?>
-                        <div class="hcs-faq-fact">
-                            <p class="hcs-faq-label"><?php echo esc_html( $fact['label'] ); ?></p>
-                            <strong><?php echo esc_html( $fact['value'] ); ?></strong>
-                            <span><?php echo esc_html( $fact['note'] ); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
                 <?php foreach ( $faq_groups as $section_id => $group ) : ?>
                     <div id="<?php echo esc_attr( $section_id ); ?>" class="hcs-faq-card <?php echo 'returns-exchanges' === $section_id ? 'hcs-faq-feature' : ''; ?>">
                         <div class="hcs-faq-card-head">
@@ -409,7 +370,7 @@ $faq_groups = array(
                             </span>
                             <div>
                                 <h2><?php echo esc_html( $group['title'] ); ?></h2>
-                                <p class="hcs-faq-copy"><?php esc_html_e( 'Tap a question to view the answer.', 'dawp' ); ?></p>
+                                <p class="hcs-faq-copy"><?php esc_html_e( 'Current answers aligned with our store policies.', 'dawp' ); ?></p>
                             </div>
                         </div>
 
@@ -457,12 +418,6 @@ $faq_groups = array(
                     </div>
                 </div>
 
-                <nav class="hcs-faq-policy-links" aria-label="<?php esc_attr_e( 'Store policies', 'dawp' ); ?>">
-                    <a href="<?php echo esc_url( $shipping_url ); ?>"><?php esc_html_e( 'Shipping Policy', 'dawp' ); ?></a>
-                    <a href="<?php echo esc_url( $returns_url ); ?>"><?php esc_html_e( 'Return & Refund Policy', 'dawp' ); ?></a>
-                    <a href="<?php echo esc_url( $terms_url ); ?>"><?php esc_html_e( 'Terms of Service', 'dawp' ); ?></a>
-                    <a href="<?php echo esc_url( $privacy_url ); ?>"><?php esc_html_e( 'Privacy Policy', 'dawp' ); ?></a>
-                </nav>
             </div>
         </div>
     </section>

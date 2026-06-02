@@ -10,418 +10,484 @@ if ( ! defined( 'ABSPATH' ) ) {
 $store_name     = 'Handcraft Shoe';
 $website_domain = 'handcraftshoe.com';
 $support_email  = 'support@handcraftshoe.com';
-$track_url      = home_url( '/track-order/' );
+$store_address  = dawp_get_store_address();
 $contact_url    = home_url( '/contact-us/' );
-$faq_url        = home_url( '/faq/' );
+$track_url      = home_url( '/track-order/' );
+$returns_url    = home_url( '/refund-return-policy/' );
 
-$quick_facts = array(
-    array( 'label' => 'Order Cutoff', 'value' => '5:00 PM', 'note' => 'GMT-08:00 Pacific Standard Time, Los Angeles' ),
-    array( 'label' => 'Handling Time', 'value' => '1-2 Business Days', 'note' => 'Monday to Friday, excluding holidays.' ),
-    array( 'label' => 'Transit Time', 'value' => '5-7 Business Days', 'note' => 'After processing and carrier pickup.' ),
-    array( 'label' => 'Estimated Delivery', 'value' => '6-9 Business Days', 'note' => 'Some handmade or custom items may take longer.' ),
+$timeline_items = array(
+    array(
+        'title' => 'Order Cutoff Time',
+        'text'  => '5:00 PM (GMT-08:00) Pacific Standard Time.',
+    ),
+    array(
+        'title' => 'Order Handling Time',
+        'text'  => '1-3 business days. Orders placed after cutoff begin processing the following business day.',
+    ),
+    array(
+        'title' => 'Transit Time',
+        'text'  => '5-7 business days, Monday to Friday.',
+    ),
+    array(
+        'title' => 'Estimated Delivery Time',
+        'text'  => '6-10 business days total from the date of purchase.',
+    ),
 );
 
-$nav_items = array(
-    'shipping-locations'  => 'Shipping Locations',
-    'order-processing'    => 'Order Processing',
-    'delivery-times'      => 'Delivery Times',
-    'carrier-services'    => 'Carriers & Costs',
-    'tracking-packages'   => 'Tracking',
-    'delivery-issues'     => 'Delivery Issues',
-    'contact-information' => 'Contact Information',
-);
+$carriers = array( 'USPS', 'UPS', 'FedEx', 'DHL' );
 ?>
 
 <style>
-    .hcs-policy {
-        --hcs-ink: #17212B;
-        --hcs-pine: #2F4A43;
-        --hcs-pine-deep: #243A35;
-        --hcs-sage: #A7B7A5;
-        --hcs-fog: #E7E8E3;
-        --hcs-ivory: #F7F3EC;
-        --hcs-charcoal: #202326;
-        --hcs-slate: #6E7472;
-        background: var(--hcs-ivory);
-        color: var(--hcs-charcoal);
+    .hcs-ship {
+        --ship-ink: #302039;
+        --ship-muted: #6d6073;
+        --ship-line: #eadde7;
+        --ship-bg: #f6f5f7;
+        --ship-soft: #fff8ea;
+        --ship-accent: #2f2039;
+        --ship-gold: #d3a844;
+        background: var(--ship-bg);
+        color: var(--ship-muted);
         font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 0 0 64px;
     }
-    .hcs-policy-wrap { width: min(100% - 32px, 1180px); margin: 0 auto; }
-    .hcs-policy-hero {
-        padding: 82px 0 48px;
-        background:
-            linear-gradient(135deg, rgba(23,33,43,.92), rgba(47,74,67,.9)),
-            var(--hcs-ivory);
-        color: #fff;
+    .hcs-ship-wrap {
+        width: min(100% - 32px, 1160px);
+        margin: 0 auto;
     }
-    .hcs-policy-eyebrow {
+    .hcs-ship-hero {
+        padding: 72px 0 28px;
+    }
+    .hcs-ship-hero-card,
+    .hcs-ship-card {
+        border: 1px solid var(--ship-line);
+        border-radius: 22px;
+        background: rgba(255, 255, 255, .92);
+        box-shadow: 0 16px 40px rgba(47, 32, 57, .05);
+    }
+    .hcs-ship-hero-card {
+        padding: clamp(34px, 5vw, 58px);
+    }
+    .hcs-ship-eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        color: rgba(247,243,236,.86);
+        color: var(--ship-accent);
         font-size: 12px;
         font-weight: 800;
         letter-spacing: .12em;
         text-transform: uppercase;
     }
-    .hcs-policy-eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--hcs-sage); }
-    .hcs-policy-title {
-        max-width: 850px;
-        margin: 14px 0 0;
-        color: inherit;
+    .hcs-ship-eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 1px;
+        background: var(--ship-gold);
+    }
+    .hcs-ship-title,
+    .hcs-ship-card h2 {
+        margin: 0;
+        color: var(--ship-ink);
         font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(42px, 6vw, 72px);
         font-weight: 600;
-        line-height: 1.05;
+        line-height: 1.08;
         letter-spacing: 0;
     }
-    .hcs-policy-lead {
-        max-width: 760px;
-        margin-top: 22px;
-        color: rgba(247,243,236,.78);
-        font-size: 18px;
+    .hcs-ship-title {
+        max-width: 860px;
+        margin-top: 16px;
+        font-size: clamp(42px, 6vw, 76px);
+    }
+    .hcs-ship-lead {
+        max-width: 880px;
+        margin: 22px 0 0;
+        color: var(--ship-muted);
+        font-size: 17px;
+        line-height: 1.8;
+    }
+    .hcs-ship-meta {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 28px;
+    }
+    .hcs-ship-meta-item,
+    .hcs-ship-panel,
+    .hcs-ship-contact-item {
+        border: 1px solid var(--ship-line);
+        border-radius: 16px;
+        background: #fff;
+    }
+    .hcs-ship-meta-item {
+        padding: 18px;
+    }
+    .hcs-ship-label {
+        display: block;
+        margin-bottom: 9px;
+        color: var(--ship-ink);
+        font-size: 13px;
+        font-weight: 800;
+    }
+    .hcs-ship-meta-item span,
+    .hcs-ship-panel p,
+    .hcs-ship-copy {
+        color: var(--ship-muted);
+        line-height: 1.72;
+    }
+    .hcs-ship-main {
+        display: grid;
+        gap: 20px;
+    }
+    .hcs-ship-card {
+        padding: clamp(28px, 4vw, 40px);
+    }
+    .hcs-ship-card h2 {
+        font-size: clamp(32px, 4vw, 44px);
+    }
+    .hcs-ship-card p {
+        margin: 14px 0 0;
+    }
+    .hcs-ship-note {
+        margin-top: 8px;
+        padding: 22px 24px;
+        border-left: 4px solid var(--ship-gold);
+        border-radius: 0 14px 14px 0;
+        background: var(--ship-soft);
+        color: var(--ship-muted);
         line-height: 1.75;
     }
-    .hcs-policy-main { padding: 54px 0 86px; }
-    .hcs-policy-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 32px; align-items: start; }
-    .hcs-policy-nav {
-        position: sticky;
-        top: 96px;
+    .hcs-ship-grid {
         display: grid;
-        gap: 10px;
-    }
-    .hcs-policy-nav a {
-        display: block;
-        padding: 14px 16px;
-        border: 1px solid rgba(23,33,43,.1);
-        border-radius: 16px;
-        background: #fff;
-        color: var(--hcs-ink);
-        font-size: 14px;
-        font-weight: 800;
-        box-shadow: 0 10px 24px rgba(23,33,43,.05);
-        transition: border-color .2s ease, color .2s ease, transform .2s ease;
-    }
-    .hcs-policy-nav a:hover { border-color: var(--hcs-pine); color: var(--hcs-pine); transform: translateY(-1px); }
-    .hcs-policy-content { display: grid; gap: 22px; }
-    .hcs-policy-facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-    .hcs-policy-fact,
-    .hcs-policy-card,
-    .hcs-policy-mini {
-        border: 1px solid rgba(23,33,43,.1);
-        background: #fff;
-        box-shadow: 0 14px 34px rgba(23,33,43,.08);
-    }
-    .hcs-policy-fact { padding: 22px; border-radius: 18px; }
-    .hcs-policy-label {
-        margin: 0 0 9px;
-        color: var(--hcs-pine);
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: .12em;
-        text-transform: uppercase;
-    }
-    .hcs-policy-fact strong { display: block; color: var(--hcs-ink); font-size: 24px; line-height: 1.15; }
-    .hcs-policy-fact span,
-    .hcs-policy-copy { color: var(--hcs-slate); line-height: 1.75; }
-    .hcs-policy-fact span { display: block; margin-top: 10px; font-size: 14px; }
-    .hcs-policy-card { padding: 34px; border-radius: 24px; }
-    .hcs-policy-card h2,
-    .hcs-policy-mini h2,
-    .hcs-policy-panel h3 {
-        margin: 0;
-        color: var(--hcs-ink);
-        font-family: Georgia, "Times New Roman", serif;
-        font-weight: 600;
-        line-height: 1.14;
-    }
-    .hcs-policy-card h2 { font-size: clamp(28px, 3vw, 38px); }
-    .hcs-policy-mini h2 { font-size: 29px; }
-    .hcs-policy-card-head {
-        display: grid;
-        grid-template-columns: 52px minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
-        align-items: center;
-        margin-bottom: 22px;
+        margin-top: 22px;
     }
-    .hcs-policy-icon {
-        width: 52px;
-        height: 52px;
+    .hcs-ship-grid.four {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .hcs-ship-panel {
+        padding: 22px;
+    }
+    .hcs-ship-panel h3 {
+        margin: 0 0 10px;
+        color: var(--ship-ink);
+        font-size: 18px;
+        line-height: 1.35;
+    }
+    .hcs-ship-list {
         display: grid;
-        place-items: center;
-        border-radius: 16px;
-        background: rgba(167,183,165,.32);
-        color: var(--hcs-pine);
+        gap: 12px;
+        margin: 18px 0 0;
+        padding-left: 18px;
+        color: var(--ship-muted);
+        line-height: 1.7;
     }
-    .hcs-policy-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 22px; }
-    .hcs-policy-panel {
-        padding: 24px;
-        border: 1px solid rgba(23,33,43,.08);
-        border-radius: 18px;
-        background: var(--hcs-ivory);
-    }
-    .hcs-policy-panel h3 { margin-bottom: 16px; font-size: 23px; }
-    .hcs-policy-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; color: var(--hcs-slate); line-height: 1.6; }
-    .hcs-policy-list li { position: relative; padding-left: 22px; }
-    .hcs-policy-list li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: .6em;
-        width: 8px;
-        height: 8px;
-        border-radius: 99px;
-        background: var(--hcs-pine);
-        box-shadow: 0 0 0 3px rgba(167,183,165,.28);
-    }
-    .hcs-policy-definition { display: grid; gap: 13px; margin: 0; }
-    .hcs-policy-definition div {
+    .hcs-ship-carriers {
         display: flex;
-        justify-content: space-between;
-        gap: 18px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid rgba(23,33,43,.1);
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
     }
-    .hcs-policy-definition div:last-child { padding-bottom: 0; border-bottom: 0; }
-    .hcs-policy-definition dt { color: var(--hcs-slate); }
-    .hcs-policy-definition dd { margin: 0; color: var(--hcs-ink); font-weight: 800; text-align: right; }
-    .hcs-policy-dark {
-        background: var(--hcs-pine);
-        color: #fff;
-        border-color: rgba(23,33,43,.04);
+    .hcs-ship-carriers li {
+        min-width: 72px;
+        padding: 10px 18px;
+        border: 1px solid var(--ship-line);
+        border-radius: 999px;
+        color: var(--ship-ink);
+        font-size: 13px;
+        font-weight: 800;
+        text-align: center;
+        background: #fff;
     }
-    .hcs-policy-dark h2,
-    .hcs-policy-dark h3 { color: #fff; }
-    .hcs-policy-dark .hcs-policy-panel {
-        background: rgba(247,243,236,.07);
-        border-color: rgba(247,243,236,.14);
+    .hcs-ship-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
     }
-    .hcs-policy-dark .hcs-policy-copy { color: rgba(247,243,236,.78); }
-    .hcs-policy-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
-    .hcs-policy-btn {
+    .hcs-ship-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         min-height: 48px;
-        padding: 13px 22px;
+        padding: 13px 24px;
         border-radius: 999px;
         font-size: 14px;
         font-weight: 800;
-        transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+        text-decoration: none;
+        transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
     }
-    .hcs-policy-btn:hover { transform: translateY(-1px); }
-    .hcs-policy-btn-primary { background: var(--hcs-pine); border: 1px solid var(--hcs-pine); color: #fff; }
-    .hcs-policy-btn-primary:hover { background: var(--hcs-pine-deep); border-color: var(--hcs-pine-deep); color: #fff; }
-    .hcs-policy-dark .hcs-policy-btn-primary { background: #fff; border-color: #fff; color: var(--hcs-pine); }
-    .hcs-policy-btn-secondary { background: transparent; border: 1px solid var(--hcs-pine); color: var(--hcs-pine); }
-    .hcs-policy-btn-secondary:hover { background: var(--hcs-fog); color: var(--hcs-pine); }
-    .hcs-policy-mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-    .hcs-policy-mini { padding: 28px; border-radius: 24px; }
-    .hcs-policy-mini p,
-    .hcs-policy-card p { margin: 14px 0 0; }
-    .hcs-policy-contact {
-        padding: 32px;
-        border: 1px solid rgba(47,74,67,.18);
-        border-radius: 24px;
-        background: var(--hcs-fog);
+    .hcs-ship-btn:hover {
+        transform: translateY(-1px);
     }
-    .hcs-policy-contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
-    .hcs-policy-contact-item { padding: 18px; border: 1px solid rgba(23,33,43,.08); border-radius: 16px; background: #fff; }
-    .hcs-policy-contact-item dt { margin-bottom: 7px; color: var(--hcs-pine); font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .hcs-policy-contact-item dd { margin: 0; color: var(--hcs-ink); font-weight: 800; line-height: 1.55; }
-    .hcs-policy a { text-decoration: none; }
-    .hcs-policy-copy a { color: var(--hcs-pine); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .hcs-ship-btn.primary {
+        border: 1px solid var(--ship-accent);
+        background: var(--ship-accent);
+        color: #fff;
+    }
+    .hcs-ship-btn.primary:hover {
+        background: #1f1526;
+        border-color: #1f1526;
+        color: #fff;
+    }
+    .hcs-ship-btn.secondary {
+        border: 1px solid var(--ship-accent);
+        background: #fff;
+        color: var(--ship-accent);
+    }
+    .hcs-ship-btn.secondary:hover {
+        background: var(--ship-soft);
+        color: var(--ship-accent);
+    }
+    .hcs-ship-contact-box {
+        margin-top: 24px;
+        padding: 18px;
+        border: 1px solid var(--ship-line);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, .72);
+    }
+    .hcs-ship-contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+    .hcs-ship-contact-item {
+        padding: 18px;
+    }
+    .hcs-ship-contact-item dt {
+        margin-bottom: 9px;
+        color: var(--ship-ink);
+        font-size: 13px;
+        font-weight: 800;
+    }
+    .hcs-ship-contact-item dd {
+        margin: 0;
+        color: var(--ship-muted);
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+    }
+    .hcs-ship-contact-item a {
+        color: var(--ship-muted);
+        text-decoration: none;
+    }
+    .hcs-ship-contact-item a:hover {
+        color: var(--ship-accent);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
     @media (max-width: 1023px) {
-        .hcs-policy-layout { grid-template-columns: 1fr; }
-        .hcs-policy-nav { display: none; }
-        .hcs-policy-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .hcs-ship-meta,
+        .hcs-ship-grid.four {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
     }
     @media (max-width: 700px) {
-        .hcs-policy-hero { padding: 64px 0 38px; }
-        .hcs-policy-main { padding: 36px 0 62px; }
-        .hcs-policy-facts,
-        .hcs-policy-grid,
-        .hcs-policy-mini-grid,
-        .hcs-policy-contact-grid { grid-template-columns: 1fr; }
-        .hcs-policy-card,
-        .hcs-policy-contact { padding: 24px; }
-        .hcs-policy-card-head { grid-template-columns: 1fr; }
-        .hcs-policy-definition div { display: grid; gap: 5px; }
-        .hcs-policy-definition dd { text-align: left; }
+        .hcs-ship {
+            padding-bottom: 44px;
+        }
+        .hcs-ship-hero {
+            padding-top: 46px;
+        }
+        .hcs-ship-meta,
+        .hcs-ship-grid,
+        .hcs-ship-grid.four,
+        .hcs-ship-contact-grid {
+            grid-template-columns: 1fr;
+        }
+        .hcs-ship-card,
+        .hcs-ship-hero-card {
+            border-radius: 18px;
+        }
+        .hcs-ship-btn {
+            width: 100%;
+        }
     }
 </style>
 
-<div class="hcs-policy">
-    <section class="hcs-policy-hero">
-        <div class="hcs-policy-wrap">
-            <span class="hcs-policy-eyebrow"><?php esc_html_e( 'Shipping Policy', 'dawp' ); ?></span>
-            <h1 class="hcs-policy-title"><?php esc_html_e( 'Clear shipping details for your leather footwear order.', 'dawp' ); ?></h1>
-            <p class="hcs-policy-lead">
-                <?php
-                printf(
-                    esc_html__( 'This Shipping Policy explains where we ship, how order processing works, estimated delivery timelines, tracking, delivery issues, and how to contact %s for help.', 'dawp' ),
-                    esc_html( $store_name )
-                );
-                ?>
-            </p>
-        </div>
-    </section>
-
-    <section class="hcs-policy-main">
-        <div class="hcs-policy-wrap hcs-policy-layout">
-            <aside class="hcs-policy-nav" aria-label="<?php esc_attr_e( 'Shipping policy sections', 'dawp' ); ?>">
-                <?php foreach ( $nav_items as $section_id => $label ) : ?>
-                    <a href="#<?php echo esc_attr( $section_id ); ?>"><?php echo esc_html( $label ); ?></a>
-                <?php endforeach; ?>
-            </aside>
-
-            <div class="hcs-policy-content">
-                <div class="hcs-policy-facts">
-                    <?php foreach ( $quick_facts as $fact ) : ?>
-                        <div class="hcs-policy-fact">
-                            <p class="hcs-policy-label"><?php echo esc_html( $fact['label'] ); ?></p>
-                            <strong><?php echo esc_html( $fact['value'] ); ?></strong>
-                            <span><?php echo esc_html( $fact['note'] ); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <div id="shipping-locations" class="hcs-policy-card">
-                    <div class="hcs-policy-card-head">
-                        <span class="hcs-policy-icon" aria-hidden="true">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </span>
-                        <div>
-                            <h2><?php esc_html_e( 'Shipping Locations', 'dawp' ); ?></h2>
-                            <p class="hcs-policy-copy"><?php esc_html_e( 'We currently ship eligible orders within the United States.', 'dawp' ); ?></p>
-                        </div>
+<div class="hcs-ship">
+    <section class="hcs-ship-hero">
+        <div class="hcs-ship-wrap">
+            <div class="hcs-ship-hero-card">
+                <span class="hcs-ship-eyebrow"><?php esc_html_e( 'Shipping Policy', 'dawp' ); ?></span>
+                <h1 class="hcs-ship-title"><?php esc_html_e( 'Clear delivery terms for handmade leather footwear.', 'dawp' ); ?></h1>
+                <p class="hcs-ship-lead">
+                    <?php
+                    printf(
+                        esc_html__( 'This Shipping Policy explains where %1$s ships, how orders are processed, estimated delivery windows, carrier services, tracking, delivery issues, and customer support for purchases made through %2$s.', 'dawp' ),
+                        esc_html( $store_name ),
+                        esc_html( $website_domain )
+                    );
+                    ?>
+                </p>
+                <div class="hcs-ship-meta">
+                    <div class="hcs-ship-meta-item">
+                        <strong class="hcs-ship-label"><?php esc_html_e( 'Shipping Market', 'dawp' ); ?></strong>
+                        <span><?php esc_html_e( 'United States domestic shipping.', 'dawp' ); ?></span>
                     </div>
-                    <p class="hcs-policy-copy"><?php echo esc_html( $store_name ); ?> ships eligible handmade leather shoes, leather sandals, leather boots, and custom leather footwear to U.S. delivery addresses.</p>
-                    <p class="hcs-policy-copy"><?php esc_html_e( 'Some items may have shipping restrictions due to product type, size, weight, carrier limits, destination, custom production needs, or local regulations. If an item cannot be shipped to your address, our support team will contact you using the information provided at checkout.', 'dawp' ); ?></p>
-                </div>
-
-                <div id="order-processing" class="hcs-policy-card">
-                    <h2><?php esc_html_e( 'Order Processing & Cutoff Time', 'dawp' ); ?></h2>
-                    <div class="hcs-policy-grid">
-                        <div class="hcs-policy-panel">
-                            <h3><?php esc_html_e( 'Processing Timeline', 'dawp' ); ?></h3>
-                            <dl class="hcs-policy-definition">
-                                <div><dt><?php esc_html_e( 'Order cutoff time', 'dawp' ); ?></dt><dd><?php esc_html_e( '5:00 PM PST', 'dawp' ); ?></dd></div>
-                                <div><dt><?php esc_html_e( 'Handling time', 'dawp' ); ?></dt><dd><?php esc_html_e( '1-2 business days', 'dawp' ); ?></dd></div>
-                                <div><dt><?php esc_html_e( 'Processing days', 'dawp' ); ?></dt><dd><?php esc_html_e( 'Monday-Friday', 'dawp' ); ?></dd></div>
-                                <div><dt><?php esc_html_e( 'Orders after cutoff', 'dawp' ); ?></dt><dd><?php esc_html_e( 'Next business day', 'dawp' ); ?></dd></div>
-                            </dl>
-                        </div>
-                        <div class="hcs-policy-panel">
-                            <h3><?php esc_html_e( 'What Handling Includes', 'dawp' ); ?></h3>
-                            <ul class="hcs-policy-list">
-                                <li><?php esc_html_e( 'Order confirmation and internal review.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Product preparation, packing, and quality check where applicable.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Handoff to the shipping carrier, often from the closest available warehouse or fulfillment partner.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Custom, handmade, or special-handling products may require additional time when stated on the product page.', 'dawp' ); ?></li>
-                            </ul>
-                        </div>
+                    <div class="hcs-ship-meta-item">
+                        <strong class="hcs-ship-label"><?php esc_html_e( 'Standard Shipping', 'dawp' ); ?></strong>
+                        <span><?php esc_html_e( 'Free for all orders nationwide.', 'dawp' ); ?></span>
                     </div>
-                </div>
-
-                <div id="delivery-times" class="hcs-policy-card">
-                    <h2><?php esc_html_e( 'Estimated Delivery Times', 'dawp' ); ?></h2>
-                    <div class="hcs-policy-grid">
-                        <div class="hcs-policy-panel">
-                            <h3><?php esc_html_e( 'What to Expect', 'dawp' ); ?></h3>
-                            <dl class="hcs-policy-definition">
-                                <div><dt><?php esc_html_e( 'Handling time', 'dawp' ); ?></dt><dd><?php esc_html_e( '1-2 business days', 'dawp' ); ?></dd></div>
-                                <div><dt><?php esc_html_e( 'Transit time', 'dawp' ); ?></dt><dd><?php esc_html_e( '5-7 business days', 'dawp' ); ?></dd></div>
-                                <div><dt><?php esc_html_e( 'Estimated delivery', 'dawp' ); ?></dt><dd><?php esc_html_e( 'Usually 6-9 business days', 'dawp' ); ?></dd></div>
-                            </dl>
-                        </div>
-                        <div class="hcs-policy-panel">
-                            <h3><?php esc_html_e( 'Delivery Notes', 'dawp' ); ?></h3>
-                            <ul class="hcs-policy-list">
-                                <li><?php esc_html_e( 'Transit depends on the carrier route, delivery address, and item type.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Handmade, custom, bulky, special-handling, oversized, or partner-shipped items may take longer.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Multi-item orders may ship in more than one package.', 'dawp' ); ?></li>
-                                <li><?php esc_html_e( 'Weather, holidays, carrier delays, and high-volume periods may extend delivery timelines.', 'dawp' ); ?></li>
-                            </ul>
-                        </div>
+                    <div class="hcs-ship-meta-item">
+                        <strong class="hcs-ship-label"><?php esc_html_e( 'Delivery Window', 'dawp' ); ?></strong>
+                        <span><?php esc_html_e( '6-10 business days.', 'dawp' ); ?></span>
                     </div>
-                </div>
-
-                <div id="carrier-services" class="hcs-policy-card">
-                    <h2><?php esc_html_e( 'Carrier Services & Shipping Costs', 'dawp' ); ?></h2>
-                    <div class="hcs-policy-grid">
-                        <div class="hcs-policy-panel">
-                            <h3><?php esc_html_e( 'Carriers', 'dawp' ); ?></h3>
-                            <p class="hcs-policy-copy"><?php esc_html_e( 'Orders may ship with trusted carriers such as USPS, UPS, FedEx, DHL, regional carriers, or specialized carriers when applicable. The carrier used may depend on package size, destination, availability, and item type.', 'dawp' ); ?></p>
-                        </div>
-                        <div class="hcs-policy-panel">
-                            <h3><?php esc_html_e( 'Shipping Costs', 'dawp' ); ?></h3>
-                            <p class="hcs-policy-copy"><?php esc_html_e( 'Shipping costs, available shipping methods, and any applicable fees are shown at checkout before payment is completed. If a product has special shipping rules, they may be shown on the product page or at checkout.', 'dawp' ); ?></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="tracking-packages" class="hcs-policy-card hcs-policy-dark">
-                    <h2><?php esc_html_e( 'Tracking & Multiple Packages', 'dawp' ); ?></h2>
-                    <div class="hcs-policy-grid">
-                        <div class="hcs-policy-panel">
-                            <h3><?php esc_html_e( 'Tracking Your Order', 'dawp' ); ?></h3>
-                            <p class="hcs-policy-copy"><?php esc_html_e( 'Once your order ships, tracking information will be sent to the email address used at checkout. Please allow up to 24-48 hours for tracking information to update after the carrier receives the package.', 'dawp' ); ?></p>
-                            <div class="hcs-policy-actions">
-                                <a class="hcs-policy-btn hcs-policy-btn-primary" href="<?php echo esc_url( $track_url ); ?>"><?php esc_html_e( 'Track Your Order', 'dawp' ); ?></a>
-                            </div>
-                        </div>
-                        <div class="hcs-policy-panel">
-                            <h3><?php esc_html_e( 'Multiple Packages', 'dawp' ); ?></h3>
-                            <p class="hcs-policy-copy"><?php esc_html_e( 'If your order includes multiple items, they may ship separately and arrive at different times. This can happen when products are fulfilled from different locations, require different handling times, or need special packaging.', 'dawp' ); ?></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="delivery-issues" class="hcs-policy-card">
-                    <h2><?php esc_html_e( 'Delivery Issues', 'dawp' ); ?></h2>
-                    <p class="hcs-policy-copy"><?php esc_html_e( 'If tracking has not updated, a package is delayed, an item arrives damaged, or the carrier marks a package as delivered but you cannot find it, contact us so we can help review the issue.', 'dawp' ); ?></p>
-                    <p class="hcs-policy-copy"><?php esc_html_e( 'Please include your order number, email used at checkout, delivery address, tracking number, photos if applicable, and a short description of the issue.', 'dawp' ); ?></p>
-                    <p class="hcs-policy-copy">
-                        <?php esc_html_e( 'You can also use the', 'dawp' ); ?>
-                        <a href="<?php echo esc_url( $track_url ); ?>"><?php esc_html_e( 'Order Tracking page', 'dawp' ); ?></a>
-                        <?php esc_html_e( 'to check the latest available status.', 'dawp' ); ?>
-                    </p>
-                </div>
-
-                <div class="hcs-policy-mini-grid">
-                    <div class="hcs-policy-mini">
-                        <h2><?php esc_html_e( 'Incorrect Shipping Address', 'dawp' ); ?></h2>
-                        <p class="hcs-policy-copy"><?php esc_html_e( 'Customers are responsible for entering a complete and accurate shipping address at checkout. If you notice an address error, contact us as soon as possible. We can only update the address if the order has not yet been processed or shipped.', 'dawp' ); ?></p>
-                    </div>
-                    <div class="hcs-policy-mini">
-                        <h2><?php esc_html_e( 'Lost Packages', 'dawp' ); ?></h2>
-                        <p class="hcs-policy-copy"><?php esc_html_e( 'If a package appears lost or has no tracking updates for an extended period, contact us within 30 days of the expected delivery date or latest tracking status. We will review the tracking information and may contact the carrier.', 'dawp' ); ?></p>
-                    </div>
-                    <div class="hcs-policy-mini">
-                        <h2><?php esc_html_e( 'Damaged Packages', 'dawp' ); ?></h2>
-                        <p class="hcs-policy-copy"><?php esc_html_e( 'If your order arrives damaged, contact us within 30 days of delivery with your order number, photos of the damaged item, photos of the outer packaging, and photos of the shipping label. Please keep the item and packaging until the issue is resolved.', 'dawp' ); ?></p>
-                    </div>
-                    <div class="hcs-policy-mini">
-                        <h2><?php esc_html_e( 'Restrictions & Delays', 'dawp' ); ?></h2>
-                        <p class="hcs-policy-copy"><?php esc_html_e( 'Some products may be subject to restrictions due to size, weight, carrier limitations, product type, or local regulations. Delays may occur due to weather, holidays, high order volume, warehouse delays, carrier conditions, or incomplete shipping information.', 'dawp' ); ?></p>
-                    </div>
-                </div>
-
-                <div id="contact-information" class="hcs-policy-contact">
-                    <h2 class="hcs-policy-title" style="font-size:clamp(30px,3vw,42px);"><?php esc_html_e( 'Contact Information', 'dawp' ); ?></h2>
-                    <dl class="hcs-policy-contact-grid">
-                        <div class="hcs-policy-contact-item"><dt><?php esc_html_e( 'Store Name', 'dawp' ); ?></dt><dd><?php echo esc_html( $store_name ); ?></dd></div>
-                        <div class="hcs-policy-contact-item"><dt><?php esc_html_e( 'Website', 'dawp' ); ?></dt><dd><?php echo esc_html( $website_domain ); ?></dd></div>
-                        <div class="hcs-policy-contact-item"><dt><?php esc_html_e( 'Email', 'dawp' ); ?></dt><dd><a href="mailto:<?php echo esc_attr( $support_email ); ?>"><?php echo esc_html( $support_email ); ?></a></dd></div>
-                        <div class="hcs-policy-contact-item"><dt><?php esc_html_e( 'Service Hours', 'dawp' ); ?></dt><dd><?php esc_html_e( 'Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp' ); ?></dd></div>
-                    </dl>
-                    <div class="hcs-policy-actions">
-                        <a class="hcs-policy-btn hcs-policy-btn-primary" href="<?php echo esc_url( $contact_url ); ?>"><?php esc_html_e( 'Contact Support', 'dawp' ); ?></a>
-                        <a class="hcs-policy-btn hcs-policy-btn-secondary" href="<?php echo esc_url( $faq_url ); ?>"><?php esc_html_e( 'Read FAQs', 'dawp' ); ?></a>
+                    <div class="hcs-ship-meta-item">
+                        <strong class="hcs-ship-label"><?php esc_html_e( 'Last Updated', 'dawp' ); ?></strong>
+                        <span><?php esc_html_e( 'May 27, 2026', 'dawp' ); ?></span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <main class="hcs-ship-wrap hcs-ship-main">
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Shipping Locations & Market', 'dawp' ); ?></h2>
+            <p class="hcs-ship-copy">
+                <?php
+                printf(
+                    esc_html__( 'We currently ship exclusively within the United States. %s serves customers shopping from the United States domestic market.', 'dawp' ),
+                    esc_html( $store_name )
+                );
+                ?>
+            </p>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp' ); ?></p>
+            <div class="hcs-ship-note"><?php esc_html_e( 'Some footwear orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp' ); ?></div>
+        </section>
+
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Shipping Fees & Costs', 'dawp' ); ?></h2>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'We believe in full transparency with no hidden fees at checkout. Our shipping costs are structured as follows:', 'dawp' ); ?></p>
+            <div class="hcs-ship-grid">
+                <div class="hcs-ship-panel">
+                    <h3><?php esc_html_e( 'Standard U.S. Shipping', 'dawp' ); ?></h3>
+                    <p><?php esc_html_e( 'Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.', 'dawp' ); ?></p>
+                </div>
+                <div class="hcs-ship-panel">
+                    <h3><?php esc_html_e( 'Optional Upgraded Shipping', 'dawp' ); ?></h3>
+                    <p><?php esc_html_e( 'If expedited or assisted shipping services are available for your destination, the exact cost will be displayed clearly on the checkout page before you complete your payment.', 'dawp' ); ?></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Order Processing & Delivery Times', 'dawp' ); ?></h2>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'All shipping and handling timelines are calculated in business days, Monday through Friday, excluding standard U.S. public holidays.', 'dawp' ); ?></p>
+            <div class="hcs-ship-grid four">
+                <?php foreach ( $timeline_items as $item ) : ?>
+                    <div class="hcs-ship-panel">
+                        <h3><?php echo esc_html( $item['title'] ); ?></h3>
+                        <p><?php echo esc_html( $item['text'] ); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'Delivery estimates are carefully calculated windows reflecting our standard delivery benchmarks. While we and our courier partners work diligently to meet these timelines, unexpected delays due to extreme weather, carrier capacity issues, or regional holidays may occasionally occur.', 'dawp' ); ?></p>
+        </section>
+
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Multi-Item Orders & Specialized Handling', 'dawp' ); ?></h2>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'If your purchase includes multiple pairs of shoes, sandals, boots, or custom leather footwear items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp' ); ?></p>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'You will receive unique tracking numbers for each package. Certain handmade, custom, high-demand, bulky, or special-handling footwear items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp' ); ?></p>
+        </section>
+
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Carrier Services & Delivery Tracking', 'dawp' ); ?></h2>
+            <p class="hcs-ship-copy">
+                <?php
+                printf(
+                    esc_html__( 'To support safe and efficient delivery, %s partners with trusted domestic U.S. carriers. Orders may be shipped using USPS, UPS, FedEx, or DHL.', 'dawp' ),
+                    esc_html( $store_name )
+                );
+                ?>
+            </p>
+            <ul class="hcs-ship-carriers" aria-label="<?php esc_attr_e( 'Shipping carriers', 'dawp' ); ?>">
+                <?php foreach ( $carriers as $carrier ) : ?>
+                    <li><?php echo esc_html( $carrier ); ?></li>
+                <?php endforeach; ?>
+            </ul>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'The final carrier service is dynamically selected when your package is securely labeled and prepared at our fulfillment center. Once your order is dispatched, an automated shipping confirmation email containing a direct tracking link and courier details will be sent to your registered email address.', 'dawp' ); ?></p>
+            <div class="hcs-ship-actions">
+                <a class="hcs-ship-btn secondary" href="<?php echo esc_url( $track_url ); ?>"><?php esc_html_e( 'Track Order', 'dawp' ); ?></a>
+            </div>
+        </section>
+
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Resolving Delivery Issues & Damaged Shipments', 'dawp' ); ?></h2>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp' ); ?></p>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp' ); ?></p>
+            <ul class="hcs-ship-list">
+                <li><?php esc_html_e( 'Your exact order number, such as #HCS1001.', 'dawp' ); ?></li>
+                <li><?php esc_html_e( 'The specific email address utilized during checkout.', 'dawp' ); ?></li>
+                <li><?php esc_html_e( 'The full and complete delivery address.', 'dawp' ); ?></li>
+                <li><?php esc_html_e( 'Clear, well-lit photos if the package container or footwear item arrived damaged.', 'dawp' ); ?></li>
+            </ul>
+            <div class="hcs-ship-actions">
+                <a class="hcs-ship-btn primary" href="<?php echo esc_url( $contact_url ); ?>"><?php esc_html_e( 'Contact Support', 'dawp' ); ?></a>
+                <a class="hcs-ship-btn secondary" href="mailto:<?php echo esc_attr( $support_email ); ?>"><?php echo esc_html( $support_email ); ?></a>
+            </div>
+        </section>
+
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Incorrect Shipping Address', 'dawp' ); ?></h2>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'Customers are responsible for entering a complete and accurate shipping address at checkout. Please review your street address, apartment or suite number, city, state, ZIP code, phone number, and email address before submitting your order.', 'dawp' ); ?></p>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'If you notice an address mistake, contact us as soon as possible. We will try to help before fulfillment begins, but we cannot guarantee that changes can be made after an order has entered processing or shipped.', 'dawp' ); ?></p>
+        </section>
+
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Lost Packages, Restrictions & Delays', 'dawp' ); ?></h2>
+            <div class="hcs-ship-grid">
+                <div class="hcs-ship-panel">
+                    <h3><?php esc_html_e( 'Lost Packages', 'dawp' ); ?></h3>
+                    <p><?php esc_html_e( 'If tracking shows no movement for an unusual period or indicates delivery but you cannot locate the package, contact us promptly so we can review the shipment details and assist with carrier follow-up.', 'dawp' ); ?></p>
+                </div>
+                <div class="hcs-ship-panel">
+                    <h3><?php esc_html_e( 'Shipping Restrictions', 'dawp' ); ?></h3>
+                    <p><?php esc_html_e( 'Some addresses, carrier routes, restricted locations, or product-specific handling requirements may limit delivery availability. If a restriction applies, checkout availability or support communication will reflect that limitation.', 'dawp' ); ?></p>
+                </div>
+                <div class="hcs-ship-panel">
+                    <h3><?php esc_html_e( 'Operational Delays', 'dawp' ); ?></h3>
+                    <p><?php esc_html_e( 'Carrier disruptions, severe weather, holidays, address verification, payment review, product preparation, and high-volume periods may extend delivery windows. We will keep customers updated when meaningful shipment changes are available.', 'dawp' ); ?></p>
+                </div>
+                <div class="hcs-ship-panel">
+                    <h3><?php esc_html_e( 'Returns After Delivery', 'dawp' ); ?></h3>
+                    <p>
+                        <?php esc_html_e( 'Return eligibility, footwear condition requirements, and refund timing are explained in our', 'dawp' ); ?>
+                        <a href="<?php echo esc_url( $returns_url ); ?>"><?php esc_html_e( 'Return & Refund Policy', 'dawp' ); ?></a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hcs-ship-card">
+            <h2><?php esc_html_e( 'Customer Support Contact Information', 'dawp' ); ?></h2>
+            <p class="hcs-ship-copy"><?php esc_html_e( 'For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We respond to all inquiries within 24 business hours.', 'dawp' ); ?></p>
+            <div class="hcs-ship-contact-box">
+                <dl class="hcs-ship-contact-grid">
+                    <div class="hcs-ship-contact-item">
+                        <dt><?php esc_html_e( 'Store Name', 'dawp' ); ?></dt>
+                        <dd><?php echo esc_html( $store_name ); ?></dd>
+                    </div>
+                    <div class="hcs-ship-contact-item">
+                        <dt><?php esc_html_e( 'Customer Support Email', 'dawp' ); ?></dt>
+                        <dd><a href="mailto:<?php echo esc_attr( $support_email ); ?>"><?php echo esc_html( $support_email ); ?></a></dd>
+                    </div>
+                    <div class="hcs-ship-contact-item">
+                        <dt><?php esc_html_e( 'Address', 'dawp' ); ?></dt>
+                        <dd><?php echo esc_html( $store_address ); ?></dd>
+                    </div>
+                    <div class="hcs-ship-contact-item">
+                        <dt><?php esc_html_e( 'Response Time', 'dawp' ); ?></dt>
+                        <dd><?php esc_html_e( 'Within 24 business hours.', 'dawp' ); ?></dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="hcs-ship-actions">
+                <a class="hcs-ship-btn primary" href="<?php echo esc_url( $contact_url ); ?>"><?php esc_html_e( 'Contact Support', 'dawp' ); ?></a>
+                <a class="hcs-ship-btn secondary" href="<?php echo esc_url( $track_url ); ?>"><?php esc_html_e( 'Track Your Order', 'dawp' ); ?></a>
+            </div>
+        </section>
+    </main>
 </div>

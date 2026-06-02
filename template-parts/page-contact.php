@@ -11,7 +11,12 @@ $store_name     = 'Handcraft Shoe';
 $website_domain = 'handcraftshoe.com';
 $support_email  = 'support@handcraftshoe.com';
 $service_hours  = 'Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)';
-$home_image     = get_template_directory_uri() . '/assets/img/handcraft-footwear-home.png';
+$home_image_source = get_template_directory_uri() . '/assets/img/handcraft-footwear-home.png';
+$home_image        = dawp_i0_image_url($home_image_source, 1600, 1067);
+$home_image_tablet = dawp_i0_image_url($home_image_source, 1024, 683);
+$home_image_mobile = dawp_i0_image_url($home_image_source, 700, 467);
+$panel_image       = dawp_i0_image_url($home_image_source, 760, 507);
+$panel_image_mobile = dawp_i0_image_url($home_image_source, 520, 347);
 $shipping_url   = home_url( '/shipping-policy/' );
 $returns_url    = home_url( '/refund-return-policy/' );
 $track_url      = home_url( '/track-order/' );
@@ -35,6 +40,8 @@ $support_cards = array(
 
 <style>
     .hcs-contact {
+        --hcs-contact-hero-image: var(--hcs-contact-hero-image-desktop);
+        --hcs-contact-panel-image: var(--hcs-contact-panel-image-desktop);
         --hcs-ink: #17212B;
         --hcs-pine: #2F4A43;
         --hcs-pine-deep: #243A35;
@@ -74,7 +81,7 @@ $support_cards = array(
         padding: 90px 0 58px;
         background:
             linear-gradient(90deg, rgba(23,33,43,.9) 0%, rgba(23,33,43,.7) 48%, rgba(23,33,43,.24) 100%),
-            url('<?php echo esc_url( $home_image ); ?>') center/cover no-repeat;
+            var(--hcs-contact-hero-image) center/cover no-repeat;
         color: #fff;
     }
     .hcs-contact-hero .hcs-contact-eyebrow,
@@ -108,7 +115,7 @@ $support_cards = array(
     .hcs-contact-panel { border-radius: 24px; overflow: hidden; }
     .hcs-contact-image {
         min-height: 330px;
-        background-image: url('<?php echo esc_url( $home_image ); ?>');
+        background-image: var(--hcs-contact-panel-image);
         background-size: 205% 205%;
         background-position: top left;
     }
@@ -305,9 +312,11 @@ $support_cards = array(
     @media (max-width: 1023px) {
         .hcs-contact-grid,
         .hcs-contact-help-grid { grid-template-columns: 1fr; }
+        .hcs-contact { --hcs-contact-hero-image: url('<?php echo esc_url( $home_image_tablet ); ?>'); }
         .hcs-contact-help-card { min-height: 0; }
     }
     @media (max-width: 700px) {
+        .hcs-contact { --hcs-contact-hero-image: url('<?php echo esc_url( $home_image_mobile ); ?>'); --hcs-contact-panel-image: url('<?php echo esc_url( $panel_image_mobile ); ?>'); }
         .hcs-contact-hero { padding: 70px 0 42px; }
         .hcs-contact-main { padding: 42px 0 64px; }
         .hcs-contact-form-card { padding: 24px; }
@@ -319,7 +328,7 @@ $support_cards = array(
     }
 </style>
 
-<div class="hcs-contact">
+<div class="hcs-contact" style="--hcs-contact-hero-image-desktop: url('<?php echo esc_url( $home_image ); ?>'); --hcs-contact-panel-image-desktop: url('<?php echo esc_url( $panel_image ); ?>');">
     <section class="hcs-contact-hero">
         <div class="hcs-contact-wrap">
             <span class="hcs-contact-eyebrow"><?php esc_html_e( 'Contact Handcraft Shoe', 'dawp' ); ?></span>

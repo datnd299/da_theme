@@ -38,10 +38,6 @@ $footer_help_links = array(
         'url'   => home_url('/contact-us/'),
     ),
     array(
-        'title' => __('FAQs', 'dawp'),
-        'url'   => home_url('/faq/'),
-    ),
-    array(
         'title' => __('About Us', 'dawp'),
         'url'   => home_url('/about-us/'),
     ),
@@ -52,6 +48,10 @@ $footer_help_links = array(
 );
 
 $footer_policy_links = array(
+    array(
+        'title' => __('FAQs', 'dawp'),
+        'url'   => home_url('/faq/'),
+    ),
     array(
         'title' => __('Shipping Policy', 'dawp'),
         'url'   => home_url('/shipping-policy/'),
@@ -68,13 +68,6 @@ $footer_policy_links = array(
         'title' => __('Terms & Conditions', 'dawp'),
         'url'   => home_url('/terms-conditions/'),
     ),
-);
-
-$footer_trust_items = array(
-    __('Secure Checkout', 'dawp'),
-    __('Tracking Included', 'dawp'),
-    __('30-Day Returns', 'dawp'),
-    __('Leather Care Notes', 'dawp'),
 );
 
 $footer_payment_methods = array(
@@ -95,6 +88,11 @@ $footer_payment_methods = array(
         'file'  => 'AE.png',
     ),
 );
+
+$footer_store_address = dawp_get_store_address();
+$footer_logo_url      = get_template_directory_uri() . '/assets/img/logo.png';
+$footer_logo_src      = dawp_i0_image_url($footer_logo_url, 272, 181);
+$footer_logo_srcset   = dawp_i0_srcset($footer_logo_url, 1536, 1024, array(136, 272, 408));
 ?>
 
 <style>
@@ -126,33 +124,36 @@ $footer_payment_methods = array(
     }
     .hcs-footer-logo {
         display: block;
-        width: 160px;
+        width: 136px;
         max-width: 100%;
         height: auto;
     }
-    .hcs-footer-trust {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
-        margin-top: 24px;
-    }
-    .hcs-footer-pill {
-        display: inline-flex;
-        align-items: center;
-        min-height: 34px;
-        padding: 8px 12px;
-        border-radius: 999px;
-        background: rgba(247,243,236,.07);
-        border: 1px solid rgba(247,243,236,.13);
-        color: rgba(247,243,236,.88);
-        font-size: 12px;
-        font-weight: 800;
-    }
-    .hcs-footer-brand-social {
+    .hcs-footer-socials {
         display: flex;
         align-items: center;
         gap: 10px;
-        margin: 4px 0 20px;
+        margin: 18px 0 0;
+    }
+    .hcs-footer-social {
+        display: inline-grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        background: rgba(247,243,236,.08);
+        border: 1px solid rgba(247,243,236,.16);
+        color: rgba(247,243,236,.88);
+        transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+    .hcs-footer-social:hover {
+        background: #fff;
+        color: var(--hcs-ink);
+        transform: translateY(-1px);
+    }
+    .hcs-footer-social svg {
+        display: block;
+        width: 18px;
+        height: 18px;
     }
     .hcs-footer-heading {
         margin: 4px 0 17px;
@@ -288,26 +289,6 @@ $footer_payment_methods = array(
         max-height: 22px;
         object-fit: contain;
     }
-    .hcs-footer-social {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        min-height: 36px;
-        padding: 0 12px;
-        height: 36px;
-        border-radius: 999px;
-        background: rgba(247,243,236,.08);
-        border: 1px solid rgba(247,243,236,.14);
-        color: rgba(247,243,236,.82);
-        font-size: 13px;
-        font-weight: 800;
-        transition: background .18s ease, color .18s ease, transform .18s ease;
-    }
-    .hcs-footer-social:hover {
-        background: #fff;
-        color: var(--hcs-ink);
-        transform: translateY(-1px);
-    }
     .screen-reader-text {
         border: 0;
         clip: rect(1px, 1px, 1px, 1px);
@@ -358,23 +339,30 @@ $footer_payment_methods = array(
             <a class="hcs-footer-brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Handcraft Shoe homepage', 'dawp'); ?>">
                 <img
                     class="hcs-footer-logo"
-                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
+                    loading="lazy"
+                    decoding="async"
+                    width="136"
+                    height="91"
+                    src="<?php echo esc_url($footer_logo_src); ?>"
+                    srcset="<?php echo esc_attr($footer_logo_srcset); ?>"
+                    sizes="136px"
                     alt="<?php esc_attr_e('Handcraft Shoe', 'dawp'); ?>">
             </a>
 
-            <div class="hcs-footer-brand-social">
-                <a class="hcs-footer-social" href="https://www.facebook.com/handcraftshoe/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Handcraft Shoe on Facebook', 'dawp'); ?>">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M14 8.5V6.75c0-.9.56-1.11.95-1.11h2.42V2.12L14.03 2C10.72 2 9.96 4.48 9.96 6.07V8.5H7.5v3.96h2.46V22H14v-9.54h3.05l.4-3.96H14Z"/>
-                    </svg>
-                    <span><?php esc_html_e('Facebook Page', 'dawp'); ?></span>
-                </a>
+            <div class="hcs-footer-note" aria-label="<?php esc_attr_e('Customer support notes', 'dawp'); ?>">
+                <span><i class="hcs-footer-dot" aria-hidden="true"></i><?php esc_html_e('Support: ', 'dawp'); ?><a href="mailto:support@handcraftshoe.com"><?php esc_html_e('support@handcraftshoe.com', 'dawp'); ?></a></span>
+                <?php if ( $footer_store_address ) : ?>
+                    <span><i class="hcs-footer-dot" aria-hidden="true"></i><?php printf( esc_html__( 'Address: %s.', 'dawp' ), esc_html( $footer_store_address ) ); ?></span>
+                <?php endif; ?>
+                <span><i class="hcs-footer-dot" aria-hidden="true"></i><?php esc_html_e('Business Hours: Monday to Friday, 9:00 AM to 5:00 PM PST.', 'dawp'); ?></span>
             </div>
 
-            <div class="hcs-footer-trust" aria-label="<?php esc_attr_e('Store trust highlights', 'dawp'); ?>">
-                <?php foreach ($footer_trust_items as $trust_item) : ?>
-                    <span class="hcs-footer-pill"><?php echo esc_html($trust_item); ?></span>
-                <?php endforeach; ?>
+            <div class="hcs-footer-socials">
+                <a class="hcs-footer-social" href="https://www.facebook.com/handcraftshoe/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Handcraft Shoe on Facebook', 'dawp'); ?>">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M14 8.5V6.75c0-.9.56-1.11.95-1.11h2.42V2.12L14.03 2C10.72 2 9.96 4.48 9.96 6.07V8.5H7.5v3.96h2.46V22H14v-9.54h3.05l.4-3.96H14Z"/>
+                    </svg>
+                </a>
             </div>
         </div>
 
@@ -429,11 +417,6 @@ $footer_payment_methods = array(
             </form>
             <p id="footer-newsletter-msg" aria-live="polite" style="display:none;margin-top:10px;margin-bottom:0;font-size:12px;"></p>
 
-            <div class="hcs-footer-note" aria-label="<?php esc_attr_e('Customer support notes', 'dawp'); ?>">
-                <span><i class="hcs-footer-dot" aria-hidden="true"></i><?php esc_html_e('Customer care: Monday to Friday, 9:00 AM to 5:00 PM PST.', 'dawp'); ?></span>
-                <span><i class="hcs-footer-dot" aria-hidden="true"></i><a href="mailto:support@handcraftshoe.com"><?php esc_html_e('support@handcraftshoe.com', 'dawp'); ?></a></span>
-                <span><i class="hcs-footer-dot" aria-hidden="true"></i><?php esc_html_e('Review size, fit, material, and return notes before checkout.', 'dawp'); ?></span>
-            </div>
         </div>
     </div>
 
@@ -447,7 +430,13 @@ $footer_payment_methods = array(
                 <?php foreach ($footer_payment_methods as $payment_method) : ?>
                     <li class="hcs-footer-payment">
                         <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/' . $payment_method['file']); ?>"
+                            loading="lazy"
+                            decoding="async"
+                            width="42"
+                            height="14"
+                            src="<?php echo esc_url(dawp_i0_image_url(get_template_directory_uri() . '/assets/img/payment/' . $payment_method['file'], 84, 27)); ?>"
+                            srcset="<?php echo esc_attr(dawp_i0_srcset(get_template_directory_uri() . '/assets/img/payment/' . $payment_method['file'], 320, 104, array(42, 84, 160))); ?>"
+                            sizes="42px"
                             alt="<?php echo esc_attr($payment_method['title']); ?>">
                     </li>
                 <?php endforeach; ?>

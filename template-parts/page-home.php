@@ -3,8 +3,15 @@
  * Template Part: page-home
  */
 
-$home_image = get_template_directory_uri() . '/assets/img/handcraft-footwear-home.png';
-$everyday_image = get_template_directory_uri() . '/assets/img/Everyday_Leather_Shoes.png';
+$home_image_source = get_template_directory_uri() . '/assets/img/handcraft-footwear-home.png';
+$home_image        = dawp_i0_image_url($home_image_source, 1600, 1067);
+$home_image_tablet = dawp_i0_image_url($home_image_source, 1024, 683);
+$home_image_mobile = dawp_i0_image_url($home_image_source, 700, 467);
+
+$everyday_image_source = get_template_directory_uri() . '/assets/img/Everyday_Leather_Shoes.png';
+$everyday_image        = dawp_i0_image_url($everyday_image_source, 900, 900);
+$everyday_image_tablet = dawp_i0_image_url($everyday_image_source, 700, 700);
+$everyday_image_mobile = dawp_i0_image_url($everyday_image_source, 520, 520);
 
 $categories = array(
     array(
@@ -37,6 +44,12 @@ $categories = array(
     ),
 );
 
+foreach ($categories as $key => $category) {
+    $categories[$key]['image_desktop'] = dawp_i0_image_url($category['image'], 900, 900);
+    $categories[$key]['image_tablet']  = dawp_i0_image_url($category['image'], 720, 720);
+    $categories[$key]['image_mobile']  = dawp_i0_image_url($category['image'], 560, 560);
+}
+
 $trust_items = array(
     __('Secure Checkout', 'dawp'),
     __('Tracking Included', 'dawp'),
@@ -50,6 +63,8 @@ $trust_items = array(
 
 <style>
     .hcs-home {
+        --hcs-hero-image: var(--hcs-hero-image-desktop);
+        --hcs-everyday-image: var(--hcs-everyday-image-desktop);
         --hcs-ink: #17212B;
         --hcs-pine: #2F4A43;
         --hcs-pine-deep: #243A35;
@@ -136,6 +151,7 @@ $trust_items = array(
     .hcs-section-head .hcs-copy { max-width: 480px; }
     .hcs-cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .hcs-cat {
+        --hcs-card-image: var(--hcs-card-image-desktop);
         min-height: 320px;
         border-radius: 22px;
         overflow: hidden;
@@ -223,12 +239,16 @@ $trust_items = array(
     .hcs-final .hcs-copy { max-width: 680px; margin: 0 auto 28px; }
     @media (max-width: 1023px) {
         .hcs-hero { min-height: 620px; }
+        .hcs-home { --hcs-hero-image: var(--hcs-hero-image-tablet); --hcs-everyday-image: var(--hcs-everyday-image-tablet); }
+        .hcs-cat { --hcs-card-image: var(--hcs-card-image-tablet); }
         .hcs-cats, .hcs-trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .hcs-split, .hcs-feature-grid, .hcs-trust-head { grid-template-columns: 1fr; }
         .hcs-image-frame { min-height: 430px; }
     }
     @media (max-width: 700px) {
         .hcs-hero-content { padding: 74px 0 46px; }
+        .hcs-home { --hcs-hero-image: var(--hcs-hero-image-mobile); --hcs-everyday-image: var(--hcs-everyday-image-mobile); }
+        .hcs-cat { --hcs-card-image: var(--hcs-card-image-mobile); }
         .hcs-hero-panel, .hcs-cats, .hcs-trust-grid { grid-template-columns: 1fr; }
         .hcs-hero-panel div { border-right: 0; border-bottom: 1px solid rgba(247,243,236,.18); }
         .hcs-section { padding: 62px 0; }
@@ -238,7 +258,7 @@ $trust_items = array(
     }
 </style>
 
-<div class="hcs-home" style="--hcs-hero-image: url('<?php echo esc_url($home_image); ?>');">
+<div class="hcs-home" style="--hcs-hero-image-desktop: url('<?php echo esc_url($home_image); ?>'); --hcs-hero-image-tablet: url('<?php echo esc_url($home_image_tablet); ?>'); --hcs-hero-image-mobile: url('<?php echo esc_url($home_image_mobile); ?>'); --hcs-everyday-image-desktop: url('<?php echo esc_url($everyday_image); ?>'); --hcs-everyday-image-tablet: url('<?php echo esc_url($everyday_image_tablet); ?>'); --hcs-everyday-image-mobile: url('<?php echo esc_url($everyday_image_mobile); ?>');">
     <section class="hcs-hero" aria-label="<?php esc_attr_e('Handcraft Shoe homepage hero', 'dawp'); ?>">
         <div class="hcs-wrap">
             <div class="hcs-hero-content">
@@ -276,7 +296,7 @@ $trust_items = array(
 
             <div class="hcs-cats">
                 <?php foreach ($categories as $category) : ?>
-                    <a class="hcs-cat" href="<?php echo esc_url($category['url']); ?>" style="--hcs-card-image: url('<?php echo esc_url($category['image']); ?>'); --hcs-card-position: <?php echo esc_attr($category['pos']); ?>;">
+                    <a class="hcs-cat" href="<?php echo esc_url($category['url']); ?>" style="--hcs-card-image-desktop: url('<?php echo esc_url($category['image_desktop']); ?>'); --hcs-card-image-tablet: url('<?php echo esc_url($category['image_tablet']); ?>'); --hcs-card-image-mobile: url('<?php echo esc_url($category['image_mobile']); ?>'); --hcs-card-position: <?php echo esc_attr($category['pos']); ?>;">
                         <span class="hcs-cat-media" aria-hidden="true"></span>
                         <span class="hcs-cat-content">
                             <h3><?php echo esc_html($category['title']); ?></h3>
@@ -291,7 +311,7 @@ $trust_items = array(
 
     <section class="hcs-section hcs-section-alt">
         <div class="hcs-wrap hcs-split">
-            <div class="hcs-image-frame" style="background-image: url('<?php echo esc_url($everyday_image); ?>');" aria-hidden="true"></div>
+            <div class="hcs-image-frame" style="background-image: var(--hcs-everyday-image);" aria-hidden="true"></div>
             <div>
                 <span class="hcs-eyebrow"><?php esc_html_e('Everyday Leather Shoes', 'dawp'); ?></span>
                 <h2 class="hcs-title" style="font-size:clamp(34px,4vw,54px);margin-top:12px;">

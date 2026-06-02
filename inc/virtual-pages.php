@@ -1,7 +1,7 @@
 <?php
 add_action('template_redirect', 'dawp_handle_virtual_pages');
 function dawp_handle_virtual_pages() {
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    $request_uri = dawp_virtual_page_request_path();
     $virtual_pages = dawp_virtual_page_map();
 
     if ($request_uri === 'shipping-returns') {
@@ -122,14 +122,25 @@ function dawp_virtual_page_seo_map() {
 }
 
 function dawp_current_virtual_page_key() {
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
+    $request_uri = dawp_virtual_page_request_path();
     $pages       = dawp_virtual_page_map();
 
-    if ($request_uri === '' && is_front_page()) {
+    if ($request_uri === '' || ($request_uri === 'home' && is_front_page())) {
         return 'home';
     }
 
     return isset($pages[$request_uri]) ? $request_uri : '';
+}
+
+function dawp_virtual_page_request_path() {
+    $path = trim((string) wp_parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
+    $home_path = trim((string) wp_parse_url(home_url('/'), PHP_URL_PATH), '/');
+
+    if ($home_path !== '' && ($path === $home_path || strpos($path, $home_path . '/') === 0)) {
+        $path = trim(substr($path, strlen($home_path)), '/');
+    }
+
+    return $path;
 }
 
 function dawp_current_virtual_page_seo() {
@@ -264,16 +275,36 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
     }
 
     $page_id = trailingslashit($seo['canonical']) . '#webpage';
+    $website_id = home_url('/#website');
+    $organization_id = home_url('/#organization');
+    $breadcrumb_id = trailingslashit($seo['canonical']) . '#breadcrumb';
+
+    if (!dawp_schema_has_id($data, $organization_id)) {
+        $data['dawp_organization'] = dawp_virtual_page_organization_schema();
+    }
+
+    if (!dawp_schema_has_id($data, $website_id)) {
+        $data['dawp_website'] = dawp_virtual_page_website_schema();
+    }
+
+    $data['dawp_virtual_page_breadcrumb'] = dawp_virtual_page_breadcrumb_schema($seo);
     $data['dawp_virtual_page'] = [
         '@type'       => $seo['schema_type'] ?? 'WebPage',
         '@id'         => $page_id,
         'url'         => $seo['canonical'],
         'name'        => $seo['title'],
+        'headline'    => $seo['title'],
         'description' => $seo['description'],
-        'isPartOf'    => ['@id' => home_url('/#website')],
-        'publisher'   => ['@id' => home_url('/#organization')],
+        'isPartOf'    => ['@id' => $website_id],
+        'publisher'   => ['@id' => $organization_id],
+        'breadcrumb'  => ['@id' => $breadcrumb_id],
         'inLanguage'  => get_bloginfo('language'),
     ];
+
+    $modified_time = dawp_virtual_page_modified_time();
+    if ($modified_time !== '') {
+        $data['dawp_virtual_page']['dateModified'] = $modified_time;
+    }
 
     if (!empty($seo['image'])) {
         $data['dawp_virtual_page']['primaryImageOfPage'] = [
@@ -287,6 +318,117 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
     }
 
     return $data;
+}
+
+add_filter('rank_math/sitemap/page_content', 'dawp_rank_math_virtual_page_sitemap_content');
+function dawp_rank_math_virtual_page_sitemap_content($content = '') {
+    $pages = dawp_virtual_page_seo_map();
+
+    foreach ($pages as $key => $seo) {
+        if ($key === 'home' || empty($seo['canonical'])) {
+            continue;
+        }
+
+        $content .= "\n<url>";
+        $content .= "\n\t<loc>" . esc_url($seo['canonical']) . '</loc>';
+
+        $modified_time = dawp_virtual_page_modified_time($key);
+        if ($modified_time !== '') {
+            $content .= "\n\t<lastmod>" . esc_html($modified_time) . '</lastmod>';
+        }
+
+        $content .= "\n</url>";
+    }
+
+    return $content;
+}
+
+function dawp_schema_has_id($data, $id) {
+    foreach ((array) $data as $item) {
+        if (is_array($item)) {
+            if (($item['@id'] ?? '') === $id) {
+                return true;
+            }
+
+            if (dawp_schema_has_id($item, $id)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+function dawp_virtual_page_organization_schema() {
+    $logo_url = dawp_theme_image_url('Logo.png');
+
+    return [
+        '@type' => 'Organization',
+        '@id'   => home_url('/#organization'),
+        'name'  => get_bloginfo('name'),
+        'url'   => home_url('/'),
+        'logo'  => [
+            '@type' => 'ImageObject',
+            '@id'   => home_url('/#logo'),
+            'url'   => $logo_url,
+        ],
+        'email' => 'support@brogeshoes.com',
+    ];
+}
+
+function dawp_virtual_page_website_schema() {
+    return [
+        '@type'      => 'WebSite',
+        '@id'        => home_url('/#website'),
+        'url'        => home_url('/'),
+        'name'       => get_bloginfo('name'),
+        'publisher'  => ['@id' => home_url('/#organization')],
+        'inLanguage' => get_bloginfo('language'),
+    ];
+}
+
+function dawp_virtual_page_breadcrumb_schema($seo) {
+    $key = dawp_current_virtual_page_key();
+    $pages = dawp_virtual_page_map();
+    $page_name = !empty($pages[$key]['title']) ? $pages[$key]['title'] : $seo['title'];
+
+    return [
+        '@type'           => 'BreadcrumbList',
+        '@id'             => trailingslashit($seo['canonical']) . '#breadcrumb',
+        'itemListElement' => [
+            [
+                '@type'    => 'ListItem',
+                'position' => 1,
+                'name'     => __('Home', 'dawp'),
+                'item'     => home_url('/'),
+            ],
+            [
+                '@type'    => 'ListItem',
+                'position' => 2,
+                'name'     => $page_name,
+                'item'     => $seo['canonical'],
+            ],
+        ],
+    ];
+}
+
+function dawp_virtual_page_modified_time($key = '') {
+    if ($key === '') {
+        $key = dawp_current_virtual_page_key();
+    }
+
+    $pages = dawp_virtual_page_map();
+
+    if ($key === '' || empty($pages[$key]['slug'])) {
+        return '';
+    }
+
+    $template_file = get_template_directory() . '/template-parts/page-' . $pages[$key]['slug'] . '.php';
+    if (!file_exists($template_file)) {
+        return '';
+    }
+
+    return wp_date(DATE_W3C, filemtime($template_file));
 }
 
 function dawp_virtual_page_faq_schema_items() {
@@ -339,27 +481,43 @@ function dawp_virtual_page_fallback_seo_tags() {
         return;
     }
 
+    $breadcrumb = dawp_virtual_page_breadcrumb_schema($seo);
     $schema = [
         '@context'    => 'https://schema.org',
-        '@type'       => $seo['schema_type'] ?? 'WebPage',
-        '@id'         => trailingslashit($seo['canonical']) . '#webpage',
-        'url'         => $seo['canonical'],
-        'name'        => $seo['title'],
-        'description' => $seo['description'],
-        'isPartOf'    => ['@id' => home_url('/#website')],
-        'publisher'   => ['@id' => home_url('/#organization')],
-        'inLanguage'  => get_bloginfo('language'),
+        '@graph'      => [
+            dawp_virtual_page_organization_schema(),
+            dawp_virtual_page_website_schema(),
+            $breadcrumb,
+            [
+                '@type'       => $seo['schema_type'] ?? 'WebPage',
+                '@id'         => trailingslashit($seo['canonical']) . '#webpage',
+                'url'         => $seo['canonical'],
+                'name'        => $seo['title'],
+                'headline'    => $seo['title'],
+                'description' => $seo['description'],
+                'isPartOf'    => ['@id' => home_url('/#website')],
+                'publisher'   => ['@id' => home_url('/#organization')],
+                'breadcrumb'  => ['@id' => $breadcrumb['@id']],
+                'inLanguage'  => get_bloginfo('language'),
+            ],
+        ],
     ];
 
+    $page_schema_index = count($schema['@graph']) - 1;
+    $modified_time = dawp_virtual_page_modified_time();
+    if ($modified_time !== '') {
+        $schema['@graph'][$page_schema_index]['dateModified'] = $modified_time;
+    }
+
     if (!empty($seo['image'])) {
-        $schema['primaryImageOfPage'] = [
+        $schema['@graph'][$page_schema_index]['primaryImageOfPage'] = [
             '@type' => 'ImageObject',
             'url'   => $seo['image'],
         ];
     }
 
     if (($seo['schema_type'] ?? '') === 'FAQPage') {
-        $schema['mainEntity'] = dawp_virtual_page_faq_schema_items();
+        $schema['@graph'][$page_schema_index]['mainEntity'] = dawp_virtual_page_faq_schema_items();
     }
     ?>
     <meta name="description" content="<?php echo esc_attr($seo['description']); ?>">
@@ -390,7 +548,7 @@ function dawp_virtual_page_fallback_seo_tags() {
 add_action('wp_enqueue_scripts', 'dawp_virtual_page_assets');
 
 function dawp_virtual_page_assets() {
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    $request_uri = dawp_virtual_page_request_path();
     $pages = dawp_virtual_page_map();
 
     // Không phải virtual page hoặc page không cấu hình css

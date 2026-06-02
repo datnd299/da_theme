@@ -111,13 +111,28 @@ $footer_payment_methods = [
     .scott-social-link svg {
         fill: currentColor;
     }
+
+    .scott-trust-slider {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scott-trust-slider::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media (max-width: 639px) {
+        .scott-trust-slide {
+            flex: 0 0 min(82vw, 20rem);
+        }
+    }
 </style>
 
 <footer id="colophon" class="bg-[#1B4F49] text-white" role="contentinfo">
     <section class="border-b border-[#E8D9A6] bg-[#F7F5EF] text-[#1F2937]">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+        <div class="scott-trust-slider mx-auto flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 py-8 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-6 lg:grid-cols-4 lg:px-8">
             <?php foreach ($trust_items as $item) : ?>
-                <div class="rounded-lg border border-[#E8D9A6] bg-white p-5 shadow-sm">
+                <div class="scott-trust-slide snap-center rounded-lg border border-[#E8D9A6] bg-white p-5 shadow-sm sm:w-auto">
                     <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#6E9B8E] text-white">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />

@@ -23,7 +23,7 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
                             'class'    => 'product-card__img',
                             'loading'  => 'lazy',
                             'decoding' => 'async',
-                            'sizes'    => '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw',
+                            'sizes'    => '(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw',
                         ]
                     );
                     ?>

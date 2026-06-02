@@ -1,10 +1,48 @@
 <?php
 defined('ABSPATH') || exit;
 
+function dawp_should_proxy_image_url($url) {
+    $parts = wp_parse_url($url);
+
+    if (empty($parts['host'])) {
+        return false;
+    }
+
+    $host = strtolower($parts['host']);
+
+    if (preg_match('/^i\d\.wp\.com$/', $host)) {
+        return true;
+    }
+
+    $site_host = strtolower((string) wp_parse_url(home_url('/'), PHP_URL_HOST));
+
+    if ($site_host && $host === $site_host) {
+        return false;
+    }
+
+    if (
+        $host === 'localhost'
+        || $host === '127.0.0.1'
+        || $host === '::1'
+        || substr($host, -6) === '.local'
+        || preg_match('/^10\./', $host)
+        || preg_match('/^192\.168\./', $host)
+        || preg_match('/^172\.(1[6-9]|2\d|3[0-1])\./', $host)
+    ) {
+        return false;
+    }
+
+    return true;
+}
+
 function dawp_i0_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
     $parts = wp_parse_url($url);
 
     if (empty($parts['host']) || empty($parts['path'])) {
+        return $url;
+    }
+
+    if (! dawp_should_proxy_image_url($url)) {
         return $url;
     }
 
@@ -36,6 +74,10 @@ function dawp_i0_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
 }
 
 function dawp_i0_image_srcset($url, array $sizes) {
+    if (! dawp_should_proxy_image_url($url)) {
+        return '';
+    }
+
     $items = [];
 
     foreach ($sizes as $size) {
@@ -88,7 +130,7 @@ function dawp_responsive_image_attrs($url, $width, $height, array $srcset_sizes,
 }
 
 add_filter('wp_get_attachment_image_attributes', function ($attr) {
-    if (empty($attr['src'])) {
+    if (empty($attr['src']) || ! dawp_should_proxy_image_url($attr['src'])) {
         return $attr;
     }
 

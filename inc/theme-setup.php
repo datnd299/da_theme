@@ -80,7 +80,7 @@ function theme_search_template($template) {
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.5');
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', ['dawp-tw-main'], '1.0.9');
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', ['dawp-tw-main'], '1.0.10');
 
     if ( is_front_page() ) {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.5');

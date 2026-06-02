@@ -260,7 +260,7 @@ if (class_exists('WooCommerce')) {
             </div>
 
             <?php if ($home_products instanceof WP_Query && $home_products->have_posts()) : ?>
-                <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="home-products-grid mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
                     <?php while ($home_products->have_posts()) : ?>
                         <?php
                         $home_products->the_post();
@@ -274,17 +274,17 @@ if (class_exists('WooCommerce')) {
                         $product_cat_name = (! is_wp_error($product_cats) && ! empty($product_cats)) ? $product_cats[0]->name : '';
                         ?>
                         <a href="<?php the_permalink(); ?>"
-                           class="group overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#C89B3C] hover:shadow-md"
+                           class="home-product-card group overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#C89B3C] hover:shadow-md"
                            aria-label="<?php the_title_attribute(); ?>">
-                            <span class="relative block overflow-hidden bg-[#EEF6F2]">
+                            <span class="home-product-card__media relative block overflow-hidden bg-[#EEF6F2]">
                                 <?php
                                 echo $product->get_image(
                                     'woocommerce_single',
                                     [
-                                        'class'    => 'aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]',
+                                        'class'    => 'home-product-card__image aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-[1.03]',
                                         'loading'  => 'lazy',
                                         'decoding' => 'async',
-                                        'sizes'    => '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw',
+                                        'sizes'    => '(max-width: 639px) 50vw, (max-width: 1023px) 50vw, 25vw',
                                     ]
                                 );
                                 ?>

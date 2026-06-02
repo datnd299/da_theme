@@ -4,11 +4,12 @@
  */
 
 $support_email = 'support@scottosterbind.com';
+$store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 ?>
 
-<div id="primary" class="bg-[#F7F5EF] font-body text-[#1F2937]">
+<div id="primary" class="legal-page bg-[#F7F5EF] font-body text-[#1F2937]">
     <section class="bg-[#1B4F49] py-14 text-white lg:py-20">
-        <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <div class="legal-page__container mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
             <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C89B3C]"><?php esc_html_e('Scott Osterbind Privacy', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Privacy Policy', 'dawp'); ?>
@@ -23,7 +24,7 @@ $support_email = 'support@scottosterbind.com';
     </section>
 
     <section class="py-12 lg:py-16">
-        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="legal-page__container mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-8 lg:grid-cols-[250px_minmax(0,1fr)] lg:items-start">
                 <aside class="rounded-lg border border-[#E8D9A6] bg-white p-4 shadow-sm lg:sticky lg:top-24">
                     <p class="text-xs font-black uppercase tracking-[0.16em] text-[#C89B3C]"><?php esc_html_e('Privacy Sections', 'dawp'); ?></p>
@@ -122,10 +123,14 @@ $support_email = 'support@scottosterbind.com';
                         <h2><?php esc_html_e('14. Changes to This Privacy Policy', 'dawp'); ?></h2>
                         <p><?php esc_html_e('We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or store operations. When we update it, we will revise the "Last Updated" date above. The updated policy applies when posted on this page unless a different effective date is stated.', 'dawp'); ?></p>
 
-                        <h2 id="privacy-contact"><?php esc_html_e('15. Contact Us', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('For privacy questions, account requests, data requests, order-related privacy concerns, or questions about this policy, contact Scott Osterbind:', 'dawp'); ?></p>
+                        <h2><?php esc_html_e('15. Governing Law', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('This Privacy Policy and your use of our Site shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law principles.', 'dawp'); ?></p>
+
+                        <h2 id="privacy-contact"><?php esc_html_e('16. Contact Us', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('For privacy questions, account requests, data requests, order-related privacy concerns, or questions about this policy, please contact Scott Osterbind through our official channels:', 'dawp'); ?></p>
                         <ul>
                             <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></li>
+                            <li><strong><?php esc_html_e('Physical Business Address:', 'dawp'); ?></strong> <?php echo esc_html($store_address !== '' ? $store_address : __('Available through checkout and official support channels.', 'dawp')); ?></li>
                             <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('scottosterbind.com', 'dawp'); ?></li>
                         </ul>

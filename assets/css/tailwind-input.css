@@ -42,3 +42,30 @@
   --duration-normal: 250ms;
   --duration-slow:   400ms;
 }
+
+@layer components {
+  @media (max-width: 47.999rem) {
+    .faq-highlight-slider {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      padding-bottom: 0.25rem;
+      scroll-padding-inline: 0.125rem;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .faq-highlight-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .faq-highlight-slide {
+      flex: 0 0 min(82vw, 22rem);
+      min-height: 8.75rem;
+      scroll-snap-align: start;
+    }
+
+  }
+}

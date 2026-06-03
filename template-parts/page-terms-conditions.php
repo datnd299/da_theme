@@ -5,16 +5,20 @@
 
 defined('ABSPATH') || exit;
 
-$support_email = 'support@myveganblog.com';
-$updated_date  = 'May 28, 2026';
-$terms_image   = get_template_directory_uri() . '/assets/img/All_image/image copy 2.png';
+$support_email  = 'support@myveganblog.com';
+$store_name     = 'Myveganblog';
+$store_address  = function_exists('dawp_store_address') ? dawp_store_address() : '';
+$updated_date   = 'May 28, 2026';
+$business_hours = __('Monday-Friday, 9:00 AM-5:00 PM, GMT-08:00', 'dawp');
+$contact_url    = home_url('/contact-us/');
+$terms_image    = get_template_directory_uri() . '/assets/img/All_image/image copy 2.png';
 
 $terms_sections = [
     [
         'number' => '01',
         'title'  => __('Agreement To These Terms', 'dawp'),
         'body'   => [
-            __('This website is operated by Myveganblog. By accessing our website, browsing products, creating an account, placing an order, or contacting us for support, you agree to these Terms & Conditions and the policies referenced on this site.', 'dawp'),
+            __('This website is operated by Myveganblog. By accessing our website, browsing products, creating an account, placing an order, or contacting us for support, you agree to these Terms & Conditions Policy and the policies referenced on this site.', 'dawp'),
             __('If you do not agree with these terms, you should not use the website or purchase products from Myveganblog.', 'dawp'),
         ],
     ],
@@ -30,7 +34,7 @@ $terms_sections = [
         'number' => '03',
         'title'  => __('Products, Materials & Availability', 'dawp'),
         'body'   => [
-            __('Myveganblog offers women\'s leather shoes, women\'s sandals, women\'s handbags, and fashion accessories. Product descriptions, images, colors, sizes, dimensions, finishes, materials, and care notes are provided to help customers make informed choices.', 'dawp'),
+            __('Myveganblog offers women\'s shoes, women\'s sandals, women\'s handbags, and fashion accessories. Product descriptions, images, colors, sizes, dimensions, finishes, materials, and care notes are provided to help customers make informed choices.', 'dawp'),
             __('We make reasonable efforts to display products accurately, but screen settings, photography, lighting, supplier updates, and inventory changes may affect how colors or details appear. Product availability, pricing, and descriptions may change without notice.', 'dawp'),
         ],
     ],
@@ -108,7 +112,7 @@ $terms_sections = [
         </div>
         <div class="relative mx-auto grid w-[min(100%,1180px)] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div class="max-w-3xl">
-                <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></span>
+                <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Terms & Conditions Policy', 'dawp'); ?></span>
                 <h1 class="mt-7 font-serif text-4xl leading-tight text-white sm:text-6xl"><?php esc_html_e('Terms for using Myveganblog.', 'dawp'); ?></h1>
                 <p class="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
                     <?php esc_html_e('Please review these terms before using our website or purchasing women\'s shoes, handbags, and accessories from Myveganblog.', 'dawp'); ?>
@@ -118,7 +122,7 @@ $terms_sections = [
                 <dl class="grid gap-5 sm:grid-cols-2">
                     <div>
                         <dt class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Store', 'dawp'); ?></dt>
-                        <dd class="mt-2 font-serif text-2xl text-white"><?php esc_html_e('Myveganblog', 'dawp'); ?></dd>
+                        <dd class="mt-2 font-serif text-2xl text-white"><?php echo esc_html($store_name); ?></dd>
                     </div>
                     <div>
                         <dt class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Updated', 'dawp'); ?></dt>
@@ -129,49 +133,18 @@ $terms_sections = [
         </div>
     </section>
 
-    <section class="bg-white px-4 py-10 sm:px-6 lg:px-8">
-        <div class="mx-auto grid w-[min(100%,1180px)] gap-4 md:grid-cols-3">
-            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="rounded-[28px] border border-[#D8CEC6] bg-[#F8F3EC] p-6 transition-colors hover:bg-[#F4ECE5]">
-                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Shipping', 'dawp'); ?></span>
-                <h2 class="mt-3 font-serif text-2xl text-[#2F2A28]"><?php esc_html_e('Delivery terms', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Review processing, transit estimates, tracking, and delivery issue guidance.', 'dawp'); ?></p>
-            </a>
-            <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="rounded-[28px] border border-[#D8CEC6] bg-[#F8F3EC] p-6 transition-colors hover:bg-[#F4ECE5]">
-                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Returns', 'dawp'); ?></span>
-                <h2 class="mt-3 font-serif text-2xl text-[#2F2A28]"><?php esc_html_e('Refund conditions', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Understand return authorization, item condition, refunds, and exchanges.', 'dawp'); ?></p>
-            </a>
-            <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="rounded-[28px] border border-[#D8CEC6] bg-[#F8F3EC] p-6 transition-colors hover:bg-[#F4ECE5]">
-                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Privacy', 'dawp'); ?></span>
-                <h2 class="mt-3 font-serif text-2xl text-[#2F2A28]"><?php esc_html_e('Data practices', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('See how customer information is collected, used, and protected.', 'dawp'); ?></p>
-            </a>
-        </div>
-    </section>
-
     <section class="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div class="mx-auto grid w-[min(100%,1180px)] gap-8 lg:grid-cols-[280px_1fr]">
-            <aside class="h-fit rounded-[28px] border border-[#D8CEC6] bg-white p-6 shadow-[0_12px_30px_rgba(47,42,40,0.06)] lg:sticky lg:top-24">
-                <h2 class="font-serif text-2xl text-[#2F2A28]"><?php esc_html_e('Key Terms', 'dawp'); ?></h2>
-                <p class="mt-4 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('These terms cover store use, orders, product information, shipping, returns, privacy, and customer responsibilities.', 'dawp'); ?></p>
-                <div class="mt-6 rounded-2xl bg-[#F4ECE5] p-5">
-                    <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Support', 'dawp'); ?></span>
-                    <a href="<?php echo esc_url('mailto:' . $support_email); ?>" class="mt-2 block break-words text-sm font-bold text-[#2F2A28] hover:text-[#C98A8A]"><?php echo esc_html($support_email); ?></a>
-                </div>
-            </aside>
-
+        <div class="mx-auto w-[min(100%,1180px)]">
             <div class="space-y-5">
                 <?php foreach ($terms_sections as $section) : ?>
                     <article class="rounded-[28px] border border-[#D8CEC6] bg-white p-6 shadow-[0_12px_30px_rgba(47,42,40,0.06)] sm:p-8 lg:p-10">
-                        <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
-                            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#F4ECE5] font-serif text-xl text-[#C98A8A]"><?php echo esc_html($section['number']); ?></span>
-                            <div>
-                                <h2 class="font-serif text-2xl leading-tight text-[#2F2A28] sm:text-3xl"><?php echo esc_html($section['title']); ?></h2>
-                                <div class="mt-5 space-y-4 text-base leading-8 text-[#6F625D]">
-                                    <?php foreach ($section['body'] as $paragraph) : ?>
-                                        <p><?php echo esc_html($paragraph); ?></p>
-                                    <?php endforeach; ?>
-                                </div>
+                        <span class="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#F4ECE5] font-serif text-xl text-[#C98A8A]"><?php echo esc_html($section['number']); ?></span>
+                        <div class="mt-4">
+                            <h2 class="font-serif text-2xl leading-tight text-[#2F2A28] sm:text-3xl"><?php echo esc_html($section['title']); ?></h2>
+                            <div class="mt-5 space-y-4 text-base leading-8 text-[#6F625D]">
+                                <?php foreach ($section['body'] as $paragraph) : ?>
+                                    <p><?php echo esc_html($paragraph); ?></p>
+                                <?php endforeach; ?>
                             </div>
                         </div>
                     </article>
@@ -186,12 +159,37 @@ $terms_sections = [
                 <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Questions About These Terms', 'dawp'); ?></span>
                 <h2 class="mt-4 font-serif text-3xl leading-tight sm:text-4xl"><?php esc_html_e('Customer support is available on business days.', 'dawp'); ?></h2>
                 <p class="mt-4 max-w-2xl text-sm leading-7 text-white/76">
-                    <?php printf(esc_html__('Email %s during Business Hours: Monday-Friday, 9:00 AM-5:00 PM, GMT-08:00.', 'dawp'), esc_html($support_email)); ?>
+                    <?php echo esc_html(sprintf(__('Email %s during Business Hours: %s.', 'dawp'), $support_email, $business_hours)); ?>
                 </p>
             </div>
-            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#C98A8A] px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#2F2A28]">
+            <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#C98A8A] px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#2F2A28]">
                 <?php esc_html_e('Contact Support', 'dawp'); ?>
             </a>
+        </div>
+    </section>
+
+    <section class="px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+        <div class="mx-auto w-[min(100%,1180px)] rounded-[28px] border border-[#D8CEC6] bg-white p-6 shadow-[0_12px_30px_rgba(47,42,40,0.06)] sm:p-8 lg:p-10">
+            <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Contact Information', 'dawp'); ?></h2>
+            <p class="mt-5 text-base leading-8 text-[#6F625D]"><?php esc_html_e('For questions about this Terms & Conditions Policy, please contact us through the official business channels below.', 'dawp'); ?></p>
+            <dl class="mt-7 grid gap-4 md:grid-cols-2">
+                <div class="rounded-2xl border border-[#E8D8C8] bg-[#F8F3EC] p-5">
+                    <dt class="text-sm font-bold text-[#2F2A28]"><?php esc_html_e('Store Name', 'dawp'); ?></dt>
+                    <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($store_name); ?></dd>
+                </div>
+                <div class="rounded-2xl border border-[#E8D8C8] bg-[#F8F3EC] p-5">
+                    <dt class="text-sm font-bold text-[#2F2A28]"><?php esc_html_e('Email', 'dawp'); ?></dt>
+                    <dd class="mt-3 break-words text-sm leading-7 text-[#6F625D]"><a href="<?php echo esc_url('mailto:' . $support_email); ?>" class="hover:text-[#C98A8A]"><?php echo esc_html($support_email); ?></a></dd>
+                </div>
+                <div class="rounded-2xl border border-[#E8D8C8] bg-[#F8F3EC] p-5">
+                    <dt class="text-sm font-bold text-[#2F2A28]"><?php esc_html_e('Address', 'dawp'); ?></dt>
+                    <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($store_address); ?></dd>
+                </div>
+                <div class="rounded-2xl border border-[#E8D8C8] bg-[#F8F3EC] p-5">
+                    <dt class="text-sm font-bold text-[#2F2A28]"><?php esc_html_e('Business Hours', 'dawp'); ?></dt>
+                    <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($business_hours); ?></dd>
+                </div>
+            </dl>
         </div>
     </section>
 </main>

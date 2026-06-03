@@ -1,7 +1,5 @@
 <?php
 function dawp_store_address() {
-    $fallback = __('1777 Canal St, Merced, CA 95340', 'dawp');
-
     $address_1 = trim((string) get_option('woocommerce_store_address', ''));
     $address_2 = trim((string) get_option('woocommerce_store_address_2', ''));
     $city      = trim((string) get_option('woocommerce_store_city', ''));
@@ -9,7 +7,7 @@ function dawp_store_address() {
     $location  = (string) get_option('woocommerce_default_country', '');
 
     if ($address_1 === '' && $address_2 === '' && $city === '' && $postcode === '') {
-        return $fallback;
+        return '';
     }
 
     $state = '';
@@ -23,5 +21,5 @@ function dawp_store_address() {
     $city_line = trim(implode(', ', array_filter([$city, $locality])));
     $address_parts = array_filter([implode(', ', $street_parts), $city_line]);
 
-    return $address_parts ? implode(', ', $address_parts) : $fallback;
+    return $address_parts ? implode(', ', $address_parts) : '';
 }

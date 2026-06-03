@@ -312,8 +312,8 @@ $trust_cards = [
 
     <!-- About and newsletter -->
     <section class="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div class="mx-auto grid w-[min(100%,1180px)] overflow-hidden rounded-[28px] bg-[#2F2A28] lg:grid-cols-[0.9fr_1.1fr]">
-            <div class="min-h-[360px]">
+        <div class="mx-auto grid min-h-[520px] w-[min(100%,1180px)] overflow-hidden rounded-[28px] bg-[#2F2A28] lg:min-h-[560px] lg:grid-cols-[0.9fr_1.1fr]">
+            <div class="min-h-[360px] lg:min-h-[560px]">
                 <?php echo dawp_responsive_image($stock_images['about'], [
                     'alt'     => __('Women\'s handbag styled with everyday accessories', 'dawp'),
                     'width'   => 700,
@@ -323,7 +323,7 @@ $trust_cards = [
                     'srcset'  => [[400, 320], [573, 458], [700, 560]],
                 ]); ?>
             </div>
-            <div class="p-8 text-white sm:p-10 lg:p-14">
+            <div class="flex min-h-[520px] flex-col justify-center p-8 pb-10 text-white sm:p-10 sm:pb-12 lg:min-h-[560px] lg:p-12">
                 <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Our Boutique Direction', 'dawp'); ?></span>
                 <h2 class="mt-4 font-serif text-3xl leading-tight sm:text-4xl">
                     <?php esc_html_e('A clear place for polished women\'s shoes, handbags, and accessories.', 'dawp'); ?>
@@ -335,17 +335,17 @@ $trust_cards = [
                     <input type="hidden" name="action" value="dawp_newsletter">
                     <input type="hidden" name="nonce" value="<?php echo esc_attr(wp_create_nonce('dawp_newsletter_nonce')); ?>">
                     <label class="sr-only" for="home-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-                    <input id="home-newsletter-email" name="email" type="email" required autocomplete="email" placeholder="<?php esc_attr_e('Enter your email', 'dawp'); ?>" class="min-h-12 rounded-full border border-white/18 bg-white px-5 text-sm text-[#2F2A28] outline-none transition-colors placeholder:text-[#948984] focus:border-[#C98A8A]">
-                    <button type="submit" class="min-h-12 rounded-full bg-[#C98A8A] px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#2F2A28] disabled:cursor-not-allowed disabled:opacity-70">
+                    <input id="home-newsletter-email" name="email" type="email" required autocomplete="email" placeholder="<?php esc_attr_e('Enter your email', 'dawp'); ?>" class="min-h-12 min-w-0 rounded-full border border-white/18 bg-white px-5 text-sm text-[#2F2A28] outline-none transition-colors placeholder:text-[#948984] focus:border-[#C98A8A]">
+                    <button type="submit" class="min-h-12 whitespace-nowrap rounded-full bg-[#C98A8A] px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#2F2A28] disabled:cursor-not-allowed disabled:opacity-70">
                         <?php esc_html_e('Sign Up', 'dawp'); ?>
                     </button>
                     <p id="newsletter-msg" class="text-sm font-bold sm:col-span-2" aria-live="polite" style="display:none"></p>
                 </form>
-                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/24 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#2F2A28]">
+                <div class="mt-8 flex flex-col flex-wrap gap-3 sm:flex-row">
+                    <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-white/24 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-[#2F2A28] sm:w-auto">
                         <?php esc_html_e('Learn About Us', 'dawp'); ?>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full px-6 py-3 text-sm font-bold text-[#F4ECE5] transition-colors hover:text-white">
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-11 w-full items-center justify-center rounded-full px-6 py-3 text-sm font-bold text-[#F4ECE5] transition-colors hover:text-white sm:w-auto">
                         <?php esc_html_e('Customer Support', 'dawp'); ?>
                     </a>
                 </div>
@@ -355,9 +355,9 @@ $trust_cards = [
 
     <!-- Trust -->
     <section class="bg-white px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
-        <div class="mx-auto grid w-[min(100%,1180px)] gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div class="mx-auto flex w-[min(100%,1180px)] snap-x snap-mandatory gap-4 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-2 md:overflow-visible md:pb-0 lg:grid-cols-4" aria-label="<?php esc_attr_e('Shopping trust highlights', 'dawp'); ?>">
             <?php foreach ($trust_cards as $card) : ?>
-                <div class="min-h-[230px] rounded-3xl border border-[#D8CEC6] bg-[#F8F3EC] p-6 sm:p-8">
+                <div class="min-w-[82%] snap-start rounded-3xl border border-[#D8CEC6] bg-[#F8F3EC] p-6 sm:min-w-[46%] sm:p-8 md:min-h-[230px] md:min-w-0">
                     <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-[#C98A8A]/14 text-[#C98A8A]">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
                     </div>

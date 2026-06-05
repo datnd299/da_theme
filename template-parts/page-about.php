@@ -1,165 +1,120 @@
 <?php
 /**
- * Template Name: About Us
- * Template Part: page-about
+ * Template Part: About Us
  */
+
+$theme_uri                = get_template_directory_uri();
+$hero_image               = $theme_uri . '/assets/img/toyocartv/toyocartv-hero.png';
+$accessory_image          = $theme_uri . '/assets/img/toyocartv/toyocartv-accessories.png';
 ?>
 
-<main class="bg-[#FAF7F2]">
-    <!-- Hero Section -->
-    <section class="relative h-[500px] lg:h-[650px] flex items-center justify-center overflow-hidden">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/store_about.png'); ?>" 
-             alt="About Shop Kelli Boutique" 
-             class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/30"></div>
-        <div class="relative z-10 text-center px-4 max-w-3xl">
-            <h1 class="text-4xl lg:text-6xl font-serif text-white mb-6 drop-shadow-md">
-                <?php esc_html_e('The Heart of Our Boutique', 'dawp'); ?>
-            </h1>
-            <p class="text-lg lg:text-xl text-white/95 leading-relaxed font-medium max-w-2xl mx-auto">
-                <?php esc_html_e('Welcome to Shop Kelli, where every piece is chosen with love for women, young girls, and the families that bring them joy.', 'dawp'); ?>
-            </p>
-        </div>
-    </section>
-
-    <!-- Our Story Section -->
-    <section class="py-20 px-4 lg:px-8">
-        <div class="max-w-[1280px] mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div class="space-y-8">
-                <div class="inline-block px-4 py-1.5 rounded-full bg-[#c98a8a]/10 text-[#c98a8a] text-sm font-bold uppercase tracking-widest">
-                    <?php esc_html_e('Our Journey', 'dawp'); ?>
-                </div>
-                <h2 class="text-3xl lg:text-4xl font-serif text-[#2F2A28]">
-                    <?php esc_html_e('From a Local Boutique to Your Doorstep', 'dawp'); ?>
-                </h2>
-                <div class="space-y-6 text-[#6F625D] leading-relaxed text-lg">
-                    <p>
-                        <?php esc_html_e('Shop Kelli began as a dream in the heart of Merced, California. We started as a small, local boutique with a simple mission: to provide women and young girls with beautiful, high-quality clothing that feels as good as it looks.', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <?php esc_html_e('Our founder envisioned a space that felt less like a store and more like a community, a place where mothers could find the perfect outfit for their daughters, and women could discover styles that celebrate their unique journey.', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <?php esc_html_e('Today, we are thrilled to bring that same warm, family-oriented boutique experience online, serving families across the United States with the same care and personal touch that defined our very first days.', 'dawp'); ?>
-                    </p>
-                </div>
-            </div>
-            <div class="relative">
-                <div class="absolute -inset-4 bg-[#E8D8C8] rounded-2xl -rotate-2"></div>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_babyandmom.png'); ?>" 
-                     alt="Mommy and Daughter laughing" 
-                     class="relative rounded-xl shadow-xl w-full h-auto object-cover aspect-square">
-            </div>
-        </div>
-    </section>
-
-    <!-- Brand Values Section -->
-    <section class="bg-white py-20 px-4 lg:px-8 border-y border-[#E6DDD6]">
-        <div class="max-w-[1280px] mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-serif text-[#2F2A28] mb-4">
-                    <?php esc_html_e('What Defines Us', 'dawp'); ?>
-                </h2>
-                <p class="text-[#6F625D] max-w-2xl mx-auto text-lg">
-                    <?php esc_html_e('At Shop Kelli, we believe fashion is more than just clothes,it’s about the memories you make in them.', 'dawp'); ?>
+<section class="bg-white">
+    <div class="relative min-h-[520px] overflow-hidden bg-[#080808]">
+        <?php
+        echo dawp_responsive_image($hero_image, [
+            'alt'             => __('Truck and SUV accessory lifestyle scene', 'dawp'),
+            'class'           => 'absolute inset-0 h-full w-full object-cover opacity-55',
+            'width'           => 1672,
+            'height'          => 941,
+            'srcset_widths'   => [480, 768, 1180, 1440, 1672],
+            'sizes'           => '100vw',
+            'loading'         => 'eager',
+            'fetchpriority'   => 'high',
+        ]);
+        ?>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/85 to-[#080808]/35"></div>
+        <div class="relative mx-auto flex min-h-[520px] w-[min(100%-32px,1180px)] items-center py-20">
+            <div class="max-w-3xl">
+                <span class="mb-5 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('About ToyocarTV', 'dawp'); ?></span>
+                <h1 class="font-heading text-5xl font-black uppercase leading-none text-white md:text-7xl">
+                    <?php esc_html_e('Built For Truck And SUV Accessory Shoppers', 'dawp'); ?>
+                </h1>
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/80">
+                    <?php esc_html_e('ToyocarTV is an independent auto accessories store built for drivers who want practical interior, exterior, and lifestyle accessories organized by vehicle collection.', 'dawp'); ?>
                 </p>
             </div>
+        </div>
+    </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Value 1 -->
-                <div class="p-8 rounded-2xl bg-[#FAF7F2] border border-[#E6DDD6] text-center space-y-4">
-                    <div class="w-16 h-16 bg-[#c98a8a]/10 rounded-full flex items-center justify-center mx-auto text-[#c98a8a]">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-[#2F2A28]"><?php esc_html_e('Family First', 'dawp'); ?></h3>
-                    <p class="text-[#6F625D] leading-relaxed">
-                        <?php esc_html_e('We specialize in mommy & me styles and family-friendly fashion because we know that the best moments are shared.', 'dawp'); ?>
-                    </p>
+    <div class="mx-auto w-[min(100%-32px,1180px)] py-16 lg:py-20">
+        <div class="grid gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+            <div>
+                <span class="mb-4 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('Independent Store', 'dawp'); ?></span>
+                <h2 class="font-heading text-4xl font-black uppercase leading-tight text-[#111827] md:text-5xl">
+                    <?php esc_html_e('Practical parts, clear collections, no official-brand claims.', 'dawp'); ?>
+                </h2>
+                <div class="mt-6 space-y-5 text-base leading-8 text-[#6B7280]">
+                    <p><?php esc_html_e('The store is organized around Tacoma, 4Runner, FJ Cruiser, and Tundra-style collections so customers can start with the vehicle style they shop for, then review each product page before ordering.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Our focus is everyday usefulness: cabin organization, storage, protective exterior details, small garage accessories, and driver lifestyle merch that makes shopping straightforward.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Vehicle model names are used only to describe compatible-style shopping collections. Product details, dimensions, materials, and installation notes should always be checked before purchase.', 'dawp'); ?></p>
                 </div>
-
-                <!-- Value 2 -->
-                <div class="p-8 rounded-2xl bg-[#FAF7F2] border border-[#E6DDD6] text-center space-y-4">
-                    <div class="w-16 h-16 bg-[#c98a8a]/10 rounded-full flex items-center justify-center mx-auto text-[#c98a8a]">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div class="rounded-2xl border border-[#E5E7EB] bg-[#F7F8FA] p-5 shadow-card">
+                <?php
+                echo dawp_responsive_image($accessory_image, [
+                    'alt'           => __('Auto accessories product scene', 'dawp'),
+                    'class'         => 'aspect-[4/3] w-full rounded-xl object-cover',
+                    'width'         => 920,
+                    'height'        => 690,
+                    'srcset_widths' => [360, 560, 768, 920],
+                    'sizes'         => '(max-width: 1023px) calc(100vw - 32px), 520px',
+                    'loading'       => 'lazy',
+                ]);
+                ?>
+                <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
+                    <div class="rounded-lg bg-white p-4">
+                        <strong class="block text-[#111827]"><?php esc_html_e('Interior', 'dawp'); ?></strong>
+                        <span class="text-[#6B7280]"><?php esc_html_e('Organizers and daily-use upgrades', 'dawp'); ?></span>
                     </div>
-                    <h3 class="text-xl font-bold text-[#2F2A28]"><?php esc_html_e('Authentic Quality', 'dawp'); ?></h3>
-                    <p class="text-[#6F625D] leading-relaxed">
-                        <?php esc_html_e('We hand-select every item in our collection, ensuring that comfort and durability never compromise on boutique style.', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <!-- Value 3 -->
-                <div class="p-8 rounded-2xl bg-[#FAF7F2] border border-[#E6DDD6] text-center space-y-4">
-                    <div class="w-16 h-16 bg-[#c98a8a]/10 rounded-full flex items-center justify-center mx-auto text-[#c98a8a]">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path></svg>
+                    <div class="rounded-lg bg-white p-4">
+                        <strong class="block text-[#111827]"><?php esc_html_e('Exterior', 'dawp'); ?></strong>
+                        <span class="text-[#6B7280]"><?php esc_html_e('Simple add-ons and protection', 'dawp'); ?></span>
                     </div>
-                    <h3 class="text-xl font-bold text-[#2F2A28]"><?php esc_html_e('Transparent Trust', 'dawp'); ?></h3>
-                    <p class="text-[#6F625D] leading-relaxed">
-                        <?php esc_html_e('As a real boutique, we value honesty. No hidden fees, clear shipping times, and a support team that actually cares.', 'dawp'); ?>
-                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- GMC Compliance & Trust Section -->
-    <section class="py-20 px-4 lg:px-8 bg-[#FAF7F2]">
-        <div class="max-w-[1000px] mx-auto bg-white p-10 lg:p-16 rounded-3xl shadow-sm border border-[#E6DDD6]">
-            <div class="grid lg:grid-cols-2 gap-12">
+    <div class="bg-[#F7F8FA] py-16 lg:py-20">
+        <div class="mx-auto w-[min(100%-32px,1180px)]">
+            <div class="mb-10 max-w-2xl">
+                <span class="mb-4 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('How We Work', 'dawp'); ?></span>
+                <h2 class="font-heading text-4xl font-black uppercase text-[#111827]"><?php esc_html_e('Clear shopping, practical support.', 'dawp'); ?></h2>
+            </div>
+            <div class="-mx-4 grid grid-flow-col grid-cols-none auto-cols-[minmax(260px,86%)] gap-5 overflow-x-auto px-4 pb-5 scroll-px-4 snap-x snap-mandatory md:mx-0 md:grid-flow-row md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4">
+                <?php
+                $values = [
+                    ['Clear Collections', 'Shop by vehicle collection or by use: interior, exterior, and driver lifestyle merch.'],
+                    ['Compatibility Notes', 'Review product details and fitment notes before ordering any compatible-style item.'],
+                    ['Tracking Included', 'Tracking details are provided once your order ships.'],
+                    ['30-Day Returns', 'Eligible unused, uninstalled items may be returned within 30 days of delivery.'],
+                ];
+                foreach ($values as $value) :
+                ?>
+                    <article class="snap-start rounded-xl border border-[#E5E7EB] bg-white p-6">
+                        <div class="mb-5 h-1 w-12 bg-[#D71920]"></div>
+                        <h3 class="text-lg font-black text-[#111827]"><?php echo esc_html($value[0]); ?></h3>
+                        <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($value[1]); ?></p>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="mx-auto w-[min(100%-32px,1180px)] py-16 lg:py-20">
+        <div class="rounded-2xl bg-[#080808] p-8 text-white lg:p-12">
+            <div class="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
                 <div>
-                    <h2 class="text-2xl font-serif text-[#2F2A28] mb-6"><?php esc_html_e('Visit Us or Get in Touch', 'dawp'); ?></h2>
-                    <p class="text-[#6F625D] mb-8 leading-relaxed">
-                        <?php esc_html_e('Transparency is key to our relationship with you. We are a registered business based in California, and we are always here to help with your orders or questions.', 'dawp'); ?>
+                    <span class="mb-4 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('Important Disclaimer', 'dawp'); ?></span>
+                    <h2 class="font-heading text-3xl font-black uppercase md:text-4xl"><?php esc_html_e('Independent auto accessories store.', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-white/72">
+                        <?php esc_html_e('ToyocarTV is an independent auto accessories store and is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer. Vehicle model names are used only to help customers identify compatible-style product collections.', 'dawp'); ?>
                     </p>
-                    <div class="space-y-6">
-                        <div class="flex gap-4 items-start">
-                            <div class="mt-1 text-[#c98a8a]">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[#2F2A28]"><?php esc_html_e('Our Boutique Location', 'dawp'); ?></h4>
-                                <p class="text-[#6F625D]"><?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?></p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <div class="mt-1 text-[#c98a8a]">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-[#2F2A28]"><?php esc_html_e('Customer Support', 'dawp'); ?></h4>
-                                <p class="text-[#6F625D]"><?php esc_html_e('support@shopkelli.com', 'dawp'); ?></p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="bg-[#F5F3F1] p-8 rounded-2xl flex flex-col justify-center text-center space-y-6">
-                    <h3 class="text-xl font-bold text-[#2F2A28]"><?php esc_html_e('Need Assistance?', 'dawp'); ?></h3>
-                    <p class="text-[#6F625D]">
-                        <?php esc_html_e('Our team is available Monday – Saturday, 10:00 AM – 6:00 PM (PST) to help you with sizing, styling, or order tracking.', 'dawp'); ?>
-                    </p>
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" 
-                       class="inline-block px-8 py-3 bg-[#c98a8a] text-white font-bold rounded-lg hover:bg-[#b37a7a] transition-colors shadow-md">
-                        <?php esc_html_e('Contact Us Today', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final Brand Message -->
-    <section class="py-20 text-center px-4 bg-[#FAF7F2]">
-        <div class="max-w-2xl mx-auto space-y-6">
-            <h2 class="text-3xl font-serif text-[#2F2A28]">
-                <?php esc_html_e('Join Our Boutique Community', 'dawp'); ?>
-            </h2>
-            <p class="text-lg text-[#6F625D] leading-relaxed italic">
-                <?php esc_html_e('"Shop Kelli is more than a store. It’s a celebration of family, the joy of motherhood, and the beautiful outfits we wear along the way."', 'dawp'); ?>
-            </p>
-            <div class="pt-6">
-                <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="text-[#c98a8a] font-bold border-b-2 border-[#c98a8a] hover:text-[#b37a7a] hover:border-[#b37a7a] transition-all pb-1">
-                    <?php esc_html_e('Explore Our Collections', 'dawp'); ?>
+                <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#D71920] px-6 text-sm font-black uppercase text-white hover:bg-[#A70F14]">
+                    <?php esc_html_e('Shop Accessories', 'dawp'); ?>
                 </a>
             </div>
         </div>
-    </section>
-</main>
+    </div>
+</section>

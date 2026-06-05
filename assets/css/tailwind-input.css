@@ -1,44 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS — Backgrounds === */
-  --color-background:  #FFFFFF;   /* Warm White */
-  --color-surface:     #FAF7F2;   /* Soft Cream */
-  --color-surface-alt: #F5F3F1;   /* Soft Gray */
+  --color-background: #FFFFFF;
+  --color-surface: #F7F8FA;
+  --color-surface-alt: #E5E7EB;
 
-  /* === COLORS — Text === */
-  --color-foreground:        #2F2A28;
-  --color-foreground-muted:  #6F625D;
-  --color-muted:             #9A8C86;
+  --color-foreground: #111827;
+  --color-foreground-muted: #6B7280;
+  --color-muted: #9CA3AF;
 
-  /* === COLORS — Brand === */
-  --color-accent:       #C98A8A;  /* Dusty Rose */
-  --color-accent-hover: #B87575;
-  --color-accent-soft:  #E8D8C8;  /* Soft Beige */
-  --color-accent-blush: #DFA39A;  /* Warm Blush */
+  --color-accent: #D71920;
+  --color-accent-hover: #A70F14;
+  --color-accent-soft: #FDE7E8;
+  --color-accent-blush: #1F2933;
 
-  /* === COLORS — UI === */
-  --color-border:   #E6DDD6;
-  --color-alert:    #C0392B;
-  --color-success:  #5C8A6A;
+  --color-border: #E5E7EB;
+  --color-alert: #D71920;
+  --color-success: #15803D;
 
-  /* === BORDER RADIUS === */
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --radius-pill: 999px;
 
-  /* === SHADOWS === */
-  --shadow-card:       0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(17, 24, 39, 0.08);
+  --shadow-card-hover: 0 10px 28px rgba(17, 24, 39, 0.14);
 
-  /* === TYPOGRAPHY === */
-  --font-sans:    'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Oswald', 'Barlow Condensed', 'Arial Narrow', sans-serif;
 
-  /* === TRANSITIONS === */
-  --ease-fluid:      cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast:   150ms;
+  --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
   --duration-normal: 250ms;
-  --duration-slow:   400ms;
+  --duration-slow: 400ms;
 }

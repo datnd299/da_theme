@@ -1,25 +1,10 @@
 <?php
 function dawp_main_menu_items() {
     return [
-        ['title' => __('Shop All',    'dawp'), 'url' => home_url('/shop/'),        'megamenu' => true],
-        ['title' => __('About Us',    'dawp'), 'url' => home_url('/about-us/'),    'megamenu' => false],
-        ['title' => __('Contact Us',  'dawp'), 'url' => home_url('/contact-us/'),  'megamenu' => false],
-        ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/'), 'megamenu' => false],
-    ];
-}
-
-function dawp_megamenu_sections() {
-    return [
-        [
-            'title' => __('Categories', 'dawp'),
-            'links' => [
-                ['title' => __('Girls Dresses',       'dawp'), 'url' => home_url('/product-category/girls-dresses/')],
-                ['title' => __('Mommy & Me',          'dawp'), 'url' => home_url('/product-category/mommy-me-matching-sets/')],
-                ['title' => __('Women Casual',        'dawp'), 'url' => home_url('/product-category/women-casual/')],
-                ['title' => __('Baby Girl',           'dawp'), 'url' => home_url('/product-category/baby-girl-boutique/')],
-                ['title' => __('Boutique Accessories','dawp'), 'url' => home_url('/product-category/boutique-accessories/')],
-            ],
-        ],
+        ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
+        ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')],
+        ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
+        ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
     ];
 }
 
@@ -33,32 +18,39 @@ function dawp_is_current_url($url) {
 function dawp_footer_columns() {
     return [
         [
-            'title' => 'Shop',
+            'title' => __('Shop', 'dawp'),
             'links' => [
-                ['title' => __('Shop All',            'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Girls Dresses',       'dawp'), 'url' => home_url('/product-category/girls-dresses/')],
-                ['title' => __('Mommy & Me',          'dawp'), 'url' => home_url('/product-category/mommy-me-matching-sets/')],
-                ['title' => __('Women Casual',        'dawp'), 'url' => home_url('/product-category/women-casual/')],
-                ['title' => __('Baby Girl',           'dawp'), 'url' => home_url('/product-category/baby-girl-boutique/')],
-                ['title' => __('Boutique Accessories','dawp'), 'url' => home_url('/product-category/boutique-accessories/')],
+                ['title' => __('All Products', 'dawp'), 'url' => home_url('/shop/')],
+                ['title' => __('Interior Accessories', 'dawp'), 'url' => home_url('/product-category/interior-accessories/')],
+                ['title' => __('Exterior Add-Ons', 'dawp'), 'url' => home_url('/product-category/exterior-accessories/')],
+                ['title' => __('Driver Lifestyle Merch', 'dawp'), 'url' => home_url('/product-category/driver-merch/')],
             ],
         ],
         [
-            'title' => 'Help',
+            'title' => __('Vehicles', 'dawp'),
             'links' => [
-                ['title' => 'About Us',   'url' => home_url('/about-us/')],
-                ['title' => 'Contact Us', 'url' => home_url('/contact-us/')],
-                ['title' => 'Track Order','url' => home_url('/track-order/')],
+                ['title' => __('Tacoma Accessories', 'dawp'), 'url' => home_url('/product-category/tacoma-accessories/')],
+                ['title' => __('4Runner Accessories', 'dawp'), 'url' => home_url('/product-category/4runner-accessories/')],
+                ['title' => __('FJ Cruiser Accessories', 'dawp'), 'url' => home_url('/product-category/fj-cruiser-accessories/')],
+                ['title' => __('Tundra Accessories', 'dawp'), 'url' => home_url('/product-category/tundra-accessories/')],
             ],
         ],
         [
-            'title' => 'Policy',
+            'title' => __('Support', 'dawp'),
             'links' => [
-                ['title' => 'FAQs',               'url' => home_url('/faq/')],
-                ['title' => 'Shipping Policy',     'url' => home_url('/shipping-policy/')],
-                ['title' => 'Refund & Return Policy', 'url' => home_url('/refund-return-policy/')],
-                ['title' => 'Privacy Policy',      'url' => home_url('/privacy-policy/')],
-                ['title' => 'Terms & Conditions',  'url' => home_url('/terms-conditions/')],
+                ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
+                ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+                ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
+                ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
+            ],
+        ],
+        [
+            'title' => __('Policies', 'dawp'),
+            'links' => [
+                ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+                ['title' => __('Refund & Return Policy', 'dawp'), 'url' => home_url('/refund-return-policy/')],
+                ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
+                ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
             ],
         ],
     ];

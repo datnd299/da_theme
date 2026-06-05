@@ -264,9 +264,9 @@
 
 .account-page .woocommerce-MyAccount-navigation a:hover,
 .account-page .woocommerce-MyAccount-navigation .is-active a {
-  color: var(--color-foreground);
-  background: var(--color-accent-soft);
-  border-color: var(--color-accent-soft);
+  color: #FFFFFF;
+  background: #111827;
+  border-color: #111827;
 }
 
 .account-page .woocommerce-MyAccount-content {

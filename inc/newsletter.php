@@ -14,13 +14,13 @@ function dawp_newsletter_subscribe() {
 
     $site_name = get_bloginfo('name');
     $subject   = 'Thank you for joining ' . $site_name . '!';
-    $message   = "Hi there,\n\nThank you for joining our boutique community! We're so glad to have you.\n\nYou'll be the first to know about new arrivals, seasonal collections, and warm family-friendly style inspiration.\n\nWith love,\nThe " . $site_name . " Team";
+    $message   = "Hi there,\n\nThank you for joining ToyocarTV updates.\n\nYou'll hear about new accessory drops, vehicle collection updates, and practical driver lifestyle picks.\n\nThe " . $site_name . " Team";
     $headers   = ['Content-Type: text/plain; charset=UTF-8'];
 
     $sent = wp_mail($email, $subject, $message, $headers);
 
     if ($sent) {
-        wp_send_json_success(['message' => 'Thank you for joining us! A warm welcome is on its way to your inbox.']);
+        wp_send_json_success(['message' => 'Thank you for joining ToyocarTV updates. Please check your inbox.']);
     } else {
         wp_send_json_error(['message' => 'Something went wrong. Please try again later.']);
     }
@@ -49,8 +49,8 @@ function dawp_contact_submit() {
     $subject_labels = [
         'general' => 'General Inquiry',
         'order'   => 'Order Status',
-        'styling' => 'Styling Help',
-        'return'  => 'Returns & Exchanges',
+        'fitment' => 'Compatibility Question',
+        'return'  => 'Returns',
     ];
     $subject_label = $subject_labels[$subject] ?? 'General Inquiry';
 
@@ -59,8 +59,8 @@ function dawp_contact_submit() {
     wp_mail($admin_email, $admin_subject, $admin_body, ['Reply-To: ' . $name . ' <' . $email . '>']);
 
     $confirm_subject = 'We received your message – ' . $site_name;
-    $confirm_body    = "Hi {$name},\n\nThank you for reaching out! We've received your message and our boutique team will get back to you within 24 business hours.\n\nWith love,\nThe {$site_name} Team";
+    $confirm_body    = "Hi {$name},\n\nThank you for reaching out. We've received your message and our support team will get back to you within 24 business hours.\n\nThe {$site_name} Team";
     wp_mail($email, $confirm_subject, $confirm_body, ['Content-Type: text/plain; charset=UTF-8']);
 
-    wp_send_json_success(['message' => 'Thank you, ' . $name . '! Your message has been sent. We\'ll get back to you within 24 hours.']);
+    wp_send_json_success(['message' => 'Thank you, ' . $name . '. Your message has been sent. We will get back to you within 24 business hours.']);
 }

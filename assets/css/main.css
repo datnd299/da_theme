@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css — Shop Kelli Design System
+   main.css - ToyocarTV Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -7,41 +7,41 @@
 :root {
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
-  /* Warm White — page background */
-  --color-surface: #FAF7F2;
-  /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
-  /* Soft Gray — hover states, alt sections */
+  /* Clean White page background */
+  --color-surface: #F7F8FA;
+  /* Garage Silver section and card background */
+  --color-surface-alt: #E5E7EB;
+  /* Neutral border and hover surface */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
-  /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
-  /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
-  /* Light text — captions, breadcrumbs */
+  --color-foreground: #111827;
+  /* Asphalt Gray headings and product names */
+  --color-foreground-muted: #6B7280;
+  /* Steel Gray descriptions and meta */
+  --color-muted: #9CA3AF;
+  /* Muted captions and breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C98A8A;
-  /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #B87575;
-  /* Dusty Rose darker — hover state */
-  --color-accent-soft: #E8D8C8;
-  /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DFA39A;
-  /* Warm Blush — secondary brand color */
+  --color-accent: #D71920;
+  /* Racing Red primary CTA and highlights */
+  --color-accent-hover: #A70F14;
+  /* Signal Red Dark hover state */
+  --color-accent-soft: #FDE7E8;
+  /* Soft red highlight surface */
+  --color-accent-blush: #1F2933;
+  /* Off-Road Charcoal secondary surface */
 
   /* === UI === */
-  --color-border: #E6DDD6;
-  /* Border — cards, dividers */
-  --color-alert: #C0392B;
+  --color-border: #E5E7EB;
+  /* Border for cards and dividers */
+  --color-alert: #D71920;
   /* Error / alert */
   --color-success: #5C8A6A;
-  /* Success — muted green, fits boutique palette */
+  /* Success state */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Oswald', 'Barlow Condensed', 'Arial Narrow', sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -84,6 +84,16 @@
   color: var(--color-foreground);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+.woo-page {
+  min-height: 60vh;
+  background: var(--color-background);
+}
+
+.woo-page__content {
+  width: 100%;
+  min-width: 0;
 }
 
 /* =============================================================
@@ -201,4 +211,35 @@
   height: 16px;
   flex-shrink: 0;
   margin-top: 1px;
+}
+
+/* ToyocarTV brand override */
+:root {
+  --color-background: #FFFFFF;
+  --color-surface: #F7F8FA;
+  --color-surface-alt: #E5E7EB;
+  --color-foreground: #111827;
+  --color-foreground-muted: #6B7280;
+  --color-muted: #9CA3AF;
+  --color-accent: #D71920;
+  --color-accent-hover: #A70F14;
+  --color-accent-soft: #FDE7E8;
+  --color-accent-blush: #1F2933;
+  --color-border: #E5E7EB;
+  --color-alert: #D71920;
+  --color-success: #15803D;
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #F7F8FA;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-sale: #D71920;
+  --color-original-price: #6B7280;
+  --color-navy: #080808;
+  --color-navy-light: #1F2933;
+  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Oswald', 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-primary: 'Inter', 'Manrope', system-ui, sans-serif;
+  --shadow-card: 0 1px 4px rgba(17, 24, 39, 0.08);
+  --shadow-card-hover: 0 10px 28px rgba(17, 24, 39, 0.14);
 }

@@ -331,6 +331,10 @@ const zipPath  = join(distRoot, zipFile);
 if (existsSync(zipPath)) rmSync(zipPath);
 
 console.log(`Packaging → dist/${zipFile}`);
-execSync(`zip -r ${zipFile} ${themeSlug}`, { cwd: distRoot, stdio: 'inherit' });
+if (process.platform === 'win32') {
+  execSync(`powershell -NoProfile -Command "Compress-Archive -Path ${themeSlug} -DestinationPath ${zipFile} -Force"`, { cwd: distRoot, stdio: 'inherit' });
+} else {
+  execSync(`zip -r ${zipFile} ${themeSlug}`, { cwd: distRoot, stdio: 'inherit' });
+}
 
 console.log(`\nDone → dist/${zipFile}`);

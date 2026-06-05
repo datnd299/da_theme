@@ -1,240 +1,191 @@
 <?php
 /**
  * Template Part: FAQ Page
- * 
- * This template follows Google Merchant Center (GMC) standards and the Shop Kelli Design System.
- * It provides clear, transparent answers to common customer questions, building trust and reducing support load.
  */
+
 ?>
 
-<section class="bg-surface py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <!-- Header -->
-        <div class="text-center mb-16">
-            <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Common Questions</span>
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Frequently Asked Questions</h1>
-            <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
-                Everything you need to know about our boutique pieces, shipping, and more. Can't find the answer you're looking for? <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="text-accent hover:underline font-medium">Contact our friendly team</a>.
+<section class="bg-[#F7F8FA] py-16 lg:py-24">
+    <div class="mx-auto w-[min(100%-32px,1180px)]">
+        <div class="mb-12 text-center">
+            <span class="mb-4 block text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('Customer Help', 'dawp'); ?></span>
+            <h1 class="font-heading text-5xl font-black uppercase leading-none text-[#111827] md:text-6xl"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
+            <p class="mx-auto mt-5 max-w-3xl text-lg leading-8 text-[#6B7280]">
+                <?php esc_html_e('Last Updated: June 3, 2026', 'dawp'); ?>
+            </p>
+            <p class="mx-auto mt-4 max-w-4xl text-lg leading-8 text-[#6B7280]">
+                <?php esc_html_e('Find fast answers about ToyocarTV orders, U.S. shipping, tracking, returns, refunds, compatibility, checkout security, and customer support.', 'dawp'); ?>
             </p>
         </div>
 
-        <div class="space-y-12">
-            <!-- category: Orders & Payments -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Orders & Payments</h2>
+        <div class="space-y-8">
+            <section class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
+                <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6 hover:border-[#D71920]">
+                        <h2 class="text-lg font-black text-[#111827]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('U.S. shipping, order handling, transit times, carrier details, and delivery support.', 'dawp'); ?></p>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6 hover:border-[#D71920]">
+                        <h2 class="text-lg font-black text-[#111827]"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('30-day return eligibility, return shipping fees, refunds, and non-returnable items.', 'dawp'); ?></p>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6 hover:border-[#D71920]">
+                        <h2 class="text-lg font-black text-[#111827]"><?php esc_html_e('Track Order', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Use your order details to check the latest available shipment status.', 'dawp'); ?></p>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-[#111827] p-6 text-white hover:border-[#D71920]">
+                        <h2 class="text-lg font-black"><?php esc_html_e('Contact Support', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Send your order number, product question, or compatibility concern.', 'dawp'); ?></p>
+                    </a>
                 </div>
+            </section>
 
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What payment methods do you accept?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, Apple Pay, and Google Pay. All transactions are securely processed and encrypted for your safety.</p>
-                        </div>
-                    </div>
+            <section id="orders-shipping" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Orders & Shipping', 'dawp'); ?></h2>
+                <div class="mt-6 space-y-4">
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Where does ToyocarTV ship?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('ToyocarTV currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to your address, that restriction will be shown at checkout before payment is processed.', 'dawp'); ?></p>
+                    </details>
 
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Can I modify or cancel my order after it's placed?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We aim to process orders quickly. If you need to change or cancel an order, please contact us at <a href="mailto:support@shopkelli.com" class="text-accent hover:underline font-medium">support@shopkelli.com</a> within 2 hours of placing your order. Once an order has been processed for shipping, we are unable to make changes.</p>
-                        </div>
-                    </div>
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('How much does shipping cost?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Standard U.S. shipping is free for all orders nationwide, with no minimum purchase requirement. If optional upgraded shipping is available, the exact cost will be displayed clearly at checkout before you complete payment.', 'dawp'); ?></p>
+                    </details>
 
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I track my order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Once your order ships, you will receive an email with your tracking number and a link to follow its journey. You can also track your order directly on our <a href="<?php echo esc_url( home_url( '/track-order/' ) ); ?>" class="text-accent hover:underline font-medium">Order Tracking page</a>.</p>
-                        </div>
-                    </div>
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('How long does delivery take?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Orders are processed in 1-3 business days after the order cutoff time of 5:00 PM Pacific Standard Time. Standard transit time is 5-7 business days, so the estimated delivery window is 6-10 business days from purchase.', 'dawp'); ?></p>
+                    </details>
+
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Which carriers do you use?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('ToyocarTV ships orders through trusted domestic U.S. carriers, including USPS, UPS, FedEx, or DHL. The final carrier is selected when your package is labeled and prepared for shipment.', 'dawp'); ?></p>
+                    </details>
+
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Will multiple items ship together?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Some multi-item automotive accessory orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods. You will receive tracking details for each package once available.', 'dawp'); ?></p>
+                    </details>
                 </div>
-            </div>
+            </section>
 
-            <!-- category: Shipping & Delivery -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <section id="tracking-delivery" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Tracking & Delivery Issues', 'dawp'); ?></h2>
+                <div class="mt-6 grid gap-5 md:grid-cols-2">
+                    <div class="rounded-lg bg-[#F7F8FA] p-6">
+                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('How do I track my order?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]">
+                            <?php esc_html_e('Once your order ships, a shipping confirmation email with a direct tracking link and courier details will be sent to the email address used at checkout. You can also use our', 'dawp'); ?>
+                            <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="font-bold text-[#D71920] hover:underline"><?php esc_html_e('Track Order page', 'dawp'); ?></a>.
+                        </p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Shipping & Delivery</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How long will it take to receive my order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Orders placed before our 5:00 PM Pacific Standard Time cutoff are typically processed within 1-3 business days, Monday-Friday. Shipping transit time is 3-5 business days after processing is complete, so estimated total delivery time is 4-8 business days. For full details, please visit our <a href="<?php echo esc_url( home_url( '/shipping-policy/' ) ); ?>" class="text-accent hover:underline font-medium">Shipping Policy</a>.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What are your shipping costs?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We offer free standard shipping on all orders within the United States.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Where do you ship?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Shop Kelli currently serves customers in the United States only.</p>
-                        </div>
+                    <div class="rounded-lg bg-[#111827] p-6 text-white">
+                        <h3 class="text-xl font-black"><?php esc_html_e('What if tracking stops updating?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('If tracking stops updating, shows an extended delay, or is marked delivered but you did not receive the package, contact support with your order number, checkout email, full delivery address, and any relevant photos if damage is involved.', 'dawp'); ?></p>
                     </div>
                 </div>
-            </div>
-
-            <!-- category: Returns & Exchanges -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><polyline points="3 3 3 8 8 8"></polyline></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Returns & Exchanges</h2>
+                <div class="mt-6 rounded-lg border border-[#F2C94C] bg-[#FFF7E6] p-5 leading-8 text-[#111827]">
+                    <?php esc_html_e('If your package or item arrives damaged, contact us within 30 days of delivery with photos of the item, shipping packaging, and shipping label so we can investigate and arrange a replacement or refund if eligible.', 'dawp'); ?>
                 </div>
+            </section>
 
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What is your return policy?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We accept returns within 30 days of delivery for eligible new-condition items. Items must be unused, unworn, in original condition, and returned with original tags and packaging. For full details, please see our <a href="<?php echo esc_url( home_url( '/refund-return-policy/' ) ); ?>" class="text-accent hover:underline font-medium">Refund & Return Policy</a>.</p>
-                        </div>
-                    </div>
+            <section id="returns-refunds" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></h2>
+                <div class="mt-6 space-y-4">
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('What is your return window?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Eligible unused, uninstalled automotive accessories and driver lifestyle items may be returned within 30 days of delivery.', 'dawp'); ?></p>
+                    </details>
 
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I start a return?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To start a return or exchange, email us at <a href="mailto:support@shopkelli.com" class="text-accent hover:underline font-medium">support@shopkelli.com</a> with your order number and the item details. Return label and return shipping costs are the customer's responsibility unless your item arrived damaged, defective, or incorrect.</p>
-                        </div>
-                    </div>
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('What condition must a return be in?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Returned items must be unused, uninstalled, undamaged, and in original condition with original packaging, tags, labels, manuals, fitment notes, protective packaging, boxes, mounting hardware, and included accessories.', 'dawp'); ?></p>
+                    </details>
+
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Who pays return shipping?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('For defective, damaged, or incorrect products, ToyocarTV covers 100% of return shipping and provides a prepaid label by email. For customer remorse, such as ordering the wrong item, changing your mind, or fitment not matching your expectations, the prepaid label cost is deducted from the final refund.', 'dawp'); ?></p>
+                    </details>
+
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Do you charge restocking fees?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('No. ToyocarTV does not charge restocking fees for eligible returns.', 'dawp'); ?></p>
+                    </details>
+
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('How long does a refund take?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('After your return package is received, we inspect the item within 1-2 business days. If approved, the refund is processed to your original payment method within 7 business days. If you have not received your refund after 15 business days of approval, please check with your bank or card company first, then contact us.', 'dawp'); ?></p>
+                    </details>
+
+                    <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Do you offer exchanges?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('We do not process direct one-for-one exchanges. To get a different size, color, model, or fitment, return the original purchase through the approved return process and place a new order on our website.', 'dawp'); ?></p>
+                    </details>
                 </div>
-            </div>
+            </section>
 
-            <!-- category: Product & Sizing -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+            <section id="products-compatibility" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Products & Compatibility', 'dawp'); ?></h2>
+                <div class="mt-6 grid gap-5 md:grid-cols-2">
+                    <div class="rounded-lg bg-[#F7F8FA] p-6">
+                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('How do I confirm product fitment?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Review all product details, measurements, compatibility notes, and installation guidance before placing an order and before installing any item. For adhesive-backed, mounting, trim, or installation-based products, confirm exact vehicle fitment and surface compatibility before use.', 'dawp'); ?></p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Product & Sizing</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I know which size to order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We include specific sizing information on each product page. Since we carry various boutique brands, fit can vary slightly. If you're between sizes, we generally recommend sizing up for kids' items to allow for growth!</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How should I care for my boutique pieces?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To keep your items looking beautiful, we recommend following the care instructions on the label. Most of our delicate pieces benefit from hand washing or a gentle machine cycle in cold water, followed by hanging to dry.</p>
-                        </div>
+                    <div class="rounded-lg bg-[#F7F8FA] p-6">
+                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('Is ToyocarTV affiliated with Toyota?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('No. ToyocarTV is an independent automotive accessories store and is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer. Vehicle model names are used only to help customers identify compatible-style product collections.', 'dawp'); ?></p>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- Still Have Questions? -->
-        <div class="mt-20 bg-accent-soft p-10 md:p-16 rounded-3xl text-center">
-            <h3 class="font-heading text-3xl text-foreground font-bold mb-4">Still have questions?</h3>
-            <p class="text-foreground-muted text-lg mb-8 max-w-xl mx-auto">
-                Our family is here to help yours. Reach out anytime and we'll get back to you as soon as possible.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
-                    Contact Support
-                </a>
-                <a href="mailto:support@shopkelli.com" class="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground font-semibold rounded-full border border-border hover:bg-surface-alt transition-colors">
-                    Email Us Directly
-                </a>
-            </div>
-        </div>
+            <section id="payments-privacy" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Payments & Privacy', 'dawp'); ?></h2>
+                <div class="mt-6 grid gap-5 md:grid-cols-2">
+                    <div class="rounded-lg bg-[#111827] p-6 text-white">
+                        <h3 class="text-xl font-black"><?php esc_html_e('Is checkout secure?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Yes. Checkout uses encrypted HTTPS/SSL connections, and payments are handled by trusted third-party payment processors that comply with PCI-DSS standards. ToyocarTV does not store, view, or retain your raw credit card numbers on our servers.', 'dawp'); ?></p>
+                    </div>
+                    <div class="rounded-lg bg-[#F7F8FA] p-6">
+                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('How is my personal information used?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]">
+                            <?php esc_html_e('We use order, contact, and website interaction information to process payments, fulfill orders, send order updates, screen for risk, respond to support requests, and operate the store. More details are available in our', 'dawp'); ?>
+                            <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="font-bold text-[#D71920] hover:underline"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>.
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Policy Links Footer -->
-        <div class="mt-16 pt-8 border-t border-border flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted">
-            <a href="<?php echo esc_url( home_url( '/shipping-policy/' ) ); ?>" class="hover:text-accent transition-colors">Shipping Policy</a>
-            <a href="<?php echo esc_url( home_url( '/refund-return-policy/' ) ); ?>" class="hover:text-accent transition-colors">Refund & Return Policy</a>
-            <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>" class="hover:text-accent transition-colors">Terms of Service</a>
+            <section id="contact-information" class="rounded-xl border border-dashed border-[#D71920]/35 bg-white p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Still Need Help?', 'dawp'); ?></h2>
+                <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('For order support, return requests, delivery issues, or compatibility questions, contact ToyocarTV through our official support channels below. Please include your order number and checkout email when asking about an existing order.', 'dawp'); ?></p>
+                <dl class="mt-6 grid gap-4 md:grid-cols-2">
+                    <div class="rounded-lg bg-[#F7F8FA] p-5">
+                        <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Store Name', 'dawp'); ?></dt>
+                        <dd class="font-bold text-[#111827]">ToyocarTV</dd>
+                    </div>
+                    <div class="rounded-lg bg-[#F7F8FA] p-5">
+                        <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
+                        <dd><a href="mailto:support@toyocartv.com" class="font-bold text-[#111827] hover:text-[#D71920]">support@toyocartv.com</a></dd>
+                    </div>
+                    <div class="rounded-lg bg-[#F7F8FA] p-5">
+                        <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Physical Business Address', 'dawp'); ?></dt>
+                        <dd class="font-bold text-[#111827]">1777 Canal St, Merced, CA 95340, United States</dd>
+                    </div>
+                    <div class="rounded-lg bg-[#F7F8FA] p-5">
+                        <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Customer Service Hours', 'dawp'); ?></dt>
+                        <dd class="font-bold text-[#111827]">Monday-Friday, 9:00 AM-5:00 PM PST (Los Angeles)</dd>
+                    </div>
+                    <div class="rounded-lg bg-[#F7F8FA] p-5">
+                        <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Response Time', 'dawp'); ?></dt>
+                        <dd class="font-bold text-[#111827]"><?php esc_html_e('Within 24 business hours.', 'dawp'); ?></dd>
+                    </div>
+                    <div class="rounded-lg bg-[#F7F8FA] p-5">
+                        <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Contact Page', 'dawp'); ?></dt>
+                        <dd><a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="font-bold text-[#111827] hover:text-[#D71920]"><?php esc_html_e('Contact Us', 'dawp'); ?></a></dd>
+                    </div>
+                </dl>
+            </section>
         </div>
     </div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const faqTriggers = document.querySelectorAll('.faq-trigger');
-    
-    faqTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
-            const item = this.parentElement;
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('.faq-icon');
-            
-            // Toggle current item
-            const isOpen = !content.classList.contains('hidden');
-            
-            if (isOpen) {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        });
-    });
-});
-</script>

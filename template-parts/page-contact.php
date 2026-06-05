@@ -1,166 +1,122 @@
 <?php
 /**
- * Template Name: Contact Us
- * Template Part: page-contact
+ * Template Part: Contact Us
  */
+
+$theme_uri       = get_template_directory_uri();
+$accessory_image = $theme_uri . '/assets/img/toyocartv/toyocartv-accessories.png';
+$maps_url        = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode('1777 Canal St, Merced, CA 95340');
 ?>
 
-<main class="bg-[#FAF7F2]">
-    <!-- Header Section -->
-    <section class="py-16 lg:py-24 px-4 bg-white border-b border-[#E6DDD6]">
-        <div class="max-w-3xl mx-auto text-center space-y-6">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-[#c98a8a]/10 text-[#c98a8a] text-sm font-bold uppercase tracking-widest">
-                <?php esc_html_e('Get in Touch', 'dawp'); ?>
+<section class="bg-white">
+    <div class="bg-[#080808] py-16 text-white lg:py-24">
+        <div class="mx-auto grid w-[min(100%-32px,1180px)] gap-10 lg:grid-cols-[0.95fr_1fr] lg:items-center">
+            <div>
+                <span class="mb-4 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('Contact Support', 'dawp'); ?></span>
+                <h1 class="font-heading text-5xl font-black uppercase leading-none md:text-7xl"><?php esc_html_e('Need Help With An Order Or Accessory?', 'dawp'); ?></h1>
+                <p class="mt-6 text-lg leading-8 text-white/76">
+                    <?php esc_html_e('Send us your order number, product question, or compatibility concern. Our support team will reply within 24 business hours.', 'dawp'); ?>
+                </p>
             </div>
-            <h1 class="text-4xl lg:text-5xl font-serif text-[#2F2A28]">
-                <?php esc_html_e('We’d Love to Hear from You', 'dawp'); ?>
-            </h1>
-            <p class="text-lg text-[#6F625D] leading-relaxed">
-                <?php esc_html_e('Whether you have a question about sizing, styling, or your recent order, our boutique team is here to help you every step of the way.', 'dawp'); ?>
-            </p>
+            <?php
+            echo dawp_responsive_image($accessory_image, [
+                'alt'           => __('Auto accessory support scene', 'dawp'),
+                'class'         => 'aspect-[16/10] w-full rounded-2xl object-cover opacity-90',
+                'width'         => 1180,
+                'height'        => 738,
+                'srcset_widths' => [400, 640, 920, 1180],
+                'sizes'         => '(max-width: 1023px) calc(100vw - 32px), 590px',
+                'loading'       => 'eager',
+            ]);
+            ?>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact Info & Form Section -->
-    <section class="py-20 px-4 lg:px-8">
-        <div class="max-w-[1280px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20">
-            
-            <!-- Left Side: Contact Details -->
-            <div class="lg:col-span-5 space-y-12">
-                
-                <!-- Brand Support Image -->
-                <div class="relative rounded-3xl overflow-hidden shadow-lg aspect-[16/10]">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/support_contact.png'); ?>" 
-                         alt="Shop Kelli Support Desk" 
-                         class="w-full h-full object-cover">
-                </div>
+    <div class="mx-auto grid w-[min(100%-32px,1180px)] gap-10 py-16 lg:grid-cols-[0.42fr_0.58fr] lg:py-20">
+        <div class="space-y-5">
+            <?php
+            $contact_cards = [
+                ['Email Support', 'support@toyocartv.com', 'mailto:support@toyocartv.com', ''],
+                ['Support Hours', 'Monday-Friday, 9:00 AM-5:00 PM PST', '#contact-form', ''],
+                ['Mailing Address', '1777 Canal St, Merced, CA 95340', $maps_url, 'external'],
+            ];
+            foreach ($contact_cards as $card) :
+            ?>
+                <a
+                    href="<?php echo esc_url($card[2]); ?>"
+                    class="block rounded-xl border border-[#E5E7EB] bg-[#F7F8FA] p-6 transition-colors hover:border-[#D71920]"
+                    <?php if ($card[3] === 'external') : ?>
+                        target="_blank" rel="noopener"
+                    <?php endif; ?>
+                >
+                    <h2 class="text-lg font-black text-[#111827]"><?php echo esc_html($card[0]); ?></h2>
+                    <p class="mt-2 font-bold text-[#D71920]"><?php echo esc_html($card[1]); ?></p>
+                </a>
+            <?php endforeach; ?>
 
-                <div class="grid gap-8">
-                    <!-- Support Hours -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Boutique Hours', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <?php esc_html_e('Mon – Sat, 10:00 AM – 6:00 PM (PST)', 'dawp'); ?><br>
-                                <?php esc_html_e('Closed on Sundays', 'dawp'); ?>
-                            </p>
-                        </div>
+            <div class="rounded-xl bg-[#111827] p-6 text-white">
+                <h2 class="font-heading text-2xl font-black uppercase"><?php esc_html_e('Before You Install', 'dawp'); ?></h2>
+                <p class="mt-3 text-sm leading-6 text-white/72"><?php esc_html_e('For adhesive, mounting, or trim-based products, confirm fitment and surface compatibility before installation. Used, installed, modified, adhesive-applied, cut, trimmed, or damaged items may not be eligible for return unless defective, incorrect, or damaged on arrival.', 'dawp'); ?></p>
+            </div>
+        </div>
+
+        <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-card lg:p-10">
+            <form id="contact-form" class="space-y-6">
+                <div class="grid gap-5 md:grid-cols-2">
+                    <div>
+                        <label for="contact_name" class="mb-2 block text-sm font-black text-[#111827]"><?php esc_html_e('Your Name', 'dawp'); ?> <span class="text-[#D71920]">*</span></label>
+                        <input type="text" id="contact_name" name="name" required class="min-h-12 w-full rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] px-4 text-[#111827] focus:border-[#D71920] focus:outline-none" placeholder="<?php esc_attr_e('Your name', 'dawp'); ?>">
                     </div>
-
-                    <!-- Email Support -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Email Support', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <a href="mailto:support@shopkelli.com" class="hover:text-[#c98a8a] transition-colors">support@shopkelli.com</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Physical Address (GMC Priority) -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Our Location', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?>
-                            </p>
-                        </div>
+                    <div>
+                        <label for="contact_email" class="mb-2 block text-sm font-black text-[#111827]"><?php esc_html_e('Email Address', 'dawp'); ?> <span class="text-[#D71920]">*</span></label>
+                        <input type="email" id="contact_email" name="email" required class="min-h-12 w-full rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] px-4 text-[#111827] focus:border-[#D71920] focus:outline-none" placeholder="<?php esc_attr_e('you@example.com', 'dawp'); ?>">
                     </div>
                 </div>
 
-            </div>
+                <div>
+                    <label for="contact_subject" class="mb-2 block text-sm font-black text-[#111827]"><?php esc_html_e('Subject', 'dawp'); ?></label>
+                    <select id="contact_subject" name="subject" class="min-h-12 w-full rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] px-4 text-[#111827] focus:border-[#D71920] focus:outline-none">
+                        <option value="general"><?php esc_html_e('General Inquiry', 'dawp'); ?></option>
+                        <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
+                        <option value="fitment"><?php esc_html_e('Compatibility Question', 'dawp'); ?></option>
+                        <option value="return"><?php esc_html_e('Return Request', 'dawp'); ?></option>
+                    </select>
+                </div>
 
-            <!-- Right Side: Contact Form -->
-            <div class="lg:col-span-7 bg-white p-8 lg:p-12 rounded-3xl border border-[#E6DDD6] shadow-sm">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label for="contact_name" class="text-sm font-bold text-[#2F2A28]">
-                                <?php esc_html_e('Your Name', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                            </label>
-                            <input type="text" id="contact_name" name="name" required
-                                   class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28]"
-                                   placeholder="<?php esc_attr_e('e.g. Sarah Johnson', 'dawp'); ?>">
-                        </div>
-                        <div class="space-y-2">
-                            <label for="contact_email" class="text-sm font-bold text-[#2F2A28]">
-                                <?php esc_html_e('Email Address', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                            </label>
-                            <input type="email" id="contact_email" name="email" required
-                                   class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28]"
-                                   placeholder="<?php esc_attr_e('sarah@example.com', 'dawp'); ?>">
-                        </div>
-                    </div>
+                <div>
+                    <label for="contact_message" class="mb-2 block text-sm font-black text-[#111827]"><?php esc_html_e('Your Message', 'dawp'); ?> <span class="text-[#D71920]">*</span></label>
+                    <textarea id="contact_message" name="message" rows="6" required class="w-full resize-none rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] px-4 py-3 text-[#111827] focus:border-[#D71920] focus:outline-none" placeholder="<?php esc_attr_e('Include your order number, product name, or compatibility question.', 'dawp'); ?>"></textarea>
+                </div>
 
-                    <div class="space-y-2">
-                        <label for="contact_subject" class="text-sm font-bold text-[#2F2A28]">
-                            <?php esc_html_e('Subject', 'dawp'); ?>
-                        </label>
-                        <select id="contact_subject" name="subject"
-                                class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] transition-all text-[#2F2A28]">
-                            <option value="general"><?php esc_html_e('General Inquiry', 'dawp'); ?></option>
-                            <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
-                            <option value="styling"><?php esc_html_e('Styling Help', 'dawp'); ?></option>
-                            <option value="return"><?php esc_html_e('Returns & Exchanges', 'dawp'); ?></option>
-                        </select>
-                    </div>
+                <button type="submit" class="w-full min-h-12 rounded-lg bg-[#D71920] px-8 text-sm font-black uppercase text-white hover:bg-[#A70F14] transition-colors">
+                    <?php esc_html_e('Send Message', 'dawp'); ?>
+                </button>
 
-                    <div class="space-y-2">
-                        <label for="contact_message" class="text-sm font-bold text-[#2F2A28]">
-                            <?php esc_html_e('Your Message', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                        </label>
-                        <textarea id="contact_message" name="message" rows="5" required
-                                  class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28] resize-none"
-                                  placeholder="<?php esc_attr_e('How can we help you today?', 'dawp'); ?>"></textarea>
-                    </div>
-
-                    <button type="submit"
-                            class="w-full py-4 px-8 bg-[#c98a8a] text-white font-bold rounded-xl hover:bg-[#b37a7a] transition-all shadow-md active:scale-[0.98]">
-                        <?php esc_html_e('Send Message', 'dawp'); ?>
-                    </button>
-
-                    <p id="contact-msg" aria-live="polite" style="display:none" class="text-sm text-center font-bold"></p>
-
-                    <p class="text-xs text-[#9A8C86] text-center italic">
-                        <?php esc_html_e('Our boutique team typically responds within 24 business hours.', 'dawp'); ?>
-                    </p>
-                </form>
-            </div>
-
+                <p id="contact-msg" aria-live="polite" style="display:none" class="text-center text-sm font-bold"></p>
+                <p class="text-center text-xs leading-5 text-[#6B7280]"><?php esc_html_e('Please do not send payment card details through this form.', 'dawp'); ?></p>
+            </form>
         </div>
-    </section>
+    </div>
 
-    <!-- Quick Help Section -->
-    <section class="py-20 px-4 bg-white border-t border-[#E6DDD6]">
-        <div class="max-w-[1280px] mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl lg:text-3xl font-serif text-[#2F2A28]"><?php esc_html_e('Quick Answers', 'dawp'); ?></h2>
-                <p class="text-[#6F625D] mt-2"><?php esc_html_e('Find what you need even faster.', 'dawp'); ?></p>
+    <div class="bg-[#F7F8FA] py-16">
+        <div class="mx-auto w-[min(100%-32px,1180px)]">
+            <div class="mb-8 text-center">
+                <h2 class="font-heading text-4xl font-black uppercase text-[#111827]"><?php esc_html_e('Quick Help', 'dawp'); ?></h2>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our 5:00 PM Pacific Standard Time cutoff, 1-3 business day processing time, 3-5 business day transit time, and free U.S. standard shipping details.', 'dawp'); ?></p>
+            <div class="grid gap-5 md:grid-cols-3">
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="rounded-xl border border-[#E5E7EB] bg-white p-6 text-center hover:border-[#D71920]">
+                    <h3 class="font-black text-[#111827]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
+                    <p class="mt-2 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Processing time, transit estimates, tracking, and U.S. shipping details.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Review our 30-day return window, return condition requirements, exchange details, and refund timing.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="rounded-xl border border-[#E5E7EB] bg-white p-6 text-center hover:border-[#D71920]">
+                    <h3 class="font-black text-[#111827]"><?php esc_html_e('Returns', 'dawp'); ?></h3>
+                    <p class="mt-2 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Review eligibility, item condition, and refund timing before starting a return.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Find answers to our most common customer inquiries.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="rounded-xl border border-[#E5E7EB] bg-white p-6 text-center hover:border-[#D71920]">
+                    <h3 class="font-black text-[#111827]"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
+                    <p class="mt-2 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Find fast answers about orders, compatibility, shipping, and returns.', 'dawp'); ?></p>
                 </a>
             </div>
         </div>
-    </section>
-</main>
+    </div>
+</section>

@@ -8,7 +8,16 @@ global $product;
 if (empty($product) || !$product->is_visible()) return;
 
 $cats     = get_the_terms($product->get_id(), 'product_cat');
-$cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
+$cat_name = '';
+
+if (!is_wp_error($cats) && !empty($cats)) {
+    foreach ($cats as $cat) {
+        if ($cat->slug !== 'uncategorized') {
+            $cat_name = $cat->name;
+            break;
+        }
+    }
+}
 ?>
 <li <?php wc_product_class('product-card', $product); ?>>
     <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">
@@ -16,7 +25,16 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
         <div class="product-card__shell">
             <div class="product-card__inner">
                 <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+                    <?php
+                    echo dawp_product_responsive_image($product, [
+                        'class'         => 'product-card__img',
+                        'width'         => 700,
+                        'height'        => 602,
+                        'srcset_widths' => [320, 480, 640, 700],
+                        'sizes'         => '(max-width: 559px) calc(100vw - 32px), (max-width: 1219px) calc((100vw - 360px) / 2), 320px',
+                        'loading'       => 'lazy',
+                    ]);
+                    ?>
                 </div>
 
                 <?php if ($product->is_on_sale()) : ?>
@@ -24,7 +42,7 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
                 <?php endif; ?>
 
                 <div class="product-card__cta" aria-hidden="true">
-                    <span>View</span>
+                    <span><?php esc_html_e('View', 'dawp'); ?></span>
                     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </div>
             </div>

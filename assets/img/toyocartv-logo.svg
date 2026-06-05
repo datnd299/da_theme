@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="282" height="72" viewBox="0 0 282 72" role="img" aria-labelledby="title desc">
+  <title id="title">ToyocarTV</title>
+  <desc id="desc">A red and black independent auto accessories logo with a road mark and ToyocarTV wordmark.</desc>
+  <defs>
+    <linearGradient id="markGradient" x1="8" y1="8" x2="60" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D71920"/>
+      <stop offset="1" stop-color="#A70F14"/>
+    </linearGradient>
+  </defs>
+  <rect width="282" height="72" rx="10" fill="#080808"/>
+  <g transform="translate(12 10)">
+    <rect width="52" height="52" rx="8" fill="url(#markGradient)"/>
+    <path d="M11 36h16l5-8h11" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14 43h32" fill="none" stroke="#080808" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+    <path d="M18 18h28" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+    <path d="M22 26h18" fill="none" stroke="#080808" stroke-width="4" stroke-linecap="round" opacity=".9"/>
+  </g>
+  <text x="78" y="34" fill="#FFFFFF" font-family="Barlow Condensed, Arial Narrow, Arial, sans-serif" font-size="30" font-weight="700">Toyocar</text>
+  <text x="180" y="34" fill="#D71920" font-family="Barlow Condensed, Arial Narrow, Arial, sans-serif" font-size="30" font-weight="700">TV</text>
+  <text x="80" y="51" fill="#B9C0CA" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700">AUTO ACCESSORIES</text>
+  <path d="M212 46h39" fill="none" stroke="#D71920" stroke-width="4" stroke-linecap="round"/>
+  <path d="M258 46h10" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+</svg>

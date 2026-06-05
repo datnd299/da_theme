@@ -4,90 +4,88 @@
  */
 ?>
 
-<main class="track-order-page">
-
-    <!-- Hero Section -->
-    <section class="track-hero">
-        <div class="track-hero__inner">
-            <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
-            <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
-            <p class="track-hero__desc">
-                <?php esc_html_e('Enter your order details below to see your shipment status. We\'ll let you know exactly where your boutique treasures are on their way to you.', 'dawp'); ?>
+<section class="track-order-page">
+    <header class="track-order-hero">
+        <div class="track-order-hero__inner">
+            <span class="track-order-kicker"><?php esc_html_e('Order Status', 'dawp'); ?></span>
+            <h1 class="track-order-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
+            <p class="track-order-hero__text">
+                <?php esc_html_e('Use your order number and checkout email to view the latest available ToyocarTV order status.', 'dawp'); ?>
             </p>
         </div>
-    </section>
+    </header>
 
-    <!-- Form Section -->
-    <section class="track-form-section">
-        <div class="track-form-section__inner">
-
-            <!-- Form Card -->
-            <div class="track-form-card">
-                <div class="track-form-card__body">
-                    <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
-                </div>
+    <div class="track-order-shell">
+        <section class="track-order-panel" aria-labelledby="track-order-form-title">
+            <div class="track-order-panel__intro">
+                <span class="track-order-panel__eyebrow"><?php esc_html_e('Lookup', 'dawp'); ?></span>
+                <h2 id="track-order-form-title" class="track-order-panel__title"><?php esc_html_e('Find Your Shipment', 'dawp'); ?></h2>
+                <p class="track-order-panel__text">
+                    <?php esc_html_e('Your order ID is shown on the receipt and confirmation email. Use the same billing email entered at checkout.', 'dawp'); ?>
+                </p>
+                <ul class="track-order-checklist" aria-label="<?php esc_attr_e('Tracking requirements', 'dawp'); ?>">
+                    <li><?php esc_html_e('Order number from your receipt', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Billing email used during checkout', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Tracking appears after shipment is prepared', 'dawp'); ?></li>
+                </ul>
             </div>
 
-            <!-- Help Box -->
-            <div class="track-help-box">
-                <div class="track-help-box__icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
-                </div>
-                <div class="track-help-box__content">
-                    <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
-                    <p class="track-help-box__text">
-                        <?php esc_html_e('If you have any trouble, please reach out to our boutique team at ', 'dawp'); ?>
-                        <a href="mailto:support@shopkelli.com">support@shopkelli.com</a>
-                        <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
-                    </p>
-                </div>
+            <div class="track-order-panel__form">
+                <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
             </div>
+        </section>
 
-            <!-- Trust Badges -->
-            <div class="track-badges">
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
-                    <?php esc_html_e('Secure Tracking', 'dawp'); ?>
-                </div>
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    <?php esc_html_e('Real-time Updates', 'dawp'); ?>
-                </div>
-                <div class="track-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                    <?php esc_html_e('Order Protection', 'dawp'); ?>
-                </div>
+        <section class="track-order-help" aria-labelledby="track-order-help-title">
+            <div>
+                <span class="track-order-help__label"><?php esc_html_e('Support', 'dawp'); ?></span>
+                <h2 id="track-order-help-title" class="track-order-help__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h2>
             </div>
+            <p class="track-order-help__text">
+                <?php esc_html_e('If you have trouble finding tracking details, email ', 'dawp'); ?>
+                <a href="mailto:support@toyocartv.com">support@toyocartv.com</a>
+                <?php esc_html_e(' with your order number and the email address used at checkout.', 'dawp'); ?>
+            </p>
+        </section>
 
-        </div>
-    </section>
+        <section class="track-order-assurance" aria-label="<?php esc_attr_e('Order tracking details', 'dawp'); ?>">
+            <?php
+            $badges = [
+                ['Secure Tracking', 'Order lookup uses your WooCommerce order details.'],
+                ['Tracking Included', 'Tracking details are provided once your order ships.'],
+                ['Support Available', 'Send your order number if carrier details look delayed.'],
+            ];
+            foreach ($badges as $badge) :
+            ?>
+                <article class="track-order-assurance__item">
+                    <h3><?php echo esc_html($badge[0]); ?></h3>
+                    <p><?php echo esc_html($badge[1]); ?></p>
+                </article>
+            <?php endforeach; ?>
+        </section>
 
-    <!-- More Ways Section -->
-    <section class="track-more-section">
-        <div class="track-more-section__inner">
-            <div class="track-more-section__header">
-                <h2 class="track-more-section__title"><?php esc_html_e('More Ways We Can Help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth boutique experience.', 'dawp'); ?></p>
+        <section class="track-order-links" aria-labelledby="track-order-links-title">
+            <div class="track-order-links__header">
+                <span class="track-order-panel__eyebrow"><?php esc_html_e('Resources', 'dawp'); ?></span>
+                <h2 id="track-order-links-title" class="track-order-links__title"><?php esc_html_e('More Ways We Can Help', 'dawp'); ?></h2>
             </div>
-            <div class="track-more-grid">
-                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our 1-3 business day processing time, 3-5 business day transit time, and free U.S. standard shipping.', 'dawp'); ?></p>
+            <div class="track-order-links__grid">
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-order-link-card">
+                    <h3><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Processing, transit, and carrier details.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Review our 30-day return window, exchange rules, and refund processing details.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="track-order-link-card">
+                    <h3><?php esc_html_e('Returns', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Eligibility, condition, and refund timing.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our boutique team is here to help, Mon–Sat 10 AM–6 PM PST.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-order-link-card">
+                    <h3><?php esc_html_e('Contact', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Get support for orders and products.', 'dawp'); ?></p>
                 </a>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
-                    <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Find quick answers to our most common customer questions.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-order-link-card">
+                    <h3><?php esc_html_e('FAQ', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Quick answers before contacting us.', 'dawp'); ?></p>
                 </a>
             </div>
-        </div>
-    </section>
-
-</main>
+        </section>
+    </div>
+</section>

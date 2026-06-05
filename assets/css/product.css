@@ -1,6 +1,6 @@
 /* ============================================================
-   Product Page — Elite Shop Express
-   Design System: Trusted Hardware palette, conversion-first
+   Product Page - ToyocarTV
+   Design System: Independent auto accessories, conversion-first
    Skill: WooCommerce Theme Developer (pure CSS + CSS vars)
    ============================================================ */
 
@@ -882,6 +882,60 @@ form.cart:not(.variations_form) {
 
 .related.products .button:active {
   transform: scale(0.97);
+}
+
+/* ToyocarTV product polish */
+body.single-product {
+  background: #F7F8FA;
+}
+
+.single-product div.product {
+  padding-top: 40px;
+  padding-bottom: 72px;
+}
+
+.woocommerce-product-gallery .flex-viewport,
+.woocommerce-product-gallery {
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: #FFFFFF;
+}
+
+.product_title.entry-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.summary .price {
+  color: var(--color-accent);
+}
+
+.single_add_to_cart_button.button,
+.comment-form .form-submit .submit,
+.form-submit .submit,
+.related.products .button {
+  background: #D71920;
+  border-color: #D71920;
+  border-radius: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.single_add_to_cart_button.button:hover,
+.comment-form .form-submit .submit:hover,
+.form-submit .submit:hover,
+.related.products .button:hover {
+  background: #A70F14;
+  border-color: #A70F14;
+}
+
+.woocommerce-tabs .tabs li.active a,
+.woocommerce-tabs .tabs li a:hover {
+  color: #111827;
+  border-bottom-color: #D71920;
 }
 /* ── Reviews ────────────────────────────────────────────────── */
 .woocommerce-Reviews {

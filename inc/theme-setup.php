@@ -3,7 +3,7 @@ add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SK-' . $order_id;
+    return 'TC-' . $order_id;
 }
 function dawp_setup() {
     add_theme_support('title-tag');
@@ -44,25 +44,110 @@ function dawp_scripts() {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
         dawp_remove_styles();
     }
+
+    if ( is_404() ) {
+        wp_enqueue_style('dawp-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', [], '1.0.2');
+    }
     
     if ( class_exists( 'WooCommerce' ) ) {
         if ( is_product() ) {
             wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.6');
             dawp_remove_styles();
+        } elseif ( is_account_page() ) {
+            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', [], '1.0.6');
+            dawp_remove_styles();
         } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.6');
+            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.7');
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
-            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.6');
+            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.7');
         } elseif ( is_woocommerce()  ) {
             wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.6');
             dawp_remove_styles();
         }
     }
 
-    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.2', true);
+    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.3', true);
+    wp_localize_script('dawp-main', 'dawpAjax', [
+        'url'          => admin_url('admin-ajax.php'),
+        'nonce'        => wp_create_nonce('dawp_newsletter_nonce'),
+        'contactNonce' => wp_create_nonce('dawp_contact_nonce'),
+    ]);
+}
 
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+add_filter('the_content', 'dawp_append_cart_policy_snapshot', 20);
+function dawp_append_cart_policy_snapshot($content) {
+    if (!function_exists('is_cart') || !is_cart() || !in_the_loop() || !is_main_query()) {
+        return $content;
+    }
+
+    return $content . dawp_render_cart_policy_snapshot();
+}
+
+function dawp_render_cart_policy_snapshot() {
+    $cart_policy_items = [
+        [
+            'label'  => __('Shipping Cost', 'dawp'),
+            'value'  => __('Free', 'dawp'),
+            'detail' => __('Standard U.S. shipping is free for all orders nationwide.', 'dawp'),
+            'url'    => home_url('/shipping-policy/'),
+        ],
+        [
+            'label'  => __('Handling Time', 'dawp'),
+            'value'  => __('1-3 Business Days', 'dawp'),
+            'detail' => __('Orders placed after the 5:00 PM PST cutoff begin processing the next business day.', 'dawp'),
+            'url'    => home_url('/shipping-policy/#processing-delivery'),
+        ],
+        [
+            'label'  => __('Transit Estimate', 'dawp'),
+            'value'  => __('5-7 Business Days', 'dawp'),
+            'detail' => __('Estimated total delivery time is 6-10 business days from purchase.', 'dawp'),
+            'url'    => home_url('/shipping-policy/#processing-delivery'),
+        ],
+        [
+            'label'  => __('Return Window', 'dawp'),
+            'value'  => __('30 Days', 'dawp'),
+            'detail' => __('Eligible unused, uninstalled items may be returned after approval.', 'dawp'),
+            'url'    => home_url('/refund-return-policy/'),
+        ],
+        [
+            'label'  => __('Tracking', 'dawp'),
+            'value'  => __('Included', 'dawp'),
+            'detail' => __('Tracking details are emailed once your order ships.', 'dawp'),
+            'url'    => home_url('/track-order/'),
+        ],
+        [
+            'label'  => __('Support', 'dawp'),
+            'value'  => __('Mon-Fri', 'dawp'),
+            'detail' => __('Email support with order, fitment, delivery, or return questions.', 'dawp'),
+            'url'    => home_url('/contact-us/'),
+        ],
+    ];
+
+    ob_start();
+    ?>
+    <section class="cart-policy-snapshot" aria-labelledby="cart-policy-snapshot-heading">
+        <div class="cart-policy-snapshot__inner">
+            <div class="cart-policy-snapshot__header">
+                <span class="cart-policy-snapshot__eyebrow"><?php esc_html_e('Order Confidence', 'dawp'); ?></span>
+                <h2 id="cart-policy-snapshot-heading"><?php esc_html_e('Policy snapshot before checkout', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Review the key shipping, tracking, return, and support details that apply to ToyocarTV orders.', 'dawp'); ?></p>
+            </div>
+
+            <div class="cart-policy-snapshot__grid">
+                <?php foreach ($cart_policy_items as $policy_item) : ?>
+                    <a class="cart-policy-snapshot__item" href="<?php echo esc_url($policy_item['url']); ?>">
+                        <span class="cart-policy-snapshot__label"><?php echo esc_html($policy_item['label']); ?></span>
+                        <strong><?php echo esc_html($policy_item['value']); ?></strong>
+                        <span class="cart-policy-snapshot__detail"><?php echo esc_html($policy_item['detail']); ?></span>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <?php
+
+    return ob_get_clean();
 }
 
 function dawp_remove_styles() {

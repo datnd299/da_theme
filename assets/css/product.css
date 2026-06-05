@@ -43,7 +43,7 @@ body.single-product {
 .single-product div.product {
   display: grid;
   gap: 24px;
-  padding: 24px 16px;
+  padding: 12px 16px 24px;
   max-width: 80rem;
   margin: 0 auto;
   width: 100%;
@@ -52,6 +52,12 @@ body.single-product {
 
 .single-product div.product > * {
   min-width: 0;
+}
+
+.single-product .woo-page > .container {
+  padding-top: 16px !important;
+  padding-bottom: 48px !important;
+  min-height: auto !important;
 }
 
 /* Override WooCommerce default floats */
@@ -75,9 +81,14 @@ body.single-product {
     grid-template-columns: 1fr 1fr;
     column-gap: 48px;
     row-gap: 48px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 24px;
+    padding-bottom: 36px;
     align-items: start;
+  }
+
+  .single-product .woo-page > .container {
+    padding-top: 20px !important;
+    padding-bottom: 56px !important;
   }
 
   .single-product .woocommerce-product-gallery {
@@ -183,6 +194,74 @@ body.single-product {
 .flex-control-thumbs img.flex-active,
 .flex-control-thumbs img:hover {
   border-color: var(--color-accent);
+}
+
+.gallery-thumbs-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 10px 12px 14px;
+  padding: 0 46px;
+  box-sizing: border-box;
+}
+
+.gallery-thumbs-wrapper .flex-control-thumbs {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+}
+
+.gallery-thumbs-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.gallery-thumbs-btn.prev {
+  left: 0;
+}
+
+.gallery-thumbs-btn.next {
+  right: 0;
+}
+
+.gallery-thumbs-btn:hover {
+  background: var(--color-bg-soft);
+  border-color: var(--color-accent);
+  color: var(--color-accent-hover);
+  transform: translateY(-50%) scale(1.03);
+}
+
+.gallery-thumbs-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.gallery-thumbs-btn svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 480px) {
+  .gallery-thumbs-wrapper {
+    margin: 8px 10px 12px;
+    padding: 0 48px;
+  }
 }
 
 /* === 3. SUMMARY === */

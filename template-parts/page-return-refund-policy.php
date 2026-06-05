@@ -123,22 +123,14 @@ $contact_cards = [
   .ese-title { margin:0; color:var(--ese-ink); font-family:"Lato","Inter",system-ui,sans-serif; font-size:clamp(36px,5vw,64px); font-weight:900; line-height:1.04; letter-spacing:0; text-transform:uppercase; }
   .ese-updated { margin:16px 0 0; color:var(--ese-ink); font-size:14px; font-weight:900; line-height:1.4; }
   .ese-copy { margin:18px 0 0; max-width:780px; color:var(--ese-slate); font-size:17px; line-height:1.75; }
-  .ese-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--ese-ink); border-radius:999px; background:var(--ese-ink); color:#fff !important; padding:0 22px; font-size:14px; font-weight:900; transition:.2s ease; }
-  .ese-button:hover { border-color:var(--ese-blue); background:var(--ese-blue); color:#fff !important; }
-  .ese-button--secondary { background:#fff; color:var(--ese-ink) !important; }
-  .ese-button--secondary:hover { border-color:var(--ese-blue); background:#eff6ff; color:var(--ese-blue) !important; }
-  .ese-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
   .ese-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(6,182,212,.12) 48%,rgba(163,230,53,.16)),#f8fbff; }
   .ese-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.56); filter:blur(8px); }
   .ese-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(37,99,235,.18); border-radius:999px; background:rgba(255,255,255,.28); }
   .ese-hero__grid { position:relative; z-index:1; display:grid; place-items:center; padding:82px 0 88px; text-align:center; }
   .ese-hero__content { max-width:880px; }
   .ese-hero .ese-copy { max-width:760px; margin-inline:auto; }
-  .ese-hero .ese-actions { justify-content:center; }
   @media (max-width:680px) {
     .ese-hero__grid { padding:52px 0 56px; }
-    .ese-actions { flex-direction:column; }
-    .ese-button { width:100%; }
   }
 </style>
 
@@ -150,10 +142,6 @@ $contact_cards = [
                 <h1 class="ese-title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
                 <p class="ese-updated"><?php esc_html_e('Last Updated: June 5, 2026', 'dawp'); ?></p>
                 <p class="ese-copy"><?php esc_html_e('This policy explains return eligibility, return shipping fees, common delivery issues, refund timing, exchanges, and customer support details for Elite Shop Express orders.', 'dawp'); ?></p>
-                <div class="ese-actions">
-                    <a class="ese-button" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
-                    <a class="ese-button ese-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
-                </div>
             </div>
         </div>
     </section>

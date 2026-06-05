@@ -7,6 +7,7 @@
 
 $theme_uri = get_template_directory_uri();
 $hero_img  = $theme_uri . '/assets/img/elite/home-lifestyle-hero-v2.png';
+$notify_signup_status = isset($_GET['notify_signup']) ? sanitize_key(wp_unslash($_GET['notify_signup'])) : '';
 
 $home_category_overview_img = $theme_uri . '/assets/img/elite/home-category-overview-v2.png';
 $home_essentials_img       = $theme_uri . '/assets/img/elite/category-home-essentials-v2.png';
@@ -387,24 +388,31 @@ if (class_exists('WooCommerce')) {
                 <?php esc_html_e('Shop everyday essentials with clear product details, order tracking, and customer support when you need help.', 'dawp'); ?>
             </p>
 
-            <div class="mt-6 flex flex-wrap justify-center gap-3">
-                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#2563EB] px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#06B6D4]">
-                    <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
-                </a>
-                <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#101828]">
-                    <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
-                </a>
-                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#101828]">
-                    <?php esc_html_e('Contact Support', 'dawp'); ?>
-                </a>
-            </div>
+            <form id="notify-signup" class="mx-auto mt-6 flex max-w-2xl flex-col gap-3 rounded-full border border-white/15 bg-white/10 p-2 sm:flex-row" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+                <input type="hidden" name="action" value="dawp_notification_signup">
+                <?php wp_nonce_field('dawp_notification_signup', 'dawp_notify_nonce'); ?>
+                <label class="sr-only" for="notify-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
+                <input id="notify-email" name="notify_email" type="email" autocomplete="email" required placeholder="<?php esc_attr_e('Enter your email for updates', 'dawp'); ?>" class="min-h-11 flex-1 rounded-full border border-white/15 bg-white px-5 text-sm font-bold text-[#101828] outline-none transition placeholder:text-[#667085] focus:border-[#67E8F9] focus:ring-2 focus:ring-[#67E8F9]">
+                <label class="sr-only" for="notify-website"><?php esc_html_e('Website', 'dawp'); ?></label>
+                <input id="notify-website" name="website" type="text" tabindex="-1" autocomplete="off" class="hidden">
+                <button type="submit" class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-[#2563EB] px-6 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#06B6D4]">
+                    <?php esc_html_e('Notify Me', 'dawp'); ?>
+                </button>
+            </form>
 
-            <div class="mt-6 flex flex-wrap justify-center gap-3 text-sm font-bold text-white/65">
-                <a class="hover:text-white" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Us', 'dawp'); ?></a>
-                <a class="hover:text-white" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
-                <a class="hover:text-white" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
-                <a class="hover:text-white" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms of Service', 'dawp'); ?></a>
-            </div>
+            <?php if ('success' === $notify_signup_status) : ?>
+                <p class="mx-auto mt-3 max-w-2xl rounded-full bg-white/10 px-4 py-3 text-sm font-bold text-[#A3E635]">
+                    <?php esc_html_e('Thanks. We will send updates to that email address.', 'dawp'); ?>
+                </p>
+            <?php elseif ('invalid' === $notify_signup_status) : ?>
+                <p class="mx-auto mt-3 max-w-2xl rounded-full bg-white/10 px-4 py-3 text-sm font-bold text-[#FACC15]">
+                    <?php esc_html_e('Please enter a valid email address.', 'dawp'); ?>
+                </p>
+            <?php elseif ('error' === $notify_signup_status) : ?>
+                <p class="mx-auto mt-3 max-w-2xl rounded-full bg-white/10 px-4 py-3 text-sm font-bold text-[#FACC15]">
+                    <?php esc_html_e('We could not save your email. Please try again.', 'dawp'); ?>
+                </p>
+            <?php endif; ?>
         </div>
     </section>
 </div>

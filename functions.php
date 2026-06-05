@@ -4,3 +4,4 @@ require_once get_template_directory() . '/inc/product-categories.php';
 require_once get_template_directory() . '/inc/menu.php';
 require_once get_template_directory() . '/inc/virtual-pages.php';
 require_once get_template_directory() . '/inc/woo-tweaks.php';
+require_once get_template_directory() . '/inc/notification-signup.php';

@@ -28,44 +28,11 @@ $footer_policy_links = [
     ['title' => __('Terms of Service', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
 
-$trust_items = [
-    [
-        'title' => __('Clear Support', 'dawp'),
-        'copy'  => __('Customer care is available Monday-Friday, 9:00 AM-6:00 PM EST.', 'dawp'),
-    ],
-    [
-        'title' => __('Tracking Included', 'dawp'),
-        'copy'  => __('Tracking details are provided once an order ships.', 'dawp'),
-    ],
-    [
-        'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unused and undamaged items may be returned within 30 days of delivery.', 'dawp'),
-    ],
-    [
-        'title' => __('Practical Product Details', 'dawp'),
-        'copy'  => __('Product pages are organized around use case, features, and relevant specifications.', 'dawp'),
-    ],
-];
 ?>
 
 </div><!-- #content -->
 
 <footer id="colophon" class="bg-[#101828] text-white" role="contentinfo">
-    <section class="border-b border-white/10 bg-[#0B1220]">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 py-8 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
-            <?php foreach ($trust_items as $item) : ?>
-                <div class="border border-white/10 bg-white/5 p-5">
-                    <p class="font-heading text-2xl font-black uppercase leading-tight text-white">
-                        <?php echo esc_html($item['title']); ?>
-                    </p>
-                    <p class="mt-2 text-sm leading-6 text-white/70">
-                        <?php echo esc_html($item['copy']); ?>
-                    </p>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    </section>
-
     <section class="bg-[#101828]">
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr_0.85fr_0.85fr] lg:px-8 lg:py-20">
             <div>

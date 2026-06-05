@@ -31,7 +31,7 @@ if (!is_wp_error($cats) && !empty($cats)) {
                         'width'         => 700,
                         'height'        => 602,
                         'srcset_widths' => [320, 480, 640, 700],
-                        'sizes'         => '(max-width: 559px) calc(100vw - 32px), (max-width: 1219px) calc((100vw - 360px) / 2), 320px',
+                        'sizes'         => '(max-width: 559px) calc((100vw - 44px) / 2), (max-width: 1219px) calc((100vw - 360px) / 2), 320px',
                         'loading'       => 'lazy',
                     ]);
                     ?>

@@ -262,6 +262,44 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 639px) {
+  .shop-category-strip__grid {
+    grid-auto-columns: minmax(232px, 84%);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 12px;
+    scroll-padding-inline: 2px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .shop-category-strip__grid::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .shop-category-strip__grid::-webkit-scrollbar-track {
+    background: #e5e7eb;
+    border-radius: 999px;
+  }
+
+  .shop-category-strip__grid::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 999px;
+  }
+
+  .shop-category-card {
+    min-height: 128px;
+    scroll-snap-align: start;
+  }
+
+  .shop-category-card strong {
+    font-size: 1.35rem;
+  }
+}
+
 @media (min-width: 640px) {
   .shop-category-strip__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -676,6 +714,13 @@ ul.products {
   list-style: none;
 }
 
+@media (max-width: 559px) {
+  ul.products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
 @media (min-width: 560px) {
   ul.products {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -829,6 +874,56 @@ ul.products {
   color: #9ca3af;
   font-size: 0.9rem;
   font-weight: 600;
+}
+
+@media (max-width: 559px) {
+  .product-card {
+    border-radius: 10px;
+  }
+
+  .product-card__shell {
+    aspect-ratio: 1 / 1;
+  }
+
+  .product-card__badge,
+  .onsale {
+    top: 7px;
+    left: 7px;
+    font-size: 0.58rem;
+    padding: 5px 7px;
+  }
+
+  .product-card__cta {
+    display: none;
+  }
+
+  .product-card__meta {
+    gap: 9px;
+    padding: 10px;
+  }
+
+  .product-card__info {
+    gap: 4px;
+  }
+
+  .product-card__title {
+    font-size: 0.82rem;
+    line-height: 1.24;
+  }
+
+  .product-card__cat {
+    font-size: 0.62rem;
+  }
+
+  .product-card__price {
+    gap: 5px;
+    font-size: 0.92rem;
+    line-height: 1.2;
+  }
+
+  .product-card__price del {
+    font-size: 0.74rem;
+  }
 }
 
 .shop-pagination {

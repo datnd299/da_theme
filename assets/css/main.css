@@ -1,7 +1,7 @@
 /* =============================================================
    main.css — Shop Kelli Design System
    Pure CSS only. All values reference CSS variables.
-   No @apply, no hardcoded colors, no !important.
+   Mobile legacy overrides are isolated near the bottom.
    ============================================================= */
 
 :root {
@@ -503,4 +503,91 @@
   color: var(--color-foreground);
   text-align: center;
   margin: var(--space-xl) 0 var(--space-lg);
+}
+
+/* =============================================================
+   MOBILE OVERFLOW GUARD
+   ============================================================= */
+
+@media (max-width: 780px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #content,
+  .site-content,
+  .qb-site-header,
+  .qb-site-footer,
+  .qb-page,
+  .qb-home,
+  .shop-page {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .qb-page *,
+  .qb-home *,
+  .shop-page * {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .qb-home .qb-category-grid,
+  .qb-home .qb-product-grid,
+  .qb-home .qb-trust__grid,
+  .qb-home .qb-gift-card-grid,
+  .qb-page .qb-glance-list,
+  .qb-page .qb-mini-grid,
+  .qb-page .qb-panel .qb-mini-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-inline: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .qb-home .qb-category-grid,
+  .qb-home .qb-product-grid,
+  .qb-home .qb-trust__grid,
+  .qb-home .qb-gift-card-grid {
+    padding-right: 0 !important;
+  }
+
+  .qb-page .qb-glance-list,
+  .qb-page .qb-mini-grid,
+  .qb-page .qb-panel .qb-mini-grid {
+    padding-left: 0 !important;
+  }
+
+  .qb-page .qb-hero-panel,
+  .qb-page .qb-panel {
+    margin-inline: 0 !important;
+  }
+
+  .qb-page .qb-contact-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .qb-button,
+  .qb-page .qb-button,
+  .qb-home .qb-button {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .qb-title,
+  .qb-page .qb-title,
+  .qb-home .qb-title {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
 }

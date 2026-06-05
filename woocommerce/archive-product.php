@@ -116,8 +116,6 @@ get_header();
                     <?php esc_html_e('Filter', 'dawp'); ?>
                 </button>
             </div>
-
-            <?php woocommerce_catalog_ordering(); ?>
         </div>
 
         <div class="shop-sidebar-overlay" id="shopSidebarOverlay" aria-hidden="true"></div>

@@ -7,6 +7,38 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30
 add_filter('loop_shop_columns', function() { return 3; });
 add_filter('loop_shop_per_page', function() { return 12; });
 
+add_filter('woocommerce_get_catalog_ordering_args', 'dawp_force_oldest_product_archive_ordering', 99);
+add_action('pre_get_posts', 'dawp_force_oldest_product_archive_query', 99);
+
+function dawp_is_oldest_first_product_archive() {
+    return !is_admin()
+        && function_exists('is_shop')
+        && function_exists('is_product_category')
+        && (is_shop() || is_product_category());
+}
+
+function dawp_force_oldest_product_archive_ordering($args) {
+    if (!dawp_is_oldest_first_product_archive()) {
+        return $args;
+    }
+
+    return [
+        'orderby'  => 'date',
+        'order'    => 'ASC',
+        'meta_key' => '',
+    ];
+}
+
+function dawp_force_oldest_product_archive_query($query) {
+    if (!$query->is_main_query() || !dawp_is_oldest_first_product_archive()) {
+        return;
+    }
+
+    $query->set('orderby', 'date');
+    $query->set('order', 'ASC');
+    $query->set('meta_key', '');
+}
+
 // Disable all default WooCommerce CSS
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 

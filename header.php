@@ -205,6 +205,15 @@ $nav_items = [
     display: none;
   }
 
+  .qb-cart-link .qb-cart-text,
+  .qb-cart-link .qb-cart-count {
+    display: inline;
+  }
+
+  .qb-cart-link .qb-cart-icon {
+    display: none;
+  }
+
   .qb-mobile-panel {
     display: none;
     border-top: 1px solid var(--qb-border);
@@ -309,8 +318,44 @@ $nav_items = [
       padding: 0;
     }
 
-    .qb-cart-link .qb-cart-text {
+    .qb-cart-link .qb-cart-text,
+    .qb-cart-link .qb-cart-count {
       display: none;
+    }
+
+    .qb-cart-link .qb-cart-icon {
+      display: block;
+      width: 19px;
+      height: 19px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .qb-header-wrap {
+      width: min(100% - 24px, 1280px);
+    }
+
+    .qb-header-main {
+      gap: 10px;
+    }
+
+    .qb-header-actions {
+      gap: 7px;
+    }
+
+    .qb-logo img {
+      height: 42px;
+      max-width: 124px;
+    }
+
+    .qb-icon-link,
+    .qb-menu-toggle,
+    .qb-search-toggle,
+    .qb-site-header .qb-cart-link {
+      width: 38px;
+      height: 38px;
+      min-height: 38px;
+      flex: 0 0 38px;
     }
   }
 </style>
@@ -361,8 +406,9 @@ $nav_items = [
             </a>
 
             <a class="qb-cart-link" href="<?php echo esc_url($cart_url); ?>" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
+                <svg class="qb-cart-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
                 <span class="qb-cart-text"><?php esc_html_e('Bag', 'dawp'); ?></span>
-                <span>&nbsp;(<?php echo esc_html($cart_count); ?>)</span>
+                <span class="qb-cart-count">&nbsp;(<?php echo esc_html($cart_count); ?>)</span>
             </a>
 
             <button class="qb-menu-toggle" type="button" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>" aria-controls="qb-mobile-menu" onclick="document.getElementById('qb-mobile-menu').classList.toggle('is-open')">

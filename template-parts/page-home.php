@@ -491,6 +491,7 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
   }
 
   .qb-product-card img {
+    display: block;
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
@@ -821,6 +822,21 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
       flex: 0 0 min(82vw, 350px);
       scroll-snap-align: start;
       scroll-snap-stop: always;
+    }
+
+    .qb-product-card > a {
+      display: block;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: var(--qb-gray);
+    }
+
+    .qb-product-card > a img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center;
     }
 
     .qb-trust-card {

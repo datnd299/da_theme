@@ -541,33 +541,73 @@
   .qb-page .qb-glance-list,
   .qb-page .qb-mini-grid,
   .qb-page .qb-panel .qb-mini-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
     width: 100% !important;
     max-width: 100% !important;
     margin-right: 0 !important;
     margin-left: 0 !important;
     margin-inline: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden;
-    overscroll-behavior-inline: contain;
-    -webkit-overflow-scrolling: touch;
+    padding: 0 !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
   }
 
-  .qb-home .qb-category-grid,
-  .qb-home .qb-product-grid,
-  .qb-home .qb-trust__grid,
-  .qb-home .qb-gift-card-grid {
-    padding-right: 0 !important;
-  }
-
-  .qb-page .qb-glance-list,
-  .qb-page .qb-mini-grid,
-  .qb-page .qb-panel .qb-mini-grid {
-    padding-left: 0 !important;
+  .qb-home .qb-category-card,
+  .qb-home .qb-product-card,
+  .qb-home .qb-trust-card,
+  .qb-home .qb-gift-card,
+  .qb-page .qb-glance-list > *,
+  .qb-page .qb-mini-card,
+  .qb-page .qb-panel .qb-mini-card {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    scroll-snap-align: none !important;
   }
 
   .qb-page .qb-hero-panel,
   .qb-page .qb-panel {
     margin-inline: 0 !important;
+  }
+
+  .qb-home .qb-category-card {
+    min-height: 220px !important;
+  }
+
+  .qb-home .qb-category-card__body,
+  .qb-home .qb-product-card__body,
+  .qb-home .qb-trust-card,
+  .qb-home .qb-gift-card {
+    padding: 12px !important;
+  }
+
+  .qb-home .qb-category-card h3,
+  .qb-home .qb-product-card h3,
+  .qb-home .qb-trust-card h3,
+  .qb-home .qb-gift-card h3 {
+    font-size: 15px !important;
+    line-height: 1.2 !important;
+  }
+
+  .qb-home .qb-category-card p,
+  .qb-home .qb-product-card__meta,
+  .qb-home .qb-trust-card p,
+  .qb-home .qb-gift-card p {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+
+  .qb-home .qb-category-grid > :last-child:nth-child(odd),
+  .qb-home .qb-product-grid > :last-child:nth-child(odd),
+  .qb-home .qb-trust__grid > :last-child:nth-child(odd),
+  .qb-home .qb-gift-card-grid > :last-child:nth-child(odd),
+  .qb-page .qb-glance-list > :last-child:nth-child(odd),
+  .qb-page .qb-mini-grid > :last-child:nth-child(odd),
+  .qb-page .qb-panel .qb-mini-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
   }
 
   .qb-page .qb-contact-card {

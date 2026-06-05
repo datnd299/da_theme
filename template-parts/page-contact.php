@@ -18,9 +18,9 @@ $quick_help = [
     ],
     [
         'number' => '02',
-        'title'  => __('Shipping & Returns', 'dawp'),
-        'copy'   => __('Review processing times, delivery expectations, return eligibility, shoe packaging requirements, and refund timing.', 'dawp'),
-        'url'    => home_url('/shipping-returns/'),
+        'title'  => __('Shipping Policy', 'dawp'),
+        'copy'   => __('Review processing times, delivery expectations, tracking updates, and free standard U.S. shipping.', 'dawp'),
+        'url'    => home_url('/shipping-policy/'),
         'color'  => '#06B6D4',
     ],
     [

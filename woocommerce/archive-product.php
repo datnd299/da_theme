@@ -6,10 +6,24 @@
  */
 defined('ABSPATH') || exit;
 
+$shop_title = ( is_product_category() || is_product_tag() )
+    ? woocommerce_page_title(false)
+    : __('All Products', 'dawp');
+
 get_header();
 ?>
 
 <div class="shop-page">
+<section class="shop-hero">
+    <div class="shop-hero__inner">
+        <p class="shop-hero__eyebrow"><?php esc_html_e('Shop', 'dawp'); ?></p>
+        <h1 class="shop-hero__title"><?php echo esc_html($shop_title); ?></h1>
+        <p class="shop-hero__copy">
+            <?php esc_html_e('Browse practical home, beauty, personal care, accessory, lifestyle, and giftable everyday products in one simple catalog.', 'dawp'); ?>
+        </p>
+    </div>
+</section>
+
 <div class="shop-container">
 
     <?php
@@ -32,21 +46,6 @@ get_header();
             <span>Shop</span>
         <?php endif; ?>
     </nav>
-
-    <?php
-    // ── Page heading ───────────────────────────────────────
-    ?>
-    <div class="shop-header">
-        <h1 class="shop-header__title">
-            <?php
-            if ( is_product_category() || is_product_tag() ) {
-                woocommerce_page_title();
-            } else {
-                echo 'All Products';
-            }
-            ?>
-        </h1>
-    </div>
 
     <?php
     // ── Toolbar: count + filter toggle + sort ──────────────

@@ -181,9 +181,9 @@ if (taxonomy_exists('product_cat')) {
                 <span class="text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('Order Status', 'dawp'); ?></span>
                 <span class="mt-3 block font-heading text-xl font-black uppercase leading-tight text-[#101828]"><?php esc_html_e('Track Order', 'dawp'); ?></span>
             </a>
-            <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="border border-[#E5E7EB] bg-[#F8FAFC] p-6 transition hover:border-[#2563EB] hover:bg-white">
+            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="border border-[#E5E7EB] bg-[#F8FAFC] p-6 transition hover:border-[#2563EB] hover:bg-white">
                 <span class="text-xs font-black uppercase tracking-[0.18em] text-[#65A30D]"><?php esc_html_e('Customer Care', 'dawp'); ?></span>
-                <span class="mt-3 block font-heading text-xl font-black uppercase leading-tight text-[#101828]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></span>
+                <span class="mt-3 block font-heading text-xl font-black uppercase leading-tight text-[#101828]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></span>
             </a>
             <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="border border-[#E5E7EB] bg-[#F8FAFC] p-6 transition hover:border-[#2563EB] hover:bg-white">
                 <span class="text-xs font-black uppercase tracking-[0.18em] text-[#C026D3]"><?php esc_html_e('Questions', 'dawp'); ?></span>

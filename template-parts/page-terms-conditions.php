@@ -5,176 +5,173 @@
  * @package dawp
  */
 
-$terms_cards = [
-    [
-        'number' => '01',
-        'title'  => __('Everyday Products', 'dawp'),
-        'copy'   => __('Elite Shop Express offers practical home, personal care, accessory, lifestyle, and giftable products.', 'dawp'),
-        'color'  => '#2563EB',
-    ],
-    [
-        'number' => '02',
-        'title'  => __('Order Accuracy', 'dawp'),
-        'copy'   => __('Customers are responsible for entering accurate checkout, shipping, and contact information.', 'dawp'),
-        'color'  => '#06B6D4',
-    ],
-    [
-        'number' => '03',
-        'title'  => __('Clear Policies', 'dawp'),
-        'copy'   => __('Shipping, returns, privacy, and support policies are published for transparent expectations.', 'dawp'),
-        'color'  => '#C026D3',
-    ],
-    [
-        'number' => '04',
-        'title'  => __('Responsible Use', 'dawp'),
-        'copy'   => __('Customers must use the website lawfully and avoid misuse of store features or content.', 'dawp'),
-        'color'  => '#65A30D',
-    ],
-];
-
-$sections = [
-    [
-        'id'      => 'agreement',
-        'eyebrow' => __('Agreement', 'dawp'),
-        'title'   => __('Using the Elite Shop Express website.', 'dawp'),
-        'body'    => [
-            __('These Terms & Conditions apply when you browse, access, or purchase from Elite Shop Express. By using the website, you agree to these terms and to any policies referenced here, including shipping, returns, and privacy policies.', 'dawp'),
-            __('If you do not agree with these terms, please do not use the website or place an order.', 'dawp'),
-        ],
-    ],
-    [
-        'id'      => 'store',
-        'eyebrow' => __('Store Scope', 'dawp'),
-        'title'   => __('Everyday essentials and lifestyle finds.', 'dawp'),
-        'body'    => [
-            __('Elite Shop Express is a lifestyle ecommerce store focused on practical products for home essentials, beauty and personal care accessories, fashion accessories, lifestyle accessories, and giftable everyday finds.', 'dawp'),
-            __('Product descriptions are provided to help customers understand common use cases, features, materials, sizing, included items, and care notes where relevant. Product images, colors, packaging, and details may vary slightly due to screen settings, photography, supplier updates, or availability.', 'dawp'),
-        ],
-    ],
-    [
-        'id'      => 'orders',
-        'eyebrow' => __('Orders & Payment', 'dawp'),
-        'title'   => __('Checkout, confirmation, and order review.', 'dawp'),
-        'body'    => [
-            __('When placing an order, you agree to provide accurate billing, shipping, contact, and payment information. Incorrect information may delay or prevent delivery.', 'dawp'),
-            __('An order confirmation does not guarantee acceptance if there is a pricing error, inventory issue, suspected fraud, payment problem, shipping restriction, or other issue that prevents fulfillment.', 'dawp'),
-            __('Prices, product availability, promotions, and descriptions may change without notice. The final order total is shown at checkout before payment is completed.', 'dawp'),
-        ],
-    ],
-    [
-        'id'      => 'shipping',
-        'eyebrow' => __('Shipping & Returns', 'dawp'),
-        'title'   => __('Policy expectations for delivery and returns.', 'dawp'),
-        'body'    => [
-            __('Orders are processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'),
-            __('Tracking information is provided once an order ships. Delivery timelines are estimates and may be affected by carrier delays, weather, holidays, high-volume periods, or address issues.', 'dawp'),
-            __('Eligible returns may be requested within 30 days of delivery. Shoes must be unworn, unused, undamaged, and returned in the original shoebox and packaging with included tags, inserts, and accessories where applicable.', 'dawp'),
-        ],
-    ],
-    [
-        'id'      => 'website',
-        'eyebrow' => __('Website Use', 'dawp'),
-        'title'   => __('Responsible use of site features and content.', 'dawp'),
-        'body'    => [
-            __('You agree not to misuse the website, interfere with its security or operation, attempt unauthorized access, submit false information, scrape or copy content at scale, or use the website for unlawful purposes.', 'dawp'),
-            __('Website content, including text, images, page layouts, product presentation, graphics, and branding elements, is provided for the Elite Shop Express shopping experience and may not be copied or reused without permission except as allowed by law.', 'dawp'),
-        ],
-    ],
-    [
-        'id'      => 'support',
-        'eyebrow' => __('Support & Changes', 'dawp'),
-        'title'   => __('Contact, updates, and policy changes.', 'dawp'),
-        'body'    => [
-            __('For questions about orders, shipping, returns, products, or these terms, contact support@eliteshopexpress.com. Support is available Monday through Friday, 9:00 AM - 6:00 PM EST.', 'dawp'),
-            __('We may update these Terms & Conditions from time to time. Continued use of the website after updates means you accept the revised terms.', 'dawp'),
-        ],
-    ],
-];
+$store_name      = 'Elite Shop Express';
+$site_url        = 'eliteshopexpress.com';
+$support_email   = 'support@eliteshopexpress.com';
+$support_address = '123 Market Street, New York, NY 10001';
+$contact_url     = home_url('/contact-us/');
+$shipping_url    = home_url('/shipping-policy/');
+$return_url      = home_url('/return-refund-policy/');
+$privacy_url     = home_url('/privacy-policy/');
 ?>
 
-<div class="bg-white font-body text-[#101828]">
-    <section class="relative overflow-hidden bg-[#F3F7FB]">
-        <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-            <div class="max-w-4xl">
-                <p class="mb-5 inline-flex rounded-full bg-[#DBEAFE] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]">
-                    <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
-                </p>
-                <h1 class="font-heading text-4xl font-black uppercase leading-[0.98] text-[#101828] sm:text-5xl lg:text-[4.25rem]">
-                    <?php esc_html_e('Clear terms for a straightforward shopping experience.', 'dawp'); ?>
-                </h1>
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#475467]">
-                    <?php esc_html_e('These terms explain how customers may use Elite Shop Express, place orders, review product information, and access support for everyday essentials and lifestyle finds.', 'dawp'); ?>
-                </p>
-            </div>
+<style>
+  .ese-page { --ese-blue:#2563eb; --ese-cyan:#06b6d4; --ese-lime:#a3e635; --ese-ink:#101828; --ese-slate:#475467; background:#fff; color:var(--ese-slate); font-family:"Lato","Inter",system-ui,sans-serif; }
+  .ese-page * { box-sizing:border-box; }
+  .ese-page a { color:inherit; text-decoration:none; }
+  .ese-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
+  .ese-eyebrow { margin:0 0 12px; color:var(--ese-blue); font-size:12px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+  .ese-title { margin:0; color:var(--ese-ink); font-family:"Lato","Inter",system-ui,sans-serif; font-size:clamp(36px,5vw,64px); font-weight:900; line-height:1.04; letter-spacing:0; text-transform:uppercase; }
+  .ese-updated { margin:16px 0 0; color:var(--ese-ink); font-size:14px; font-weight:900; line-height:1.4; }
+  .ese-copy { margin:18px 0 0; max-width:780px; color:var(--ese-slate); font-size:17px; line-height:1.75; }
+  .ese-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--ese-ink); border-radius:999px; background:var(--ese-ink); color:#fff !important; padding:0 22px; font-size:14px; font-weight:900; transition:.2s ease; }
+  .ese-button:hover { border-color:var(--ese-blue); background:var(--ese-blue); color:#fff !important; }
+  .ese-button--secondary { background:#fff; color:var(--ese-ink) !important; }
+  .ese-button--secondary:hover { border-color:var(--ese-blue); background:#eff6ff; color:var(--ese-blue) !important; }
+  .ese-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+  .ese-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(6,182,212,.12) 48%,rgba(163,230,53,.16)),#f8fbff; }
+  .ese-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.56); filter:blur(8px); }
+  .ese-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(37,99,235,.18); border-radius:999px; background:rgba(255,255,255,.28); }
+  .ese-hero__grid { position:relative; z-index:1; display:grid; place-items:center; padding:82px 0 88px; text-align:center; }
+  .ese-hero__content { max-width:880px; }
+  .ese-hero .ese-copy { max-width:760px; margin-inline:auto; }
+  .ese-hero .ese-actions { justify-content:center; }
+  @media (max-width:680px) {
+    .ese-hero__grid { padding:52px 0 56px; }
+    .ese-actions { flex-direction:column; }
+    .ese-button { width:100%; }
+  }
+</style>
 
-            <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                <?php foreach ($terms_cards as $card) : ?>
-                    <article class="border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-white" style="background-color: <?php echo esc_attr($card['color']); ?>">
-                            <?php echo esc_html($card['number']); ?>
-                        </div>
-                        <h2 class="font-heading text-xl font-black uppercase leading-tight text-[#101828]">
-                            <?php echo esc_html($card['title']); ?>
-                        </h2>
-                        <p class="mt-3 text-sm leading-6 text-[#475467]">
-                            <?php echo esc_html($card['copy']); ?>
-                        </p>
-                    </article>
-                <?php endforeach; ?>
+<div class="bg-white font-body text-[#101828]">
+    <section class="ese-page ese-terms-conditions ese-hero">
+        <div class="ese-wrap ese-hero__grid">
+            <div class="ese-hero__content">
+                <p class="ese-eyebrow"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
+                <h1 class="ese-title"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></h1>
+                <p class="ese-updated"><?php esc_html_e('Last Updated: June 5, 2026', 'dawp'); ?></p>
+                <p class="ese-copy"><?php esc_html_e('Welcome to Elite Shop Express! These Terms & Conditions govern your access to and use of eliteshopexpress.com, including browsing our product catalog, creating an account, interacting with our customer support, or purchasing products from our online store.', 'dawp'); ?></p>
+                <div class="ese-actions">
+                    <a class="ese-button" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
+                    <a class="ese-button ese-button--secondary" href="<?php echo esc_url($privacy_url); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-            <aside class="lg:sticky lg:top-32 lg:self-start">
-                <div class="rounded-[2rem] bg-[#101828] p-7 text-white shadow-xl shadow-[#101828]/10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Terms Sections', 'dawp'); ?></p>
-                    <h2 class="font-heading text-3xl font-black uppercase leading-tight"><?php esc_html_e('Review the basics.', 'dawp'); ?></h2>
-                    <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('Terms and conditions navigation', 'dawp'); ?>">
-                        <?php foreach ($sections as $section) : ?>
-                            <a href="#<?php echo esc_attr($section['id']); ?>" class="rounded-2xl border border-white/10 px-4 py-3 transition hover:border-[#67E8F9] hover:text-[#67E8F9]">
-                                <?php echo esc_html($section['eyebrow']); ?>
-                            </a>
-                        <?php endforeach; ?>
-                    </nav>
-                </div>
-            </aside>
-
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="space-y-6">
-                <?php foreach ($sections as $section) : ?>
-                    <section id="<?php echo esc_attr($section['id']); ?>" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
-                        <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php echo esc_html($section['eyebrow']); ?></p>
-                        <h2 class="font-heading text-3xl font-black uppercase leading-tight text-[#101828] lg:text-4xl"><?php echo esc_html($section['title']); ?></h2>
-                        <div class="mt-6 space-y-4 text-base leading-8 text-[#475467]">
-                            <?php foreach ($section['body'] as $paragraph) : ?>
-                                <p><?php echo esc_html($paragraph); ?></p>
-                            <?php endforeach; ?>
-                        </div>
-                    </section>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
+                <section class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="text-base leading-8 text-[#475467]">
+                        <?php
+                        printf(
+                            esc_html__('The Site is operated by %1$s. Throughout the Site, the terms "we", "us", and "our" refer to %1$s. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree with these terms, please discontinue using the website or placing orders.', 'dawp'),
+                            esc_html($store_name)
+                        );
+                        ?>
+                    </p>
+                </section>
 
-    <section class="bg-[#101828] py-12 text-white lg:py-16">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[0.74fr_1.26fr] lg:items-start lg:px-8">
-            <div class="max-w-xl">
-                <p class="mb-2 text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Related Policies', 'dawp'); ?></p>
-                <h2 class="font-heading text-3xl font-black uppercase leading-tight lg:text-[2.1rem]"><?php esc_html_e('Read the full customer care details.', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Shipping, return, and privacy details help set clear expectations before and after checkout.', 'dawp'); ?></p>
-            </div>
-            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></span>
-                    <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Delivery and return rules', 'dawp'); ?></span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('Processing, tracking, return window, shoe packaging, and refund review details.', 'dawp'); ?></span>
-                </a>
-                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></span>
-                    <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Customer information use', 'dawp'); ?></span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('How order, support, and website information may be handled.', 'dawp'); ?></span>
-                </a>
+                <section id="online-store-terms" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('1. Online Store Terms & Eligibility', 'dawp'); ?></p>
+                    <p class="text-base leading-8 text-[#475467]">
+                        <?php esc_html_e('By agreeing to these Terms, you represent that you are at least the age of majority in your state, province, or country of residence. You may not use our website, products, or services for any unlawful, unauthorized, or fraudulent purpose. You agree not to misuse the website, interfere with its operational security, transmit harmful codes (viruses or malware), or harvest store data through automated scraping tools. You are entirely responsible for maintaining the confidentiality of your personal account credentials.', 'dawp'); ?>
+                    </p>
+                </section>
+
+                <section id="store-scope" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('2. Store Scope & Product Representation', 'dawp'); ?></p>
+                    <div class="space-y-4 text-base leading-8 text-[#475467]">
+                        <p><?php esc_html_e('Elite Shop Express is a lifestyle e-commerce store focused on practical, high-quality products for home essentials, beauty and personal care accessories, fashion accessories, lifestyle items, and giftable everyday finds.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('We make every reasonable effort to display product descriptions, features, materials, sizing, and included components as accurately as possible. However, please note that actual product images, colors, and packaging details may vary slightly due to personal screen monitor settings, photography studio lighting, or periodic manufacturer updates. Product availability, descriptions, and pricing are subject to change without prior notice.', 'dawp'); ?></p>
+                    </div>
+                </section>
+
+                <section id="orders-pricing-payment" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('3. Orders, Pricing, and Secure Payment', 'dawp'); ?></p>
+                    <div class="space-y-4 text-base leading-8 text-[#475467]">
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Information Accuracy:', 'dawp'); ?></strong> <?php esc_html_e('When placing an order, you agree to provide current, complete, and accurate billing, shipping, contact, and payment information. Incorrect or incomplete information may delay or prevent delivery.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Order Review & Limitations:', 'dawp'); ?></strong> <?php esc_html_e('An order confirmation email does not guarantee final order acceptance. We reserve the absolute right to limit, refuse, or cancel any order if a pricing error occurs, inventory is unavailable, shipping restrictions apply, or fraud risk is flagged by our secure payment system.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Payment & No Hidden Fees:', 'dawp'); ?></strong> <?php esc_html_e('All prices on our Site are displayed and transacted in USD. Final totals, including shipping and taxes, are calculated dynamically and displayed clearly at checkout before your payment is completed. All payments are encrypted via SSL and processed through PCI-DSS compliant payment gateways.', 'dawp'); ?></p>
+                    </div>
+                </section>
+
+                <section id="shipping-delivery" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('4. Shipping, Delivery, and Destination Responsibilities', 'dawp'); ?></p>
+                    <div class="space-y-4 text-base leading-8 text-[#475467]">
+                        <p><?php esc_html_e('Your purchases and logistics are governed by our Shipping Policy. Elite Shop Express currently ships exclusively within the United States and provides free standard U.S. shipping for every order.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Cutoff, Handling & Transit Times:', 'dawp'); ?></strong> <?php esc_html_e('The daily order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time. Order handling takes 1-3 business days, Monday through Friday, excluding standard U.S. public holidays. Standard domestic transit typically takes 5-7 business days after dispatch, with an estimated total delivery window of 6-10 business days from the date of purchase.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Tracking & Delays:', 'dawp'); ?></strong> <?php esc_html_e('Tracking information is provided by email once an order is dispatched. Delivery timelines are estimates, not guarantees, and may be affected by extreme weather, carrier capacity issues, regional holidays, high-volume shipping periods, incorrect addresses, or other conditions outside our control.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Address Accuracy & Full Policy:', 'dawp'); ?></strong> <?php esc_html_e('Customers are responsible for providing a complete and accurate shipping address before submitting an order. For full logistics details, carrier information, multi-item shipment rules, and delivery issue support steps, please review our comprehensive ', 'dawp'); ?><a href="<?php echo esc_url($shipping_url); ?>" class="font-black text-[#2563EB] transition hover:text-[#101828]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a><?php esc_html_e('.', 'dawp'); ?></p>
+                    </div>
+                </section>
+
+                <section id="returns-refunds" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('5. Returns, Refunds & Exchanges', 'dawp'); ?></p>
+                    <div class="space-y-4 text-base leading-8 text-[#475467]">
+                        <p><?php esc_html_e('We stand behind our products with a standard consumer protection policy:', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Return Window:', 'dawp'); ?></strong> <?php esc_html_e('Eligible returns may be requested within 30 days of documented delivery.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Condition Requirements:', 'dawp'); ?></strong> <?php esc_html_e('To qualify for a refund, items must be entirely unused, undamaged, in their original condition, and returned with all original packaging, tags, inserts, and included accessories intact.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Full Policy Access:', 'dawp'); ?></strong> <?php esc_html_e('Step-by-step instructions, return shipping address rules, and refund processing timeframes are detailed in our full ', 'dawp'); ?><a href="<?php echo esc_url($return_url); ?>" class="font-black text-[#2563EB] transition hover:text-[#101828]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a><?php esc_html_e('.', 'dawp'); ?></p>
+                    </div>
+                </section>
+
+                <section id="privacy-intellectual-property" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('6. Privacy & Intellectual Property', 'dawp'); ?></p>
+                    <div class="space-y-4 text-base leading-8 text-[#475467]">
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Data Privacy:', 'dawp'); ?></strong> <?php esc_html_e('Your submission of personal data through the storefront is strictly governed by our ', 'dawp'); ?><a href="<?php echo esc_url($privacy_url); ?>" class="font-black text-[#2563EB] transition hover:text-[#101828]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a><?php esc_html_e('.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Proprietary Content:', 'dawp'); ?></strong> <?php esc_html_e('All website designs, page layouts, text descriptions, graphics, logos, and custom photography selections are the exclusive property of Elite Shop Express and are protected by applicable copyright and intellectual property laws.', 'dawp'); ?></p>
+                    </div>
+                </section>
+
+                <section id="limitation-of-liability" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('7. Limitation Of Liability', 'dawp'); ?></p>
+                    <p class="text-base leading-8 text-[#475467]">
+                        <?php esc_html_e('To the fullest extent permitted by applicable law, Elite Shop Express shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, product consumption, shipping carrier delays, or data interruptions.', 'dawp'); ?>
+                    </p>
+                </section>
+
+                <section id="governing-law" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('8. Governing Law', 'dawp'); ?></p>
+                    <p class="text-base leading-8 text-[#475467]">
+                        <?php esc_html_e('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the State of New York, United States.', 'dawp'); ?>
+                    </p>
+                </section>
+
+                <section id="contact-information" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
+                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('9. Contact Information', 'dawp'); ?></p>
+                    <p class="text-base leading-8 text-[#475467]">
+                        <?php esc_html_e('If you have questions, complaints, or require clarification regarding these Terms & Conditions, please contact our support team through our verified corporate channels:', 'dawp'); ?>
+                    </p>
+
+                    <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+                        <article class="rounded-[1.25rem] border border-[#E5E7EB] bg-white p-5">
+                            <h3 class="text-sm font-black uppercase tracking-wide text-[#101828]"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
+                            <p class="mt-3 break-words text-base leading-7 text-[#475467]"><?php echo esc_html($store_name); ?></p>
+                        </article>
+                        <article class="rounded-[1.25rem] border border-[#E5E7EB] bg-white p-5">
+                            <h3 class="text-sm font-black uppercase tracking-wide text-[#101828]"><?php esc_html_e('Website', 'dawp'); ?></h3>
+                            <p class="mt-3 break-words text-base leading-7 text-[#475467]"><?php echo esc_html($site_url); ?></p>
+                        </article>
+                        <article class="rounded-[1.25rem] border border-[#E5E7EB] bg-white p-5">
+                            <h3 class="text-sm font-black uppercase tracking-wide text-[#101828]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></h3>
+                            <p class="mt-3 break-words text-base leading-7 text-[#475467]"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition hover:text-[#2563EB]"><?php echo esc_html($support_email); ?></a></p>
+                        </article>
+                        <article class="rounded-[1.25rem] border border-[#E5E7EB] bg-white p-5">
+                            <h3 class="text-sm font-black uppercase tracking-wide text-[#101828]"><?php esc_html_e('Physical Business Address', 'dawp'); ?></h3>
+                            <p class="mt-3 break-words text-base leading-7 text-[#475467]"><?php echo esc_html($support_address); ?></p>
+                        </article>
+                        <article class="rounded-[1.25rem] border border-[#E5E7EB] bg-white p-5">
+                            <h3 class="text-sm font-black uppercase tracking-wide text-[#101828]"><?php esc_html_e('Customer Service Hours', 'dawp'); ?></h3>
+                            <p class="mt-3 break-words text-base leading-7 text-[#475467]"><?php esc_html_e('Monday through Friday, 9:00 AM - 6:00 PM EST (New York Time)', 'dawp'); ?></p>
+                        </article>
+                        <article class="rounded-[1.25rem] border border-[#E5E7EB] bg-white p-5">
+                            <h3 class="text-sm font-black uppercase tracking-wide text-[#101828]"><?php esc_html_e('Contact Page', 'dawp'); ?></h3>
+                            <p class="mt-3 break-words text-base leading-7 text-[#475467]"><a href="<?php echo esc_url($contact_url); ?>" class="transition hover:text-[#2563EB]"><?php esc_html_e('Contact Us', 'dawp'); ?></a></p>
+                        </article>
+                    </div>
+                </section>
             </div>
         </div>
     </section>

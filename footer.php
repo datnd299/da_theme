@@ -8,6 +8,7 @@
 $current_year  = date_i18n('Y');
 $support_email = 'support@eliteshopexpress.com';
 $support_address = '123 Market Street, New York, NY 10001';
+$operating_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
 
 $footer_shop_links = dawp_product_category_links();
 
@@ -21,7 +22,8 @@ $footer_care_links = [
 
 $footer_policy_links = [
     ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
-    ['title' => __('Shipping & Return Policy', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+    ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
     ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
     ['title' => __('Terms of Service', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
@@ -37,7 +39,7 @@ $trust_items = [
     ],
     [
         'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unworn and undamaged shoes may be returned within 30 days of delivery.', 'dawp'),
+        'copy'  => __('Eligible unused and undamaged items may be returned within 30 days of delivery.', 'dawp'),
     ],
     [
         'title' => __('Practical Product Details', 'dawp'),
@@ -92,6 +94,16 @@ $trust_items = [
                             <path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                         </svg>
                         <span><?php echo esc_html($support_address); ?></span>
+                    </p>
+                    <p class="flex items-start gap-3">
+                        <svg class="mt-0.5 h-5 w-5 flex-none text-[#67E8F9]" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                        <span>
+                            <span class="block text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Business Hours', 'dawp'); ?></span>
+                            <span class="mt-1 block"><?php echo esc_html($operating_hours); ?></span>
+                        </span>
                     </p>
                 </div>
             </div>

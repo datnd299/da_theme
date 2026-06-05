@@ -388,8 +388,11 @@ if (class_exists('WooCommerce')) {
             </p>
 
             <div class="mt-6 flex flex-wrap justify-center gap-3">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#2563EB] px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#06B6D4]">
-                    <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full bg-[#2563EB] px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#06B6D4]">
+                    <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
+                </a>
+                <a href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#101828]">
+                    <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-white/25 px-5 text-xs font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#101828]">
                     <?php esc_html_e('Contact Support', 'dawp'); ?>

@@ -5,32 +5,10 @@
  * @package dawp
  */
 
-$faq_highlights = [
-    [
-        'number' => '01',
-        'title'  => __('Orders', 'dawp'),
-        'copy'   => __('Find help with checkout, confirmations, order updates, and order details.', 'dawp'),
-        'color'  => '#2563EB',
-    ],
-    [
-        'number' => '02',
-        'title'  => __('Shipping', 'dawp'),
-        'copy'   => __('Review the order cutoff, handling time, U.S. transit expectations, free standard shipping, and tracking updates.', 'dawp'),
-        'color'  => '#06B6D4',
-    ],
-    [
-        'number' => '03',
-        'title'  => __('Returns', 'dawp'),
-        'copy'   => __('Understand 30-day return eligibility, shoe packaging requirements, return costs, and refund timing.', 'dawp'),
-        'color'  => '#C026D3',
-    ],
-    [
-        'number' => '04',
-        'title'  => __('Support', 'dawp'),
-        'copy'   => __('Contact our team for product, order, shipping, return, and privacy questions.', 'dawp'),
-        'color'  => '#65A30D',
-    ],
-];
+$support_email     = 'support@eliteshopexpress.com';
+$support_address   = '123 Market Street, New York, NY 10001';
+$operating_hours   = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
+$response_time     = __('within 1 business day', 'dawp');
 
 $faq_sections = [
     [
@@ -40,11 +18,11 @@ $faq_sections = [
         'items'   => [
             [
                 'question' => __('What does Elite Shop Express sell?', 'dawp'),
-                'answer'   => __('Elite Shop Express offers shoes and practical lifestyle products with product details published on each item page to help customers review sizing, features, included items, and care notes where relevant.', 'dawp'),
+                'answer'   => __('Elite Shop Express offers home essentials, beauty and personal care accessories, fashion accessories, lifestyle items, and giftable everyday finds. Product pages include the available details customers need to review features, included items, materials, sizing, and care notes where relevant.', 'dawp'),
             ],
             [
                 'question' => __('Are your products medical treatments or branded replicas?', 'dawp'),
-                'answer'   => __('No. Our store is focused on mainstream shoes and lifestyle products. We do not position products as medical treatments, miracle solutions, counterfeit goods, luxury replicas, or unsupported branded items.', 'dawp'),
+                'answer'   => __('No. Our store is focused on mainstream everyday essentials and lifestyle products. We do not position products as medical treatments, miracle solutions, counterfeit goods, luxury replicas, or unsupported branded items.', 'dawp'),
             ],
             [
                 'question' => __('How should I choose the right product?', 'dawp'),
@@ -59,11 +37,15 @@ $faq_sections = [
         'items'   => [
             [
                 'question' => __('What happens after I place an order?', 'dawp'),
-                'answer'   => __('After checkout, your order is reviewed and prepared for fulfillment. You should receive order information using the contact details provided at checkout, and tracking is provided once available.', 'dawp'),
+                'answer'   => __('After checkout, your order is reviewed and prepared for fulfillment. Orders placed after the 5:00 PM (GMT-08:00) Pacific Standard Time cutoff begin processing the following business day. Tracking is sent to the email address provided at checkout once the order is dispatched.', 'dawp'),
             ],
             [
                 'question' => __('Can I change my shipping address after ordering?', 'dawp'),
                 'answer'   => __('Contact support as soon as possible with your order number and checkout email address. We cannot guarantee changes after an order begins fulfillment or has shipped, so accurate checkout information is important.', 'dawp'),
+            ],
+            [
+                'question' => __('How are payments processed?', 'dawp'),
+                'answer'   => __('Payments are processed through certified third-party payment gateways such as Stripe or PayPal. Elite Shop Express does not store, collect, or retain raw credit card numbers or payment credentials on our servers.', 'dawp'),
             ],
             [
                 'question' => __('Why was my order not accepted or delayed?', 'dawp'),
@@ -77,24 +59,36 @@ $faq_sections = [
         'title'   => __('Delivery timing and shipment updates.', 'dawp'),
         'items'   => [
             [
-                'question' => __('How long does order processing take?', 'dawp'),
-                'answer'   => __('Orders placed before the 5:00 PM Pacific Standard Time cutoff begin processing after payment is confirmed. Handling time is 1-3 business days, Monday through Friday, and includes order review, preparation, packing, and handoff for shipment.', 'dawp'),
-            ],
-            [
-                'question' => __('How long does delivery take?', 'dawp'),
-                'answer'   => __('After processing is complete, standard transit within the United States typically takes 3-5 business days depending on destination and carrier conditions. Weather, public holidays, high order volume, incorrect addresses, customs or carrier interruptions, and other conditions outside our control may affect timing.', 'dawp'),
+                'question' => __('Where do you ship?', 'dawp'),
+                'answer'   => __('Elite Shop Express currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to a specific address, the order will not be available for that location and the customer will be notified at checkout before payment is processed.', 'dawp'),
             ],
             [
                 'question' => __('How much does standard shipping cost?', 'dawp'),
-                'answer'   => __('Standard shipping is free on U.S. orders.', 'dawp'),
+                'answer'   => __('Standard U.S. shipping is completely free for all orders nationwide, with no minimum purchase requirement. If optional upgraded shipping is available, the exact cost is displayed at checkout before payment is completed.', 'dawp'),
+            ],
+            [
+                'question' => __('How long does order processing take?', 'dawp'),
+                'answer'   => __('Order handling time is 1-3 business days, Monday through Friday, excluding standard U.S. public holidays. Orders placed after the 5:00 PM (GMT-08:00) Pacific Standard Time cutoff begin processing the following business day.', 'dawp'),
+            ],
+            [
+                'question' => __('How long does delivery take?', 'dawp'),
+                'answer'   => __('Standard transit time is 5-7 business days, Monday to Friday. Estimated delivery is 6-10 business days total from the date of purchase. Extreme weather, carrier capacity issues, regional holidays, incorrect addresses, and other carrier conditions may affect timing.', 'dawp'),
             ],
             [
                 'question' => __('When will I receive tracking information?', 'dawp'),
-                'answer'   => __('Tracking information is provided once it becomes available from the fulfillment or carrier system. Please allow time for the carrier tracking page to update after the label is created or the package is scanned.', 'dawp'),
+                'answer'   => __('Once your order is dispatched, an automated shipping confirmation email with a direct tracking link and courier details is sent to the registered email address. Please allow time for the carrier tracking page to update after the label is created or the package is scanned.', 'dawp'),
             ],
             [
                 'question' => __('Where can I track my order?', 'dawp'),
                 'answer'   => __('Use the Track Order page with your order details to review shipment updates. If tracking is not updating, contact support with your order number and checkout email address.', 'dawp'),
+            ],
+            [
+                'question' => __('Which carriers do you use?', 'dawp'),
+                'answer'   => __('Orders are shipped using trusted domestic U.S. carriers, including USPS, UPS, FedEx, or DHL. The final carrier is selected when the package is labeled and prepared at the fulfillment center.', 'dawp'),
+            ],
+            [
+                'question' => __('Can one order arrive in multiple packages?', 'dawp'),
+                'answer'   => __('Yes. Multi-item orders may be fulfilled from different locations or require different packing methods, so items may ship separately and arrive in multiple packages. Separate tracking numbers are provided when available.', 'dawp'),
             ],
         ],
     ],
@@ -105,23 +99,31 @@ $faq_sections = [
         'items'   => [
             [
                 'question' => __('What is your return window?', 'dawp'),
-                'answer'   => __('Return requests must be made within 30 days after delivery. Items sent back without first contacting support may not be accepted. Eligible shoes must be unworn, unused, undamaged, and returned in the original shoebox and packaging with included tags, inserts, and accessories where applicable.', 'dawp'),
+                'answer'   => __('Return requests must be initiated within 30 days of delivery. Items sent back without prior authorization cannot be tracked or processed. Eligible items must be unworn, unused, undamaged, and in original, unaltered condition with all original packaging, tags, labels, manuals, inserts, product boxes, protective packaging, and included accessories.', 'dawp'),
+            ],
+            [
+                'question' => __('Do you charge a restocking fee?', 'dawp'),
+                'answer'   => __('No. Elite Shop Express does not charge restocking fees for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('How should I package a return?', 'dawp'),
-                'answer'   => __('Please place the original shoebox inside a separate shipping box or mailer. Do not place tape, labels, or postage directly on the original shoebox.', 'dawp'),
+                'answer'   => __('After approval, repack the item securely in its original packaging with all included accessories, tags, manuals, inserts, and boxes, then place it inside a sturdy outer shipping box. Do not place tape, labels, or postage directly on retail packaging when separate outer packaging can be used.', 'dawp'),
             ],
             [
                 'question' => __('Who pays for return shipping?', 'dawp'),
-                'answer'   => __('Customers are responsible for return shipping costs unless support confirms a different resolution for an approved damaged, defective, incorrect, or missing item issue.', 'dawp'),
+                'answer'   => __('For defective, damaged, or incorrect products, there is no cost to the customer and we cover 100% of return shipping with a downloadable and printable prepaid label sent by email. For customer remorse returns, including wrong item, size, color, model, changed mind, or fit needs, the return shipping cost is the customer\'s responsibility and the prepaid label cost is deducted from the final refund.', 'dawp'),
             ],
             [
                 'question' => __('When are refunds processed?', 'dawp'),
-                'answer'   => __('Approved refunds are processed within 10 business days after the returned item is received and inspected. Your bank, card provider, or payment service may take additional time to post the refund.', 'dawp'),
+                'answer'   => __('Once a return package is received at our warehouse, we inspect the item within 1-2 business days. If approved, the refund is processed automatically back to the original payment method within 7 business days of inspection. If you have not received your refund after 15 business days of approval, check with your bank or card company first, then contact us.', 'dawp'),
             ],
             [
                 'question' => __('What should I do if my item arrives damaged, defective, incorrect, or missing?', 'dawp'),
-                'answer'   => __('Contact us as soon as possible with your order number and clear photos of the product, packaging, and shipping label where relevant. Our support team will review the details and provide the next available resolution based on the order issue, return eligibility, item condition, and available inventory.', 'dawp'),
+                'answer'   => __('Contact us within 30 days of delivery with your order number, checkout email address, and clear photos of the item, shipping packaging, and shipping label where relevant. Our support team will review the issue and arrange the available replacement or refund resolution when the issue is confirmed.', 'dawp'),
+            ],
+            [
+                'question' => __('Do you offer exchanges?', 'dawp'),
+                'answer'   => __('We do not process direct one-for-one product exchanges. To get a different size, color, model, or product, follow the return process for a refund and place a new order on the website.', 'dawp'),
             ],
         ],
     ],
@@ -132,15 +134,26 @@ $faq_sections = [
         'items'   => [
             [
                 'question' => __('How do you use customer information?', 'dawp'),
-                'answer'   => __('Customer information may be used to process orders, send confirmations, provide shipping and tracking updates, respond to support requests, manage returns and refunds, improve website performance, prevent misuse, and comply with applicable obligations.', 'dawp'),
+                'answer'   => __('Customer information may be used to process, build, track, and deliver orders; send order confirmations and tracking links; respond to support requests; review transactions for fraud or unauthorized chargebacks; manage standard 30-day product returns; improve website performance; and comply with applicable legal, accounting, tax, and dispute-resolution obligations.', 'dawp'),
             ],
             [
                 'question' => __('Do you share information with service providers?', 'dawp'),
-                'answer'   => __('We may share information with trusted service providers that help operate the store, including payment processors, shipping carriers, fulfillment partners, analytics providers, email services, fraud prevention tools, and customer support systems.', 'dawp'),
+                'answer'   => __('We do not sell, rent, trade, or monetize personal information. We only share operational data with trusted service providers that help run the store, such as e-commerce platform tools, analytics providers, payment processors, shipping carriers, fulfillment partners, fraud prevention tools, email services, customer support systems, or legal compliance parties when required.', 'dawp'),
+            ],
+            [
+                'question' => __('What privacy rights can U.S. customers request?', 'dawp'),
+                'answer'   => __('U.S. customers may request access to personal data, correction of inaccurate records, deletion where legally available, and opt-out choices for targeted third-party advertising tracking. Elite Shop Express does not sell personal data.', 'dawp'),
             ],
             [
                 'question' => __('How can I contact Elite Shop Express?', 'dawp'),
-                'answer'   => __('Email support@eliteshopexpress.com for order, shipping, return, product, account, or privacy questions. Support is available Monday through Friday, 9:00 AM - 6:00 PM EST.', 'dawp'),
+                'answer'   => sprintf(
+                    /* translators: 1: support email, 2: support hours, 3: support address, 4: response time. */
+                    __('Email %1$s for order, shipping, return, product, account, or privacy questions. Support hours are %2$s, and we aim to reply %4$s. Corporate address: %3$s.', 'dawp'),
+                    $support_email,
+                    $operating_hours,
+                    $support_address,
+                    $response_time
+                ),
             ],
         ],
     ],
@@ -167,59 +180,54 @@ $faq_schema = [
 ];
 ?>
 
+<style>
+  .ese-page { --ese-blue:#2563eb; --ese-cyan:#06b6d4; --ese-lime:#a3e635; --ese-ink:#101828; --ese-slate:#475467; background:#fff; color:var(--ese-slate); font-family:"Lato","Inter",system-ui,sans-serif; }
+  .ese-page * { box-sizing:border-box; }
+  .ese-page a { color:inherit; text-decoration:none; }
+  .ese-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
+  .ese-eyebrow { margin:0 0 12px; color:var(--ese-blue); font-size:12px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+  .ese-title { margin:0; color:var(--ese-ink); font-family:"Lato","Inter",system-ui,sans-serif; font-size:clamp(36px,5vw,64px); font-weight:900; line-height:1.04; letter-spacing:0; text-transform:uppercase; }
+  .ese-copy { margin:18px 0 0; max-width:780px; color:var(--ese-slate); font-size:17px; line-height:1.75; }
+  .ese-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--ese-ink); border-radius:999px; background:var(--ese-ink); color:#fff !important; padding:0 22px; font-size:14px; font-weight:900; transition:.2s ease; }
+  .ese-button:hover { border-color:var(--ese-blue); background:var(--ese-blue); color:#fff !important; }
+  .ese-button--secondary { background:#fff; color:var(--ese-ink) !important; }
+  .ese-button--secondary:hover { border-color:var(--ese-blue); background:#eff6ff; color:var(--ese-blue) !important; }
+  .ese-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+  .ese-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(37,99,235,.14),rgba(6,182,212,.12) 48%,rgba(163,230,53,.16)),#f8fbff; }
+  .ese-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.56); filter:blur(8px); }
+  .ese-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(37,99,235,.18); border-radius:999px; background:rgba(255,255,255,.28); }
+  .ese-hero__grid { position:relative; z-index:1; display:grid; place-items:center; padding:82px 0 88px; text-align:center; }
+  .ese-hero__content { max-width:880px; }
+  .ese-hero .ese-copy { max-width:760px; margin-inline:auto; }
+  .ese-hero .ese-actions { justify-content:center; }
+  @media (max-width:680px) {
+    .ese-hero__grid { padding:52px 0 56px; }
+    .ese-actions { flex-direction:column; }
+    .ese-button { width:100%; }
+  }
+</style>
+
 <div class="bg-white font-body text-[#101828]">
     <script type="application/ld+json">
         <?php echo wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
     </script>
 
-    <section class="relative overflow-hidden bg-[#F3F7FB]">
-        <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-            <div class="max-w-4xl">
-                <p class="mb-5 inline-flex rounded-full bg-[#DBEAFE] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]">
-                    <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
-                </p>
-                <h1 class="font-heading text-4xl font-black uppercase leading-[0.98] text-[#101828] sm:text-5xl lg:text-[4.25rem]">
-                    <?php esc_html_e('Clear answers for shopping and support.', 'dawp'); ?>
-                </h1>
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#475467]">
-                    <?php esc_html_e('Find common information about products, checkout, processing time, free U.S. standard shipping, tracking, returns, refunds, privacy, and support before or after placing an order.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                <?php foreach ($faq_highlights as $item) : ?>
-                    <article class="border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full text-sm font-black text-white" style="background-color: <?php echo esc_attr($item['color']); ?>">
-                            <?php echo esc_html($item['number']); ?>
-                        </div>
-                        <h2 class="font-heading text-xl font-black uppercase leading-tight text-[#101828]">
-                            <?php echo esc_html($item['title']); ?>
-                        </h2>
-                        <p class="mt-3 text-sm leading-6 text-[#475467]">
-                            <?php echo esc_html($item['copy']); ?>
-                        </p>
-                    </article>
-                <?php endforeach; ?>
+    <section class="ese-page ese-faq-page ese-hero">
+        <div class="ese-wrap ese-hero__grid">
+            <div class="ese-hero__content">
+                <p class="ese-eyebrow"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></p>
+                <h1 class="ese-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
+                <p class="ese-copy"><?php esc_html_e('Find common information about products, checkout, processing time, U.S. standard shipping, tracking, returns, refunds, privacy, and support before or after placing an order.', 'dawp'); ?></p>
+                <div class="ese-actions">
+                    <a class="ese-button" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
+                    <a class="ese-button ese-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="bg-white py-16 lg:py-24">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-            <aside class="lg:sticky lg:top-32 lg:self-start">
-                <div class="rounded-[2rem] bg-[#101828] p-7 text-white shadow-xl shadow-[#101828]/10">
-                    <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('FAQ Topics', 'dawp'); ?></p>
-                    <h2 class="font-heading text-3xl font-black uppercase leading-tight"><?php esc_html_e('Jump to a topic.', 'dawp'); ?></h2>
-                    <nav class="mt-7 grid gap-3 text-sm font-black uppercase tracking-wide text-white/85" aria-label="<?php esc_attr_e('FAQ navigation', 'dawp'); ?>">
-                        <?php foreach ($faq_sections as $section) : ?>
-                            <a href="#<?php echo esc_attr($section['id']); ?>" class="rounded-2xl border border-white/10 px-4 py-3 transition hover:border-[#67E8F9] hover:text-[#67E8F9]">
-                                <?php echo esc_html($section['eyebrow']); ?>
-                            </a>
-                        <?php endforeach; ?>
-                    </nav>
-                </div>
-            </aside>
-
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="space-y-6">
                 <?php foreach ($faq_sections as $section) : ?>
                     <section id="<?php echo esc_attr($section['id']); ?>" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
@@ -245,35 +253,4 @@ $faq_schema = [
         </div>
     </section>
 
-    <section class="bg-[#101828] py-12 text-white lg:py-16">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 sm:px-6 lg:grid-cols-[0.74fr_1.26fr] lg:items-start lg:px-8">
-            <div class="max-w-xl">
-                <p class="mb-2 text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Still Need Help?', 'dawp'); ?></p>
-                <h2 class="font-heading text-3xl font-black uppercase leading-tight lg:text-[2.1rem]"><?php esc_html_e('Use the full policy pages or contact support.', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('For order-related questions, include your order number and the email address used at checkout so our team can review your request clearly.', 'dawp'); ?></p>
-            </div>
-            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Policy', 'dawp'); ?></span>
-                    <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('Review order cutoff, 1-3 business day handling, 3-5 business day U.S. transit, 30-day returns, and refunds.', 'dawp'); ?></span>
-                </a>
-                <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Tracking', 'dawp'); ?></span>
-                    <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Track Order', 'dawp'); ?></span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('Use your order details to review available shipment updates.', 'dawp'); ?></span>
-                </a>
-                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Privacy', 'dawp'); ?></span>
-                    <span class="mt-3 block font-heading text-lg font-black uppercase leading-tight"><?php esc_html_e('Privacy Policy', 'dawp'); ?></span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('Learn how order, support, and website information may be handled.', 'dawp'); ?></span>
-                </a>
-                <a href="mailto:support@eliteshopexpress.com" class="group border border-white/10 bg-white/[0.04] p-5 transition hover:bg-white hover:text-[#101828]">
-                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9] transition group-hover:text-[#2563EB]"><?php esc_html_e('Email', 'dawp'); ?></span>
-                    <span class="mt-3 block break-words font-heading text-lg font-black uppercase leading-tight">support@eliteshopexpress.com</span>
-                    <span class="mt-2 block text-sm leading-6 text-white/65 transition group-hover:text-[#475467]"><?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?></span>
-                </a>
-            </div>
-        </div>
-    </section>
 </div>

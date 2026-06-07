@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
 $shipping_url   = home_url('/shipping-policy/');
@@ -75,7 +75,7 @@ $category_links = [
 $help_links = [
     [
         'title' => __('Shipping Policy', 'dawp'),
-        'copy'  => __('Review cut off time, handling, transit, delivery estimates, and tracking details.', 'dawp'),
+        'copy'  => __('Review free U.S. shipping, cutoff time, handling, transit, delivery estimates, carriers, and tracking details.', 'dawp'),
         'url'   => $shipping_url,
     ],
     [
@@ -131,14 +131,14 @@ $policy_links = [
                         <span class="track-timeline__icon" aria-hidden="true">2</span>
                         <div>
                             <h2><?php esc_html_e('Processing', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Orders are prepared within 1-2 business days after the 5:00 PM PST cut off.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Orders are prepared within 1-3 business days after the 5:00 PM (GMT-08:00) Pacific Standard Time cutoff.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">3</span>
                         <div>
                             <h2><?php esc_html_e('On the way', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Standard transit usually takes 5-7 business days after dispatch.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Standard U.S. transit takes 5-7 business days after dispatch.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('1-2 Day Handling', 'dawp'); ?>
+                    <?php esc_html_e('1-3 Day Handling', 'dawp'); ?>
                 </div>
             </div>
         </div>

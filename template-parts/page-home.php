@@ -17,7 +17,7 @@ if (!$shop_url) {
 
 $new_arrivals_url = add_query_arg('orderby', 'date', $shop_url);
 $support_email    = 'support@lbqshop.com';
-$business_hours   = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
+$business_hours   = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $home_products_query = null;
 
 if (class_exists('WooCommerce')) {
@@ -212,12 +212,12 @@ $trust_cards = [
     ],
     [
         'title' => __('Order Tracking', 'dawp'),
-        'copy'  => __('Tracking information is provided once your order ships.', 'dawp'),
+        'copy'  => __('A shipping confirmation email with tracking details is sent once your order is dispatched.', 'dawp'),
         'icon'  => 'truck',
     ],
     [
         'title' => __('Transparent Shipping', 'dawp'),
-        'copy'  => __('Orders use a 5:00 PM PST cut off, 1-2 business day handling, Monday through Friday fulfillment, and 5-7 business day standard transit.', 'dawp'),
+        'copy'  => __('Standard U.S. shipping is free. Orders use a 5:00 PM (GMT-08:00) Pacific Standard Time cutoff, 1-3 business day handling, and 5-7 business day transit.', 'dawp'),
         'icon'  => 'calendar',
     ],
     [
@@ -243,7 +243,7 @@ $render_icon = static function ($icon) {
 
 <div class="bg-white text-[#2F2A28]">
     <section class="relative isolate flex min-h-[70svh] items-center overflow-hidden bg-[#F8F2EE] py-16" aria-labelledby="lbq-hero-title">
-        <img src="<?php echo esc_url($stock_images['hero']); ?>" alt="<?php esc_attr_e('Open blush makeup bag with beauty and fashion accessories on a clean vanity', 'dawp'); ?>" class="absolute inset-0 -z-20 h-full w-full object-cover" loading="eager" decoding="async">
+        <?php echo dawp_get_responsive_image($stock_images['hero'], __('Open blush makeup bag with beauty and fashion accessories on a clean vanity', 'dawp'), 'absolute inset-0 -z-20 h-full w-full object-cover', 1920, 1080, 'eager'); ?>
         <div class="absolute inset-0 -z-10 bg-[#2E2320]/55" aria-hidden="true"></div>
 
         <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -294,14 +294,14 @@ $render_icon = static function ($icon) {
             </div>
 
             <?php if (!empty($categories)) : ?>
-            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            <div class="home-category-slider mt-8 sm:mt-10">
                 <?php foreach ($categories as $category) : ?>
-                    <a href="<?php echo esc_url($category['url']); ?>" class="group overflow-hidden rounded-md border border-[#E8DAD4] bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
-                        <img src="<?php echo esc_url($category['image']); ?>" alt="<?php echo esc_attr($category['alt']); ?>" class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
-                        <div class="p-5">
-                            <h3 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($category['name']); ?></h3>
-                            <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($category['description']); ?></p>
-                            <span class="mt-5 inline-flex items-center text-sm font-bold text-[#A96870]">
+                    <a href="<?php echo esc_url($category['url']); ?>" class="home-category-card group">
+                        <?php echo dawp_get_responsive_image($category['image'], $category['alt'], 'home-category-card__image', 800, 1000); ?>
+                        <div class="home-category-card__body">
+                            <h3 class="home-category-card__title"><?php echo esc_html($category['name']); ?></h3>
+                            <p class="home-category-card__copy"><?php echo esc_html($category['description']); ?></p>
+                            <span class="home-category-card__cta">
                                 <?php esc_html_e('Shop category', 'dawp'); ?>
                                 <span class="ml-2" aria-hidden="true">-&gt;</span>
                             </span>
@@ -368,7 +368,7 @@ $render_icon = static function ($icon) {
             </div>
 
             <?php if ($home_products_query instanceof WP_Query && $home_products_query->have_posts()) : ?>
-                <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
                     <?php
                     while ($home_products_query->have_posts()) :
                         $home_products_query->the_post();
@@ -402,10 +402,10 @@ $render_icon = static function ($icon) {
                                         </span>
                                     <?php endif; ?>
                                 </div>
-                                <div class="p-5">
+                                <div class="p-3 sm:p-5">
                                     <p class="text-xs font-extrabold uppercase tracking-[0.12em] text-[#A96870]"><?php echo esc_html($product_category); ?></p>
-                                    <h3 class="mt-2 font-heading text-lg font-extrabold leading-snug text-[#2F2A28]"><?php the_title(); ?></h3>
-                                    <div class="mt-4 text-base font-extrabold text-[#8A4F56]">
+                                    <h3 class="mt-2 font-heading text-sm font-extrabold leading-snug text-[#2F2A28] sm:text-lg"><?php the_title(); ?></h3>
+                                    <div class="mt-3 text-sm font-extrabold text-[#8A4F56] sm:mt-4 sm:text-base">
                                         <?php echo wp_kses_post($product->get_price_html()); ?>
                                     </div>
                                 </div>
@@ -418,19 +418,19 @@ $render_icon = static function ($icon) {
                 $home_products_query->rewind_posts();
                 ?>
             <?php else : ?>
-                <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
                     <?php foreach ($product_placeholders as $placeholder) : ?>
                         <article class="overflow-hidden rounded-md border border-dashed border-[#D8C5BE] bg-[#FFFDFC]">
                             <div class="relative overflow-hidden bg-[#F8F2EE]">
-                                <img src="<?php echo esc_url($placeholder['image']); ?>" alt="<?php echo esc_attr($placeholder['alt']); ?>" class="aspect-[4/5] w-full object-cover opacity-80" loading="lazy" decoding="async">
+                                <?php echo dawp_get_responsive_image($placeholder['image'], $placeholder['alt'], 'aspect-[4/5] w-full object-cover opacity-80', 800, 1000); ?>
                                 <span class="absolute left-4 top-4 rounded-md bg-white/90 px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-[#8A4F56]">
                                     <?php esc_html_e('Coming soon', 'dawp'); ?>
                                 </span>
                             </div>
-                            <div class="p-5">
+                            <div class="p-3 sm:p-5">
                                 <p class="text-xs font-extrabold uppercase tracking-[0.12em] text-[#A96870]"><?php echo esc_html($placeholder['category']); ?></p>
-                                <h3 class="mt-2 font-heading text-lg font-extrabold leading-snug text-[#2F2A28]"><?php echo esc_html($placeholder['name']); ?></h3>
-                                <p class="mt-4 text-sm font-bold text-[#6F625D]"><?php esc_html_e('WooCommerce product slot', 'dawp'); ?></p>
+                                <h3 class="mt-2 font-heading text-sm font-extrabold leading-snug text-[#2F2A28] sm:text-lg"><?php echo esc_html($placeholder['name']); ?></h3>
+                                <p class="mt-3 text-sm font-bold text-[#6F625D] sm:mt-4"><?php esc_html_e('WooCommerce product slot', 'dawp'); ?></p>
                             </div>
                         </article>
                     <?php endforeach; ?>
@@ -441,11 +441,24 @@ $render_icon = static function ($icon) {
 
     <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="organizer-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:px-8">
-            <div class="grid gap-4 sm:grid-cols-5">
-                <img src="<?php echo esc_url($stock_images['drawer']); ?>" alt="<?php esc_attr_e('A clean makeup drawer with cosmetic bags, brushes, palettes, and small beauty items', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3" loading="lazy" decoding="async">
+            <div class="sm:hidden" data-organizer-gallery>
+                <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-organizer-gallery-track>
+                    <?php echo dawp_get_responsive_image($stock_images['drawer'], __('A clean makeup drawer with cosmetic bags, brushes, palettes, and small beauty items', 'dawp'), 'aspect-[4/5] w-[86%] shrink-0 snap-center rounded-md object-cover shadow-sm', 800, 1000); ?>
+                    <?php echo dawp_get_responsive_image($stock_images['brushes'], __('Makeup brushes arranged in small holders', 'dawp'), 'aspect-[4/5] w-[86%] shrink-0 snap-center rounded-md object-cover shadow-sm', 800, 1000); ?>
+                    <?php echo dawp_get_responsive_image($stock_images['flat_lay'], __('Beauty and fashion accessories arranged on a tabletop', 'dawp'), 'aspect-[4/5] w-[86%] shrink-0 snap-center rounded-md object-cover shadow-sm', 800, 1000); ?>
+                </div>
+                <div class="mt-4 flex justify-center gap-2" aria-label="<?php esc_attr_e('Makeup organizer image slider controls', 'dawp'); ?>">
+                    <button type="button" class="h-2.5 w-2.5 rounded-full bg-[#2F2A28]" aria-label="<?php esc_attr_e('Show makeup drawer image', 'dawp'); ?>" aria-current="true" data-organizer-slide-dot="0"></button>
+                    <button type="button" class="h-2.5 w-2.5 rounded-full bg-[#D8C5BE]" aria-label="<?php esc_attr_e('Show makeup brush holder image', 'dawp'); ?>" data-organizer-slide-dot="1"></button>
+                    <button type="button" class="h-2.5 w-2.5 rounded-full bg-[#D8C5BE]" aria-label="<?php esc_attr_e('Show beauty accessories image', 'dawp'); ?>" data-organizer-slide-dot="2"></button>
+                </div>
+            </div>
+
+            <div class="hidden gap-4 sm:grid sm:grid-cols-5">
+                <?php echo dawp_get_responsive_image($stock_images['drawer'], __('A clean makeup drawer with cosmetic bags, brushes, palettes, and small beauty items', 'dawp'), 'aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3', 800, 1000); ?>
                 <div class="grid gap-4 sm:col-span-2">
-                    <img src="<?php echo esc_url($stock_images['brushes']); ?>" alt="<?php esc_attr_e('Makeup brushes arranged in small holders', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
-                    <img src="<?php echo esc_url($stock_images['flat_lay']); ?>" alt="<?php esc_attr_e('Beauty and fashion accessories arranged on a tabletop', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
+                    <?php echo dawp_get_responsive_image($stock_images['brushes'], __('Makeup brushes arranged in small holders', 'dawp'), 'aspect-square w-full rounded-md object-cover shadow-sm', 800, 800); ?>
+                    <?php echo dawp_get_responsive_image($stock_images['flat_lay'], __('Beauty and fashion accessories arranged on a tabletop', 'dawp'), 'aspect-square w-full rounded-md object-cover shadow-sm', 800, 800); ?>
                 </div>
             </div>
 
@@ -504,9 +517,20 @@ $render_icon = static function ($icon) {
                     </div>
                 </div>
 
-                <div class="grid gap-4 sm:grid-cols-2">
-                    <img src="<?php echo esc_url($stock_images['fashion']); ?>" alt="<?php esc_attr_e('Pouch, scarf, scrunchies, sunglasses, and jewelry arranged as a fashion flat lay', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:mt-12" loading="lazy" decoding="async">
-                    <img src="<?php echo esc_url($stock_images['flat_lay']); ?>" alt="<?php esc_attr_e('Beauty and fashion essentials arranged neatly on a tabletop', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
+                <div class="sm:hidden" data-mobile-image-gallery>
+                    <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-2 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-mobile-image-gallery-track>
+                        <?php echo dawp_get_responsive_image($stock_images['fashion'], __('Pouch, scarf, scrunchies, sunglasses, and jewelry arranged as a fashion flat lay', 'dawp'), 'aspect-[4/5] w-[86%] shrink-0 snap-center rounded-md object-cover shadow-sm', 800, 1000); ?>
+                        <?php echo dawp_get_responsive_image($stock_images['flat_lay'], __('Beauty and fashion essentials arranged neatly on a tabletop', 'dawp'), 'aspect-[4/5] w-[86%] shrink-0 snap-center rounded-md object-cover shadow-sm', 800, 1000); ?>
+                    </div>
+                    <div class="mt-4 flex justify-center gap-2" aria-label="<?php esc_attr_e('Fashion accessories image slider controls', 'dawp'); ?>">
+                        <button type="button" class="h-2.5 w-2.5 rounded-full bg-[#2F2A28]" aria-label="<?php esc_attr_e('Show fashion accessories image', 'dawp'); ?>" aria-current="true" data-mobile-image-slide-dot="0"></button>
+                        <button type="button" class="h-2.5 w-2.5 rounded-full bg-[#D8C5BE]" aria-label="<?php esc_attr_e('Show beauty and fashion essentials image', 'dawp'); ?>" data-mobile-image-slide-dot="1"></button>
+                    </div>
+                </div>
+
+                <div class="hidden gap-4 sm:grid sm:grid-cols-2">
+                    <?php echo dawp_get_responsive_image($stock_images['fashion'], __('Pouch, scarf, scrunchies, sunglasses, and jewelry arranged as a fashion flat lay', 'dawp'), 'aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:mt-12', 800, 1000); ?>
+                    <?php echo dawp_get_responsive_image($stock_images['flat_lay'], __('Beauty and fashion essentials arranged neatly on a tabletop', 'dawp'), 'aspect-[4/5] w-full rounded-md object-cover shadow-sm', 800, 1000); ?>
                 </div>
             </div>
         </div>
@@ -552,9 +576,9 @@ $render_icon = static function ($icon) {
                     </div>
                 </div>
 
-                <div class="grid gap-4 sm:grid-cols-2">
+                <div class="home-trust-slider grid gap-4 sm:grid-cols-2">
                     <?php foreach ($trust_cards as $card) : ?>
-                        <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
+                        <article class="home-trust-card rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
                             <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
                                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

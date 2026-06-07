@@ -9,26 +9,82 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+$store_name     = 'LBQ Shop';
+$site_domain    = 'lbqshop.com';
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
-$terms_url      = home_url('/terms-conditions/');
+$last_updated   = __('May 29, 2026', 'dawp');
 
-$summary_cards = [
+$policy_intro = [
+    __('At LBQ Shop, accessible via lbqshop.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase beauty and fashion accessories from our online store.', 'dawp'),
+    __('By accessing our Site or placing an order, you acknowledge and agree to the data management practices described in this policy.', 'dawp'),
+];
+
+$information_collected = [
     [
-        'title' => __('Information We Collect', 'dawp'),
-        'copy'  => __('Order, contact, shipping, billing, account, device, usage, and communication information needed to operate the store.', 'dawp'),
-        'icon'  => 'file',
+        'title' => __('Information You Provide Directly', 'dawp'),
+        'copy'  => __('This includes your full name, email address, physical shipping address, billing address, phone number when provided, specific purchase history, credit card processing tokens, and any direct transcripts of customer service messages sent to our support team.', 'dawp'),
     ],
     [
-        'title' => __('How We Use It', 'dawp'),
-        'copy'  => __('To process orders, ship purchases, provide support, improve the site, prevent fraud, and meet legal obligations.', 'dawp'),
-        'icon'  => 'check',
+        'title' => __('Information Collected Automatically', 'dawp'),
+        'copy'  => __('Whenever you navigate through LBQ Shop, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
+    ],
+];
+
+$information_uses = [
+    __('Process, manage, bill, and securely dispatch your online product orders.', 'dawp'),
+    __('Provide real-time shipping tracking codes and automated invoice confirmations.', 'dawp'),
+    __('Screen transactional logs for potential operational risks, technical vulnerabilities, or system fraud.', 'dawp'),
+    __('Handle standard product returns and resolve customer service inquiries.', 'dawp'),
+    __('Optimize website layout responsiveness, page loading speed, and inventory selection.', 'dawp'),
+    __('With your explicit opt-in consent, deliver store newsletters and promotional updates, featuring an immediate "Unsubscribe" link in every email.', 'dawp'),
+];
+
+$sharing_partners = [
+    [
+        'title' => __('Infrastructure Partners', 'dawp'),
+        'copy'  => __('E-commerce platform hosts and backend database management utilities.', 'dawp'),
     ],
     [
-        'title' => __('Your Choices', 'dawp'),
-        'copy'  => __('You may contact us to update certain information, ask privacy questions, or opt out of marketing emails.', 'dawp'),
-        'icon'  => 'settings',
+        'title' => __('Logistics & Payment', 'dawp'),
+        'copy'  => __('Certified payment processing gateways and trusted domestic U.S. shipping carriers used to deliver your orders.', 'dawp'),
+    ],
+    [
+        'title' => __('Regulatory Demands', 'dawp'),
+        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of LBQ Shop and our consumers.', 'dawp'),
+    ],
+];
+
+$privacy_rights = [
+    __('The Right to Access/Know: Request disclosure of what personal data we have collected.', 'dawp'),
+    __('The Right to Delete: Request the permanent removal of your personal profiles from our active directories.', 'dawp'),
+    __('The Right to Correct: Request rectification of inaccurate account records.', 'dawp'),
+];
+
+$contact_details = [
+    [
+        'label' => __('Store/Brand Name', 'dawp'),
+        'value' => $store_name,
+    ],
+    [
+        'label' => __('Customer Support Email', 'dawp'),
+        'value' => $support_email,
+        'url'   => 'mailto:' . $support_email,
+    ],
+    [
+        'label' => __('Physical Business Address', 'dawp'),
+        'value' => $store_address,
+    ],
+    [
+        'label' => __('Business Operating Hours', 'dawp'),
+        'value' => $business_hours,
+    ],
+    [
+        'label' => __('Contact Page', 'dawp'),
+        'value' => __('Contact Us', 'dawp'),
+        'url'   => $contact_url,
     ],
 ];
 
@@ -36,104 +92,102 @@ $sections = [
     [
         'title' => __('1. Information We Collect', 'dawp'),
         'copy'  => [
-            __('We collect information you provide when you place an order, create an account, contact support, subscribe to email updates, or otherwise interact with LBQ Shop.', 'dawp'),
-            __('This may include your name, email address, phone number when provided, shipping address, billing address, order details, payment-related information, customer service messages, and product preferences.', 'dawp'),
-            __('We may also collect device and usage information such as IP address, browser type, pages visited, referring pages, approximate location derived from technical information, and cookie or similar tracking data.', 'dawp'),
+            __('To fulfill your orders and provide a seamless e-commerce experience, we gather two primary categories of data:', 'dawp'),
         ],
+        'cards' => $information_collected,
     ],
     [
-        'title' => __('2. How We Use Information', 'dawp'),
+        'title' => __('2. How We Use Your Information', 'dawp'),
         'copy'  => [
-            __('We use information to process and fulfill orders, provide tracking, manage returns, respond to support requests, maintain store security, detect fraud, improve products and website performance, and comply with legal or tax requirements.', 'dawp'),
-            __('If you opt in to marketing emails, we may send product updates or store news. You can unsubscribe from marketing emails at any time using the unsubscribe link or by contacting support.', 'dawp'),
+            __('We process your personal information based on legitimate commercial obligations, specifically to:', 'dawp'),
         ],
+        'list'  => $information_uses,
     ],
     [
-        'title' => __('3. Cookies and Similar Technologies', 'dawp'),
+        'title' => __('3. Cookies and Tracking Technologies', 'dawp'),
         'copy'  => [
-            __('LBQ Shop may use cookies and similar technologies to keep the website functional, remember cart or session details, understand site usage, improve the shopping experience, and support security or fraud prevention.', 'dawp'),
-            __('You can adjust cookie settings through your browser. Some store features may not work correctly if required cookies are disabled.', 'dawp'),
+            __('LBQ Shop utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
+            __('You can adjust your cookie preferences through your individual browser settings; however, disabling all cookies may break core shopping features, such as the checkout and payment process.', 'dawp'),
         ],
     ],
     [
         'title' => __('4. How Information Is Shared', 'dawp'),
         'copy'  => [
-            __('We share information with service providers that help operate our store, such as payment processors, shipping carriers, fulfillment partners, website hosting providers, analytics tools, fraud prevention services, and customer support tools.', 'dawp'),
-            __('We may also disclose information if required by law, to protect our rights, to prevent misuse of the site, or in connection with a business transfer such as a merger or asset sale.', 'dawp'),
-            __('We do not sell customer personal information as a core business practice.', 'dawp'),
+            __('We do not sell, rent, trade, or monetize your personal information to third parties as a business practice. We share transactional data strictly with trusted service providers who assist us in operating our storefront, including:', 'dawp'),
         ],
+        'cards' => $sharing_partners,
     ],
     [
-        'title' => __('5. Payments', 'dawp'),
+        'title' => __('5. Secure Payments & Data Encryption', 'dawp'),
         'copy'  => [
-            __('Payment information is processed by third-party payment providers. LBQ Shop does not intentionally store full payment card numbers on its own systems.', 'dawp'),
-            __('Payment providers may collect and process payment details according to their own privacy and security practices.', 'dawp'),
+            __('Your financial safety is our highest priority. LBQ Shop does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+            __('All checkout transactions are executed over a fully secure, encrypted SSL (Secure Sockets Layer) connection. Financial data processing is handled entirely by certified third-party payment gateways that comply strictly with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
         ],
     ],
     [
         'title' => __('6. Data Retention and Security', 'dawp'),
         'copy'  => [
-            __('We keep information for as long as needed to provide services, complete transactions, support accounting or legal requirements, resolve disputes, and maintain security.', 'dawp'),
-            __('We use reasonable administrative, technical, and organizational safeguards, but no website, transmission method, or storage system can be guaranteed completely secure.', 'dawp'),
+            __('We retain your personal order information within our business registries for as long as legally and structurally necessary to complete transactions, fulfill corporate tax reporting, resolve potential billing disputes, and satisfy statutory accounting requirements.', 'dawp'),
+            __('While we implement robust administrative, technical, and physical safeguards to defend your files, please note that no method of online transmission can be guaranteed 100% secure.', 'dawp'),
         ],
     ],
     [
-        'title' => __('7. Your Privacy Rights and Choices', 'dawp'),
+        'title' => __('7. Your US State Privacy Rights (CCPA Compliance)', 'dawp'),
         'copy'  => [
-            __('Depending on your location, you may have rights to request access, correction, deletion, or information about certain personal data. You may also opt out of marketing emails.', 'dawp'),
-            __('To make a privacy request, contact us using the support email below. We may need to verify your identity before completing certain requests.', 'dawp'),
+            __('Depending on your geographic location, particularly residents of states with active privacy laws such as the California Consumer Privacy Act - CCPA, you possess specific consumer protection rights regarding your data:', 'dawp'),
         ],
+        'list'  => $privacy_rights,
+        'after' => sprintf(
+            /* translators: support email */
+            __('To submit a formal privacy or data-removal request, please contact our Compliance Officer at %s.', 'dawp'),
+            $support_email
+        ),
     ],
     [
-        'title' => __('8. Children Privacy', 'dawp'),
+        'title' => __('8. Children\'s Privacy', 'dawp'),
         'copy'  => [
-            __('LBQ Shop is intended for general audiences and is not directed to children under 13. We do not knowingly collect personal information from children under 13.', 'dawp'),
-        ],
-    ],
-    [
-        'title' => __('9. Updates to This Policy', 'dawp'),
-        'copy'  => [
-            __('We may update this Privacy Policy from time to time. Changes will be posted on this page with the updated content.', 'dawp'),
+            __('LBQ Shop is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
         ],
     ],
 ];
-
-$render_icon = static function ($icon) {
-    $icons = [
-        'file'     => '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h6"/>',
-        'check'    => '<path d="m20 6-11 11-5-5"/>',
-        'settings' => '<path d="M12 15.5A3.5 3.5 0 1 0 12 8a3.5 3.5 0 0 0 0 7.5Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.34 1.05V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.05-.34H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .34-1.05V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.4.18.75.42 1 .75.26.32.4.73.4 1.15V11a2 2 0 1 1 0 4h-.09A1.7 1.7 0 0 0 19.4 15Z"/>',
-    ];
-
-    return $icons[$icon] ?? $icons['check'];
-};
 ?>
 
 <div class="bg-white text-[#2F2A28]">
     <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="privacy-title">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
+        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
+            <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
                 <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                    <?php esc_html_e('How LBQ Shop handles customer information.', 'dawp'); ?>
+                    <?php esc_html_e('How LBQ Shop protects customer information.', 'dawp'); ?>
                 </h1>
-                <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('This Privacy Policy explains how LBQ Shop collects, uses, shares, and protects information when you visit our website, place an order, or contact our support team.', 'dawp'); ?>
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
+                    <?php
+                    echo esc_html(
+                        sprintf(
+                            /* translators: 1: store name, 2: site domain */
+                            __('This policy explains how %1$s collects, uses, shares, and protects information when you shop through %2$s.', 'dawp'),
+                            $store_name,
+                            $site_domain
+                        )
+                    );
+                    ?>
                 </p>
             </div>
 
-            <div class="mt-10 grid gap-4 md:grid-cols-3">
-                <?php foreach ($summary_cards as $card) : ?>
-                    <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                            </svg>
-                        </div>
-                        <h2 class="mt-5 font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($card['title']); ?></h2>
-                        <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
-                    </article>
-                <?php endforeach; ?>
+            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+                <p class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php echo esc_html($last_updated); ?></p>
+                <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                    <?php esc_html_e('For privacy questions, account data requests, or data-removal inquiries, contact our support team through our official channels.', 'dawp'); ?>
+                </p>
+                <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
+                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
+                        <?php esc_html_e('Contact Us', 'dawp'); ?>
+                    </a>
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                        <?php echo esc_html($support_email); ?>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -142,27 +196,11 @@ $render_icon = static function ($icon) {
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="lg:sticky lg:top-24 lg:self-start">
                 <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                    <h2 id="privacy-content-title" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Policy overview', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
-                        <?php esc_html_e('LBQ Shop uses customer information to operate a beauty and fashion accessories store, process orders, provide support, and maintain a secure shopping experience.', 'dawp'); ?>
-                    </p>
-                    <div class="mt-6 border-t border-[#E8DAD4] pt-5 text-sm leading-7 text-[#6F625D]">
-                        <?php
-                        echo wp_kses(
-                            sprintf(
-                                /* translators: 1: support email, 2: business hours */
-                                __('Privacy questions: %1$s. Business hours: %2$s.', 'dawp'),
-                                '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
-                                esc_html($business_hours)
-                            ),
-                            [
-                                'a' => [
-                                    'class' => [],
-                                    'href'  => [],
-                                ],
-                            ]
-                        );
-                        ?>
+                    <h2 id="privacy-content-title" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Privacy overview', 'dawp'); ?></h2>
+                    <div class="mt-4 space-y-4 text-sm leading-7 text-[#6F625D]">
+                        <?php foreach ($policy_intro as $paragraph) : ?>
+                            <p><?php echo esc_html($paragraph); ?></p>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </aside>
@@ -171,35 +209,63 @@ $render_icon = static function ($icon) {
                 <?php foreach ($sections as $section) : ?>
                     <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
                         <h2 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php echo esc_html($section['title']); ?></h2>
-                        <div class="mt-4 space-y-4 text-sm leading-7 text-[#6F625D]">
-                            <?php foreach ($section['copy'] as $paragraph) : ?>
-                                <p><?php echo esc_html($paragraph); ?></p>
-                            <?php endforeach; ?>
-                        </div>
+
+                        <?php if (!empty($section['copy'])) : ?>
+                            <div class="mt-4 space-y-4 text-sm leading-7 text-[#6F625D]">
+                                <?php foreach ($section['copy'] as $paragraph) : ?>
+                                    <p><?php echo esc_html($paragraph); ?></p>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (!empty($section['cards'])) : ?>
+                            <div class="mt-5 grid gap-4 md:grid-cols-2">
+                                <?php foreach ($section['cards'] as $card) : ?>
+                                    <section class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-5">
+                                        <h3 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($card['title']); ?></h3>
+                                        <p class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
+                                    </section>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (!empty($section['list'])) : ?>
+                            <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#6F625D]">
+                                <?php foreach ($section['list'] as $item) : ?>
+                                    <li class="flex gap-3">
+                                        <span aria-hidden="true">&bull;</span>
+                                        <span><?php echo esc_html($item); ?></span>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+
+                        <?php if (!empty($section['after'])) : ?>
+                            <p class="mt-5 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($section['after']); ?></p>
+                        <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
 
-    <section class="bg-[#F8F2EE] py-14 sm:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 sm:p-8">
-                <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-                    <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Contact', 'dawp'); ?></p>
-                        <h2 class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Questions about privacy or account information?', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Contact support and include enough detail for us to locate your account or order when needed.', 'dawp'); ?></p>
-                    </div>
-                    <div class="flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
-                            <?php esc_html_e('Contact Support', 'dawp'); ?>
-                        </a>
-                        <a href="<?php echo esc_url($terms_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
-                            <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
-                        </a>
-                    </div>
-                </div>
+                <article class="rounded-md border border-[#E8DAD4] bg-[#FFF8FB] p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php esc_html_e('9. Contact Us & Business Identity', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                        <?php esc_html_e('For questions regarding our privacy practices, or if you need to submit a data inquiry, please contact our team through our verified corporate channels:', 'dawp'); ?>
+                    </p>
+                    <dl class="mt-5 grid gap-4 md:grid-cols-2">
+                        <?php foreach ($contact_details as $detail) : ?>
+                            <div class="rounded-md border border-[#E8DAD4] bg-white p-5">
+                                <dt class="text-sm font-extrabold text-[#2F2A28]"><?php echo esc_html($detail['label']); ?></dt>
+                                <dd class="mt-3 text-sm leading-7 text-[#6F625D]">
+                                    <?php if (!empty($detail['url'])) : ?>
+                                        <a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
+                                    <?php else : ?>
+                                        <?php echo esc_html($detail['value']); ?>
+                                    <?php endif; ?>
+                                </dd>
+                            </div>
+                        <?php endforeach; ?>
+                    </dl>
+                </article>
             </div>
         </div>
     </section>

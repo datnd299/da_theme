@@ -9,8 +9,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+$store_name     = 'LBQ Shop';
+$site_domain    = 'lbqshop.com';
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!$shop_url) {
@@ -24,29 +27,56 @@ $terms_url    = home_url('/terms-conditions/');
 $track_url    = home_url('/track-order/');
 $contact_url  = home_url('/contact-us/');
 
+$policy_highlights = [
+    [
+        'title' => __('Free U.S. Shipping', 'dawp'),
+        'copy'  => __('Standard shipping is free nationwide within the United States, with no minimum purchase requirement.', 'dawp'),
+    ],
+    [
+        'title' => __('30-Day Returns', 'dawp'),
+        'copy'  => __('Eligible unused items may be returned within 30 days of documented delivery.', 'dawp'),
+    ],
+    [
+        'title' => __('Secure Checkout', 'dawp'),
+        'copy'  => __('Payments are processed through encrypted checkout and certified third-party payment gateways.', 'dawp'),
+    ],
+];
+
 $faq_groups = [
     [
         'label' => __('Orders & Shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('What is the order cut off time?', 'dawp'),
-                'answer'   => __('The daily order cut off time is 5:00 PM Pacific Standard Time (Los Angeles). Orders placed after the cut off time are processed from the next business day.', 'dawp'),
+                'question' => __('Where does LBQ Shop ship?', 'dawp'),
+                'answer'   => __('LBQ Shop currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
             ],
             [
-                'question' => __('How long does handling take?', 'dawp'),
-                'answer'   => __('Current handling time is 1-2 business days from the order cut off to when the shipment is ready for transit. Orders are fulfilled Monday through Friday, excluding holidays.', 'dawp'),
+                'question' => __('How much does shipping cost?', 'dawp'),
+                'answer'   => __('Standard U.S. shipping is free for all orders nationwide with no minimum purchase requirement. If optional upgraded shipping is available, the exact cost is displayed at checkout before payment.', 'dawp'),
             ],
             [
-                'question' => __('How long does transit take?', 'dawp'),
-                'answer'   => __('Standard transit usually takes 5-7 business days after dispatch. Most orders are delivered within 6-9 business days, though public holidays and carrier delays may affect the final estimate.', 'dawp'),
+                'question' => __('What is the daily order cutoff time?', 'dawp'),
+                'answer'   => __('The daily order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time. Orders placed after the cutoff begin processing on the following business day.', 'dawp'),
+            ],
+            [
+                'question' => __('How long does order handling and delivery take?', 'dawp'),
+                'answer'   => __('Order handling takes 1-3 business days, Monday through Friday, excluding standard U.S. public holidays. Standard transit takes 5-7 business days, so estimated delivery is 6-10 business days total from the date of purchase.', 'dawp'),
+            ],
+            [
+                'question' => __('Which carriers do you use?', 'dawp'),
+                'answer'   => __('Orders are shipped with trusted domestic U.S. carriers such as USPS, UPS, FedEx, or DHL. The final carrier is selected when your package is labeled and prepared for dispatch.', 'dawp'),
             ],
             [
                 'question' => __('Will I receive tracking information?', 'dawp'),
-                'answer'   => __('Yes. Tracking information is provided once your order ships. Tracking may take a short time to update after the carrier receives the package.', 'dawp'),
+                'answer'   => __('Yes. Once your order is dispatched, an automated shipping confirmation email with a direct tracking link and courier details is sent to the email address used at checkout.', 'dawp'),
             ],
             [
-                'question' => __('Can I change my shipping address after ordering?', 'dawp'),
-                'answer'   => __('Contact support as soon as possible with your order number. We cannot guarantee address changes once an order has entered processing or shipped.', 'dawp'),
+                'question' => __('Why did my items ship separately?', 'dawp'),
+                'answer'   => __('Multi-item orders may ship in separate packages if products are prepared from different fulfillment batches or require different packing methods. You will receive tracking details for each package when available.', 'dawp'),
+            ],
+            [
+                'question' => __('Can I change my shipping address after placing an order?', 'dawp'),
+                'answer'   => __('Contact support as soon as possible with your order number and the correct address. Address changes cannot be guaranteed once an order has entered processing, been labeled, or shipped.', 'dawp'),
             ],
         ],
     ],
@@ -55,23 +85,39 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What is the return window?', 'dawp'),
-                'answer'   => __('You may request a return or exchange within 30 days of delivery for eligible products.', 'dawp'),
+                'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible defective and non-defective products.', 'dawp'),
             ],
             [
                 'question' => __('Which products are eligible for return?', 'dawp'),
-                'answer'   => __('Returns are accepted for eligible defective and non-defective products. Items must be unused, in original condition, and returned with original packaging, tags or labels, accessories, manuals, and parts.', 'dawp'),
+                'answer'   => __('Eligible items must be unworn, unused, undamaged, and in their original condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
             ],
             [
-                'question' => __('Do you accept exchanges?', 'dawp'),
-                'answer'   => __('Yes. Exchanges are accepted for eligible unused products within the 30-day return window and are subject to stock availability.', 'dawp'),
+                'question' => __('How do I start a return?', 'dawp'),
+                'answer'   => __('Email support or use the Contact Us page within 30 days of delivery. Include your order number, checkout email, item(s) you want to return, the return reason, and photos or videos if the item arrived damaged or incorrect.', 'dawp'),
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('Return shipping depends on the reason for the return. We cover return shipping for defective, damaged, or incorrect products; customers pay actual return shipping for change-of-mind returns.', 'dawp'),
+                'answer'   => __('LBQ Shop covers 100% of return shipping for defective, damaged, carrier-damaged, or incorrect products and provides a prepaid label by email. For customer-remorse returns, such as wrong size, wrong color, changed mind, or does not fit, the actual prepaid label cost is deducted from the refund.', 'dawp'),
             ],
             [
-                'question' => __('Are there restocking fees or refund delays?', 'dawp'),
-                'answer'   => __('There is no restocking fee. After a return is received, inspected, and approved, refunds are processed to the original payment method and typically appear within up to 7 days depending on your bank or payment provider.', 'dawp'),
+                'question' => __('Do you charge restocking fees?', 'dawp'),
+                'answer'   => __('No. LBQ Shop does not charge restocking fees for eligible returns.', 'dawp'),
+            ],
+            [
+                'question' => __('Do you offer exchanges?', 'dawp'),
+                'answer'   => __('We do not process direct one-for-one product exchanges. To get a different size, color, or model, return the original eligible item for a refund and place a new order on the website.', 'dawp'),
+            ],
+            [
+                'question' => __('When will I receive my refund?', 'dawp'),
+                'answer'   => __('Once your return package is received, we inspect it within 1-2 business days. Approved refunds are processed automatically to the original payment method within 7 business days. If you have not received your refund after 15 business days of approval, contact support after checking with your bank or credit card company.', 'dawp'),
+            ],
+            [
+                'question' => __('Which items are non-returnable?', 'dawp'),
+                'answer'   => __('Final Sale or Non-Returnable items, gift cards, digital products or downloads, personalized or custom-made items, hygiene-sensitive items with broken seals, and items worn, washed, altered, or damaged after delivery are not eligible for return.', 'dawp'),
+            ],
+            [
+                'question' => __('What should I do if my package is damaged or lost?', 'dawp'),
+                'answer'   => __('Contact us within 30 days of the delivery date or recorded delivery date. For damage, include photos of the item, shipping packaging, and shipping label. For missing packages or stalled tracking, we will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'),
             ],
         ],
     ],
@@ -80,19 +126,23 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What does LBQ Shop sell?', 'dawp'),
-                'answer'   => __('LBQ Shop sells beauty accessories, makeup bags, cosmetic organizers, fashion accessories, everyday style essentials, and giftable accessories for simple daily routines.', 'dawp'),
+                'answer'   => __('LBQ Shop focuses on practical makeup bags, cosmetic organizers, beauty accessories, fashion accents, everyday style essentials, and giftable accessories.', 'dawp'),
             ],
             [
-                'question' => __('Do you sell branded designer replicas or counterfeit items?', 'dawp'),
-                'answer'   => __('No. LBQ Shop does not sell counterfeit designer accessories, fake branded cosmetics, replica logos, or products presented as unauthorized luxury items.', 'dawp'),
+                'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
+                'answer'   => __('We work to present descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small differences in color, texture, or appearance may occur because of screen settings, digital photography lighting, or supplier updates.', 'dawp'),
             ],
             [
-                'question' => __('Do your products make skincare or medical claims?', 'dawp'),
-                'answer'   => __('No. Our products are beauty and fashion accessories. We avoid medical, treatment, skin whitening, acne cure, supplement, or similar prohibited claims.', 'dawp'),
+                'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
+                'answer'   => __('No. LBQ Shop does not sell counterfeit designer products, fake branded cosmetics, replica logos, or unauthorized luxury items.', 'dawp'),
+            ],
+            [
+                'question' => __('Do your products make medical, skincare, or treatment claims?', 'dawp'),
+                'answer'   => __('No. Our catalog is focused on beauty and fashion accessories. We do not sell dietary supplements, medical skincare treatments, or products with unverified medical or beauty claims.', 'dawp'),
             ],
             [
                 'question' => __('Where can I find product details?', 'dawp'),
-                'answer'   => __('Product pages should include practical details such as what the item is, how it is used, size or capacity when relevant, material details when available, and care notes where needed.', 'dawp'),
+                'answer'   => __('Product pages include available details such as item use, materials, dimensions, capacity, care notes, price, and availability. Please review the product page before ordering and contact support if you need clarification.', 'dawp'),
             ],
         ],
     ],
@@ -101,19 +151,28 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('Is checkout secure?', 'dawp'),
-                'answer'   => __('Payments are processed through third-party payment providers. LBQ Shop does not intentionally store full payment card numbers on its own systems.', 'dawp'),
+                'answer'   => __('Yes. Checkout transactions are executed over an encrypted SSL connection and payment processing is handled by certified third-party payment gateways that follow PCI-DSS standards.', 'dawp'),
+            ],
+            [
+                'question' => __('Does LBQ Shop store my full credit card number?', 'dawp'),
+                'answer'   => __('No. LBQ Shop does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             ],
             [
                 'question' => __('How is my information used?', 'dawp'),
-                'answer'   => __('Customer information is used to process orders, ship purchases, provide support, improve the site, prevent fraud, and meet legal obligations. More detail is available in our Privacy Policy.', 'dawp'),
+                'answer'   => __('Customer information is used to process, bill, manage, and ship orders; send tracking and invoices; provide support; handle returns; improve site performance; prevent fraud; and meet legal or accounting obligations.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact support?', 'dawp'),
+                'question' => __('Can I request access, correction, or deletion of my personal data?', 'dawp'),
+                'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain. Submit privacy requests through support.', 'dawp'),
+            ],
+            [
+                'question' => __('How do I contact LBQ Shop?', 'dawp'),
                 'answer'   => sprintf(
-                    /* translators: 1: email address, 2: business hours */
-                    __('Email %1$s. Business hours are %2$s.', 'dawp'),
+                    /* translators: 1: email address, 2: business hours, 3: store address */
+                    __('Email %1$s or use the Contact Us page. Customer service hours are %2$s. Our business address is %3$s.', 'dawp'),
                     $support_email,
-                    $business_hours
+                    $business_hours,
+                    $store_address
                 ),
             ],
         ],
@@ -123,27 +182,27 @@ $faq_groups = [
 $quick_links = [
     [
         'title' => __('Track Order', 'dawp'),
-        'copy'  => __('Use your order details to check shipment status.', 'dawp'),
+        'copy'  => __('Check shipment status after your tracking email arrives.', 'dawp'),
         'url'   => $track_url,
     ],
     [
         'title' => __('Shipping Policy', 'dawp'),
-        'copy'  => __('Review cut off time, handling, transit, fulfillment days, and tracking.', 'dawp'),
+        'copy'  => __('Review U.S. shipping scope, free standard shipping, handling, transit, carriers, and tracking.', 'dawp'),
         'url'   => $shipping_url,
     ],
     [
         'title' => __('Return & Refund Policy', 'dawp'),
-        'copy'  => __('Review return eligibility, exchanges, return shipping costs, restocking fees, and refunds.', 'dawp'),
+        'copy'  => __('Review eligibility, return shipping fees, RMA steps, refund timing, and non-returnable items.', 'dawp'),
         'url'   => $returns_url,
     ],
     [
         'title' => __('Privacy Policy', 'dawp'),
-        'copy'  => __('Learn how customer information is collected, used, and protected.', 'dawp'),
+        'copy'  => __('Learn how customer information, cookies, payment security, retention, and privacy requests are handled.', 'dawp'),
         'url'   => $privacy_url,
     ],
     [
         'title' => __('Terms & Conditions', 'dawp'),
-        'copy'  => __('Read the store terms for website use and purchases.', 'dawp'),
+        'copy'  => __('Read the store terms covering website use, orders, payments, policies, and limitations.', 'dawp'),
         'url'   => $terms_url,
     ],
 ];
@@ -151,58 +210,37 @@ $quick_links = [
 
 <div class="bg-white text-[#2F2A28]">
     <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="faq-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:px-8">
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
-                <h1 id="faq-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                    <?php esc_html_e('Quick answers for shopping with LBQ Shop.', 'dawp'); ?>
-                </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Find clear answers about orders, shipping, returns, product expectations, privacy, and support for our beauty and fashion accessories store.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                <h2 class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Need direct help?', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-7 text-[#6F625D]">
-                    <?php
-                    echo wp_kses(
-                        sprintf(
-                            /* translators: 1: support email, 2: business hours */
-                            __('Email %1$s with your order number or product question. Business hours: %2$s.', 'dawp'),
-                            '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
-                            esc_html($business_hours)
-                        ),
-                        [
-                            'a' => [
-                                'class' => [],
-                                'href'  => [],
-                            ],
-                        ]
-                    );
-                    ?>
-                </p>
-                <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url($track_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
-                        <?php esc_html_e('Track Order', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
+        <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
+            <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
+            <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
+                <?php esc_html_e('Quick answers for shopping with LBQ Shop.', 'dawp'); ?>
+            </h1>
+            <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#6F625D]">
+                <?php
+                echo esc_html(
+                    sprintf(
+                        /* translators: 1: store name, 2: site domain */
+                        __('Find policy-aligned answers about orders, shipping, returns, refunds, products, privacy, and support when shopping with %1$s through %2$s.', 'dawp'),
+                        $store_name,
+                        $site_domain
+                    )
+                );
+                ?>
+            </p>
         </div>
     </section>
 
     <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="faq-content-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
-            <aside class="lg:sticky lg:top-24 lg:self-start">
+            <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start">
                 <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
                     <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Review the full policy pages for complete details before placing an order or requesting a return.', 'dawp'); ?></p>
+                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                        <?php esc_html_e('This FAQ summarizes the current store policies. Review the full policy pages for complete details before placing an order, requesting a return, or submitting a privacy request.', 'dawp'); ?>
+                    </p>
                     <div class="mt-6 grid gap-3">
                         <?php foreach ($quick_links as $link) : ?>
-                            <a href="<?php echo esc_url($link['url']); ?>" class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-4 transition hover:border-[#C87F86] hover:bg-[#FBEDEA]">
+                            <a href="<?php echo esc_url($link['url']); ?>" class="block w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-4 transition hover:border-[#C87F86] hover:bg-[#FBEDEA]">
                                 <span class="block font-heading text-base font-extrabold text-[#2F2A28]"><?php echo esc_html($link['title']); ?></span>
                                 <span class="mt-2 block text-sm leading-6 text-[#6F625D]"><?php echo esc_html($link['copy']); ?></span>
                             </a>
@@ -211,10 +249,10 @@ $quick_links = [
                 </div>
             </aside>
 
-            <div class="grid gap-8">
+            <div class="grid gap-5">
                 <?php foreach ($faq_groups as $group) : ?>
                     <section class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
-                        <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php echo esc_html($group['label']); ?></h2>
+                        <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php echo esc_html($group['label']); ?></h2>
                         <div class="mt-6 divide-y divide-[#E8DAD4]">
                             <?php foreach ($group['items'] as $item) : ?>
                                 <details class="group py-5 first:pt-0 last:pb-0">
@@ -228,23 +266,42 @@ $quick_links = [
                         </div>
                     </section>
                 <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
 
-    <section class="bg-[#F8F2EE] py-14 sm:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 sm:p-8">
-                <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-                    <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Shop With Clarity', 'dawp'); ?></p>
-                        <h2 class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Beauty and style accessories for everyday confidence.', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Browse practical makeup organizers, beauty accessories, fashion accents, and giftable finds with clear policy information available before checkout.', 'dawp'); ?></p>
+                <article class="rounded-md border border-[#E8DAD4] bg-[#FFF8FB] p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Still need help?', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                        <?php
+                        echo esc_html(
+                            sprintf(
+                                /* translators: 1: email address, 2: business hours */
+                                __('Email %1$s or use the Contact Us page with your order number, checkout email, and a short description of the issue. Customer service hours are %2$s.', 'dawp'),
+                                $support_email,
+                                $business_hours
+                            )
+                        );
+                        ?>
+                    </p>
+                    <dl class="mt-5 grid gap-4 md:grid-cols-2">
+                        <div class="rounded-md border border-[#E8DAD4] bg-white p-5">
+                            <dt class="text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
+                            <dd class="mt-3 text-sm leading-7 text-[#6F625D]">
+                                <a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                            </dd>
+                        </div>
+                        <div class="rounded-md border border-[#E8DAD4] bg-white p-5">
+                            <dt class="text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Business Address', 'dawp'); ?></dt>
+                            <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($store_address); ?></dd>
+                        </div>
+                    </dl>
+                    <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2135] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
+                            <?php esc_html_e('Contact Us', 'dawp'); ?>
+                        </a>
+                        <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#2F2135] bg-white px-6 text-sm font-bold text-[#2F2135] transition hover:bg-[#FBEDEA]">
+                            <?php esc_html_e('Shop Products', 'dawp'); ?>
+                        </a>
                     </div>
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
-                        <?php esc_html_e('Shop Products', 'dawp'); ?>
-                    </a>
-                </div>
+                </article>
             </div>
         </div>
     </section>

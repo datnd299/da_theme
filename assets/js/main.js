@@ -27,6 +27,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Mobile image sliders
+    document.querySelectorAll('[data-mobile-image-gallery], [data-organizer-gallery]').forEach((gallery) => {
+        const track = gallery.querySelector('[data-mobile-image-gallery-track], [data-organizer-gallery-track]');
+        if (!track) return;
+
+        const slides = Array.from(track.querySelectorAll('[data-mobile-image-slide], [data-organizer-slide]'));
+        const dots = Array.from(gallery.querySelectorAll('[data-mobile-image-slide-dot], [data-organizer-slide-dot]'));
+        if (!slides.length || !dots.length) return;
+
+        const setActiveDot = (activeIndex) => {
+            dots.forEach((dot, index) => {
+                const isActive = index === activeIndex;
+                dot.classList.toggle('bg-[#2F2A28]', isActive);
+                dot.classList.toggle('bg-[#D8C5BE]', !isActive);
+
+                if (isActive) {
+                    dot.setAttribute('aria-current', 'true');
+                } else {
+                    dot.removeAttribute('aria-current');
+                }
+            });
+        };
+
+        dots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+                const index = Number(dot.dataset.mobileImageSlideDot ?? dot.dataset.organizerSlideDot);
+                const slide = slides[index];
+                if (!slide) return;
+
+                slide.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                setActiveDot(index);
+            });
+        });
+
+        let scrollFrame = null;
+        track.addEventListener('scroll', () => {
+            if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
+
+            scrollFrame = window.requestAnimationFrame(() => {
+                const trackRect = track.getBoundingClientRect();
+                const trackCenter = trackRect.left + trackRect.width / 2;
+                let closestIndex = 0;
+                let closestDistance = Infinity;
+
+                slides.forEach((slide, index) => {
+                    const slideRect = slide.getBoundingClientRect();
+                    const slideCenter = slideRect.left + slideRect.width / 2;
+                    const distance = Math.abs(trackCenter - slideCenter);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+
+                setActiveDot(closestIndex);
+            });
+        }, { passive: true });
+
+        setActiveDot(0);
+    });
+
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');

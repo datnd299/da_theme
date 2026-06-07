@@ -10,20 +10,10 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $website_url    = home_url('/');
 $website_label  = wp_parse_url($website_url, PHP_URL_HOST) ?: $website_url;
-$track_url      = home_url('/track-order/');
-$faq_url        = home_url('/faq/');
-$shipping_url   = home_url('/shipping-policy/');
-$returns_url    = home_url('/return-refund-policy/');
 $privacy_url    = home_url('/privacy-policy/');
-$terms_url      = home_url('/terms-conditions/');
-$shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-
-if (!$shop_url) {
-    $shop_url = home_url('/shop/');
-}
 
 $status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 
@@ -56,34 +46,6 @@ $support_cards = [
         'copy'  => __('Include your order number when asking about tracking, address changes, returns, or delivery updates.', 'dawp'),
         'meta'  => __('Order number helps us respond faster', 'dawp'),
         'icon'  => 'package',
-    ],
-];
-
-$help_topics = [
-    [
-        'title' => __('Orders & Tracking', 'dawp'),
-        'copy'  => __('For shipment questions, include your order number and the email used at checkout.', 'dawp'),
-        'url'   => $track_url,
-    ],
-    [
-        'title' => __('Shipping Policy', 'dawp'),
-        'copy'  => __('Review cut off time, handling, transit, delivery estimates, and order tracking.', 'dawp'),
-        'url'   => $shipping_url,
-    ],
-    [
-        'title' => __('Return & Refund Policy', 'dawp'),
-        'copy'  => __('Review return eligibility, return shipping costs, exchanges, restocking fees, and refunds.', 'dawp'),
-        'url'   => $returns_url,
-    ],
-    [
-        'title' => __('FAQs', 'dawp'),
-        'copy'  => __('Find quick answers about products, checkout, tracking, privacy, and customer support.', 'dawp'),
-        'url'   => $faq_url,
-    ],
-    [
-        'title' => __('Privacy Requests', 'dawp'),
-        'copy'  => __('Use the contact form for account information questions or privacy-related requests.', 'dawp'),
-        'url'   => $privacy_url,
     ],
 ];
 
@@ -122,9 +84,9 @@ $render_icon = static function ($icon) {
                 </p>
             </div>
 
-            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+            <div class="contact-support-slider">
                 <?php foreach ($support_cards as $card) : ?>
-                    <article class="rounded-md border border-[#E8DAD4] bg-white p-5 shadow-sm">
+                    <article class="contact-support-card rounded-md border border-[#E8DAD4] bg-white p-5 shadow-sm">
                         <div class="flex h-11 w-11 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -165,13 +127,13 @@ $render_icon = static function ($icon) {
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Orders use a 5:00 PM PST cut off and 1-2 business day handling time.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Orders use a 5:00 PM (GMT-08:00) Pacific Standard Time cutoff and 1-3 business day handling time.', 'dawp'); ?></span>
                         </div>
                         <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Standard transit usually takes 5-7 business days after dispatch.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Standard U.S. shipping is free, with 5-7 business day transit and a 6-10 business day total delivery estimate.', 'dawp'); ?></span>
                         </div>
                         <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
                             <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -293,65 +255,6 @@ $render_icon = static function ($icon) {
                         <?php esc_html_e('Send Message', 'dawp'); ?>
                     </button>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="contact-help-title">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-                <div class="max-w-3xl">
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Helpful Links', 'dawp'); ?></p>
-                    <h2 id="contact-help-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
-                        <?php esc_html_e('Find the right support information faster.', 'dawp'); ?>
-                    </h2>
-                    <p class="mt-4 text-base leading-7 text-[#6F625D]">
-                        <?php esc_html_e('Review the policy pages for complete details about shipping, returns, privacy, and store terms before submitting a request.', 'dawp'); ?>
-                    </p>
-                </div>
-                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
-                    <?php esc_html_e('Shop Products', 'dawp'); ?>
-                </a>
-            </div>
-
-            <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-                <?php foreach ($help_topics as $topic) : ?>
-                    <a href="<?php echo esc_url($topic['url']); ?>" class="group rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#C87F86] hover:shadow-xl hover:shadow-[#8A4F56]/10">
-                        <h3 class="font-heading text-lg font-extrabold text-[#2F2A28] transition group-hover:text-[#8A4F56]"><?php echo esc_html($topic['title']); ?></h3>
-                        <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($topic['copy']); ?></p>
-                        <span class="mt-5 inline-flex text-sm font-bold text-[#A96870]">
-                            <?php esc_html_e('View details', 'dawp'); ?>
-                            <span class="ml-2" aria-hidden="true">-&gt;</span>
-                        </span>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white py-14 sm:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-6 sm:p-8">
-                <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-                    <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Store Policies', 'dawp'); ?></p>
-                        <h2 class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Transparent customer care for LBQ Shop orders.', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-[#6F625D]">
-                            <?php esc_html_e('LBQ Shop keeps support, shipping, return, privacy, and terms information visible so customers can shop beauty and fashion accessories with clear expectations.', 'dawp'); ?>
-                        </p>
-                    </div>
-                    <div class="flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
-                            <?php esc_html_e('Shipping Policy', 'dawp'); ?>
-                        </a>
-                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
-                            <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
-                        </a>
-                        <a href="<?php echo esc_url($terms_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
-                            <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

@@ -1299,6 +1299,25 @@ ul.products li.product,
   .shop-page .shop-main ul.products,
   .shop-page.woocommerce ul.products,
   .shop-page .woocommerce ul.products {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .shop-page .product-card__meta {
+    gap: 9px;
+    padding: 11px;
+  }
+
+  .shop-page .product-card__title {
+    font-size: 0.875rem;
+  }
+
+  .shop-page .product-card__cat {
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+
+  .shop-page .product-card__price {
+    font-size: 0.92rem;
   }
 }

@@ -10,8 +10,8 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
-$store_address  = __('4803 N Milwaukee AveChicago, IL 60630', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
 $instagram_url  = 'https://www.instagram.com/thelbqshop/';
 $facebook_url   = 'https://www.facebook.com/lacedbyQ/';
 
@@ -85,8 +85,9 @@ $footer_columns = [
         <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 text-sm text-white/80 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <p class="font-semibold text-[#F6D5CF]"><?php esc_html_e('Pretty, practical accessories for beauty routines, travel, and everyday style.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <span><?php esc_html_e('Cut off: 5:00 PM PST', 'dawp'); ?></span>
-                <span><?php esc_html_e('Handling: 1-2 business days', 'dawp'); ?></span>
+                <span><?php esc_html_e('Free standard U.S. shipping', 'dawp'); ?></span>
+                <span><?php esc_html_e('Cutoff: 5:00 PM PST', 'dawp'); ?></span>
+                <span><?php esc_html_e('Handling: 1-3 business days', 'dawp'); ?></span>
                 <span><?php esc_html_e('Transit: 5-7 business days', 'dawp'); ?></span>
                 <span><?php esc_html_e('30-day easy returns', 'dawp'); ?></span>
             </div>
@@ -148,52 +149,54 @@ $footer_columns = [
                     </div>
                 </div>
 
-                <div class="mt-6">
-                    <p class="text-sm font-bold text-white"><?php esc_html_e('Follow LBQ Shop', 'dawp'); ?></p>
-                    <div class="mt-3 flex items-center gap-3">
-                        <a class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#E4405F] text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#E4405F]" href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow LBQ Shop on Instagram', 'dawp'); ?>">
-                            <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect width="18" height="18" x="3" y="3" rx="5"></rect>
-                                <circle cx="12" cy="12" r="4"></circle>
-                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
-                            </svg>
-                        </a>
-                        <a class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#1877F2] text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#1877F2]" href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow LBQ Shop on Facebook', 'dawp'); ?>">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
-                                <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.2-1.5 1.5-1.5h1.7V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.1V10H7.5v3h2.7v8h3.3Z"></path>
-                            </svg>
-                        </a>
+                <div class="mt-6 grid gap-6 lg:flex lg:flex-wrap lg:items-start lg:gap-x-8 lg:gap-y-5">
+                    <div>
+                        <p class="text-sm font-bold text-white"><?php esc_html_e('Follow LBQ Shop', 'dawp'); ?></p>
+                        <div class="mt-3 flex items-center gap-3">
+                            <a class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#E4405F] text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#E4405F]" href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow LBQ Shop on Instagram', 'dawp'); ?>">
+                                <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect width="18" height="18" x="3" y="3" rx="5"></rect>
+                                    <circle cx="12" cy="12" r="4"></circle>
+                                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+                                </svg>
+                            </a>
+                            <a class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#1877F2] text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#1877F2]" href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow LBQ Shop on Facebook', 'dawp'); ?>">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                                    <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.2-1.5 1.5-1.5h1.7V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.1V10H7.5v3h2.7v8h3.3Z"></path>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <div class="mt-6">
-                    <p class="text-sm font-bold text-white"><?php esc_html_e('Accepted Payments', 'dawp'); ?></p>
-                    <ul class="mt-3 flex flex-wrap items-center gap-2.5" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
-                        <li>
-                            <span class="inline-flex h-9 w-14 items-center justify-center rounded-md bg-white p-1 shadow-lg shadow-black/10" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
-                                <span class="sr-only"><?php esc_html_e('Visa', 'dawp'); ?></span>
-                                <img class="h-full w-full object-contain" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/visa.png'); ?>" alt="" loading="lazy" aria-hidden="true">
-                            </span>
-                        </li>
-                        <li>
-                            <span class="inline-flex h-9 w-14 items-center justify-center rounded-md bg-white p-1 shadow-lg shadow-black/10" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
-                                <span class="sr-only"><?php esc_html_e('Mastercard', 'dawp'); ?></span>
-                                <img class="h-full w-full object-contain" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/master%20card.png'); ?>" alt="" loading="lazy" aria-hidden="true">
-                            </span>
-                        </li>
-                        <li>
-                            <span class="inline-flex h-9 w-14 items-center justify-center rounded-md bg-white p-1 shadow-lg shadow-black/10" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
-                                <span class="sr-only"><?php esc_html_e('American Express', 'dawp'); ?></span>
-                                <img class="h-full w-full object-contain" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/AX.png'); ?>" alt="" loading="lazy" aria-hidden="true">
-                            </span>
-                        </li>
-                        <li>
-                            <span class="inline-flex h-9 w-14 items-center justify-center rounded-md bg-white p-1 shadow-lg shadow-black/10" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
-                                <span class="sr-only"><?php esc_html_e('PayPal', 'dawp'); ?></span>
-                                <img class="h-full w-full object-contain" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/paypal.png'); ?>" alt="" loading="lazy" aria-hidden="true">
-                            </span>
-                        </li>
-                    </ul>
+                    <div>
+                        <p class="text-sm font-bold text-white"><?php esc_html_e('Accepted Payments', 'dawp'); ?></p>
+                        <ul class="mt-3 flex flex-wrap items-center gap-2.5" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
+                            <li>
+                                <span class="inline-flex h-9 w-14 items-center justify-center rounded-md bg-white p-1 shadow-lg shadow-black/10" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
+                                    <span class="sr-only"><?php esc_html_e('Visa', 'dawp'); ?></span>
+                                    <img class="h-full w-full object-contain" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/visa.png'); ?>" alt="" loading="lazy" aria-hidden="true">
+                                </span>
+                            </li>
+                            <li>
+                                <span class="inline-flex h-9 w-14 items-center justify-center rounded-md bg-white p-1 shadow-lg shadow-black/10" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
+                                    <span class="sr-only"><?php esc_html_e('Mastercard', 'dawp'); ?></span>
+                                    <img class="h-full w-full object-contain" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/master%20card.png'); ?>" alt="" loading="lazy" aria-hidden="true">
+                                </span>
+                            </li>
+                            <li>
+                                <span class="inline-flex h-9 w-14 items-center justify-center rounded-md bg-white p-1 shadow-lg shadow-black/10" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
+                                    <span class="sr-only"><?php esc_html_e('American Express', 'dawp'); ?></span>
+                                    <img class="h-full w-full object-contain" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/AX.png'); ?>" alt="" loading="lazy" aria-hidden="true">
+                                </span>
+                            </li>
+                            <li>
+                                <span class="inline-flex h-9 w-14 items-center justify-center rounded-md bg-white p-1 shadow-lg shadow-black/10" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
+                                    <span class="sr-only"><?php esc_html_e('PayPal', 'dawp'); ?></span>
+                                    <img class="h-full w-full object-contain" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/paypal.png'); ?>" alt="" loading="lazy" aria-hidden="true">
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -215,15 +218,8 @@ $footer_columns = [
             </div>
         </div>
 
-        <div class="mt-8 flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/60 lg:flex-row lg:items-center lg:justify-between">
+        <div class="mt-8 border-t border-white/15 pt-5 text-sm text-white/60">
             <p>&copy; <?php echo esc_html(gmdate('Y')); ?> LBQ Shop. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
-            <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQs', 'dawp'); ?></a>
-            </div>
         </div>
     </div>
 </footer>

@@ -16,7 +16,7 @@ if (!$shop_url) {
 }
 
 $support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 
 $lbq_category_url = static function ($slug) {
     if (function_exists('get_term_by')) {
@@ -102,7 +102,7 @@ $care_cards = [
     ],
     [
         'title' => __('Realistic Shipping', 'dawp'),
-        'copy'  => __('Orders use a 5:00 PM PST cut off, 1-2 business day handling, Monday through Friday fulfillment, and 5-7 business day standard transit.', 'dawp'),
+        'copy'  => __('Standard U.S. shipping is free. Orders use a 5:00 PM (GMT-08:00) Pacific Standard Time cutoff, 1-3 business day handling, and 5-7 business day transit.', 'dawp'),
         'icon'  => 'truck',
     ],
     [
@@ -167,7 +167,7 @@ $render_icon = static function ($icon) {
             </div>
 
             <figure class="relative">
-                <img src="<?php echo esc_url($stock_images['hero']); ?>" alt="<?php esc_attr_e('Makeup and beauty accessories arranged beside a cosmetic bag', 'dawp'); ?>" class="aspect-[5/4] w-full rounded-md object-cover shadow-xl shadow-[#8A4F56]/15 lg:aspect-[4/5]" loading="eager" decoding="async">
+                <?php echo dawp_get_responsive_image($stock_images['hero'], __('Makeup and beauty accessories arranged beside a cosmetic bag', 'dawp'), 'aspect-[5/4] w-full rounded-md object-cover shadow-xl shadow-[#8A4F56]/15 lg:aspect-[4/5]', 1200, 1500, 'eager'); ?>
                 <figcaption class="mt-4 rounded-md border border-[#E8DAD4] bg-white p-4 text-sm font-bold leading-6 text-[#2F2A28] shadow-sm">
                     <?php esc_html_e('Clean, feminine accessories made for simple routines, travel, gifting, and everyday confidence.', 'dawp'); ?>
                 </figcaption>
@@ -177,12 +177,10 @@ $render_icon = static function ($icon) {
 
     <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="about-story-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
-            <div class="grid gap-4 sm:grid-cols-5">
-                <img src="<?php echo esc_url($stock_images['drawer']); ?>" alt="<?php esc_attr_e('Cosmetics and beauty tools organized in a clean drawer', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3" loading="lazy" decoding="async">
-                <div class="grid gap-4 sm:col-span-2">
-                    <img src="<?php echo esc_url($stock_images['brushes']); ?>" alt="<?php esc_attr_e('Makeup brushes stored neatly in small holders', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
-                    <img src="<?php echo esc_url($stock_images['gift']); ?>" alt="<?php esc_attr_e('Pink beauty accessories arranged as a giftable flat lay', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
-                </div>
+            <div class="about-story-gallery" aria-label="<?php esc_attr_e('Beauty accessories image gallery', 'dawp'); ?>">
+                <?php echo dawp_get_responsive_image($stock_images['drawer'], __('Cosmetics and beauty tools organized in a clean drawer', 'dawp'), 'about-story-gallery__image about-story-gallery__image--tall rounded-md object-cover shadow-sm', 800, 1000); ?>
+                <?php echo dawp_get_responsive_image($stock_images['brushes'], __('Makeup brushes stored neatly in small holders', 'dawp'), 'about-story-gallery__image rounded-md object-cover shadow-sm', 800, 1000); ?>
+                <?php echo dawp_get_responsive_image($stock_images['gift'], __('Pink beauty accessories arranged as a giftable flat lay', 'dawp'), 'about-story-gallery__image rounded-md object-cover shadow-sm', 800, 1000); ?>
             </div>
 
             <div>
@@ -214,9 +212,9 @@ $render_icon = static function ($icon) {
                 </p>
             </div>
 
-            <div class="mt-10 grid gap-5 md:grid-cols-3">
+            <div class="-mx-4 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-2 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
                 <?php foreach ($brand_pillars as $pillar) : ?>
-                    <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
+                    <article class="min-w-[82%] snap-start rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10 sm:min-w-[55%] md:min-w-0">
                         <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
                             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon($pillar['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -245,9 +243,9 @@ $render_icon = static function ($icon) {
                 </a>
             </div>
 
-            <div class="grid gap-4 sm:grid-cols-2">
+            <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-2 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden">
                 <?php foreach ($category_links as $category) : ?>
-                    <a href="<?php echo esc_url($category['url']); ?>" class="group rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-5 transition hover:-translate-y-1 hover:bg-[#FBEDEA] hover:shadow-xl hover:shadow-[#8A4F56]/10">
+                    <a href="<?php echo esc_url($category['url']); ?>" class="group min-w-[82%] snap-start rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-5 transition hover:-translate-y-1 hover:bg-[#FBEDEA] hover:shadow-xl hover:shadow-[#8A4F56]/10 sm:min-w-0">
                         <span class="block font-heading text-lg font-extrabold text-[#2F2A28] transition group-hover:text-[#8A4F56]"><?php echo esc_html($category['name']); ?></span>
                         <span class="mt-3 block text-sm leading-6 text-[#6F625D]"><?php echo esc_html($category['copy']); ?></span>
                         <span class="mt-5 inline-flex text-sm font-bold text-[#A96870]">
@@ -281,7 +279,7 @@ $render_icon = static function ($icon) {
                 </div>
             </div>
 
-            <img src="<?php echo esc_url($stock_images['flat_lay']); ?>" alt="<?php esc_attr_e('Beauty and fashion accessories arranged neatly on a tabletop', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
+            <?php echo dawp_get_responsive_image($stock_images['flat_lay'], __('Beauty and fashion accessories arranged neatly on a tabletop', 'dawp'), 'aspect-[4/5] w-full rounded-md object-cover shadow-sm', 800, 1000); ?>
         </div>
     </section>
 
@@ -316,9 +314,9 @@ $render_icon = static function ($icon) {
                     </p>
                 </div>
 
-                <div class="grid gap-4 md:grid-cols-3">
+                <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain px-4 pb-2 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
                     <?php foreach ($care_cards as $card) : ?>
-                        <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
+                        <article class="min-w-[82%] snap-start rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm sm:min-w-[55%] md:min-w-0">
                             <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
                                 <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>

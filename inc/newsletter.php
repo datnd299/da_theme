@@ -50,7 +50,7 @@ function dawp_contact_submit() {
         'general' => 'General Inquiry',
         'order'   => 'Order Status',
         'styling' => 'Styling Help',
-        'return'  => 'Returns & Exchanges',
+        'return'  => 'Returns & Refunds',
     ];
     $subject_label = $subject_labels[$subject] ?? 'General Inquiry';
 

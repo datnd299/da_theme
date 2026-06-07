@@ -42,10 +42,9 @@
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         </div>
                         <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Boutique Hours', 'dawp'); ?></h3>
+                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Support Availability', 'dawp'); ?></h3>
                             <p class="text-[#6F625D] leading-relaxed">
-                                <?php esc_html_e('Mon – Sat, 10:00 AM – 6:00 PM (PST)', 'dawp'); ?><br>
-                                <?php esc_html_e('Closed on Sundays', 'dawp'); ?>
+                                <?php esc_html_e('Monday-Friday, 10:00 AM-6:00 PM PST', 'dawp'); ?>
                             </p>
                         </div>
                     </div>
@@ -110,7 +109,7 @@
                             <option value="general"><?php esc_html_e('General Inquiry', 'dawp'); ?></option>
                             <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
                             <option value="styling"><?php esc_html_e('Styling Help', 'dawp'); ?></option>
-                            <option value="return"><?php esc_html_e('Returns & Exchanges', 'dawp'); ?></option>
+                            <option value="return"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></option>
                         </select>
                     </div>
 
@@ -150,11 +149,11 @@
             <div class="grid md:grid-cols-3 gap-8 text-center">
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
                     <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our 5:00 PM Pacific Standard Time cutoff, 1-3 business day processing time, 3-5 business day transit time, and free U.S. standard shipping details.', 'dawp'); ?></p>
+                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our 5:00 PM (GMT-08:00) Pacific Standard Time cutoff, 1-3 business day handling time, 5-7 business day transit time, and free U.S. standard shipping details.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
                     <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Review our 30-day return window, return condition requirements, exchange details, and refund timing.', 'dawp'); ?></p>
+                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Review our 30-day return window, original-condition requirements, return shipping fee rules, no restocking fee, refund timing, and exchange handling.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
                     <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h3>

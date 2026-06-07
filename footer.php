@@ -39,6 +39,14 @@
                     1777 Canal St, Merced, CA 95340
                 </li>
 
+                <li class="flex items-start gap-2">
+                    <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <?php esc_html_e('Support Availability: Monday-Friday, 10:00 AM-6:00 PM PST', 'dawp'); ?>
+                </li>
+
 
             </ul>
 
@@ -127,7 +135,7 @@
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
 
-                    <?php esc_html_e('Free Shipping on All Orders', 'dawp'); ?>
+                    <?php esc_html_e('Free U.S. Standard Shipping', 'dawp'); ?>
                 </li>
 
                 <li class="flex items-center gap-2">
@@ -137,7 +145,7 @@
                         <path d="M21 16v5a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h5"/>
                     </svg>
 
-                    <?php esc_html_e('30-Day Returns', 'dawp'); ?>
+                    <?php esc_html_e('30-Day Eligible Returns', 'dawp'); ?>
                 </li>
 
                 <li class="flex items-center gap-2">
@@ -215,6 +223,15 @@
                        class="hover:text-white transition-colors">
 
                         <?php esc_html_e('Shipping', 'dawp'); ?>
+
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>"
+                       class="hover:text-white transition-colors">
+
+                        <?php esc_html_e('Returns', 'dawp'); ?>
 
                     </a>
                 </li>

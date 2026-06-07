@@ -220,13 +220,13 @@
       <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
           <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">01</div>
-          <h3 class="font-serif text-2xl">Free Shipping</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Free standard shipping on U.S. orders with tracking included.</p>
+          <h3 class="font-serif text-2xl">Free U.S. Shipping</h3>
+          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Free standard shipping on all U.S. orders with no minimum required.</p>
         </div>
         <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
           <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">02</div>
-          <h3 class="font-serif text-2xl">30-Day Returns</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Returns on eligible new-condition items within 30 days of delivery.</p>
+          <h3 class="font-serif text-2xl">30-Day Eligible Returns</h3>
+          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Eligible items can be returned within 30 days of delivery with original tags and packaging.</p>
         </div>
         <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
           <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">03</div>

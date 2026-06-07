@@ -85,13 +85,6 @@ $nav_items     = dawp_main_menu_items();
 $mega_sections = dawp_megamenu_sections();
 ?>
 
-<!-- Utility Bar — desktop only -->
-<div class="hidden md:flex bg-[#A64B55] text-white py-1.5">
-    <div class="max-w-[1280px] w-full mx-auto px-6 flex items-center justify-center gap-6 text-xs text-white">
-        <span>Free Shipping on All Orders</span>
-    </div>
-</div>
-
 <!-- Main Header -->
 <header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-[#A64B55] shadow-sm" role="banner">
     <div class="max-w-[1280px] mx-auto px-4 lg:px-6 h-14 lg:h-16 flex items-center justify-between gap-3">

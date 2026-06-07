@@ -72,15 +72,15 @@
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our 1-3 business day processing time, 3-5 business day transit time, and free U.S. standard shipping.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our 1-3 business day handling time, 5-7 business day transit time, 6-10 business day total delivery estimate, and free U.S. standard shipping.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Review our 30-day return window, exchange rules, and refund processing details.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Review our 30-day return window, return shipping fee rules, no restocking fee policy, refund timing, and exchange handling.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our boutique team is here to help, Mon–Sat 10 AM–6 PM PST.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Our boutique team is here to help, Monday-Friday, 10:00 AM-6:00 PM PST.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>

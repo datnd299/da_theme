@@ -135,7 +135,7 @@
                 <div class="bg-[#F5F3F1] p-8 rounded-2xl flex flex-col justify-center text-center space-y-6">
                     <h3 class="text-xl font-bold text-[#2F2A28]"><?php esc_html_e('Need Assistance?', 'dawp'); ?></h3>
                     <p class="text-[#6F625D]">
-                        <?php esc_html_e('Our team is available Monday – Saturday, 10:00 AM – 6:00 PM (PST) to help you with sizing, styling, or order tracking.', 'dawp'); ?>
+                        <?php esc_html_e('Our team is available Monday-Friday, 10:00 AM-6:00 PM PST to help you with sizing, styling, or order tracking.', 'dawp'); ?>
                     </p>
                     <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" 
                        class="inline-block px-8 py-3 bg-[#c98a8a] text-white font-bold rounded-lg hover:bg-[#b37a7a] transition-colors shadow-md">

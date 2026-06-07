@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const origText   = submitBtn.textContent;
 
             submitBtn.disabled    = true;
-            submitBtn.textContent = 'Sending…';
+            submitBtn.textContent = 'Sending...';
             msg.style.display     = 'none';
 
             const body = new FormData();
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const origText  = submitBtn.textContent;
 
             submitBtn.disabled    = true;
-            submitBtn.textContent = 'Sending…';
+            submitBtn.textContent = 'Sending...';
             msg.style.display     = 'none';
 
             const body = new FormData(form);

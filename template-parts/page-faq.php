@@ -1,240 +1,300 @@
 <?php
 /**
- * Template Part: FAQ Page
- * 
- * This template follows Google Merchant Center (GMC) standards and the Shop Kelli Design System.
- * It provides clear, transparent answers to common customer questions, building trust and reducing support load.
+ * Template Part: Frequently Asked Questions
+ *
+ * Customer-facing FAQ content aligned with Shop Kelli's shipping, returns,
+ * privacy, and terms pages.
  */
+
+$store_name       = 'Shop Kelli Boutique';
+$support_email    = 'support@shopkelli.com';
+$mailing_address  = '1777 Canal St, Merced, CA 95340';
+$support_hours    = 'Monday-Friday, 10:00 AM-6:00 PM PST';
+$contact_page_url = home_url('/contact-us/');
+$shipping_policy  = home_url('/shipping-policy/');
+$return_policy    = home_url('/refund-return-policy/');
+$privacy_policy   = home_url('/privacy-policy/');
+$terms_policy     = home_url('/terms-conditions/');
+$track_order_url  = home_url('/track-order/');
+
+$faq_sections = array(
+    array(
+        'title' => __('Orders & Checkout', 'dawp'),
+        'items' => array(
+            array(
+                'question' => __('Where can I buy Shop Kelli products?', 'dawp'),
+                'answer'   => __('Products shown on shopkelli.com are available for direct purchase through our online store. Customers can add available items to the cart and complete checkout on the website.', 'dawp'),
+            ),
+            array(
+                'question' => __('Can my order be cancelled or changed after checkout?', 'dawp'),
+                'answer'   => __('Please contact us as soon as possible if you need to request a change or cancellation. We cannot guarantee changes after an order has entered processing, shipment preparation, or carrier handoff.', 'dawp'),
+            ),
+            array(
+                'question' => __('Why was my order cancelled?', 'dawp'),
+                'answer'   => __('An order may be cancelled if an item becomes unavailable, billing or shipping information cannot be verified, a delivery limitation applies, or a pricing or product listing error must be corrected. If this happens, we will notify you using the contact information provided at checkout.', 'dawp'),
+            ),
+        ),
+    ),
+    array(
+        'title' => __('Shipping & Delivery', 'dawp'),
+        'items' => array(
+            array(
+                'question' => __('Where do you ship?', 'dawp'),
+                'answer'   => __('Shop Kelli currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to your specific address, you will be notified at checkout before payment is completed.', 'dawp'),
+            ),
+            array(
+                'question' => __('How much is shipping?', 'dawp'),
+                'answer'   => __('Standard U.S. shipping is free for all orders nationwide, with no minimum purchase requirement. Optional upgraded shipping, when available, will show its exact cost at checkout before you pay.', 'dawp'),
+            ),
+            array(
+                'question' => __('How long does delivery take?', 'dawp'),
+                'answer'   => __('Orders are processed in 1-3 business days after purchase. Standard transit takes 5-7 business days, so the estimated delivery window is 6-10 business days total from the date of purchase.', 'dawp'),
+            ),
+            array(
+                'question' => __('What is your order cutoff time?', 'dawp'),
+                'answer'   => __('Our order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time. Orders placed after the cutoff begin processing on the following business day.', 'dawp'),
+            ),
+        ),
+        'links' => array(
+            array(
+                'label' => __('Read Shipping Policy', 'dawp'),
+                'url'   => $shipping_policy,
+                'style' => 'secondary',
+            ),
+            array(
+                'label' => __('Track Order', 'dawp'),
+                'url'   => $track_order_url,
+                'style' => 'primary',
+            ),
+        ),
+    ),
+    array(
+        'title' => __('Tracking & Delivery Issues', 'dawp'),
+        'items' => array(
+            array(
+                'question' => __('How do I track my order?', 'dawp'),
+                'answer'   => __('After your order ships, we send a shipping confirmation email with a tracking link and carrier details. Orders may ship with USPS, UPS, FedEx, or DHL, depending on the package and destination.', 'dawp'),
+            ),
+            array(
+                'question' => __('Why did I receive multiple tracking numbers?', 'dawp'),
+                'answer'   => __('Orders containing multiple boutique clothing pieces, accessories, mommy and me styles, or girls collection items may ship separately from different fulfillment batches. Each shipment will have its own tracking number.', 'dawp'),
+            ),
+            array(
+                'question' => __('What should I do if my package is delayed, lost, or marked delivered but missing?', 'dawp'),
+                'answer'   => __('Contact customer support within 30 days of the recorded delivery date or the expected delivery issue. Please include your order number, checkout email address, complete delivery address, and any carrier tracking details so we can investigate with the carrier.', 'dawp'),
+            ),
+            array(
+                'question' => __('What if my item arrives damaged or incorrect?', 'dawp'),
+                'answer'   => __('Contact us within 30 days of delivery with your order number and clear photos of the item, packaging, and shipping label. For defective, damaged, incorrect, or carrier-damaged products, we cover the return shipping cost and will arrange the appropriate replacement or refund.', 'dawp'),
+            ),
+        ),
+    ),
+    array(
+        'title' => __('Returns & Refunds', 'dawp'),
+        'items' => array(
+            array(
+                'question' => __('What is your return window?', 'dawp'),
+                'answer'   => __('Eligible return requests must be initiated within 30 days of delivery. Items must be unworn, unused, undamaged, and returned in their original condition with packaging, tags, labels, care cards, garment bags, boxes, and included accessories.', 'dawp'),
+            ),
+            array(
+                'question' => __('Do you charge a restocking fee?', 'dawp'),
+                'answer'   => __('No. Shop Kelli does not charge restocking fees for eligible returns.', 'dawp'),
+            ),
+            array(
+                'question' => __('Who pays for return shipping?', 'dawp'),
+                'answer'   => __('For defective, damaged, incorrect, or carrier-damaged products, Shop Kelli covers 100% of return shipping and provides a prepaid label by email. For customer remorse, including wrong size, wrong color, changed mind, or does not fit, the customer is responsible for return shipping and the label cost may be deducted from the refund.', 'dawp'),
+            ),
+            array(
+                'question' => __('When will I receive my refund?', 'dawp'),
+                'answer'   => __('After your return package is received, we inspect the item within 1-2 business days. If approved, the refund is issued to your original payment method within 7 business days. If you have not received a refund after 15 business days of approval, please contact us after checking with your bank or card issuer.', 'dawp'),
+            ),
+            array(
+                'question' => __('How do I start a return?', 'dawp'),
+                'answer'   => __('Email us or use the Contact Us page within 30 days of delivery. Include your order number, checkout email, item(s) you want to return, reason for return, and photos or videos if the item is damaged, defective, or incorrect. Do not ship an item back without return authorization.', 'dawp'),
+            ),
+            array(
+                'question' => __('Do you offer exchanges?', 'dawp'),
+                'answer'   => __('We do not process direct one-for-one exchanges. To get a different size, color, or style, please return the original eligible item for a refund and place a new order on the website.', 'dawp'),
+            ),
+            array(
+                'question' => __('Which items are non-returnable?', 'dawp'),
+                'answer'   => __('Final sale or non-returnable items, gift cards, digital products, personalized or custom-made items, certain hygiene-sensitive items with broken seals, and items worn, washed, altered, or damaged after delivery are not eligible for return.', 'dawp'),
+            ),
+        ),
+        'links' => array(
+            array(
+                'label' => __('Read Refund & Return Policy', 'dawp'),
+                'url'   => $return_policy,
+                'style' => 'secondary',
+            ),
+            array(
+                'label' => $support_email,
+                'url'   => 'mailto:' . $support_email,
+                'style' => 'primary',
+            ),
+        ),
+    ),
+    array(
+        'title' => __('Payment, Privacy & Security', 'dawp'),
+        'items' => array(
+            array(
+                'question' => __('Is checkout secure?', 'dawp'),
+                'answer'   => __('Yes. Checkout uses SSL-protected payment transmission through WooCommerce and certified third-party payment gateways. Shop Kelli does not store raw credit card numbers on local storefront servers.', 'dawp'),
+            ),
+            array(
+                'question' => __('What payment methods are available?', 'dawp'),
+                'answer'   => __('At least one conventional payment method is available during checkout, such as credit card, debit card, invoicing, or another supported payment option shown before order completion. The checkout page displays the full order cost before payment is submitted.', 'dawp'),
+            ),
+            array(
+                'question' => __('How do you use my personal information?', 'dawp'),
+                'answer'   => __('We use order and device information to process payments, fulfill orders, coordinate shipping, communicate order status, screen transactions for risk, and improve the store experience according to our Privacy Policy.', 'dawp'),
+            ),
+        ),
+        'links' => array(
+            array(
+                'label' => __('Read Privacy Policy', 'dawp'),
+                'url'   => $privacy_policy,
+                'style' => 'secondary',
+            ),
+            array(
+                'label' => __('Read Terms', 'dawp'),
+                'url'   => $terms_policy,
+                'style' => 'secondary',
+            ),
+        ),
+    ),
+);
+
+$schema_entities = array();
+
+foreach ($faq_sections as $faq_section) {
+    foreach ($faq_section['items'] as $faq_item) {
+        $schema_entities[] = array(
+            '@type'          => 'Question',
+            'name'           => wp_strip_all_tags($faq_item['question']),
+            'acceptedAnswer' => array(
+                '@type' => 'Answer',
+                'text'  => wp_strip_all_tags($faq_item['answer']),
+            ),
+        );
+    }
+}
+
+$faq_schema = array(
+    '@context'   => 'https://schema.org',
+    '@type'      => 'FAQPage',
+    'mainEntity' => $schema_entities,
+);
 ?>
 
-<section class="bg-surface py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <!-- Header -->
-        <div class="text-center mb-16">
-            <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Common Questions</span>
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Frequently Asked Questions</h1>
-            <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
-                Everything you need to know about our boutique pieces, shipping, and more. Can't find the answer you're looking for? <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="text-accent hover:underline font-medium">Contact our friendly team</a>.
-            </p>
-        </div>
+<main class="sk-policy-page bg-surface">
+    <script type="application/ld+json">
+        <?php echo wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
+    </script>
 
-        <div class="space-y-12">
-            <!-- category: Orders & Payments -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Orders & Payments</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What payment methods do you accept?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover), PayPal, Apple Pay, and Google Pay. All transactions are securely processed and encrypted for your safety.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Can I modify or cancel my order after it's placed?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We aim to process orders quickly. If you need to change or cancel an order, please contact us at <a href="mailto:support@shopkelli.com" class="text-accent hover:underline font-medium">support@shopkelli.com</a> within 2 hours of placing your order. Once an order has been processed for shipping, we are unable to make changes.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I track my order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Once your order ships, you will receive an email with your tracking number and a link to follow its journey. You can also track your order directly on our <a href="<?php echo esc_url( home_url( '/track-order/' ) ); ?>" class="text-accent hover:underline font-medium">Order Tracking page</a>.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- category: Shipping & Delivery -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Shipping & Delivery</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How long will it take to receive my order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Orders placed before our 5:00 PM Pacific Standard Time cutoff are typically processed within 1-3 business days, Monday-Friday. Shipping transit time is 3-5 business days after processing is complete, so estimated total delivery time is 4-8 business days. For full details, please visit our <a href="<?php echo esc_url( home_url( '/shipping-policy/' ) ); ?>" class="text-accent hover:underline font-medium">Shipping Policy</a>.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What are your shipping costs?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We offer free standard shipping on all orders within the United States.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">Where do you ship?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>Shop Kelli currently serves customers in the United States only.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- category: Returns & Exchanges -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><polyline points="3 3 3 8 8 8"></polyline></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Returns & Exchanges</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">What is your return policy?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We accept returns within 30 days of delivery for eligible new-condition items. Items must be unused, unworn, in original condition, and returned with original tags and packaging. For full details, please see our <a href="<?php echo esc_url( home_url( '/refund-return-policy/' ) ); ?>" class="text-accent hover:underline font-medium">Refund & Return Policy</a>.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I start a return?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To start a return or exchange, email us at <a href="mailto:support@shopkelli.com" class="text-accent hover:underline font-medium">support@shopkelli.com</a> with your order number and the item details. Return label and return shipping costs are the customer's responsibility unless your item arrived damaged, defective, or incorrect.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- category: Product & Sizing -->
-            <div class="faq-category">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Product & Sizing</h2>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How do I know which size to order?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>We include specific sizing information on each product page. Since we carry various boutique brands, fit can vary slightly. If you're between sizes, we generally recommend sizing up for kids' items to allow for growth!</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item group bg-background rounded-2xl border border-border overflow-hidden transition-all duration-normal hover:shadow-card">
-                        <button class="faq-trigger w-full flex items-center justify-between p-6 md:p-8 text-left outline-none focus:bg-surface-alt transition-colors">
-                            <span class="font-medium text-lg text-foreground pr-8">How should I care for my boutique pieces?</span>
-                            <span class="faq-icon text-accent transition-transform duration-normal">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                            </span>
-                        </button>
-                        <div class="faq-content hidden px-6 md:px-8 pb-8 md:pb-10 pt-2 md:pt-4 text-foreground-muted border-t border-border/50 bg-surface/30">
-                            <p>To keep your items looking beautiful, we recommend following the care instructions on the label. Most of our delicate pieces benefit from hand washing or a gentle machine cycle in cold water, followed by hanging to dry.</p>
-                        </div>
-                    </div>
+    <section class="sk-policy-hero">
+        <div class="container mx-auto max-w-6xl px-4">
+            <div class="sk-policy-hero__inner text-center">
+                <span class="mb-4 block text-sm font-bold uppercase tracking-widest text-accent"><?php esc_html_e('Customer Care', 'dawp'); ?></span>
+                <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
+                <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
+                <p class="sk-policy-hero__copy mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-foreground-muted">
+                    <?php esc_html_e('Find clear answers about Shop Kelli orders, shipping, returns, refunds, payment security, and customer support before you complete your purchase.', 'dawp'); ?>
+                </p>
+                <div class="mt-7 flex flex-wrap justify-center gap-4">
+                    <a href="<?php echo esc_url($contact_page_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
+                        <?php esc_html_e('Contact Support', 'dawp'); ?>
+                    </a>
+                    <a href="<?php echo esc_url($track_order_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
+                        <?php esc_html_e('Track Order', 'dawp'); ?>
+                    </a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Still Have Questions? -->
-        <div class="mt-20 bg-accent-soft p-10 md:p-16 rounded-3xl text-center">
-            <h3 class="font-heading text-3xl text-foreground font-bold mb-4">Still have questions?</h3>
-            <p class="text-foreground-muted text-lg mb-8 max-w-xl mx-auto">
-                Our family is here to help yours. Reach out anytime and we'll get back to you as soon as possible.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
-                    Contact Support
-                </a>
-                <a href="mailto:support@shopkelli.com" class="inline-flex items-center justify-center px-8 py-4 bg-white text-foreground font-semibold rounded-full border border-border hover:bg-surface-alt transition-colors">
-                    Email Us Directly
-                </a>
+    <section class="sk-policy-body">
+        <div class="container mx-auto max-w-6xl px-4">
+            <div class="space-y-8">
+                <?php foreach ($faq_sections as $section_index => $faq_section) : ?>
+                    <section class="rounded-3xl border border-border bg-background p-6 shadow-card md:p-10">
+                        <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php echo esc_html($faq_section['title']); ?></h2>
+
+                        <div class="mt-7 space-y-4">
+                            <?php foreach ($faq_section['items'] as $item_index => $faq_item) : ?>
+                                <details class="group rounded-2xl border border-border bg-background shadow-card transition-colors hover:border-accent" <?php echo 0 === $section_index && 0 === $item_index ? 'open' : ''; ?>>
+                                    <summary class="flex cursor-pointer list-none items-center justify-between gap-5 p-5 text-left [&::-webkit-details-marker]:hidden">
+                                        <span class="text-lg font-medium leading-snug text-foreground"><?php echo esc_html($faq_item['question']); ?></span>
+                                        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border text-xl font-medium leading-none text-accent transition-colors group-open:border-accent group-open:bg-accent group-open:text-white">
+                                            <span class="group-open:hidden" aria-hidden="true">+</span>
+                                            <span class="hidden group-open:block" aria-hidden="true">-</span>
+                                        </span>
+                                    </summary>
+                                    <div class="border-t border-border px-5 pb-5 pt-4">
+                                        <p class="leading-relaxed text-foreground-muted"><?php echo esc_html($faq_item['answer']); ?></p>
+                                    </div>
+                                </details>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <?php if (! empty($faq_section['links'])) : ?>
+                            <div class="mt-7 flex flex-wrap gap-4">
+                                <?php foreach ($faq_section['links'] as $link) : ?>
+                                    <?php
+                                    $link_classes = 'inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-bold transition-colors ';
+                                    $link_classes .= 'primary' === $link['style']
+                                        ? 'bg-foreground text-white hover:bg-accent'
+                                        : 'border border-foreground text-foreground hover:border-accent hover:text-accent';
+                                    ?>
+                                    <a href="<?php echo esc_url($link['url']); ?>" class="<?php echo esc_attr($link_classes); ?>">
+                                        <?php echo esc_html($link['label']); ?>
+                                    </a>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+                    </section>
+                <?php endforeach; ?>
+
+                <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                    <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Customer Support', 'dawp'); ?></h2>
+                    <p class="mt-5 leading-relaxed text-foreground-muted">
+                        <?php esc_html_e('For order questions, shipment issues, returns, refunds, product questions, or privacy requests, contact Shop Kelli through the verified support channels below. We aim to reply within 1 business day, and response times may vary during weekends, holidays, or high-volume periods.', 'dawp'); ?>
+                    </p>
+
+                    <div class="mt-6 rounded-3xl border border-border bg-background p-4 md:p-5">
+                        <div class="grid gap-4 md:grid-cols-2">
+                            <div class="rounded-2xl border border-border p-5">
+                                <h3 class="font-bold text-foreground"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
+                                <p class="mt-3 text-foreground-muted"><?php echo esc_html($store_name); ?></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-border p-5">
+                                <h3 class="font-bold text-foreground"><?php esc_html_e('Customer Support Email', 'dawp'); ?></h3>
+                                <p class="mt-3 text-foreground-muted"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition-colors hover:text-accent"><?php echo esc_html($support_email); ?></a></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-border p-5">
+                                <h3 class="font-bold text-foreground"><?php esc_html_e('Physical Mailing Address', 'dawp'); ?></h3>
+                                <p class="mt-3 leading-relaxed text-foreground-muted"><?php echo esc_html($mailing_address); ?></p>
+                            </div>
+
+                            <div class="rounded-2xl border border-border p-5">
+                                <h3 class="font-bold text-foreground"><?php esc_html_e('Support Availability', 'dawp'); ?></h3>
+                                <p class="mt-3 text-foreground-muted"><?php echo esc_html($support_hours); ?></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-7 flex flex-wrap gap-4">
+                        <a href="<?php echo esc_url($contact_page_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
+                            <?php esc_html_e('Contact Support', 'dawp'); ?>
+                        </a>
+                        <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
+                            <?php echo esc_html($support_email); ?>
+                        </a>
+                    </div>
+                </section>
             </div>
         </div>
-
-        <!-- Policy Links Footer -->
-        <div class="mt-16 pt-8 border-t border-border flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-muted">
-            <a href="<?php echo esc_url( home_url( '/shipping-policy/' ) ); ?>" class="hover:text-accent transition-colors">Shipping Policy</a>
-            <a href="<?php echo esc_url( home_url( '/refund-return-policy/' ) ); ?>" class="hover:text-accent transition-colors">Refund & Return Policy</a>
-            <a href="<?php echo esc_url( home_url( '/privacy-policy/' ) ); ?>" class="hover:text-accent transition-colors">Privacy Policy</a>
-            <a href="<?php echo esc_url( home_url( '/terms-conditions/' ) ); ?>" class="hover:text-accent transition-colors">Terms of Service</a>
-        </div>
-    </div>
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const faqTriggers = document.querySelectorAll('.faq-trigger');
-    
-    faqTriggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
-            const item = this.parentElement;
-            const content = this.nextElementSibling;
-            const icon = this.querySelector('.faq-icon');
-            
-            // Toggle current item
-            const isOpen = !content.classList.contains('hidden');
-            
-            if (isOpen) {
-                content.classList.add('hidden');
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                content.classList.remove('hidden');
-                icon.style.transform = 'rotate(180deg)';
-            }
-        });
-    });
-});
-</script>
+    </section>
+</main>

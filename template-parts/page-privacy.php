@@ -1,143 +1,152 @@
 <?php
 /**
- * Template Part: Privacy Policy Page
- * 
- * This template follows Google Merchant Center (GMC) standards and the Shop Kelli Design System.
+ * Template Part: Privacy Policy
  */
+
+$store_name      = 'Shop Kelli Boutique';
+$support_email   = 'support@shopkelli.com';
+$mailing_address = '1777 Canal St, Merced, CA 95340';
 ?>
 
-<section class="bg-surface py-16 md:py-24">
-    <div class="container mx-auto px-4 max-w-4xl">
-        <div class="text-center mb-16">
-            <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Privacy Policy</h1>
-            <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
-                At Shop Kelli, your privacy is a priority. This policy explains how we collect, use, and protect your personal information when you visit or shop at our boutique.
-            </p>
+<main class="sk-policy-page bg-surface">
+    <section class="sk-policy-hero">
+        <div class="container mx-auto max-w-6xl px-4">
+            <div class="sk-policy-hero__inner text-center">
+            <span class="mb-4 block text-sm font-bold uppercase tracking-widest text-accent"><?php esc_html_e('Privacy & Security', 'dawp'); ?></span>
+            <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
+            <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
+            <div class="sk-policy-hero__copy mx-auto mt-6 max-w-4xl space-y-5 text-lg leading-relaxed text-foreground-muted">
+                <p><?php esc_html_e('At Shop Kelli, your privacy and the security of your personal data are our utmost priorities. This Privacy Policy describes how your personal information is collected, used, protected, and shared when you visit, browse, or make a purchase from shopkelli.com (the "Site").', 'dawp'); ?></p>
+                <p><?php esc_html_e('By accessing our Site or utilizing our boutique services, you acknowledge and agree to the data management practices outlined in this policy.', 'dawp'); ?></p>
+            </div>
+            </div>
         </div>
+    </section>
 
-        <div class="space-y-12">
-            <!-- Introduction Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+    <section class="sk-policy-body">
+    <div class="container mx-auto max-w-6xl px-4">
+        <div class="space-y-8">
+            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('1. Information We Collect', 'dawp'); ?></h2>
+                <p class="mt-5 leading-relaxed text-foreground-muted">
+                    <?php esc_html_e('To fulfill your boutique orders and optimize your user experience, we collect two primary types of data:', 'dawp'); ?>
+                </p>
+                <div class="mt-6 grid gap-4 md:grid-cols-2">
+                    <div class="rounded-2xl border border-border bg-background p-5">
+                        <h3 class="text-lg font-medium leading-snug text-foreground"><?php esc_html_e('A. Order Information', 'dawp'); ?></h3>
+                        <p class="mt-5 leading-relaxed text-foreground-muted">
+                            <?php esc_html_e('When you make a purchase or attempt to place an order through the Site, we collect certain essential billing and routing details from you, including your name, billing address, shipping address, payment details (including encrypted credit card tokens), email address, and phone number. We refer to this safely handled data as "Order Information."', 'dawp'); ?>
+                        </p>
                     </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Our Commitment</h2>
+                    <div class="rounded-2xl border border-border bg-background p-5">
+                        <h3 class="text-lg font-medium leading-snug text-foreground"><?php esc_html_e('B. Device Information', 'dawp'); ?></h3>
+                        <p class="mt-5 leading-relaxed text-foreground-muted">
+                            <?php esc_html_e('When you browse the Site, we automatically gather structural technical details regarding your local device, including information about your web browser, active IP address, local time zone, and specific tracking cookies that are pre-installed on your device. We refer to this automatically-logged data as "Device Information."', 'dawp'); ?>
+                        </p>
+                    </div>
                 </div>
+            </section>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
+            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('2. Secure Payment Processing & Data Encryption (GMC MANDATORY)', 'dawp'); ?></h2>
+                <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
+                    <p><?php esc_html_e('Your commercial transaction data is fully guarded. Shop Kelli does not store, harvest, or retain your raw credit card numbers on our local storefront servers.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Because our online store operates via WooCommerce, all payment interactions are seamlessly redirected to, and processed by, certified third-party payment gateways. All data transmissions during checkout are protected utilizing industry-standard SSL (Secure Sockets Layer) encryption technology and strictly comply with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'); ?></p>
+                </div>
+            </section>
+
+            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('3. How We Use Your Personal Information', 'dawp'); ?></h2>
+                <p class="mt-5 leading-relaxed text-foreground-muted">
+                    <?php esc_html_e('We process your collected data based on legitimate business operations to:', 'dawp'); ?>
+                </p>
+                <ul class="mt-6 list-disc space-y-4 pl-5 leading-relaxed text-foreground-muted">
+                    <li><?php esc_html_e('Fulfill and build any orders placed through the Site (including processing secure payments, coordinating domestic shipping, and rendering invoices/order confirmations).', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Communicate with you directly regarding your order status.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Screen our transaction logs for potential financial risk, system vulnerabilities, or identity fraud.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Provide you with curated marketing insights, seasonal boutique lookbooks, or promotional advertising relating to our products, strictly in line with the communication preferences you have shared with us.', 'dawp'); ?></li>
+                </ul>
+            </section>
+
+            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('4. Sharing Your Personal Information', 'dawp'); ?></h2>
+                <p class="mt-5 leading-relaxed text-foreground-muted">
+                    <?php esc_html_e('We share your Personal Information with trusted third-party operational service providers to help us facilitate our storefront, as described above:', 'dawp'); ?>
+                </p>
+                <ul class="mt-6 list-disc space-y-4 pl-5 leading-relaxed text-foreground-muted">
+                    <li><?php esc_html_e('E-commerce Infrastructure: We use WooCommerce to power our online storefront and catalog ecosystem.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Behavioral Analytics: We utilize Google Analytics to analyze aggregate customer movement, traffic sources, and site health metrics.', 'dawp'); ?></li>
+                    <li><?php esc_html_e("Legal & Regulatory Mandates: Finally, we may disclose your personal files to comply with applicable state and federal laws, to respond to a lawful subpoena, search warrant, or official request for information, or to protect our brand's safety and property rights.", 'dawp'); ?></li>
+                </ul>
+            </section>
+
+            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('5. Cookies & Behavioral Advertising Opt-Out', 'dawp'); ?></h2>
+                <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
+                    <p><?php esc_html_e('We utilize functional cookies (small data files deposited on your computer containing a unique, anonymous identifier) to enhance your browsing experience, remember shopping cart additions, and maintain secure user sessions.', 'dawp'); ?></p>
                     <p>
-                        Shop Kelli ("we", "us", or "our") operates **shopkelli.com**. We are committed to maintaining the trust and confidence of our visitors. This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our store.
+                        <?php esc_html_e('For exhaustive educational resources regarding cookies and configuration controls, you may visit', 'dawp'); ?>
+                        <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer" class="font-bold text-foreground transition-colors hover:text-accent"><?php esc_html_e('All About Cookies', 'dawp'); ?></a>.
                     </p>
-                    <p class="italic text-sm">Last Updated: May 7, 2026</p>
+                    <p>
+                        <?php esc_html_e('To opt-out of targeted Google tracking used for behavioral marketing, you can manage your preferences directly via the', 'dawp'); ?>
+                        <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="font-bold text-foreground transition-colors hover:text-accent"><?php esc_html_e('Google Ads Settings Page', 'dawp'); ?></a>.
+                    </p>
                 </div>
-            </div>
+            </section>
 
-            <!-- Information Collection Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Information We Collect</h2>
+            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('6. Your Rights Under Global and US Privacy Laws (CCPA/GDPR)', 'dawp'); ?></h2>
+                <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
+                    <p><?php esc_html_e('If you are a resident of certain protected territories (including California or the European Union), you possess explicit legal rights to access the specific personal data we hold about you, to request that inaccurate information be corrected, updated, or permanently deleted.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('If you would like to actively exercise these legal consumer protection rights, please contact our Compliance Officer through the dedicated channel listed below.', 'dawp'); ?></p>
                 </div>
+            </section>
 
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <div>
-                        <h3 class="text-foreground font-semibold text-xl mb-3">Order Information</h3>
-                        <p>When you make a purchase or attempt to make a purchase through the Site, we collect certain information from you, including your name, billing address, shipping address, payment information (including credit card numbers), email address, and phone number. We refer to this information as "Order Information."</p>
-                    </div>
+            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('7. Data Retention', 'dawp'); ?></h2>
+                <p class="mt-5 leading-relaxed text-foreground-muted">
+                    <?php esc_html_e('When you execute an order through our boutique storefront, we will preserve your structural Order Information for our continuous business, tax reporting, and accounting records unless and until you formally ask us to scrub this information from our directories.', 'dawp'); ?>
+                </p>
+            </section>
 
-                    <div>
-                        <h3 class="text-foreground font-semibold text-xl mb-3">Device Information</h3>
-                        <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. We refer to this automatically-collected information as "Device Information."</p>
-                    </div>
-                </div>
-            </div>
+            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('8. Contact Us', 'dawp'); ?></h2>
+                <p class="mt-5 leading-relaxed text-foreground-muted">
+                    <?php esc_html_e('For more information regarding our data privacy practices, if you have technical questions, or if you wish to file an official data inquiry, please contact our team via the verified channels below:', 'dawp'); ?>
+                </p>
 
-            <!-- How We Use Information Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">How We Use Your Data</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We use the Order Information that we collect generally to fulfill any orders placed through the Site (including processing your payment information, arranging for shipping, and providing you with invoices and/or order confirmations).</p>
-                    <p>Additionally, we use this Order Information to:</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>Communicate with you;</li>
-                        <li>Screen our orders for potential risk or fraud; and</li>
-                        <li>When in line with the preferences you have shared with us, provide you with information or advertising relating to our boutique products or services.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Sharing Information Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Sharing Your Information</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use WooCommerce to power our online store. We also use Google Analytics to help us understand how our customers use the Site.</p>
-                    <p>Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.</p>
-                </div>
-            </div>
-
-            <!-- Cookies Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"></path><path d="M8.5 8.5v.01"></path><path d="M16 15.5v.01"></path><path d="M12 12v.01"></path><path d="M11 17v.01"></path><path d="M7 14v.01"></path></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Cookies & Tracking</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>We use cookies to enhance your experience on our Site. Cookies are small data files that are placed on your device or computer and often include an anonymous unique identifier.</p>
-                    <p>For more information about cookies, and how to disable cookies, visit <a href="http://www.allaboutcookies.org" target="_blank" class="text-accent hover:underline">allaboutcookies.org</a>.</p>
-                </div>
-            </div>
-
-            <!-- Your Rights Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Your Rights</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>If you are a resident of certain territories (including the EU or California), you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.</p>
-                </div>
-            </div>
-
-            <!-- Contact Section -->
-            <div class="bg-background p-8 md:p-12 rounded-lg shadow-card border border-border transition-all duration-normal hover:shadow-card-hover">
-                <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-accent-soft rounded-full flex items-center justify-center text-accent">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                    </div>
-                    <h2 class="font-heading text-3xl text-foreground font-semibold">Contact Us</h2>
-                </div>
-
-                <div class="prose prose-neutral max-w-none text-foreground-muted space-y-6">
-                    <p>For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at **support@shopkelli.com** or by mail using the details provided below:</p>
-                    
-                    <div class="bg-surface-alt p-6 rounded-md border-l-4 border-accent">
-                        <p class="font-bold text-foreground">Shop Kelli Boutique</p>
-                        <p>1777 Canal St, Merced, CA 95340</p>
-                        <p>Attn: Privacy Compliance Officer</p>
+                <div class="mt-6 rounded-3xl border border-border bg-background p-4 md:p-5">
+                    <div class="grid gap-4 md:grid-cols-2">
+                        <div class="rounded-2xl border border-border p-5">
+                            <h3 class="font-bold text-foreground"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
+                            <p class="mt-3 text-foreground-muted"><?php echo esc_html($store_name); ?></p>
+                        </div>
+                        <div class="rounded-2xl border border-border p-5">
+                            <h3 class="font-bold text-foreground"><?php esc_html_e('Support Email', 'dawp'); ?></h3>
+                            <p class="mt-3 text-foreground-muted"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition-colors hover:text-accent"><?php echo esc_html($support_email); ?></a></p>
+                        </div>
+                        <div class="rounded-2xl border border-border p-5">
+                            <h3 class="font-bold text-foreground"><?php esc_html_e('Physical Mailing Address', 'dawp'); ?></h3>
+                            <p class="mt-3 leading-relaxed text-foreground-muted"><?php echo esc_html($mailing_address); ?></p>
+                        </div>
+                        <div class="rounded-2xl border border-border p-5">
+                            <h3 class="font-bold text-foreground"><?php esc_html_e('Support Availability', 'dawp'); ?></h3>
+                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('Monday-Friday, 10:00 AM-6:00 PM PST', 'dawp'); ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+                <div class="mt-7 flex flex-wrap gap-4">
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
+                        <?php esc_html_e('Contact Support', 'dawp'); ?>
+                    </a>
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
+                        <?php echo esc_html($support_email); ?>
+                    </a>
+                </div>
+            </section>
         </div>
     </div>
-</section>
+    </section>
+</main>

@@ -31,6 +31,9 @@ function dawp_is_current_url($url) {
 }
 
 function dawp_footer_columns() {
+    $account_page_id = function_exists('wc_get_page_id') ? wc_get_page_id('myaccount') : 0;
+    $account_url     = $account_page_id > 0 ? get_permalink($account_page_id) : home_url('/my-account/');
+
     return [
         [
             'title' => 'Shop',
@@ -49,6 +52,7 @@ function dawp_footer_columns() {
                 ['title' => 'About Us',   'url' => home_url('/about-us/')],
                 ['title' => 'Contact Us', 'url' => home_url('/contact-us/')],
                 ['title' => 'Track Order','url' => home_url('/track-order/')],
+                ['title' => 'My Account', 'url' => $account_url],
             ],
         ],
         [

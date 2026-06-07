@@ -165,33 +165,9 @@ $faq_sections = array(
     ),
 );
 
-$schema_entities = array();
-
-foreach ($faq_sections as $faq_section) {
-    foreach ($faq_section['items'] as $faq_item) {
-        $schema_entities[] = array(
-            '@type'          => 'Question',
-            'name'           => wp_strip_all_tags($faq_item['question']),
-            'acceptedAnswer' => array(
-                '@type' => 'Answer',
-                'text'  => wp_strip_all_tags($faq_item['answer']),
-            ),
-        );
-    }
-}
-
-$faq_schema = array(
-    '@context'   => 'https://schema.org',
-    '@type'      => 'FAQPage',
-    'mainEntity' => $schema_entities,
-);
 ?>
 
 <main class="sk-policy-page bg-surface">
-    <script type="application/ld+json">
-        <?php echo wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE); ?>
-    </script>
-
     <section class="sk-policy-hero">
         <div class="container mx-auto max-w-6xl px-4">
             <div class="sk-policy-hero__inner text-center">

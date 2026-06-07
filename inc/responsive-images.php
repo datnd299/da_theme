@@ -82,7 +82,7 @@ function dawp_theme_image($relative_path, $alt, $width, $height, $variants, $siz
 }
 
 function dawp_product_responsive_image($product, $class = '', $sizes = '') {
-    if (!$product instanceof WC_Product) {
+    if (!class_exists('WC_Product') || !$product instanceof WC_Product) {
         return '';
     }
 

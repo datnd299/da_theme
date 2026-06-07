@@ -5,7 +5,7 @@
 
 $store_name      = 'Shop Kelli Boutique';
 $support_email   = 'support@shopkelli.com';
-$mailing_address = '1777 Canal St, Merced, CA 95340';
+$mailing_address = dawp_get_woocommerce_store_address();
 ?>
 
 <main class="sk-policy-page bg-surface">

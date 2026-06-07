@@ -3,14 +3,21 @@
  * Template Name: About Us
  * Template Part: page-about
  */
+$store_address = dawp_get_woocommerce_store_address();
 ?>
 
 <main class="bg-[#FAF7F2]">
     <!-- Hero Section -->
     <section class="relative h-[500px] lg:h-[650px] flex items-center justify-center overflow-hidden">
-        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/store_about.png'); ?>" 
-             alt="About Shop Kelli Boutique" 
-             class="absolute inset-0 w-full h-full object-cover">
+        <?php echo dawp_theme_image(
+            'assets/img/store_about.png',
+            'About Shop Kelli Boutique',
+            1376,
+            650,
+            array(array(640, 500), array(1024, 650), array(1376, 650)),
+            '100vw',
+            array('class' => 'absolute inset-0 w-full h-full object-cover', 'loading' => 'eager', 'fetchpriority' => 'high')
+        ); ?>
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="relative z-10 text-center px-4 max-w-3xl">
             <h1 class="text-4xl lg:text-6xl font-serif text-white mb-6 drop-shadow-md">
@@ -46,9 +53,15 @@
             </div>
             <div class="relative">
                 <div class="absolute -inset-4 bg-[#E8D8C8] rounded-2xl -rotate-2"></div>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/about_babyandmom.png'); ?>" 
-                     alt="Mommy and Daughter laughing" 
-                     class="relative rounded-xl shadow-xl w-full h-auto object-cover aspect-square">
+                <?php echo dawp_theme_image(
+                    'assets/img/about_babyandmom.png',
+                    'Mommy and Daughter laughing',
+                    1024,
+                    1024,
+                    array(array(400, 400), array(768, 768), array(1024, 1024)),
+                    '(max-width: 1023px) calc(100vw - 32px), 608px',
+                    array('class' => 'relative rounded-xl shadow-xl w-full h-auto object-cover aspect-square')
+                ); ?>
             </div>
         </div>
     </section>
@@ -112,15 +125,17 @@
                         <?php esc_html_e('Transparency is key to our relationship with you. We are a registered business based in California, and we are always here to help with your orders or questions.', 'dawp'); ?>
                     </p>
                     <div class="space-y-6">
-                        <div class="flex gap-4 items-start">
-                            <div class="mt-1 text-[#c98a8a]">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <?php if ('' !== $store_address) : ?>
+                            <div class="flex gap-4 items-start">
+                                <div class="mt-1 text-[#c98a8a]">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-[#2F2A28]"><?php esc_html_e('Our Boutique Location', 'dawp'); ?></h4>
+                                    <p class="text-[#6F625D]"><?php echo esc_html($store_address); ?></p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-[#2F2A28]"><?php esc_html_e('Our Boutique Location', 'dawp'); ?></h4>
-                                <p class="text-[#6F625D]"><?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?></p>
-                            </div>
-                        </div>
+                        <?php endif; ?>
                         <div class="flex gap-4 items-start">
                             <div class="mt-1 text-[#c98a8a]">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>

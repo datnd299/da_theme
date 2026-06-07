@@ -3,6 +3,7 @@
  * Template Name: Contact Us
  * Template Part: page-contact
  */
+$store_address = dawp_get_woocommerce_store_address();
 ?>
 
 <main class="bg-[#FAF7F2]">
@@ -30,9 +31,15 @@
                 
                 <!-- Brand Support Image -->
                 <div class="relative rounded-3xl overflow-hidden shadow-lg aspect-[16/10]">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/support_contact.png'); ?>" 
-                         alt="Shop Kelli Support Desk" 
-                         class="w-full h-full object-cover">
+                    <?php echo dawp_theme_image(
+                        'assets/img/support_contact.png',
+                        'Shop Kelli Support Desk',
+                        900,
+                        563,
+                        array(array(400, 250), array(640, 400), array(900, 563)),
+                        '(max-width: 1023px) calc(100vw - 32px), 493px',
+                        array('class' => 'w-full h-full object-cover')
+                    ); ?>
                 </div>
 
                 <div class="grid gap-8">
@@ -62,18 +69,20 @@
                         </div>
                     </div>
 
-                    <!-- Physical Address (GMC Priority) -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <?php if ('' !== $store_address) : ?>
+                        <!-- Physical Address (GMC Priority) -->
+                        <div class="flex gap-5">
+                            <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Our Location', 'dawp'); ?></h3>
+                                <p class="text-[#6F625D] leading-relaxed">
+                                    <?php echo esc_html($store_address); ?>
+                                </p>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Our Location', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?>
-                            </p>
-                        </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
 
             </div>

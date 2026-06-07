@@ -102,11 +102,15 @@ $mega_sections = dawp_megamenu_sections();
 
         <!-- Logo -->
         <a href="<?php echo esc_url(home_url('/')); ?>" class="shrink-0" aria-label="Shopkelli">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
-                 alt="Shopkelli"
-                 class="h-8 w-auto"
-                 loading="eager"
-                 fetchpriority="high">
+            <?php echo dawp_theme_image(
+                'assets/img/logo.jpg',
+                'Shopkelli',
+                126,
+                64,
+                array(array(96, 49), array(126, 64), array(176, 89)),
+                '126px',
+                array('class' => 'h-8 w-auto', 'loading' => 'eager', 'fetchpriority' => 'high')
+            ); ?>
         </a>
 
         <!-- Nav (desktop) -->
@@ -155,9 +159,15 @@ $mega_sections = dawp_megamenu_sections();
 
                                 <!-- Lifestyle image column -->
                                 <div class="relative rounded-xl overflow-hidden" style="min-height:150px;">
-                                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mother_and_daughter_in_boutique_202605071526.jpeg'); ?>"
-                                         alt="Shop Kelli Boutique"
-                                         class="absolute inset-0 w-full h-full object-cover">
+                                    <?php echo dawp_theme_image(
+                                        'assets/img/Mother_and_daughter_in_boutique_202605071526.jpeg',
+                                        'Shop Kelli Boutique',
+                                        400,
+                                        250,
+                                        array(array(240, 150), array(320, 200), array(400, 250)),
+                                        '220px',
+                                        array('class' => 'absolute inset-0 w-full h-full object-cover')
+                                    ); ?>
                                     <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(166,75,85,0.55) 0%,transparent 55%);"></div>
                                     <div class="absolute bottom-0 left-0 right-0 p-3">
                                         <p class="text-white text-xs font-semibold leading-tight drop-shadow">
@@ -301,9 +311,15 @@ $mega_sections = dawp_megamenu_sections();
     <!-- Drawer header -->
     <div class="flex items-center justify-between px-4 h-14 border-b border-white/10">
         <a href="<?php echo esc_url(home_url('/')); ?>">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
-                 alt="Shopkelli"
-                 class="h-7 w-auto">
+            <?php echo dawp_theme_image(
+                'assets/img/logo.jpg',
+                'Shopkelli',
+                110,
+                56,
+                array(array(88, 45), array(110, 56), array(154, 78)),
+                '110px',
+                array('class' => 'h-7 w-auto', 'loading' => 'eager')
+            ); ?>
         </a>
         <button id="drawer-close"
                 class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors"

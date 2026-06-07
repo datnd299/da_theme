@@ -22,10 +22,26 @@
 
         <div class="relative">
           <div class="overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/banner_baby.png'); ?>" alt="Mother and daughter boutique lifestyle fashion" />
+            <?php echo dawp_theme_image(
+              'assets/img/banner_baby.png',
+              'Mother and daughter boutique lifestyle fashion',
+              900,
+              520,
+              array(array(400, 420), array(640, 520), array(900, 520), array(1086, 520)),
+              '(max-width: 1023px) calc(100vw - 32px), 560px',
+              array('class' => 'h-[420px] w-full object-cover md:h-[520px]', 'loading' => 'eager', 'fetchpriority' => 'high')
+            ); ?>
           </div>
           <div class="absolute -left-6 bottom-7 hidden h-[270px] w-[230px] overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
-            <img class="h-full w-full object-cover" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/fashion_baby.png'); ?>" alt="Women's casual boutique style" />
+            <?php echo dawp_theme_image(
+              'assets/img/fashion_baby.png',
+              'Women casual boutique style',
+              460,
+              540,
+              array(array(230, 270), array(460, 540)),
+              '230px',
+              array('class' => 'h-full w-full object-cover')
+            ); ?>
           </div>
           <div class="absolute bottom-8 right-6 hidden max-w-[240px] rounded-2xl bg-white p-5 shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
             <strong class="mb-1 block text-[#2F2A28]">Curated with care</strong>
@@ -48,7 +64,15 @@
 
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <a href="<?php echo esc_url(home_url('/product-category/girls-dresses/')); ?>" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/babygirls_dress.png'); ?>" alt="Girls Dresses collection" />
+            <?php echo dawp_theme_image(
+              'assets/img/babygirls_dress.png',
+              'Girls Dresses collection',
+              600,
+              640,
+              array(array(360, 420), array(480, 540), array(600, 640), array(720, 760)),
+              '(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 52px) / 2), 280px',
+              array('class' => 'h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105')
+            ); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
               <h3 class="font-serif text-2xl">Girls Dresses</h3>
@@ -57,7 +81,15 @@
           </a>
 
           <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" id="mommy-me" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mom&me_collection.png'); ?>" alt="Mommy & Me collection" />
+            <?php echo dawp_theme_image(
+              'assets/img/Mom&me_collection.png',
+              'Mommy and Me collection',
+              600,
+              640,
+              array(array(360, 420), array(480, 540), array(600, 640), array(720, 760)),
+              '(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 52px) / 2), 280px',
+              array('class' => 'h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105')
+            ); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
               <h3 class="font-serif text-2xl">Mommy & Me</h3>
@@ -66,7 +98,15 @@
           </a>
 
           <a href="<?php echo esc_url(home_url('/product-category/women-casual/')); ?>" id="women-casual" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/women_casual.png'); ?>" alt="Women Casual collection" />
+            <?php echo dawp_theme_image(
+              'assets/img/women_casual.png',
+              'Women Casual collection',
+              600,
+              640,
+              array(array(360, 420), array(480, 540), array(600, 640), array(720, 760)),
+              '(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 52px) / 2), 280px',
+              array('class' => 'h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105')
+            ); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
               <h3 class="font-serif text-2xl">Women Casual</h3>
@@ -75,7 +115,15 @@
           </a>
 
           <a href="<?php echo esc_url(home_url('/product-category/baby-girl-boutique/')); ?>" id="baby-girl" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <img class="h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Baby_girls.png'); ?>" alt="Baby Girl collection" />
+            <?php echo dawp_theme_image(
+              'assets/img/Baby_girls.png',
+              'Baby Girl collection',
+              600,
+              640,
+              array(array(360, 420), array(480, 540), array(600, 640), array(720, 760)),
+              '(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 52px) / 2), 280px',
+              array('class' => 'h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105')
+            ); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
             <div class="absolute bottom-5 left-5 right-5 text-white">
               <h3 class="font-serif text-2xl">Baby Girl</h3>
@@ -106,12 +154,14 @@
             'order'   => 'DESC',
           ) );
           foreach ( $top_picks as $product ) :
-            $img_url = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' );
-            if ( ! $img_url ) $img_url = wc_placeholder_img_src( 'woocommerce_thumbnail' );
           ?>
           <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
             <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-              <img class="aspect-square w-full object-cover" src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
+              <?php echo dawp_product_responsive_image(
+                $product,
+                'aspect-square w-full object-cover',
+                '(max-width: 767px) calc((100vw - 48px) / 2), (max-width: 1023px) calc((100vw - 80px) / 2), 280px'
+              ); ?>
             </a>
             <div class="p-3 md:p-4">
               <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
@@ -128,7 +178,15 @@
     <section class="py-14 md:py-20">
       <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-6 lg:grid-cols-2">
         <div class="overflow-hidden rounded-[28px] bg-[#F5F3F1]">
-          <img class="h-[420px] w-full object-cover md:h-[520px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Mom&me.png'); ?>" alt="Mommy and daughter boutique outfits" />
+          <?php echo dawp_theme_image(
+            'assets/img/Mom&me.png',
+            'Mommy and daughter boutique outfits',
+            900,
+            520,
+            array(array(400, 420), array(640, 520), array(900, 520), array(1024, 520)),
+            '(max-width: 1023px) calc(100vw - 32px), 580px',
+            array('class' => 'h-[420px] w-full object-cover md:h-[520px]')
+          ); ?>
         </div>
         <div class="rounded-[28px] border border-[#E6DDD6] bg-white p-8 shadow-[0_12px_30px_rgba(47,42,40,0.08)] md:p-10">
           <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Mommy & Me</p>
@@ -197,12 +255,14 @@
             ) );
           }
           foreach ( $favorites as $product ) :
-            $img_url = wp_get_attachment_image_url( $product->get_image_id(), 'woocommerce_thumbnail' );
-            if ( ! $img_url ) $img_url = wc_placeholder_img_src( 'woocommerce_thumbnail' );
           ?>
           <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
             <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-              <img class="aspect-square w-full object-cover" src="<?php echo esc_url( $img_url ); ?>" alt="<?php echo esc_attr( $product->get_name() ); ?>" />
+              <?php echo dawp_product_responsive_image(
+                $product,
+                'aspect-square w-full object-cover',
+                '(max-width: 767px) calc((100vw - 48px) / 2), (max-width: 1023px) calc((100vw - 80px) / 2), 280px'
+              ); ?>
             </a>
             <div class="p-3 md:p-4">
               <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
@@ -245,7 +305,15 @@
     <section class="py-14 md:py-20">
       <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-8 rounded-[28px] bg-[#FAF7F2] p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div class="overflow-hidden rounded-2xl">
-          <img class="h-[360px] w-full object-cover md:h-[420px]" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/mom_baby_store.png'); ?>" alt="Warm local boutique shopping experience" />
+          <?php echo dawp_theme_image(
+            'assets/img/mom_baby_store.png',
+            'Warm local boutique shopping experience',
+            900,
+            420,
+            array(array(400, 360), array(640, 420), array(900, 420), array(1024, 420)),
+            '(max-width: 1023px) calc(100vw - 80px), 440px',
+            array('class' => 'h-[360px] w-full object-cover md:h-[420px]')
+          ); ?>
         </div>
         <div class="p-2 md:p-6">
           <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Our Boutique Story</p>
@@ -289,11 +357,15 @@
           $gallery_imgs = ['gallery1','gallery2','gallery3','gallery4','gallery5','gallery6'];
           foreach ( $gallery_imgs as $img ) : ?>
           <div class="group overflow-hidden rounded-2xl">
-            <img
-              class="h-60 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72"
-              src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/gallery/' . $img . '.jpg' ); ?>"
-              alt="Boutique lifestyle photo"
-            />
+            <?php echo dawp_theme_image(
+              'assets/img/gallery/' . $img . '.jpg',
+              'Boutique lifestyle photo',
+              640,
+              288,
+              array(array(220, 240), array(400, 288), array(640, 288)),
+              '(max-width: 767px) calc((100vw - 44px) / 2), 380px',
+              array('class' => 'h-60 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72')
+            ); ?>
           </div>
           <?php endforeach; ?>
         </div>

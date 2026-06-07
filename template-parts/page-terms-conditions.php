@@ -5,7 +5,7 @@
 
 $store_name       = 'Shop Kelli Boutique';
 $support_email    = 'support@shopkelli.com';
-$mailing_address  = '1777 Canal St, Merced, CA 95340';
+$mailing_address  = dawp_get_woocommerce_store_address();
 $support_hours    = 'Monday-Friday, 10:00 AM-6:00 PM PST';
 $return_policy    = home_url('/refund-return-policy/');
 $shipping_policy  = home_url('/shipping-policy/');

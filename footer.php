@@ -1,6 +1,9 @@
 </div><!-- #content -->
 
-<?php $footer_cols = dawp_footer_columns(); ?>
+<?php
+$footer_cols          = dawp_footer_columns();
+$footer_store_address = dawp_get_woocommerce_store_address();
+?>
 
 <footer id="colophon" class="bg-[#C98A8A] text-white" role="contentinfo">
 
@@ -8,10 +11,15 @@
 
         <div class="sm:col-span-2 lg:col-span-1">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block mb-4">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.jpg'); ?>"
-                     alt="Shopkelli"
-                     class="h-16 w-auto"
-                     loading="lazy">
+                <?php echo dawp_theme_image(
+                    'assets/img/logo.jpg',
+                    'Shopkelli',
+                    126,
+                    64,
+                    array(array(126, 64), array(252, 128), array(438, 222)),
+                    '126px',
+                    array('class' => 'h-16 w-auto')
+                ); ?>
             </a>
 
             <p class="text-sm text-white leading-relaxed mb-5">
@@ -31,13 +39,15 @@
                     </a>
                 </li>
 
-                <li class="flex items-start gap-2">
-                    <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                        <circle cx="12" cy="10" r="3"/>
-                    </svg>
-                    1777 Canal St, Merced, CA 95340
-                </li>
+                <?php if ('' !== $footer_store_address) : ?>
+                    <li class="flex items-start gap-2">
+                        <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <?php echo esc_html($footer_store_address); ?>
+                    </li>
+                <?php endif; ?>
 
                 <li class="flex items-start gap-2">
                     <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">

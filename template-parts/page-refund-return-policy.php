@@ -2,6 +2,7 @@
 /**
  * Template Part: Refund & Return Policy
  */
+$store_address = dawp_get_woocommerce_store_address();
 ?>
 
 <main class="sk-policy-page bg-surface">
@@ -117,7 +118,7 @@
 
                 <div class="mt-5 rounded-2xl border border-[#E8D8C8] bg-[#FFF8E8] p-5 text-foreground">
                     <p class="font-bold"><?php esc_html_e('Shop Kelli Boutique - Returns Department', 'dawp'); ?></p>
-                    <p class="mt-2"><?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?></p>
+                    <p class="mt-2"><?php echo esc_html($store_address); ?></p>
                 </div>
 
                 <div class="mt-7 flex flex-wrap gap-4">
@@ -173,7 +174,7 @@
                         </div>
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Address', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('1777 Canal St, Merced, CA 95340', 'dawp'); ?></p>
+                            <p class="mt-3 text-foreground-muted"><?php echo esc_html($store_address); ?></p>
                         </div>
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Email', 'dawp'); ?></h3>

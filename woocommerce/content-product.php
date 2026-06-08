@@ -16,7 +16,7 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
         <div class="product-card__shell">
             <div class="product-card__inner">
                 <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+                    <?php dawp_responsive_product_image($product, 'product-card__img', '(max-width: 767px) 50vw, (max-width: 1199px) 33vw, 25vw'); ?>
                 </div>
 
                 <?php if ($product->is_on_sale()) : ?>

@@ -60,11 +60,16 @@ $nav_items = [
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="shrink-0"
                aria-label="<?php bloginfo('name'); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee.png'); ?>"
-                     alt="<?php bloginfo('name'); ?>"
-                     class="h-11 w-auto"
-                     width="190"
-                     height="44">
+                <?php dawp_responsive_theme_image(
+                    'assets/img/slicktee.png',
+                    get_bloginfo('name'),
+                    'h-11 w-auto',
+                    190,
+                    44,
+                    [[190, 44], [380, 88]],
+                    '190px',
+                    'eager'
+                ); ?>
             </a>
 
             <!-- Desktop Navigation -->

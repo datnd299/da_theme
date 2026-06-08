@@ -1,7 +1,7 @@
 <?php
 add_action('template_redirect', 'dawp_handle_virtual_pages');
 function dawp_handle_virtual_pages() {
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    $request_uri = function_exists('dawp_get_request_path') ? dawp_get_request_path() : trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $virtual_pages = dawp_virtual_page_map();
 
     if (!isset($virtual_pages[$request_uri])) {
@@ -25,6 +25,13 @@ function dawp_handle_virtual_pages() {
     exit;
 }
 
+function dawp_is_virtual_page_request() {
+    $request_uri = function_exists('dawp_get_request_path') ? dawp_get_request_path() : trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    $virtual_pages = dawp_virtual_page_map();
+
+    return isset($virtual_pages[$request_uri]);
+}
+
 function dawp_virtual_page_map() {
     return [
         'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
@@ -40,7 +47,7 @@ function dawp_virtual_page_map() {
 
 add_filter('document_title_parts', 'dawp_virtual_page_title');
 function dawp_virtual_page_title($parts) {
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    $request_uri = function_exists('dawp_get_request_path') ? dawp_get_request_path() : trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $map = dawp_virtual_page_map();
     if (isset($map[$request_uri])) {
         $parts['title'] = $map[$request_uri]['title'];
@@ -52,7 +59,7 @@ function dawp_virtual_page_title($parts) {
 add_action('wp_enqueue_scripts', 'dawp_virtual_page_assets');
 
 function dawp_virtual_page_assets() {
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    $request_uri = function_exists('dawp_get_request_path') ? dawp_get_request_path() : trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $pages = dawp_virtual_page_map();
 
     // Không phải virtual page hoặc page không cấu hình css

@@ -32,7 +32,7 @@
 
         <div class="relative">
           <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/image_banner%231.png'); ?>" alt="Modern streetwear graphic tee outfit" class="aspect-[4/5] w-full rounded-[1.35rem] object-cover" />
+            <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/image_banner%231.png', 'Modern streetwear graphic tee outfit', 'aspect-[4/5] w-full rounded-[1.35rem] object-cover', 900, 1125, [[480, 600], [768, 960], [900, 1125]], '(max-width: 1023px) 100vw, 50vw', 'eager'); ?>
           </div>
 
           <div class="absolute -bottom-7 -left-4 hidden max-w-[250px] rounded-2xl border border-white/10 bg-white p-5 text-[#111827] shadow-2xl lg:block">
@@ -58,7 +58,7 @@
 
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           <a href="<?php echo esc_url(home_url('/product-category/graphic-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/graphic_tee1.png'); ?>" alt="Graphic tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+            <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/graphic_tee1.png', 'Graphic tees collection', 'aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65', 640, 800, [[360, 450], [480, 600], [640, 800]], '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw'); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
               <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
@@ -69,7 +69,7 @@
           </a>
 
           <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/oversize_tee.png'); ?>" alt="Oversize tees collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+            <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/oversize_tee.png', 'Oversize tees collection', 'aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65', 640, 800, [[360, 450], [480, 600], [640, 800]], '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw'); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
               <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
@@ -80,7 +80,7 @@
           </a>
 
           <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/hoodie%231.png'); ?>" alt="Hoodies collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+            <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/hoodie%231.png', 'Hoodies collection', 'aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65', 640, 800, [[360, 450], [480, 600], [640, 800]], '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw'); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
               <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
@@ -91,7 +91,7 @@
           </a>
 
           <a href="<?php echo esc_url(home_url('/product-category/streetwear-essentials/')); ?>" class="group relative overflow-hidden rounded-2xl bg-[#0B0F0D] shadow-sm">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/banner_image%232.png'); ?>" alt="Streetwear essentials collection" class="aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+            <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/banner_image%232.png', 'Streetwear essentials collection', 'aspect-[4/5] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65', 640, 800, [[360, 450], [480, 600], [640, 800]], '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw'); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10"></div>
             <div class="absolute bottom-0 left-0 right-0 p-5">
               <div class="rounded-2xl bg-black/45 p-4 backdrop-blur-sm">
@@ -130,15 +130,13 @@
         <?php if ($new_arrivals) : ?>
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
           <?php foreach ($new_arrivals as $product) :
-            $img_url  = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url  = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
             $price    = $product->get_price_html();
             $link     = get_permalink($product->get_id());
             $name     = $product->get_name();
           ?>
           <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
             <div class="overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <?php dawp_responsive_product_image($product, 'aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105', '(max-width: 1023px) 50vw, 25vw'); ?>
             </div>
             <div class="p-4">
               <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>
@@ -156,7 +154,7 @@
     <section class="bg-[#0B0F0D] py-16 text-white lg:py-24">
       <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Everyday_street_style.png'); ?>" alt="Urban lifestyle streetwear outfit" class="aspect-[4/3] w-full rounded-2xl object-cover" />
+          <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/Everyday_street_style.png', 'Urban lifestyle streetwear outfit', 'aspect-[4/3] w-full rounded-2xl object-cover', 900, 675, [[480, 360], [768, 576], [900, 675]], '(max-width: 1023px) 100vw, 50vw'); ?>
         </div>
 
         <div>
@@ -198,7 +196,7 @@
           </div>
 
           <div class="overflow-hidden rounded-3xl bg-[#0B0F0D] lg:col-span-2">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Original_direction.png'); ?>" alt="Graphic tee collection banner" class="h-full min-h-[360px] w-full object-cover opacity-90" />
+            <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/Original_direction.png', 'Graphic tee collection banner', 'h-full min-h-[360px] w-full object-cover opacity-90', 1200, 720, [[640, 384], [960, 576], [1200, 720]], '(max-width: 1023px) 100vw, 66vw'); ?>
           </div>
         </div>
       </div>
@@ -208,7 +206,7 @@
     <section class="bg-white py-16 lg:py-24">
       <div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <a href="<?php echo esc_url(home_url('/product-category/oversize-tees/')); ?>" class="group overflow-hidden rounded-3xl bg-[#0B0F0D] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png'); ?>" alt="Oversize tee streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+          <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/Relaxed_Fit%20_Oversized_Tees.png', 'Oversize tee streetwear style', 'aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65', 900, 619, [[480, 330], [768, 528], [900, 619]], '(max-width: 1023px) 100vw, 50vw'); ?>
           <div class="p-8">
             <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Relaxed Fit</p>
             <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Oversize Tees</h3>
@@ -217,7 +215,7 @@
         </a>
 
         <a href="<?php echo esc_url(home_url('/product-category/casual-hoodies/')); ?>" class="group overflow-hidden rounded-3xl bg-[#123D2A] text-white">
-          <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/casoul_hoodie.png'); ?>" alt="Casual hoodie streetwear style" class="aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65" />
+          <?php dawp_responsive_theme_image('assets/img/gallery/Slichtee/casoul_hoodie.png', 'Casual hoodie streetwear style', 'aspect-[16/11] w-full object-cover opacity-85 transition duration-500 group-hover:scale-105 group-hover:opacity-65', 900, 619, [[480, 330], [768, 528], [900, 619]], '(max-width: 1023px) 100vw, 50vw'); ?>
           <div class="p-8">
             <p class="text-sm font-black uppercase tracking-[0.2em] text-[#A3E635]">Layer Ready</p>
             <h3 class="mt-3 text-4xl font-black uppercase tracking-[-0.05em]">Casual Hoodies</h3>
@@ -285,15 +283,13 @@
         <?php if ($best_sellers) : ?>
         <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
           <?php foreach ($best_sellers as $product) :
-            $img_url = wp_get_attachment_image_url($product->get_image_id(), 'woocommerce_thumbnail');
-            $img_url = $img_url ?: wc_placeholder_img_src('woocommerce_thumbnail');
             $price   = $product->get_price_html();
             $link    = get_permalink($product->get_id());
             $name    = $product->get_name();
           ?>
           <article class="group overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition hover:-translate-y-1 hover:shadow-xl">
             <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-[#F7F8F5]">
-              <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($name); ?>" class="aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105" />
+              <?php dawp_responsive_product_image($product, 'aspect-4/5 w-full object-cover transition duration-500 group-hover:scale-105', '(max-width: 1023px) 50vw, 25vw'); ?>
             </a>
             <div class="p-4">
               <h3 class="line-clamp-2 text-sm font-black text-[#111827] sm:text-base"><?php echo esc_html($name); ?></h3>

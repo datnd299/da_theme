@@ -4,7 +4,9 @@
  * Template Part: page-faq
  */
 
-get_header();
+if (!function_exists('dawp_is_virtual_page_request') || !dawp_is_virtual_page_request()) {
+    get_header();
+}
 ?>
 
 <main id="primary" class="bg-white text-slickText font-body">
@@ -365,4 +367,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <?php
-get_footer();
+if (!function_exists('dawp_is_virtual_page_request') || !dawp_is_virtual_page_request()) {
+    get_footer();
+}

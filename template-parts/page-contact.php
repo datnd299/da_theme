@@ -42,9 +42,16 @@
 
             <div class="relative">
                 <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/contact_banner.png'); ?>"
-                         alt="<?php esc_attr_e('Slicktee customer support desk for apparel orders', 'dawp'); ?>"
-                         class="aspect-[4/5] w-full rounded-[1.35rem] object-cover opacity-90">
+                    <?php dawp_responsive_theme_image(
+                        'assets/img/gallery/Slichtee/contact_banner.png',
+                        __('Slicktee customer support desk for apparel orders', 'dawp'),
+                        'aspect-[4/5] w-full rounded-[1.35rem] object-cover opacity-90',
+                        900,
+                        1125,
+                        [[480, 600], [768, 960], [900, 1125]],
+                        '(max-width: 1023px) 100vw, 50vw',
+                        'eager'
+                    ); ?>
                 </div>
 
                 <div class="absolute -bottom-7 -left-4 hidden max-w-[260px] rounded-2xl border border-white/10 bg-white p-5 text-slickText shadow-2xl lg:block">
@@ -91,7 +98,7 @@
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
                             <span class="block text-xs font-black uppercase tracking-[0.2em] text-slickLime"><?php esc_html_e('Address', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm font-bold leading-6 text-white/75"><?php esc_html_e('425 Avenue P, Newark, NJ 07105', 'dawp'); ?></span>
+                            <span class="mt-2 block text-sm font-bold leading-6 text-white/75"><?php echo esc_html(dawp_get_store_address()); ?></span>
                         </div>
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">

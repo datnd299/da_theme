@@ -83,11 +83,16 @@ $footer_policy_links = [
                 <a href="<?php echo esc_url(home_url('/')); ?>"
                    class="inline-flex shrink-0"
                    aria-label="<?php bloginfo('name'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/slicktee.png'); ?>"
-                         alt="<?php bloginfo('name'); ?>"
-                         class="h-11 w-auto"
-                         width="190"
-                         height="44">
+                    <?php dawp_responsive_theme_image(
+                        'assets/img/slicktee.png',
+                        get_bloginfo('name'),
+                        'h-11 w-auto',
+                        190,
+                        44,
+                        [[190, 44], [380, 88]],
+                        '190px',
+                        'lazy'
+                    ); ?>
                 </a>
 
                 <div class="mt-5 max-w-md space-y-3 text-sm font-bold leading-6 text-white/80">
@@ -103,7 +108,7 @@ $footer_policy_links = [
                         <svg class="mt-0.5 h-5 w-5 shrink-0 text-slickLime" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 6.18 12.38 6.44 12.68a.75.75 0 0 0 1.12 0C12.82 21.38 19 14.25 19 9a7 7 0 0 0-7-7Zm0 17.98C10.12 17.64 7 13.21 7 9a5 5 0 0 1 10 0c0 4.21-3.12 8.64-5 10.98ZM12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 4.1a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2Z" />
                         </svg>
-                        <span><?php esc_html_e('425 Avenue P, Newark, NJ 07105', 'dawp'); ?></span>
+                        <span><?php echo esc_html(dawp_get_store_address()); ?></span>
                     </p>
 
                     <p class="flex items-start gap-3">
@@ -193,11 +198,16 @@ $footer_policy_links = [
                 <p class="text-xs font-black uppercase tracking-[0.2em] text-white/40">
                     <?php esc_html_e('Payment Methods', 'dawp'); ?>
                 </p>
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment-methods.webp'); ?>"
-                     alt="<?php esc_attr_e('Accepted payment methods: Visa, Mastercard, Discover, American Express, PayPal', 'dawp'); ?>"
-                     class="h-7 w-auto opacity-70"
-                     width="340"
-                     height="44">
+                <?php dawp_responsive_theme_image(
+                    'assets/img/payment-methods.webp',
+                    __('Accepted payment methods: Visa, Mastercard, Discover, American Express, PayPal', 'dawp'),
+                    'h-7 w-auto opacity-70',
+                    220,
+                    28,
+                    [[220, 28], [340, 44], [680, 88]],
+                    '220px',
+                    'lazy'
+                ); ?>
             </div>
 
             <p class="font-black uppercase tracking-[0.18em] text-slickLime">

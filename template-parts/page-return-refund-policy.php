@@ -4,7 +4,9 @@
  * Template Part: page-return-refund-policy
  */
 
-get_header();
+if (!function_exists('dawp_is_virtual_page_request') || !dawp_is_virtual_page_request()) {
+    get_header();
+}
 ?>
 
 <main id="primary" class="bg-white text-slickText font-body">
@@ -228,7 +230,7 @@ get_header();
                             <?php esc_html_e('Slicktee - Returns Department', 'dawp'); ?>
                         </p>
                         <p class="mt-2 text-sm leading-6">
-                            <?php esc_html_e('425 Avenue P, Newark, NJ 07105', 'dawp'); ?>
+                            <?php echo esc_html(dawp_get_store_address()); ?>
                         </p>
                     </div>
 
@@ -347,7 +349,7 @@ get_header();
                                     <?php esc_html_e('Address', 'dawp'); ?>
                                 </p>
                                 <p class="mt-3 text-base leading-7 text-slickMuted">
-                                    <?php esc_html_e('425 Avenue P, Newark, NJ 07105', 'dawp'); ?>
+                                    <?php echo esc_html(dawp_get_store_address()); ?>
                                 </p>
                             </div>
 
@@ -401,4 +403,6 @@ get_header();
 </main>
 
 <?php
-get_footer();
+if (!function_exists('dawp_is_virtual_page_request') || !dawp_is_virtual_page_request()) {
+    get_footer();
+}

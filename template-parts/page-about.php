@@ -4,7 +4,9 @@
  * Template Part: page-about-us
  */
 
-get_header();
+if (!function_exists('dawp_is_virtual_page_request') || !dawp_is_virtual_page_request()) {
+    get_header();
+}
 ?>
 
 <main id="primary" class="bg-white text-slickText font-body">
@@ -44,9 +46,16 @@ get_header();
 
             <div class="relative">
                 <div class="overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 shadow-2xl shadow-black/40">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/About_image.png'); ?>"
-                         alt="<?php esc_attr_e('Slicktee modern streetwear apparel style', 'dawp'); ?>"
-                         class="aspect-[4/5] w-full rounded-[1.35rem] object-cover">
+                    <?php dawp_responsive_theme_image(
+                        'assets/img/gallery/Slichtee/About_image.png',
+                        __('Slicktee modern streetwear apparel style', 'dawp'),
+                        'aspect-[4/5] w-full rounded-[1.35rem] object-cover',
+                        900,
+                        1125,
+                        [[480, 600], [768, 960], [900, 1125]],
+                        '(max-width: 1023px) 100vw, 50vw',
+                        'eager'
+                    ); ?>
                 </div>
 
                 <div class="absolute -bottom-7 -left-4 hidden max-w-[260px] rounded-2xl border border-white/10 bg-white p-5 text-slickText shadow-2xl lg:block">
@@ -167,9 +176,15 @@ get_header();
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
 
             <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/about_image%233.png'); ?>"
-                     alt="<?php esc_attr_e('Urban streetwear outfit and apparel styling', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover">
+                <?php dawp_responsive_theme_image(
+                    'assets/img/gallery/Slichtee/about_image%233.png',
+                    __('Urban streetwear outfit and apparel styling', 'dawp'),
+                    'aspect-[4/3] w-full rounded-2xl object-cover',
+                    900,
+                    675,
+                    [[480, 360], [768, 576], [900, 675]],
+                    '(max-width: 1023px) 100vw, 50vw'
+                ); ?>
             </div>
 
             <div>
@@ -367,9 +382,15 @@ get_header();
             </div>
 
             <div class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-3">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Slichtee/about_image%232.png'); ?>"
-                     alt="<?php esc_attr_e('Slicktee everyday streetwear apparel collection', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover opacity-90">
+                <?php dawp_responsive_theme_image(
+                    'assets/img/gallery/Slichtee/about_image%232.png',
+                    __('Slicktee everyday streetwear apparel collection', 'dawp'),
+                    'aspect-[4/3] w-full rounded-2xl object-cover opacity-90',
+                    900,
+                    675,
+                    [[480, 360], [768, 576], [900, 675]],
+                    '(max-width: 1023px) 100vw, 50vw'
+                ); ?>
             </div>
 
         </div>
@@ -378,4 +399,6 @@ get_header();
 </main>
 
 <?php
-get_footer();
+if (!function_exists('dawp_is_virtual_page_request') || !dawp_is_virtual_page_request()) {
+    get_footer();
+}

@@ -34,9 +34,10 @@ get_header();
 
     <!-- Quick Help Cards -->
     <section class="bg-slickSoft py-12 lg:py-16">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-2 scroll-smooth sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4">
 
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+            <div class="w-[82vw] max-w-[320px] shrink-0 snap-start rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm sm:w-auto sm:max-w-none">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">01</div>
                 <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
                     <?php esc_html_e('Orders', 'dawp'); ?>
@@ -46,7 +47,7 @@ get_header();
                 </p>
             </div>
 
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+            <div class="w-[82vw] max-w-[320px] shrink-0 snap-start rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm sm:w-auto sm:max-w-none">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickActive text-sm font-black text-slickBlack">02</div>
                 <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
                     <?php esc_html_e('Shipping', 'dawp'); ?>
@@ -56,7 +57,7 @@ get_header();
                 </p>
             </div>
 
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+            <div class="w-[82vw] max-w-[320px] shrink-0 snap-start rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm sm:w-auto sm:max-w-none">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickGreen text-sm font-black text-white">03</div>
                 <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
                     <?php esc_html_e('Returns', 'dawp'); ?>
@@ -66,7 +67,7 @@ get_header();
                 </p>
             </div>
 
-            <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm">
+            <div class="w-[82vw] max-w-[320px] shrink-0 snap-start rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm sm:w-auto sm:max-w-none">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-slickLime text-sm font-black text-slickBlack">04</div>
                 <h3 class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-slickText">
                     <?php esc_html_e('Support', 'dawp'); ?>
@@ -76,6 +77,7 @@ get_header();
                 </p>
             </div>
 
+            </div>
         </div>
     </section>
 
@@ -84,7 +86,7 @@ get_header();
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
 
             <!-- Sidebar -->
-            <aside class="lg:sticky lg:top-32 lg:self-start">
+            <aside class="hidden lg:block lg:sticky lg:top-32 lg:self-start">
                 <div class="rounded-3xl bg-slickBlack p-7 text-white shadow-xl shadow-black/10">
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
                         <?php esc_html_e('FAQ Categories', 'dawp'); ?>
@@ -142,7 +144,7 @@ get_header();
                             ],
                             [
                                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                                'a' => __('Orders are typically processed within 2–4 business days. Processing time includes order verification, preparation, and fulfillment before dispatch.', 'dawp'),
+                                'a' => __('Orders are typically handled within 1-3 business days, Monday through Friday, excluding U.S. public holidays. Orders placed after the 5:00 PM (GMT-08:00) Pacific Standard Time cutoff begin processing the following business day.', 'dawp'),
                             ],
                         ],
                     ],
@@ -154,15 +156,19 @@ get_header();
                         'faqs'     => [
                             [
                                 'q' => __('How long does shipping take?', 'dawp'),
-                                'a' => __('After dispatch, standard US shipping typically takes 5–10 business days depending on destination, carrier conditions, and seasonal volume.', 'dawp'),
+                                'a' => __('Estimated delivery is 6-10 business days total from the date of purchase. This includes 1-3 business days for order handling and 5-7 business days for standard domestic transit.', 'dawp'),
                             ],
                             [
                                 'q' => __('Will I receive tracking information?', 'dawp'),
-                                'a' => __('Yes. Tracking information is sent by email once your order ships. Please allow some time for the carrier tracking page to update after the tracking number is created.', 'dawp'),
+                                'a' => __('Yes. Tracking information is sent by email once your order is dispatched. Multi-item orders may ship separately and may receive unique tracking numbers for each package.', 'dawp'),
+                            ],
+                            [
+                                'q' => __('Where do you ship and how much does standard shipping cost?', 'dawp'),
+                                'a' => __('Slicktee currently ships exclusively within the United States. Standard U.S. shipping is free on every order with no minimum purchase requirement.', 'dawp'),
                             ],
                             [
                                 'q' => __('Do business days include weekends or holidays?', 'dawp'),
-                                'a' => __('No. Business days do not include weekends or public holidays. Delivery and processing may take slightly longer during high-volume periods.', 'dawp'),
+                                'a' => __('No. Shipping and handling timelines are calculated Monday through Friday and exclude standard U.S. public holidays. Delivery may take longer during extreme weather, carrier capacity issues, regional holidays, or high-volume periods.', 'dawp'),
                             ],
                         ],
                     ],
@@ -174,15 +180,19 @@ get_header();
                         'faqs'     => [
                             [
                                 'q' => __('What is your return window?', 'dawp'),
-                                'a' => __('Customers may request a return within 30 days of delivery. Eligible items must be unused, unwashed, unworn, in original condition, and returned with original packaging where applicable.', 'dawp'),
+                                'a' => __('You must initiate your return request within 30 days of delivery. Eligible items must be unworn, unused, undamaged, and in their original, unaltered condition with original packaging, tags, labels, care cards, pouches, boxes, and included accessories.', 'dawp'),
                             ],
                             [
                                 'q' => __('What items are not eligible for return?', 'dawp'),
-                                'a' => __('Items may not qualify if they show wear, stains, odors, damage, washing, alteration, or missing original packaging where applicable.', 'dawp'),
+                                'a' => __('Items are not eligible if they are final sale, non-returnable, gift cards, digital products, personalized or custom-made items, hygiene-sensitive items with broken seals, or items worn, washed, altered, damaged, or missing required packaging or accessories.', 'dawp'),
                             ],
                             [
                                 'q' => __('How long does a refund take?', 'dawp'),
-                                'a' => __('Once a returned item is received and inspected, we will notify you about the approval status. Approved refunds are processed back to the original payment method. Your payment provider may take several business days to post the refund.', 'dawp'),
+                                'a' => __('Once your return package is received, we inspect it within 1-2 business days. Approved refunds are processed back to the original payment method within 7 business days. If you have not received an approved refund after 15 business days, check with your bank or card company first, then contact us.', 'dawp'),
+                            ],
+                            [
+                                'q' => __('Do you offer exchanges?', 'dawp'),
+                                'a' => __('We do not process direct one-for-one exchanges. To get a different size, color, or model, please follow the return process for a refund and place a new order for the item you want.', 'dawp'),
                             ],
                         ],
                     ],
@@ -214,7 +224,7 @@ get_header();
                         'faqs'     => [
                             [
                                 'q' => __('Is checkout secure?', 'dawp'),
-                                'a' => __('Yes. Payment and checkout information is handled through secure ecommerce systems. We focus on providing a clear and trustworthy shopping experience.', 'dawp'),
+                                'a' => __('Yes. Checkout is protected through an encrypted SSL connection, and payment transactions are processed by certified third-party gateways aligned with PCI-DSS. Slicktee does not store raw credit card numbers on our corporate systems.', 'dawp'),
                             ],
                             [
                                 'q' => __('Why was my payment declined?', 'dawp'),
@@ -238,11 +248,11 @@ get_header();
                             ],
                             [
                                 'q' => __('What should I do if I received a damaged or incorrect item?', 'dawp'),
-                                'a' => __('Contact us as soon as possible with your order number and clear photos of the issue. Our support team will review your case and help with the next steps.', 'dawp'),
+                                'a' => __('Contact us within 30 days of delivery with your order number, checkout email, and clear photos of the item, package, and shipping label. For wrong, carrier-damaged, or defective items, Slicktee covers 100% of approved return shipping costs.', 'dawp'),
                             ],
                             [
                                 'q' => __('When is customer support available?', 'dawp'),
-                                'a' => __('Our business hours are Monday through Friday, 9:00 AM – 6:00 PM EST. Response times may vary during weekends, holidays, or high-volume periods.', 'dawp'),
+                                'a' => __('Our business hours are Monday-Friday, 9:00 AM-6:00 PM PST. We aim to reply within 1 business day, though response times may vary during weekends, holidays, or high-volume periods.', 'dawp'),
                             ],
                         ],
                     ],

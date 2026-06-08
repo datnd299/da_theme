@@ -22,32 +22,24 @@ $cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_conten
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
 
-$nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [];
-
-if (empty($nav_items)) {
-    $nav_items = [
-        [
-            'title' => 'New Arrivals',
-            'url'   => home_url('/shop/'),
-        ],
-        [
-            'title' => 'Graphic Tees',
-            'url'   => home_url('/product-category/graphic-tees/'),
-        ],
-        [
-            'title' => 'Oversized Tees',
-            'url'   => home_url('/product-category/oversize-tees/'),
-        ],
-        [
-            'title' => 'Hoodies',
-            'url'   => home_url('/product-category/casual-hoodies/'),
-        ],
-        [
-            'title' => 'Essentials',
-            'url'   => home_url('/product-category/streetwear-essentials/'),
-        ],
-    ];
-}
+$nav_items = [
+    [
+        'title' => __('Homepage', 'dawp'),
+        'url'   => home_url('/'),
+    ],
+    [
+        'title' => __('Shop', 'dawp'),
+        'url'   => home_url('/shop/'),
+    ],
+    [
+        'title' => __('About Us', 'dawp'),
+        'url'   => home_url('/about-us/'),
+    ],
+    [
+        'title' => __('Contact Us', 'dawp'),
+        'url'   => home_url('/contact-us/'),
+    ],
+];
 ?>
 
 <!-- HEADER -->

@@ -317,12 +317,25 @@
           </p>
         </div>
 
-        <form class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row" action="#" method="post">
+        <form class="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+          <input type="hidden" name="action" value="dawp_newsletter_signup" />
+          <?php wp_nonce_field('dawp_newsletter_signup', 'dawp_newsletter_nonce'); ?>
           <label for="slicktee-email" class="sr-only">Email address</label>
-          <input id="slicktee-email" type="email" name="email" placeholder="Enter your email" class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-[#111827] placeholder:text-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#A3E635]" />
+          <input id="slicktee-email" type="email" name="email" placeholder="Enter your email" required class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-[#111827] placeholder:text-[#6B7280] focus:outline-none focus:ring-2 focus:ring-[#A3E635]" />
           <button type="submit" class="min-h-12 rounded-md bg-[#22C55E] px-6 text-sm font-black uppercase tracking-wide text-[#0B0F0D] transition hover:bg-[#A3E635]">
             Join
           </button>
         </form>
+        <?php if (isset($_GET['newsletter'])) : ?>
+          <?php
+            $newsletter_status = sanitize_key(wp_unslash($_GET['newsletter']));
+            $newsletter_message = 'success' === $newsletter_status
+              ? __('Thanks. You are on the update list.', 'dawp')
+              : __('Please enter a valid email address and try again.', 'dawp');
+          ?>
+          <p class="lg:col-start-2 text-sm font-semibold <?php echo 'success' === $newsletter_status ? 'text-[#A3E635]' : 'text-red-300'; ?>">
+            <?php echo esc_html($newsletter_message); ?>
+          </p>
+        <?php endif; ?>
       </div>
     </section>

@@ -74,6 +74,50 @@
   --duration-slow: 400ms;
 }
 
+@media (max-width: 639.98px) {
+  .site-footer-trust .footer-trust-slider {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .site-footer-trust .footer-trust-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-footer-trust .footer-trust-card {
+    flex: 0 0 min(82vw, 320px);
+    min-height: 128px;
+    scroll-snap-align: start;
+  }
+
+  .policy-highlight-slider {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .policy-highlight-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .policy-highlight-slider > * {
+    flex: 0 0 min(82vw, 320px);
+    min-height: 100%;
+    scroll-snap-align: start;
+  }
+}
+
 /* =============================================================
    BASE
    ============================================================= */

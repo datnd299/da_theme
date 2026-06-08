@@ -17,7 +17,8 @@ $footer_shop_links = [
 
 $footer_help_links = [
     ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
-    ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+    ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
     ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
     ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
 ];
@@ -34,9 +35,9 @@ $footer_policy_links = [
 </div><!-- #content -->
 
 <footer id="colophon" class="bg-slickBlack text-white" role="contentinfo">
-    <section class="border-b border-white/10 bg-slickGreen">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+    <section class="site-footer-trust border-b border-white/10 bg-slickGreen">
+        <div class="footer-trust-slider mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
+            <div class="footer-trust-card rounded-2xl border border-white/10 bg-white/5 p-5">
                 <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
                     <?php esc_html_e('Secure Checkout', 'dawp'); ?>
                 </p>
@@ -45,7 +46,7 @@ $footer_policy_links = [
                 </p>
             </div>
 
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div class="footer-trust-card rounded-2xl border border-white/10 bg-white/5 p-5">
                 <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
                     <?php esc_html_e('Tracking Included', 'dawp'); ?>
                 </p>
@@ -54,7 +55,7 @@ $footer_policy_links = [
                 </p>
             </div>
 
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div class="footer-trust-card rounded-2xl border border-white/10 bg-white/5 p-5">
                 <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
                     <?php esc_html_e('30-Day Returns', 'dawp'); ?>
                 </p>
@@ -63,7 +64,7 @@ $footer_policy_links = [
                 </p>
             </div>
 
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div class="footer-trust-card rounded-2xl border border-white/10 bg-white/5 p-5">
                 <p class="font-heading text-2xl font-black uppercase tracking-[-0.03em] text-white">
                     <?php esc_html_e('Support Available', 'dawp'); ?>
                 </p>
@@ -89,43 +90,31 @@ $footer_policy_links = [
                          height="44">
                 </a>
 
-                <p class="mt-5 max-w-md text-base leading-8 text-white/78">
-                    <?php esc_html_e('Modern graphic tees, oversized silhouettes, casual hoodies, and everyday streetwear essentials built for clean daily rotation.', 'dawp'); ?>
-                </p>
-
-                <form role="search"
-                      method="get"
-                      action="<?php echo esc_url(home_url('/')); ?>"
-                      class="mt-7 flex max-w-md flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-3 sm:flex-row">
-                    <label for="slicktee-footer-search" class="sr-only">
-                        <?php esc_html_e('Search products', 'dawp'); ?>
-                    </label>
-
-                    <input id="slicktee-footer-search"
-                           type="search"
-                           name="s"
-                           placeholder="<?php esc_attr_e('Search apparel', 'dawp'); ?>"
-                           class="min-h-12 flex-1 rounded-md border border-white/10 bg-white px-4 text-slickText placeholder:text-slickMuted outline-none transition focus:border-slickActive focus:ring-2 focus:ring-slickLime">
-
-                    <input type="hidden" name="post_type" value="product">
-
-                    <button type="submit"
-                            class="min-h-12 rounded-md bg-slickActive px-6 text-sm font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                        <?php esc_html_e('Search', 'dawp'); ?>
-                    </button>
-                </form>
-
-                <div class="mt-6 flex flex-wrap gap-3">
+                <div class="mt-5 max-w-md space-y-3 text-sm font-bold leading-6 text-white/80">
                     <a href="mailto:support@slicktee.com"
-                       class="inline-flex min-h-10 items-center justify-center rounded-md border border-white/15 px-4 text-xs font-black uppercase tracking-wide text-white/85 transition hover:border-slickLime hover:text-slickLime">
-                        support@slicktee.com
+                       class="flex items-start gap-3 transition hover:text-slickLime">
+                        <svg class="mt-0.5 h-5 w-5 shrink-0 text-slickLime" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 3.2v8.8h16V8.2l-7.38 5.08a1.1 1.1 0 0 1-1.24 0L4 8.2Zm1.06-1.2L12 11.78 18.94 7H5.06Z" />
+                        </svg>
+                        <span>support@slicktee.com</span>
                     </a>
 
-                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                       class="inline-flex min-h-10 items-center justify-center rounded-md bg-white px-4 text-xs font-black uppercase tracking-wide text-slickBlack transition hover:bg-slickLime">
-                        <?php esc_html_e('Shop New Drops', 'dawp'); ?>
-                    </a>
+                    <p class="flex items-start gap-3">
+                        <svg class="mt-0.5 h-5 w-5 shrink-0 text-slickLime" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 6.18 12.38 6.44 12.68a.75.75 0 0 0 1.12 0C12.82 21.38 19 14.25 19 9a7 7 0 0 0-7-7Zm0 17.98C10.12 17.64 7 13.21 7 9a5 5 0 0 1 10 0c0 4.21-3.12 8.64-5 10.98ZM12 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 4.1a1.1 1.1 0 1 1 0-2.2 1.1 1.1 0 0 1 0 2.2Z" />
+                        </svg>
+                        <span><?php esc_html_e('425 Avenue P, Newark, NJ 07105', 'dawp'); ?></span>
+                    </p>
 
+                    <p class="flex items-start gap-3">
+                        <svg class="mt-0.5 h-5 w-5 shrink-0 text-slickLime" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Zm1-13h-2v5.42l4.16 2.5 1-1.62L13 11.42V7Z" />
+                        </svg>
+                        <span><?php esc_html_e('Business Hours: Monday-Friday, 9:00 AM-6:00 PM PST', 'dawp'); ?></span>
+                    </p>
+                </div>
+
+                <div class="mt-7 flex flex-wrap gap-3">
                     <a href="https://www.facebook.com/slickteeshirt/"
                        target="_blank"
                        rel="noopener noreferrer"
@@ -137,14 +126,6 @@ $footer_policy_links = [
                     </a>
                 </div>
 
-                <div class="mt-4 max-w-md rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('Address', 'dawp'); ?>
-                    </p>
-                    <p class="mt-2 text-sm font-bold leading-6 text-white/80">
-                        <?php esc_html_e('---', 'dawp'); ?>
-                    </p>
-                </div>
             </div>
 
             <nav aria-label="<?php esc_attr_e('Footer shop navigation', 'dawp'); ?>">
@@ -183,7 +164,7 @@ $footer_policy_links = [
 
             <nav aria-label="<?php esc_attr_e('Footer policy navigation', 'dawp'); ?>">
                 <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-slickLime">
-                    <?php esc_html_e('Link', 'dawp'); ?>
+                    <?php esc_html_e('About', 'dawp'); ?>
                 </h3>
 
                 <ul class="space-y-3">
@@ -198,16 +179,6 @@ $footer_policy_links = [
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </ul>
-
-                <div class="mt-7 rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-slickLime">
-                        <?php esc_html_e('Business Hours', 'dawp'); ?>
-                    </p>
-                    <p class="mt-2 text-sm font-bold leading-6 text-white/80">
-                        <?php esc_html_e('Monday - Friday', 'dawp'); ?><br>
-                        <?php esc_html_e('9:00 AM - 6:00 PM EST', 'dawp'); ?>
-                    </p>
-                </div>
             </nav>
         </div>
     </section>

@@ -52,7 +52,7 @@
                         <?php esc_html_e('Response Window', 'dawp'); ?>
                     </p>
                     <p class="mt-2 text-sm leading-6 text-slickMuted">
-                        <?php esc_html_e('Monday through Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?>
+                        <?php esc_html_e('Business Hours: Monday-Friday, 9:00 AM-6:00 PM PST', 'dawp'); ?>
                     </p>
                 </div>
             </div>
@@ -86,13 +86,12 @@
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
                             <span class="block text-xs font-black uppercase tracking-[0.2em] text-slickLime"><?php esc_html_e('Business Hours', 'dawp'); ?></span>
-                            <span class="mt-2 block text-base font-black text-white"><?php esc_html_e('Monday - Friday', 'dawp'); ?></span>
-                            <span class="mt-1 block text-sm leading-6 text-white/75"><?php esc_html_e('9:00 AM - 6:00 PM EST', 'dawp'); ?></span>
+                            <span class="mt-2 block text-sm font-black leading-6 text-white"><?php esc_html_e('Business Hours: Monday-Friday, 9:00 AM-6:00 PM PST', 'dawp'); ?></span>
                         </div>
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
                             <span class="block text-xs font-black uppercase tracking-[0.2em] text-slickLime"><?php esc_html_e('Address', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm font-bold leading-6 text-white/75"><?php esc_html_e('---', 'dawp'); ?></span>
+                            <span class="mt-2 block text-sm font-bold leading-6 text-white/75"><?php esc_html_e('425 Avenue P, Newark, NJ 07105', 'dawp'); ?></span>
                         </div>
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">

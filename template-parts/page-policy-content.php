@@ -132,7 +132,7 @@ $is_shipping = 'shipping' === $policy_type;
                                 <?php if ($is_shipping) : ?>
                                 <div class="bg-white rounded-2xl border border-border p-5 summary-card">
                                     <p class="text-xl font-black text-navy mb-2">Processing</p>
-                                    <p class="text-sm text-foreground-muted leading-relaxed">Orders are prepared within 2-4 business days after payment confirmation.</p>
+                                    <p class="text-sm text-foreground-muted leading-relaxed">Orders are prepared within 1-3 business days after payment confirmation.</p>
                                 </div>
                                 <div class="bg-white rounded-2xl border border-border p-5 summary-card">
                                     <p class="text-xl font-black text-navy mb-2">Tracking</p>
@@ -165,7 +165,7 @@ $is_shipping = 'shipping' === $policy_type;
                                     <div>
                                         <h3 class="text-lg font-bold text-navy mb-3">Processing time</h3>
                                         <p class="text-foreground-muted leading-relaxed">
-                                            Orders are typically processed within <strong class="text-blue">2-4 business days</strong> after payment is confirmed. Processing takes place during our business hours: <?php echo esc_html($business_hours); ?>.
+                                            Orders are typically processed within <strong class="text-blue">1-3 business days</strong> after payment is confirmed. Processing takes place during our business hours: <?php echo esc_html($business_hours); ?>.
                                         </p>
                                     </div>
                                     <div>
@@ -179,10 +179,10 @@ $is_shipping = 'shipping' === $policy_type;
 
                             <h3 class="text-2xl font-heading font-black text-navy mb-4">Shipping coverage and rates</h3>
                             <p>
-                                We primarily serve customers in the United States and selected international regions. Available shipping methods, shipping costs, and destination eligibility are displayed at checkout before payment is completed.
+                                We ship exclusively within the United States. Standard U.S. shipping is free for every order with no minimum purchase requirement.
                             </p>
                             <p>
-                                If your shipping address is outside the United States, import duties, taxes, customs fees, or brokerage fees may apply depending on your country. These charges are set by local authorities and are the customer's responsibility unless stated otherwise at checkout.
+                                If optional upgraded shipping is available for your destination, its exact cost will be displayed at checkout before payment. If a destination or carrier limitation prevents delivery, the order will not be available for that address.
                             </p>
 
                             <h3 class="text-2xl font-heading font-black text-navy mb-4 mt-8">Order changes and cancellations</h3>
@@ -207,9 +207,9 @@ $is_shipping = 'shipping' === $policy_type;
                                 <div class="relative z-10 grid md:grid-cols-2 gap-8">
                                     <div>
                                         <p class="text-blue font-bold uppercase tracking-widest text-xs mb-3">Standard US Shipping</p>
-                                        <div class="text-4xl font-black mb-4">5-10 <span class="text-xl font-light text-gray-400">Business Days</span></div>
+                                        <div class="text-4xl font-black mb-4">5-7 <span class="text-xl font-light text-gray-400">Business Days</span></div>
                                         <p class="text-gray-400 leading-relaxed">
-                                            Standard US shipping usually takes 5-10 business days after dispatch, depending on destination, carrier volume, weather, and local delivery conditions.
+                                            Standard U.S. transit usually takes 5-7 business days after dispatch, for an estimated total delivery time of 6-10 business days from purchase.
                                         </p>
                                     </div>
                                     <div class="space-y-4">
@@ -237,12 +237,12 @@ $is_shipping = 'shipping' === $policy_type;
 
                             <h3 class="text-2xl font-heading font-black text-navy mb-4">Tracking delays</h3>
                             <p>
-                                Tracking numbers may take 24-72 hours to show movement after the carrier receives shipment information. If your tracking has not updated for more than 7 business days, contact us and we will review the shipment status with the available carrier information.
+                                Tracking numbers may take time to show movement after the carrier receives shipment information. If tracking stops updating or your order is delayed, contact us immediately and we will review the shipment status with the carrier.
                             </p>
 
                             <h3 class="text-2xl font-heading font-black text-navy mb-4 mt-8">Delivered but not received</h3>
                             <p>
-                                If tracking shows delivered but you cannot locate your package, please check around the delivery area, with household members, neighbors, building staff, or your local carrier office. If the package is still missing after 2 business days, contact us with your order number so we can help review the issue.
+                                If tracking shows delivered but you cannot locate your package, please check around the delivery area, with household members, neighbors, building staff, or your local carrier office, then contact us immediately with your order number so we can help review the issue.
                             </p>
 
                             <h3 class="text-2xl font-heading font-black text-navy mb-4 mt-8">Damaged or incorrect items</h3>
@@ -372,7 +372,7 @@ $is_shipping = 'shipping' === $policy_type;
                         <?php endif; ?>
 
                         <div class="mt-14 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-6">
-                            <p class="text-sm font-bold text-navy/40 uppercase tracking-widest">Last Updated: <?php echo date('F j, Y'); ?></p>
+                            <p class="text-sm font-bold text-navy/40 uppercase tracking-widest">Last Updated: June 5, 2026</p>
                             <div class="flex gap-4">
                                 <a href="/privacy-policy/" class="text-sm font-bold text-blue hover:underline">Privacy Policy</a>
                                 <span class="text-border">|</span>

@@ -8,18 +8,30 @@
 $brand_name    = 'UK Official Store';
 $support_email = 'support@ukofficialstore.com';
 $store_address = dawp_store_address();
+$last_updated  = 'June 5, 2026';
 ?>
 
-<div class="bg-[#f3f5f7] py-14 text-foreground md:py-20">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-        <header class="mb-8 rounded-2xl bg-navy px-6 py-10 text-white md:px-10 md:py-14">
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-lime">Customer Care</p>
-            <h1 class="font-heading text-4xl font-black tracking-tight md:text-6xl">Shipping Policy</h1>
-            <p class="mt-5 max-w-3xl text-base leading-7 text-white/70 md:text-lg">
+<div class="shipping-policy-page bg-[#f8fafc] text-navy">
+    <section class="relative overflow-hidden bg-navy py-20 text-white md:py-28">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute right-0 top-0 -mr-64 -mt-64 h-[500px] w-[500px] rounded-full bg-blue/20 blur-[120px]"></div>
+            <div class="absolute bottom-0 left-0 -mb-48 -ml-48 h-[400px] w-[400px] rounded-full bg-lime/10 blur-[100px]"></div>
+        </div>
+        <div class="relative z-10 mx-auto max-w-7xl px-6">
+            <nav class="mb-8 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue" aria-label="Breadcrumb">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="transition-colors hover:text-lime">Home</a>
+                <span class="text-white/30">/</span>
+                <span>Customer Care</span>
+            </nav>
+            <h1 class="font-heading text-5xl font-black leading-tight md:text-6xl">Shipping <span class="text-blue">Policy.</span></h1>
+            <p class="mt-6 max-w-3xl text-lg font-light leading-relaxed text-gray-400 md:text-xl">
                 Clear shipping locations, costs, delivery timelines, tracking details, and support information for your <?php echo esc_html($brand_name); ?> activewear order.
             </p>
-        </header>
+            <p class="mt-8 text-sm font-bold uppercase tracking-widest text-white/50">Last Updated: <?php echo esc_html($last_updated); ?></p>
+        </div>
+    </section>
 
+    <main class="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-20">
         <div class="space-y-5">
             <section class="rounded-2xl border border-border bg-white p-6 shadow-sm md:p-10" aria-labelledby="shipping-locations">
                 <h2 id="shipping-locations" class="font-heading text-3xl font-bold tracking-tight text-navy md:text-4xl">Shipping Locations &amp; Market</h2>
@@ -130,5 +142,5 @@ $store_address = dawp_store_address();
                 </dl>
             </section>
         </div>
-    </div>
+    </main>
 </div>

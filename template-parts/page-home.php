@@ -239,7 +239,7 @@ $cat_bottoms = $img_dir . 'activewear_bottoms_category.png';
 
                     <div class="bg-blue/20 p-6 rounded-xl border border-blue/30 mb-10">
                         <p class="text-sm text-gray-300 mb-4">
-                            <strong>Shipping:</strong> Orders processed in 2–4 business days. US shipping takes 5–10 business days after dispatch.
+                            <strong>Shipping:</strong> Free standard U.S. shipping. Orders are processed in 1–3 business days and typically arrive within 6–10 business days from purchase.
                         </p>
                         <p class="text-sm text-gray-300">
                             <strong>Returns:</strong> Eligible unworn, unwashed, and undamaged items may be returned within 30 days of delivery.

@@ -8,22 +8,26 @@ $brand_name = 'UK Official Store';
 $support_email = 'support@ukofficialstore.com';
 $store_address = dawp_store_address();
 $business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
-$last_updated = 'June 8, 2026';
+$last_updated = 'June 5, 2026';
 ?>
 
-<div class="return-policy-page bg-[#f7f7f9] text-[#34263a]">
-    <section class="border-b border-[#e8dde6] bg-white py-16 md:py-20">
-        <div class="mx-auto max-w-7xl px-6">
-            <nav class="mb-6 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#6f6374]">
-                <a href="/" class="hover:text-[#34263a]">Home</a>
-                <span>/</span>
-                <span>Return &amp; Refund Policy</span>
+<div class="return-policy-page bg-[#f8fafc] text-navy">
+    <section class="relative overflow-hidden bg-navy py-20 text-white md:py-28">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute right-0 top-0 -mr-64 -mt-64 h-[500px] w-[500px] rounded-full bg-blue/20 blur-[120px]"></div>
+            <div class="absolute bottom-0 left-0 -mb-48 -ml-48 h-[400px] w-[400px] rounded-full bg-lime/10 blur-[100px]"></div>
+        </div>
+        <div class="relative z-10 mx-auto max-w-7xl px-6">
+            <nav class="mb-8 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue">
+                <a href="/" class="transition-colors hover:text-lime">Home</a>
+                <span class="text-white/30">/</span>
+                <span>Customer Care</span>
             </nav>
-            <h1 class="font-heading text-4xl font-black tracking-tight sm:text-5xl md:text-6xl">Return &amp; Refund Policy</h1>
-            <p class="mt-5 max-w-3xl text-lg leading-relaxed text-[#6f6374]">
+            <h1 class="font-heading text-5xl font-black leading-tight md:text-6xl">Return &amp; <span class="text-blue">Refund Policy.</span></h1>
+            <p class="mt-6 max-w-3xl text-lg font-light leading-relaxed text-gray-400 md:text-xl">
                 Clear return, exchange, and refund information for purchases from <?php echo esc_html($brand_name); ?>.
             </p>
-            <p class="mt-5 text-xs font-bold uppercase tracking-widest text-[#8c818f]">Last Updated: <?php echo esc_html($last_updated); ?></p>
+            <p class="mt-8 text-sm font-bold uppercase tracking-widest text-white/50">Last Updated: <?php echo esc_html($last_updated); ?></p>
         </div>
     </section>
 
@@ -142,26 +146,32 @@ $last_updated = 'June 8, 2026';
 </div>
 
 <style>
-    .return-policy-page { color: #6f6374; font-size: 16px; line-height: 1.65; }
-    .return-policy-page h1, .return-policy-page h2 { color: #34263a; font-family: "Plus Jakarta Sans", "Inter", sans-serif; }
-    .return-policy-page h2 { margin: 0 0 1rem; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; }
-    .return-policy-page h3 { margin: 0 0 .75rem; color: #34263a; font-size: 1.1rem; font-weight: 500; line-height: 1.4; }
+    .return-policy-page { color: #4b5563; font-size: 16px; line-height: 1.7; }
+    .return-policy-page h1, .return-policy-page h2 { font-family: "Plus Jakarta Sans", "Inter", sans-serif; }
+    .return-policy-page h1 { color: #fff; }
+    .return-policy-page h2 { margin: 0 0 1rem; color: #0b1f33; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 900; line-height: 1.2; }
+    .return-policy-page h3 { margin: 0 0 .75rem; color: #0b1f33; font-size: 1.1rem; font-weight: 700; line-height: 1.4; }
     .return-policy-page p { margin: 0 0 1rem; }
-    .return-policy-page a { overflow-wrap: anywhere; }
-    .return-policy-page ul { display: grid; gap: .65rem; margin: 1rem 0 0; padding-left: 1.15rem; list-style: disc; }
-    .return-policy-page .policy-card { padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid #e8dde6; border-radius: 1.25rem; background: #fff; box-shadow: 0 14px 34px rgba(52, 38, 58, .05); }
-    .return-policy-page .policy-card--tint { background: #fffafd; }
-    .return-policy-page .inner-card { display: flex; flex-direction: column; padding: 1.1rem; border: 1px solid #e8dde6; border-radius: 1rem; background: rgba(255,255,255,.75); }
+    .return-policy-page a { overflow-wrap: anywhere; transition: color .2s ease, background-color .2s ease, border-color .2s ease; }
+    .return-policy-page ul { display: grid; gap: .65rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+    .return-policy-page li { position: relative; padding-left: 1.4rem; }
+    .return-policy-page li::before { content: ""; position: absolute; left: 0; top: .7em; width: .45rem; height: .45rem; border-radius: 999px; background: #2563eb; }
+    .return-policy-page .policy-card { padding: clamp(1.5rem, 4vw, 2.5rem); border: 1px solid #e5e7eb; border-radius: 1.25rem; background: #fff; box-shadow: 0 14px 34px rgba(11, 31, 51, .05); }
+    .return-policy-page .policy-card--tint { background: #f8fafc; }
+    .return-policy-page .inner-card { display: flex; flex-direction: column; padding: 1.1rem; border: 1px solid #e5e7eb; border-radius: 1rem; background: #fff; }
     .return-policy-page .inner-card p, .return-policy-page .inner-card span { margin: 0; }
-    .return-policy-page .step-card { display: flex; gap: 1rem; padding: 1.1rem; border: 1px solid #e8dde6; border-radius: 1rem; background: rgba(255,255,255,.8); }
-    .return-policy-page .step-card > span { display: flex; align-items: center; justify-content: center; flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; border-radius: 999px; background: #34263a; color: #fff; font-size: .75rem; font-weight: 800; }
+    .return-policy-page .step-card { display: flex; gap: 1rem; padding: 1.1rem; border: 1px solid #e5e7eb; border-radius: 1rem; background: #fff; }
+    .return-policy-page .step-card > span { display: flex; align-items: center; justify-content: center; flex: 0 0 1.75rem; width: 1.75rem; height: 1.75rem; border-radius: 999px; background: #2563eb; color: #fff; font-size: .75rem; font-weight: 800; }
     .return-policy-page .step-card p:last-child { margin-bottom: 0; }
-    .return-policy-page .address-card { display: flex; flex-direction: column; gap: .25rem; margin-top: 1rem; padding: 1.1rem; border: 1px solid #f0d28b; border-radius: 1rem; background: #fff8e8; color: #34263a; }
+    .return-policy-page .address-card { display: flex; flex-direction: column; gap: .25rem; margin-top: 1rem; padding: 1.1rem; border: 1px solid #bfdbfe; border-radius: 1rem; background: #eff6ff; color: #0b1f33; }
     .return-policy-page .primary-button, .return-policy-page .secondary-button { align-items: center; justify-content: center; padding: .8rem 1.35rem; border-radius: 999px; font-size: .8rem; font-weight: 800; text-decoration: none; }
-    .return-policy-page .primary-button { background: #34263a; color: #fff; }
-    .return-policy-page .secondary-button { border: 1px solid #34263a; color: #34263a; }
-    .return-policy-page .contact-grid { display: grid; gap: .9rem; padding: 1rem; border: 1px solid #e8dde6; border-radius: 1.1rem; background: rgba(255,255,255,.65); }
-    .return-policy-page .contact-grid strong { margin-bottom: .35rem; color: #34263a; font-size: .8rem; }
-    .return-policy-page .contact-grid a { color: #6f6374; text-decoration: none; }
+    .return-policy-page .primary-button { background: #2563eb; color: #fff; }
+    .return-policy-page .primary-button:hover { background: #0b1f33; }
+    .return-policy-page .secondary-button { border: 1px solid #2563eb; color: #2563eb; }
+    .return-policy-page .secondary-button:hover { border-color: #0b1f33; background: #0b1f33; color: #fff; }
+    .return-policy-page .contact-grid { display: grid; gap: .9rem; padding: 1rem; border: 1px solid #e5e7eb; border-radius: 1.1rem; background: #fff; }
+    .return-policy-page .contact-grid strong { margin-bottom: .35rem; color: #0b1f33; font-size: .8rem; }
+    .return-policy-page .contact-grid a { color: #2563eb; font-weight: 700; text-decoration: none; }
+    .return-policy-page .contact-grid a:hover { text-decoration: underline; }
     @media (min-width: 768px) { .return-policy-page .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 </style>

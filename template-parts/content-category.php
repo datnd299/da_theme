@@ -149,8 +149,8 @@ if (!isset($products)) $products = [];
                     <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue shadow-sm">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4M8 12h7"/></svg>
                     </div>
-                    <h3 class="text-lg font-bold text-navy">Fast Global Shipping</h3>
-                    <p class="mt-2 text-sm text-foreground-muted">Orders processed within 2-4 business days with full tracking provided.</p>
+                    <h3 class="text-lg font-bold text-navy">Free U.S. Shipping</h3>
+                    <p class="mt-2 text-sm text-foreground-muted">Free standard shipping nationwide, with orders processed within 1-3 business days.</p>
                 </div>
                 <div class="text-center">
                     <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-white text-blue shadow-sm">

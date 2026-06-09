@@ -9,7 +9,7 @@ $domain_name = 'ukofficialstore.com';
 $support_email = 'support@ukofficialstore.com';
 $store_address = function_exists('dawp_store_address') ? dawp_store_address() : '4803 N Milwaukee Ave, Chicago, IL 60630';
 $business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
-$last_updated = 'June 8, 2026';
+$last_updated = 'June 5, 2026';
 ?>
 
 <div class="bg-[#f8fafc] text-navy">
@@ -36,42 +36,7 @@ $last_updated = 'June 8, 2026';
 
     <section class="py-16 md:py-24">
         <div class="mx-auto max-w-7xl px-6">
-            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
-                <aside class="lg:w-1/4">
-                    <div class="lg:sticky lg:top-32 space-y-1">
-                        <p class="text-[10px] font-black uppercase tracking-widest text-navy/30 mb-5 ml-4">Policy Sections</p>
-                        <?php
-                        $policy_sections = array(
-                            'collecting-info' => 'Collecting Information',
-                            'minors' => 'Minors & Children',
-                            'sharing-info' => 'Sharing Information',
-                            'advertising' => 'Behavioral Advertising',
-                            'security' => 'Payment Security',
-                            'gdpr' => 'GDPR Compliance',
-                            'ccpa' => 'CCPA Compliance',
-                            'retention' => 'Data Retention',
-                            'cookies' => 'Cookies Notice',
-                            'updates' => 'Policy Updates',
-                            'contact' => 'Contact Channels',
-                        );
-                        foreach ($policy_sections as $section_id => $section_label) :
-                        ?>
-                            <a href="#<?php echo esc_attr($section_id); ?>" class="group flex items-center justify-between p-3 rounded-xl bg-white border border-border hover:border-blue hover:shadow-lg transition-all duration-300">
-                                <span class="font-bold text-sm"><?php echo esc_html($section_label); ?></span>
-                                <span class="text-blue group-hover:translate-x-1 transition-transform">&rarr;</span>
-                            </a>
-                        <?php endforeach; ?>
-
-                        <div class="mt-8 p-6 bg-navy rounded-2xl text-white">
-                            <p class="text-[10px] font-black uppercase tracking-widest text-blue mb-3">Privacy Support</p>
-                            <p class="text-sm text-gray-300 leading-relaxed mb-5">Contact us with questions regarding our data collection and processing methodologies.</p>
-                            <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-block w-full py-3 bg-blue text-white text-center text-xs font-bold rounded-xl hover:bg-white hover:text-navy transition-all">Email Privacy Team</a>
-                        </div>
-                    </div>
-                </aside>
-
-                <div class="lg:w-3/4">
-                    <div class="prose prose-blue max-w-none text-foreground-muted terms-policy">
+            <div class="prose prose-blue max-w-none text-foreground-muted terms-policy">
                         <div class="mb-16 policy-section">
                             <div class="inline-flex px-4 py-2 rounded-full bg-blue/10 text-blue font-bold text-xs uppercase tracking-widest mb-5 policy-label">Policy Overview</div>
                             <p class="lead text-lg text-navy font-medium">This Privacy Policy explains how <?php echo esc_html($domain_name); ?> (the “Site”, “we”, “us”, or “our”) collects, uses, and discloses your Personal Information when you visit, browse, or make a activewear, apparel or accessory purchase from the Site. By utilizing our Site, you acknowledge and agree to the data collection and processing methodologies described in this policy.</p>
@@ -127,34 +92,15 @@ $last_updated = 'June 8, 2026';
                             <p>Furthermore, we do not store or process raw financial credentials or credit card numbers on our local databases. All transactions are routed directly to third-party payment infrastructure nodes that comply fully with the global Payment Card Industry Data Security Standard (PCI-DSS).</p>
                         </div>
 
-                        <div id="gdpr" class="scroll-mt-32 mb-16 policy-section">
-                            <span class="section-number">6</span>
-                            <h2>Lawful Basis &amp; GDPR Compliance</h2>
-                            <p>Pursuant to the General Data Protection Regulation (“GDPR”), if you are a resident of the European Economic Area (“EEA”), we process your personal information under the following lawful bases:</p>
-                            <ul>
-                                <li>Your explicit consent.</li>
-                                <li>The performance of the commercial purchase contract between you and the Site.</li>
-                                <li>Compliance with our regional legal and tax obligations.</li>
-                                <li>For our legitimate commercial interests, which do not override your fundamental rights and freedoms.</li>
-                            </ul>
-                            <p>If you are a resident of the EEA, you have the right to access the Personal Information we hold about you, to port it to a new service, and to ask that your Personal Information be corrected, updated, or erased. To exercise these rights, please email us at <?php echo esc_html($support_email); ?>. Your personal data will be initially processed in Ireland and then transferred outside of Europe for storage and further handling (including to Canada and the United States).</p>
-                        </div>
-
-                        <div id="ccpa" class="scroll-mt-32 mb-16 policy-section">
-                            <span class="section-number">7</span>
-                            <h2>California Consumer Privacy Act (CCPA)</h2>
-                            <p>If you are a resident of California, you have the right to access the Personal Information we hold about you (also known as the “Right to Know”), to port it to a digital service, and to ask that your Personal Information be corrected, updated, or erased. To exercise these rights or to designate an authorized agent to submit these requests on your behalf, please contact us using the contact registries at the bottom of this page.</p>
-                        </div>
-
                         <div id="retention" class="scroll-mt-32 mb-16 policy-section">
-                            <span class="section-number">8</span>
+                            <span class="section-number">6</span>
                             <h2>Retention and Automatic Decision-Making</h2>
                             <p><strong>Data Retention:</strong> When you place an order through the Site, we will securely retain your Personal Information for our business registries unless and until you formally ask us to erase this information.</p>
                             <p><strong>Automated Decision-Making:</strong> We DO NOT engage in fully automated decision-making that has a legal or otherwise significant effect using customer data. Our processor WordPress uses limited automated decision-making solely to prevent transaction fraud (such as temporary denylisting of specific IP addresses or credit cards associated with repeated failed transaction attempts).</p>
                         </div>
 
                         <div id="cookies" class="scroll-mt-32 mb-16 policy-section">
-                            <span class="section-number">9</span>
+                            <span class="section-number">7</span>
                             <h2>Cookies Notice</h2>
                             <p>A cookie is a small amount of information downloaded to your device when you visit our Site. Cookies optimize your browsing experience by allowing the storefront to remember your core actions and preferences (such as login states, cart persistence, and region selections).</p>
                             <p>We utilize the following essential cookies to maintain operational e-commerce functions:</p>
@@ -205,13 +151,13 @@ $last_updated = 'June 8, 2026';
                         </div>
 
                         <div id="updates" class="scroll-mt-32 mb-16 policy-section">
-                            <span class="section-number">10</span>
+                            <span class="section-number">8</span>
                             <h2>Do Not Track &amp; Policy Updates</h2>
                             <p>Because there is no consistent global industry understanding of how to respond to “Do Not Track” signals, we do not alter our background data collection and usage practices when we detect such a signal from your browser. We may update this Privacy Policy from time to time to reflect, for example, changes to our retail operations or for legal and regulatory reasons.</p>
                         </div>
 
                         <div id="contact" class="scroll-mt-32 mb-16 policy-section policy-section-last">
-                            <span class="section-number">11</span>
+                            <span class="section-number">9</span>
                             <h2>Business Identity &amp; Customer Contact Channels</h2>
                             <p>For any questions regarding our data security practices, to exercise your consumer data rights, or to lodge a formal inquiry, please contact our privacy compliance department via our verified channels:</p>
                             <div class="grid md:grid-cols-2 gap-5 mt-8 not-prose">
@@ -223,8 +169,6 @@ $last_updated = 'June 8, 2026';
                             </div>
                         </div>
 
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -232,9 +176,10 @@ $last_updated = 'June 8, 2026';
 
 <style>
     html { scroll-behavior: smooth; }
-    .terms-policy { color: #4b5563; font-size: 16px; line-height: 1.78; }
-    .terms-policy .policy-section { position: relative; padding-bottom: 3.5rem; border-bottom: 1px solid #e5e7eb; }
-    .terms-policy .policy-section-last { padding-bottom: 0; border-bottom: 0; }
+    .terms-policy { display: grid; gap: 1.5rem; color: #4b5563; font-size: 16px; line-height: 1.78; }
+    .terms-policy .policy-section { position: relative; margin-bottom: 0; padding: clamp(1.5rem, 4vw, 2.75rem); border: 1px solid #e5e7eb; border-radius: 1.25rem; background: #fff; box-shadow: 0 14px 36px rgba(11, 31, 51, .06); transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
+    .terms-policy .policy-section:hover { border-color: rgba(37, 99, 235, .25); box-shadow: 0 20px 46px rgba(11, 31, 51, .09); transform: translateY(-2px); }
+    .terms-policy .policy-section-last { padding-bottom: clamp(1.5rem, 4vw, 2.75rem); }
     .terms-policy h2 { margin: 0 0 1.25rem; color: #0b1f33; font-family: "Plus Jakarta Sans", "Inter", sans-serif; font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 900; line-height: 1.2; }
     .terms-policy p { margin: 0 0 1rem; }
     .terms-policy a { color: #2563eb; font-weight: 700; }
@@ -242,8 +187,13 @@ $last_updated = 'June 8, 2026';
     .terms-policy ul { display: grid; gap: .7rem; margin: .75rem 0 1rem; padding: 0; list-style: none; }
     .terms-policy li { position: relative; padding-left: 1.45rem; }
     .terms-policy li::before { content: ""; position: absolute; left: 0; top: .72em; width: .45rem; height: .45rem; border-radius: 999px; background: #2563eb; }
-    .terms-policy .section-number { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; margin-bottom: 1rem; border-radius: 999px; background: #dbeafe; color: #2563eb; font-weight: 900; }
-    .terms-policy .contact-card { display: flex; flex-direction: column; gap: .5rem; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 1rem; background: #fff; }
+    .terms-policy .section-number { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; margin-bottom: 1rem; border-radius: .75rem; background: #dbeafe; color: #2563eb; font-weight: 900; box-shadow: inset 0 0 0 1px rgba(37, 99, 235, .08); }
+    .terms-policy table { overflow: hidden; border: 1px solid #e5e7eb; border-radius: 1rem; background: #fff; box-shadow: 0 8px 22px rgba(11, 31, 51, .05); }
+    .terms-policy .contact-card { display: flex; flex-direction: column; gap: .5rem; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 1rem; background: #f8fafc; box-shadow: 0 8px 20px rgba(11, 31, 51, .04); }
     .terms-policy .contact-card span { color: #6b7280; font-size: .7rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
     .terms-policy .contact-card strong, .terms-policy .contact-card a { color: #0b1f33; font-size: 1rem; overflow-wrap: anywhere; }
+    @media (max-width: 640px) {
+        .terms-policy { gap: 1rem; }
+        .terms-policy .policy-section:hover { transform: none; }
+    }
 </style>

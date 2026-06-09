@@ -21,9 +21,9 @@ const getMeta = (key) => {
   return m ? m[1].trim() : '';
 };
 
-const themeName    = getMeta('Theme Name');
+const themeName = getMeta('Theme Name');
 const themeVersion = getMeta('Version');
-const themeSlug    = themeName.toLowerCase().replace(/\s+/g, '');
+const themeSlug = themeName.toLowerCase().replace(/\s+/g, '');
 
 if (!themeName) {
   console.error('Cannot parse Theme Name from style.css');
@@ -239,8 +239,8 @@ function randomToken(usedNames) {
 
 function buildRenameMaps() {
   const fileMap = new Map(); // oldBasename → newBasename  (e.g. main.css → xk7p2.css)
-  const dirMap  = new Map(); // oldDirName  → newDirName   (e.g. tw     → ab3qr)
-  const used    = new Set();
+  const dirMap = new Map(); // oldDirName  → newDirName   (e.g. tw     → ab3qr)
+  const used = new Set();
 
   function walk(dir) {
     if (!existsSync(dir)) return;
@@ -272,7 +272,7 @@ async function applyRenaming(fileMap, dirMap) {
   // e.g. replace 'tw-main.css' before 'main.css', otherwise 'main.css' → 'abc'
   // turns 'tw-main.css' into 'tw-abc' and the tw-main.css entry never matches.
   const sortedFiles = [...fileMap.entries()].sort((a, b) => b[0].length - a[0].length);
-  const sortedDirs  = [...dirMap.entries()].sort((a, b) => b[0].length - a[0].length);
+  const sortedDirs = [...dirMap.entries()].sort((a, b) => b[0].length - a[0].length);
 
   // Phase 1: update all text-file references (files first, then dirs)
   async function updateRefs(dir) {
@@ -325,8 +325,8 @@ await applyRenaming(fileMap, dirMap);
 
 // ── Zip ────────────────────────────────────────────────────────
 const distRoot = resolve(root, 'dist');
-const zipFile  = `${themeSlug}.zip`;
-const zipPath  = join(distRoot, zipFile);
+const zipFile = `${themeSlug}.zip`;
+const zipPath = join(distRoot, zipFile);
 
 if (existsSync(zipPath)) rmSync(zipPath);
 

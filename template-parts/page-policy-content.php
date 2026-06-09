@@ -1,13 +1,15 @@
 <?php
 /**
- * Template Part: Shipping & Returns Page
+ * Shared Template Part: Shipping Policy / Return & Refund Policy
  * Brand: UK Official Store
  * Description: Clear, GMC-safe shipping, return, and refund policy page.
  */
 
 $brand_name = 'UK Official Store';
 $support_email = 'support@ukofficialstore.com';
-$business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
+$business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
+$policy_type = isset($policy_type) ? $policy_type : 'shipping';
+$is_shipping = 'shipping' === $policy_type;
 ?>
 
 <div class="bg-[#f8fafc] text-navy">
@@ -27,12 +29,15 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                     <span>Customer Care</span>
                 </nav>
                 <h1 class="text-5xl md:text-6xl font-heading font-black mb-6 leading-[1.1] tracking-tight">
-                    Shipping <span class="text-blue">&</span> Returns.
+                    <?php echo $is_shipping ? 'Shipping <span class="text-blue">Policy.</span>' : 'Return <span class="text-blue">&amp;</span> Refund Policy.'; ?>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-400 leading-relaxed font-light max-w-3xl">
-                    Clear delivery, return, and refund information for <?php echo esc_html($brand_name); ?> activewear orders.
+                    <?php echo $is_shipping
+                        ? 'Clear processing, delivery, and tracking information for ' . esc_html($brand_name) . ' activewear orders.'
+                        : 'Clear return, exchange, and refund information for ' . esc_html($brand_name) . ' activewear orders.'; ?>
                 </p>
-                <div class="mt-10 grid sm:grid-cols-3 gap-4 max-w-4xl">
+                <div class="mt-10 grid sm:grid-cols-2 gap-4 max-w-4xl">
+                    <?php if ($is_shipping) : ?>
                     <div class="bg-white/10 border border-white/10 rounded-2xl p-5">
                         <p class="text-2xl font-black text-white">2-4</p>
                         <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mt-2 leading-snug">Business day processing</p>
@@ -41,10 +46,16 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                         <p class="text-2xl font-black text-white">5-10</p>
                         <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mt-2 leading-snug">US business day transit</p>
                     </div>
+                    <?php else : ?>
                     <div class="bg-white/10 border border-white/10 rounded-2xl p-5">
                         <p class="text-2xl font-black text-white">30</p>
                         <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mt-2 leading-snug">Day return window</p>
                     </div>
+                    <div class="bg-white/10 border border-white/10 rounded-2xl p-5">
+                        <p class="text-2xl font-black text-white">5-10</p>
+                        <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mt-2 leading-snug">Business day refund processing</p>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -63,6 +74,7 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                             <span class="font-bold text-sm">Overview</span>
                             <svg class="w-4 h-4 text-blue transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
+                        <?php if ($is_shipping) : ?>
                         <a href="#shipping" class="group flex items-center justify-between p-3 rounded-xl bg-white border border-border hover:border-blue hover:shadow-lg transition-all duration-300">
                             <span class="font-bold text-sm">Shipping Policy</span>
                             <svg class="w-4 h-4 text-blue transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
@@ -71,6 +83,7 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                             <span class="font-bold text-sm">Delivery & Tracking</span>
                             <svg class="w-4 h-4 text-blue transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
+                        <?php else : ?>
                         <a href="#returns" class="group flex items-center justify-between p-3 rounded-xl bg-white border border-border hover:border-blue hover:shadow-lg transition-all duration-300">
                             <span class="font-bold text-sm">Returns</span>
                             <svg class="w-4 h-4 text-blue transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
@@ -83,6 +96,7 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                             <span class="font-bold text-sm">How to Return</span>
                             <svg class="w-4 h-4 text-blue transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                         </a>
+                        <?php endif; ?>
 
                         <div class="mt-8 p-6 bg-navy rounded-2xl text-white">
                             <p class="text-[10px] font-black uppercase tracking-[0.25em] text-blue mb-3">Need help?</p>
@@ -101,14 +115,21 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                             <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue/10 text-blue font-bold text-xs uppercase tracking-widest mb-5 policy-label">
                                 Policy Overview
                             </div>
-                            <h2 class="text-3xl md:text-4xl font-heading font-black text-navy mb-5 leading-tight">Transparent order, delivery, and return rules.</h2>
+                            <h2 class="text-3xl md:text-4xl font-heading font-black text-navy mb-5 leading-tight">
+                                <?php echo $is_shipping ? 'Transparent order and delivery rules.' : 'Transparent return and refund rules.'; ?>
+                            </h2>
                             <p class="lead text-lg text-navy font-medium">
-                                This Shipping & Returns Policy explains how <?php echo esc_html($brand_name); ?> processes activewear orders, estimates delivery times, handles tracking, and reviews return or refund requests.
+                                <?php echo $is_shipping
+                                    ? 'This Shipping Policy explains how ' . esc_html($brand_name) . ' processes activewear orders, estimates delivery times, and handles tracking.'
+                                    : 'This Return & Refund Policy explains how ' . esc_html($brand_name) . ' reviews return, exchange, and refund requests.'; ?>
                             </p>
                             <p>
-                                We sell activewear essentials including dry-fit style t-shirts, tracksuits, tank tops, training sets, and activewear bottoms. Because these items are worn close to the body, return eligibility depends on the item being clean, unused, and in original condition.
+                                <?php echo $is_shipping
+                                    ? 'We ship activewear essentials including dry-fit style t-shirts, tracksuits, tank tops, training sets, and activewear bottoms. Available methods, costs, and delivery estimates are shown at checkout.'
+                                    : 'Because activewear items are worn close to the body, return eligibility depends on the item being clean, unused, and in original condition.'; ?>
                             </p>
-                            <div class="grid md:grid-cols-3 gap-5 mt-8 not-prose">
+                            <div class="grid md:grid-cols-2 gap-5 mt-8 not-prose">
+                                <?php if ($is_shipping) : ?>
                                 <div class="bg-white rounded-2xl border border-border p-5 summary-card">
                                     <p class="text-xl font-black text-navy mb-2">Processing</p>
                                     <p class="text-sm text-foreground-muted leading-relaxed">Orders are prepared within 2-4 business days after payment confirmation.</p>
@@ -117,13 +138,20 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                                     <p class="text-xl font-black text-navy mb-2">Tracking</p>
                                     <p class="text-sm text-foreground-muted leading-relaxed">A tracking email is sent once your order has been dispatched.</p>
                                 </div>
+                                <?php else : ?>
                                 <div class="bg-white rounded-2xl border border-border p-5 summary-card">
                                     <p class="text-xl font-black text-navy mb-2">Returns</p>
                                     <p class="text-sm text-foreground-muted leading-relaxed">Return requests may be submitted within 30 days of delivery.</p>
                                 </div>
+                                <div class="bg-white rounded-2xl border border-border p-5 summary-card">
+                                    <p class="text-xl font-black text-navy mb-2">Refunds</p>
+                                    <p class="text-sm text-foreground-muted leading-relaxed">Approved refunds are issued to the original payment method.</p>
+                                </div>
+                                <?php endif; ?>
                             </div>
                         </div>
 
+                        <?php if ($is_shipping) : ?>
                         <!-- Shipping Policy Section -->
                         <div id="shipping" class="scroll-mt-32 mb-16 policy-section">
                             <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue/10 text-blue font-bold text-xs uppercase tracking-widest mb-5 policy-label">
@@ -223,6 +251,7 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                             </p>
                         </div>
 
+                        <?php else : ?>
                         <!-- Return Policy Section -->
                         <div id="returns" class="scroll-mt-32 mb-16 policy-section">
                             <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue/10 text-blue font-bold text-xs uppercase tracking-widest mb-5 policy-label">
@@ -340,6 +369,8 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                             </div>
                         </div>
 
+                        <?php endif; ?>
+
                         <div class="mt-14 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-6">
                             <p class="text-sm font-bold text-navy/40 uppercase tracking-widest">Last Updated: <?php echo date('F j, Y'); ?></p>
                             <div class="flex gap-4">
@@ -364,7 +395,7 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
         <div class="mx-auto max-w-5xl px-6 relative z-10 text-center">
             <h2 class="text-4xl md:text-6xl font-heading font-black text-white mb-8">Still have questions?</h2>
             <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-                Contact our support team for help with shipping, tracking, returns, exchanges, or refund status. Please include your order number for faster assistance.
+                Contact our support team for help with <?php echo $is_shipping ? 'shipping or tracking' : 'returns, exchanges, or refund status'; ?>. Please include your order number for faster assistance.
             </p>
             <div class="flex flex-col sm:flex-row gap-6 justify-center">
                 <a href="mailto:<?php echo esc_attr($support_email); ?>" class="px-12 py-5 bg-blue hover:bg-white hover:text-navy text-white font-bold rounded-2xl transition-all duration-300 shadow-lg shadow-blue/20">
@@ -373,9 +404,11 @@ $business_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
                 <a href="/contact-us/" class="px-12 py-5 border-2 border-white/20 hover:border-white text-white font-bold rounded-2xl transition-all duration-300">
                     Contact Us
                 </a>
+                <?php if ($is_shipping) : ?>
                 <a href="/track-order/" class="px-12 py-5 border-2 border-white/20 hover:border-white text-white font-bold rounded-2xl transition-all duration-300">
                     Track Order
                 </a>
+                <?php endif; ?>
             </div>
         </div>
     </section>

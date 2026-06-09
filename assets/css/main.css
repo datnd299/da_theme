@@ -73,6 +73,16 @@
   -webkit-font-smoothing: antialiased;
 }
 
+body.admin-bar #masthead {
+  top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+  body.admin-bar #masthead {
+    top: 46px;
+  }
+}
+
 /* =============================================================
    WOOCOMMERCE NOTICES
    ============================================================= */

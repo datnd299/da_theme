@@ -13,6 +13,11 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
+
+function dawp_store_address() {
+    return '292 Malcolm X Blvd, New York, NY 10027';
+}
+
 add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
     // Chỉ xử lý khi là trang search và chưa có post_type
@@ -36,7 +41,13 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.6');
+    $main_css_path = get_template_directory() . '/assets/css/main.css';
+    wp_enqueue_style(
+        'dawp-main',
+        get_template_directory_uri() . '/assets/css/main.css',
+        [],
+        file_exists($main_css_path) ? filemtime($main_css_path) : '1.0.6'
+    );
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
@@ -66,6 +77,23 @@ function dawp_scripts() {
     ]);
 
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+}
+
+add_action('wp_enqueue_scripts', 'dawp_restore_admin_bar_styles', PHP_INT_MAX);
+function dawp_restore_admin_bar_styles() {
+    if (!is_admin_bar_showing()) {
+        return;
+    }
+
+    // Tailwind's base reset is page-specific and loads after WordPress admin-bar.css.
+    // Load the core toolbar stylesheet once more at the end so the admin bar keeps
+    // its intended layout while previewing the storefront as a logged-in user.
+    wp_enqueue_style(
+        'dawp-admin-bar-repair',
+        includes_url('css/admin-bar.min.css'),
+        [],
+        get_bloginfo('version')
+    );
 }
 
 function dawp_remove_styles() {

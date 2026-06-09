@@ -146,7 +146,7 @@ $support_email = 'support@ukofficialstore.com';
                             </span>
                         </summary>
                         <div class="px-8 pb-8 text-foreground-muted leading-relaxed">
-                            We offer a 30-day return window for unworn, unwashed, and undamaged items in their original condition. For a full breakdown, please visit our <a href="/shipping-returns/" class="text-blue font-bold hover:underline">Shipping & Returns</a> page.
+                            We offer a 30-day return window for unworn, unwashed, and undamaged items in their original condition. For a full breakdown, please visit our <a href="/return-refund-policy/" class="text-blue font-bold hover:underline">Return & Refund Policy</a> page.
                         </div>
                     </details>
                     <details class="group bg-surface-alt rounded-2xl overflow-hidden border border-transparent hover:border-blue/20 transition-all">

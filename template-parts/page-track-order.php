@@ -450,7 +450,7 @@ $categories = function_exists('dawp_shop_category_items') ? dawp_shop_category_i
                     </div>
                     
                     <div class="grid gap-4 sm:grid-cols-2">
-                        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="flex flex-col justify-between rounded-3xl bg-white/10 p-8 transition hover:bg-white/20">
+                        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="flex flex-col justify-between rounded-3xl bg-white/10 p-8 transition hover:bg-white/20">
                             <h3 class="text-lg font-bold text-white"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
                             <p class="mt-2 text-sm text-white/60 mb-6"><?php esc_html_e('Detailed info on times, rates, and courier partners.', 'dawp'); ?></p>
                             <span class="text-xs font-black uppercase tracking-widest text-blue"><?php esc_html_e('Read Policy', 'dawp'); ?></span>

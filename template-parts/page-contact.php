@@ -6,7 +6,7 @@
  */
 
 $support_email = 'support@ukofficialstore.com';
-$business_hours = 'Monday – Friday, 9:00 AM – 6:00 PM EST';
+$business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
 ?>
 
 <div class="bg-white text-foreground">
@@ -71,8 +71,12 @@ $business_hours = 'Monday – Friday, 9:00 AM – 6:00 PM EST';
                                 <span class="font-medium text-navy group-hover:text-blue transition-colors">Track Your Order</span>
                                 <svg class="w-5 h-5 text-blue transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </a>
-                            <a href="/shipping-returns/" class="flex items-center justify-between p-4 bg-white rounded-lg border border-border hover:border-blue transition-colors group">
-                                <span class="font-medium text-navy group-hover:text-blue transition-colors">Shipping & Returns</span>
+                            <a href="/shipping-policy/" class="flex items-center justify-between p-4 bg-white rounded-lg border border-border hover:border-blue transition-colors group">
+                                <span class="font-medium text-navy group-hover:text-blue transition-colors">Shipping Policy</span>
+                                <svg class="w-5 h-5 text-blue transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </a>
+                            <a href="/return-refund-policy/" class="flex items-center justify-between p-4 bg-white rounded-lg border border-border hover:border-blue transition-colors group">
+                                <span class="font-medium text-navy group-hover:text-blue transition-colors">Return & Refund Policy</span>
                                 <svg class="w-5 h-5 text-blue transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </a>
                         </div>

@@ -247,8 +247,11 @@ $cat_bottoms = $img_dir . 'activewear_bottoms_category.png';
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="/shipping-returns/" class="px-8 py-4 bg-white text-navy hover:bg-lime hover:text-navy font-bold rounded-lg transition-all duration-normal text-center">
-                            View Shipping & Returns
+                        <a href="/shipping-policy/" class="px-8 py-4 bg-white text-navy hover:bg-lime hover:text-navy font-bold rounded-lg transition-all duration-normal text-center">
+                            View Shipping Policy
+                        </a>
+                        <a href="/return-refund-policy/" class="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all duration-normal text-center">
+                            View Return & Refund Policy
                         </a>
                         <a href="/contact-us/" class="px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-bold rounded-lg transition-all duration-normal text-center">
                             Contact Support

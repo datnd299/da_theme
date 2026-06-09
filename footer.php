@@ -7,7 +7,8 @@
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $support_email = 'support@ukofficialstore.com';
-$store_address = '292 Malcolm X Blvd, New York, NY 10027';
+$store_address = dawp_store_address();
+$business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
 $logo_url = get_template_directory_uri() . '/assets/img/gallery/logo.png';
 
 $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
@@ -34,7 +35,8 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
     [
         'title' => __('Policies', 'dawp'),
         'links' => [
-            ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+            ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+            ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
             ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
             ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
         ],
@@ -59,10 +61,6 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
                         decoding="async"
                     >
                 </a>
-                <p class="mt-5 text-base leading-7 text-white/75">
-                    <?php esc_html_e('Activewear essentials made for movement, comfort, and daily training. Discover dry-fit t-shirts, tracksuits, tank tops, and training-ready sportswear.', 'dawp'); ?>
-                </p>
-
                 <div class="mt-7 grid gap-3 text-sm leading-6 text-white/75">
                     <a class="inline-flex items-center gap-3 transition hover:text-white" href="mailto:<?php echo esc_attr($support_email); ?>">
                         <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
@@ -71,7 +69,7 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
                                 <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                             </svg>
                         </span>
-                        <?php echo esc_html($support_email); ?>
+                        <span><strong class="text-white"><?php esc_html_e('Email:', 'dawp'); ?></strong> <?php echo esc_html($support_email); ?></span>
                     </a>
                     <div class="inline-flex items-center gap-3">
                         <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
@@ -80,7 +78,16 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
                         </span>
-                        <span><?php echo esc_html($store_address); ?></span>
+                        <span><strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php echo esc_html($store_address); ?></span>
+                    </div>
+                    <div class="inline-flex items-center gap-3">
+                        <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M12 7v5l3 2"></path>
+                            </svg>
+                        </span>
+                        <span><strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php echo esc_html($business_hours); ?></span>
                     </div>
                 </div>
 

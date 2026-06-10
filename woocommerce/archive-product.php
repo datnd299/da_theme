@@ -46,7 +46,7 @@ if ( is_product_category() ) {
     <?php
     // Breadcrumb
     ?>
-    <nav class="shop-breadcrumb" aria-label="Breadcrumb">
+    <nav class="shop-breadcrumb" aria-label="Breadcrumbbb">
         <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
         <span aria-hidden="true">&rsaquo;</span>
         <?php if ( is_product_category() ) :

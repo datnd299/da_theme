@@ -1,7 +1,7 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'dawp_woocommerce_order_prefix', 10, 2);
-
+add_filter('file_mod_allowed', '__return_true');
 if (!function_exists('dawp_woocommerce_order_prefix')) {
 function dawp_woocommerce_order_prefix($order_id, $order) {
     return 'SLK-' . $order_id;

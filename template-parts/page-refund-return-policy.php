@@ -5,7 +5,7 @@
 
 $support_email = 'support@brogeshoes.com';
 $store_name    = __('Broge Shoes', 'dawp');
-$store_address = dawp_get_woocommerce_store_address() ?: __('1777 Canal St, Merced, CA 95340', 'dawp');
+$store_address = dawp_get_woocommerce_store_address();
 $contact_url   = home_url('/contact-us/');
 ?>
 

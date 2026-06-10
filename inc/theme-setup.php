@@ -74,24 +74,7 @@ function dawp_theme_image_url($filename) {
 }
 
 function dawp_get_woocommerce_store_address() {
-    $address_1 = trim((string) get_option('woocommerce_store_address', ''));
-    $address_2 = trim((string) get_option('woocommerce_store_address_2', ''));
-    $city      = trim((string) get_option('woocommerce_store_city', ''));
-    $postcode  = trim((string) get_option('woocommerce_store_postcode', ''));
-    $location  = (string) get_option('woocommerce_default_country', '');
-
-    $state = '';
-
-    if ($location !== '') {
-        [, $state] = array_pad(explode(':', $location, 2), 2, '');
-    }
-
-    $city_line = trim(implode(', ', array_filter([$city, $state])));
-    if ($postcode !== '') {
-        $city_line = trim($city_line . ' ' . $postcode);
-    }
-
-    return implode(', ', array_filter([$address_1, $address_2, $city_line]));
+    return __('47-40 21st St, Long Island City, NY 11101', 'dawp');
 }
 
 function dawp_responsive_theme_image($filename, $alt = '', $args = []) {

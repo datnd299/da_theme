@@ -302,9 +302,9 @@ $trust_cards = [
                     </p>
 
                     <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                            class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
-                            <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+                            <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
                         </a>
                         <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
                            class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/40 bg-transparent px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">

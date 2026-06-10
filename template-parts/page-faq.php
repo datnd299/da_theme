@@ -5,187 +5,139 @@
 
 $faq_sections = [
     [
-        'id' => 'faq-shipping',
-        'label' => __('Shipping', 'dawp'),
+        'id'     => 'faq-shipping',
+        'label'  => __('🚚 Shipping & Delivery', 'dawp'),
         'accent' => '#2563EB',
-        'tint' => '#EFF6FF',
-        'items' => [
+        'tint'   => '#EFF6FF',
+        'items'  => [
             [
                 'question' => __('How long does order processing and delivery take?', 'dawp'),
-                'answer' => [
-                    __('Most Tizezap orders are processed within 2-4 business days after payment is confirmed. Processing includes order review, payment confirmation, product availability, shipping details, and tire specification checks before fulfillment begins.', 'dawp'),
-                    __('After dispatch, standard delivery within the United States usually takes 5-10 business days. Delivery estimates may change because of destination, product availability, tire size, carrier capacity, weather, large-item handling, peak seasons, address issues, or local delivery conditions.', 'dawp'),
+                'answer'   => [
+                    ['type' => 'ul', 'items' => [
+                        ['label' => __('Processing Time:', 'dawp'), 'text' => __('Most orders are processed within 1–2 business days (Monday through Friday, excluding U.S. public holidays).', 'dawp')],
+                        ['label' => __('Transit Time:', 'dawp'),    'text' => __('Standard delivery within the United States takes 3–5 business days.', 'dawp')],
+                    ]],
                 ],
             ],
             [
-                'question' => __('Where can I see shipping costs before I pay?', 'dawp'),
-                'answer' => [
-                    __('Available shipping methods, shipping charges, estimated delivery information, taxes, and applicable fees are shown during checkout before you place your order. Please review the full checkout total before submitting payment.', 'dawp'),
-                    __('If a listing, cart, checkout, or policy page shows different shipping information, contact support@tizezap.com before ordering so we can review the details.', 'dawp'),
+                'question' => __('How much does shipping cost?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('Tizezap offers 100% FREE Standard Shipping on all tire orders within our standard delivery zones in the United States. There are no hidden shipping fees at checkout.', 'dawp')],
                 ],
             ],
             [
-                'question' => __('When will I receive tracking information?', 'dawp'),
-                'answer' => [
-                    __('When your order ships, we send a shipping confirmation email with tracking details when tracking is available. Tracking may take 24-48 hours to update after the carrier receives the shipment.', 'dawp'),
-                    __('If the tracking window has passed or movement appears delayed, email support@tizezap.com with your order number and tracking number so support can review the shipment history.', 'dawp'),
+                'question' => __('When will I receive my tracking information?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('Once your order ships, we will automatically send you a shipping confirmation email containing your tracking number. Please allow 24–48 hours for the tracking status to update on the carrier\'s network.', 'dawp')],
                 ],
             ],
             [
                 'question' => __('Can I change my shipping address after checkout?', 'dawp'),
-                'answer' => [
-                    __('Address changes can only be reviewed before an order has entered fulfillment or shipped. Once a package has shipped, rerouting, cancellation, or address correction is not guaranteed.', 'dawp'),
-                    __('Customers are responsible for entering a complete and accurate shipping address, including recipient name, street address, unit number, city, state, ZIP code, phone number, and email address.', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('Address changes or cancellations can only be made before the order enters the fulfillment process (usually within a few hours of placement). Please email support@tizezap.com immediately if you need to modify your shipping details.', 'dawp')],
                 ],
             ],
             [
-                'question' => __('What happens if tracking says delivered but I cannot find the package?', 'dawp'),
-                'answer' => [
-                    __('First check the delivery area, building office, mailroom, household members, neighbors, and local carrier office. If the package still cannot be located, contact us with your order number and tracking number.', 'dawp'),
-                    __('If the carrier confirms a package was lost before delivery and the shipping address was correct, we will review the claim and may offer a replacement, store credit, or refund depending on product availability and claim outcome. If tracking confirms delivery to the address provided at checkout, Tizezap is not responsible for theft or loss after delivery, but we will help collect shipment details for a carrier claim when possible.', 'dawp'),
+                'question' => __('What happens if my package is lost or delayed?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'ul', 'items' => [
+                        ['label' => __('Delayed:', 'dawp'),               'text' => __('If your estimated delivery window has passed, contact us so we can investigate with the carrier.', 'dawp')],
+                        ['label' => __('Lost in Transit:', 'dawp'),        'text' => __('If a package is confirmed lost by the carrier prior to delivery, we will issue a full refund or send a replacement at no extra cost.', 'dawp')],
+                        ['label' => __('Missing after Delivery:', 'dawp'), 'text' => __('If tracking shows "Delivered" but you cannot find it, please check with neighbors or local management. While we are not responsible for theft after delivery, we will actively assist you in filing a carrier claim.', 'dawp')],
+                    ]],
                 ],
             ],
         ],
     ],
     [
-        'id' => 'faq-returns',
-        'label' => __('Returns & Refunds', 'dawp'),
+        'id'     => 'faq-returns',
+        'label'  => __('🔄 Returns & Refunds', 'dawp'),
         'accent' => '#F97316',
-        'tint' => '#FFF7ED',
-        'items' => [
+        'tint'   => '#FFF7ED',
+        'items'  => [
             [
                 'question' => __('What is Tizezap\'s return window?', 'dawp'),
-                'answer' => [
-                    __('You may request a return within 30 days of delivery for eligible tires purchased directly from Tizezap. Return approval depends on product condition, order details, tire fitment information, and whether the item can be safely resold.', 'dawp'),
-                    __('A return request is not automatically approved. Please wait for return authorization and instructions before shipping anything back.', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('You can request a return within 30 days from the date of delivery.', 'dawp')],
                 ],
             ],
             [
-                'question' => __('Which tire returns are eligible?', 'dawp'),
-                'answer' => [
-                    __('Eligible returns generally must be requested within 30 days of delivery and the tire must be unused, unmounted, undriven, undamaged, and in original condition. Original labels, packaging, documentation, and included parts should be present when applicable.', 'dawp'),
-                    __('Proof of purchase is required, such as your order number or order confirmation email. Items marked final sale, clearance, special order, custom, or otherwise non-returnable at purchase may not qualify.', 'dawp'),
+                'question' => __('Which tires are eligible for a return?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('To qualify for a full return, tires must be unused, unmounted, undriven, undamaged, and in their original condition with all original labels and tags intact. Proof of purchase (order number) is required.', 'dawp')],
                 ],
             ],
             [
-                'question' => __('Which tire conditions are not returnable?', 'dawp'),
-                'answer' => [
-                    __('Tires that have been mounted, balanced, installed, driven on, repaired, altered, or used are not returnable. Tires damaged by improper handling, incorrect installation, road hazards, misuse, storage issues, or customer-caused wear may also be declined.', 'dawp'),
-                    __('Returns may be declined if they are outside the 30-day window, missing required labels or packaging, incomplete, final sale, unauthorized, or not in condition suitable for resale.', 'dawp'),
+                'question' => __('Are there any restocking fees?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('No. Tizezap charges $0 restocking fees.', 'dawp')],
                 ],
             ],
             [
-                'question' => __('How do I start a return or exchange request?', 'dawp'),
-                'answer' => [
-                    __('Email support@tizezap.com within 30 days of delivery. Include your order number, tire model, tire size, quantity, reason for return, and clear photos of the tire condition, labels, packaging, and shipping label.', 'dawp'),
-                    __('After review, support will provide return authorization and instructions if the request is approved. Unauthorized returns may be refused or returned to sender.', 'dawp'),
+                'question' => __('Who pays for the return shipping cost?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'ul', 'items' => [
+                        ['label' => __('Our Error:', 'dawp'),          'text' => __('If you receive an incorrect, defective, or damaged tire, Tizezap covers 100% of the return shipping costs.', 'dawp')],
+                        ['label' => __('Customer Remorse:', 'dawp'),   'text' => __('If you change your mind or ordered the wrong size, the customer is responsible for the return shipping costs.', 'dawp')],
+                    ]],
                 ],
             ],
             [
-                'question' => __('Who pays for return shipping?', 'dawp'),
-                'answer' => [
-                    __('Customers are responsible for return shipping costs unless the return is caused by our confirmed error, such as an incorrect, defective, or damaged item confirmed by support.', 'dawp'),
-                    __('Use a trackable shipping service for approved returns and keep the carrier receipt until the return is fully resolved.', 'dawp'),
-                ],
-            ],
-            [
-                'question' => __('How long do refunds take?', 'dawp'),
-                'answer' => [
-                    __('Approved refunds are issued to the original payment method used at checkout. Refunds are normally processed within 5-10 business days after we receive and approve the returned item.', 'dawp'),
-                    __('Your bank, card issuer, or payment provider may require additional time to post the credit. Original shipping charges, return shipping charges, shipping protection fees, and service fees are non-refundable unless the return is due to our confirmed error.', 'dawp'),
+                'question' => __('How long do refunds take to process?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('Once we receive and inspect your returned tires, we will notify you via email. Approved refunds are issued back to your original payment method within 5–10 business days.', 'dawp')],
                 ],
             ],
             [
                 'question' => __('What should I do if my tire arrives damaged, defective, or incorrect?', 'dawp'),
-                'answer' => [
-                    __('Inspect your order as soon as it arrives. If you receive a tire that is damaged, defective, missing, or different from what you ordered, contact us within 7 days of delivery.', 'dawp'),
-                    __('Include your order number and clear photos of the tire, sidewall details, tread, packaging, and shipping label. Keep all packaging until the issue is reviewed.', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('Please inspect your tires upon arrival. If there is an issue, contact us at support@tizezap.com within 7 days of delivery with your order number and clear photos of the tire, sidewall specs, and shipping label. We will arrange a free replacement or a full refund.', 'dawp')],
                 ],
             ],
         ],
     ],
     [
-        'id' => 'faq-products-orders',
-        'label' => __('Products & Orders', 'dawp'),
+        'id'     => 'faq-products-orders',
+        'label'  => __('🛒 Products & Orders', 'dawp'),
         'accent' => '#111827',
-        'tint' => '#F4F6F8',
-        'items' => [
+        'tint'   => '#F4F6F8',
+        'items'  => [
             [
-                'question' => __('How do I confirm a tire fits my vehicle?', 'dawp'),
-                'answer' => [
-                    __('Before ordering, confirm your tire size, rim size, load index, speed rating, vehicle compatibility, and quantity. Tire compatibility can depend on vehicle requirements, manufacturer recommendations, driving conditions, and product specifications.', 'dawp'),
-                    __('Tizezap provides product details to support practical tire shopping, but customers are responsible for confirming that the selected tire is appropriate for their vehicle and intended use.', 'dawp'),
+                'question' => __('How do I ensure a tire fits my vehicle?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('Please double-check your tire size, rim size, load index, speed rating, and vehicle compatibility before placing an order. While we provide detailed product specifications to guide you, the customer is responsible for ensuring the selected tire matches their vehicle\'s requirements.', 'dawp')],
                 ],
             ],
             [
-                'question' => __('Can I cancel or change an order after placing it?', 'dawp'),
-                'answer' => [
-                    __('Contact support@tizezap.com as soon as possible if you need to update order details, correct an address, or request cancellation. Changes can only be reviewed before the order has entered fulfillment or shipped.', 'dawp'),
-                    __('We may also refuse, limit, hold, review, or cancel an order in certain situations, including unavailable products, pricing errors, suspected fraud, inaccurate information, or restrictions tied to the same customer account, payment method, billing address, shipping address, email, or phone number.', 'dawp'),
+                'question' => __('Can prices change after I place an order?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('No. While product prices and availability may fluctuate on our website due to market conditions, the price you pay at checkout is locked and guaranteed. We will never charge you more after an order is confirmed.', 'dawp')],
                 ],
             ],
             [
-                'question' => __('Can prices, specifications, or availability change?', 'dawp'),
-                'answer' => [
-                    __('Yes. Product prices, promotions, availability, shipping rates, descriptions, tire specifications, images, and service features may change without notice. Product images and sidewall details may also vary because of device screens, lighting, manufacturing changes, packaging updates, supplier variations, or specification updates.', 'dawp'),
-                    __('If website information contains an error, inaccuracy, or omission, we may correct it and may update, refuse, or cancel affected orders where permitted by law.', 'dawp'),
-                ],
-            ],
-            [
-                'question' => __('Why do I need to provide accurate billing, contact, and shipping information?', 'dawp'),
-                'answer' => [
-                    __('Accurate billing, shipping, email, and phone information helps us process payment, fulfill the order, send tracking updates, review address issues, handle returns, and contact you if support needs more information.', 'dawp'),
-                    __('Incorrect or incomplete information may delay fulfillment, prevent delivery, affect return eligibility, or require reshipment at the customer\'s cost when applicable.', 'dawp'),
+                'question' => __('Can I cancel an order?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('You can request a cancellation by emailing support@tizezap.com before the item is shipped. If the item has already left our warehouse, please follow our standard 30-day return process.', 'dawp')],
                 ],
             ],
         ],
     ],
     [
-        'id' => 'faq-privacy-terms',
-        'label' => __('Privacy & Terms', 'dawp'),
+        'id'     => 'faq-privacy-security',
+        'label'  => __('🔒 Privacy & Security', 'dawp'),
         'accent' => '#2563EB',
-        'tint' => '#EFF6FF',
-        'items' => [
+        'tint'   => '#EFF6FF',
+        'items'  => [
             [
-                'question' => __('How does Tizezap use my personal information?', 'dawp'),
-                'answer' => [
-                    __('We use personal information to operate the tire store, process and confirm purchases, process payments through third-party payment processors, fulfill and ship orders, provide tracking, manage returns or refunds, provide customer support, improve the website, prevent fraud, and meet legal obligations.', 'dawp'),
-                    __('This may include contact details, order and tire information, payment-related references, device and technical data, website usage data, communications, support photos, and marketing preferences where applicable.', 'dawp'),
+                'question' => __('Does Tizezap store my credit card information?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('No. Your checkout process is 100% secured by Secure Socket Layer (SSL) encryption. All payments are processed directly through certified, PCI-compliant third-party payment gateways. Tizezap never stores or has access to your full credit card numbers or security codes.', 'dawp')],
                 ],
             ],
             [
-                'question' => __('Does Tizezap store my full credit card number?', 'dawp'),
-                'answer' => [
-                    __('No. Payment information is processed by trusted third-party payment processors. Tizezap does not store full credit card numbers, card security codes, or complete payment credentials on our website servers.', 'dawp'),
-                    __('Checkout pages and pages that collect personal information should be protected by HTTPS/SSL, but no website or online transmission can be guaranteed completely secure.', 'dawp'),
-                ],
-            ],
-            [
-                'question' => __('Do you sell customer contact information?', 'dawp'),
-                'answer' => [
-                    __('We do not sell, rent, or trade customer contact information to third parties for their independent marketing. We share personal information only when needed to operate the store, fulfill purchases, protect customers, comply with law, or complete a transaction you requested.', 'dawp'),
-                    __('For example, we may share limited information with payment processors, fraud prevention providers, shipping carriers, fulfillment partners, website providers, analytics or advertising partners, professional advisers, or legal authorities when appropriate.', 'dawp'),
-                ],
-            ],
-            [
-                'question' => __('How do cookies and advertising tools work on the website?', 'dawp'),
-                'answer' => [
-                    __('We use cookies and similar technologies for cart, checkout, account login, security, language preferences, fraud prevention, analytics, performance measurement, advertising measurement, and relevant advertising where permitted.', 'dawp'),
-                    __('You can set your browser to block or delete cookies, but some parts of the website may not work correctly if cookies are disabled.', 'dawp'),
-                ],
-            ],
-            [
-                'question' => __('What privacy rights do I have?', 'dawp'),
-                'answer' => [
-                    __('Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, withdrawal of consent, or information about how we collect, use, and share personal information.', 'dawp'),
-                    __('To make a privacy request, contact support@tizezap.com. We may need enough information to verify your identity and locate the relevant order, account, or contact record.', 'dawp'),
-                ],
-            ],
-            [
-                'question' => __('How can I contact Tizezap support?', 'dawp'),
-                'answer' => [
-                    __('For shipping, returns, exchanges, refunds, privacy requests, product specifications, order status, or policy questions, email support@tizezap.com with your order number when available.', 'dawp'),
-                    __('Our support team typically replies within 1-2 business days, Monday through Friday, excluding holidays. Business hours are Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'),
+                'question' => __('Do you sell customer personal data?', 'dawp'),
+                'answer'   => [
+                    ['type' => 'p', 'text' => __('Absolutely not. We do not sell, rent, trade, or share your contact information with third parties for marketing purposes. Your data is only shared with trusted partners (like shipping carriers and payment processors) strictly to fulfill your order.', 'dawp')],
                 ],
             ],
         ],
@@ -201,7 +153,7 @@ $faq_sections = [
                 <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#D7DEE8]">
-                <?php esc_html_e('Clear answers about tire fitment, checkout, shipping, returns, refunds, privacy, and the terms that apply when you shop with Tizezap.', 'dawp'); ?>
+                <?php esc_html_e('Clear, transparent answers about tire fitment, checkout, shipping, returns, refunds, and privacy when you shop with Tizezap.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#B8C3D1]">
                 <?php esc_html_e('Last Updated: May 19, 2026', 'dawp'); ?>
@@ -214,15 +166,15 @@ $faq_sections = [
             <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
                 <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#2563EB] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Processing', 'dawp'); ?></p>
-                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('2-4 Business Days', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('1-2 Business Days', 'dawp'); ?></p>
                 </div>
                 <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#2563EB] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('US Transit', 'dawp'); ?></p>
-                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('5-10 Business Days', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('3-5 Business Days', 'dawp'); ?></p>
                 </div>
                 <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#F97316] bg-white p-6 shadow-sm">
-                    <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Returns', 'dawp'); ?></p>
-                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('30-Day Window', 'dawp'); ?></p>
+                    <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Shipping Cost', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('FREE', 'dawp'); ?></p>
                 </div>
                 <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#111827] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Support', 'dawp'); ?></p>
@@ -264,8 +216,23 @@ $faq_sections = [
                                             </span>
                                         </summary>
                                         <div class="border-t border-[#E5E7EB] px-5 pb-5 pt-4 text-base leading-7 text-[#4B5563]">
-                                            <?php foreach ($item['answer'] as $paragraph) : ?>
-                                                <p class="mb-4 last:mb-0"><?php echo esc_html($paragraph); ?></p>
+                                            <?php foreach ($item['answer'] as $part) : ?>
+                                                <?php if ($part['type'] === 'p') : ?>
+                                                    <p class="mb-4 last:mb-0"><?php echo esc_html($part['text']); ?></p>
+                                                <?php elseif ($part['type'] === 'ul') : ?>
+                                                    <ul class="mb-4 list-disc space-y-2 pl-6 last:mb-0">
+                                                        <?php foreach ($part['items'] as $li) : ?>
+                                                            <li class="leading-7">
+                                                                <?php if (!empty($li['label'])) : ?>
+                                                                    <strong class="font-bold text-[#111827]"><?php echo esc_html($li['label']); ?></strong>
+                                                                    <?php echo ' ' . esc_html($li['text']); ?>
+                                                                <?php else : ?>
+                                                                    <?php echo esc_html($li['text']); ?>
+                                                                <?php endif; ?>
+                                                            </li>
+                                                        <?php endforeach; ?>
+                                                    </ul>
+                                                <?php endif; ?>
                                             <?php endforeach; ?>
                                         </div>
                                     </details>
@@ -281,19 +248,24 @@ $faq_sections = [
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
                             </div>
-                            <h2 class="font-heading text-3xl font-black leading-tight"><?php esc_html_e('Still have questions?', 'dawp'); ?></h2>
+                            <h2 class="font-heading text-3xl font-black leading-tight"><?php esc_html_e('📞 Contact Support', 'dawp'); ?></h2>
                             <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#D7DEE8]">
-                                <?php esc_html_e('Email support@tizezap.com with your order number when available. Support typically replies within 1-2 business days, Monday through Friday, excluding holidays.', 'dawp'); ?>
+                                <?php esc_html_e('Still have questions? We are here to help!', 'dawp'); ?>
                             </p>
+                            <ul class="mt-5 space-y-2 text-sm leading-7 text-[#D7DEE8]">
+                                <li><strong class="text-white"><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com" class="text-[#93C5FD] transition hover:text-white">support@tizezap.com</a></li>
+                                <li><strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 6:00 PM EST', 'dawp'); ?></li>
+                                <li><strong class="text-white"><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('We typically reply to all inquiries within 1–2 business days.', 'dawp'); ?></li>
+                            </ul>
                             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
                                 <a href="mailto:support@tizezap.com" class="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-black uppercase tracking-wide text-[#0B1F33] transition hover:bg-[#F97316] hover:text-white">
                                     <?php esc_html_e('Email Support', 'dawp'); ?>
                                 </a>
-                                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">
-                                    <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
+                                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">
+                                    <?php esc_html_e('Shipping Policy', 'dawp'); ?>
                                 </a>
-                                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">
-                                    <?php esc_html_e('Privacy Policy', 'dawp'); ?>
+                                <a href="<?php echo esc_url(home_url('/returns-policy/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">
+                                    <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                                 </a>
                             </div>
                         </div>

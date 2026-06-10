@@ -46,8 +46,10 @@
                     <p class="text-xs font-black uppercase tracking-[0.16em] text-[#5B6472]"><?php esc_html_e('Policy Sections', 'dawp'); ?></p>
                     <nav class="mt-4 space-y-2" aria-label="<?php esc_attr_e('Terms and conditions sections', 'dawp'); ?>">
                         <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#111827] transition hover:border-[#2563EB] hover:bg-[#EFF6FF]" href="#terms-overview"><?php esc_html_e('Overview', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#111827] transition hover:border-[#2563EB] hover:bg-[#EFF6FF]" href="#online-store"><?php esc_html_e('Online Store', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#111827] transition hover:border-[#2563EB] hover:bg-[#EFF6FF]" href="#product-info"><?php esc_html_e('Product Information', 'dawp'); ?></a>
                         <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#111827] transition hover:border-[#F97316] hover:bg-[#FFF7ED]" href="#orders-billing"><?php esc_html_e('Orders & Billing', 'dawp'); ?></a>
-                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#111827] transition hover:border-[#2563EB] hover:bg-[#EFF6FF]" href="#products-services"><?php esc_html_e('Products & Fitment', 'dawp'); ?></a>
+                        <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#111827] transition hover:border-[#F97316] hover:bg-[#FFF7ED]" href="#shipping-returns"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
                         <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#111827] transition hover:border-[#111827] hover:bg-[#F4F6F8]" href="#prohibited-uses"><?php esc_html_e('Prohibited Uses', 'dawp'); ?></a>
                         <a class="block rounded-md border border-transparent px-3 py-2 text-sm font-bold text-[#111827] transition hover:border-[#111827] hover:bg-[#F4F6F8]" href="#contact-terms"><?php esc_html_e('Contact', 'dawp'); ?></a>
                     </nav>
@@ -58,97 +60,63 @@
                         [&_a]:font-semibold [&_a]:text-[#2563EB] [&_a]:underline [&_a]:decoration-[#BFDBFE] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-[#0B1F33]
                         [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#E5E7EB] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#0B1F33] md:[&_h2]:text-3xl
                         [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#111827] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
-                        <p class="rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] p-4 font-medium text-[#111827]"><?php esc_html_e('Please read these Terms & Conditions carefully before using our website or placing an order. By accessing Tizezap or buying from us, you agree to these terms and any policies referenced on this page.', 'dawp'); ?></p>
 
-                        <h2 id="terms-overview"><?php esc_html_e('1. Overview and Acceptance of Terms', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('This website is operated by Tizezap. Throughout the site, the terms "we", "us", and "our" refer to Tizezap. We offer this website, including information, products, tools, and services available from this site, conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('By visiting our site, creating an account, contacting us, submitting information, or purchasing something from us, you engage in our service and agree to be bound by these Terms & Conditions, including additional terms and policies referenced by link. If you do not agree to these terms, you should not access the website, use our services, or place an order.', 'dawp'); ?></p>
+                        <p id="terms-overview" class="scroll-mt-24 rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] p-4 font-medium text-[#111827]"><?php esc_html_e('Welcome to Tizezap. This website, located at tizezap.com, is operated by Tizezap. Throughout the site, the terms "we", "us", and "our" refer to Tizezap. By accessing our website, creating an account, or purchasing tire products from us, you agree to be bound by the following Terms & Conditions, including any additional policies referenced herein.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Please read these terms carefully before making a purchase. If you do not agree to all the terms, please do not use our services or place an order.', 'dawp'); ?></p>
 
-                        <h2><?php esc_html_e('2. Online Store Terms', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('By agreeing to these terms, you represent that you are at least the age of majority in your state or place of residence, or that you are the age of majority and have given consent for any minor dependents to use this site under your supervision.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('You may not use our products, website, or services for any illegal or unauthorized purpose. You must not transmit viruses, malicious code, spam, scraping tools, or any code designed to interfere with the operation or security of the website.', 'dawp'); ?></p>
+                        <h2 id="online-store"><?php esc_html_e('1. Online Store & Eligibility', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('By agreeing to these Terms, you represent that you are at least the age of majority in your state or province of residence. You agree not to use our products or services for any illegal or unauthorized purpose, nor violate any laws in your jurisdiction while using our site.', 'dawp'); ?></p>
 
-                        <h2><?php esc_html_e('3. General Conditions', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('We reserve the right to refuse service to anyone for any reason at any time, where permitted by law. We may limit, suspend, or terminate access to the website or services if we believe a user has violated these terms, abused our systems, submitted false information, or engaged in harmful conduct.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('You agree not to reproduce, duplicate, copy, sell, resell, exploit, scrape, or misuse any portion of the service, use of the service, access to the service, or contact on the website through which the service is provided, without express written permission from us.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('4. Accuracy, Completeness, and Timeliness of Information', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('We work to provide accurate product, pricing, shipping, policy, and website information, but we do not guarantee that all information on this site is complete, current, or error-free. Website content is provided for general shopping and informational purposes and should not be relied upon as the sole basis for important vehicle, installation, or safety decisions.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Some information may be historical or no longer current and is provided for reference only. We may modify site content at any time, but we have no obligation to update every item immediately. You are responsible for reviewing current information before placing an order.', 'dawp'); ?></p>
-
-                        <h2 id="products-services"><?php esc_html_e('5. Products, Tire Specifications, and Fitment', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('Tizezap sells tire products for cars, SUVs, light trucks, trailers, seasonal driving needs, and related tire shopping purposes. Product pages may include tire size, rim size, load index, speed rating, tire type, season or driving condition, vehicle compatibility guidance, quantity included, shipping information, and return eligibility when available.', 'dawp'); ?></p>
-                        <p class="rounded-lg border border-[#FED7AA] bg-[#FFF7ED] p-4 font-medium text-[#111827]"><?php esc_html_e('Please confirm your tire size, rim size, load index, speed rating, vehicle compatibility, and quantity before placing an order. Tizezap does not claim that any tire fits every vehicle or guarantees a specific driving outcome.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We make reasonable efforts to display product colors, tread patterns, sidewall details, dimensions, specifications, and images accurately. However, device screens, lighting, manufacturing changes, packaging updates, supplier variations, and specification updates may make the actual product appear different from the website display.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We reserve the right, but are not obligated, to limit sales of products or services to any person, household, geographic region, jurisdiction, account, payment method, or shipping address. Any offer for any product or service made on this site is void where prohibited.', 'dawp'); ?></p>
-
-                        <h2 id="orders-billing"><?php esc_html_e('6. Orders, Billing, Shipping, and Account Information', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('You agree to provide current, complete, and accurate purchase, billing, shipping, account, email, and phone information for all purchases made through our store. Incorrect or incomplete information may delay fulfillment, prevent delivery, or affect return eligibility.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We may refuse, limit, hold, review, or cancel any order you place with us. Restrictions may include orders placed by or under the same customer account, payment method, billing address, shipping address, email, phone number, or suspected related customer information. If we change, hold, or cancel an order, we may attempt to notify you using the contact information provided when the order was placed.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('7. Shipping, Returns, Exchanges, and Refunds', 'dawp'); ?></h2>
-                        <p>
-                            <?php esc_html_e('Shipping, delivery estimates, address issues, return eligibility, tire condition requirements, exchanges, and refunds are explained in our ', 'dawp'); ?>
-                            <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns Policy', 'dawp'); ?></a>.
-                        </p>
-                        <p><?php esc_html_e('A return request is not automatically approved. We may require an order number, tire photos, sidewall/specification photos, packaging photos, carrier information, or other details before approving a return, replacement, refund, or store credit. Unauthorized returns may be refused or returned to sender.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('8. Pricing, Availability, and Service Changes', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('Product prices, promotions, availability, shipping rates, descriptions, and service features may change without notice. We may modify, suspend, or discontinue all or part of the website, service, product catalog, or content at any time.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We are not liable to you or any third party for modifications, price changes, suspensions, discontinued products, unavailable services, or changes to website content, except where required by applicable law.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('9. Optional Tools, Third-Party Services, and Links', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('We may provide access to third-party tools, payment services, carrier tracking pages, analytics tools, embedded content, or platform features that we do not monitor or control. These tools are provided "as is" and "as available" without warranties, representations, conditions, or endorsement from us.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Third-party links may direct you to websites that are not affiliated with us. We are not responsible for third-party content, accuracy, policies, products, services, websites, or transactions.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('10. User Comments, Reviews, Feedback, and Submissions', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('If you send submissions, reviews, photos, ideas, suggestions, proposals, feedback, or other materials to us by website form, email, social media, postal mail, or other channels, you agree that we may use those submissions for store operations, support, moderation, improvement, and lawful business purposes without obligation to maintain them in confidence, pay compensation, or respond.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('You agree that your submissions will not violate any third-party rights and will not contain unlawful, abusive, obscene, defamatory, misleading, malicious, counterfeit, infringing, or harmful material.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('11. Personal Information', 'dawp'); ?></h2>
-                        <p>
-                            <?php esc_html_e('Your submission of personal information through the website, account features, checkout, contact forms, support requests, or order workflows is governed by our ', 'dawp'); ?>
-                            <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>.
-                        </p>
-
-                        <h2><?php esc_html_e('12. Errors, Inaccuracies, and Omissions', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('Occasionally there may be information on our site or in the service that contains typographical errors, inaccuracies, or omissions related to product descriptions, tire specifications, pricing, promotions, offers, shipping charges, transit times, availability, images, or policy details.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We reserve the right to correct errors, inaccuracies, or omissions, and to change, update, refuse, or cancel orders if information in the service or on any related website is inaccurate at any time without prior notice, including after an order has been submitted, where permitted by law.', 'dawp'); ?></p>
-
-                        <h2 id="prohibited-uses"><?php esc_html_e('13. Prohibited Uses', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('In addition to other prohibitions in these terms, you are prohibited from using the site, service, products, or content:', 'dawp'); ?></p>
+                        <h2 id="product-info"><?php esc_html_e('2. Product Information & Specifications', 'dawp'); ?></h2>
                         <ul>
-                            <li><?php esc_html_e('for any unlawful purpose or to solicit others to perform unlawful acts;', 'dawp'); ?></li>
-                            <li><?php esc_html_e('to violate any applicable international, federal, state, provincial, or local law, rule, regulation, or ordinance;', 'dawp'); ?></li>
-                            <li><?php esc_html_e('to infringe upon or violate our intellectual property rights or the intellectual property rights of others;', 'dawp'); ?></li>
-                            <li><?php esc_html_e('to submit false, misleading, fraudulent, incomplete, counterfeit, or inaccurate information;', 'dawp'); ?></li>
-                            <li><?php esc_html_e('to upload or transmit viruses, malware, malicious code, spam, phishing attempts, scraping tools, or automated abuse;', 'dawp'); ?></li>
-                            <li><?php esc_html_e('to interfere with or bypass website security, payment screening, fraud controls, account protections, or service functionality;', 'dawp'); ?></li>
-                            <li><?php esc_html_e('to collect or track the personal information of others without lawful permission.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Accuracy:', 'dawp'); ?></strong> <?php esc_html_e('We endeavor to display our tire specifications, sizes, rim fitment guidelines, load indexes, speed ratings, and product images as accurately as possible.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Display Variations:', 'dawp'); ?></strong> <?php esc_html_e('While we attempt to reflect actual products accurately, variations in user device screens and lighting may cause minor differences in how colors or tread patterns appear.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Vehicle Compatibility:', 'dawp'); ?></strong> <?php esc_html_e('Customers are encouraged to verify their specific vehicle manufacturer specifications before placing an order to ensure correct tire fitment.', 'dawp'); ?></li>
                         </ul>
-                        <p><?php esc_html_e('We reserve the right to terminate your use of the service or any related website for violating any prohibited use.', 'dawp'); ?></p>
 
-                        <h2><?php esc_html_e('14. Disclaimer of Warranties and Limitation of Liability', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('We do not guarantee, represent, or warrant that your use of our service will be uninterrupted, timely, secure, error-free, or always available. We do not warrant that results obtained from the use of the service will be accurate or reliable.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('The service and all products delivered through the service are provided "as is" and "as available" unless expressly stated otherwise. To the fullest extent permitted by law, Tizezap and our directors, officers, employees, affiliates, agents, contractors, suppliers, service providers, and licensors are not liable for indirect, incidental, punitive, special, consequential, or similar damages arising from your use of the website, service, or products.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('15. Indemnification and Severability', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('You agree to indemnify, defend, and hold harmless Tizezap and our affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, and employees from any claim or demand, including reasonable attorneys fees, made by a third party due to or arising out of your breach of these terms, the documents they incorporate by reference, your misuse of the website or service, or your violation of any law or third-party rights.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('If any provision of these Terms & Conditions is determined to be unlawful, void, or unenforceable, that provision will be enforceable to the fullest extent permitted by law. The unenforceable portion will be deemed severed from these terms, and the remaining provisions will remain in effect.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('16. Termination, Entire Agreement, and Governing Law', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('These terms are effective unless and until terminated by either you or us. You may terminate these terms by ceasing use of our website and services. We may terminate this agreement at any time without notice if we believe you have failed to comply with any term or policy.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('These terms, together with the policies referenced on the website, constitute the entire agreement between you and Tizezap regarding your use of the website and services. These Terms & Conditions and any separate agreements through which we provide services are governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles.', 'dawp'); ?></p>
-
-                        <h2><?php esc_html_e('17. Changes to Terms & Conditions', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('You can review the most current version of these Terms & Conditions on this page at any time. We reserve the right, at our sole discretion, to update, change, or replace any part of these terms by posting updates to our website. Continued use of or access to the website or service after changes are posted constitutes acceptance of those changes.', 'dawp'); ?></p>
-
-                        <h2 id="contact-terms"><?php esc_html_e('18. Contact Information', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('Questions about these Terms & Conditions should be sent to Tizezap:', 'dawp'); ?></p>
+                        <h2 id="orders-billing"><?php esc_html_e('3. Order Placement, Billing, and Price Accuracy', 'dawp'); ?></h2>
                         <ul>
-                            <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com">support@tizezap.com</a></li>
-                            <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Account Info:', 'dawp'); ?></strong> <?php esc_html_e('You agree to provide current, complete, and accurate purchase, billing, and shipping details for all transactions made at our store.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Pricing & Availability:', 'dawp'); ?></strong> <?php esc_html_e('All prices and product availability are subject to change without prior notice. However, once an order is placed and confirmed, the price for that transaction is locked and guaranteed.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Order Modifications:', 'dawp'); ?></strong> <?php esc_html_e('In the event that we must change, hold, or cancel an order (e.g., due to sudden inventory depletion), we will promptly notify you via the email or phone number provided at checkout and issue a full refund immediately if payment was already processed.', 'dawp'); ?></li>
+                        </ul>
+
+                        <h2 id="shipping-returns"><?php esc_html_e('4. Shipping, Returns, and Refunds', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('All transactions, deliveries, and return requests are handled transparently under our designated store policies:', 'dawp'); ?></p>
+                        <ul>
+                            <li><?php esc_html_e('For details regarding delivery timelines and zero hidden fees, please review our ', 'dawp'); ?><a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>.</li>
+                            <li><?php esc_html_e('For details regarding our 30-day return window and refund processing, please review our ', 'dawp'); ?><a href="<?php echo esc_url(home_url('/returns-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>.</li>
+                        </ul>
+
+                        <h2><?php esc_html_e('5. Payment Security & Secure Checkout', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('Your data security during checkout is protected. Every transaction is encrypted using Secure Socket Layer (SSL) technology. Tizezap does not collect, view, or retain your full credit card numbers or payment credentials; all processing is securely executed by authorized, PCI-compliant third-party payment providers.', 'dawp'); ?></p>
+
+                        <h2 id="prohibited-uses"><?php esc_html_e('6. Prohibited Uses', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('You are strictly prohibited from using the site or its content:', 'dawp'); ?></p>
+                        <ul>
+                            <li><?php esc_html_e('For any unlawful or fraudulent purposes.', 'dawp'); ?></li>
+                            <li><?php esc_html_e('To submit false, misleading, or counterfeit information.', 'dawp'); ?></li>
+                            <li><?php esc_html_e('To upload or transmit viruses, malware, or any other type of malicious code that could compromise site security or customer data.', 'dawp'); ?></li>
+                            <li><?php esc_html_e('To scrape, harvest, or unauthorizedly collect data from the website.', 'dawp'); ?></li>
+                        </ul>
+                        <p><?php esc_html_e('Violation of these security rules may result in the immediate termination of your access to our services.', 'dawp'); ?></p>
+
+                        <h2><?php esc_html_e('7. Limitation of Liability', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('Tizezap provides tire products built to compliant industry manufacturing standards. To the maximum extent permitted by applicable law, Tizezap shall not be liable for any indirect, incidental, or consequential damages resulting from improper third-party installation, misuse, or road hazard damages incurred after delivery.', 'dawp'); ?></p>
+
+                        <h2><?php esc_html_e('8. Governing Law', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by and construed in accordance with the laws of the United States.', 'dawp'); ?></p>
+
+                        <h2><?php esc_html_e('9. Changes to Terms & Conditions', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('You can review the most current version of the Terms & Conditions at any time on this page. We reserve the right to update or modify these terms to remain compliant with changing e-commerce regulations.', 'dawp'); ?></p>
+
+                        <h2 id="contact-terms"><?php esc_html_e('Contact Information', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('If you have any questions or require clarification regarding our Terms & Conditions, please contact us directly:', 'dawp'); ?></p>
+                        <ul>
+                            <li><strong><?php esc_html_e('Brand Name:', 'dawp'); ?></strong> <?php esc_html_e('Tizezap', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('tizezap.com', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com">support@tizezap.com</a></li>
+                            <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 6:00 PM EST', 'dawp'); ?></li>
                         </ul>
                     </div>
                 </article>

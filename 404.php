@@ -133,9 +133,9 @@ if (function_exists('dawp_tire_category_definitions')) {
 
   <section class="bg-[#F4F6F8] py-10">
     <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
-      <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 transition hover:border-[#F97316] hover:shadow-sm">
-        <p class="text-sm font-black text-[#0B1F33]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></p>
-        <p class="mt-2 text-sm leading-6 text-[#4B5563]"><?php esc_html_e('Check processing, delivery, and return details.', 'dawp'); ?></p>
+      <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 transition hover:border-[#F97316] hover:shadow-sm">
+        <p class="text-sm font-black text-[#0B1F33]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
+        <p class="mt-2 text-sm leading-6 text-[#4B5563]"><?php esc_html_e('Check processing, delivery, and tracking details.', 'dawp'); ?></p>
       </a>
       <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 transition hover:border-[#F97316] hover:shadow-sm">
         <p class="text-sm font-black text-[#0B1F33]"><?php esc_html_e('Track Order', 'dawp'); ?></p>

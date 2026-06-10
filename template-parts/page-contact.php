@@ -255,9 +255,9 @@ $help_topics = [
                 </div>
 
                 <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="rounded-lg border border-white/10 bg-white p-5 text-[#111827] transition hover:-translate-y-1 hover:shadow-md">
-                        <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></h3>
+                        <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
                         <p class="mt-2 text-sm leading-6 text-[#4B5563]"><?php esc_html_e('Read timelines and return conditions.', 'dawp'); ?></p>
                     </a>
                     <a href="<?php echo esc_url(home_url('/track-order/')); ?>"

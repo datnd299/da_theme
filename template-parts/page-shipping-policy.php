@@ -82,6 +82,7 @@ $contact_details = [
         <h1 id="shipping-policy-cover-title" class="mt-5 max-w-3xl font-serif text-5xl font-semibold leading-[1.02] text-[#F4F5F6] sm:text-6xl lg:text-7xl">
           Reliable Delivery For Every Formal Shoe Order
         </h1>
+        <p class="mt-5 text-sm font-semibold text-white/60">Last updated: May 22, 2026</p>
         <p class="mt-6 max-w-2xl text-base leading-8 text-white/72 sm:text-lg">
           Review shipping locations, delivery timelines, carrier tracking, and support details before ordering from <?php echo esc_html($store_name); ?>.
         </p>

@@ -167,6 +167,7 @@ $allowed_answer_html = [
         <div class="text-center mb-16">
             <span class="text-accent font-medium tracking-widest uppercase text-sm mb-4 block">Common Questions</span>
             <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground font-bold mb-6 tracking-tight">Frequently Asked Questions</h1>
+            <p class="text-foreground-muted text-sm font-medium mb-4">Last updated: May 22, 2026</p>
             <p class="text-foreground-muted text-lg max-w-2xl mx-auto leading-relaxed">
                 Clear answers about shipping, delivery, returns, refunds, and formal footwear condition requirements. Need help with a specific order? <a href="<?php echo esc_url($contact_url); ?>" class="text-accent hover:underline font-medium">Contact our support team</a>.
             </p>

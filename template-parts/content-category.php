@@ -47,7 +47,14 @@ if (!isset($products)) $products = [];
             <div class="relative lg:mt-0">
                 <div class="relative overflow-hidden rounded-[2.5rem] border-4 border-white shadow-2xl shadow-[#3B1748]/10">
                     <?php if ($category_image) : ?>
-                        <img src="<?php echo esc_url($category_image); ?>" alt="<?php echo esc_attr($category_name); ?>" class="aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]">
+                        <?php echo dawp_responsive_image($category_image, [
+                            'alt'    => $category_name,
+                            'class'  => 'aspect-[4/5] w-full object-cover sm:aspect-[5/4] lg:aspect-[4/5]',
+                            'width'  => 960,
+                            'height' => 1200,
+                            'widths' => [400, 768, 960],
+                            'sizes'  => '(max-width: 1023px) 100vw, 40vw',
+                        ]); ?>
                     <?php else : ?>
                         <div class="aspect-[4/5] w-full bg-[#E8DFF0] sm:aspect-[5/4] lg:aspect-[4/5]"></div>
                     <?php endif; ?>
@@ -86,7 +93,14 @@ if (!isset($products)) $products = [];
                         ?>
                         <div class="group relative flex flex-col">
                             <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#FBF4FF] transition duration-500 group-hover:shadow-xl group-hover:shadow-[#3B1748]/10">
-                                <img src="<?php echo esc_url($p_img); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" class="h-full w-full object-cover transition duration-700 group-hover:scale-110">
+                                <?php echo dawp_responsive_image($p_img, [
+                                    'alt'    => $product->get_name(),
+                                    'class'  => 'h-full w-full object-cover transition duration-700 group-hover:scale-110',
+                                    'width'  => 600,
+                                    'height' => 750,
+                                    'widths' => [320, 480, 600],
+                                    'sizes'  => '(max-width: 639px) 50vw, (max-width: 1023px) 33vw, 25vw',
+                                ]); ?>
                                 <div class="absolute inset-0 bg-gradient-to-t from-[#24132E]/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                                 <a href="<?php echo esc_url($p_url); ?>" class="absolute bottom-4 left-4 right-4 flex h-12 translate-y-4 items-center justify-center rounded-full bg-white text-sm font-bold text-[#3B1748] opacity-0 shadow-lg transition duration-500 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-[#3B1748] hover:text-white">
                                     Quick View

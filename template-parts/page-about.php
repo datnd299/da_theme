@@ -199,7 +199,16 @@ $care_points = [
             <div class="relative">
                 <?php if ($hero_image_url) : ?>
                     <div class="overflow-hidden rounded-[2rem] border border-[#E8DFF0] bg-white p-3 shadow-2xl shadow-[#3B1748]/10">
-                        <img class="aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]" src="<?php echo esc_url($hero_image_url); ?>" alt="Soft sleepwear and robes styled for Shop Avec Moi" loading="eager" fetchpriority="high">
+                        <?php echo dawp_responsive_image($hero_image_url, [
+                            'alt'           => 'Soft sleepwear and robes styled for Shop Avec Moi',
+                            'class'         => 'aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]',
+                            'width'         => 1300,
+                            'height'        => 867,
+                            'widths'        => [400, 768, 1300],
+                            'sizes'         => '(max-width: 1023px) 100vw, 54vw',
+                            'loading'       => 'eager',
+                            'fetchpriority' => 'high',
+                        ]); ?>
                     </div>
                 <?php endif; ?>
                 <div class="relative mx-auto -mt-4 max-w-xl rounded-2xl border border-[#E8DFF0] bg-white p-5 shadow-lg shadow-[#3B1748]/10">
@@ -213,7 +222,14 @@ $care_points = [
         <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
             <?php if ($detail_image_url) : ?>
                 <div class="overflow-hidden rounded-[2rem] border border-[#E8DFF0] bg-white p-3 shadow-2xl shadow-[#3B1748]/10">
-                    <img class="aspect-[4/5] w-full rounded-2xl object-cover" src="<?php echo esc_url($detail_image_url); ?>" alt="Tasteful lace and satin details from Shop Avec Moi" loading="lazy">
+                    <?php echo dawp_responsive_image($detail_image_url, [
+                        'alt'    => 'Tasteful lace and satin details from Shop Avec Moi',
+                        'class'  => 'aspect-[4/5] w-full rounded-2xl object-cover',
+                        'width'  => 960,
+                        'height' => 1200,
+                        'widths' => [400, 768, 960],
+                        'sizes'  => '(max-width: 1023px) 100vw, 40vw',
+                    ]); ?>
                 </div>
             <?php endif; ?>
 

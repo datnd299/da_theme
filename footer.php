@@ -51,7 +51,14 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
         <div class="grid gap-10 lg:grid-cols-[1.2fr_1.8fr]">
             <div class="max-w-xl">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('Shop Avec Moi home', 'dawp'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/shopavecmoi_logo_footer.png'); ?>" alt="<?php esc_attr_e('Shop Avec Moi', 'dawp'); ?>" class="h-16 w-auto max-w-[14rem] object-contain">
+                    <?php echo dawp_responsive_image(get_template_directory_uri() . '/assets/img/gallery/shopavecmoi_logo_footer.png', [
+                        'alt'    => __('Shop Avec Moi', 'dawp'),
+                        'class'  => 'h-16 w-auto max-w-[14rem] object-contain',
+                        'width'  => 120,
+                        'height' => 60,
+                        'widths' => [120, 240, 360],
+                        'sizes'  => '(max-width: 640px) 56vw, 224px',
+                    ]); ?>
                 </a>
                 <p class="mt-5 text-base leading-7 text-white/75">
                     <?php esc_html_e('A romantic feminine boutique for lingerie, sleepwear, robes, and intimate essentials made for comfort, softness, and quiet confidence.', 'dawp'); ?>

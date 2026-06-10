@@ -55,7 +55,14 @@ $nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : 
         <div class="flex min-h-24 items-center justify-between gap-4">
             <a href="<?php echo esc_url($home_url); ?>" class="flex min-w-0 items-center" aria-label="<?php esc_attr_e('Shop Avec Moi home', 'dawp'); ?>">
                 <span class="flex h-16 w-[11rem] max-w-[56vw] shrink-0 items-center lg:w-[12rem]">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/shopavecmoi_logo.png'); ?>" alt="<?php esc_attr_e('Shop Avec Moi', 'dawp'); ?>" class="h-full w-auto object-contain">
+                    <?php echo dawp_responsive_image(get_template_directory_uri() . '/assets/img/gallery/shopavecmoi_logo.png', [
+                        'alt'    => __('Shop Avec Moi', 'dawp'),
+                        'class'  => 'h-full w-auto object-contain',
+                        'width'  => 120,
+                        'height' => 60,
+                        'widths' => [120, 240, 360],
+                        'sizes'  => '(max-width: 640px) 56vw, 192px',
+                    ]); ?>
                 </span>
             </a>
 

@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
 
 $track_order_url = home_url('/track-order/');
 $contact_url     = home_url('/contact-us/');
-$support_email   = 'support@queens-bracelet.com';
+$support_email   = 'support@shopavecmoi.com';
 $store_address   = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 ?>
 
@@ -27,6 +27,7 @@ $store_address   = function_exists('dawp_get_store_address') ? dawp_get_store_ad
                 </svg>
             </div>
             <h1 class="font-heading text-5xl leading-[1.05] text-[#3B1748] sm:text-6xl">Shipping Policy</h1>
+            <p class="mt-5 text-sm font-semibold text-[#6E3A8A]">Last updated: June 10, 2026</p>
         </div>
     </section>
 
@@ -35,7 +36,7 @@ $store_address   = function_exists('dawp_get_store_address') ? dawp_get_store_ad
             <section class="rounded-[2rem] border border-[#E8DFF0] bg-white p-6 shadow-sm shadow-[#3B1748]/10 sm:p-8 lg:p-10">
                 <h2 class="font-heading text-3xl leading-tight text-[#3B1748] sm:text-4xl">Shipping Locations &amp; Market</h2>
                 <div class="mt-5 grid gap-4 text-sm leading-7 text-[#6D5875] sm:text-base">
-                    <p>We currently ship exclusively within the United States. Queen's Bracelet serves customers shopping from the United States domestic market.</p>
+                    <p>We currently ship exclusively within the United States. Shop Avec Moi serves customers shopping from the United States domestic market.</p>
                     <p>If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.</p>
                     <p class="rounded-r-2xl border-l-4 border-[#6E3A8A] bg-[#FBF4FF] px-5 py-4">Some jewelry orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.</p>
                 </div>
@@ -91,7 +92,7 @@ $store_address   = function_exists('dawp_get_store_address') ? dawp_get_store_ad
             <section class="rounded-[2rem] border border-[#E8DFF0] bg-white p-6 shadow-sm shadow-[#3B1748]/10 sm:p-8 lg:p-10">
                 <h2 class="font-heading text-3xl leading-tight text-[#3B1748] sm:text-4xl">Carrier Services &amp; Delivery Tracking</h2>
                 <div class="mt-5 grid gap-4 text-sm leading-7 text-[#6D5875] sm:text-base">
-                    <p>To guarantee safe and efficient delivery, Queen's Bracelet partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.</p>
+                    <p>To guarantee safe and efficient delivery, Shop Avec Moi partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.</p>
                     <div class="flex flex-wrap gap-3">
                         <?php foreach (['USPS', 'UPS', 'FedEx', 'DHL'] as $carrier) : ?>
                             <span class="rounded-full border border-[#E8DFF0] bg-[#FBF4FF] px-5 py-2 text-xs font-semibold text-[#3B1748]"><?php echo esc_html($carrier); ?></span>
@@ -110,7 +111,7 @@ $store_address   = function_exists('dawp_get_store_address') ? dawp_get_store_ad
                     <p>Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.</p>
                     <p>To help us investigate and resolve the issue with the carrier swiftly, please provide:</p>
                     <ul class="grid gap-2 pl-5">
-                        <li class="list-disc">Your exact Order Number, such as #QB1001.</li>
+                        <li class="list-disc">Your exact Order Number, such as #SAM1001.</li>
                         <li class="list-disc">The specific Email Address utilized during checkout.</li>
                         <li class="list-disc">The full and complete Delivery Address.</li>
                         <li class="list-disc">Clear, well–lit photos if the package container or jewelry item arrived damaged.</li>
@@ -128,7 +129,7 @@ $store_address   = function_exists('dawp_get_store_address') ? dawp_get_store_ad
                 <div class="mt-6 grid gap-4 rounded-2xl border border-[#E8DFF0] bg-[#FBF4FF] p-4 sm:grid-cols-2 sm:p-5">
                     <div class="rounded-2xl border border-[#E8DFF0] bg-white p-5">
                         <h3 class="text-sm font-semibold text-[#3B1748]">Store Name</h3>
-                        <p class="mt-2 text-sm leading-6 text-[#6D5875]">Queen's Bracelet</p>
+                        <p class="mt-2 text-sm leading-6 text-[#6D5875]">Shop Avec Moi</p>
                     </div>
                     <div class="rounded-2xl border border-[#E8DFF0] bg-white p-5">
                         <h3 class="text-sm font-semibold text-[#3B1748]">Customer Support Email</h3>

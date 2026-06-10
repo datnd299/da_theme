@@ -86,6 +86,7 @@ $faqs = [
             <h1 class="mt-4 font-heading text-5xl leading-[1.05] text-[#3B1748] sm:text-6xl">
                 Frequently Asked Questions
             </h1>
+            <p class="mt-5 text-sm font-semibold text-[#6E3A8A]">Last updated: June 10, 2026</p>
             <p class="mt-6 text-base leading-7 text-[#6D5875] sm:text-lg">
                 Helpful answers about shipping, returns, fit, product care, and support for your Shop Avec Moi order.
             </p>

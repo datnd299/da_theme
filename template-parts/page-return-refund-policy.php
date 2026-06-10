@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@queens-bracelet.com';
+$support_email = 'support@shopavecmoi.com';
 $contact_url   = home_url('/contact-us/');
 $store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 ?>
@@ -16,6 +16,7 @@ $store_address = function_exists('dawp_get_store_address') ? dawp_get_store_addr
     <section class="bg-[#FBF4FF] px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
         <div class="mx-auto max-w-4xl text-center">
             <h1 class="font-heading text-5xl leading-[1.05] text-[#3B1748] sm:text-6xl">Return &amp; Refund Policy</h1>
+            <p class="mt-5 text-sm font-semibold text-[#6E3A8A]">Last updated: June 10, 2026</p>
         </div>
     </section>
 
@@ -94,7 +95,7 @@ $store_address = function_exists('dawp_get_store_address') ? dawp_get_store_addr
                 </ol>
 
                 <div class="mt-5 rounded-2xl border border-[#E6C66A] bg-[#FFF9E9] p-5 text-sm leading-7 text-[#3B1748]">
-                    <p class="font-semibold">Queen's Bracelet – Returns Department</p>
+                    <p class="font-semibold">Shop Avec Moi – Returns Department</p>
                     <p><?php echo esc_html($store_address); ?></p>
                 </div>
 
@@ -140,7 +141,7 @@ $store_address = function_exists('dawp_get_store_address') ? dawp_get_store_addr
                 <div class="mt-6 grid gap-4 rounded-2xl border border-[#E8DFF0] bg-white p-4 md:grid-cols-2">
                     <div class="rounded-2xl border border-[#E8DFF0] p-4">
                         <p class="text-sm font-semibold text-[#3B1748]">Store Name</p>
-                        <p class="mt-2 text-sm leading-6 text-[#6D5875]">Queen's Bracelet</p>
+                        <p class="mt-2 text-sm leading-6 text-[#6D5875]">Shop Avec Moi</p>
                     </div>
                     <div class="rounded-2xl border border-[#E8DFF0] p-4">
                         <p class="text-sm font-semibold text-[#3B1748]">Address</p>

@@ -7,7 +7,7 @@
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $support_email = 'support@shopavecmoi.com';
-$store_address = '147 Prince St, Brooklyn, NY 11201';
+$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $instagram_url = 'https://www.instagram.com/shopavec.moi/';
 $facebook_url = 'https://www.facebook.com/shopavec.moi/';
 
@@ -35,7 +35,8 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
     [
         'title' => __('Policies', 'dawp'),
         'links' => [
-            ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+            ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+            ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
             ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
             ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
         ],
@@ -66,15 +67,17 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
                         </span>
                         <?php echo esc_html($support_email); ?>
                     </a>
-                    <address class="inline-flex items-center gap-3 font-normal not-italic">
-                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
-                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </span>
-                        <?php echo esc_html($store_address); ?>
-                    </address>
+                    <?php if ($store_address) : ?>
+                        <address class="inline-flex items-center gap-3 font-normal not-italic">
+                            <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </span>
+                            <?php echo esc_html($store_address); ?>
+                        </address>
+                    <?php endif; ?>
                     <a class="inline-flex items-center gap-3 transition hover:text-white" href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer">
                         <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white" aria-hidden="true">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -117,11 +120,11 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
         <div class="mt-12 grid gap-4 border-t border-white/15 pt-8 sm:grid-cols-3">
             <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
                 <h3 class="text-sm font-semibold text-white"><?php esc_html_e('Business Hours', 'dawp'); ?></h3>
-                <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Monday to Friday, 9:00 AM to 6:00 PM EST.', 'dawp'); ?></p>
+                <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST', 'dawp'); ?></p>
             </div>
             <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
                 <h3 class="text-sm font-semibold text-white"><?php esc_html_e('Shipping', 'dawp'); ?></h3>
-                <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Orders process within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></p>
+                <p class="mt-2 text-sm leading-6 text-white/70"><?php esc_html_e('Free standard US shipping. Orders arrive in an estimated 6-10 business days from purchase.', 'dawp'); ?></p>
             </div>
             <div class="rounded-2xl border border-white/15 bg-white/10 p-5">
                 <h3 class="text-sm font-semibold text-white"><?php esc_html_e('Returns', 'dawp'); ?></h3>

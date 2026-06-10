@@ -131,7 +131,8 @@ $lingerie_url         = dawp_home_category_url(['lingerie-sets', 'lingerie'], 'L
 $robes_url            = dawp_home_category_url(['robes-loungewear', 'robes-and-loungewear', 'robes', 'loungewear'], 'Robes & Loungewear');
 $bras_url             = dawp_home_category_url(['bras-bralettes', 'bras-and-bralettes', 'bralettes', 'bras'], 'Bras & Bralettes');
 $essentials_url       = dawp_home_category_url(['intimate-essentials', 'essentials'], 'Intimate Essentials');
-$shipping_returns_url = home_url('/shipping-returns/');
+$shipping_policy_url  = home_url('/shipping-policy/');
+$returns_policy_url   = home_url('/return-refund-policy/');
 $hero_image_url       = get_theme_file_uri('/assets/img/gallery/Home/Romantic_Intimates_Sleepwear.png');
 $lace_feature_url     = get_theme_file_uri('/assets/img/gallery/Home/Lingerie_Lace.png');
 $lace_detail_url      = get_theme_file_uri('/assets/img/gallery/Home/Lingerie_Lace_two.png');
@@ -226,7 +227,16 @@ $categories = [
             <div class="relative">
                 <?php if ($hero_image_url) : ?>
                     <div class="overflow-hidden rounded-[2rem] border border-[#E8DFF0] bg-white p-3 shadow-2xl shadow-[#3B1748]/10">
-                        <img class="aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]" src="<?php echo esc_url($hero_image_url); ?>" alt="Tasteful romantic sleepwear and intimate apparel from Shop Avec Moi" loading="eager" fetchpriority="high">
+                        <?php echo dawp_responsive_image($hero_image_url, [
+                            'alt'           => 'Tasteful romantic sleepwear and intimate apparel from Shop Avec Moi',
+                            'class'         => 'aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]',
+                            'width'         => 1122,
+                            'height'        => 1402,
+                            'widths'        => [400, 768, 1122],
+                            'sizes'         => '(max-width: 1023px) 100vw, 54vw',
+                            'loading'       => 'eager',
+                            'fetchpriority' => 'high',
+                        ]); ?>
                     </div>
                 <?php endif; ?>
                 <div class="relative mx-auto -mt-4 max-w-xl rounded-2xl border border-[#E8DFF0] bg-white p-5 shadow-lg shadow-[#3B1748]/10">
@@ -255,7 +265,14 @@ $categories = [
                     ?>
                     <a class="group overflow-hidden rounded-2xl border border-[#E8DFF0] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#3B1748]/10" href="<?php echo esc_url($category_url); ?>">
                         <?php if ($category_img) : ?>
-                            <img class="aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.03]" src="<?php echo esc_url($category_img); ?>" alt="<?php echo esc_attr($category['name']); ?>" loading="lazy">
+                            <?php echo dawp_responsive_image($category_img, [
+                                'alt'    => $category['name'],
+                                'class'  => 'aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.03]',
+                                'width'  => 640,
+                                'height' => 800,
+                                'widths' => [320, 480, 640],
+                                'sizes'  => '(max-width: 1023px) 50vw, 20vw',
+                            ]); ?>
                         <?php endif; ?>
                         <div class="p-4">
                             <h3 class="font-heading text-2xl leading-tight text-[#3B1748]"><?php echo esc_html($category['name']); ?></h3>
@@ -271,10 +288,24 @@ $categories = [
         <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.85fr] lg:items-center">
             <div class="grid grid-cols-2 gap-4">
                 <?php if ($lace_feature_url) : ?>
-                    <img class="aspect-[4/5] w-full rounded-2xl object-cover shadow-xl shadow-black/20" src="<?php echo esc_url($lace_feature_url); ?>" alt="Soft lace lingerie styled with tasteful feminine detail" loading="lazy">
+                    <?php echo dawp_responsive_image($lace_feature_url, [
+                        'alt'    => 'Soft lace lingerie styled with tasteful feminine detail',
+                        'class'  => 'aspect-[4/5] w-full rounded-2xl object-cover shadow-xl shadow-black/20',
+                        'width'  => 640,
+                        'height' => 800,
+                        'widths' => [400, 640, 768],
+                        'sizes'  => '(max-width: 1023px) 50vw, 30vw',
+                    ]); ?>
                 <?php endif; ?>
                 <?php if ($lace_detail_url) : ?>
-                    <img class="mt-8 aspect-[4/5] w-full rounded-2xl object-cover shadow-lg shadow-black/20" src="<?php echo esc_url($lace_detail_url); ?>" alt="Close detail of lace and satin intimate apparel" loading="lazy">
+                    <?php echo dawp_responsive_image($lace_detail_url, [
+                        'alt'    => 'Close detail of lace and satin intimate apparel',
+                        'class'  => 'mt-8 aspect-[4/5] w-full rounded-2xl object-cover shadow-lg shadow-black/20',
+                        'width'  => 640,
+                        'height' => 800,
+                        'widths' => [400, 640, 768],
+                        'sizes'  => '(max-width: 1023px) 50vw, 30vw',
+                    ]); ?>
                 <?php endif; ?>
             </div>
 
@@ -340,7 +371,14 @@ $categories = [
 
             <?php if ($sleepwear_image_url) : ?>
                 <div class="overflow-hidden rounded-[2rem] border border-[#E8DFF0] bg-white p-3 shadow-2xl shadow-[#3B1748]/10">
-                    <img class="aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]" src="<?php echo esc_url($sleepwear_image_url); ?>" alt="Soft sleepwear and robes for elegant at-home comfort" loading="lazy">
+                    <?php echo dawp_responsive_image($sleepwear_image_url, [
+                        'alt'    => 'Soft sleepwear and robes for elegant at-home comfort',
+                        'class'  => 'aspect-[4/5] w-full rounded-2xl object-cover lg:aspect-[5/4]',
+                        'width'  => 1300,
+                        'height' => 867,
+                        'widths' => [400, 768, 1300],
+                        'sizes'  => '(max-width: 1023px) 100vw, 50vw',
+                    ]); ?>
                 </div>
             <?php endif; ?>
         </div>
@@ -372,7 +410,14 @@ $categories = [
                         ?>
                         <a class="group overflow-hidden rounded-2xl border border-[#E8DFF0] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#3B1748]/10" href="<?php echo esc_url($product_url); ?>">
                             <?php if ($image_url) : ?>
-                                <img class="aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.03]" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($product->get_name()); ?>" loading="lazy">
+                                <?php echo dawp_responsive_image($image_url, [
+                                    'alt'    => $product->get_name(),
+                                    'class'  => 'aspect-[4/5] w-full object-cover transition duration-300 group-hover:scale-[1.03]',
+                                    'width'  => 600,
+                                    'height' => 750,
+                                    'widths' => [320, 480, 600],
+                                    'sizes'  => '(max-width: 1023px) 50vw, 25vw',
+                                ]); ?>
                             <?php endif; ?>
                             <div class="p-4">
                                 <h3 class="text-sm font-semibold leading-6 text-[#3B1748] md:text-base"><?php echo esc_html($product->get_name()); ?></h3>
@@ -395,11 +440,12 @@ $categories = [
                             A softer shopping experience, from fit to delivery.
                         </h2>
                         <p class="mt-5 text-base leading-7 text-white/75">
-                            Need help with sizing, orders, or product questions? Contact support@shopavecmoi.com during business hours, Monday to Friday, 9:00 AM to 6:00 PM EST.
+                            Need help with sizing, orders, or product questions? Contact support@shopavecmoi.com during business hours, Monday-Friday, 9:00 AM-6:00 PM PST.
                         </p>
-                        <a class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($shipping_returns_url); ?>">
-                            View Shipping &amp; Returns
-                        </a>
+                        <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+                            <a class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($shipping_policy_url); ?>">Shipping Policy</a>
+                            <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 px-7 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-white/10" href="<?php echo esc_url($returns_policy_url); ?>">Return &amp; Refund Policy</a>
+                        </div>
                     </div>
 
                     <div class="grid gap-4 sm:grid-cols-2">

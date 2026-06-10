@@ -72,7 +72,7 @@ $support_email = 'support@shopavecmoi.com';
                 <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth Shop Avec Moi shopping experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
                     <p class="track-more-card__desc"><?php esc_html_e('Learn about our shipping times, rates, and delivery details.', 'dawp'); ?></p>
                 </a>

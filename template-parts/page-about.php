@@ -129,7 +129,8 @@ $sleepwear_url   = dawp_about_category_url(['sleepwear'], 'Sleepwear');
 $lingerie_url    = dawp_about_category_url(['lingerie-sets', 'lingerie'], 'Lingerie Sets');
 $robes_url       = dawp_about_category_url(['robes-loungewear', 'robes-and-loungewear', 'robes', 'loungewear'], 'Robes & Loungewear');
 $contact_url     = home_url('/contact-us/');
-$shipping_url    = home_url('/shipping-returns/');
+$shipping_url    = home_url('/shipping-policy/');
+$returns_url     = home_url('/return-refund-policy/');
 $hero_image_url   = get_template_directory_uri() . '/assets/img/gallery/Home/About_Shop_Avec_Moi.png';
 $detail_image_url = get_template_directory_uri() . '/assets/img/gallery/Home/Our_Point_Of_View.png';
 
@@ -167,8 +168,8 @@ $collections = [
 ];
 
 $care_points = [
-    'Orders are processed within 2-4 business days.',
-    'Standard US shipping typically takes 5-10 business days after dispatch.',
+    'Orders are processed within 1-3 business days.',
+    'Free standard US shipping arrives in an estimated 6-10 business days from purchase.',
     'Eligible unworn and unused items may be returned within 30 days of delivery.',
     'Return conditions are hygiene-aware because the boutique sells intimate apparel.',
 ];
@@ -276,7 +277,7 @@ $care_points = [
                 <p class="text-sm font-semibold uppercase text-white">Customer Care</p>
                 <h2 class="mt-3 font-heading text-3xl leading-tight text-white">Clear support for personal pieces.</h2>
                 <p class="mt-4 text-sm leading-6 text-white/75">
-                    Have a question about sizing, delivery, returns, or a product detail? Our support team is available Monday to Friday, 9:00 AM to 6:00 PM EST.
+                    Have a question about sizing, delivery, returns, or a product detail? Our support team is available Monday-Friday, 9:00 AM-6:00 PM PST.
                 </p>
                 <a class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($contact_url); ?>">
                     Contact Us
@@ -295,9 +296,10 @@ $care_points = [
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <a class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#E8DFF0] px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($shipping_url); ?>">
-                    View Shipping &amp; Returns
-                </a>
+                <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+                    <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E8DFF0] px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($shipping_url); ?>">Shipping Policy</a>
+                    <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E8DFF0] px-7 py-3 text-sm font-semibold text-[#3B1748] transition duration-300 hover:bg-[#FBF4FF]" href="<?php echo esc_url($returns_url); ?>">Return &amp; Refund Policy</a>
+                </div>
             </div>
         </div>
     </section>

@@ -8,11 +8,13 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email = 'support@shopavecmoi.com';
-$business_hours = 'Monday to Friday, 9:00 AM to 6:00 PM EST';
+$business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
 $shop_url = home_url('/shop/');
-$shipping_url = home_url('/shipping-returns/');
+$shipping_url = home_url('/shipping-policy/');
+$returns_url = home_url('/return-refund-policy/');
 $faq_url = home_url('/faq/');
 $track_url = home_url('/track-order/');
+$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 
 if (function_exists('wc_get_page_permalink')) {
     $wc_shop_url = wc_get_page_permalink('shop');
@@ -50,9 +52,14 @@ $quick_links = [
         'url'   => $track_url,
     ],
     [
-        'title' => 'Shipping & Returns',
-        'copy'  => 'Review processing times, delivery estimates, return eligibility, and refund timing.',
+        'title' => 'Shipping Policy',
+        'copy'  => 'Review processing times, delivery estimates, tracking, and address details.',
         'url'   => $shipping_url,
+    ],
+    [
+        'title' => 'Return & Refund Policy',
+        'copy'  => 'Review return eligibility, hygiene requirements, and refund timing.',
+        'url'   => $returns_url,
     ],
     [
         'title' => 'FAQ',
@@ -182,7 +189,7 @@ $mailto_body = rawurlencode("Hello Shop Avec Moi,\n\nOrder number:\nQuestion:\n\
                     </div>
                     <div>
                         <h3 class="text-sm font-bold text-[#3B1748]">Our Studio</h3>
-                        <p class="text-sm text-[#6D5875]">123 Romantic Lane, New York, NY</p>
+                        <p class="text-sm text-[#6D5875]"><?php echo esc_html($store_address); ?></p>
                     </div>
                 </div>
             </div>
@@ -201,7 +208,7 @@ $mailto_body = rawurlencode("Hello Shop Avec Moi,\n\nOrder number:\nQuestion:\n\
                 </p>
             </div>
 
-            <div class="mt-10 grid gap-4 md:grid-cols-3">
+            <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 <?php foreach ($support_cards as $card) : ?>
                     <div class="rounded-2xl border border-[#E8DFF0] bg-white p-6 shadow-sm shadow-[#3B1748]/10">
                         <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FBF4FF] text-[#3B1748]">

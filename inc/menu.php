@@ -64,7 +64,8 @@ function dawp_footer_columns() {
         [
             'title' => __('Store Policy', 'dawp'),
             'links' => [
-                ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+                ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+                ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
                 ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
                 ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
                 ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],

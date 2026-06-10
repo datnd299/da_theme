@@ -17,7 +17,7 @@ $contact_url      = home_url('/contact-us/');
             <p class="text-foreground-muted text-lg max-w-3xl mx-auto leading-relaxed">
                 <?php esc_html_e('Broge Shoes respects your privacy and explains how we collect, use, store, share, and protect your information when you visit brogeshoes.com, shop for footwear, place an order, contact customer support, or interact with our online store.', 'dawp'); ?>
             </p>
-            <p class="italic text-sm text-foreground-muted mt-4"><?php esc_html_e('Last Updated: June 2, 2026', 'dawp'); ?></p>
+            <p class="italic text-sm text-foreground-muted mt-4"><?php esc_html_e('Last Updated: May 26, 2026', 'dawp'); ?></p>
         </div>
 
         <div class="space-y-8">

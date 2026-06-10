@@ -91,9 +91,11 @@
                         <p><?php esc_html_e('For any privacy-related questions, data requests, or compliance inquiries, please feel free to reach out to us:', 'dawp'); ?></p>
                         <ul>
                             <li><strong><?php esc_html_e('Store Name:', 'dawp'); ?></strong> <?php esc_html_e('Tizezap', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Website URL:', 'dawp'); ?></strong> <?php esc_html_e('tizezap.com', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com">support@tizezap.com</a></li>
-                            <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 6:00 PM EST', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
                         </ul>
                     </div>
                 </article>

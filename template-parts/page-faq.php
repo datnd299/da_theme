@@ -253,8 +253,10 @@ $faq_sections = [
                                 <?php esc_html_e('Still have questions? We are here to help!', 'dawp'); ?>
                             </p>
                             <ul class="mt-5 space-y-2 text-sm leading-7 text-[#D7DEE8]">
+                                <li><strong class="text-white"><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
+                                <li><strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
                                 <li><strong class="text-white"><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com" class="text-[#93C5FD] transition hover:text-white">support@tizezap.com</a></li>
-                                <li><strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 6:00 PM EST', 'dawp'); ?></li>
+                                <li><strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
                                 <li><strong class="text-white"><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('We typically reply to all inquiries within 1–2 business days.', 'dawp'); ?></li>
                             </ul>
                             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">

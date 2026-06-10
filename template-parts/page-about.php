@@ -222,7 +222,7 @@ $trust_items = [
                         <?php esc_html_e('Support Information', 'dawp'); ?>
                     </p>
                     <p class="mt-3 text-sm font-semibold leading-7 text-white">
-                        <?php esc_html_e('Email support@tizezap.com. Business hours are Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?>
+                        <?php esc_html_e('Email support@tizezap.com. Business hours are Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York).', 'dawp'); ?>
                     </p>
                 </div>
 

@@ -12,6 +12,12 @@ $images = [
 
 $contact_cards = [
     [
+        'title' => __('Company', 'dawp'),
+        'copy'  => __('TIRE CAPITAL LLC — 324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'),
+        'url'   => '',
+        'icon'  => 'clipboard',
+    ],
+    [
         'title' => __('Email Support', 'dawp'),
         'copy'  => __('support@tizezap.com', 'dawp'),
         'url'   => 'mailto:support@tizezap.com',
@@ -19,7 +25,7 @@ $contact_cards = [
     ],
     [
         'title' => __('Business Hours', 'dawp'),
-        'copy'  => __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'),
+        'copy'  => __('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'),
         'url'   => '',
         'icon'  => 'clock',
     ],

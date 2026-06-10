@@ -110,8 +110,10 @@
                             <h3 id="contact-info" class="scroll-mt-24 mt-10 rounded-md border-l-4 border-[#2563EB] bg-[#EFF6FF] px-5 py-4 text-xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('Contact Information', 'dawp'); ?></h3>
                             <p><?php esc_html_e('For any questions regarding our Return and Refund Policy, please contact us:', 'dawp'); ?></p>
                             <ul class="mt-5 list-disc space-y-3 pl-6">
+                                <li><strong><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com" class="text-[#2563EB] underline hover:no-underline">support@tizezap.com</a></li>
-                                <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (excluding holidays)', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('Within 1–2 business days', 'dawp'); ?></li>
                             </ul>
                         </div>

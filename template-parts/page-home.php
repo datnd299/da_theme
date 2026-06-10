@@ -353,7 +353,7 @@ $trust_cards = [
                     </div>
 
                     <p class="text-sm leading-7 text-[#D1D5DB]">
-                        <?php esc_html_e('Support: support@tizezap.com. Business hours: Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?>
+                        <?php esc_html_e('Support: support@tizezap.com. Business hours: Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York).', 'dawp'); ?>
                     </p>
                 </div>
             </div>

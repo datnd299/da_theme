@@ -107,26 +107,21 @@ $footer_payment_methods = [
                    aria-label="<?php echo esc_attr($brand_name); ?>">
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo_footer.png'); ?>"
                          alt="<?php echo esc_attr($brand_name); ?>"
-                         class="h-24 w-auto">
+                         class="h-20 w-auto">
                 </a>
 
-                <div class="mt-4 space-y-1.5 text-sm leading-6 text-white/75">
+                <div class="mt-2 space-y-1 text-sm leading-6 text-white/75">
+                    <p>
+                        <strong class="text-white"><?php esc_html_e('Company:', 'dawp'); ?></strong>
+                        <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?>
+                    </p>
+                    <p>
+                        <strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
+                        <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?>
+                    </p>
                     <p>
                         <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
                         <a href="mailto:support@tizezap.com" class="transition hover:text-[#93C5FD]">support@tizezap.com</a>
-                    </p>
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong>
-                        <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="mt-3 rounded-md border border-[#F97316]/45 bg-[#F97316]/10 px-4 py-3">
-                    <p class="text-[11px] font-black uppercase tracking-[0.14em] text-[#FDBA74]">
-                        <?php esc_html_e('Fitment Reminder', 'dawp'); ?>
-                    </p>
-                    <p class="mt-1 text-xs font-semibold leading-5 text-white">
-                        <?php esc_html_e('Confirm tire size, rim size, and vehicle compatibility before ordering.', 'dawp'); ?>
                     </p>
                 </div>
             </div>

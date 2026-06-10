@@ -74,7 +74,7 @@ function dawp_theme_image_url($filename) {
 }
 
 function dawp_get_woocommerce_store_address() {
-    return __('4740 41ST STREET APT 1C SUNNYSIDE, NY 11104', 'dawp');
+    return __('4740 41ST STREET APT 1C, SUNNYSIDE, NY 11104', 'dawp');
 }
 
 function dawp_responsive_theme_image($filename, $alt = '', $args = []) {

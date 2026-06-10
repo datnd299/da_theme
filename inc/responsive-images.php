@@ -15,7 +15,9 @@ function dawp_i0_host() {
 
 function dawp_i0_encode_path($path) {
     $path = '/' . ltrim(str_replace('\\', '/', $path), '/');
-    $parts = array_map('rawurlencode', explode('/', $path));
+    $parts = array_map(function ($part) {
+        return rawurlencode(rawurldecode($part));
+    }, explode('/', $path));
 
     return implode('/', $parts);
 }

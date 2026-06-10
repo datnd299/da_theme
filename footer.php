@@ -110,11 +110,11 @@
                 $payment_icons = [
                     [
                         'file' => 'image.png',
-                        'alt' => __('American Express', 'dawp'),
+                        'alt' => __('Visa', 'dawp'),
                     ],
                     [
                         'file' => 'image copy.png',
-                        'alt' => __('PayPal', 'dawp'),
+                        'alt' => __('Mastercard', 'dawp'),
                     ],
                     [
                         'file' => 'image copy 2.png',

@@ -103,11 +103,13 @@ $footer_payment_methods = [
         <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr] lg:px-8 lg:py-12">
             <div>
                 <a href="<?php echo esc_url(home_url('/')); ?>"
-                   class="inline-flex items-center gap-3"
+                   class="block h-[5.25rem] w-[17rem] max-w-full overflow-hidden"
                    aria-label="<?php echo esc_attr($brand_name); ?>">
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo_footer.png'); ?>"
                          alt="<?php echo esc_attr($brand_name); ?>"
-                         class="h-20 w-auto">
+                         width="1536"
+                         height="1024"
+                         class="block w-[24rem] max-w-none -translate-x-[3.8rem] -translate-y-[5rem]">
                 </a>
 
                 <div class="mt-2 space-y-1 text-sm leading-6 text-white/75">
@@ -207,9 +209,20 @@ $footer_payment_methods = [
                 </ul>
             </div>
 
-            <p class="font-black uppercase tracking-[0.18em] text-[#93C5FD]">
-                <?php esc_html_e('Road-ready tire shopping', 'dawp'); ?>
-            </p>
+            <div class="flex flex-col gap-3 lg:items-end">
+                <p class="font-black uppercase tracking-[0.18em] text-[#93C5FD]">
+                    <?php esc_html_e('Road-ready tire shopping', 'dawp'); ?>
+                </p>
+
+                <a href="#"
+                   class="dawp-footer-facebook inline-flex items-center justify-center text-white"
+                   aria-label="<?php esc_attr_e('Facebook page', 'dawp'); ?>">
+                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z" />
+                    </svg>
+                    <span><?php esc_html_e('Facebook page', 'dawp'); ?></span>
+                </a>
+            </div>
         </div>
     </div>
 </footer>

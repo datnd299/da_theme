@@ -297,7 +297,6 @@ $returns_url    = home_url( '/refund-return-policy/' );
                         <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Physical Business Address', 'dawp' ); ?></dt><dd><?php echo esc_html( $store_address ); ?></dd></div>
                         <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Service Hours', 'dawp' ); ?></dt><dd><?php echo esc_html( $service_hours ); ?></dd></div>
                         <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Contact Page', 'dawp' ); ?></dt><dd><a href="<?php echo esc_url( $contact_url ); ?>"><?php esc_html_e( 'Contact Us', 'dawp' ); ?></a></dd></div>
-                        <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Privacy Policy', 'dawp' ); ?></dt><dd><a href="<?php echo esc_url( $privacy_url ); ?>"><?php esc_html_e( 'Privacy Policy', 'dawp' ); ?></a></dd></div>
                         <div class="hcs-legal-contact-item"><dt><?php esc_html_e( 'Website', 'dawp' ); ?></dt><dd><?php echo esc_html( $website_domain ); ?></dd></div>
                     </dl>
                     <div class="hcs-legal-actions">

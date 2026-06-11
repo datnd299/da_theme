@@ -243,7 +243,7 @@ if (class_exists('WooCommerce')) {
                     <div>
                         <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#F3E7DA]"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
                         <h2 class="mt-3 font-heading text-4xl font-bold leading-tight"><?php esc_html_e('Clear support from order to delivery.', 'dawp'); ?></h2>
-                        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('View Shipping & Returns', 'dawp'); ?></a>
+                        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('View Shipping Policy', 'dawp'); ?></a>
                     </div>
                     <div class="grid gap-4 md:grid-cols-3">
                         <div class="rounded-2xl border border-white/15 bg-white/10 p-5">

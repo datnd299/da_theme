@@ -139,7 +139,7 @@ $faq_groups = [
                     </p>
                     <div class="mt-7 flex flex-col gap-3 sm:flex-row">
                         <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
-                        <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-7 text-sm font-bold text-white transition hover:bg-white hover:text-[#4B3528]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+                        <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/25 px-7 text-sm font-bold text-white transition hover:bg-white hover:text-[#4B3528]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
                     </div>
                 </section>
             </div>

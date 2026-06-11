@@ -178,7 +178,7 @@ $trust_cards = [
                     <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Support and policies are part of the experience.', 'dawp'); ?></h2>
                     <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('We keep key customer information visible so shoppers can understand shipping, returns, contact options, and order support before they buy.', 'dawp'); ?></p>
                 </div>
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-[#B89B83] px-6 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('View Shipping & Returns', 'dawp'); ?></a>
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-[#B89B83] px-6 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('View Shipping Policy', 'dawp'); ?></a>
             </div>
 
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping and returns page template part.
+ * Return and refund policy page template part.
  *
  * @package dawp
  */
@@ -14,10 +14,10 @@ $link_support_email = static function ($text, $link) use ($support_email) {
 };
 
 $summary_cards = [
-    ['title' => __('Processing Time', 'dawp'), 'copy' => __('Orders are prepared within 2-4 business days before dispatch.', 'dawp')],
-    ['title' => __('US Delivery', 'dawp'), 'copy' => __('Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp')],
-    ['title' => __('Tracking Included', 'dawp'), 'copy' => __('A tracking email is sent once your order has shipped.', 'dawp')],
     ['title' => __('30-Day Returns', 'dawp'), 'copy' => __('Eligible unworn items may be returned within 30 days of delivery.', 'dawp')],
+    ['title' => __('Original Condition', 'dawp'), 'copy' => __('Items must be unused, unwashed, and include packaging and tags where applicable.', 'dawp')],
+    ['title' => __('Start By Email', 'dawp'), 'copy' => __('Contact support before sending anything back so we can match your package to your order.', 'dawp')],
+    ['title' => __('Refund Review', 'dawp'), 'copy' => __('Approved refunds are issued to the original payment method after inspection.', 'dawp')],
 ];
 
 $return_steps = [
@@ -34,10 +34,10 @@ $return_steps = [
             <div class="max-w-4xl">
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
                 <h1 class="mt-4 font-heading text-5xl font-bold leading-tight text-[#4B3528] sm:text-6xl">
-                    <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
+                    <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-3xl text-lg leading-8 text-[#756A62]">
-                    <?php esc_html_e('Clear delivery and return information for Vivisshop orders. Please review these timelines before placing an order so your shopping experience feels simple and transparent.', 'dawp'); ?>
+                    <?php esc_html_e('Return eligibility, refund timing, return shipping responsibility, and the steps to request a return for a Vivisshop order.', 'dawp'); ?>
                 </p>
             </div>
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -54,40 +54,40 @@ $return_steps = [
     <section class="bg-white py-16 lg:py-20">
         <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:px-8">
             <aside class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-6 lg:sticky lg:top-8 lg:self-start">
-                <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Quick Policy Summary', 'dawp'); ?></h2>
+                <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Return Summary', 'dawp'); ?></h2>
                 <div class="mt-5 space-y-4 text-sm leading-6 text-[#756A62]">
-                    <p><strong class="text-[#4B3528]"><?php esc_html_e('Market:', 'dawp'); ?></strong> <?php esc_html_e('United States', 'dawp'); ?></p>
-                    <p><strong class="text-[#4B3528]"><?php esc_html_e('Processing:', 'dawp'); ?></strong> <?php esc_html_e('2-4 business days', 'dawp'); ?></p>
-                    <p><strong class="text-[#4B3528]"><?php esc_html_e('Delivery:', 'dawp'); ?></strong> <?php esc_html_e('5-10 business days after dispatch', 'dawp'); ?></p>
                     <p><strong class="text-[#4B3528]"><?php esc_html_e('Return window:', 'dawp'); ?></strong> <?php esc_html_e('30 days from delivery', 'dawp'); ?></p>
+                    <p><strong class="text-[#4B3528]"><?php esc_html_e('Condition:', 'dawp'); ?></strong> <?php esc_html_e('Unworn, unwashed, unused, and original condition', 'dawp'); ?></p>
+                    <p><strong class="text-[#4B3528]"><?php esc_html_e('Refund method:', 'dawp'); ?></strong> <?php esc_html_e('Original payment method after approval', 'dawp'); ?></p>
                     <p><strong class="text-[#4B3528]"><?php esc_html_e('Support:', 'dawp'); ?></strong> <a class="font-semibold text-[#4B3528] underline decoration-[#B89B83] underline-offset-4" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></p>
                 </div>
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full border border-[#B89B83] px-6 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]">
+                    <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
+                </a>
             </aside>
 
             <div class="space-y-6">
                 <section class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm sm:p-8">
-                    <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Return Eligibility', 'dawp'); ?></h2>
                     <div class="mt-5 space-y-4 text-base leading-8 text-[#756A62]">
-                        <p><?php esc_html_e('Vivisshop currently focuses on standard shipping for customers in the United States. Orders are processed Monday through Friday, excluding holidays.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Order processing usually takes 2-4 business days. After dispatch, standard US delivery typically takes 5-10 business days depending on destination, carrier capacity, weather, and other delivery conditions.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Shipping fees, if applicable, are shown at checkout before payment. Please review your shipping address carefully because incomplete or incorrect addresses may delay delivery.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Customers may request a return within 30 days of delivery. To be eligible, items must be unworn, unwashed, unused, and in original condition with original packaging and tags where applicable.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Items that show signs of wear, washing, fragrance, stains, damage caused after delivery, or missing original components may not be eligible for a refund.', 'dawp'); ?></p>
                     </div>
                 </section>
 
                 <section class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-6 sm:p-8">
-                    <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Tracking & Delivery', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Return Shipping', 'dawp'); ?></h2>
                     <div class="mt-5 space-y-4 text-base leading-8 text-[#756A62]">
-                        <p><?php esc_html_e('Once your order ships, we send tracking information to the email address used at checkout. Tracking updates may take 24-48 hours to appear after the carrier receives the package.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('If tracking shows delivered but you cannot find the package, please check your mailbox, porch, building office, household members, and neighbors first. Then contact us with your order number so we can help review the issue.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Return shipping costs are the customer\'s responsibility unless the item arrived damaged, defective, or incorrect. Original shipping charges are non-refundable unless required by law or caused by our error.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Please wait for return instructions before shipping an item back. Packages sent without approval may be delayed or may not be matched to your order.', 'dawp'); ?></p>
                     </div>
                 </section>
 
                 <section class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm sm:p-8">
-                    <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Refunds', 'dawp'); ?></h2>
                     <div class="mt-5 space-y-4 text-base leading-8 text-[#756A62]">
-                        <p><?php esc_html_e('Customers may request a return within 30 days of delivery. To be eligible, items must be unworn, unwashed, unused, and in original condition with original packaging and tags where applicable.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Items that show signs of wear, washing, fragrance, stains, damage caused after delivery, or missing original components may not be eligible for a refund.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Return shipping costs are the customer\'s responsibility unless the item arrived damaged, defective, or incorrect. Original shipping charges are non-refundable unless required by law or caused by our error.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('After we receive and inspect an approved return, we will notify you whether the refund is approved. Approved refunds are issued to the original payment method.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Your bank, card issuer, or payment provider may require additional time to post the refund after it is issued.', 'dawp'); ?></p>
                     </div>
                 </section>
 
@@ -104,7 +104,7 @@ $return_steps = [
                 </section>
 
                 <section class="rounded-[2rem] bg-[#4B3528] p-6 text-white sm:p-8">
-                    <h2 class="font-heading text-3xl font-bold"><?php esc_html_e('Need help with an order?', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-3xl font-bold"><?php esc_html_e('Need help with a return?', 'dawp'); ?></h2>
                     <p class="mt-4 max-w-3xl text-base leading-8 text-white/80">
                         <?php echo wp_kses_post($link_support_email(__('Email support@vivisshop.com with your order number. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'), $support_link_on_dark)); ?>
                     </p>

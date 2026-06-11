@@ -24,9 +24,9 @@ $help_topics = [
 
 $quick_links = [
     [
-        'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review processing times, delivery estimates, and 30-day return guidance.', 'dawp'),
-        'url'   => home_url('/shipping-returns/'),
+        'title' => __('Shipping Policy', 'dawp'),
+        'copy'  => __('Review processing times, delivery estimates, and tracking guidance.', 'dawp'),
+        'url'   => home_url('/shipping-policy/'),
     ],
     [
         'title' => __('Track Your Order', 'dawp'),

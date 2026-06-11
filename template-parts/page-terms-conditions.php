@@ -116,8 +116,8 @@ $trust_cards = [
                         <p><strong class="text-[#4B3528]"><?php esc_html_e('Email:', 'dawp'); ?></strong> <a class="font-semibold text-[#4B3528] underline decoration-[#B89B83] underline-offset-4" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></p>
                         <p><strong class="text-[#4B3528]"><?php esc_html_e('Hours:', 'dawp'); ?></strong> <?php esc_html_e('Business hours: Monday-Friday, 9:00 AM-5:00 PM', 'dawp'); ?></p>
                     </div>
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-[#4B3528]">
-                        <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-[#4B3528]">
+                        <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
                     </a>
                 </aside>
 

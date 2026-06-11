@@ -60,10 +60,17 @@ $images = [
             </div>
 
             <div class="order-1 overflow-hidden rounded-[1.25rem] border border-[#E5E7EB] bg-white p-3 shadow-sm lg:order-2">
-                <img src="<?php echo esc_url($images['mission']); ?>"
-                     alt="<?php esc_attr_e('Clean vanity setup with beauty organizers and makeup tools', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_image([
+                    'src'           => $images['mission'],
+                    'alt'           => __('Clean vanity setup with beauty organizers and makeup tools', 'dawp'),
+                    'width'         => 896,
+                    'height'        => 1200,
+                    'class'         => 'aspect-[4/3] w-full rounded-2xl object-cover',
+                    'sizes'         => '(max-width: 1023px) 100vw, 600px',
+                    'srcset_widths' => [400, 640, 768, 896],
+                ]);
+                ?>
             </div>
         </div>
     </section>
@@ -122,10 +129,17 @@ $images = [
     <section class="bg-white py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div class="overflow-hidden rounded-[1.25rem] border border-[#E5E7EB] bg-white p-3 shadow-sm">
-                <img src="<?php echo esc_url($images['values']); ?>"
-                     alt="<?php esc_attr_e('Makeup brushes and accessories layout', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_image([
+                    'src'           => $images['values'],
+                    'alt'           => __('Makeup brushes and accessories layout', 'dawp'),
+                    'width'         => 1200,
+                    'height'        => 896,
+                    'class'         => 'aspect-[4/3] w-full rounded-2xl object-cover',
+                    'sizes'         => '(max-width: 1023px) 100vw, 600px',
+                    'srcset_widths' => [400, 768, 1024, 1200],
+                ]);
+                ?>
             </div>
 
             <div>

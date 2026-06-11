@@ -105,10 +105,19 @@ $categories = [
 
             <div class="relative">
                 <div class="overflow-hidden rounded-[1.375rem] border border-white bg-white p-3 shadow-xl shadow-black/10">
-                    <img src="<?php echo esc_url($images['hero']); ?>"
-                         alt="<?php esc_attr_e('Vanity table with makeup tools, brushes, beauty pouch, and daily beauty essentials', 'dawp'); ?>"
-                         class="aspect-[4/5] w-full rounded-2xl object-cover"
-                         fetchpriority="high">
+                    <?php
+                    echo dawp_responsive_image([
+                        'src'           => $images['hero'],
+                        'alt'           => __('Vanity table with makeup tools, brushes, beauty pouch, and daily beauty essentials', 'dawp'),
+                        'width'         => 896,
+                        'height'        => 1200,
+                        'class'         => 'aspect-[4/5] w-full rounded-2xl object-cover',
+                        'sizes'         => '(max-width: 1023px) 100vw, 640px',
+                        'srcset_widths' => [400, 640, 768, 896],
+                        'loading'       => 'eager',
+                        'fetchpriority' => 'high',
+                    ]);
+                    ?>
                 </div>
 
                 <div class="absolute -bottom-6 left-6 hidden max-w-[280px] rounded-2xl border border-[#E5E7EB] bg-white p-5 shadow-xl lg:block">
@@ -147,10 +156,17 @@ $categories = [
                     <a href="<?php echo esc_url($category['url']); ?>"
                        class="group overflow-hidden rounded-[1.25rem] border border-[#E5E7EB] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                         <div class="relative overflow-hidden">
-                            <img src="<?php echo esc_url($category['image']); ?>"
-                                 alt="<?php echo esc_attr($category['title']); ?>"
-                                 class="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
-                                 loading="lazy">
+                            <?php
+                            echo dawp_responsive_image([
+                                'src'           => $category['image'],
+                                'alt'           => $category['title'],
+                                'width'         => 896,
+                                'height'        => 1200,
+                                'class'         => 'aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105',
+                                'sizes'         => '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 240px',
+                                'srcset_widths' => [240, 400, 600, 768, 896],
+                            ]);
+                            ?>
                             <span class="absolute left-4 top-4 h-9 w-9 rounded-full border border-white/70 shadow-sm"
                                   style="background-color: <?php echo esc_attr($category['accent']); ?>"></span>
                         </div>
@@ -172,10 +188,17 @@ $categories = [
     <section class="bg-white py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div class="overflow-hidden rounded-[1.25rem] border border-[#E5E7EB] bg-white p-3 shadow-sm">
-                <img src="<?php echo esc_url($images['makeup_feature']); ?>"
-                     alt="<?php esc_attr_e('Makeup brushes, applicators, mirrors, and small beauty accessories on a bright vanity', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full rounded-2xl object-cover"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_image([
+                    'src'           => $images['makeup_feature'],
+                    'alt'           => __('Makeup brushes, applicators, mirrors, and small beauty accessories on a bright vanity', 'dawp'),
+                    'width'         => 1200,
+                    'height'        => 896,
+                    'class'         => 'aspect-[4/3] w-full rounded-2xl object-cover',
+                    'sizes'         => '(max-width: 1023px) 100vw, 600px',
+                    'srcset_widths' => [400, 768, 1024, 1200],
+                ]);
+                ?>
             </div>
 
             <div>
@@ -265,10 +288,17 @@ $categories = [
             </div>
 
             <div class="overflow-hidden rounded-[1.25rem] border border-white/60 bg-white p-3 shadow-xl shadow-black/10">
-                <img src="<?php echo esc_url($images['care_feature']); ?>"
-                     alt="<?php esc_attr_e('Hair accessories and personal care tools arranged on a clean vanity surface', 'dawp'); ?>"
-                     class="aspect-[4/5] w-full rounded-2xl object-cover"
-                     loading="lazy">
+                <?php
+                echo dawp_responsive_image([
+                    'src'           => $images['care_feature'],
+                    'alt'           => __('Hair accessories and personal care tools arranged on a clean vanity surface', 'dawp'),
+                    'width'         => 1200,
+                    'height'        => 896,
+                    'class'         => 'aspect-[4/5] w-full rounded-2xl object-cover',
+                    'sizes'         => '(max-width: 1023px) 100vw, 560px',
+                    'srcset_widths' => [400, 768, 1024, 1200],
+                ]);
+                ?>
             </div>
         </div>
     </section>

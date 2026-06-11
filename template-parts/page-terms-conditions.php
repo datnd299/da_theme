@@ -107,7 +107,7 @@
                         <ul>
                             <li><strong><?php esc_html_e('Store/Brand Name:', 'dawp'); ?></strong> <?php esc_html_e('One Shop Vibe', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a></li>
-                            <li><strong><?php esc_html_e('Physical Business Address:', 'dawp'); ?></strong> <?php esc_html_e('500 Dekalb Ave Suite 316, Brooklyn, NY 11205', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Physical Business Address:', 'dawp'); ?></strong> <?php dawp_store_address(); ?></li>
                             <li><strong><?php esc_html_e('Customer Service Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Contact Page:', 'dawp'); ?></strong> <a href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a></li>
                         </ul>

@@ -98,7 +98,7 @@
 
                         <div class="not-prose mt-6 rounded-lg border border-[#F7E4A3] bg-[#FFF9E6] p-5 text-[#2D2633]">
                             <p class="font-bold"><?php esc_html_e('One Shop Vibe - Returns Department', 'dawp'); ?></p>
-                            <p class="mt-2 text-[#6B6470]"><?php esc_html_e('500 Dekalb Ave Suite 316, Brooklyn, NY 11205', 'dawp'); ?></p>
+                            <p class="mt-2 text-[#6B6470]"><?php dawp_store_address(); ?></p>
                         </div>
 
                         <h2><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
                                     <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Address', 'dawp'); ?></p>
-                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('500 Dekalb Ave Suite 316, Brooklyn, NY 11205', 'dawp'); ?></p>
+                                    <p class="mt-3 text-[#6B6470]"><?php dawp_store_address(); ?></p>
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
                                     <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Customer Service Hours', 'dawp'); ?></p>

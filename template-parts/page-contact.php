@@ -82,8 +82,10 @@
                                     <?php esc_html_e('Store Location', 'dawp'); ?>
                                 </h3>
                                 <p class="mt-1 text-sm text-[#6B6470]">
-                                    <?php esc_html_e('500 Dekalb Ave Suite 316', 'dawp'); ?><br>
-                                    <?php esc_html_e('Brooklyn, NY 11205', 'dawp'); ?>
+                                    <?php $store_address_lines = dawp_get_store_address_lines(); ?>
+                                    <?php foreach ($store_address_lines as $line_index => $address_line) : ?>
+                                        <?php echo esc_html($address_line); ?><?php echo $line_index < count($store_address_lines) - 1 ? '<br>' : ''; ?>
+                                    <?php endforeach; ?>
                                 </p>
                             </div>
                         </div>

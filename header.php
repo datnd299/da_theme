@@ -43,7 +43,18 @@ $nav_items = [
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex shrink-0 items-center gap-3"
                aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'One Shop Vibe'); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/image.png'); ?>" alt="<?php esc_attr_e('One Shop Vibe', 'dawp'); ?>" class="h-12 w-auto">
+                <?php
+                echo dawp_responsive_image([
+                    'src'           => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/image.png',
+                    'alt'           => __('One Shop Vibe', 'dawp'),
+                    'width'         => 96,
+                    'height'        => 96,
+                    'class'         => 'h-12 w-auto',
+                    'sizes'         => '48px',
+                    'srcset_widths' => [48, 96, 192],
+                    'loading'       => 'eager',
+                ]);
+                ?>
             </a>
 
             <nav class="hidden flex-1 items-center justify-center gap-5 lg:flex xl:gap-7" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">

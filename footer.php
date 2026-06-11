@@ -47,7 +47,17 @@ $footer_payment_methods = [
                 <a href="<?php echo esc_url(home_url('/')); ?>"
                    class="inline-flex items-center gap-3"
                    aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'One Shop Vibe'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/image.png'); ?>" alt="<?php esc_attr_e('One Shop Vibe', 'dawp'); ?>" class="h-12 w-auto">
+                    <?php
+                    echo dawp_responsive_image([
+                        'src'           => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/image.png',
+                        'alt'           => __('One Shop Vibe', 'dawp'),
+                        'width'         => 96,
+                        'height'        => 96,
+                        'class'         => 'h-12 w-auto',
+                        'sizes'         => '48px',
+                        'srcset_widths' => [48, 96, 192],
+                    ]);
+                    ?>
                 </a>
 
 
@@ -66,7 +76,7 @@ $footer_payment_methods = [
                         </svg>
                         <div>
                             <strong class="block text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
-                            <span>500 Dekalb Ave Suite 316, Brooklyn, NY 11205</span>
+                            <span><?php dawp_store_address(); ?></span>
                         </div>
                     </div>
 

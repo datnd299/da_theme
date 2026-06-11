@@ -13,6 +13,63 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
+
+function dawp_get_store_address_parts() {
+    $address_1 = '';
+    $address_2 = '';
+    $city      = '';
+    $state     = '';
+    $postcode  = '';
+
+    if (function_exists('WC') && WC()->countries) {
+        $address_1 = WC()->countries->get_base_address();
+        $address_2 = WC()->countries->get_base_address_2();
+        $city      = WC()->countries->get_base_city();
+        $state     = WC()->countries->get_base_state();
+        $postcode  = WC()->countries->get_base_postcode();
+    } else {
+        $address_1       = get_option('woocommerce_store_address', '');
+        $address_2       = get_option('woocommerce_store_address_2', '');
+        $city            = get_option('woocommerce_store_city', '');
+        $postcode        = get_option('woocommerce_store_postcode', '');
+        $default_country = get_option('woocommerce_default_country', '');
+
+        if (strpos($default_country, ':') !== false) {
+            [, $state] = explode(':', $default_country, 2);
+        }
+    }
+
+    return array_filter(array_map('trim', [
+        'address_1' => $address_1,
+        'address_2' => $address_2,
+        'city'      => $city,
+        'state'     => $state,
+        'postcode'  => $postcode,
+    ]));
+}
+
+function dawp_get_store_address($separator = ', ') {
+    $address = trim(implode($separator, dawp_get_store_address_lines()));
+
+    return $address ?: __('Store address is not configured.', 'dawp');
+}
+
+function dawp_store_address($separator = ', ') {
+    echo esc_html(dawp_get_store_address($separator));
+}
+
+function dawp_get_store_address_lines() {
+    $parts      = dawp_get_store_address_parts();
+    $street     = trim(implode(' ', array_filter([$parts['address_1'] ?? '', $parts['address_2'] ?? ''])));
+    $city_state = trim(implode(', ', array_filter([
+        $parts['city'] ?? '',
+        trim(implode(' ', array_filter([$parts['state'] ?? '', $parts['postcode'] ?? '']))),
+    ])));
+
+    $lines = array_filter([$street, $city_state]);
+
+    return $lines ?: [__('Store address is not configured.', 'dawp')];
+}
 add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
     // Chỉ xử lý khi là trang search và chưa có post_type

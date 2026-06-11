@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-4">
                                     <p class="font-bold text-[#2D2633]"><?php esc_html_e('Address', 'dawp'); ?></p>
-                                    <p class="mt-2 text-[#6B6470]"><?php esc_html_e('500 Dekalb Ave Suite 316, Brooklyn, NY 11205', 'dawp'); ?></p>
+                                    <p class="mt-2 text-[#6B6470]"><?php dawp_store_address(); ?></p>
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-4">
                                     <p class="font-bold text-[#2D2633]"><?php esc_html_e('Response Time', 'dawp'); ?></p>

@@ -32,7 +32,7 @@ $nav_items = [
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-1 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.18em] text-[#2D2633] sm:flex-row sm:px-6 lg:px-8">
             <span><?php esc_html_e('Beauty essentials for simple everyday confidence', 'dawp'); ?></span>
             <span class="hidden text-[#6B6470] sm:inline"><?php esc_html_e('|', 'dawp'); ?></span>
-            <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="text-[#6B6470] transition hover:text-[#2D2633]">
+            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="text-[#6B6470] transition hover:text-[#2D2633]">
                 <?php esc_html_e('Tracking included on shipped orders', 'dawp'); ?>
             </a>
         </div>

@@ -45,7 +45,7 @@ $support_email = 'support@oneshopvibe.com';
                             <span></span>
                             <div>
                                 <strong><?php esc_html_e('Packed & Shipped', 'dawp'); ?></strong>
-                                <p><?php esc_html_e('Tracking is added when the carrier scans your package.', 'dawp'); ?></p>
+                                <p><?php esc_html_e('Most orders ship after 1-3 business days of handling.', 'dawp'); ?></p>
                             </div>
                         </li>
                         <li>
@@ -94,7 +94,7 @@ $support_email = 'support@oneshopvibe.com';
                 </div>
                 <div class="track-badge">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                    <?php esc_html_e('Real-time Updates', 'dawp'); ?>
+                    <?php esc_html_e('Carrier Tracking', 'dawp'); ?>
                 </div>
                 <div class="track-badge">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
@@ -113,9 +113,9 @@ $support_email = 'support@oneshopvibe.com';
                 <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and correct shop categories for a smooth One Shop Vibe order experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
-                <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>" class="track-more-card">
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our shipping times, rates, and delivery details.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Review free standard U.S. shipping, 1-3 business day handling, 5-7 business day transit, and carrier tracking details.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>

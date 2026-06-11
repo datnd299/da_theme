@@ -64,7 +64,7 @@
                                     <?php esc_html_e('Business Hours', 'dawp'); ?>
                                 </h3>
                                 <p class="mt-1 text-sm text-[#6B6470]">
-                                    <?php esc_html_e('Monday – Friday, 9:00 AM – 6:00 PM EST', 'dawp'); ?>
+                                    <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
                                 </p>
                             </div>
                         </div>

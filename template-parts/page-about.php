@@ -147,7 +147,7 @@ $images = [
                             <?php esc_html_e('Order Processing', 'dawp'); ?>
                         </p>
                         <p class="mt-2 text-sm leading-6 text-[#6B6470]">
-                            <?php esc_html_e('Orders are typically processed within 2-4 business days before standard dispatch.', 'dawp'); ?>
+                            <?php esc_html_e('Orders are handled within 1-3 business days before standard U.S. carrier dispatch.', 'dawp'); ?>
                         </p>
                     </div>
                     <div class="rounded-[1.25rem] border border-[#E5E7EB] bg-[#F6F7F9] p-5">
@@ -165,9 +165,9 @@ $images = [
                        class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#F7C948] hover:text-[#2D2633]">
                         <?php esc_html_e('Contact Us', 'dawp'); ?>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black uppercase tracking-wide text-[#2D2633] transition hover:bg-[#F6F7F9]">
-                        <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
+                        <?php esc_html_e('Shipping Policy', 'dawp'); ?>
                     </a>
                 </div>
             </div>

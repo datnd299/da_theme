@@ -89,12 +89,12 @@ $categories = [
 
                 <div class="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
                     <div class="rounded-2xl bg-white p-5 shadow-sm">
-                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('2-4', 'dawp'); ?></p>
-                        <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Business day processing', 'dawp'); ?></p>
+                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('1-3', 'dawp'); ?></p>
+                        <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Business day handling', 'dawp'); ?></p>
                     </div>
                     <div class="rounded-2xl bg-white p-5 shadow-sm">
-                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('5-10', 'dawp'); ?></p>
-                        <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Business day US shipping', 'dawp'); ?></p>
+                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('6-10', 'dawp'); ?></p>
+                        <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Business day total delivery', 'dawp'); ?></p>
                     </div>
                     <div class="rounded-2xl bg-white p-5 shadow-sm">
                         <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('30', 'dawp'); ?></p>
@@ -290,9 +290,9 @@ $categories = [
                 </div>
 
                 <div class="flex flex-wrap gap-4">
-                    <a href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"
+                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#F7C948] px-6 text-sm font-black uppercase tracking-wide text-[#2D2633] transition hover:bg-white">
-                        <?php esc_html_e('View Shipping & Returns', 'dawp'); ?>
+                        <?php esc_html_e('View Shipping Policy', 'dawp'); ?>
                     </a>
                     <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
                        class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#2D2633]">
@@ -305,7 +305,7 @@ $categories = [
                 <?php
                 $trust_cards = [
                     __('Secure Checkout', 'dawp'),
-                    __('Tracking Included', 'dawp'),
+                    __('Email Tracking', 'dawp'),
                     __('30-Day Returns', 'dawp'),
                     __('Clear Product Details', 'dawp'),
                 ];
@@ -328,7 +328,7 @@ $categories = [
                         <?php esc_html_e('Shipping Note', 'dawp'); ?>
                     </p>
                     <p class="mt-3 text-sm leading-7 text-white/75">
-                        <?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?>
+                        <?php esc_html_e('Orders are handled within 1-3 business days. Standard U.S. transit typically takes 5-7 business days after courier dispatch, for an estimated total delivery time of 6-10 business days from purchase.', 'dawp'); ?>
                     </p>
                 </div>
 

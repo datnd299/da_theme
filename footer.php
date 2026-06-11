@@ -12,7 +12,8 @@ $footer_shop_links = array_merge([
 ], function_exists('dawp_product_category_links') ? dawp_product_category_links(5) : []);
 
 $footer_help_links = [
-    ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+    ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
     ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
     ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
     ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
@@ -38,46 +39,6 @@ $footer_payment_methods = [
 </div><!-- #content -->
 
 <footer id="colophon" class="bg-[#2D2633] text-white" role="contentinfo">
-    <section class="border-b border-white/10 bg-[#EAF7F0] text-[#2D2633]">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-5 px-4 py-8 sm:px-6 lg:grid-cols-4 lg:px-8">
-            <div class="rounded-[1.25rem] border border-white bg-white p-5 shadow-sm">
-                <p class="text-xl font-black leading-snug">
-                    <?php esc_html_e('Secure Checkout', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-[#6B6470]">
-                    <?php esc_html_e('Protected order details and a clear checkout flow.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-[1.25rem] border border-white bg-white p-5 shadow-sm">
-                <p class="text-xl font-black leading-snug">
-                    <?php esc_html_e('Tracking Included', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-[#6B6470]">
-                    <?php esc_html_e('Tracking information is provided once an order ships.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-[1.25rem] border border-white bg-white p-5 shadow-sm">
-                <p class="text-xl font-black leading-snug">
-                    <?php esc_html_e('30-Day Returns', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-[#6B6470]">
-                    <?php esc_html_e('Eligible unused items may be returned within 30 days.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="rounded-[1.25rem] border border-white bg-white p-5 shadow-sm">
-                <p class="text-xl font-black leading-snug">
-                    <?php esc_html_e('Support Available', 'dawp'); ?>
-                </p>
-                <p class="mt-2 text-sm leading-6 text-[#6B6470]">
-                    <?php esc_html_e('Help with orders, shipping, returns, and product questions.', 'dawp'); ?>
-                </p>
-            </div>
-        </div>
-    </section>
-
     <section class="relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(247,201,72,0.18),transparent_34%),radial-gradient(circle_at_bottom_left,rgba(220,213,255,0.16),transparent_30%)]"></div>
 
@@ -90,30 +51,45 @@ $footer_payment_methods = [
                 </a>
 
 
-                <div class="mt-7 text-sm leading-relaxed text-white/80">
-                    <strong class="block text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
-                    500 Dekalb Ave Suite 316, Brooklyn, NY 11205
-                </div>
+                <div class="mt-7 space-y-5 text-sm leading-relaxed text-white/80">
+                    <a href="mailto:support@oneshopvibe.com"
+                       class="flex items-start gap-3 text-white/80 transition hover:text-[#F7C948]">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-[#F7C948]">
+                            <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm-.4 4.25-7.07 4.42a1 1 0 0 1-1.06 0L4.4 8.25a1 1 0 0 1 1.06-1.7L12 10.64l6.54-4.09a1 1 0 1 1 1.06 1.7Z"></path>
+                        </svg>
+                        <span>support@oneshopvibe.com</span>
+                    </a>
 
-                <div class="mt-6 flex flex-wrap gap-3">
+                    <div class="flex items-start gap-3">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-[#F7C948]">
+                            <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"></path>
+                        </svg>
+                        <div>
+                            <strong class="block text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
+                            <span>500 Dekalb Ave Suite 316, Brooklyn, NY 11205</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-[#F7C948]">
+                            <path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2Zm4 11h-4a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v4h3a1 1 0 0 1 0 2Z"></path>
+                        </svg>
+                        <div>
+                            <strong class="block text-white"><?php esc_html_e('Business Hours', 'dawp'); ?></strong>
+                            <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+                        </div>
+                    </div>
+
                     <a href="https://www.facebook.com/people/One-Shop-Vibe/61575413724507/"
                        target="_blank"
                        rel="noopener noreferrer"
-                       aria-label="<?php esc_attr_e('Visit One Shop Vibe on Facebook', 'dawp'); ?>"
-                       class="inline-flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#F7C948] bg-[#1877F2] text-white shadow-[0_0_24px_rgba(247,201,72,0.35)] ring-4 ring-white/10 transition hover:-translate-y-0.5 hover:bg-[#F7C948] hover:text-[#2D2633] hover:shadow-[0_0_32px_rgba(247,201,72,0.5)]">
-                        <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-                            <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.48H15.2c-1.24 0-1.63.78-1.63 1.57v1.87h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"></path>
-                        </svg>
-                    </a>
-
-                    <a href="mailto:support@oneshopvibe.com"
-                       class="inline-flex min-h-10 items-center justify-center rounded-full border border-white/15 px-4 text-xs font-black uppercase tracking-wide text-white/85 transition hover:border-[#F7C948] hover:text-[#F7C948]">
-                        support@oneshopvibe.com
-                    </a>
-
-                    <a href="<?php echo esc_url(home_url('/shop/')); ?>"
-                       class="inline-flex min-h-10 items-center justify-center rounded-full bg-white px-4 text-xs font-black uppercase tracking-wide text-[#2D2633] transition hover:bg-[#F7C948]">
-                        <?php esc_html_e('Shop Beauty Essentials', 'dawp'); ?>
+                       class="flex items-center gap-3 text-white/80 transition hover:text-[#F7C948]">
+                        <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#F7C948] bg-[#1877F2] text-white shadow-[0_0_24px_rgba(247,201,72,0.35)] ring-4 ring-white/10 transition hover:-translate-y-0.5 hover:bg-[#F7C948] hover:text-[#2D2633] hover:shadow-[0_0_32px_rgba(247,201,72,0.5)]">
+                            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.48H15.2c-1.24 0-1.63.78-1.63 1.57v1.87h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"></path>
+                            </svg>
+                        </span>
+                        <span><?php esc_html_e('Facebook Fanpage', 'dawp'); ?></span>
                     </a>
                 </div>
 

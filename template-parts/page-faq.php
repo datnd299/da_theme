@@ -4,196 +4,163 @@
  */
 ?>
 
-<div id="primary" class="bg-white font-body text-[#2D2633]">
-    <!-- Hero -->
-    <section class="bg-[#F6F7F9] py-14 lg:py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(247,201,72,0.15),transparent_40%)]"></div>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative">
-            <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#6B6470]">
-                <?php esc_html_e('Help Center', 'dawp'); ?>
+<div id="primary" class="bg-[#FBFCFA] font-body text-[#2D2633]">
+    <section class="bg-[#F6F7F9] py-14 lg:py-20">
+        <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#6B6470]">
+                <?php esc_html_e('One Shop Vibe Help Center', 'dawp'); ?>
             </p>
-            <h1 class="font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-6xl">
+            <h1 class="mt-3 font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-6xl">
                 <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
             </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-lg leading-8 text-[#6B6470]">
-                <?php esc_html_e('Detailed answers about orders, shipping, returns, privacy, product information, and the terms that apply when you shop with One Shop Vibe.', 'dawp'); ?>
+            <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#6B6470]">
+                <?php esc_html_e('Helpful answers about ordering, shipping, returns, refunds, payments, privacy, and customer support at One Shop Vibe.', 'dawp'); ?>
+            </p>
+            <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#6B6470]">
+                <?php esc_html_e('Last Updated: June 11, 2026', 'dawp'); ?>
             </p>
         </div>
     </section>
 
-    <section class="py-14 lg:py-20">
-        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <div class="space-y-6">
-                
-                <!-- FAQ Item 1 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How long will it take to receive my order?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Orders are typically processed within 2-4 business days before they are handed to the carrier. Processing time is separate from shipping time and may be affected by order volume, payment review, address accuracy, or holiday schedules.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('After dispatch, standard US shipping usually takes 5-10 business days depending on the destination and carrier conditions. If a carrier delay occurs after dispatch, the tracking page will normally show the most current delivery estimate.', 'dawp'); ?></p>
+    <section class="py-12 lg:py-16">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <div>
+                <article class="rounded-lg border border-[#E5E7EB] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+                    <div class="max-w-none text-base leading-8 text-[#6B6470]
+                        [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#E8E6EB] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#2D2633] md:[&_h2]:text-3xl
+                        [&_h3]:mt-7 [&_h3]:font-heading [&_h3]:text-xl [&_h3]:font-bold [&_h3]:leading-snug [&_h3]:text-[#2D2633]
+                        [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#2D2633] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
+                        <p class="rounded-lg border border-[#F7E4A3] bg-[#FFF9E6] p-4 font-medium text-[#2D2633]">
+                            <?php esc_html_e('This FAQ summarizes key store information. For full details, please review our Shipping Policy, Return & Refund Policy, Privacy Policy, and Terms & Conditions.', 'dawp'); ?>
+                        </p>
+
+                        <h2 id="faq-orders"><?php esc_html_e('Orders & Account Information', 'dawp'); ?></h2>
+
+                        <h3><?php esc_html_e('Where does One Shop Vibe sell and ship products?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('One Shop Vibe currently serves customers in the United States domestic market and ships exclusively within the United States. If a product or address is not eligible for delivery, checkout will not allow that shipment to proceed before payment is completed.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('What types of products do you sell?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('We offer beauty accessories, makeup tools, hair care essentials, organizers, self-care tools, and related everyday personal care products. Product details are provided for general shopping information and are not intended as medical advice, diagnosis, treatment, cure, or prevention of any condition.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Can I change or cancel my order after checkout?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Please contact us as soon as possible if you need to update a shipping address, correct order details, or request cancellation. We process orders quickly, so changes cannot be guaranteed once an order has entered fulfillment or has shipped.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('We may also refuse or cancel an order if there is a payment issue, stock discrepancy, billing error, suspected fraud, incorrect customer information, or a policy violation.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Why must my billing and shipping information be accurate?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Accurate name, email, phone, billing address, and shipping address information helps us verify your order, process payment, fulfill your purchase, send tracking updates, and contact you if support is needed. Incorrect or incomplete details may delay fulfillment or prevent delivery.', 'dawp'); ?></p>
+
+                        <h2 id="faq-shipping"><?php esc_html_e('Shipping & Delivery', 'dawp'); ?></h2>
+
+                        <h3><?php esc_html_e('How much does standard shipping cost?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Standard U.S. shipping is free on every order. There is no minimum purchase requirement for free standard shipping. If optional upgraded shipping is available for your destination, the exact cost will be shown at checkout before payment.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('How long does delivery take?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Orders are processed Monday through Friday, excluding standard U.S. public holidays. Our order cutoff time is 5:00 PM PST (GMT-08:00). Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></p>
+                        <ul>
+                            <li><strong><?php esc_html_e('Order Handling Time:', 'dawp'); ?></strong> <?php esc_html_e('1-3 business days.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Transit Time:', 'dawp'); ?></strong> <?php esc_html_e('5-7 business days after courier dispatch.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Estimated Total Delivery Time:', 'dawp'); ?></strong> <?php esc_html_e('6-10 business days from the date of purchase.', 'dawp'); ?></li>
+                        </ul>
+
+                        <h3><?php esc_html_e('Which carriers do you use?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Orders are shipped using trusted domestic U.S. carriers including USPS, UPS, FedEx, or DHL. The final carrier is selected when your package is labeled and prepared for dispatch.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('How can I track my order?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Once your order ships, we send an automated shipping confirmation email containing carrier details and a direct tracking link. Tracking may take a short time to update after the label is created.', 'dawp'); ?></p>
+                        <p>
+                            <?php esc_html_e('You can also visit our ', 'dawp'); ?>
+                            <a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948] hover:decoration-[#F7C948]" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+                            <?php esc_html_e(' page for shipment help.', 'dawp'); ?>
+                        </p>
+
+                        <h3><?php esc_html_e('What should I do if my package is delayed, missing, or damaged?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Please contact customer support immediately with your order number, checkout email address, full delivery address, and clear photos if the package or item arrived damaged. We will review the issue and work with the carrier when needed.', 'dawp'); ?></p>
+
+                        <h2 id="faq-returns"><?php esc_html_e('Returns, Refunds & Exchanges', 'dawp'); ?></h2>
+
+                        <h3><?php esc_html_e('What is your return window?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('You must initiate an eligible return request within 30 days of delivery. Items must be unused, unworn, undamaged, unaltered, and returned with original packaging, tags, labels, and any included accessories.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Do I need approval before sending a return?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Yes. Please contact us before sending any item back. Unauthorized returns cannot be tracked or processed at our warehouse. Our support team will review your request and provide return instructions if approved.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Who pays return shipping?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('For defective, damaged, or incorrect products, we cover 100% of the return shipping cost and provide a prepaid return label by email. For customer remorse returns, such as wrong item, size, color, changed mind, or fit issues, the actual return shipping cost of the provided prepaid label may be deducted from the final refund.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('We do not charge restocking fees for eligible returns.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Which items are non-returnable?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Final sale items, gift cards, digital products, personalized or custom-made items, opened or used hygiene-sensitive beauty and personal care items, and products damaged after delivery are not eligible for return unless required by applicable law.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('How long do refunds take?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('After your return package is received, we inspect the item within 1-2 business days. If approved, the refund is issued to the original payment method within 7 business days. If you have not received an approved refund after 15 business days, please check with your bank or card provider, then contact us.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Do you offer exchanges?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('We do not process direct one-for-one exchanges. To get a different size, color, or model, please return the eligible item through our return process and place a new order on our website.', 'dawp'); ?></p>
+
+                        <h2 id="faq-payments"><?php esc_html_e('Payments, Pricing & Product Information', 'dawp'); ?></h2>
+
+                        <h3><?php esc_html_e('Do you store my full credit card details?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('No. One Shop Vibe does not collect, view, or store raw credit card numbers. Transactions are secured through SSL encryption and processed through third-party payment infrastructure expected to comply with PCI-DSS standards.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Can prices or product availability change?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Yes. Product prices, descriptions, specifications, promotions, stock availability, and shipping options may change without notice. If an error materially affects an order, we may contact you to reconfirm the corrected details or cancel the purchase for a full refund.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Why can product colors look different on my screen?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('We work to display product images and details accurately, but colors and finishes may vary depending on your device, monitor settings, lighting, and product photography conditions.', 'dawp'); ?></p>
+
+                        <h2 id="faq-privacy"><?php esc_html_e('Privacy & Website Use', 'dawp'); ?></h2>
+
+                        <h3><?php esc_html_e('How do you use my personal information?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('We use personal information to operate the website, process and fulfill orders, deliver packages, manage returns and refunds, prevent fraud, provide customer support, and send order confirmations, tracking updates, or policy notices.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('Do you sell my personal information?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('We do not sell, rent, or trade personal information to third parties for marketing purposes. We may share information with trusted service providers that help us operate the website, process payments, fulfill orders, deliver packages, provide customer support, or comply with legal obligations.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('How do cookies work on the website?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Cookies help support essential shopping functions such as cart activity, account preferences, recently viewed products, and store notices. You can control cookies through your browser settings, but some store features may not work correctly if cookies are disabled.', 'dawp'); ?></p>
+
+                        <h3><?php esc_html_e('How are policy updates handled?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('We may update store policies from time to time to reflect operational, legal, or service changes. Updates are posted on the relevant policy page with the revised Last Updated date. Continued website use after updates means you accept the current posted terms and policies.', 'dawp'); ?></p>
+
+                        <h2 id="faq-contact"><?php esc_html_e('Customer Support', 'dawp'); ?></h2>
+
+                        <h3><?php esc_html_e('How can I contact One Shop Vibe?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('For order questions, shipping issues, returns, refunds, privacy requests, or policy inquiries, please contact us through our verified support channels.', 'dawp'); ?></p>
+                        <div class="not-prose mt-6 rounded-lg border border-[#E5E7EB] bg-[#FBFCFA] p-4">
+                            <div class="grid gap-4 md:grid-cols-2">
+                                <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
+                                    <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Store Name', 'dawp'); ?></p>
+                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('One Shop Vibe', 'dawp'); ?></p>
+                                </div>
+                                <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
+                                    <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></p>
+                                    <p class="mt-3"><a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948]" href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a></p>
+                                </div>
+                                <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
+                                    <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Address', 'dawp'); ?></p>
+                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('500 Dekalb Ave Suite 316, Brooklyn, NY 11205', 'dawp'); ?></p>
+                                </div>
+                                <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
+                                    <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Customer Service Hours', 'dawp'); ?></p>
+                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
+                                </div>
+                                <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
+                                    <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Response Time', 'dawp'); ?></p>
+                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('Within 24 business hours.', 'dawp'); ?></p>
+                                </div>
+                                <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
+                                    <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Contact Page', 'dawp'); ?></p>
+                                    <p class="mt-3"><a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948]" href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="not-prose mt-7 flex flex-wrap gap-3">
+                            <a class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black text-white no-underline transition hover:bg-[#F7C948] hover:text-[#2D2633]" href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
+                            <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black text-[#2D2633] no-underline transition hover:bg-[#2D2633] hover:text-white" href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a>
+                        </div>
                     </div>
-                </div>
-
-                <!-- FAQ Item 2 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How can I track my order?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Once your order ships, we send a shipping confirmation email with tracking information. Use that tracking link to follow the package from dispatch through delivery.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Tracking can take a short time to update after the label is created. If the link has not updated after the carrier receives the package, contact support@oneshopvibe.com with your order number so we can help review the shipment status.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 3 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('What is your return policy?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('You may request a return within 30 days of delivery if you are not completely satisfied with an eligible item. Returned items must be unused, undamaged, and in their original condition.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Items should be returned with their original packaging where applicable. For hygiene and health safety reasons, opened or used personal care tools and beauty accessories may not be eligible for return.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('To start a return, email support@oneshopvibe.com with your order number and the reason for your return. Our support team will review the request and provide next steps.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 4 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Which items may not qualify for return?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Because many products we sell are personal care or beauty accessories, return eligibility may depend on hygiene and original condition requirements. Opened, used, damaged, or altered items generally cannot be accepted.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('If you are unsure whether your item is eligible, contact us before sending anything back. This helps prevent delays and ensures we can give you the correct return instructions for your order.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Can I cancel or change my order after placing it?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Contact support@oneshopvibe.com as soon as possible if you need to change a shipping address, update order details, or request a cancellation. We process orders quickly, so changes are not guaranteed once an order has entered fulfillment or shipped.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Under our Terms & Conditions, we may also refuse, limit, or cancel an order in certain situations, including suspected inaccurate order information, unavailable products, pricing errors, or restrictions tied to the same customer account, payment method, billing address, or shipping address.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Why do I need to provide accurate billing and shipping information?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Accurate account, billing, email, phone, and shipping details help us process your payment, fulfill your order, send tracking updates, and contact you if there is an issue. Incorrect or incomplete information can delay fulfillment or prevent delivery.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Our Terms & Conditions require customers to provide current, complete, and accurate purchase information. If you notice an error after checkout, email support promptly with your order number and the correct details.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 7 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How do you use my personal information?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('We use personal information such as your name, billing address, shipping address, email address, and phone number to fulfill orders, process payments, manage returns or exchanges, provide customer support, and send order confirmations, shipping updates, or policy notices.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We may also use technical and usage data to improve site functionality, personalize the shopping experience, monitor trends, and help detect fraud, technical issues, or other illegal activity.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 8 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Do you sell or share my personal information?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('We do not sell, rent, or trade personal information to third parties for marketing purposes. We may share information with trusted service providers who help operate the website, process payments, fulfill orders, provide shipping services, or support our IT systems.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('We may also disclose information when required by law, in response to valid public authority requests, or as part of a business transfer such as a merger, acquisition, or asset sale.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 9 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Do you store my full credit card details?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('No. Payment processing is handled by trusted third-party payment gateways, and we do not store full credit card numbers on our servers. Credit card information is encrypted during transfer over networks.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Like any online service, no method of transmission over the Internet is 100% secure, but we use commercially reasonable safeguards, including SSL encryption, to help protect personal information submitted through the website.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 10 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How do cookies work on the website?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('We use cookies and similar technologies to remember preferences, keep track of cart activity, understand how customers use the website, and improve the shopping experience.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('You can set your browser to refuse cookies or alert you when cookies are being sent. Some parts of the website may not function properly if cookies are disabled, including features related to shopping cart behavior or account preferences.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 11 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Do you sell medical or professional-grade skincare products?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('No. One Shop Vibe focuses on everyday beauty accessories, makeup tools, hair care essentials, organizers, and self-care tools. We do not sell products that are intended to diagnose, treat, cure, or prevent medical conditions.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('Product descriptions are provided for general shopping information. Colors, images, availability, pricing, and descriptions may be updated as needed, and actual color display can vary depending on your device or monitor.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 12 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('Can prices, product details, or availability change?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Yes. Product pricing, descriptions, promotions, shipping charges, transit times, and availability may change without notice. Some products may have limited quantities or be available exclusively online.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('If site information contains an error, inaccuracy, or omission, we reserve the right to correct it, update information, or cancel an affected order when permitted by our Terms & Conditions.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 13 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('What privacy rights do I have?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('Depending on your location, you may have the right to access, update, delete, correct, object to, restrict processing of, or request a portable copy of personal information we hold about you.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('To make a privacy request, contact support@oneshopvibe.com. We may need enough information to verify your request and locate the relevant account or order records.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-                <!-- FAQ Item 14 -->
-                <div class="rounded-2xl border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:shadow-md">
-                    <h3 class="text-xl font-black text-[#2D2633] mb-3">
-                        <?php esc_html_e('How do updates to your policies or terms affect me?', 'dawp'); ?>
-                    </h3>
-                    <div class="space-y-3 text-[#6B6470] leading-7">
-                        <p><?php esc_html_e('We may update our Privacy Policy or Terms & Conditions from time to time by posting the revised version on the website and updating the Last Updated date where applicable.', 'dawp'); ?></p>
-                        <p><?php esc_html_e('It is your responsibility to review the current policies periodically. Continued use of the website or service after changes are posted means you accept the updated terms, policies, and notices.', 'dawp'); ?></p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Contact Box -->
-            <div class="mt-12 rounded-[1.25rem] bg-[#2D2633] p-8 text-center text-white">
-                <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#F7C948] text-[#2D2633]">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                </div>
-                <h3 class="font-heading text-2xl font-black mb-3"><?php esc_html_e('Still have questions?', 'dawp'); ?></h3>
-                <p class="text-white/80 mb-6"><?php esc_html_e('Our support team is here to help you Monday through Friday, 9:00 AM – 6:00 PM EST.', 'dawp'); ?></p>
-                <a href="mailto:support@oneshopvibe.com" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-black uppercase tracking-wide text-[#2D2633] transition hover:bg-[#F7C948]">
-                    <?php esc_html_e('Email Support', 'dawp'); ?>
-                </a>
+                </article>
             </div>
         </div>
     </section>

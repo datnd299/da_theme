@@ -40,7 +40,7 @@ $contact_cards = [
 $help_topics = [
     __('Tire size or fitment questions before ordering', 'dawp'),
     __('Order status, tracking, or shipping timeline questions', 'dawp'),
-    __('Return eligibility for unused, unmounted, undamaged tires', 'dawp'),
+    __('Return eligibility for unused, unmounted, undriven, undamaged tires in original condition', 'dawp'),
     __('Product specification questions such as rim size, load index, speed rating, or tire type', 'dawp'),
 ];
 ?>
@@ -256,15 +256,20 @@ $help_topics = [
                         <?php esc_html_e('Review policy information before opening a support request.', 'dawp'); ?>
                     </h2>
                     <p class="mt-5 max-w-2xl text-base leading-8 text-[#D1D5DB]">
-                        <?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch, depending on product availability, tire size, carrier conditions, and delivery location.', 'dawp'); ?>
+                        <?php esc_html_e('Orders are processed within 1-2 business days. Standard delivery within the United States takes 3-5 business days after dispatch, and all eligible tire orders ship free within our standard delivery zones.', 'dawp'); ?>
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
                     <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
                        class="rounded-lg border border-white/10 bg-white p-5 text-[#111827] transition hover:-translate-y-1 hover:shadow-md">
                         <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                        <p class="mt-2 text-sm leading-6 text-[#4B5563]"><?php esc_html_e('Read timelines and return conditions.', 'dawp'); ?></p>
+                        <p class="mt-2 text-sm leading-6 text-[#4B5563]"><?php esc_html_e('Read processing, transit, tracking, and delivery details.', 'dawp'); ?></p>
+                    </a>
+                    <a href="<?php echo esc_url(home_url('/returns-policy/')); ?>"
+                       class="rounded-lg border border-white/10 bg-white p-5 text-[#111827] transition hover:-translate-y-1 hover:shadow-md">
+                        <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h3>
+                        <p class="mt-2 text-sm leading-6 text-[#4B5563]"><?php esc_html_e('Review eligibility, return shipping costs, and refund timing.', 'dawp'); ?></p>
                     </a>
                     <a href="<?php echo esc_url(home_url('/track-order/')); ?>"
                        class="rounded-lg border border-white/10 bg-white p-5 text-[#111827] transition hover:-translate-y-1 hover:shadow-md">

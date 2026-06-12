@@ -93,7 +93,7 @@ $vehicle_cards = [
 $trust_cards = [
     __('Secure Checkout', 'dawp'),
     __('Tracking Included', 'dawp'),
-    __('30-Day Returns', 'dawp'),
+    __('30-Day Eligible Returns', 'dawp'),
     __('Clear Tire Specifications', 'dawp'),
 ];
 ?>
@@ -340,14 +340,14 @@ $trust_cards = [
                         <div class="rounded-lg border border-white/10 bg-white p-5 text-[#111827]">
                             <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Shipping Timeline', 'dawp'); ?></h3>
                             <p class="mt-2 text-sm leading-7 text-[#4B5563]">
-                                <?php esc_html_e('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch depending on product availability, tire size, carrier conditions, and delivery location.', 'dawp'); ?>
+                                <?php esc_html_e('Orders are processed within 1-2 business days. Standard delivery within the United States takes 3-5 business days after dispatch, and eligible tire orders ship free within our standard delivery zones.', 'dawp'); ?>
                             </p>
                         </div>
 
                         <div class="rounded-lg border border-white/10 bg-white p-5 text-[#111827]">
                             <h3 class="text-base font-black text-[#0B1F33]"><?php esc_html_e('Return Eligibility', 'dawp'); ?></h3>
                             <p class="mt-2 text-sm leading-7 text-[#4B5563]">
-                                <?php esc_html_e('Eligible unused, unmounted, and undamaged tires may be returned within 30 days of delivery in original condition.', 'dawp'); ?>
+                                <?php esc_html_e('Eligible unused, unmounted, undriven, and undamaged tires may be returned within 30 days of delivery in original condition with original labels, tags, and packaging intact.', 'dawp'); ?>
                             </p>
                         </div>
                     </div>

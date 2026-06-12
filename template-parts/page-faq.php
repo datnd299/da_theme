@@ -64,7 +64,7 @@ $faq_sections = [
             [
                 'question' => __('Which tires are eligible for a return?', 'dawp'),
                 'answer'   => [
-                    ['type' => 'p', 'text' => __('To qualify for a full return, tires must be unused, unmounted, undriven, undamaged, and in their original condition with all original labels and tags intact. Proof of purchase (order number) is required.', 'dawp')],
+                    ['type' => 'p', 'text' => __('To qualify for a return, tires must be unused, unmounted, undriven, undamaged, and in their original condition with original labels, tags, and packaging intact. Proof of purchase (order number or order confirmation email) is required.', 'dawp')],
                 ],
             ],
             [
@@ -78,7 +78,7 @@ $faq_sections = [
                 'answer'   => [
                     ['type' => 'ul', 'items' => [
                         ['label' => __('Our Error:', 'dawp'),          'text' => __('If you receive an incorrect, defective, or damaged tire, Tizezap covers 100% of the return shipping costs.', 'dawp')],
-                        ['label' => __('Customer Remorse:', 'dawp'),   'text' => __('If you change your mind or ordered the wrong size, the customer is responsible for the return shipping costs.', 'dawp')],
+                        ['label' => __('Customer Remorse:', 'dawp'),   'text' => __('If you change your mind or ordered the wrong size, the customer is responsible for the actual return shipping costs.', 'dawp')],
                     ]],
                 ],
             ],

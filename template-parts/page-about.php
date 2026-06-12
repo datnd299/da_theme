@@ -42,7 +42,7 @@ $categories = [
 $trust_items = [
     __('Secure checkout', 'dawp'),
     __('Tracking included after dispatch', 'dawp'),
-    __('30-day return window for eligible unused tires', 'dawp'),
+    __('30-day return window for eligible unused, unmounted, undriven, and undamaged tires', 'dawp'),
     __('Support by email during business hours', 'dawp'),
 ];
 ?>

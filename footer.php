@@ -47,8 +47,8 @@ $trust_items = [
         'copy'  => __('Tracking information is provided once an order ships.', 'dawp'),
     ],
     [
-        'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unused, unmounted tires may be returned within 30 days.', 'dawp'),
+        'title' => __('30-Day Eligible Returns', 'dawp'),
+        'copy'  => __('Eligible unused, unmounted, undriven, and undamaged tires may be returned within 30 days of delivery.', 'dawp'),
     ],
     [
         'title' => __('Clear Tire Specs', 'dawp'),

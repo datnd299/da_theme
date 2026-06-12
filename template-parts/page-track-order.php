@@ -165,7 +165,7 @@ if ($track_order_form) {
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Learn about our shipping times, rates, and delivery details.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Learn about 1-2 business day processing, 3-5 business day US transit, free standard shipping, and delivery details.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>

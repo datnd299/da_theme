@@ -3,6 +3,7 @@ $categories = get_terms([
     'taxonomy'   => 'product_cat',
     'hide_empty' => false,
     'parent'     => 0,
+    'slug'       => function_exists('dawp_product_category_slugs') ? dawp_product_category_slugs() : [],
 ]);
 ?>
 <div class="shop-sidebar__header">

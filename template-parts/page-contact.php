@@ -1,174 +1,219 @@
 <?php
 /**
- * Template Name: Contact Us
- * Template Part: page-contact
+ * Template Part: Contact Us
  */
-$store_address = dawp_get_woocommerce_store_address();
+
+$store_name      = 'Proudlywear';
+$support_email   = 'support@proudlywear.com';
+$store_address   = dawp_get_woocommerce_store_address();
+$support_hours   = 'Monday-Friday, 10:00 AM-6:00 PM PST';
+$track_order_url = home_url('/track-order/');
+$shipping_url    = home_url('/shipping-policy/');
+$returns_url     = home_url('/refund-return-policy/');
+$faq_url         = home_url('/faq/');
+
+$contact_cards = array(
+    array(
+        'label' => __('Email Support', 'dawp'),
+        'title' => $support_email,
+        'copy'  => __('Best for order questions, personalization details, return requests, and delivery issues.', 'dawp'),
+        'url'   => 'mailto:' . $support_email,
+    ),
+    array(
+        'label' => __('Support Hours', 'dawp'),
+        'title' => $support_hours,
+        'copy'  => __('We aim to reply within 24 business hours. Weekend and holiday replies may take longer.', 'dawp'),
+        'url'   => '',
+    ),
+    array(
+        'label' => __('Order Tracking', 'dawp'),
+        'title' => __('Track Your Order', 'dawp'),
+        'copy'  => __('Use your order details to check current shipment status before sending a support request.', 'dawp'),
+        'url'   => $track_order_url,
+    ),
+);
+
+$help_topics = array(
+    array(__('Order Status', 'dawp'), __('Include your order number and checkout email so we can locate the purchase quickly.', 'dawp')),
+    array(__('Custom Details', 'dawp'), __('Send the name, rank, service years, branch, or design detail exactly as it should appear.', 'dawp')),
+    array(__('Returns & Refunds', 'dawp'), __('Tell us the item, reason for return, and include photos if the product arrived damaged or incorrect.', 'dawp')),
+    array(__('Delivery Issues', 'dawp'), __('Share the tracking number, full shipping address, and what the carrier status currently shows.', 'dawp')),
+);
 ?>
 
-<main class="bg-[#FAF7F2]">
-    <!-- Header Section -->
-    <section class="py-16 lg:py-24 px-4 bg-white border-b border-[#E6DDD6]">
-        <div class="max-w-3xl mx-auto text-center space-y-6">
-            <div class="inline-block px-4 py-1.5 rounded-full bg-[#c98a8a]/10 text-[#c98a8a] text-sm font-bold uppercase tracking-widest">
-                <?php esc_html_e('Get in Touch', 'dawp'); ?>
-            </div>
-            <h1 class="text-4xl lg:text-5xl font-serif text-[#2F2A28]">
-                <?php esc_html_e('We’d Love to Hear from You', 'dawp'); ?>
-            </h1>
-            <p class="text-lg text-[#6F625D] leading-relaxed">
-                <?php esc_html_e('Whether you have a question about sizing, styling, or your recent order, our boutique team is here to help you every step of the way.', 'dawp'); ?>
-            </p>
+<main class="bg-[#FFFFFF] text-[#111827]">
+  <section class="relative overflow-hidden bg-[#0B1F3A] text-white">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0B1F3A] via-[#153866] to-[#B31942] opacity-95"></div>
+    <div class="absolute inset-0 opacity-20">
+      <div class="h-full w-full bg-[linear-gradient(120deg,transparent_0_35%,rgba(255,255,255,.18)_35%_42%,transparent_42%_100%)]"></div>
+    </div>
+
+    <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-12 md:px-6 md:py-16 lg:grid-cols-2 lg:py-20">
+      <div>
+        <p class="inline-flex rounded-lg border border-[#C6A15B]/40 bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#C6A15B]">
+          <?php esc_html_e('Customer Support', 'dawp'); ?>
+        </p>
+        <h1 class="mt-5 max-w-3xl text-4xl font-extrabold leading-none md:text-6xl lg:text-7xl">
+          <?php esc_html_e('We are here to help.', 'dawp'); ?>
+        </h1>
+        <p class="mt-6 max-w-xl text-base leading-7 text-white/80 md:text-lg">
+          <?php esc_html_e('Contact Proudlywear for order updates, custom gift details, shipping questions, returns, refunds, or product support.', 'dawp'); ?>
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[#B31942] px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-[#921233]">
+            <?php esc_html_e('Email Support', 'dawp'); ?>
+          </a>
+          <a href="<?php echo esc_url($track_order_url); ?>" class="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-white/40 px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-white hover:text-[#0B1F3A]">
+            <?php esc_html_e('Track Order', 'dawp'); ?>
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- Contact Info & Form Section -->
-    <section class="py-20 px-4 lg:px-8">
-        <div class="max-w-[1280px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-20">
-            
-            <!-- Left Side: Contact Details -->
-            <div class="lg:col-span-5 space-y-12">
-                
-                <!-- Brand Support Image -->
-                <div class="relative rounded-3xl overflow-hidden shadow-lg aspect-[16/10]">
-                    <?php echo dawp_theme_image(
-                        'assets/img/support_contact.png',
-                        'Shop Kelli Support Desk',
-                        900,
-                        563,
-                        array(array(400, 250), array(640, 400), array(900, 563)),
-                        '(max-width: 1023px) calc(100vw - 32px), 493px',
-                        array('class' => 'w-full h-full object-cover')
-                    ); ?>
-                </div>
-
-                <div class="grid gap-8">
-                    <!-- Support Hours -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Support Availability', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <?php esc_html_e('Monday-Friday, 10:00 AM-6:00 PM PST', 'dawp'); ?>
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Email Support -->
-                    <div class="flex gap-5">
-                        <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Email Support', 'dawp'); ?></h3>
-                            <p class="text-[#6F625D] leading-relaxed">
-                                <a href="mailto:support@shopkelli.com" class="hover:text-[#c98a8a] transition-colors">support@shopkelli.com</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <?php if ('' !== $store_address) : ?>
-                        <!-- Physical Address (GMC Priority) -->
-                        <div class="flex gap-5">
-                            <div class="shrink-0 w-12 h-12 rounded-2xl bg-[#c98a8a] flex items-center justify-center text-white shadow-md">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-bold text-[#2F2A28] mb-1"><?php esc_html_e('Our Location', 'dawp'); ?></h3>
-                                <p class="text-[#6F625D] leading-relaxed">
-                                    <?php echo esc_html($store_address); ?>
-                                </p>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
-
+      <div class="rounded-lg border border-white/15 bg-white/10 p-5 shadow-2xl md:p-6">
+        <div class="rounded-lg bg-white p-5 text-[#111827] md:p-6">
+          <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Fastest Support', 'dawp'); ?></p>
+          <h2 class="mt-3 text-2xl font-extrabold md:text-3xl"><?php esc_html_e('Send the right details once.', 'dawp'); ?></h2>
+          <p class="mt-3 text-sm leading-6 text-[#6B7280]">
+            <?php esc_html_e('For the quickest reply, include your order number, checkout email, product name, and photos when relevant.', 'dawp'); ?>
+          </p>
+          <div class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F2E8] p-4">
+              <strong class="block text-sm"><?php esc_html_e('Response Time', 'dawp'); ?></strong>
+              <span class="mt-1 block text-sm text-[#6B7280]"><?php esc_html_e('Within 24 business hours', 'dawp'); ?></span>
             </div>
-
-            <!-- Right Side: Contact Form -->
-            <div class="lg:col-span-7 bg-white p-8 lg:p-12 rounded-3xl border border-[#E6DDD6] shadow-sm">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label for="contact_name" class="text-sm font-bold text-[#2F2A28]">
-                                <?php esc_html_e('Your Name', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                            </label>
-                            <input type="text" id="contact_name" name="name" required
-                                   class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28]"
-                                   placeholder="<?php esc_attr_e('e.g. Sarah Johnson', 'dawp'); ?>">
-                        </div>
-                        <div class="space-y-2">
-                            <label for="contact_email" class="text-sm font-bold text-[#2F2A28]">
-                                <?php esc_html_e('Email Address', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                            </label>
-                            <input type="email" id="contact_email" name="email" required
-                                   class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28]"
-                                   placeholder="<?php esc_attr_e('sarah@example.com', 'dawp'); ?>">
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label for="contact_subject" class="text-sm font-bold text-[#2F2A28]">
-                            <?php esc_html_e('Subject', 'dawp'); ?>
-                        </label>
-                        <select id="contact_subject" name="subject"
-                                class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] transition-all text-[#2F2A28]">
-                            <option value="general"><?php esc_html_e('General Inquiry', 'dawp'); ?></option>
-                            <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
-                            <option value="styling"><?php esc_html_e('Styling Help', 'dawp'); ?></option>
-                            <option value="return"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></option>
-                        </select>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label for="contact_message" class="text-sm font-bold text-[#2F2A28]">
-                            <?php esc_html_e('Your Message', 'dawp'); ?> <span class="text-[#c98a8a]">*</span>
-                        </label>
-                        <textarea id="contact_message" name="message" rows="5" required
-                                  class="w-full px-4 py-3 rounded-xl bg-[#FAF7F2] border border-[#E6DDD6] focus:outline-none focus:border-[#c98a8a] focus:ring-1 focus:ring-[#c98a8a] transition-all text-[#2F2A28] resize-none"
-                                  placeholder="<?php esc_attr_e('How can we help you today?', 'dawp'); ?>"></textarea>
-                    </div>
-
-                    <button type="submit"
-                            class="w-full py-4 px-8 bg-[#c98a8a] text-white font-bold rounded-xl hover:bg-[#b37a7a] transition-all shadow-md active:scale-[0.98]">
-                        <?php esc_html_e('Send Message', 'dawp'); ?>
-                    </button>
-
-                    <p id="contact-msg" aria-live="polite" style="display:none" class="text-sm text-center font-bold"></p>
-
-                    <p class="text-xs text-[#9A8C86] text-center italic">
-                        <?php esc_html_e('Our boutique team typically responds within 24 business hours.', 'dawp'); ?>
-                    </p>
-                </form>
+            <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F2E8] p-4">
+              <strong class="block text-sm"><?php esc_html_e('Support Email', 'dawp'); ?></strong>
+              <span class="mt-1 block text-sm text-[#6B7280]"><?php echo esc_html($support_email); ?></span>
             </div>
-
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Quick Help Section -->
-    <section class="py-20 px-4 bg-white border-t border-[#E6DDD6]">
-        <div class="max-w-[1280px] mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl lg:text-3xl font-serif text-[#2F2A28]"><?php esc_html_e('Quick Answers', 'dawp'); ?></h2>
-                <p class="text-[#6F625D] mt-2"><?php esc_html_e('Find what you need even faster.', 'dawp'); ?></p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('View our 5:00 PM (GMT-08:00) Pacific Standard Time cutoff, 1-3 business day handling time, 5-7 business day transit time, and free U.S. standard shipping details.', 'dawp'); ?></p>
-                </a>
-                <a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Review our 30-day return window, original-condition requirements, return shipping fee rules, no restocking fee, refund timing, and exchange handling.', 'dawp'); ?></p>
-                </a>
-                <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="group p-6 rounded-2xl border border-[#E6DDD6] hover:bg-[#FAF7F2] hover:border-[#c98a8a] transition-all">
-                    <h3 class="text-lg font-bold text-[#2F2A28] group-hover:text-[#c98a8a] transition-colors mb-2"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h3>
-                    <p class="text-sm text-[#6F625D] leading-relaxed"><?php esc_html_e('Find answers to our most common customer inquiries.', 'dawp'); ?></p>
-                </a>
-            </div>
+  <section class="bg-[#F7F2E8] py-12 md:py-16 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Contact Options', 'dawp'); ?></p>
+          <h2 class="mt-3 text-3xl font-extrabold text-[#111827] md:text-5xl"><?php esc_html_e('Choose the support path that fits.', 'dawp'); ?></h2>
         </div>
-    </section>
+        <p class="max-w-xl text-sm leading-7 text-[#6B7280] md:text-base">
+          <?php esc_html_e('Most questions can be handled by email or the form below. Tracking and policy links are available for quick self-service.', 'dawp'); ?>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <?php foreach ($contact_cards as $card) : ?>
+          <?php if ($card['url']) : ?>
+            <a href="<?php echo esc_url($card['url']); ?>" class="group rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B1F3A] text-sm font-extrabold text-white">PW</span>
+              <p class="mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-[#B31942]"><?php echo esc_html($card['label']); ?></p>
+              <h3 class="mt-2 text-xl font-extrabold text-[#111827]"><?php echo esc_html($card['title']); ?></h3>
+              <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($card['copy']); ?></p>
+            </a>
+          <?php else : ?>
+            <div class="group rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B1F3A] text-sm font-extrabold text-white">PW</span>
+              <p class="mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-[#B31942]"><?php echo esc_html($card['label']); ?></p>
+              <h3 class="mt-2 text-xl font-extrabold text-[#111827]"><?php echo esc_html($card['title']); ?></h3>
+              <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($card['copy']); ?></p>
+            </div>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-12 md:py-16 lg:py-20">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 md:px-6 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Send A Message', 'dawp'); ?></p>
+        <h2 class="mt-3 text-3xl font-extrabold text-[#111827] md:text-5xl"><?php esc_html_e('Tell us what you need.', 'dawp'); ?></h2>
+        <p class="mt-4 max-w-2xl text-sm leading-7 text-[#6B7280] md:text-base">
+          <?php esc_html_e('Use this form for order questions, custom product help, return requests, damaged items, or general support.', 'dawp'); ?>
+        </p>
+
+        <form id="contact-form" class="mt-8 rounded-lg border border-[#E5E7EB] bg-[#F7F2E8] p-5 shadow-sm md:p-8">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+            <label class="block">
+              <span class="mb-2 block text-sm font-extrabold text-[#111827]"><?php esc_html_e('Name', 'dawp'); ?></span>
+              <input type="text" name="name" required autocomplete="name" class="min-h-[48px] w-full rounded-lg border border-[#E5E7EB] bg-white px-4 text-sm outline-none focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]">
+            </label>
+
+            <label class="block">
+              <span class="mb-2 block text-sm font-extrabold text-[#111827]"><?php esc_html_e('Email', 'dawp'); ?></span>
+              <input type="email" name="email" required autocomplete="email" class="min-h-[48px] w-full rounded-lg border border-[#E5E7EB] bg-white px-4 text-sm outline-none focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]">
+            </label>
+          </div>
+
+          <label class="mt-4 block">
+            <span class="mb-2 block text-sm font-extrabold text-[#111827]"><?php esc_html_e('Topic', 'dawp'); ?></span>
+            <select name="subject" class="min-h-[48px] w-full rounded-lg border border-[#E5E7EB] bg-white px-4 text-sm outline-none focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]">
+              <option value="general"><?php esc_html_e('General Inquiry', 'dawp'); ?></option>
+              <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
+              <option value="styling"><?php esc_html_e('Product or Custom Gift Help', 'dawp'); ?></option>
+              <option value="return"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></option>
+            </select>
+          </label>
+
+          <label class="mt-4 block">
+            <span class="mb-2 block text-sm font-extrabold text-[#111827]"><?php esc_html_e('Message', 'dawp'); ?></span>
+            <textarea name="message" required rows="6" class="w-full rounded-lg border border-[#E5E7EB] bg-white px-4 py-3 text-sm leading-6 outline-none focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]"></textarea>
+          </label>
+
+          <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="submit" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[#B31942] px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-[#0B1F3A]">
+              <?php esc_html_e('Send Message', 'dawp'); ?>
+            </button>
+            <p id="contact-msg" class="hidden text-sm font-bold" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+
+      <aside class="lg:col-span-5">
+        <div class="sticky top-0 rounded-lg bg-[#0B1F3A] p-6 text-white md:p-8">
+          <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#C6A15B]"><?php esc_html_e('Before You Send', 'dawp'); ?></p>
+          <h2 class="mt-3 text-2xl font-extrabold md:text-3xl"><?php esc_html_e('Helpful details speed things up.', 'dawp'); ?></h2>
+          <div class="mt-6 space-y-4">
+            <?php foreach ($help_topics as $topic) : ?>
+              <div class="rounded-lg border border-white/15 bg-white/10 p-4">
+                <h3 class="text-base font-extrabold"><?php echo esc_html($topic[0]); ?></h3>
+                <p class="mt-2 text-sm leading-6 text-white/75"><?php echo esc_html($topic[1]); ?></p>
+              </div>
+            <?php endforeach; ?>
+          </div>
+
+          <div class="mt-6 rounded-lg border border-white/15 bg-white/10 p-4">
+            <h3 class="text-base font-extrabold"><?php echo esc_html($store_name); ?></h3>
+            <p class="mt-2 text-sm leading-6 text-white/75"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition hover:text-white"><?php echo esc_html($support_email); ?></a></p>
+            <p class="mt-1 text-sm leading-6 text-white/75"><?php echo esc_html($support_hours); ?></p>
+            <?php if ('' !== $store_address) : ?>
+              <p class="mt-1 text-sm leading-6 text-white/75"><?php echo esc_html($store_address); ?></p>
+            <?php endif; ?>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="bg-[#F7F2E8] py-12 md:py-16 lg:py-20">
+    <div class="mx-auto max-w-7xl px-4 md:px-6">
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <a href="<?php echo esc_url($shipping_url); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+          <h3 class="text-xl font-extrabold text-[#111827]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
+          <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Review processing time, delivery estimates, carriers, and tracking details.', 'dawp'); ?></p>
+        </a>
+        <a href="<?php echo esc_url($returns_url); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+          <h3 class="text-xl font-extrabold text-[#111827]"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></h3>
+          <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Learn how return requests, refund timing, and eligible items are handled.', 'dawp'); ?></p>
+        </a>
+        <a href="<?php echo esc_url($faq_url); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+          <h3 class="text-xl font-extrabold text-[#111827]"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
+          <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Find quick answers to common questions before contacting support.', 'dawp'); ?></p>
+        </a>
+      </div>
+    </div>
+  </section>
 </main>

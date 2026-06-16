@@ -2,12 +2,12 @@
 /**
  * Template Part: Frequently Asked Questions
  *
- * Customer-facing FAQ content aligned with Shop Kelli's shipping, returns,
+ * Customer-facing FAQ content aligned with Proudlywear's shipping, returns,
  * privacy, and terms pages.
  */
 
-$store_name       = 'Shop Kelli Boutique';
-$support_email    = 'support@shopkelli.com';
+$store_name       = 'Proudlywear';
+$support_email    = 'support@proudlywear.com';
 $mailing_address  = dawp_get_woocommerce_store_address();
 $support_hours    = 'Monday-Friday, 10:00 AM-6:00 PM PST';
 $contact_page_url = home_url('/contact-us/');
@@ -22,8 +22,8 @@ $faq_sections = array(
         'title' => __('Orders & Checkout', 'dawp'),
         'items' => array(
             array(
-                'question' => __('Where can I buy Shop Kelli products?', 'dawp'),
-                'answer'   => __('Products shown on shopkelli.com are available for direct purchase through our online store. Customers can add available items to the cart and complete checkout on the website.', 'dawp'),
+                'question' => __('Where can I buy Proudlywear products?', 'dawp'),
+                'answer'   => __('Products shown on proudlywear.com are available for direct purchase through our online store. Customers can add available items to the cart and complete checkout on the website.', 'dawp'),
             ),
             array(
                 'question' => __('Can my order be cancelled or changed after checkout?', 'dawp'),
@@ -40,7 +40,7 @@ $faq_sections = array(
         'items' => array(
             array(
                 'question' => __('Where do you ship?', 'dawp'),
-                'answer'   => __('Shop Kelli currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to your specific address, you will be notified at checkout before payment is completed.', 'dawp'),
+                'answer'   => __('Proudlywear currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to your specific address, you will be notified at checkout before payment is completed.', 'dawp'),
             ),
             array(
                 'question' => __('How much is shipping?', 'dawp'),
@@ -77,7 +77,7 @@ $faq_sections = array(
             ),
             array(
                 'question' => __('Why did I receive multiple tracking numbers?', 'dawp'),
-                'answer'   => __('Orders containing multiple boutique clothing pieces, accessories, mommy and me styles, or girls collection items may ship separately from different fulfillment batches. Each shipment will have its own tracking number.', 'dawp'),
+                'answer'   => __('Orders containing multiple patriotic apparel pieces, hats, accessories, custom gifts, or veteran-inspired items may ship separately from different fulfillment batches. Each shipment will have its own tracking number.', 'dawp'),
             ),
             array(
                 'question' => __('What should I do if my package is delayed, lost, or marked delivered but missing?', 'dawp'),
@@ -98,11 +98,11 @@ $faq_sections = array(
             ),
             array(
                 'question' => __('Do you charge a restocking fee?', 'dawp'),
-                'answer'   => __('No. Shop Kelli does not charge restocking fees for eligible returns.', 'dawp'),
+                'answer'   => __('No. Proudlywear does not charge restocking fees for eligible returns.', 'dawp'),
             ),
             array(
                 'question' => __('Who pays for return shipping?', 'dawp'),
-                'answer'   => __('For defective, damaged, incorrect, or carrier-damaged products, Shop Kelli covers 100% of return shipping and provides a prepaid label by email. For customer remorse, including wrong size, wrong color, changed mind, or does not fit, the customer is responsible for return shipping and the label cost may be deducted from the refund.', 'dawp'),
+                'answer'   => __('For defective, damaged, incorrect, or carrier-damaged products, Proudlywear covers 100% of return shipping and provides a prepaid label by email. For customer remorse, including wrong size, wrong color, changed mind, or does not fit, the customer is responsible for return shipping and the label cost may be deducted from the refund.', 'dawp'),
             ),
             array(
                 'question' => __('When will I receive my refund?', 'dawp'),
@@ -139,7 +139,7 @@ $faq_sections = array(
         'items' => array(
             array(
                 'question' => __('Is checkout secure?', 'dawp'),
-                'answer'   => __('Yes. Checkout uses SSL-protected payment transmission through WooCommerce and certified third-party payment gateways. Shop Kelli does not store raw credit card numbers on local storefront servers.', 'dawp'),
+                'answer'   => __('Yes. Checkout uses SSL-protected payment transmission through WooCommerce and certified third-party payment gateways. Proudlywear does not store raw credit card numbers on local storefront servers.', 'dawp'),
             ),
             array(
                 'question' => __('What payment methods are available?', 'dawp'),
@@ -175,7 +175,7 @@ $faq_sections = array(
                 <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
                 <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
                 <p class="sk-policy-hero__copy mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('Find clear answers about Shop Kelli orders, shipping, returns, refunds, payment security, and customer support before you complete your purchase.', 'dawp'); ?>
+                    <?php esc_html_e('Find clear answers about Proudlywear orders, shipping, returns, refunds, payment security, and customer support before you complete your purchase.', 'dawp'); ?>
                 </p>
                 <div class="mt-7 flex flex-wrap justify-center gap-4">
                     <a href="<?php echo esc_url($contact_page_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
@@ -234,7 +234,7 @@ $faq_sections = array(
                 <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
                     <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Customer Support', 'dawp'); ?></h2>
                     <p class="mt-5 leading-relaxed text-foreground-muted">
-                        <?php esc_html_e('For order questions, shipment issues, returns, refunds, product questions, or privacy requests, contact Shop Kelli through the verified support channels below. We aim to reply within 1 business day, and response times may vary during weekends, holidays, or high-volume periods.', 'dawp'); ?>
+                        <?php esc_html_e('For order questions, shipment issues, returns, refunds, product questions, or privacy requests, contact Proudlywear through the verified support channels below. We aim to reply within 1 business day, and response times may vary during weekends, holidays, or high-volume periods.', 'dawp'); ?>
                     </p>
 
                     <div class="mt-6 rounded-3xl border border-border bg-background p-4 md:p-5">

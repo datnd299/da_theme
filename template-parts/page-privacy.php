@@ -3,12 +3,95 @@
  * Template Part: Privacy Policy
  */
 
-$store_name      = 'Shop Kelli Boutique';
-$support_email   = 'support@shopkelli.com';
+$store_name      = 'Proudlywear';
+$support_email   = 'support@proudlywear.com';
 $mailing_address = dawp_get_woocommerce_store_address();
 ?>
 
-<main class="sk-policy-page bg-surface">
+<style>
+    .sk-privacy-page {
+        --sk-privacy-cream: #F7F2E8;
+        --sk-privacy-rose: #B31942;
+        --sk-privacy-rose-dark: #921233;
+        --sk-privacy-gold: #C6A15B;
+        --sk-privacy-navy: #0B1F3A;
+        --sk-privacy-blue: #153866;
+        --sk-privacy-ink: #111827;
+        --sk-privacy-muted: #6B7280;
+        background: linear-gradient(180deg, #fff 0%, var(--sk-privacy-cream) 18%, #fff 100%);
+        color: var(--sk-privacy-muted);
+    }
+
+    .sk-privacy-page .sk-policy-hero {
+        background:
+            linear-gradient(135deg, rgba(11, 31, 58, .98), rgba(21, 56, 102, .94) 48%, rgba(179, 25, 66, .88)),
+            var(--sk-privacy-navy);
+        border-bottom-color: rgba(198, 161, 91, .32);
+    }
+
+    .sk-privacy-page .sk-policy-hero::before {
+        background: rgba(198, 161, 91, .22);
+    }
+
+    .sk-privacy-page .sk-policy-hero::after {
+        border-color: rgba(198, 161, 91, .26);
+        background: rgba(255, 255, 255, .08);
+    }
+
+    .sk-privacy-page .sk-policy-hero .text-accent {
+        color: var(--sk-privacy-gold);
+    }
+
+    .sk-privacy-page .sk-policy-hero .text-foreground,
+    .sk-privacy-page .sk-policy-hero .text-foreground-muted {
+        color: #fff;
+    }
+
+    .sk-privacy-page .sk-policy-hero__copy {
+        color: rgba(255, 255, 255, .82);
+    }
+
+    .sk-privacy-page .sk-policy-body > .container > .space-y-8 > section {
+        border-color: rgba(229, 231, 235, .95);
+        background: linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 242, 232, .5)), #fff;
+        box-shadow: 0 12px 34px rgba(11, 31, 58, .08);
+    }
+
+    .sk-privacy-page .sk-policy-body > .container > .space-y-8 > section:nth-child(even) {
+        background: linear-gradient(180deg, rgba(247, 242, 232, .72), rgba(255, 255, 255, .96)), #fff;
+    }
+
+    .sk-privacy-page .sk-policy-body h2::after {
+        background: var(--sk-privacy-rose);
+    }
+
+    .sk-privacy-page .sk-policy-body .rounded-2xl,
+    .sk-privacy-page .sk-policy-body .rounded-3xl .rounded-3xl {
+        border-color: rgba(229, 231, 235, .95);
+        background: rgba(255, 255, 255, .76);
+    }
+
+    .sk-privacy-page .sk-policy-body a.bg-foreground {
+        background: var(--sk-privacy-rose);
+    }
+
+    .sk-privacy-page .sk-policy-body a.bg-foreground:hover {
+        background: var(--sk-privacy-rose-dark);
+    }
+
+    .sk-privacy-page .sk-policy-body a.border-foreground {
+        border-color: var(--sk-privacy-rose);
+        color: var(--sk-privacy-rose);
+    }
+
+    .sk-privacy-page .sk-policy-body a.border-foreground:hover,
+    .sk-privacy-page .sk-policy-body a.hover\:text-accent:hover {
+        border-color: var(--sk-privacy-rose-dark);
+        color: var(--sk-privacy-rose-dark);
+    }
+</style>
+
+<main class="sk-policy-page sk-privacy-page bg-surface">
     <section class="sk-policy-hero">
         <div class="container mx-auto max-w-6xl px-4">
             <div class="sk-policy-hero__inner text-center">
@@ -16,8 +99,8 @@ $mailing_address = dawp_get_woocommerce_store_address();
             <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
             <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
             <div class="sk-policy-hero__copy mx-auto mt-6 max-w-4xl space-y-5 text-lg leading-relaxed text-foreground-muted">
-                <p><?php esc_html_e('At Shop Kelli, your privacy and the security of your personal data are our utmost priorities. This Privacy Policy describes how your personal information is collected, used, protected, and shared when you visit, browse, or make a purchase from shopkelli.com (the "Site").', 'dawp'); ?></p>
-                <p><?php esc_html_e('By accessing our Site or utilizing our boutique services, you acknowledge and agree to the data management practices outlined in this policy.', 'dawp'); ?></p>
+                <p><?php esc_html_e('At Proudlywear, your privacy and the security of your personal data are our utmost priorities. This Privacy Policy describes how your personal information is collected, used, protected, and shared when you visit, browse, or make a purchase from proudlywear.com (the "Site").', 'dawp'); ?></p>
+                <p><?php esc_html_e('By accessing our Site or utilizing our online store services, you acknowledge and agree to the data management practices outlined in this policy.', 'dawp'); ?></p>
             </div>
             </div>
         </div>
@@ -29,7 +112,7 @@ $mailing_address = dawp_get_woocommerce_store_address();
             <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
                 <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('1. Information We Collect', 'dawp'); ?></h2>
                 <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('To fulfill your boutique orders and optimize your user experience, we collect two primary types of data:', 'dawp'); ?>
+                    <?php esc_html_e('To fulfill your patriotic apparel and custom gift orders and optimize your user experience, we collect two primary types of data:', 'dawp'); ?>
                 </p>
                 <div class="mt-6 grid gap-4 md:grid-cols-2">
                     <div class="rounded-2xl border border-border bg-background p-5">
@@ -50,7 +133,7 @@ $mailing_address = dawp_get_woocommerce_store_address();
             <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
                 <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('2. Secure Payment Processing & Data Encryption (GMC MANDATORY)', 'dawp'); ?></h2>
                 <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
-                    <p><?php esc_html_e('Your commercial transaction data is fully guarded. Shop Kelli does not store, harvest, or retain your raw credit card numbers on our local storefront servers.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Your commercial transaction data is fully guarded. Proudlywear does not store, harvest, or retain your raw credit card numbers on our local storefront servers.', 'dawp'); ?></p>
                     <p><?php esc_html_e('Because our online store operates via WooCommerce, all payment interactions are seamlessly redirected to, and processed by, certified third-party payment gateways. All data transmissions during checkout are protected utilizing industry-standard SSL (Secure Sockets Layer) encryption technology and strictly comply with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'); ?></p>
                 </div>
             </section>
@@ -64,7 +147,7 @@ $mailing_address = dawp_get_woocommerce_store_address();
                     <li><?php esc_html_e('Fulfill and build any orders placed through the Site (including processing secure payments, coordinating domestic shipping, and rendering invoices/order confirmations).', 'dawp'); ?></li>
                     <li><?php esc_html_e('Communicate with you directly regarding your order status.', 'dawp'); ?></li>
                     <li><?php esc_html_e('Screen our transaction logs for potential financial risk, system vulnerabilities, or identity fraud.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Provide you with curated marketing insights, seasonal boutique lookbooks, or promotional advertising relating to our products, strictly in line with the communication preferences you have shared with us.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('Provide you with curated marketing insights, seasonal patriotic apparel updates, or promotional advertising relating to our products, strictly in line with the communication preferences you have shared with us.', 'dawp'); ?></li>
                 </ul>
             </section>
 
@@ -106,7 +189,7 @@ $mailing_address = dawp_get_woocommerce_store_address();
             <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
                 <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('7. Data Retention', 'dawp'); ?></h2>
                 <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('When you execute an order through our boutique storefront, we will preserve your structural Order Information for our continuous business, tax reporting, and accounting records unless and until you formally ask us to scrub this information from our directories.', 'dawp'); ?>
+                    <?php esc_html_e('When you execute an order through our online storefront, we will preserve your structural Order Information for our continuous business, tax reporting, and accounting records unless and until you formally ask us to scrub this information from our directories.', 'dawp'); ?>
                 </p>
             </section>
 
@@ -150,3 +233,4 @@ $mailing_address = dawp_get_woocommerce_store_address();
     </div>
     </section>
 </main>
+

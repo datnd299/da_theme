@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css — Shop Kelli Design System
+   main.css - Proudlywear Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -8,40 +8,40 @@
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
   /* Warm White — page background */
-  --color-surface: #FAF7F2;
+  --color-surface: #F7F2E8;
   /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
+  --color-surface-alt: #F3F4F6;
   /* Soft Gray — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
+  --color-foreground: #111827;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
+  --color-foreground-muted: #6B7280;
   /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
+  --color-muted: #8A94A6;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C98A8A;
+  --color-accent: #B31942;
   /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #B87575;
+  --color-accent-hover: #921233;
   /* Dusty Rose darker — hover state */
-  --color-accent-soft: #E8D8C8;
+  --color-accent-soft: #C6A15B;
   /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DFA39A;
+  --color-accent-blush: #153866;
   /* Warm Blush — secondary brand color */
 
   /* === UI === */
-  --color-border: #E6DDD6;
+  --color-border: #E5E7EB;
   /* Border — cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */
-  --color-success: #5C8A6A;
+  --color-success: #2F855A;
   /* Success — muted green, fits boutique palette */
 
   /* === TYPOGRAPHY === */
   --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --font-heading: 'Lato', 'Inter', system-ui, sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -64,8 +64,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(11, 31, 58, 0.08);
+  --shadow-card-hover: 0 6px 20px rgba(11, 31, 58, 0.14);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -92,7 +92,8 @@
 
 main.sk-policy-page {
   padding: 0;
-  background: var(--color-surface);
+  background:
+    linear-gradient(180deg, #fff 0%, var(--color-surface) 18%, #fff 100%);
 }
 
 .sk-policy-hero {
@@ -101,11 +102,12 @@ main.sk-policy-page {
   background:
     linear-gradient(
       135deg,
-      rgba(250, 247, 242, 0.96),
-      rgba(232, 216, 200, 0.62) 46%,
-      rgba(223, 163, 154, 0.34)
+      rgba(11, 31, 58, 0.98),
+      rgba(21, 56, 102, 0.94) 48%,
+      rgba(179, 25, 66, 0.88)
     ),
-    var(--color-background);
+    #0B1F3A;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.28);
 }
 
 .sk-policy-hero::before {
@@ -116,8 +118,8 @@ main.sk-policy-page {
   width: 220px;
   height: 220px;
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.52);
-  filter: blur(8px);
+  background: rgba(198, 161, 91, 0.2);
+  filter: blur(10px);
 }
 
 .sk-policy-hero::after {
@@ -127,9 +129,23 @@ main.sk-policy-page {
   bottom: -92px;
   width: 360px;
   height: 360px;
-  border: 1px solid rgba(201, 138, 138, 0.22);
+  border: 1px solid rgba(198, 161, 91, 0.24);
   border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sk-policy-hero .text-accent,
+.sk-policy-hero .text-foreground,
+.sk-policy-hero .text-foreground-muted {
+  color: #fff;
+}
+
+.sk-policy-hero .text-accent {
+  color: var(--color-accent-soft);
+}
+
+.sk-policy-hero__copy {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .sk-policy-hero__inner {
@@ -150,6 +166,68 @@ main.sk-policy-page {
 
 .sk-policy-body {
   padding: 68px 0;
+}
+
+.sk-policy-body .rounded-3xl {
+  border-color: rgba(229, 231, 235, 0.92);
+}
+
+.sk-policy-body > .container > .space-y-8 > section {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 242, 232, 0.5)),
+    var(--color-background);
+  box-shadow: 0 12px 34px rgba(11, 31, 58, 0.08);
+}
+
+.sk-policy-body > .container > .space-y-8 > section:nth-child(even) {
+  background:
+    linear-gradient(180deg, rgba(247, 242, 232, 0.7), rgba(255, 255, 255, 0.96)),
+    var(--color-background);
+}
+
+.sk-policy-body h2 {
+  position: relative;
+  padding-bottom: 18px;
+}
+
+.sk-policy-body h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 54px;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+}
+
+.sk-policy-body a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.sk-policy-body .rounded-2xl {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(229, 231, 235, 0.95);
+}
+
+.sk-policy-body span.bg-foreground,
+.sk-policy-body a.bg-foreground {
+  background: var(--color-accent);
+}
+
+.sk-policy-body a.bg-foreground:hover {
+  background: var(--color-accent-hover);
+}
+
+.sk-policy-body a.border-foreground {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.sk-policy-body a.border-foreground:hover {
+  border-color: var(--color-accent-hover);
+  color: var(--color-accent-hover);
 }
 
 @media (max-width: 680px) {

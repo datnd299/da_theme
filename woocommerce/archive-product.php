@@ -46,6 +46,14 @@ get_header();
             }
             ?>
         </h1>
+        <?php if ( is_product_category() || is_product_tag() ) :
+            $archive_description = term_description();
+            if ( $archive_description ) : ?>
+                <div class="shop-header__description">
+                    <?php echo wp_kses_post( wpautop( $archive_description ) ); ?>
+                </div>
+            <?php endif;
+        endif; ?>
     </div>
 
     <?php
@@ -112,8 +120,9 @@ get_header();
             // Categories widget
             $categories = get_terms([
                 'taxonomy'   => 'product_cat',
-                'hide_empty' => true,
+                'hide_empty' => false,
                 'parent'     => 0,
+                'slug'       => function_exists('dawp_product_category_slugs') ? dawp_product_category_slugs() : [],
                 'exclude'    => [ get_term_by('slug', 'uncategorized', 'product_cat')->term_id ?? 0 ],
             ]);
             if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>

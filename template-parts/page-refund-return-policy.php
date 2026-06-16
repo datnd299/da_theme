@@ -5,7 +5,97 @@
 $store_address = dawp_get_woocommerce_store_address();
 ?>
 
-<main class="sk-policy-page bg-surface">
+<style>
+    .sk-refund-page {
+        --sk-refund-cream: #F7F2E8;
+        --sk-refund-rose: #B31942;
+        --sk-refund-rose-dark: #921233;
+        --sk-refund-gold: #C6A15B;
+        --sk-refund-navy: #0B1F3A;
+        --sk-refund-blue: #153866;
+        --sk-refund-ink: #111827;
+        --sk-refund-muted: #6B7280;
+        --sk-refund-border: #E5E7EB;
+        background: linear-gradient(180deg, #fff 0%, var(--sk-refund-cream) 18%, #fff 100%);
+        color: var(--sk-refund-muted);
+    }
+
+    .sk-refund-page .sk-policy-hero {
+        background:
+            linear-gradient(135deg, rgba(11, 31, 58, .98), rgba(21, 56, 102, .94) 48%, rgba(179, 25, 66, .88)),
+            var(--sk-refund-navy);
+        border-bottom-color: rgba(198, 161, 91, .32);
+    }
+
+    .sk-refund-page .sk-policy-hero::before {
+        background: rgba(198, 161, 91, .22);
+    }
+
+    .sk-refund-page .sk-policy-hero::after {
+        border-color: rgba(198, 161, 91, .26);
+        background: rgba(255, 255, 255, .08);
+    }
+
+    .sk-refund-page .sk-policy-hero .text-accent {
+        color: var(--sk-refund-gold);
+    }
+
+    .sk-refund-page .sk-policy-hero .text-foreground,
+    .sk-refund-page .sk-policy-hero .text-foreground-muted {
+        color: #fff;
+    }
+
+    .sk-refund-page .sk-policy-hero__copy {
+        color: rgba(255, 255, 255, .82);
+    }
+
+    .sk-refund-page .sk-policy-body > .container > .space-y-8 > section {
+        border-color: rgba(229, 231, 235, .95);
+        background: linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 242, 232, .5)), #fff;
+        box-shadow: 0 12px 34px rgba(11, 31, 58, .08);
+    }
+
+    .sk-refund-page .sk-policy-body > .container > .space-y-8 > section:nth-child(even) {
+        background: linear-gradient(180deg, rgba(247, 242, 232, .72), rgba(255, 255, 255, .96)), #fff;
+    }
+
+    .sk-refund-page .sk-policy-body h2::after {
+        background: var(--sk-refund-rose);
+    }
+
+    .sk-refund-page .sk-policy-body .rounded-2xl {
+        border-color: rgba(229, 231, 235, .95);
+        background: rgba(255, 255, 255, .76);
+    }
+
+    .sk-refund-page .sk-policy-body span.bg-foreground,
+    .sk-refund-page .sk-policy-body a.bg-foreground {
+        background: var(--sk-refund-rose);
+    }
+
+    .sk-refund-page .sk-policy-body a.bg-foreground:hover {
+        background: var(--sk-refund-rose-dark);
+    }
+
+    .sk-refund-page .sk-policy-body a.border-foreground {
+        border-color: var(--sk-refund-rose);
+        color: var(--sk-refund-rose);
+    }
+
+    .sk-refund-page .sk-policy-body a.border-foreground:hover,
+    .sk-refund-page .sk-policy-body a.hover\:text-accent:hover {
+        border-color: var(--sk-refund-rose-dark);
+        color: var(--sk-refund-rose-dark);
+    }
+
+    .sk-refund-page .sk-policy-body .border-\[\#C6A15B\]\/30 {
+        border-left: 4px solid var(--sk-refund-rose);
+        border-color: rgba(198, 161, 91, .42);
+        background: #FFF8E8;
+    }
+</style>
+
+<main class="sk-policy-page sk-refund-page bg-surface">
     <section class="sk-policy-hero">
         <div class="container mx-auto max-w-6xl px-4">
             <div class="sk-policy-hero__inner text-center">
@@ -13,7 +103,7 @@ $store_address = dawp_get_woocommerce_store_address();
             <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h1>
             <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
             <p class="sk-policy-hero__copy mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-foreground-muted">
-                <?php esc_html_e('We want every Shop Kelli piece to feel just right for you and your family. Please review the return requirements below before sending any boutique clothing, accessories, or gift item back to us.', 'dawp'); ?>
+                <?php esc_html_e('We want every Proudlywear piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.', 'dawp'); ?>
             </p>
             </div>
         </div>
@@ -116,8 +206,8 @@ $store_address = dawp_get_woocommerce_store_address();
                     </div>
                 </div>
 
-                <div class="mt-5 rounded-2xl border border-[#E8D8C8] bg-[#FFF8E8] p-5 text-foreground">
-                    <p class="font-bold"><?php esc_html_e('Shop Kelli Boutique - Returns Department', 'dawp'); ?></p>
+                <div class="mt-5 rounded-2xl border border-[#C6A15B]/30 bg-[#F7F2E8] p-5 text-foreground">
+                    <p class="font-bold"><?php esc_html_e('Proudlywear - Returns Department', 'dawp'); ?></p>
                     <p class="mt-2"><?php echo esc_html($store_address); ?></p>
                 </div>
 
@@ -125,8 +215,8 @@ $store_address = dawp_get_woocommerce_store_address();
                     <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
                         <?php esc_html_e('Contact Support', 'dawp'); ?>
                     </a>
-                    <a href="mailto:support@shopkelli.com" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
-                        <?php esc_html_e('support@shopkelli.com', 'dawp'); ?>
+                    <a href="mailto:support@proudlywear.com" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
+                        <?php esc_html_e('support@proudlywear.com', 'dawp'); ?>
                     </a>
                 </div>
             </section>
@@ -147,7 +237,7 @@ $store_address = dawp_get_woocommerce_store_address();
                     <li><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
                     <li><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'); ?></li>
                 </ul>
-                <a href="mailto:support@shopkelli.com" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
+                <a href="mailto:support@proudlywear.com" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
                     <?php esc_html_e('Email Support', 'dawp'); ?>
                 </a>
             </section>
@@ -170,7 +260,7 @@ $store_address = dawp_get_woocommerce_store_address();
                     <div class="grid gap-4 md:grid-cols-2">
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('Shop Kelli Boutique', 'dawp'); ?></p>
+                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('Proudlywear', 'dawp'); ?></p>
                         </div>
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Address', 'dawp'); ?></h3>
@@ -178,7 +268,7 @@ $store_address = dawp_get_woocommerce_store_address();
                         </div>
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Email', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><a href="mailto:support@shopkelli.com" class="transition-colors hover:text-accent">support@shopkelli.com</a></p>
+                            <p class="mt-3 text-foreground-muted"><a href="mailto:support@proudlywear.com" class="transition-colors hover:text-accent">support@proudlywear.com</a></p>
                         </div>
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Contact Support', 'dawp'); ?></h3>
@@ -199,3 +289,4 @@ $store_address = dawp_get_woocommerce_store_address();
     </div>
     </section>
 </main>
+

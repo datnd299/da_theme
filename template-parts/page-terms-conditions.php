@@ -3,8 +3,8 @@
  * Template Part: Terms of Service
  */
 
-$store_name       = 'Shop Kelli Boutique';
-$support_email    = 'support@shopkelli.com';
+$store_name       = 'Proudlywear';
+$support_email    = 'support@proudlywear.com';
 $mailing_address  = dawp_get_woocommerce_store_address();
 $support_hours    = 'Monday-Friday, 10:00 AM-6:00 PM PST';
 $return_policy    = home_url('/refund-return-policy/');
@@ -13,7 +13,109 @@ $privacy_policy   = home_url('/privacy-policy/');
 $contact_page_url = home_url('/contact-us/');
 ?>
 
-<main class="sk-policy-page bg-surface">
+<style>
+    .sk-terms-page {
+        --sk-terms-cream: #F7F2E8;
+        --sk-terms-rose: #B31942;
+        --sk-terms-rose-dark: #921233;
+        --sk-terms-gold: #C6A15B;
+        --sk-terms-navy: #0B1F3A;
+        --sk-terms-blue: #153866;
+        --sk-terms-ink: #111827;
+        --sk-terms-muted: #6B7280;
+        --sk-terms-border: #E5E7EB;
+        background: linear-gradient(180deg, #fff 0%, var(--sk-terms-cream) 18%, #fff 100%);
+        color: var(--sk-terms-muted);
+    }
+
+    .sk-terms-page .sk-policy-hero {
+        background:
+            linear-gradient(135deg, rgba(11, 31, 58, .98), rgba(21, 56, 102, .94) 48%, rgba(179, 25, 66, .88)),
+            var(--sk-terms-navy);
+        border-bottom-color: rgba(198, 161, 91, .32);
+    }
+
+    .sk-terms-page .sk-policy-hero::before {
+        background: rgba(198, 161, 91, .22);
+    }
+
+    .sk-terms-page .sk-policy-hero::after {
+        border-color: rgba(198, 161, 91, .26);
+        background: rgba(255, 255, 255, .08);
+    }
+
+    .sk-terms-page .sk-policy-hero .text-accent {
+        color: var(--sk-terms-gold);
+    }
+
+    .sk-terms-page .sk-policy-hero .text-foreground,
+    .sk-terms-page .sk-policy-hero .text-foreground-muted {
+        color: #fff;
+    }
+
+    .sk-terms-page .sk-policy-hero__copy {
+        color: rgba(255, 255, 255, .82);
+    }
+
+    .sk-terms-page .sk-policy-body > .container > .space-y-8 > section {
+        border-color: rgba(229, 231, 235, .95);
+        background: linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 242, 232, .5)), #fff;
+        box-shadow: 0 12px 34px rgba(11, 31, 58, .08);
+    }
+
+    .sk-terms-page .sk-policy-body > .container > .space-y-8 > section:nth-child(even) {
+        background: linear-gradient(180deg, rgba(247, 242, 232, .72), rgba(255, 255, 255, .96)), #fff;
+    }
+
+    .sk-terms-page .sk-policy-body .rounded-2xl,
+    .sk-terms-page .sk-policy-body .rounded-3xl .rounded-3xl {
+        border-color: rgba(229, 231, 235, .95);
+        background: rgba(255, 255, 255, .76);
+    }
+
+    .sk-terms-page .sk-policy-body h2 {
+        position: relative;
+        padding-bottom: 18px;
+    }
+
+    .sk-terms-page .sk-policy-body h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 54px;
+        height: 3px;
+        border-radius: 999px;
+        background: var(--sk-terms-rose);
+    }
+
+    .sk-terms-page .sk-policy-body a.text-foreground,
+    .sk-terms-page .sk-policy-body a.hover\:text-accent:hover,
+    .sk-terms-page .sk-policy-body a:hover {
+        color: var(--sk-terms-rose-dark);
+    }
+
+    .sk-terms-page .sk-policy-body a.bg-foreground {
+        background: var(--sk-terms-rose);
+    }
+
+    .sk-terms-page .sk-policy-body a.bg-foreground:hover {
+        background: var(--sk-terms-rose-dark);
+        color: #fff;
+    }
+
+    .sk-terms-page .sk-policy-body a.border-foreground {
+        border-color: var(--sk-terms-rose);
+        color: var(--sk-terms-rose);
+    }
+
+    .sk-terms-page .sk-policy-body a.border-foreground:hover {
+        border-color: var(--sk-terms-rose-dark);
+        color: var(--sk-terms-rose-dark);
+    }
+</style>
+
+<main class="sk-policy-page sk-terms-page bg-surface">
     <section class="sk-policy-hero">
         <div class="container mx-auto max-w-6xl px-4">
             <div class="sk-policy-hero__inner text-center">
@@ -21,8 +123,8 @@ $contact_page_url = home_url('/contact-us/');
             <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Terms of Service', 'dawp'); ?></h1>
             <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
             <div class="sk-policy-hero__copy mx-auto mt-6 max-w-4xl space-y-5 text-lg leading-relaxed text-foreground-muted">
-                <p><?php esc_html_e('Welcome to Shop Kelli! These Terms of Service ("Terms") govern your access to and use of our website shopkelli.com (the "Site"), including browsing our catalog, creating an account, interacting with our boutique support, or purchasing items from our online store.', 'dawp'); ?></p>
-                <p><?php esc_html_e('This Site is operated by Shop Kelli. Throughout the Site, the terms “we”, “us” and “our” refer to Shop Kelli. By visiting our Site and/or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions, including those additional terms, conditions, and operational policies referenced herein and/or available by hyperlink.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Welcome to Proudlywear! These Terms of Service ("Terms") govern your access to and use of our website proudlywear.com (the "Site"), including browsing our catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'); ?></p>
+                <p><?php esc_html_e('This Site is operated by Proudlywear. Throughout the Site, the terms “we”, “us” and “our” refer to Proudlywear. By visiting our Site and/or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions, including those additional terms, conditions, and operational policies referenced herein and/or available by hyperlink.', 'dawp'); ?></p>
                 <p><?php esc_html_e('Please read these Terms of Service carefully before accessing or using our website. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services.', 'dawp'); ?></p>
             </div>
             </div>
@@ -36,7 +138,7 @@ $contact_page_url = home_url('/contact-us/');
                 <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('1. Online Store Terms & Eligibility', 'dawp'); ?></h2>
                 <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
                     <p><?php esc_html_e('By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you have given us your explicit consent to allow any of your minor dependents to use this Site.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('You may not use our boutique products or website services for any illegal, unauthorized, or fraudulent purpose. You must not transmit any worms, viruses, or any code of a destructive nature. A breach or violation of any of these Terms will result in an immediate termination of your access to our Services.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('You may not use our patriotic apparel and custom gift products or website services for any illegal, unauthorized, or fraudulent purpose. You must not transmit any worms, viruses, or any code of a destructive nature. A breach or violation of any of these Terms will result in an immediate termination of your access to our Services.', 'dawp'); ?></p>
                 </div>
             </section>
 
@@ -62,11 +164,11 @@ $contact_page_url = home_url('/contact-us/');
                 <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('3. Product Representation & Accuracy', 'dawp'); ?></h2>
                 <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
                     <p>
-                        <strong class="font-bold text-foreground"><?php esc_html_e('Boutique Assortment:', 'dawp'); ?></strong>
+                        <strong class="font-bold text-foreground"><?php esc_html_e('Product Assortment:', 'dawp'); ?></strong>
                         <?php esc_html_e('Certain products or lifestyle pieces may be available exclusively online through the Site. These products may have limited quantities and are subject to return and refund handling strictly according to our', 'dawp'); ?>
                         <a href="<?php echo esc_url($return_policy); ?>" class="font-bold text-foreground transition-colors hover:text-accent"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></a>.
                     </p>
-                    <p><strong class="font-bold text-foreground"><?php esc_html_e('Display Limitations:', 'dawp'); ?></strong> <?php esc_html_e("We have made every reasonable effort to display as accurately as possible the colors, textures, and images of our boutique products. We cannot guarantee that your personal computer or mobile monitor's display of any color will be 100% exact.", 'dawp'); ?></p>
+                    <p><strong class="font-bold text-foreground"><?php esc_html_e('Display Limitations:', 'dawp'); ?></strong> <?php esc_html_e("We have made every reasonable effort to display as accurately as possible the colors, textures, and images of our patriotic apparel and custom gift products. We cannot guarantee that your personal computer or mobile monitor's display of any color will be 100% exact.", 'dawp'); ?></p>
                     <p><strong class="font-bold text-foreground"><?php esc_html_e('Modifications:', 'dawp'); ?></strong> <?php esc_html_e('Prices for our products are subject to change without notice. We reserve the right at any time to modify or discontinue any item or service assortment without prior liability.', 'dawp'); ?></p>
                 </div>
             </section>
@@ -119,7 +221,7 @@ $contact_page_url = home_url('/contact-us/');
 
             <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
                 <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('8. Limitation of Liability', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted"><?php esc_html_e('In no case shall Shop Kelli, our directors, officers, employees, affiliates, agents, or suppliers be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind—including, without limitation, lost profits, lost revenue, lost savings, or replacement costs—arising from your use of the website or any products procured using the service.', 'dawp'); ?></p>
+                <p class="mt-5 leading-relaxed text-foreground-muted"><?php esc_html_e('In no case shall Proudlywear, our directors, officers, employees, affiliates, agents, or suppliers be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind—including, without limitation, lost profits, lost revenue, lost savings, or replacement costs—arising from your use of the website or any products procured using the service.', 'dawp'); ?></p>
             </section>
 
             <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
@@ -165,3 +267,4 @@ $contact_page_url = home_url('/contact-us/');
     </div>
     </section>
 </main>
+

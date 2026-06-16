@@ -1,9 +1,10 @@
 <?php
 function dawp_main_menu_items() {
     return [
-        ['title' => __('Shop All',    'dawp'), 'url' => home_url('/shop/'),        'megamenu' => true],
-        ['title' => __('About Us',    'dawp'), 'url' => home_url('/about-us/'),    'megamenu' => false],
-        ['title' => __('Contact Us',  'dawp'), 'url' => home_url('/contact-us/'),  'megamenu' => false],
+        ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/'), 'megamenu' => true],
+        ['title' => __('America 250', 'dawp'), 'url' => home_url('/product-category/america-250-collection/'), 'megamenu' => false],
+        ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/'), 'megamenu' => false],
+        ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/'), 'megamenu' => false],
         ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/'), 'megamenu' => false],
     ];
 }
@@ -11,22 +12,58 @@ function dawp_main_menu_items() {
 function dawp_megamenu_sections() {
     return [
         [
-            'title' => __('Categories', 'dawp'),
+            'title' => __('Featured Collections', 'dawp'),
             'links' => [
-                ['title' => __('Girls Dresses',       'dawp'), 'url' => home_url('/product-category/girls-dresses/')],
-                ['title' => __('Mommy & Me',          'dawp'), 'url' => home_url('/product-category/mommy-me-matching-sets/')],
-                ['title' => __('Women Casual',        'dawp'), 'url' => home_url('/product-category/women-casual/')],
-                ['title' => __('Baby Girl',           'dawp'), 'url' => home_url('/product-category/baby-girl-boutique/')],
-                ['title' => __('Boutique Accessories','dawp'), 'url' => home_url('/product-category/boutique-accessories/')],
+                ['title' => __('Best Sellers', 'dawp'), 'url' => home_url('/product-category/best-sellers/')],
+                ['title' => __('Veteran Polo Shirts', 'dawp'), 'url' => home_url('/product-category/veteran-polo-shirts/')],
+                ['title' => __('Veteran Hats', 'dawp'), 'url' => home_url('/product-category/veteran-hats/')],
+                ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250-collection/')],
             ],
         ],
+        [
+            'title' => __('Custom Gifts', 'dawp'),
+            'links' => [
+                ['title' => __('Custom Military Gifts', 'dawp'), 'url' => home_url('/product-category/custom-military-gifts/')],
+                ['title' => __('Patriotic Accessories', 'dawp'), 'url' => home_url('/product-category/patriotic-accessories/')],
+                ['title' => __('Father\'s Day Gifts', 'dawp'), 'url' => home_url('/product-category/fathers-day-gifts/')],
+                ['title' => __('Christmas Gifts For Veterans', 'dawp'), 'url' => home_url('/product-category/christmas-gifts-for-veterans/')],
+            ],
+        ],
+        [
+            'title' => __('Occasions', 'dawp'),
+            'links' => [
+                ['title' => __('Veterans Day Gifts', 'dawp'), 'url' => home_url('/product-category/veterans-day-gifts/')],
+                ['title' => __('Memorial Day Gifts', 'dawp'), 'url' => home_url('/product-category/memorial-day-gifts/')],
+                ['title' => __('Independence Day Gifts', 'dawp'), 'url' => home_url('/product-category/independence-day-gifts/')],
+            ],
+        ],
+    ];
+}
+
+function dawp_product_category_slugs() {
+    return [
+        'best-sellers',
+        'veteran-polo-shirts',
+        'veteran-hats',
+        'america-250-collection',
+        'custom-military-gifts',
+        'patriotic-accessories',
+        'fathers-day-gifts',
+        'veterans-day-gifts',
+        'memorial-day-gifts',
+        'independence-day-gifts',
+        'christmas-gifts-for-veterans',
     ];
 }
 
 function dawp_is_current_url($url) {
     $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
     $target  = trim(parse_url($url, PHP_URL_PATH) ?? '', '/');
-    if ($current === '' && $target === '') return true;
+
+    if ($current === '' && $target === '') {
+        return true;
+    }
+
     return $current !== '' && $current === $target;
 }
 
@@ -36,33 +73,43 @@ function dawp_footer_columns() {
 
     return [
         [
-            'title' => 'Shop',
+            'title' => __('Shop', 'dawp'),
             'links' => [
-                ['title' => __('Shop All',            'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Girls Dresses',       'dawp'), 'url' => home_url('/product-category/girls-dresses/')],
-                ['title' => __('Mommy & Me',          'dawp'), 'url' => home_url('/product-category/mommy-me-matching-sets/')],
-                ['title' => __('Women Casual',        'dawp'), 'url' => home_url('/product-category/women-casual/')],
-                ['title' => __('Baby Girl',           'dawp'), 'url' => home_url('/product-category/baby-girl-boutique/')],
-                ['title' => __('Boutique Accessories','dawp'), 'url' => home_url('/product-category/boutique-accessories/')],
+                ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
+                ['title' => __('Best Sellers', 'dawp'), 'url' => home_url('/product-category/best-sellers/')],
+                ['title' => __('Veteran Polo Shirts', 'dawp'), 'url' => home_url('/product-category/veteran-polo-shirts/')],
+                ['title' => __('Veteran Hats', 'dawp'), 'url' => home_url('/product-category/veteran-hats/')],
+                ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250-collection/')],
+                ['title' => __('Custom Military Gifts', 'dawp'), 'url' => home_url('/product-category/custom-military-gifts/')],
             ],
         ],
         [
-            'title' => 'Help',
+            'title' => __('Gift Occasions', 'dawp'),
             'links' => [
-                ['title' => 'About Us',   'url' => home_url('/about-us/')],
-                ['title' => 'Contact Us', 'url' => home_url('/contact-us/')],
-                ['title' => 'Track Order','url' => home_url('/track-order/')],
-                ['title' => 'My Account', 'url' => $account_url],
+                ['title' => __('Father\'s Day Gifts', 'dawp'), 'url' => home_url('/product-category/fathers-day-gifts/')],
+                ['title' => __('Veterans Day Gifts', 'dawp'), 'url' => home_url('/product-category/veterans-day-gifts/')],
+                ['title' => __('Memorial Day Gifts', 'dawp'), 'url' => home_url('/product-category/memorial-day-gifts/')],
+                ['title' => __('Independence Day Gifts', 'dawp'), 'url' => home_url('/product-category/independence-day-gifts/')],
+                ['title' => __('Christmas Gifts For Veterans', 'dawp'), 'url' => home_url('/product-category/christmas-gifts-for-veterans/')],
             ],
         ],
         [
-            'title' => 'Policy',
+            'title' => __('Help', 'dawp'),
             'links' => [
-                ['title' => 'FAQs',               'url' => home_url('/faq/')],
-                ['title' => 'Shipping Policy',     'url' => home_url('/shipping-policy/')],
-                ['title' => 'Refund & Return Policy', 'url' => home_url('/refund-return-policy/')],
-                ['title' => 'Privacy Policy',      'url' => home_url('/privacy-policy/')],
-                ['title' => 'Terms & Conditions',  'url' => home_url('/terms-conditions/')],
+                ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
+                ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+                ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
+                ['title' => __('My Account', 'dawp'), 'url' => $account_url],
+                ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
+            ],
+        ],
+        [
+            'title' => __('Policy', 'dawp'),
+            'links' => [
+                ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+                ['title' => __('Refund & Return Policy', 'dawp'), 'url' => home_url('/refund-return-policy/')],
+                ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
+                ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
             ],
         ],
     ];

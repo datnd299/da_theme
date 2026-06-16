@@ -1,410 +1,586 @@
-# Shop Kelli Home Plan
+# Proudlywear — Home Plan
 
 ## Homepage Goal
 
-Create a warm, trustworthy, and lifestyle-focused boutique homepage for women and young girls.
+Build a short, emotional, product-heavy homepage for a patriotic POD apparel and custom gift brand.
 
-The homepage should feel:
+Main purpose:
 
-* Family-oriented
-* Boutique-inspired
-* Seasonal
-* Welcoming
-* Community-driven
+* Show best-selling products early
+* Make veteran-inspired categories easy to shop
+* Highlight personalized products
+* Build trust for custom POD orders
+* Create emotional meaning around service, legacy, and American pride
+
+Core message:
+
+> Honor The Service. Wear The Legacy.
+
+Homepage feeling:
+
+* Patriotic
+* Respectful
+* Emotional
+* Trustworthy
+* Product-heavy
 * Easy to shop
-
-The design should reinforce:
-
-* Women & children fashion
-* Mommy & daughter shopping
-* Boutique authenticity
-* GMC-safe ecommerce trust
-
-Avoid:
-
-* Overstock-style layouts
-* Product spam walls
-* Aggressive discount banners
-* Generic dropshipping design
+* Older-audience friendly
 
 ---
 
 # Homepage Structure
 
-## 1. Announcement Bar
+Use 7 sections maximum:
 
-Simple and clean announcement bar.
-
-Suggested content:
-
-* Free shipping offer
-* Seasonal collection message
-* Boutique customer support
-
-Avoid:
-
-* Flashing urgency
-* Fake countdowns
-* Aggressive discount language
+1. **Hero + Best Seller Strip**
+2. **Shop By Collection**
+3. **Best Sellers Product Grid**
+4. **Personalized Veteran Apparel Feature**
+5. **Gift By Occasion / America 250**
+6. **Customer Tributes & Gift Moments**
+7. **Trust + About + Newsletter CTA**
 
 ---
 
-# 2. Header
+# Section 1 — Hero + Best Seller Strip
 
-Include:
+## Purpose
 
-* Boutique logo
-* Main navigation
-* Search icon
-* Account icon
-* Cart icon
+Immediately communicate what Proudlywear sells and why it matters.
 
-Navigation should stay simple and uncluttered.
+## Hero Eyebrow
 
-Suggested navigation:
+```txt
+Patriotic Apparel & Custom Gifts
+```
 
-* New Arrivals
-* Women
-* Girls Collection
-* Mommy & Me
-* Seasonal Collections
-* Accessories
+## Hero Headline
 
----
+```txt
+Honor The Service. Wear The Legacy.
+```
 
-# 3. Hero Banner
+## Hero Subheadline
 
-## Goal
+```txt
+Shop custom veteran polos, patriotic hats, mugs, accessories, and America-inspired gifts made for veterans, military families, and proud Americans.
+```
 
-Create an emotional first impression with warm boutique lifestyle visuals.
+## Primary CTA
 
-## Hero Direction
+```txt
+Shop Best Sellers
+```
+
+## Secondary CTA
+
+```txt
+Customize Yours
+```
+
+## Trust Line
+
+```txt
+Secure checkout. Tracking included. Custom gifts made with care.
+```
+
+## Best Seller Strip
+
+Show 3–4 quick links under hero:
+
+```txt
+Veteran Polos
+Veteran Hats
+America 250 Collection
+Custom Military Gifts
+```
+
+## Visual Direction
 
 Use:
 
-* Women and young girls lifestyle imagery
-* Soft natural lighting
-* Warm feminine color palette
-* Seasonal boutique styling
-* Community-oriented tone
-
-## Hero Content
-
-Include:
-
-* Short emotional headline
-* Simple supporting text
-* Soft CTA button
-
-Suggested CTA:
-
-* Shop New Arrivals
-* Explore The Collection
-* Shop Mommy & Me
+* Veteran wearing custom polo
+* Folded polo + patriotic hat
+* American flag background
+* Product close-up showing name, rank, or service years
 
 Avoid:
 
-* Overstock-style sales messaging
-* Aggressive promotions
-* Too much text
+* Official military logos
+* Political visuals
+* Fake military endorsement
+* Too much text inside images
 
 ---
 
-# 4. New Arrivals Section
+# Section 2 — Shop By Collection
 
-## Goal
+## Purpose
 
-Highlight fresh seasonal products in a clean boutique layout.
+Help users quickly choose the right product group.
 
-## Layout Rules
+## Collections
 
-* Clean WooCommerce product grid
-* Consistent product images
-* Spacious spacing
-* Mobile-friendly layout
+Use 6 cards:
 
-Display:
+```txt
+Best Sellers
+Veteran Polo Shirts
+Veteran Hats
+America 250 Collection
+Custom Military Gifts
+Patriotic Accessories
+```
 
-* 4–8 featured products
-* Seasonal or trending arrivals
+## Card Copy
 
-Avoid:
+**Best Sellers**
 
-* Overcrowded grids
-* Too many badges
-* Spammy sale tags
+```txt
+Customer-favorite patriotic apparel and veteran-inspired gifts.
+```
+
+**Veteran Polo Shirts**
+
+```txt
+Custom polos made to carry a veteran’s name, service years, and earned pride.
+```
+
+**Veteran Hats**
+
+```txt
+Patriotic caps and veteran-inspired designs for everyday pride.
+```
+
+**America 250 Collection**
+
+```txt
+Celebrate America’s 250th Anniversary with meaningful patriotic apparel and gifts.
+```
+
+**Custom Military Gifts**
+
+```txt
+Personalized gifts made for fathers, husbands, grandfathers, and proud service families.
+```
+
+**Patriotic Accessories**
+
+```txt
+Mugs, caps, and everyday accessories made for proud Americans.
+```
+
+## Design Notes
+
+* 3 columns desktop
+* 2 columns tablet
+* 1 column mobile
+* Use image cards or clean cards with product imagery
+* CTA on each card: `Shop Collection`
 
 ---
 
-# 5. Mommy & Me Section
+# Section 3 — Best Sellers Product Grid
 
-## Goal
+## Purpose
 
-Reinforce the core identity of the store.
+Make homepage commerce-focused and show products early.
 
-## Content Direction
+## Content
+
+Eyebrow:
+
+```txt
+Best Sellers
+```
+
+Headline:
+
+```txt
+Patriotic favorites made to honor service and pride
+```
+
+CTA:
+
+```txt
+View All Best Sellers
+```
+
+## Product Query
+
+Use WooCommerce:
+
+```php
+wc_get_products(array(
+  'status'  => 'publish',
+  'limit'   => 8,
+  'orderby' => 'popularity',
+  'order'   => 'DESC',
+));
+```
+
+Fallback:
+
+```php
+wc_get_products(array(
+  'status'  => 'publish',
+  'limit'   => 8,
+  'orderby' => 'date',
+  'order'   => 'DESC',
+));
+```
+
+## Product Card Requirements
+
+Each card should show:
+
+```txt
+Product image
+Product title
+Price
+Sale price if available
+Customizable badge if applicable
+View Product / Customize Now CTA
+```
+
+## Design Notes
+
+* Show 8 products
+* 4 columns desktop
+* 2 columns mobile
+* Price in Heritage Red
+* Product image ratio: 1/1 for mixed grid
+
+---
+
+# Section 4 — Personalized Veteran Apparel Feature
+
+## Purpose
+
+Explain the emotional and custom value of Proudlywear products.
+
+## Eyebrow
+
+```txt
+Personalized With Pride
+```
+
+## Headline
+
+```txt
+Custom apparel that carries name, rank, and service years.
+```
+
+## Paragraph
+
+```txt
+Many Proudlywear products can be personalized with details that matter — from a veteran’s name to service years, rank, or branch-inspired artwork. These are not just everyday apparel pieces; they are meaningful gifts made to honor service and legacy.
+```
+
+## Feature Points
+
+```txt
+Custom name options
+Rank and service years
+Branch-inspired designs
+Gift-ready for veterans and families
+```
+
+## CTA
+
+```txt
+Shop Custom Gifts
+```
+
+## Custom Product Note
+
+```txt
+Please review all personalization details carefully before placing your order. Personalized items may require additional production time.
+```
+
+## Visual Direction
 
 Use:
 
-* Mother and daughter lifestyle imagery
-* Warm family-oriented visuals
-* Seasonal outfit coordination
-* Boutique storytelling
-
-Suggested CTA:
-
-* Shop Matching Styles
-* Explore Mommy & Me
-
-This section should feel emotional and lifestyle-focused.
+* Close-up of custom polo details
+* Shirt + hat gift set
+* Veteran-inspired product mockup
+* Warm patriotic background
 
 ---
 
-# 6. Girls Collection Banner
+# Section 5 — Gift By Occasion / America 250
 
-## Goal
+## Purpose
 
-Highlight girls fashion and seasonal outfits.
+Help gift shoppers browse by moment or holiday.
 
-## Design Direction
+## Eyebrow
 
-Use:
+```txt
+Gift By Occasion
+```
 
-* Bright cheerful visuals
-* Soft feminine styling
-* Seasonal themes
-* Boutique presentation
+## Headline
 
-Suggested content:
+```txt
+Meaningful patriotic gifts for moments that matter
+```
 
-* Dresses
-* Seasonal sets
-* Holiday styles
-* Everyday outfits
+## Cards
 
-Avoid:
+Use 6 cards:
 
-* Overly childish design
-* Loud cartoon visuals
+```txt
+Father’s Day Gifts
+Veterans Day Gifts
+Memorial Day Gifts
+Independence Day Gifts
+America 250th Anniversary
+Christmas Gifts For Veterans
+```
 
----
+## Copy Examples
 
-# 7. Seasonal Collection Section
+```txt
+A meaningful gift for the veteran who carries the story.
+```
 
-## Goal
+```txt
+Personalized apparel made to honor service years, family legacy, and American pride.
+```
 
-Create natural merchandising behavior that feels authentic for a boutique store.
+```txt
+Celebrate America’s 250th with patriotic apparel and custom gifts.
+```
 
-## Seasonal Examples
+## Design Notes
 
-* Spring Collection
-* Summer Favorites
-* Easter Looks
-* Holiday Boutique Styles
-
-The section should feel curated and editorial rather than promotional.
-
----
-
-# 8. Boutique Favorites Section
-
-## Goal
-
-Show curated best sellers in a warm and trustworthy way.
-
-## Layout Direction
-
-Use:
-
-* Small curated product selection
-* Balanced spacing
-* Clean product cards
-* Lifestyle-focused presentation
-
-Suggested title:
-
-* Boutique Favorites
-* Loved By Our Community
-* Best Sellers
-
-Avoid:
-
-* Fake review spam
-* Overstock layouts
+* 3 columns desktop
+* 2 columns tablet
+* 1 column mobile
+* Use Antique White background
+* Use Heritage Gold accents lightly
+* Avoid fake urgency
 
 ---
 
-# 9. Trust Section
+# Section 6 — Customer Tributes & Gift Moments
 
-## Goal
+## Purpose
 
-Reinforce merchant authenticity and customer trust.
+Build trust and emotional connection near the end of the homepage.
 
-## Include
+Important:
 
-* Free Shipping
-* Easy Returns
-* Secure Checkout
-* Friendly Customer Support
+```txt
+Do not use fake reviews, fake names, fake photos, or fake star ratings.
+```
 
-Use:
+If verified reviews are unavailable, use tribute-style statements.
 
-* Simple icons
-* Soft neutral backgrounds
-* Minimal text
+## Eyebrow
 
-Avoid:
+```txt
+Customer Tributes
+```
 
-* Large flashy trust badges
-* Overly technical messaging
+## Headline
 
----
+```txt
+Gift moments built around service, memory, and pride
+```
 
-# 10. About Brand Section
+## Intro
 
-## Goal
+```txt
+Many customers choose personalized veteran apparel as a way to honor service, remember family legacy, and give a gift with meaning.
+```
 
-Make the store feel like a real local boutique.
+## Slider Cards
 
-## Content Direction
+**Slide 1 — Family Legacy**
 
-Short warm introduction about:
+```txt
+A gift that helps families honor a father’s years of service.
+```
 
-* Boutique identity
-* Women & girls fashion
-* Community-oriented shopping
-* Seasonal collections
-* Friendly customer experience
+**Slide 2 — Personalized Pride**
 
-Tone should feel:
+```txt
+A custom polo that carries name, rank, and service years with pride.
+```
 
-* Personal
-* Warm
-* Authentic
+**Slide 3 — Patriotic Keepsake**
 
-Avoid:
+```txt
+A meaningful keepsake for Veterans Day, Father’s Day, and everyday wear.
+```
 
-* Corporate storytelling
-* Generic AI brand copy
+**Slide 4 — Quiet American Pride**
 
----
+```txt
+A simple way to show American pride without saying too much.
+```
 
-# 11. Newsletter Section
+## CTA
 
-## Goal
+```txt
+Shop Meaningful Gifts
+```
 
-Create boutique community feeling.
+## Design Notes
 
-## Suggested Content
-
-Invite users to:
-
-* Discover new arrivals
-* Receive seasonal updates
-* Join the boutique community
-
-Design should feel:
-
-* Soft
-* Minimal
-* Lifestyle-oriented
-
-Avoid:
-
-* Aggressive email capture popups
+* Use slider/carousel layout
+* Dark Navy background
+* White cards or dark cards with gold accents
+* No fake star rating unless verified
 
 ---
 
-# 12. Instagram / Social Proof Section
+# Section 7 — Trust + About + Newsletter CTA
 
-## Goal
+## Purpose
 
-Reinforce boutique authenticity and lifestyle branding.
+Close the homepage with trust, brand clarity, and email capture.
 
-## Content Direction
+## Trust Cards
 
-Display:
+Use 4 cards:
 
-* Boutique lifestyle images
-* Seasonal outfits
-* Women & girls styling
-* Community-focused visuals
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Personalization Support
+```
 
-The section should feel natural and brand-consistent.
+## Trust Copy
+
+**Secure Checkout**
+
+```txt
+A safe and simple checkout experience for every order.
+```
+
+**Tracking Included**
+
+```txt
+Tracking details are provided once your order ships.
+```
+
+**30-Day Returns**
+
+```txt
+Eligible non-personalized items may be returned within 30 days of delivery.
+```
+
+**Personalization Support**
+
+```txt
+Review your custom name, rank, and service details carefully before ordering.
+```
+
+## About Headline
+
+```txt
+Patriotic apparel and gifts made to honor service.
+```
+
+## About Paragraph
+
+```txt
+Proudlywear is a patriotic POD apparel and custom gift store created for veterans, military families, and proud Americans who want meaningful products that carry service, legacy, and American pride.
+```
+
+## Newsletter Headline
+
+```txt
+Get new patriotic drops and gift ideas
+```
+
+## Newsletter Placeholder
+
+```txt
+Enter your email
+```
+
+## Newsletter Button
+
+```txt
+Sign Up
+```
+
+## Footer Reminder
+
+Footer must include:
+
+```txt
+About Us
+Contact Us
+Shipping Policy
+Return & Refund Policy
+Privacy Policy
+Terms of Service
+FAQ
+Track Order
+```
 
 ---
 
-# 13. Footer
+# Homepage Product Strategy
 
-## Required Links
+Homepage should show:
 
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
+```txt
+8 Best Sellers
+6 Collection Cards
+6 Occasion Cards
+4 Tribute Slides
+4 Trust Cards
+```
 
-## Footer Style
-
-* Clean layout
-* Warm neutral background
-* Organized navigation
-* Visible support information
-
-Avoid:
-
-* Overcrowded footer columns
-* Excessive links
-* Dark corporate styling
+This gives the homepage enough product and trust content without making it too long.
 
 ---
 
-# WooCommerce Rules
+# Suggested Image Assets
 
-Homepage WooCommerce sections should:
+Use these image names for homepage HTML later:
 
-* Use consistent product image ratios
-* Maintain spacious layouts
-* Be mobile-first
-* Use clean product cards
-* Avoid overcrowding
+```txt
+proudlywear-hero.png
+proudlywear-hero-secondary.png
+best-sellers.png
+veteran-polo-shirts.png
+veteran-hats.png
+america-250-collection.png
+custom-military-gifts.png
+patriotic-accessories.png
+personalized-veteran-apparel.png
+father-day-gifts.png
+veterans-day-gifts.png
+memorial-day-gifts.png
+independence-day-gifts.png
+america-250-gifts.png
+christmas-veteran-gifts.png
+```
 
-Product presentation should feel:
+Image rules:
 
-* Curated
-* Boutique-oriented
-* Lifestyle-focused
-
----
-
-# GMC Compliance Rules
-
-The homepage must feel like a legitimate boutique ecommerce storefront.
-
-Prioritize:
-
-* Authentic branding
-* Women & children fashion relevance
-* Seasonal merchandising
-* Realistic ecommerce structure
-* Transparent navigation
-* Trust-focused UX
-
-Avoid:
-
-* Fake urgency
-* Countdown timers
-* Popup spam
-* Thin AI-generated layouts
-* Random mixed-category merchandising
+```txt
+No official military logos
+No unauthorized seals
+No political campaign visuals
+No fake military endorsement
+No text-heavy banners
+No AI-looking faces
+```
 
 ---
 
-# Strategic Homepage Direction
+# Final Homepage Feeling
 
-The homepage should ultimately feel like:
+The homepage should feel like:
 
-“A trusted local boutique for women and young girls with a warm lifestyle-focused shopping experience and a polished modern WooCommerce storefront.”
+> A patriotic American custom gift homepage that quickly shows products, explains personalization value, helps customers shop by collection or occasion, and builds trust around service, legacy, and American pride.

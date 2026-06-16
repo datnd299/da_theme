@@ -94,6 +94,93 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
+    function initMobileSnapSlider(config) {
+        document.querySelectorAll(config.slider).forEach((slider) => {
+            const track = slider.querySelector(config.track);
+            const slides = Array.from(slider.querySelectorAll(config.slide));
+            const dots = Array.from(slider.querySelectorAll(config.dot));
+            const prevBtn = slider.querySelector(config.prev);
+            const nextBtn = slider.querySelector(config.next);
+
+            if (!track || slides.length === 0) return;
+
+            const isMobileSlider = () => window.matchMedia('(max-width: 767px)').matches;
+
+            const scrollToSlide = (index) => {
+                const slide = slides[Math.max(0, Math.min(index, slides.length - 1))];
+                if (!slide) return;
+                track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+            };
+
+            const getActiveIndex = () => {
+                const trackLeft = track.scrollLeft + track.offsetLeft;
+                return slides.reduce((closestIndex, slide, index) => {
+                    const currentDistance = Math.abs(slide.offsetLeft - trackLeft);
+                    const closestDistance = Math.abs(slides[closestIndex].offsetLeft - trackLeft);
+                    return currentDistance < closestDistance ? index : closestIndex;
+                }, 0);
+            };
+
+            const updateSlider = () => {
+                if (!isMobileSlider()) {
+                    dots.forEach((dot) => dot.dataset.active = 'false');
+                    if (prevBtn) prevBtn.disabled = true;
+                    if (nextBtn) nextBtn.disabled = true;
+                    return;
+                }
+
+                const activeIndex = getActiveIndex();
+                dots.forEach((dot, index) => dot.dataset.active = String(index === activeIndex));
+                if (prevBtn) prevBtn.disabled = activeIndex === 0;
+                if (nextBtn) nextBtn.disabled = activeIndex === slides.length - 1;
+            };
+
+            let ticking = false;
+            track.addEventListener('scroll', () => {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(() => {
+                    updateSlider();
+                    ticking = false;
+                });
+            }, { passive: true });
+
+            prevBtn?.addEventListener('click', () => scrollToSlide(getActiveIndex() - 1));
+            nextBtn?.addEventListener('click', () => scrollToSlide(getActiveIndex() + 1));
+            dots.forEach((dot, index) => dot.addEventListener('click', () => scrollToSlide(index)));
+            window.addEventListener('resize', updateSlider, { passive: true });
+            updateSlider();
+        });
+    }
+
+    // Mobile homepage sliders
+    initMobileSnapSlider({
+        slider: '[data-collection-slider]',
+        track: '[data-collection-track]',
+        slide: '[data-collection-slide]',
+        dot: '[data-collection-dot]',
+        prev: '[data-collection-prev]',
+        next: '[data-collection-next]',
+    });
+
+    initMobileSnapSlider({
+        slider: '[data-branch-slider]',
+        track: '[data-branch-track]',
+        slide: '[data-branch-slide]',
+        dot: '[data-branch-dot]',
+        prev: '[data-branch-prev]',
+        next: '[data-branch-next]',
+    });
+
+    initMobileSnapSlider({
+        slider: '[data-occasion-slider]',
+        track: '[data-occasion-track]',
+        slide: '[data-occasion-slide]',
+        dot: '[data-occasion-dot]',
+        prev: '[data-occasion-prev]',
+        next: '[data-occasion-next]',
+    });
+
     // Newsletter signup (shared handler)
     function initNewsletterForm(formId, msgId, successColor, errorColor) {
         const form = document.getElementById(formId);

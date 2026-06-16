@@ -1,476 +1,361 @@
-# Shop Kelli Design System
+# Proudlywear — Design System
 
-## Design Goal
+## Design Direction
 
-Create a warm, trustworthy, and modern WooCommerce boutique experience for women and young girls.
+Proudlywear should feel like a patriotic American apparel and custom gift brand built around veterans, service legacy, family pride, and meaningful personalized products.
 
-The website should feel like:
+The website should look:
 
-* A real local boutique
-* Family-oriented
-* Community-driven
-* Lifestyle-focused
-* Mobile-friendly
-* GMC-safe and trustworthy
-
-The design must support:
-
-* Women & children fashion shopping
-* Mommy & daughter collections
-* Seasonal boutique merchandising
-* Clean ecommerce usability
-* Authentic merchant presentation
-
-Avoid making the store feel like:
-
-* Generic dropshipping ecommerce
-* Overstock marketplaces
-* Aggressive fast fashion
-* Random mixed-category stores
-* Scam-like ecommerce
-
----
-
-# Brand Visual Identity
-
-The visual identity should feel:
-
-* Warm
-* Feminine
-* Cheerful
-* Soft
-* Boutique-inspired
-* Family-friendly
-
-The storefront should resemble a trusted boutique expanding online rather than a mass ecommerce warehouse.
-
-Use:
-
-* Lifestyle-focused imagery
-* Soft feminine visual direction
-* Spacious layouts
-* Curated merchandising
-* Seasonal storytelling
-
-Avoid:
-
-* Dark luxury aesthetics
-* Tech-style ecommerce
-* Harsh color palettes
-* Flashy sales-heavy layouts
-* Overcrowded pages
-
----
-
-# Color System
-
-## Primary Background Colors
-
-* Warm White: #FFFFFF
-* Soft Cream: #FAF7F2
-
-## Brand Colors
-
-* Dusty Rose: #c98a8aff
-* Soft Beige: #E8D8C8
-* Warm Blush: #DFA39A
-
-## Text Colors
-
-* Primary Text: #2F2A28
-* Secondary Text: #6F625D
-* Light Text: #9A8C86
-
-## Border & UI Colors
-
-* Border Color: #E6DDD6
-* Soft Gray Background: #F5F3F1
-
-Avoid:
-
-* Neon colors
-* Pure black-heavy layouts
-* Aggressive red sale-heavy design
-* Overly saturated palettes
-
----
-
-# Typography System
-
-Typography should feel:
-
-* Elegant
-* Soft
-* Readable
-* Boutique-oriented
-* Mobile-friendly
-
-## Font Direction
-
-Headings:
-
-* Elegant serif or soft modern display font
-
-Body Text:
-
-* Clean sans-serif font
-
-Buttons:
-
-* Simple and readable
-* Medium weight
-* Friendly appearance
-
-Avoid:
-
-* Overly decorative fonts
-* Corporate typography
-* Hard condensed fonts
-* Childish typography
-
----
-
-# Layout Rules
-
-The layout should feel clean, spacious, and easy to browse.
-
-## General Layout
-
-* Mobile-first design
-* Spacious white space
-* Clean visual hierarchy
-* Consistent spacing system
-* Soft section separation
-* Easy navigation
-
-Avoid:
-
-* Cluttered layouts
-* Overstock-style pages
-* Tiny spacing
-* Crowded product grids
-
----
-
-# WooCommerce Product Grid Rules
-
-## Desktop Layout
-
-* 3–4 columns maximum
-
-## Mobile Layout
-
-* 2 columns
-
-## Product Card Rules
-
-Each product card should include:
-
-* Clean product image
-* Consistent image ratio
-* Product title
-* Visible pricing
-* Simple CTA button
-
-Product cards should feel:
-
-* Minimal
-* Boutique-oriented
-* Easy to scan
-* Visually balanced
-
-Avoid:
-
-* Crowded badges
-* Excessive labels
-* Overly aggressive sale tags
-* Flashing promotional elements
-
----
-
-# Product Page Rules
-
-Each product page should include:
-
-* Large image gallery
-* Clear product title
-* Visible pricing
-* Variant selection
-* Add-to-cart button above the fold
-* Shipping reassurance
-* Return reassurance
-* Product description
-* Related products section
-
-The product page should feel:
-
-* Clean
+* Patriotic
+* Respectful
 * Trustworthy
-* Lifestyle-focused
-* Easy to navigate
+* Emotional
+* Premium POD
+* Product-heavy
+* Easy to shop
+* Older-audience friendly
 
 Avoid:
 
-* Long cluttered layouts
-* Fake urgency timers
-* Aggressive upsell spam
-* Overwhelming product blocks
+* Cheap POD marketplace look
+* Political campaign style
+* Fake official military style
+* Overused fireworks / explosions
+* Text-heavy image banners
+* Low-trust dropshipping visuals
 
 ---
 
-# Homepage Design Rules
+## Color Palette
 
-The homepage should be lifestyle-first rather than product-spam-first.
+Use a mature patriotic palette.
 
-## Required Sections
+```txt
+Deep Navy: #0B1F3A
+Heritage Red: #B31942
+Antique White: #F7F2E8
+Clean White: #FFFFFF
+Heritage Gold: #C6A15B
+Flag Blue: #1E3A8A
+Charcoal Ink: #111827
+Muted Gray: #6B7280
+Border Gray: #E5E7EB
+```
 
-* Hero banner
-* New Arrivals
-* Mommy & Me Collection
-* Girls Collection
-* Seasonal Collections
-* Boutique Favorites
-* Trust Section
-* Newsletter or community section
+Usage:
 
-## Homepage Style
+* **Deep Navy:** header, footer, hero, dark trust sections
+* **Heritage Red:** CTA buttons, prices, badges, important links
+* **Antique White:** warm backgrounds, heritage sections
+* **Clean White:** product cards, forms, policy pages
+* **Heritage Gold:** small premium accents, America 250 highlights
+* **Charcoal Ink:** headings and main text
+* **Muted Gray:** body text and helper notes
+
+Rule:
+
+> Red is for conversion. Gold is for tribute/premium accents. Do not make the site look like a cheap flag collage.
+
+---
+
+## Typography
+
+Recommended fonts:
+
+```txt
+Headings: Barlow Condensed, Oswald, Libre Franklin
+Body/UI: Inter, Manrope, Plus Jakarta Sans
+```
+
+Best pairing:
+
+```txt
+Headings: Barlow Condensed
+Body/UI: Inter
+```
+
+Avoid:
+
+```txt
+Comic Sans
+Times New Roman
+Script fonts
+Heavy military stencil fonts
+Thin luxury serif UI
+```
+
+Type style:
+
+* Hero heading: bold, strong, clear
+* Section heading: bold and easy to scan
+* Product name: readable and compact
+* Price: bold, Heritage Red
+* Body text: simple and older-audience friendly
+* CTA text: uppercase, bold, high contrast
+
+---
+
+## Layout System
+
+Use a clean, product-heavy e-commerce layout.
+
+```txt
+Container: max-w-7xl mx-auto px-4 md:px-6
+Section padding: py-12 md:py-16 lg:py-20
+Product grid: 2 columns mobile, 3 tablet, 4 desktop
+Category grid: 1 column mobile, 2 tablet, 4 desktop
+Card radius: rounded-xl to rounded-2xl
+```
+
+Rules:
+
+* Show products early.
+* Product sections should show 8 products when possible.
+* Prices must always be visible.
+* CTAs must be high contrast.
+* Do not hide important product details behind hover effects.
+* Mobile must show 2-column product grids.
+
+---
+
+## Core Components
+
+## Header
+
+Desktop:
+
+```txt
+Logo | Best Sellers | Veteran Polos | Veteran Hats | America 250 | Custom Gifts | Accessories | Search | Track Order | Cart
+```
+
+Mobile:
+
+```txt
+Menu | Logo | Search | Cart
+```
+
+Requirements:
+
+* Visible search
+* Cart count
+* Track Order link
+* Clear category navigation
+
+---
+
+## Hero Section
+
+Hero must include:
+
+* Clear patriotic headline
+* Product-focused subheadline
+* Primary CTA
+* Secondary CTA
+* Product/lifestyle image
+* Small trust line
+
+Headline options:
+
+```txt
+Honor The Service. Wear The Legacy.
+Personalized Veteran Apparel Made With Pride.
+Wear Your Name. Carry Your Service. Share Your Pride.
+```
+
+CTA examples:
+
+```txt
+Shop Best Sellers
+Customize Yours
+Shop Veteran Polos
+Explore America 250 Collection
+```
+
+Hero visual direction:
+
+* Custom veteran polo
+* Patriotic hat
+* Folded gift set
+* American flag background
+* Product close-up showing name / rank / service years
+
+Avoid official military logos or fake military endorsement.
+
+---
+
+## Product Cards
+
+Each product card must show:
+
+* Product image
+* Product title
+* Price
+* Sale price if available
+* Visible CTA
+
+CTA examples:
+
+```txt
+View Product
+Customize Now
+Shop Now
+```
+
+Image ratio:
+
+```txt
+Apparel: 3/4 or 4/5
+Hats / mugs / accessories: 1/1
+Mixed product grid: 1/1
+```
+
+Badges:
+
+```txt
+Customizable
+Personalized
+Add Name / Rank
+America 250
+Best Seller
+```
+
+Do not use fake star ratings, fake “sold today” counters, or fake scarcity.
+
+---
+
+## Collection Cards
+
+Main collections:
+
+```txt
+Best Sellers
+Veteran Polo Shirts
+Veteran Hats
+America 250 Collection
+Custom Military Gifts
+Patriotic Accessories
+```
+
+Collection card requirements:
+
+* Image
+* Collection title
+* Short emotional copy
+* CTA
+* Dark navy overlay or clean white card style
+* Red CTA accent
+
+---
+
+## Trust Section
+
+Required trust cards:
+
+```txt
+Secure Checkout
+Tracking Included
+30-Day Returns
+Personalization Support
+```
+
+Copy direction:
+
+* Clear and simple
+* No fake guarantees
+* Mention eligible returns only
+* Mention review-before-order for custom products
+
+---
+
+## Customer Tribute Slider
+
+Use for emotional trust near the lower homepage.
+
+Safe title:
+
+```txt
+Customer Tributes & Gift Moments
+```
+
+Do not use fake reviews, fake names, fake customer photos, or fake star ratings.
+
+If real reviews are unavailable, use tribute-style statements instead.
+
+---
+
+## Visual Direction
 
 Use:
 
-* Warm lifestyle imagery
-* Seasonal storytelling
-* Soft overlays
-* Curated product presentation
-* Friendly boutique messaging
+* American flag textures
+* Custom veteran polo close-ups
+* Patriotic hats
+* Mug/accessory gift scenes
+* Older veteran lifestyle imagery
+* Family gift moments
+* America 250 visuals
+* Neutral product studio photos
 
 Avoid:
 
-* Overstock homepage layouts
-* Dense product walls
-* Aggressive sale banners
-* Flash sale countdowns
+* Political campaign visuals
+* Unauthorized military seals
+* Fake uniforms
+* Cheap flag collage graphics
+* Overly dramatic war imagery
+* AI-looking faces
+* Too much text inside images
 
 ---
 
-# Header Rules
+## Mobile Rules
 
-The header should feel:
+Mobile must have:
 
-* Clean
-* Boutique-oriented
-* Easy to navigate
+* 2-column product grid
+* Visible prices
+* CTA height at least 44px
+* Easy search
+* Visible cart
+* Short hero
+* Products appearing early
+* No sticky banner blocking content
 
-## Header Elements
+---
 
-Include:
+## Compliance Rules
 
-* Logo
-* Main navigation
-* Search
-* Account icon
-* Cart icon
+Never claim Proudlywear is official, licensed, VA-approved, government-approved, or affiliated with the U.S. military unless legally verified.
 
-Navigation should remain simple and uncluttered.
+Use safe wording:
+
+```txt
+veteran-inspired
+military tribute
+service-inspired
+patriotic apparel
+custom veteran gift
+for veterans and military families
+American pride apparel
+```
 
 Avoid:
 
-* Mega-menu overload
-* Too many categories
-* Aggressive announcement bars
+```txt
+official U.S. Army
+official Marine Corps
+licensed military merchandise
+VA approved
+government approved
+official veteran uniform
+```
 
 ---
 
-# Footer Rules
+## Final Design Feeling
 
-The footer should reinforce merchant trust and brand authenticity.
+The final website should feel like:
 
-## Required Footer Links
+> A patriotic American custom gift brand where customers can find meaningful veteran-inspired apparel, hats, mugs, and accessories that honor service, legacy, and American pride.
 
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
-
-## Footer Style
-
-* Clean layout
-* Soft background
-* Simple typography
-* Organized link groups
-* Visible support information
-
----
-
-# Image Rules
-
-Images should feel:
-
-* Natural
-* Bright
-* Warm
-* Family-friendly
-* Lifestyle-oriented
-* Boutique-inspired
-
-## Product Images
-
-Use:
-
-* Consistent image ratios
-* Soft lighting
-* Clean backgrounds
-* Natural poses
-* Seasonal styling
-
-Avoid:
-
-* Overly edited imagery
-* AI-looking product photos
-* Luxury runway imagery
-* Dark moody visuals
-* Unrelated stock photos
-
----
-
-# Component Rules
-
-## Buttons
-
-Buttons should:
-
-* Use rounded corners
-* Have soft hover effects
-* Use readable text
-* Feel friendly and modern
-
-Avoid:
-
-* Harsh gradients
-* Flashing animations
-* Aggressive red CTA buttons
-
-## Cards
-
-Cards should:
-
-* Use clean white backgrounds
-* Include subtle borders or soft shadows
-* Maintain consistent spacing
-
-## Banners
-
-Banners should:
-
-* Combine lifestyle imagery with short text
-* Feel clean and seasonal
-* Avoid overcrowded text
-
----
-
-# Mobile UX Rules
-
-The website must be optimized for mobile-first shopping.
-
-## Mobile Priorities
-
-* Fast scrolling
-* Clear navigation
-* Easy product browsing
-* Thumb-friendly buttons
-* Clean checkout flow
-* Lightweight layouts
-
-Avoid:
-
-* Large popup interruptions
-* Tiny clickable areas
-* Heavy animations
-* Complex navigation systems
-
----
-
-# Product Content Rules
-
-Descriptions should feel:
-
-* Natural
-* Friendly
-* Lifestyle-focused
-* Seasonal
-* Easy to understand
-
-Include:
-
-* Styling suggestions
-* Comfort-focused messaging
-* Everyday wear scenarios
-* Family-oriented tone
-
-Avoid:
-
-* Keyword stuffing
-* Robotic AI copy
-* Fake scarcity language
-* Overly technical descriptions
-
----
-
-# GMC Compliance Rules
-
-The storefront must feel like a legitimate boutique retail business.
-
-## Required Trust Signals
-
-* Visible contact information
-* Consistent branding
-* Transparent policies
-* Realistic shipping timelines
-* Secure checkout messaging
-* Mobile-friendly UX
-* Authentic product presentation
-
-## GMC Priorities
-
-* Strong topical consistency
-* Women & children fashion relevance
-* Boutique-style merchant behavior
-* Realistic ecommerce structure
-* Original branded content
-
-Avoid:
-
-* Mixed-category spam
-* Fake reviews
-* Fake urgency
-* Thin AI-generated pages
-* Excessive discount messaging
-* Random unrelated products
-
----
-
-# Forbidden Design Patterns
-
-Never use:
-
-* Dark luxury ecommerce style
-* Tech startup visual direction
-* Overstock warehouse layouts
-* Marketplace-style product spam
-* Flashing urgency banners
-* Fake countdown timers
-* Excessive popup spam
-* Harsh neon colors
-* Random visual inconsistency
-* Generic dropshipping aesthetics
-
----
-
-# Strategic Design Direction
-
-The final storefront should feel like:
-
-“A trusted local boutique for women and young girls with a warm community-oriented shopping experience and a polished modern WooCommerce presence.”
+Design must be respectful, emotional, product-heavy, trustworthy, and conversion-first.

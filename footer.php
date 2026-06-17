@@ -214,7 +214,9 @@ $footer_payment_methods = [
                     <?php esc_html_e('Road-ready tire shopping', 'dawp'); ?>
                 </p>
 
-                <a href="#"
+                <a href="https://www.facebook.com/profile.php?id=61590469752316"
+                   target="_blank"
+                   rel="noopener noreferrer"
                    class="dawp-footer-facebook inline-flex items-center justify-center text-white"
                    aria-label="<?php esc_attr_e('Facebook page', 'dawp'); ?>">
                     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

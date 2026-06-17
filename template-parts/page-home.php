@@ -243,19 +243,19 @@ $pw_personalized_images = array(
         <div class="overflow-hidden">
           <div class="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-smooth px-4 pb-5 [scrollbar-width:none] md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-5 [&::-webkit-scrollbar]:hidden" data-branch-track>
             <?php foreach ($pw_personalized_images as $index => $image) : ?>
-              <div class="min-w-0 shrink-0 basis-[72%] snap-start overflow-hidden rounded-lg border border-white/15 bg-white/10 p-2 sm:basis-[44%] md:basis-auto md:snap-none" data-branch-slide>
+              <div class="min-w-0 shrink-0 basis-[72%] snap-start rounded-lg border border-white/15 bg-white/10 p-2 sm:basis-[44%] md:basis-auto md:snap-none" data-branch-slide>
                 <?php echo dawp_theme_image(
                     'assets/img/Image New/Image rank/' . $image[0],
                     $image[1],
                     320,
-                    160,
+                    240,
                     array(
-                        array(220, 110),
-                        array(320, 160),
-                        array(480, 240),
+                        array(220, 0),
+                        array(320, 0),
+                        array(480, 0),
                     ),
                     '(max-width: 639px) 72vw, (max-width: 767px) 44vw, (max-width: 1023px) calc((100vw - 72px) / 3), 230px',
-                    array('class' => 'h-40 w-full rounded-lg object-contain md:h-36 lg:h-40')
+                    array('class' => 'aspect-[4/3] h-auto w-full rounded-lg object-contain md:h-36 md:aspect-auto lg:h-40')
                 ); ?>
               </div>
             <?php endforeach; ?>

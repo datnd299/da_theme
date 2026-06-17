@@ -8,9 +8,6 @@ $support_email   = 'support@proudlywear.com';
 $store_address   = dawp_get_woocommerce_store_address();
 $support_hours   = 'Monday-Friday, 10:00 AM-6:00 PM PST';
 $track_order_url = home_url('/track-order/');
-$shipping_url    = home_url('/shipping-policy/');
-$returns_url     = home_url('/refund-return-policy/');
-$faq_url         = home_url('/faq/');
 
 $contact_cards = array(
     array(
@@ -104,17 +101,17 @@ $help_topics = array(
         </p>
       </div>
 
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:pb-0">
         <?php foreach ($contact_cards as $card) : ?>
           <?php if ($card['url']) : ?>
-            <a href="<?php echo esc_url($card['url']); ?>" class="group rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+            <a href="<?php echo esc_url($card['url']); ?>" class="group min-w-[84%] snap-start rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl sm:min-w-[46%] md:min-w-0">
               <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B1F3A] text-sm font-extrabold text-white">PW</span>
               <p class="mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-[#B31942]"><?php echo esc_html($card['label']); ?></p>
               <h3 class="mt-2 text-xl font-extrabold text-[#111827]"><?php echo esc_html($card['title']); ?></h3>
               <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($card['copy']); ?></p>
             </a>
           <?php else : ?>
-            <div class="group rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+            <div class="group min-w-[84%] snap-start rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl sm:min-w-[46%] md:min-w-0">
               <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B1F3A] text-sm font-extrabold text-white">PW</span>
               <p class="mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-[#B31942]"><?php echo esc_html($card['label']); ?></p>
               <h3 class="mt-2 text-xl font-extrabold text-[#111827]"><?php echo esc_html($card['title']); ?></h3>
@@ -173,47 +170,28 @@ $help_topics = array(
       </div>
 
       <aside class="lg:col-span-5">
-        <div class="sticky top-0 rounded-lg bg-[#0B1F3A] p-6 text-white md:p-8">
+        <div class="rounded-lg bg-[#0B1F3A] p-6 text-white md:p-8 lg:sticky lg:top-0">
           <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#C6A15B]"><?php esc_html_e('Before You Send', 'dawp'); ?></p>
           <h2 class="mt-3 text-2xl font-extrabold md:text-3xl"><?php esc_html_e('Helpful details speed things up.', 'dawp'); ?></h2>
-          <div class="mt-6 space-y-4">
+          <div class="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 lg:block lg:space-y-4 lg:overflow-visible lg:pb-0">
             <?php foreach ($help_topics as $topic) : ?>
-              <div class="rounded-lg border border-white/15 bg-white/10 p-4">
+              <div class="min-w-[82%] snap-start rounded-lg border border-white/15 bg-white/10 p-4 sm:min-w-[46%] lg:min-w-0">
                 <h3 class="text-base font-extrabold"><?php echo esc_html($topic[0]); ?></h3>
                 <p class="mt-2 text-sm leading-6 text-white/75"><?php echo esc_html($topic[1]); ?></p>
               </div>
             <?php endforeach; ?>
-          </div>
 
-          <div class="mt-6 rounded-lg border border-white/15 bg-white/10 p-4">
-            <h3 class="text-base font-extrabold"><?php echo esc_html($store_name); ?></h3>
-            <p class="mt-2 text-sm leading-6 text-white/75"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition hover:text-white"><?php echo esc_html($support_email); ?></a></p>
-            <p class="mt-1 text-sm leading-6 text-white/75"><?php echo esc_html($support_hours); ?></p>
-            <?php if ('' !== $store_address) : ?>
-              <p class="mt-1 text-sm leading-6 text-white/75"><?php echo esc_html($store_address); ?></p>
-            <?php endif; ?>
+            <div class="min-w-[82%] snap-start rounded-lg border border-white/15 bg-white/10 p-4 sm:min-w-[46%] lg:min-w-0">
+              <h3 class="text-base font-extrabold"><?php echo esc_html($store_name); ?></h3>
+              <p class="mt-2 text-sm leading-6 text-white/75"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition hover:text-white"><?php echo esc_html($support_email); ?></a></p>
+              <p class="mt-1 text-sm leading-6 text-white/75"><?php echo esc_html($support_hours); ?></p>
+              <?php if ('' !== $store_address) : ?>
+                <p class="mt-1 text-sm leading-6 text-white/75"><?php echo esc_html($store_address); ?></p>
+              <?php endif; ?>
+            </div>
           </div>
         </div>
       </aside>
-    </div>
-  </section>
-
-  <section class="bg-[#F7F2E8] py-12 md:py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
-        <a href="<?php echo esc_url($shipping_url); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-          <h3 class="text-xl font-extrabold text-[#111827]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-          <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Review processing time, delivery estimates, carriers, and tracking details.', 'dawp'); ?></p>
-        </a>
-        <a href="<?php echo esc_url($returns_url); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-          <h3 class="text-xl font-extrabold text-[#111827]"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></h3>
-          <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Learn how return requests, refund timing, and eligible items are handled.', 'dawp'); ?></p>
-        </a>
-        <a href="<?php echo esc_url($faq_url); ?>" class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-          <h3 class="text-xl font-extrabold text-[#111827]"><?php esc_html_e('FAQ', 'dawp'); ?></h3>
-          <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Find quick answers to common questions before contacting support.', 'dawp'); ?></p>
-        </a>
-      </div>
     </div>
   </section>
 </main>

@@ -114,9 +114,9 @@ $about_collections = array(
         <h2 class="mt-3 text-3xl font-extrabold text-[#111827] md:text-5xl"><?php esc_html_e('Respectful products, clear choices, lasting meaning.', 'dawp'); ?></h2>
       </div>
 
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
         <?php foreach ($about_values as $value) : ?>
-          <article class="rounded-lg border border-[#E5E7EB] bg-white p-6 shadow-sm">
+          <article class="min-w-0 flex-[0_0_82%] snap-start rounded-lg border border-[#E5E7EB] bg-white p-6 shadow-sm sm:flex-[0_0_58%] md:flex-auto">
             <span class="mb-5 block h-1 w-12 rounded-full bg-[#B31942]"></span>
             <h3 class="text-xl font-extrabold text-[#111827]"><?php echo esc_html($value['title']); ?></h3>
             <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($value['copy']); ?></p>

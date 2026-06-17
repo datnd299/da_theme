@@ -181,6 +181,56 @@ document.addEventListener('DOMContentLoaded', () => {
         next: '[data-occasion-next]',
     });
 
+    document.querySelectorAll('[data-review-slider]').forEach((slider) => {
+        const track = slider.querySelector('[data-review-track]');
+        const slides = Array.from(slider.querySelectorAll('[data-review-slide]'));
+        const dots = Array.from(slider.querySelectorAll('[data-review-dot]'));
+        const prevBtn = slider.querySelector('[data-review-prev]');
+        const nextBtn = slider.querySelector('[data-review-next]');
+
+        if (!track || slides.length === 0) return;
+
+        const getActiveIndex = () => {
+            const left = track.scrollLeft;
+            return slides.reduce((closestIndex, slide, index) => {
+                const currentDistance = Math.abs(slide.offsetLeft - track.offsetLeft - left);
+                const closestDistance = Math.abs(slides[closestIndex].offsetLeft - track.offsetLeft - left);
+                return currentDistance < closestDistance ? index : closestIndex;
+            }, 0);
+        };
+
+        const scrollToSlide = (index) => {
+            const slide = slides[Math.max(0, Math.min(index, slides.length - 1))];
+            if (!slide) return;
+            track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+        };
+
+        const updateSlider = () => {
+            const activeIndex = getActiveIndex();
+            const atEnd = Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth - 2;
+
+            dots.forEach((dot, index) => dot.dataset.active = String(index === activeIndex));
+            if (prevBtn) prevBtn.disabled = track.scrollLeft <= 2;
+            if (nextBtn) nextBtn.disabled = atEnd;
+        };
+
+        let ticking = false;
+        track.addEventListener('scroll', () => {
+            if (ticking) return;
+            ticking = true;
+            window.requestAnimationFrame(() => {
+                updateSlider();
+                ticking = false;
+            });
+        }, { passive: true });
+
+        prevBtn?.addEventListener('click', () => scrollToSlide(getActiveIndex() - 1));
+        nextBtn?.addEventListener('click', () => scrollToSlide(getActiveIndex() + 1));
+        dots.forEach((dot, index) => dot.addEventListener('click', () => scrollToSlide(index)));
+        window.addEventListener('resize', updateSlider, { passive: true });
+        updateSlider();
+    });
+
     // Newsletter signup (shared handler)
     function initNewsletterForm(formId, msgId, successColor, errorColor) {
         const form = document.getElementById(formId);

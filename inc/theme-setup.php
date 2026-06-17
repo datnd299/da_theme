@@ -40,6 +40,10 @@ function dawp_scripts() {
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
+    if ( is_404() ) {
+        wp_enqueue_style('dawp-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', ['dawp-tw-main'], '1.0.3');
+    }
+
     if ( is_front_page() ) {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.3');
         dawp_remove_styles();
@@ -50,7 +54,7 @@ function dawp_scripts() {
             wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', ['dawp-main'], '1.0.7');
             dawp_remove_styles();
         } elseif ( is_product() ) {
-            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.6');
+            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.7');
             dawp_remove_styles();
         } elseif ( is_cart() ) {
             wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.6');
@@ -58,12 +62,12 @@ function dawp_scripts() {
         } elseif ( is_checkout() ) {
             wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.6');
         } elseif ( is_woocommerce()  ) {
-            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.6');
+            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.7');
             dawp_remove_styles();
         }
     }
 
-    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.4', true);
+    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.5', true);
     wp_localize_script('dawp-main', 'dawpAjax', [
         'url'          => admin_url('admin-ajax.php'),
         'nonce'        => wp_create_nonce('dawp_newsletter_nonce'),

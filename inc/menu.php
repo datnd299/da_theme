@@ -14,27 +14,27 @@ function dawp_megamenu_sections() {
         [
             'title' => __('Featured Collections', 'dawp'),
             'links' => [
-                ['title' => __('Best Sellers', 'dawp'), 'url' => home_url('/product-category/best-sellers/')],
-                ['title' => __('Veteran Polo Shirts', 'dawp'), 'url' => home_url('/product-category/veteran-polo-shirts/')],
-                ['title' => __('Veteran Hats', 'dawp'), 'url' => home_url('/product-category/veteran-hats/')],
-                ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250-collection/')],
+                ['title' => __('Best Sellers', 'dawp'), 'url' => home_url('/product-category/best-sellers/'), 'description' => __('Customer favorites ready to gift.', 'dawp')],
+                ['title' => __('Veteran Polo Shirts', 'dawp'), 'url' => home_url('/product-category/veteran-polo-shirts/'), 'description' => __('Polished service-pride apparel.', 'dawp')],
+                ['title' => __('Veteran Hats', 'dawp'), 'url' => home_url('/product-category/veteran-hats/'), 'description' => __('Everyday caps with military pride.', 'dawp')],
+                ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250-collection/'), 'description' => __('Commemorative patriotic designs.', 'dawp')],
             ],
         ],
         [
             'title' => __('Custom Gifts', 'dawp'),
             'links' => [
-                ['title' => __('Custom Military Gifts', 'dawp'), 'url' => home_url('/product-category/custom-military-gifts/')],
-                ['title' => __('Patriotic Accessories', 'dawp'), 'url' => home_url('/product-category/patriotic-accessories/')],
-                ['title' => __('Father\'s Day Gifts', 'dawp'), 'url' => home_url('/product-category/fathers-day-gifts/')],
-                ['title' => __('Christmas Gifts For Veterans', 'dawp'), 'url' => home_url('/product-category/christmas-gifts-for-veterans/')],
+                ['title' => __('Custom Military Gifts', 'dawp'), 'url' => home_url('/product-category/custom-military-gifts/'), 'description' => __('Personalized names, ranks, and years.', 'dawp')],
+                ['title' => __('Patriotic Accessories', 'dawp'), 'url' => home_url('/product-category/patriotic-accessories/'), 'description' => __('Small details with big meaning.', 'dawp')],
+                ['title' => __('Father\'s Day Gifts', 'dawp'), 'url' => home_url('/product-category/fathers-day-gifts/'), 'description' => __('Thoughtful picks for military dads.', 'dawp')],
+                ['title' => __('Christmas Gifts For Veterans', 'dawp'), 'url' => home_url('/product-category/christmas-gifts-for-veterans/'), 'description' => __('Holiday-ready veteran gifts.', 'dawp')],
             ],
         ],
         [
             'title' => __('Occasions', 'dawp'),
             'links' => [
-                ['title' => __('Veterans Day Gifts', 'dawp'), 'url' => home_url('/product-category/veterans-day-gifts/')],
-                ['title' => __('Memorial Day Gifts', 'dawp'), 'url' => home_url('/product-category/memorial-day-gifts/')],
-                ['title' => __('Independence Day Gifts', 'dawp'), 'url' => home_url('/product-category/independence-day-gifts/')],
+                ['title' => __('Veterans Day Gifts', 'dawp'), 'url' => home_url('/product-category/veterans-day-gifts/'), 'description' => __('Honor service with lasting keepsakes.', 'dawp')],
+                ['title' => __('Memorial Day Gifts', 'dawp'), 'url' => home_url('/product-category/memorial-day-gifts/'), 'description' => __('Respectful gifts for remembrance.', 'dawp')],
+                ['title' => __('Independence Day Gifts', 'dawp'), 'url' => home_url('/product-category/independence-day-gifts/'), 'description' => __('Red, white, and blue celebration picks.', 'dawp')],
             ],
         ],
     ];
@@ -81,16 +81,6 @@ function dawp_footer_columns() {
                 ['title' => __('Veteran Hats', 'dawp'), 'url' => home_url('/product-category/veteran-hats/')],
                 ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250-collection/')],
                 ['title' => __('Custom Military Gifts', 'dawp'), 'url' => home_url('/product-category/custom-military-gifts/')],
-            ],
-        ],
-        [
-            'title' => __('Gift Occasions', 'dawp'),
-            'links' => [
-                ['title' => __('Father\'s Day Gifts', 'dawp'), 'url' => home_url('/product-category/fathers-day-gifts/')],
-                ['title' => __('Veterans Day Gifts', 'dawp'), 'url' => home_url('/product-category/veterans-day-gifts/')],
-                ['title' => __('Memorial Day Gifts', 'dawp'), 'url' => home_url('/product-category/memorial-day-gifts/')],
-                ['title' => __('Independence Day Gifts', 'dawp'), 'url' => home_url('/product-category/independence-day-gifts/')],
-                ['title' => __('Christmas Gifts For Veterans', 'dawp'), 'url' => home_url('/product-category/christmas-gifts-for-veterans/')],
             ],
         ],
         [

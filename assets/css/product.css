@@ -70,12 +70,12 @@ body.single-product {
 
   .single-product .woocommerce-tabs {
     grid-column: 1 / -1;
-    grid-row: 2;
+    grid-row: 3;
   }
 
   .single-product .related {
     grid-column: 1 / -1;
-    grid-row: 3;
+    grid-row: 5;
   }
 }
 
@@ -353,6 +353,344 @@ form.cart:not(.variations_form) {
 .single_add_to_cart_button.button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* === 5.5. PATRIOTIC TRUST SECTIONS === */
+.dawp-product-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dawp-product-trust {
+  display: grid;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.dawp-product-trust__item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(11, 31, 58, 0.06);
+}
+
+.dawp-product-trust__icon {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #b31942;
+  background: #f7e8ec;
+}
+
+.dawp-product-trust strong,
+.dawp-product-trust small {
+  display: block;
+  font-family: var(--font-primary);
+}
+
+.dawp-product-trust strong {
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.dawp-product-trust small {
+  margin-top: 3px;
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.dawp-pride-banner {
+  position: relative;
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 20px;
+  overflow: hidden;
+  margin-top: 20px;
+  padding: 24px;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(11, 31, 58, 0.96), rgba(21, 56, 102, 0.96)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 18px);
+  color: #ffffff;
+  box-shadow: 0 22px 50px rgba(11, 31, 58, 0.18);
+}
+
+.dawp-pride-banner::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 5px;
+  background: linear-gradient(90deg, #b31942 0 33%, #ffffff 33% 66%, #c6a15b 66% 100%);
+}
+
+.dawp-pride-banner__flag {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  max-width: 230px;
+}
+
+.dawp-pride-banner__flag span {
+  display: block;
+  height: 42px;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+.dawp-pride-banner__flag span:nth-child(1),
+.dawp-pride-banner__flag span:nth-child(3) {
+  background: #b31942;
+}
+
+.dawp-pride-banner__flag span:nth-child(2) {
+  background: #ffffff;
+}
+
+.dawp-pride-banner__flag span:nth-child(4) {
+  background: #c6a15b;
+}
+
+.dawp-pride-banner__content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.dawp-pride-banner__content p,
+.dawp-customer-stories__heading p {
+  margin: 0 0 8px;
+  color: #c6a15b;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.dawp-pride-banner__content h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-primary);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.dawp-pride-banner__marks {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dawp-pride-banner__marks span {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  padding: 0 14px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.dawp-customer-stories {
+  grid-column: 1 / -1;
+  margin-top: 8px;
+  padding: 28px 0 6px;
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.dawp-customer-stories__heading {
+  display: flex;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.dawp-customer-stories__heading h2 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.dawp-customer-stories__controls {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.dawp-customer-stories__button {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text-primary);
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, opacity 0.15s;
+}
+
+.dawp-customer-stories__button:hover:not(:disabled) {
+  border-color: #b31942;
+  color: #ffffff;
+  background: #b31942;
+}
+
+.dawp-customer-stories__button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.dawp-customer-stories__button svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dawp-customer-stories__viewport {
+  margin-inline: -1px;
+}
+
+.dawp-customer-stories__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 86%);
+  gap: 14px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding: 1px 1px 18px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.dawp-customer-stories__track::-webkit-scrollbar {
+  display: none;
+}
+
+.dawp-customer-card {
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.07);
+  scroll-snap-align: start;
+}
+
+.dawp-customer-card__stars {
+  color: #c6a15b;
+  font-size: 0.92rem;
+  letter-spacing: 0.08em;
+}
+
+.dawp-customer-card p {
+  margin: 12px 0 18px;
+  color: var(--color-text-secondary);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.dawp-customer-card footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.dawp-customer-card strong {
+  color: var(--color-text-primary);
+  font-size: 0.92rem;
+}
+
+.dawp-customer-card span {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.dawp-customer-stories__dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 4px;
+}
+
+.dawp-customer-stories__dots button {
+  width: 8px;
+  height: 8px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0;
+  background: #d1d5db;
+  cursor: pointer;
+  transition: width 0.15s, background 0.15s;
+}
+
+.dawp-customer-stories__dots button[data-active="true"] {
+  width: 26px;
+  background: #b31942;
+}
+
+@media (min-width: 768px) {
+  .dawp-pride-banner {
+    grid-row: 2;
+    grid-template-columns: 230px minmax(0, 1fr) auto;
+    align-items: center;
+    padding: 34px;
+  }
+
+  .dawp-customer-stories {
+    grid-row: 4;
+  }
+
+  .dawp-customer-stories__track {
+    grid-auto-columns: calc((100% - 28px) / 3);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dawp-product-trust {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* === 6. PRODUCT META === */

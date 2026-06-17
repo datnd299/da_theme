@@ -7,3 +7,21 @@ Description: ProudlyWear
 Version: 1.0.0
 Text Domain: proudlywear.com
 */
+
+.footer-accordion > summary::-webkit-details-marker {
+    display: none;
+}
+
+.footer-accordion:not([open]) > .footer-accordion-panel {
+    display: none;
+}
+
+.footer-accordion[open] .footer-accordion-icon {
+    transform: rotate(180deg);
+}
+
+@media (min-width: 640px) {
+    .footer-accordion > .footer-accordion-panel {
+        display: block !important;
+    }
+}

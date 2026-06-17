@@ -2,31 +2,20 @@
 
 <?php
 $footer_store_address = dawp_get_woocommerce_store_address();
+$logo_url             = get_template_directory_uri() . '/assets/img/Image New/Image rank/logo_image.png';
+$payment_methods      = array(
+    array('name' => __('Visa', 'dawp'), 'file' => 'visa.png'),
+    array('name' => __('Mastercard', 'dawp'), 'file' => 'mastercard.png'),
+    array('name' => __('PayPal', 'dawp'), 'file' => 'paypal.png'),
+    array('name' => __('American Express', 'dawp'), 'file' => 'amex.png'),
+);
 ?>
 
 <footer id="colophon" class="bg-[#0B1F3A] text-white" role="contentinfo">
-    <div class="border-y border-white/10 bg-[#081A33]">
-        <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-3 px-4 py-4 text-sm font-bold text-white/80 sm:grid-cols-3 lg:px-6">
-            <div class="flex items-center gap-2">
-                <span class="h-2 w-2 rounded-full bg-[#C6A15B]"></span>
-                <?php esc_html_e('Secure checkout', 'dawp'); ?>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="h-2 w-2 rounded-full bg-[#C6A15B]"></span>
-                <?php esc_html_e('Tracking included', 'dawp'); ?>
-            </div>
-            <div class="flex items-center gap-2">
-                <span class="h-2 w-2 rounded-full bg-[#C6A15B]"></span>
-                <?php esc_html_e('Custom gifts made with care', 'dawp'); ?>
-            </div>
-        </div>
-    </div>
-
-    <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-6 lg:px-6 lg:py-16">
-        <div class="sm:col-span-2 lg:col-span-2">
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block text-white" aria-label="Proudlywear">
-                <span class="block text-3xl font-black tracking-wide leading-none">Proudly<span class="text-[#C6A15B]">wear</span></span>
-                <span class="mt-1 block text-[11px] font-extrabold uppercase tracking-[0.22em] text-white/60">Honor The Service</span>
+    <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-4 py-12 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-10 lg:grid-cols-[minmax(0,1.45fr)_repeat(3,minmax(0,1fr))] lg:gap-x-14 lg:px-6 lg:py-16 xl:gap-x-20">
+        <div class="sm:col-span-2 lg:col-span-1">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="Proudlywear">
+                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('Proudlywear', 'dawp'); ?>" class="h-[60px] w-auto sm:h-[66px]">
             </a>
 
             <p class="mt-5 max-w-sm text-sm leading-7 text-white/75">
@@ -65,19 +54,39 @@ $footer_store_address = dawp_get_woocommerce_store_address();
         </div>
 
         <?php foreach (dawp_footer_columns() as $col) : ?>
-            <div>
-                <h4 class="mb-5 text-sm font-black uppercase tracking-[0.14em] text-[#C6A15B]">
-                    <?php echo esc_html($col['title']); ?>
-                </h4>
-                <ul class="space-y-3">
-                    <?php foreach ($col['links'] as $link) : ?>
-                        <li>
-                            <a href="<?php echo esc_url($link['url']); ?>" class="text-sm font-semibold text-white/75 transition-colors hover:text-white">
-                                <?php echo esc_html($link['title']); ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+            <div class="lg:max-w-[220px]">
+                <details class="footer-accordion border-t border-white/10 py-4 sm:hidden">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-black uppercase tracking-[0.14em] text-[#C6A15B]">
+                        <span><?php echo esc_html($col['title']); ?></span>
+                        <svg class="footer-accordion-icon h-4 w-4 shrink-0 text-white/70 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                    </summary>
+                    <ul class="footer-accordion-panel mt-4 space-y-3">
+                        <?php foreach ($col['links'] as $link) : ?>
+                            <li>
+                                <a href="<?php echo esc_url($link['url']); ?>" class="text-sm font-semibold text-white/75 transition-colors hover:text-white">
+                                    <?php echo esc_html($link['title']); ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </details>
+
+                <div class="hidden sm:block">
+                    <h2 class="mb-5 text-sm font-black uppercase tracking-[0.14em] text-[#C6A15B]">
+                        <?php echo esc_html($col['title']); ?>
+                    </h2>
+                    <ul class="space-y-3">
+                        <?php foreach ($col['links'] as $link) : ?>
+                            <li>
+                                <a href="<?php echo esc_url($link['url']); ?>" class="text-sm font-semibold text-white/75 transition-colors hover:text-white">
+                                    <?php echo esc_html($link['title']); ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>
@@ -89,11 +98,18 @@ $footer_store_address = dawp_get_woocommerce_store_address();
                 <?php esc_html_e('All rights reserved.', 'dawp'); ?>
             </p>
 
-            <ul class="flex flex-wrap items-center justify-center gap-4">
-                <li><a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>" class="transition-colors hover:text-white"><?php esc_html_e('Terms', 'dawp'); ?></a></li>
-                <li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="transition-colors hover:text-white"><?php esc_html_e('Privacy', 'dawp'); ?></a></li>
-                <li><a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="transition-colors hover:text-white"><?php esc_html_e('Shipping', 'dawp'); ?></a></li>
-                <li><a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>" class="transition-colors hover:text-white"><?php esc_html_e('Returns', 'dawp'); ?></a></li>
+            <ul class="flex flex-nowrap items-center justify-center gap-1.5" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
+                <?php foreach ($payment_methods as $method) : ?>
+                    <li class="flex h-7 w-[64px] items-center justify-center overflow-hidden rounded bg-white shadow-sm ring-1 ring-white/10">
+                        <img
+                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/' . $method['file']); ?>"
+                            alt="<?php echo esc_attr($method['name']); ?>"
+                            class="h-full w-full object-contain"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>

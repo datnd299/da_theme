@@ -28,9 +28,9 @@
                 position: absolute;
                 top: calc(100% + 10px);
                 left: 0;
-                width: 760px;
+                width: min(980px, calc(100vw - 48px));
                 z-index: 100;
-                border-radius: 14px;
+                border-radius: 8px;
                 overflow: hidden;
                 opacity: 0;
                 visibility: hidden;
@@ -47,23 +47,172 @@
             }
         }
 
-        .mega-link {
+        .mega-panel {
+            border: 1px solid #D9DEE8;
+            background: #FFFFFF;
+            box-shadow: 0 24px 70px rgba(5, 18, 38, 0.22);
+        }
+        .mega-panel__inner {
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+            min-height: 390px;
+        }
+        .mega-feature {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(145deg, #07172B 0%, #0B1F3A 54%, #142F55 100%);
+            color: #FFFFFF;
+            padding: 24px;
+        }
+        .mega-section-title {
+            letter-spacing: 0.12em;
+        }
+        .mega-feature__badge {
+            display: inline-flex;
+            width: max-content;
+            align-items: center;
+            border: 1px solid rgba(198, 161, 91, 0.45);
+            background: rgba(198, 161, 91, 0.14);
+            color: #F7D58F;
+            border-radius: 999px;
+            padding: 7px 10px;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        .mega-feature__title {
+            margin-top: 18px;
+            color: #FFFFFF;
+            font-size: 1.55rem;
+            font-weight: 900;
+            line-height: 1.12;
+        }
+        .mega-feature__copy {
+            margin-top: 12px;
+            color: rgba(255, 255, 255, 0.74);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        .mega-feature__cta {
+            display: inline-flex;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border-radius: 8px;
+            background: #B31942;
+            padding: 0 16px;
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 900;
+            text-transform: uppercase;
+            transition: background 0.16s ease, transform 0.16s ease;
+        }
+        .mega-feature__cta:hover {
+            background: #C6A15B;
+            transform: translateY(-1px);
+        }
+        .mega-content {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+        .mega-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            padding: 24px;
+        }
+        .mega-section {
+            min-width: 0;
+        }
+        .mega-section-title {
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: #111827;
-            font-size: 0.875rem;
-            font-weight: 700;
-            padding: 6px 0;
-            transition: color 0.15s ease, padding-left 0.15s ease;
+            gap: 9px;
+            margin-bottom: 12px;
+            color: #B31942;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
         }
-        .mega-link:hover { color: #B31942; padding-left: 4px; }
-        .mega-link-dot {
-            width: 7px;
-            height: 7px;
+        .mega-section-title::before {
+            content: "";
+            width: 8px;
+            height: 8px;
             border-radius: 999px;
             background: #C6A15B;
-            flex-shrink: 0;
+        }
+        .mega-link {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            border-radius: 8px;
+            color: #111827;
+            padding: 10px;
+            transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+        }
+        .mega-link:hover {
+            background: #F6F7FA;
+            color: #B31942;
+            transform: translateX(2px);
+        }
+        .mega-link-icon {
+            display: flex;
+            width: 30px;
+            height: 30px;
+            flex: 0 0 30px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: #F7F2E8;
+            color: #B31942;
+        }
+        .mega-link-text {
+            display: block;
+            color: inherit;
+            font-size: 0.9rem;
+            font-weight: 900;
+            line-height: 1.25;
+        }
+        .mega-link-desc {
+            display: block;
+            margin-top: 3px;
+            color: #64748B;
+            font-size: 0.76rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+        .mega-footer {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: auto;
+            border-top: 1px solid #E5E7EB;
+            background: #FAFBFD;
+            padding: 14px 24px;
+        }
+        .mega-footer__item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0B1F3A;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+        .mega-footer__icon {
+            display: flex;
+            width: 28px;
+            height: 28px;
+            flex: 0 0 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: #FFFFFF;
+            color: #B31942;
+            box-shadow: inset 0 0 0 1px #E5E7EB;
         }
         .drawer-sub-nav {
             max-height: 0;
@@ -84,19 +233,10 @@ $account_id    = function_exists('wc_get_page_id') ? wc_get_page_id('myaccount')
 $account_url   = $account_id > 0 ? get_permalink($account_id) : home_url('/my-account/');
 $nav_items     = dawp_main_menu_items();
 $mega_sections = dawp_megamenu_sections();
+$logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image rank/logo_image.png';
 ?>
 
 <header id="site-header" class="sticky top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0B1F3A]" role="banner">
-    <div class="bg-[#081A33] text-white/80">
-        <div class="mx-auto flex max-w-[1280px] items-center justify-center gap-4 px-4 py-2 text-center text-xs font-bold uppercase tracking-[0.12em] lg:px-6">
-            <span>Patriotic Apparel</span>
-            <span class="hidden text-[#C6A15B] sm:inline">|</span>
-            <span class="hidden sm:inline">Custom Veteran Gifts</span>
-            <span class="hidden text-[#C6A15B] md:inline">|</span>
-            <span class="hidden md:inline">Tracking Included</span>
-        </div>
-    </div>
-
     <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-3 px-4 lg:h-[72px] lg:px-6">
         <button id="menu-toggle"
                 class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white lg:hidden"
@@ -108,9 +248,8 @@ $mega_sections = dawp_megamenu_sections();
             </svg>
         </button>
 
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="shrink-0 text-white" aria-label="Proudlywear">
-            <span class="block text-2xl font-black tracking-wide leading-none">Proudly<span class="text-[#C6A15B]">wear</span></span>
-            <span class="hidden text-[10px] font-extrabold uppercase tracking-[0.2em] text-white/65 sm:block">Honor The Service</span>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center" aria-label="Proudlywear">
+            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('Proudlywear', 'dawp'); ?>" class="h-10 w-auto lg:h-12">
         </a>
 
         <nav class="hidden flex-1 items-center gap-1 px-5 lg:flex" aria-label="<?php esc_attr_e('Main Navigation', 'dawp'); ?>">
@@ -131,33 +270,78 @@ $mega_sections = dawp_megamenu_sections();
                         </a>
 
                         <div id="megamenu-shop" role="region" aria-label="<?php esc_attr_e('Shop Categories', 'dawp'); ?>">
-                            <div class="border border-[#E5E7EB] bg-white shadow-2xl">
-                                <div class="grid grid-cols-4 gap-5 p-6">
-                                    <?php foreach ($mega_sections as $section) : ?>
+                            <div class="mega-panel">
+                                <div class="mega-panel__inner">
+                                    <div class="mega-feature">
                                         <div>
-                                            <h3 class="mb-3 border-b border-[#E5E7EB] pb-2 text-[11px] font-black uppercase tracking-[0.14em] text-[#B31942]">
-                                                <?php echo esc_html($section['title']); ?>
-                                            </h3>
-                                            <ul class="space-y-1">
-                                                <?php foreach ($section['links'] as $link) : ?>
-                                                    <li>
-                                                        <a href="<?php echo esc_url($link['url']); ?>" class="mega-link">
-                                                            <span class="mega-link-dot"></span>
-                                                            <?php echo esc_html($link['title']); ?>
-                                                        </a>
-                                                    </li>
-                                                <?php endforeach; ?>
-                                            </ul>
+                                            <span class="mega-feature__badge"><?php esc_html_e('Personalized Pride', 'dawp'); ?></span>
+                                            <p class="mega-feature__title"><?php esc_html_e('Gifts that honor every branch and milestone.', 'dawp'); ?></p>
+                                            <p class="mega-feature__copy"><?php esc_html_e('Explore military apparel, commemorative collections, and custom keepsakes made for veterans and proud families.', 'dawp'); ?></p>
                                         </div>
-                                    <?php endforeach; ?>
-
-                                    <div class="rounded-xl border border-[#E5E7EB] bg-[#F7F2E8] p-4">
-                                        <p class="text-[11px] font-black uppercase tracking-[0.14em] text-[#B31942]"><?php esc_html_e('Personalized Pride', 'dawp'); ?></p>
-                                        <p class="mt-2 text-lg font-black leading-tight text-[#0B1F3A]"><?php esc_html_e('Name, rank, branch, and service-year gifts.', 'dawp'); ?></p>
-                                        <a href="<?php echo esc_url(home_url('/product-category/custom-military-gifts/')); ?>"
-                                           class="mt-4 inline-flex min-h-[42px] items-center justify-center rounded-lg bg-[#B31942] px-4 text-xs font-black uppercase tracking-[0.08em] text-white transition hover:bg-[#0B1F3A]">
+                                        <a href="<?php echo esc_url(home_url('/product-category/custom-military-gifts/')); ?>" class="mega-feature__cta">
                                             <?php esc_html_e('Customize Yours', 'dawp'); ?>
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                                <path d="M5 12h14"/><path d="M13 5l7 7-7 7"/>
+                                            </svg>
                                         </a>
+                                    </div>
+
+                                    <div class="mega-content">
+                                        <div class="mega-grid">
+                                            <?php foreach ($mega_sections as $section) : ?>
+                                                <div class="mega-section">
+                                                    <h3 class="mega-section-title">
+                                                        <?php echo esc_html($section['title']); ?>
+                                                    </h3>
+                                                    <ul>
+                                                        <?php foreach ($section['links'] as $link) : ?>
+                                                            <li>
+                                                                <a href="<?php echo esc_url($link['url']); ?>" class="mega-link">
+                                                                    <span class="mega-link-icon" aria-hidden="true">
+                                                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                                                            <path d="M5 12h14"/><path d="M13 5l7 7-7 7"/>
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span>
+                                                                        <span class="mega-link-text"><?php echo esc_html($link['title']); ?></span>
+                                                                        <?php if (!empty($link['description'])) : ?>
+                                                                            <span class="mega-link-desc"><?php echo esc_html($link['description']); ?></span>
+                                                                        <?php endif; ?>
+                                                                    </span>
+                                                                </a>
+                                                            </li>
+                                                        <?php endforeach; ?>
+                                                    </ul>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+
+                                        <div class="mega-footer" aria-label="<?php esc_attr_e('Shopping highlights', 'dawp'); ?>">
+                                            <div class="mega-footer__item">
+                                                <span class="mega-footer__icon" aria-hidden="true">
+                                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M20 7l-8 10-5-5"/><path d="M4 12l4 4L20 4"/>
+                                                    </svg>
+                                                </span>
+                                                <?php esc_html_e('Veteran-focused designs', 'dawp'); ?>
+                                            </div>
+                                            <div class="mega-footer__item">
+                                                <span class="mega-footer__icon" aria-hidden="true">
+                                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 000 7H14a3.5 3.5 0 010 7H6"/>
+                                                    </svg>
+                                                </span>
+                                                <?php esc_html_e('Clear pricing', 'dawp'); ?>
+                                            </div>
+                                            <div class="mega-footer__item">
+                                                <span class="mega-footer__icon" aria-hidden="true">
+                                                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05"/><path d="M12 22.08V12"/>
+                                                    </svg>
+                                                </span>
+                                                <?php esc_html_e('Made to order', 'dawp'); ?>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -242,9 +426,8 @@ $mega_sections = dawp_megamenu_sections();
        class="fixed left-0 top-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm overflow-y-auto bg-[#0B1F3A] shadow-2xl"
        aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
     <div class="flex h-16 items-center justify-between border-b border-white/10 px-4">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="text-white" aria-label="Proudlywear">
-            <span class="block text-xl font-black leading-none">Proudly<span class="text-[#C6A15B]">wear</span></span>
-            <span class="block text-[9px] font-extrabold uppercase tracking-[0.18em] text-white/60">Honor The Service</span>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center" aria-label="Proudlywear">
+            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('Proudlywear', 'dawp'); ?>" class="h-10 w-auto">
         </a>
 
         <button id="drawer-close"

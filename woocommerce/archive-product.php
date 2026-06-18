@@ -120,7 +120,7 @@ get_header();
             $shop_url      = get_permalink( wc_get_page_id('shop') );
             $mega_sections = function_exists('dawp_megamenu_sections') ? dawp_megamenu_sections() : [];
             ?>
-            <div class="shop-sidebar__widget">
+            <div class="shop-sidebar__widget shop-sidebar__widget--open">
                 <h3 class="shop-sidebar__title">Shop</h3>
                 <ul class="shop-sidebar__categories">
                     <li>
@@ -134,32 +134,63 @@ get_header();
                 </ul>
             </div>
 
-            <?php foreach ( $mega_sections as $section ) :
+            <?php foreach ( $mega_sections as $section_index => $section ) :
                 if ( empty( $section['links'] ) ) {
                     continue;
                 }
+                $section_items        = [];
+                $section_has_current  = false;
+
+                foreach ( $section['links'] as $link ) {
+                    $path = trim( parse_url( $link['url'], PHP_URL_PATH ) ?? '', '/' );
+                    $slug = basename( $path );
+                    $term = $slug ? get_term_by( 'slug', $slug, 'product_cat' ) : false;
+
+                    if ( ! $term || is_wp_error( $term ) ) {
+                        continue;
+                    }
+
+                    $is_current = is_product_category( $term->slug );
+                    if ( $is_current ) {
+                        $section_has_current = true;
+                    }
+
+                    $section_items[] = [
+                        'title'      => $link['title'],
+                        'term'       => $term,
+                        'is_current' => $is_current,
+                    ];
+                }
+
+                if ( empty( $section_items ) ) {
+                    continue;
+                }
+
+                $panel_id = 'shop-sidebar-section-' . (int) $section_index;
                 ?>
-            <div class="shop-sidebar__widget">
-                <h3 class="shop-sidebar__title"><?php echo esc_html( $section['title'] ); ?></h3>
-                <ul class="shop-sidebar__categories">
-                    <?php foreach ( $section['links'] as $link ) :
-                        $path = trim( parse_url( $link['url'], PHP_URL_PATH ) ?? '', '/' );
-                        $slug = basename( $path );
-                        $term = $slug ? get_term_by( 'slug', $slug, 'product_cat' ) : false;
-
-                        if ( ! $term || is_wp_error( $term ) ) {
-                            continue;
-                        }
-
-                        $is_current = is_product_category( $term->slug );
-                        ?>
+            <div class="shop-sidebar__widget shop-sidebar__widget--accordion <?php echo $section_has_current ? 'shop-sidebar__widget--open' : ''; ?>">
+                <h3 class="shop-sidebar__title">
+                    <button
+                        class="shop-sidebar__toggle"
+                        type="button"
+                        aria-expanded="<?php echo $section_has_current ? 'true' : 'false'; ?>"
+                        aria-controls="<?php echo esc_attr( $panel_id ); ?>"
+                    >
+                        <span><?php echo esc_html( $section['title'] ); ?></span>
+                        <svg class="shop-sidebar__toggle-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                </h3>
+                <ul class="shop-sidebar__categories shop-sidebar__panel" id="<?php echo esc_attr( $panel_id ); ?>">
+                    <?php foreach ( $section_items as $item ) : ?>
                         <li>
                             <a
-                                href="<?php echo esc_url( get_term_link( $term ) ); ?>"
-                                <?php if ( $is_current ) echo 'aria-current="page"'; ?>
+                                href="<?php echo esc_url( get_term_link( $item['term'] ) ); ?>"
+                                <?php if ( $item['is_current'] ) echo 'aria-current="page"'; ?>
                             >
-                                <?php echo esc_html( $link['title'] ); ?>
-                                <span class="count">(<?php echo (int) $term->count; ?>)</span>
+                                <?php echo esc_html( $item['title'] ); ?>
+                                <span class="count">(<?php echo (int) $item['term']->count; ?>)</span>
                             </a>
                         </li>
                     <?php endforeach; ?>
@@ -240,6 +271,13 @@ get_header();
     if (closeBtn) {
         closeBtn.addEventListener('click', closeSidebar);
     }
+    sidebar.querySelectorAll('.shop-sidebar__toggle').forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+            var widget = toggle.closest('.shop-sidebar__widget--accordion');
+            var isOpen = widget.classList.toggle('shop-sidebar__widget--open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+    });
     // Close on Escape
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && sidebar.classList.contains('is-open')) {

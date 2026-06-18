@@ -28,7 +28,7 @@
                 position: absolute;
                 top: calc(100% + 10px);
                 left: 0;
-                width: min(980px, calc(100vw - 48px));
+                width: min(920px, calc(100vw - 48px));
                 z-index: 100;
                 border-radius: 8px;
                 overflow: hidden;
@@ -54,16 +54,39 @@
         }
         .mega-panel__inner {
             display: grid;
-            grid-template-columns: 250px minmax(0, 1fr);
-            min-height: 390px;
+            grid-template-columns: 260px minmax(0, 1fr);
+            min-height: 360px;
         }
         .mega-feature {
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             background: linear-gradient(145deg, #07172B 0%, #0B1F3A 54%, #142F55 100%);
             color: #FFFFFF;
             padding: 24px;
+            overflow: hidden;
+        }
+        .mega-feature::before {
+            content: "";
+            position: absolute;
+            right: -58px;
+            top: -54px;
+            width: 150px;
+            height: 150px;
+            border-radius: 999px;
+            border: 1px solid rgba(198, 161, 91, 0.22);
+        }
+        .mega-feature::after {
+            content: "";
+            position: absolute;
+            inset: auto 24px 78px 24px;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(198, 161, 91, 0.48), rgba(198, 161, 91, 0));
+        }
+        .mega-feature > * {
+            position: relative;
+            z-index: 1;
         }
         .mega-section-title {
             letter-spacing: 0.12em;
@@ -82,17 +105,39 @@
             text-transform: uppercase;
         }
         .mega-feature__title {
-            margin-top: 18px;
+            margin-top: 22px;
             color: #FFFFFF;
             font-size: 1.55rem;
             font-weight: 900;
-            line-height: 1.12;
+            line-height: 1.18;
         }
         .mega-feature__copy {
-            margin-top: 12px;
+            margin-top: 16px;
             color: rgba(255, 255, 255, 0.74);
             font-size: 0.9rem;
-            line-height: 1.55;
+            line-height: 1.72;
+        }
+        .mega-feature__meta {
+            display: grid;
+            gap: 10px;
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 0.76rem;
+            font-weight: 800;
+        }
+        .mega-feature__meta span {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+        .mega-feature__meta span::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            flex: 0 0 7px;
+            border-radius: 999px;
+            background: #C6A15B;
+            box-shadow: 0 0 0 4px rgba(198, 161, 91, 0.12);
         }
         .mega-feature__cta {
             display: inline-flex;
@@ -107,31 +152,43 @@
             font-size: 12px;
             font-weight: 900;
             text-transform: uppercase;
-            transition: background 0.16s ease, transform 0.16s ease;
+            box-shadow: 0 14px 26px rgba(179, 25, 66, 0.24);
+            transition: background 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
         }
         .mega-feature__cta:hover {
             background: #C6A15B;
+            box-shadow: 0 16px 30px rgba(198, 161, 91, 0.2);
             transform: translateY(-1px);
         }
         .mega-content {
             display: flex;
             flex-direction: column;
             min-width: 0;
+            background:
+                linear-gradient(90deg, rgba(11, 31, 58, 0.045) 1px, transparent 1px) 50% 24px / 1px calc(100% - 48px) no-repeat,
+                linear-gradient(180deg, #FFFFFF 0%, #FBFCFE 100%);
         }
         .mega-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
             padding: 24px;
         }
         .mega-section {
             min-width: 0;
+            border: 1px solid #EEF1F6;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.78);
+            padding: 14px;
+            box-shadow: 0 10px 28px rgba(11, 31, 58, 0.045);
         }
         .mega-section-title {
             display: flex;
             align-items: center;
             gap: 9px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #EEF1F6;
+            padding-bottom: 12px;
             color: #B31942;
             font-size: 11px;
             font-weight: 900;
@@ -147,15 +204,20 @@
         .mega-link {
             position: relative;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             gap: 11px;
             border-radius: 8px;
             color: #111827;
-            padding: 10px;
-            transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+            padding: 8px 9px;
+            box-shadow: inset 0 0 0 1px transparent;
+            transition: background 0.15s ease, box-shadow 0.15s ease, color 0.15s ease, transform 0.15s ease;
+        }
+        .mega-section li + li .mega-link {
+            margin-top: 4px;
         }
         .mega-link:hover {
-            background: #F6F7FA;
+            background: #FFFFFF;
+            box-shadow: inset 0 0 0 1px #E8ECF3, 0 8px 18px rgba(11, 31, 58, 0.07);
             color: #B31942;
             transform: translateX(2px);
         }
@@ -169,21 +231,14 @@
             border-radius: 999px;
             background: #F7F2E8;
             color: #B31942;
+            box-shadow: inset 0 0 0 1px rgba(198, 161, 91, 0.18);
         }
         .mega-link-text {
             display: block;
             color: inherit;
-            font-size: 0.9rem;
+            font-size: 0.86rem;
             font-weight: 900;
             line-height: 1.25;
-        }
-        .mega-link-desc {
-            display: block;
-            margin-top: 3px;
-            color: #64748B;
-            font-size: 0.76rem;
-            font-weight: 600;
-            line-height: 1.35;
         }
         .mega-footer {
             display: grid;
@@ -197,10 +252,14 @@
         .mega-footer__item {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
+            min-width: 0;
             color: #0B1F3A;
             font-size: 0.78rem;
             font-weight: 800;
+            line-height: 1.2;
+            text-align: center;
         }
         .mega-footer__icon {
             display: flex;
@@ -277,6 +336,11 @@ $logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image ran
                                             <span class="mega-feature__badge"><?php esc_html_e('Personalized Pride', 'dawp'); ?></span>
                                             <p class="mega-feature__title"><?php esc_html_e('Gifts that honor every branch and milestone.', 'dawp'); ?></p>
                                             <p class="mega-feature__copy"><?php esc_html_e('Explore military apparel, commemorative collections, and custom keepsakes made for veterans and proud families.', 'dawp'); ?></p>
+                                            <div class="mega-feature__meta" aria-label="<?php esc_attr_e('Store highlights', 'dawp'); ?>">
+                                                <span><?php esc_html_e('Personalized details', 'dawp'); ?></span>
+                                                <span><?php esc_html_e('Veteran-ready gifts', 'dawp'); ?></span>
+                                                <span><?php esc_html_e('Made to order', 'dawp'); ?></span>
+                                            </div>
                                         </div>
                                         <a href="<?php echo esc_url(home_url('/product-category/custom-military-gifts/')); ?>" class="mega-feature__cta">
                                             <?php esc_html_e('Customize Yours', 'dawp'); ?>
@@ -304,9 +368,6 @@ $logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image ran
                                                                     </span>
                                                                     <span>
                                                                         <span class="mega-link-text"><?php echo esc_html($link['title']); ?></span>
-                                                                        <?php if (!empty($link['description'])) : ?>
-                                                                            <span class="mega-link-desc"><?php echo esc_html($link['description']); ?></span>
-                                                                        <?php endif; ?>
                                                                     </span>
                                                                 </a>
                                                             </li>
@@ -323,7 +384,7 @@ $logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image ran
                                                         <path d="M20 7l-8 10-5-5"/><path d="M4 12l4 4L20 4"/>
                                                     </svg>
                                                 </span>
-                                                <?php esc_html_e('Veteran-focused designs', 'dawp'); ?>
+                                                <?php esc_html_e('Veteran designs', 'dawp'); ?>
                                             </div>
                                             <div class="mega-footer__item">
                                                 <span class="mega-footer__icon" aria-hidden="true">

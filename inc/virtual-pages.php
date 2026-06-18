@@ -49,6 +49,14 @@ function dawp_virtual_page_map() {
             'description' => 'Learn about Proudlywear, a patriotic apparel and custom gift brand creating veteran-inspired designs for service families and proud Americans.',
             'image'       => 'assets/img/Image New/image copy 8.png',
         ],
+        'shop-by-theme' => [
+            'slug'        => 'shop-by-theme',
+            'title'       => 'Shop By Theme',
+            'css'         => 'tw/tw-shop-by-theme.css',
+            'seo_title'   => 'Shop By Theme | Proudlywear Patriotic Gifts',
+            'description' => 'Shop Proudlywear by theme, including America 250, best sellers, custom military gifts, veteran hats, veteran polo shirts, patriotic accessories, and holiday gifts.',
+            'image'       => 'assets/img/Image New/image.png',
+        ],
         'faq' => [
             'slug'        => 'faq',
             'title'       => 'FAQ',

@@ -117,38 +117,55 @@ get_header();
             </div>
 
             <?php
-            // Categories widget
-            $categories = get_terms([
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => false,
-                'parent'     => 0,
-                'slug'       => function_exists('dawp_product_category_slugs') ? dawp_product_category_slugs() : [],
-                'exclude'    => [ get_term_by('slug', 'uncategorized', 'product_cat')->term_id ?? 0 ],
-            ]);
-            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
+            $shop_url      = get_permalink( wc_get_page_id('shop') );
+            $mega_sections = function_exists('dawp_megamenu_sections') ? dawp_megamenu_sections() : [];
+            ?>
             <div class="shop-sidebar__widget">
-                <h3 class="shop-sidebar__title">Categories</h3>
+                <h3 class="shop-sidebar__title">Shop</h3>
                 <ul class="shop-sidebar__categories">
                     <li>
-                        <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
+                        <a
+                            href="<?php echo esc_url( $shop_url ); ?>"
+                            <?php if ( is_shop() ) echo 'aria-current="page"'; ?>
+                        >
                             All Products
                         </a>
                     </li>
-                    <?php foreach ( $categories as $cat ) :
-                        $is_current = ( is_product_category( $cat->slug ) ); ?>
+                </ul>
+            </div>
+
+            <?php foreach ( $mega_sections as $section ) :
+                if ( empty( $section['links'] ) ) {
+                    continue;
+                }
+                ?>
+            <div class="shop-sidebar__widget">
+                <h3 class="shop-sidebar__title"><?php echo esc_html( $section['title'] ); ?></h3>
+                <ul class="shop-sidebar__categories">
+                    <?php foreach ( $section['links'] as $link ) :
+                        $path = trim( parse_url( $link['url'], PHP_URL_PATH ) ?? '', '/' );
+                        $slug = basename( $path );
+                        $term = $slug ? get_term_by( 'slug', $slug, 'product_cat' ) : false;
+
+                        if ( ! $term || is_wp_error( $term ) ) {
+                            continue;
+                        }
+
+                        $is_current = is_product_category( $term->slug );
+                        ?>
                         <li>
                             <a
-                                href="<?php echo esc_url( get_term_link( $cat ) ); ?>"
+                                href="<?php echo esc_url( get_term_link( $term ) ); ?>"
                                 <?php if ( $is_current ) echo 'aria-current="page"'; ?>
                             >
-                                <?php echo esc_html( $cat->name ); ?>
-                                <span class="count">(<?php echo (int) $cat->count; ?>)</span>
+                                <?php echo esc_html( $link['title'] ); ?>
+                                <span class="count">(<?php echo (int) $term->count; ?>)</span>
                             </a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
-            <?php endif; ?>
+            <?php endforeach; ?>
 
             <?php
             // Price filter / other widgets

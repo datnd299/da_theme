@@ -19,6 +19,7 @@ body.single-product {
 }
 
 .single-product div.product {
+  position: relative;
   display: grid;
   gap: 24px;
   padding: 16px;
@@ -30,6 +31,29 @@ body.single-product {
 
 .single-product div.product > * {
   min-width: 0;
+}
+
+body.single-product div.product > .onsale {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--color-sale);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(11, 31, 58, 0.18);
 }
 
 /* Override WooCommerce default floats */
@@ -46,6 +70,10 @@ body.single-product {
     padding-left: 24px;
     padding-right: 24px;
   }
+
+  body.single-product div.product > .onsale {
+    left: 36px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -56,6 +84,11 @@ body.single-product {
     padding-top: 32px;
     padding-bottom: 32px;
     align-items: start;
+  }
+
+  body.single-product div.product > .onsale {
+    top: 44px;
+    left: 36px;
   }
 
   .single-product .woocommerce-product-gallery {

@@ -42,7 +42,7 @@
   margin-right: auto;
   padding-left: var(--container-pad-mobile, 16px);
   padding-right: var(--container-pad-mobile, 16px);
-  padding-top: var(--container-pad-mobile, 16px);
+  padding-top: 8px;
   padding-bottom: var(--container-pad-mobile, 16px);
 }
 @media (min-width: 1024px) {
@@ -56,11 +56,11 @@
 .shop-header {
   position: relative;
   overflow: hidden;
-  padding: 28px 24px;
+  padding: 20px 22px;
   border: 1px solid rgba(198, 161, 91, 0.22);
   border-bottom: 4px solid var(--color-accent);
   border-radius: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   background:
     linear-gradient(135deg, rgba(11, 31, 58, 0.96), rgba(21, 56, 102, 0.94) 58%, rgba(179, 25, 66, 0.9)),
     var(--color-navy);
@@ -70,7 +70,7 @@
 .shop-breadcrumb {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.74);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 .shop-breadcrumb a {
   color: rgba(255, 255, 255, 0.82);
@@ -88,7 +88,7 @@
   font-size: clamp(2rem, 4vw, 3.75rem);
   font-weight: 900;
   color: #ffffff;
-  margin: 0 0 16px;
+  margin: 0 0 10px;
   line-height: 1.05;
 }
 
@@ -113,7 +113,7 @@
   border: 1px solid var(--color-border);
   border-radius: 8px;
   background: var(--color-bg-subtle);
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -534,6 +534,7 @@
 /* ── Product Card ───────────────────────────────────────────── */
 .shop-page ul.products li.product,
 .shop-page .product-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   float: none;
@@ -574,6 +575,7 @@
   position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .product-card__img-wrap {
   width: 100%;
@@ -623,34 +625,42 @@
 /* Sale badge */
 .product-card__badge {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
   background: var(--color-accent);
   color: #ffffff;
-  font-size: 0.6875rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 8px;
+  letter-spacing: 0.06em;
+  padding: 5px 10px;
   border-radius: 6px;
-  line-height: 1.4;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(11, 31, 58, 0.18);
 }
 /* WooCommerce native sale badge */
-.onsale {
+.shop-page ul.products li.product .onsale,
+.shop-page .product-card .onsale,
+.shop-page .onsale {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 10px !important;
+  left: 10px !important;
+  right: auto !important;
+  z-index: 3;
   background: var(--color-accent) !important; /* override WC default green */
   color: #ffffff !important;
-  font-size: 0.6875rem !important;
-  font-weight: 600 !important;
+  font-size: 0.75rem !important;
+  font-weight: 900 !important;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 3px 8px !important;
+  letter-spacing: 0.06em;
+  padding: 5px 10px !important;
   border-radius: 6px !important;
   min-width: 0 !important;
-  line-height: 1.4 !important;
+  min-height: 0 !important;
+  line-height: 1 !important;
   margin: 0 !important;
+  box-shadow: 0 8px 18px rgba(11, 31, 58, 0.18);
 }
 
 /* Card body */

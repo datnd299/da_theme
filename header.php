@@ -295,7 +295,7 @@ $mega_sections = dawp_megamenu_sections();
 $logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image rank/logo_image.png';
 ?>
 
-<header id="site-header" class="sticky top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0B1F3A]" role="banner">
+<header id="site-header" class="lg:sticky top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0B1F3A]" role="banner">
     <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-3 px-4 lg:h-[72px] lg:px-6">
         <button id="menu-toggle"
                 class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-white/80 transition-colors hover:bg-white/10 hover:text-white lg:hidden"

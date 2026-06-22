@@ -26,6 +26,7 @@ $privacy_url  = home_url('/privacy-policy/');
 $terms_url    = home_url('/terms-conditions/');
 $track_url    = home_url('/track-order/');
 $contact_url  = home_url('/contact-us/');
+$last_updated = __('May 29, 2026', 'dawp');
 
 $policy_highlights = [
     [
@@ -227,6 +228,10 @@ $quick_links = [
                 );
                 ?>
             </p>
+            <div class="mt-6 rounded-md border border-[#E8DAD4] bg-white px-5 py-4 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+                <p class="mt-2 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php echo esc_html($last_updated); ?></p>
+            </div>
         </div>
     </section>
 

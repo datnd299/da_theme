@@ -86,11 +86,8 @@ $nav_items = [
 
 <header id="masthead" class="sticky top-0 z-50 border-b border-[#E5E7EB] bg-white text-[#111827] shadow-sm" role="banner">
     <div class="bg-[#0B1F33] text-white">
-        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.16em] sm:flex-row sm:px-6 lg:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.16em] sm:flex-row sm:px-6 lg:px-8">
             <span><?php esc_html_e('Reliable tires for everyday driving', 'dawp'); ?></span>
-            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="text-[#93C5FD] transition hover:text-white">
-                <?php esc_html_e('Processing 1-2 business days | Tracking included', 'dawp'); ?>
-            </a>
         </div>
     </div>
 

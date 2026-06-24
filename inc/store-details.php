@@ -12,7 +12,7 @@
  */
 function dawp_get_store_address_lines() {
     return [
-        '4211 W Sahara Ave Ste C',
+        '4211 W Sahara Ave, Ste C',
         'Las Vegas, NV 89102',
     ];
 }

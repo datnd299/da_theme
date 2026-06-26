@@ -244,6 +244,89 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
             closeSidebar();
         }
     });
+
+    // --- Load More Products logic ---
+    var paginationContainer = document.querySelector('.shop-pagination');
+    if (paginationContainer) {
+        var wooPagination = paginationContainer.querySelector('.woocommerce-pagination');
+        if (wooPagination) {
+            var nextLink = wooPagination.querySelector('.next');
+            wooPagination.style.display = 'none';
+
+            if (nextLink) {
+                var loadMoreContainer = document.createElement('div');
+                loadMoreContainer.className = 'flex justify-center mt-10 mb-10 w-full';
+                loadMoreContainer.style.display = 'flex';
+                loadMoreContainer.style.justifyContent = 'center';
+                loadMoreContainer.style.marginTop = '2.5rem';
+                loadMoreContainer.style.marginBottom = '2.5rem';
+                loadMoreContainer.style.width = '100%';
+                
+                var loadMoreBtn = document.createElement('button');
+                // Use exact classes from header to ensure they exist, plus inline styles for safety
+                loadMoreBtn.className = 'inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-8 text-sm font-bold text-white transition hover:bg-[#2F2A28] cursor-pointer';
+                loadMoreBtn.style.minHeight = '3rem';
+                loadMoreBtn.style.paddingLeft = '2rem';
+                loadMoreBtn.style.paddingRight = '2rem';
+                loadMoreBtn.style.borderRadius = '0.375rem';
+                loadMoreBtn.style.backgroundColor = '#C87F86';
+                loadMoreBtn.style.color = '#ffffff';
+                loadMoreBtn.style.fontWeight = '700';
+                loadMoreBtn.style.fontSize = '0.875rem';
+                loadMoreBtn.style.border = 'none';
+                loadMoreBtn.style.cursor = 'pointer';
+                loadMoreBtn.style.transition = 'background-color 0.2s';
+                
+                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#2F2A28'; };
+                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#C87F86'; };
+
+                loadMoreBtn.innerHTML = 'Load More Product';
+                
+                loadMoreContainer.appendChild(loadMoreBtn);
+                paginationContainer.parentNode.insertBefore(loadMoreContainer, paginationContainer.nextSibling);
+                
+                loadMoreBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var originalText = loadMoreBtn.innerHTML;
+                    loadMoreBtn.innerHTML = 'Loading...';
+                    loadMoreBtn.style.opacity = '0.7';
+                    loadMoreBtn.style.pointerEvents = 'none';
+                    
+                    fetch(nextLink.href)
+                        .then(function(response) { return response.text(); })
+                        .then(function(html) {
+                            var parser = new DOMParser();
+                            var doc = parser.parseFromString(html, 'text/html');
+                            
+                            var newProducts = doc.querySelectorAll('ul.products li.product, li.product-card');
+                            var productContainer = document.querySelector('ul.products');
+                            
+                            if (newProducts.length > 0 && productContainer) {
+                                newProducts.forEach(function(product) {
+                                    productContainer.appendChild(product);
+                                });
+                            }
+                            
+                            var newNextLink = doc.querySelector('.woocommerce-pagination .next');
+                            if (newNextLink) {
+                                nextLink.href = newNextLink.href;
+                                loadMoreBtn.innerHTML = originalText;
+                                loadMoreBtn.style.opacity = '1';
+                                loadMoreBtn.style.pointerEvents = 'auto';
+                            } else {
+                                loadMoreContainer.remove();
+                            }
+                        })
+                        .catch(function(error) {
+                            console.error('Error loading more products:', error);
+                            loadMoreBtn.innerHTML = 'Error. Try Again';
+                            loadMoreBtn.style.opacity = '1';
+                            loadMoreBtn.style.pointerEvents = 'auto';
+                        });
+                });
+            }
+        }
+    }
 })();
 </script>
 

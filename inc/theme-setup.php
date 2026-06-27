@@ -30,7 +30,8 @@ function dawp_store_address() {
         $state = trim($location_parts[1] ?? '');
     }
 
-    $address_parts = array_merge($address_parts, array_filter([$city, $state, $postcode]));
+    $region = trim(implode(' ', array_filter([$state, $postcode])));
+    $address_parts = array_merge($address_parts, array_filter([$city, $region]));
 
     return implode(', ', array_unique($address_parts));
 }

@@ -7,7 +7,7 @@
 $brand_name = 'UK Official Store';
 $domain_name = 'ukofficialstore.com';
 $support_email = 'support@ukofficialstore.com';
-$store_address = function_exists('dawp_store_address') ? dawp_store_address() : '4803 N Milwaukee Ave, Chicago, IL 60630';
+$store_address = function_exists('dawp_store_address') ? dawp_store_address() : '';
 $business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
 $last_updated = 'June 5, 2026';
 ?>

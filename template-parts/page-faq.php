@@ -7,7 +7,7 @@
 
 $brand_name     = 'UK Official Store';
 $support_email  = 'support@ukofficialstore.com';
-$store_address  = function_exists('dawp_store_address') ? dawp_store_address() : '292 Malcolm X Blvd, New York, NY 10027';
+$store_address  = function_exists('dawp_store_address') ? dawp_store_address() : '';
 $business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
 $last_updated   = 'June 9, 2026';
 

@@ -23,36 +23,14 @@ function dawp_store_address() {
     $city = trim((string) get_option('woocommerce_store_city', ''));
     $postcode = trim((string) get_option('woocommerce_store_postcode', ''));
     $default_country = (string) get_option('woocommerce_default_country', '');
-    $country = '';
     $state = '';
 
     if ($default_country !== '') {
         $location_parts = explode(':', $default_country);
-        $country_code = $location_parts[0] ?? '';
-        $state_code = $location_parts[1] ?? '';
-
-        if (function_exists('WC') && WC()->countries) {
-            $countries = WC()->countries->get_countries();
-            $states = WC()->countries->get_states($country_code);
-
-            $country = $countries[$country_code] ?? $country_code;
-            $state = $states[$state_code] ?? $state_code;
-        } else {
-            $country = $country_code;
-            $state = $state_code;
-        }
+        $state = trim($location_parts[1] ?? '');
     }
 
-    $locality = trim(implode(', ', array_filter([$city, $state])));
-    $locality = trim(implode(' ', array_filter([$locality, $postcode])));
-
-    if ($locality !== '') {
-        $address_parts[] = $locality;
-    }
-
-    if ($country !== '') {
-        $address_parts[] = $country;
-    }
+    $address_parts = array_merge($address_parts, array_filter([$city, $state, $postcode]));
 
     return implode(', ', array_unique($address_parts));
 }

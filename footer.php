@@ -127,7 +127,7 @@ $footer_payment_methods = [
                     </p>
                     <p>
                         <strong class="text-white"><?php esc_html_e('Phone:', 'dawp'); ?></strong>
-                        <a href="tel:+18887894749" class="transition hover:text-[#93C5FD]">+1 888-789-4749</a>
+                        <a href="tel:+18887984739" class="transition hover:text-[#93C5FD]">+1 888-798-4739</a>
                     </p>
                 </div>
             </div>

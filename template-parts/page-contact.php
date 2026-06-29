@@ -25,8 +25,8 @@ $contact_cards = [
     ],
     [
         'title' => __('Phone Support', 'dawp'),
-        'copy'  => __('+1 888-789-4749', 'dawp'),
-        'url'   => 'tel:+18887894749',
+        'copy'  => __('+1 888-798-4739', 'dawp'),
+        'url'   => 'tel:+18887984739',
         'icon'  => 'phone',
     ],
     [

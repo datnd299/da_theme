@@ -144,4 +144,68 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = 'Send Message';
         });
     }
+
+    const loadMoreBtn = document.querySelector('[data-shop-load-more]');
+    if (loadMoreBtn) {
+        const productsGrid = document.querySelector('.shop-main ul.products');
+        const status = document.querySelector('[data-shop-load-more-status]');
+        const defaultLabel = loadMoreBtn.textContent.trim();
+
+        loadMoreBtn.addEventListener('click', async () => {
+            if (!productsGrid || loadMoreBtn.disabled) return;
+
+            const currentPage = parseInt(loadMoreBtn.dataset.currentPage || '1', 10);
+            const maxPages = parseInt(loadMoreBtn.dataset.maxPages || '1', 10);
+            const nextPage = currentPage + 1;
+
+            if (nextPage > maxPages) {
+                loadMoreBtn.remove();
+                if (status) status.textContent = 'All products loaded.';
+                return;
+            }
+
+            loadMoreBtn.disabled = true;
+            loadMoreBtn.classList.add('is-loading');
+            loadMoreBtn.textContent = 'Loading...';
+            if (status) status.textContent = '';
+
+            const body = new URLSearchParams({
+                action: 'dawp_load_more_products',
+                nonce: da_theme.load_more_nonce,
+                page: String(nextPage),
+                query_vars: loadMoreBtn.dataset.queryVars || '{}',
+            });
+
+            try {
+                const res = await fetch(da_theme.ajax_url, { method: 'POST', body });
+                const data = await res.json();
+
+                if (!res.ok || !data.success) {
+                    throw new Error(data.data?.message || 'Unable to load more products.');
+                }
+
+                const template = document.createElement('template');
+                template.innerHTML = data.data.html.trim();
+                productsGrid.append(...template.content.childNodes);
+
+                loadMoreBtn.dataset.currentPage = String(data.data.page);
+                loadMoreBtn.dataset.maxPages = String(data.data.max_pages);
+
+                if (!data.data.has_more) {
+                    loadMoreBtn.remove();
+                    if (status) status.textContent = 'All products loaded.';
+                } else {
+                    loadMoreBtn.disabled = false;
+                    loadMoreBtn.classList.remove('is-loading');
+                    loadMoreBtn.textContent = defaultLabel;
+                }
+            } catch (e) {
+                console.error(e);
+                loadMoreBtn.disabled = false;
+                loadMoreBtn.classList.remove('is-loading');
+                loadMoreBtn.textContent = defaultLabel;
+                if (status) status.textContent = 'Could not load products. Please try again.';
+            }
+        });
+    }
 });

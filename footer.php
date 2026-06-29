@@ -10,6 +10,25 @@ $support_email = 'support@ukofficialstore.com';
 $store_address = dawp_store_address();
 $business_hours = 'Monday-Friday, 9:00 AM-6:00 PM PST';
 $logo_url = get_template_directory_uri() . '/assets/img/gallery/logo.png';
+$payment_logo_base_url = get_template_directory_uri() . '/assets/img/gallery/payment/';
+$payment_logos = [
+    [
+        'file' => 'image.png',
+        'label' => __('Payment method', 'dawp'),
+    ],
+    [
+        'file' => 'image copy.png',
+        'label' => __('Payment method', 'dawp'),
+    ],
+    [
+        'file' => 'image copy 2.png',
+        'label' => __('Payment method', 'dawp'),
+    ],
+    [
+        'file' => 'image copy 3.png',
+        'label' => __('Payment method', 'dawp'),
+    ],
+];
 
 $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
     [
@@ -134,22 +153,17 @@ $footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns()
             <div class="flex flex-col gap-2 lg:items-start" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <span class="text-xs font-semibold uppercase tracking-[0.18em] text-white/55"><?php esc_html_e('We accept', 'dawp'); ?></span>
                 <div class="flex flex-wrap items-center gap-2">
-                    <span class="flex h-10 w-[4.75rem] items-center justify-center rounded-md border border-white/20 bg-white px-3 text-[0.95rem] font-black tracking-wide shadow-lg shadow-black/20 ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:border-lime/70 hover:ring-lime/50" style="color: #1434CB;" aria-label="Visa">
-                        VISA
-                    </span>
-                    <span class="flex h-10 w-[9rem] items-center justify-center gap-1.5 rounded-md border border-white/20 bg-white px-3 shadow-lg shadow-black/20 ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:border-lime/70 hover:ring-lime/50" aria-label="Master Card">
-                        <span class="relative flex h-5 w-9 items-center" aria-hidden="true">
-                            <span class="absolute left-0 h-5 w-5 rounded-full" style="background-color: #EB001B;"></span>
-                            <span class="absolute right-0 h-5 w-5 rounded-full mix-blend-multiply" style="background-color: #F79E1B;"></span>
+                    <?php foreach ($payment_logos as $payment_logo) : ?>
+                        <span class="flex h-10 w-[4.75rem] items-center justify-center rounded-md border border-white/20 bg-white px-2 shadow-lg shadow-black/20 ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:border-lime/70 hover:ring-lime/50" aria-label="<?php echo esc_attr($payment_logo['label']); ?>">
+                            <img
+                                src="<?php echo esc_url($payment_logo_base_url . $payment_logo['file']); ?>"
+                                alt="<?php echo esc_attr($payment_logo['label']); ?>"
+                                class="max-h-6 w-auto max-w-full object-contain"
+                                loading="lazy"
+                                decoding="async"
+                            >
                         </span>
-                        <span class="text-[0.68rem] font-extrabold uppercase tracking-tight" style="color: #231F20;"><?php esc_html_e('Mastercard', 'dawp'); ?></span>
-                    </span>
-                    <span class="flex h-10 w-[4.75rem] items-center justify-center rounded-md border border-white/20 px-3 text-[0.8rem] font-black tracking-wide text-white shadow-lg shadow-black/20 ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:border-lime/70 hover:ring-lime/50" style="background-color: #2E77BC;" aria-label="American Express">
-                        AMEX
-                    </span>
-                    <span class="flex h-10 w-[4.75rem] items-center justify-center rounded-md border border-white/20 bg-white px-3 text-[0.92rem] font-black tracking-tight shadow-lg shadow-black/20 ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:border-lime/70 hover:ring-lime/50" aria-label="PayPal">
-                        <span style="color: #003087;">Pay</span><span style="color: #009CDE;">Pal</span>
-                    </span>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>

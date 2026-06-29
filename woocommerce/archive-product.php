@@ -162,10 +162,27 @@ get_header();
 
                 <?php woocommerce_product_loop_end(); ?>
 
-                <?php // Pagination ?>
-                <div class="shop-pagination">
-                    <?php do_action('woocommerce_after_shop_loop'); ?>
-                </div>
+                <?php
+                global $wp_query;
+                $current_page = max(1, (int) get_query_var('paged'), (int) get_query_var('page'));
+                $max_pages    = max(1, (int) $wp_query->max_num_pages);
+                $query_vars   = $wp_query->query_vars;
+                ?>
+                <?php if ( $current_page < $max_pages ) : ?>
+                    <div class="shop-load-more">
+                        <button
+                            type="button"
+                            class="shop-load-more__button"
+                            data-shop-load-more
+                            data-current-page="<?php echo esc_attr($current_page); ?>"
+                            data-max-pages="<?php echo esc_attr($max_pages); ?>"
+                            data-query-vars="<?php echo esc_attr(wp_json_encode($query_vars)); ?>"
+                        >
+                            Load More Products
+                        </button>
+                        <p class="shop-load-more__status" data-shop-load-more-status aria-live="polite"></p>
+                    </div>
+                <?php endif; ?>
 
             <?php else : ?>
                 <div class="shop-empty">

@@ -92,6 +92,7 @@ function dawp_scripts() {
     wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.2', true);
     wp_localize_script('dawp-main', 'da_theme', [
         'ajax_url' => admin_url('admin-ajax.php'),
+        'load_more_nonce' => wp_create_nonce('dawp_load_more_products'),
     ]);
 
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');

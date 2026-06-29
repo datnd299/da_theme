@@ -125,6 +125,10 @@ $footer_payment_methods = [
                         <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
                         <a href="mailto:support@tizezap.com" class="transition hover:text-[#93C5FD]">support@tizezap.com</a>
                     </p>
+                    <p>
+                        <strong class="text-white"><?php esc_html_e('Phone:', 'dawp'); ?></strong>
+                        <a href="tel:+18887894749" class="transition hover:text-[#93C5FD]">+1 888-789-4749</a>
+                    </p>
                 </div>
             </div>
 

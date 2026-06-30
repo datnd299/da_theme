@@ -162,9 +162,28 @@ get_header();
 
                 <?php woocommerce_product_loop_end(); ?>
 
-                <?php // Pagination ?>
-                <div class="shop-pagination">
-                    <?php do_action('woocommerce_after_shop_loop'); ?>
+                <?php
+                global $wp_query;
+                $current_page = max(1, (int) get_query_var('paged'));
+                $max_pages    = (int) $wp_query->max_num_pages;
+                $next_url     = $current_page < $max_pages ? get_next_posts_page_link($max_pages) : '';
+                ?>
+                <div class="shop-pagination" data-shop-load-more>
+                    <div class="shop-pagination__native" aria-hidden="true">
+                        <?php do_action('woocommerce_after_shop_loop'); ?>
+                    </div>
+
+                    <?php if ( $next_url ) : ?>
+                        <button
+                            type="button"
+                            class="shop-load-more"
+                            data-next-url="<?php echo esc_url( $next_url ); ?>"
+                            data-loading-text="<?php esc_attr_e('Loading...', 'dawp'); ?>"
+                            data-default-text="<?php esc_attr_e('Load More Products', 'dawp'); ?>"
+                        >
+                            <?php esc_html_e('Load More Products', 'dawp'); ?>
+                        </button>
+                    <?php endif; ?>
                 </div>
 
             <?php else : ?>
@@ -220,6 +239,91 @@ get_header();
             closeSidebar();
         }
     });
+})();
+
+(function () {
+    var loadMoreWrap = document.querySelector('[data-shop-load-more]');
+    var productsGrid = document.querySelector('ul.products');
+
+    if (!loadMoreWrap || !productsGrid) {
+        return;
+    }
+
+    var button = loadMoreWrap.querySelector('.shop-load-more');
+
+    function getNextUrl(doc) {
+        var nextLink = doc.querySelector('.woocommerce-pagination a.next');
+
+        if (nextLink) {
+            return nextLink.href;
+        }
+
+        var current = doc.querySelector('.woocommerce-pagination .page-numbers.current');
+        var currentItem = current ? current.closest('li') : null;
+        var nextItem = currentItem ? currentItem.nextElementSibling : null;
+        var pageLink = nextItem ? nextItem.querySelector('a.page-numbers') : null;
+
+        return pageLink ? pageLink.href : '';
+    }
+
+    function finishLoading(nextUrl) {
+        button.disabled = false;
+        button.classList.remove('is-loading');
+        button.textContent = button.dataset.defaultText || 'Load More Products';
+
+        if (nextUrl) {
+            button.dataset.nextUrl = nextUrl;
+            return;
+        }
+
+        button.remove();
+        loadMoreWrap.classList.add('is-complete');
+        loadMoreWrap.setAttribute('aria-live', 'polite');
+        loadMoreWrap.textContent = 'All products loaded';
+    }
+
+    if (button) {
+        button.addEventListener('click', function () {
+            var nextUrl = button.dataset.nextUrl;
+
+            if (!nextUrl || button.classList.contains('is-loading')) {
+                return;
+            }
+
+            button.disabled = true;
+            button.classList.add('is-loading');
+            button.textContent = button.dataset.loadingText || 'Loading...';
+
+            fetch(nextUrl, { credentials: 'same-origin' })
+                .then(function (response) {
+                    if (!response.ok) {
+                        throw new Error('Unable to load products.');
+                    }
+                    return response.text();
+                })
+                .then(function (html) {
+                    var doc = new DOMParser().parseFromString(html, 'text/html');
+                    var newProducts = doc.querySelectorAll('ul.products > li.product');
+
+                    if (!newProducts.length) {
+                        finishLoading('');
+                        return;
+                    }
+
+                    newProducts.forEach(function (product) {
+                        productsGrid.appendChild(document.importNode(product, true));
+                    });
+
+                    window.history.replaceState(null, '', nextUrl);
+                    finishLoading(getNextUrl(doc));
+                })
+                .catch(function () {
+                    button.disabled = false;
+                    button.classList.remove('is-loading');
+                    button.textContent = 'Try Again';
+                });
+        });
+    }
 })();
 </script>
 

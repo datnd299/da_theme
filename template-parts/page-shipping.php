@@ -7,12 +7,12 @@
 <div id="primary" class="bg-[#F4F6F8] font-body text-[#111827]">
     <section class="bg-[#0B1F33] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Tizezap Customer Care', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Rubyinstar Customer Care', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Shipping Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#D7DEE8]">
-                <?php esc_html_e('Thank you for choosing Tizezap! We strive to process and deliver your tires as quickly and reliably as possible.', 'dawp'); ?>
+                <?php esc_html_e('Thank you for choosing Rubyinstar! We strive to process and deliver your tires as quickly and reliably as possible.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#B8C3D1]">
                 <?php esc_html_e('Last Updated: May 19, 2026', 'dawp'); ?>
@@ -85,7 +85,7 @@
                             </div>
                             <ul class="mt-5 list-disc space-y-3 pl-6">
                                 <li><strong><?php esc_html_e('Business Days:', 'dawp'); ?></strong> <?php esc_html_e('Monday through Friday, excluding U.S. public holidays and carrier holidays.', 'dawp'); ?></li>
-                                <li><strong><?php esc_html_e('Shipping Cost:', 'dawp'); ?></strong> <?php esc_html_e('Tizezap offers Free Standard Shipping on all tire orders within our standard delivery zones. There are no hidden shipping fees at checkout.', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Shipping Cost:', 'dawp'); ?></strong> <?php esc_html_e('Rubyinstar offers Free Standard Shipping on all tire orders within our standard delivery zones. There are no hidden shipping fees at checkout.', 'dawp'); ?></li>
                             </ul>
 
                             <h3 id="order-tracking" class="scroll-mt-24 mt-10 rounded-md border-l-4 border-[#2563EB] bg-[#EFF6FF] px-5 py-4 text-xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('2. Order Tracking', 'dawp'); ?></h3>
@@ -103,8 +103,8 @@
 
                             <h3 id="lost-delayed" class="scroll-mt-24 mt-10 rounded-md border-l-4 border-[#2563EB] bg-[#EFF6FF] px-5 py-4 text-xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('4. Lost, Delayed, or Stolen Packages', 'dawp'); ?></h3>
                             <ul class="mt-5 list-disc space-y-3 pl-6">
-                                <li><strong><?php esc_html_e('Delayed Shipments:', 'dawp'); ?></strong> <?php esc_html_e('If your tracking information shows no movement after the estimated delivery window has passed, please contact us at support@tizezap.com so we can investigate with the carrier.', 'dawp'); ?></li>
-                                <li><strong><?php esc_html_e('Stolen or Missing (Showing "Delivered"):', 'dawp'); ?></strong> <?php esc_html_e('If the carrier\'s tracking system marks your package as "Delivered" but you cannot locate it, please check with household members, neighbors, building management, or the local post office first. While Tizezap is not responsible for theft after delivery, we are fully committed to helping you file a claim and locate your tires.', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Delayed Shipments:', 'dawp'); ?></strong> <?php esc_html_e('If your tracking information shows no movement after the estimated delivery window has passed, please contact us at support@rubyinstar.com so we can investigate with the carrier.', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Stolen or Missing (Showing "Delivered"):', 'dawp'); ?></strong> <?php esc_html_e('If the carrier\'s tracking system marks your package as "Delivered" but you cannot locate it, please check with household members, neighbors, building management, or the local post office first. While Rubyinstar is not responsible for theft after delivery, we are fully committed to helping you file a claim and locate your tires.', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Lost in Transit:', 'dawp'); ?></strong> <?php esc_html_e('If a package is confirmed lost by the carrier prior to delivery, we will gladly send a replacement or issue a full refund.', 'dawp'); ?></li>
                             </ul>
 
@@ -116,7 +116,7 @@
                             <ul class="mt-5 list-disc space-y-3 pl-6">
                                 <li><strong><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
-                                <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com" class="text-[#2563EB] underline hover:no-underline">support@tizezap.com</a></li>
+                                <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@rubyinstar.com" class="text-[#2563EB] underline hover:no-underline">support@rubyinstar.com</a></li>
                                 <li><strong><?php esc_html_e('Support Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
                             </ul>
                         </div>

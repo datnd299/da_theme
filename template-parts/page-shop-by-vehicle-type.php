@@ -3,9 +3,9 @@
  * Template Part: page-shop-by-vehicle-type
  */
 
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
-$hero_image = $tizezap_gallery_uri . 'suv-trailer-tires.png';
-$intro_image = $tizezap_gallery_uri . 'category-light-truck-tires.png';
+$rubyinstar_gallery_uri = get_theme_file_uri('/assets/img/gallery/Rubyinstar/');
+$hero_image = $rubyinstar_gallery_uri . 'suv-trailer-tires.png';
+$intro_image = $rubyinstar_gallery_uri . 'category-light-truck-tires.png';
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))
@@ -22,7 +22,7 @@ $vehicle_types = [
         'name' => __('Passenger Car & Sedan', 'dawp'),
         'short' => __('Car', 'dawp'),
         'summary' => __('Daily commuters, compact cars, sedans, coupes, and practical road-use vehicles.', 'dawp'),
-        'image' => $tizezap_gallery_uri . 'category-all-season-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'category-all-season-tires.png',
         'primary_slug' => 'all-season-tires',
         'primary_label' => __('Shop Car Tires', 'dawp'),
         'keywords' => 'car sedan coupe compact commuter passenger all-season touring daily',
@@ -37,7 +37,7 @@ $vehicle_types = [
         'name' => __('SUV & Crossover', 'dawp'),
         'short' => __('SUV', 'dawp'),
         'summary' => __('Family SUVs, crossovers, CUVs, and everyday vehicles that need stable road manners.', 'dawp'),
-        'image' => $tizezap_gallery_uri . 'category-suv-crossover-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'category-suv-crossover-tires.png',
         'primary_slug' => 'suv-crossover-tires',
         'primary_label' => __('Shop SUV Tires', 'dawp'),
         'keywords' => 'suv crossover cuv family utility road trip awd',
@@ -52,7 +52,7 @@ $vehicle_types = [
         'name' => __('Pickup & Light Truck', 'dawp'),
         'short' => __('Truck', 'dawp'),
         'summary' => __('Pickup trucks, light-duty work vehicles, utility driving, hauling, and loaded road use.', 'dawp'),
-        'image' => $tizezap_gallery_uri . 'category-light-truck-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'category-light-truck-tires.png',
         'primary_slug' => 'light-truck-tires',
         'primary_label' => __('Shop Truck Tires', 'dawp'),
         'keywords' => 'truck pickup light truck lt hauling work utility load towing',
@@ -67,7 +67,7 @@ $vehicle_types = [
         'name' => __('Performance & Sport', 'dawp'),
         'short' => __('Sport', 'dawp'),
         'summary' => __('Sport sedans, performance coupes, and drivers prioritizing sharper road response.', 'dawp'),
-        'image' => $tizezap_gallery_uri . 'category-performance-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'category-performance-tires.png',
         'primary_slug' => 'performance-tires',
         'primary_label' => __('Shop Performance Tires', 'dawp'),
         'keywords' => 'performance sport sporty handling coupe sedan high performance street',
@@ -82,7 +82,7 @@ $vehicle_types = [
         'name' => __('Trailer & Towable', 'dawp'),
         'short' => __('Trailer', 'dawp'),
         'summary' => __('Utility trailers, cargo trailers, towables, and trailer-specific replacement needs.', 'dawp'),
-        'image' => $tizezap_gallery_uri . 'category-trailer-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'category-trailer-tires.png',
         'primary_slug' => 'trailer-tires',
         'primary_label' => __('Shop Trailer Tires', 'dawp'),
         'keywords' => 'trailer towable utility cargo rv towing st special trailer',
@@ -96,7 +96,7 @@ $vehicle_types = [
         'name' => __('Cold-Weather Vehicle', 'dawp'),
         'short' => __('Winter', 'dawp'),
         'summary' => __('Vehicles that regularly drive in cold temperatures, winter roads, or seasonal conditions.', 'dawp'),
-        'image' => $tizezap_gallery_uri . 'category-winter-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'category-winter-tires.png',
         'primary_slug' => 'winter-tires',
         'primary_label' => __('Shop Winter Tires', 'dawp'),
         'keywords' => 'winter snow cold weather seasonal ice slush sedan suv truck',
@@ -118,16 +118,16 @@ $popular_types = ['suv-crossover', 'pickup-light-truck', 'passenger-car'];
 <div id="primary" class="rim-size-page vehicle-type-page">
     <section class="rim-hero">
         <img src="<?php echo esc_url($hero_image); ?>"
-             alt="<?php esc_attr_e('Tizezap tire shop cover for shopping by vehicle type', 'dawp'); ?>"
+             alt="<?php esc_attr_e('Rubyinstar tire shop cover for shopping by vehicle type', 'dawp'); ?>"
              class="rim-hero__image"
              loading="eager"
              fetchpriority="high">
         <div class="rim-hero__overlay"></div>
         <div class="rim-hero__inner">
             <div class="rim-hero__copy">
-                <p class="rim-eyebrow"><?php esc_html_e('Tizezap Vehicle Type Finder', 'dawp'); ?></p>
+                <p class="rim-eyebrow"><?php esc_html_e('Rubyinstar Vehicle Type Finder', 'dawp'); ?></p>
                 <h1><?php esc_html_e('Shop By Vehicle Type', 'dawp'); ?></h1>
-                <p><?php esc_html_e('Choose the vehicle group that best matches how the tire will be used, then open the most relevant Tizezap tire category.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Choose the vehicle group that best matches how the tire will be used, then open the most relevant Rubyinstar tire category.', 'dawp'); ?></p>
                 <div class="rim-hero__actions">
                     <a href="#vehicle-type-tool" class="rim-button rim-button--primary"><?php esc_html_e('Find Vehicle Tires', 'dawp'); ?></a>
                     <a href="<?php echo esc_url($shop_url); ?>" class="rim-button rim-button--ghost"><?php esc_html_e('Shop All Tires', 'dawp'); ?></a>
@@ -150,7 +150,7 @@ $popular_types = ['suv-crossover', 'pickup-light-truck', 'passenger-car'];
                 <p><?php esc_html_e('Vehicle type helps narrow the category, but the final tire still needs to match the sidewall size, load index, speed rating, and manufacturer fitment requirements.', 'dawp'); ?></p>
             </div>
             <img src="<?php echo esc_url($intro_image); ?>"
-                 alt="<?php esc_attr_e('Light truck tire category used for Tizezap vehicle type shopping guidance', 'dawp'); ?>"
+                 alt="<?php esc_attr_e('Light truck tire category used for Rubyinstar vehicle type shopping guidance', 'dawp'); ?>"
                  loading="lazy">
         </div>
     </section>
@@ -242,7 +242,7 @@ $popular_types = ['suv-crossover', 'pickup-light-truck', 'passenger-car'];
             <h2><?php esc_html_e('Vehicle type is only the first filter', 'dawp'); ?></h2>
             <p><?php esc_html_e('Before checkout, confirm the exact tire size, rim diameter, load index, speed rating, fitment notes, and quantity for your specific vehicle.', 'dawp'); ?></p>
         </div>
-        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rim-button rim-button--dark"><?php esc_html_e('Ask Tizezap Support', 'dawp'); ?></a>
+        <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rim-button rim-button--dark"><?php esc_html_e('Ask Rubyinstar Support', 'dawp'); ?></a>
     </section>
 </div>
 

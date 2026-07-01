@@ -9,8 +9,8 @@ get_header();
 
 $archive_title = is_shop() ? __('All Products', 'dawp') : woocommerce_page_title(false);
 $archive_summary = __('Browse tire options with clear product details, pricing, and fitment reminders.', 'dawp');
-$archive_eyebrow = __('Tizezap Tire Shop', 'dawp');
-$archive_cover = get_theme_file_uri('/assets/img/gallery/Tizezap/tire-hero-road.png');
+$archive_eyebrow = __('Rubyinstar Tire Shop', 'dawp');
+$archive_cover = get_theme_file_uri('/assets/img/gallery/Rubyinstar/tire-hero-road.png');
 $archive_tags = [
     __('Tire size', 'dawp'),
     __('Rim size', 'dawp'),

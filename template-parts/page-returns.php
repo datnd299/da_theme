@@ -7,12 +7,12 @@
 <div id="primary" class="bg-[#F4F6F8] font-body text-[#111827]">
     <section class="bg-[#0B1F33] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Tizezap Customer Care', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Rubyinstar Customer Care', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#D7DEE8]">
-                <?php esc_html_e('Thank you for shopping with Tizezap. If you are not entirely satisfied with your purchase, we are here to help. Our return policy is straightforward, transparent, and designed to provide you with the best shopping experience.', 'dawp'); ?>
+                <?php esc_html_e('Thank you for shopping with Rubyinstar. If you are not entirely satisfied with your purchase, we are here to help. Our return policy is straightforward, transparent, and designed to provide you with the best shopping experience.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#B8C3D1]">
                 <?php esc_html_e('Last Updated: May 19, 2026', 'dawp'); ?>
@@ -83,7 +83,7 @@
                                 <li>
                                     <strong><?php esc_html_e('Return Shipping Cost:', 'dawp'); ?></strong>
                                     <ul class="mt-3 list-disc space-y-2 pl-6">
-                                        <li><?php esc_html_e('If the return is due to our error (incorrect, defective, or damaged item), Tizezap will cover 100% of the return shipping costs.', 'dawp'); ?></li>
+                                        <li><?php esc_html_e('If the return is due to our error (incorrect, defective, or damaged item), Rubyinstar will cover 100% of the return shipping costs.', 'dawp'); ?></li>
                                         <li><?php esc_html_e('For customer remorse (ordered wrong size, changed mind, etc.), the customer is responsible for the actual return shipping costs.', 'dawp'); ?></li>
                                     </ul>
                                 </li>
@@ -92,13 +92,13 @@
 
                             <h3 id="return-process" class="scroll-mt-24 mt-10 rounded-md border-l-4 border-[#111827] bg-[#F4F6F8] px-5 py-4 text-xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('4. How to Initiate a Return', 'dawp'); ?></h3>
                             <ol class="mt-5 list-decimal space-y-3 pl-6">
-                                <li><strong><?php esc_html_e('Contact Us:', 'dawp'); ?></strong> <?php esc_html_e('Email our support team at support@tizezap.com within 30 days of delivery. Please provide your order number, tire model/size, and clear photos of the items.', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Contact Us:', 'dawp'); ?></strong> <?php esc_html_e('Email our support team at support@rubyinstar.com within 30 days of delivery. Please provide your order number, tire model/size, and clear photos of the items.', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Get Return Authorization:', 'dawp'); ?></strong> <?php esc_html_e('Our team will review your request within 1–2 business days and provide a return authorization along with the specific return shipping address. Please do not send items back without this authorization.', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Ship the Item:', 'dawp'); ?></strong> <?php esc_html_e('Securely pack the tires and ship them using a trackable shipping service.', 'dawp'); ?></li>
                             </ol>
 
                             <h3 class="mt-10 rounded-md border-l-4 border-[#111827] bg-[#F4F6F8] px-5 py-4 text-xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('5. Damaged, Defective, or Incorrect Items', 'dawp'); ?></h3>
-                            <p><?php esc_html_e('Please inspect your order upon arrival. If you receive a damaged, defective, or incorrect tire, please contact us at support@tizezap.com within 7 days of delivery. We will arrange a free replacement or a full refund at no additional cost to you.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Please inspect your order upon arrival. If you receive a damaged, defective, or incorrect tire, please contact us at support@rubyinstar.com within 7 days of delivery. We will arrange a free replacement or a full refund at no additional cost to you.', 'dawp'); ?></p>
 
                             <h3 id="refunds-exchanges" class="scroll-mt-24 mt-10 rounded-md border-l-4 border-[#111827] bg-[#F4F6F8] px-5 py-4 text-xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('6. Refunds & Exchanges', 'dawp'); ?></h3>
                             <ul class="mt-5 list-disc space-y-3 pl-6">
@@ -112,7 +112,7 @@
                             <ul class="mt-5 list-disc space-y-3 pl-6">
                                 <li><strong><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
-                                <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com" class="text-[#2563EB] underline hover:no-underline">support@tizezap.com</a></li>
+                                <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@rubyinstar.com" class="text-[#2563EB] underline hover:no-underline">support@rubyinstar.com</a></li>
                                 <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('Within 1–2 business days', 'dawp'); ?></li>
                             </ul>

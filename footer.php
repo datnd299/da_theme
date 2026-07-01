@@ -1,233 +1,91 @@
 <?php
 /**
  * Theme footer.
- *
- * @package dawp
  */
 
-$current_year = date_i18n('Y');
-$brand_name   = 'Tizezap';
+$shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
+    ? get_permalink(wc_get_page_id('shop'))
+    : home_url('/shop/');
 
-$term_url = static function ($slug) {
-    return function_exists('dawp_product_category_url')
-        ? dawp_product_category_url($slug)
-        : home_url('/product-category/' . sanitize_title($slug) . '/');
-};
-
-$footer_shop_links = [
-    ['title' => __('Shop All Tires', 'dawp'), 'url' => home_url('/shop/')],
-    ['title' => __('All-Season Tires', 'dawp'), 'url' => $term_url('all-season-tires')],
-    ['title' => __('SUV & Crossover Tires', 'dawp'), 'url' => $term_url('suv-crossover-tires')],
-    ['title' => __('Light Truck Tires', 'dawp'), 'url' => $term_url('light-truck-tires')],
-    ['title' => __('Performance Tires', 'dawp'), 'url' => $term_url('performance-tires')],
-];
-
-$footer_help_links = [
-    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
-    ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/returns-policy/')],
-    ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-    ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-    ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
-];
-
-$footer_policy_links = [
-    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
-    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
-    ['title' => __('Track My Order', 'dawp'), 'url' => home_url('/track-order/')],
-    ['title' => __('My Account', 'dawp'), 'url' => get_permalink(get_option('woocommerce_myaccount_page_id')) ?: home_url('/my-account/')],
-];
-
-$trust_items = [
-    [
-        'title' => __('Secure Checkout', 'dawp'),
-        'copy'  => __('Protected checkout flow for tire orders.', 'dawp'),
-    ],
-    [
-        'title' => __('Tracking Included', 'dawp'),
-        'copy'  => __('Tracking information is provided once an order ships.', 'dawp'),
-    ],
-    [
-        'title' => __('30-Day Eligible Returns', 'dawp'),
-        'copy'  => __('Eligible unused, unmounted, undriven, and undamaged tires may be returned within 30 days of delivery.', 'dawp'),
-    ],
-    [
-        'title' => __('Clear Tire Specs', 'dawp'),
-        'copy'  => __('Review size, rim, load index, speed rating, and fitment details.', 'dawp'),
-    ],
-];
-
-$footer_payment_methods = [
-    [
-        'label' => __('JCB', 'dawp'),
-        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/image copy.png',
-    ],
-    [
-        'label' => __('MasterCard', 'dawp'),
-        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/image copy 2.png',
-    ],
-    [
-        'label' => __('PayPal', 'dawp'),
-        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/image copy 3.png',
-    ],
-    [
-        'label' => __('Visa', 'dawp'),
-        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/image copy 4.png',
-    ],
-];
+$footer_columns = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [];
 ?>
 
-</div><!-- #content -->
-
-<footer id="colophon" class="bg-[#0B1F33] text-white" role="contentinfo">
-    <section class="border-b border-white/10 bg-[#F4F6F8] text-[#111827]">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-4 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
-            <?php foreach ($trust_items as $item) : ?>
-                <div class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm">
-                    <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-md bg-[#2563EB] text-white">
-                        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                        </svg>
-                    </div>
-                    <p class="text-lg font-black leading-snug text-[#0B1F33]">
-                        <?php echo esc_html($item['title']); ?>
-                    </p>
-                    <p class="mt-2 text-sm leading-6 text-[#4B5563]">
-                        <?php echo esc_html($item['copy']); ?>
-                    </p>
+<footer class="bg-[#050505] text-white">
+    <section class="border-y border-white/10 bg-[#111111]">
+        <div class="mx-auto grid max-w-7xl grid-cols-2 gap-3 px-4 py-6 sm:px-6 md:grid-cols-4 lg:px-8">
+            <?php
+            $trust_items = [
+                __('Secure Checkout', 'dawp'),
+                __('Order Tracking', 'dawp'),
+                __('Transparent Shipping', 'dawp'),
+                __('Easy Returns', 'dawp'),
+            ];
+            foreach ($trust_items as $item) :
+            ?>
+                <div class="rounded-md border border-white/10 bg-white/5 px-3 py-3 text-center text-xs font-black uppercase tracking-wide text-[#FCA5A5]">
+                    <?php echo esc_html($item); ?>
                 </div>
             <?php endforeach; ?>
         </div>
     </section>
 
-    <section>
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr] lg:px-8 lg:py-12">
-            <div>
-                <a href="<?php echo esc_url(home_url('/')); ?>"
-                   class="block h-[5.25rem] w-[17rem] max-w-full overflow-hidden"
-                   aria-label="<?php echo esc_attr($brand_name); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo_footer.png'); ?>"
-                         alt="<?php echo esc_attr($brand_name); ?>"
-                         width="1536"
-                         height="1024"
-                         class="block w-[24rem] max-w-none -translate-x-[3.8rem] -translate-y-[5rem]">
-                </a>
-
-                <div class="mt-2 space-y-1 text-sm leading-6 text-white/75">
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Company:', 'dawp'); ?></strong>
-                        <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong>
-                        <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
-                        <a href="mailto:support@tizezap.com" class="transition hover:text-[#93C5FD]">support@tizezap.com</a>
-                    </p>
-                    <p>
-                        <strong class="text-white"><?php esc_html_e('Phone:', 'dawp'); ?></strong>
-                        <a href="tel:+18887984739" class="transition hover:text-[#93C5FD]">+1 888-798-4739</a>
-                    </p>
-                </div>
-            </div>
-
-            <nav aria-label="<?php esc_attr_e('Footer shop navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#93C5FD]">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.8fr] lg:px-8 lg:py-16">
+        <div>
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center gap-3 text-white hover:text-white">
+                <span class="flex h-12 w-12 items-center justify-center rounded-md bg-[#DC2626]">
+                    <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="7" stroke-width="2" /><circle cx="12" cy="12" r="2" stroke-width="2" /><path stroke-linecap="round" stroke-width="2" d="M12 5v3m0 8v3m7-7h-3M8 12H5" /></svg>
+                </span>
+                <span>
+                    <span class="block font-heading text-3xl font-black leading-none"><?php bloginfo('name'); ?></span>
+                    <span class="text-xs font-black uppercase tracking-[0.18em] text-[#FCA5A5]"><?php esc_html_e('Online Tire Store', 'dawp'); ?></span>
+                </span>
+            </a>
+            <p class="mt-5 max-w-md text-sm leading-7 text-[#D4D4D4]">
+                <?php esc_html_e('Rubyinstar helps everyday drivers shop quality tires online with simple product discovery, competitive pricing, and reliable delivery updates.', 'dawp'); ?>
+            </p>
+            <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#DC2626] px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#111111]">
                     <?php esc_html_e('Shop Tires', 'dawp'); ?>
-                </h3>
-
-                <ul class="space-y-3">
-                    <?php foreach ($footer_shop_links as $link) : ?>
-                        <li>
-                            <a href="<?php echo esc_url($link['url']); ?>"
-                               class="text-sm font-bold text-white/72 transition hover:text-white">
-                                <?php echo esc_html($link['title']); ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
-
-            <nav aria-label="<?php esc_attr_e('Footer help navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#93C5FD]">
-                    <?php esc_html_e('Store Policy', 'dawp'); ?>
-                </h3>
-
-                <ul class="space-y-3">
-                    <?php foreach ($footer_help_links as $link) : ?>
-                        <li>
-                            <a href="<?php echo esc_url($link['url']); ?>"
-                               class="text-sm font-bold text-white/72 transition hover:text-white">
-                                <?php echo esc_html($link['title']); ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
-
-            <nav aria-label="<?php esc_attr_e('Footer policy navigation', 'dawp'); ?>">
-                <h3 class="mb-5 text-sm font-black uppercase tracking-[0.2em] text-[#93C5FD]">
-                    <?php esc_html_e('Company', 'dawp'); ?>
-                </h3>
-
-                <ul class="space-y-3">
-                    <?php foreach ($footer_policy_links as $link) : ?>
-                        <?php if (! empty($link['url'])) : ?>
-                            <li>
-                                <a href="<?php echo esc_url($link['url']); ?>"
-                                   class="text-sm font-bold text-white/72 transition hover:text-white">
-                                    <?php echo esc_html($link['title']); ?>
-                                </a>
-                            </li>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
+                </a>
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/20 bg-white/10 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#111111]">
+                    <?php esc_html_e('Contact Support', 'dawp'); ?>
+                </a>
+            </div>
         </div>
-    </section>
+
+        <?php foreach ($footer_columns as $column) : ?>
+            <div>
+                <h2 class="font-heading text-lg font-black uppercase tracking-wide text-white"><?php echo esc_html($column['title']); ?></h2>
+                <ul class="mt-5 space-y-3">
+                    <?php foreach ($column['links'] as $link) : ?>
+                        <li>
+                            <a href="<?php echo esc_url($link['url']); ?>" class="text-sm font-semibold text-[#D4D4D4] transition hover:text-[#FCA5A5]">
+                                <?php echo esc_html($link['title']); ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endforeach; ?>
+
+        <div>
+            <h2 class="font-heading text-lg font-black uppercase tracking-wide text-white"><?php esc_html_e('Need Help?', 'dawp'); ?></h2>
+            <div class="mt-5 space-y-4 text-sm leading-7 text-[#D4D4D4]">
+                <p><?php esc_html_e('Have questions about tire size, shipping, returns, or your order status? Our support pages are ready when you need them.', 'dawp'); ?></p>
+                <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-md bg-white px-5 text-sm font-black uppercase tracking-wide text-[#111111] transition hover:bg-[#DC2626] hover:text-white">
+                    <?php esc_html_e('Track Order', 'dawp'); ?>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="border-t border-white/10">
-        <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-white/60 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-            <p>
-                &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html($brand_name); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
-            </p>
-
-            <div class="flex flex-col gap-3 lg:items-center">
-                <p class="text-xs font-black uppercase tracking-[0.2em] text-white/70">
-                    <?php esc_html_e('Payment Methods', 'dawp'); ?>
-                </p>
-                <ul class="flex flex-wrap gap-1.5" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
-                    <?php foreach ($footer_payment_methods as $method) : ?>
-                        <li>
-                            <img
-                                src="<?php echo esc_url($method['image']); ?>"
-                                alt="<?php echo esc_attr($method['label']); ?>"
-                                width="80"
-                                height="48"
-                                loading="lazy"
-                                class="h-7 w-auto rounded bg-white shadow-sm"
-                            >
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-
-            <div class="flex flex-col gap-3 lg:items-end">
-                <p class="font-black uppercase tracking-[0.18em] text-[#93C5FD]">
-                    <?php esc_html_e('Road-ready tire shopping', 'dawp'); ?>
-                </p>
-
-                <a href="https://www.facebook.com/profile.php?id=61590469752316"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="dawp-footer-facebook inline-flex items-center justify-center text-white"
-                   aria-label="<?php esc_attr_e('Facebook page', 'dawp'); ?>">
-                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <path d="M22 12.06C22 6.51 17.52 2 12 2S2 6.51 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22C18.34 21.24 22 17.08 22 12.06z" />
-                    </svg>
-                    <span><?php esc_html_e('Facebook page', 'dawp'); ?></span>
-                </a>
+        <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm font-semibold text-[#A3A3A3] sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+            <p>&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php bloginfo('name'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <div class="flex flex-wrap gap-x-5 gap-y-2">
+                <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="hover:text-white"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
+                <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>" class="hover:text-white"><?php esc_html_e('Terms Of Service', 'dawp'); ?></a>
+                <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="hover:text-white"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
             </div>
         </div>
     </div>

@@ -7,12 +7,12 @@
 <div id="primary" class="bg-[#F4F6F8] font-body text-[#111827]">
     <section class="bg-[#0B1F33] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Tizezap Privacy', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Rubyinstar Privacy', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Privacy Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#D7DEE8]">
-                <?php esc_html_e('How Tizezap collects, uses, protects, and shares customer information for tire shopping, checkout, fulfillment, and support.', 'dawp'); ?>
+                <?php esc_html_e('How Rubyinstar collects, uses, protects, and shares customer information for tire shopping, checkout, fulfillment, and support.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#B8C3D1]">
                 <?php esc_html_e('Last Updated: May 19, 2026', 'dawp'); ?>
@@ -42,7 +42,7 @@
                         [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#E5E7EB] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#0B1F33] md:[&_h2]:text-3xl
                         [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#111827] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
 
-                        <p id="privacy-overview" class="scroll-mt-24 rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] p-4 font-medium text-[#111827]"><?php esc_html_e('At Tizezap ("we", "us", or "our"), available at tizezap.com, the privacy and security of our customers are our top priorities. This Privacy Policy outlines how we collect, use, protect, and handle your personal information when you purchase tires, create an account, or interact with our customer support.', 'dawp'); ?></p>
+                        <p id="privacy-overview" class="scroll-mt-24 rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] p-4 font-medium text-[#111827]"><?php esc_html_e('At Rubyinstar ("we", "us", or "our"), available at rubyinstar.com, the privacy and security of our customers are our top priorities. This Privacy Policy outlines how we collect, use, protect, and handle your personal information when you purchase tires, create an account, or interact with our customer support.', 'dawp'); ?></p>
 
                         <h2 id="information-collect"><?php esc_html_e('1. Information We Collect', 'dawp'); ?></h2>
                         <p><?php esc_html_e('We only collect personal information that is necessary to process your orders and provide an optimal shopping experience. This includes:', 'dawp'); ?></p>
@@ -51,13 +51,13 @@
                             <li><strong><?php esc_html_e('Order & Tire Details:', 'dawp'); ?></strong> <?php esc_html_e('Tire size, specification choices, order history, and customer service inquiries.', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Technical Data:', 'dawp'); ?></strong> <?php esc_html_e('IP address, browser type, and device information gathered via cookies to improve website functionality and site security.', 'dawp'); ?></li>
                         </ul>
-                        <p class="rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] p-4 font-medium text-[#111827]">🔒 <strong><?php esc_html_e('Important Note:', 'dawp'); ?></strong> <?php esc_html_e('Tizezap does NOT collect or store sensitive personal information such as Social Security numbers, government IDs, medical records, or financial account credentials.', 'dawp'); ?></p>
+                        <p class="rounded-lg border border-[#BFDBFE] bg-[#EFF6FF] p-4 font-medium text-[#111827]">🔒 <strong><?php esc_html_e('Important Note:', 'dawp'); ?></strong> <?php esc_html_e('Rubyinstar does NOT collect or store sensitive personal information such as Social Security numbers, government IDs, medical records, or financial account credentials.', 'dawp'); ?></p>
 
                         <h2 id="payment-security"><?php esc_html_e('2. Payment Security & Data Protection', 'dawp'); ?></h2>
                         <p><?php esc_html_e('We implement industry-standard security measures to maintain the safety of your personal information.', 'dawp'); ?></p>
                         <ul>
                             <li><strong><?php esc_html_e('Secure Checkout (SSL):', 'dawp'); ?></strong> <?php esc_html_e('All sensitive and credit card information you supply is transmitted via Secure Socket Layer (SSL) technology and encrypted into our payment gateway providers\' database.', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('No Storage of Financial Data:', 'dawp'); ?></strong> <?php esc_html_e('Tizezap does NOT store, view, or retain your full credit card numbers, CVV codes, or bank account credentials on our servers. All transactions are securely processed directly through authorized, PCI-compliant third-party payment processors.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('No Storage of Financial Data:', 'dawp'); ?></strong> <?php esc_html_e('Rubyinstar does NOT store, view, or retain your full credit card numbers, CVV codes, or bank account credentials on our servers. All transactions are securely processed directly through authorized, PCI-compliant third-party payment processors.', 'dawp'); ?></li>
                         </ul>
 
                         <h2 id="privacy-use"><?php esc_html_e('3. How We Use and Share Your Information', 'dawp'); ?></h2>
@@ -79,7 +79,7 @@
                             <li><?php esc_html_e('Request the permanent deletion of your data.', 'dawp'); ?></li>
                             <li><?php esc_html_e('Opt out of technical tracking and analytics cookies.', 'dawp'); ?></li>
                         </ul>
-                        <p><?php esc_html_e('To exercise any of these rights, please submit a request directly to support@tizezap.com. We will process and respond to verified requests within standard legal timeframes.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('To exercise any of these rights, please submit a request directly to support@rubyinstar.com. We will process and respond to verified requests within standard legal timeframes.', 'dawp'); ?></p>
 
                         <h2><?php esc_html_e('6. Children\'s Privacy', 'dawp'); ?></h2>
                         <p><?php esc_html_e('Our website is designed for adult vehicle owners and is not directed toward children. We do not knowingly collect personal information from individuals under the age of 13.', 'dawp'); ?></p>
@@ -90,11 +90,11 @@
                         <h2 id="privacy-contact"><?php esc_html_e('Contact Information', 'dawp'); ?></h2>
                         <p><?php esc_html_e('For any privacy-related questions, data requests, or compliance inquiries, please feel free to reach out to us:', 'dawp'); ?></p>
                         <ul>
-                            <li><strong><?php esc_html_e('Store Name:', 'dawp'); ?></strong> <?php esc_html_e('Tizezap', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Store Name:', 'dawp'); ?></strong> <?php esc_html_e('Rubyinstar', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Website URL:', 'dawp'); ?></strong> <?php esc_html_e('tizezap.com', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com">support@tizezap.com</a></li>
+                            <li><strong><?php esc_html_e('Website URL:', 'dawp'); ?></strong> <?php esc_html_e('rubyinstar.com', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:support@rubyinstar.com">support@rubyinstar.com</a></li>
                             <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
                         </ul>
                     </div>

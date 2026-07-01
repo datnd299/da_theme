@@ -28,15 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const masthead = document.getElementById('masthead');
-    const mobileMenuToggle = document.getElementById('tizezap-mobile-menu-toggle');
-    const mobileMenu = document.getElementById('tizezap-mobile-menu');
-    const mobileSearchToggle = document.getElementById('tizezap-mobile-search-toggle');
-    const mobileSearch = document.getElementById('tizezap-mobile-search');
+    const mobileMenuToggle = document.getElementById('rubyinstar-mobile-menu-toggle');
+    const mobileMenu = document.getElementById('rubyinstar-mobile-menu');
+    const mobileSearchToggle = document.getElementById('rubyinstar-mobile-search-toggle');
+    const mobileSearch = document.getElementById('rubyinstar-mobile-search');
 
     const setMobilePanelTop = () => {
         if (!masthead) return;
         document.documentElement.style.setProperty(
-            '--tizezap-mobile-panel-top',
+            '--rubyinstar-mobile-panel-top',
             `${Math.max(0, masthead.getBoundingClientRect().bottom)}px`
         );
     };

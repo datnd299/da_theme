@@ -68,7 +68,7 @@ function dawp_tire_category_cover_url($slug) {
     $category = dawp_tire_category_data($slug);
     $file = $category['cover'] ?? 'tire-hero-road.png';
 
-    return get_theme_file_uri('/assets/img/gallery/Tizezap/' . $file);
+    return get_theme_file_uri('/assets/img/gallery/Rubyinstar/' . $file);
 }
 
 function dawp_product_category_url($slug) {

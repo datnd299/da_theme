@@ -1,322 +1,356 @@
-# Tizezap — Design System
+# Rubyinstar — Design System
 
-## Design Goal
+## Design Direction
 
-Build a clean, professional tire ecommerce website for cars, SUVs, trucks, trailers, winter tires, and performance tires.
+Rubyinstar is an automotive ecommerce brand focused on affordable, convenient tire shopping.
 
-The site should feel:
+Website feeling:
 
-* Automotive
 * Reliable
-* Technical
-* Clean
-* Road-ready
-* Trustworthy
-* Easy to shop
-* GMC-safe
+* Professional
+* Modern
+* Affordable
+* Easy to use
 
-Avoid making the site feel like a racing-only store, random auto parts shop, fake discount tire site, or unsafe used tire marketplace.
+Avoid:
+
+* Luxury automotive style
+* Racing-only visuals
+* Complicated technical layouts
+* Cheap dropshipping appearance
 
 ---
 
-## Color Palette
+# Color System
 
-### Deep Navy
+## Primary
 
 ```txt
-#0B1F33
+Automotive Navy
+#0B1F3A
 ```
 
-Use for headings, footer, strong sections, trust blocks.
+Usage:
 
-### Charcoal Black
+* Header
+* Footer
+* Trust sections
+* Main branding
 
-```txt
-#111827
-```
+---
 
-Use for main text, product titles, dark UI areas.
-
-### Steel Gray
-
-```txt
-#E5E7EB
-```
-
-Use for borders, dividers, product card outlines.
-
-### Cool Gray
+## CTA Accent
 
 ```txt
-#F4F6F8
-```
-
-Use for section backgrounds and product grid areas.
-
-### Electric Blue
-
-```txt
-#2563EB
-```
-
-Use for primary buttons, links, active states, technical highlights.
-
-### Safety Orange
-
-```txt
+Tire Orange
 #F97316
 ```
 
-Use lightly for fitment reminders, important notes, small badges.
+Usage:
 
-### Clean White
+* Shop buttons
+* Promotions
+* Important actions
+
+---
+
+## Background
 
 ```txt
+Clean White
 #FFFFFF
+
+Light Gray
+#F5F6F8
 ```
 
-Use for main background, cards, forms, product pages.
+Usage:
+
+* Product sections
+* Cards
+* Background blocks
 
 ---
 
-## Typography
-
-Use clean modern sans-serif fonts:
+## Text
 
 ```txt
-Inter
-Manrope
-Plus Jakarta Sans
-Source Sans 3
+Main Text
+#111827
+
+Secondary Text
+#6B7280
+
+Border
+#E5E7EB
 ```
-
-Rules:
-
-* Headings: bold, clear, technical
-* Body: readable and direct
-* Product titles: concise and specification-friendly
-* Avoid decorative, luxury, or playful fonts
 
 ---
 
-## Layout Style
+# Typography
 
-Use a practical automotive ecommerce layout:
-
-* Large hero section
-* Clear category cards
-* Product grids with specs
-* Strong filter/search area
-* Trust and fitment reminders
-* Short copy blocks
-* Mobile-first spacing
-
-Recommended width:
+Recommended:
 
 ```txt
-max-w-7xl
+Heading:
+Inter / Plus Jakarta Sans
+
+Body:
+Inter / Open Sans
 ```
-
-Recommended spacing:
-
-```txt
-Desktop: py-20
-Mobile: py-14
-```
-
----
-
-## Homepage Sections
-
-Use 5 sections:
-
-1. Hero — Reliable Tires For Everyday Driving
-2. Shop By Tire Category
-3. All-Season & Daily Driving Tires
-4. SUV, Truck & Trailer Tires
-5. Customer Care / Fitment & Trust
-
-Keep homepage focused on tires, not general auto parts.
-
----
-
-## Product Categories
-
-Main categories:
-
-```txt
-All-Season Tires
-SUV & Crossover Tires
-Light Truck Tires
-Performance Tires
-Trailer Tires
-Winter Tires
-```
-
-Useful filters:
-
-```txt
-Shop By Tire Size
-Shop By Rim Size
-Shop By Vehicle Type
-Shop By Brand
-```
-
----
-
-## Image Direction
-
-Use clean automotive photography:
-
-* Tire close-ups
-* Tread detail shots
-* Car on road
-* SUV / truck lifestyle
-* Garage or tire shop scene
-* Product tire images on clean background
-
-Image rules:
-
-* No fake brand logos
-* No dirty/unsafe tire visuals
-* No text-heavy supplier images
-* No aggressive racing visuals unless for performance category
-* Product tread and tire sidewall should be clear when possible
-
----
-
-## Product Card Style
-
-Product cards should show key tire info clearly:
-
-* Tire image
-* Product name
-* Tire size
-* Tire type
-* Price
-* Short CTA
-
-Optional specs:
-
-* Load index
-* Speed rating
-* Season
-* Vehicle type
 
 Style:
 
-* White background
-* Light border
+* Bold headings
+* Clear product information
+* Easy reading
+* Professional automotive tone
+
+Avoid:
+
+* Decorative fonts
+* Racing-style typography
+* Heavy effects
+
+---
+
+# Layout System
+
+```txt
+Container:
+max-w-7xl mx-auto px-4 md:px-6
+
+Section:
+py-12 md:py-16
+
+Grid:
+Mobile: 2 columns
+Desktop: 4 columns
+
+Card:
+rounded-xl
+border
+shadow-sm
+```
+
+---
+
+# Header
+
+Desktop:
+
+```txt
+Logo
+|
+Shop Tires
+Tire Finder
+Categories
+Deals
+Track Order
+Search
+Cart
+```
+
+Mobile:
+
+```txt
+Menu
+Logo
+Search
+Cart
+```
+
+Requirements:
+
+* Visible search
+* Tire finder access
+* Clear CTA
+
+---
+
+# Hero Section
+
+Goal:
+
+Help customers find tires quickly.
+
+Structure:
+
+```txt
+Headline
+Short description
+Vehicle/Tire Finder
+CTA Button
+Automotive image
+```
+
+Example:
+
+Headline:
+
+"Find The Right Tires For Your Vehicle"
+
+CTA:
+
+"Shop Tires"
+
+"Find My Tire Size"
+
+---
+
+# Product Card
+
+Required:
+
+* Tire image
+* Brand
+* Model
+* Tire size
+* Tire type
+* Price
+* Shipping info
+* CTA
+
+Example:
+
+```txt
+Michelin Defender
+
+215/55R17
+
+All Season
+
+$189.99
+
+Shop Now
+```
+
+---
+
+# Product Grid
+
+Rules:
+
+```txt
+Mobile:
+2 columns
+
+Desktop:
+4 columns
+```
+
+Show:
+
+* Product image
+* Price visible
+* Clear CTA
+
+Avoid:
+
+* Hidden price
+* Hover-only information
+
+---
+
+# Tire Finder Component
+
+Important conversion element:
+
+Options:
+
+```txt
+Find By Vehicle
+
+Year
+Make
+Model
+Trim
+```
+
+or
+
+```txt
+Find By Tire Size
+
+Width
+Aspect Ratio
+Wheel Size
+```
+
+---
+
+# Trust Section
+
+Required:
+
+```txt
+Secure Checkout
+
+Fast Shipping
+
+Order Tracking
+
+Easy Returns
+```
+
+Style:
+
+* Clean cards
+* Simple icons
+* Clear copy
+
+---
+
+# Image Direction
+
+Use:
+
+* Tire close-up
+* Cars on road
+* Everyday drivers
+* Vehicle lifestyle images
+* Product shots
+
+Avoid:
+
+* Racing cars only
+* Dark garage aesthetic
+* Excessive mechanical graphics
+
+---
+
+# Button Style
+
+Primary:
+
+```txt
+Background:
+#F97316
+
+Text:
+White
+```
+
+Secondary:
+
+```txt
+Background:
+#0B1F3A
+
+Text:
+White
+```
+
+Style:
+
 * Rounded corners
-* Clean shadow on hover
-* No excessive sale badges
+* Strong contrast
+* Minimum 44px height
 
 ---
 
-## Buttons
+# Final Feeling
 
-### Primary Button
+Rubyinstar should feel like:
 
-```txt
-Background: #2563EB
-Text: #FFFFFF
-Hover: #0B1F33
-```
-
-### Secondary Button
-
-```txt
-Background: transparent / white
-Border: #2563EB
-Text: #2563EB
-Hover background: #F4F6F8
-```
-
-### Warning / Fitment Button or Badge
-
-```txt
-Background: #F97316
-Text: #FFFFFF
-```
-
-Use Safety Orange only for important reminders, not decoration overload.
-
----
-
-## Trust Elements
-
-Always include:
-
-* Secure checkout
-* Tracking included
-* 30-day returns
-* Support email
-* Shipping timeline
-* Tire fitment reminder
-* Clear product specifications
-
-Important fitment note:
-
-```txt
-Please confirm your tire size, rim size, and vehicle compatibility before placing an order.
-```
-
----
-
-## Product Page Requirements
-
-Every tire product page should include:
-
-```txt
-Tire size
-Rim size
-Load index
-Speed rating
-Tire type
-Season / driving condition
-Vehicle compatibility guidance
-Quantity included
-Shipping note
-Return eligibility
-```
-
-Avoid vague product pages with only image + price.
-
----
-
-## GMC-Safe Rules
-
-Do not use:
-
-* Accident-proof claims
-* Safest tire guaranteed
-* Fits every vehicle
-* Lifetime warranty unless verified
-* Fake brand logos
-* Counterfeit tire branding
-* Fake reviews
-* Countdown timers
-* Misleading compatibility claims
-
-Safe wording:
-
-```txt
-reliable
-everyday driving
-road-ready
-all-season
-vehicle compatibility
-clear tire specs
-fitment reminder
-practical tire shopping
-```
-
----
-
-## Final Design Feeling
-
-Tizezap should look like:
-
-> A clean, trustworthy online tire store helping drivers find tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
-
-The site must feel tire-focused, professional, technical enough to trust, and easy for customers to confirm fitment before purchase.
+"An easy and trusted online tire store where American drivers can quickly find affordable tires with confidence."

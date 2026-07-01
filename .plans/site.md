@@ -1,436 +1,411 @@
-# Tizezap — Site.md
+# Rubyinstar — Site.md
 
 ## Store Information
 
-* **Domain:** tizezap.com
-* **Brand Name:** Tizezap
+* **Website:** rubyinstar.com
+* **Market:** United States
 * **Language:** English
-* **Store Type:** Tire & Auto Essentials Store
-* **Primary Market:** United States
-* **Core Products:** Car tires, SUV tires, light truck tires, trailer tires, all-season tires, winter tires, performance tires
-* **Support Email:** [support@tizezap.com](mailto:support@tizezap.com)
-* **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
+* **Store Type:** Online Tire Retail Ecommerce
+* **Industry:** Automotive / Tire Store
 
 ---
 
-## Brand Positioning
+# Brand Positioning
 
-Tizezap is an online tire store focused on reliable tires for everyday driving, road comfort, vehicle compatibility, and practical tire shopping.
-
-Core message:
-
-> Reliable tires for everyday driving.
-
-Expanded message:
-
-> Tizezap helps drivers find suitable tires for cars, SUVs, trucks, trailers, and seasonal driving needs with clear product details and practical support.
+Rubyinstar is an online tire shopping platform focused on making tire purchasing simple, convenient, and affordable for everyday American drivers.
 
 The store should feel:
 
-* Automotive
 * Reliable
-* Practical
-* Clean
-* Technical but easy to understand
-* Trustworthy
-* Road-ready
-* GMC-safe
+* Affordable
+* Convenient
+* Automotive professional
+* Easy to shop
+* Customer-focused
 
-The store should not feel like:
+Avoid:
 
-* A random auto parts store
-* A racing-only tire shop
-* A fake discount tire site
-* A used tire marketplace
-* A site making exaggerated safety claims
+* Luxury automotive positioning
+* Racing-only branding
+* Complicated technical store feeling
+* Generic automotive dropshipping appearance
 
 ---
 
-## Core Store Concept
+# Target Audience
 
-Tizezap sells tires for different vehicle needs and driving conditions.
+## Primary Customers
 
-The site should help customers shop by:
-
-* Tire type
-* Vehicle type
-* Driving condition
-* Tire size
-* Rim size
-* Product specifications
-
-The main focus is not hype or extreme performance claims. The focus is clear tire selection, dependable road use, and easy product comparison.
-
----
-
-## Target Audience
-
-Primary audience:
-
-* Car owners
-* SUV and crossover owners
-* Light truck drivers
-* Trailer owners
-* Everyday commuters
+* Everyday vehicle owners
 * Drivers replacing worn tires
-* Customers looking for seasonal tires
-* People comparing tire options online
+* Families
+* Budget-conscious shoppers
+* Online automotive buyers
 
-Customer needs:
+## Vehicle Types
 
-* Find tires that fit their vehicle
-* Understand tire size and specifications
-* Choose tires for everyday driving
-* Compare all-season, winter, performance, SUV, truck, and trailer tires
-* Get clear shipping and return information
-
----
-
-## Main Product Categories
-
-Keep categories focused and tire-specific:
-
-1. **All-Season Tires**
-2. **SUV & Crossover Tires**
-3. **Light Truck Tires**
-4. **Performance Tires**
-5. **Trailer Tires**
-6. **Winter Tires**
-
-Short menu option:
-
-1. **All-Season Tires**
-2. **SUV & Truck Tires**
-3. **Performance Tires**
-4. **Trailer Tires**
-5. **Winter Tires**
-
-Additional shopping filters:
-
-* Shop By Tire Size
-* Shop By Rim Size
-* Shop By Vehicle Type
-* Shop By Brand
+* Sedans
+* SUVs
+* Crossovers
+* Pickup trucks
+* Daily commuter vehicles
 
 ---
 
-## Category Direction
+# Customer Problems
 
-### All-Season Tires
+Customers often worry about:
 
-For everyday driving in varied conditions.
+* Choosing the wrong tire size
+* Understanding tire specifications
+* Finding affordable options
+* Complicated buying process
+* Delivery reliability
 
-Safe copy:
+Website should solve:
 
-> Tires designed for practical year-round driving and everyday road use.
-
-### SUV & Crossover Tires
-
-For SUVs, crossovers, and family vehicles.
-
-Safe copy:
-
-> Tire options for SUVs and crossovers, built for daily driving, comfort, and road stability.
-
-### Light Truck Tires
-
-For pickup trucks and light-duty work vehicles.
-
-Safe copy:
-
-> Tires for light trucks, hauling needs, and everyday utility driving.
-
-### Performance Tires
-
-For drivers who want sharper handling and sporty road feel.
-
-Safe copy:
-
-> Tires designed for responsive handling and performance-inspired driving.
-
-### Trailer Tires
-
-For trailers, utility trailers, and towing support.
-
-Safe copy:
-
-> Trailer tire options for towing, utility use, and road-ready trailer needs.
-
-### Winter Tires
-
-For cold-weather and winter driving conditions.
-
-Safe copy:
-
-> Tires designed for colder temperatures and winter road conditions.
+* Easy tire discovery
+* Clear product information
+* Simple checkout
+* Transparent shipping
 
 ---
 
-## Product Information Requirements
+# Main Categories
 
-Every tire product page should clearly show:
+## Passenger Car Tires
 
+For:
+
+* Sedans
+* Compact cars
+* Daily driving
+
+---
+
+## SUV & Crossover Tires
+
+For:
+
+* Family SUVs
+* Crossovers
+* Comfortable driving
+
+---
+
+## Truck Tires
+
+For:
+
+* Pickup trucks
+* Work vehicles
+* Heavy-duty driving
+
+---
+
+## Performance Tires
+
+For:
+
+* Better handling
+* Sport vehicles
+* Driving enthusiasts
+
+---
+
+## All Season Tires
+
+For:
+
+* Year-round driving
+* Everyday convenience
+* Mixed weather conditions
+
+---
+
+# Homepage Direction
+
+Homepage goal:
+
+Help customers quickly find suitable tires and build trust before purchase.
+
+Recommended sections:
+
+1. Hero + Tire Finder
+2. Shop By Vehicle Category
+3. Featured Tire Products
+4. Best Deals / Seasonal Picks
+5. Why Choose Rubyinstar
+6. Customer Feedback Slider
+7. Newsletter + Trust Footer
+
+---
+
+# Hero Direction
+
+Main message:
+
+"Find The Right Tires For Your Vehicle"
+
+Supporting message:
+
+"Shop quality tires online with competitive prices, convenient delivery, and a simple buying experience."
+
+Primary CTA:
+
+* Shop Tires
+
+Secondary CTA:
+
+* Find My Tire Size
+
+Hero should include:
+
+* Vehicle search
+* Tire size finder
+* Product imagery
+* Automotive lifestyle image
+
+---
+
+# Product Experience
+
+Product cards should show:
+
+* Tire image
+* Brand name
+* Tire model
 * Tire size
-* Rim size
-* Load index
-* Speed rating
 * Tire type
-* Vehicle compatibility guidance
-* Season / driving condition
-* Tread pattern if available
-* Brand / model
-* Quantity included
+* Price
 * Shipping information
-* Return eligibility
+* Product CTA
 
-Important note to include on product pages:
+Example:
 
-> Please confirm your tire size, rim size, and vehicle compatibility before placing an order.
+```
+Brand
+Model Name
 
----
+215/55R17
 
-## Products To Avoid
+All Season
 
-For GMC safety, avoid:
+$189.99
 
-* Used tires unless clearly disclosed and compliant
-* Counterfeit tire brands
-* Fake brand names or unauthorized logos
-* Misleading warranty claims
-* Unsafe or damaged tire products
-* Racing-only products marketed for regular road use without clarity
-* Extreme claims such as accident-proof or safest tire guaranteed
+Shop Now
+```
 
 ---
 
-## Brand Voice
+# Tire Finder System
 
-Tone should be:
+Important homepage feature:
+
+Customers can search by:
+
+* Vehicle
+* Tire Size
+* Brand
+
+Vehicle selector:
+
+* Year
+* Make
+* Model
+* Trim
+
+Goal:
+
+Reduce purchase mistakes and increase confidence.
+
+---
+
+# Product Content Direction
+
+Descriptions should be:
 
 * Clear
 * Practical
-* Reliable
-* Technical but easy to understand
-* Customer-friendly
-* Safety-aware without exaggerated claims
+* Easy to understand
+* Customer-focused
 
-Good words:
+Include:
 
-* reliable
-* everyday driving
-* road-ready
-* compatible
-* all-season
-* traction
-* handling
-* comfort
-* utility
-* tire size
-* vehicle fit
-
-Avoid words:
-
-* safest tire guaranteed
-* accident-proof
-* fits every vehicle
-* lifetime warranty unless verified
-* best tire in the world
-* unbeatable performance
-* 100% guaranteed grip
-
----
-
-## Visual Direction
-
-Use clean automotive imagery:
-
-* Tire close-ups
-* Tread detail shots
-* Car on road
-* SUV on highway
-* Truck / trailer tire scenes
-* Garage or tire shop setting
-* Clean product photography
-* Road lifestyle visuals
-
-Visual style:
-
-* Navy
-* Black
-* Steel gray
-* White
-* Electric blue accent
-* Realistic lighting
-* Strong product clarity
+* Driving condition
+* Vehicle compatibility
+* Tire benefits
+* Performance explanation
 
 Avoid:
 
-* Overly aggressive racing visuals unless for performance section
-* Fake brand logos
-* Text-heavy supplier images
-* Dirty/unsafe tire imagery
-* Low-quality product screenshots
+* Excessive technical wording
+* Keyword stuffing
+* Fake claims
 
 ---
 
-## Color Direction
+# Trust Elements
 
-Recommended palette:
+Required:
 
-* Deep Navy
-* Charcoal Black
-* Steel Gray
-* Clean White
-* Electric Blue
-* Safety Orange accent used lightly
+* Secure Checkout
+* Order Tracking
+* Customer Support
+* Transparent Shipping
+* Easy Returns
 
-The site should feel automotive, trustworthy, and technical.
+Trust messaging:
 
----
-
-## Homepage Direction
-
-Recommended homepage flow:
-
-1. **Hero — Reliable Tires For Everyday Driving**
-2. **Shop By Tire Category**
-3. **All-Season & Daily Driving Tires**
-4. **SUV, Truck & Trailer Tires**
-5. **Customer Care / Fitment & Trust**
-
-Hero headline:
-
-> Reliable Tires For Everyday Driving
-
-Hero subheadline:
-
-> Find all-season, SUV, truck, trailer, winter, and performance tires with clear product details to help you choose the right fit for your vehicle.
-
-Main CTA:
-
-* Shop Tires
-* Find Your Tire Size
+* Reliable tire shopping
+* Competitive pricing
+* Convenient online ordering
 
 ---
 
-## Trust & Policy Requirements
+# Shipping Information
 
-The website must include:
+Default shipping parameters:
 
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Your Order
+Order cutoff:
 
-Trust information should include:
+5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles)
 
-* Support email
-* Business hours
-* Tire fitment reminder
-* Shipping timeline
-* Return conditions
-* Clear product specifications
+Orders after cutoff:
+
+Processing starts next business day.
+
+Handling time:
+
+1–2 business days (Monday–Friday)
+
+Includes:
+
+* Order confirmation
+* Packing
+* Carrier handoff
+
+Transit time:
+
+5–7 business days (Monday–Friday)
+
+Estimated delivery:
+
+Usually 6–9 business days
+
+Some orders may take longer due to:
+
+* Oversized products
+* Special handling
+* Carrier delays
+
+Customers receive tracking information after shipment.
 
 ---
 
-## Shipping Information
+# Return & Refund Direction
 
-Orders are processed within **2–4 business days**.
+Return window:
 
-After dispatch, standard US shipping typically takes **5–10 business days** depending on destination, product availability, tire size, carrier conditions, and delivery location.
+30 days after delivery
 
-Tracking information is provided once an order ships.
-
----
-
-## Return Policy Direction
-
-Customers may request returns within **30 days** of delivery.
-
-Eligible tires should be:
+Eligible returns:
 
 * Unused
 * Unmounted
-* Undamaged
-* In original condition
-* Returned with original labels/packaging where applicable
+* Original condition
+* Original packaging
 
-Mounted, driven-on, damaged, or incorrectly ordered tires may not be eligible for return unless required by applicable law or approved by support.
+Not eligible:
 
-Customers should confirm size and compatibility before ordering.
+* Installed tires
+* Used products
+* Damaged due to customer handling
+
+Return experience should feel:
+
+* Clear
+* Transparent
+* Customer-friendly
 
 ---
 
-## Product Copy Rules
+# Brand Tone
 
-Product descriptions should include:
+Use:
 
-* Tire type
-* Best use case
-* Size and specification details
-* Vehicle type guidance
-* Driving condition
-* Tread/handling notes if available
-* Fitment reminder
-* Shipping and return note
-
-Safe product copy example:
-
-> This all-season tire is designed for everyday road use and daily driving needs. Please confirm your tire size, rim size, and vehicle compatibility before ordering.
+* Helpful
+* Professional
+* Simple
+* Reliable
+* Automotive knowledgeable
 
 Avoid:
 
-* Guaranteed safety claims
-* Accident-proof claims
-* Fits every vehicle claims
-* Fake warranty statements
-* Unsupported performance claims
-* Keyword stuffing
+* Aggressive sales language
+* Fake urgency
+* Cheap discount-store tone
 
 ---
 
-## GMC-Safe Rules
+# Visual Direction
 
-Tizezap must appear as a legitimate tire store with clear product data and transparent policies.
+Website should feel:
 
-Must include:
+* Modern automotive ecommerce
+* Clean
+* Trustworthy
+* Easy navigation
 
-* Tire categories
-* Fitment/size reminders
-* Product specifications
-* Contact information
-* Shipping and return policies
-* Clear warranty wording if applicable
-* No fake reviews
-* No counterfeit branding
+Use:
+
+* Vehicle imagery
+* Tire close-ups
+* Road/lifestyle visuals
+* Product-focused layouts
 
 Avoid:
 
-* Misleading compatibility claims
-* Exaggerated safety claims
-* Fake discounts
-* Countdown timers
-* Unauthorized brand logos
-* Used/damaged products without disclosure
+* Dark racing garage style
+* Overly technical design
+* Excessive mechanical graphics
 
 ---
 
-## Strategic Build Goal
+# GMC Compliance Direction
 
-The final website should feel like:
+Store must demonstrate:
 
-> A clean and trustworthy online tire store helping drivers find reliable tires for cars, SUVs, trucks, trailers, and seasonal driving needs.
+* Clear automotive niche
+* Consistent tire categories
+* Transparent policies
+* Real ecommerce structure
+* Original brand presentation
+* Helpful product information
 
-Customers should feel:
+Avoid:
 
-* The store is focused on tires
-* Product details are clear
-* Compatibility matters are explained
-* The website feels professional and automotive
-* Shipping, returns, and support are transparent
+* Mixed categories
+* Thin product pages
+* Fake reviews
+* Misleading claims
 
-The site should never feel like a random auto parts store, fake discount tire shop, or unsafe tire marketplace.
+---
+
+# Brand Promise
+
+Rubyinstar provides:
+
+* Convenient online tire shopping
+* Affordable tire options
+* Simple product discovery
+* Reliable delivery experience
+* Easy purchasing process
+
+---
+
+# Final Brand Statement
+
+Rubyinstar is:
+
+"An affordable and convenient online tire store helping American drivers find the right tires with confidence."

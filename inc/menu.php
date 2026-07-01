@@ -42,9 +42,12 @@ function dawp_product_category_links($limit = 5) {
 }
 
 function dawp_main_menu_items() {
-    return array_merge([
-        ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-    ], dawp_product_category_links(5));
+    return [
+        ['title' => __('Home', 'dawp'),    'url' => home_url('/')],
+        ['title' => __('Shop', 'dawp'),    'url' => home_url('/shop/')],
+        ['title' => __('About', 'dawp'),   'url' => home_url('/about-us/')],
+        ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+    ];
 }
 function dawp_is_current_url($url) {
     $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');

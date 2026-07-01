@@ -22,7 +22,7 @@ $category_links = [
     ['title' => __('Winter Tires', 'dawp'), 'url' => $term_url('winter-tires')],
 ];
 
-$support_email = 'support@tizezap.com';
+$support_email = 'support@rubyinstar.com';
 $track_order_url = home_url('/track-order/');
 $track_order_found = false;
 
@@ -62,10 +62,10 @@ if ($track_order_form) {
     <section class="track-hero">
         <div class="track-hero__inner">
             <div class="track-hero__copy">
-                <span class="track-hero__label"><?php esc_html_e('Tizezap Order Status', 'dawp'); ?></span>
+                <span class="track-hero__label"><?php esc_html_e('Rubyinstar Order Status', 'dawp'); ?></span>
                 <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Enter your order number and billing email to review the latest tire order details available from Tizezap.', 'dawp'); ?>
+                    <?php esc_html_e('Enter your order number and billing email to review the latest tire order details available from Rubyinstar.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a href="<?php echo esc_url($shop_url); ?>" class="track-hero__button track-hero__button--primary">
@@ -130,7 +130,7 @@ if ($track_order_form) {
                 <div class="track-help-box__content">
                     <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
                     <p class="track-help-box__text">
-                        <?php esc_html_e('If the tracking form cannot find your order, contact Tizezap support at ', 'dawp'); ?>
+                        <?php esc_html_e('If the tracking form cannot find your order, contact Rubyinstar support at ', 'dawp'); ?>
                         <a href="<?php echo esc_url('mailto:' . $support_email); ?>"><?php echo esc_html($support_email); ?></a>
                         <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
                     </p>
@@ -160,7 +160,7 @@ if ($track_order_form) {
             <div class="track-more-section__header">
                 <span class="track-more-section__label"><?php esc_html_e('Quick Links', 'dawp'); ?></span>
                 <h2 class="track-more-section__title"><?php esc_html_e('More ways we can help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and correct tire categories for a smoother Tizezap order experience.', 'dawp'); ?></p>
+                <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and correct tire categories for a smoother Rubyinstar order experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
@@ -169,7 +169,7 @@ if ($track_order_form) {
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our Tizezap support team is here to help with order and delivery questions.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Our Rubyinstar support team is here to help with order and delivery questions.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>

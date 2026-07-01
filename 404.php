@@ -72,7 +72,7 @@ if (function_exists('dawp_tire_category_definitions')) {
         </h1>
 
         <p class="mt-6 max-w-2xl text-lg leading-8 text-[#D7DEE8]">
-          <?php esc_html_e('The page may have moved, the link may be outdated, or a tire category address may have changed. Use the shortcuts below to get back to the current Tizezap tire catalog.', 'dawp'); ?>
+          <?php esc_html_e('The page may have moved, the link may be outdated, or a tire category address may have changed. Use the shortcuts below to get back to the current Rubyinstar tire catalog.', 'dawp'); ?>
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -120,8 +120,8 @@ if (function_exists('dawp_tire_category_definitions')) {
         <?php endif; ?>
 
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mt-6 flex flex-col gap-2 rounded-md border border-[#D7DEE8] bg-white p-2 sm:flex-row">
-          <label for="tizezap-404-search" class="sr-only"><?php esc_html_e('Search products', 'dawp'); ?></label>
-          <input id="tizezap-404-search" type="search" name="s" placeholder="<?php esc_attr_e('Search tires, size, or category...', 'dawp'); ?>" class="min-h-11 flex-1 rounded-md bg-[#F4F6F8] px-4 text-sm text-[#111827] placeholder:text-[#6B7280] outline-none focus:bg-white">
+          <label for="rubyinstar-404-search" class="sr-only"><?php esc_html_e('Search products', 'dawp'); ?></label>
+          <input id="rubyinstar-404-search" type="search" name="s" placeholder="<?php esc_attr_e('Search tires, size, or category...', 'dawp'); ?>" class="min-h-11 flex-1 rounded-md bg-[#F4F6F8] px-4 text-sm text-[#111827] placeholder:text-[#6B7280] outline-none focus:bg-white">
           <input type="hidden" name="post_type" value="product">
           <button type="submit" class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-md bg-[#F97316] px-5 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0B1F33]">
             <?php esc_html_e('Search', 'dawp'); ?>

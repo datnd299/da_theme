@@ -22,7 +22,7 @@ $faq_sections = [
             [
                 'question' => __('How much does shipping cost?', 'dawp'),
                 'answer'   => [
-                    ['type' => 'p', 'text' => __('Tizezap offers 100% FREE Standard Shipping on all tire orders within our standard delivery zones in the United States. There are no hidden shipping fees at checkout.', 'dawp')],
+                    ['type' => 'p', 'text' => __('Rubyinstar offers 100% FREE Standard Shipping on all tire orders within our standard delivery zones in the United States. There are no hidden shipping fees at checkout.', 'dawp')],
                 ],
             ],
             [
@@ -34,7 +34,7 @@ $faq_sections = [
             [
                 'question' => __('Can I change my shipping address after checkout?', 'dawp'),
                 'answer'   => [
-                    ['type' => 'p', 'text' => __('Address changes or cancellations can only be made before the order enters the fulfillment process (usually within a few hours of placement). Please email support@tizezap.com immediately if you need to modify your shipping details.', 'dawp')],
+                    ['type' => 'p', 'text' => __('Address changes or cancellations can only be made before the order enters the fulfillment process (usually within a few hours of placement). Please email support@rubyinstar.com immediately if you need to modify your shipping details.', 'dawp')],
                 ],
             ],
             [
@@ -56,7 +56,7 @@ $faq_sections = [
         'tint'   => '#FFF7ED',
         'items'  => [
             [
-                'question' => __('What is Tizezap\'s return window?', 'dawp'),
+                'question' => __('What is Rubyinstar\'s return window?', 'dawp'),
                 'answer'   => [
                     ['type' => 'p', 'text' => __('You can request a return within 30 days from the date of delivery.', 'dawp')],
                 ],
@@ -70,14 +70,14 @@ $faq_sections = [
             [
                 'question' => __('Are there any restocking fees?', 'dawp'),
                 'answer'   => [
-                    ['type' => 'p', 'text' => __('No. Tizezap charges $0 restocking fees.', 'dawp')],
+                    ['type' => 'p', 'text' => __('No. Rubyinstar charges $0 restocking fees.', 'dawp')],
                 ],
             ],
             [
                 'question' => __('Who pays for the return shipping cost?', 'dawp'),
                 'answer'   => [
                     ['type' => 'ul', 'items' => [
-                        ['label' => __('Our Error:', 'dawp'),          'text' => __('If you receive an incorrect, defective, or damaged tire, Tizezap covers 100% of the return shipping costs.', 'dawp')],
+                        ['label' => __('Our Error:', 'dawp'),          'text' => __('If you receive an incorrect, defective, or damaged tire, Rubyinstar covers 100% of the return shipping costs.', 'dawp')],
                         ['label' => __('Customer Remorse:', 'dawp'),   'text' => __('If you change your mind or ordered the wrong size, the customer is responsible for the actual return shipping costs.', 'dawp')],
                     ]],
                 ],
@@ -91,7 +91,7 @@ $faq_sections = [
             [
                 'question' => __('What should I do if my tire arrives damaged, defective, or incorrect?', 'dawp'),
                 'answer'   => [
-                    ['type' => 'p', 'text' => __('Please inspect your tires upon arrival. If there is an issue, contact us at support@tizezap.com within 7 days of delivery with your order number and clear photos of the tire, sidewall specs, and shipping label. We will arrange a free replacement or a full refund.', 'dawp')],
+                    ['type' => 'p', 'text' => __('Please inspect your tires upon arrival. If there is an issue, contact us at support@rubyinstar.com within 7 days of delivery with your order number and clear photos of the tire, sidewall specs, and shipping label. We will arrange a free replacement or a full refund.', 'dawp')],
                 ],
             ],
         ],
@@ -117,7 +117,7 @@ $faq_sections = [
             [
                 'question' => __('Can I cancel an order?', 'dawp'),
                 'answer'   => [
-                    ['type' => 'p', 'text' => __('You can request a cancellation by emailing support@tizezap.com before the item is shipped. If the item has already left our warehouse, please follow our standard 30-day return process.', 'dawp')],
+                    ['type' => 'p', 'text' => __('You can request a cancellation by emailing support@rubyinstar.com before the item is shipped. If the item has already left our warehouse, please follow our standard 30-day return process.', 'dawp')],
                 ],
             ],
         ],
@@ -129,9 +129,9 @@ $faq_sections = [
         'tint'   => '#EFF6FF',
         'items'  => [
             [
-                'question' => __('Does Tizezap store my credit card information?', 'dawp'),
+                'question' => __('Does Rubyinstar store my credit card information?', 'dawp'),
                 'answer'   => [
-                    ['type' => 'p', 'text' => __('No. Your checkout process is 100% secured by Secure Socket Layer (SSL) encryption. All payments are processed directly through certified, PCI-compliant third-party payment gateways. Tizezap never stores or has access to your full credit card numbers or security codes.', 'dawp')],
+                    ['type' => 'p', 'text' => __('No. Your checkout process is 100% secured by Secure Socket Layer (SSL) encryption. All payments are processed directly through certified, PCI-compliant third-party payment gateways. Rubyinstar never stores or has access to your full credit card numbers or security codes.', 'dawp')],
                 ],
             ],
             [
@@ -148,12 +148,12 @@ $faq_sections = [
 <div id="primary" class="bg-[#F4F6F8] font-body text-[#111827]">
     <section class="bg-[#0B1F33] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Tizezap Help Center', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Rubyinstar Help Center', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#D7DEE8]">
-                <?php esc_html_e('Clear, transparent answers about tire fitment, checkout, shipping, returns, refunds, and privacy when you shop with Tizezap.', 'dawp'); ?>
+                <?php esc_html_e('Clear, transparent answers about tire fitment, checkout, shipping, returns, refunds, and privacy when you shop with Rubyinstar.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#B8C3D1]">
                 <?php esc_html_e('Last Updated: May 19, 2026', 'dawp'); ?>
@@ -255,12 +255,12 @@ $faq_sections = [
                             <ul class="mt-5 space-y-2 text-sm leading-7 text-[#D7DEE8]">
                                 <li><strong class="text-white"><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
                                 <li><strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
-                                <li><strong class="text-white"><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@tizezap.com" class="text-[#93C5FD] transition hover:text-white">support@tizezap.com</a></li>
+                                <li><strong class="text-white"><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@rubyinstar.com" class="text-[#93C5FD] transition hover:text-white">support@rubyinstar.com</a></li>
                                 <li><strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
                                 <li><strong class="text-white"><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('We typically reply to all inquiries within 1–2 business days.', 'dawp'); ?></li>
                             </ul>
                             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-                                <a href="mailto:support@tizezap.com" class="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-black uppercase tracking-wide text-[#0B1F33] transition hover:bg-[#F97316] hover:text-white">
+                                <a href="mailto:support@rubyinstar.com" class="inline-flex min-h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-black uppercase tracking-wide text-[#0B1F33] transition hover:bg-[#F97316] hover:text-white">
                                     <?php esc_html_e('Email Support', 'dawp'); ?>
                                 </a>
                                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/30 px-6 text-sm font-black uppercase tracking-wide text-white transition hover:border-white hover:bg-white/10">

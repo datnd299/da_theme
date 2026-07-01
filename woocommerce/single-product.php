@@ -1,7 +1,7 @@
 <?php
 /**
- * Single Product Template — TireZap
- * @package tirezap
+ * Single Product Template — Rubyinstar
+ * @package rubyinstar
  */
 
 defined('ABSPATH') || exit;

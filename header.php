@@ -1,322 +1,110 @@
-<!DOCTYPE html>
+<?php
+/**
+ * Theme header.
+ */
+
+$shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
+    ? get_permalink(wc_get_page_id('shop'))
+    : home_url('/shop/');
+
+$cart_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
+$cart_count = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+$menu_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
+    ['title' => __('Home', 'dawp'),    'url' => home_url('/')],
+    ['title' => __('Shop', 'dawp'),    'url' => $shop_url],
+    ['title' => __('About', 'dawp'),   'url' => home_url('/about-us/')],
+    ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+];
+?>
+<!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class('bg-white text-[#111827] antialiased'); ?>>
+<body <?php body_class('bg-white font-body text-[#111111] antialiased'); ?>>
 <?php wp_body_open(); ?>
 
-<?php
-$cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
-$cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
-$account_url = get_permalink(get_option('woocommerce_myaccount_page_id')) ?: home_url('/my-account/');
-$brand_name  = 'Tizezap';
-$tizezap_gallery_uri = get_theme_file_uri('/assets/img/gallery/Tizezap/');
-$shop_url    = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
-    ? get_permalink(wc_get_page_id('shop'))
-    : home_url('/shop/');
+<a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-[#DC2626] focus:px-4 focus:py-3 focus:text-sm focus:font-black focus:text-white" href="#primary">
+    <?php esc_html_e('Skip to content', 'dawp'); ?>
+</a>
 
-$term_url = static function ($slug) {
-    return function_exists('dawp_product_category_url')
-        ? dawp_product_category_url($slug)
-        : home_url('/product-category/' . sanitize_title($slug) . '/');
-};
-
-$mega_categories = [
-    [
-        'title' => __('All-Season Tires', 'dawp'),
-        'copy'  => __('Practical tire options for year-round everyday driving.', 'dawp'),
-        'url'   => $term_url('all-season-tires'),
-    ],
-    [
-        'title' => __('SUV & Crossover Tires', 'dawp'),
-        'copy'  => __('For SUVs, crossovers, family vehicles, and daily road use.', 'dawp'),
-        'url'   => $term_url('suv-crossover-tires'),
-    ],
-    [
-        'title' => __('Light Truck Tires', 'dawp'),
-        'copy'  => __('For pickups, utility driving, and light-duty hauling needs.', 'dawp'),
-        'url'   => $term_url('light-truck-tires'),
-    ],
-    [
-        'title' => __('Performance Tires', 'dawp'),
-        'copy'  => __('Responsive handling and performance-inspired road feel.', 'dawp'),
-        'url'   => $term_url('performance-tires'),
-    ],
-    [
-        'title' => __('Trailer Tires', 'dawp'),
-        'copy'  => __('Road-ready tire options for trailers and towing support.', 'dawp'),
-        'url'   => $term_url('trailer-tires'),
-    ],
-    [
-        'title' => __('Winter Tires', 'dawp'),
-        'copy'  => __('Cold-weather tire options for winter road conditions.', 'dawp'),
-        'url'   => $term_url('winter-tires'),
-    ],
-];
-
-$shop_filter_links = [
-    ['title' => __('Shop By Rim Size', 'dawp'), 'url' => home_url('/shop-by-rim-size/')],
-    ['title' => __('Shop By Vehicle Type', 'dawp'), 'url' => home_url('/shop-by-vehicle-type/')],
-    ['title' => __('Shop By Brand', 'dawp'), 'url' => home_url('/shop-by-brand/')],
-];
-
-$best_seller_feature = [
-    'title' => __('Best Seller: All-Season Tires', 'dawp'),
-    'copy'  => __('A practical starting point for everyday commuters comparing comfort, fitment, and year-round road use.', 'dawp'),
-    'url'   => $term_url('all-season-tires'),
-    'image' => $tizezap_gallery_uri . 'all-season-tread.png',
-];
-
-$nav_items = [
-    ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
-    ['title' => __('Shop', 'dawp'), 'url' => $shop_url, 'mega' => true],
-    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
-    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
-];
-?>
-
-<header id="masthead" class="sticky top-0 z-50 border-b border-[#E5E7EB] bg-white text-[#111827] shadow-sm" role="banner">
-    <div class="bg-[#0B1F33] text-white">
-        <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-2 px-4 py-2 text-center text-xs font-black uppercase tracking-[0.16em] sm:flex-row sm:px-6 lg:px-8">
-            <span><?php esc_html_e('Reliable tires for everyday driving', 'dawp'); ?></span>
-        </div>
-    </div>
-
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-24 items-center justify-between gap-4">
-            <a href="<?php echo esc_url(home_url('/')); ?>"
-               class="group inline-flex shrink-0 items-center gap-3"
-               aria-label="<?php echo esc_attr($brand_name); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo_header.png'); ?>"
-                     alt="<?php echo esc_attr($brand_name); ?>"
-                     class="h-20 w-auto">
+<header id="masthead" class="sticky top-0 z-50 border-b border-[#262626] bg-[#050505] text-white shadow-sm">
+    <div class="bg-[#111111]">
+        <div class="mx-auto flex min-h-10 max-w-7xl items-center justify-between gap-4 px-4 text-xs font-black uppercase tracking-wide text-[#D4D4D4] sm:px-6 lg:px-8">
+            <span><?php esc_html_e('Secure Checkout • Order Tracking • Easy Returns', 'dawp'); ?></span>
+            <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="hidden text-[#FCA5A5] hover:text-white sm:inline-flex">
+                <?php esc_html_e('Track Order', 'dawp'); ?>
             </a>
-
-            <nav class="hidden flex-1 items-center justify-center gap-5 lg:flex xl:gap-7" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
-                <?php foreach ($nav_items as $item) : ?>
-                    <?php if (! empty($item['mega'])) : ?>
-                        <div class="group/menu">
-                            <a href="<?php echo esc_url($item['url']); ?>"
-                               class="inline-flex h-24 items-center gap-1 whitespace-nowrap text-sm font-black uppercase tracking-wide text-[#111827] transition hover:text-[#2563EB] focus:text-[#2563EB] focus:outline-none">
-                                <?php echo esc_html($item['title']); ?>
-                                <svg class="h-4 w-4 transition group-hover/menu:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <path d="m6 9 6 6 6-6"></path>
-                                </svg>
-                            </a>
-
-                            <div class="invisible absolute left-1/2 top-full w-[min(1040px,calc(100vw-32px))] -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:translate-y-0 group-focus-within/menu:opacity-100">
-                                <div class="overflow-hidden rounded-lg border border-[#D7DEE8] bg-white text-left shadow-xl">
-                                    <div class="grid grid-cols-[minmax(0,1.45fr)_minmax(280px,0.75fr)] gap-0">
-                                        <div class="p-6">
-                                            <div class="flex items-end justify-between gap-5 border-b border-[#E5E7EB] pb-5">
-                                                <div>
-                                                    <p class="text-xs font-black uppercase tracking-[0.18em] text-[#F97316]">
-                                                        <?php esc_html_e('Shop Tires', 'dawp'); ?>
-                                                    </p>
-                                                    <h2 class="mt-2 font-heading text-2xl font-black leading-tight text-[#0B1F33]">
-                                                        <?php esc_html_e('Browse by tire category', 'dawp'); ?>
-                                                    </h2>
-                                                </div>
-                                                <a href="<?php echo esc_url($shop_url); ?>"
-                                                   class="shrink-0 rounded-md border border-[#2563EB] px-4 py-2 text-xs font-black uppercase tracking-wide text-[#2563EB] transition hover:bg-[#EFF6FF]">
-                                                    <?php esc_html_e('View All', 'dawp'); ?>
-                                                </a>
-                                            </div>
-
-                                            <div class="mt-5 grid grid-cols-2 gap-3">
-                                                <?php foreach ($mega_categories as $category) : ?>
-                                                    <a href="<?php echo esc_url($category['url']); ?>"
-                                                       class="group/category rounded-md border border-[#E5E7EB] bg-[#F4F6F8] p-4 transition hover:border-[#2563EB] hover:bg-white hover:shadow-sm">
-                                                        <span class="flex items-center justify-between gap-3">
-                                                            <span class="text-sm font-black text-[#0B1F33] group-hover/category:text-[#2563EB]">
-                                                                <?php echo esc_html($category['title']); ?>
-                                                            </span>
-                                                            <svg class="h-4 w-4 shrink-0 text-[#F97316]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                                                <path d="M5 12h14"></path>
-                                                                <path d="m12 5 7 7-7 7"></path>
-                                                            </svg>
-                                                        </span>
-                                                        <span class="mt-2 block text-xs font-medium leading-5 text-[#5B6472]">
-                                                            <?php echo esc_html($category['copy']); ?>
-                                                        </span>
-                                                    </a>
-                                                <?php endforeach; ?>
-                                            </div>
-
-                                            <div class="mt-5 grid grid-cols-3 gap-2 border-t border-[#E5E7EB] pt-5">
-                                                <?php foreach ($shop_filter_links as $link) : ?>
-                                                    <a href="<?php echo esc_url($link['url']); ?>"
-                                                       class="rounded-md bg-[#EFF6FF] px-3 py-2 text-center text-xs font-black uppercase tracking-wide text-[#0B1F33] transition hover:bg-[#2563EB] hover:text-white">
-                                                        <?php echo esc_html($link['title']); ?>
-                                                    </a>
-                                                <?php endforeach; ?>
-                                            </div>
-                                        </div>
-
-                                        <a href="<?php echo esc_url($best_seller_feature['url']); ?>"
-                                           class="group/feature relative block min-h-[420px] overflow-hidden bg-[#0B1F33] text-white">
-                                            <img src="<?php echo esc_url($best_seller_feature['image']); ?>"
-                                                 alt="<?php echo esc_attr($best_seller_feature['title']); ?>"
-                                                 class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/feature:scale-[1.03]"
-                                                 loading="lazy">
-                                            <span class="absolute inset-0 bg-[#0B1F33]/78"></span>
-                                            <span class="relative flex h-full min-h-[420px] flex-col justify-end p-6">
-                                                <span class="mb-3 inline-flex w-fit rounded-md bg-[#F97316] px-3 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-white">
-                                                    <?php esc_html_e('Best Seller', 'dawp'); ?>
-                                                </span>
-                                                <span class="font-heading text-3xl font-black leading-tight">
-                                                    <?php echo esc_html($best_seller_feature['title']); ?>
-                                                </span>
-                                                <span class="mt-3 text-sm font-medium leading-6 text-[#D7DEE8]">
-                                                    <?php echo esc_html($best_seller_feature['copy']); ?>
-                                                </span>
-                                                <span class="mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-wide text-[#FDBA74]">
-                                                    <?php esc_html_e('Shop Best Seller', 'dawp'); ?>
-                                                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                                        <path d="M5 12h14"></path>
-                                                        <path d="m12 5 7 7-7 7"></path>
-                                                    </svg>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php else : ?>
-                        <a href="<?php echo esc_url($item['url']); ?>"
-                           class="whitespace-nowrap text-sm font-black uppercase tracking-wide text-[#111827] transition hover:text-[#2563EB]">
-                            <?php echo esc_html($item['title']); ?>
-                        </a>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </nav>
-
-            <div class="flex shrink-0 items-center gap-2 sm:gap-3">
-                <form role="search"
-                      method="get"
-                      action="<?php echo esc_url(home_url('/')); ?>"
-                      class="hidden items-center xl:flex">
-                    <label for="tizezap-header-search" class="sr-only">
-                        <?php esc_html_e('Search tires', 'dawp'); ?>
-                    </label>
-                    <input id="tizezap-header-search"
-                           type="search"
-                           name="s"
-                           placeholder="<?php esc_attr_e('Search tire size...', 'dawp'); ?>"
-                           class="h-10 w-48 rounded-md border border-[#E5E7EB] bg-[#F4F6F8] px-4 text-sm text-[#111827] placeholder:text-[#6B7280] outline-none transition focus:border-[#2563EB] focus:bg-white focus:ring-2 focus:ring-[#2563EB]/20">
-                    <input type="hidden" name="post_type" value="product">
-                </form>
-
-                <button type="button"
-                        id="tizezap-mobile-search-toggle"
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0B1F33] transition hover:bg-[#F4F6F8] xl:hidden"
-                        aria-label="<?php esc_attr_e('Search', 'dawp'); ?>"
-                        aria-controls="tizezap-mobile-search"
-                        aria-expanded="false">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="M21 21l-4.35-4.35"></path>
-                    </svg>
-                </button>
-
-                <a href="<?php echo esc_url($account_url); ?>"
-                   class="hidden h-10 w-10 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0B1F33] transition hover:bg-[#F4F6F8] sm:inline-flex"
-                   aria-label="<?php esc_attr_e('My Account', 'dawp'); ?>">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </a>
-
-                <a href="<?php echo esc_url($cart_url); ?>"
-                   class="relative inline-flex min-h-10 items-center justify-center rounded-md bg-[#2563EB] px-4 text-xs font-black uppercase tracking-wide text-white transition hover:bg-[#0B1F33]"
-                   aria-label="<?php esc_attr_e('Shopping Cart', 'dawp'); ?>">
-                    <?php esc_html_e('Cart', 'dawp'); ?>
-                    <span class="ml-1">(<?php echo esc_html($cart_count); ?>)</span>
-                </a>
-
-                <button type="button"
-                        id="tizezap-mobile-menu-toggle"
-                        class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0B1F33] transition hover:bg-[#F4F6F8] lg:hidden"
-                        aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>"
-                        aria-controls="tizezap-mobile-menu"
-                        aria-expanded="false">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
-                </button>
-            </div>
         </div>
     </div>
 
-    <div id="tizezap-mobile-search" class="hidden border-t border-[#E5E7EB] bg-white xl:hidden">
-        <form role="search"
-              method="get"
-              action="<?php echo esc_url(home_url('/')); ?>"
-              class="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3">
-            <input type="search"
-                   name="s"
-                   placeholder="<?php esc_attr_e('Search tires, size, or category...', 'dawp'); ?>"
-                   class="h-10 flex-1 rounded-md border border-[#E5E7EB] bg-[#F4F6F8] px-4 text-sm text-[#111827] placeholder:text-[#6B7280] outline-none focus:border-[#2563EB] focus:bg-white focus:ring-2 focus:ring-[#2563EB]/20">
+    <div class="mx-auto flex min-h-20 max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
+        <button id="rubyinstar-mobile-menu-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-md border border-white/15 bg-white/10 text-white lg:hidden" type="button" aria-controls="rubyinstar-mobile-menu" aria-expanded="false">
+            <span class="sr-only"><?php esc_html_e('Open menu', 'dawp'); ?></span>
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-w-0 items-center gap-3 text-white hover:text-white">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-[#DC2626]">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="7" stroke-width="2" /><circle cx="12" cy="12" r="2" stroke-width="2" /><path stroke-linecap="round" stroke-width="2" d="M12 5v3m0 8v3m7-7h-3M8 12H5" /></svg>
+            </span>
+            <span class="min-w-0">
+                <span class="block font-heading text-2xl font-black leading-none"><?php bloginfo('name'); ?></span>
+                <span class="hidden text-xs font-black uppercase tracking-[0.18em] text-[#FCA5A5] sm:block"><?php esc_html_e('Online Tire Store', 'dawp'); ?></span>
+            </span>
+        </a>
+
+        <nav class="ml-4 hidden flex-1 items-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
+            <?php foreach ($menu_items as $item) : ?>
+                <?php $is_current = function_exists('dawp_is_current_url') && dawp_is_current_url($item['url']); ?>
+                <a href="<?php echo esc_url($item['url']); ?>" class="rounded-md px-3 py-2 text-sm font-black uppercase tracking-wide transition <?php echo $is_current ? 'bg-white text-[#111111]' : 'text-[#E5E5E5] hover:bg-white/10 hover:text-white'; ?>">
+                    <?php echo esc_html($item['title']); ?>
+                </a>
+            <?php endforeach; ?>
+        </nav>
+
+        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="ml-auto hidden w-full max-w-xs items-center lg:flex">
             <input type="hidden" name="post_type" value="product">
-            <button type="submit"
-                    class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#2563EB] text-white transition hover:bg-[#0B1F33]"
-                    aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="M21 21l-4.35-4.35"></path>
-                </svg>
+            <label class="sr-only" for="header-product-search"><?php esc_html_e('Search tires', 'dawp'); ?></label>
+            <input id="header-product-search" class="min-h-11 w-full rounded-l-md border border-white/15 bg-white px-4 text-sm font-semibold text-[#111111] placeholder:text-[#737373] focus:border-[#DC2626] focus:outline-none focus:ring-2 focus:ring-[#DC2626]/30" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search tires', 'dawp'); ?>">
+            <button class="inline-flex min-h-11 items-center justify-center rounded-r-md bg-[#DC2626] px-4 text-white transition hover:bg-white hover:text-[#111111]" type="submit">
+                <span class="sr-only"><?php esc_html_e('Search', 'dawp'); ?></span>
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
             </button>
+        </form>
+
+        <button id="rubyinstar-mobile-search-toggle" class="ml-auto inline-flex h-11 w-11 items-center justify-center rounded-md border border-white/15 bg-white/10 text-white lg:hidden" type="button" aria-controls="rubyinstar-mobile-search" aria-expanded="false">
+            <span class="sr-only"><?php esc_html_e('Open search', 'dawp'); ?></span>
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
+        </button>
+
+        <a href="<?php echo esc_url($cart_url); ?>" class="relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-[#DC2626] text-white transition hover:bg-white hover:text-[#111111]" aria-label="<?php esc_attr_e('View cart', 'dawp'); ?>">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H7M10 21h.01M18 21h.01" /></svg>
+            <?php if ($cart_count > 0) : ?>
+                <span class="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-md bg-white px-1 text-xs font-black text-[#DC2626]"><?php echo esc_html($cart_count); ?></span>
+            <?php endif; ?>
+        </a>
+    </div>
+
+    <div id="rubyinstar-mobile-search" class="hidden border-t border-white/10 bg-[#111111] px-4 py-4 lg:hidden">
+        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mx-auto flex max-w-7xl">
+            <input type="hidden" name="post_type" value="product">
+            <label class="sr-only" for="mobile-product-search"><?php esc_html_e('Search tires', 'dawp'); ?></label>
+            <input id="mobile-product-search" class="min-h-12 w-full rounded-l-md border border-white/15 bg-white px-4 text-sm font-semibold text-[#111111] placeholder:text-[#737373] focus:border-[#DC2626] focus:outline-none" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search tires', 'dawp'); ?>">
+            <button class="min-h-12 rounded-r-md bg-[#DC2626] px-5 text-sm font-black uppercase tracking-wide text-white" type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
         </form>
     </div>
 
-    <div id="tizezap-mobile-menu" class="hidden border-t border-[#E5E7EB] bg-white lg:hidden">
-        <nav class="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
-            <?php foreach ($nav_items as $item) : ?>
-                <a href="<?php echo esc_url($item['url']); ?>"
-                   class="rounded-md px-4 py-3 text-sm font-black uppercase tracking-wide text-[#0B1F33] transition hover:bg-[#F4F6F8] hover:text-[#2563EB]">
+    <nav id="rubyinstar-mobile-menu" class="hidden border-t border-white/10 bg-[#050505] px-4 py-4 lg:hidden" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
+        <div class="mx-auto grid max-w-7xl gap-2">
+            <?php foreach ($menu_items as $item) : ?>
+                <a href="<?php echo esc_url($item['url']); ?>" class="rounded-md border border-white/10 bg-white/5 px-4 py-3 text-sm font-black uppercase tracking-wide text-white">
                     <?php echo esc_html($item['title']); ?>
                 </a>
-                <?php if (! empty($item['mega'])) : ?>
-                    <div class="grid gap-2 rounded-lg bg-[#F4F6F8] p-3">
-                        <?php foreach ($mega_categories as $category) : ?>
-                            <a href="<?php echo esc_url($category['url']); ?>"
-                               class="rounded-md bg-white px-4 py-3 text-sm font-bold text-[#0B1F33] transition hover:text-[#2563EB]">
-                                <?php echo esc_html($category['title']); ?>
-                            </a>
-                        <?php endforeach; ?>
-                        <a href="<?php echo esc_url($best_seller_feature['url']); ?>"
-                           class="overflow-hidden rounded-md bg-[#0B1F33] text-white">
-                            <img src="<?php echo esc_url($best_seller_feature['image']); ?>"
-                                 alt="<?php echo esc_attr($best_seller_feature['title']); ?>"
-                                 class="aspect-[16/8] w-full object-cover opacity-80"
-                                 loading="lazy">
-                            <span class="block p-4">
-                                <span class="text-xs font-black uppercase tracking-[0.16em] text-[#FDBA74]">
-                                    <?php esc_html_e('Best Seller', 'dawp'); ?>
-                                </span>
-                                <span class="mt-1 block text-base font-black">
-                                    <?php echo esc_html($best_seller_feature['title']); ?>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                <?php endif; ?>
             <?php endforeach; ?>
-        </nav>
-    </div>
+        </div>
+    </nav>
 </header>
-
-<div id="content" class="site-content">

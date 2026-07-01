@@ -90,9 +90,9 @@ body.dawp-mobile-menu-open {
   overflow: hidden;
 }
 
-#tizezap-mobile-menu {
+#rubyinstar-mobile-menu {
   position: fixed;
-  top: var(--tizezap-mobile-panel-top, 0);
+  top: var(--rubyinstar-mobile-panel-top, 0);
   right: 0;
   bottom: 0;
   left: 0;
@@ -102,7 +102,7 @@ body.dawp-mobile-menu-open {
   -webkit-overflow-scrolling: touch;
 }
 
-#tizezap-mobile-menu nav {
+#rubyinstar-mobile-menu nav {
   padding-bottom: max(24px, env(safe-area-inset-bottom));
 }
 
@@ -111,7 +111,7 @@ body.dawp-mobile-menu-open {
     overflow: auto;
   }
 
-  #tizezap-mobile-menu {
+  #rubyinstar-mobile-menu {
     position: static;
   }
 }
@@ -652,6 +652,24 @@ body.dawp-mobile-menu-open {
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+  .home-category-slider {
+    display: flex !important;
+    gap: 1rem;
+    margin-inline: -1rem;
+    padding: 0 1rem 0.75rem;
+    overflow-x: auto !important;
+    scroll-padding-inline: 1rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-category-slider > a {
+    flex: 0 0 min(82vw, 21rem);
+    scroll-snap-align: start;
+  }
 }
 
 @media (max-width: 640px) {

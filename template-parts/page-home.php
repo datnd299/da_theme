@@ -102,7 +102,7 @@ $trust_cards = [
 
     <!-- Hero -->
     <section class="relative min-h-[680px] overflow-hidden bg-[#0B1F33] text-white sm:min-h-[720px]">
-        <img src="<?php echo esc_url($images['hero']); ?>"
+        <img <?php echo dawp_responsive_image_attrs($images['hero'], 1600, 900, '100vw', [768, 1200, 1600]); ?>
              alt="<?php esc_attr_e('SUV tire on an open road for everyday driving', 'dawp'); ?>"
              class="absolute inset-0 h-full w-full object-cover"
              loading="eager"
@@ -174,7 +174,7 @@ $trust_cards = [
                 <?php foreach ($categories as $category) : ?>
                     <a href="<?php echo esc_url($category['url']); ?>"
                        class="group overflow-hidden rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#F97316] bg-white shadow-sm transition hover:-translate-y-1 hover:border-[#F97316] hover:shadow-md">
-                        <img src="<?php echo esc_url($category['image']); ?>"
+                        <img <?php echo dawp_responsive_image_attrs($category['image'], 640, 400, '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw', [360, 520, 640]); ?>
                              alt="<?php echo esc_attr($category['title']); ?>"
                              class="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
                              loading="lazy">
@@ -233,7 +233,7 @@ $trust_cards = [
             </div>
 
             <div class="overflow-hidden rounded-lg border border-[#FED7AA] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['all_season']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['all_season'], 720, 540, '(max-width: 1023px) 100vw, 50vw', [400, 640, 720]); ?>
                      alt="<?php esc_attr_e('Close-up of all-season tire tread in a clean service bay', 'dawp'); ?>"
                      class="aspect-[4/3] w-full object-cover"
                      loading="lazy">
@@ -245,7 +245,7 @@ $trust_cards = [
     <section class="bg-[#F4F6F8] py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div class="overflow-hidden rounded-lg border border-[#E5E7EB] bg-white shadow-sm lg:order-1">
-                <img src="<?php echo esc_url($images['suv_trailer']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['suv_trailer'], 720, 540, '(max-width: 1023px) 100vw, 50vw', [400, 640, 720]); ?>
                      alt="<?php esc_attr_e('SUV towing a utility trailer with visible tire detail', 'dawp'); ?>"
                      class="aspect-[4/3] w-full object-cover"
                      loading="lazy">

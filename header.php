@@ -96,7 +96,7 @@ $nav_items = [
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex shrink-0 items-center gap-3"
                aria-label="<?php echo esc_attr($brand_name); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/Logo_header.png'); ?>"
+                <img <?php echo dawp_responsive_image_attrs(get_template_directory_uri() . '/assets/img/Logo_header.png', 220, 117, '220px', [160, 220, 320]); ?>
                      alt="<?php echo esc_attr($brand_name); ?>"
                      class="h-20 w-auto">
             </a>
@@ -164,7 +164,7 @@ $nav_items = [
 
                                         <a href="<?php echo esc_url($best_seller_feature['url']); ?>"
                                            class="group/feature relative block min-h-[420px] overflow-hidden bg-[#0B1F33] text-white">
-                                            <img src="<?php echo esc_url($best_seller_feature['image']); ?>"
+                                            <img <?php echo dawp_responsive_image_attrs($best_seller_feature['image'], 420, 560, '280px', [280, 420, 560]); ?>
                                                  alt="<?php echo esc_attr($best_seller_feature['title']); ?>"
                                                  class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/feature:scale-[1.03]"
                                                  loading="lazy">
@@ -299,7 +299,7 @@ $nav_items = [
                         <?php endforeach; ?>
                         <a href="<?php echo esc_url($best_seller_feature['url']); ?>"
                            class="overflow-hidden rounded-md bg-[#0B1F33] text-white">
-                            <img src="<?php echo esc_url($best_seller_feature['image']); ?>"
+                            <img <?php echo dawp_responsive_image_attrs($best_seller_feature['image'], 640, 320, '(max-width: 1023px) 100vw, 640px', [360, 520, 640]); ?>
                                  alt="<?php echo esc_attr($best_seller_feature['title']); ?>"
                                  class="aspect-[16/8] w-full object-cover opacity-80"
                                  loading="lazy">

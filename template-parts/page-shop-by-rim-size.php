@@ -51,7 +51,7 @@ $popular_rims = ['R17', 'R18', 'R20'];
 
 <div id="primary" class="rim-size-page">
     <section class="rim-hero">
-        <img src="<?php echo esc_url($hero_image); ?>"
+        <img <?php echo dawp_responsive_image_attrs($hero_image, 1600, 900, '100vw', [768, 1200, 1600]); ?>
              alt="<?php esc_attr_e('Tizezap tire shop cover for shopping by rim size', 'dawp'); ?>"
              class="rim-hero__image"
              loading="eager"
@@ -83,7 +83,7 @@ $popular_rims = ['R17', 'R18', 'R20'];
                 <h2><?php esc_html_e('Start with the R number on your tire.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('For example, 225/65R17 uses the R17 tab. This keeps browsing focused and reduces the chance of opening the wrong tire category.', 'dawp'); ?></p>
             </div>
-            <img src="<?php echo esc_url($tread_image); ?>"
+            <img <?php echo dawp_responsive_image_attrs($tread_image, 640, 480, '(max-width: 1023px) 100vw, 40vw', [360, 520, 640]); ?>
                  alt="<?php esc_attr_e('Close-up tire tread used for Tizezap tire shopping guidance', 'dawp'); ?>"
                  loading="lazy">
         </div>

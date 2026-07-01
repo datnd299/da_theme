@@ -105,10 +105,8 @@ $footer_payment_methods = [
                 <a href="<?php echo esc_url(home_url('/')); ?>"
                    class="block h-[5.25rem] w-[17rem] max-w-full overflow-hidden"
                    aria-label="<?php echo esc_attr($brand_name); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo_footer.png'); ?>"
+                    <img <?php echo dawp_responsive_image_attrs(get_template_directory_uri() . '/assets/img/logo_footer.png', 384, 256, '272px', [272, 384, 512]); ?>
                          alt="<?php echo esc_attr($brand_name); ?>"
-                         width="1536"
-                         height="1024"
                          class="block w-[24rem] max-w-none -translate-x-[3.8rem] -translate-y-[5rem]">
                 </a>
 
@@ -201,10 +199,8 @@ $footer_payment_methods = [
                     <?php foreach ($footer_payment_methods as $method) : ?>
                         <li>
                             <img
-                                src="<?php echo esc_url($method['image']); ?>"
+                                <?php echo dawp_responsive_image_attrs($method['image'], 80, 48, '80px', [80, 120, 160]); ?>
                                 alt="<?php echo esc_attr($method['label']); ?>"
-                                width="80"
-                                height="48"
                                 loading="lazy"
                                 class="h-7 w-auto rounded bg-white shadow-sm"
                             >

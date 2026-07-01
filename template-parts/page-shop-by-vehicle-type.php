@@ -117,7 +117,7 @@ $popular_types = ['suv-crossover', 'pickup-light-truck', 'passenger-car'];
 
 <div id="primary" class="rim-size-page vehicle-type-page">
     <section class="rim-hero">
-        <img src="<?php echo esc_url($hero_image); ?>"
+        <img <?php echo dawp_responsive_image_attrs($hero_image, 1600, 900, '100vw', [768, 1200, 1600]); ?>
              alt="<?php esc_attr_e('Tizezap tire shop cover for shopping by vehicle type', 'dawp'); ?>"
              class="rim-hero__image"
              loading="eager"
@@ -149,7 +149,7 @@ $popular_types = ['suv-crossover', 'pickup-light-truck', 'passenger-car'];
                 <h2><?php esc_html_e('Start with the vehicle, then confirm the tire size.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Vehicle type helps narrow the category, but the final tire still needs to match the sidewall size, load index, speed rating, and manufacturer fitment requirements.', 'dawp'); ?></p>
             </div>
-            <img src="<?php echo esc_url($intro_image); ?>"
+            <img <?php echo dawp_responsive_image_attrs($intro_image, 640, 480, '(max-width: 1023px) 100vw, 40vw', [360, 520, 640]); ?>
                  alt="<?php esc_attr_e('Light truck tire category used for Tizezap vehicle type shopping guidance', 'dawp'); ?>"
                  loading="lazy">
         </div>
@@ -192,7 +192,7 @@ $popular_types = ['suv-crossover', 'pickup-light-truck', 'passenger-car'];
                      data-vehicle-panel
                      data-keywords="<?php echo esc_attr(strtolower($type['name'] . ' ' . $type['summary'] . ' ' . $type['keywords'])); ?>">
                     <div class="vehicle-panel__layout">
-                        <img src="<?php echo esc_url($type['image']); ?>"
+                        <img <?php echo dawp_responsive_image_attrs($type['image'], 420, 315, '(max-width: 767px) 100vw, 420px', [300, 420, 560]); ?>
                              alt="<?php echo esc_attr($type['name']); ?>"
                              loading="lazy">
                         <div>

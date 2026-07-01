@@ -136,7 +136,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
 
 <div id="primary" class="rim-size-page brand-page">
     <section class="rim-hero">
-        <img src="<?php echo esc_url($hero_image); ?>"
+        <img <?php echo dawp_responsive_image_attrs($hero_image, 1600, 900, '100vw', [768, 1200, 1600]); ?>
              alt="<?php esc_attr_e('Tizezap tire shop cover for shopping by tire brand', 'dawp'); ?>"
              class="rim-hero__image"
              loading="eager"
@@ -168,7 +168,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
                 <h2><?php esc_html_e('Start with the brand shoppers already compare.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('This list focuses on well-known tire brands that Walmart currently surfaces in its tire brand shopping experience, with a mix of premium, everyday, truck, SUV, and value choices.', 'dawp'); ?></p>
             </div>
-            <img src="<?php echo esc_url($tread_image); ?>"
+            <img <?php echo dawp_responsive_image_attrs($tread_image, 640, 480, '(max-width: 1023px) 100vw, 40vw', [360, 520, 640]); ?>
                  alt="<?php esc_attr_e('Close-up tire tread used for Tizezap tire brand shopping guidance', 'dawp'); ?>"
                  loading="lazy">
         </div>

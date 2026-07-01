@@ -55,7 +55,7 @@ $help_topics = [
 
     <!-- Hero -->
     <section class="relative min-h-[480px] overflow-hidden bg-[#0B1F33] text-white">
-        <img src="<?php echo esc_url($images['hero']); ?>"
+        <img <?php echo dawp_responsive_image_attrs($images['hero'], 1600, 900, '100vw', [768, 1200, 1600]); ?>
              alt="<?php esc_attr_e('Road-ready tire image for Tizezap customer support', 'dawp'); ?>"
              class="absolute inset-0 h-full w-full object-cover"
              loading="eager"
@@ -212,7 +212,7 @@ $help_topics = [
     <section class="bg-[#F4F6F8] py-14 lg:py-20">
         <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div class="overflow-hidden rounded-lg border border-[#E5E7EB] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['tread']); ?>"
+                <img <?php echo dawp_responsive_image_attrs($images['tread'], 720, 540, '(max-width: 1023px) 100vw, 50vw', [400, 640, 720]); ?>
                      alt="<?php esc_attr_e('Tire tread detail for fitment and product specification support', 'dawp'); ?>"
                      class="aspect-[4/3] w-full object-cover"
                      loading="lazy">

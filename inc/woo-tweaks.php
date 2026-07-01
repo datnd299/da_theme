@@ -30,9 +30,11 @@ add_filter('woocommerce_gateway_icon', function($icon, $gateway_id) {
     $html = '<span class="dawp-payment-icons icon-box" aria-label="' . esc_attr__('Accepted payment methods', 'dawp') . '">';
 
     foreach ($payment_icons as $method) {
+        $image_url = get_theme_file_uri('/assets/img/gallery/Oneshopvibe/payment/' . $method['file']);
+
         $html .= sprintf(
-            '<img class="dawp-payment-icon icon" src="%s" alt="%s" loading="lazy" decoding="async">',
-            esc_url(get_theme_file_uri('/assets/img/gallery/Oneshopvibe/payment/' . $method['file'])),
+            '<img class="dawp-payment-icon icon" %s alt="%s" loading="lazy">',
+            dawp_responsive_image_attrs($image_url, 80, 48, '80px', [80, 120, 160]),
             esc_attr($method['label'])
         );
     }

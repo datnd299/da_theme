@@ -9,6 +9,8 @@ if (empty($product) || !$product->is_visible()) return;
 
 $cats     = get_the_terms($product->get_id(), 'product_cat');
 $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
+$image_id = $product->get_image_id();
+$image    = $image_id ? wp_get_attachment_image_src($image_id, 'full') : false;
 ?>
 <li <?php wc_product_class('product-card', $product); ?>>
     <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">
@@ -16,7 +18,14 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
         <div class="product-card__shell">
             <div class="product-card__inner">
                 <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+                    <?php if ($image) : ?>
+                        <img <?php echo dawp_responsive_image_attrs($image[0], 600, 600, '(max-width: 767px) 50vw, (max-width: 1199px) 33vw, 300px', [300, 450, 600]); ?>
+                             alt="<?php echo esc_attr($product->get_name()); ?>"
+                             class="product-card__img"
+                             loading="lazy">
+                    <?php else : ?>
+                        <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+                    <?php endif; ?>
                 </div>
 
                 <?php if ($product->is_on_sale()) : ?>

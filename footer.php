@@ -59,19 +59,19 @@ $trust_items = [
 $footer_payment_methods = [
     [
         'label' => __('JCB', 'dawp'),
-        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/image copy.png',
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/imagecopy.png',
     ],
     [
         'label' => __('MasterCard', 'dawp'),
-        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/image copy 2.png',
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/imagecopy2.png',
     ],
     [
         'label' => __('PayPal', 'dawp'),
-        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/image copy 3.png',
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/imagecopy3.png',
     ],
     [
         'label' => __('Visa', 'dawp'),
-        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/image copy 4.png',
+        'image' => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/payment/imagecopy4.png',
     ],
 ];
 ?>

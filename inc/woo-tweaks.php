@@ -10,19 +10,19 @@ add_filter('loop_shop_per_page', function() { return 12; });
 add_filter('woocommerce_gateway_icon', function($icon, $gateway_id) {
     $payment_icons = [
         'paypal' => [
-            'file' => 'image copy 3.png',
+            'file' => 'imagecopy3.png',
             'label' => __('PayPal', 'dawp'),
         ],
         'jcb' => [
-            'file' => 'image copy.png',
+            'file' => 'imagecopy.png',
             'label' => __('JCB', 'dawp'),
         ],
         'mastercard' => [
-            'file' => 'image copy 2.png',
+            'file' => 'imagecopy2.png',
             'label' => __('MasterCard', 'dawp'),
         ],
         'visa' => [
-            'file' => 'image copy 4.png',
+            'file' => 'imagecopy4.png',
             'label' => __('Visa', 'dawp'),
         ],
     ];

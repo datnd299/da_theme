@@ -7,15 +7,15 @@ $faq_sections = [
     [
         'id'     => 'faq-shipping',
         'label'  => __('🚚 Shipping & Delivery', 'dawp'),
-        'accent' => '#2563EB',
-        'tint'   => '#EFF6FF',
+        'accent' => '#0F766E',
+        'tint'   => '#ECFDF5',
         'items'  => [
             [
                 'question' => __('How long does order processing and delivery take?', 'dawp'),
                 'answer'   => [
                     ['type' => 'ul', 'items' => [
                         ['label' => __('Processing Time:', 'dawp'), 'text' => __('Most orders are processed within 1–2 business days (Monday through Friday, excluding U.S. public holidays).', 'dawp')],
-                        ['label' => __('Transit Time:', 'dawp'),    'text' => __('Standard delivery within the United States takes 3–5 business days.', 'dawp')],
+                        ['label' => __('Transit Time:', 'dawp'),    'text' => __('Standard delivery within the United States takes 5-7 business days.', 'dawp')],
                     ]],
                 ],
             ],
@@ -52,8 +52,8 @@ $faq_sections = [
     [
         'id'     => 'faq-returns',
         'label'  => __('🔄 Returns & Refunds', 'dawp'),
-        'accent' => '#F97316',
-        'tint'   => '#FFF7ED',
+        'accent' => '#D97706',
+        'tint'   => '#FFFBEB',
         'items'  => [
             [
                 'question' => __('What is Rubyinstar\'s return window?', 'dawp'),
@@ -99,8 +99,8 @@ $faq_sections = [
     [
         'id'     => 'faq-products-orders',
         'label'  => __('🛒 Products & Orders', 'dawp'),
-        'accent' => '#111827',
-        'tint'   => '#F4F6F8',
+        'accent' => '#334155',
+        'tint'   => '#F8FAFC',
         'items'  => [
             [
                 'question' => __('How do I ensure a tire fits my vehicle?', 'dawp'),
@@ -125,8 +125,8 @@ $faq_sections = [
     [
         'id'     => 'faq-privacy-security',
         'label'  => __('🔒 Privacy & Security', 'dawp'),
-        'accent' => '#2563EB',
-        'tint'   => '#EFF6FF',
+        'accent' => '#0F766E',
+        'tint'   => '#ECFDF5',
         'items'  => [
             [
                 'question' => __('Does Rubyinstar store my credit card information?', 'dawp'),
@@ -145,10 +145,10 @@ $faq_sections = [
 ];
 ?>
 
-<div id="primary" class="bg-[#F4F6F8] font-body text-[#111827]">
-    <section class="bg-[#0B1F33] py-14 text-white lg:py-20">
+<div id="primary" class="bg-[#F7FAF9] font-body text-[#17202A]">
+    <section class="bg-[#102A2C] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Rubyinstar Help Center', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F6A21A]"><?php esc_html_e('Rubyinstar Help Center', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
             </h1>
@@ -170,7 +170,7 @@ $faq_sections = [
                 </div>
                 <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#2563EB] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('US Transit', 'dawp'); ?></p>
-                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('3-5 Business Days', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('5-7 Business Days', 'dawp'); ?></p>
                 </div>
                 <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#F97316] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Shipping Cost', 'dawp'); ?></p>
@@ -241,9 +241,9 @@ $faq_sections = [
                         </section>
                     <?php endforeach; ?>
 
-                    <section class="rounded-lg border border-[#E5E7EB] bg-[#0B1F33] p-6 text-white shadow-sm sm:p-8 lg:p-10">
+                    <section class="rounded-lg border border-[#D7E6E2] bg-[#102A2C] p-6 text-white shadow-sm sm:p-8 lg:p-10">
                         <div class="mx-auto max-w-3xl text-center">
-                            <div class="mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#F97316] text-white">
+                            <div class="mx-auto mb-5 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#F6A21A] text-white">
                                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
@@ -253,10 +253,10 @@ $faq_sections = [
                                 <?php esc_html_e('Still have questions? We are here to help!', 'dawp'); ?>
                             </p>
                             <ul class="mt-5 space-y-2 text-sm leading-7 text-[#D7DEE8]">
-                                <li><strong class="text-white"><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
-                                <li><strong class="text-white"><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
-                                <li><strong class="text-white"><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@rubyinstar.com" class="text-[#93C5FD] transition hover:text-white">support@rubyinstar.com</a></li>
-                                <li><strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
+                                <li><strong class="text-white"><?php esc_html_e('Store Name:', 'dawp'); ?></strong> <?php esc_html_e('Rubyinstar', 'dawp'); ?></li>
+                                <li><strong class="text-white"><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('rubyinstar.com', 'dawp'); ?></li>
+                                <li><strong class="text-white"><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@rubyinstar.com" class="text-[#99F6E4] transition hover:text-white">support@rubyinstar.com</a></li>
+                                <li><strong class="text-white"><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday - Friday, 9:00 AM - 5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles)', 'dawp'); ?></li>
                                 <li><strong class="text-white"><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('We typically reply to all inquiries within 1–2 business days.', 'dawp'); ?></li>
                             </ul>
                             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">

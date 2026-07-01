@@ -3,19 +3,19 @@
 @theme {
   /* === COLORS — Backgrounds === */
   --color-background:  #FFFFFF;   /* Warm White */
-  --color-surface:     #FAF7F2;   /* Soft Cream */
-  --color-surface-alt: #F5F3F1;   /* Soft Gray */
+  --color-surface:     #F5F6F8;   /* Light Gray */
+  --color-surface-alt: #F4F6F8;   /* Alternate Gray */
 
   /* === COLORS — Text === */
-  --color-foreground:        #2F2A28;
-  --color-foreground-muted:  #6F625D;
-  --color-muted:             #9A8C86;
+  --color-foreground:        #111827;
+  --color-foreground-muted:  #6B7280;
+  --color-muted:             #9CA3AF;
 
   /* === COLORS — Brand === */
-  --color-accent:       #C98A8A;  /* Dusty Rose */
-  --color-accent-hover: #B87575;
-  --color-accent-soft:  #E8D8C8;  /* Soft Beige */
-  --color-accent-blush: #DFA39A;  /* Warm Blush */
+  --color-accent:       #F97316;  /* Tire Orange */
+  --color-accent-hover: #EA580C;
+  --color-accent-soft:  #FFF7ED;
+  --color-accent-blush: #FDBA74;
 
   /* === COLORS — UI === */
   --color-border:   #E6DDD6;

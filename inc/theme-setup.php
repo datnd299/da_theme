@@ -66,6 +66,7 @@ function dawp_scripts() {
 
     if ( is_front_page() ) {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
+        wp_enqueue_style('dawp-home-custom', get_template_directory_uri() . '/assets/css/home.css', ['dawp-main'], '1.0.0');
         dawp_remove_styles();
     }
 

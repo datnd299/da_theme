@@ -4,10 +4,10 @@
  */
 ?>
 
-<div id="primary" class="bg-[#F4F6F8] font-body text-[#111827]">
-    <section class="bg-[#0B1F33] py-14 text-white lg:py-20">
+<div id="primary" class="bg-[#F7FAF9] font-body text-[#17202A]">
+    <section class="bg-[#102A2C] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Rubyinstar Store Terms', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F6A21A]"><?php esc_html_e('Rubyinstar Store Terms', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
             </h1>
@@ -114,11 +114,9 @@
                         <p><?php esc_html_e('If you have any questions or require clarification regarding our Terms & Conditions, please contact us directly:', 'dawp'); ?></p>
                         <ul>
                             <li><strong><?php esc_html_e('Brand Name:', 'dawp'); ?></strong> <?php esc_html_e('Rubyinstar', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('rubyinstar.com', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:support@rubyinstar.com">support@rubyinstar.com</a></li>
-                            <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday - Friday, 9:00 AM - 5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles)', 'dawp'); ?></li>
                         </ul>
                     </div>
                 </article>

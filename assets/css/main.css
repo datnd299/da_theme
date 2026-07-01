@@ -8,27 +8,27 @@
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
   /* Warm White — page background */
-  --color-surface: rgb(231, 231, 231);
+  --color-surface: #F5F6F8;
   /* Soft Cream — section / card background */
-  --color-surface-alt: #F5F3F1;
+  --color-surface-alt: #F4F6F8;
   /* Soft Gray — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
+  --color-foreground: #111827;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
+  --color-foreground-muted: #6B7280;
   /* Secondary text — descriptions, meta */
-  --color-muted: #9A8C86;
+  --color-muted: #9CA3AF;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #F7C948;
+  --color-accent: #F97316;
   /* Golden yellow - primary CTA, highlights */
-  --color-accent-hover: #EABF44;
+  --color-accent-hover: #EA580C;
   /* Golden yellow darker - hover state */
-  --color-accent-soft: #E8D8C8;
+  --color-accent-soft: #FFF7ED;
   /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #DCD5FF;
+  --color-accent-blush: #FDBA74;
   /* Soft lavender - secondary brand color */
 
   /* === UI === */
@@ -329,8 +329,8 @@ body.dawp-mobile-menu-open {
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #DCD5FF;
-  box-shadow: 0 0 0 3px rgba(220, 213, 255, 0.65);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18);
 }
 
 #contact-form-1 input.wpcf7-not-valid,
@@ -364,7 +364,7 @@ body.dawp-mobile-menu-open {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #2D2633;
-  background: #F7C948;
+  background: var(--color-accent);
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -372,7 +372,7 @@ body.dawp-mobile-menu-open {
 }
 
 #contact-form-1 input[type="submit"]:hover {
-  background: #EABF44;
+  background: var(--color-accent-hover);
 }
 
 #contact-form-1 .wpcf7-spinner {
@@ -391,8 +391,8 @@ body.dawp-mobile-menu-open {
 }
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
-  background: rgba(247, 201, 72, 0.18);
-  border-left: 3px solid #F7C948;
+  background: rgba(249, 115, 22, 0.12);
+  border-left: 3px solid var(--color-accent);
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,
@@ -475,8 +475,8 @@ body.dawp-mobile-menu-open {
 
 .woocommerce-form-login .woocommerce-Input:focus {
   background: #FFFFFF;
-  border-color: #DCD5FF;
-  box-shadow: 0 0 0 3px rgba(220, 213, 255, 0.55);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.18);
 }
 
 /* Password field with show/hide toggle */
@@ -569,7 +569,7 @@ body.dawp-mobile-menu-open {
 
 .woocommerce-form-login__submit:hover {
   color: #2D2633;
-  background: #F7C948;
+  background: var(--color-accent);
 }
 
 /* Lost password */

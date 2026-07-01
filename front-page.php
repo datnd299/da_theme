@@ -1,8 +1,8 @@
 <?php
 get_header();
 ?>
-<main class="front-page-content">
+<div class="front-page-content">
     <?php get_template_part('template-parts/page', 'home'); ?>
-</main>
+</div>
 <?php
 get_footer();

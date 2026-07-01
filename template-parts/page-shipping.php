@@ -4,15 +4,15 @@
  */
 ?>
 
-<div id="primary" class="bg-[#F4F6F8] font-body text-[#111827]">
-    <section class="bg-[#0B1F33] py-14 text-white lg:py-20">
+<div id="primary" class="bg-[#F7FAF9] font-body text-[#17202A]">
+    <section class="bg-[#102A2C] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F97316]"><?php esc_html_e('Rubyinstar Customer Care', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#F6A21A]"><?php esc_html_e('Rubyinstar Customer Care', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Shipping Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#D7DEE8]">
-                <?php esc_html_e('Thank you for choosing Rubyinstar! We strive to process and deliver your tires as quickly and reliably as possible.', 'dawp'); ?>
+                <?php esc_html_e('Thank you for choosing Rubyinstar. We process tire orders carefully, share tracking after carrier handoff, and keep delivery expectations clear before checkout.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#B8C3D1]">
                 <?php esc_html_e('Last Updated: May 19, 2026', 'dawp'); ?>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#2563EB] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('US Transit', 'dawp'); ?></p>
-                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('3-5 Business Days', 'dawp'); ?></p>
+                    <p class="mt-3 font-heading text-2xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('5-7 Business Days', 'dawp'); ?></p>
                 </div>
                 <div class="rounded-lg border border-[#E5E7EB] border-t-4 border-t-[#F97316] bg-white p-6 shadow-sm">
                     <p class="text-sm font-bold uppercase tracking-wide text-[#5B6472]"><?php esc_html_e('Shipping Cost', 'dawp'); ?></p>
@@ -77,7 +77,7 @@
                                         <tr>
                                             <td class="px-4 py-4 align-top"><?php esc_html_e('United States', 'dawp'); ?></td>
                                             <td class="px-4 py-4 align-top"><?php esc_html_e('1–2 business days', 'dawp'); ?></td>
-                                            <td class="px-4 py-4 align-top"><?php esc_html_e('3–5 business days', 'dawp'); ?></td>
+                                            <td class="px-4 py-4 align-top"><?php esc_html_e('5-7 business days', 'dawp'); ?></td>
                                             <td class="px-4 py-4 align-top font-bold text-[#16A34A]"><?php esc_html_e('FREE', 'dawp'); ?></td>
                                         </tr>
                                     </tbody>
@@ -85,6 +85,8 @@
                             </div>
                             <ul class="mt-5 list-disc space-y-3 pl-6">
                                 <li><strong><?php esc_html_e('Business Days:', 'dawp'); ?></strong> <?php esc_html_e('Monday through Friday, excluding U.S. public holidays and carrier holidays.', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Order Cutoff:', 'dawp'); ?></strong> <?php esc_html_e('Orders placed after 5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles) begin processing the next business day.', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Estimated Delivery:', 'dawp'); ?></strong> <?php esc_html_e('Most eligible U.S. orders arrive within 6-9 business days after checkout, including handling and transit time.', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Shipping Cost:', 'dawp'); ?></strong> <?php esc_html_e('Rubyinstar offers Free Standard Shipping on all tire orders within our standard delivery zones. There are no hidden shipping fees at checkout.', 'dawp'); ?></li>
                             </ul>
 
@@ -114,10 +116,10 @@
                             <h3 id="shipping-contact" class="scroll-mt-24 mt-10 rounded-md border-l-4 border-[#2563EB] bg-[#EFF6FF] px-5 py-4 text-xl font-black leading-snug text-[#0B1F33]"><?php esc_html_e('Contact Information', 'dawp'); ?></h3>
                             <p><?php esc_html_e('If you have any questions or need assistance with your shipment, please reach out to us:', 'dawp'); ?></p>
                             <ul class="mt-5 list-disc space-y-3 pl-6">
-                                <li><strong><?php esc_html_e('Company:', 'dawp'); ?></strong> <?php esc_html_e('TIRE CAPITAL LLC', 'dawp'); ?></li>
-                                <li><strong><?php esc_html_e('Address:', 'dawp'); ?></strong> <?php esc_html_e('324 W Dickerson Ln, Middletown, DE 19709-8832', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Store Name:', 'dawp'); ?></strong> <?php esc_html_e('Rubyinstar', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('rubyinstar.com', 'dawp'); ?></li>
                                 <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:support@rubyinstar.com" class="text-[#2563EB] underline hover:no-underline">support@rubyinstar.com</a></li>
-                                <li><strong><?php esc_html_e('Support Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York)', 'dawp'); ?></li>
+                                <li><strong><?php esc_html_e('Support Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday - Friday, 9:00 AM - 5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles)', 'dawp'); ?></li>
                             </ul>
                         </div>
                     </article>

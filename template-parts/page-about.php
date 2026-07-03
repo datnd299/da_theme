@@ -1,243 +1,414 @@
-<?php
-/**
- * Template Part: page-about
- */
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
-$rubyinstar_gallery_uri = get_theme_file_uri('/assets/img/gallery/Rubyinstar/');
+  :root{
+    --navy:#0B1F3A;
+    --navy-light:#12294f;
+    --orange:#F97316;
+    --orange-dark:#DB5F0B;
+    --white:#FFFFFF;
+    --gray-bg:#F5F6F8;
+    --text:#111827;
+    --text-soft:#6B7280;
+    --border:#E5E7EB;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--text);
+    background:var(--white);
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,h4{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    color:var(--navy);
+    line-height:1.15;
+    overflow-wrap:break-word;
+  }
+  p,span,a,strong,button{ overflow-wrap:break-word; }
+  a{text-decoration:none; color:inherit;}
+  img{max-width:100%; display:block;}
+  ul{list-style:none;}
+  button{font-family:inherit; cursor:pointer;}
+  .container{max-width:1280px; margin:0 auto; padding:0 20px;}
+  @media(min-width:768px){ .container{padding:0 32px;} }
 
-$images = [
-    'hero'        => $rubyinstar_gallery_uri . 'tire-hero-road.png',
-    'tread'       => $rubyinstar_gallery_uri . 'all-season-tread.png',
-    'suv_trailer' => $rubyinstar_gallery_uri . 'suv-trailer-tires.png',
-];
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--orange);
+  }
+  .eyebrow::before{
+    content:""; width:18px; height:2px; background:var(--orange); display:inline-block; border-radius:2px;
+  }
 
-$shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
-    ? get_permalink(wc_get_page_id('shop'))
-    : home_url('/shop/');
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    min-height:48px; padding:0 26px; border-radius:10px; font-weight:700; font-size:15px;
+    border:none; transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+    white-space:nowrap;
+  }
+  .btn:active{ transform:translateY(1px); }
+  .btn-primary{ background:var(--orange); color:#fff; box-shadow:0 8px 20px -8px rgba(249,115,22,.55); }
+  .btn-primary:hover{ background:var(--orange-dark); }
+  .btn-secondary{ background:var(--navy); color:#fff; }
+  .btn-secondary:hover{ background:var(--navy-light); }
+  .btn-outline{ background:#fff; color:var(--navy); border:1.5px solid var(--border); }
+  .btn-outline:hover{ border-color:var(--navy); }
 
-$values = [
-    [
-        'title' => __('Clear Tire Information', 'dawp'),
-        'copy'  => __('We keep tire size, rim size, season, load index, speed rating, and vehicle guidance easy to review before checkout.', 'dawp'),
-    ],
-    [
-        'title' => __('Practical Road Use', 'dawp'),
-        'copy'  => __('Our store is focused on tires for everyday driving, commuting, utility needs, towing support, and seasonal road conditions.', 'dawp'),
-    ],
-    [
-        'title' => __('Transparent Support', 'dawp'),
-        'copy'  => __('Customers can review shipping timelines, return eligibility, tracking information, and support details before placing an order.', 'dawp'),
-    ],
-];
+  section{ padding:64px 0; }
+  .section-head{ text-align:center; max-width:660px; margin:0 auto 40px; }
+  .section-head h2{ font-size:clamp(26px,3.4vw,36px); margin-top:12px; }
+  .section-head p{ color:var(--text-soft); margin-top:12px; font-size:15.5px; line-height:1.6; }
+  .section-head.left{ text-align:left; margin:0 0 34px; max-width:720px; }
+  .bg-gray{ background:var(--gray-bg); }
 
-$categories = [
-    __('All-season tires', 'dawp'),
-    __('SUV and crossover tires', 'dawp'),
-    __('Light truck tires', 'dawp'),
-    __('Performance tires', 'dawp'),
-    __('Trailer tires', 'dawp'),
-    __('Winter tires', 'dawp'),
-];
+  /* ===== ABOUT HERO ===== */
+  .about-hero{
+    position:relative;
+    background:
+      radial-gradient(1100px 480px at 86% -8%, rgba(249,115,22,.18), transparent 60%),
+      linear-gradient(180deg, var(--navy) 0%, #0d2547 62%, #0f2a52 100%);
+    color:#fff;
+    overflow:hidden;
+  }
+  .tread-line{
+    position:absolute; inset:auto 0 0 0; height:10px;
+    background-image:repeating-linear-gradient(100deg, rgba(255,255,255,.12) 0 10px, transparent 10px 22px);
+    opacity:.5;
+  }
+  .about-hero-inner{
+    display:grid; grid-template-columns:1fr; gap:40px;
+    padding:56px 0 54px;
+  }
+  @media(min-width:1024px){
+    .about-hero-inner{ grid-template-columns:1.02fr .98fr; align-items:center; padding:78px 0 68px; }
+  }
+  .about-hero-copy h1{
+    font-size:clamp(32px, 5vw, 52px);
+    font-weight:800; margin:16px 0 18px;
+    color:#fff; line-height:1.12; text-wrap:balance;
+  }
+  .about-hero-copy p{
+    font-size:17px; color:rgba(255,255,255,.84); max-width:590px; line-height:1.65;
+  }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+  .about-hero-stats{ display:flex; gap:28px; margin-top:36px; flex-wrap:wrap; }
+  .about-hero-stats div strong{ display:block; font-family:'Plus Jakarta Sans'; font-size:22px; color:#fff; }
+  .about-hero-stats div span{ font-size:12.5px; color:rgba(255,255,255,.74); text-transform:uppercase; letter-spacing:.05em;}
+  .about-visual{ position:relative; }
+  .about-photo{
+    border-radius:20px; overflow:hidden; box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
+    border:1px solid rgba(255,255,255,.1);
+  }
+  .about-photo img{ width:100%; height:360px; object-fit:cover; }
+  .float-badge{
+    position:absolute; bottom:-22px; left:-18px;
+    background:#fff; color:var(--navy); border-radius:14px;
+    padding:14px 18px; box-shadow:0 16px 30px -10px rgba(0,0,0,.35);
+    display:flex; align-items:center; gap:12px;
+  }
+  .float-badge .ring{
+    width:42px; height:42px; border-radius:50%; background:var(--gray-bg);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .float-badge strong{ font-family:'Plus Jakarta Sans'; font-size:15px; display:block; }
+  .float-badge span{ font-size:12px; color:var(--text-soft); }
+  @media(max-width:640px){ .float-badge{ display:none; } }
 
-$trust_items = [
-    __('Secure checkout', 'dawp'),
-    __('Tracking included after dispatch', 'dawp'),
-    __('30-day return window for eligible unused, unmounted, undriven, and undamaged tires', 'dawp'),
-    __('Support by email during business hours', 'dawp'),
-];
-?>
+  /* ===== STORY ===== */
+  .story-grid{ display:grid; grid-template-columns:1fr; gap:34px; align-items:center; }
+  @media(min-width:960px){ .story-grid{ grid-template-columns:.92fr 1.08fr; } }
+  .story-image{
+    border-radius:18px; overflow:hidden; border:1px solid var(--border);
+    box-shadow:0 22px 44px -28px rgba(11,31,58,.35);
+  }
+  .story-image img{ width:100%; height:420px; object-fit:cover; }
+  .story-copy h2{ font-size:clamp(26px,3.4vw,38px); margin-top:12px; }
+  .story-copy p{ color:var(--text-soft); margin-top:14px; font-size:15.5px; line-height:1.75; }
+  .story-points{ display:grid; grid-template-columns:1fr; gap:14px; margin-top:24px; }
+  @media(min-width:620px){ .story-points{ grid-template-columns:repeat(2,1fr); } }
+  .point{
+    background:#fff; border:1px solid var(--border); border-radius:14px; padding:18px;
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .point-icon{
+    flex:0 0 auto; width:38px; height:38px; border-radius:10px; background:var(--navy);
+    color:#fff; display:flex; align-items:center; justify-content:center;
+  }
+  .point strong{ display:block; color:var(--navy); font-family:'Plus Jakarta Sans'; font-size:14.5px; }
+  .point span{ display:block; color:var(--text-soft); font-size:13.5px; line-height:1.5; margin-top:3px; }
 
-<div id="primary" class="bg-white font-body text-[#111111]">
+  /* ===== VALUES ===== */
+  .value-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
+  @media(min-width:640px){ .value-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(min-width:1024px){ .value-grid{ grid-template-columns:repeat(4,1fr); } }
+  .value-card{
+    background:#fff; border:1px solid var(--border); border-radius:16px; padding:26px 22px;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .value-card:hover{ transform:translateY(-4px); box-shadow:0 18px 34px -18px rgba(11,31,58,.25); border-color:transparent; }
+  .value-icon{ width:48px; height:48px; border-radius:12px; background:var(--gray-bg); color:var(--navy); display:flex; align-items:center; justify-content:center; margin-bottom:16px;}
+  .value-card:hover .value-icon{ background:var(--orange); color:#fff; }
+  .value-card h3{ font-size:16.5px; }
+  .value-card p{ font-size:13.5px; color:var(--text-soft); margin-top:8px; line-height:1.55; }
 
-    <!-- Hero -->
-    <section class="relative min-h-[560px] overflow-hidden bg-[#050505] text-white">
-        <img src="<?php echo esc_url($images['hero']); ?>"
-             alt="<?php esc_attr_e('Tire on an open road representing everyday driving support from Rubyinstar', 'dawp'); ?>"
-             class="absolute inset-0 h-full w-full object-cover"
-             loading="eager"
-             fetchpriority="high">
-        <div class="absolute inset-0 bg-[#050505]/82 lg:bg-[linear-gradient(90deg,rgba(5,5,5,0.98)_0%,rgba(17,17,17,0.86)_48%,rgba(185,28,28,0.28)_100%)]"></div>
+  /* ===== PROCESS ===== */
+  .process-wrap{
+    background:linear-gradient(120deg, var(--navy) 0%, #163a6b 100%);
+    border-radius:24px; padding:48px 32px; color:#fff; position:relative; overflow:hidden;
+  }
+  .process-wrap::before{
+    content:""; position:absolute; right:-60px; top:-60px; width:280px; height:280px; border-radius:50%;
+    background:radial-gradient(circle, rgba(249,115,22,.35), transparent 70%);
+  }
+  .process-head{ position:relative; display:flex; justify-content:space-between; gap:22px; align-items:flex-end; flex-wrap:wrap; margin-bottom:30px; }
+  .process-head h2{ color:#fff; font-size:clamp(26px,3.4vw,34px); margin-top:12px; }
+  .process-head p{ color:rgba(255,255,255,.84); max-width:480px; line-height:1.6; }
+  .process-grid{ display:grid; grid-template-columns:1fr; gap:14px; position:relative; }
+  @media(min-width:800px){ .process-grid{ grid-template-columns:repeat(3,1fr); } }
+  .process-card{
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:14px;
+    padding:22px; backdrop-filter:blur(2px);
+  }
+  .process-num{
+    width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    background:var(--orange); color:#fff; font-family:'Plus Jakarta Sans'; font-weight:800; margin-bottom:14px;
+  }
+  .process-card h3{ color:#fff; font-size:16px; }
+  .process-card p{ color:rgba(255,255,255,.78); font-size:13.5px; line-height:1.6; margin-top:8px; }
 
-        <div class="relative mx-auto flex min-h-[560px] max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <p class="mb-5 inline-flex rounded-md border border-[#FCA5A5]/50 bg-[#B91C1C]/20 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#FCA5A5]">
-                    <?php esc_html_e('About Rubyinstar', 'dawp'); ?>
-                </p>
+  /* ===== TRUST ===== */
+  .trust-grid{ display:grid; grid-template-columns:1fr; gap:18px; align-items:stretch; }
+  @media(min-width:900px){ .trust-grid{ grid-template-columns:1.08fr .92fr; } }
+  .trust-panel{
+    border:1px solid var(--border); border-radius:18px; padding:30px; background:#fff;
+  }
+  .trust-panel h2{ font-size:clamp(24px,3vw,32px); }
+  .trust-panel p{ color:var(--text-soft); line-height:1.7; margin-top:12px; }
+  .metric-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:24px; }
+  .metric{
+    background:var(--gray-bg); border-radius:14px; padding:20px;
+  }
+  .metric strong{ display:block; font-family:'Plus Jakarta Sans'; color:var(--navy); font-size:24px; }
+  .metric span{ display:block; color:var(--text-soft); font-size:12.5px; line-height:1.45; margin-top:4px; text-transform:uppercase; letter-spacing:.04em; }
+  .support-list{ display:grid; gap:12px; margin-top:22px; }
+  .support-item{ display:flex; gap:12px; align-items:flex-start; color:var(--text-soft); font-size:14px; line-height:1.55; }
+  .check{
+    flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:rgba(249,115,22,.12);
+    color:var(--orange); display:flex; align-items:center; justify-content:center; font-weight:800;
+  }
 
-                <h1 class="font-heading text-5xl font-black leading-[0.98] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('A practical online tire store for everyday drivers.', 'dawp'); ?>
-                </h1>
+  /* ===== CTA ===== */
+  .about-cta{
+    background:var(--orange);
+    border-radius:24px; padding:44px 32px; color:#fff; text-align:center;
+  }
+  .about-cta h2{ color:#fff; font-size:clamp(24px,3vw,30px); }
+  .about-cta p{ color:rgba(255,255,255,.9); margin:10px auto 0; max-width:560px; line-height:1.6; }
+  .about-cta-actions{ display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:26px; }
 
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#E5E5E5]">
-                    <?php esc_html_e('Rubyinstar helps drivers shop for car, SUV, light truck, trailer, winter, performance, and all-season tires with clear product details and fitment reminders.', 'dawp'); ?>
-                </p>
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
 
-                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($shop_url); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#DC2626] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#111111]">
-                        <?php esc_html_e('Shop Tires', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#FCA5A5]/70 bg-white/10 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#DC2626] hover:text-white">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
+<!-- ===================== ABOUT HERO ===================== -->
+<section class="about-hero">
+  <div class="container about-hero-inner">
+    <div class="about-hero-copy">
+      <span class="eyebrow">About Rubyinstar</span>
+      <h1>Making Tire Shopping Easier For Everyday Drivers</h1>
+      <p>Rubyinstar helps customers find affordable, dependable tires online with clear product information, straightforward delivery, and support when choosing the right fit.</p>
+      <div class="hero-ctas">
+        <a href="/shop/" class="btn btn-primary">Shop Tires</a>
+        <a href="/contact-us/" class="btn btn-outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.3);">Contact Support</a>
+      </div>
+      <div class="about-hero-stats">
+        <div><strong>50 States</strong><span>Delivery Reach</span></div>
+        <div><strong>30 Days</strong><span>Easy Returns</span></div>
+        <div><strong>Simple</strong><span>Online Ordering</span></div>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <div class="about-photo">
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/gallery/Rubyinstar/tire-hero-road.png' ); ?>" alt="Everyday vehicle on the road with reliable tires">
+      </div>
+      <div class="float-badge">
+        <span class="ring">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1F3A" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+        </span>
+        <div>
+          <strong>Built On Trust</strong>
+          <span>Clear choices, fair value</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+  <div class="tread-line"></div>
+</section>
 
-    <!-- Mission -->
-    <section class="bg-white py-14 lg:py-20">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#DC2626]">
-                    <?php esc_html_e('Our Mission', 'dawp'); ?>
-                </p>
+<!-- ===================== OUR STORY ===================== -->
+<section class="bg-gray">
+  <div class="container">
+    <div class="story-grid reveal">
+      <div class="story-image">
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/gallery/Rubyinstar/all-season-tread.png' ); ?>" alt="Close-up of all-season tire tread">
+      </div>
+      <div class="story-copy">
+        <span class="eyebrow">Our Story</span>
+        <h2>A Better Way To Buy Tires Online</h2>
+        <p>Buying tires should not feel confusing or stressful. Rubyinstar was created to give drivers a cleaner shopping experience with practical tire categories, visible pricing, and easy paths to compare options for daily driving, family SUVs, trucks, and seasonal needs.</p>
+        <p>We focus on the essentials that matter most: fit, value, delivery, and confidence. Every page is designed to help customers move from uncertainty to the right tire choice faster.</p>
 
-                <h2 class="font-heading text-4xl font-black leading-tight text-[#111111] lg:text-5xl">
-                    <?php esc_html_e('Make tire shopping clearer and easier to compare.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#525252]">
-                    <?php esc_html_e('Choosing tires online should not depend on vague descriptions or oversized promises. Rubyinstar focuses on practical tire categories, readable specifications, and reminders that help customers confirm size and compatibility before ordering.', 'dawp'); ?>
-                </p>
-                <p class="mt-4 max-w-2xl text-base leading-8 text-[#525252]">
-                    <?php esc_html_e('Our goal is to support everyday drivers who need road-ready tire options for commuting, family vehicles, light-duty utility driving, towing needs, and seasonal conditions.', 'dawp'); ?>
-                </p>
-
-                <p class="mt-7 border-l-4 border-[#DC2626] bg-[#FEE2E2] p-4 text-sm font-bold leading-7 text-[#111111]">
-                    <?php esc_html_e('Please confirm your tire size, rim size, load index, speed rating, and vehicle compatibility before placing an order.', 'dawp'); ?>
-                </p>
+        <div class="story-points">
+          <div class="point">
+            <div class="point-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
             </div>
-
-            <div class="overflow-hidden rounded-lg border border-[#D4D4D4] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['tread']); ?>"
-                     alt="<?php esc_attr_e('Close-up of tire tread showing product detail and road-use focus', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
+            <div><strong>Focused On Tires</strong><span>Clear tire categories and product details for common vehicle needs.</span></div>
+          </div>
+          <div class="point">
+            <div class="point-icon">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
+            <div><strong>Fair Everyday Value</strong><span>Affordable options without a complicated buying experience.</span></div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Values -->
-    <section class="bg-[#F5F5F5] py-14 lg:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#DC2626]">
-                    <?php esc_html_e('How We Work', 'dawp'); ?>
-                </p>
-                <h2 class="font-heading text-4xl font-black leading-tight text-[#111111] lg:text-5xl">
-                    <?php esc_html_e('Built around clear specs, fitment awareness, and transparent policies.', 'dawp'); ?>
-                </h2>
-            </div>
+<!-- ===================== VALUES ===================== -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Believe</span>
+      <h2>Simple Standards Behind Every Order</h2>
+      <p>Our store is shaped around practical decisions that make tire shopping feel more reliable from the first search to final delivery.</p>
+    </div>
 
-            <div class="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-                <?php foreach ($values as $value) : ?>
-                    <div class="rounded-lg border border-[#D4D4D4] border-t-4 border-t-[#DC2626] bg-white p-6 shadow-sm transition hover:border-[#DC2626] hover:shadow-md">
-                        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-md bg-[#DC2626] text-white">
-                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <h3 class="font-heading text-xl font-black text-[#111111]"><?php echo esc_html($value['title']); ?></h3>
-                        <p class="mt-3 text-sm leading-7 text-[#525252]"><?php echo esc_html($value['copy']); ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+    <div class="value-grid reveal">
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
-    </section>
-
-    <!-- Categories -->
-    <section class="bg-white py-14 lg:py-20">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-            <div class="overflow-hidden rounded-lg border border-[#D4D4D4] bg-white shadow-sm">
-                <img src="<?php echo esc_url($images['suv_trailer']); ?>"
-                     alt="<?php esc_attr_e('SUV and trailer tire scene for utility and towing tire categories', 'dawp'); ?>"
-                     class="aspect-[4/3] w-full object-cover"
-                     loading="lazy">
-            </div>
-
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#DC2626]">
-                    <?php esc_html_e('What We Sell', 'dawp'); ?>
-                </p>
-
-                <h2 class="font-heading text-4xl font-black leading-tight text-[#111111] lg:text-5xl">
-                    <?php esc_html_e('Tire categories for common vehicle and driving needs.', 'dawp'); ?>
-                </h2>
-
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#525252]">
-                    <?php esc_html_e('Rubyinstar is focused on tire and auto essentials, not unrelated auto parts. Customers can browse by tire type, vehicle need, seasonal condition, and product specification.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    <?php foreach ($categories as $category) : ?>
-                        <div class="flex min-h-12 items-center gap-3 rounded-lg border border-[#FCA5A5]/60 bg-[#FEE2E2] px-4">
-                            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#DC2626] text-white">
-                                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                                </svg>
-                            </span>
-                            <span class="text-sm font-bold text-[#111111]"><?php echo esc_html($category); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <div class="mt-8">
-                    <a href="<?php echo esc_url($shop_url); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#DC2626] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#111111]">
-                        <?php esc_html_e('Browse Tire Categories', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
+        <h3>Clear Choices</h3>
+        <p>Product information is organized so customers can compare tires without digging through clutter.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>
         </div>
-    </section>
-
-    <!-- Trust -->
-    <section class="bg-[#111111] py-14 text-white lg:py-20">
-        <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:px-8">
-            <div>
-                <p class="mb-3 text-sm font-black uppercase tracking-[0.2em] text-[#FCA5A5]">
-                    <?php esc_html_e('Customer Care', 'dawp'); ?>
-                </p>
-                <h2 class="font-heading text-4xl font-black leading-tight text-white lg:text-5xl">
-                    <?php esc_html_e('Support and policies customers can check before ordering.', 'dawp'); ?>
-                </h2>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#D4D4D4]">
-                    <?php esc_html_e('We provide order tracking, shipping and return information, and support access so customers can understand the buying process from product selection to delivery.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="space-y-5">
-                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <?php foreach ($trust_items as $item) : ?>
-                        <div class="rounded-lg border border-white/10 border-l-4 border-l-[#DC2626] bg-white/10 p-5">
-                            <h3 class="text-base font-black text-white"><?php echo esc_html($item); ?></h3>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-
-                <div class="rounded-lg border border-[#FCA5A5]/50 bg-[#DC2626]/15 p-5">
-                    <p class="text-sm font-black uppercase tracking-[0.16em] text-[#FCA5A5]">
-                        <?php esc_html_e('Support Information', 'dawp'); ?>
-                    </p>
-                    <p class="mt-3 text-sm font-semibold leading-7 text-white">
-                        <?php esc_html_e('Email support@rubyinstar.com. Business hours are Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Standard Time (New York).', 'dawp'); ?>
-                    </p>
-                </div>
-
-                <div class="flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#DC2626] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#111111]">
-                        <?php esc_html_e('Shipping Policy', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/faq/')); ?>"
-                       class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#FCA5A5]/70 bg-transparent px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#DC2626] hover:text-white">
-                        <?php esc_html_e('View FAQ', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
+        <h3>Easy Ordering</h3>
+        <p>A straightforward online store helps drivers move quickly from browsing to checkout.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l-3-4M16 12l-3 4M21 12v4a1 1 0 0 1-1 1h-2M3 12V8a1 1 0 0 1 1-1h6v5"/></svg>
         </div>
-    </section>
+        <h3>Reliable Delivery</h3>
+        <p>Orders are handled with a focus on dependable shipment and practical delivery expectations.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Helpful Support</h3>
+        <p>When questions come up, customers can reach out for guidance before or after purchase.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
+<!-- ===================== PROCESS ===================== -->
+<section>
+  <div class="container">
+    <div class="process-wrap reveal">
+      <div class="process-head">
+        <div>
+          <span class="eyebrow">How It Works</span>
+          <h2>From Tire Search To Delivery</h2>
+        </div>
+        <p>Rubyinstar keeps the buying path simple so customers can focus on fit, price, and confidence.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-num">1</div>
+          <h3>Find Your Tire</h3>
+          <p>Browse by category, tire type, vehicle need, brand, or common sizing paths.</p>
+        </div>
+        <div class="process-card">
+          <div class="process-num">2</div>
+          <h3>Compare With Confidence</h3>
+          <p>Review size, tire type, price, and shipping details before placing your order.</p>
+        </div>
+        <div class="process-card">
+          <div class="process-num">3</div>
+          <h3>Get It Delivered</h3>
+          <p>Complete checkout online and receive order updates as your tires move toward delivery.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST ===================== -->
+<section class="bg-gray">
+  <div class="container">
+    <div class="trust-grid reveal">
+      <div class="trust-panel">
+        <span class="eyebrow">Why Drivers Trust Us</span>
+        <h2>Built For Practical Tire Buyers</h2>
+        <p>Rubyinstar is not trying to make tire shopping feel complicated or overly technical. We organize the experience around what everyday drivers actually need to decide: what fits, what it costs, how it ships, and where to get help.</p>
+        <div class="metric-grid">
+          <div class="metric"><strong>6-9</strong><span>Average delivery days</span></div>
+          <div class="metric"><strong>30</strong><span>Day return window</span></div>
+          <div class="metric"><strong>24/7</strong><span>Online shopping access</span></div>
+          <div class="metric"><strong>50</strong><span>States shipped</span></div>
+        </div>
+      </div>
+
+      <div class="trust-panel">
+        <h2>Our Customer Promise</h2>
+        <p>Every order should feel clear before checkout and supported afterward.</p>
+        <div class="support-list">
+          <div class="support-item"><span class="check">✓</span><span>Clear product presentation with tire size, type, price, and shipping details visible.</span></div>
+          <div class="support-item"><span class="check">✓</span><span>Convenient online ordering for busy customers and everyday drivers.</span></div>
+          <div class="support-item"><span class="check">✓</span><span>Accessible support for questions about orders, policies, and tire selection.</span></div>
+          <div class="support-item"><span class="check">✓</span><span>Helpful policy pages for shipping, returns, privacy, terms, FAQs, and tracking.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section>
+  <div class="container">
+    <div class="about-cta reveal">
+      <h2>Ready To Find The Right Tires?</h2>
+      <p>Start with popular tire categories or contact Rubyinstar support if you need help choosing the best option for your vehicle.</p>
+      <div class="about-cta-actions">
+        <a href="/shop/" class="btn btn-secondary">Shop Tires</a>
+        <a href="/contact-us/" class="btn btn-outline">Ask A Question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+</script>

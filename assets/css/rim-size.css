@@ -1,14 +1,32 @@
 .rim-size-page {
-    background: #f4f6f8;
+    --rim-navy: #0B1F3A;
+    --rim-navy-soft: #12294f;
+    --rim-orange: #F97316;
+    --rim-orange-dark: #DB5F0B;
+    --rim-orange-text: #C2410C;
+    --rim-orange-strong: #9A3412;
+    --rim-text: #111827;
+    --rim-muted: #4B5563;
+    --rim-line: #E5E7EB;
+    --rim-soft: #F5F6F8;
+    --rim-radius: 10px;
+    background: #fff;
     color: #111827;
-    font-family: Inter, Manrope, system-ui, sans-serif;
+    font-family: Inter, system-ui, sans-serif;
+    overflow: hidden;
+}
+
+.rim-size-page a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .rim-hero {
     position: relative;
-    min-height: 620px;
+    isolation: isolate;
+    min-height: 560px;
     overflow: hidden;
-    background: #0b1f33;
+    background: var(--rim-navy);
     color: #fff;
 }
 
@@ -22,22 +40,26 @@
 
 .rim-hero__image {
     object-fit: cover;
+    opacity: 0.7;
 }
 
 .rim-hero__overlay {
-    background: linear-gradient(90deg, rgba(11, 31, 51, 0.96) 0%, rgba(11, 31, 51, 0.82) 50%, rgba(11, 31, 51, 0.34) 100%);
+    background:
+        radial-gradient(900px 420px at 88% 0%, rgba(249, 115, 22, 0.18), transparent 60%),
+        linear-gradient(90deg, rgba(11, 31, 58, 0.96) 0%, rgba(11, 31, 58, 0.78) 52%, rgba(11, 31, 58, 0.32) 100%),
+        linear-gradient(180deg, rgba(11, 31, 58, 0) 60%, rgba(11, 31, 58, 0.94) 100%);
 }
 
 .rim-hero__inner {
     position: relative;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 260px;
-    align-items: end;
-    gap: clamp(28px, 5vw, 56px);
-    min-height: 620px;
+    grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.58fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+    min-height: 560px;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 112px 32px 76px;
+    padding: 76px 32px 64px;
 }
 
 .rim-hero__copy {
@@ -46,22 +68,26 @@
 
 .rim-eyebrow {
     display: inline-flex;
-    margin: 0 0 20px;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 9px 14px;
-    color: #fff;
-    font-size: 12px;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 14px;
+    color: var(--rim-orange);
+    font-size: 13px;
     font-weight: 900;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
+.rim-eyebrow::before {
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--rim-orange);
+    content: "";
+}
+
 .rim-eyebrow--blue {
-    border-color: #bfdbfe;
-    background: #eff6ff;
-    color: #2563eb;
+    color: var(--rim-orange);
 }
 
 .rim-hero h1,
@@ -70,23 +96,25 @@
 .rim-support h2 {
     margin: 0;
     color: inherit;
-    font-family: Manrope, Inter, system-ui, sans-serif;
+    font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
     font-weight: 900;
     letter-spacing: 0;
-    line-height: 1.02;
+    line-height: 1.08;
 }
 
 .rim-hero h1 {
-    max-width: 780px;
-    font-size: clamp(44px, 7vw, 82px);
+    max-width: 720px;
+    color: #fff;
+    font-size: clamp(36px, 5.3vw, 64px);
+    text-wrap: balance;
 }
 
 .rim-hero p:not(.rim-eyebrow) {
     max-width: 680px;
-    margin: 24px 0 0;
-    color: #e5e7eb;
-    font-size: 18px;
-    line-height: 1.75;
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 17px;
+    line-height: 1.65;
 }
 
 .rim-hero__actions {
@@ -101,69 +129,239 @@
     min-height: 48px;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
+    gap: 8px;
+    border: 1px solid transparent;
+    border-radius: var(--rim-radius);
     padding: 0 26px;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 0.04em;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0;
     text-decoration: none;
-    text-transform: uppercase;
-    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    text-transform: none;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
 }
 
 .rim-button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 .rim-button--primary {
-    background: #2563eb;
+    background: var(--rim-orange-text);
+    color: #fff;
+    box-shadow: 0 12px 24px -14px rgba(249, 115, 22, 0.7);
+}
+
+.rim-size-page a.rim-button--primary,
+.rim-size-page a.rim-button--dark {
+    color: #fff;
+}
+
+.rim-size-page a.rim-button--ghost {
     color: #fff;
 }
 
 .rim-button--primary:hover,
 .rim-button--dark:hover {
-    background: #f97316;
+    background: var(--rim-orange-strong);
     color: #fff;
 }
 
 .rim-button--ghost {
-    border: 1px solid rgba(255, 255, 255, 0.56);
-    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
     color: #fff;
 }
 
 .rim-button--ghost:hover {
     background: #fff;
-    color: #0b1f33;
+    color: var(--rim-navy);
+}
+
+.rim-size-page a.rim-button--ghost:hover {
+    color: var(--rim-navy);
 }
 
 .rim-button--dark {
-    background: #0b1f33;
+    background: var(--rim-navy);
     color: #fff;
 }
 
-.rim-hero__panel {
+.rim-hero__finder-card {
+    align-self: end;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--rim-text);
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+}
+
+.rim-size-page--rim .rim-hero {
+    min-height: 520px;
+}
+
+.rim-size-page--rim .rim-hero__image {
+    object-position: center right;
+    opacity: 0.58;
+}
+
+.rim-size-page--rim .rim-hero__overlay {
+    background:
+        linear-gradient(90deg, rgba(11, 31, 58, 0.99) 0%, rgba(11, 31, 58, 0.91) 48%, rgba(11, 31, 58, 0.46) 100%),
+        linear-gradient(180deg, rgba(11, 31, 58, 0.22) 0%, rgba(11, 31, 58, 0.92) 100%);
+}
+
+.rim-size-page--rim .rim-hero p:not(.rim-eyebrow) {
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.rim-size-page--rim .rim-eyebrow {
+    color: #FDBA74;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.34);
+}
+
+.rim-size-page--rim .rim-eyebrow::before {
+    background: #FDBA74;
+}
+
+.rim-size-page--rim .rim-hero__inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(280px, 420px);
+    min-height: 520px;
+}
+
+.rim-size-page--rim .rim-hero__copy {
+    padding-top: 18px;
+}
+
+.rim-hero__rim-dock {
     display: grid;
-    gap: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.12);
-    padding: 28px;
-    backdrop-filter: blur(12px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-self: center;
+    gap: 1px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.26);
 }
 
-.rim-hero__panel span {
-    color: #fdba74;
-    font-size: 44px;
+.rim-hero__rim-dock div,
+.rim-hero__rim-dock p {
+    background: rgba(255, 255, 255, 0.96);
+}
+
+.rim-hero__rim-dock div {
+    display: grid;
+    gap: 8px;
+    min-height: 140px;
+    align-content: center;
+    padding: 24px;
+}
+
+.rim-hero__rim-dock span {
+    color: var(--rim-orange-text);
+    font-size: 12px;
     font-weight: 900;
-    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-.rim-hero__panel strong {
-    margin-bottom: 12px;
-    color: #f8fafc;
-    font-size: 13px;
+.rim-hero__rim-dock strong {
+    color: var(--rim-navy);
+    font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 0.95;
+}
+
+.rim-hero__rim-dock p {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 20px 24px;
+    color: var(--rim-muted);
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.55;
+}
+
+.rim-size-page--rim .rim-hero .rim-hero__rim-dock p {
+    background: rgba(255, 255, 255, 0.96);
+    color: var(--rim-muted);
+    text-shadow: none;
+}
+
+.rim-hero__finder-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.rim-hero__finder-body {
+    padding: 22px;
+}
+
+.rim-hero__finder-body span {
+    display: block;
+    color: var(--rim-orange);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
+}
+
+.rim-hero__finder-body strong {
+    display: block;
+    margin-top: 7px;
+    color: var(--rim-navy);
+    font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 900;
+    line-height: 1.05;
+}
+
+.rim-hero__finder-body p {
+    margin: 12px 0 0;
+    color: var(--rim-muted);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.rim-quick-strip {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100% - 40px, 1180px);
+    margin: -34px auto 0;
+    overflow: hidden;
+    border: 1px solid var(--rim-line);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 18px 46px rgba(11, 31, 58, 0.13);
+}
+
+.rim-quick-strip div {
+    padding: 20px 22px;
+    border-right: 1px solid var(--rim-line);
+}
+
+.rim-quick-strip div:last-child {
+    border-right: 0;
+}
+
+.rim-quick-strip strong {
+    display: block;
+    color: var(--rim-orange-text);
+    font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.rim-quick-strip span {
+    display: block;
+    margin-top: 6px;
+    color: var(--rim-muted);
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 .rim-intro,
@@ -175,63 +373,90 @@
 }
 
 .rim-intro {
-    padding-bottom: 0;
+    width: 100%;
+    max-width: none;
+    padding: 88px max(20px, calc((100vw - 1280px) / 2)) 72px;
+    background: var(--rim-soft);
 }
 
 .rim-intro__inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 360px;
+    grid-template-columns: minmax(300px, 0.45fr) minmax(0, 1fr);
     gap: clamp(32px, 5vw, 64px);
     align-items: center;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 56px;
+    padding-bottom: 0;
 }
 
 .rim-intro h2,
 .rim-tool h2,
 .rim-support h2 {
-    color: #0b1f33;
-    font-size: clamp(30px, 4vw, 48px);
+    color: var(--rim-navy);
+    font-size: clamp(28px, 3.5vw, 44px);
+}
+
+.rim-size-page--rim .rim-eyebrow--blue {
+    color: var(--rim-orange-text);
+    text-shadow: none;
+}
+
+.rim-size-page--rim .rim-eyebrow--blue::before {
+    background: var(--rim-orange-text);
 }
 
 .rim-intro p:not(.rim-eyebrow),
 .tz-panel__top p,
 .rim-support p {
     margin: 16px 0 0;
-    color: #4b5563;
+    color: var(--rim-muted);
     font-size: 16px;
     line-height: 1.75;
 }
 
 .rim-intro img {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    border-radius: 8px;
+    aspect-ratio: 16 / 11;
+    border-radius: var(--rim-radius);
     object-fit: cover;
+    box-shadow: 0 16px 34px rgba(11, 31, 58, 0.12);
 }
 
 .rim-tool {
-    padding-top: 48px;
+    padding-top: 82px;
+}
+
+.rim-tool__shell {
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
 }
 
 .rim-tool__header {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 32px;
-    margin-bottom: 28px;
+    display: grid;
+    gap: 22px;
+    margin-bottom: 18px;
+}
+
+.rim-tool__sidebar {
+    position: sticky;
+    top: 24px;
+    border: 1px solid var(--rim-line);
+    border-radius: 16px;
+    background: #fff;
+    padding: 24px;
+    box-shadow: 0 18px 46px rgba(11, 31, 58, 0.08);
 }
 
 .rim-search {
-    width: min(100%, 360px);
+    width: 100%;
 }
 
 .rim-search input {
     width: 100%;
     min-height: 48px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    background: #fff;
+    border: 1px solid var(--rim-line);
+    border-radius: var(--rim-radius);
+    background: #fafafa;
     padding: 0 16px;
     color: #111827;
     font-size: 15px;
@@ -239,52 +464,53 @@
 }
 
 .rim-search input:focus {
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+    border-color: var(--rim-orange-text);
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
 }
 
 .tz-tabs-nav {
-    display: flex;
-    overflow-x: auto;
-    border-radius: 8px 8px 0 0;
-    background: #0b1f33;
-    scrollbar-width: none;
-}
-
-.tz-tabs-nav::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    gap: 6px;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
 }
 
 .tz-tab-link {
-    flex: 1;
-    min-width: 96px;
+    width: 100%;
+    min-width: 0;
     border: 0;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-    background: #0b1f33;
-    color: #fff;
+    border-radius: var(--rim-radius);
+    background: var(--rim-soft);
+    color: var(--rim-navy);
     cursor: pointer;
-    display: grid;
-    gap: 4px;
-    padding: 17px 18px;
-    text-align: center;
-    transition: background 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 14px;
+    text-align: left;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .tz-tab-link span {
     font-size: 17px;
     font-weight: 900;
     text-transform: uppercase;
+    overflow-wrap: anywhere;
 }
 
 .tz-tab-link small {
-    color: #b8c3d1;
+    color: var(--rim-muted);
     font-size: 11px;
     font-weight: 800;
 }
 
 .tz-tab-link.active {
-    background: #f97316;
+    background: var(--rim-orange-dark);
     color: #fff;
+    transform: translateX(4px);
 }
 
 .tz-tab-link.active small {
@@ -292,10 +518,10 @@
 }
 
 .tz-content {
-    border: 1px solid #e5e7eb;
-    border-top: 0;
-    border-radius: 0 0 8px 8px;
+    border: 1px solid var(--rim-line);
+    border-radius: 16px;
     background: #fff;
+    box-shadow: 0 18px 46px rgba(11, 31, 58, 0.08);
 }
 
 .tz-panel {
@@ -318,7 +544,7 @@
 
 .tz-panel__top h3 {
     margin: 0;
-    color: #0b1f33;
+    color: var(--rim-navy);
     font-size: 24px;
     font-weight: 900;
 }
@@ -330,8 +556,8 @@
 
 .tz-panel__top span {
     border-radius: 999px;
-    background: #eff6ff;
-    color: #2563eb;
+    background: #fff7ed;
+    color: var(--rim-orange-text);
     padding: 8px 12px;
     font-size: 12px;
     font-weight: 900;
@@ -340,8 +566,8 @@
 
 .tz-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
 }
 
 .tz-item {
@@ -349,22 +575,24 @@
     min-height: 54px;
     align-items: center;
     justify-content: center;
-    border: 1px solid #e5e7eb;
-    border-radius: 6px;
-    background: #f9fafb;
-    color: #263241;
+    border: 1px solid var(--rim-line);
+    border-radius: var(--rim-radius);
+    background: #fafafa;
+    color: var(--rim-text);
     font-size: 14px;
     font-weight: 800;
     text-decoration: none;
+    text-align: center;
+    overflow-wrap: anywhere;
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
 .tz-item:hover {
     transform: translateY(-3px);
-    border-color: #f97316;
+    border-color: rgba(194, 65, 12, 0.75);
     background: #fff;
-    color: #c2410c;
-    box-shadow: 0 8px 18px rgba(249, 115, 22, 0.15);
+    color: var(--rim-orange-text);
+    box-shadow: 0 16px 30px -20px rgba(11, 31, 58, 0.45);
 }
 
 .rim-no-results {
@@ -534,8 +762,13 @@
     align-items: center;
     justify-content: space-between;
     gap: 32px;
-    padding-top: 40px;
-    padding-bottom: 88px;
+    width: min(100% - 40px, 1280px);
+    margin-bottom: 88px;
+    border: 1px solid var(--rim-line);
+    border-radius: 16px;
+    background: #fff;
+    padding: clamp(24px, 4vw, 40px);
+    box-shadow: 0 18px 46px rgba(11, 31, 58, 0.08);
 }
 
 .rim-support > div {
@@ -555,16 +788,53 @@
 
 @media (max-width: 1024px) {
     .rim-hero__inner,
-    .rim-intro__inner {
+    .rim-intro__inner,
+    .rim-tool__shell {
         grid-template-columns: 1fr;
     }
 
-    .rim-hero__panel {
-        max-width: 360px;
+    .rim-hero__finder-card {
+        max-width: 520px;
+    }
+
+    .rim-size-page--rim .rim-hero__inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .rim-hero__rim-dock {
+        width: min(100%, 520px);
     }
 
     .tz-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .rim-tool__sidebar {
+        position: static;
+    }
+
+    .tz-tabs-nav {
+        display: flex;
+        overflow-x: auto;
+        scrollbar-width: none;
+    }
+
+    .tz-tabs-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tz-tab-link {
+        flex: 0 0 124px;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        min-height: 68px;
+        text-align: center;
+    }
+
+    .tz-tab-link.active {
+        transform: none;
     }
 
     .vehicle-panel__layout,
@@ -581,11 +851,19 @@
 @media (max-width: 768px) {
     .rim-hero,
     .rim-hero__inner {
-        min-height: 560px;
+        min-height: auto;
     }
 
     .rim-hero__inner {
         padding: 72px 18px 42px;
+    }
+
+    .rim-size-page--rim .rim-hero__image {
+        object-position: 64% center;
+    }
+
+    .rim-size-page--rim .rim-hero__overlay {
+        background: linear-gradient(180deg, rgba(11, 31, 58, 0.98) 0%, rgba(11, 31, 58, 0.9) 54%, rgba(11, 31, 58, 0.98) 100%);
     }
 
     .rim-intro,
@@ -596,11 +874,11 @@
     }
 
     .rim-intro {
-        padding-top: 52px;
+        padding-top: 72px;
     }
 
     .rim-intro__inner {
-        padding-bottom: 48px;
+        padding-bottom: 0;
     }
 
     .rim-tool {
@@ -622,6 +900,21 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
+    .rim-quick-strip {
+        grid-template-columns: 1fr;
+        margin-top: -18px;
+    }
+
+    .rim-quick-strip div,
+    .rim-quick-strip div:last-child {
+        border-right: 0;
+        border-bottom: 1px solid var(--rim-line);
+    }
+
+    .rim-quick-strip div:last-child {
+        border-bottom: 0;
+    }
+
     .vehicle-panel__layout > img {
         min-height: auto;
     }
@@ -629,7 +922,7 @@
 
 @media (max-width: 480px) {
     .rim-hero h1 {
-        font-size: 42px;
+        font-size: 38px;
     }
 
     .rim-hero__actions {
@@ -638,6 +931,17 @@
 
     .rim-button {
         width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        text-align: center;
+    }
+
+    .rim-hero__rim-dock {
+        grid-template-columns: 1fr;
+    }
+
+    .rim-hero__rim-dock p {
+        grid-column: auto;
     }
 
     .rim-intro,
@@ -648,11 +952,11 @@
     }
 
     .rim-intro {
-        padding-top: 44px;
+        padding-top: 66px;
     }
 
     .rim-intro__inner {
-        padding-bottom: 40px;
+        padding-bottom: 0;
     }
 
     .rim-tool {
@@ -661,12 +965,15 @@
     }
 
     .rim-support {
-        padding-top: 32px;
-        padding-bottom: 64px;
+        padding: 24px 16px;
     }
 
     .tz-panel {
         padding: 20px;
+    }
+
+    .rim-tool__sidebar {
+        padding: 18px;
     }
 
     .tz-panel__top {

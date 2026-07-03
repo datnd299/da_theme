@@ -49,7 +49,7 @@ $total_sizes = array_sum(array_map('count', $rim_sizes));
 $popular_rims = ['R17', 'R18', 'R20'];
 ?>
 
-<div id="primary" class="rim-size-page">
+<div id="primary" class="rim-size-page rim-size-page--rim">
     <section class="rim-hero">
         <img src="<?php echo esc_url($hero_image); ?>"
              alt="<?php esc_attr_e('Rubyinstar tire shop cover for shopping by rim size', 'dawp'); ?>"
@@ -67,81 +67,105 @@ $popular_rims = ['R17', 'R18', 'R20'];
                     <a href="<?php echo esc_url($shop_url); ?>" class="rim-button rim-button--ghost"><?php esc_html_e('Shop All Tires', 'dawp'); ?></a>
                 </div>
             </div>
-            <div class="rim-hero__panel" aria-label="<?php esc_attr_e('Rim size shopping summary', 'dawp'); ?>">
-                <span><?php echo esc_html(count($rim_sizes)); ?></span>
-                <strong><?php esc_html_e('Rim groups', 'dawp'); ?></strong>
-                <span><?php echo esc_html($total_sizes); ?></span>
-                <strong><?php esc_html_e('Tire size links', 'dawp'); ?></strong>
+            <div class="rim-hero__finder-card rim-hero__rim-dock" aria-label="<?php esc_attr_e('Rim size shopping preview', 'dawp'); ?>">
+                <div>
+                    <span><?php esc_html_e('Rim groups', 'dawp'); ?></span>
+                    <strong><?php echo esc_html(count($rim_sizes)); ?></strong>
+                </div>
+                <div>
+                    <span><?php esc_html_e('Size links', 'dawp'); ?></span>
+                    <strong><?php echo esc_html($total_sizes); ?></strong>
+                </div>
+                <p><?php esc_html_e('Pick the R number from your sidewall, then open the exact matching category.', 'dawp'); ?></p>
             </div>
+        </div>
+    </section>
+
+    <section class="rim-quick-strip" aria-label="<?php esc_attr_e('How to shop by rim size', 'dawp'); ?>">
+        <div>
+            <strong><?php esc_html_e('1. Read the R number', 'dawp'); ?></strong>
+            <span><?php esc_html_e('Example: 225/65R17 uses R17.', 'dawp'); ?></span>
+        </div>
+        <div>
+            <strong><?php esc_html_e('2. Open the matching group', 'dawp'); ?></strong>
+            <span><?php esc_html_e('Tabs are organized by wheel diameter.', 'dawp'); ?></span>
+        </div>
+        <div>
+            <strong><?php esc_html_e('3. Choose exact size', 'dawp'); ?></strong>
+            <span><?php esc_html_e('Each size links to its product category.', 'dawp'); ?></span>
         </div>
     </section>
 
     <section class="rim-intro">
         <div class="rim-intro__inner">
+            <img src="<?php echo esc_url($tread_image); ?>"
+                 alt="<?php esc_attr_e('Close-up tire tread used for Rubyinstar tire shopping guidance', 'dawp'); ?>"
+                 loading="lazy">
             <div>
                 <p class="rim-eyebrow rim-eyebrow--blue"><?php esc_html_e('How to use it', 'dawp'); ?></p>
                 <h2><?php esc_html_e('Start with the R number on your tire.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('For example, 225/65R17 uses the R17 tab. This keeps browsing focused and reduces the chance of opening the wrong tire category.', 'dawp'); ?></p>
             </div>
-            <img src="<?php echo esc_url($tread_image); ?>"
-                 alt="<?php esc_attr_e('Close-up tire tread used for Rubyinstar tire shopping guidance', 'dawp'); ?>"
-                 loading="lazy">
         </div>
     </section>
 
     <section id="rim-size-tool" class="rim-tool" data-rim-tool>
-        <div class="rim-tool__header">
-            <div>
-                <p class="rim-eyebrow rim-eyebrow--blue"><?php esc_html_e('Browse categories', 'dawp'); ?></p>
-                <h2><?php esc_html_e('Select a rim size', 'dawp'); ?></h2>
-            </div>
-            <label class="rim-search">
-                <span class="screen-reader-text"><?php esc_html_e('Search tire size', 'dawp'); ?></span>
-                <input type="search" data-rim-search placeholder="<?php esc_attr_e('Search 225/65R17...', 'dawp'); ?>">
-            </label>
-        </div>
-
-        <div class="tz-tabs-nav" role="tablist" aria-label="<?php esc_attr_e('Rim size tabs', 'dawp'); ?>">
-            <?php $is_first = true; ?>
-            <?php foreach ($rim_sizes as $rim => $sizes) : ?>
-                <button class="tz-tab-link<?php echo $is_first ? ' active' : ''; ?>"
-                        type="button"
-                        role="tab"
-                        aria-selected="<?php echo $is_first ? 'true' : 'false'; ?>"
-                        aria-controls="panel-<?php echo esc_attr($rim); ?>"
-                        data-target="<?php echo esc_attr($rim); ?>">
-                    <span><?php echo esc_html($rim); ?></span>
-                    <small><?php echo esc_html(count($sizes)); ?></small>
-                </button>
-                <?php $is_first = false; ?>
-            <?php endforeach; ?>
-        </div>
-
-        <div class="tz-content">
-            <?php $is_first = true; ?>
-            <?php foreach ($rim_sizes as $rim => $sizes) : ?>
-                <div class="tz-panel<?php echo $is_first ? ' active' : ''; ?>" id="panel-<?php echo esc_attr($rim); ?>" role="tabpanel">
-                    <div class="tz-panel__top">
-                        <div>
-                            <h3><?php echo esc_html(sprintf(__('Tire sizes for %s wheels', 'dawp'), $rim)); ?></h3>
-                            <p><?php esc_html_e('Tap a size to open the matching Rubyinstar product category.', 'dawp'); ?></p>
-                        </div>
-                        <?php if (in_array($rim, $popular_rims, true)) : ?>
-                            <span><?php esc_html_e('Popular', 'dawp'); ?></span>
-                        <?php endif; ?>
+        <div class="rim-tool__shell">
+            <div class="rim-tool__sidebar">
+                <div class="rim-tool__header">
+                    <div>
+                        <p class="rim-eyebrow rim-eyebrow--blue"><?php esc_html_e('Browse categories', 'dawp'); ?></p>
+                        <h2><?php esc_html_e('Select a rim size', 'dawp'); ?></h2>
                     </div>
-                    <div class="tz-grid">
-                        <?php foreach ($sizes as $size) : ?>
-                            <a class="tz-item"
-                               href="<?php echo esc_url($size_url($rim, $size)); ?>"
-                               data-size="<?php echo esc_attr(strtolower($size)); ?>">
-                                <?php echo esc_html($size); ?>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
+                    <label class="rim-search">
+                        <span class="screen-reader-text"><?php esc_html_e('Search tire size', 'dawp'); ?></span>
+                        <input type="search" data-rim-search placeholder="<?php esc_attr_e('Search 225/65R17...', 'dawp'); ?>">
+                    </label>
                 </div>
-                <?php $is_first = false; ?>
-            <?php endforeach; ?>
+
+                <div class="tz-tabs-nav" role="tablist" aria-label="<?php esc_attr_e('Rim size tabs', 'dawp'); ?>">
+                    <?php $is_first = true; ?>
+                    <?php foreach ($rim_sizes as $rim => $sizes) : ?>
+                        <button class="tz-tab-link<?php echo $is_first ? ' active' : ''; ?>"
+                                type="button"
+                                role="tab"
+                                aria-selected="<?php echo $is_first ? 'true' : 'false'; ?>"
+                                aria-controls="panel-<?php echo esc_attr($rim); ?>"
+                                data-target="<?php echo esc_attr($rim); ?>">
+                            <span><?php echo esc_html($rim); ?></span>
+                            <small><?php echo esc_html(sprintf(_n('%d size', '%d sizes', count($sizes), 'dawp'), count($sizes))); ?></small>
+                        </button>
+                        <?php $is_first = false; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+            <div class="tz-content">
+                <?php $is_first = true; ?>
+                <?php foreach ($rim_sizes as $rim => $sizes) : ?>
+                    <div class="tz-panel<?php echo $is_first ? ' active' : ''; ?>" id="panel-<?php echo esc_attr($rim); ?>" role="tabpanel">
+                        <div class="tz-panel__top">
+                            <div>
+                                <h3><?php echo esc_html(sprintf(__('Tire sizes for %s wheels', 'dawp'), $rim)); ?></h3>
+                                <p><?php esc_html_e('Tap a size to open the matching Rubyinstar product category.', 'dawp'); ?></p>
+                            </div>
+                            <?php if (in_array($rim, $popular_rims, true)) : ?>
+                                <span><?php esc_html_e('Popular', 'dawp'); ?></span>
+                            <?php endif; ?>
+                        </div>
+                        <div class="tz-grid">
+                            <?php foreach ($sizes as $size) : ?>
+                                <a class="tz-item"
+                                   href="<?php echo esc_url($size_url($rim, $size)); ?>"
+                                   data-size="<?php echo esc_attr(strtolower($size)); ?>">
+                                    <?php echo esc_html($size); ?>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <?php $is_first = false; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
 
         <p class="rim-no-results" data-rim-empty hidden><?php esc_html_e('No matching tire size found. Try searching by width, profile, or rim number such as R17.', 'dawp'); ?></p>

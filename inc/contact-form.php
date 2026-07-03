@@ -20,6 +20,7 @@ function dawp_handle_contact_form() {
     $name = isset($_POST['name']) ? sanitize_text_field(wp_unslash($_POST['name'])) : '';
     $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
     $subject = isset($_POST['subject']) ? sanitize_text_field(wp_unslash($_POST['subject'])) : '';
+    $order_number = isset($_POST['order_number']) ? sanitize_text_field(wp_unslash($_POST['order_number'])) : '';
     $message = isset($_POST['message']) ? sanitize_textarea_field(wp_unslash($_POST['message'])) : '';
 
     if ($name === '' || $email === '' || $message === '' || ! is_email($email)) {
@@ -33,10 +34,11 @@ function dawp_handle_contact_form() {
         : sprintf('[%s] New contact form message', $site_name);
 
     $mail_body = sprintf(
-        "Name: %s\nEmail: %s\nSubject: %s\n\nMessage:\n%s\n",
+        "Name: %s\nEmail: %s\nSubject: %s\nOrder Number: %s\n\nMessage:\n%s\n",
         $name,
         $email,
         $subject !== '' ? $subject : 'N/A',
+        $order_number !== '' ? $order_number : 'N/A',
         $message
     );
 

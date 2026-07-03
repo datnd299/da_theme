@@ -60,24 +60,35 @@ function dawp_footer_columns() {
     return [
         [
             'title' => 'Shop',
-            'links' => array_merge([
+            'links' => [
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
                 ['title' => __('Shop By Rim Size', 'dawp'),    'url' => home_url('/shop-by-rim-size/')],
                 ['title' => __('Shop By Vehicle Type', 'dawp'), 'url' => home_url('/shop-by-vehicle-type/')],
                 ['title' => __('Shop By Brand', 'dawp'),       'url' => home_url('/shop-by-brand/')],
-            ], dawp_product_category_links(5)),
+            ],
         ],
         [
             'title' => 'Help',
-            'links' => [
-                ['title' => 'About Us',           'url' => home_url('/about-us/')],
-                ['title' => 'FAQ',                'url' => home_url('/faq/')],
-                ['title' => 'Contact Us',         'url' => home_url('/contact-us/')],
-                ['title' => 'Track Order',        'url' => home_url('/track-order/')],
-                ['title' => 'Shipping Policy', 'url' => home_url('/shipping-policy/')],
-                ['title' => 'Return & Refund Policy', 'url' => home_url('/returns-policy/')],
-                ['title' => 'Terms & Conditions', 'url' => home_url('/terms-conditions/')],
-                ['title' => 'Privacy Policy',     'url' => home_url('/privacy-policy/')],
+            'groups' => [
+                [
+                    'title' => 'Customer Care',
+                    'links' => [
+                        ['title' => 'About Us',         'url' => home_url('/about-us/')],
+                        ['title' => 'Contact Us',       'url' => home_url('/contact-us/')],
+                        ['title' => 'Track Your Order', 'url' => home_url('/track-order/')],
+                        ['title' => 'My Account',       'url' => home_url('/my-account/')],
+                    ],
+                ],
+                [
+                    'title' => 'Store Policy',
+                    'links' => [
+                        ['title' => 'FAQs',                   'url' => home_url('/faq/')],
+                        ['title' => 'Shipping Policy',        'url' => home_url('/shipping-policy/')],
+                        ['title' => 'Return & Refund Policy', 'url' => home_url('/returns-policy/')],
+                        ['title' => 'Privacy Policy',         'url' => home_url('/privacy-policy/')],
+                        ['title' => 'Terms & Conditions',     'url' => home_url('/terms-conditions/')],
+                    ],
+                ],
             ],
         ],
     ];

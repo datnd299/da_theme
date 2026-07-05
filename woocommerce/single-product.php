@@ -14,7 +14,7 @@ get_header();
 do_action('woocommerce_before_main_content');
 ?>
 
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10   ">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-0">
     <?php while (have_posts()) : ?>
         <?php the_post(); ?>
         <?php wc_get_template_part('content', 'single-product'); ?>

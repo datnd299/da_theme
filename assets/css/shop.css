@@ -15,7 +15,7 @@
   --shop-border:            #D7DEE8;
   --shop-accent:            #F97316;
   --shop-accent-hover:      #EA580C;
-  --shop-sale:              #0B1F33;
+  --shop-sale:              #DC2626;
   --shop-original-price:    #94A3B8;
   --shop-focus:             #2563EB;
   --shop-on-dark:           #FFFFFF;
@@ -570,33 +570,45 @@ ul.products {
 /* Sale badge */
 .product-card__badge {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  background: var(--shop-accent);
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
   color: var(--shop-on-dark);
-  font-size: 0.6875rem;
-  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(185, 28, 28, 0.24);
+  font-size: 0.7rem;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 3px 8px;
+  padding: 5px 10px;
   border-radius: 6px;
-  line-height: 1.4;
+  line-height: 1;
 }
 /* WooCommerce native sale badge */
 .onsale {
   position: absolute;
-  top: 8px;
-  left: 8px;
-  background: var(--shop-accent);
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
   color: var(--shop-on-dark);
-  font-size: 0.6875rem;
-  font-weight: 800;
+  box-shadow: 0 10px 20px rgba(185, 28, 28, 0.24);
+  font-size: 0.7rem;
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  padding: 3px 8px;
+  padding: 5px 10px;
   border-radius: 6px;
   min-width: 0;
-  line-height: 1.4;
+  line-height: 1;
   margin: 0;
 }
 

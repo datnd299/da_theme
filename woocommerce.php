@@ -21,7 +21,7 @@ if (! $is_checkout_page && $queried_post instanceof WP_Post) {
 }
 ?>
 <main class="woo-page">
-    <div class="container" style="padding-top:6rem; padding-bottom:6rem; min-height:60vh;">
+    <div class="container woo-page__container">
         <?php if ($is_checkout_page) : ?>
             <header class="checkout-page-title">
                 <h1><?php esc_html_e('Check Out', 'dawp'); ?></h1>

@@ -78,6 +78,20 @@
    BASE
    ============================================================= */
 
+.woo-page__container {
+  width: 100%;
+  min-height: 60vh;
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .woo-page__container {
+    padding-top: 40px;
+    padding-bottom: 56px;
+  }
+}
+
 #content {
   font-family: var(--font-sans);
   background-color: var(--color-background);

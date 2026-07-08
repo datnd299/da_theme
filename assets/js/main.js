@@ -35,9 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setMobilePanelTop = () => {
         if (!masthead) return;
+        const navrow = masthead.querySelector('.ruby-navrow');
+        const anchor = navrow || masthead;
         document.documentElement.style.setProperty(
             '--rubyinstar-mobile-panel-top',
-            `${Math.max(0, masthead.getBoundingClientRect().bottom)}px`
+            `${Math.max(0, anchor.getBoundingClientRect().bottom)}px`
         );
     };
 
@@ -92,8 +94,70 @@ document.addEventListener('DOMContentLoaded', () => {
             closeMobileMenu();
             mobileSearch.classList.toggle('hidden', isOpen);
             mobileSearchToggle.setAttribute('aria-expanded', String(!isOpen));
+            setMobilePanelTop();
         });
     }
+
+    const initMobileSlider = (slider, slideSelector, maxWidth = 560) => {
+        if (!slider) return;
+
+        const mobileQuery = window.matchMedia(`(max-width: ${maxWidth}px)`);
+        let timer = null;
+        let index = 0;
+
+        const getSlides = () => Array.from(slider.querySelectorAll(slideSelector));
+        const stop = () => {
+            if (timer) {
+                window.clearInterval(timer);
+                timer = null;
+            }
+        };
+
+        const goToSlide = (nextIndex) => {
+            const slides = getSlides();
+            if (!slides.length) return;
+
+            index = nextIndex % slides.length;
+            slider.scrollTo({
+                left: slides[index].offsetLeft - slider.offsetLeft,
+                behavior: 'smooth'
+            });
+        };
+
+        const start = () => {
+            stop();
+            if (!mobileQuery.matches) return;
+
+            timer = window.setInterval(() => {
+                goToSlide(index + 1);
+            }, 3000);
+        };
+
+        slider.addEventListener('pointerdown', () => {
+            stop();
+            window.setTimeout(start, 5000);
+        }, { passive: true });
+
+        if (typeof mobileQuery.addEventListener === 'function') {
+            mobileQuery.addEventListener('change', start);
+        } else if (typeof mobileQuery.addListener === 'function') {
+            mobileQuery.addListener(start);
+        }
+
+        start();
+    };
+
+    document.querySelectorAll('[data-mobile-slider="trust"]').forEach((slider) => {
+        initMobileSlider(slider, '.ruby-trust-card', 560);
+    });
+
+    document.querySelectorAll('[data-mobile-slider="home-strip"]').forEach((slider) => {
+        initMobileSlider(slider, 'div', 760);
+    });
+
+    document.querySelectorAll('[data-mobile-slider="home-trust"]').forEach((slider) => {
+        initMobileSlider(slider, '.home-trust', 760);
+    });
 
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {

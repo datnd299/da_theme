@@ -797,3 +797,61 @@
     text-align: center;
   }
 }
+/* Rubyinstar homepage alignment */
+.track-order-page {
+  --track-black: #050505;
+  --track-red: #dc2626;
+  --track-red-dark: #991b1b;
+  --track-soft: #f6f6f6;
+  --track-line: #e5e5e5;
+  --track-radius: 8px;
+}
+
+.track-order-page .track-hero {
+  background: #050505;
+}
+
+.track-order-page .track-hero::before {
+  background:
+    linear-gradient(90deg, rgba(5,5,5,.96), rgba(5,5,5,.76) 52%, rgba(5,5,5,.34)),
+    linear-gradient(180deg, rgba(5,5,5,0) 58%, #050505);
+}
+
+.track-order-page .track-hero__label,
+.track-order-page .track-more-section__label,
+.track-order-page .track-status-card__eyebrow {
+  color: #dc2626;
+}
+
+.track-order-page .track-hero__button--primary,
+.track-order-page .track-form-card input[type="submit"],
+.track-order-page .track-form-card button[type="submit"],
+.track-order-page .track-back-button,
+.track-order-page .track-category-link--all {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #ffffff;
+}
+
+.track-order-page .track-hero__button--primary:hover,
+.track-order-page .track-form-card input[type="submit"]:hover,
+.track-order-page .track-form-card button[type="submit"]:hover,
+.track-order-page .track-back-button:hover,
+.track-order-page .track-category-link--all:hover {
+  background: #991b1b;
+  border-color: #991b1b;
+}
+
+.track-order-page .track-form-card,
+.track-order-page .track-status-card,
+.track-order-page .track-help-box,
+.track-order-page .track-badge,
+.track-order-page .track-more-card,
+.track-order-page .track-category-link {
+  border-radius: 8px;
+}
+
+.track-order-page .track-more-card:hover,
+.track-order-page .track-category-link:hover {
+  border-color: #dc2626;
+}

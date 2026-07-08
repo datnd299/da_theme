@@ -7,10 +7,12 @@ defined('ABSPATH') || exit;
 
 get_header();
 
+global $wp_query;
+
 $archive_title = is_shop() ? __('All Products', 'dawp') : woocommerce_page_title(false);
 $archive_summary = __('Browse tire options with clear product details, pricing, and fitment reminders.', 'dawp');
 $archive_eyebrow = __('Rubyinstar Tire Shop', 'dawp');
-$archive_cover = get_theme_file_uri('/assets/img/gallery/Rubyinstar/tire-hero-road.png');
+$archive_cover = get_theme_file_uri('/assets/img/gallery/Rubyinstar/shop-fulfillment-aisle.png');
 $archive_tags = [
     __('Tire size', 'dawp'),
     __('Rim size', 'dawp'),
@@ -205,10 +207,34 @@ if ( is_product_category() ) {
 
                 <?php woocommerce_product_loop_end(); ?>
 
-                <?php // Pagination ?>
-                <div class="shop-pagination">
-                    <?php do_action('woocommerce_after_shop_loop'); ?>
-                </div>
+                <?php
+                $current_page = max(1, (int) get_query_var('paged'), (int) get_query_var('page'));
+                $max_pages = isset($wp_query->max_num_pages) ? (int) $wp_query->max_num_pages : 1;
+                $next_page_url = $current_page < $max_pages ? get_pagenum_link($current_page + 1) : '';
+                $load_more_query = $wp_query->query_vars;
+                unset($load_more_query['paged'], $load_more_query['page']);
+                ?>
+
+                <?php if ($current_page < $max_pages) : ?>
+                    <div class="shop-load-more" data-shop-load-more>
+                        <button
+                            type="button"
+                            class="shop-load-more__button"
+                            data-shop-load-more-button
+                            data-page="<?php echo esc_attr($current_page); ?>"
+                            data-max-pages="<?php echo esc_attr($max_pages); ?>"
+                            data-query="<?php echo esc_attr(wp_json_encode($load_more_query)); ?>"
+                            data-nonce="<?php echo esc_attr(wp_create_nonce('dawp_load_more_products')); ?>"
+                            data-ajax-url="<?php echo esc_url(admin_url('admin-ajax.php')); ?>"
+                        >
+                            <span class="shop-load-more__label"><?php esc_html_e('Load More Products', 'dawp'); ?></span>
+                            <span class="shop-load-more__loading"><?php esc_html_e('Loading...', 'dawp'); ?></span>
+                        </button>
+                        <a class="shop-load-more__fallback" href="<?php echo esc_url($next_page_url); ?>">
+                            <?php esc_html_e('View next page', 'dawp'); ?>
+                        </a>
+                    </div>
+                <?php endif; ?>
 
             <?php else : ?>
                 <div class="shop-empty">
@@ -263,6 +289,106 @@ if ( is_product_category() ) {
             closeSidebar();
         }
     });
+})();
+
+(function () {
+    var loadMore = document.querySelector('[data-shop-load-more]');
+    var button = document.querySelector('[data-shop-load-more-button]');
+    var grid = document.querySelector('.shop-main ul.products');
+
+    if (!loadMore || !button || !grid || !window.fetch || !window.FormData) {
+        return;
+    }
+
+    var isLoading = false;
+
+    function setLoading(value) {
+        isLoading = value;
+        button.disabled = value;
+        button.classList.toggle('is-loading', value);
+        button.setAttribute('aria-busy', value ? 'true' : 'false');
+    }
+
+    function loadProducts() {
+        if (isLoading || button.disabled) {
+            return;
+        }
+
+        var currentPage = parseInt(button.getAttribute('data-page'), 10) || 1;
+        var maxPages = parseInt(button.getAttribute('data-max-pages'), 10) || 1;
+        var nextPage = currentPage + 1;
+
+        if (nextPage > maxPages) {
+            loadMore.hidden = true;
+            return;
+        }
+
+        var form = new FormData();
+        form.append('action', 'dawp_load_more_products');
+        form.append('nonce', button.getAttribute('data-nonce'));
+        form.append('page', nextPage);
+        form.append('query', button.getAttribute('data-query'));
+
+        setLoading(true);
+
+        fetch(button.getAttribute('data-ajax-url'), {
+            method: 'POST',
+            credentials: 'same-origin',
+            body: form
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (payload) {
+                if (!payload || !payload.success || !payload.data || !payload.data.html) {
+                    throw new Error('Empty product response');
+                }
+
+                var wrapper = document.createElement('div');
+                wrapper.innerHTML = payload.data.html;
+
+                Array.prototype.slice.call(wrapper.children).forEach(function (item) {
+                    grid.appendChild(item);
+                });
+
+                button.setAttribute('data-page', payload.data.page);
+
+                if (!payload.data.has_more) {
+                    loadMore.hidden = true;
+                } else {
+                    var fallback = loadMore.querySelector('.shop-load-more__fallback');
+                    var fallbackUrl = fallback ? fallback.href : '';
+
+                    if (fallback && fallbackUrl) {
+                        fallback.href = fallbackUrl.replace(/\/page\/\d+\/?/, '/page/' + (payload.data.page + 1) + '/');
+                    }
+                }
+            })
+            .catch(function () {
+                var fallback = loadMore.querySelector('.shop-load-more__fallback');
+
+                if (fallback) {
+                    window.location.href = fallback.href;
+                }
+            })
+            .finally(function () {
+                setLoading(false);
+            });
+    }
+
+    button.addEventListener('click', loadProducts);
+
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            if (entries.some(function (entry) { return entry.isIntersecting; })) {
+                loadProducts();
+            }
+        }, {
+            rootMargin: '360px 0px'
+        });
+
+        observer.observe(loadMore);
+    }
 })();
 </script>
 

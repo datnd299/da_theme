@@ -277,3 +277,15 @@ $faq_sections = [
         </div>
     </section>
 </div>
+
+<style>
+.virtual-page--faq > #primary{background:#fff;color:#111}
+.virtual-page--faq > #primary > section:first-child{position:relative;overflow:hidden;background:#050505}
+.virtual-page--faq > #primary > section:first-child:before{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(5,5,5,.76) 52%,rgba(5,5,5,.36)),linear-gradient(180deg,rgba(5,5,5,0) 58%,#050505);content:""}
+.virtual-page--faq > #primary > section:first-child > div{position:relative;z-index:1}
+.virtual-page--faq [class*="text-[#F6A21A]"],.virtual-page--faq [class*="text-[#2563EB]"],.virtual-page--faq [class*="text-[#99F6E4]"]{color:#fca5a5}
+.virtual-page--faq [class*="border-t-[#2563EB]"],.virtual-page--faq [class*="border-t-[#F97316]"],.virtual-page--faq [class*="border-t-[#111827]"]{border-top-color:#dc2626}
+.virtual-page--faq aside,.virtual-page--faq article,.virtual-page--faq details,.virtual-page--faq [class*="rounded-lg"],.virtual-page--faq [class*="rounded-md"]{border-radius:8px}
+.virtual-page--faq details[open],.virtual-page--faq details:hover{border-color:#dc2626}
+.virtual-page--faq section[class*="bg-[#102A2C]"]{background:#050505}
+</style>

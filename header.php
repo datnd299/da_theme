@@ -1,6 +1,7 @@
 <?php
 /**
- * Theme header.
+ * Theme header — Rubyinstar
+ * Red / White / Black theme.
  */
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
@@ -9,39 +10,41 @@ $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
 
 $cart_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+
 $menu_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
     ['title' => __('Home', 'dawp'),    'url' => home_url('/')],
     ['title' => __('Shop', 'dawp'),    'url' => $shop_url],
     ['title' => __('About', 'dawp'),   'url' => home_url('/about-us/')],
     ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
 ];
-?>
-<!doctype html>
+?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
 
         :root {
-            --ruby-navy: #0B1F3A;
-            --ruby-navy-light: #12294f;
-            --ruby-orange: #F97316;
-            --ruby-orange-dark: #DB5F0B;
-            --ruby-white: #FFFFFF;
-            --ruby-gray: #F5F6F8;
-            --ruby-text: #111827;
-            --ruby-soft: #6B7280;
-            --ruby-border: #E5E7EB;
+            --ruby-black:    #050505;
+            --ruby-ink:      #111111;
+            --ruby-red:      #dc2626;
+            --ruby-red-dark: #991b1b;
+            --ruby-white:    #ffffff;
+            --ruby-soft:     #f6f6f6;
+            --ruby-muted:    #666666;
+            --ruby-line:     #e5e5e5;
+            --font-heading:  'Plus Jakarta Sans', sans-serif;
+            --font-body:     'Inter', sans-serif;
+            --radius:         8px;
         }
 
         body {
             margin: 0;
             background: var(--ruby-white);
-            color: var(--ruby-text);
-            font-family: 'Inter', sans-serif;
+            color: var(--ruby-ink);
+            font-family: var(--font-body);
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
         }
@@ -56,70 +59,44 @@ $menu_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() :
             font: inherit;
         }
 
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display: none !important; }
 
         .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
+            position: absolute; width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0,0,0,0); white-space: nowrap; border: 0;
         }
 
         .skip-link:focus {
-            position: fixed;
-            left: 16px;
-            top: 16px;
-            z-index: 1000;
-            width: auto;
-            height: auto;
-            clip: auto;
-            padding: 12px 16px;
-            border-radius: 10px;
-            background: var(--ruby-orange);
-            color: #fff;
-            font-size: 14px;
-            font-weight: 800;
-            white-space: normal;
+            position: fixed; left: 16px; top: 16px; z-index: 1000;
+            width: auto; height: auto; clip: auto;
+            padding: 12px 16px; border-radius: var(--radius);
+            background: var(--ruby-red); color: #fff;
+            font-size: 14px; font-weight: 800; white-space: normal;
         }
 
+        /* ── Header ── */
         .ruby-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: var(--ruby-navy);
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--ruby-black);
             color: #fff;
-            box-shadow: 0 18px 42px -34px rgba(0, 0, 0, .95);
+            box-shadow: 0 -1px 0 var(--ruby-black);
+        }
+
+        body.admin-bar .ruby-header {
+            top: 32px;
         }
 
         .ruby-container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 0 28px;
-        }
-
-        .ruby-accent {
-            color: #FDBA74;
+            max-width: 1240px; margin: 0 auto; padding: 0 28px;
         }
 
         .ruby-navrow {
-            display: flex;
-            min-height: 80px;
-            align-items: center;
-            gap: 28px;
+            display: flex; min-height: 80px; align-items: center; gap: 28px;
         }
 
         .ruby-brand {
-            display: inline-flex;
-            flex: 0 0 auto;
-            min-width: 0;
-            align-items: center;
+            display: inline-flex; flex: 0 0 auto; min-width: 0; align-items: center;
             color: #fff;
         }
 
@@ -130,52 +107,39 @@ $menu_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() :
         }
 
         .ruby-brand-name {
-            display: block;
-            color: #fff;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 25px;
-            font-weight: 800;
-            line-height: 1;
+            display: block; color: #fff;
+            font-family: var(--font-heading);
+            font-size: 25px; font-weight: 800; line-height: 1;
         }
 
         .ruby-brand-tagline {
-            display: block;
-            margin-top: 3px;
-            color: rgba(255, 255, 255, .7);
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: .14em;
-            text-transform: uppercase;
+            display: block; margin-top: 3px;
+            color: rgba(255,255,255,.7);
+            font-size: 11px; font-weight: 800;
+            letter-spacing: .14em; text-transform: uppercase;
         }
 
+        /* ── Main nav ── */
         .ruby-main-nav {
-            display: flex;
-            flex: 0 1 auto;
-            align-items: center;
-            gap: 6px;
-            margin-left: 0;
+            display: flex; flex: 0 1 auto; align-items: center; gap: 6px;
         }
 
         .ruby-main-nav a {
-            border-radius: 8px;
+            border-radius: var(--radius);
             padding: 11px 13px;
-            color: rgba(255, 255, 255, .84);
-            font-size: 14px;
-            font-weight: 800;
-            transition: background .15s ease, color .15s ease;
+            color: rgba(255,255,255,.84);
+            font-size: 14px; font-weight: 800;
+            transition: background .15s, color .15s;
         }
 
         .ruby-main-nav a:hover,
         .ruby-main-nav a.is-current {
-            background: #fff;
-            color: var(--ruby-navy);
+            background: var(--ruby-red);
+            color: #fff;
         }
 
         .ruby-header-actions {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-left: auto;
+            display: flex; align-items: center; gap: 12px; margin-left: auto;
         }
 
         .ruby-search {
@@ -185,195 +149,129 @@ $menu_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() :
         }
 
         .ruby-search input {
-            min-width: 0;
-            width: 100%;
-            height: 48px;
-            border: 1px solid rgba(255, 255, 255, .18);
-            border-right: 0;
-            border-radius: 8px 0 0 8px;
-            background: #fff;
-            color: var(--ruby-text);
-            padding: 0 16px;
-            font-size: 14px;
-            font-weight: 600;
-            outline: none;
+            min-width: 0; width: 100%; height: 48px;
+            border: 1px solid rgba(255,255,255,.18); border-right: 0;
+            border-radius: var(--radius) 0 0 var(--radius);
+            background: #fff; color: var(--ruby-ink);
+            padding: 0 16px; font-size: 14px; font-weight: 600; outline: none;
         }
 
         .ruby-search input:focus {
-            box-shadow: 0 0 0 3px rgba(249, 115, 22, .24);
+            box-shadow: 0 0 0 3px rgba(220,38,38,.24);
         }
 
         .ruby-search button,
         .ruby-icon-button,
         .ruby-cart-button {
-            display: inline-flex;
-            width: 48px;
-            height: 48px;
-            flex: 0 0 auto;
-            align-items: center;
-            justify-content: center;
-            border: 0;
-            border-radius: 8px;
+            display: inline-flex; width: 48px; height: 48px;
+            flex: 0 0 auto; align-items: center; justify-content: center;
+            border: 0; border-radius: var(--radius);
             cursor: pointer;
-            transition: background .15s ease, color .15s ease, transform .15s ease;
+            transition: background .15s, color .15s, transform .15s;
         }
 
         .ruby-search button {
-            border-radius: 0 8px 8px 0;
-            background: var(--ruby-orange);
-            color: #fff;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            background: var(--ruby-red); color: #fff;
         }
 
         .ruby-icon-button {
-            border: 1px solid rgba(255, 255, 255, .16);
-            background: rgba(255, 255, 255, .08);
-            color: #fff;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(255,255,255,.08); color: #fff;
         }
 
         .ruby-cart-button {
             position: relative;
-            background: var(--ruby-orange);
-            color: #fff;
+            background: var(--ruby-red); color: #fff;
         }
 
         .ruby-search button:hover,
         .ruby-cart-button:hover {
-            background: #fff;
-            color: var(--ruby-navy);
+            background: #fff; color: var(--ruby-black);
         }
 
         .ruby-icon-button:hover {
-            background: rgba(255, 255, 255, .16);
+            background: rgba(255,255,255,.16);
         }
 
         .ruby-cart-count {
-            position: absolute;
-            right: -7px;
-            top: -7px;
-            display: flex;
-            min-width: 20px;
-            height: 20px;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--ruby-navy);
-            border-radius: 999px;
-            background: #fff;
-            color: var(--ruby-orange);
-            font-size: 11px;
-            font-weight: 800;
+            position: absolute; right: 4px; top: 4px;
+            display: flex; min-width: 18px; height: 18px;
+            align-items: center; justify-content: center;
+            border: 2px solid var(--ruby-black);
+            border-radius: 999px; background: #fff;
+            color: var(--ruby-red);
+            font-size: 10px; font-weight: 800;
         }
 
-        .ruby-quicknav {
-            border-top: 1px solid rgba(255, 255, 255, .1);
-            background: #102846;
-        }
-
-        .ruby-quicknav-inner {
-            display: flex;
-            min-height: 48px;
-            align-items: center;
-            gap: 18px;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-
-        .ruby-quicknav-inner::-webkit-scrollbar {
-            display: none;
-        }
-
-        .ruby-quicknav a {
-            flex: 0 0 auto;
-            border-radius: 8px;
-            padding: 9px 14px;
-            color: rgba(255, 255, 255, .82);
-            font-size: 13px;
-            font-weight: 800;
-            white-space: nowrap;
-            transition: background .15s ease, color .15s ease;
-        }
-
-        .ruby-quicknav a:hover,
-        .ruby-quicknav a:first-child {
-            background: var(--ruby-orange);
-            color: #fff;
-        }
-
+        /* ── Mobile ── */
         .ruby-mobile-panel {
-            border-top: 1px solid rgba(255, 255, 255, .1);
-            background: var(--ruby-navy);
+            border-top: 1px solid rgba(255,255,255,.1);
+            background: var(--ruby-black);
             padding: 16px 20px;
         }
 
         .ruby-mobile-menu-grid {
-            display: grid;
-            gap: 8px;
+            display: grid; gap: 8px;
         }
 
         .ruby-mobile-menu-grid a {
-            border: 1px solid rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255,255,255,.12);
             border-radius: 12px;
-            background: rgba(255, 255, 255, .06);
-            padding: 14px 16px;
-            color: #fff;
-            font-size: 14px;
-            font-weight: 800;
+            background: rgba(255,255,255,.06);
+            padding: 14px 16px; color: #fff;
+            font-size: 14px; font-weight: 800;
         }
 
         .ruby-mobile-search-form {
-            display: flex;
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
+            display: flex; width: 100%; max-width: 1280px; margin: 0 auto;
         }
 
         .ruby-mobile-search-form button {
-            width: auto;
-            min-width: 92px;
-            padding: 0 18px;
-            font-size: 14px;
-            font-weight: 800;
+            width: auto; min-width: 92px; padding: 0 18px;
+            font-size: 14px; font-weight: 800;
         }
 
-        .ruby-mobile-only {
-            display: none;
-        }
+        .ruby-mobile-only { display: none; }
 
         @media (max-width: 1023px) {
-            .ruby-container {
-                padding: 0 20px;
-            }
-
-            .ruby-main-nav,
-            .ruby-desktop-search,
-            .ruby-quicknav {
-                display: none;
-            }
-
-            .ruby-mobile-only {
-                display: inline-flex;
-            }
-
-            .ruby-navrow {
-                min-height: 72px;
-                gap: 14px;
-            }
+            .ruby-container { padding: 0 20px; }
+            .ruby-main-nav, .ruby-desktop-search { display: none; }
+            .ruby-mobile-only { display: inline-flex; }
+            .ruby-navrow { min-height: 72px; gap: 14px; }
         }
 
         @media (max-width: 640px) {
-            .ruby-container {
-                padding: 0 16px;
+            .ruby-container { padding: 0 16px; }
+            .ruby-navrow { min-height: 64px; gap: 8px; }
+            .ruby-header-actions { gap: 8px; }
+            .ruby-search button,
+            .ruby-icon-button,
+            .ruby-cart-button {
+                width: 44px;
+                height: 44px;
             }
+            .ruby-brand-name { font-size: 20px; }
+            .ruby-brand-tagline { display: none; }
+            .ruby-brand-logo { width: min(168px, 42vw); }
+        }
 
-            .ruby-brand-name {
-                font-size: 20px;
+        @media (max-width: 374px) {
+            .ruby-container { padding: 0 12px; }
+            .ruby-navrow { gap: 6px; }
+            .ruby-header-actions { gap: 6px; }
+            .ruby-search button,
+            .ruby-icon-button,
+            .ruby-cart-button {
+                width: 40px;
+                height: 40px;
             }
+            .ruby-brand-logo { width: min(142px, 40vw); }
+        }
 
-            .ruby-brand-tagline {
-                display: none;
-            }
-
-            .ruby-brand-logo {
-                width: min(186px, 48vw);
+        @media (max-width: 782px) {
+            body.admin-bar .ruby-header {
+                top: 46px;
             }
         }
     </style>
@@ -430,16 +328,6 @@ $menu_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() :
         </div>
     </div>
 
-    <div class="ruby-quicknav" aria-label="<?php esc_attr_e('Shop shortcuts', 'dawp'); ?>">
-        <div class="ruby-container ruby-quicknav-inner">
-            <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Tires', 'dawp'); ?></a>
-            <a href="<?php echo esc_url(home_url('/#finder-card')); ?>"><?php esc_html_e('Tire Finder', 'dawp'); ?></a>
-            <a href="<?php echo esc_url(home_url('/shop-by-rim-size/')); ?>"><?php esc_html_e('Shop By Rim Size', 'dawp'); ?></a>
-            <a href="<?php echo esc_url(home_url('/shop-by-vehicle-type/')); ?>"><?php esc_html_e('Vehicle Type', 'dawp'); ?></a>
-            <a href="<?php echo esc_url(home_url('/#deals')); ?>"><?php esc_html_e('Deals', 'dawp'); ?></a>
-        </div>
-    </div>
-
     <div id="rubyinstar-mobile-search" class="ruby-mobile-panel hidden">
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="ruby-search ruby-mobile-search-form">
             <input type="hidden" name="post_type" value="product">
@@ -454,7 +342,7 @@ $menu_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() :
             <?php foreach ($menu_items as $item) : ?>
                 <a href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
             <?php endforeach; ?>
-            <a href="<?php echo esc_url(home_url('/#finder-card')); ?>"><?php esc_html_e('Tire Finder', 'dawp'); ?></a>
+            <a href="<?php echo esc_url(home_url('/#tire-finder')); ?>"><?php esc_html_e('Tire Finder', 'dawp'); ?></a>
             <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
         </div>
     </nav>

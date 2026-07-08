@@ -44,3 +44,46 @@ add_filter('woocommerce_gateway_icon', function($icon, $gateway_id) {
 
 // Disable all default WooCommerce CSS
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+
+add_action('wp_ajax_dawp_load_more_products', 'dawp_load_more_products');
+add_action('wp_ajax_nopriv_dawp_load_more_products', 'dawp_load_more_products');
+
+function dawp_load_more_products() {
+    check_ajax_referer('dawp_load_more_products', 'nonce');
+
+    $page = isset($_POST['page']) ? max(1, absint($_POST['page'])) : 1;
+    $raw_query = isset($_POST['query']) ? wp_unslash($_POST['query']) : '';
+    $query_vars = json_decode($raw_query, true);
+
+    if (! is_array($query_vars)) {
+        wp_send_json_error([
+            'message' => __('Invalid product request.', 'dawp'),
+        ]);
+    }
+
+    $query_vars['post_type'] = 'product';
+    $query_vars['post_status'] = 'publish';
+    $query_vars['paged'] = $page;
+    $query_vars['posts_per_page'] = (int) apply_filters('loop_shop_per_page', 12);
+
+    $products = new WP_Query($query_vars);
+
+    ob_start();
+
+    if ($products->have_posts()) {
+        while ($products->have_posts()) {
+            $products->the_post();
+            wc_get_template_part('content', 'product');
+        }
+    }
+
+    $html = ob_get_clean();
+    wp_reset_postdata();
+
+    wp_send_json_success([
+        'html'      => $html,
+        'page'      => $page,
+        'max_pages' => (int) $products->max_num_pages,
+        'has_more'  => $page < (int) $products->max_num_pages,
+    ]);
+}

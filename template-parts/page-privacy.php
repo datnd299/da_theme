@@ -101,3 +101,16 @@
         </div>
     </section>
 </div>
+
+<style>
+.virtual-page--privacy > #primary{background:#fff;color:#111}
+.virtual-page--privacy > #primary > section:first-child{position:relative;overflow:hidden;background:#050505}
+.virtual-page--privacy > #primary > section:first-child:before{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(5,5,5,.76) 52%,rgba(5,5,5,.36)),linear-gradient(180deg,rgba(5,5,5,0) 58%,#050505);content:""}
+.virtual-page--privacy > #primary > section:first-child > div{position:relative;z-index:1}
+.virtual-page--privacy [class*="text-[#F6A21A]"]{color:#fbbf24}
+.virtual-page--privacy [class*="text-[#2563EB]"]{color:#991b1b}
+.virtual-page--privacy [class*="bg-[#EFF6FF]"]{background:#fef2f2}
+.virtual-page--privacy [class*="border-[#BFDBFE]"],.virtual-page--privacy [class*="border-[#2563EB]"]{border-color:#fecaca}
+.virtual-page--privacy aside,.virtual-page--privacy article,.virtual-page--privacy [class*="rounded-lg"],.virtual-page--privacy [class*="rounded-md"]{border-radius:8px}
+.virtual-page--privacy article a{color:#991b1b}
+</style>

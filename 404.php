@@ -63,7 +63,7 @@ if (function_exists('dawp_tire_category_definitions')) {
 
     <div class="relative mx-auto grid min-h-[640px] max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:px-8 lg:py-20">
       <div>
-        <p class="mb-5 inline-flex rounded-md border border-[#FDBA74]/50 bg-[#F97316]/15 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#FDBA74]">
+        <p class="error-404-kicker mb-5 inline-flex rounded-md border border-[#FDBA74]/50 bg-[#F97316]/15 px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#FDBA74]">
           <?php esc_html_e('404 | Page Not Found', 'dawp'); ?>
         </p>
 
@@ -76,10 +76,10 @@ if (function_exists('dawp_tire_category_definitions')) {
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
+          <a href="<?php echo esc_url($shop_url); ?>" class="error-404-button error-404-button--primary inline-flex min-h-12 items-center justify-center rounded-md bg-[#F97316] px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
             <?php esc_html_e('Shop All Products', 'dawp'); ?>
           </a>
-          <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-white/40 bg-white/10 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
+          <a href="<?php echo esc_url(home_url('/')); ?>" class="error-404-button error-404-button--ghost inline-flex min-h-12 items-center justify-center rounded-md border border-white/40 bg-white/10 px-7 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-[#0B1F33]">
             <?php esc_html_e('Back To Home', 'dawp'); ?>
           </a>
         </div>
@@ -123,7 +123,7 @@ if (function_exists('dawp_tire_category_definitions')) {
           <label for="rubyinstar-404-search" class="sr-only"><?php esc_html_e('Search products', 'dawp'); ?></label>
           <input id="rubyinstar-404-search" type="search" name="s" placeholder="<?php esc_attr_e('Search tires, size, or category...', 'dawp'); ?>" class="min-h-11 flex-1 rounded-md bg-[#F4F6F8] px-4 text-sm text-[#111827] placeholder:text-[#6B7280] outline-none focus:bg-white">
           <input type="hidden" name="post_type" value="product">
-          <button type="submit" class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-md bg-[#F97316] px-5 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0B1F33]">
+          <button type="submit" class="error-404-search-button inline-flex min-h-11 shrink-0 items-center justify-center rounded-md bg-[#F97316] px-5 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#0B1F33]">
             <?php esc_html_e('Search', 'dawp'); ?>
           </button>
         </form>
@@ -148,6 +148,20 @@ if (function_exists('dawp_tire_category_definitions')) {
     </div>
   </section>
 </main>
+
+<style>
+.error-404{background:#fff;color:#111}
+.error-404 > section:first-child{background:#050505}
+.error-404 [class*="text-[#F97316]"],.error-404 [class*="text-[#FDBA74]"],.error-404 [class*="text-[#C2410C]"]{color:#dc2626}
+.error-404-kicker{background:rgba(220,38,38,.16);border-color:rgba(248,113,113,.55);color:#fecaca}
+.error-404-button,.error-404-search-button{background:#dc2626;color:#fff}
+.error-404-button--primary:hover{background:#fff;color:#111827}
+.error-404-button--ghost{background:rgba(255,255,255,.1);color:#fff}
+.error-404-button--ghost:hover{background:#fff;color:#111827}
+.error-404-search-button:hover{background:#111827;color:#fff}
+.error-404 [class*="rounded-lg"],.error-404 [class*="rounded-md"]{border-radius:8px}
+.error-404 a:hover{border-color:#dc2626}
+</style>
 
 <?php
 get_footer();

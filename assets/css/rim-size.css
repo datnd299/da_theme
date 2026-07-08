@@ -1,17 +1,18 @@
 .rim-size-page {
-    --rim-navy: #0B1F3A;
-    --rim-navy-soft: #12294f;
-    --rim-orange: #F97316;
-    --rim-orange-dark: #DB5F0B;
-    --rim-orange-text: #C2410C;
-    --rim-orange-strong: #9A3412;
-    --rim-text: #111827;
-    --rim-muted: #4B5563;
+    --rim-navy: #050505;
+    --rim-navy-soft: #1a1a1a;
+    --rim-blue: #dc2626;
+    --rim-orange: #dc2626;
+    --rim-orange-dark: #991b1b;
+    --rim-orange-text: #dc2626;
+    --rim-orange-strong: #991b1b;
+    --rim-text: #111111;
+    --rim-muted: #6b7280;
     --rim-line: #E5E7EB;
-    --rim-soft: #F5F6F8;
-    --rim-radius: 10px;
+    --rim-soft: #f6f6f6;
+    --rim-radius: 8px;
     background: #fff;
-    color: #111827;
+    color: #111111;
     font-family: Inter, system-ui, sans-serif;
     overflow: hidden;
 }
@@ -45,9 +46,9 @@
 
 .rim-hero__overlay {
     background:
-        radial-gradient(900px 420px at 88% 0%, rgba(249, 115, 22, 0.18), transparent 60%),
-        linear-gradient(90deg, rgba(11, 31, 58, 0.96) 0%, rgba(11, 31, 58, 0.78) 52%, rgba(11, 31, 58, 0.32) 100%),
-        linear-gradient(180deg, rgba(11, 31, 58, 0) 60%, rgba(11, 31, 58, 0.94) 100%);
+        radial-gradient(900px 420px at 88% 0%, rgba(220, 38, 38, 0.16), transparent 60%),
+        linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.78) 52%, rgba(5, 5, 5, 0.32) 100%),
+        linear-gradient(180deg, rgba(5, 5, 5, 0) 60%, rgba(5, 5, 5, 0.94) 100%);
 }
 
 .rim-hero__inner {
@@ -148,7 +149,7 @@
 .rim-button--primary {
     background: var(--rim-orange-text);
     color: #fff;
-    box-shadow: 0 12px 24px -14px rgba(249, 115, 22, 0.7);
+    box-shadow: 0 12px 24px -14px rgba(220, 38, 38, 0.7);
 }
 
 .rim-size-page a.rim-button--primary,
@@ -207,8 +208,8 @@
 
 .rim-size-page--rim .rim-hero__overlay {
     background:
-        linear-gradient(90deg, rgba(11, 31, 58, 0.99) 0%, rgba(11, 31, 58, 0.91) 48%, rgba(11, 31, 58, 0.46) 100%),
-        linear-gradient(180deg, rgba(11, 31, 58, 0.22) 0%, rgba(11, 31, 58, 0.92) 100%);
+        linear-gradient(90deg, rgba(5, 5, 5, 0.99) 0%, rgba(5, 5, 5, 0.91) 48%, rgba(5, 5, 5, 0.46) 100%),
+        linear-gradient(180deg, rgba(5, 5, 5, 0.22) 0%, rgba(5, 5, 5, 0.92) 100%);
 }
 
 .rim-size-page--rim .rim-hero p:not(.rim-eyebrow) {
@@ -216,12 +217,12 @@
 }
 
 .rim-size-page--rim .rim-eyebrow {
-    color: #FDBA74;
+    color: #fca5a5;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.34);
 }
 
 .rim-size-page--rim .rim-eyebrow::before {
-    background: #FDBA74;
+    background: #fca5a5;
 }
 
 .rim-size-page--rim .rim-hero__inner {
@@ -336,7 +337,7 @@
     border: 1px solid var(--rim-line);
     border-radius: 14px;
     background: #fff;
-    box-shadow: 0 18px 46px rgba(11, 31, 58, 0.13);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.13);
 }
 
 .rim-quick-strip div {
@@ -417,7 +418,7 @@
     aspect-ratio: 16 / 11;
     border-radius: var(--rim-radius);
     object-fit: cover;
-    box-shadow: 0 16px 34px rgba(11, 31, 58, 0.12);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.12);
 }
 
 .rim-tool {
@@ -444,7 +445,7 @@
     border-radius: 16px;
     background: #fff;
     padding: 24px;
-    box-shadow: 0 18px 46px rgba(11, 31, 58, 0.08);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.08);
 }
 
 .rim-search {
@@ -465,7 +466,7 @@
 
 .rim-search input:focus {
     border-color: var(--rim-orange-text);
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
 }
 
 .tz-tabs-nav {
@@ -514,14 +515,14 @@
 }
 
 .tz-tab-link.active small {
-    color: #fff7ed;
+    color: #fee2e2;
 }
 
 .tz-content {
     border: 1px solid var(--rim-line);
     border-radius: 16px;
     background: #fff;
-    box-shadow: 0 18px 46px rgba(11, 31, 58, 0.08);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.08);
 }
 
 .tz-panel {
@@ -556,7 +557,7 @@
 
 .tz-panel__top span {
     border-radius: 999px;
-    background: #fff7ed;
+    background: #fef2f2;
     color: var(--rim-orange-text);
     padding: 8px 12px;
     font-size: 12px;
@@ -589,19 +590,19 @@
 
 .tz-item:hover {
     transform: translateY(-3px);
-    border-color: rgba(194, 65, 12, 0.75);
+    border-color: rgba(220, 38, 38, 0.75);
     background: #fff;
     color: var(--rim-orange-text);
-    box-shadow: 0 16px 30px -20px rgba(11, 31, 58, 0.45);
+    box-shadow: 0 16px 30px -20px rgba(0, 0, 0, 0.45);
 }
 
 .rim-no-results {
     margin: 18px 0 0;
-    border: 1px solid #fed7aa;
+    border: 1px solid #fecaca;
     border-radius: 8px;
-    background: #fff7ed;
+    background: #fef2f2;
     padding: 16px 18px;
-    color: #9a3412;
+    color: #991b1b;
     font-weight: 800;
 }
 
@@ -702,9 +703,9 @@
 
 .brand-card:hover {
     transform: translateY(-3px);
-    border-color: #f97316;
+    border-color: #dc2626;
     background: #fff;
-    box-shadow: 0 8px 18px rgba(249, 115, 22, 0.15);
+    box-shadow: 0 8px 18px rgba(220, 38, 38, 0.15);
 }
 
 .brand-card__top {
@@ -768,7 +769,7 @@
     border-radius: 16px;
     background: #fff;
     padding: clamp(24px, 4vw, 40px);
-    box-shadow: 0 18px 46px rgba(11, 31, 58, 0.08);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.08);
 }
 
 .rim-support > div {
@@ -863,7 +864,7 @@
     }
 
     .rim-size-page--rim .rim-hero__overlay {
-        background: linear-gradient(180deg, rgba(11, 31, 58, 0.98) 0%, rgba(11, 31, 58, 0.9) 54%, rgba(11, 31, 58, 0.98) 100%);
+        background: linear-gradient(180deg, rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.9) 54%, rgba(5, 5, 5, 0.98) 100%);
     }
 
     .rim-intro,
@@ -984,4 +985,48 @@
     .tz-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Rubyinstar homepage alignment */
+.rim-size-page .rim-hero__overlay,
+.rim-size-page--rim .rim-hero__overlay {
+    background:
+        linear-gradient(90deg, rgba(5, 5, 5, 0.97) 0%, rgba(5, 5, 5, 0.78) 48%, rgba(5, 5, 5, 0.28) 100%),
+        linear-gradient(180deg, rgba(5, 5, 5, 0) 50%, #050505 100%);
+}
+
+.rim-size-page .rim-hero__finder-card,
+.rim-size-page .rim-hero__rim-dock,
+.rim-size-page .rim-quick-strip,
+.rim-size-page .rim-tool__sidebar,
+.rim-size-page .tz-content,
+.rim-size-page .rim-support {
+    border-radius: 8px;
+    box-shadow: 0 18px 46px rgba(17, 17, 17, 0.1);
+}
+
+.rim-size-page .tz-tab-link.active,
+.rim-size-page .rim-button--primary,
+.rim-size-page .rim-button--dark:hover {
+    background: #dc2626;
+}
+
+.rim-size-page .rim-button--primary:hover,
+.rim-size-page .tz-tab-link.active:hover {
+    background: #ef4444;
+}
+
+.rim-size-page .tz-panel__top span,
+.rim-size-page .rim-no-results {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.rim-size-page .rim-no-results {
+    border-color: #fecaca;
+}
+
+.rim-size-page .tz-item:hover {
+    border-color: rgba(220, 38, 38, 0.75);
+    color: #dc2626;
 }

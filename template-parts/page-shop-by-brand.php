@@ -4,8 +4,8 @@
  */
 
 $rubyinstar_gallery_uri = get_theme_file_uri('/assets/img/gallery/Rubyinstar/');
-$hero_image = $rubyinstar_gallery_uri . 'tire-hero-road.png';
-$tread_image = $rubyinstar_gallery_uri . 'all-season-tread.png';
+$hero_image = $rubyinstar_gallery_uri . 'brand-comparison-showroom.png';
+$tread_image = $rubyinstar_gallery_uri . 'brand-tread-comparison.png';
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))
@@ -138,15 +138,16 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
   :root{
-    --navy:#0B1F3A;
-    --navy-light:#12294f;
-    --orange:#F97316;
-    --orange-dark:#DB5F0B;
+    --brand-black:#050505;
+    --brand-ink:#111111;
+    --brand-red:#dc2626;
+    --brand-red-dark:#991b1b;
+    --brand-red-bright:#ef4444;
     --white:#FFFFFF;
-    --gray-bg:#F5F6F8;
-    --text:#111827;
+    --gray-bg:#F6F6F6;
+    --text:#111111;
     --text-soft:#6B7280;
-    --border:#E5E7EB;
+    --border:#e5e5e5;
   }
   .brand-page *{ box-sizing:border-box; }
   .brand-page{
@@ -157,7 +158,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
   }
   .brand-page h1,.brand-page h2,.brand-page h3{
     font-family:'Plus Jakarta Sans', sans-serif;
-    color:var(--navy);
+    color:var(--brand-black);
     line-height:1.15;
     overflow-wrap:break-word;
   }
@@ -168,31 +169,31 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
 
   .brand-eyebrow{
     display:inline-flex; align-items:center; gap:8px;
-    color:var(--orange); font-size:13px; font-weight:700;
+    color:var(--brand-red); font-size:13px; font-weight:700;
     letter-spacing:.08em; text-transform:uppercase;
   }
   .brand-eyebrow::before{
-    content:""; width:18px; height:2px; border-radius:2px; background:var(--orange);
+    content:""; width:18px; height:2px; border-radius:2px; background:var(--brand-red);
   }
   .brand-btn{
     display:inline-flex; min-height:48px; align-items:center; justify-content:center; gap:8px;
-    border:1.5px solid transparent; border-radius:10px; padding:0 26px;
+    border:2px solid transparent; border-radius:8px; padding:0 26px;
     font-size:15px; font-weight:700; transition:transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
     white-space:nowrap;
   }
   .brand-btn:active{ transform:translateY(1px); }
-  .brand-btn-primary{ background:var(--orange); color:#fff; box-shadow:0 8px 20px -8px rgba(249,115,22,.55); }
-  .brand-btn-primary:hover{ background:var(--orange-dark); color:#fff; }
+  .brand-btn-primary{ background:var(--brand-red); color:#fff; box-shadow:0 8px 20px -8px rgba(220,38,38,.55); }
+  .brand-btn-primary:hover{ background:var(--brand-red-bright); color:#fff; }
   .brand-btn-outline{ background:transparent; color:#fff; border-color:rgba(255,255,255,.3); }
-  .brand-btn-outline:hover{ background:#fff; color:var(--navy); }
-  .brand-btn-secondary{ background:var(--navy); color:#fff; }
-  .brand-btn-secondary:hover{ background:var(--navy-light); color:#fff; }
+  .brand-btn-outline:hover{ background:#fff; color:var(--brand-black); }
+  .brand-btn-secondary{ background:var(--brand-black); color:#fff; }
+  .brand-btn-secondary:hover{ background:var(--brand-red); color:#fff; }
 
   .brand-hero{
     position:relative; color:#fff; overflow:hidden;
     background:
-      radial-gradient(1100px 480px at 86% -8%, rgba(249,115,22,.18), transparent 60%),
-      linear-gradient(180deg, var(--navy) 0%, #0d2547 62%, #0f2a52 100%);
+      linear-gradient(90deg, rgba(5,5,5,.9), rgba(5,5,5,.72) 48%, rgba(5,5,5,.38)),
+      var(--brand-black);
   }
   .brand-hero__inner{
     display:grid; grid-template-columns:1fr; gap:40px; align-items:center;
@@ -215,16 +216,16 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
   .brand-stats span{ display:block; color:rgba(255,255,255,.74); font-size:12.5px; letter-spacing:.05em; text-transform:uppercase; }
   .brand-visual{ position:relative; }
   .brand-photo{
-    overflow:hidden; border:1px solid rgba(255,255,255,.1); border-radius:20px;
+    overflow:hidden; border:1px solid rgba(255,255,255,.1); border-radius:8px;
     box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
   }
   .brand-photo img{ width:100%; height:360px; object-fit:cover; }
   .brand-float{
     position:absolute; bottom:-22px; left:-18px; display:flex; align-items:center; gap:12px;
-    background:#fff; color:var(--navy); border-radius:14px; padding:14px 18px;
+    background:#fff; color:var(--brand-black); border-radius:8px; padding:14px 18px;
     box-shadow:0 16px 30px -10px rgba(0,0,0,.35);
   }
-  .brand-float__ring{ width:42px; height:42px; border-radius:50%; background:var(--gray-bg); display:flex; align-items:center; justify-content:center; }
+  .brand-float__ring{ width:42px; height:42px; border-radius:50%; background:var(--gray-bg); color:var(--brand-black); display:flex; align-items:center; justify-content:center; }
   .brand-float strong{ display:block; font-family:'Plus Jakarta Sans'; font-size:15px; }
   .brand-float span{ color:var(--text-soft); font-size:12px; }
   .brand-tread-line{
@@ -246,14 +247,14 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
   .brand-intro-copy p{ color:var(--text-soft); font-size:15.5px; line-height:1.75; margin:14px 0 0; }
   .brand-intro-copy h2{ font-size:clamp(26px,3.4vw,38px); margin:12px 0 0; }
   .brand-intro-img{
-    overflow:hidden; border:1px solid var(--border); border-radius:18px;
-    box-shadow:0 22px 44px -28px rgba(11,31,58,.35);
+    overflow:hidden; border:1px solid var(--border); border-radius:8px;
+    box-shadow:0 22px 44px -28px rgba(5,5,5,.28);
   }
   .brand-intro-img img{ width:100%; height:420px; object-fit:cover; }
 
   .brand-tool-card{
-    border:1px solid var(--border); border-radius:18px; background:#fff;
-    padding:22px; box-shadow:0 24px 50px -24px rgba(11,31,58,.28);
+    border:1px solid var(--border); border-radius:8px; background:#fff;
+    padding:22px; box-shadow:0 24px 50px -24px rgba(5,5,5,.18);
   }
   .brand-tool__header{
     display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap;
@@ -261,17 +262,17 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
   }
   .brand-search{ flex:1 1 280px; max-width:420px; }
   .brand-search input{
-    width:100%; min-height:48px; border:1.5px solid var(--border); border-radius:10px;
+    width:100%; min-height:48px; border:1.5px solid var(--border); border-radius:8px;
     background:#fff; color:var(--text); padding:0 16px; font:inherit; outline:none;
   }
-  .brand-search input:focus{ border-color:var(--orange); box-shadow:0 0 0 3px rgba(249,115,22,.14); }
+  .brand-search input:focus{ border-color:var(--brand-red); box-shadow:0 0 0 3px rgba(220,38,38,.14); }
   .brand-tabs{
-    display:flex; gap:6px; overflow-x:auto; background:var(--gray-bg); padding:5px; border-radius:12px; margin-bottom:22px;
+    display:flex; gap:6px; overflow-x:auto; background:var(--gray-bg); padding:5px; border-radius:8px; margin-bottom:22px;
     scrollbar-width:none;
   }
   .brand-tabs::-webkit-scrollbar{ display:none; }
   .brand-tab{
-    flex:0 0 auto; border:0; border-radius:9px; background:transparent; color:var(--text-soft);
+    flex:0 0 auto; border:0; border-radius:8px; background:transparent; color:var(--text-soft);
     display:inline-flex; align-items:center; gap:8px; min-height:42px; padding:0 16px;
     font:inherit; font-size:13.5px; font-weight:700; cursor:pointer;
   }
@@ -279,8 +280,8 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
     display:inline-flex; align-items:center; justify-content:center; min-width:22px; height:22px;
     border-radius:999px; background:#fff; color:var(--text-soft); font-size:11px;
   }
-  .brand-tab.active{ background:var(--navy); color:#fff; }
-  .brand-tab.active small{ color:var(--navy); }
+  .brand-tab.active{ background:var(--brand-black); color:#fff; }
+  .brand-tab.active small{ color:var(--brand-black); }
   .brand-panel{ display:none; animation:brandFade .24s ease; }
   .brand-panel.active{ display:block; }
   .brand-panel__top{
@@ -290,7 +291,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
   .brand-panel__top h3{ font-size:clamp(20px,2.4vw,26px); margin:0; }
   .brand-panel__top p{ color:var(--text-soft); font-size:14px; line-height:1.6; margin:8px 0 0; }
   .brand-panel__badge{
-    border-radius:999px; background:#fff7ed; color:#c2410c; padding:8px 12px;
+    border-radius:8px; background:#fef2f2; color:var(--brand-red-dark); padding:8px 12px;
     font-size:12px; font-weight:800; text-transform:uppercase;
   }
   .brand-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
@@ -298,36 +299,36 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
   @media(min-width:1080px){ .brand-grid{ grid-template-columns:repeat(4,1fr); } }
   .brand-card{
     display:flex; min-height:220px; flex-direction:column; gap:14px;
-    border:1px solid var(--border); border-radius:16px; background:#fff; padding:22px;
+    border:1px solid var(--border); border-radius:8px; background:#fff; padding:22px;
     transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
   }
-  .brand-card:hover{ transform:translateY(-4px); border-color:transparent; box-shadow:0 18px 34px -18px rgba(11,31,58,.25); }
+  .brand-card:hover{ transform:translateY(-4px); border-color:var(--brand-red); box-shadow:0 18px 34px -18px rgba(5,5,5,.25); }
   .brand-card__icon{
-    width:52px; height:52px; border-radius:12px; background:var(--gray-bg); color:var(--navy);
+    width:52px; height:52px; border-radius:8px; background:var(--gray-bg); color:var(--brand-black);
     display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:18px;
   }
-  .brand-card:hover .brand-card__icon{ background:var(--orange); color:#fff; }
+  .brand-card:hover .brand-card__icon{ background:var(--brand-red); color:#fff; }
   .brand-card__top{ display:flex; min-width:0; align-items:flex-start; justify-content:space-between; gap:12px; }
-  .brand-card__top strong{ color:var(--navy); font-family:'Plus Jakarta Sans'; font-size:18px; line-height:1.2; }
+  .brand-card__top strong{ color:var(--brand-black); font-family:'Plus Jakarta Sans'; font-size:18px; line-height:1.2; }
   .brand-card__top em{
-    flex:0 0 auto; border-radius:999px; background:#fff7ed; color:#c2410c;
+    flex:0 0 auto; border-radius:8px; background:#fef2f2; color:var(--brand-red-dark);
     padding:6px 9px; font-size:11px; font-style:normal; font-weight:800; text-transform:uppercase;
   }
   .brand-card__copy{ color:var(--text-soft); font-size:13.5px; line-height:1.55; flex:1; }
   .brand-card__tags{ display:flex; flex-wrap:wrap; gap:8px; }
   .brand-card__tags small{ background:var(--gray-bg); border-radius:6px; color:var(--text-soft); padding:4px 8px; font-size:12px; font-weight:600; }
   .brand-no-results{
-    margin:18px 0 0; border:1px solid #fed7aa; border-radius:10px; background:#fff7ed;
-    color:#9a3412; padding:16px 18px; font-weight:700;
+    margin:18px 0 0; border:1px solid #fecaca; border-radius:8px; background:#fef2f2;
+    color:var(--brand-red-dark); padding:16px 18px; font-weight:700;
   }
 
   .brand-cta{
-    background:var(--orange); border-radius:24px; padding:44px 32px; color:#fff; text-align:center;
+    background:var(--brand-black); border-radius:8px; padding:44px 32px; color:#fff; text-align:center;
   }
   .brand-cta h2{ color:#fff; font-size:clamp(24px,3vw,30px); margin:0; }
   .brand-cta p{ color:rgba(255,255,255,.9); margin:10px auto 0; max-width:650px; line-height:1.6; }
   .brand-cta-actions{ display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:26px; }
-  .brand-cta .brand-btn-outline{ background:#fff; color:var(--navy); border-color:#fff; }
+  .brand-cta .brand-btn-outline{ background:#fff; color:var(--brand-black); border-color:#fff; }
 
   @keyframes brandFade{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:none; } }
   @media(max-width:560px){
@@ -364,7 +365,7 @@ $popular_brands = ['Michelin', 'Goodyear', 'Bridgestone', 'Cooper'];
                 </div>
                 <div class="brand-float">
                     <span class="brand-float__ring">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1F3A" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
                     </span>
                     <div>
                         <strong><?php esc_html_e('Known Brands', 'dawp'); ?></strong>

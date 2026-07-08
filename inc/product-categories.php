@@ -6,7 +6,7 @@ function dawp_tire_category_definitions() {
         'all-season-tires' => [
             'name'        => __('All-Season Tires', 'dawp'),
             'description' => __('Tires designed for practical year-round driving and everyday road use.', 'dawp'),
-            'cover'       => 'category-all-season-tires.png',
+            'cover'       => 'brand-tread-comparison.png',
             'eyebrow'     => __('Everyday Road Use', 'dawp'),
             'summary'     => __('Shop all-season tires built around daily driving, road comfort, and practical year-round conditions.', 'dawp'),
             'tags'        => [__('Year-round use', 'dawp'), __('Daily driving', 'dawp'), __('Comfort', 'dawp')],
@@ -14,7 +14,7 @@ function dawp_tire_category_definitions() {
         'suv-crossover-tires' => [
             'name'        => __('SUV & Crossover Tires', 'dawp'),
             'description' => __('Tire options for SUVs and crossovers, built for daily driving, comfort, and road stability.', 'dawp'),
-            'cover'       => 'category-suv-crossover-tires.png',
+            'cover'       => 'vehicle-card-suv.png',
             'eyebrow'     => __('SUV & Family Vehicles', 'dawp'),
             'summary'     => __('Find tire options for SUVs, crossovers, family vehicles, and daily road trips.', 'dawp'),
             'tags'        => [__('SUV fitment', 'dawp'), __('Road stability', 'dawp'), __('Daily comfort', 'dawp')],
@@ -22,7 +22,7 @@ function dawp_tire_category_definitions() {
         'light-truck-tires' => [
             'name'        => __('Light Truck Tires', 'dawp'),
             'description' => __('Tires for light trucks, hauling needs, and everyday utility driving.', 'dawp'),
-            'cover'       => 'category-light-truck-tires.png',
+            'cover'       => 'vehicle-card-truck.png',
             'eyebrow'     => __('Pickup & Utility', 'dawp'),
             'summary'     => __('Browse tires for pickup trucks, light-duty work vehicles, hauling needs, and everyday utility driving.', 'dawp'),
             'tags'        => [__('Light truck', 'dawp'), __('Utility driving', 'dawp'), __('Hauling needs', 'dawp')],
@@ -30,7 +30,7 @@ function dawp_tire_category_definitions() {
         'performance-tires' => [
             'name'        => __('Performance Tires', 'dawp'),
             'description' => __('Tires designed for responsive handling and performance-inspired driving.', 'dawp'),
-            'cover'       => 'category-performance-tires.png',
+            'cover'       => 'vehicle-card-performance.png',
             'eyebrow'     => __('Responsive Handling', 'dawp'),
             'summary'     => __('Explore tires designed for sharper handling, confident road feel, and performance-inspired street driving.', 'dawp'),
             'tags'        => [__('Handling', 'dawp'), __('Sporty road feel', 'dawp'), __('Street use', 'dawp')],
@@ -38,7 +38,7 @@ function dawp_tire_category_definitions() {
         'trailer-tires' => [
             'name'        => __('Trailer Tires', 'dawp'),
             'description' => __('Trailer tire options for towing, utility use, and road-ready trailer needs.', 'dawp'),
-            'cover'       => 'category-trailer-tires.png',
+            'cover'       => 'vehicle-card-trailer.png',
             'eyebrow'     => __('Towing Support', 'dawp'),
             'summary'     => __('Shop trailer tire options for utility trailers, towing support, and road-ready trailer needs.', 'dawp'),
             'tags'        => [__('Trailer use', 'dawp'), __('Towing', 'dawp'), __('Utility support', 'dawp')],
@@ -46,7 +46,7 @@ function dawp_tire_category_definitions() {
         'winter-tires' => [
             'name'        => __('Winter Tires', 'dawp'),
             'description' => __('Tires designed for colder temperatures and winter road conditions.', 'dawp'),
-            'cover'       => 'category-winter-tires.png',
+            'cover'       => 'vehicle-card-winter.png',
             'eyebrow'     => __('Cold Weather', 'dawp'),
             'summary'     => __('Choose tire options designed for colder temperatures, winter road conditions, and seasonal replacement needs.', 'dawp'),
             'tags'        => [__('Winter roads', 'dawp'), __('Cold weather', 'dawp'), __('Seasonal fit', 'dawp')],
@@ -66,7 +66,7 @@ function dawp_tire_category_data($slug) {
 
 function dawp_tire_category_cover_url($slug) {
     $category = dawp_tire_category_data($slug);
-    $file = $category['cover'] ?? 'tire-hero-road.png';
+    $file = $category['cover'] ?? 'shop-fulfillment-aisle.png';
 
     return get_theme_file_uri('/assets/img/gallery/Rubyinstar/' . $file);
 }

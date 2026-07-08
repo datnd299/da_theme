@@ -4,8 +4,8 @@
  */
 
 $rubyinstar_gallery_uri = get_theme_file_uri('/assets/img/gallery/Rubyinstar/');
-$hero_image = $rubyinstar_gallery_uri . 'tire-hero-road.png';
-$tread_image = $rubyinstar_gallery_uri . 'all-season-tread.png';
+$hero_image = $rubyinstar_gallery_uri . 'rim-size-wheel-guide.png';
+$tread_image = $rubyinstar_gallery_uri . 'rim-sidewall-measure.png';
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))

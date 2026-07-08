@@ -1,414 +1,768 @@
+<?php
+/**
+ * About Us - Rubyinstar
+ * Tire ecommerce about page.
+ * Theme: Red / White / Black (matching homepage)
+ */
+?>
+
+<section class="home-page about-page">
+
+  <div class="about-hero">
+    <img
+      class="about-hero__media"
+      src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/gallery/Rubyinstar/about-warehouse-consultation.png"
+      alt=""
+      loading="eager"
+    />
+
+    <div class="about-hero__inner">
+      <div class="about-hero__copy">
+        <p class="home-eyebrow">About Rubyinstar</p>
+        <h1>Tire Shopping Made Clearer, Faster, And Easier</h1>
+        <p>
+          Rubyinstar helps everyday drivers find quality tires online with clear product information,
+          competitive pricing, reliable delivery, and support when it matters.
+        </p>
+        <div class="home-actions">
+          <a class="home-btn home-btn--primary" href="/shop/">Shop Tires</a>
+          <a class="home-btn home-btn--ghost" href="/contact-us/">Contact Support</a>
+        </div>
+      </div>
+
+      <div class="about-hero__panel" aria-label="Rubyinstar highlights">
+        <div>
+          <strong>Built For Online Tire Buyers</strong>
+          <p>Simple category paths, useful tire details, and fewer confusing steps.</p>
+        </div>
+        <div>
+          <strong>Focused On Daily Drivers</strong>
+          <p>Passenger, SUV, truck, performance, all-season, winter, and trailer options.</p>
+        </div>
+        <div>
+          <strong>Backed By Practical Support</strong>
+          <p>Help with tire selection, order tracking, shipping questions, and returns.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-strip about-strip" data-mobile-slider="home-strip">
+    <div>Secure Checkout</div>
+    <div>Fast Shipping</div>
+    <div>Order Tracking</div>
+    <div>Easy Returns</div>
+  </div>
+
+  <div class="home-section">
+    <div class="about-story">
+      <div>
+        <p class="home-eyebrow">Our Mission</p>
+        <h2>Make Buying Tires Feel Less Complicated</h2>
+      </div>
+      <div class="about-story__copy">
+        <p>
+          Choosing tires can feel technical, rushed, and full of fine print. Rubyinstar was built
+          to make the process more approachable, whether you already know your tire size or need
+          a clearer path by vehicle type, rim size, or driving need.
+        </p>
+        <p>
+          We focus on dependable product choices, transparent shopping pages, and a support flow
+          that helps customers move from browsing to checkout with more confidence.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-stat-grid" data-mobile-slider="about-stats">
+      <div class="about-stat">
+        <span>01</span>
+        <strong>Clear Categories</strong>
+        <p>Shop by tire type, vehicle use, rim size, or driving season.</p>
+      </div>
+      <div class="about-stat">
+        <span>02</span>
+        <strong>Helpful Product Detail</strong>
+        <p>Compare fitment clues, tire type, pricing, and availability.</p>
+      </div>
+      <div class="about-stat">
+        <span>03</span>
+        <strong>Online Convenience</strong>
+        <p>Order tires from home and track the shipment after checkout.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-section home-section--surface">
+    <div class="home-section__head">
+      <div>
+        <p class="home-eyebrow">What We Value</p>
+        <h2>A Better Tire Buying Experience</h2>
+      </div>
+      <a class="home-btn home-btn--dark" href="/faq/">View FAQ</a>
+    </div>
+
+    <div class="about-value-grid">
+      <div class="about-value">
+        <span>CL</span>
+        <h3>Clarity First</h3>
+        <p>We organize tire shopping around practical decisions: vehicle type, rim size, season, and use case.</p>
+      </div>
+      <div class="about-value">
+        <span>VA</span>
+        <h3>Everyday Value</h3>
+        <p>Our catalog is shaped around dependable options and competitive pricing for real-world driving.</p>
+      </div>
+      <div class="about-value">
+        <span>TR</span>
+        <h3>Transparent Support</h3>
+        <p>Shipping, returns, refunds, and order help are kept easy to find before and after purchase.</p>
+      </div>
+      <div class="about-value">
+        <span>SE</span>
+        <h3>Secure Shopping</h3>
+        <p>Checkout is designed to be straightforward, protected, and focused on getting the right tires ordered.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-section">
+    <div class="about-split">
+      <img
+        src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/gallery/Rubyinstar/about-order-prep.png"
+        alt="Tire order preparation"
+        loading="lazy"
+      />
+      <div>
+        <p class="home-eyebrow">How We Help</p>
+        <h2>From Tire Search To Delivery</h2>
+        <div class="about-step-list">
+          <div>
+            <span>1</span>
+            <div>
+              <strong>Find The Right Category</strong>
+              <p>Start with passenger, SUV, truck, performance, all-season, winter, or trailer tires.</p>
+            </div>
+          </div>
+          <div>
+            <span>2</span>
+            <div>
+              <strong>Compare Products Online</strong>
+              <p>Review options, prices, tire details, and product pages before you buy.</p>
+            </div>
+          </div>
+          <div>
+            <span>3</span>
+            <div>
+              <strong>Order With Support Nearby</strong>
+              <p>Track your order, review policies, or contact support if questions come up.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-section home-section--surface">
+    <div class="about-cta">
+      <p class="home-eyebrow">Ready To Shop?</p>
+      <h2>Find Tires That Fit Your Drive</h2>
+      <p>Browse Rubyinstar tire categories or search by rim size to get started.</p>
+      <div class="about-cta__actions">
+        <a class="home-btn home-btn--primary" href="/shop/">Shop Tires</a>
+        <a class="home-btn home-btn--outline" href="/shop-by-rim-size/">Shop By Rim Size</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+.about-page {
+  --home-black: #050505;
+  --home-ink: #111111;
+  --home-red: #dc2626;
+  --home-red-dark: #991b1b;
+  --home-red-bright: #ef4444;
+  --home-muted: #6b7280;
+  --home-line: #e5e5e5;
+  --home-soft: #f6f6f6;
+  --home-white: #ffffff;
+  --home-radius: 8px;
+  --home-section-gap: 80px;
+  overflow: hidden;
+  background: var(--home-white);
+  color: var(--home-ink);
+}
 
-  :root{
-    --navy:#0B1F3A;
-    --navy-light:#12294f;
-    --orange:#F97316;
-    --orange-dark:#DB5F0B;
-    --white:#FFFFFF;
-    --gray-bg:#F5F6F8;
-    --text:#111827;
-    --text-soft:#6B7280;
-    --border:#E5E7EB;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter', sans-serif;
-    color:var(--text);
-    background:var(--white);
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  h1,h2,h3,h4{
-    font-family:'Plus Jakarta Sans', sans-serif;
-    color:var(--navy);
-    line-height:1.15;
-    overflow-wrap:break-word;
-  }
-  p,span,a,strong,button{ overflow-wrap:break-word; }
-  a{text-decoration:none; color:inherit;}
-  img{max-width:100%; display:block;}
-  ul{list-style:none;}
-  button{font-family:inherit; cursor:pointer;}
-  .container{max-width:1280px; margin:0 auto; padding:0 20px;}
-  @media(min-width:768px){ .container{padding:0 32px;} }
+.about-page a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--orange);
-  }
-  .eyebrow::before{
-    content:""; width:18px; height:2px; background:var(--orange); display:inline-block; border-radius:2px;
+.about-page a.home-btn,
+.about-page a.home-btn:visited {
+  text-decoration: none;
+}
+
+.home-eyebrow {
+  margin: 0 0 12px;
+  color: var(--home-red);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 28px;
+  border: 2px solid transparent;
+  border-radius: var(--home-radius);
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.home-btn:hover {
+  transform: translateY(-2px);
+}
+
+.home-btn:focus-visible {
+  outline: 3px solid rgba(220,38,38,0.28);
+  outline-offset: 3px;
+}
+
+.home-btn--primary {
+  background: var(--home-red);
+  color: var(--home-white);
+  border-color: var(--home-red);
+  box-shadow: 0 2px 8px rgba(220,38,38,0.3);
+}
+
+.about-page a.home-btn--primary,
+.about-page a.home-btn--primary:visited {
+  color: var(--home-white);
+}
+
+.home-btn--primary:hover {
+  background: var(--home-red-bright);
+  border-color: var(--home-red-bright);
+  color: var(--home-white);
+  box-shadow: 0 4px 16px rgba(220,38,38,0.4);
+}
+
+.about-page a.home-btn--primary:hover,
+.about-page a.home-btn--primary:focus-visible {
+  color: var(--home-white);
+}
+
+.home-btn--ghost {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.12);
+  color: var(--home-white);
+}
+
+.about-page a.home-btn--ghost,
+.about-page a.home-btn--ghost:visited {
+  color: var(--home-white);
+}
+
+.home-btn--ghost:hover {
+  border-color: var(--home-white);
+  background: var(--home-white);
+  color: var(--home-black);
+}
+
+.about-page a.home-btn--ghost:hover,
+.about-page a.home-btn--ghost:focus-visible {
+  color: var(--home-black);
+}
+
+.home-btn--dark {
+  background: #1a1a1a;
+  color: var(--home-white);
+  border-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.about-page a.home-btn--dark,
+.about-page a.home-btn--dark:visited {
+  color: var(--home-white);
+}
+
+.home-btn--dark:hover {
+  background: var(--home-red);
+  border-color: var(--home-red);
+  color: var(--home-white);
+  box-shadow: 0 4px 16px rgba(220,38,38,0.35);
+}
+
+.about-page a.home-btn--dark:hover,
+.about-page a.home-btn--dark:focus-visible {
+  color: var(--home-white);
+}
+
+.home-btn--outline {
+  background: transparent;
+  color: var(--home-black);
+  border-color: var(--home-black);
+}
+
+.about-page a.home-btn--outline,
+.about-page a.home-btn--outline:visited {
+  color: var(--home-black);
+}
+
+.home-btn--outline:hover {
+  background: var(--home-black);
+  color: var(--home-white);
+}
+
+.about-page a.home-btn--outline:hover,
+.about-page a.home-btn--outline:focus-visible {
+  color: var(--home-white);
+}
+
+.home-strip {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100% - 32px, 1180px);
+  margin: -28px auto 0;
+  border: 1px solid var(--home-line);
+  border-radius: var(--home-radius);
+  background: var(--home-white);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.13);
+}
+
+.home-strip div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 14px;
+  border-right: 1px solid var(--home-line);
+  color: var(--home-ink);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.home-strip div:last-child {
+  border-right: 0;
+}
+
+.home-section {
+  width: min(100% - 32px, 1360px);
+  margin: 0 auto;
+  padding: var(--home-section-gap) 0;
+}
+
+.home-section--surface {
+  width: 100%;
+  max-width: none;
+  padding-block: var(--home-section-gap);
+  padding-inline: max(16px, calc((100vw - 1360px) / 2));
+  background: var(--home-soft);
+}
+
+.home-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.home-section__head h2,
+.about-story h2,
+.about-split h2,
+.about-cta h2 {
+  margin: 0;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.home-section__head .home-btn {
+  flex: 0 0 auto;
+  min-width: 130px;
+  white-space: nowrap;
+}
+
+.about-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--home-black);
+  color: var(--home-white);
+}
+
+.about-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.78) 52%, rgba(5,5,5,0.35) 100%),
+    linear-gradient(180deg, rgba(5,5,5,0) 58%, #050505 100%);
+  content: "";
+}
+
+.about-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.62;
+}
+
+.about-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  width: min(100%, 1360px);
+  min-height: 590px;
+  margin: 0 auto;
+  padding: clamp(70px, 8vw, 120px) 18px 76px;
+}
+
+.about-hero__copy {
+  max-width: 820px;
+}
+
+.about-hero .home-eyebrow {
+  color: #fca5a5;
+}
+
+.about-hero h1 {
+  max-width: 880px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5.4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  color: var(--home-white);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+}
+
+.about-hero__copy > p:not(.home-eyebrow) {
+  max-width: 650px;
+  margin: 20px 0 0;
+  color: rgba(255,255,255,0.88);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.75;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.35);
+}
+
+.about-hero__panel {
+  display: grid;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--home-radius);
+  background: rgba(255,255,255,0.96);
+  color: var(--home-ink);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.36);
+}
+
+.about-hero__panel div {
+  padding: 24px;
+  border-bottom: 1px solid var(--home-line);
+}
+
+.about-hero__panel div:last-child {
+  border-bottom: 0;
+}
+
+.about-hero__panel strong {
+  display: block;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.about-hero__panel p {
+  margin: 8px 0 0;
+  color: var(--home-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.about-strip div::before {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--home-red);
+  content: "";
+}
+
+.about-story {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+
+.about-story__copy {
+  display: grid;
+  gap: 18px;
+  color: var(--home-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.about-story__copy p {
+  margin: 0;
+}
+
+.about-stat-grid,
+.about-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.about-value-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 0;
+}
+
+.about-stat,
+.about-value {
+  min-height: 210px;
+  padding: 24px;
+  border: 1.5px solid var(--home-line);
+  border-radius: var(--home-radius);
+  background: var(--home-white);
+  transition: box-shadow 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.about-stat:hover,
+.about-value:hover {
+  border-color: rgba(220,38,38,0.26);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+  transform: translateY(-2px);
+}
+
+.about-stat span,
+.about-value span {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 20px;
+  border-radius: var(--home-radius);
+  background: var(--home-black);
+  color: var(--home-white);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.about-stat strong,
+.about-value h3 {
+  display: block;
+  margin: 0;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.about-stat p,
+.about-value p {
+  margin: 10px 0 0;
+  color: var(--home-muted);
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+.about-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+}
+
+.about-split > img {
+  width: 100%;
+  min-height: 420px;
+  max-height: 560px;
+  border-radius: var(--home-radius);
+  object-fit: cover;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.12);
+}
+
+.about-step-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.about-step-list > div {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px;
+  border: 1.5px solid var(--home-line);
+  border-radius: var(--home-radius);
+  background: var(--home-white);
+}
+
+.about-step-list span {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--home-radius);
+  background: var(--home-red);
+  color: var(--home-white);
+  font-weight: 900;
+}
+
+.about-step-list strong {
+  display: block;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.about-step-list p {
+  margin: 6px 0 0;
+  color: var(--home-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.about-cta {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-cta p:not(.home-eyebrow) {
+  margin: 16px auto 0;
+  max-width: 560px;
+  color: var(--home-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.about-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1080px) {
+  .about-hero__inner,
+  .about-story,
+  .about-split {
+    grid-template-columns: 1fr;
   }
 
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    min-height:48px; padding:0 26px; border-radius:10px; font-weight:700; font-size:15px;
-    border:none; transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
-    white-space:nowrap;
+  .about-value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .btn:active{ transform:translateY(1px); }
-  .btn-primary{ background:var(--orange); color:#fff; box-shadow:0 8px 20px -8px rgba(249,115,22,.55); }
-  .btn-primary:hover{ background:var(--orange-dark); }
-  .btn-secondary{ background:var(--navy); color:#fff; }
-  .btn-secondary:hover{ background:var(--navy-light); }
-  .btn-outline{ background:#fff; color:var(--navy); border:1.5px solid var(--border); }
-  .btn-outline:hover{ border-color:var(--navy); }
+}
 
-  section{ padding:64px 0; }
-  .section-head{ text-align:center; max-width:660px; margin:0 auto 40px; }
-  .section-head h2{ font-size:clamp(26px,3.4vw,36px); margin-top:12px; }
-  .section-head p{ color:var(--text-soft); margin-top:12px; font-size:15.5px; line-height:1.6; }
-  .section-head.left{ text-align:left; margin:0 0 34px; max-width:720px; }
-  .bg-gray{ background:var(--gray-bg); }
-
-  /* ===== ABOUT HERO ===== */
-  .about-hero{
-    position:relative;
-    background:
-      radial-gradient(1100px 480px at 86% -8%, rgba(249,115,22,.18), transparent 60%),
-      linear-gradient(180deg, var(--navy) 0%, #0d2547 62%, #0f2a52 100%);
-    color:#fff;
-    overflow:hidden;
-  }
-  .tread-line{
-    position:absolute; inset:auto 0 0 0; height:10px;
-    background-image:repeating-linear-gradient(100deg, rgba(255,255,255,.12) 0 10px, transparent 10px 22px);
-    opacity:.5;
-  }
-  .about-hero-inner{
-    display:grid; grid-template-columns:1fr; gap:40px;
-    padding:56px 0 54px;
-  }
-  @media(min-width:1024px){
-    .about-hero-inner{ grid-template-columns:1.02fr .98fr; align-items:center; padding:78px 0 68px; }
-  }
-  .about-hero-copy h1{
-    font-size:clamp(32px, 5vw, 52px);
-    font-weight:800; margin:16px 0 18px;
-    color:#fff; line-height:1.12; text-wrap:balance;
-  }
-  .about-hero-copy p{
-    font-size:17px; color:rgba(255,255,255,.84); max-width:590px; line-height:1.65;
-  }
-  .hero-ctas{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .about-hero-stats{ display:flex; gap:28px; margin-top:36px; flex-wrap:wrap; }
-  .about-hero-stats div strong{ display:block; font-family:'Plus Jakarta Sans'; font-size:22px; color:#fff; }
-  .about-hero-stats div span{ font-size:12.5px; color:rgba(255,255,255,.74); text-transform:uppercase; letter-spacing:.05em;}
-  .about-visual{ position:relative; }
-  .about-photo{
-    border-radius:20px; overflow:hidden; box-shadow:0 30px 60px -20px rgba(0,0,0,.5);
-    border:1px solid rgba(255,255,255,.1);
-  }
-  .about-photo img{ width:100%; height:360px; object-fit:cover; }
-  .float-badge{
-    position:absolute; bottom:-22px; left:-18px;
-    background:#fff; color:var(--navy); border-radius:14px;
-    padding:14px 18px; box-shadow:0 16px 30px -10px rgba(0,0,0,.35);
-    display:flex; align-items:center; gap:12px;
-  }
-  .float-badge .ring{
-    width:42px; height:42px; border-radius:50%; background:var(--gray-bg);
-    display:flex; align-items:center; justify-content:center;
-  }
-  .float-badge strong{ font-family:'Plus Jakarta Sans'; font-size:15px; display:block; }
-  .float-badge span{ font-size:12px; color:var(--text-soft); }
-  @media(max-width:640px){ .float-badge{ display:none; } }
-
-  /* ===== STORY ===== */
-  .story-grid{ display:grid; grid-template-columns:1fr; gap:34px; align-items:center; }
-  @media(min-width:960px){ .story-grid{ grid-template-columns:.92fr 1.08fr; } }
-  .story-image{
-    border-radius:18px; overflow:hidden; border:1px solid var(--border);
-    box-shadow:0 22px 44px -28px rgba(11,31,58,.35);
-  }
-  .story-image img{ width:100%; height:420px; object-fit:cover; }
-  .story-copy h2{ font-size:clamp(26px,3.4vw,38px); margin-top:12px; }
-  .story-copy p{ color:var(--text-soft); margin-top:14px; font-size:15.5px; line-height:1.75; }
-  .story-points{ display:grid; grid-template-columns:1fr; gap:14px; margin-top:24px; }
-  @media(min-width:620px){ .story-points{ grid-template-columns:repeat(2,1fr); } }
-  .point{
-    background:#fff; border:1px solid var(--border); border-radius:14px; padding:18px;
-    display:flex; gap:12px; align-items:flex-start;
-  }
-  .point-icon{
-    flex:0 0 auto; width:38px; height:38px; border-radius:10px; background:var(--navy);
-    color:#fff; display:flex; align-items:center; justify-content:center;
-  }
-  .point strong{ display:block; color:var(--navy); font-family:'Plus Jakarta Sans'; font-size:14.5px; }
-  .point span{ display:block; color:var(--text-soft); font-size:13.5px; line-height:1.5; margin-top:3px; }
-
-  /* ===== VALUES ===== */
-  .value-grid{ display:grid; grid-template-columns:1fr; gap:18px; }
-  @media(min-width:640px){ .value-grid{ grid-template-columns:repeat(2,1fr); } }
-  @media(min-width:1024px){ .value-grid{ grid-template-columns:repeat(4,1fr); } }
-  .value-card{
-    background:#fff; border:1px solid var(--border); border-radius:16px; padding:26px 22px;
-    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
-  }
-  .value-card:hover{ transform:translateY(-4px); box-shadow:0 18px 34px -18px rgba(11,31,58,.25); border-color:transparent; }
-  .value-icon{ width:48px; height:48px; border-radius:12px; background:var(--gray-bg); color:var(--navy); display:flex; align-items:center; justify-content:center; margin-bottom:16px;}
-  .value-card:hover .value-icon{ background:var(--orange); color:#fff; }
-  .value-card h3{ font-size:16.5px; }
-  .value-card p{ font-size:13.5px; color:var(--text-soft); margin-top:8px; line-height:1.55; }
-
-  /* ===== PROCESS ===== */
-  .process-wrap{
-    background:linear-gradient(120deg, var(--navy) 0%, #163a6b 100%);
-    border-radius:24px; padding:48px 32px; color:#fff; position:relative; overflow:hidden;
-  }
-  .process-wrap::before{
-    content:""; position:absolute; right:-60px; top:-60px; width:280px; height:280px; border-radius:50%;
-    background:radial-gradient(circle, rgba(249,115,22,.35), transparent 70%);
-  }
-  .process-head{ position:relative; display:flex; justify-content:space-between; gap:22px; align-items:flex-end; flex-wrap:wrap; margin-bottom:30px; }
-  .process-head h2{ color:#fff; font-size:clamp(26px,3.4vw,34px); margin-top:12px; }
-  .process-head p{ color:rgba(255,255,255,.84); max-width:480px; line-height:1.6; }
-  .process-grid{ display:grid; grid-template-columns:1fr; gap:14px; position:relative; }
-  @media(min-width:800px){ .process-grid{ grid-template-columns:repeat(3,1fr); } }
-  .process-card{
-    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); border-radius:14px;
-    padding:22px; backdrop-filter:blur(2px);
-  }
-  .process-num{
-    width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    background:var(--orange); color:#fff; font-family:'Plus Jakarta Sans'; font-weight:800; margin-bottom:14px;
-  }
-  .process-card h3{ color:#fff; font-size:16px; }
-  .process-card p{ color:rgba(255,255,255,.78); font-size:13.5px; line-height:1.6; margin-top:8px; }
-
-  /* ===== TRUST ===== */
-  .trust-grid{ display:grid; grid-template-columns:1fr; gap:18px; align-items:stretch; }
-  @media(min-width:900px){ .trust-grid{ grid-template-columns:1.08fr .92fr; } }
-  .trust-panel{
-    border:1px solid var(--border); border-radius:18px; padding:30px; background:#fff;
-  }
-  .trust-panel h2{ font-size:clamp(24px,3vw,32px); }
-  .trust-panel p{ color:var(--text-soft); line-height:1.7; margin-top:12px; }
-  .metric-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:24px; }
-  .metric{
-    background:var(--gray-bg); border-radius:14px; padding:20px;
-  }
-  .metric strong{ display:block; font-family:'Plus Jakarta Sans'; color:var(--navy); font-size:24px; }
-  .metric span{ display:block; color:var(--text-soft); font-size:12.5px; line-height:1.45; margin-top:4px; text-transform:uppercase; letter-spacing:.04em; }
-  .support-list{ display:grid; gap:12px; margin-top:22px; }
-  .support-item{ display:flex; gap:12px; align-items:flex-start; color:var(--text-soft); font-size:14px; line-height:1.55; }
-  .check{
-    flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:rgba(249,115,22,.12);
-    color:var(--orange); display:flex; align-items:center; justify-content:center; font-weight:800;
+@media (max-width: 760px) {
+  .about-page {
+    --home-section-gap: 56px;
   }
 
-  /* ===== CTA ===== */
-  .about-cta{
-    background:var(--orange);
-    border-radius:24px; padding:44px 32px; color:#fff; text-align:center;
+  .home-actions,
+  .about-cta__actions {
+    display: grid;
+    grid-template-columns: 1fr;
   }
-  .about-cta h2{ color:#fff; font-size:clamp(24px,3vw,30px); }
-  .about-cta p{ color:rgba(255,255,255,.9); margin:10px auto 0; max-width:560px; line-height:1.6; }
-  .about-cta-actions{ display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:26px; }
 
-  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
-  .reveal.in{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){
-    .reveal{ opacity:1; transform:none; transition:none; }
-    html{ scroll-behavior:auto; }
+  .home-btn {
+    width: 100%;
   }
+
+  .home-strip {
+    display: flex;
+    grid-template-columns: none;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-padding-inline: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-strip div {
+    flex: 0 0 calc((100% - 10px) / 1.5);
+    min-height: 58px;
+    border-right: 0;
+    border-bottom: 0;
+    scroll-snap-align: start;
+  }
+
+  .home-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-section__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-section__head .home-btn {
+    width: 100%;
+  }
+
+  .about-hero__inner {
+    min-height: auto;
+    padding-top: 54px;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(2rem, 10vw, 3.1rem);
+  }
+
+  .about-stat-grid,
+  .about-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-split > img {
+    min-height: 300px;
+  }
+}
 </style>
-
-<!-- ===================== ABOUT HERO ===================== -->
-<section class="about-hero">
-  <div class="container about-hero-inner">
-    <div class="about-hero-copy">
-      <span class="eyebrow">About Rubyinstar</span>
-      <h1>Making Tire Shopping Easier For Everyday Drivers</h1>
-      <p>Rubyinstar helps customers find affordable, dependable tires online with clear product information, straightforward delivery, and support when choosing the right fit.</p>
-      <div class="hero-ctas">
-        <a href="/shop/" class="btn btn-primary">Shop Tires</a>
-        <a href="/contact-us/" class="btn btn-outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.3);">Contact Support</a>
-      </div>
-      <div class="about-hero-stats">
-        <div><strong>50 States</strong><span>Delivery Reach</span></div>
-        <div><strong>30 Days</strong><span>Easy Returns</span></div>
-        <div><strong>Simple</strong><span>Online Ordering</span></div>
-      </div>
-    </div>
-
-    <div class="about-visual">
-      <div class="about-photo">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/gallery/Rubyinstar/tire-hero-road.png' ); ?>" alt="Everyday vehicle on the road with reliable tires">
-      </div>
-      <div class="float-badge">
-        <span class="ring">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1F3A" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
-        </span>
-        <div>
-          <strong>Built On Trust</strong>
-          <span>Clear choices, fair value</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="tread-line"></div>
-</section>
-
-<!-- ===================== OUR STORY ===================== -->
-<section class="bg-gray">
-  <div class="container">
-    <div class="story-grid reveal">
-      <div class="story-image">
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/gallery/Rubyinstar/all-season-tread.png' ); ?>" alt="Close-up of all-season tire tread">
-      </div>
-      <div class="story-copy">
-        <span class="eyebrow">Our Story</span>
-        <h2>A Better Way To Buy Tires Online</h2>
-        <p>Buying tires should not feel confusing or stressful. Rubyinstar was created to give drivers a cleaner shopping experience with practical tire categories, visible pricing, and easy paths to compare options for daily driving, family SUVs, trucks, and seasonal needs.</p>
-        <p>We focus on the essentials that matter most: fit, value, delivery, and confidence. Every page is designed to help customers move from uncertainty to the right tire choice faster.</p>
-
-        <div class="story-points">
-          <div class="point">
-            <div class="point-icon">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
-            </div>
-            <div><strong>Focused On Tires</strong><span>Clear tire categories and product details for common vehicle needs.</span></div>
-          </div>
-          <div class="point">
-            <div class="point-icon">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            </div>
-            <div><strong>Fair Everyday Value</strong><span>Affordable options without a complicated buying experience.</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== VALUES ===================== -->
-<section>
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">What We Believe</span>
-      <h2>Simple Standards Behind Every Order</h2>
-      <p>Our store is shaped around practical decisions that make tire shopping feel more reliable from the first search to final delivery.</p>
-    </div>
-
-    <div class="value-grid reveal">
-      <div class="value-card">
-        <div class="value-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <h3>Clear Choices</h3>
-        <p>Product information is organized so customers can compare tires without digging through clutter.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/></svg>
-        </div>
-        <h3>Easy Ordering</h3>
-        <p>A straightforward online store helps drivers move quickly from browsing to checkout.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h13l-3-4M16 12l-3 4M21 12v4a1 1 0 0 1-1 1h-2M3 12V8a1 1 0 0 1 1-1h6v5"/></svg>
-        </div>
-        <h3>Reliable Delivery</h3>
-        <p>Orders are handled with a focus on dependable shipment and practical delivery expectations.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <h3>Helpful Support</h3>
-        <p>When questions come up, customers can reach out for guidance before or after purchase.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PROCESS ===================== -->
-<section>
-  <div class="container">
-    <div class="process-wrap reveal">
-      <div class="process-head">
-        <div>
-          <span class="eyebrow">How It Works</span>
-          <h2>From Tire Search To Delivery</h2>
-        </div>
-        <p>Rubyinstar keeps the buying path simple so customers can focus on fit, price, and confidence.</p>
-      </div>
-
-      <div class="process-grid">
-        <div class="process-card">
-          <div class="process-num">1</div>
-          <h3>Find Your Tire</h3>
-          <p>Browse by category, tire type, vehicle need, brand, or common sizing paths.</p>
-        </div>
-        <div class="process-card">
-          <div class="process-num">2</div>
-          <h3>Compare With Confidence</h3>
-          <p>Review size, tire type, price, and shipping details before placing your order.</p>
-        </div>
-        <div class="process-card">
-          <div class="process-num">3</div>
-          <h3>Get It Delivered</h3>
-          <p>Complete checkout online and receive order updates as your tires move toward delivery.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== TRUST ===================== -->
-<section class="bg-gray">
-  <div class="container">
-    <div class="trust-grid reveal">
-      <div class="trust-panel">
-        <span class="eyebrow">Why Drivers Trust Us</span>
-        <h2>Built For Practical Tire Buyers</h2>
-        <p>Rubyinstar is not trying to make tire shopping feel complicated or overly technical. We organize the experience around what everyday drivers actually need to decide: what fits, what it costs, how it ships, and where to get help.</p>
-        <div class="metric-grid">
-          <div class="metric"><strong>6-9</strong><span>Average delivery days</span></div>
-          <div class="metric"><strong>30</strong><span>Day return window</span></div>
-          <div class="metric"><strong>24/7</strong><span>Online shopping access</span></div>
-          <div class="metric"><strong>50</strong><span>States shipped</span></div>
-        </div>
-      </div>
-
-      <div class="trust-panel">
-        <h2>Our Customer Promise</h2>
-        <p>Every order should feel clear before checkout and supported afterward.</p>
-        <div class="support-list">
-          <div class="support-item"><span class="check">✓</span><span>Clear product presentation with tire size, type, price, and shipping details visible.</span></div>
-          <div class="support-item"><span class="check">✓</span><span>Convenient online ordering for busy customers and everyday drivers.</span></div>
-          <div class="support-item"><span class="check">✓</span><span>Accessible support for questions about orders, policies, and tire selection.</span></div>
-          <div class="support-item"><span class="check">✓</span><span>Helpful policy pages for shipping, returns, privacy, terms, FAQs, and tracking.</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== CTA ===================== -->
-<section>
-  <div class="container">
-    <div class="about-cta reveal">
-      <h2>Ready To Find The Right Tires?</h2>
-      <p>Start with popular tire categories or contact Rubyinstar support if you need help choosing the best option for your vehicle.</p>
-      <div class="about-cta-actions">
-        <a href="/shop/" class="btn btn-secondary">Shop Tires</a>
-        <a href="/contact-us/" class="btn btn-outline">Ask A Question</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<script>
-  // Scroll reveal
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
-</script>

@@ -123,3 +123,15 @@
         </div>
     </section>
 </div>
+
+<style>
+.virtual-page--returns > #primary{background:#fff;color:#111}
+.virtual-page--returns > #primary > section:first-child{position:relative;overflow:hidden;background:#050505}
+.virtual-page--returns > #primary > section:first-child:before{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,5,5,.96),rgba(5,5,5,.76) 52%,rgba(5,5,5,.36)),linear-gradient(180deg,rgba(5,5,5,0) 58%,#050505);content:""}
+.virtual-page--returns > #primary > section:first-child > div{position:relative;z-index:1}
+.virtual-page--returns [class*="text-[#F6A21A]"]{color:#fbbf24}
+.virtual-page--returns [class*="text-[#2563EB]"]{color:#991b1b}
+.virtual-page--returns [class*="border-t-[#2563EB]"],.virtual-page--returns [class*="border-t-[#F97316]"],.virtual-page--returns [class*="border-t-[#111827]"]{border-top-color:#dc2626}
+.virtual-page--returns [class*="border-l-4"]{border-left-color:#dc2626;background:#fef2f2}
+.virtual-page--returns aside,.virtual-page--returns article,.virtual-page--returns [class*="rounded-lg"],.virtual-page--returns [class*="rounded-md"]{border-radius:8px}
+</style>

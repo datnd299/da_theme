@@ -1,452 +1,843 @@
 <?php
+/**
+ * Contact Us - Rubyinstar
+ * Tire ecommerce contact page.
+ * Theme: Red / White / Black (matching homepage)
+ */
+
 $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
-
 $status_messages = [
-    'sent'    => ['type' => 'success', 'text' => __('Thank you. Your message has been sent and our support team will reply as soon as possible.', 'dawp')],
-    'invalid' => ['type' => 'error', 'text' => __('Please check your information and try again. Name, valid email, and message are required.', 'dawp')],
-    'failed'  => ['type' => 'error', 'text' => __('Sorry, we could not send your message right now. Please email support@rubyinstar.com directly.', 'dawp')],
-];
-
-$contact_items = [
-    [
-        'label' => __('Email Support', 'dawp'),
-        'value' => 'support@rubyinstar.com',
-        'href'  => 'mailto:support@rubyinstar.com',
-        'note'  => __('For order questions, tire fitment help, returns, and general support.', 'dawp'),
-        'icon'  => 'mail',
-    ],
-    [
-        'label' => __('Business Location', 'dawp'),
-        'value' => __('United States', 'dawp'),
-        'href'  => '',
-        'note'  => __('Online tire store serving customers across all 50 states.', 'dawp'),
-        'icon'  => 'pin',
-    ],
-    [
-        'label' => __('Support Hours', 'dawp'),
-        'value' => __('Monday - Friday, 9:00 AM - 5:00 PM PST', 'dawp'),
-        'href'  => '',
-        'note'  => __('Messages received outside business hours are reviewed the next business day.', 'dawp'),
-        'icon'  => 'clock',
-    ],
+  'sent'    => 'Thanks for your message. Our support team will get back to you shortly.',
+  'invalid' => 'Please check the required fields and try again.',
+  'failed'  => 'We could not send your message right now. Please email support@rubyinstar.com directly.',
 ];
 ?>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+<section class="home-page contact-page">
 
-  :root{
-    --navy:#0B1F3A;
-    --navy-light:#12294f;
-    --orange:#F97316;
-    --orange-dark:#DB5F0B;
-    --white:#FFFFFF;
-    --gray-bg:#F5F6F8;
-    --text:#111827;
-    --text-soft:#6B7280;
-    --border:#E5E7EB;
-    --success:#166534;
-    --success-bg:#DCFCE7;
-    --error:#991B1B;
-    --error-bg:#FEE2E2;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter', sans-serif;
-    color:var(--text);
-    background:var(--white);
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  h1,h2,h3,h4{
-    font-family:'Plus Jakarta Sans', sans-serif;
-    color:var(--navy);
-    line-height:1.15;
-    overflow-wrap:break-word;
-  }
-  p,span,a,strong,button,label,input,select,textarea{ overflow-wrap:break-word; }
-  a{text-decoration:none; color:inherit;}
-  button,input,select,textarea{font-family:inherit;}
-  button{cursor:pointer;}
-  .contact-container{max-width:1280px; margin:0 auto; padding:0 20px;}
-  @media(min-width:768px){ .contact-container{padding:0 32px;} }
+  <div class="contact-hero">
+    <img
+      class="contact-hero__media"
+      src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/gallery/Rubyinstar/contact-support-desk.png"
+      alt=""
+      loading="eager"
+    />
 
-  .contact-eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--orange);
-  }
-  .contact-eyebrow::before{
-    content:""; width:18px; height:2px; background:var(--orange); display:inline-block; border-radius:2px;
-  }
-  .contact-btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    min-height:48px; padding:0 24px; border-radius:8px; font-weight:800; font-size:15px;
-    border:0; transition:transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
-    white-space:nowrap;
-  }
-  .contact-btn:active{ transform:translateY(1px); }
-  .contact-btn-primary{ background:var(--orange); color:#fff; box-shadow:0 8px 20px -8px rgba(249,115,22,.55); }
-  .contact-btn-primary:hover{ background:var(--orange-dark); }
-  .contact-btn-outline{ background:#fff; color:var(--navy); border:1.5px solid var(--border); }
-  .contact-btn-outline:hover{ border-color:var(--navy); }
+    <div class="contact-hero__inner">
+      <div class="contact-hero__copy">
+        <p class="home-eyebrow">Customer Support</p>
+        <h1>We're Here To Help</h1>
+        <p>
+          Questions about tire fitment, your order, shipping, or returns?
+          Send us the details and our team will point you in the right direction.
+        </p>
+        <div class="home-actions">
+          <a class="home-btn home-btn--primary" href="#contact-form">Send Message</a>
+          <a class="home-btn home-btn--ghost" href="/track-order/">Track Order</a>
+        </div>
+      </div>
 
-  .contact-section{ padding:64px 0; }
-  .contact-bg{ background:var(--gray-bg); }
-  .contact-hero{
-    position:relative;
-    background:
-      radial-gradient(900px 420px at 82% -8%, rgba(249,115,22,.18), transparent 62%),
-      linear-gradient(180deg, var(--navy) 0%, #0d2547 62%, #0f2a52 100%);
-    color:#fff;
-    overflow:hidden;
-  }
-  .contact-hero-inner{
-    display:grid; grid-template-columns:1fr; gap:34px;
-    padding:58px 0 54px;
-  }
-  @media(min-width:980px){
-    .contact-hero-inner{ grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); align-items:center; padding:78px 0 66px; }
-  }
-  .contact-hero h1{
-    color:#fff; font-size:clamp(32px, 5vw, 52px); font-weight:800;
-    margin:16px 0 16px; text-wrap:balance;
-  }
-  .contact-hero p{ color:rgba(255,255,255,.84); font-size:17px; line-height:1.65; max-width:610px; }
-  .contact-hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .contact-hero-actions .contact-btn-outline{ background:transparent; color:#fff; border-color:rgba(255,255,255,.3); }
-  .contact-tread-line{
-    position:absolute; inset:auto 0 0 0; height:10px;
-    background-image:repeating-linear-gradient(100deg, rgba(255,255,255,.12) 0 10px, transparent 10px 22px);
-    opacity:.5;
-  }
-  .contact-hero-card{
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:8px;
-    background:rgba(255,255,255,.08);
-    padding:24px;
-    box-shadow:0 30px 60px -28px rgba(0,0,0,.55);
-  }
-  .contact-hero-card h2{ color:#fff; font-size:22px; }
-  .contact-hero-card p{ margin-top:10px; font-size:14.5px; color:rgba(255,255,255,.74); }
-  .contact-quick-list{ display:grid; gap:12px; margin-top:22px; }
-  .contact-quick-item{
-    display:flex; gap:12px; align-items:flex-start;
-    border-top:1px solid rgba(255,255,255,.1);
-    padding-top:14px;
-  }
-  .contact-quick-icon{
-    position:relative;
-    width:38px; height:38px; flex:0 0 auto; border-radius:8px;
-    display:flex; align-items:center; justify-content:center;
-    background:rgba(249,115,22,.16); color:#FDBA74;
-  }
-  .contact-quick-icon svg,
-  .contact-info-icon svg{
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:20px;
-    height:20px;
-    transform:translate(-50%, -50%);
-  }
-  .contact-quick-item strong{ display:block; color:#fff; font-family:'Plus Jakarta Sans', sans-serif; font-size:14px; }
-  .contact-quick-item span{ display:block; color:rgba(255,255,255,.7); font-size:13px; line-height:1.5; margin-top:4px; }
-
-  .contact-main-grid{ display:grid; grid-template-columns:1fr; gap:24px; align-items:start; }
-  @media(min-width:980px){ .contact-main-grid{ grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr); } }
-  .contact-info-grid{ display:grid; gap:16px; }
-  .contact-info-card,
-  .contact-form-card,
-  .contact-help-card{
-    background:#fff; border:1px solid var(--border); border-radius:8px;
-    box-shadow:0 18px 34px -26px rgba(11,31,58,.28);
-  }
-  .contact-info-card{ padding:22px; display:flex; gap:14px; align-items:flex-start; }
-  .contact-info-icon{
-    position:relative;
-    width:44px; height:44px; flex:0 0 auto; border-radius:8px;
-    display:flex; align-items:center; justify-content:center;
-    background:var(--gray-bg); color:var(--navy);
-  }
-  .contact-info-card:hover .contact-info-icon{ background:var(--orange); color:#fff; }
-  .contact-info-card h3{ font-size:16px; }
-  .contact-info-value{ display:block; color:var(--navy); font-weight:800; margin-top:6px; line-height:1.45; }
-  .contact-info-note{ color:var(--text-soft); font-size:13.5px; line-height:1.55; margin-top:7px; }
-
-  .contact-form-card{ padding:26px; }
-  @media(min-width:720px){ .contact-form-card{ padding:32px; } }
-  .contact-form-head{ margin-bottom:22px; }
-  .contact-form-head h2{ font-size:clamp(24px,3vw,32px); margin-top:10px; }
-  .contact-form-head p{ color:var(--text-soft); font-size:15px; line-height:1.65; margin-top:10px; max-width:660px; }
-  .contact-alert{
-    border-radius:8px; padding:14px 16px; margin-bottom:18px;
-    font-size:14px; line-height:1.5; font-weight:700;
-  }
-  .contact-alert-success{ background:var(--success-bg); color:var(--success); }
-  .contact-alert-error{ background:var(--error-bg); color:var(--error); }
-  .contact-form{ display:grid; gap:16px; }
-  .contact-form-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
-  @media(min-width:680px){ .contact-form-grid{ grid-template-columns:1fr 1fr; } }
-  .contact-field label{
-    display:block; color:var(--navy); font-size:13px; font-weight:800;
-    text-transform:uppercase; letter-spacing:.04em; margin-bottom:7px;
-  }
-  .contact-field input,
-  .contact-field select,
-  .contact-field textarea{
-    width:100%; border:1.5px solid var(--border); border-radius:8px; background:#fff;
-    color:var(--text); font-size:15px; outline:none; transition:border-color .15s ease, box-shadow .15s ease;
-  }
-  .contact-field input,
-  .contact-field select{ height:48px; padding:0 14px; }
-  .contact-field textarea{ min-height:150px; padding:13px 14px; resize:vertical; }
-  .contact-field input:focus,
-  .contact-field select:focus,
-  .contact-field textarea:focus{
-    border-color:var(--orange); box-shadow:0 0 0 3px rgba(249,115,22,.14);
-  }
-  .contact-field select{
-    appearance:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.6' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
-    background-repeat:no-repeat; background-position:right 14px center; padding-right:38px;
-  }
-  .contact-honeypot{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-  .contact-form-foot{
-    display:flex; flex-direction:column; gap:12px; align-items:flex-start;
-  }
-  @media(min-width:620px){ .contact-form-foot{ flex-direction:row; align-items:center; justify-content:space-between; } }
-  .contact-form-foot p{ color:var(--text-soft); font-size:13px; line-height:1.5; max-width:420px; }
-
-  .contact-help-card{ padding:26px; margin-top:18px; }
-  .contact-help-card h2{ font-size:22px; }
-  .contact-help-list{ display:grid; gap:12px; margin-top:18px; }
-  .contact-help-list a{
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
-    border:1px solid var(--border); border-radius:8px; padding:14px 16px;
-    color:var(--navy); font-weight:800; font-size:14px;
-  }
-  .contact-help-list a:hover{ border-color:var(--orange); color:var(--orange); background:#FFF7ED; }
-
-  .contact-faq-head{ text-align:center; max-width:680px; margin:0 auto 34px; }
-  .contact-faq-head h2{ font-size:clamp(26px,3.4vw,36px); margin-top:12px; }
-  .contact-faq-head p{ color:var(--text-soft); margin-top:12px; font-size:15.5px; line-height:1.6; }
-  .contact-faq-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
-  @media(min-width:900px){ .contact-faq-grid{ grid-template-columns:repeat(3,1fr); } }
-  .contact-faq-card{ background:#fff; border:1px solid var(--border); border-radius:8px; padding:22px; }
-  .contact-faq-card h3{ font-size:16px; }
-  .contact-faq-card p{ color:var(--text-soft); font-size:14px; line-height:1.6; margin-top:9px; }
-
-  .contact-cta{
-    background:var(--orange); border-radius:8px; color:#fff; text-align:center; padding:42px 28px;
-  }
-  .contact-cta h2{ color:#fff; font-size:clamp(24px,3vw,30px); }
-  .contact-cta p{ color:rgba(255,255,255,.9); margin:10px auto 0; max-width:570px; line-height:1.6; }
-  .contact-cta-actions{ display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:24px; }
-  .contact-cta .contact-btn-outline{ border-color:rgba(255,255,255,.45); color:#fff; background:transparent; }
-  .contact-cta .contact-btn-outline:hover{ background:#fff; color:var(--navy); border-color:#fff; }
-
-  .contact-reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
-  .contact-reveal.in{ opacity:1; transform:none; }
-  @media (prefers-reduced-motion: reduce){
-    .contact-reveal{ opacity:1; transform:none; transition:none; }
-    html{ scroll-behavior:auto; }
-  }
-</style>
-
-<section class="contact-hero">
-  <div class="contact-container contact-hero-inner">
-    <div>
-      <span class="contact-eyebrow"><?php esc_html_e('Contact Rubyinstar', 'dawp'); ?></span>
-      <h1><?php esc_html_e('Need Help With Tires Or An Order?', 'dawp'); ?></h1>
-      <p><?php esc_html_e('Send Rubyinstar a message for order support, tire fitment questions, shipping details, return help, or general store inquiries.', 'dawp'); ?></p>
-      <div class="contact-hero-actions">
-        <a href="#contact-form" class="contact-btn contact-btn-primary"><?php esc_html_e('Send A Message', 'dawp'); ?></a>
-        <a href="mailto:support@rubyinstar.com" class="contact-btn contact-btn-outline"><?php esc_html_e('Email Support', 'dawp'); ?></a>
+      <div class="contact-hero__panel" aria-label="Support highlights">
+        <div>
+          <span>01</span>
+          <strong>Tire Guidance</strong>
+          <p>Get help choosing tires by vehicle, size, and driving need.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <strong>Order Support</strong>
+          <p>Ask about order status, tracking, delivery, or payment details.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <strong>Returns Help</strong>
+          <p>Review return steps and refund questions before sending items back.</p>
+        </div>
       </div>
     </div>
-
-    <aside class="contact-hero-card" aria-label="<?php esc_attr_e('Support overview', 'dawp'); ?>">
-      <h2><?php esc_html_e('Support That Keeps Things Clear', 'dawp'); ?></h2>
-      <p><?php esc_html_e('Include your order number when available so our team can find the right details faster.', 'dawp'); ?></p>
-      <div class="contact-quick-list">
-        <div class="contact-quick-item">
-          <span class="contact-quick-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          </span>
-          <span><strong>support@rubyinstar.com</strong><span><?php esc_html_e('Primary support inbox for all customer questions.', 'dawp'); ?></span></span>
-        </div>
-        <div class="contact-quick-item">
-          <span class="contact-quick-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          </span>
-          <span><strong><?php esc_html_e('Monday - Friday', 'dawp'); ?></strong><span><?php esc_html_e('9:00 AM - 5:00 PM Pacific Standard Time.', 'dawp'); ?></span></span>
-        </div>
-        <div class="contact-quick-item">
-          <span class="contact-quick-icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
-          </span>
-          <span><strong><?php esc_html_e('Order Tracking', 'dawp'); ?></strong><span><?php esc_html_e('For shipment updates, use the tracking page or message us.', 'dawp'); ?></span></span>
-        </div>
-      </div>
-    </aside>
   </div>
-  <div class="contact-tread-line"></div>
-</section>
 
-<section class="contact-section contact-bg">
-  <div class="contact-container">
-    <div class="contact-main-grid">
+  <div class="home-strip contact-strip" data-mobile-slider="home-strip">
+    <div>Secure Checkout</div>
+    <div>Fast Shipping</div>
+    <div>Order Tracking</div>
+    <div>Easy Returns</div>
+  </div>
+
+  <div class="home-section">
+    <div class="home-section__head">
       <div>
-        <div class="contact-info-grid contact-reveal">
-          <?php foreach ($contact_items as $item) : ?>
-            <div class="contact-info-card">
-              <span class="contact-info-icon" aria-hidden="true">
-                <?php if ('pin' === $item['icon']) : ?>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-5.2 7-12A7 7 0 0 0 5 9c0 6.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                <?php elseif ('clock' === $item['icon']) : ?>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-                <?php else : ?>
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                <?php endif; ?>
-              </span>
-              <div>
-                <h3><?php echo esc_html($item['label']); ?></h3>
-                <?php if ($item['href']) : ?>
-                  <a class="contact-info-value" href="<?php echo esc_url($item['href']); ?>"><?php echo esc_html($item['value']); ?></a>
-                <?php else : ?>
-                  <span class="contact-info-value"><?php echo esc_html($item['value']); ?></span>
-                <?php endif; ?>
-                <p class="contact-info-note"><?php echo esc_html($item['note']); ?></p>
-              </div>
-            </div>
-          <?php endforeach; ?>
-        </div>
-
-        <div class="contact-help-card contact-reveal">
-          <h2><?php esc_html_e('Helpful Links', 'dawp'); ?></h2>
-          <div class="contact-help-list">
-            <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Your Order', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
-            <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
-            <a href="<?php echo esc_url(home_url('/returns-policy/')); ?>"><?php esc_html_e('Returns & Refunds', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
-            <a href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
+        <p class="home-eyebrow">Contact Rubyinstar</p>
+        <h2>Send Us A Message</h2>
       </div>
+      <a class="home-btn home-btn--dark" href="/faq/">View FAQ</a>
+    </div>
 
-      <div class="contact-form-card contact-reveal" id="contact-form">
-        <div class="contact-form-head">
-          <span class="contact-eyebrow"><?php esc_html_e('Send A Message', 'dawp'); ?></span>
-          <h2><?php esc_html_e('Tell Us How We Can Help', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Use the form below and include your order number, tire size, or vehicle details if they are relevant to your question.', 'dawp'); ?></p>
-        </div>
-
+    <div class="contact-grid">
+      <div class="contact-form-wrap" id="contact-form">
         <?php if ($contact_status && isset($status_messages[$contact_status])) : ?>
-          <div class="contact-alert contact-alert-<?php echo esc_attr($status_messages[$contact_status]['type']); ?>" role="status">
-            <?php echo esc_html($status_messages[$contact_status]['text']); ?>
+          <div class="contact-alert contact-alert--<?php echo esc_attr($contact_status); ?>" role="status">
+            <?php echo esc_html($status_messages[$contact_status]); ?>
           </div>
         <?php endif; ?>
 
-        <form class="contact-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+        <form class="contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
           <input type="hidden" name="action" value="dawp_contact_submit">
           <?php wp_nonce_field('dawp_contact_submit', 'dawp_contact_nonce'); ?>
 
-          <div class="contact-honeypot" aria-hidden="true">
-            <label for="contact-website"><?php esc_html_e('Website', 'dawp'); ?></label>
-            <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
+          <label class="contact-honeypot" aria-hidden="true">
+            <span>Website</span>
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </label>
+
+          <div class="contact-form__row">
+            <label>
+              <span>Your Name</span>
+              <input type="text" name="name" placeholder="John Doe" autocomplete="name" required>
+            </label>
+            <label>
+              <span>Email Address</span>
+              <input type="email" name="email" placeholder="john@example.com" autocomplete="email" required>
+            </label>
           </div>
 
-          <div class="contact-form-grid">
-            <div class="contact-field">
-              <label for="contact-name"><?php esc_html_e('Name', 'dawp'); ?></label>
-              <input id="contact-name" type="text" name="name" autocomplete="name" required>
-            </div>
-            <div class="contact-field">
-              <label for="contact-email"><?php esc_html_e('Email', 'dawp'); ?></label>
-              <input id="contact-email" type="email" name="email" autocomplete="email" required>
-            </div>
-          </div>
-
-          <div class="contact-form-grid">
-            <div class="contact-field">
-              <label for="contact-topic"><?php esc_html_e('Topic', 'dawp'); ?></label>
-              <select id="contact-topic" name="subject">
-                <option value="Order Support"><?php esc_html_e('Order Support', 'dawp'); ?></option>
-                <option value="Tire Fitment Question"><?php esc_html_e('Tire Fitment Question', 'dawp'); ?></option>
-                <option value="Shipping Question"><?php esc_html_e('Shipping Question', 'dawp'); ?></option>
-                <option value="Return or Refund"><?php esc_html_e('Return or Refund', 'dawp'); ?></option>
-                <option value="General Question"><?php esc_html_e('General Question', 'dawp'); ?></option>
+          <div class="contact-form__row">
+            <label>
+              <span>Subject</span>
+              <select name="subject" required>
+                <option value="">Select a topic</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Order Support">Order Support</option>
+                <option value="Tire Help">Tire Help</option>
+                <option value="Shipping Question">Shipping Question</option>
+                <option value="Returns & Refunds">Returns &amp; Refunds</option>
+                <option value="Other">Other</option>
               </select>
-            </div>
-            <div class="contact-field">
-              <label for="contact-order"><?php esc_html_e('Order Number Optional', 'dawp'); ?></label>
-              <input id="contact-order" type="text" name="order_number" autocomplete="off" placeholder="<?php esc_attr_e('Example: RBY-1001', 'dawp'); ?>">
-            </div>
+            </label>
+            <label>
+              <span>Order Number</span>
+              <input type="text" name="order_number" placeholder="SLK-1234" autocomplete="off">
+            </label>
           </div>
 
-          <div class="contact-field">
-            <label for="contact-message"><?php esc_html_e('Message', 'dawp'); ?></label>
-            <textarea id="contact-message" name="message" required></textarea>
-          </div>
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="6" placeholder="How can we help you?" required></textarea>
+          </label>
 
-          <div class="contact-form-foot">
-            <p><?php esc_html_e('We use your message only to respond to your request. Please do not include payment card details.', 'dawp'); ?></p>
-            <button class="contact-btn contact-btn-primary" type="submit"><?php esc_html_e('Submit Message', 'dawp'); ?></button>
-          </div>
+          <button class="home-btn home-btn--primary" type="submit">Send Message</button>
         </form>
       </div>
+
+      <aside class="contact-info" aria-label="Contact information">
+        <h2>Contact Information</h2>
+
+        <div class="contact-info__card">
+          <div class="contact-info__icon">EM</div>
+          <div>
+            <strong>Email</strong>
+            <a href="mailto:support@rubyinstar.com">support@rubyinstar.com</a>
+          </div>
+        </div>
+
+        <div class="contact-info__card">
+          <div class="contact-info__icon">US</div>
+          <div>
+            <strong>Location</strong>
+            <span>United States</span>
+          </div>
+        </div>
+
+        <div class="contact-info__card">
+          <div class="contact-info__icon">HR</div>
+          <div>
+            <strong>Business Hours</strong>
+            <span>Monday - Friday<br>9:00 AM - 5:00 PM (PST)</span>
+          </div>
+        </div>
+
+        <div class="contact-info__links">
+          <a href="/track-order/">Track Your Order</a>
+          <a href="/returns-policy/">Return &amp; Refund Policy</a>
+          <a href="/shipping-policy/">Shipping Policy</a>
+        </div>
+      </aside>
     </div>
   </div>
-</section>
 
-<section class="contact-section">
-  <div class="contact-container">
-    <div class="contact-faq-head contact-reveal">
-      <span class="contact-eyebrow"><?php esc_html_e('Before You Message', 'dawp'); ?></span>
-      <h2><?php esc_html_e('Quick Answers For Common Questions', 'dawp'); ?></h2>
-      <p><?php esc_html_e('These details help many customers get the right next step faster.', 'dawp'); ?></p>
-    </div>
-
-    <div class="contact-faq-grid contact-reveal">
-      <div class="contact-faq-card">
-        <h3><?php esc_html_e('What should I include for tire fitment help?', 'dawp'); ?></h3>
-        <p><?php esc_html_e('Send your vehicle year, make, model, trim, current tire size, and the type of driving you do most often.', 'dawp'); ?></p>
-      </div>
-      <div class="contact-faq-card">
-        <h3><?php esc_html_e('Where can I check my order?', 'dawp'); ?></h3>
-        <p><?php esc_html_e('Use the Track Order page with your order details, or contact us with your order number for support.', 'dawp'); ?></p>
-      </div>
-      <div class="contact-faq-card">
-        <h3><?php esc_html_e('How quickly will support respond?', 'dawp'); ?></h3>
-        <p><?php esc_html_e('Most support requests are reviewed during business hours, Monday through Friday, 9:00 AM to 5:00 PM PST.', 'dawp'); ?></p>
+  <div class="home-section home-section--surface">
+    <div class="contact-cta">
+      <p class="home-eyebrow">Quick Answers</p>
+      <h2>Need Help Before You Contact Us?</h2>
+      <p>Find common answers about tire shopping, order tracking, shipping, returns, and refunds.</p>
+      <div class="contact-cta__actions">
+        <a class="home-btn home-btn--primary" href="/faq/">View FAQ</a>
+        <a class="home-btn home-btn--outline" href="/shop-by-rim-size/">Shop By Rim Size</a>
       </div>
     </div>
   </div>
+
 </section>
 
-<section class="contact-section">
-  <div class="contact-container">
-    <div class="contact-cta contact-reveal">
-      <h2><?php esc_html_e('Looking For Tires Right Now?', 'dawp'); ?></h2>
-      <p><?php esc_html_e('Browse tire categories first, then contact support if you need help comparing sizes, vehicle types, or order options.', 'dawp'); ?></p>
-      <div class="contact-cta-actions">
-        <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="contact-btn contact-btn-outline"><?php esc_html_e('Shop Tires', 'dawp'); ?></a>
-        <a href="<?php echo esc_url(home_url('/shop-by-rim-size/')); ?>" class="contact-btn contact-btn-outline"><?php esc_html_e('Shop By Rim Size', 'dawp'); ?></a>
-      </div>
-    </div>
-  </div>
-</section>
+<style>
+.contact-page {
+  --home-black: #050505;
+  --home-ink: #111111;
+  --home-red: #dc2626;
+  --home-red-dark: #991b1b;
+  --home-red-bright: #ef4444;
+  --home-muted: #6b7280;
+  --home-line: #e5e5e5;
+  --home-soft: #f6f6f6;
+  --home-white: #ffffff;
+  --home-radius: 8px;
+  --home-section-gap: 80px;
+  overflow: hidden;
+  background: var(--home-white);
+  color: var(--home-ink);
+}
 
-<script>
-  const contactRevealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        contactRevealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+.contact-page a {
+  color: inherit;
+  text-decoration: none;
+}
 
-  document.querySelectorAll('.contact-reveal').forEach((element) => contactRevealObserver.observe(element));
-</script>
+.contact-page a.home-btn,
+.contact-page a.home-btn:visited {
+  color: var(--home-ink);
+}
+
+.home-eyebrow {
+  margin: 0 0 12px;
+  color: var(--home-red);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 28px;
+  border: 2px solid transparent;
+  border-radius: var(--home-radius);
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.home-btn:hover {
+  transform: translateY(-2px);
+}
+
+.home-btn--primary {
+  background: var(--home-red);
+  color: var(--home-white);
+  border-color: var(--home-red);
+  box-shadow: 0 2px 8px rgba(220,38,38,0.3);
+}
+
+.contact-page a.home-btn--primary,
+.contact-page a.home-btn--primary:visited {
+  color: var(--home-white);
+}
+
+.home-btn--primary:hover {
+  background: var(--home-red-bright);
+  border-color: var(--home-red-bright);
+  color: var(--home-white);
+  box-shadow: 0 4px 16px rgba(220,38,38,0.4);
+}
+
+.contact-page a.home-btn--primary:hover,
+.contact-page a.home-btn--primary:focus-visible {
+  color: var(--home-white);
+}
+
+.home-btn--ghost {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.12);
+  color: var(--home-white);
+}
+
+.contact-page a.home-btn--ghost,
+.contact-page a.home-btn--ghost:visited {
+  color: var(--home-white);
+}
+
+.home-btn--ghost:hover {
+  border-color: var(--home-white);
+  background: var(--home-white);
+  color: var(--home-black);
+}
+
+.contact-page a.home-btn--ghost:hover,
+.contact-page a.home-btn--ghost:focus-visible {
+  color: var(--home-black);
+}
+
+.home-btn--dark {
+  background: #1a1a1a;
+  color: var(--home-white);
+  border-color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.contact-page a.home-btn--dark,
+.contact-page a.home-btn--dark:visited {
+  color: var(--home-white);
+}
+
+.home-btn--dark:hover {
+  background: var(--home-red);
+  border-color: var(--home-red);
+  color: var(--home-white);
+  box-shadow: 0 4px 16px rgba(220,38,38,0.35);
+}
+
+.contact-page a.home-btn--dark:hover,
+.contact-page a.home-btn--dark:focus-visible {
+  color: var(--home-white);
+}
+
+.home-btn--outline {
+  background: transparent;
+  color: var(--home-black);
+  border-color: var(--home-black);
+}
+
+.contact-page a.home-btn--outline,
+.contact-page a.home-btn--outline:visited {
+  color: var(--home-black);
+}
+
+.home-btn--outline:hover {
+  background: var(--home-black);
+  color: var(--home-white);
+}
+
+.contact-page a.home-btn--outline:hover,
+.contact-page a.home-btn--outline:focus-visible {
+  color: var(--home-white);
+}
+
+.home-strip {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100% - 32px, 1180px);
+  margin: -28px auto 0;
+  border: 1px solid var(--home-line);
+  border-radius: var(--home-radius);
+  background: var(--home-white);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.13);
+}
+
+.home-strip div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 14px;
+  border-right: 1px solid var(--home-line);
+  color: var(--home-ink);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.home-strip div:last-child {
+  border-right: 0;
+}
+
+.home-section {
+  width: min(100% - 32px, 1360px);
+  margin: 0 auto;
+  padding: var(--home-section-gap) 0;
+}
+
+.home-section--surface {
+  width: 100%;
+  max-width: none;
+  padding-block: var(--home-section-gap);
+  padding-inline: max(16px, calc((100vw - 1360px) / 2));
+  background: var(--home-soft);
+}
+
+.home-section__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.home-section__head h2 {
+  margin: 0;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.home-section__head .home-btn {
+  flex: 0 0 auto;
+  min-width: 130px;
+  white-space: nowrap;
+}
+
+.contact-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--home-black);
+  color: var(--home-white);
+}
+
+.contact-hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.78) 52%, rgba(5,5,5,0.35) 100%),
+    linear-gradient(180deg, rgba(5,5,5,0) 58%, #050505 100%);
+  content: "";
+}
+
+.contact-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.62;
+}
+
+.contact-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 460px);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  width: min(100%, 1360px);
+  min-height: 560px;
+  margin: 0 auto;
+  padding: clamp(70px, 8vw, 120px) 18px 76px;
+}
+
+.contact-hero__copy {
+  max-width: 760px;
+}
+
+.contact-hero .home-eyebrow {
+  color: #fca5a5;
+}
+
+.contact-hero h1 {
+  max-width: 820px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 6vw, 5.4rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  color: var(--home-white);
+  text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+}
+
+.contact-hero__copy > p:not(.home-eyebrow) {
+  max-width: 620px;
+  margin: 20px 0 0;
+  color: rgba(255,255,255,0.88);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  line-height: 1.75;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.35);
+}
+
+.contact-hero__panel {
+  display: grid;
+  gap: 14px;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--home-radius);
+  background: rgba(255,255,255,0.96);
+  color: var(--home-ink);
+  box-shadow: 0 28px 90px rgba(0,0,0,0.36);
+}
+
+.contact-hero__panel div {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  column-gap: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--home-line);
+}
+
+.contact-hero__panel div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.contact-hero__panel span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--home-radius);
+  background: var(--home-black);
+  color: var(--home-white);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.contact-hero__panel strong {
+  display: block;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.contact-hero__panel p {
+  grid-column: 2;
+  margin: 5px 0 0;
+  color: var(--home-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.contact-strip div::before {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--home-red);
+  content: "";
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, 0.72fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: start;
+}
+
+.contact-form-wrap {
+  padding: clamp(22px, 3vw, 34px);
+  border: 1.5px solid var(--home-line);
+  border-radius: var(--home-radius);
+  background: var(--home-white);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.06);
+}
+
+.contact-alert {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--home-line);
+  border-radius: var(--home-radius);
+  background: #fafafa;
+  color: var(--home-ink);
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.contact-alert--sent {
+  border-color: rgba(22,163,74,0.28);
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.contact-alert--invalid,
+.contact-alert--failed {
+  border-color: rgba(220,38,38,0.28);
+  background: #fef2f2;
+  color: var(--home-red-dark);
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.contact-form label span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--home-muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 14px;
+  border: 1.5px solid var(--home-line);
+  border-radius: var(--home-radius);
+  background: #fafafa;
+  color: var(--home-ink);
+  outline: none;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  min-height: 156px;
+  padding: 14px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--home-red);
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.15);
+}
+
+.contact-form .home-btn {
+  width: 100%;
+  margin-top: 2px;
+}
+
+.contact-honeypot {
+  position: absolute;
+  left: -9999px;
+}
+
+.contact-info {
+  position: sticky;
+  top: 92px;
+}
+
+.contact-info h2 {
+  margin: 0 0 22px;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2.5vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.contact-info__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border: 1.5px solid var(--home-line);
+  border-radius: var(--home-radius);
+  background: var(--home-white);
+  margin-bottom: 14px;
+  transition: box-shadow 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.contact-info__card:hover {
+  border-color: rgba(220,38,38,0.26);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.07);
+  transform: translateY(-2px);
+}
+
+.contact-info__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border-radius: var(--home-radius);
+  background: var(--home-black);
+  color: var(--home-white);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.contact-info__card strong {
+  display: block;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.contact-info__card span,
+.contact-info__card a {
+  display: block;
+  margin-top: 4px;
+  color: var(--home-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.contact-info__card a,
+.contact-info__links a {
+  color: var(--home-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-info__card a:hover,
+.contact-info__links a:hover {
+  color: var(--home-red-dark);
+}
+
+.contact-info__links {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border-radius: var(--home-radius);
+  background: var(--home-soft);
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.contact-cta {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-cta h2 {
+  margin: 0;
+  color: var(--home-black);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.contact-cta p:not(.home-eyebrow) {
+  margin: 16px auto 0;
+  max-width: 580px;
+  color: var(--home-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.contact-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+@media (max-width: 1020px) {
+  .contact-hero__inner,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact-page {
+    --home-section-gap: 56px;
+  }
+
+  .home-actions,
+  .contact-cta__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .home-btn {
+    width: 100%;
+  }
+
+  .home-strip {
+    display: flex;
+    grid-template-columns: none;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-padding-inline: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-strip div {
+    flex: 0 0 calc((100% - 10px) / 1.5);
+    min-height: 58px;
+    border-right: 0;
+    border-bottom: 0;
+    scroll-snap-align: start;
+  }
+
+  .home-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .home-strip div:not(:last-child) {
+    border-right: 0;
+  }
+
+  .home-section__head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-section__head .home-btn {
+    width: 100%;
+  }
+
+  .contact-hero__inner {
+    min-height: auto;
+    padding-top: 54px;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2rem, 10vw, 3.1rem);
+  }
+
+  .contact-form__row,
+  .contact-cta__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form__row {
+    display: grid;
+  }
+}
+</style>

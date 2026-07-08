@@ -4,8 +4,8 @@
  */
 
 $rubyinstar_gallery_uri = get_theme_file_uri('/assets/img/gallery/Rubyinstar/');
-$hero_image = $rubyinstar_gallery_uri . 'suv-trailer-tires.png';
-$intro_image = $rubyinstar_gallery_uri . 'category-light-truck-tires.png';
+$hero_image = $rubyinstar_gallery_uri . 'vehicle-type-service-bay.png';
+$intro_image = $rubyinstar_gallery_uri . 'vehicle-type-comparison-workbench.png';
 
 $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
     ? get_permalink(wc_get_page_id('shop'))
@@ -22,7 +22,7 @@ $vehicle_types = [
         'name' => __('SUV & Crossover', 'dawp'),
         'short' => __('SUV', 'dawp'),
         'summary' => __('Balanced tire choices for crossovers, family SUVs, and all-weather daily driving.', 'dawp'),
-        'image' => $rubyinstar_gallery_uri . 'category-suv-crossover-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'vehicle-card-suv.png',
         'primary_slug' => 'suv-crossover-tires',
         'primary_label' => __('Shop SUV Tires', 'dawp'),
         'keywords' => 'suv crossover cuv family utility road trip awd',
@@ -37,7 +37,7 @@ $vehicle_types = [
         'name' => __('Pickup & Light Truck', 'dawp'),
         'short' => __('Truck', 'dawp'),
         'summary' => __('Durable tires for pickups, light trucks, work use, towing, and heavier everyday loads.', 'dawp'),
-        'image' => $rubyinstar_gallery_uri . 'category-light-truck-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'vehicle-card-truck.png',
         'primary_slug' => 'light-truck-tires',
         'primary_label' => __('Shop Truck Tires', 'dawp'),
         'keywords' => 'truck pickup light truck lt hauling work utility load towing',
@@ -52,7 +52,7 @@ $vehicle_types = [
         'name' => __('Performance & Sport', 'dawp'),
         'short' => __('Sport', 'dawp'),
         'summary' => __('Responsive tire options for sport sedans, coupes, and drivers who want confident handling.', 'dawp'),
-        'image' => $rubyinstar_gallery_uri . 'category-performance-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'vehicle-card-performance.png',
         'primary_slug' => 'performance-tires',
         'primary_label' => __('Shop Performance Tires', 'dawp'),
         'keywords' => 'performance sport sporty handling coupe sedan high performance street',
@@ -67,7 +67,7 @@ $vehicle_types = [
         'name' => __('Trailer & Towable', 'dawp'),
         'short' => __('Trailer', 'dawp'),
         'summary' => __('Trailer-specific tires for utility trailers, cargo trailers, campers, and towable equipment.', 'dawp'),
-        'image' => $rubyinstar_gallery_uri . 'category-trailer-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'vehicle-card-trailer.png',
         'primary_slug' => 'trailer-tires',
         'primary_label' => __('Shop Trailer Tires', 'dawp'),
         'keywords' => 'trailer towable utility cargo rv towing st special trailer',
@@ -81,7 +81,7 @@ $vehicle_types = [
         'name' => __('Winter & Cold-Weather', 'dawp'),
         'short' => __('Winter', 'dawp'),
         'summary' => __('Seasonal tire choices for drivers who regularly face cold temperatures, snow, or slush.', 'dawp'),
-        'image' => $rubyinstar_gallery_uri . 'category-winter-tires.png',
+        'image' => $rubyinstar_gallery_uri . 'vehicle-card-winter.png',
         'primary_slug' => 'winter-tires',
         'primary_label' => __('Shop Winter Tires', 'dawp'),
         'keywords' => 'winter snow cold weather seasonal ice slush sedan suv truck',
@@ -98,18 +98,17 @@ $vehicle_types = [
 
 <style>
     .vehicle-type-page {
-        --vehicle-navy: #0B1F3A;
-        --vehicle-navy-light: #12294f;
-        --vehicle-orange: #F97316;
-        --vehicle-orange-dark: #DB5F0B;
-        --vehicle-white: #FFFFFF;
-        --vehicle-gray: #F5F6F8;
-        --vehicle-text: #111827;
-        --vehicle-soft: #6B7280;
-        --vehicle-border: #E5E7EB;
+        --vehicle-black: var(--ruby-black, #050505);
+        --vehicle-ink: var(--ruby-ink, #111111);
+        --vehicle-red: var(--ruby-red, #dc2626);
+        --vehicle-red-dark: var(--ruby-red-dark, #991b1b);
+        --vehicle-white: var(--ruby-white, #ffffff);
+        --vehicle-gray: var(--ruby-soft, #f6f6f6);
+        --vehicle-muted: var(--ruby-muted, #666666);
+        --vehicle-border: var(--ruby-line, #e5e5e5);
         background: var(--vehicle-white);
-        color: var(--vehicle-text);
-        font-family: Inter, system-ui, sans-serif;
+        color: var(--vehicle-ink);
+        font-family: var(--font-body, Inter, system-ui, sans-serif);
         overflow: hidden;
     }
 
@@ -131,7 +130,7 @@ $vehicle_types = [
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        color: var(--vehicle-orange);
+        color: var(--vehicle-red);
         font-size: 13px;
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -143,7 +142,7 @@ $vehicle_types = [
         width: 18px;
         height: 2px;
         border-radius: 2px;
-        background: var(--vehicle-orange);
+        background: var(--vehicle-red);
         content: "";
     }
 
@@ -153,7 +152,7 @@ $vehicle_types = [
         align-items: center;
         justify-content: center;
         border: 0;
-        border-radius: 10px;
+        border-radius: 8px;
         padding: 0 26px;
         font-size: 15px;
         font-weight: 800;
@@ -166,13 +165,13 @@ $vehicle_types = [
     }
 
     .vehicle-btn--primary {
-        background: var(--vehicle-orange);
-        box-shadow: 0 8px 20px -8px rgba(249, 115, 22, 0.55);
+        background: var(--vehicle-red);
+        box-shadow: 0 8px 20px -8px rgba(220, 38, 38, 0.55);
         color: #fff;
     }
 
     .vehicle-btn--primary:hover {
-        background: var(--vehicle-orange-dark);
+        background: var(--vehicle-red-dark);
         color: #fff;
     }
 
@@ -191,8 +190,8 @@ $vehicle_types = [
         position: relative;
         overflow: hidden;
         background:
-            radial-gradient(1100px 480px at 85% -10%, rgba(249, 115, 22, 0.16), transparent 60%),
-            linear-gradient(180deg, var(--vehicle-navy) 0%, #0d2547 60%, #0f2a52 100%);
+            radial-gradient(1100px 480px at 85% -10%, rgba(220, 38, 38, 0.22), transparent 60%),
+            linear-gradient(180deg, var(--vehicle-black) 0%, #151515 62%, #2a0b0b 100%);
         color: #fff;
     }
 
@@ -207,7 +206,7 @@ $vehicle_types = [
         max-width: 660px;
         margin: 16px 0 18px;
         color: #fff;
-        font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+        font-family: var(--font-heading, "Plus Jakarta Sans", Inter, system-ui, sans-serif);
         font-size: clamp(32px, 5vw, 52px);
         font-weight: 800;
         letter-spacing: 0;
@@ -237,7 +236,7 @@ $vehicle_types = [
     .vehicle-visual__photo {
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
+        border-radius: 8px;
         box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
     }
 
@@ -254,10 +253,10 @@ $vehicle_types = [
         display: flex;
         align-items: center;
         gap: 12px;
-        border-radius: 14px;
+        border-radius: 8px;
         background: #fff;
         box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.35);
-        color: var(--vehicle-navy);
+        color: var(--vehicle-black);
         padding: 14px 18px;
     }
 
@@ -273,12 +272,12 @@ $vehicle_types = [
 
     .vehicle-badge strong {
         display: block;
-        font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+        font-family: var(--font-heading, "Plus Jakarta Sans", Inter, system-ui, sans-serif);
         font-size: 15px;
     }
 
     .vehicle-badge span {
-        color: var(--vehicle-soft);
+        color: var(--vehicle-muted);
         font-size: 12px;
     }
 
@@ -317,8 +316,8 @@ $vehicle_types = [
     .vehicle-section-head h2,
     .vehicle-support h2 {
         margin: 12px 0 0;
-        color: var(--vehicle-navy);
-        font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+        color: var(--vehicle-black);
+        font-family: var(--font-heading, "Plus Jakarta Sans", Inter, system-ui, sans-serif);
         font-size: clamp(26px, 3.4vw, 36px);
         font-weight: 800;
         letter-spacing: 0;
@@ -328,7 +327,7 @@ $vehicle_types = [
     .vehicle-section-head p,
     .vehicle-support p {
         margin: 12px 0 0;
-        color: var(--vehicle-soft);
+        color: var(--vehicle-muted);
         font-size: 15.5px;
         line-height: 1.6;
     }
@@ -343,16 +342,16 @@ $vehicle_types = [
     .vehicle-intro img {
         width: 100%;
         aspect-ratio: 16 / 10;
-        border-radius: 16px;
+        border-radius: 8px;
         object-fit: cover;
-        box-shadow: 0 18px 34px -18px rgba(11,31,58,.25);
+        box-shadow: 0 18px 34px -18px rgba(5,5,5,.25);
     }
 
     .vehicle-tool {
         border: 1px solid var(--vehicle-border);
-        border-radius: 18px;
+        border-radius: 8px;
         background: #fff;
-        box-shadow: 0 24px 50px -28px rgba(11,31,58,.35);
+        box-shadow: 0 24px 50px -28px rgba(5,5,5,.35);
         padding: 22px;
     }
 
@@ -366,17 +365,17 @@ $vehicle_types = [
         width: 100%;
         min-height: 46px;
         border: 1.5px solid var(--vehicle-border);
-        border-radius: 9px;
+        border-radius: 8px;
         background: #fff;
-        color: var(--vehicle-text);
+        color: var(--vehicle-ink);
         font: inherit;
         padding: 0 14px;
         outline: none;
     }
 
     .vehicle-search input:focus {
-        border-color: var(--vehicle-orange);
-        box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+        border-color: var(--vehicle-red);
+        box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.16);
     }
 
     .vehicle-type-page .tz-content {
@@ -403,7 +402,7 @@ $vehicle_types = [
     .vehicle-panel__layout > img {
         width: 100%;
         aspect-ratio: 4 / 3;
-        border-radius: 14px;
+        border-radius: 8px;
         object-fit: cover;
     }
 
@@ -417,8 +416,8 @@ $vehicle_types = [
 
     .vehicle-panel .tz-panel__top h3 {
         margin: 0;
-        color: var(--vehicle-navy);
-        font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+        color: var(--vehicle-black);
+        font-family: var(--font-heading, "Plus Jakarta Sans", Inter, system-ui, sans-serif);
         font-size: 24px;
         font-weight: 800;
         line-height: 1.15;
@@ -426,7 +425,7 @@ $vehicle_types = [
 
     .vehicle-panel .tz-panel__top p {
         margin: 8px 0 0;
-        color: var(--vehicle-soft);
+        color: var(--vehicle-muted);
         font-size: 14.5px;
         line-height: 1.6;
     }
@@ -439,9 +438,9 @@ $vehicle_types = [
     }
 
     .vehicle-tags span {
-        border-radius: 6px;
+        border-radius: 8px;
         background: var(--vehicle-gray);
-        color: var(--vehicle-soft);
+        color: var(--vehicle-muted);
         font-size: 12.5px;
         font-weight: 700;
         padding: 5px 9px;
@@ -456,7 +455,7 @@ $vehicle_types = [
     .vehicle-primary-card,
     .vehicle-type-page .tz-item {
         border: 1px solid var(--vehicle-border);
-        border-radius: 10px;
+        border-radius: 8px;
         background: #fff;
         transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
     }
@@ -466,14 +465,14 @@ $vehicle_types = [
         gap: 7px;
         min-height: 116px;
         align-content: center;
-        background: var(--vehicle-navy);
+        background: var(--vehicle-black);
         color: #fff;
         padding: 22px;
     }
 
     .vehicle-primary-card strong {
         color: #fff;
-        font-family: "Plus Jakarta Sans", Inter, system-ui, sans-serif;
+        font-family: var(--font-heading, "Plus Jakarta Sans", Inter, system-ui, sans-serif);
         font-size: 21px;
         font-weight: 800;
     }
@@ -489,7 +488,7 @@ $vehicle_types = [
         min-height: 54px;
         align-items: center;
         justify-content: center;
-        color: var(--vehicle-navy);
+        color: var(--vehicle-black);
         font-size: 14px;
         font-weight: 800;
         padding: 12px;
@@ -500,23 +499,23 @@ $vehicle_types = [
     .vehicle-type-page .tz-item:hover {
         transform: translateY(-3px);
         border-color: transparent;
-        box-shadow: 0 18px 34px -18px rgba(11,31,58,.25);
+        box-shadow: 0 18px 34px -18px rgba(5,5,5,.25);
     }
 
     .vehicle-primary-card:hover {
-        background: var(--vehicle-navy-light);
+        background: var(--vehicle-red-dark);
     }
 
     .vehicle-type-page .tz-item:hover {
-        color: var(--vehicle-orange);
+        color: var(--vehicle-red);
     }
 
     .vehicle-no-results {
         margin: 18px 0 0;
-        border: 1px solid #fed7aa;
-        border-radius: 10px;
-        background: #fff7ed;
-        color: #9a3412;
+        border: 1px solid #fca5a5;
+        border-radius: 8px;
+        background: #fef2f2;
+        color: var(--vehicle-red-dark);
         font-weight: 800;
         padding: 16px 18px;
     }
@@ -527,8 +526,8 @@ $vehicle_types = [
         align-items: center;
         justify-content: space-between;
         gap: 24px;
-        border-radius: 24px;
-        background: linear-gradient(120deg, var(--vehicle-navy) 0%, #163a6b 100%);
+        border-radius: 8px;
+        background: var(--vehicle-black);
         color: #fff;
         padding: 44px 32px;
         position: relative;
@@ -542,7 +541,7 @@ $vehicle_types = [
         width: 280px;
         height: 280px;
         border-radius: 50%;
-        background: radial-gradient(circle, rgba(249,115,22,.35), transparent 70%);
+        background: radial-gradient(circle, rgba(220,38,38,.34), transparent 70%);
         content: "";
     }
 
@@ -697,7 +696,7 @@ $vehicle_types = [
                 </div>
                 <div class="vehicle-badge">
                     <span class="vehicle-badge__ring">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B1F3A" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#050505" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
                     </span>
                     <div>
                         <strong><?php esc_html_e('Fit First', 'dawp'); ?></strong>

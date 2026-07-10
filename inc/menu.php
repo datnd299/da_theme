@@ -1,12 +1,11 @@
 <?php
 function dawp_main_menu_items() {
     return [
+        ['title' => __('Home', 'dawp'), 'url' => home_url('/'), 'megamenu' => false],
         ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/'), 'megamenu' => true],
         ['title' => __('Shop By Theme', 'dawp'), 'url' => home_url('/shop-by-theme/'), 'megamenu' => false],
-        ['title' => __('America 250', 'dawp'), 'url' => home_url('/product-category/america-250-collection/'), 'megamenu' => false],
-        ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/'), 'megamenu' => false],
-        ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/'), 'megamenu' => false],
-        ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/'), 'megamenu' => false],
+        ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/'), 'megamenu' => false],
+        ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/'), 'megamenu' => false],
     ];
 }
 
@@ -43,11 +42,13 @@ function dawp_megamenu_sections() {
 function dawp_product_category_slugs() {
     return [
         'best-sellers',
-        'veteran-polo-shirts',
-        'veteran-hats',
-        'america-250-collection',
-        'custom-military-gifts',
-        'patriotic-accessories',
+        'american-flag-tees',
+        'veteran-tribute',
+        'bomber-jackets',
+        'hats-beanies',
+        'premium-t-shirts',
+        'patches-pins',
+        'america-250',
         'u-s-air-force',
         'u-s-army',
         'u-s-coast-guard',
@@ -92,11 +93,8 @@ function dawp_footer_columns() {
             'links' => [
                 ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
                 ['title' => __('Shop By Theme', 'dawp'), 'url' => home_url('/shop-by-theme/')],
-                ['title' => __('Best Sellers', 'dawp'), 'url' => home_url('/product-category/best-sellers/')],
-                ['title' => __('Veteran Polo Shirts', 'dawp'), 'url' => home_url('/product-category/veteran-polo-shirts/')],
-                ['title' => __('Veteran Hats', 'dawp'), 'url' => home_url('/product-category/veteran-hats/')],
-                ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250-collection/')],
-                ['title' => __('Custom Military Gifts', 'dawp'), 'url' => home_url('/product-category/custom-military-gifts/')],
+                ['title' => __('Best Sellers', 'dawp'), 'url' => home_url('/best-sellers/')],
+                ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250/')],
             ],
         ],
         [

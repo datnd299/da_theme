@@ -103,7 +103,7 @@ $store_address = dawp_get_woocommerce_store_address();
             <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h1>
             <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
             <p class="sk-policy-hero__copy mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-foreground-muted">
-                <?php esc_html_e('We want every Proudlywear piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.', 'dawp'); ?>
+                <?php esc_html_e('We want every GraphicTShirtStore piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.', 'dawp'); ?>
             </p>
             </div>
         </div>
@@ -207,7 +207,7 @@ $store_address = dawp_get_woocommerce_store_address();
                 </div>
 
                 <div class="mt-5 rounded-2xl border border-[#C6A15B]/30 bg-[#F7F2E8] p-5 text-foreground">
-                    <p class="font-bold"><?php esc_html_e('Proudlywear - Returns Department', 'dawp'); ?></p>
+                    <p class="font-bold"><?php esc_html_e('GraphicTShirtStore - Returns Department', 'dawp'); ?></p>
                     <p class="mt-2"><?php echo esc_html($store_address); ?></p>
                 </div>
 
@@ -215,8 +215,8 @@ $store_address = dawp_get_woocommerce_store_address();
                     <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
                         <?php esc_html_e('Contact Support', 'dawp'); ?>
                     </a>
-                    <a href="mailto:support@proudlywear.com" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
-                        <?php esc_html_e('support@proudlywear.com', 'dawp'); ?>
+                    <a href="mailto:support@graphictshirtstore.com" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
+                        <?php esc_html_e('support@graphictshirtstore.com', 'dawp'); ?>
                     </a>
                 </div>
             </section>
@@ -237,7 +237,7 @@ $store_address = dawp_get_woocommerce_store_address();
                     <li><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
                     <li><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'); ?></li>
                 </ul>
-                <a href="mailto:support@proudlywear.com" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
+                <a href="mailto:support@graphictshirtstore.com" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
                     <?php esc_html_e('Email Support', 'dawp'); ?>
                 </a>
             </section>
@@ -260,7 +260,7 @@ $store_address = dawp_get_woocommerce_store_address();
                     <div class="grid gap-4 md:grid-cols-2">
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('Proudlywear', 'dawp'); ?></p>
+                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('GraphicTShirtStore', 'dawp'); ?></p>
                         </div>
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Address', 'dawp'); ?></h3>
@@ -268,7 +268,7 @@ $store_address = dawp_get_woocommerce_store_address();
                         </div>
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Email', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><a href="mailto:support@proudlywear.com" class="transition-colors hover:text-accent">support@proudlywear.com</a></p>
+                            <p class="mt-3 text-foreground-muted"><a href="mailto:support@graphictshirtstore.com" class="transition-colors hover:text-accent">support@graphictshirtstore.com</a></p>
                         </div>
                         <div class="rounded-2xl border border-border p-5">
                             <h3 class="font-bold text-foreground"><?php esc_html_e('Contact Support', 'dawp'); ?></h3>

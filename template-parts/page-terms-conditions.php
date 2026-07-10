@@ -3,8 +3,8 @@
  * Template Part: Terms of Service
  */
 
-$store_name       = 'Proudlywear';
-$support_email    = 'support@proudlywear.com';
+$store_name       = 'GraphicTShirtStore';
+$support_email    = 'support@graphictshirtstore.com';
 $mailing_address  = dawp_get_woocommerce_store_address();
 $support_hours    = 'Monday-Friday, 10:00 AM-6:00 PM PST';
 $return_policy    = home_url('/refund-return-policy/');
@@ -123,8 +123,8 @@ $contact_page_url = home_url('/contact-us/');
             <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Terms of Service', 'dawp'); ?></h1>
             <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
             <div class="sk-policy-hero__copy mx-auto mt-6 max-w-4xl space-y-5 text-lg leading-relaxed text-foreground-muted">
-                <p><?php esc_html_e('Welcome to Proudlywear! These Terms of Service ("Terms") govern your access to and use of our website proudlywear.com (the "Site"), including browsing our catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'); ?></p>
-                <p><?php esc_html_e('This Site is operated by Proudlywear. Throughout the Site, the terms “we”, “us” and “our” refer to Proudlywear. By visiting our Site and/or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions, including those additional terms, conditions, and operational policies referenced herein and/or available by hyperlink.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Welcome to GraphicTShirtStore! These Terms of Service ("Terms") govern your access to and use of our website graphictshirtstore.com (the "Site"), including browsing our catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'); ?></p>
+                <p><?php esc_html_e('This Site is operated by GraphicTShirtStore. Throughout the Site, the terms “we”, “us” and “our” refer to GraphicTShirtStore. By visiting our Site and/or purchasing something from us, you engage in our “Service” and agree to be bound by the following terms and conditions, including those additional terms, conditions, and operational policies referenced herein and/or available by hyperlink.', 'dawp'); ?></p>
                 <p><?php esc_html_e('Please read these Terms of Service carefully before accessing or using our website. If you do not agree to all the terms and conditions of this agreement, then you may not access the website or use any services.', 'dawp'); ?></p>
             </div>
             </div>
@@ -221,7 +221,7 @@ $contact_page_url = home_url('/contact-us/');
 
             <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
                 <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('8. Limitation of Liability', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted"><?php esc_html_e('In no case shall Proudlywear, our directors, officers, employees, affiliates, agents, or suppliers be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind—including, without limitation, lost profits, lost revenue, lost savings, or replacement costs—arising from your use of the website or any products procured using the service.', 'dawp'); ?></p>
+                <p class="mt-5 leading-relaxed text-foreground-muted"><?php esc_html_e('In no case shall GraphicTShirtStore, our directors, officers, employees, affiliates, agents, or suppliers be liable for any injury, loss, claim, or any direct, indirect, incidental, punitive, special, or consequential damages of any kind—including, without limitation, lost profits, lost revenue, lost savings, or replacement costs—arising from your use of the website or any products procured using the service.', 'dawp'); ?></p>
             </section>
 
             <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">

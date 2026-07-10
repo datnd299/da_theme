@@ -2,7 +2,7 @@
 
 <?php
 $footer_store_address = dawp_get_woocommerce_store_address();
-$logo_url             = get_template_directory_uri() . '/assets/img/Image New/Image rank/logo_image.png';
+$logo_url             = get_template_directory_uri() . '/assets/img/logo-graphictshirtstore.svg';
 $payment_methods      = array(
     array('name' => __('Visa', 'dawp'), 'file' => 'visa.png'),
     array('name' => __('Mastercard', 'dawp'), 'file' => 'mastercard.png'),
@@ -14,22 +14,18 @@ $payment_methods      = array(
 <footer id="colophon" class="bg-[#0B1F3A] text-white" role="contentinfo">
     <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-4 py-12 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-10 lg:grid-cols-[minmax(0,1.45fr)_repeat(3,minmax(0,1fr))] lg:gap-x-14 lg:px-6 lg:py-16 xl:gap-x-20">
         <div class="sm:col-span-2 lg:col-span-1">
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="Proudlywear">
-                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('Proudlywear', 'dawp'); ?>" class="h-[60px] w-auto sm:h-[66px]">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('GraphicTShirtStore', 'dawp'); ?>">
+                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('GraphicTShirtStore', 'dawp'); ?>" class="h-[64px] w-auto sm:h-[72px]">
             </a>
-
-            <p class="mt-5 max-w-sm text-sm leading-7 text-white/75">
-                <?php esc_html_e('Patriotic apparel and personalized gifts for veterans, military families, and proud Americans.', 'dawp'); ?>
-            </p>
 
             <ul class="mt-6 space-y-3 text-sm text-white/80">
                 <li>
-                    <a href="mailto:support@proudlywear.com" class="flex items-start gap-2 transition-colors hover:text-white">
+                    <a href="mailto:support@graphictshirtstore.com" class="flex items-start gap-2 transition-colors hover:text-white">
                         <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                             <polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        support@proudlywear.com
+                        support@graphictshirtstore.com
                     </a>
                 </li>
 
@@ -94,7 +90,7 @@ $payment_methods      = array(
     <div class="border-t border-white/10 bg-[#081A33]">
         <div class="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-3 px-4 py-4 text-xs font-semibold text-white/70 sm:flex-row lg:px-6">
             <p>
-                &copy; <?php echo esc_html(date('Y')); ?> Proudlywear.
+                &copy; <?php echo esc_html(date('Y')); ?> GraphicTShirtStore.
                 <?php esc_html_e('All rights reserved.', 'dawp'); ?>
             </p>
 

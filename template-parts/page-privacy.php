@@ -3,8 +3,8 @@
  * Template Part: Privacy Policy
  */
 
-$store_name      = 'Proudlywear';
-$support_email   = 'support@proudlywear.com';
+$store_name      = 'GraphicTShirtStore';
+$support_email   = 'support@graphictshirtstore.com';
 $mailing_address = dawp_get_woocommerce_store_address();
 ?>
 
@@ -99,7 +99,7 @@ $mailing_address = dawp_get_woocommerce_store_address();
             <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
             <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
             <div class="sk-policy-hero__copy mx-auto mt-6 max-w-4xl space-y-5 text-lg leading-relaxed text-foreground-muted">
-                <p><?php esc_html_e('At Proudlywear, your privacy and the security of your personal data are our utmost priorities. This Privacy Policy describes how your personal information is collected, used, protected, and shared when you visit, browse, or make a purchase from proudlywear.com (the "Site").', 'dawp'); ?></p>
+                <p><?php esc_html_e('At GraphicTShirtStore, your privacy and the security of your personal data are our utmost priorities. This Privacy Policy describes how your personal information is collected, used, protected, and shared when you visit, browse, or make a purchase from graphictshirtstore.com (the "Site").', 'dawp'); ?></p>
                 <p><?php esc_html_e('By accessing our Site or utilizing our online store services, you acknowledge and agree to the data management practices outlined in this policy.', 'dawp'); ?></p>
             </div>
             </div>
@@ -133,7 +133,7 @@ $mailing_address = dawp_get_woocommerce_store_address();
             <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
                 <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('2. Secure Payment Processing & Data Encryption (GMC MANDATORY)', 'dawp'); ?></h2>
                 <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
-                    <p><?php esc_html_e('Your commercial transaction data is fully guarded. Proudlywear does not store, harvest, or retain your raw credit card numbers on our local storefront servers.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Your commercial transaction data is fully guarded. GraphicTShirtStore does not store, harvest, or retain your raw credit card numbers on our local storefront servers.', 'dawp'); ?></p>
                     <p><?php esc_html_e('Because our online store operates via WooCommerce, all payment interactions are seamlessly redirected to, and processed by, certified third-party payment gateways. All data transmissions during checkout are protected utilizing industry-standard SSL (Secure Sockets Layer) encryption technology and strictly comply with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'); ?></p>
                 </div>
             </section>

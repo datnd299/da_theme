@@ -62,10 +62,10 @@ get_header();
         $quick_links = [
           ['title' => __('Shop All', 'dawp'),               'url' => home_url('/shop/')],
           ['title' => __('Best Sellers', 'dawp'),           'url' => home_url('/product-category/best-sellers/')],
-          ['title' => __('Veteran Polo Shirts', 'dawp'),    'url' => home_url('/product-category/veteran-polo-shirts/')],
-          ['title' => __('Veteran Hats', 'dawp'),           'url' => home_url('/product-category/veteran-hats/')],
-          ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250-collection/')],
-          ['title' => __('Custom Military Gifts', 'dawp'),  'url' => home_url('/product-category/custom-military-gifts/')],
+          ['title' => __('American Flag Tees', 'dawp'),     'url' => home_url('/product-category/american-flag-tees/')],
+          ['title' => __('Veteran Tribute', 'dawp'),        'url' => home_url('/product-category/veteran-tribute/')],
+          ['title' => __('Bomber Jackets', 'dawp'),         'url' => home_url('/product-category/bomber-jackets/')],
+          ['title' => __('Hats & Beanies', 'dawp'),         'url' => home_url('/product-category/hats-beanies/')],
         ];
         foreach ($quick_links as $link) : ?>
           <a href="<?php echo esc_url($link['url']); ?>" class="transition-colors hover:text-[#B31942]"><?php echo esc_html($link['title']); ?></a>

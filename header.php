@@ -292,7 +292,7 @@ $account_id    = function_exists('wc_get_page_id') ? wc_get_page_id('myaccount')
 $account_url   = $account_id > 0 ? get_permalink($account_id) : home_url('/my-account/');
 $nav_items     = dawp_main_menu_items();
 $mega_sections = dawp_megamenu_sections();
-$logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image rank/logo_image.png';
+$logo_url      = get_template_directory_uri() . '/assets/img/logo-graphictshirtstore.svg';
 ?>
 
 <header id="site-header" class="lg:sticky top-0 left-0 right-0 z-50 border-b border-white/10 bg-[#0B1F3A]" role="banner">
@@ -307,8 +307,8 @@ $logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image ran
             </svg>
         </button>
 
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center" aria-label="Proudlywear">
-            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('Proudlywear', 'dawp'); ?>" class="h-10 w-auto lg:h-12">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center" aria-label="<?php esc_attr_e('GraphicTShirtStore', 'dawp'); ?>">
+            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('GraphicTShirtStore', 'dawp'); ?>" class="h-11 w-auto lg:h-12">
         </a>
 
         <nav class="hidden flex-1 items-center gap-1 px-5 lg:flex" aria-label="<?php esc_attr_e('Main Navigation', 'dawp'); ?>">
@@ -342,7 +342,7 @@ $logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image ran
                                                 <span><?php esc_html_e('Made to order', 'dawp'); ?></span>
                                             </div>
                                         </div>
-                                        <a href="<?php echo esc_url(home_url('/product-category/custom-military-gifts/')); ?>" class="mega-feature__cta">
+                                        <a href="<?php echo esc_url(home_url('/product-category/veteran-tribute/')); ?>" class="mega-feature__cta">
                                             <?php esc_html_e('Customize Yours', 'dawp'); ?>
                                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                                 <path d="M5 12h14"/><path d="M13 5l7 7-7 7"/>
@@ -487,8 +487,8 @@ $logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image ran
        class="fixed left-0 top-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm overflow-y-auto bg-[#0B1F3A] shadow-2xl"
        aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
     <div class="flex h-16 items-center justify-between border-b border-white/10 px-4">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center" aria-label="Proudlywear">
-            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('Proudlywear', 'dawp'); ?>" class="h-10 w-auto">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center" aria-label="<?php esc_attr_e('GraphicTShirtStore', 'dawp'); ?>">
+            <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('GraphicTShirtStore', 'dawp'); ?>" class="h-11 w-auto">
         </a>
 
         <button id="drawer-close"
@@ -554,7 +554,7 @@ $logo_url      = get_template_directory_uri() . '/assets/img/Image New/Image ran
     </nav>
 
     <div class="border-t border-white/10 px-5 py-5">
-        <a href="<?php echo esc_url(home_url('/product-category/custom-military-gifts/')); ?>" class="flex min-h-[46px] items-center justify-center rounded-xl bg-[#B31942] px-4 text-sm font-black uppercase tracking-[0.08em] text-white">
+        <a href="<?php echo esc_url(home_url('/product-category/veteran-tribute/')); ?>" class="flex min-h-[46px] items-center justify-center rounded-xl bg-[#B31942] px-4 text-sm font-black uppercase tracking-[0.08em] text-white">
             <?php esc_html_e('Customize A Gift', 'dawp'); ?>
         </a>
     </div>

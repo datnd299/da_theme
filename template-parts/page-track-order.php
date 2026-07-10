@@ -13,7 +13,7 @@
                 <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
                 <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Enter your order number and billing email to check the latest Proudlywear production and delivery status.', 'dawp'); ?>
+                    <?php esc_html_e('Enter your order number and billing email to check the latest GraphicTShirtStore production and delivery status.', 'dawp'); ?>
                 </p>
             </div>
 
@@ -69,7 +69,7 @@
                             <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
                             <p class="track-help-box__text">
                                 <?php esc_html_e('If the status looks delayed, email ', 'dawp'); ?>
-                                <a href="mailto:support@proudlywear.com">support@proudlywear.com</a>
+                                <a href="mailto:support@graphictshirtstore.com">support@graphictshirtstore.com</a>
                                 <?php esc_html_e(' with your order number so our team can investigate quickly.', 'dawp'); ?>
                             </p>
                         </div>
@@ -102,7 +102,7 @@
             <div class="track-more-section__header">
                 <span><?php esc_html_e('Support Center', 'dawp'); ?></span>
                 <h2 class="track-more-section__title"><?php esc_html_e('More Ways We Can Help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth Proudlywear experience.', 'dawp'); ?></p>
+                <p class="track-more-section__subtitle"><?php esc_html_e('Everything you need for a smooth GraphicTShirtStore experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">

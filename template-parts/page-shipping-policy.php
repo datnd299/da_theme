@@ -2,11 +2,11 @@
 /**
  * Template Part: page-shipping-policy
  *
- * Shipping policy content adapted for Proudlywear.
+ * Shipping policy content adapted for GraphicTShirtStore.
  */
 
-$store_name     = 'Proudlywear';
-$support_email  = 'support@proudlywear.com';
+$store_name     = 'GraphicTShirtStore';
+$support_email  = 'support@graphictshirtstore.com';
 $store_address  = dawp_get_woocommerce_store_address();
 $support_portal = home_url('/contact-us/');
 ?>
@@ -81,7 +81,7 @@ $support_portal = home_url('/contact-us/');
         <p class="sk-ship-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="sk-ship-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
         <p class="sk-ship-updated"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
-        <p class="sk-ship-copy"><?php esc_html_e('Proudlywear currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.', 'dawp'); ?></p>
+        <p class="sk-ship-copy"><?php esc_html_e('GraphicTShirtStore currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.', 'dawp'); ?></p>
         <div class="sk-ship-actions">
           <a class="sk-ship-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="sk-ship-button sk-ship-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
@@ -95,7 +95,7 @@ $support_portal = home_url('/contact-us/');
       <div class="sk-ship-policy-stack">
         <section id="shipping-locations" class="sk-ship-policy-card">
           <h2><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We currently ship exclusively within the United States. Proudlywear serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We currently ship exclusively within the United States. GraphicTShirtStore serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
           <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
           <div class="sk-ship-callout">
             <p><?php esc_html_e('Some patriotic apparel orders may ship separately if items are prepared from different fulfillment batches or require distinct packing methods to keep apparel, accessories, and custom gift items protected in transit.', 'dawp'); ?></p>
@@ -149,7 +149,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="tracking" class="sk-ship-policy-card">
           <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php esc_html_e('To guarantee safe and efficient delivery, Proudlywear partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
+          <p><?php esc_html_e('To guarantee safe and efficient delivery, GraphicTShirtStore partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
           <ul class="sk-ship-carrier-list">
             <li><?php esc_html_e('USPS', 'dawp'); ?></li>
             <li><?php esc_html_e('UPS', 'dawp'); ?></li>
@@ -167,7 +167,7 @@ $support_portal = home_url('/contact-us/');
           <p><?php esc_html_e('Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp'); ?></p>
           <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
           <ul>
-            <li><?php esc_html_e('Your exact Order Number, such as #PW1001.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Your exact Order Number, such as #SK1001.', 'dawp'); ?></li>
             <li><?php esc_html_e('The specific Email Address utilized during checkout.', 'dawp'); ?></li>
             <li><?php esc_html_e('The full and complete Delivery Address.', 'dawp'); ?></li>
             <li><?php esc_html_e('Clear, well-lit photos if the package container or product arrived damaged.', 'dawp'); ?></li>

@@ -7,25 +7,33 @@ function dawp_product_category_definitions() {
             'name'        => __('Best Sellers', 'dawp'),
             'description' => __('Customer-favorite patriotic apparel and veteran-inspired gifts made to honor service, legacy, and American pride.', 'dawp'),
         ],
-        'veteran-polo-shirts' => [
-            'name'        => __('Veteran Polo Shirts', 'dawp'),
-            'description' => __('Custom veteran polo shirts made to carry name, service years, and earned pride.', 'dawp'),
+        'american-flag-tees' => [
+            'name'        => __('American Flag Tees', 'dawp'),
+            'description' => __('Graphic tees with bold American flag designs, distressed prints, and eagle graphics.', 'dawp'),
         ],
-        'veteran-hats' => [
-            'name'        => __('Veteran Hats', 'dawp'),
-            'description' => __('Patriotic caps and veteran-inspired designs made for everyday pride.', 'dawp'),
+        'veteran-tribute' => [
+            'name'        => __('Veteran Tribute', 'dawp'),
+            'description' => __('Veteran-inspired apparel that respectfully honors service, branch pride, and sacrifice.', 'dawp'),
         ],
-        'america-250-collection' => [
+        'bomber-jackets' => [
+            'name'        => __('Bomber Jackets', 'dawp'),
+            'description' => __('MA-1 style bomber jackets with flag patches and custom name options.', 'dawp'),
+        ],
+        'hats-beanies' => [
+            'name'        => __('Hats & Beanies', 'dawp'),
+            'description' => __('Snapbacks, dad hats, and beanies with patriotic patchwork.', 'dawp'),
+        ],
+        'premium-t-shirts' => [
+            'name'        => __('Premium T-Shirts', 'dawp'),
+            'description' => __('Heavy-weight cotton tees with vintage-style American pride prints.', 'dawp'),
+        ],
+        'patches-pins' => [
+            'name'        => __('Patches & Pins', 'dawp'),
+            'description' => __('Patriotic patches, pins, mugs, and daily carry gifts for American heritage.', 'dawp'),
+        ],
+        'america-250' => [
             'name'        => __('America 250 Collection', 'dawp'),
             'description' => __('Celebrate America\'s 250th Anniversary with patriotic apparel, accessories, and meaningful gifts.', 'dawp'),
-        ],
-        'custom-military-gifts' => [
-            'name'        => __('Custom Military Gifts', 'dawp'),
-            'description' => __('Personalized military-inspired gifts made to honor service, family legacy, and American pride.', 'dawp'),
-        ],
-        'patriotic-accessories' => [
-            'name'        => __('Patriotic Accessories', 'dawp'),
-            'description' => __('Everyday patriotic accessories made for proud Americans and military families.', 'dawp'),
         ],
         'fathers-day-gifts' => [
             'name'        => __('Father\'s Day Gifts', 'dawp'),

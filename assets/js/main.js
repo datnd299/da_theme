@@ -93,6 +93,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');
         if (!thumbsList || thumbsList.classList.contains('has-scroll-arrows')) return !!thumbsList;
+        if (thumbsList.closest('.gallery-thumbs-wrapper')) {
+            thumbsList.classList.add('has-scroll-arrows');
+            return true;
+        }
         
         // Ensure there are enough thumbnails to warrant scrolling
         if (thumbsList.scrollWidth <= thumbsList.clientWidth) return true;
@@ -106,11 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
         wrapper.appendChild(thumbsList);
         
         const prevBtn = document.createElement('button');
+        prevBtn.type = 'button';
         prevBtn.className = 'gallery-thumbs-btn prev';
         prevBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
         prevBtn.setAttribute('aria-label', 'Scroll Left');
         
         const nextBtn = document.createElement('button');
+        nextBtn.type = 'button';
         nextBtn.className = 'gallery-thumbs-btn next';
         nextBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
         nextBtn.setAttribute('aria-label', 'Scroll Right');

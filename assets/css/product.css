@@ -207,7 +207,7 @@ body.single-product {
 .flex-control-thumbs {
   display: flex;
   gap: 8px;
-  margin: 12px 12px 12px;
+  margin: 0;
   padding: 0;
   list-style: none;
   overflow-x: auto;
@@ -215,6 +215,8 @@ body.single-product {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   scroll-behavior: smooth;
+  width: 100%;
+  min-width: 0;
 }
 
 .flex-control-thumbs::-webkit-scrollbar {
@@ -239,6 +241,78 @@ body.single-product {
 .flex-control-thumbs img.flex-active,
 .flex-control-thumbs img:hover {
   border-color: var(--color-accent);
+}
+
+.gallery-thumbs-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 12px;
+  max-width: calc(100% - 24px);
+  overflow: hidden;
+}
+
+.gallery-thumbs-wrapper .flex-control-thumbs.has-scroll-arrows {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.gallery-thumbs-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 44px;
+  min-width: 32px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  box-shadow: 0 8px 18px rgba(47, 42, 40, 0.10);
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.gallery-thumbs-btn.prev {
+  left: 0;
+}
+
+.gallery-thumbs-btn.next {
+  right: 0;
+}
+
+.gallery-thumbs-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+}
+
+.gallery-thumbs-btn:hover,
+.gallery-thumbs-btn:focus-visible {
+  background: var(--color-bg-subtle);
+  color: var(--color-accent-hover);
+}
+
+.gallery-thumbs-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-ring);
+}
+
+@media (max-width: 479px) {
+  .gallery-thumbs-wrapper .flex-control-thumbs.has-scroll-arrows {
+    padding: 0 34px;
+  }
+
+  .gallery-thumbs-btn {
+    width: 28px;
+    min-width: 28px;
+  }
 }
 
 /* === 3. SUMMARY === */

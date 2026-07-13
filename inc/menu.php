@@ -94,7 +94,6 @@ function dawp_footer_columns() {
                 ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
                 ['title' => __('Shop By Theme', 'dawp'), 'url' => home_url('/shop-by-theme/')],
                 ['title' => __('Best Sellers', 'dawp'), 'url' => home_url('/best-sellers/')],
-                ['title' => __('America 250 Collection', 'dawp'), 'url' => home_url('/product-category/america-250/')],
             ],
         ],
         [

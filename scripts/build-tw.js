@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 const builds = [
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-ship.css', content: './template-parts/page-shipping-policy.php,./template-parts/page-refund-return-policy.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-home.css', content: './template-parts/page-home.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-shop-by-theme.css', content: './template-parts/page-shop-by-theme.php' },
+  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-shop-by-categories.css', content: './template-parts/page-shop-by-categories.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-terms.css', content: './template-parts/page-terms-conditions.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-about.css', content: './template-parts/page-about.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-404.css', content: './404.php' },

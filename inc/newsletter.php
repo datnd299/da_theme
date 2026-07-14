@@ -47,10 +47,12 @@ function dawp_contact_submit() {
     $admin_email = get_option('admin_email');
 
     $subject_labels = [
-        'general' => 'General Inquiry',
-        'order'   => 'Order Status',
-        'styling' => 'Styling Help',
-        'return'  => 'Returns & Refunds',
+        'general'  => 'General Inquiry',
+        'order'    => 'Order Support',
+        'product'  => 'Product Question',
+        'shipping' => 'Shipping Question',
+        'return'   => 'Returns & Refunds',
+        'other'    => 'Other',
     ];
     $subject_label = $subject_labels[$subject] ?? 'General Inquiry';
 

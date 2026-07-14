@@ -1,211 +1,191 @@
 <?php
 /**
- * Template Part: page-shipping-policy
- *
- * Shipping policy content adapted for GraphicTShirtStore.
+ * Shipping Policy - ShopGraphicshirt
+ * Style aligned with homepage. Content preserved from original.
  */
-
-$store_name     = 'GraphicTShirtStore';
-$support_email  = 'support@graphictshirtstore.com';
-$store_address  = dawp_get_woocommerce_store_address();
-$support_portal = home_url('/contact-us/');
-?>
-
+get_header(); ?>
+<section class="sgs-home sgs-page">
 <style>
-  .sk-ship-page { --sk-cream:#F7F2E8; --sk-surface:#F3F4F6; --sk-rose:#B31942; --sk-rose-dark:#921233; --sk-beige:#C6A15B; --sk-blush:#153866; --sk-ink:#111827; --sk-muted:#6B7280; --sk-soft:#8A94A6; --sk-border:#E5E7EB; background:linear-gradient(180deg,#fff 0%,var(--sk-cream) 18%,#fff 100%); color:var(--sk-muted); font-family:"Lato","Inter",system-ui,sans-serif; }
-  .sk-ship-page * { box-sizing:border-box; }
-  .sk-ship-page a { color:inherit; text-decoration:none; }
-  .sk-ship-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
-  .sk-ship-section { padding:68px 0; }
-  .sk-ship-eyebrow { margin:0 0 12px; color:var(--sk-rose); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
-  .sk-ship-title { margin:0; color:var(--sk-ink); font-family:"Lato","Inter",system-ui,sans-serif; font-size:clamp(36px,5vw,64px); font-weight:800; line-height:1.04; letter-spacing:0; }
-  .sk-ship-updated { margin:16px 0 0; color:var(--sk-ink); font-size:14px; font-weight:800; line-height:1.4; }
-  .sk-ship-copy { margin:18px 0 0; max-width:780px; color:var(--sk-muted); font-size:17px; line-height:1.75; }
-  .sk-ship-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--sk-rose); border-radius:999px; background:var(--sk-rose); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
-  .sk-ship-button:hover { border-color:var(--sk-rose-dark); background:var(--sk-rose-dark); color:#fff !important; }
-  .sk-ship-button--secondary { border-color:var(--sk-ink); background:#fff; color:var(--sk-ink) !important; }
-  .sk-ship-button--secondary:hover { border-color:var(--sk-rose); background:var(--sk-cream); color:var(--sk-rose) !important; }
-  .sk-ship-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .sk-ship-hero { position:relative; overflow:hidden; border-bottom:1px solid rgba(198,161,91,.28); background:linear-gradient(135deg,rgba(11,31,58,.98),rgba(21,56,102,.94) 48%,rgba(179,25,66,.88)),#0B1F3A; }
-  .sk-ship-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(198,161,91,.2); filter:blur(10px); }
-  .sk-ship-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(198,161,91,.24); border-radius:999px; background:rgba(255,255,255,.08); }
-  .sk-ship-hero .sk-ship-title, .sk-ship-hero .sk-ship-updated { color:#fff; }
-  .sk-ship-hero .sk-ship-copy { color:rgba(255,255,255,.8); }
-  .sk-ship-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:44px; align-items:center; justify-items:center; padding:78px 0 84px; text-align:center; }
-  .sk-ship-hero__content { max-width:760px; margin-inline:auto; }
-  .sk-ship-hero .sk-ship-copy { max-width:690px; margin-inline:auto; }
-  .sk-ship-hero .sk-ship-actions { justify-content:center; }
-  .sk-ship-policy-card, .sk-ship-contact-card { border:1px solid rgba(229,231,235,.92); border-radius:20px; background:rgba(255,255,255,.94); box-shadow:0 12px 34px rgba(11,31,58,.08); }
-  .sk-ship-soft { background:var(--sk-cream); }
-  .sk-ship-content-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
-  .sk-ship-policy-stack { display:grid; gap:20px; }
-  .sk-ship-policy-card { padding:clamp(24px,4vw,38px); background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(247,242,232,.5)),#fff; }
-  .sk-ship-policy-card:nth-child(even) { background:linear-gradient(180deg,rgba(247,242,232,.7),rgba(255,255,255,.96)),#fff; }
-  .sk-ship-policy-card h2 { position:relative; margin:0; padding-bottom:18px; color:var(--sk-ink); font-family:"Lato","Inter",system-ui,sans-serif; font-size:clamp(25px,3vw,38px); font-weight:800; line-height:1.12; letter-spacing:0; }
-  .sk-ship-policy-card h2::after { content:""; position:absolute; bottom:0; left:0; width:54px; height:3px; border-radius:999px; background:var(--sk-rose); }
-  .sk-ship-policy-card h3 { margin:24px 0 0; color:var(--sk-ink); font-size:18px; line-height:1.35; }
-  .sk-ship-policy-card p, .sk-ship-policy-card li { color:var(--sk-muted); font-size:15px; line-height:1.72; }
-  .sk-ship-policy-card p { margin:14px 0 0; }
-  .sk-ship-policy-card ul, .sk-ship-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
-  .sk-ship-policy-card ul { list-style:disc outside; }
-  .sk-ship-policy-card ol { list-style:decimal outside; }
-  .sk-ship-callout { border-left:4px solid var(--sk-rose); border-radius:0 16px 16px 0; background:#FFF8E8; padding:15px 18px; }
-  .sk-ship-split-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px; }
-  .sk-ship-info-panel { border:1px solid rgba(229,231,235,.95); border-radius:16px; background:rgba(255,255,255,.72); padding:18px; }
-  .sk-ship-info-panel--soft { background:rgba(247,242,232,.78); }
-  .sk-ship-info-panel h3 { margin:0; }
-  .sk-ship-timeline-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:20px; }
-  .sk-ship-timeline-item { border:1px solid rgba(229,231,235,.95); border-radius:16px; background:rgba(255,255,255,.72); padding:18px; }
-  .sk-ship-timeline-item strong { display:block; color:var(--sk-ink); font-size:14px; line-height:1.35; }
-  .sk-ship-timeline-item span { display:block; margin-top:8px; color:var(--sk-muted); font-size:14px; line-height:1.55; }
-  .sk-ship-policy-card .sk-ship-carrier-list { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0; padding:0; list-style:none; }
-  .sk-ship-policy-card .sk-ship-carrier-list li { display:inline-flex; width:auto; min-width:72px; align-items:center; justify-content:center; border:1px solid rgba(179,25,66,.34); border-radius:999px; background:#fff; padding:9px 16px; color:var(--sk-ink); font-size:13px; font-weight:800; line-height:1.2; }
-  .sk-ship-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
-  .sk-ship-contact-item { border:1px solid rgba(229,231,235,.95); border-radius:14px; background:rgba(255,255,255,.72); padding:16px; }
-  .sk-ship-contact-item strong { display:block; color:var(--sk-ink); font-size:14px; }
-  .sk-ship-contact-item span { display:block; margin-top:7px; color:var(--sk-muted); font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
-  @media (max-width:920px) { .sk-ship-content-grid, .sk-ship-split-grid, .sk-ship-timeline-grid { grid-template-columns:1fr; } }
-  @media (max-width:680px) {
-    .sk-ship-section { padding:44px 0; }
-    .sk-ship-hero__grid { gap:28px; padding:46px 0 50px; }
-    .sk-ship-contact-card { grid-template-columns:1fr; }
-    .sk-ship-actions { flex-direction:column; }
-    .sk-ship-button { width:100%; }
-  }
+.sgs-sp-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/hero/tracking-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
+.sgs-sp-hero__inner{max-width:680px;margin:0 auto}
+.sgs-sp-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
+.sgs-sp-hero p{max-width:580px;margin:18px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
+.sgs-sp-section{width:min(100% - 48px,1200px);margin:0 auto;padding:var(--section-gap,72px) 0}
+.sgs-sp-section--surface{width:100%;max-width:none;padding-inline:clamp(24px,4vw,64px);background:var(--antique)}
+.sgs-sp-timeline{margin-bottom:28px}
+.sgs-sp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sgs-sp-card{padding:24px 20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);text-align:center;transition:box-shadow 180ms,transform 180ms}
+.sgs-sp-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
+.sgs-sp-card h3{margin:0 0 8px;font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.2}
+.sgs-sp-card p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
+.sgs-sp-panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:clamp(24px,3vw,36px);margin-bottom:16px;transition:box-shadow 180ms}
+.sgs-sp-panel:hover{box-shadow:var(--shadow-sm)}
+.sgs-sp-panel--soft{background:#fafafa}
+.sgs-sp-panel h2{margin:0 0 12px;font-family:var(--font-heading);font-size:clamp(1.2rem,2vw,1.5rem);font-weight:700;color:var(--ink);line-height:1.1}
+.sgs-sp-panel p{margin:12px 0 0;color:var(--muted);font-size:.92rem;line-height:1.7}
+.sgs-sp-panel p:first-of-type{margin-top:0}
+.sgs-sp-panel strong{color:var(--ink)}
+.sgs-sp-note{margin-top:16px;border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;background:#fff7e8;padding:18px 20px;color:var(--muted);font-size:.9rem;line-height:1.65}
+.sgs-sp-pills{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.sgs-sp-pill{display:inline-flex;min-width:60px;min-height:34px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:var(--white);color:var(--ink);font-size:.8rem;font-weight:700}
+.sgs-sp-costs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
+.sgs-sp-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.sgs-sp-contact-actions{align-items:center;gap:10px;margin-top:22px}
+.sgs-sp-contact-actions .sgs-btn,.sgs-sp-mail{display:inline-flex;min-height:42px;align-items:center;justify-content:center;border-radius:6px;padding:10px 16px;font-family:var(--font-heading);font-size:.82rem;font-weight:700;line-height:1.2;text-decoration:none;box-shadow:none;transition:background 180ms,border-color 180ms,color 180ms}
+.sgs-sp-contact-actions .sgs-btn:hover{box-shadow:none}
+.sgs-sp-mail{border:1px solid var(--line);background:var(--white);color:var(--ink)}
+.sgs-sp-mail:hover{border-color:var(--red);color:var(--red)}
+.sgs-sp-list{margin:14px 0 0;padding-left:20px;color:var(--muted);font-size:.92rem;line-height:1.75}
+.sgs-sp-list li{margin:6px 0}
+.sgs-sp-link{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+.sgs-sp-slider__controls{display:none}
+.sgs-sp-support{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:20px;margin-top:16px}
+.sgs-sp-support__item{text-align:center;padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sgs-sp-support__item:nth-child(3n){border-right:0}
+.sgs-sp-support__item:nth-last-child(-n+3){border-bottom:0}
+.sgs-sp-support__item strong{display:block;margin-bottom:4px;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--ink)}
+.sgs-sp-support__item span,.sgs-sp-support__item a{color:var(--muted);font-size:.85rem}
+.sgs-sp-support__item a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+@media(max-width:960px){.sgs-sp-grid{grid-template-columns:repeat(2,1fr)}.sgs-sp-support{grid-template-columns:repeat(2,1fr)}.sgs-sp-support__item:nth-child(3n){border-right:1px solid var(--line)}.sgs-sp-support__item:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.sgs-sp-support__item:nth-child(2n){border-right:0}.sgs-sp-support__item:nth-last-child(-n+2){border-bottom:0}}
+@media(max-width:700px){.sgs-sp-section{width:100%;padding:52px 0}.sgs-sp-timeline{margin-bottom:28px}.sgs-sp-grid{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;padding:0 24px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.sgs-sp-grid::-webkit-scrollbar{display:none}.sgs-sp-grid .sgs-sp-card{flex:0 0 min(82vw,360px);min-height:136px;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:center}.sgs-sp-grid .sgs-sp-card:hover{box-shadow:none;transform:none}.sgs-sp-slider__controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px}.sgs-sp-slider__arrow{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--ink);font-family:var(--font-heading);font-size:1.35rem;line-height:1;box-shadow:0 8px 18px rgba(11,31,58,.08);transition:background 180ms,border-color 180ms,color 180ms,opacity 180ms}.sgs-sp-slider__arrow:disabled{opacity:.38;cursor:default}.sgs-sp-slider__arrow:not(:disabled):hover{border-color:var(--red);background:var(--red);color:var(--white)}.sgs-sp-slider__dots{display:flex;align-items:center;gap:7px}.sgs-sp-slider__dot{width:7px;height:7px;border:0;border-radius:999px;background:rgba(11,31,58,.22);padding:0;transition:width 180ms,background 180ms}.sgs-sp-slider__dot[data-active="true"]{width:22px;background:var(--red)}.sgs-sp-panel{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-sp-costs{grid-template-columns:1fr}.sgs-sp-support{grid-template-columns:1fr}.sgs-sp-support__item{border-right:0}.sgs-sp-support__item:nth-child(2n){border-right:0}.sgs-sp-support__item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.sgs-sp-support__item:last-child{border-bottom:0}.sgs-sp-actions .sgs-btn{width:100%}.sgs-sp-contact-actions{gap:10px}.sgs-sp-contact-actions .sgs-btn,.sgs-sp-mail{width:100%;justify-content:center}.sgs-sp-mail{justify-content:flex-start}}
 </style>
 
-<div class="sk-ship-page">
-  <section class="sk-ship-hero">
-    <div class="sk-ship-wrap sk-ship-hero__grid">
-      <div class="sk-ship-hero__content">
-        <p class="sk-ship-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
-        <h1 class="sk-ship-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
-        <p class="sk-ship-updated"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
-        <p class="sk-ship-copy"><?php esc_html_e('GraphicTShirtStore currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.', 'dawp'); ?></p>
-        <div class="sk-ship-actions">
-          <a class="sk-ship-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
-          <a class="sk-ship-button sk-ship-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sk-ship-section sk-ship-soft">
-    <div class="sk-ship-wrap sk-ship-content-grid">
-      <div class="sk-ship-policy-stack">
-        <section id="shipping-locations" class="sk-ship-policy-card">
-          <h2><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We currently ship exclusively within the United States. GraphicTShirtStore serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
-          <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
-          <div class="sk-ship-callout">
-            <p><?php esc_html_e('Some patriotic apparel orders may ship separately if items are prepared from different fulfillment batches or require distinct packing methods to keep apparel, accessories, and custom gift items protected in transit.', 'dawp'); ?></p>
-          </div>
-        </section>
-
-        <section id="shipping-fees" class="sk-ship-policy-card">
-          <h2><?php esc_html_e('Shipping Fees & Costs', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We believe in full transparency with no hidden fees at checkout. Our shipping costs are structured as follows:', 'dawp'); ?></p>
-          <div class="sk-ship-split-grid">
-            <div class="sk-ship-info-panel">
-              <h3><?php esc_html_e('Standard U.S. Shipping', 'dawp'); ?></h3>
-              <p><?php esc_html_e('Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.', 'dawp'); ?></p>
-            </div>
-            <div class="sk-ship-info-panel sk-ship-info-panel--soft">
-              <h3><?php esc_html_e('Optional Upgraded Shipping', 'dawp'); ?></h3>
-              <p><?php esc_html_e('If expedited or assisted shipping services are available for your destination, the exact cost will be displayed clearly on the checkout page before you complete your payment.', 'dawp'); ?></p>
-            </div>
-          </div>
-        </section>
-
-        <section id="delivery-times" class="sk-ship-policy-card">
-          <h2><?php esc_html_e('Order Processing & Delivery Times', 'dawp'); ?></h2>
-          <p><?php esc_html_e('All shipping and handling timelines are calculated in business days, Monday through Friday, excluding standard U.S. public holidays.', 'dawp'); ?></p>
-          <div class="sk-ship-timeline-grid">
-            <div class="sk-ship-timeline-item">
-              <strong><?php esc_html_e('Order Cutoff Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('5:00 PM (GMT-08:00) Pacific Standard Time.', 'dawp'); ?></span>
-            </div>
-            <div class="sk-ship-timeline-item">
-              <strong><?php esc_html_e('Order Handling Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('1-3 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></span>
-            </div>
-            <div class="sk-ship-timeline-item">
-              <strong><?php esc_html_e('Transit Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('5-7 business days, Monday to Friday.', 'dawp'); ?></span>
-            </div>
-            <div class="sk-ship-timeline-item">
-              <strong><?php esc_html_e('Estimated Delivery Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('6-10 business days total from the date of purchase.', 'dawp'); ?></span>
-            </div>
-          </div>
-          <p><?php esc_html_e('Delivery estimates are carefully calculated windows reflecting our standard delivery benchmarks. While we and our courier partners work diligently to meet these timelines, unexpected delays due to extreme weather, carrier capacity issues, or regional holidays may occasionally occur.', 'dawp'); ?></p>
-        </section>
-
-        <section id="multi-item-orders" class="sk-ship-policy-card">
-          <h2><?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?></h2>
-          <p><?php esc_html_e('If your purchase includes multiple patriotic apparel, hats, accessories, custom gifts, or veteran-inspired collection items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
-          <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain high-demand seasonal pieces, custom sets, or carefully packed products may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
-        </section>
-
-        <section id="tracking" class="sk-ship-policy-card">
-          <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php esc_html_e('To guarantee safe and efficient delivery, GraphicTShirtStore partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
-          <ul class="sk-ship-carrier-list">
-            <li><?php esc_html_e('USPS', 'dawp'); ?></li>
-            <li><?php esc_html_e('UPS', 'dawp'); ?></li>
-            <li><?php esc_html_e('FedEx', 'dawp'); ?></li>
-            <li><?php esc_html_e('DHL', 'dawp'); ?></li>
-          </ul>
-          <p><?php esc_html_e('The final carrier service is dynamically selected when your package is securely labeled and prepared at our fulfillment center. Once your order is dispatched, an automated shipping confirmation email containing a direct tracking link and courier details will be sent to your registered email address.', 'dawp'); ?></p>
-          <div class="sk-ship-actions">
-            <a class="sk-ship-button sk-ship-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
-          </div>
-        </section>
-
-        <section id="delivery-issues" class="sk-ship-policy-card">
-          <h2><?php esc_html_e('Resolving Delivery Issues & Damaged Shipments', 'dawp'); ?></h2>
-          <p><?php esc_html_e('Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp'); ?></p>
-          <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
-          <ul>
-            <li><?php esc_html_e('Your exact Order Number, such as #SK1001.', 'dawp'); ?></li>
-            <li><?php esc_html_e('The specific Email Address utilized during checkout.', 'dawp'); ?></li>
-            <li><?php esc_html_e('The full and complete Delivery Address.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Clear, well-lit photos if the package container or product arrived damaged.', 'dawp'); ?></li>
-          </ul>
-          <div class="sk-ship-actions">
-            <a class="sk-ship-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
-            <a class="sk-ship-button sk-ship-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-          </div>
-        </section>
-
-        <section id="contact-info" class="sk-ship-policy-card">
-          <h2><?php esc_html_e('Customer Support Contact Information', 'dawp'); ?></h2>
-          <p><?php esc_html_e('For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We respond to all inquiries within 24 business hours.', 'dawp'); ?></p>
-          <div class="sk-ship-contact-card">
-            <div class="sk-ship-contact-item">
-              <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>
-              <span><?php echo esc_html($store_name); ?></span>
-            </div>
-            <div class="sk-ship-contact-item">
-              <strong><?php esc_html_e('Customer Support Email', 'dawp'); ?></strong>
-              <span><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></span>
-            </div>
-            <div class="sk-ship-contact-item">
-              <strong><?php esc_html_e('Address', 'dawp'); ?></strong>
-              <span><?php echo esc_html($store_address); ?></span>
-            </div>
-            <div class="sk-ship-contact-item">
-              <strong><?php esc_html_e('Support Availability', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Monday-Friday, 10:00 AM-6:00 PM PST', 'dawp'); ?></span>
-            </div>
-            <div class="sk-ship-contact-item">
-              <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Within 24 business hours.', 'dawp'); ?></span>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  </section>
+<div class="sgs-sp-hero">
+  <div class="sgs-sp-hero__inner">
+    <p class="sgs-eyebrow sgs-eyebrow--light">Shipping Policy</p>
+    <h1>Shipping Policy</h1>
+    <p class="sgs-sp-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 2026</p>
+    <p>Clear, transparent shipping information for every order — no hidden fees, no surprises.</p>
+  </div>
 </div>
 
+<div class="sgs-sp-section">
+  <div class="sgs-sp-timeline" data-shipping-slider>
+  <div class="sgs-sp-grid" data-shipping-track>
+    <div class="sgs-sp-card" data-shipping-slide>
+      <h3>Order Cutoff Time</h3>
+      <p>5:00 PM (GMT-08:00) Pacific Standard Time.</p>
+    </div>
+    <div class="sgs-sp-card" data-shipping-slide>
+      <h3>Order Handling Time</h3>
+      <p>1-3 business days. Orders placed after cutoff begin processing the following business day.</p>
+    </div>
+    <div class="sgs-sp-card" data-shipping-slide>
+      <h3>Transit Time</h3>
+      <p>5-7 business days, Monday to Friday.</p>
+    </div>
+    <div class="sgs-sp-card" data-shipping-slide>
+      <h3>Estimated Delivery Time</h3>
+      <p>6-10 business days total from the date of purchase.</p>
+    </div>
+  </div>
+  <div class="sgs-sp-slider__controls" aria-label="Shipping timeline slider controls">
+    <button class="sgs-sp-slider__arrow" type="button" data-shipping-prev aria-label="Previous shipping timeline item">&lsaquo;</button>
+    <div class="sgs-sp-slider__dots" aria-label="Shipping timeline slides">
+      <?php for ($i = 0; $i < 4; $i++) : ?>
+        <button class="sgs-sp-slider__dot" type="button" data-shipping-dot aria-label="<?php echo esc_attr(sprintf('Go to shipping timeline item %d', $i + 1)); ?>"></button>
+      <?php endfor; ?>
+    </div>
+    <button class="sgs-sp-slider__arrow" type="button" data-shipping-next aria-label="Next shipping timeline item">&rsaquo;</button>
+  </div>
+  </div>
+
+  <article class="sgs-sp-panel">
+    <h2>Order Processing &amp; Delivery Times</h2>
+    <p>All shipping and handling timelines are calculated in business days, Monday through Friday, excluding standard U.S. public holidays.</p>
+    <p>Delivery estimates are carefully calculated windows reflecting our standard delivery benchmarks. While we and our courier partners work diligently to meet these timelines, unexpected delays due to extreme weather, carrier capacity issues, or regional holidays may occasionally occur.</p>
+  </article>
+
+  <article class="sgs-sp-panel sgs-sp-panel--soft">
+    <h2>Multi-Item Orders &amp; Specialized Handling</h2>
+    <p>If your purchase includes multiple shirts, jackets, hats, accessories, personalized apparel, or diverse custom gift items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.</p>
+    <p>You will receive unique tracking numbers for each package. Certain personalized, high-demand, or made-to-order apparel items may require extra preparation time due to careful print checks, address reviews, holiday volume spikes, or safe-handling protocols.</p>
+  </article>
+
+  <article class="sgs-sp-panel">
+    <h2>Shipping Locations &amp; Market</h2>
+    <p>We currently ship exclusively within the <strong>United States</strong>. ShopGraphicshirt serves customers shopping from the United States domestic market.</p>
+    <p>If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.</p>
+    <div class="sgs-sp-note">Some apparel and custom gift orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.</div>
+  </article>
+
+  <article class="sgs-sp-panel sgs-sp-panel--soft">
+    <h2>Shipping Fees &amp; Costs</h2>
+    <p>We believe in full transparency with no hidden fees at checkout. Our shipping costs are structured as follows:</p>
+    <div class="sgs-sp-costs">
+      <div class="sgs-sp-card">
+        <h3>Standard U.S. Shipping</h3>
+        <p>Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.</p>
+      </div>
+      <div class="sgs-sp-card">
+        <h3>Optional Upgraded Shipping</h3>
+        <p>If expedited or assisted shipping services are available for your destination, the exact cost will be displayed clearly on the checkout page before you complete your payment.</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="sgs-sp-panel">
+    <h2>Carrier Services &amp; Delivery Tracking</h2>
+    <p>To guarantee safe and efficient delivery, ShopGraphicshirt partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.</p>
+    <div class="sgs-sp-pills">
+      <span class="sgs-sp-pill">USPS</span>
+      <span class="sgs-sp-pill">UPS</span>
+      <span class="sgs-sp-pill">FedEx</span>
+      <span class="sgs-sp-pill">DHL</span>
+    </div>
+    <p>The final carrier service is dynamically selected when your package is securely labeled and prepared at our fulfillment center. Once your order is dispatched, an automated shipping confirmation email containing a direct tracking link and courier details will be sent to your registered email address.</p>
+    <div class="sgs-sp-actions">
+      <a class="sgs-btn sgs-btn--primary" href="/track-order/">Track Order</a>
+    </div>
+  </article>
+
+  <article class="sgs-sp-panel sgs-sp-panel--soft">
+    <h2>Resolving Delivery Issues &amp; Damaged Shipments</h2>
+    <p>Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.</p>
+    <p>To help us investigate and resolve the issue with the carrier swiftly, please provide:</p>
+    <ul class="sgs-sp-list">
+      <li>Your exact Order Number, such as #SGS1001.</li>
+      <li>The specific Email Address utilized during checkout.</li>
+      <li>The full and complete Delivery Address.</li>
+      <li>Clear, well-lit photos if the package container or apparel item arrived damaged.</li>
+    </ul>
+    <div class="sgs-sp-actions sgs-sp-contact-actions">
+      <a class="sgs-btn sgs-btn--primary" href="/contact-us/">Contact Support</a>
+      <a class="sgs-sp-mail" href="mailto:support@shopgraphicshirt.com">Email Support</a>
+    </div>
+  </article>
+
+  <article class="sgs-sp-panel">
+    <h2>Customer Support Contact Information</h2>
+    <p>For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We respond to all inquiries within 24 business hours.</p>
+    <div class="sgs-sp-support">
+      <div class="sgs-sp-support__item">
+        <strong>Store Name</strong>
+        <span>ShopGraphicshirt</span>
+      </div>
+      <div class="sgs-sp-support__item">
+        <strong>Customer Support Email</strong>
+        <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>
+      </div>
+      <div class="sgs-sp-support__item">
+        <strong>Address</strong>
+        <span>United States</span>
+      </div>
+      <div class="sgs-sp-support__item">
+        <strong>Response Time</strong>
+        <span>Within 24 business hours.</span>
+      </div>
+      <div class="sgs-sp-support__item">
+        <strong>Customer Service Hours</strong>
+        <span>Monday - Friday, 10:00 AM - 6:00 PM PST.</span>
+      </div>
+      <div class="sgs-sp-support__item">
+        <strong>Return Address</strong>
+        <span>Provided with return authorization.</span>
+      </div>
+    </div>
+  </article>
+</div>
+
+</section>
+<?php get_footer(); ?>

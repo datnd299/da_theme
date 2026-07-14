@@ -1,239 +1,83 @@
 <?php
 /**
- * Template Part: Contact Us
+ * Contact Us — ShopGraphicshirt
  */
+get_header(); ?>
+<section class="sgs-home sgs-page">
 
-defined('ABSPATH') || exit;
+<style>
+.sgs-contact-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.86) 46%,rgba(11,31,58,.62) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/hero/support-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(72px,9vw,120px) clamp(24px,4vw,64px);text-align:center}
+.sgs-contact-hero__inner{max-width:680px;margin:0 auto}
+.sgs-contact-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
+.sgs-contact-hero p{max-width:580px;margin:18px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
+.sgs-contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start;width:min(100% - 48px,1200px);margin:0 auto;padding:var(--section-gap,72px) 0}
+.sgs-contact-form h2{margin:0 0 24px;font-family:var(--font-heading);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--ink)}
+.sgs-cf{display:grid;gap:16px}
+.sgs-cf__row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sgs-cf label span{display:block;margin-bottom:6px;color:var(--muted);font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sgs-cf input,.sgs-cf select,.sgs-cf textarea{width:100%;min-height:46px;padding:0 14px;border:1.5px solid var(--line);border-radius:var(--radius);background:#fafafa;color:var(--ink);outline:none;font-size:.88rem;font-weight:500;font-family:var(--font-body);box-sizing:border-box}
+.sgs-cf textarea{padding:12px 14px;min-height:130px;resize:vertical;line-height:1.6}
+.sgs-cf input:focus,.sgs-cf select:focus,.sgs-cf textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(179,25,66,.12)}
+.sgs-cf__actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:4px}
+.sgs-cf__submit{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:auto;min-width:190px;min-height:50px;padding:0 26px;border:0;border-radius:8px;background:var(--red);color:var(--white);box-shadow:0 10px 24px rgba(179,25,66,.18);font-family:var(--font-heading);font-size:.92rem;font-weight:800;line-height:1;text-transform:uppercase;letter-spacing:.02em;cursor:pointer;transition:background 180ms,box-shadow 180ms,transform 180ms}
+.sgs-cf__submit:hover{background:var(--red-dark);box-shadow:0 14px 30px rgba(179,25,66,.24);transform:translateY(-1px)}
+.sgs-cf__submit:focus-visible{outline:3px solid rgba(179,25,66,.25);outline-offset:3px}
+.sgs-cf__submit:disabled{cursor:not-allowed;opacity:.72;transform:none;box-shadow:none}
+.sgs-cf__submit-icon{font-size:1rem;line-height:1}
+.sgs-cf__msg{display:none;margin:0;font-size:.9rem;font-weight:700;line-height:1.5}
+.sgs-contact-info h2{margin:0 0 24px;font-family:var(--font-heading);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--ink)}
+.sgs-ci-card{display:flex;align-items:flex-start;gap:14px;padding:18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);margin-bottom:12px;transition:box-shadow 180ms,transform 180ms}
+.sgs-ci-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.sgs-ci-icon{display:grid;place-items:center;width:42px;height:42px;flex:0 0 auto;border-radius:var(--radius);background:var(--navy);color:var(--white);font-size:19px}
+.sgs-ci-card strong{display:block;color:var(--ink);font-family:var(--font-heading);font-size:.92rem;font-weight:700;line-height:1.25}
+.sgs-ci-card span,.sgs-ci-card a{display:block;margin-top:3px;color:var(--muted);font-size:.85rem;line-height:1.5}
+.sgs-ci-card a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+.sgs-ci-card a:hover{color:var(--red-dark)}
+@media(max-width:900px){.sgs-contact-grid{grid-template-columns:1fr}.sgs-cf__row{grid-template-columns:1fr}.sgs-cf__submit{width:100%}}
+</style>
 
-$store_name      = 'GraphicTShirtStore';
-$store_domain    = 'graphictshirtstore.com';
-$support_email   = 'support@graphictshirtstore.com';
-$store_address   = dawp_get_woocommerce_store_address();
-$support_hours   = 'Monday-Friday, 9:00 AM-5:00 PM PST';
-$track_order_url = home_url('/track-order/');
+<div class="sgs-contact-hero">
+  <div class="sgs-contact-hero__inner">
+    <p class="sgs-eyebrow sgs-eyebrow--light">Get In Touch</p>
+    <h1>We're Here To Help</h1>
+    <p>Have a question about your order, need help finding the right product, or just want to say hello? Our team is ready to assist you.</p>
+  </div>
+</div>
 
-$contact_cards = array(
-    array(
-        'label' => __('Email Support', 'dawp'),
-        'title' => $support_email,
-        'copy'  => __('Best for order questions, custom details, return requests, damaged items, and delivery issues.', 'dawp'),
-        'url'   => 'mailto:' . $support_email,
-        'abbr'  => 'EM',
-    ),
-    array(
-        'label' => __('Support Hours', 'dawp'),
-        'title' => $support_hours,
-        'copy'  => __('We aim to reply within 24 business hours. Weekend and holiday messages may take longer.', 'dawp'),
-        'url'   => '',
-        'abbr'  => 'HR',
-    ),
-    array(
-        'label' => __('Order Tracking', 'dawp'),
-        'title' => __('Track Your Order', 'dawp'),
-        'copy'  => __('Check the current shipment status before sending a support request.', 'dawp'),
-        'url'   => $track_order_url,
-        'abbr'  => 'TR',
-    ),
-);
-
-$help_topics = array(
-    array(__('Order Status', 'dawp'), __('Include your order number and checkout email so we can locate the purchase quickly.', 'dawp')),
-    array(__('Custom Details', 'dawp'), __('Send the name, rank, service years, branch, or design detail exactly as it should appear.', 'dawp')),
-    array(__('Returns & Refunds', 'dawp'), __('Tell us the item, reason for return, and include photos if the product arrived damaged or incorrect.', 'dawp')),
-    array(__('Delivery Issues', 'dawp'), __('Share the tracking number, full shipping address, and what the carrier status currently shows.', 'dawp')),
-);
-
-$self_service_links = array(
-    array(__('Track Order', 'dawp'), '/track-order/'),
-    array(__('Shipping Policy', 'dawp'), '/shipping-policy/'),
-    array(__('Return Policy', 'dawp'), '/return-refund-policy/'),
-    array(__('FAQ', 'dawp'), '/faq/'),
-);
-?>
-
-<main class="bg-[#FFFFFF] text-[#111827]">
-  <section class="relative overflow-hidden bg-[#0B1F3A] text-white">
-    <div class="absolute inset-0">
-      <?php echo dawp_theme_image(
-          'assets/img/home/gts-hero.png',
-          __('GraphicTShirtStore support for patriotic apparel orders', 'dawp'),
-          1920,
-          1080,
-          array(array(720, 405), array(1280, 720), array(1920, 1080)),
-          '100vw',
-          array('class' => 'h-full w-full object-cover opacity-35', 'loading' => 'eager')
-      ); ?>
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-br from-[#071A33]/95 via-[#071A33]/65 to-[#B31942]/90"></div>
-
-    <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 md:px-6 md:py-24 lg:grid-cols-2 lg:py-28">
-      <div>
-        <p class="inline-flex rounded-lg border border-[#C6A15B]/40 bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#C6A15B]">
-          <?php esc_html_e('Customer Support', 'dawp'); ?>
-        </p>
-        <h1 class="mt-5 max-w-3xl text-4xl font-black leading-none md:text-6xl lg:text-7xl">
-          <?php esc_html_e('We Are Here To Help.', 'dawp'); ?>
-        </h1>
-        <p class="mt-6 max-w-xl text-base leading-8 text-white/80 md:text-lg">
-          <?php echo esc_html(sprintf(__('Contact %1$s for order updates, custom gift details, shipping questions, returns, refunds, or product support at %2$s.', 'dawp'), $store_name, $store_domain)); ?>
-        </p>
-
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[#B31942] px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-[#921233]">
-            <?php esc_html_e('Email Support', 'dawp'); ?>
-          </a>
-          <a href="<?php echo esc_url($track_order_url); ?>" class="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-white/40 bg-white/10 px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-white hover:text-[#0B1F3A]">
-            <?php esc_html_e('Track Order', 'dawp'); ?>
-          </a>
-        </div>
+<div class="sgs-contact-grid">
+  <div class="sgs-contact-form">
+    <h2>Send Us A Message</h2>
+    <form id="contact-form" class="sgs-cf" method="post" novalidate>
+      <div class="sgs-cf__row">
+        <label><span>Your Name</span><input type="text" name="name" placeholder="John Doe" autocomplete="name" required></label>
+        <label><span>Email Address</span><input type="email" name="email" placeholder="john@example.com" autocomplete="email" required></label>
       </div>
-
-      <div class="rounded-lg border border-white/15 bg-white/10 p-5 shadow-2xl md:p-6">
-        <div class="rounded-lg bg-white p-5 text-[#111827] md:p-6">
-          <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Fastest Support', 'dawp'); ?></p>
-          <h2 class="mt-3 text-2xl font-extrabold md:text-3xl"><?php esc_html_e('Send the right details once.', 'dawp'); ?></h2>
-          <p class="mt-3 text-sm leading-6 text-[#6B7280]">
-            <?php esc_html_e('For the quickest reply, include your order number, checkout email, product name, and photos when relevant.', 'dawp'); ?>
-          </p>
-          <div class="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F2E8] p-4">
-              <strong class="block text-sm"><?php esc_html_e('Response Time', 'dawp'); ?></strong>
-              <span class="mt-1 block text-sm text-[#6B7280]"><?php esc_html_e('Within 24 business hours', 'dawp'); ?></span>
-            </div>
-            <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F2E8] p-4">
-              <strong class="block text-sm"><?php esc_html_e('Support Email', 'dawp'); ?></strong>
-              <span class="mt-1 block break-words text-sm text-[#6B7280]"><?php echo esc_html($support_email); ?></span>
-            </div>
-          </div>
-        </div>
+      <label><span>Subject</span>
+        <select name="subject">
+          <option value="general">General Inquiry</option>
+          <option value="order">Order Support</option>
+          <option value="product">Product Question</option>
+          <option value="shipping">Shipping Question</option>
+          <option value="return">Returns &amp; Refunds</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+      <label><span>Message</span><textarea name="message" rows="6" placeholder="How can we help you?" required></textarea></label>
+      <div class="sgs-cf__actions">
+        <button class="sgs-cf__submit" type="submit"><span>Send Message</span><span class="sgs-cf__submit-icon" aria-hidden="true">→</span></button>
+        <p id="contact-msg" class="sgs-cf__msg" role="status" aria-live="polite"></p>
       </div>
-    </div>
-  </section>
+    </form>
+  </div>
 
-  <section class="bg-[#F7F2E8] py-12 md:py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Contact Options', 'dawp'); ?></p>
-          <h2 class="mt-3 text-3xl font-extrabold text-[#111827] md:text-5xl"><?php esc_html_e('Choose the support path that fits.', 'dawp'); ?></h2>
-        </div>
-        <p class="max-w-xl text-sm leading-7 text-[#6B7280] md:text-base">
-          <?php esc_html_e('Most questions can be handled by email or the form below. Tracking and policy links are available for quick self-service.', 'dawp'); ?>
-        </p>
-      </div>
+  <div class="sgs-contact-info">
+    <h2>Contact Information</h2>
+    <div class="sgs-ci-card"><div class="sgs-ci-icon">📧</div><div><strong>Email</strong><a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></div></div>
+    <div class="sgs-ci-card"><div class="sgs-ci-icon">🕐</div><div><strong>Business Hours</strong><span>Monday – Friday, 10:00 AM – 6:00 PM PST</span></div></div>
+    <div class="sgs-ci-card"><div class="sgs-ci-icon">📦</div><div><strong>Order Support</strong><a href="/track-order/">Track Your Order</a></div></div>
+    <div class="sgs-ci-card"><div class="sgs-ci-icon">📋</div><div><strong>Returns</strong><a href="/refund-return-policy/">Return &amp; Refund Policy</a></div></div>
+  </div>
+</div>
 
-      <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:pb-0">
-        <?php foreach ($contact_cards as $card) : ?>
-          <?php $card_classes = 'group min-w-[84%] snap-start rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-[#B31942] hover:shadow-xl sm:min-w-[46%] md:min-w-0'; ?>
-          <?php if ($card['url']) : ?>
-            <a href="<?php echo esc_url($card['url']); ?>" class="<?php echo esc_attr($card_classes); ?>">
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B1F3A] text-sm font-extrabold text-white"><?php echo esc_html($card['abbr']); ?></span>
-              <p class="mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-[#B31942]"><?php echo esc_html($card['label']); ?></p>
-              <h3 class="mt-2 break-words text-xl font-extrabold text-[#111827]"><?php echo esc_html($card['title']); ?></h3>
-              <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($card['copy']); ?></p>
-            </a>
-          <?php else : ?>
-            <div class="<?php echo esc_attr($card_classes); ?>">
-              <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#0B1F3A] text-sm font-extrabold text-white"><?php echo esc_html($card['abbr']); ?></span>
-              <p class="mt-5 text-xs font-extrabold uppercase tracking-[0.14em] text-[#B31942]"><?php echo esc_html($card['label']); ?></p>
-              <h3 class="mt-2 text-xl font-extrabold text-[#111827]"><?php echo esc_html($card['title']); ?></h3>
-              <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($card['copy']); ?></p>
-            </div>
-          <?php endif; ?>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-white py-12 md:py-16 lg:py-20">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 md:px-6 lg:grid-cols-12">
-      <div class="lg:col-span-7">
-        <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Send A Message', 'dawp'); ?></p>
-        <h2 class="mt-3 text-3xl font-extrabold text-[#111827] md:text-5xl"><?php esc_html_e('Tell us what you need.', 'dawp'); ?></h2>
-        <p class="mt-4 max-w-2xl text-sm leading-7 text-[#6B7280] md:text-base">
-          <?php esc_html_e('Use this form for order questions, custom product help, return requests, damaged items, or general support.', 'dawp'); ?>
-        </p>
-
-        <form id="contact-form" class="mt-8 rounded-lg border border-[#E5E7EB] bg-[#F7F2E8] p-5 shadow-sm md:p-8">
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <label class="block">
-              <span class="mb-2 block text-sm font-extrabold text-[#111827]"><?php esc_html_e('Name', 'dawp'); ?></span>
-              <input type="text" name="name" required autocomplete="name" class="min-h-[48px] w-full rounded-lg border border-[#E5E7EB] bg-white px-4 text-sm outline-none focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]">
-            </label>
-
-            <label class="block">
-              <span class="mb-2 block text-sm font-extrabold text-[#111827]"><?php esc_html_e('Email', 'dawp'); ?></span>
-              <input type="email" name="email" required autocomplete="email" class="min-h-[48px] w-full rounded-lg border border-[#E5E7EB] bg-white px-4 text-sm outline-none focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]">
-            </label>
-          </div>
-
-          <label class="mt-4 block">
-            <span class="mb-2 block text-sm font-extrabold text-[#111827]"><?php esc_html_e('Topic', 'dawp'); ?></span>
-            <select name="subject" class="min-h-[48px] w-full rounded-lg border border-[#E5E7EB] bg-white px-4 text-sm outline-none focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]">
-              <option value="general"><?php esc_html_e('General Inquiry', 'dawp'); ?></option>
-              <option value="order"><?php esc_html_e('Order Status', 'dawp'); ?></option>
-              <option value="custom"><?php esc_html_e('Product or Custom Gift Help', 'dawp'); ?></option>
-              <option value="return"><?php esc_html_e('Returns & Refunds', 'dawp'); ?></option>
-            </select>
-          </label>
-
-          <label class="mt-4 block">
-            <span class="mb-2 block text-sm font-extrabold text-[#111827]"><?php esc_html_e('Message', 'dawp'); ?></span>
-            <textarea name="message" required rows="6" class="w-full rounded-lg border border-[#E5E7EB] bg-white px-4 py-3 text-sm leading-6 outline-none focus:border-[#C6A15B] focus:ring-2 focus:ring-[#C6A15B]"></textarea>
-          </label>
-
-          <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <button type="submit" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[#B31942] px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-[#0B1F3A]">
-              <?php esc_html_e('Send Message', 'dawp'); ?>
-            </button>
-            <p id="contact-msg" class="hidden text-sm font-bold" aria-live="polite"></p>
-          </div>
-        </form>
-      </div>
-
-      <aside class="lg:col-span-5">
-        <div class="rounded-lg bg-[#0B1F3A] p-6 text-white md:p-8 lg:sticky lg:top-0">
-          <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#C6A15B]"><?php esc_html_e('Before You Send', 'dawp'); ?></p>
-          <h2 class="mt-3 text-2xl font-extrabold md:text-3xl"><?php esc_html_e('Helpful details speed things up.', 'dawp'); ?></h2>
-          <div class="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:block lg:space-y-4 lg:overflow-visible lg:pb-0">
-            <?php foreach ($help_topics as $topic) : ?>
-              <div class="min-w-[82%] snap-start rounded-lg border border-white/15 bg-white/10 p-4 sm:min-w-[46%] lg:min-w-0">
-                <h3 class="text-base font-extrabold"><?php echo esc_html($topic[0]); ?></h3>
-                <p class="mt-2 text-sm leading-6 text-white/75"><?php echo esc_html($topic[1]); ?></p>
-              </div>
-            <?php endforeach; ?>
-
-            <div class="min-w-[82%] snap-start rounded-lg border border-white/15 bg-white/10 p-4 sm:min-w-[46%] lg:min-w-0">
-              <h3 class="text-base font-extrabold"><?php echo esc_html($store_name); ?></h3>
-              <p class="mt-2 break-words text-sm leading-6 text-white/75"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition hover:text-white"><?php echo esc_html($support_email); ?></a></p>
-              <p class="mt-1 text-sm leading-6 text-white/75"><?php echo esc_html($support_hours); ?></p>
-              <?php if ('' !== $store_address) : ?>
-                <p class="mt-1 text-sm leading-6 text-white/75"><?php echo esc_html($store_address); ?></p>
-              <?php endif; ?>
-            </div>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <section class="bg-[#F7F2E8] py-12 md:py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <div class="rounded-lg bg-white p-6 shadow-sm ring-1 ring-[#E5E7EB] md:p-8">
-        <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Self-Service', 'dawp'); ?></p>
-            <h2 class="mt-2 text-2xl font-extrabold text-[#111827] md:text-3xl"><?php esc_html_e('Need an answer right away?', 'dawp'); ?></h2>
-          </div>
-          <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            <?php foreach ($self_service_links as $link) : ?>
-              <a href="<?php echo esc_url(home_url($link[1])); ?>" class="inline-flex min-h-[44px] items-center justify-center rounded-lg border border-[#E5E7EB] px-4 text-center text-xs font-extrabold uppercase tracking-[0.06em] text-[#0B1F3A] transition hover:border-[#B31942] hover:text-[#B31942]">
-                <?php echo esc_html($link[0]); ?>
-              </a>
-            <?php endforeach; ?>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
+</section>
+<?php get_footer(); ?>

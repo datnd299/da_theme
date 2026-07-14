@@ -1,236 +1,82 @@
 <?php
 /**
- * Template Part: Privacy Policy
+ * Privacy Policy - ShopGraphicshirt
  */
-
-$store_name      = 'GraphicTShirtStore';
-$support_email   = 'support@graphictshirtstore.com';
-$mailing_address = dawp_get_woocommerce_store_address();
-?>
-
+get_header(); ?>
+<section class="sgs-home sgs-page">
 <style>
-    .sk-privacy-page {
-        --sk-privacy-cream: #F7F2E8;
-        --sk-privacy-rose: #B31942;
-        --sk-privacy-rose-dark: #921233;
-        --sk-privacy-gold: #C6A15B;
-        --sk-privacy-navy: #0B1F3A;
-        --sk-privacy-blue: #153866;
-        --sk-privacy-ink: #111827;
-        --sk-privacy-muted: #6B7280;
-        background: linear-gradient(180deg, #fff 0%, var(--sk-privacy-cream) 18%, #fff 100%);
-        color: var(--sk-privacy-muted);
-    }
-
-    .sk-privacy-page .sk-policy-hero {
-        background:
-            linear-gradient(135deg, rgba(11, 31, 58, .98), rgba(21, 56, 102, .94) 48%, rgba(179, 25, 66, .88)),
-            var(--sk-privacy-navy);
-        border-bottom-color: rgba(198, 161, 91, .32);
-    }
-
-    .sk-privacy-page .sk-policy-hero::before {
-        background: rgba(198, 161, 91, .22);
-    }
-
-    .sk-privacy-page .sk-policy-hero::after {
-        border-color: rgba(198, 161, 91, .26);
-        background: rgba(255, 255, 255, .08);
-    }
-
-    .sk-privacy-page .sk-policy-hero .text-accent {
-        color: var(--sk-privacy-gold);
-    }
-
-    .sk-privacy-page .sk-policy-hero .text-foreground,
-    .sk-privacy-page .sk-policy-hero .text-foreground-muted {
-        color: #fff;
-    }
-
-    .sk-privacy-page .sk-policy-hero__copy {
-        color: rgba(255, 255, 255, .82);
-    }
-
-    .sk-privacy-page .sk-policy-body > .container > .space-y-8 > section {
-        border-color: rgba(229, 231, 235, .95);
-        background: linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 242, 232, .5)), #fff;
-        box-shadow: 0 12px 34px rgba(11, 31, 58, .08);
-    }
-
-    .sk-privacy-page .sk-policy-body > .container > .space-y-8 > section:nth-child(even) {
-        background: linear-gradient(180deg, rgba(247, 242, 232, .72), rgba(255, 255, 255, .96)), #fff;
-    }
-
-    .sk-privacy-page .sk-policy-body h2::after {
-        background: var(--sk-privacy-rose);
-    }
-
-    .sk-privacy-page .sk-policy-body .rounded-2xl,
-    .sk-privacy-page .sk-policy-body .rounded-3xl .rounded-3xl {
-        border-color: rgba(229, 231, 235, .95);
-        background: rgba(255, 255, 255, .76);
-    }
-
-    .sk-privacy-page .sk-policy-body a.bg-foreground {
-        background: var(--sk-privacy-rose);
-    }
-
-    .sk-privacy-page .sk-policy-body a.bg-foreground:hover {
-        background: var(--sk-privacy-rose-dark);
-    }
-
-    .sk-privacy-page .sk-policy-body a.border-foreground {
-        border-color: var(--sk-privacy-rose);
-        color: var(--sk-privacy-rose);
-    }
-
-    .sk-privacy-page .sk-policy-body a.border-foreground:hover,
-    .sk-privacy-page .sk-policy-body a.hover\:text-accent:hover {
-        border-color: var(--sk-privacy-rose-dark);
-        color: var(--sk-privacy-rose-dark);
-    }
+.sgs-pp-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/policy/policy-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
+.sgs-pp-hero__inner{max-width:680px;margin:0 auto}
+.sgs-pp-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
+.sgs-pp-body{width:min(100% - 48px,860px);margin:0 auto;padding:var(--section-gap,56px) 0}
+.sgs-pp-body h2{margin:36px 0 12px;font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--ink)}
+.sgs-pp-body h2:first-child{margin-top:0}
+.sgs-pp-body p,.sgs-pp-body li{margin:10px 0;color:var(--muted);font-size:.92rem;line-height:1.7}
+.sgs-pp-body ul{padding-left:20px}
+.sgs-pp-body li{margin:6px 0}
+.sgs-pp-body a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+.sgs-pp-body a:hover{color:var(--red-dark)}
 </style>
+<div class="sgs-pp-hero">
+  <div class="sgs-pp-hero__inner">
+    <p class="sgs-eyebrow sgs-eyebrow--light">Privacy Policy</p>
+    <h1>Privacy Policy</h1>
+  </div>
+</div>
+<div class="sgs-pp-body">
+  <p><strong>Last Updated:</strong> July 2026</p>
 
-<main class="sk-policy-page sk-privacy-page bg-surface">
-    <section class="sk-policy-hero">
-        <div class="container mx-auto max-w-6xl px-4">
-            <div class="sk-policy-hero__inner text-center">
-            <span class="mb-4 block text-sm font-bold uppercase tracking-widest text-accent"><?php esc_html_e('Privacy & Security', 'dawp'); ?></span>
-            <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
-            <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
-            <div class="sk-policy-hero__copy mx-auto mt-6 max-w-4xl space-y-5 text-lg leading-relaxed text-foreground-muted">
-                <p><?php esc_html_e('At GraphicTShirtStore, your privacy and the security of your personal data are our utmost priorities. This Privacy Policy describes how your personal information is collected, used, protected, and shared when you visit, browse, or make a purchase from graphictshirtstore.com (the "Site").', 'dawp'); ?></p>
-                <p><?php esc_html_e('By accessing our Site or utilizing our online store services, you acknowledge and agree to the data management practices outlined in this policy.', 'dawp'); ?></p>
-            </div>
-            </div>
-        </div>
-    </section>
+  <p>This Privacy Policy explains how shopgraphicshirt.com (the "Site", "we", "us", or "our") collects, uses, and discloses your Personal Information when you visit, browse, or execute an apparel purchase from the Site.</p>
+  <p>By utilizing our Site or purchasing products from our store, you acknowledge and agree to the data management and processing practices detailed in this policy.</p>
 
-    <section class="sk-policy-body">
-    <div class="container mx-auto max-w-6xl px-4">
-        <div class="space-y-8">
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('1. Information We Collect', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('To fulfill your patriotic apparel and custom gift orders and optimize your user experience, we collect two primary types of data:', 'dawp'); ?>
-                </p>
-                <div class="mt-6 grid gap-4 md:grid-cols-2">
-                    <div class="rounded-2xl border border-border bg-background p-5">
-                        <h3 class="text-lg font-medium leading-snug text-foreground"><?php esc_html_e('A. Order Information', 'dawp'); ?></h3>
-                        <p class="mt-5 leading-relaxed text-foreground-muted">
-                            <?php esc_html_e('When you make a purchase or attempt to place an order through the Site, we collect certain essential billing and routing details from you, including your name, billing address, shipping address, payment details (including encrypted credit card tokens), email address, and phone number. We refer to this safely handled data as "Order Information."', 'dawp'); ?>
-                        </p>
-                    </div>
-                    <div class="rounded-2xl border border-border bg-background p-5">
-                        <h3 class="text-lg font-medium leading-snug text-foreground"><?php esc_html_e('B. Device Information', 'dawp'); ?></h3>
-                        <p class="mt-5 leading-relaxed text-foreground-muted">
-                            <?php esc_html_e('When you browse the Site, we automatically gather structural technical details regarding your local device, including information about your web browser, active IP address, local time zone, and specific tracking cookies that are pre-installed on your device. We refer to this automatically-logged data as "Device Information."', 'dawp'); ?>
-                        </p>
-                    </div>
-                </div>
-            </section>
+  <h2>1. Information We Collect</h2>
+  <p>When you interact with the Site, we gather specific metrics regarding your device, store interactions, and details strictly necessary to process your transactions.</p>
+  <p><strong>Device Metrics:</strong> Collected automatically via functional cookies, server logs, web beacons, and tracking pixels when you access our Site. This includes browser type, local IP address, active time zone, unique cookie files, what specific products you view, and store search terms.</p>
+  <p><strong>Order Records:</strong> Collected directly from you to fulfill our sales contract. This includes your full name, billing address, physical shipping address, contact email address, phone number, and encrypted payment details (such as credit card numbers or PayPal email accounts).</p>
+  <p><strong>Customer Support Records:</strong> Gathered directly from you during support inquiries to provide efficient operational responses.</p>
 
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('2. Secure Payment Processing & Data Encryption (GMC MANDATORY)', 'dawp'); ?></h2>
-                <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
-                    <p><?php esc_html_e('Your commercial transaction data is fully guarded. GraphicTShirtStore does not store, harvest, or retain your raw credit card numbers on our local storefront servers.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('Because our online store operates via WooCommerce, all payment interactions are seamlessly redirected to, and processed by, certified third-party payment gateways. All data transmissions during checkout are protected utilizing industry-standard SSL (Secure Sockets Layer) encryption technology and strictly comply with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'); ?></p>
-                </div>
-            </section>
+  <h2>2. How We Use Your Information</h2>
+  <p>We utilize your dynamic Order Information strictly to fulfill any purchases executed through the Site. This includes:</p>
+  <ul>
+    <li>Processing your payment credentials and secure billing information.</li>
+    <li>Arranging standard commercial shipping and generating invoices/order confirmations.</li>
+    <li>Screening active incoming orders for potential risk or transaction fraud.</li>
+    <li>Communicating directly with you regarding order delivery updates or customer service queries.</li>
+    <li>Providing tailored promotional advertisements or product offers based on your verified preferences.</li>
+  </ul>
 
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('3. How We Use Your Personal Information', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('We process your collected data based on legitimate business operations to:', 'dawp'); ?>
-                </p>
-                <ul class="mt-6 list-disc space-y-4 pl-5 leading-relaxed text-foreground-muted">
-                    <li><?php esc_html_e('Fulfill and build any orders placed through the Site (including processing secure payments, coordinating domestic shipping, and rendering invoices/order confirmations).', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Communicate with you directly regarding your order status.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Screen our transaction logs for potential financial risk, system vulnerabilities, or identity fraud.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Provide you with curated marketing insights, seasonal patriotic apparel updates, or promotional advertising relating to our products, strictly in line with the communication preferences you have shared with us.', 'dawp'); ?></li>
-                </ul>
-            </section>
+  <h2>3. Sharing Your Information &amp; Third-Party Service Providers</h2>
+  <p>We share your Personal Information with trusted corporate service providers to help us deliver our e-commerce services and execute our contractual agreements with you. For example:</p>
+  <ul>
+    <li>We use WooCommerce to power our digital storefront infrastructure.</li>
+    <li>We use verified payment processors to handle transactional settlements and reliable shipping carriers to physically deliver your apparel packages.</li>
+    <li>We use Google Analytics to understand traffic volume and consumer browsing behaviors. Learn more: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>. Opt out of tracking here: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a>.</li>
+    <li>We may share your records to comply with applicable laws, respond to a lawful search warrant, or protect our corporate property and legal rights.</li>
+  </ul>
 
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('4. Sharing Your Personal Information', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('We share your Personal Information with trusted third-party operational service providers to help us facilitate our storefront, as described above:', 'dawp'); ?>
-                </p>
-                <ul class="mt-6 list-disc space-y-4 pl-5 leading-relaxed text-foreground-muted">
-                    <li><?php esc_html_e('E-commerce Infrastructure: We use WooCommerce to power our online storefront and catalog ecosystem.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Behavioral Analytics: We utilize Google Analytics to analyze aggregate customer movement, traffic sources, and site health metrics.', 'dawp'); ?></li>
-                    <li><?php esc_html_e("Legal & Regulatory Mandates: Finally, we may disclose your personal files to comply with applicable state and federal laws, to respond to a lawful subpoena, search warrant, or official request for information, or to protect our brand's safety and property rights.", 'dawp'); ?></li>
-                </ul>
-            </section>
+  <h2>4. Secure Payments &amp; Transaction Encryption (GMC MANDATORY)</h2>
+  <p>To ensure the safety of your financial credentials, shopgraphicshirt.com operates a highly protected checkout ecosystem. All monetary communications and payment data transfers are encrypted utilizing secure SSL (Secure Sockets Layer) technology.</p>
+  <p>Furthermore, we do not store, view, or retain raw credit card numbers or payment passwords on our local databases. All transactions are routed directly to accredited payment processors adhering to the strict global Payment Card Industry Data Security Standard (PCI-DSS).</p>
 
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('5. Cookies & Behavioral Advertising Opt-Out', 'dawp'); ?></h2>
-                <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
-                    <p><?php esc_html_e('We utilize functional cookies (small data files deposited on your computer containing a unique, anonymous identifier) to enhance your browsing experience, remember shopping cart additions, and maintain secure user sessions.', 'dawp'); ?></p>
-                    <p>
-                        <?php esc_html_e('For exhaustive educational resources regarding cookies and configuration controls, you may visit', 'dawp'); ?>
-                        <a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener noreferrer" class="font-bold text-foreground transition-colors hover:text-accent"><?php esc_html_e('All About Cookies', 'dawp'); ?></a>.
-                    </p>
-                    <p>
-                        <?php esc_html_e('To opt-out of targeted Google tracking used for behavioral marketing, you can manage your preferences directly via the', 'dawp'); ?>
-                        <a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer" class="font-bold text-foreground transition-colors hover:text-accent"><?php esc_html_e('Google Ads Settings Page', 'dawp'); ?></a>.
-                    </p>
-                </div>
-            </section>
+  <h2>5. Consumer Data Rights (GDPR &amp; CCPA Compliant)</h2>
+  <p>Regardless of your geographic location, we respect your data privacy and grant you the following structural controls:</p>
+  <p><strong>GDPR (For EEA Residents):</strong> If you reside within the European Economic Area, you possess the right to access your data, port it to a new service, or request that your records be corrected, updated, or permanently deleted. To exercise these rights, please email us directly at <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>.</p>
+  <p><strong>CCPA (For California Residents):</strong> If you are a resident of California, you possess the specific "Right to Know" what personal data we collect, the right to request deletion of that data, and the right to opt-out of the sale of personal information.</p>
 
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('6. Your Rights Under Global and US Privacy Laws (CCPA/GDPR)', 'dawp'); ?></h2>
-                <div class="mt-5 space-y-5 leading-relaxed text-foreground-muted">
-                    <p><?php esc_html_e('If you are a resident of certain protected territories (including California or the European Union), you possess explicit legal rights to access the specific personal data we hold about you, to request that inaccurate information be corrected, updated, or permanently deleted.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('If you would like to actively exercise these legal consumer protection rights, please contact our Compliance Officer through the dedicated channel listed below.', 'dawp'); ?></p>
-                </div>
-            </section>
+  <h2>6. Data Retention &amp; Cookies Policy</h2>
+  <p><strong>Retention Protocols:</strong> When you place an order through the Site, we will securely retain your transaction data for our official business registries unless and until you formally request the removal of this information.</p>
+  <p><strong>Cookies Notice:</strong> We employ essential background cookies to manage your shopping cart persistence, preserve user login states, and optimize storefront speeds. You can adjust or clear cookies via your local web browser preferences. However, disabling essential cookies may prevent the checkout system from functioning properly.</p>
 
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('7. Data Retention', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('When you execute an order through our online storefront, we will preserve your structural Order Information for our continuous business, tax reporting, and accounting records unless and until you formally ask us to scrub this information from our directories.', 'dawp'); ?>
-                </p>
-            </section>
+  <h2>7. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy periodically to reflect shifts in our retail operations, software modifications, or localized legal regulations. The "Last Updated" date at the top of the page will signify the latest revision.</p>
 
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('8. Contact Us', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('For more information regarding our data privacy practices, if you have technical questions, or if you wish to file an official data inquiry, please contact our team via the verified channels below:', 'dawp'); ?>
-                </p>
-
-                <div class="mt-6 rounded-3xl border border-border bg-background p-4 md:p-5">
-                    <div class="grid gap-4 md:grid-cols-2">
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><?php echo esc_html($store_name); ?></p>
-                        </div>
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Support Email', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition-colors hover:text-accent"><?php echo esc_html($support_email); ?></a></p>
-                        </div>
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Physical Mailing Address', 'dawp'); ?></h3>
-                            <p class="mt-3 leading-relaxed text-foreground-muted"><?php echo esc_html($mailing_address); ?></p>
-                        </div>
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Support Availability', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('Monday-Friday, 10:00 AM-6:00 PM PST', 'dawp'); ?></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-7 flex flex-wrap gap-4">
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
-                    </a>
-                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
-                        <?php echo esc_html($support_email); ?>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </div>
-    </section>
-</main>
-
+  <h2>8. Corporate Identity &amp; Customer Support Channels</h2>
+  <p>For questions about our data practices, to file a privacy inquiry, or for help with an active order, please connect with our compliance officer via our verified communication block:</p>
+  <p><strong>Store / Brand Name:</strong> Shop Graphic Shirt</p>
+  <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
+  <p><strong>Physical Business Address:</strong> United States</p>
+  <p><strong>Customer Support Availability:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST.</p>
+  <p><strong>Contact Page:</strong> <a href="/contact-us/">Contact Us</a></p>
+</div>
+</section>
+<?php get_footer(); ?>

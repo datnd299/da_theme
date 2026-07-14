@@ -37,7 +37,7 @@ function dawp_single_product_trust_badges() {
         array(
             'icon' => '<path d="M12 2l2.7 6.1 6.6.6-5 4.4 1.5 6.5L12 16.2 6.2 19.6l1.5-6.5-5-4.4 6.6-.6L12 2z"/>',
             'title' => __('Gift-Ready Favorite', 'dawp'),
-            'copy' => __('A meaningful pick for veterans, families, and proud Americans.', 'dawp'),
+            'copy' => __('A meaningful pick for families and proud Americans.', 'dawp'),
         ),
     );
     ?>
@@ -63,7 +63,7 @@ function dawp_single_product_pride_banner() {
         </div>
         <div class="dawp-pride-banner__content">
             <p><?php esc_html_e('Made for Proud American Moments', 'dawp'); ?></p>
-            <h2><?php esc_html_e('Honor service, celebrate freedom, and wear the story with pride.', 'dawp'); ?></h2>
+            <h2><?php esc_html_e('Celebrate freedom and wear the story with pride.', 'dawp'); ?></h2>
         </div>
         <div class="dawp-pride-banner__marks" aria-hidden="true">
             <span>1776</span>
@@ -78,12 +78,12 @@ function dawp_single_product_customer_stories() {
     $stories = array(
         array(__('The print looked sharp and the patriotic colors felt respectful, not loud. My dad wore it the same weekend it arrived.', 'dawp'), __('Michael R.', 'dawp'), __('Verified buyer', 'dawp')),
         array(__('A thoughtful gift for our family gathering. The details made it feel personal and the ordering process was simple.', 'dawp'), __('Susan K.', 'dawp'), __('Texas', 'dawp')),
-        array(__('Comfortable, clean design, and exactly the kind of American pride piece I wanted for everyday wear.', 'dawp'), __('James W.', 'dawp'), __('Veteran family', 'dawp')),
+        array(__('Comfortable, clean design, and exactly the kind of American pride piece I wanted for everyday wear.', 'dawp'), __('James W.', 'dawp'), __('Verified buyer', 'dawp')),
         array(__('Bought this as a birthday gift and it felt special right away. The colors are rich and the message is easy to love.', 'dawp'), __('Patricia L.', 'dawp'), __('Florida', 'dawp')),
         array(__('The design has a strong patriotic look without feeling overdone. It was a hit at our family cookout.', 'dawp'), __('Robert H.', 'dawp'), __('Verified buyer', 'dawp')),
-        array(__('Great gift for my husband. He liked the fit, the print, and the way it honors his service.', 'dawp'), __('Angela M.', 'dawp'), __('Military spouse', 'dawp')),
+        array(__('Great gift for my husband. He liked the fit, the print, and the easy everyday style.', 'dawp'), __('Angela M.', 'dawp'), __('Verified buyer', 'dawp')),
         array(__('Everything arrived neatly packed and ready to give. The product looked even better in person.', 'dawp'), __('David C.', 'dawp'), __('Ohio', 'dawp')),
-        array(__('A clean American pride piece that feels personal. I would absolutely order again for Veterans Day.', 'dawp'), __('Karen T.', 'dawp'), __('Repeat customer', 'dawp')),
+        array(__('A clean American pride piece that feels personal. I would absolutely order again.', 'dawp'), __('Karen T.', 'dawp'), __('Repeat customer', 'dawp')),
     );
     ?>
     <section class="dawp-customer-stories" data-review-slider aria-label="<?php esc_attr_e('Customer reviews', 'dawp'); ?>">

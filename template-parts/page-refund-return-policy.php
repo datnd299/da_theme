@@ -1,292 +1,201 @@
 <?php
 /**
- * Template Part: Refund & Return Policy
+ * Refund & Return Policy - ShopGraphicshirt
+ * Style aligned with homepage. Content preserved from git original.
  */
-$store_address = dawp_get_woocommerce_store_address();
-?>
-
+get_header(); ?>
+<section class="sgs-home sgs-page">
 <style>
-    .sk-refund-page {
-        --sk-refund-cream: #F7F2E8;
-        --sk-refund-rose: #B31942;
-        --sk-refund-rose-dark: #921233;
-        --sk-refund-gold: #C6A15B;
-        --sk-refund-navy: #0B1F3A;
-        --sk-refund-blue: #153866;
-        --sk-refund-ink: #111827;
-        --sk-refund-muted: #6B7280;
-        --sk-refund-border: #E5E7EB;
-        background: linear-gradient(180deg, #fff 0%, var(--sk-refund-cream) 18%, #fff 100%);
-        color: var(--sk-refund-muted);
-    }
-
-    .sk-refund-page .sk-policy-hero {
-        background:
-            linear-gradient(135deg, rgba(11, 31, 58, .98), rgba(21, 56, 102, .94) 48%, rgba(179, 25, 66, .88)),
-            var(--sk-refund-navy);
-        border-bottom-color: rgba(198, 161, 91, .32);
-    }
-
-    .sk-refund-page .sk-policy-hero::before {
-        background: rgba(198, 161, 91, .22);
-    }
-
-    .sk-refund-page .sk-policy-hero::after {
-        border-color: rgba(198, 161, 91, .26);
-        background: rgba(255, 255, 255, .08);
-    }
-
-    .sk-refund-page .sk-policy-hero .text-accent {
-        color: var(--sk-refund-gold);
-    }
-
-    .sk-refund-page .sk-policy-hero .text-foreground,
-    .sk-refund-page .sk-policy-hero .text-foreground-muted {
-        color: #fff;
-    }
-
-    .sk-refund-page .sk-policy-hero__copy {
-        color: rgba(255, 255, 255, .82);
-    }
-
-    .sk-refund-page .sk-policy-body > .container > .space-y-8 > section {
-        border-color: rgba(229, 231, 235, .95);
-        background: linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(247, 242, 232, .5)), #fff;
-        box-shadow: 0 12px 34px rgba(11, 31, 58, .08);
-    }
-
-    .sk-refund-page .sk-policy-body > .container > .space-y-8 > section:nth-child(even) {
-        background: linear-gradient(180deg, rgba(247, 242, 232, .72), rgba(255, 255, 255, .96)), #fff;
-    }
-
-    .sk-refund-page .sk-policy-body h2::after {
-        background: var(--sk-refund-rose);
-    }
-
-    .sk-refund-page .sk-policy-body .rounded-2xl {
-        border-color: rgba(229, 231, 235, .95);
-        background: rgba(255, 255, 255, .76);
-    }
-
-    .sk-refund-page .sk-policy-body span.bg-foreground,
-    .sk-refund-page .sk-policy-body a.bg-foreground {
-        background: var(--sk-refund-rose);
-    }
-
-    .sk-refund-page .sk-policy-body a.bg-foreground:hover {
-        background: var(--sk-refund-rose-dark);
-    }
-
-    .sk-refund-page .sk-policy-body a.border-foreground {
-        border-color: var(--sk-refund-rose);
-        color: var(--sk-refund-rose);
-    }
-
-    .sk-refund-page .sk-policy-body a.border-foreground:hover,
-    .sk-refund-page .sk-policy-body a.hover\:text-accent:hover {
-        border-color: var(--sk-refund-rose-dark);
-        color: var(--sk-refund-rose-dark);
-    }
-
-    .sk-refund-page .sk-policy-body .border-\[\#C6A15B\]\/30 {
-        border-left: 4px solid var(--sk-refund-rose);
-        border-color: rgba(198, 161, 91, .42);
-        background: #FFF8E8;
-    }
+.sgs-rr-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/policy/policy-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
+.sgs-rr-hero__inner{max-width:680px;margin:0 auto}
+.sgs-rr-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
+.sgs-rr-hero p{max-width:640px;margin:18px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
+.sgs-rr-section{width:min(100% - 48px,1200px);margin:0 auto;padding:var(--section-gap,72px) 0}
+.sgs-rr-section--surface{width:100%;max-width:none;padding-inline:clamp(24px,4vw,64px);background:var(--antique)}
+.sgs-rr-panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:clamp(24px,3vw,36px);margin-bottom:16px;transition:box-shadow 180ms}
+.sgs-rr-panel:hover{box-shadow:var(--shadow-sm)}
+.sgs-rr-panel--soft{background:#fafafa}
+.sgs-rr-panel h2{margin:0 0 12px;font-family:var(--font-heading);font-size:clamp(1.2rem,2vw,1.5rem);font-weight:700;color:var(--ink);line-height:1.1}
+.sgs-rr-panel p{margin:12px 0 0;color:var(--muted);font-size:.92rem;line-height:1.7}
+.sgs-rr-panel p:first-of-type{margin-top:0}
+.sgs-rr-panel strong{color:var(--ink)}
+.sgs-rr-highlight{background:var(--gold);color:var(--navy);font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block}
+.sgs-rr-note{border-left:4px solid var(--red);border-radius:0 var(--radius) var(--radius) 0;background:#fff0f0;padding:18px 20px;margin-top:16px;color:var(--muted);font-size:.9rem;line-height:1.65}
+.sgs-rr-list{margin:14px 0 0;padding-left:20px;color:var(--muted);font-size:.92rem;line-height:1.75}
+.sgs-rr-list li{margin:6px 0}
+.sgs-rr-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+.sgs-rr-grid--3{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+.sgs-rr-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:20px;transition:box-shadow 180ms,transform 180ms}
+.sgs-rr-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
+.sgs-rr-card h3{margin:0 0 8px;font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.25}
+.sgs-rr-card p{margin:0;color:var(--muted);font-size:.85rem;line-height:1.5}
+.sgs-rr-card p + p{margin-top:10px}
+.sgs-rr-step{display:flex;gap:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:20px;margin-bottom:12px;transition:box-shadow 180ms}
+.sgs-rr-step:hover{box-shadow:var(--shadow-sm)}
+.sgs-rr-step__num{display:flex;width:32px;height:32px;flex:0 0 auto;align-items:center;justify-content:center;border-radius:50%;background:var(--red);color:var(--white);font-size:.85rem;font-weight:800}
+.sgs-rr-step__body h3{margin:0;font-family:var(--font-heading);font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.2}
+.sgs-rr-step__body p{margin:8px 0 0;color:var(--muted);font-size:.85rem;line-height:1.55}
+.sgs-rr-step__body p + p{margin-top:8px}
+.sgs-rr-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.sgs-rr-contact{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:20px;margin-top:16px}
+.sgs-rr-contact__item{text-align:center;padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sgs-rr-contact__item:nth-child(3n){border-right:0}
+.sgs-rr-contact__item:nth-last-child(-n+2){border-bottom:0}
+.sgs-rr-contact__item strong{display:block;margin-bottom:4px;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--ink)}
+.sgs-rr-contact__item span,.sgs-rr-contact__item a{color:var(--muted);font-size:.85rem}
+.sgs-rr-contact__item a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+.sgs-rr-note--gold{border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;background:#fff7e8;padding:18px 20px;margin-top:16px;color:var(--muted);font-size:.9rem;line-height:1.65}
+@media(max-width:960px){.sgs-rr-grid{grid-template-columns:1fr}.sgs-rr-grid--3{grid-template-columns:1fr}.sgs-rr-contact{grid-template-columns:repeat(2,1fr)}.sgs-rr-contact__item:nth-child(3n){border-right:1px solid var(--line)}.sgs-rr-contact__item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.sgs-rr-contact__item:nth-child(2n){border-right:0}.sgs-rr-contact__item:last-child{border-bottom:0}}
+@media(max-width:700px){.sgs-rr-contact{grid-template-columns:1fr}.sgs-rr-contact__item{border-right:0}.sgs-rr-contact__item:nth-child(3n),.sgs-rr-contact__item:nth-child(2n){border-right:0}.sgs-rr-contact__item:last-child{border-bottom:0}.sgs-rr-actions .sgs-btn{width:100%}}
 </style>
 
-<main class="sk-policy-page sk-refund-page bg-surface">
-    <section class="sk-policy-hero">
-        <div class="container mx-auto max-w-6xl px-4">
-            <div class="sk-policy-hero__inner text-center">
-            <span class="mb-4 block text-sm font-bold uppercase tracking-widest text-accent"><?php esc_html_e('Customer Care', 'dawp'); ?></span>
-            <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Refund & Return Policy', 'dawp'); ?></h1>
-            <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
-            <p class="sk-policy-hero__copy mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-foreground-muted">
-                <?php esc_html_e('We want every GraphicTShirtStore piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.', 'dawp'); ?>
-            </p>
-            </div>
-        </div>
-    </section>
+<div class="sgs-rr-hero">
+  <div class="sgs-rr-hero__inner">
+    <p class="sgs-eyebrow sgs-eyebrow--light">Customer Care</p>
+    <h1>Refund &amp; Return Policy</h1>
+    <p class="sgs-rr-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 2026</p>
+    <p>We want every GraphicTShirtStore piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.</p>
+  </div>
+</div>
 
-    <section class="sk-policy-body">
-    <div class="container mx-auto max-w-6xl px-4">
-        <div class="space-y-8">
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Return Eligibility', 'dawp'); ?></h2>
-                <p class="mt-5 text-foreground-muted"><?php esc_html_e('To be eligible for a return, your item must meet the following criteria:', 'dawp'); ?></p>
-                <ul class="mt-6 list-disc space-y-4 pl-5 leading-relaxed text-foreground-muted">
-                    <li><?php esc_html_e('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Condition: Items must be unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Packaging: Items must be returned with all original packaging, tags, labels, care cards, garment bags, boxes, and any included accessories.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Restocking Fee: Free. We do not charge any restocking fees for eligible returns.', 'dawp'); ?></li>
-                </ul>
-            </section>
+<div class="sgs-rr-section">
+  <!-- Return Eligibility -->
+  <div class="sgs-rr-panel">
+    <h2>Return Eligibility</h2>
+    <p>To be eligible for a return, your item must meet the following criteria:</p>
+    <ul class="sgs-rr-list">
+      <li><strong>Return Window:</strong> You must initiate your return request within 30 days of delivery.</li>
+      <li><strong>Condition:</strong> Items must be unworn, unused, undamaged, and in their original, unaltered condition.</li>
+      <li><strong>Packaging:</strong> Items must be returned with all original packaging, tags, labels, care cards, garment bags, boxes, and any included accessories.</li>
+      <li><strong>Restocking Fee:</strong> Free. We do not charge any restocking fees for eligible returns.</li>
+    </ul>
+  </div>
 
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Return Shipping Fees', 'dawp'); ?></h2>
-                <div class="mt-6 grid gap-4 md:grid-cols-2">
-                    <div class="rounded-2xl border border-border bg-background p-5">
-                        <h3 class="text-lg font-medium leading-snug text-foreground"><?php esc_html_e("Defective, Damaged, or Incorrect Products (Wrong item, carrier damage, or defective):", 'dawp'); ?></h3>
-                        <p class="mt-5 leading-relaxed text-foreground-muted">
-                            <?php esc_html_e('No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.', 'dawp'); ?>
-                        </p>
-                    </div>
-                    <div class="rounded-2xl border border-border bg-background p-5">
-                        <h3 class="text-lg font-medium leading-snug text-foreground"><?php esc_html_e("Customer Remorse (Ordered wrong item/size/color, changed mind, or doesn't fit):", 'dawp'); ?></h3>
-                        <p class="mt-5 leading-relaxed text-foreground-muted">
-                            <?php esc_html_e('The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Common Delivery Issues', 'dawp'); ?></h2>
-                <div class="mt-7 space-y-7 text-foreground-muted">
-                    <div>
-                        <h3 class="text-lg font-medium text-foreground"><?php esc_html_e('Damaged on Arrival', 'dawp'); ?></h3>
-                        <p class="mt-4 leading-relaxed">
-                            <?php esc_html_e('If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will arrange a replacement or full refund at no cost to you.', 'dawp'); ?>
-                        </p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-medium text-foreground"><?php esc_html_e('Lost Packages / Never Arrived', 'dawp'); ?></h3>
-                        <p class="mt-4 leading-relaxed">
-                            <?php esc_html_e('If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'); ?>
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('How to Return an Item', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('Please follow our official 3-step process. Do not ship any item back without prior authorization, as unauthorized returns cannot be tracked or processed at our warehouse.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-6 space-y-4">
-                    <div class="rounded-2xl border border-border bg-background p-5 md:p-6">
-                        <div class="flex gap-4">
-                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-sm font-bold text-white">1</span>
-                            <div>
-                                <h3 class="text-lg font-medium text-foreground"><?php esc_html_e('Submit Your Return Request', 'dawp'); ?></h3>
-                                <p class="mt-5 leading-relaxed text-foreground-muted">
-                                    <?php esc_html_e('Email us or use our Contact Page within 30 days of delivery. Please provide your order number, the email used at checkout, the specific item(s) you wish to return, and the reason for the return with photos or videos if damaged.', 'dawp'); ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rounded-2xl border border-border bg-background p-5 md:p-6">
-                        <div class="flex gap-4">
-                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-sm font-bold text-white">2</span>
-                            <div>
-                                <h3 class="text-lg font-medium text-foreground"><?php esc_html_e('Receive Approval & Pack Your Item', 'dawp'); ?></h3>
-                                <p class="mt-5 leading-relaxed text-foreground-muted">
-                                    <?php esc_html_e('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number along with a prepaid shipping label.', 'dawp'); ?>
-                                </p>
-                                <p class="mt-5 leading-relaxed text-foreground-muted">
-                                    <?php esc_html_e('Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box.', 'dawp'); ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rounded-2xl border border-border bg-background p-5 md:p-6">
-                        <div class="flex gap-4">
-                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-foreground text-sm font-bold text-white">3</span>
-                            <div>
-                                <h3 class="text-lg font-medium text-foreground"><?php esc_html_e('Ship It Back to Our Returns Center', 'dawp'); ?></h3>
-                                <p class="mt-5 leading-relaxed text-foreground-muted">
-                                    <?php esc_html_e('Print the prepaid shipping label, attach it to the outside of your shipping box, and drop it off at the designated carrier location.', 'dawp'); ?>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-5 rounded-2xl border border-[#C6A15B]/30 bg-[#F7F2E8] p-5 text-foreground">
-                    <p class="font-bold"><?php esc_html_e('GraphicTShirtStore - Returns Department', 'dawp'); ?></p>
-                    <p class="mt-2"><?php echo esc_html($store_address); ?></p>
-                </div>
-
-                <div class="mt-7 flex flex-wrap gap-4">
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
-                    </a>
-                    <a href="mailto:support@graphictshirtstore.com" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
-                        <?php esc_html_e('support@graphictshirtstore.com', 'dawp'); ?>
-                    </a>
-                </div>
-            </section>
-
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
-                <p class="mt-5 leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different size, color, or style, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?>
-                </p>
-            </section>
-
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Refund Process & Timing', 'dawp'); ?></h2>
-                <ul class="mt-6 list-disc space-y-4 pl-5 leading-relaxed text-foreground-muted">
-                    <li><?php esc_html_e('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'); ?></li>
-                </ul>
-                <a href="mailto:support@graphictshirtstore.com" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
-                    <?php esc_html_e('Email Support', 'dawp'); ?>
-                </a>
-            </section>
-
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Non-Returnable Items', 'dawp'); ?></h2>
-                <p class="mt-5 text-foreground-muted"><?php esc_html_e('The following items are strictly non-returnable and final sale:', 'dawp'); ?></p>
-                <ul class="mt-6 list-disc space-y-4 pl-5 leading-relaxed text-foreground-muted">
-                    <li><?php esc_html_e('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Gift cards or digital products/downloads.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Personalized, resized, or custom-made items.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Intimate apparel, swimwear, or hygiene-sensitive items where the product seal has been broken.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('Items that have been worn, washed, altered, or damaged after delivery.', 'dawp'); ?></li>
-                </ul>
-            </section>
-
-            <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Contact Information', 'dawp'); ?></h2>
-                <div class="mt-6 rounded-3xl border border-border bg-background p-4 md:p-5">
-                    <div class="grid gap-4 md:grid-cols-2">
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('GraphicTShirtStore', 'dawp'); ?></p>
-                        </div>
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Address', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><?php echo esc_html($store_address); ?></p>
-                        </div>
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Email', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><a href="mailto:support@graphictshirtstore.com" class="transition-colors hover:text-accent">support@graphictshirtstore.com</a></p>
-                        </div>
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Contact Support', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="transition-colors hover:text-accent"><?php esc_html_e('Contact Us page', 'dawp'); ?></a></p>
-                        </div>
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Support Availability', 'dawp'); ?></h3>
-                            <p class="mt-3 text-foreground-muted"><?php esc_html_e('Monday-Friday, 10:00 AM-6:00 PM PST', 'dawp'); ?></p>
-                        </div>
-                        <div class="rounded-2xl border border-border p-5">
-                            <h3 class="font-bold text-foreground"><?php esc_html_e('Response Time', 'dawp'); ?></h3>
-                            <p class="mt-3 leading-relaxed text-foreground-muted"><?php esc_html_e('We aim to reply within 1 business day. Response times may vary on weekends, holidays, or high-volume periods.', 'dawp'); ?></p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+  <!-- Return Shipping Fees -->
+  <div class="sgs-rr-panel sgs-rr-panel--soft">
+    <h2>Return Shipping Fees</h2>
+    <div class="sgs-rr-grid">
+      <div class="sgs-rr-card">
+        <h3>Defective, Damaged, or Incorrect Products (Wrong item, carrier damage, or defective):</h3>
+        <p>No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.</p>
+      </div>
+      <div class="sgs-rr-card">
+        <h3>Customer Remorse (Ordered wrong item/size/color, changed mind, or doesn't fit):</h3>
+        <p>The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.</p>
+      </div>
     </div>
-    </section>
-</main>
+  </div>
 
+  <!-- Common Delivery Issues -->
+  <div class="sgs-rr-panel">
+    <h2>Common Delivery Issues</h2>
+    <div style="margin-top:14px;display:grid;gap:16px">
+      <div class="sgs-rr-card">
+        <h3>Damaged on Arrival</h3>
+        <p>If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will arrange a replacement or full refund at no cost to you.</p>
+      </div>
+      <div class="sgs-rr-card">
+        <h3>Lost Packages / Never Arrived</h3>
+        <p>If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Return an Item - 3 Step -->
+  <div class="sgs-rr-panel sgs-rr-panel--soft">
+    <h2>How to Return an Item</h2>
+    <p>Please follow our official 3-step process. Do not ship any item back without prior authorization, as unauthorized returns cannot be tracked or processed at our warehouse.</p>
+
+    <div style="margin-top:18px">
+      <div class="sgs-rr-step">
+        <span class="sgs-rr-step__num">1</span>
+        <div class="sgs-rr-step__body">
+          <h3>Submit Your Return Request</h3>
+          <p>Email us or use our Contact Page within 30 days of delivery. Please provide your order number, the email used at checkout, the specific item(s) you wish to return, and the reason for the return with photos or videos if damaged.</p>
+        </div>
+      </div>
+      <div class="sgs-rr-step">
+        <span class="sgs-rr-step__num">2</span>
+        <div class="sgs-rr-step__body">
+          <h3>Receive Approval &amp; Pack Your Item</h3>
+          <p>Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number along with a prepaid shipping label.</p>
+          <p>Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box.</p>
+        </div>
+      </div>
+      <div class="sgs-rr-step">
+        <span class="sgs-rr-step__num">3</span>
+        <div class="sgs-rr-step__body">
+          <h3>Ship It Back to Our Returns Center</h3>
+          <p>Attach the prepaid shipping label to the outer box. Drop off the package at the designated carrier location — we recommend requesting a receipt as proof of drop-off. Once received, we inspect and process your refund within 1-2 business days.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sgs-rr-note"><strong>Do not ship any item back without first receiving return authorization from our team.</strong> Unauthorized returns may be refused or delayed.</div>
+    <div class="sgs-rr-actions">
+      <a class="sgs-btn sgs-btn--primary" href="/contact-us/">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- Return Window & Non-Returnable -->
+  <div class="sgs-rr-panel">
+    <h2>Return Window</h2>
+    <p>Eligible return requests must be initiated within <span class="sgs-rr-highlight">30 days</span> of the delivery date. We are unable to accept returns after this 30-day period has expired.</p>
+  </div>
+
+  <div class="sgs-rr-panel sgs-rr-panel--soft">
+    <h2>Non-Returnable Items</h2>
+    <p>The following items are <strong>not eligible</strong> for return or refund:</p>
+    <ul class="sgs-rr-list">
+      <li>Personalized and custom-made items (unless defective, damaged, or incorrect)</li>
+      <li>Gift cards</li>
+      <li>Digital products or downloadable content</li>
+      <li>Final sale or clearance items (marked as such at checkout)</li>
+      <li>Hygiene-sensitive items with broken or missing seals</li>
+      <li>Items worn, washed, altered, or damaged after delivery</li>
+    </ul>
+  </div>
+
+  <!-- Refund Timing -->
+  <div class="sgs-rr-panel">
+    <h2>Refund Timing</h2>
+    <p>Once your return package is received at our facility, we inspect the item within <strong>1-2 business days</strong>. If the return is approved, the refund will be issued to your <strong>original payment method</strong> within <strong>7 business days</strong>. Depending on your bank or card issuer, it may take additional time for the refund to appear in your account. If you have not received a refund after <strong>15 business days</strong> of approval, please contact us after checking with your bank or payment provider.</p>
+  </div>
+
+  <!-- Personalized Items -->
+  <div class="sgs-rr-panel sgs-rr-panel--soft">
+    <h2>Refunds on Personalized Items</h2>
+    <p>Personalized and custom-made items are produced specifically for you based on the personalization details you provide at checkout. These items are <strong>not eligible for return or refund</strong> unless they arrive defective, damaged, or with an error made by ShopGraphicshirt (e.g., incorrect personalization due to our production error, not a typo or mistake in the details you submitted). Please review all personalization details carefully before placing your order.</p>
+  </div>
+
+  <!-- Contact Info -->
+  <div class="sgs-rr-panel">
+    <h2>Contact Information</h2>
+    <p>For all return and refund inquiries, please contact us:</p>
+    <div class="sgs-rr-contact">
+      <div class="sgs-rr-contact__item">
+        <strong>Store Name</strong>
+        <span>ShopGraphicshirt</span>
+      </div>
+      <div class="sgs-rr-contact__item">
+        <strong>Customer Support Email</strong>
+        <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>
+      </div>
+      <div class="sgs-rr-contact__item">
+        <strong>Customer Service Hours</strong>
+        <span>Monday - Friday, 10:00 AM - 6:00 PM PST</span>
+      </div>
+      <div class="sgs-rr-contact__item">
+        <strong>Response Time</strong>
+        <span>Within 24 business hours.</span>
+      </div>
+      <div class="sgs-rr-contact__item">
+        <strong>Return Address</strong>
+        <span>Provided with return authorization.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>
+<?php get_footer(); ?>

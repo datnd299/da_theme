@@ -1,11 +1,24 @@
 /* ============================================================
-   Product Page — Elite Shop Express
-   Design System: Trusted Hardware palette, conversion-first
-   Skill: WooCommerce Theme Developer (pure CSS + CSS vars)
+   Product Page — ShopGraphicshirt
+   GTS Theme: Navy / Red / Antique
    ============================================================ */
 
-/* === 1. PAGE LAYOUT === */
+/* === GTS Theme Variables === */
+.sgs-product,
 body.single-product {
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #F7F2E8;
+  --color-bg-alt: #f5f5f5;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-accent: #B31942;
+  --color-accent-hover: #8a1433;
+  --color-accent-light: rgba(179,25,66,.08);
+  --color-border: #E5E7EB;
+  --color-surface: #0B1F3A;
+  --color-surface-light: rgba(11,31,58,.06);
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Barlow Condensed', 'Impact', sans-serif;
   overflow-x: hidden;
   font-family: var(--font-primary);
   background-color: var(--color-bg);
@@ -124,6 +137,12 @@ body.single-product div.product > .onsale {
 .woocommerce-product-gallery .flex-viewport {
   border-radius: var(--radius-lg);
   overflow: hidden;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.woocommerce-product-gallery .flex-viewport:active {
+  cursor: grabbing;
 }
 
 .woocommerce-product-gallery__image img,
@@ -157,10 +176,16 @@ body.single-product div.product > .onsale {
 }
 
 /* Thumbnails */
+.gallery-thumbs-wrapper {
+  position: relative;
+  margin-top: 16px;
+  padding: 0 44px;
+}
+
 .flex-control-thumbs {
   display: flex;
   gap: 8px;
-  margin: 16px 0 0;
+  margin: 0;
   padding: 4px 0 8px;
   list-style: none;
   overflow-x: auto;
@@ -192,6 +217,81 @@ body.single-product div.product > .onsale {
 .flex-control-thumbs img.flex-active,
 .flex-control-thumbs img:hover {
   border-color: var(--color-accent);
+}
+
+.gallery-thumbs-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  min-height: 34px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(11, 31, 58, 0.12);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--color-text-primary);
+  box-shadow: 0 10px 24px rgba(11, 31, 58, 0.14);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, opacity 0.18s ease;
+}
+
+.gallery-thumbs-btn.prev {
+  left: 0;
+}
+
+.gallery-thumbs-btn.next {
+  right: 0;
+}
+
+.gallery-thumbs-btn svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  pointer-events: none;
+}
+
+.gallery-thumbs-btn:hover,
+.gallery-thumbs-btn:focus-visible {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(179, 25, 66, 0.24);
+  transform: translateY(-50%) scale(1.04);
+  outline: none;
+}
+
+.gallery-thumbs-btn:disabled,
+.gallery-thumbs-btn[hidden] {
+  pointer-events: none;
+}
+
+.gallery-thumbs-btn[hidden] {
+  display: none;
+}
+
+@media (max-width: 479px) {
+  .gallery-thumbs-wrapper {
+    padding: 0 38px;
+  }
+
+  .gallery-thumbs-btn {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+  }
+
+  .gallery-thumbs-btn svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 /* === 3. SUMMARY === */

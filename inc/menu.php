@@ -2,34 +2,21 @@
 function dawp_main_menu_items() {
     return [
         ['title' => __('Home', 'dawp'), 'url' => home_url('/'), 'megamenu' => false],
-        ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/'), 'megamenu' => true],
-        ['title' => __('Shop By Theme', 'dawp'), 'url' => home_url('/shop-by-theme/'), 'megamenu' => false],
-        ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/'), 'megamenu' => false],
+        ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/'), 'megamenu' => false],
         ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/'), 'megamenu' => false],
+        ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/'), 'megamenu' => false],
     ];
 }
 
 function dawp_megamenu_sections() {
     return [
         [
-            'title' => __('Shop by Service', 'dawp'),
-            'links' => [
-                ['title' => __('U.S. Air Force', 'dawp'), 'url' => home_url('/product-category/u-s-air-force/'), 'description' => __('Air Force pride apparel and gifts.', 'dawp')],
-                ['title' => __('U.S. Army', 'dawp'), 'url' => home_url('/product-category/u-s-army/'), 'description' => __('Army-inspired personalized picks.', 'dawp')],
-                ['title' => __('U.S. Coast Guard', 'dawp'), 'url' => home_url('/product-category/u-s-coast-guard/'), 'description' => __('Coast Guard tribute designs.', 'dawp')],
-                ['title' => __('U.S. Marine Corps', 'dawp'), 'url' => home_url('/product-category/u-s-marine-corps/'), 'description' => __('Marine Corps pride gifts.', 'dawp')],
-                ['title' => __('U.S. Navy', 'dawp'), 'url' => home_url('/product-category/u-s-navy/'), 'description' => __('Navy-inspired apparel and keepsakes.', 'dawp')],
-                ['title' => __('U.S. Space Force', 'dawp'), 'url' => home_url('/product-category/u-s-space-force/'), 'description' => __('Space Force pride designs.', 'dawp')],
-                ['title' => __('U.S. Veteran', 'dawp'), 'url' => home_url('/product-category/u-s-veteran/'), 'description' => __('Veteran gift favorites.', 'dawp')],
-            ],
-        ],
-        [
             'title' => __('Shop by Collections', 'dawp'),
             'links' => [
                 ['title' => __('Cap', 'dawp'), 'url' => home_url('/product-category/cap/'), 'description' => __('Patriotic caps for everyday wear.', 'dawp')],
                 ['title' => __('Flag', 'dawp'), 'url' => home_url('/product-category/flag/'), 'description' => __('American pride flag designs.', 'dawp')],
                 ['title' => __('Hawaii Shirt', 'dawp'), 'url' => home_url('/product-category/hawaii-shirt/'), 'description' => __('Relaxed patriotic button-up shirts.', 'dawp')],
-                ['title' => __('Hoodie', 'dawp'), 'url' => home_url('/product-category/hoodie/'), 'description' => __('Warm service-pride layers.', 'dawp')],
+                ['title' => __('Hoodie', 'dawp'), 'url' => home_url('/product-category/hoodie/'), 'description' => __('Warm everyday layers.', 'dawp')],
                 ['title' => __('Jacket', 'dawp'), 'url' => home_url('/product-category/jacket/'), 'description' => __('Outerwear with patriotic character.', 'dawp')],
                 ['title' => __('Phone Case', 'dawp'), 'url' => home_url('/product-category/phone-case/'), 'description' => __('Protective cases with pride.', 'dawp')],
                 ['title' => __('Polo', 'dawp'), 'url' => home_url('/product-category/polo/'), 'description' => __('Polished custom polo styles.', 'dawp')],
@@ -43,19 +30,11 @@ function dawp_product_category_slugs() {
     return [
         'best-sellers',
         'american-flag-tees',
-        'veteran-tribute',
         'bomber-jackets',
         'hats-beanies',
         'premium-t-shirts',
         'patches-pins',
         'america-250',
-        'u-s-air-force',
-        'u-s-army',
-        'u-s-coast-guard',
-        'u-s-marine-corps',
-        'u-s-navy',
-        'u-s-space-force',
-        'u-s-veteran',
         'cap',
         'flag',
         'hawaii-shirt',
@@ -65,10 +44,8 @@ function dawp_product_category_slugs() {
         'polo',
         't-shirt',
         'fathers-day-gifts',
-        'veterans-day-gifts',
         'memorial-day-gifts',
         'independence-day-gifts',
-        'christmas-gifts-for-veterans',
     ];
 }
 
@@ -92,7 +69,7 @@ function dawp_footer_columns() {
             'title' => __('Shop', 'dawp'),
             'links' => [
                 ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Shop By Theme', 'dawp'), 'url' => home_url('/shop-by-theme/')],
+                ['title' => __('Shop By Categories', 'dawp'), 'url' => home_url('/shop-by-categories/')],
                 ['title' => __('Best Sellers', 'dawp'), 'url' => home_url('/best-sellers/')],
             ],
         ],

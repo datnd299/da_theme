@@ -1,244 +1,130 @@
 <?php
 /**
- * Template Part: About Us
- *
- * About page for GraphicTShirtStore.
+ * About Us — ShopGraphicshirt
+ * Patriotic apparel & gift brand.
  */
+$sgs_about_img = trailingslashit(get_template_directory_uri()) . 'assets/img/about/';
+get_header(); ?>
+<section class="sgs-home sgs-page">
 
-defined('ABSPATH') || exit;
+<style>
+.sgs-page-hero{position:relative;isolation:isolate;background-color:var(--navy);background-image:var(--about-hero-bg);background-size:cover;background-position:center;color:var(--white);padding:clamp(96px,12vw,160px) clamp(24px,4vw,64px);text-align:center;overflow:hidden}
+.sgs-page-hero:before{content:"";position:absolute;inset:0;z-index:-2;background:inherit;background-size:cover;background-position:center;transform:scale(1.01)}
+.sgs-page-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,31,58,.88),rgba(11,31,58,.72) 28%,rgba(11,31,58,.68) 50%,rgba(11,31,58,.72) 72%,rgba(11,31,58,.88)),linear-gradient(180deg,rgba(11,31,58,.58),rgba(11,31,58,.28) 42%,rgba(11,31,58,.78))}
+.sgs-page-hero__inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
+.sgs-page-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
+.sgs-page-hero p{max-width:640px;margin:20px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
+.sgs-pg{width:min(100% - 48px,1200px);margin:0 auto;padding:var(--section-gap,72px) 0}
+.sgs-pg--surface{width:100%;max-width:none;padding-inline:clamp(24px,4vw,64px);background:var(--antique)}
+.sgs-pg__center{max-width:640px;margin:0 auto 36px;text-align:center}
+.sgs-pg__center h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+.sgs-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sgs-card{padding:32px 24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);text-align:center;transition:box-shadow 180ms,transform 180ms}
+.sgs-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
+.sgs-card__icon{display:grid;place-items:center;width:52px;height:52px;border-radius:var(--radius);background:var(--navy);color:var(--white);font-size:22px;margin:0 auto 18px}
+.sgs-card__icon i{line-height:1}
+.sgs-card h3{margin:0;font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--ink)}
+.sgs-card p{margin:10px 0 0;color:var(--muted);font-size:.9rem;line-height:1.6}
+.sgs-card--4{grid-template-columns:repeat(4,1fr)}
+.sgs-story{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.sgs-story__content h2{margin:0 0 16px;font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
+.sgs-story__content p{margin:14px 0 0;color:var(--muted);font-size:.95rem;line-height:1.7}
+.sgs-story__content p:first-of-type{margin-top:0}
+.sgs-story__visual{position:relative;border-radius:var(--radius);background:var(--antique);min-height:320px;overflow:hidden;box-shadow:0 18px 40px rgba(11,31,58,.12)}
+.sgs-story__visual img{width:100%;height:100%;min-height:320px;object-fit:cover}
+.sgs-story__visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,58,0) 48%,rgba(11,31,58,.22));pointer-events:none}
+.sgs-story__badge{position:absolute;left:18px;bottom:18px;z-index:1;display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius);background:rgba(255,255,255,.92);color:var(--navy);font-family:var(--font-heading);font-size:.86rem;font-weight:800;box-shadow:0 10px 24px rgba(11,31,58,.18)}
+.sgs-story__badge i{color:var(--red)}
+.sgs-cta-block{text-align:center;max-width:580px;margin:0 auto}
+.sgs-cta-block h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--ink);line-height:1.15}
+.sgs-cta-block p{margin:14px 0 24px;color:var(--muted);font-size:.95rem;line-height:1.6}
+.sgs-cta-block .sgs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 30px;border:2px solid var(--red);border-radius:var(--radius);background:var(--red);color:var(--white)!important;font-family:var(--font-heading);font-size:.82rem;font-weight:800;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;box-shadow:0 3px 10px rgba(179,25,66,.25);transition:transform 180ms,background-color 180ms,border-color 180ms,box-shadow 180ms}
+.sgs-cta-block .sgs-btn:hover{transform:translateY(-2px);background:#8c1233;border-color:#8c1233;color:var(--white)!important;box-shadow:0 6px 16px rgba(179,25,66,.32)}
+.sgs-cta-block .sgs-btn:focus-visible{outline:3px solid rgba(179,25,66,.28);outline-offset:3px}
+@media(max-width:1024px){.sgs-card-grid{grid-template-columns:repeat(2,1fr)}.sgs-card--4{grid-template-columns:repeat(2,1fr)}.sgs-story{grid-template-columns:1fr;gap:28px}.sgs-story__visual{min-height:260px;order:-1}}
+@media(max-width:640px){.sgs-pg{width:100%;padding:52px 0}.sgs-pg--surface{padding-inline:0}.sgs-pg__center{width:min(100% - 40px,640px);margin-bottom:28px}.sgs-card-grid,.sgs-card--4{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:0 20px 8px;-webkit-overflow-scrolling:touch}.sgs-card-grid::-webkit-scrollbar{display:none}.sgs-card-grid{scrollbar-width:none}.sgs-card{flex:0 0 min(82vw,360px);scroll-snap-align:center;min-height:244px;display:flex;flex-direction:column;justify-content:center}.sgs-card:hover{box-shadow:none;transform:none}.sgs-story{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-cta-block{width:min(100% - 40px,580px)}.sgs-cta-block .sgs-btn{width:100%}}
+</style>
 
-$img_base = 'assets/img/home/';
+<div class="sgs-page-hero" style="--about-hero-bg:url('<?php echo esc_url($sgs_about_img . 'about-hero-background.png'); ?>')">
+  <div class="sgs-page-hero__inner">
+    <p class="sgs-eyebrow sgs-eyebrow--light">About Us</p>
+    <h1>Patriotic Apparel And Gifts Made For American Pride</h1>
+    <p>ShopGraphicshirt is an American patriotic apparel and custom gift brand built for proud Americans who want meaningful products that carry classic style and pride.</p>
+  </div>
+</div>
 
-$about_values = array(
-    array(
-        'title' => __('Respectful Tribute', 'dawp'),
-        'copy'  => __('We use veteran-inspired language and patriotic artwork with care, avoiding official claims, political slogans, or borrowed military marks.', 'dawp'),
-        'abbr'  => 'RT',
-    ),
-    array(
-        'title' => __('Personal Details Matter', 'dawp'),
-        'copy'  => __('Names, ranks, branches, service years, and family messages help turn everyday apparel into a gift with real meaning.', 'dawp'),
-        'abbr'  => 'PD',
-    ),
-    array(
-        'title' => __('Easy Gift Shopping', 'dawp'),
-        'copy'  => __('Collections are organized by product, occasion, and gift intent so shoppers can move from idea to order without friction.', 'dawp'),
-        'abbr'  => 'EG',
-    ),
-);
-
-$about_steps = array(
-    array('Choose', __('Pick a graphic tee, hoodie, bomber jacket, hat, mug, patch, or patriotic accessory.', 'dawp')),
-    array('Personalize', __('Add the custom service-inspired details that make the piece yours.', 'dawp')),
-    array('Review', __('Check names, dates, branch text, and custom fields carefully before checkout.', 'dawp')),
-    array('Wear Or Gift', __('Receive a made-with-care item ready for daily pride or a meaningful gift moment.', 'dawp')),
-);
-
-$about_collections = array(
-    array(__('American Flag Tees', 'dawp'), __('Distressed flag prints, eagle artwork, and everyday freedom wear.', 'dawp'), '/product-category/american-flag-tees/', 'cat-flag-tees.png'),
-    array(__('Veteran Tribute', 'dawp'), __('Service-honoring apparel and personalized gifts for veterans and families.', 'dawp'), '/product-category/veteran-tribute/', 'cat-veteran.png'),
-    array(__('Bomber Jackets', 'dawp'), __('Classic MA-1 inspired jackets with patriotic details and custom name options.', 'dawp'), '/product-category/bomber-jackets/', 'cat-bomber.png'),
-);
-
-$trust_points = array(
-    __('Premium graphic apparel for proud Americans', 'dawp'),
-    __('Tracking included once your order ships', 'dawp'),
-    __('30-day returns on eligible non-personalized items', 'dawp'),
-);
-?>
-
-<section class="bg-[#FFFFFF] text-[#111827]">
-  <div class="relative overflow-hidden bg-[#0B1F3A] text-white">
-    <div class="absolute inset-0">
-      <?php echo dawp_theme_image(
-          $img_base . 'gts-hero.png',
-          __('GraphicTShirtStore patriotic apparel lifestyle image', 'dawp'),
-          1920,
-          1080,
-          array(array(720, 405), array(1280, 720), array(1920, 1080)),
-          '100vw',
-          array('class' => 'h-full w-full object-cover opacity-40', 'loading' => 'eager')
-      ); ?>
+<div class="sgs-pg">
+  <div class="sgs-card-grid">
+    <div class="sgs-card">
+      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-bullseye"></i></div>
+      <h3>Our Mission</h3>
+      <p>To provide every American with a simple, affordable, and meaningful way to wear their pride.</p>
     </div>
-    <div class="absolute inset-0 bg-gradient-to-br from-[#071A33]/95 via-[#071A33]/60 to-[#B31942]/90"></div>
-
-    <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 py-16 md:px-6 md:py-24 lg:grid-cols-2 lg:py-28">
-      <div>
-        <p class="inline-flex rounded-lg border border-[#C6A15B]/40 bg-white/10 px-4 py-2 text-xs font-extrabold uppercase tracking-[0.16em] text-[#C6A15B]">
-          <?php esc_html_e('About GraphicTShirtStore', 'dawp'); ?>
-        </p>
-        <h1 class="mt-5 max-w-3xl text-4xl font-black leading-none md:text-6xl lg:text-7xl">
-          <?php esc_html_e('American Pride, Made Personal.', 'dawp'); ?>
-        </h1>
-        <p class="mt-6 max-w-xl text-base leading-8 text-white/80 md:text-lg">
-          <?php esc_html_e('GraphicTShirtStore is a patriotic apparel and custom gift brand built for veterans, military families, and proud Americans who want graphic tees, bomber jackets, hats, hoodies, and accessories with meaning.', 'dawp'); ?>
-        </p>
-
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="<?php echo esc_url(home_url('/best-sellers/')); ?>" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[#B31942] px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-[#921233]">
-            <?php esc_html_e('Shop Best Sellers', 'dawp'); ?>
-          </a>
-          <a href="<?php echo esc_url(home_url('/product-category/veteran-tribute/')); ?>" class="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-white/40 bg-white/10 px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-white hover:text-[#0B1F3A]">
-            <?php esc_html_e('Explore Custom Gifts', 'dawp'); ?>
-          </a>
-        </div>
-
-        <div class="mt-8 grid gap-3 text-sm font-semibold text-white/80 sm:grid-cols-3">
-          <?php foreach ($trust_points as $point) : ?>
-            <div class="rounded-lg border border-white/15 bg-white/10 p-4"><?php echo esc_html($point); ?></div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-
-      <div class="relative">
-        <div class="overflow-hidden rounded-lg border border-white/15 bg-white p-3 shadow-2xl">
-          <?php echo dawp_theme_image(
-              $img_base . 'gts-feature-bomber.png',
-              __('Custom patriotic bomber jacket with American flag details', 'dawp'),
-              600,
-              750,
-              array(array(360, 450), array(540, 675), array(600, 750)),
-              '(max-width: 1023px) calc(100vw - 56px), 600px',
-              array('class' => 'aspect-[4/5] w-full rounded-lg object-cover', 'loading' => 'eager')
-          ); ?>
-        </div>
-        <div class="absolute -bottom-6 left-4 right-4 rounded-lg border border-[#E5E7EB] bg-white p-5 text-[#111827] shadow-xl md:left-auto md:right-8 md:w-72">
-          <p class="text-xs font-extrabold uppercase tracking-[0.14em] text-[#B31942]"><?php esc_html_e('GraphicTShirtStore.com', 'dawp'); ?></p>
-          <h2 class="mt-2 text-xl font-extrabold"><?php esc_html_e('Name. Rank. Years. Legacy.', 'dawp'); ?></h2>
-          <p class="mt-2 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Custom details for gifts that feel personal, respectful, and ready to wear.', 'dawp'); ?></p>
-        </div>
-      </div>
+    <div class="sgs-card">
+      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-eye"></i></div>
+      <h3>Our Vision</h3>
+      <p>To become the most trusted patriotic apparel destination for proud Americans nationwide.</p>
+    </div>
+    <div class="sgs-card">
+      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
+      <h3>Our Promise</h3>
+      <p>Premium quality, clear product information, reliable delivery, and support that actually helps you find the right products.</p>
     </div>
   </div>
+</div>
 
-  <div class="bg-[#F7F2E8] py-12 md:py-16 lg:py-20">
-    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 md:px-6 lg:grid-cols-12 lg:gap-12">
-      <div class="lg:col-span-5">
-        <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Our Purpose', 'dawp'); ?></p>
-        <h2 class="mt-3 text-3xl font-extrabold leading-tight text-[#111827] md:text-5xl">
-          <?php esc_html_e('Built for tribute, everyday pride, and meaningful gifts.', 'dawp'); ?>
-        </h2>
-      </div>
-      <div class="space-y-5 text-base leading-8 text-[#6B7280] md:text-lg lg:col-span-7">
-        <p><?php esc_html_e('We believe a shirt, hat, jacket, mug, or patch can do more than complete an outfit. It can start a conversation, mark a milestone, and help a family honor a service story with care.', 'dawp'); ?></p>
-        <p><?php esc_html_e('Our store focuses on premium-looking graphics, clear product choices, and personalization options for birthdays, Father\'s Day, Veterans Day, Memorial Day, Independence Day, holidays, reunions, and America 250 celebrations.', 'dawp'); ?></p>
-        <p class="rounded-lg border border-[#E5E7EB] bg-white p-5 text-sm leading-7 text-[#111827]">
-          <?php esc_html_e('GraphicTShirtStore is available at graphictshirtstore.com. We are not official, licensed, endorsed by, or affiliated with the U.S. military, the Department of Defense, or any government agency.', 'dawp'); ?>
-        </p>
-      </div>
+<div class="sgs-pg sgs-pg--surface">
+  <div class="sgs-pg__center">
+    <p class="sgs-eyebrow">Why Shop With Us</p>
+    <h2>What Sets Us Apart</h2>
+  </div>
+  <div class="sgs-card-grid sgs-card--4">
+    <div class="sgs-card">
+      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-shirt"></i></div>
+      <h3>Premium Quality</h3>
+      <p>Heavy-weight cotton, durable prints, and comfortable fits made to last.</p>
+    </div>
+    <div class="sgs-card">
+      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-palette"></i></div>
+      <h3>Unique Designs</h3>
+      <p>Original patriotic graphics you won't find anywhere else.</p>
+    </div>
+    <div class="sgs-card">
+      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-box"></i></div>
+      <h3>Easy Ordering</h3>
+      <p>Simple checkout, tracking included, and reliable delivery to your door.</p>
+    </div>
+    <div class="sgs-card">
+      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-gift"></i></div>
+      <h3>Personalization</h3>
+      <p>Custom name options for meaningful gifts.</p>
     </div>
   </div>
+</div>
 
-  <div class="bg-white py-12 md:py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <div class="mb-8 max-w-3xl">
-        <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('What We Stand For', 'dawp'); ?></p>
-        <h2 class="mt-3 text-3xl font-extrabold text-[#111827] md:text-5xl"><?php esc_html_e('Respectful products, clear choices, lasting meaning.', 'dawp'); ?></h2>
-      </div>
-
-      <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:snap-none md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
-        <?php foreach ($about_values as $value) : ?>
-          <article class="min-w-0 flex-[0_0_82%] snap-start rounded-lg border border-[#E5E7EB] bg-white p-6 shadow-sm sm:flex-[0_0_58%] md:flex-auto">
-            <span class="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#0B1F3A] text-xs font-extrabold text-white"><?php echo esc_html($value['abbr']); ?></span>
-            <h3 class="mt-5 text-xl font-extrabold text-[#111827]"><?php echo esc_html($value['title']); ?></h3>
-            <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($value['copy']); ?></p>
-          </article>
-        <?php endforeach; ?>
-      </div>
+<div class="sgs-pg">
+  <div class="sgs-story">
+    <div class="sgs-story__content">
+      <p class="sgs-eyebrow">Our Story</p>
+      <h2>Built For Proud American Style</h2>
+      <p>ShopGraphicshirt was created because finding quality patriotic apparel shouldn't be complicated. Too many stores feel generic, political, or low-quality.</p>
+      <p>We started this brand to change that, focusing on premium graphic tees, bomber jackets, hats, and accessories that actually look good, feel great, and celebrate American pride.</p>
+      <p>Today, we help thousands of Americans express their pride with products that carry meaning.</p>
+    </div>
+    <div class="sgs-story__visual">
+      <img src="<?php echo esc_url($sgs_about_img . 'about-story-patriotic-apparel.png'); ?>" alt="<?php echo esc_attr__('Patriotic apparel, custom gifts, and accessories arranged in a premium studio setting', 'shopgraphicshirt'); ?>" loading="lazy" decoding="async">
+      <span class="sgs-story__badge"><i class="fas fa-flag-usa" aria-hidden="true"></i> American Pride Since Day One</span>
     </div>
   </div>
+</div>
 
-  <div class="bg-[#0B1F3A] py-12 text-white md:py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#C6A15B]"><?php esc_html_e('How It Works', 'dawp'); ?></p>
-          <h2 class="mt-3 text-3xl font-extrabold md:text-5xl"><?php esc_html_e('A simple path from idea to keepsake.', 'dawp'); ?></h2>
-        </div>
-        <p class="max-w-xl text-sm leading-7 text-white/75 md:text-base"><?php esc_html_e('Custom products should feel special, while ordering them stays straightforward.', 'dawp'); ?></p>
-      </div>
-
-      <div class="grid grid-cols-1 gap-4 md:grid-cols-4">
-        <?php foreach ($about_steps as $index => $step) : ?>
-          <article class="rounded-lg border border-white/15 bg-white/10 p-5">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[#C6A15B] text-sm font-extrabold text-[#0B1F3A]"><?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
-            <h3 class="mt-5 text-xl font-extrabold"><?php echo esc_html($step[0]); ?></h3>
-            <p class="mt-3 text-sm leading-7 text-white/75"><?php echo esc_html($step[1]); ?></p>
-          </article>
-        <?php endforeach; ?>
-      </div>
-    </div>
+<div class="sgs-pg sgs-pg--surface">
+  <div class="sgs-cta-block">
+    <h2>Have Questions? We're Here To Help</h2>
+    <p>Our team is ready to assist you with product selection, orders, or any questions you may have.</p>
+    <a class="sgs-btn sgs-btn--primary" href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a>
   </div>
+</div>
 
-  <div class="bg-[#F7F2E8] py-12 md:py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#B31942]"><?php esc_html_e('Featured Collections', 'dawp'); ?></p>
-          <h2 class="mt-3 text-3xl font-extrabold text-[#111827] md:text-5xl"><?php esc_html_e('Start with the pieces shoppers look for most.', 'dawp'); ?></h2>
-        </div>
-        <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-[44px] shrink-0 items-center justify-center rounded-lg bg-[#0B1F3A] px-5 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-[#B31942]">
-          <?php esc_html_e('Shop All', 'dawp'); ?>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
-        <?php foreach ($about_collections as $collection) : ?>
-          <a href="<?php echo esc_url(home_url($collection[2])); ?>" class="group overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-[#E5E7EB] transition hover:-translate-y-1 hover:shadow-xl">
-            <div class="relative aspect-[4/3] overflow-hidden bg-[#0B1F3A]">
-              <?php echo dawp_theme_image(
-                  $img_base . $collection[3],
-                  $collection[0],
-                  600,
-                  450,
-                  array(array(360, 270), array(540, 405), array(600, 450)),
-                  '(max-width: 767px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 64px) / 3), 390px',
-                  array('class' => 'h-full w-full object-cover transition duration-500 group-hover:scale-105')
-              ); ?>
-              <div class="absolute inset-0 bg-gradient-to-t from-[#0B1F3A]/85 via-[#0B1F3A]/15 to-transparent"></div>
-              <span class="absolute bottom-4 left-4 rounded-lg bg-[#B31942] px-3 py-1 text-xs font-extrabold uppercase tracking-wide text-white"><?php esc_html_e('View Collection', 'dawp'); ?></span>
-            </div>
-            <div class="p-5">
-              <h3 class="text-xl font-extrabold text-[#111827]"><?php echo esc_html($collection[0]); ?></h3>
-              <p class="mt-2 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($collection[1]); ?></p>
-            </div>
-          </a>
-        <?php endforeach; ?>
-      </div>
-    </div>
-  </div>
-
-  <div class="bg-white py-12 md:py-16 lg:py-20">
-    <div class="mx-auto max-w-7xl px-4 md:px-6">
-      <div class="grid grid-cols-1 overflow-hidden rounded-lg bg-[#0B1F3A] text-white lg:grid-cols-2">
-        <div class="flex min-h-[420px] flex-col justify-between gap-10 p-8 md:p-10 lg:min-h-[520px] lg:p-12">
-          <div>
-            <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#C6A15B]"><?php esc_html_e('Ready To Honor The Story?', 'dawp'); ?></p>
-            <h2 class="mt-4 max-w-xl text-3xl font-extrabold leading-tight md:text-5xl"><?php esc_html_e('Find a meaningful gift or customize a piece of your own.', 'dawp'); ?></h2>
-            <p class="mt-6 max-w-lg text-base leading-8 text-white/75"><?php esc_html_e('Browse patriotic apparel, custom veteran gifts, bomber jackets, hats, hoodies, and accessories made for families who value service, freedom, and legacy.', 'dawp'); ?></p>
-            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="<?php echo esc_url(home_url('/best-sellers/')); ?>" class="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-[#B31942] px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-[#921233]"><?php esc_html_e('Shop Best Sellers', 'dawp'); ?></a>
-              <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-white/40 px-6 text-sm font-extrabold uppercase tracking-[0.06em] text-white transition hover:bg-white hover:text-[#0B1F3A]"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
-            </div>
-          </div>
-          <div class="grid gap-3 border-t border-white/15 pt-6 text-sm font-semibold leading-6 text-white/80 sm:grid-cols-3">
-            <div><?php esc_html_e('Veteran-inspired apparel', 'dawp'); ?></div>
-            <div><?php esc_html_e('Custom gift details', 'dawp'); ?></div>
-            <div><?php esc_html_e('Made for family legacy', 'dawp'); ?></div>
-          </div>
-        </div>
-        <div class="min-h-[320px] bg-[#F7F2E8]">
-          <?php echo dawp_theme_image(
-              $img_base . 'cat-veteran.png',
-              __('Veteran tribute apparel from GraphicTShirtStore', 'dawp'),
-              600,
-              750,
-              array(array(360, 450), array(540, 675), array(600, 750)),
-              '(max-width: 1023px) calc(100vw - 32px), 640px',
-              array('class' => 'h-full w-full object-cover')
-          ); ?>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
+<?php get_footer(); ?>

@@ -4,6 +4,15 @@
    =================================================== */
 
 .account-page {
+  --color-surface: #0B1F3A;
+  --color-background: #FFFFFF;
+  --color-foreground: #111827;
+  --color-muted: #6B7280;
+  --color-accent: #B31942;
+  --color-accent-hover: #8a1433;
+  --color-border: #E5E7EB;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Barlow Condensed', 'Impact', sans-serif;
   min-height: 62vh;
   padding: 56px 16px 80px;
   background:

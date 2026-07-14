@@ -1,7 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('site-header');
+    const header = document.getElementById('masthead') || document.getElementById('site-header');
     const toggle = document.querySelector('.menu-toggle');
     const nav    = document.querySelector('.main-navigation');
+    const mobileMenuToggle = document.getElementById('sgs-mobile-toggle');
+    const mobileMenu = document.getElementById('sgs-mobile-menu');
+    const mobileSearchToggle = document.getElementById('sgs-mobile-search-toggle');
+    const mobileSearch = document.getElementById('sgs-mobile-search');
+    const mobileSearchInput = document.getElementById('sgs-mobile-search-input');
 
     // Scroll shadow
     if (header) {
@@ -11,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mobile menu toggle
-    if (toggle && nav) {
+    if (toggle && nav && header) {
         toggle.addEventListener('click', () => {
             const expanded = toggle.getAttribute('aria-expanded') === 'true';
             toggle.setAttribute('aria-expanded', String(!expanded));
@@ -45,13 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const prevBtn = document.createElement('button');
         prevBtn.className = 'gallery-thumbs-btn prev';
+        prevBtn.type = 'button';
         prevBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
-        prevBtn.setAttribute('aria-label', 'Scroll Left');
+        prevBtn.setAttribute('aria-label', 'Previous product image thumbnails');
         
         const nextBtn = document.createElement('button');
         nextBtn.className = 'gallery-thumbs-btn next';
+        nextBtn.type = 'button';
         nextBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
-        nextBtn.setAttribute('aria-label', 'Scroll Right');
+        nextBtn.setAttribute('aria-label', 'Next product image thumbnails');
         
         wrapper.appendChild(prevBtn);
         wrapper.appendChild(nextBtn);
@@ -69,13 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         const updateButtons = () => {
-            if (thumbsList.scrollWidth <= thumbsList.clientWidth) {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-                return;
-            }
-            prevBtn.style.display = thumbsList.scrollLeft > 5 ? 'flex' : 'none';
-            nextBtn.style.display = Math.ceil(thumbsList.scrollLeft + thumbsList.clientWidth) >= thumbsList.scrollWidth - 5 ? 'none' : 'flex';
+            const canScroll = thumbsList.scrollWidth > thumbsList.clientWidth + 5;
+            const atStart = thumbsList.scrollLeft <= 5;
+            const atEnd = Math.ceil(thumbsList.scrollLeft + thumbsList.clientWidth) >= thumbsList.scrollWidth - 5;
+
+            prevBtn.hidden = !canScroll || atStart;
+            nextBtn.hidden = !canScroll || atEnd;
+            prevBtn.disabled = !canScroll || atStart;
+            nextBtn.disabled = !canScroll || atEnd;
         };
         
         thumbsList.addEventListener('scroll', updateButtons, { passive: true });
@@ -86,11 +94,109 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     };
 
+    const initProductGallerySwipe = () => {
+        const gallery = document.querySelector('.woocommerce-product-gallery');
+        const viewport = gallery?.querySelector('.flex-viewport');
+        const thumbsList = gallery?.querySelector('.flex-control-thumbs');
+
+        if (!gallery || !viewport || gallery.classList.contains('has-main-image-swipe')) {
+            return !!viewport;
+        }
+
+        gallery.classList.add('has-main-image-swipe');
+
+        let startX = 0;
+        let startY = 0;
+        let tracking = false;
+
+        const getFlexslider = () => {
+            if (!window.jQuery) return null;
+            const data = window.jQuery(gallery).data('flexslider');
+            return data && typeof data.flexAnimate === 'function' ? data : null;
+        };
+
+        const getActiveThumbIndex = () => {
+            const thumbs = Array.from(thumbsList?.querySelectorAll('img') || []);
+            const activeIndex = thumbs.findIndex((thumb) => thumb.classList.contains('flex-active'));
+            return { thumbs, activeIndex: activeIndex === -1 ? 0 : activeIndex };
+        };
+
+        const moveGallery = (direction) => {
+            const flexslider = getFlexslider();
+
+            if (flexslider) {
+                const slideCount = flexslider.count || gallery.querySelectorAll('.woocommerce-product-gallery__image').length;
+                if (slideCount <= 1) return;
+
+                const current = flexslider.currentSlide || 0;
+                const target = direction === 'next'
+                    ? Math.min(current + 1, slideCount - 1)
+                    : Math.max(current - 1, 0);
+
+                if (target !== current) {
+                    flexslider.flexAnimate(target);
+                }
+                return;
+            }
+
+            const { thumbs, activeIndex } = getActiveThumbIndex();
+            const targetIndex = direction === 'next' ? activeIndex + 1 : activeIndex - 1;
+            thumbs[targetIndex]?.click();
+        };
+
+        const startSwipe = (clientX, clientY) => {
+            startX = clientX;
+            startY = clientY;
+            tracking = true;
+        };
+
+        const endSwipe = (clientX, clientY) => {
+            if (!tracking) return;
+            tracking = false;
+
+            const deltaX = clientX - startX;
+            const deltaY = clientY - startY;
+            const isHorizontalSwipe = Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4;
+
+            if (!isHorizontalSwipe) return;
+            moveGallery(deltaX < 0 ? 'next' : 'prev');
+        };
+
+        if (window.PointerEvent) {
+            viewport.addEventListener('pointerdown', (event) => {
+                if (event.pointerType === 'mouse' && event.button !== 0) return;
+                startSwipe(event.clientX, event.clientY);
+            });
+
+            viewport.addEventListener('pointerup', (event) => {
+                endSwipe(event.clientX, event.clientY);
+            });
+
+            viewport.addEventListener('pointercancel', () => {
+                tracking = false;
+            });
+        } else {
+            viewport.addEventListener('touchstart', (event) => {
+                const touch = event.changedTouches[0];
+                if (touch) startSwipe(touch.clientX, touch.clientY);
+            }, { passive: true });
+
+            viewport.addEventListener('touchend', (event) => {
+                const touch = event.changedTouches[0];
+                if (touch) endSwipe(touch.clientX, touch.clientY);
+            }, { passive: true });
+        }
+
+        return true;
+    };
+
     // Retry finding the gallery as WooCommerce initializes it asynchronously
-    if (!initGalleryThumbsScroll()) {
+    if (!initGalleryThumbsScroll() || !initProductGallerySwipe()) {
         let checkCount = 0;
         const interval = setInterval(() => {
-            if (initGalleryThumbsScroll() || checkCount++ > 15) clearInterval(interval);
+            const thumbsReady = initGalleryThumbsScroll();
+            const swipeReady = initProductGallerySwipe();
+            if ((thumbsReady && swipeReady) || checkCount++ > 15) clearInterval(interval);
         }, 300);
     }
 
@@ -190,6 +296,15 @@ document.addEventListener('DOMContentLoaded', () => {
         next: '[data-trust-next]',
     });
 
+    initMobileSnapSlider({
+        slider: '[data-shipping-slider]',
+        track: '[data-shipping-track]',
+        slide: '[data-shipping-slide]',
+        dot: '[data-shipping-dot]',
+        prev: '[data-shipping-prev]',
+        next: '[data-shipping-next]',
+    });
+
     document.querySelectorAll('[data-review-slider]').forEach((slider) => {
         const track = slider.querySelector('[data-review-track]');
         const slides = Array.from(slider.querySelectorAll('[data-review-slide]'));
@@ -287,11 +402,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
             const submitBtn = form.querySelector('button[type="submit"]');
-            const origText  = submitBtn.textContent;
+            const origText  = submitBtn.innerHTML;
 
             submitBtn.disabled    = true;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.innerHTML   = '<span>Sending...</span>';
             msg.style.display     = 'none';
 
             const body = new FormData(form);
@@ -311,9 +430,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 msg.style.display = 'block';
             } finally {
                 submitBtn.disabled    = false;
-                submitBtn.textContent = origText;
+                submitBtn.innerHTML   = origText;
             }
         });
+    }
+
+    if (header) {
+        const setExpanded = (button, panel, expanded) => {
+            if (!button || !panel) return;
+            button.setAttribute('aria-expanded', String(expanded));
+            panel.classList.toggle('hidden', !expanded);
+        };
+
+        const closeMobilePanels = (exceptPanel = null) => {
+            if (exceptPanel !== mobileMenu) setExpanded(mobileMenuToggle, mobileMenu, false);
+            if (exceptPanel !== mobileSearch) setExpanded(mobileSearchToggle, mobileSearch, false);
+        };
+
+        mobileMenuToggle?.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            closeMobilePanels(expanded ? null : mobileMenu);
+            setExpanded(mobileMenuToggle, mobileMenu, !expanded);
+        });
+
+        mobileSearchToggle?.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const expanded = mobileSearchToggle.getAttribute('aria-expanded') === 'true';
+            closeMobilePanels(expanded ? null : mobileSearch);
+            setExpanded(mobileSearchToggle, mobileSearch, !expanded);
+            if (!expanded) {
+                window.setTimeout(() => mobileSearchInput?.focus(), 30);
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!header.contains(event.target)) closeMobilePanels();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeMobilePanels();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.matchMedia('(min-width: 1024px)').matches) closeMobilePanels();
+        }, { passive: true });
     }
 
     initNewsletterForm('newsletter-form', 'newsletter-msg', '#a8f0c8', '#f9a8a8');

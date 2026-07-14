@@ -5,15 +5,11 @@ function dawp_product_category_definitions() {
     return [
         'best-sellers' => [
             'name'        => __('Best Sellers', 'dawp'),
-            'description' => __('Customer-favorite patriotic apparel and veteran-inspired gifts made to honor service, legacy, and American pride.', 'dawp'),
+            'description' => __('Customer-favorite patriotic apparel and gifts made for classic American pride.', 'dawp'),
         ],
         'american-flag-tees' => [
             'name'        => __('American Flag Tees', 'dawp'),
             'description' => __('Graphic tees with bold American flag designs, distressed prints, and eagle graphics.', 'dawp'),
-        ],
-        'veteran-tribute' => [
-            'name'        => __('Veteran Tribute', 'dawp'),
-            'description' => __('Veteran-inspired apparel that respectfully honors service, branch pride, and sacrifice.', 'dawp'),
         ],
         'bomber-jackets' => [
             'name'        => __('Bomber Jackets', 'dawp'),
@@ -37,23 +33,15 @@ function dawp_product_category_definitions() {
         ],
         'fathers-day-gifts' => [
             'name'        => __('Father\'s Day Gifts', 'dawp'),
-            'description' => __('Meaningful Father\'s Day gifts for veterans, husbands, grandfathers, and military families.', 'dawp'),
-        ],
-        'veterans-day-gifts' => [
-            'name'        => __('Veterans Day Gifts', 'dawp'),
-            'description' => __('Gift-ready patriotic apparel and personalized keepsakes made to honor veterans and service legacy.', 'dawp'),
+            'description' => __('Meaningful Father\'s Day gifts for husbands, dads, grandfathers, and proud families.', 'dawp'),
         ],
         'memorial-day-gifts' => [
             'name'        => __('Memorial Day Gifts', 'dawp'),
-            'description' => __('Respectful patriotic gifts and service-inspired apparel for remembrance, family legacy, and American pride.', 'dawp'),
+            'description' => __('Respectful patriotic gifts and apparel for remembrance, family legacy, and American pride.', 'dawp'),
         ],
         'independence-day-gifts' => [
             'name'        => __('Independence Day Gifts', 'dawp'),
             'description' => __('Red, white, and blue apparel, accessories, and custom gifts for proud American celebrations.', 'dawp'),
-        ],
-        'christmas-gifts-for-veterans' => [
-            'name'        => __('Christmas Gifts For Veterans', 'dawp'),
-            'description' => __('Gift-ready veteran-inspired apparel, hats, mugs, and personalized accessories for the holiday season.', 'dawp'),
         ],
     ];
 }

@@ -1,114 +1,377 @@
-</div><!-- #content -->
-
 <?php
-$footer_store_address = dawp_get_woocommerce_store_address();
-$logo_url             = get_template_directory_uri() . '/assets/img/logo-graphictshirtstore.svg';
-$payment_methods      = array(
-    array('name' => __('Visa', 'dawp'), 'file' => 'visa.png'),
-    array('name' => __('Mastercard', 'dawp'), 'file' => 'mastercard.png'),
-    array('name' => __('PayPal', 'dawp'), 'file' => 'paypal.png'),
-    array('name' => __('American Express', 'dawp'), 'file' => 'amex.png'),
-);
+/**
+ * Theme footer — ShopGraphicshirt
+ * Patriot Navy / Heritage Red / Antique White
+ */
+
+$footer_contact = [
+    'email'   => 'support@shopgraphicshirt.com',
+    'address' => __('United States', 'shopgraphicshirt'),
+    'hours'   => __('Monday - Friday, 10:00 AM - 6:00 PM PST', 'shopgraphicshirt'),
+];
 ?>
 
-<footer id="colophon" class="bg-[#0B1F3A] text-white" role="contentinfo">
-    <div class="mx-auto grid max-w-[1280px] grid-cols-1 gap-10 px-4 py-12 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-10 lg:grid-cols-[minmax(0,1.45fr)_repeat(3,minmax(0,1fr))] lg:gap-x-14 lg:px-6 lg:py-16 xl:gap-x-20">
-        <div class="sm:col-span-2 lg:col-span-1">
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('GraphicTShirtStore', 'dawp'); ?>">
-                <img src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('GraphicTShirtStore', 'dawp'); ?>" class="h-[64px] w-auto sm:h-[72px]">
-            </a>
+<footer class="sgs-footer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .sgs-footer {
+      background: var(--navy-dark, #07152a);
+      color: #fff;
+      overflow: hidden;
+    }
 
-            <ul class="mt-6 space-y-3 text-sm text-white/80">
-                <li>
-                    <a href="mailto:support@graphictshirtstore.com" class="flex items-start gap-2 transition-colors hover:text-white">
-                        <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                        support@graphictshirtstore.com
-                    </a>
-                </li>
+    .sgs-footer-trust {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: var(--navy, #0B1F3A);
+    }
 
-                <?php if ('' !== $footer_store_address) : ?>
-                    <li class="flex items-start gap-2">
-                        <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                        <?php echo esc_html($footer_store_address); ?>
-                    </li>
-                <?php endif; ?>
+    .sgs-footer-trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+    }
 
-                <li class="flex items-start gap-2">
-                    <svg class="mt-0.5 shrink-0" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" aria-hidden="true">
-                        <circle cx="12" cy="12" r="10"/>
-                        <polyline points="12 6 12 12 16 14"/>
-                    </svg>
-                    <?php esc_html_e('Support: Monday-Friday, 10:00 AM-6:00 PM PST', 'dawp'); ?>
-                </li>
-            </ul>
+    .sgs-trust-item {
+      display: flex; min-height: 86px;
+      align-items: center; gap: 12px;
+      border-left: 1px solid rgba(255,255,255,0.08);
+      padding: 16px 20px;
+    }
+
+    .sgs-trust-icon {
+      display: inline-flex; width: 38px; height: 38px;
+      flex: 0 0 auto; align-items: center; justify-content: center;
+      border-radius: 8px;
+      background: rgba(179,25,66,0.15);
+      color: #fca5a5;
+    }
+
+    .sgs-trust-item strong {
+      display: block; color: #fff;
+      font-family: var(--font-heading);
+      font-size: 14px; line-height: 1.2;
+    }
+
+    .sgs-trust-item > span:not(.sgs-trust-icon) { display: block; }
+    .sgs-trust-item > span:not(.sgs-trust-icon) span {
+      display: block; margin-top: 2px;
+      color: rgba(255,255,255,0.62);
+      font-size: 12px; font-weight: 500;
+    }
+
+    .sgs-footer-main {
+      display: grid; grid-template-columns: 1fr; gap: 32px;
+      padding-top: 48px; padding-bottom: 36px;
+    }
+
+    .sgs-footer-info { max-width: 380px; }
+
+    .sgs-footer-brand {
+      display: inline-flex; align-items: center;
+    }
+
+    .sgs-footer-logo {
+      display: block;
+      width: min(190px, 58vw);
+      height: auto;
+    }
+
+    .sgs-footer-contact {
+      display: grid; gap: 10px;
+      max-width: 480px; margin: 20px 0 0;
+      padding: 0; list-style: none;
+    }
+
+    .sgs-footer-contact a,
+    .sgs-footer-contact li {
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+
+    .sgs-footer-contact a { color: inherit; }
+
+    .sgs-footer-contact-icon {
+      display: inline-flex; width: 30px; height: 30px;
+      flex: 0 0 auto; align-items: center; justify-content: center;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.06);
+      color: #fca5a5;
+    }
+
+    .sgs-footer-contact-icon i { font-size: 14px; }
+
+    .sgs-footer-contact-body { min-width: 0; padding-top: 1px; }
+
+    .sgs-footer-contact strong {
+      display: block; color: #fff;
+      font-family: var(--font-heading);
+      font-size: 12px; font-weight: 800; line-height: 1.25;
+    }
+
+    .sgs-footer-contact adress,
+    .sgs-footer-contact .contact-value {
+      display: block; margin: 2px 0 0;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px; font-style: normal; font-weight: 500; line-height: 1.5;
+    }
+
+    .sgs-footer-column h3 {
+      margin: 0; color: #fff;
+      font-family: var(--font-heading);
+      font-size: 13px; font-weight: 800;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+
+    .sgs-footer-column ul {
+      display: grid; gap: 10px;
+      margin: 16px 0 0; padding: 0; list-style: none;
+    }
+
+    .sgs-footer-column a {
+      color: rgba(255,255,255,0.65);
+      font-size: 13px; font-weight: 500;
+      transition: color 150ms;
+    }
+
+    .sgs-footer-column a:hover { color: #fca5a5; }
+
+    .sgs-footer-newsletter {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      padding: 20px;
+    }
+
+    .sgs-footer-newsletter h3 {
+      margin: 0; color: #fff;
+      font-family: var(--font-heading);
+      font-size: 16px; line-height: 1.25;
+    }
+
+    .sgs-footer-newsletter p {
+      margin: 6px 0 0;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px; line-height: 1.5;
+    }
+
+    .sgs-footer-form {
+      display: flex; width: 100%; gap: 8px;
+      margin-top: 14px;
+    }
+
+    .sgs-footer-form input {
+      min-width: 0; width: 100%; height: 44px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      background: #fff; color: var(--ink, #111827);
+      padding: 0 14px; outline: none; font-size: 14px;
+      font-family: var(--font-body);
+    }
+
+    .sgs-footer-form button {
+      height: 44px; border: 0; border-radius: 6px;
+      background: var(--red, #B31942); color: #fff;
+      padding: 0 16px; font-weight: 700; cursor: pointer;
+      font-family: var(--font-body); font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .sgs-footer-form button:hover { background: var(--red-dark, #8a1433); }
+
+    .sgs-footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.15);
+    }
+
+    .sgs-footer-bottom-inner {
+      display: flex; flex-direction: column; gap: 12px;
+      padding-top: 18px; padding-bottom: 18px;
+      color: rgba(255,255,255,0.55);
+      font-size: 12px; font-weight: 500;
+    }
+
+    .sgs-footer-payments {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+    }
+
+    .sgs-footer-payments img {
+      display: block; height: 24px; width: auto;
+      border-radius: 3px; background: #fff;
+    }
+
+    @media (min-width: 760px) {
+      .sgs-footer-trust-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .sgs-footer-bottom-inner { flex-direction: row; align-items: center; justify-content: space-between; }
+    }
+
+    @media (min-width: 1024px) {
+      .sgs-footer-main {
+        grid-template-columns: minmax(260px, 1.2fr) repeat(3, minmax(130px, 0.7fr)) minmax(260px, 0.9fr);
+        align-items: start;
+        gap: clamp(24px, 3vw, 44px);
+      }
+    }
+
+    @media (max-width: 1120px) and (min-width: 760px) {
+      .sgs-footer-main {
+        grid-template-columns: minmax(250px, 1.1fr) repeat(2, minmax(140px, 1fr));
+      }
+      .sgs-footer-newsletter {
+        grid-column: 1 / -1;
+        grid-template-columns: 1fr minmax(280px, 420px);
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .sgs-footer-trust-grid {
+        display: flex;
+        grid-template-columns: none;
+        gap: 0;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .sgs-footer-trust-grid::-webkit-scrollbar { display: none; }
+      .sgs-trust-item {
+        flex: 0 0 66.666%;
+        min-width: 0;
+        min-height: 72px;
+        border-left: 1px solid rgba(255,255,255,0.08);
+        scroll-snap-align: start;
+        padding: 14px 16px;
+      }
+      .sgs-footer-form { flex-direction: column; }
+    }
+  </style>
+
+  <section class="sgs-footer-trust" aria-label="<?php esc_attr_e('Store benefits', 'shopgraphicshirt'); ?>">
+    <div class="sgs-container sgs-footer-trust-grid">
+      <?php
+      $trust_items = [
+        ['title' => __('Secure Checkout', 'shopgraphicshirt'), 'text' => __('Protected payments', 'shopgraphicshirt'), 'icon' => 'fa-credit-card'],
+        ['title' => __('Tracking Included', 'shopgraphicshirt'), 'text' => __('Delivery updates', 'shopgraphicshirt'), 'icon' => 'fa-truck'],
+        ['title' => __('30-Day Returns', 'shopgraphicshirt'), 'text' => __('Eligible items', 'shopgraphicshirt'), 'icon' => 'fa-calendar'],
+        ['title' => __('Personalization Support', 'shopgraphicshirt'), 'text' => __('Review before ordering', 'shopgraphicshirt'), 'icon' => 'fa-headset'],
+      ];
+      foreach ($trust_items as $item) :
+      ?>
+        <div class="sgs-trust-item">
+          <span class="sgs-trust-icon" aria-hidden="true"><i class="fas <?php echo esc_attr($item['icon']); ?>"></i></span>
+          <span>
+            <strong><?php echo esc_html($item['title']); ?></strong>
+            <span><?php echo esc_html($item['text']); ?></span>
+          </span>
         </div>
+      <?php endforeach; ?>
+    </div>
+  </section>
 
-        <?php foreach (dawp_footer_columns() as $col) : ?>
-            <div class="lg:max-w-[220px]">
-                <details class="footer-accordion border-t border-white/10 py-4 sm:hidden">
-                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-black uppercase tracking-[0.14em] text-[#C6A15B]">
-                        <span><?php echo esc_html($col['title']); ?></span>
-                        <svg class="footer-accordion-icon h-4 w-4 shrink-0 text-white/70 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="m6 9 6 6 6-6"/>
-                        </svg>
-                    </summary>
-                    <ul class="footer-accordion-panel mt-4 space-y-3">
-                        <?php foreach ($col['links'] as $link) : ?>
-                            <li>
-                                <a href="<?php echo esc_url($link['url']); ?>" class="text-sm font-semibold text-white/75 transition-colors hover:text-white">
-                                    <?php echo esc_html($link['title']); ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </details>
+  <div class="sgs-container sgs-footer-main">
+    <div class="sgs-footer-info">
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="sgs-footer-brand">
+        <img class="sgs-footer-logo"
+             src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo-shopgraphicshirt.svg')); ?>"
+             alt="<?php echo esc_attr(get_bloginfo('name')); ?>"
+             width="420"
+             height="112"
+             loading="lazy"
+             decoding="async">
+      </a>
+      <ul class="sgs-footer-contact" aria-label="<?php esc_attr_e('Contact', 'shopgraphicshirt'); ?>">
+        <li>
+          <a href="mailto:<?php echo esc_attr($footer_contact['email']); ?>">
+            <span class="sgs-footer-contact-icon"><i class="fas fa-envelope"></i></span>
+            <span class="sgs-footer-contact-body">
+              <strong>Email</strong>
+              <span class="contact-value"><?php echo esc_html($footer_contact['email']); ?></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <span class="sgs-footer-contact-icon"><i class="fas fa-location-dot"></i></span>
+          <span class="sgs-footer-contact-body">
+            <strong>Address</strong>
+            <span class="contact-value"><?php echo esc_html($footer_contact['address']); ?></span>
+          </span>
+        </li>
+        <li>
+          <span class="sgs-footer-contact-icon"><i class="fas fa-clock"></i></span>
+          <span class="sgs-footer-contact-body">
+            <strong>Support Hours</strong>
+            <span class="contact-value"><?php echo esc_html($footer_contact['hours']); ?></span>
+          </span>
+        </li>
+      </ul>
+    </div>
 
-                <div class="hidden sm:block">
-                    <h2 class="mb-5 text-sm font-black uppercase tracking-[0.14em] text-[#C6A15B]">
-                        <?php echo esc_html($col['title']); ?>
-                    </h2>
-                    <ul class="space-y-3">
-                        <?php foreach ($col['links'] as $link) : ?>
-                            <li>
-                                <a href="<?php echo esc_url($link['url']); ?>" class="text-sm font-semibold text-white/75 transition-colors hover:text-white">
-                                    <?php echo esc_html($link['title']); ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
+    <div class="sgs-footer-column">
+      <h3>Shop</h3>
+      <ul>
+        <li><a href="<?php echo esc_url(home_url('/shop/')); ?>">Shop All</a></li>
+        <li><a href="<?php echo esc_url(home_url('/best-sellers/')); ?>">Best Sellers</a></li>
+        <li><a href="<?php echo esc_url(home_url('/shop-by-categories/')); ?>">Shop By Categories</a></li>
+        <li><a href="<?php echo esc_url(home_url('/product-category/american-flag-tees/')); ?>">American Flag Tees</a></li>
+        <li><a href="<?php echo esc_url(home_url('/product-category/bomber-jackets/')); ?>">Bomber Jackets</a></li>
+      </ul>
+    </div>
+
+    <div class="sgs-footer-column">
+      <h3>Help</h3>
+      <ul>
+        <li><a href="<?php echo esc_url(home_url('/about-us/')); ?>">About Us</a></li>
+        <li><a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a></li>
+        <li><a href="<?php echo esc_url(home_url('/track-order/')); ?>">Track Order</a></li>
+        <li><a href="<?php echo esc_url(wp_login_url()); ?>">My Account</a></li>
+        <li><a href="<?php echo esc_url(home_url('/faq/')); ?>">FAQs</a></li>
+      </ul>
+    </div>
+
+    <div class="sgs-footer-column">
+      <h3>Policy</h3>
+      <ul>
+        <li><a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>">Shipping Policy</a></li>
+        <li><a href="<?php echo esc_url(home_url('/refund-return-policy/')); ?>">Refund &amp; Return Policy</a></li>
+        <li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Privacy Policy</a></li>
+        <li><a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+
+    <div class="sgs-footer-newsletter">
+      <div>
+        <h3>Get New Patriotic Drops &amp; Gift Ideas</h3>
+        <p>Receive offers, patriotic apparel drops, and gift ideas.</p>
+      </div>
+      <form class="sgs-footer-form" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for signing up!');">
+        <label class="sr-only" for="sgs-footer-email"><?php esc_html_e('Email address', 'shopgraphicshirt'); ?></label>
+        <input id="sgs-footer-email" type="email" placeholder="<?php esc_attr_e('Enter your email', 'shopgraphicshirt'); ?>" required>
+        <button type="submit"><?php esc_html_e('Sign Up', 'shopgraphicshirt'); ?></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="sgs-footer-bottom">
+    <div class="sgs-container sgs-footer-bottom-inner">
+      <p>&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php bloginfo('name'); ?>. All rights reserved.</p>
+      <div class="sgs-footer-payments" aria-label="<?php esc_attr_e('Payment methods', 'shopgraphicshirt'); ?>">
+        <?php
+        $payments = [
+          ['file' => 'visa.png', 'name' => 'Visa'],
+          ['file' => 'mastercard.png', 'name' => 'Mastercard'],
+          ['file' => 'paypal.png', 'name' => 'PayPal'],
+          ['file' => 'jcb.png', 'name' => 'JCB'],
+        ];
+        $payment_dir = '/assets/img/gallery/Oneshopvibe/payment/';
+        foreach ($payments as $pm) :
+        ?>
+          <img src="<?php echo esc_url(get_theme_file_uri($payment_dir . $pm['file'])); ?>"
+               alt="<?php echo esc_attr($pm['name']); ?>"
+               loading="lazy" decoding="async">
         <?php endforeach; ?>
+      </div>
     </div>
-
-    <div class="border-t border-white/10 bg-[#081A33]">
-        <div class="mx-auto flex max-w-[1280px] flex-col items-center justify-between gap-3 px-4 py-4 text-xs font-semibold text-white/70 sm:flex-row lg:px-6">
-            <p>
-                &copy; <?php echo esc_html(date('Y')); ?> GraphicTShirtStore.
-                <?php esc_html_e('All rights reserved.', 'dawp'); ?>
-            </p>
-
-            <ul class="flex flex-nowrap items-center justify-center gap-1.5" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
-                <?php foreach ($payment_methods as $method) : ?>
-                    <li class="flex h-7 w-[64px] items-center justify-center overflow-hidden rounded bg-white shadow-sm ring-1 ring-white/10">
-                        <img
-                            src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/payment/' . $method['file']); ?>"
-                            alt="<?php echo esc_attr($method['name']); ?>"
-                            class="h-full w-full object-contain"
-                            loading="lazy"
-                            decoding="async"
-                        >
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    </div>
+  </div>
 </footer>
 
 <?php wp_footer(); ?>

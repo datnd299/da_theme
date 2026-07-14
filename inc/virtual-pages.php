@@ -9,6 +9,16 @@ function dawp_handle_virtual_pages() {
         exit;
     }
 
+    if ($request_uri === 'return-refund-policy') {
+        wp_safe_redirect(home_url('/refund-return-policy/'), 301);
+        exit;
+    }
+
+    if ($request_uri === 'shop-by-theme') {
+        wp_safe_redirect(home_url('/shop-by-categories/'), 301);
+        exit;
+    }
+
     if (!isset($virtual_pages[$request_uri])) {
         return;
     }
@@ -36,8 +46,8 @@ function dawp_virtual_page_map() {
             'slug'        => 'home',
             'title'       => 'Home',
             'css'         => 'tw/tw-home.css',
-            'seo_title'   => 'GraphicTShirtStore | Patriotic Apparel & Custom Veteran Gifts',
-            'description' => 'Shop GraphicTShirtStore for patriotic apparel, veteran-inspired polos, hats, America 250 designs, and custom military gifts with free U.S. standard shipping.',
+            'seo_title'   => 'Shopgraphicshirt | Patriotic Apparel & Custom Gifts',
+            'description' => 'Shop Shopgraphicshirt for patriotic apparel, polos, hats, America 250 designs, and custom gifts with free U.S. standard shipping.',
             'image'       => 'assets/img/Image New/image copy 8.png',
             'canonical'   => home_url('/'),
         ],
@@ -45,24 +55,24 @@ function dawp_virtual_page_map() {
             'slug'        => 'about',
             'title'       => 'About Us',
             'css'         => 'tw/tw-about.css',
-            'seo_title'   => 'About GraphicTShirtStore | Patriotic Apparel & Veteran Gifts',
-            'description' => 'Learn about GraphicTShirtStore, a patriotic apparel and custom gift brand creating veteran-inspired designs for service families and proud Americans.',
+            'seo_title'   => 'About Shopgraphicshirt | Patriotic Apparel & Gifts',
+            'description' => 'Learn about Shopgraphicshirt, a patriotic apparel and custom gift brand creating American pride designs for proud Americans.',
             'image'       => 'assets/img/Image New/image copy 8.png',
         ],
-        'shop-by-theme' => [
-            'slug'        => 'shop-by-theme',
-            'title'       => 'Shop By Theme',
-            'css'         => 'tw/tw-shop-by-theme.css',
-            'seo_title'   => 'Shop By Theme | GraphicTShirtStore Patriotic Gifts',
-            'description' => 'Shop GraphicTShirtStore by theme, including American flag tees, veteran tribute gear, bomber jackets, hats, premium T-shirts, America 250 designs, and holiday gifts.',
+        'shop-by-categories' => [
+            'slug'        => 'shop-by-categories',
+            'title'       => 'Shop By Categories',
+            'css'         => 'tw/tw-shop-by-categories.css',
+            'seo_title'   => 'Shop By Categories | Shopgraphicshirt Patriotic Gifts',
+            'description' => 'Shop Shopgraphicshirt by category, including American flag tees, bomber jackets, hats, premium T-shirts, America 250 designs, and holiday gifts.',
             'image'       => 'assets/img/Image New/image.png',
         ],
         'faq' => [
             'slug'        => 'faq',
             'title'       => 'FAQ',
             'css'         => 'tw/tw-faq.css',
-            'seo_title'   => 'GraphicTShirtStore FAQ | Shipping, Returns & Orders',
-            'description' => 'Find answers about GraphicTShirtStore orders, checkout, free U.S. shipping, tracking, returns, refunds, payment security, and customer support.',
+            'seo_title'   => 'Shopgraphicshirt FAQ | Shipping, Returns & Orders',
+            'description' => 'Find answers about Shopgraphicshirt orders, checkout, free U.S. shipping, tracking, returns, refunds, payment security, and customer support.',
             'image'       => 'assets/img/Image New/image copy 9.png',
             'schema_type' => 'FAQPage',
         ],
@@ -70,48 +80,48 @@ function dawp_virtual_page_map() {
             'slug'        => 'contact',
             'title'       => 'Contact Us',
             'css'         => 'tw/tw-contact.css',
-            'seo_title'   => 'Contact GraphicTShirtStore | Customer Support',
-            'description' => 'Contact GraphicTShirtStore for order updates, custom gift details, shipping questions, returns, refunds, delivery issues, and product support.',
+            'seo_title'   => 'Contact Shopgraphicshirt | Customer Support',
+            'description' => 'Contact Shopgraphicshirt for order updates, custom gift details, shipping questions, returns, refunds, delivery issues, and product support.',
             'image'       => 'assets/img/Image New/image copy 9.png',
         ],
         'shipping-policy' => [
             'slug'        => 'shipping-policy',
             'title'       => 'Shipping Policy',
             'css'         => 'tw/tw-ship.css',
-            'seo_title'   => 'Shipping Policy | GraphicTShirtStore',
-            'description' => 'Review GraphicTShirtStore shipping policy, including free standard U.S. shipping, 1-3 business day handling, 5-7 business day transit, and tracking.',
+            'seo_title'   => 'Shipping Policy | Shopgraphicshirt',
+            'description' => 'Review Shopgraphicshirt shipping policy, including free standard U.S. shipping, 1-3 business day handling, 5-7 business day transit, and tracking.',
             'image'       => 'assets/img/Image New/image copy 3.png',
         ],
         'refund-return-policy' => [
             'slug'        => 'refund-return-policy',
             'title'       => 'Refund & Return Policy',
             'css'         => 'tw/tw-ship.css',
-            'seo_title'   => 'Refund & Return Policy | GraphicTShirtStore',
-            'description' => 'Review GraphicTShirtStore returns and refunds, including the 30-day return window, eligible item condition, return shipping fees, and refund timing.',
+            'seo_title'   => 'Refund & Return Policy | Shopgraphicshirt',
+            'description' => 'Review Shopgraphicshirt returns and refunds, including the 30-day return window, eligible item condition, return shipping fees, and refund timing.',
             'image'       => 'assets/img/Image New/image copy 9.png',
         ],
         'terms-conditions' => [
             'slug'        => 'terms-conditions',
             'title'       => 'Terms & Conditions',
             'css'         => 'tw/tw-terms.css',
-            'seo_title'   => 'Terms & Conditions | GraphicTShirtStore',
-            'description' => 'Read GraphicTShirtStore terms and conditions for website use, online orders, payment security, product accuracy, returns, and store policies.',
+            'seo_title'   => 'Terms & Conditions | Shopgraphicshirt',
+            'description' => 'Read Shopgraphicshirt terms and conditions for website use, online orders, payment security, product accuracy, returns, and store policies.',
             'image'       => 'assets/img/Image New/image copy.png',
         ],
         'privacy-policy' => [
             'slug'        => 'privacy',
             'title'       => 'Privacy Policy',
             'css'         => 'tw/tw-privacy.css',
-            'seo_title'   => 'Privacy Policy | GraphicTShirtStore',
-            'description' => 'Read how GraphicTShirtStore collects, uses, protects, and shares personal information for orders, checkout, shipping, analytics, and support.',
+            'seo_title'   => 'Privacy Policy | Shopgraphicshirt',
+            'description' => 'Read how Shopgraphicshirt collects, uses, protects, and shares personal information for orders, checkout, shipping, analytics, and support.',
             'image'       => 'assets/img/Image New/image copy.png',
         ],
         'track-order' => [
             'slug'        => 'track-order',
             'title'       => 'Track Order',
             'css'         => 'track-order.css',
-            'seo_title'   => 'Track Your Order | GraphicTShirtStore',
-            'description' => 'Track your GraphicTShirtStore order status securely using your order details, or contact customer support for shipment and delivery help.',
+            'seo_title'   => 'Track Your Order | Shopgraphicshirt',
+            'description' => 'Track your Shopgraphicshirt order status securely using your order details, or contact customer support for shipment and delivery help.',
             'image'       => 'assets/img/Image New/image copy 3.png',
         ],
     ];

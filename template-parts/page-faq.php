@@ -1,276 +1,67 @@
 <?php
 /**
- * Template Part: Frequently Asked Questions
- *
- * Customer-facing FAQ content aligned with GraphicTShirtStore's shipping, returns,
- * privacy, and terms pages.
+ * Frequently Asked Questions - ShopGraphicshirt
  */
+get_header(); ?>
+<section class="sgs-home sgs-page">
 
-$store_name       = 'GraphicTShirtStore';
-$support_email    = 'support@graphictshirtstore.com';
-$mailing_address  = dawp_get_woocommerce_store_address();
-$support_hours    = 'Monday-Friday, 10:00 AM-6:00 PM PST';
-$contact_page_url = home_url('/contact-us/');
-$shipping_policy  = home_url('/shipping-policy/');
-$return_policy    = home_url('/refund-return-policy/');
-$privacy_policy   = home_url('/privacy-policy/');
-$terms_policy     = home_url('/terms-conditions/');
-$track_order_url  = home_url('/track-order/');
+<style>
+.sgs-faq-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/hero/support-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(72px,9vw,120px) clamp(24px,4vw,64px);text-align:center}
+.sgs-faq-hero__inner{max-width:760px;margin:0 auto}
+.sgs-faq-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
+.sgs-faq-hero p{max-width:640px;margin:20px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7;font-family:var(--font-body)}
+.sgs-faq-wrap{width:min(100% - 48px,880px);margin:0 auto;padding:var(--section-gap,72px) 0}
+.sgs-faq-list{display:grid;gap:10px}
+.sgs-faq-item{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);overflow:hidden;transition:border-color 200ms}
+.sgs-faq-item:hover{border-color:var(--red)}
+.sgs-faq-item[open]{border-color:var(--red)}
+.sgs-faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;cursor:pointer;font-family:var(--font-heading);font-size:.98rem;font-weight:700;color:var(--ink);line-height:1.35;list-style:none;user-select:none;-webkit-user-select:none}
+.sgs-faq-item summary::-webkit-details-marker{display:none}
+.sgs-faq-item summary::marker{content:""}
+.sgs-faq-item summary::after{content:"+";font-size:1.3rem;font-weight:600;color:var(--red);flex-shrink:0;transition:transform 250ms}
+.sgs-faq-item[open] summary::after{content:"-"}
+.sgs-faq-item__answer{padding:0 22px 20px;color:var(--muted);font-size:.92rem;line-height:1.7}
+.sgs-faq-item__answer p{margin:0}
+.sgs-faq-item__answer a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+.sgs-faq-item__answer a:hover{color:#8c1233}
+.sgs-faq-cta{background:var(--antique);text-align:center;padding:clamp(48px,6vw,72px) clamp(24px,4vw,64px);border-top:3px solid var(--gold)}
+.sgs-faq-cta__inner{max-width:580px;margin:0 auto}
+.sgs-faq-cta h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--ink);line-height:1.15}
+.sgs-faq-cta p{margin:14px 0 24px;color:var(--muted);font-size:.95rem;line-height:1.6}
+.sgs-faq-cta .sgs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 28px;border:2px solid var(--red);border-radius:4px;background:var(--red);color:var(--white)!important;font-family:var(--font-heading);font-size:.82rem;font-weight:800;letter-spacing:.03em;text-decoration:none;text-transform:uppercase;transition:transform 200ms,background-color 200ms,border-color 200ms,box-shadow 200ms}
+.sgs-faq-cta .sgs-btn:hover{transform:translateY(-2px);background:#8c1233;border-color:#8c1233;box-shadow:0 4px 14px rgba(179,25,66,.28)}
+.sgs-faq-cta .sgs-btn:focus-visible{outline:3px solid rgba(179,25,66,.28);outline-offset:3px}
+@media(max-width:640px){.sgs-faq-item summary{padding:16px 18px;font-size:.92rem}.sgs-faq-item__answer{padding:0 18px 18px;font-size:.88rem}.sgs-faq-cta .sgs-btn{width:100%}}
+</style>
 
-$faq_sections = array(
-    array(
-        'title' => __('Orders & Checkout', 'dawp'),
-        'items' => array(
-            array(
-                'question' => __('Where can I buy GraphicTShirtStore products?', 'dawp'),
-                'answer'   => __('Products shown on graphictshirtstore.com are available for direct purchase through our online store. Customers can add available items to the cart and complete checkout on the website.', 'dawp'),
-            ),
-            array(
-                'question' => __('Can my order be cancelled or changed after checkout?', 'dawp'),
-                'answer'   => __('Please contact us as soon as possible if you need to request a change or cancellation. We cannot guarantee changes after an order has entered processing, shipment preparation, or carrier handoff.', 'dawp'),
-            ),
-            array(
-                'question' => __('Why was my order cancelled?', 'dawp'),
-                'answer'   => __('An order may be cancelled if an item becomes unavailable, billing or shipping information cannot be verified, a delivery limitation applies, or a pricing or product listing error must be corrected. If this happens, we will notify you using the contact information provided at checkout.', 'dawp'),
-            ),
-        ),
-    ),
-    array(
-        'title' => __('Shipping & Delivery', 'dawp'),
-        'items' => array(
-            array(
-                'question' => __('Where do you ship?', 'dawp'),
-                'answer'   => __('GraphicTShirtStore currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to your specific address, you will be notified at checkout before payment is completed.', 'dawp'),
-            ),
-            array(
-                'question' => __('How much is shipping?', 'dawp'),
-                'answer'   => __('Standard U.S. shipping is free for all orders nationwide, with no minimum purchase requirement. Optional upgraded shipping, when available, will show its exact cost at checkout before you pay.', 'dawp'),
-            ),
-            array(
-                'question' => __('How long does delivery take?', 'dawp'),
-                'answer'   => __('Orders are processed in 1-3 business days after purchase. Standard transit takes 5-7 business days, so the estimated delivery window is 6-10 business days total from the date of purchase.', 'dawp'),
-            ),
-            array(
-                'question' => __('What is your order cutoff time?', 'dawp'),
-                'answer'   => __('Our order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time. Orders placed after the cutoff begin processing on the following business day.', 'dawp'),
-            ),
-        ),
-        'links' => array(
-            array(
-                'label' => __('Read Shipping Policy', 'dawp'),
-                'url'   => $shipping_policy,
-                'style' => 'secondary',
-            ),
-            array(
-                'label' => __('Track Order', 'dawp'),
-                'url'   => $track_order_url,
-                'style' => 'primary',
-            ),
-        ),
-    ),
-    array(
-        'title' => __('Tracking & Delivery Issues', 'dawp'),
-        'items' => array(
-            array(
-                'question' => __('How do I track my order?', 'dawp'),
-                'answer'   => __('After your order ships, we send a shipping confirmation email with a tracking link and carrier details. Orders may ship with USPS, UPS, FedEx, or DHL, depending on the package and destination.', 'dawp'),
-            ),
-            array(
-                'question' => __('Why did I receive multiple tracking numbers?', 'dawp'),
-                'answer'   => __('Orders containing multiple patriotic apparel pieces, hats, accessories, custom gifts, or veteran-inspired items may ship separately from different fulfillment batches. Each shipment will have its own tracking number.', 'dawp'),
-            ),
-            array(
-                'question' => __('What should I do if my package is delayed, lost, or marked delivered but missing?', 'dawp'),
-                'answer'   => __('Contact customer support within 30 days of the recorded delivery date or the expected delivery issue. Please include your order number, checkout email address, complete delivery address, and any carrier tracking details so we can investigate with the carrier.', 'dawp'),
-            ),
-            array(
-                'question' => __('What if my item arrives damaged or incorrect?', 'dawp'),
-                'answer'   => __('Contact us within 30 days of delivery with your order number and clear photos of the item, packaging, and shipping label. For defective, damaged, incorrect, or carrier-damaged products, we cover the return shipping cost and will arrange the appropriate replacement or refund.', 'dawp'),
-            ),
-        ),
-    ),
-    array(
-        'title' => __('Returns & Refunds', 'dawp'),
-        'items' => array(
-            array(
-                'question' => __('What is your return window?', 'dawp'),
-                'answer'   => __('Eligible return requests must be initiated within 30 days of delivery. Items must be unworn, unused, undamaged, and returned in their original condition with packaging, tags, labels, care cards, garment bags, boxes, and included accessories.', 'dawp'),
-            ),
-            array(
-                'question' => __('Do you charge a restocking fee?', 'dawp'),
-                'answer'   => __('No. GraphicTShirtStore does not charge restocking fees for eligible returns.', 'dawp'),
-            ),
-            array(
-                'question' => __('Who pays for return shipping?', 'dawp'),
-                'answer'   => __('For defective, damaged, incorrect, or carrier-damaged products, GraphicTShirtStore covers 100% of return shipping and provides a prepaid label by email. For customer remorse, including wrong size, wrong color, changed mind, or does not fit, the customer is responsible for return shipping and the label cost may be deducted from the refund.', 'dawp'),
-            ),
-            array(
-                'question' => __('When will I receive my refund?', 'dawp'),
-                'answer'   => __('After your return package is received, we inspect the item within 1-2 business days. If approved, the refund is issued to your original payment method within 7 business days. If you have not received a refund after 15 business days of approval, please contact us after checking with your bank or card issuer.', 'dawp'),
-            ),
-            array(
-                'question' => __('How do I start a return?', 'dawp'),
-                'answer'   => __('Email us or use the Contact Us page within 30 days of delivery. Include your order number, checkout email, item(s) you want to return, reason for return, and photos or videos if the item is damaged, defective, or incorrect. Do not ship an item back without return authorization.', 'dawp'),
-            ),
-            array(
-                'question' => __('Do you offer exchanges?', 'dawp'),
-                'answer'   => __('We do not process direct one-for-one exchanges. To get a different size, color, or style, please return the original eligible item for a refund and place a new order on the website.', 'dawp'),
-            ),
-            array(
-                'question' => __('Which items are non-returnable?', 'dawp'),
-                'answer'   => __('Final sale or non-returnable items, gift cards, digital products, personalized or custom-made items, certain hygiene-sensitive items with broken seals, and items worn, washed, altered, or damaged after delivery are not eligible for return.', 'dawp'),
-            ),
-        ),
-        'links' => array(
-            array(
-                'label' => __('Read Refund & Return Policy', 'dawp'),
-                'url'   => $return_policy,
-                'style' => 'secondary',
-            ),
-            array(
-                'label' => $support_email,
-                'url'   => 'mailto:' . $support_email,
-                'style' => 'primary',
-            ),
-        ),
-    ),
-    array(
-        'title' => __('Payment, Privacy & Security', 'dawp'),
-        'items' => array(
-            array(
-                'question' => __('Is checkout secure?', 'dawp'),
-                'answer'   => __('Yes. Checkout uses SSL-protected payment transmission through WooCommerce and certified third-party payment gateways. GraphicTShirtStore does not store raw credit card numbers on local storefront servers.', 'dawp'),
-            ),
-            array(
-                'question' => __('What payment methods are available?', 'dawp'),
-                'answer'   => __('At least one conventional payment method is available during checkout, such as credit card, debit card, invoicing, or another supported payment option shown before order completion. The checkout page displays the full order cost before payment is submitted.', 'dawp'),
-            ),
-            array(
-                'question' => __('How do you use my personal information?', 'dawp'),
-                'answer'   => __('We use order and device information to process payments, fulfill orders, coordinate shipping, communicate order status, screen transactions for risk, and improve the store experience according to our Privacy Policy.', 'dawp'),
-            ),
-        ),
-        'links' => array(
-            array(
-                'label' => __('Read Privacy Policy', 'dawp'),
-                'url'   => $privacy_policy,
-                'style' => 'secondary',
-            ),
-            array(
-                'label' => __('Read Terms', 'dawp'),
-                'url'   => $terms_policy,
-                'style' => 'secondary',
-            ),
-        ),
-    ),
-);
+<div class="sgs-faq-hero">
+  <div class="sgs-faq-hero__inner">
+    <p class="sgs-eyebrow sgs-eyebrow--light">FAQ</p>
+    <h1>Frequently Asked Questions</h1>
+    <p>Find clear answers about ShopGraphicshirt orders, free U.S. shipping, tracking, returns, refunds, checkout security, and customer support.</p>
+  </div>
+</div>
 
-?>
-
-<main class="sk-policy-page bg-surface">
-    <section class="sk-policy-hero">
-        <div class="container mx-auto max-w-6xl px-4">
-            <div class="sk-policy-hero__inner text-center">
-                <span class="mb-4 block text-sm font-bold uppercase tracking-widest text-accent"><?php esc_html_e('Customer Care', 'dawp'); ?></span>
-                <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
-                <p class="mt-5 text-sm font-bold uppercase tracking-widest text-foreground"><?php esc_html_e('Last Updated: May 30, 2026', 'dawp'); ?></p>
-                <p class="sk-policy-hero__copy mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-foreground-muted">
-                    <?php esc_html_e('Find clear answers about GraphicTShirtStore orders, shipping, returns, refunds, payment security, and customer support before you complete your purchase.', 'dawp'); ?>
-                </p>
-                <div class="mt-7 flex flex-wrap justify-center gap-4">
-                    <a href="<?php echo esc_url($contact_page_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url($track_order_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
-                        <?php esc_html_e('Track Order', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
+<div class="sgs-faq-wrap">
+  <div class="sgs-faq-list">
+    <?php foreach (dawp_get_faq_items() as $faq_item) : ?>
+      <details class="sgs-faq-item">
+        <summary><?php echo esc_html($faq_item['question']); ?></summary>
+        <div class="sgs-faq-item__answer">
+          <p><?php echo wp_kses_post($faq_item['answer']); ?></p>
         </div>
-    </section>
+      </details>
+    <?php endforeach; ?>
+  </div>
+</div>
 
-    <section class="sk-policy-body">
-        <div class="container mx-auto max-w-6xl px-4">
-            <div class="space-y-8">
-                <?php foreach ($faq_sections as $section_index => $faq_section) : ?>
-                    <section class="rounded-3xl border border-border bg-background p-6 shadow-card md:p-10">
-                        <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php echo esc_html($faq_section['title']); ?></h2>
+<div class="sgs-faq-cta">
+  <div class="sgs-faq-cta__inner">
+    <h2>Still Have Questions?</h2>
+    <p>Our support team is ready to help with product selection, order questions, or anything else. We typically respond within one business day.</p>
+    <a class="sgs-btn sgs-btn--primary" href="/contact-us/">Contact Us</a>
+  </div>
+</div>
 
-                        <div class="mt-7 space-y-4">
-                            <?php foreach ($faq_section['items'] as $item_index => $faq_item) : ?>
-                                <details class="group rounded-2xl border border-border bg-background shadow-card transition-colors hover:border-accent" <?php echo 0 === $section_index && 0 === $item_index ? 'open' : ''; ?>>
-                                    <summary class="flex cursor-pointer list-none items-center justify-between gap-5 p-5 text-left [&::-webkit-details-marker]:hidden">
-                                        <span class="text-lg font-medium leading-snug text-foreground"><?php echo esc_html($faq_item['question']); ?></span>
-                                        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-border text-xl font-medium leading-none text-accent transition-colors group-open:border-accent group-open:bg-accent group-open:text-white">
-                                            <span class="group-open:hidden" aria-hidden="true">+</span>
-                                            <span class="hidden group-open:block" aria-hidden="true">-</span>
-                                        </span>
-                                    </summary>
-                                    <div class="border-t border-border px-5 pb-5 pt-4">
-                                        <p class="leading-relaxed text-foreground-muted"><?php echo esc_html($faq_item['answer']); ?></p>
-                                    </div>
-                                </details>
-                            <?php endforeach; ?>
-                        </div>
-
-                        <?php if (! empty($faq_section['links'])) : ?>
-                            <div class="mt-7 flex flex-wrap gap-4">
-                                <?php foreach ($faq_section['links'] as $link) : ?>
-                                    <?php
-                                    $link_classes = 'inline-flex min-h-12 items-center justify-center rounded-full px-6 text-sm font-bold transition-colors ';
-                                    $link_classes .= 'primary' === $link['style']
-                                        ? 'bg-foreground text-white hover:bg-accent'
-                                        : 'border border-foreground text-foreground hover:border-accent hover:text-accent';
-                                    ?>
-                                    <a href="<?php echo esc_url($link['url']); ?>" class="<?php echo esc_attr($link_classes); ?>">
-                                        <?php echo esc_html($link['label']); ?>
-                                    </a>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
-                    </section>
-                <?php endforeach; ?>
-
-                <section class="rounded-3xl border border-border bg-background p-8 shadow-card md:p-10">
-                    <h2 class="font-heading text-3xl font-semibold text-foreground md:text-4xl"><?php esc_html_e('Customer Support', 'dawp'); ?></h2>
-                    <p class="mt-5 leading-relaxed text-foreground-muted">
-                        <?php esc_html_e('For order questions, shipment issues, returns, refunds, product questions, or privacy requests, contact GraphicTShirtStore through the verified support channels below. We aim to reply within 1 business day, and response times may vary during weekends, holidays, or high-volume periods.', 'dawp'); ?>
-                    </p>
-
-                    <div class="mt-6 rounded-3xl border border-border bg-background p-4 md:p-5">
-                        <div class="grid gap-4 md:grid-cols-2">
-                            <div class="rounded-2xl border border-border p-5">
-                                <h3 class="font-bold text-foreground"><?php esc_html_e('Store Name', 'dawp'); ?></h3>
-                                <p class="mt-3 text-foreground-muted"><?php echo esc_html($store_name); ?></p>
-                            </div>
-
-                            <div class="rounded-2xl border border-border p-5">
-                                <h3 class="font-bold text-foreground"><?php esc_html_e('Customer Support Email', 'dawp'); ?></h3>
-                                <p class="mt-3 text-foreground-muted"><a href="mailto:<?php echo esc_attr($support_email); ?>" class="transition-colors hover:text-accent"><?php echo esc_html($support_email); ?></a></p>
-                            </div>
-
-                            <div class="rounded-2xl border border-border p-5">
-                                <h3 class="font-bold text-foreground"><?php esc_html_e('Physical Mailing Address', 'dawp'); ?></h3>
-                                <p class="mt-3 leading-relaxed text-foreground-muted"><?php echo esc_html($mailing_address); ?></p>
-                            </div>
-
-                            <div class="rounded-2xl border border-border p-5">
-                                <h3 class="font-bold text-foreground"><?php esc_html_e('Support Availability', 'dawp'); ?></h3>
-                                <p class="mt-3 text-foreground-muted"><?php echo esc_html($support_hours); ?></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-7 flex flex-wrap gap-4">
-                        <a href="<?php echo esc_url($contact_page_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-foreground px-6 text-sm font-bold text-white transition-colors hover:bg-accent">
-                            <?php esc_html_e('Contact Support', 'dawp'); ?>
-                        </a>
-                        <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-foreground px-6 text-sm font-bold text-foreground transition-colors hover:border-accent hover:text-accent">
-                            <?php echo esc_html($support_email); ?>
-                        </a>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </section>
-</main>
+</section>
+<?php get_footer(); ?>

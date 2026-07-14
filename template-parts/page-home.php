@@ -108,6 +108,16 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
           <span class="sgs-cat__cta">Shop Collection</span>
         </div>
       </a>
+      <!-- Best Sellers -->
+      <a href="/best-sellers/" class="sgs-cat" data-collection-slide style="background-image:url('<?php echo esc_url($sgs_home_img . 'cat-best-seller.png'); ?>')">
+        <div class="sgs-cat__overlay"></div>
+        <div class="sgs-cat__content">
+          <span class="sgs-cat__eyebrow">Customer Favorites</span>
+          <h3>Best Seller</h3>
+          <p>Top-rated tees, jackets, hats, and gifts picked by proud Americans.</p>
+          <span class="sgs-cat__cta">Shop Best Sellers</span>
+        </div>
+      </a>
       </div>
       <div class="sgs-mobile-slider-controls" aria-label="Collection slider controls">
         <button class="sgs-mobile-slider-btn" type="button" data-collection-prev aria-label="Previous collection">&lsaquo;</button>
@@ -117,6 +127,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
           <button type="button" data-collection-dot aria-label="Go to collection 3"></button>
           <button type="button" data-collection-dot aria-label="Go to collection 4"></button>
           <button type="button" data-collection-dot aria-label="Go to collection 5"></button>
+          <button type="button" data-collection-dot aria-label="Go to collection 6"></button>
         </div>
         <button class="sgs-mobile-slider-btn" type="button" data-collection-next aria-label="Next collection">&rsaquo;</button>
       </div>
@@ -230,17 +241,11 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         <p>Celebrate freedom with flag tees, hats, and accessories.</p>
         <a href="/product-category/independence-day/" class="sgs-occ__cta">Shop Gifts</a>
       </div>
-      <div class="sgs-occ sgs-occ--gold" data-occasion-slide>
-        <span class="sgs-occ__icon sgs-occ__icon--gold">🏆</span>
-        <h3>America 250th Anniversary</h3>
-        <p>Exclusive collection celebrating 250 years of American pride.</p>
-        <a href="/product-category/america-250/" class="sgs-occ__cta">Explore</a>
-      </div>
       </div>
       <div class="sgs-occ-slider__controls" aria-label="Gift occasion slider controls">
         <button class="sgs-occ-slider__arrow" type="button" data-occasion-prev aria-label="Previous occasion">&lsaquo;</button>
         <div class="sgs-occ-slider__dots" aria-label="Gift occasion slides">
-          <?php for ($i = 0; $i < 4; $i++) : ?>
+          <?php for ($i = 0; $i < 3; $i++) : ?>
             <button class="sgs-occ-slider__dot" type="button" data-occasion-dot aria-label="<?php echo esc_attr(sprintf('Go to occasion %d', $i + 1)); ?>"></button>
           <?php endfor; ?>
         </div>

@@ -97,11 +97,13 @@ $footer_columns = [
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('LBQ Shop home', 'dawp'); ?>">
                     <img
                         class="h-auto w-48 sm:w-56 lg:w-60"
-                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/logo-footer.png'); ?>"
-                        width="1053"
-                        height="473"
+                        <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/gallery/logo-footer.png', [
+                            'width'  => 240,
+                            'height' => 108,
+                            'srcset' => [[192, 86], [224, 100], [240, 108], [480, 216]],
+                            'sizes'  => '(max-width: 640px) 192px, (max-width: 1024px) 224px, 240px',
+                        ]); ?>
                         alt="<?php esc_attr_e('LBQ Shop', 'dawp'); ?>"
-                        loading="lazy"
                     >
                 </a>
 

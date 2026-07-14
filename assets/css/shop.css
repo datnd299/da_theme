@@ -1302,3 +1302,456 @@ ul.products li.product,
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   Size Chart Styles — mobile-first, responsive
+   ========================================================================== */
+
+.size-chart-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+.size-chart-title {
+  text-align: center;
+  background: linear-gradient(90deg, #f6c453, #f9d97a);
+  color: #333;
+  margin: 0 0 12px;
+  padding: 14px 10px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+.size-chart-subtitle {
+  margin: 20px 0 8px;
+  padding: 8px 12px;
+  background: #333;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+/* Scroll wrapper: allows horizontal swipe on small screens
+   instead of squeezing/breaking the table */
+.size-chart-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.size-chart-table {
+  width: 100%;
+  min-width: 640px; /* keeps columns readable, triggers scroll on mobile */
+  border-collapse: collapse;
+}
+
+.size-chart-table th,
+.size-chart-table td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.size-chart-table thead th {
+  background: #fde9b8;
+  color: #333;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
+}
+
+.size-chart-table tbody tr:nth-child(even) {
+  background: #fffaf0;
+}
+
+.size-chart-table td.size-col {
+  font-weight: bold;
+  background: #fcf0d0;
+}
+
+/* ==========================================================================
+   Mobile (< 480px): stack each row into a card instead of horizontal scroll
+   ========================================================================== */
+@media (max-width: 480px) {
+  .size-chart-title {
+    font-size: 17px;
+    padding: 12px 8px;
+  }
+
+  .size-chart-subtitle {
+    font-size: 14px;
+  }
+
+  .size-chart-scroll {
+    overflow-x: visible;
+    border: none;
+  }
+
+  .size-chart-table {
+    min-width: 0;
+  }
+
+  .size-chart-table thead {
+    display: none;
+  }
+
+  .size-chart-table,
+  .size-chart-table tbody,
+  .size-chart-table tr,
+  .size-chart-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .size-chart-table tr {
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .size-chart-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    white-space: normal;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 8px 12px;
+  }
+
+  .size-chart-table td:last-child {
+    border-bottom: none;
+  }
+
+  .size-chart-table td:empty {
+    display: none;
+  }
+
+  .size-chart-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+    margin-right: 10px;
+  }
+
+  .size-chart-table td.size-col {
+    font-size: 16px;
+    background: #fcf0d0;
+    justify-content: center;
+  }
+
+  .size-chart-table td.size-col::before {
+    content: "";
+    margin: 0;
+  }
+}
+/* =========================================================
+   DESC2 — CSS OVERRIDE (chỉ đè style, không sửa HTML)
+   Dùng !important để thắng inline-style + CSS theme có sẵn
+   ========================================================= */
+
+/* ---------- Reset cứng: theme đang set center/uppercase/nền hồng
+   cho mọi thẻ con -> phải ép lại toàn bộ trước khi style riêng ---------- */
+.desc2,
+.desc2 * {
+  text-align: left !important;
+  text-transform: none !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  box-sizing: border-box !important;
+}
+
+/* ---------- Khung tổng ---------- */
+.desc2 {
+  width: 100% !important;
+  margin: 0 auto !important;
+  font-family: 'Alexandria', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+.desc2 table {
+  width: 100% !important;
+	display: block !important;
+}
+.desc2 td {
+	display: block !important;
+	border: none !important;
+}
+.desc2 tr {
+	display: flex !important;
+}
+
+
+/* ---------- Tiêu đề mục (Craftsmanship, Fabric & Feel...) ---------- */
+.desc2 div[style*="letter-spacing: 2px"] {
+  position: relative !important;
+  font-size: 12.5px !important;
+  text-transform: uppercase !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 18px !important;
+  margin-top: 28px !important;
+  border-bottom: 1px solid #e6f0ea !important;
+}
+.desc2 div[style*="letter-spacing: 2px"]:first-child {
+  margin-top: 0 !important;
+}
+.desc2 div[style*="letter-spacing: 2px"]::after {
+  content: "" !important;
+  position: absolute !important;
+  left: 0 !important;
+  bottom: -1px !important;
+  width: 36px !important;
+  height: 2px !important;
+  background: linear-gradient(90deg, #1a7a3a, #3fbf6f) !important;
+  border-radius: 2px !important;
+}
+
+/* ---------- Icon placeholder (ô 58px bên trái mỗi tính năng) ---------- */
+.desc2 td[style*="width: 58px"] {
+  position: relative !important;
+  width: 46px !important;
+  vertical-align: top !important;
+  padding: 2px 14px 0 0 !important;
+	border: none !important;
+} 
+.desc2 td[style*="width: 58px"]::before {
+  content: "" !important;
+  display: block !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, #1a7a3a, #3fbf6f) !important;
+  box-shadow: 0 4px 10px rgba(26, 122, 58, 0.25) !important;
+}
+
+/* ---------- Tiêu đề từng tính năng (chữ đậm, đen) ---------- */
+.desc2 div[style*="color: #1a1a1a"] {
+  font-size: 16.5px !important;
+  letter-spacing: -0.2px !important;
+  margin-bottom: 5px !important;
+}
+
+/* ---------- Mô tả từng tính năng (chữ xám) ---------- */
+.desc2 div[style*="color: #666"] {
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+  color: #7a8580 !important;
+}
+
+/* ---------- Khối bảng tính năng: nền mint dịu, không phải hồng ---------- */
+.desc2 table[style*="margin: 0 0 24px"],
+.desc2 table[style*="margin: 0 0 14px"] {
+  background-color: #f6faf7 !important;
+  padding: 14px 16px !important;
+  margin-bottom: 12px !important;
+  border-radius: 12px !important;
+  border: 1px solid #edf3ef !important;
+}
+/* Bảng chứa 2 cột "Why You'll Love It" không cần nền (đã có bảng con bên trong) */
+.desc2 table[style*="margin: 0 0 24px"] table,
+.desc2 table[style*="margin: 0 0 14px"] table {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ---------- Chấm bullet (Why You'll Love It / Care Instructions) ---------- */
+.desc2 div[style*="border-radius: 50%"] {
+  width: 8px !important;
+  height: 8px !important;
+  background: linear-gradient(135deg, #1a7a3a, #3fbf6f) !important;
+  box-shadow: 0 0 0 4px rgba(26, 122, 58, 0.1) !important;
+}
+
+/* ---------- Badge "Regular Fit" ---------- */
+.desc2 span[style*="border-radius: 20px"] {
+  background: linear-gradient(135deg, #1a7a3a, #3fbf6f) !important;
+  color: #ffffff !important;
+  border: none !important;
+  font-weight: 600 !important;
+  padding: 6px 20px !important;
+  box-shadow: 0 4px 14px rgba(26, 122, 58, 0.28) !important;
+}
+
+/* ---------- Khối ghi chú cuối (Note) ---------- */
+.desc2 div[style*="border-left: 3px solid #1a7a3a"] {
+  background: linear-gradient(135deg, #f2faf5, #e8f4ec) !important;
+  border-left: 4px solid #1a7a3a !important;
+  border-radius: 12px !important;
+  padding: 16px 18px !important;
+  box-shadow: inset 0 0 0 1px rgba(26, 122, 58, 0.06) !important;
+}
+.desc2 div[style*="border-left: 3px solid #1a7a3a"] div {
+  color: #4c5a53 !important;
+}
+
+/* ---------- Responsive cho mobile ---------- */
+@media (max-width: 480px) {
+  .desc2 {
+    padding: 18px 14px !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+    border: 1px solid #eef2ef !important;
+  }
+  .desc2 div[style*="letter-spacing: 2px"] {
+    font-size: 11.5px !important;
+    margin-top: 22px !important;
+    margin-bottom: 14px !important;
+  }
+  .desc2 table[style*="margin: 0 0 24px"],
+  .desc2 table[style*="margin: 0 0 14px"] {
+    padding: 12px 12px !important;
+    margin-bottom: 10px !important;
+  }
+  .desc2 td[style*="width: 58px"] {
+    width: 38px !important;
+    padding: 2px 10px 0 0 !important;
+  }
+  .desc2 td[style*="width: 58px"]::before {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 9px !important;
+  }
+  .desc2 div[style*="color: #1a1a1a"] {
+    font-size: 14.5px !important;
+    line-height: 1.35 !important;
+  }
+  .desc2 div[style*="color: #666"] {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+  /* Lưới 2 cột "Why You'll Love It" xếp thành 1 cột trên mobile */
+  .desc2 td[style*="width: 50%"] {
+    display: block !important;
+    width: 100% !important;
+    padding: 4px 0 !important;
+  }
+  .desc2 span[style*="border-radius: 20px"] {
+    font-size: 12px !important;
+    padding: 5px 16px !important;
+  }
+  .desc2 div[style*="border-left: 3px solid #1a7a3a"] {
+    padding: 13px 14px !important;
+    font-size: 13px !important;
+  }
+}
+.po-card {
+    font-family: 'Arial', sans-serif;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    max-width: 560px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+
+  .po-header {
+    background: #1a1a2e;
+    padding: 22px 28px 18px;
+    text-align: center;
+  }
+
+  .po-header h1 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .po-header p {
+    color: #aab0cc;
+    font-size: 12px;
+    margin-top: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .po-diagram {
+    display: flex;
+    justify-content: center;
+    padding: 24px 28px 12px;
+    border-bottom: 1px solid #efefef;
+  }
+
+  .po-diagram svg { display: block; }
+
+  .po-section {
+    padding: 20px 28px 0;
+  }
+
+  .po-section-cm { padding-top: 16px; }
+
+  .po-section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 10px;
+  }
+
+  .po-section-label::before,
+  .po-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8e8e8;
+  }
+
+  .po-card table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  .po-card thead th {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999;
+    padding: 8px 10px;
+    text-align: center;
+    border-bottom: 1.5px solid #e8e8e8;
+  }
+
+  .po-card thead th:first-child { text-align: left; padding-left: 0; }
+
+  .po-card tbody tr { border-bottom: 1px solid #f0f0f0; }
+  .po-card tbody tr:last-child { border-bottom: none; }
+  .po-card tbody tr:nth-child(even) { background: #fafafa; }
+
+  .po-card tbody td {
+    padding: 10px 10px;
+    text-align: center;
+    color: #222;
+  }
+
+  .po-card tbody td:first-child {
+    text-align: left;
+    padding-left: 0;
+    font-weight: 700;
+    font-size: 14px;
+    color: #1a1a2e;
+  }
+
+  .po-note {
+    margin: 16px 28px 20px;
+    font-size: 11.5px;
+    color: #c0392b;
+    text-align: center;
+    font-style: italic;
+  }

@@ -260,7 +260,13 @@ $render_icon = static function ($icon) {
 
 <div class="bg-white text-[#2F2A28]">
     <section class="relative isolate flex min-h-[70svh] items-center overflow-hidden bg-[#F8F2EE] py-16" aria-labelledby="lbq-hero-title">
-        <img src="<?php echo esc_url($stock_images['hero']); ?>" alt="<?php esc_attr_e('Open blush makeup bag with beauty and fashion accessories on a clean vanity', 'dawp'); ?>" class="absolute inset-0 -z-20 h-full w-full object-cover" loading="eager" decoding="async">
+        <img <?php echo dawp_i0_img_attrs($stock_images['hero'], [
+            'width'   => 1920,
+            'height'  => 1080,
+            'srcset'  => [[640, 600], [1024, 700], [1440, 810], [1920, 1080]],
+            'sizes'   => '100vw',
+            'loading' => 'eager',
+        ]); ?> alt="<?php esc_attr_e('Open blush makeup bag with beauty and fashion accessories on a clean vanity', 'dawp'); ?>" class="absolute inset-0 -z-20 h-full w-full object-cover" fetchpriority="high">
         <div class="absolute inset-0 -z-10 bg-[#2E2320]/55" aria-hidden="true"></div>
 
         <div class="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -314,7 +320,12 @@ $render_icon = static function ($icon) {
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
                 <?php foreach ($categories as $category) : ?>
                     <a href="<?php echo esc_url($category['url']); ?>" class="group overflow-hidden rounded-md border border-[#E8DAD4] bg-white transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
-                        <img src="<?php echo esc_url($category['image']); ?>" alt="<?php echo esc_attr($category['alt']); ?>" class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105" loading="lazy" decoding="async">
+                        <img <?php echo dawp_i0_img_attrs($category['image'], [
+                            'width'  => 480,
+                            'height' => 360,
+                            'srcset' => [[240, 180], [320, 240], [480, 360], [640, 480]],
+                            'sizes'  => '(max-width: 639px) 100vw, (max-width: 1023px) 45vw, 230px',
+                        ]); ?> alt="<?php echo esc_attr($category['alt']); ?>" class="aspect-[4/3] w-full object-cover transition duration-300 group-hover:scale-105">
                         <div class="p-5">
                             <h3 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($category['name']); ?></h3>
                             <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($category['description']); ?></p>
@@ -370,10 +381,25 @@ $render_icon = static function ($icon) {
     <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="organizer-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.96fr_1.04fr] lg:items-center lg:px-8">
             <div class="grid gap-4 sm:grid-cols-5">
-                <img src="<?php echo esc_url($stock_images['drawer']); ?>" alt="<?php esc_attr_e('A clean makeup drawer with cosmetic bags, brushes, palettes, and small beauty items', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3" loading="lazy" decoding="async">
+                <img <?php echo dawp_i0_img_attrs($stock_images['drawer'], [
+                    'width'  => 600,
+                    'height' => 750,
+                    'srcset' => [[320, 400], [480, 600], [600, 750], [900, 1125]],
+                    'sizes'  => '(max-width: 639px) 100vw, (max-width: 1023px) 45vw, 360px',
+                ]); ?> alt="<?php esc_attr_e('A clean makeup drawer with cosmetic bags, brushes, palettes, and small beauty items', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3">
                 <div class="grid gap-4 sm:col-span-2">
-                    <img src="<?php echo esc_url($stock_images['brushes']); ?>" alt="<?php esc_attr_e('Makeup brushes arranged in small holders', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
-                    <img src="<?php echo esc_url($stock_images['flat_lay']); ?>" alt="<?php esc_attr_e('Beauty and fashion accessories arranged on a tabletop', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
+                    <img <?php echo dawp_i0_img_attrs($stock_images['brushes'], [
+                        'width'  => 400,
+                        'height' => 400,
+                        'srcset' => [[200, 200], [300, 300], [400, 400], [600, 600]],
+                        'sizes'  => '(max-width: 639px) 50vw, (max-width: 1023px) 30vw, 235px',
+                    ]); ?> alt="<?php esc_attr_e('Makeup brushes arranged in small holders', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm">
+                    <img <?php echo dawp_i0_img_attrs($stock_images['flat_lay'], [
+                        'width'  => 400,
+                        'height' => 400,
+                        'srcset' => [[200, 200], [300, 300], [400, 400], [600, 600]],
+                        'sizes'  => '(max-width: 639px) 50vw, (max-width: 1023px) 30vw, 235px',
+                    ]); ?> alt="<?php esc_attr_e('Beauty and fashion accessories arranged on a tabletop', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm">
                 </div>
             </div>
 
@@ -433,8 +459,18 @@ $render_icon = static function ($icon) {
                 </div>
 
                 <div class="grid gap-4 sm:grid-cols-2">
-                    <img src="<?php echo esc_url($stock_images['fashion']); ?>" alt="<?php esc_attr_e('Pouch, scarf, scrunchies, sunglasses, and jewelry arranged as a fashion flat lay', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:mt-12" loading="lazy" decoding="async">
-                    <img src="<?php echo esc_url($stock_images['flat_lay']); ?>" alt="<?php esc_attr_e('Beauty and fashion essentials arranged neatly on a tabletop', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm" loading="lazy" decoding="async">
+                    <img <?php echo dawp_i0_img_attrs($stock_images['fashion'], [
+                        'width'  => 500,
+                        'height' => 625,
+                        'srcset' => [[300, 375], [400, 500], [500, 625], [750, 938]],
+                        'sizes'  => '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 340px',
+                    ]); ?> alt="<?php esc_attr_e('Pouch, scarf, scrunchies, sunglasses, and jewelry arranged as a fashion flat lay', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:mt-12">
+                    <img <?php echo dawp_i0_img_attrs($stock_images['flat_lay'], [
+                        'width'  => 500,
+                        'height' => 625,
+                        'srcset' => [[300, 375], [400, 500], [500, 625], [750, 938]],
+                        'sizes'  => '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 340px',
+                    ]); ?> alt="<?php esc_attr_e('Beauty and fashion essentials arranged neatly on a tabletop', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm">
                 </div>
             </div>
         </div>

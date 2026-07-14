@@ -90,11 +90,14 @@ $nav_items = [
             <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('LBQ Shop home', 'dawp'); ?>">
                 <img
                     class="site-logo-img"
-                    src="<?php echo esc_url($logo_url); ?>"
-                    width="1290"
-                    height="1290"
+                    <?php echo dawp_i0_img_attrs($logo_url, [
+                        'width'   => 128,
+                        'height'  => 128,
+                        'srcset'  => [[64, 64], [128, 128], [192, 192]],
+                        'sizes'   => '(max-width: 640px) 96px, 128px',
+                        'loading' => 'eager',
+                    ]); ?>
                     alt="<?php esc_attr_e('LBQ Shop', 'dawp'); ?>"
-                    decoding="async"
                     fetchpriority="high"
                 >
             </a>

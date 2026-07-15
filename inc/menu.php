@@ -1,12 +1,13 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'beauty'     => 'beauty-accessories',
-        'organizers' => 'makeup-bags-organizers',
-        'makeup'     => 'makeup-bags-organizers',
-        'fashion'    => 'fashion-accessories',
-        'essentials' => 'everyday-style-essentials',
-        'gifts'      => 'giftable-finds',
+        'essentials' => 'home-essentials',
+        'home'       => 'home-essentials',
+        'furniture'  => 'furniture',
+        'electronics'=> 'electronics',
+        'smart'      => 'smart-home',
+        'kitchen'    => 'kitchen-dining',
+        'outdoor'    => 'outdoor-garden',
     ];
 
     return $map[$slug] ?? $slug;
@@ -30,11 +31,12 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'beauty-accessories'          => ['name' => __('Beauty Accessories', 'dawp')],
-        'makeup-bags-organizers'      => ['name' => __('Makeup Bags & Organizers', 'dawp')],
-        'fashion-accessories'         => ['name' => __('Fashion Accessories', 'dawp')],
-        'everyday-style-essentials'   => ['name' => __('Everyday Style Essentials', 'dawp')],
-        'giftable-finds'              => ['name' => __('Giftable Finds', 'dawp')],
+        'home-essentials' => ['name' => __('Home Essentials', 'dawp')],
+        'furniture'       => ['name' => __('Furniture', 'dawp')],
+        'electronics'     => ['name' => __('Electronics', 'dawp')],
+        'smart-home'      => ['name' => __('Smart Home', 'dawp')],
+        'kitchen-dining'  => ['name' => __('Kitchen & Dining', 'dawp')],
+        'outdoor-garden'  => ['name' => __('Outdoor & Garden', 'dawp')],
     ];
 
     $items = [];

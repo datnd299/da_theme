@@ -1,28 +1,28 @@
 /* =============================================================
-   main.css - Vivisshop Design System
+   main.css - Topgoodmart Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #FFFDFC;
+  --color-background: #FFFFFF;
   /* Clean white page background */
-  --color-surface: #F8F2EE;
+  --color-surface: #F5F6F8;
   /* Warm section/card background */
   --color-surface-alt: #FFF3F1;
   /* Soft blush hover states and alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
+  --color-foreground: #1F2937;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
+  --color-foreground-muted: #6B7280;
   /* Secondary text — descriptions, meta */
-  --color-muted: #6F625D;
+  --color-muted: #6B7280;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C87F86;
+  --color-accent: #0046BE;
   /* Dusty rose primary CTA and links */
   --color-accent-hover: #4B403C;
   /* Deep warm-brown hover state */
@@ -32,7 +32,7 @@
   /* Muted sage secondary accent */
 
   /* === UI === */
-  --color-border: #E8DAD4;
+  --color-border: #E5E7EB;
   /* Border — cards, dividers */
   --color-alert: #8A332B;
   /* Error / alert */
@@ -40,8 +40,8 @@
   /* Success / helpful state */
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
-  --font-heading: 'Manrope', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-heading: 'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -83,7 +83,9 @@
   background-color: var(--color-background);
   color: var(--color-foreground);
   line-height: 1.6;
+  letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* =============================================================
@@ -243,8 +245,8 @@
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   color: #111827;
-  background: #F8F2EE;
-  border: 1.5px solid #E8DAD4;
+  background: #F5F6F8;
+  border: 1.5px solid #E5E7EB;
   border-radius: var(--radius-md);
   outline: none;
   box-sizing: border-box;
@@ -255,7 +257,7 @@
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #C87F86;
+  border-color: #0046BE;
   box-shadow: 0 0 0 3px rgba(200, 127, 134, 0.18);
 }
 
@@ -290,7 +292,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
-  background: #C87F86;
+  background: #0046BE;
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -318,7 +320,7 @@
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
   background: rgba(200, 127, 134, 0.12);
-  border-left: 3px solid #C87F86;
+  border-left: 3px solid #0046BE;
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,

@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page for LBQ Shop.
+ * Track order page for Topgoodmart.
  *
  * @package dawp
  */
@@ -9,11 +9,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@lbqshop.com';
+$support_email  = 'support@topgoodmart.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$contact_url    = home_url('/contact-us/');
-$faq_url        = home_url('/faq/');
-$shipping_url   = home_url('/shipping-policy/');
 $returns_url    = home_url('/return-refund-policy/');
 $terms_url      = home_url('/terms-conditions/');
 $privacy_url    = home_url('/privacy-policy/');
@@ -28,73 +25,6 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$lbq_category_url = static function ($slug) {
-    if (function_exists('get_term_by')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-
-        if ($term && !is_wp_error($term)) {
-            $link = get_term_link($term);
-
-            if (!is_wp_error($link)) {
-                return $link;
-            }
-        }
-    }
-
-    return home_url('/product-category/' . trim($slug, '/') . '/');
-};
-
-$category_links = [
-    [
-        'name' => __('Beauty Accessories', 'dawp'),
-        'copy' => __('Everyday tools and small beauty helpers for simple routines.', 'dawp'),
-        'url'  => $lbq_category_url('beauty-accessories'),
-    ],
-    [
-        'name' => __('Makeup Bags & Organizers', 'dawp'),
-        'copy' => __('Travel-friendly cases and cosmetic storage for cleaner carry.', 'dawp'),
-        'url'  => $lbq_category_url('makeup-bags-organizers'),
-    ],
-    [
-        'name' => __('Fashion Accessories', 'dawp'),
-        'copy' => __('Simple outfit accents selected for polished everyday style.', 'dawp'),
-        'url'  => $lbq_category_url('fashion-accessories'),
-    ],
-    [
-        'name' => __('Everyday Style Essentials', 'dawp'),
-        'copy' => __('Practical pieces for beauty, organization, travel, and daily use.', 'dawp'),
-        'url'  => $lbq_category_url('everyday-style-essentials'),
-    ],
-    [
-        'name' => __('Giftable Finds', 'dawp'),
-        'copy' => __('Pretty, useful accessories made for thoughtful small gifts.', 'dawp'),
-        'url'  => $lbq_category_url('giftable-finds'),
-    ],
-];
-
-$help_links = [
-    [
-        'title' => __('Shipping Policy', 'dawp'),
-        'copy'  => __('Review free U.S. shipping, cutoff time, handling, transit, delivery estimates, carriers, and tracking details.', 'dawp'),
-        'url'   => $shipping_url,
-    ],
-    [
-        'title' => __('Return & Refund Policy', 'dawp'),
-        'copy'  => __('Review return eligibility, exchanges, return shipping costs, restocking fees, and refunds.', 'dawp'),
-        'url'   => $returns_url,
-    ],
-    [
-        'title' => __('Contact Support', 'dawp'),
-        'copy'  => __('Send your order number and delivery question to our support team.', 'dawp'),
-        'url'   => $contact_url,
-    ],
-    [
-        'title' => __('FAQs', 'dawp'),
-        'copy'  => __('Find quick answers about orders, products, privacy, and store policies.', 'dawp'),
-        'url'   => $faq_url,
-    ],
-];
-
 $policy_links = [
     ['title' => __('Terms', 'dawp'), 'url' => $terms_url],
     ['title' => __('Returns', 'dawp'), 'url' => $returns_url],
@@ -108,9 +38,9 @@ $policy_links = [
         <div class="track-hero__inner">
             <div class="track-hero__copy">
                 <p class="track-eyebrow"><?php esc_html_e('Order Tracking', 'dawp'); ?></p>
-                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your LBQ Shop order.', 'dawp'); ?></h1>
+                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Enter your order ID and billing email to check your shipment status, order items, and delivery details.', 'dawp'); ?>
+                    <?php esc_html_e('Enter your order ID and billing email to check the latest status for your Topgoodmart purchase.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a href="#track-order-form" class="track-button track-button--primary"><?php esc_html_e('Check Order Status', 'dawp'); ?></a>
@@ -121,24 +51,17 @@ $policy_links = [
             <div class="track-hero__panel" aria-label="<?php esc_attr_e('Order timeline', 'dawp'); ?>">
                 <div class="track-timeline">
                     <div class="track-timeline__item">
-                        <span class="track-timeline__icon" aria-hidden="true">1</span>
+                        <span class="track-timeline__icon" aria-hidden="true">✓</span>
                         <div>
-                            <h2><?php esc_html_e('Order placed', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Your checkout details are received securely.', 'dawp'); ?></p>
+                            <h2><?php esc_html_e('Have your details ready', 'dawp'); ?></h2>
+                            <p><?php esc_html_e('Use the order ID from your confirmation email and the billing email from checkout.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
-                        <span class="track-timeline__icon" aria-hidden="true">2</span>
+                        <span class="track-timeline__icon" aria-hidden="true">→</span>
                         <div>
-                            <h2><?php esc_html_e('Processing', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Orders are prepared within 1-3 business days after the 5:00 PM (GMT-08:00) Pacific Standard Time cutoff.', 'dawp'); ?></p>
-                        </div>
-                    </div>
-                    <div class="track-timeline__item">
-                        <span class="track-timeline__icon" aria-hidden="true">3</span>
-                        <div>
-                            <h2><?php esc_html_e('On the way', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Standard U.S. transit takes 5-7 business days after dispatch.', 'dawp'); ?></p>
+                            <h2><?php esc_html_e('Tracking updates', 'dawp'); ?></h2>
+                            <p><?php esc_html_e('Shipment details appear after your order has been processed and dispatched.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -150,7 +73,7 @@ $policy_links = [
         <div class="track-form-section__inner">
             <div class="track-section-heading">
                 <p class="track-eyebrow"><?php esc_html_e('Lookup', 'dawp'); ?></p>
-                <h2 id="track-form-title"><?php esc_html_e('Find your order details.', 'dawp'); ?></h2>
+                <h2 id="track-form-title"><?php esc_html_e('Find your order details', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Use the order ID from your confirmation email and the billing email used at checkout.', 'dawp'); ?></p>
             </div>
 
@@ -208,45 +131,6 @@ $policy_links = [
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
                     <?php esc_html_e('1-3 Day Handling', 'dawp'); ?>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="track-more-section" aria-labelledby="track-helpful-title">
-        <div class="track-more-section__inner">
-            <div class="track-section-heading track-section-heading--center">
-                <p class="track-eyebrow"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
-                <h2 id="track-helpful-title"><?php esc_html_e('Helpful links for your order.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Review the same store support pages used across LBQ Shop.', 'dawp'); ?></p>
-            </div>
-
-            <div class="track-more-grid">
-                <?php foreach ($help_links as $link) : ?>
-                    <a href="<?php echo esc_url($link['url']); ?>" class="track-more-card">
-                        <span class="track-more-card__title"><?php echo esc_html($link['title']); ?></span>
-                        <span class="track-more-card__desc"><?php echo esc_html($link['copy']); ?></span>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="track-category-section" aria-labelledby="track-category-title">
-        <div class="track-category-section__inner">
-            <div class="track-category-section__header">
-                <p class="track-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
-                <h2 id="track-category-title"><?php esc_html_e('Beauty and style categories from LBQ Shop.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Explore the same product categories featured across the current store experience.', 'dawp'); ?></p>
-            </div>
-
-            <div class="track-category-grid">
-                <?php foreach ($category_links as $category) : ?>
-                    <a href="<?php echo esc_url($category['url']); ?>" class="track-category-card">
-                        <span class="track-category-card__name"><?php echo esc_html($category['name']); ?></span>
-                        <span class="track-category-card__copy"><?php echo esc_html($category['copy']); ?></span>
-                        <span class="track-category-card__cta"><?php esc_html_e('Shop category', 'dawp'); ?></span>
-                    </a>
-                <?php endforeach; ?>
             </div>
         </div>
     </section>

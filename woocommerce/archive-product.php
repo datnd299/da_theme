@@ -1,7 +1,7 @@
 <?php
 /**
- * Elite Shop Express — Shop / Archive Product Template
- * Design System: Trusted Hardware, conversion-first
+ * Topgoodmart - Shop / Archive Product Template
+ * Design System: Modern general merchandise, conversion-first
  * Section 10: Category / Shop Page rules
  */
 defined('ABSPATH') || exit;
@@ -12,8 +12,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical beauty accessories, makeup organizers, fashion accents, everyday essentials, and small giftable finds from LBQ Shop.', 'dawp');
-$archive_eyebrow = __('LBQ Shop Collection', 'dawp');
+$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from Topgoodmart.', 'dawp');
+$archive_eyebrow = __('Topgoodmart Collection', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;
@@ -264,12 +264,12 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
                 
                 var loadMoreBtn = document.createElement('button');
                 // Use exact classes from header to ensure they exist, plus inline styles for safety
-                loadMoreBtn.className = 'inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-8 text-sm font-bold text-white transition hover:bg-[#2F2A28] cursor-pointer';
+                loadMoreBtn.className = 'inline-flex min-h-12 items-center justify-center rounded-md bg-[#0046BE] px-8 text-sm font-bold text-white transition hover:bg-[#00389A] cursor-pointer';
                 loadMoreBtn.style.minHeight = '3rem';
                 loadMoreBtn.style.paddingLeft = '2rem';
                 loadMoreBtn.style.paddingRight = '2rem';
                 loadMoreBtn.style.borderRadius = '0.375rem';
-                loadMoreBtn.style.backgroundColor = '#C87F86';
+                loadMoreBtn.style.backgroundColor = '#0046BE';
                 loadMoreBtn.style.color = '#ffffff';
                 loadMoreBtn.style.fontWeight = '700';
                 loadMoreBtn.style.fontSize = '0.875rem';
@@ -277,8 +277,8 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
                 loadMoreBtn.style.cursor = 'pointer';
                 loadMoreBtn.style.transition = 'background-color 0.2s';
                 
-                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#2F2A28'; };
-                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#C87F86'; };
+                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#00389A'; };
+                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#0046BE'; };
 
                 loadMoreBtn.innerHTML = 'Load More Product';
                 

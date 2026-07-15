@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms and conditions page for LBQ Shop.
+ * Terms and conditions page for Topgoodmart.
  *
  * @package dawp
  */
@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'LBQ Shop';
-$site_domain    = 'lbqshop.com';
-$support_email  = 'support@lbqshop.com';
+$store_name     = 'Topgoodmart';
+$site_domain    = 'topgoodmart.com';
+$support_email  = 'support@topgoodmart.com';
 $store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $last_updated   = __('May 29, 2026', 'dawp');
@@ -21,14 +21,14 @@ $privacy_url    = home_url('/privacy-policy/');
 $contact_url    = home_url('/contact-us/');
 
 $intro_paragraphs = [
-    __('Welcome to LBQ Shop! These Terms & Conditions ("Terms") govern your access to and use of our website lbqshop.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
-    __('The Site is operated by LBQ Shop. Throughout the Site, the terms "we", "us" and "our" refer to LBQ Shop. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
+    __('Welcome to Topgoodmart! These Terms & Conditions ("Terms") govern your access to and use of our website topgoodmart.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
+    __('The Site is operated by Topgoodmart. Throughout the Site, the terms "we", "us" and "our" refer to Topgoodmart. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
 ];
 
 $terms_highlights = [
     [
         'title' => __('Store Scope', 'dawp'),
-        'copy'  => __('LBQ Shop focuses on beauty accessories, makeup bags, cosmetic organizers, fashion accents, everyday style essentials, and giftable accessories.', 'dawp'),
+        'copy'  => __('Topgoodmart focuses on home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
     ],
     [
         'title' => __('Secure Checkout', 'dawp'),
@@ -41,7 +41,7 @@ $terms_highlights = [
 ];
 
 $shipping_parameters = [
-    __('Shipping Locations: LBQ Shop currently ships exclusively within the United States domestic market.', 'dawp'),
+    __('Shipping Locations: Topgoodmart currently ships exclusively within the United States domestic market.', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
     __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time. Orders placed after this time begin processing on the following business day.', 'dawp'),
     __('Handling Time: Current order handling and packaging time is 1-3 business days, Monday through Friday, excluding standard U.S. public holidays.', 'dawp'),
@@ -85,9 +85,9 @@ $sections = [
     [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
-            __('LBQ Shop is an e-commerce store focused on practical makeup bags, cosmetic organizers, beauty accessories, fashion accents, everyday style essentials, and giftable accessories.', 'dawp'),
+            __('Topgoodmart is an e-commerce store focused on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
             __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
-            __('LBQ Shop strictly adheres to ethical commerce: we do not sell counterfeit designer products, fake branded cosmetics, dietary supplements, medical skincare treatments, or products with unverified medical or beauty claims.', 'dawp'),
+            __('Topgoodmart strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],
     ],
     [
@@ -127,7 +127,7 @@ $sections = [
     [
         'title' => __('6. Returns, Refunds, and Consumer Rights', 'dawp'),
         'copy'  => [
-            __('We provide a transparent and risk-free return window for our beauty and fashion accessories:', 'dawp'),
+            __('We provide a transparent and risk-free return window for our home, electronics and lifestyle products:', 'dawp'),
         ],
         'list'  => $return_terms,
         'after' => [
@@ -151,8 +151,8 @@ $sections = [
     [
         'title' => __('8. Intellectual Property & Liability Limitations', 'dawp'),
         'copy'  => [
-            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to LBQ Shop and are protected by copyright laws.', 'dawp'),
-            __('To the fullest extent permitted by applicable law, LBQ Shop shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
+            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to Topgoodmart and are protected by copyright laws.', 'dawp'),
+            __('To the fullest extent permitted by applicable law, Topgoodmart shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
         ],
     ],
     [
@@ -164,15 +164,15 @@ $sections = [
 ];
 ?>
 
-<div class="bg-white text-[#2F2A28]">
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="terms-title">
+<div class="bg-white text-[#1F2937]">
+    <section class="bg-[#F5F6F8] py-14 sm:py-20" aria-labelledby="terms-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
-                <h1 id="terms-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                    <?php esc_html_e('Terms for using and shopping with LBQ Shop.', 'dawp'); ?>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
+                <h1 id="terms-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#1F2937] sm:text-5xl">
+                    <?php esc_html_e('Terms for using and shopping with Topgoodmart.', 'dawp'); ?>
                 </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B7280]">
                     <?php
                     echo esc_html(
                         sprintf(
@@ -186,14 +186,14 @@ $sections = [
                 </p>
             </div>
 
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
-                <p class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php echo esc_html($last_updated); ?></p>
+            <div class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+                <p class="mt-3 font-heading text-2xl font-extrabold text-[#1F2937]"><?php echo esc_html($last_updated); ?></p>
                 <div class="mt-5 grid gap-4 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                     <?php foreach ($terms_highlights as $highlight) : ?>
-                        <article class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-4">
-                            <h2 class="font-heading text-base font-extrabold text-[#2F2A28]"><?php echo esc_html($highlight['title']); ?></h2>
-                            <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($highlight['copy']); ?></p>
+                        <article class="rounded-md border border-[#E5E7EB] bg-[#FFFFFF] p-4">
+                            <h2 class="font-heading text-base font-extrabold text-[#1F2937]"><?php echo esc_html($highlight['title']); ?></h2>
+                            <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($highlight['copy']); ?></p>
                         </article>
                     <?php endforeach; ?>
                 </div>
@@ -201,24 +201,24 @@ $sections = [
         </div>
     </section>
 
-    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="terms-content-title">
+    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="terms-content-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                    <h2 id="terms-content-title" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Terms overview', 'dawp'); ?></h2>
-                    <div class="mt-4 space-y-4 text-sm leading-7 text-[#6F625D]">
+                <div class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                    <h2 id="terms-content-title" class="font-heading text-2xl font-extrabold text-[#1F2937]"><?php esc_html_e('Terms overview', 'dawp'); ?></h2>
+                    <div class="mt-4 space-y-4 text-sm leading-7 text-[#6B7280]">
                         <?php foreach ($intro_paragraphs as $paragraph) : ?>
                             <p><?php echo esc_html($paragraph); ?></p>
                         <?php endforeach; ?>
                     </div>
                     <div class="mt-6 grid gap-3">
-                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-5 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
+                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#0046BE] px-5 text-sm font-bold text-white transition hover:bg-[#1F2937]">
                             <?php esc_html_e('Shipping Policy', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-5 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0046BE] bg-white px-5 text-sm font-bold text-[#0046BE] transition hover:bg-[#EAF2FF]">
                             <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($privacy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-5 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                        <a href="<?php echo esc_url($privacy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0046BE] bg-white px-5 text-sm font-bold text-[#0046BE] transition hover:bg-[#EAF2FF]">
                             <?php esc_html_e('Privacy Policy', 'dawp'); ?>
                         </a>
                     </div>
@@ -227,11 +227,11 @@ $sections = [
 
             <div class="grid gap-5">
                 <?php foreach ($sections as $section) : ?>
-                    <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                        <h2 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php echo esc_html($section['title']); ?></h2>
+                    <article class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                        <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php echo esc_html($section['title']); ?></h2>
 
                         <?php if (!empty($section['copy'])) : ?>
-                            <div class="mt-4 space-y-4 text-sm leading-7 text-[#6F625D]">
+                            <div class="mt-4 space-y-4 text-sm leading-7 text-[#6B7280]">
                                 <?php foreach ($section['copy'] as $paragraph) : ?>
                                     <p><?php echo esc_html($paragraph); ?></p>
                                 <?php endforeach; ?>
@@ -239,7 +239,7 @@ $sections = [
                         <?php endif; ?>
 
                         <?php if (!empty($section['list'])) : ?>
-                            <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#6F625D]">
+                            <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#6B7280]">
                                 <?php foreach ($section['list'] as $item) : ?>
                                     <li class="flex gap-3">
                                         <span aria-hidden="true">&bull;</span>
@@ -250,9 +250,9 @@ $sections = [
                         <?php endif; ?>
 
                         <?php if (!empty($section['after'])) : ?>
-                            <p class="mt-5 text-sm leading-7 text-[#6F625D]">
+                            <p class="mt-5 text-sm leading-7 text-[#6B7280]">
                                 <?php echo esc_html($section['after']['text']); ?>
-                                <a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="<?php echo esc_url($section['after']['url']); ?>">
+                                <a class="font-bold text-[#0046BE] underline decoration-[#0046BE]/40 underline-offset-4 transition hover:text-[#1F2937]" href="<?php echo esc_url($section['after']['url']); ?>">
                                     <?php echo esc_html($section['after']['link']); ?>
                                 </a>
                             </p>
@@ -260,18 +260,18 @@ $sections = [
                     </article>
                 <?php endforeach; ?>
 
-                <article class="rounded-md border border-[#E8DAD4] bg-[#FFF8FB] p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php esc_html_e('10. Customer Support & Business Identity', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                <article class="rounded-md border border-[#E5E7EB] bg-[#F5F6F8] p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php esc_html_e('10. Customer Support & Business Identity', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-[#6B7280]">
                         <?php esc_html_e('If you have questions, complaints, or require clarification regarding these Terms & Conditions or an active order, please contact our team via our verified corporate channels:', 'dawp'); ?>
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-2">
                         <?php foreach ($contact_details as $detail) : ?>
-                            <div class="rounded-md border border-[#E8DAD4] bg-white p-5">
-                                <dt class="text-sm font-extrabold text-[#2F2A28]"><?php echo esc_html($detail['label']); ?></dt>
-                                <dd class="mt-3 text-sm leading-7 text-[#6F625D]">
+                            <div class="rounded-md border border-[#E5E7EB] bg-white p-5">
+                                <dt class="text-sm font-extrabold text-[#1F2937]"><?php echo esc_html($detail['label']); ?></dt>
+                                <dd class="mt-3 text-sm leading-7 text-[#6B7280]">
                                     <?php if (!empty($detail['url'])) : ?>
-                                        <a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
+                                        <a class="font-bold text-[#0046BE] underline decoration-[#0046BE]/40 underline-offset-4 transition hover:text-[#1F2937]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
                                     <?php else : ?>
                                         <?php echo esc_html($detail['value']); ?>
                                     <?php endif; ?>

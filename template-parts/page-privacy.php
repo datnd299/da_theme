@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy policy page for LBQ Shop.
+ * Privacy policy page for Topgoodmart.
  *
  * @package dawp
  */
@@ -9,16 +9,16 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'LBQ Shop';
-$site_domain    = 'lbqshop.com';
-$support_email  = 'support@lbqshop.com';
+$store_name     = 'Topgoodmart';
+$site_domain    = 'topgoodmart.com';
+$support_email  = 'support@topgoodmart.com';
 $store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
 
 $policy_intro = [
-    __('At LBQ Shop, accessible via lbqshop.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase beauty and fashion accessories from our online store.', 'dawp'),
+    __('At Topgoodmart, accessible via topgoodmart.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase home, electronics and lifestyle products from our online store.', 'dawp'),
     __('By accessing our Site or placing an order, you acknowledge and agree to the data management practices described in this policy.', 'dawp'),
 ];
 
@@ -29,7 +29,7 @@ $information_collected = [
     ],
     [
         'title' => __('Information Collected Automatically', 'dawp'),
-        'copy'  => __('Whenever you navigate through LBQ Shop, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
+        'copy'  => __('Whenever you navigate through Topgoodmart, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
     ],
 ];
 
@@ -53,7 +53,7 @@ $sharing_partners = [
     ],
     [
         'title' => __('Regulatory Demands', 'dawp'),
-        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of LBQ Shop and our consumers.', 'dawp'),
+        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of Topgoodmart and our consumers.', 'dawp'),
     ],
 ];
 
@@ -106,7 +106,7 @@ $sections = [
     [
         'title' => __('3. Cookies and Tracking Technologies', 'dawp'),
         'copy'  => [
-            __('LBQ Shop utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
+            __('Topgoodmart utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
             __('You can adjust your cookie preferences through your individual browser settings; however, disabling all cookies may break core shopping features, such as the checkout and payment process.', 'dawp'),
         ],
     ],
@@ -120,7 +120,7 @@ $sections = [
     [
         'title' => __('5. Secure Payments & Data Encryption', 'dawp'),
         'copy'  => [
-            __('Your financial safety is our highest priority. LBQ Shop does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+            __('Your financial safety is our highest priority. Topgoodmart does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             __('All checkout transactions are executed over a fully secure, encrypted SSL (Secure Sockets Layer) connection. Financial data processing is handled entirely by certified third-party payment gateways that comply strictly with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
         ],
     ],
@@ -146,21 +146,21 @@ $sections = [
     [
         'title' => __('8. Children\'s Privacy', 'dawp'),
         'copy'  => [
-            __('LBQ Shop is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
+            __('Topgoodmart is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
         ],
     ],
 ];
 ?>
 
-<div class="bg-white text-[#2F2A28]">
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="privacy-title">
+<div class="bg-white text-[#1F2937]">
+    <section class="bg-[#F5F6F8] py-14 sm:py-20" aria-labelledby="privacy-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
-                <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                    <?php esc_html_e('How LBQ Shop protects customer information.', 'dawp'); ?>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
+                <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#1F2937] sm:text-5xl">
+                    <?php esc_html_e('How Topgoodmart protects customer information.', 'dawp'); ?>
                 </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B7280]">
                     <?php
                     echo esc_html(
                         sprintf(
@@ -174,17 +174,17 @@ $sections = [
                 </p>
             </div>
 
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
-                <p class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php echo esc_html($last_updated); ?></p>
-                <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+            <div class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+                <p class="mt-3 font-heading text-2xl font-extrabold text-[#1F2937]"><?php echo esc_html($last_updated); ?></p>
+                <p class="mt-4 text-sm leading-7 text-[#6B7280]">
                     <?php esc_html_e('For privacy questions, account data requests, or data-removal inquiries, contact our support team through our official channels.', 'dawp'); ?>
                 </p>
                 <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
+                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#0046BE] px-6 text-sm font-bold text-white transition hover:bg-[#1F2937]">
                         <?php esc_html_e('Contact Us', 'dawp'); ?>
                     </a>
-                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0046BE] bg-white px-6 text-sm font-bold text-[#0046BE] transition hover:bg-[#EAF2FF]">
                         <?php echo esc_html($support_email); ?>
                     </a>
                 </div>
@@ -192,12 +192,12 @@ $sections = [
         </div>
     </section>
 
-    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="privacy-content-title">
+    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="privacy-content-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                    <h2 id="privacy-content-title" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Privacy overview', 'dawp'); ?></h2>
-                    <div class="mt-4 space-y-4 text-sm leading-7 text-[#6F625D]">
+                <div class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                    <h2 id="privacy-content-title" class="font-heading text-2xl font-extrabold text-[#1F2937]"><?php esc_html_e('Privacy overview', 'dawp'); ?></h2>
+                    <div class="mt-4 space-y-4 text-sm leading-7 text-[#6B7280]">
                         <?php foreach ($policy_intro as $paragraph) : ?>
                             <p><?php echo esc_html($paragraph); ?></p>
                         <?php endforeach; ?>
@@ -207,11 +207,11 @@ $sections = [
 
             <div class="grid gap-5">
                 <?php foreach ($sections as $section) : ?>
-                    <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                        <h2 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php echo esc_html($section['title']); ?></h2>
+                    <article class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                        <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php echo esc_html($section['title']); ?></h2>
 
                         <?php if (!empty($section['copy'])) : ?>
-                            <div class="mt-4 space-y-4 text-sm leading-7 text-[#6F625D]">
+                            <div class="mt-4 space-y-4 text-sm leading-7 text-[#6B7280]">
                                 <?php foreach ($section['copy'] as $paragraph) : ?>
                                     <p><?php echo esc_html($paragraph); ?></p>
                                 <?php endforeach; ?>
@@ -221,16 +221,16 @@ $sections = [
                         <?php if (!empty($section['cards'])) : ?>
                             <div class="mt-5 grid gap-4 md:grid-cols-2">
                                 <?php foreach ($section['cards'] as $card) : ?>
-                                    <section class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-5">
-                                        <h3 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($card['title']); ?></h3>
-                                        <p class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
+                                    <section class="rounded-md border border-[#E5E7EB] bg-[#FFFFFF] p-5">
+                                        <h3 class="font-heading text-lg font-extrabold text-[#1F2937]"><?php echo esc_html($card['title']); ?></h3>
+                                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($card['copy']); ?></p>
                                     </section>
                                 <?php endforeach; ?>
                             </div>
                         <?php endif; ?>
 
                         <?php if (!empty($section['list'])) : ?>
-                            <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#6F625D]">
+                            <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#6B7280]">
                                 <?php foreach ($section['list'] as $item) : ?>
                                     <li class="flex gap-3">
                                         <span aria-hidden="true">&bull;</span>
@@ -241,23 +241,23 @@ $sections = [
                         <?php endif; ?>
 
                         <?php if (!empty($section['after'])) : ?>
-                            <p class="mt-5 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($section['after']); ?></p>
+                            <p class="mt-5 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($section['after']); ?></p>
                         <?php endif; ?>
                     </article>
                 <?php endforeach; ?>
 
-                <article class="rounded-md border border-[#E8DAD4] bg-[#FFF8FB] p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php esc_html_e('9. Contact Us & Business Identity', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                <article class="rounded-md border border-[#E5E7EB] bg-[#F5F6F8] p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php esc_html_e('9. Contact Us & Business Identity', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-[#6B7280]">
                         <?php esc_html_e('For questions regarding our privacy practices, or if you need to submit a data inquiry, please contact our team through our verified corporate channels:', 'dawp'); ?>
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-2">
                         <?php foreach ($contact_details as $detail) : ?>
-                            <div class="rounded-md border border-[#E8DAD4] bg-white p-5">
-                                <dt class="text-sm font-extrabold text-[#2F2A28]"><?php echo esc_html($detail['label']); ?></dt>
-                                <dd class="mt-3 text-sm leading-7 text-[#6F625D]">
+                            <div class="rounded-md border border-[#E5E7EB] bg-white p-5">
+                                <dt class="text-sm font-extrabold text-[#1F2937]"><?php echo esc_html($detail['label']); ?></dt>
+                                <dd class="mt-3 text-sm leading-7 text-[#6B7280]">
                                     <?php if (!empty($detail['url'])) : ?>
-                                        <a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
+                                        <a class="font-bold text-[#0046BE] underline decoration-[#0046BE]/40 underline-offset-4 transition hover:text-[#1F2937]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
                                     <?php else : ?>
                                         <?php echo esc_html($detail['value']); ?>
                                     <?php endif; ?>

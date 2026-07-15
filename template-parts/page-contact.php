@@ -1,262 +1,189 @@
 <?php
-/**
- * Contact page for LBQ Shop.
- *
- * @package dawp
- */
-
 if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$website_url    = home_url('/');
-$website_label  = wp_parse_url($website_url, PHP_URL_HOST) ?: $website_url;
-$privacy_url    = home_url('/privacy-policy/');
+$store_name     = 'Topgoodmart';
+$support_email  = 'support@topgoodmart.com';
+$business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM Pacific Time';
+$store_address  = function_exists('dawp_get_store_address') && dawp_get_store_address() ? dawp_get_store_address() : '4803 N Milwaukee Ave, Chicago, IL 60630';
+$shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$status         = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 
-$status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
+if (!$shop_url) {
+    $shop_url = home_url('/shop/');
+}
 
 $support_cards = [
     [
-        'title' => __('Email Support', 'dawp'),
-        'copy'  => sprintf(
-            /* translators: %s: support email address */
-            __('Send order, product, return, or policy questions to %s.', 'dawp'),
-            $support_email
-        ),
-        'meta'  => $support_email,
-        'icon'  => 'mail',
+        'title' => 'Order Support',
+        'copy'  => 'Questions about order status, shipping updates, tracking links or address details.',
+        'meta'  => 'Include your order number when available.',
     ],
     [
-        'title' => __('Website', 'dawp'),
-        'copy'  => __('Visit our official website for products, policies, order help, and store updates.', 'dawp'),
-        'meta'  => $website_label,
-        'url'   => $website_url,
-        'icon'  => 'globe',
+        'title' => 'Returns & Refunds',
+        'copy'  => 'Start a return, report a damaged item or ask about refund timing and eligibility.',
+        'meta'  => 'Returns are available within 30 days of delivery.',
     ],
     [
-        'title' => __('Business Hours', 'dawp'),
-        'copy'  => __('Messages are reviewed during regular support hours. Response times may vary on weekends and holidays.', 'dawp'),
-        'meta'  => $business_hours,
-        'icon'  => 'clock',
+        'title' => 'Product Questions',
+        'copy'  => 'Need help comparing products, checking details or understanding everyday use cases?',
+        'meta'  => 'Send the product name or page link.',
     ],
     [
-        'title' => __('Order Help', 'dawp'),
-        'copy'  => __('Include your order number when asking about tracking, address changes, returns, or delivery updates.', 'dawp'),
-        'meta'  => __('Order number helps us respond faster', 'dawp'),
-        'icon'  => 'package',
+        'title' => 'Privacy Requests',
+        'copy'  => 'Submit access, correction or deletion requests related to your customer information.',
+        'meta'  => 'We may ask for details to verify the request.',
     ],
 ];
 
-$form_topics = [
-    'order'   => __('Order or tracking question', 'dawp'),
-    'return'  => __('Return or refund request', 'dawp'),
-    'product' => __('Product question', 'dawp'),
-    'privacy' => __('Privacy request', 'dawp'),
-    'other'   => __('General support', 'dawp'),
+$contact_topics = [
+    'order'   => 'Order or tracking question',
+    'return'  => 'Return or refund request',
+    'product' => 'Product question',
+    'privacy' => 'Privacy request',
+    'other'   => 'General support',
 ];
-
-$render_icon = static function ($icon) {
-    $icons = [
-        'mail'    => '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/>',
-        'globe'   => '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 0 20"/><path d="M12 2a15.3 15.3 0 0 0 0 20"/>',
-        'clock'   => '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
-        'package' => '<path d="M21 8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
-        'check'   => '<path d="m20 6-11 11-5-5"/>',
-        'alert'   => '<circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 17h.01"/>',
-    ];
-
-    return $icons[$icon] ?? $icons['mail'];
-};
 ?>
 
-<div class="bg-white text-[#2F2A28]">
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="contact-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Contact Us', 'dawp'); ?></p>
-                <h1 id="contact-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                    <?php esc_html_e('Clear support for beauty and style orders.', 'dawp'); ?>
-                </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Have a question about an order, product detail, return request, or store policy? Contact LBQ Shop and include the details our support team needs to help.', 'dawp'); ?>
-                </p>
-            </div>
+<style>
+    .tgm-contact-grid{align-items:start;gap:18px;display:grid}.tgm-contact-form,.tgm-contact-panel{background:#fff;border:1px solid #d9dee7;border-radius:8px;box-shadow:0 10px 28px #11182714}.tgm-contact-form{gap:16px;padding:18px;display:grid}.tgm-form-row{gap:7px;display:grid}.tgm-form-row label{color:#111827;font-size:.9rem;font-weight:900}.tgm-form-row label span{color:#6b7280;font-weight:700}.tgm-form-row input,.tgm-form-row select,.tgm-form-row textarea{background:#fff;border:1px solid #cfd7e3;border-radius:8px;width:100%;min-height:46px;padding:10px 12px;color:#111827}.tgm-form-row textarea{min-height:150px;line-height:1.55}.tgm-form-row input:focus,.tgm-form-row select:focus,.tgm-form-row textarea:focus{border-color:#0046be;outline:3px solid #0046be24}.tgm-form-submit{border:0;cursor:pointer;width:100%;padding:0 22px}.tgm-honeypot{clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;width:1px;height:1px;margin:-1px;position:absolute;overflow:hidden}.tgm-form-notice{border-radius:8px;padding:13px 14px;font-size:.92rem;font-weight:800;line-height:1.45}.tgm-form-notice--success{color:#065f46;background:#dcfce7;border:1px solid #86efac}.tgm-form-notice--error{color:#991b1b;background:#fee2e2;border:1px solid #fecaca}.tgm-contact-panel{padding:20px}.tgm-contact-panel h3{color:#050505;margin:0;font-size:1.35rem;font-weight:900}.tgm-contact-panel dl{gap:16px;margin:18px 0 0;display:grid}.tgm-contact-panel dt{color:#0046be;text-transform:uppercase;font-size:.75rem;font-weight:900;letter-spacing:.08em}.tgm-contact-panel dd{color:#374151;margin:5px 0 0;line-height:1.6}.tgm-contact-panel dd a{color:#0046be;font-weight:900;text-decoration:none}.tgm-contact-panel dd a:hover{text-decoration:underline;text-underline-offset:3px}.tgm-contact-panel__links{border-top:1px solid #e5e7eb;gap:12px;margin-top:20px;padding-top:18px;display:grid}@media (min-width:768px){.tgm-contact-grid{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:22px}.tgm-contact-form{grid-template-columns:repeat(2,minmax(0,1fr));padding:24px}.tgm-form-row--wide,.tgm-form-notice,.tgm-form-submit{grid-column:1/-1}.tgm-form-submit{justify-self:start;width:auto}.tgm-contact-panel{position:sticky;top:96px;padding:24px}}
+</style>
 
-            <div class="contact-support-slider">
-                <?php foreach ($support_cards as $card) : ?>
-                    <article class="contact-support-card rounded-md border border-[#E8DAD4] bg-white p-5 shadow-sm">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                            </svg>
-                        </div>
-                        <h2 class="mt-4 font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($card['title']); ?></h2>
-                        <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
-                        <?php if (!empty($card['url'])) : ?>
-                            <a href="<?php echo esc_url($card['url']); ?>" class="mt-4 inline-flex break-all text-sm font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]">
-                                <?php echo esc_html($card['meta']); ?>
-                            </a>
-                        <?php else : ?>
-                            <p class="mt-4 text-sm font-bold text-[#8A4F56]"><?php echo esc_html($card['meta']); ?></p>
-                        <?php endif; ?>
-                    </article>
-                <?php endforeach; ?>
+<section class="tgm-hero">
+    <div class="tgm-container tgm-hero__grid">
+        <div class="tgm-hero__content">
+            <p class="tgm-eyebrow">Contact <?php echo esc_html($store_name); ?></p>
+            <h1>We Are Here To Help</h1>
+            <p class="tgm-hero__copy">Send us a message about orders, products, returns or account questions. Our support team will review your request and reply during business hours.</p>
+            <div class="tgm-hero__actions">
+                <a class="tgm-btn tgm-btn--primary" href="mailto:<?php echo esc_attr($support_email); ?>">Email Support</a>
+                <a class="tgm-btn tgm-btn--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>">Track Order</a>
+            </div>
+            <div class="tgm-hero__proof" aria-label="Support details">
+                <span>U.S. customer support</span>
+                <span>Secure form</span>
+                <span>Helpful order guidance</span>
             </div>
         </div>
-    </section>
+        <div class="tgm-hero__media">
+            <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1400&q=86" alt="Customer support desk with laptop and shopping packages" width="700" height="560" loading="eager" decoding="async">
+            <div class="tgm-hero__deal">
+                <strong>Support Hours</strong>
+                <span><?php echo esc_html($business_hours); ?></span>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="contact-form-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-            <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                    <h2 class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Before you send', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
-                        <?php esc_html_e('For order questions, include your order number and the email used at checkout. For product questions, include the product name or link if available.', 'dawp'); ?>
-                    </p>
+<section class="tgm-section">
+    <div class="tgm-container">
+        <div class="tgm-section__head">
+            <div>
+                <p class="tgm-eyebrow">Support options</p>
+                <h2>Choose The Best Way To Reach Us</h2>
+                <p>Use the form for detailed requests, or email us directly if you already have the information ready.</p>
+            </div>
+        </div>
+        <div class="tgm-trust-grid contact-support-slider">
+            <?php foreach ($support_cards as $card) : ?>
+                <article class="tgm-trust contact-support-card">
+                    <span>?</span>
+                    <h3><?php echo esc_html($card['title']); ?></h3>
+                    <p><?php echo esc_html($card['copy']); ?></p>
+                    <p><strong><?php echo esc_html($card['meta']); ?></strong></p>
+                </article>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
 
-                    <div class="mt-6 grid gap-3 text-sm leading-6 text-[#6F625D]">
-                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
-                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                            </svg>
-                            <span><strong class="text-[#2F2A28]"><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('We aim to reply within 1 business day.', 'dawp'); ?></span>
-                        </div>
-                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
-                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                            </svg>
-                            <span><?php esc_html_e('Orders use a 5:00 PM (GMT-08:00) Pacific Standard Time cutoff and 1-3 business day handling time.', 'dawp'); ?></span>
-                        </div>
-                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
-                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                            </svg>
-                            <span><?php esc_html_e('Standard U.S. shipping is free, with 5-7 business day transit and a 6-10 business day total delivery estimate.', 'dawp'); ?></span>
-                        </div>
-                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
-                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                            </svg>
-                            <span><?php esc_html_e('Returns and exchanges are accepted within 30 days of delivery for eligible unused items in original condition.', 'dawp'); ?></span>
-                        </div>
-                    </div>
+<section class="tgm-section tgm-section--soft">
+    <div class="tgm-container">
+        <div class="tgm-section__head">
+            <div>
+                <p class="tgm-eyebrow">Send a message</p>
+                <h2>Contact Form</h2>
+                <p>Share a few details so our team can route your request correctly.</p>
+            </div>
+        </div>
 
-                    <p class="mt-6 text-sm leading-7 text-[#6F625D]">
-                        <?php
-                        echo wp_kses(
-                            sprintf(
-                                /* translators: 1: support email link, 2: business hours */
-                                __('Prefer email? Contact %1$s. Business hours: %2$s.', 'dawp'),
-                                '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
-                                esc_html($business_hours)
-                            ),
-                            [
-                                'a' => [
-                                    'class' => [],
-                                    'href'  => [],
-                                ],
-                            ]
-                        );
-                        ?>
-                    </p>
-                </div>
-            </aside>
-
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm sm:p-8">
-                <div class="max-w-2xl">
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Support Form', 'dawp'); ?></p>
-                    <h2 id="contact-form-title" class="mt-3 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28]">
-                        <?php esc_html_e('Send us a message.', 'dawp'); ?>
-                    </h2>
-                    <p class="mt-3 text-sm leading-7 text-[#6F625D]">
-                        <?php esc_html_e('We use the information you provide to respond to your request and support your shopping experience.', 'dawp'); ?>
-                    </p>
-                </div>
+        <div class="tgm-contact-grid">
+            <form class="tgm-contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+                <?php wp_nonce_field('lbq_contact_form', 'lbq_contact_nonce'); ?>
+                <input type="hidden" name="action" value="lbq_contact_form">
+                <label class="tgm-honeypot" for="company-website">Company website</label>
+                <input class="tgm-honeypot" id="company-website" type="text" name="company_website" tabindex="-1" autocomplete="off">
 
                 <?php if ($status === 'success') : ?>
-                    <div class="mt-6 flex gap-3 rounded-md border border-[#B7D8C2] bg-[#F0FAF3] p-4 text-sm leading-6 text-[#315B3D]" role="status">
-                        <svg class="mt-0.5 h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                        </svg>
-                        <p><?php esc_html_e('Thank you. Your message has been sent to LBQ Shop support.', 'dawp'); ?></p>
-                    </div>
+                    <div class="tgm-form-notice tgm-form-notice--success" role="status">Thank you. Your message has been received and our support team will reply as soon as possible.</div>
                 <?php elseif ($status === 'error') : ?>
-                    <div class="mt-6 flex gap-3 rounded-md border border-[#E7B8B4] bg-[#FFF3F1] p-4 text-sm leading-6 text-[#8A332B]" role="alert">
-                        <svg class="mt-0.5 h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <?php echo $render_icon('alert'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                        </svg>
-                        <p><?php esc_html_e('Please check the required fields and try again, or email support directly.', 'dawp'); ?></p>
-                    </div>
+                    <div class="tgm-form-notice tgm-form-notice--error" role="alert">Please check the required fields and try again.</div>
                 <?php endif; ?>
 
-                <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="mt-8 grid gap-5">
-                    <input type="hidden" name="action" value="lbq_contact_form">
-                    <?php wp_nonce_field('lbq_contact_form', 'lbq_contact_nonce'); ?>
+                <div class="tgm-form-row">
+                    <label for="contact-name">Full name</label>
+                    <input id="contact-name" type="text" name="contact_name" autocomplete="name" required>
+                </div>
+                <div class="tgm-form-row">
+                    <label for="contact-email">Email address</label>
+                    <input id="contact-email" type="email" name="contact_email" autocomplete="email" required>
+                </div>
+                <div class="tgm-form-row">
+                    <label for="contact-topic">What can we help with?</label>
+                    <select id="contact-topic" name="contact_topic" required>
+                        <?php foreach ($contact_topics as $value => $label) : ?>
+                            <option value="<?php echo esc_attr($value); ?>"><?php echo esc_html($label); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="tgm-form-row">
+                    <label for="order-number">Order number <span>optional</span></label>
+                    <input id="order-number" type="text" name="order_number" autocomplete="off">
+                </div>
+                <div class="tgm-form-row tgm-form-row--wide">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="contact_message" rows="6" required></textarea>
+                </div>
+                <button class="tgm-btn tgm-btn--secondary tgm-form-submit" type="submit">Send Message</button>
+            </form>
 
-                    <div class="hidden" aria-hidden="true">
-                        <label for="company-website"><?php esc_html_e('Company website', 'dawp'); ?></label>
-                        <input id="company-website" type="text" name="company_website" tabindex="-1" autocomplete="off">
-                    </div>
-
-                    <div class="grid gap-5 sm:grid-cols-2">
-                        <div>
-                            <label for="contact-name" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Name', 'dawp'); ?> <span class="text-[#A96870]">*</span></label>
-                            <input id="contact-name" name="contact_name" type="text" autocomplete="name" required class="mt-2 block min-h-12 w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 text-sm text-[#2F2A28] outline-none transition placeholder:text-[#9C8E88] focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]" placeholder="<?php esc_attr_e('Your name', 'dawp'); ?>">
-                        </div>
-
-                        <div>
-                            <label for="contact-email" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Email', 'dawp'); ?> <span class="text-[#A96870]">*</span></label>
-                            <input id="contact-email" name="contact_email" type="email" autocomplete="email" required class="mt-2 block min-h-12 w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 text-sm text-[#2F2A28] outline-none transition placeholder:text-[#9C8E88] focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]" placeholder="<?php esc_attr_e('you@example.com', 'dawp'); ?>">
-                        </div>
-                    </div>
-
-                    <div class="grid gap-5 sm:grid-cols-2">
-                        <div>
-                            <label for="contact-topic" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Topic', 'dawp'); ?></label>
-                            <select id="contact-topic" name="contact_topic" class="mt-2 block min-h-12 w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 text-sm text-[#2F2A28] outline-none transition focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]">
-                                <?php foreach ($form_topics as $value => $label) : ?>
-                                    <option value="<?php echo esc_attr($value); ?>"><?php echo esc_html($label); ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label for="order-number" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Order number', 'dawp'); ?></label>
-                            <input id="order-number" name="order_number" type="text" autocomplete="off" class="mt-2 block min-h-12 w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 text-sm text-[#2F2A28] outline-none transition placeholder:text-[#9C8E88] focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]" placeholder="<?php esc_attr_e('Optional', 'dawp'); ?>">
-                        </div>
-                    </div>
-
+            <aside class="tgm-contact-panel">
+                <h3>Customer Support</h3>
+                <dl>
                     <div>
-                        <label for="contact-message" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Message', 'dawp'); ?> <span class="text-[#A96870]">*</span></label>
-                        <textarea id="contact-message" name="contact_message" rows="7" required class="mt-2 block w-full resize-y rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 py-3 text-sm leading-7 text-[#2F2A28] outline-none transition placeholder:text-[#9C8E88] focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]" placeholder="<?php esc_attr_e('Tell us how we can help.', 'dawp'); ?>"></textarea>
+                        <dt>Email</dt>
+                        <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
                     </div>
-
-                    <div class="rounded-md bg-[#F8F2EE] p-4 text-sm leading-6 text-[#6F625D]">
-                        <?php
-                        echo wp_kses(
-                            sprintf(
-                                /* translators: privacy policy link */
-                                __('By submitting this form, you agree that LBQ Shop may use your details to respond to your request. Review our %s for more information.', 'dawp'),
-                                '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="' . esc_url($privacy_url) . '">' . esc_html__('Privacy Policy', 'dawp') . '</a>'
-                            ),
-                            [
-                                'a' => [
-                                    'class' => [],
-                                    'href'  => [],
-                                ],
-                            ]
-                        );
-                        ?>
+                    <div>
+                        <dt>Hours</dt>
+                        <dd><?php echo esc_html($business_hours); ?></dd>
                     </div>
-
-                    <button type="submit" class="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28] sm:w-auto">
-                        <?php esc_html_e('Send Message', 'dawp'); ?>
-                    </button>
-                </form>
-            </div>
+                    <div>
+                        <dt>Business Address</dt>
+                        <dd><?php echo esc_html($store_address); ?></dd>
+                    </div>
+                </dl>
+                <div class="tgm-contact-panel__links">
+                    <a class="tgm-link" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>">Shipping Policy</a>
+                    <a class="tgm-link" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>">Return & Refund Policy</a>
+                    <a class="tgm-link" href="<?php echo esc_url(home_url('/faq/')); ?>">FAQs</a>
+                </div>
+            </aside>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
+<section class="tgm-newsletter">
+    <div class="tgm-container tgm-newsletter__inner">
+        <div>
+            <p class="tgm-eyebrow">Before you write</p>
+            <h2>Looking For Order Updates?</h2>
+            <p>Use your tracking details for the fastest shipment update, or browse the shop for current products and deals.</p>
+        </div>
+        <div class="tgm-newsletter__actions">
+            <a class="tgm-btn tgm-btn--primary" href="<?php echo esc_url(home_url('/track-order/')); ?>">Track Order</a>
+            <a class="tgm-link" href="<?php echo esc_url($shop_url); ?>">Continue Shopping</a>
+        </div>
+    </div>
+</section>

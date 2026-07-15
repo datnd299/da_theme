@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for LBQ Shop.
+ * Product category defaults for Topgoodmart.
  *
  * @package dawp
  */
@@ -11,30 +11,35 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'beauty-accessories' => [
-            'name'        => __('Beauty Accessories', 'dawp'),
-            'description' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
-            'short'       => __('Beauty tools and small helpers for everyday routines.', 'dawp'),
+        'home-essentials' => [
+            'name'        => __('Home Essentials', 'dawp'),
+            'description' => __('Storage, cleaning, organization and practical everyday products for a better home routine.', 'dawp'),
+            'short'       => __('Storage, cleaning and organization for everyday living.', 'dawp'),
         ],
-        'makeup-bags-organizers' => [
-            'name'        => __('Makeup Bags & Organizers', 'dawp'),
-            'description' => __('Travel-friendly cosmetic bags, storage pieces, and organizers that help keep beauty items neat and easy to find.', 'dawp'),
-            'short'       => __('Cosmetic bags, cases, and organizers for home or travel.', 'dawp'),
+        'furniture' => [
+            'name'        => __('Furniture', 'dawp'),
+            'description' => __('Living room, bedroom, office and space-saving furniture for modern homes.', 'dawp'),
+            'short'       => __('Comfortable furniture for living, working and relaxing.', 'dawp'),
         ],
-        'fashion-accessories' => [
-            'name'        => __('Fashion Accessories', 'dawp'),
-            'description' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
-            'short'       => __('Small accents for polished everyday styling.', 'dawp'),
+        'electronics' => [
+            'name'        => __('Electronics', 'dawp'),
+            'description' => __('TVs, audio, computer accessories, connected devices and practical home entertainment products.', 'dawp'),
+            'short'       => __('Audio, entertainment and connected tech essentials.', 'dawp'),
         ],
-        'everyday-style-essentials' => [
-            'name'        => __('Everyday Style Essentials', 'dawp'),
-            'description' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
-            'short'       => __('Practical daily pieces for beauty, travel, and style.', 'dawp'),
+        'smart-home' => [
+            'name'        => __('Smart Home', 'dawp'),
+            'description' => __('Smart lighting, security, plugs, Wi-Fi devices and automation products for connected living.', 'dawp'),
+            'short'       => __('Smart lighting, security and automation devices.', 'dawp'),
         ],
-        'giftable-finds' => [
-            'name'        => __('Giftable Finds', 'dawp'),
-            'description' => __('Pretty, practical accessories made for thoughtful everyday gifting.', 'dawp'),
-            'short'       => __('Small beauty and style finds that are easy to gift.', 'dawp'),
+        'kitchen-dining' => [
+            'name'        => __('Kitchen & Dining', 'dawp'),
+            'description' => __('Cookware, appliances, coffee gear and dining essentials for everyday meals.', 'dawp'),
+            'short'       => __('Cookware, appliances and dining favorites.', 'dawp'),
+        ],
+        'outdoor-garden' => [
+            'name'        => __('Outdoor & Garden', 'dawp'),
+            'description' => __('Patio, garden, grilling and outdoor living products for home spaces outside.', 'dawp'),
+            'short'       => __('Patio, garden and outdoor living picks.', 'dawp'),
         ],
     ];
 }

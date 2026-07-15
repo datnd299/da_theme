@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQs page for LBQ Shop.
+ * FAQs page for Topgoodmart.
  *
  * @package dawp
  */
@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'LBQ Shop';
-$site_domain    = 'lbqshop.com';
-$support_email  = 'support@lbqshop.com';
+$store_name     = 'Topgoodmart';
+$site_domain    = 'topgoodmart.com';
+$support_email  = 'support@topgoodmart.com';
 $store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -48,8 +48,8 @@ $faq_groups = [
         'label' => __('Orders & Shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('Where does LBQ Shop ship?', 'dawp'),
-                'answer'   => __('LBQ Shop currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+                'question' => __('Where does Topgoodmart ship?', 'dawp'),
+                'answer'   => __('Topgoodmart currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
             ],
             [
                 'question' => __('How much does shipping cost?', 'dawp'),
@@ -90,7 +90,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Which products are eligible for return?', 'dawp'),
-                'answer'   => __('Eligible items must be unworn, unused, undamaged, and in their original condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
+                'answer'   => __('Eligible items must be unused, undamaged, and in their original condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
             ],
             [
                 'question' => __('How do I start a return?', 'dawp'),
@@ -98,11 +98,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('LBQ Shop covers 100% of return shipping for defective, damaged, carrier-damaged, or incorrect products and provides a prepaid label by email. For customer-remorse returns, such as wrong size, wrong color, changed mind, or does not fit, the actual prepaid label cost is deducted from the refund.', 'dawp'),
+                'answer'   => __('Topgoodmart covers 100% of return shipping for defective, damaged, carrier-damaged, or incorrect products and provides a prepaid label by email. For customer-remorse returns, such as wrong model, wrong color, changed mind, or does not fit, the actual prepaid label cost is deducted from the refund.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
-                'answer'   => __('No. LBQ Shop does not charge restocking fees for eligible returns.', 'dawp'),
+                'answer'   => __('No. Topgoodmart does not charge restocking fees for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('Do you offer exchanges?', 'dawp'),
@@ -126,8 +126,8 @@ $faq_groups = [
         'label' => __('Products & Store', 'dawp'),
         'items' => [
             [
-                'question' => __('What does LBQ Shop sell?', 'dawp'),
-                'answer'   => __('LBQ Shop focuses on practical makeup bags, cosmetic organizers, beauty accessories, fashion accents, everyday style essentials, and giftable accessories.', 'dawp'),
+                'question' => __('What does Topgoodmart sell?', 'dawp'),
+                'answer'   => __('Topgoodmart focuses on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
@@ -135,11 +135,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
-                'answer'   => __('No. LBQ Shop does not sell counterfeit designer products, fake branded cosmetics, replica logos, or unauthorized luxury items.', 'dawp'),
+                'answer'   => __('No. Topgoodmart does not sell counterfeit goods, replica logos, unauthorized branded items, or unsafe regulated products.', 'dawp'),
             ],
             [
-                'question' => __('Do your products make medical, skincare, or treatment claims?', 'dawp'),
-                'answer'   => __('No. Our catalog is focused on beauty and fashion accessories. We do not sell dietary supplements, medical skincare treatments, or products with unverified medical or beauty claims.', 'dawp'),
+                'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),
+                'answer'   => __('No. Our catalog is focused on home, electronics and lifestyle products. We do not sell dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Where can I find product details?', 'dawp'),
@@ -155,8 +155,8 @@ $faq_groups = [
                 'answer'   => __('Yes. Checkout transactions are executed over an encrypted SSL connection and payment processing is handled by certified third-party payment gateways that follow PCI-DSS standards.', 'dawp'),
             ],
             [
-                'question' => __('Does LBQ Shop store my full credit card number?', 'dawp'),
-                'answer'   => __('No. LBQ Shop does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+                'question' => __('Does Topgoodmart store my full credit card number?', 'dawp'),
+                'answer'   => __('No. Topgoodmart does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             ],
             [
                 'question' => __('How is my information used?', 'dawp'),
@@ -167,7 +167,7 @@ $faq_groups = [
                 'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain. Submit privacy requests through support.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact LBQ Shop?', 'dawp'),
+                'question' => __('How do I contact Topgoodmart?', 'dawp'),
                 'answer'   => sprintf(
                     /* translators: 1: email address, 2: business hours, 3: store address */
                     __('Email %1$s or use the Contact Us page. Customer service hours are %2$s. Our business address is %3$s.', 'dawp'),
@@ -209,14 +209,14 @@ $quick_links = [
 ];
 ?>
 
-<div class="bg-white text-[#2F2A28]">
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="faq-title">
+<div class="bg-white text-[#1F2937]">
+    <section class="bg-[#F5F6F8] py-14 sm:py-20" aria-labelledby="faq-title">
         <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
-            <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                <?php esc_html_e('Quick answers for shopping with LBQ Shop.', 'dawp'); ?>
+            <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
+            <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#1F2937] sm:text-5xl">
+                <?php esc_html_e('Quick answers for shopping with Topgoodmart.', 'dawp'); ?>
             </h1>
-            <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#6F625D]">
+            <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#6B7280]">
                 <?php
                 echo esc_html(
                     sprintf(
@@ -228,26 +228,26 @@ $quick_links = [
                 );
                 ?>
             </p>
-            <div class="mt-6 rounded-md border border-[#E8DAD4] bg-white px-5 py-4 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
-                <p class="mt-2 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php echo esc_html($last_updated); ?></p>
+            <div class="mt-6 rounded-md border border-[#E5E7EB] bg-white px-5 py-4 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+                <p class="mt-2 font-heading text-2xl font-extrabold text-[#1F2937]"><?php echo esc_html($last_updated); ?></p>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="faq-content-title">
+    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="faq-content-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                    <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                <div class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                    <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#1F2937]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-[#6B7280]">
                         <?php esc_html_e('This FAQ summarizes the current store policies. Review the full policy pages for complete details before placing an order, requesting a return, or submitting a privacy request.', 'dawp'); ?>
                     </p>
                     <div class="mt-6 grid gap-3">
                         <?php foreach ($quick_links as $link) : ?>
-                            <a href="<?php echo esc_url($link['url']); ?>" class="block w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-4 transition hover:border-[#C87F86] hover:bg-[#FBEDEA]">
-                                <span class="block font-heading text-base font-extrabold text-[#2F2A28]"><?php echo esc_html($link['title']); ?></span>
-                                <span class="mt-2 block text-sm leading-6 text-[#6F625D]"><?php echo esc_html($link['copy']); ?></span>
+                            <a href="<?php echo esc_url($link['url']); ?>" class="block w-full rounded-md border border-[#E5E7EB] bg-[#FFFFFF] p-4 transition hover:border-[#0046BE] hover:bg-[#EAF2FF]">
+                                <span class="block font-heading text-base font-extrabold text-[#1F2937]"><?php echo esc_html($link['title']); ?></span>
+                                <span class="mt-2 block text-sm leading-6 text-[#6B7280]"><?php echo esc_html($link['copy']); ?></span>
                             </a>
                         <?php endforeach; ?>
                     </div>
@@ -256,25 +256,25 @@ $quick_links = [
 
             <div class="grid gap-5">
                 <?php foreach ($faq_groups as $group) : ?>
-                    <section class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
-                        <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php echo esc_html($group['label']); ?></h2>
-                        <div class="mt-6 divide-y divide-[#E8DAD4]">
+                    <section class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
+                        <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-xl font-extrabold text-[#1F2937]"><?php echo esc_html($group['label']); ?></h2>
+                        <div class="mt-6 divide-y divide-[#E5E7EB]">
                             <?php foreach ($group['items'] as $item) : ?>
                                 <details class="group py-5 first:pt-0 last:pb-0">
-                                    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#2F2A28]">
+                                    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#1F2937]">
                                         <span><?php echo esc_html($item['question']); ?></span>
-                                        <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#FBEDEA] text-[#8A4F56] transition group-open:rotate-45" aria-hidden="true">+</span>
+                                        <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#EAF2FF] text-[#0046BE] transition group-open:rotate-45" aria-hidden="true">+</span>
                                     </summary>
-                                    <p class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($item['answer']); ?></p>
+                                    <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($item['answer']); ?></p>
                                 </details>
                             <?php endforeach; ?>
                         </div>
                     </section>
                 <?php endforeach; ?>
 
-                <article class="rounded-md border border-[#E8DAD4] bg-[#FFF8FB] p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Still need help?', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                <article class="rounded-md border border-[#E5E7EB] bg-[#F5F6F8] p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php esc_html_e('Still need help?', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-[#6B7280]">
                         <?php
                         echo esc_html(
                             sprintf(
@@ -287,22 +287,22 @@ $quick_links = [
                         ?>
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-2">
-                        <div class="rounded-md border border-[#E8DAD4] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#6F625D]">
-                                <a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                        <div class="rounded-md border border-[#E5E7EB] bg-white p-5">
+                            <dt class="text-sm font-extrabold text-[#1F2937]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
+                            <dd class="mt-3 text-sm leading-7 text-[#6B7280]">
+                                <a class="font-bold text-[#0046BE] underline decoration-[#0046BE]/40 underline-offset-4 transition hover:text-[#1F2937]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
                             </dd>
                         </div>
-                        <div class="rounded-md border border-[#E8DAD4] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Business Address', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($store_address); ?></dd>
+                        <div class="rounded-md border border-[#E5E7EB] bg-white p-5">
+                            <dt class="text-sm font-extrabold text-[#1F2937]"><?php esc_html_e('Business Address', 'dawp'); ?></dt>
+                            <dd class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($store_address); ?></dd>
                         </div>
                     </dl>
                     <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2135] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
+                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#0046BE] px-6 text-sm font-bold text-white transition hover:bg-[#0046BE]">
                             <?php esc_html_e('Contact Us', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#2F2135] bg-white px-6 text-sm font-bold text-[#2F2135] transition hover:bg-[#FBEDEA]">
+                        <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0046BE] bg-white px-6 text-sm font-bold text-[#0046BE] transition hover:bg-[#EAF2FF]">
                             <?php esc_html_e('Shop Products', 'dawp'); ?>
                         </a>
                     </div>

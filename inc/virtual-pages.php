@@ -27,15 +27,15 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'             => ['slug' => 'about',                'title' => 'About Us', 'desc' => 'Learn more about LBQ Shop, our story, and our commitment to providing high-quality beauty and fashion accessories.', 'css' => 'tw-about.css'],
-        'faq'                  => ['slug' => 'faq',                  'title' => 'FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, and more at LBQ Shop.', 'css' => 'tw-faq.css'],
-        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Us', 'desc' => 'Get in touch with LBQ Shop for support, inquiries, or assistance with your orders.', 'css' => 'tw-contact.css'],
-        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review our shipping options, delivery times, and rates for LBQ Shop orders within the US.', 'css' => 'tw-ship.css'],
-        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review our shipping options, delivery times, and rates for LBQ Shop orders within the US.', 'css' => 'tw-ship.css'],
+        'about-us'             => ['slug' => 'about',                'title' => 'About Us', 'desc' => 'Learn more about Topgoodmart, a modern online store for practical home, technology and everyday lifestyle products.', 'css' => 'tw-about.css'],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, and more at Topgoodmart.', 'css' => 'tw-faq.css'],
+        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Us', 'desc' => 'Get in touch with Topgoodmart for support, inquiries, or assistance with your orders.', 'css' => 'tw-contact.css'],
+        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review our shipping options, delivery times, and rates for Topgoodmart orders within the US.', 'css' => 'tw-ship.css'],
+        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review our shipping options, delivery times, and rates for Topgoodmart orders within the US.', 'css' => 'tw-ship.css'],
         'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read our return and refund policy to learn how to return products and get your money back.', 'css' => 'tw-ship.css'],
-        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the terms of service and conditions for using the LBQ Shop website and services.', 'css' => 'tw-terms.css'],
-        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how LBQ Shop handles your data, protects your privacy, and secures your information.', 'css' => 'tw-privacy.css'],
-        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Order', 'desc' => 'Track the status of your LBQ Shop order online using your tracking details.', 'css' => 'track-order.css'],
+        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the terms of service and conditions for using the Topgoodmart website and services.', 'css' => 'tw-terms.css'],
+        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Topgoodmart handles your data, protects your privacy, and secures your information.', 'css' => 'tw-privacy.css'],
+        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Order', 'desc' => 'Track the status of your Topgoodmart order online using your tracking details.', 'css' => 'track-order.css'],
     ];
 }
 

@@ -1,19 +1,19 @@
 /* ============================================================
-   Product Page - Vivisshop
-   Soft everyday fashion store: warm, polished, conversion-focused
+   Product Page - Topgoodmart
+   Topgoodmart store: clean, modern, conversion-focused
    ============================================================ */
 
 /* CSS Variables */
 :root {
   --color-bg:             #FFFFFF;
-  --color-bg-subtle:      #FFF3F1;
-  --color-bg-muted:       #F8F2EE;
-  --color-text-primary:   #2F2A28;
+  --color-bg-subtle:      #EAF2FF;
+  --color-bg-muted:       #F5F6F8;
+  --color-text-primary:   #1F2937;
   --color-text-secondary: #4B403C;
-  --color-text-muted:     #6F625D;
-  --color-text-soft:      #6F625D;
-  --color-border:         #E8DAD4;
-  --color-accent:         #C87F86;
+  --color-text-muted:     #6B7280;
+  --color-text-soft:      #6B7280;
+  --color-border:         #E5E7EB;
+  --color-accent:         #0046BE;
   --color-accent-hover:   #4B403C;
   --color-button-bg:      var(--color-accent-hover);
   --color-button-hover:   var(--color-accent);
@@ -21,7 +21,7 @@
   --color-sale:           #8A332B;
   --color-blush:          #A8B99A;
   --color-navy:           #4B403C;
-  --color-navy-light:     #6F625D;
+  --color-navy-light:     #6B7280;
   --color-ring:           rgba(200, 127, 134, 0.18);
   --color-background:     var(--color-bg);
   --color-foreground:     var(--color-text-primary);
@@ -29,7 +29,7 @@
   --color-muted:          var(--color-text-soft);
   --color-success:        var(--color-accent);
   --color-alert:          var(--color-sale);
-  --font-primary:         'Inter', system-ui, -apple-system, sans-serif;
+  --font-primary:         'Avenir Next for Best Buy', 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
   --font-sans:            var(--font-primary);
   --radius-md:            8px;
   --radius-lg:            16px;

@@ -119,6 +119,19 @@ body.single-product {
   margin: 0 !important;
 }
 
+@media (max-width: 639px) {
+  .single-product .woocommerce-breadcrumb {
+    padding-top: 10px;
+  }
+
+  .single-product div.product {
+    padding-top: 12px;
+  }
+  .single-product .container {
+    padding-top: 2rem !important;
+  }
+}
+
 @media (min-width: 640px) {
   .single-product div.product {
     padding-left: 24px;
@@ -239,6 +252,48 @@ body.single-product {
 .flex-control-thumbs img.flex-active,
 .flex-control-thumbs img:hover {
   border-color: var(--color-accent);
+}
+
+/* Thumbnail scroll arrows */
+.gallery-thumbs-wrapper {
+  position: relative;
+}
+
+.gallery-thumbs-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: box-shadow 0.2s, opacity 0.2s;
+}
+
+.gallery-thumbs-btn:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.gallery-thumbs-btn.prev {
+  left: 2px;
+}
+
+.gallery-thumbs-btn.next {
+  right: 2px;
+}
+
+.gallery-thumbs-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 /* === 3. SUMMARY === */
@@ -503,6 +558,43 @@ form.cart:not(.variations_form) {
 .single-product div.product form.cart .wc-buy-now-btn:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* === 5.5 TRUST BADGES BANNER === */
+.trust-badges-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.trust-badge__icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--color-accent);
+}
+
+@media (min-width: 640px) {
+  .trust-badges-banner {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
 }
 
 /* === 6. PRODUCT META === */

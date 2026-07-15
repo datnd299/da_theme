@@ -105,3 +105,44 @@ if (!function_exists('dawp_i0_img_attrs')) {
         return trim($html);
     }
 }
+
+/**
+ * Auto-route core WP/WooCommerce attachment images (product gallery,
+ * thumbnails, etc.) through the i0.wp.com CDN so they get resized on
+ * the fly for the viewport that requested them, without needing to
+ * override WooCommerce's single-product templates.
+ */
+if (!function_exists('dawp_i0_filter_attachment_image_src')) {
+    function dawp_i0_filter_attachment_image_src($image, $attachment_id, $size, $icon) {
+        if (is_admin() || empty($image[0])) {
+            return $image;
+        }
+
+        $width  = !empty($image[1]) ? (int) $image[1] : 0;
+        $height = !empty($image[2]) ? (int) $image[2] : 0;
+
+        $image[0] = dawp_i0_image_url($image[0], $width, $height);
+
+        return $image;
+    }
+    add_filter('wp_get_attachment_image_src', 'dawp_i0_filter_attachment_image_src', 10, 4);
+}
+
+if (!function_exists('dawp_i0_filter_image_srcset')) {
+    function dawp_i0_filter_image_srcset($sources, $size_array, $image_src, $image_meta, $attachment_id) {
+        if (is_admin() || empty($sources)) {
+            return $sources;
+        }
+
+        foreach ($sources as $width => $source) {
+            if (empty($source['url'])) {
+                continue;
+            }
+
+            $sources[$width]['url'] = dawp_i0_image_url($source['url'], (int) $source['value']);
+        }
+
+        return $sources;
+    }
+    add_filter('wp_calculate_image_srcset', 'dawp_i0_filter_image_srcset', 10, 5);
+}

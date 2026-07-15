@@ -23,6 +23,74 @@ body.woocommerce-cart #content {
   }
 }
 
+/* === 1.5 FREE SHIPPING BANNER === */
+.free-shipping-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 1280px;
+  margin: 0 auto 20px;
+  padding: 14px 18px;
+  background: #F8F2EE;
+  border: 1px solid #E8DAD4;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.free-shipping-banner__icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  color: #C87F86;
+}
+
+.free-shipping-banner__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.free-shipping-banner__message {
+  margin: 0 0 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4B403C;
+}
+
+.free-shipping-banner__message strong {
+  color: #2F2A28;
+}
+
+.free-shipping-banner__progress {
+  width: 100%;
+  height: 6px;
+  background: #E8DAD4;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.free-shipping-banner__progress-fill {
+  display: block;
+  height: 100%;
+  background: #C87F86;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.free-shipping-banner.is-qualified {
+  border-color: #C87F86;
+}
+
+.free-shipping-banner.is-qualified .free-shipping-banner__progress-fill {
+  background: #C87F86;
+}
+
+@media (min-width: 768px) {
+  .free-shipping-banner {
+    margin: 0 auto 24px;
+    padding: 16px 32px;
+  }
+}
+
 /* === 2. SIDEBAR LAYOUT (2 col on desktop) === */
 .wc-block-components-sidebar-layout.wc-block-cart {
   display: grid;

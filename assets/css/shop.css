@@ -1295,10 +1295,3 @@ ul.products li.product,
   }
 }
 
-@media (max-width: 520px) {
-  .shop-page .shop-main ul.products,
-  .shop-page.woocommerce ul.products,
-  .shop-page .woocommerce ul.products {
-    grid-template-columns: 1fr;
-  }
-}

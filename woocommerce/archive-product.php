@@ -98,7 +98,7 @@ $sgs_cover_bg = sprintf(
 .sgs-shop-product__img{aspect-ratio:1;background:#f5f5f5;border-radius:var(--radius);display:grid;place-items:center;margin-bottom:12px;overflow:hidden}
 .sgs-shop-product__media-link{display:block;color:inherit;text-decoration:none}
 .sgs-shop-product__img img{width:100%;height:100%;object-fit:cover}
-.sgs-shop-product h2{margin:0 0 4px;font-family:var(--font-body);font-size:.93rem;font-weight:600;color:var(--ink);line-height:1.25}
+.sgs-shop-product h2{margin:0 0 4px;font-family:var(--font-body);font-size:.93rem;font-weight:600;color:var(--ink);line-height:1.25;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
 .sgs-shop-product h2 a{color:inherit;text-decoration:none}
 .sgs-shop-product h2 a:hover{color:var(--red)}
 .sgs-shop-product .price{display:inline-flex;align-items:center;gap:6px;width:max-content;max-width:100%;margin-top:6px;padding:7px 10px;border:1px solid rgba(179,25,66,.18);border-radius:6px;background:rgba(179,25,66,.07);color:var(--red);font-family:var(--font-heading);font-size:1.18rem;font-weight:800;line-height:1.1;box-shadow:0 4px 12px rgba(179,25,66,.08)}

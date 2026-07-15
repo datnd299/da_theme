@@ -58,17 +58,13 @@ function dawp_single_product_trust_badges() {
 function dawp_single_product_pride_banner() {
     ?>
     <section class="dawp-pride-banner" aria-label="<?php esc_attr_e('American pride product message', 'dawp'); ?>">
-        <div class="dawp-pride-banner__flag" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
+        <div class="dawp-pride-banner__emblem" aria-hidden="true">
+            <span>★</span>
         </div>
         <div class="dawp-pride-banner__content">
-            <p><?php esc_html_e('Made for Proud American Moments', 'dawp'); ?></p>
-            <h2><?php esc_html_e('Celebrate freedom and wear the story with pride.', 'dawp'); ?></h2>
-        </div>
-        <div class="dawp-pride-banner__marks" aria-hidden="true">
-            <span>1776</span>
-            <span>USA</span>
-            <span>250</span>
+            <p><?php esc_html_e('American Pride Collection', 'dawp'); ?></p>
+            <h2><?php esc_html_e('Wear the colors. Carry the pride.', 'dawp'); ?></h2>
+            <small><?php esc_html_e('Patriotic shirts and gifts made for proud everyday moments.', 'dawp'); ?></small>
         </div>
     </section>
     <?php

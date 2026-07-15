@@ -29,7 +29,7 @@ if (! function_exists('dawp_get_woocommerce_store_address')) {
 
         $address_parts = array_filter(array($address_1, $address_2, $locality));
 
-        if ('US' !== strtoupper($country_code)) {
+        if ('' !== $country_code) {
             $countries = array();
 
             if (function_exists('WC') && WC() && isset(WC()->countries)) {

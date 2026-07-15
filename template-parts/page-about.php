@@ -3,7 +3,11 @@
  * About Us — ShopGraphicshirt
  * Patriotic apparel & gift brand.
  */
-$sgs_about_img = trailingslashit(get_template_directory_uri()) . 'assets/img/about/';
+$sgs_about_hero_bg = sprintf(
+  "--about-hero-bg:url('%s');--about-hero-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/about/about-hero-background.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/about/about-hero-background.png', 720, 760))
+);
 get_header(); ?>
 <section class="sgs-home sgs-page">
 
@@ -42,10 +46,10 @@ get_header(); ?>
 .sgs-cta-block .sgs-btn:hover{transform:translateY(-2px);background:#8c1233;border-color:#8c1233;color:var(--white)!important;box-shadow:0 6px 16px rgba(179,25,66,.32)}
 .sgs-cta-block .sgs-btn:focus-visible{outline:3px solid rgba(179,25,66,.28);outline-offset:3px}
 @media(max-width:1024px){.sgs-card-grid{grid-template-columns:repeat(2,1fr)}.sgs-card--4{grid-template-columns:repeat(2,1fr)}.sgs-story{grid-template-columns:1fr;gap:28px}.sgs-story__visual{min-height:260px;order:-1}}
-@media(max-width:640px){.sgs-pg{width:100%;padding:52px 0}.sgs-pg--surface{padding-inline:0}.sgs-pg__center{width:min(100% - 40px,640px);margin-bottom:28px}.sgs-card-grid,.sgs-card--4{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:0 20px 8px;-webkit-overflow-scrolling:touch}.sgs-card-grid::-webkit-scrollbar{display:none}.sgs-card-grid{scrollbar-width:none}.sgs-card{flex:0 0 min(82vw,360px);scroll-snap-align:center;min-height:244px;display:flex;flex-direction:column;justify-content:center}.sgs-card:hover{box-shadow:none;transform:none}.sgs-story{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-cta-block{width:min(100% - 40px,580px)}.sgs-cta-block .sgs-btn{width:100%}}
+@media(max-width:640px){.sgs-page-hero{background-image:var(--about-hero-bg-mobile,var(--about-hero-bg))}.sgs-pg{width:100%;padding:52px 0}.sgs-pg--surface{padding-inline:0}.sgs-pg__center{width:min(100% - 40px,640px);margin-bottom:28px}.sgs-card-grid,.sgs-card--4{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:0 20px 8px;-webkit-overflow-scrolling:touch}.sgs-card-grid::-webkit-scrollbar{display:none}.sgs-card-grid{scrollbar-width:none}.sgs-card{flex:0 0 min(82vw,360px);scroll-snap-align:center;min-height:244px;display:flex;flex-direction:column;justify-content:center}.sgs-card:hover{box-shadow:none;transform:none}.sgs-story{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-cta-block{width:min(100% - 40px,580px)}.sgs-cta-block .sgs-btn{width:100%}}
 </style>
 
-<div class="sgs-page-hero" style="--about-hero-bg:url('<?php echo esc_url($sgs_about_img . 'about-hero-background.png'); ?>')">
+<div class="sgs-page-hero" style="<?php echo esc_attr($sgs_about_hero_bg); ?>">
   <div class="sgs-page-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">About Us</p>
     <h1>Patriotic Apparel And Gifts Made For American Pride</h1>
@@ -112,7 +116,7 @@ get_header(); ?>
       <p>Today, we help thousands of Americans express their pride with products that carry meaning.</p>
     </div>
     <div class="sgs-story__visual">
-      <img src="<?php echo esc_url($sgs_about_img . 'about-story-patriotic-apparel.png'); ?>" alt="<?php echo esc_attr__('Patriotic apparel, custom gifts, and accessories arranged in a premium studio setting', 'shopgraphicshirt'); ?>" loading="lazy" decoding="async">
+      <?php echo dawp_theme_image('assets/img/about/about-story-patriotic-apparel.png', __('Patriotic apparel, custom gifts, and accessories arranged in a premium studio setting', 'shopgraphicshirt'), 900, 650, [[480, 347], [720, 520], [900, 650], [1200, 867]], '(max-width: 1024px) calc(100vw - 40px), 560px'); ?>
       <span class="sgs-story__badge"><i class="fas fa-flag-usa" aria-hidden="true"></i> American Pride Since Day One</span>
     </div>
   </div>

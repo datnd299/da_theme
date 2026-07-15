@@ -305,6 +305,15 @@ document.addEventListener('DOMContentLoaded', () => {
         next: '[data-shipping-next]',
     });
 
+    initMobileSnapSlider({
+        slider: '[data-track-steps-slider]',
+        track: '[data-track-steps-track]',
+        slide: '[data-track-steps-slide]',
+        dot: '[data-track-steps-dot]',
+        prev: '[data-track-steps-prev]',
+        next: '[data-track-steps-next]',
+    });
+
     document.querySelectorAll('[data-review-slider]').forEach((slider) => {
         const track = slider.querySelector('[data-review-track]');
         const slides = Array.from(slider.querySelectorAll('[data-review-slide]'));

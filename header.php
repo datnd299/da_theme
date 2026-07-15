@@ -10,6 +10,8 @@ $shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
 
 $cart_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+$account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
+$account_url = $account_url ? $account_url : home_url('/my-account/');
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -66,8 +68,18 @@ $cart_count = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_content
 
         /* ── Header ── */
         .sgs-header {
-            position: sticky; top: 0; z-index: 50;
+            position: sticky; top: var(--sgs-admin-offset, 0); z-index: 50;
             background: var(--navy); color: var(--white);
+        }
+
+        body.admin-bar {
+            --sgs-admin-offset: 32px;
+        }
+
+        @media (max-width: 782px) {
+            body.admin-bar {
+                --sgs-admin-offset: 46px;
+            }
         }
 
         .sgs-container {
@@ -350,7 +362,7 @@ $cart_count = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_content
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
             </button>
 
-            <a href="<?php echo esc_url(wp_login_url()); ?>" class="sgs-icon-btn" aria-label="<?php esc_attr_e('My Account', 'shopgraphicshirt'); ?>">
+            <a href="<?php echo esc_url($account_url); ?>" class="sgs-icon-btn" aria-label="<?php esc_attr_e('My Account', 'shopgraphicshirt'); ?>">
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
             </a>
 

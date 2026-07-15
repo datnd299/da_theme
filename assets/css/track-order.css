@@ -361,36 +361,64 @@
     box-shadow: 0 0 0 3px rgba(179, 25, 66, 0.14) !important;
 }
 
+.sgs-to-formwrap button.button,
+.sgs-to-formwrap input.button,
+.sgs-to-formwrap input[type="submit"],
 .form-row button.button,
-.woocommerce-form-row button.button {
+.form-row input.button,
+.form-row input[type="submit"],
+.woocommerce-form-row button.button,
+.woocommerce-form-row input.button,
+.woocommerce-form-row input[type="submit"] {
+    display: inline-flex !important;
     width: 100% !important;
     min-height: 54px !important;
+    align-items: center !important;
+    justify-content: center !important;
     margin-top: 0.35rem !important;
     padding: 0 1.4rem !important;
     border: 1px solid var(--track-red) !important;
     border-radius: 8px !important;
     background: var(--track-red) !important;
     color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
     box-shadow: 0 14px 28px rgba(179, 25, 66, 0.22) !important;
+    appearance: none !important;
     cursor: pointer !important;
     font-family: var(--font-sans, Arial, sans-serif) !important;
     font-size: 0.92rem !important;
     font-weight: 950 !important;
     letter-spacing: 0.08em !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
     text-transform: uppercase !important;
     transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease !important;
 }
 
+.sgs-to-formwrap button.button:hover,
+.sgs-to-formwrap input.button:hover,
+.sgs-to-formwrap input[type="submit"]:hover,
 .form-row button.button:hover,
-.woocommerce-form-row button.button:hover {
+.form-row input.button:hover,
+.form-row input[type="submit"]:hover,
+.woocommerce-form-row button.button:hover,
+.woocommerce-form-row input.button:hover,
+.woocommerce-form-row input[type="submit"]:hover {
     background: var(--track-navy) !important;
     border-color: var(--track-navy) !important;
     box-shadow: 0 18px 34px rgba(11, 31, 58, 0.2) !important;
     transform: translateY(-1px) !important;
 }
 
+.sgs-to-formwrap button.button:active,
+.sgs-to-formwrap input.button:active,
+.sgs-to-formwrap input[type="submit"]:active,
 .form-row button.button:active,
-.woocommerce-form-row button.button:active {
+.form-row input.button:active,
+.form-row input[type="submit"]:active,
+.woocommerce-form-row button.button:active,
+.woocommerce-form-row input.button:active,
+.woocommerce-form-row input[type="submit"]:active {
     transform: translateY(0) !important;
 }
 

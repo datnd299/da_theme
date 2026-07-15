@@ -46,13 +46,71 @@ function dawp_product_category_definitions() {
     ];
 }
 
+function dawp_product_category_url($slug) {
+    $slug = sanitize_title($slug);
+
+    if (taxonomy_exists('product_cat')) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+
+        if ($term && ! is_wp_error($term)) {
+            $url = get_term_link($term, 'product_cat');
+
+            if (! is_wp_error($url)) {
+                return $url;
+            }
+        }
+    }
+
+    return home_url('/product-category/' . $slug . '/');
+}
+
+function dawp_product_category_redirects() {
+    return [
+        'best-sellers' => 'best-sellers',
+        'flag' => 'american-flag-tees',
+        'hoodie' => 'premium-t-shirts',
+        'jacket' => 'bomber-jackets',
+        't-shirt' => 'premium-t-shirts',
+        'cap' => 'hats-beanies',
+        'fathers-day' => 'fathers-day-gifts',
+        'memorial-day' => 'memorial-day-gifts',
+        'independence-day' => 'independence-day-gifts',
+    ];
+}
+
+add_action('template_redirect', 'dawp_redirect_legacy_product_category_links', 1);
+function dawp_redirect_legacy_product_category_links() {
+    $request_path = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
+    $home_path    = trim(parse_url(home_url('/'), PHP_URL_PATH) ?? '', '/');
+
+    if ($home_path !== '' && ($request_path === $home_path || strpos($request_path, $home_path . '/') === 0)) {
+        $request_path = trim(substr($request_path, strlen($home_path)), '/');
+    }
+
+    $redirects = dawp_product_category_redirects();
+
+    if (isset($redirects[$request_path])) {
+        wp_safe_redirect(dawp_product_category_url($redirects[$request_path]), 301);
+        exit;
+    }
+
+    if (preg_match('#^product-category/([^/]+)/?$#', $request_path, $matches)) {
+        $legacy_slug = sanitize_title($matches[1]);
+
+        if (isset($redirects[$legacy_slug]) && $redirects[$legacy_slug] !== $legacy_slug) {
+            wp_safe_redirect(dawp_product_category_url($redirects[$legacy_slug]), 301);
+            exit;
+        }
+    }
+}
+
 function dawp_seed_product_categories() {
     if (! taxonomy_exists('product_cat')) {
         return;
     }
 
     $seeded_version = get_option('dawp_seeded_product_categories_version');
-    $target_version = '2026-06-16';
+    $target_version = '2026-07-15-link-fixes';
 
     if ($seeded_version === $target_version) {
         return;

@@ -53,7 +53,7 @@ get_header(); ?>
   <div class="sgs-rr-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Customer Care</p>
     <h1>Refund &amp; Return Policy</h1>
-    <p class="sgs-rr-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 2026</p>
+    <p class="sgs-rr-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 5 2026</p>
     <p>We want every GraphicTShirtStore piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.</p>
   </div>
 </div>
@@ -140,7 +140,7 @@ get_header(); ?>
   <!-- Return Window & Non-Returnable -->
   <div class="sgs-rr-panel">
     <h2>Return Window</h2>
-    <p>Eligible return requests must be initiated within <span class="sgs-rr-highlight">30 days</span> of the delivery date. We are unable to accept returns after this 30-day period has expired.</p>
+    <p>Eligible return requests must be initiated within 30 days of the delivery date. We are unable to accept returns after this 30-day period has expired.</p>
   </div>
 
   <div class="sgs-rr-panel sgs-rr-panel--soft">

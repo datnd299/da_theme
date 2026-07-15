@@ -10,6 +10,7 @@ get_header(); ?>
 .sgs-faq-hero__inner{max-width:760px;margin:0 auto}
 .sgs-faq-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
 .sgs-faq-hero p{max-width:640px;margin:20px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7;font-family:var(--font-body)}
+.sgs-faq-hero .sgs-faq-hero__meta{margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .sgs-faq-wrap{width:min(100% - 48px,880px);margin:0 auto;padding:var(--section-gap,72px) 0}
 .sgs-faq-list{display:grid;gap:10px}
 .sgs-faq-item{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);overflow:hidden;transition:border-color 200ms}
@@ -38,6 +39,7 @@ get_header(); ?>
   <div class="sgs-faq-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">FAQ</p>
     <h1>Frequently Asked Questions</h1>
+    <p class="sgs-faq-hero__meta">Last Updated: July 5 2026</p>
     <p>Find clear answers about ShopGraphicshirt orders, free U.S. shipping, tracking, returns, refunds, checkout security, and customer support.</p>
   </div>
 </div>

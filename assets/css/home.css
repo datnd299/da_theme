@@ -63,7 +63,7 @@
 .sgs-btn--ghost:hover{background:#FFFFFF;color:#0B1F3A!important;border-color:#FFFFFF;text-shadow:none}
 
 /* ── Hero ── */
-.sgs-hero{background:var(--navy) url('../img/home/gts-hero.png') center right/cover no-repeat;color:var(--white);min-height:clamp(65vh,560px,85vh);overflow:hidden;position:relative;isolation:isolate}
+.sgs-hero{background:var(--navy) var(--sgs-hero-bg,url('../img/home/gts-hero.png')) center right/cover no-repeat;color:var(--white);min-height:clamp(65vh,560px,85vh);overflow:hidden;position:relative;isolation:isolate}
 .sgs-hero::after{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,31,58,.94) 0%,rgba(11,31,58,.7) 50%,rgba(11,31,58,.15) 100%);content:""}
 .sgs-hero__inner{display:grid;align-content:center;width:min(100% - 48px,1280px);min-height:clamp(65vh,560px,85vh);margin:0 auto;padding:clamp(56px,7vw,110px) 0}
 .sgs-hero__copy{max-width:700px}
@@ -71,8 +71,9 @@
 .sgs-hero__text{max-width:620px;margin:18px 0 0;color:rgba(255,255,255,.88);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
 .sgs-hero__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .sgs-hero__trust{margin:18px 0 0;color:rgba(255,255,255,.6);font-size:.8rem;font-weight:500}
-@media(max-width:1024px){.sgs-hero{min-height:auto}.sgs-hero__inner{min-height:auto}.sgs-hero__actions{flex-direction:column}.sgs-btn{width:100%}}
+@media(max-width:1024px){.sgs-hero{min-height:auto;background-image:var(--sgs-hero-bg-tablet,var(--sgs-hero-bg))}.sgs-hero__inner{min-height:auto}.sgs-hero__actions{flex-direction:column}.sgs-btn{width:100%}}
 @media(max-width:768px){.sgs-hero h1{font-size:clamp(1.8rem,8vw,2.6rem)}}
+@media(max-width:640px){.sgs-hero{background-image:var(--sgs-hero-bg-mobile,var(--sgs-hero-bg-tablet,var(--sgs-hero-bg)))}.sgs-cat{background-image:var(--sgs-cat-bg-mobile,var(--sgs-cat-bg))}}
 
 /* ── Quick-shop ── */
 .sgs-strip{display:grid;grid-template-columns:repeat(3,1fr);width:min(100% - 32px,1280px);margin:-20px auto 0;position:relative;z-index:2}
@@ -87,6 +88,9 @@
 .sgs-section--surface{width:100%;max-width:none;padding-inline:clamp(16px,4vw,48px);background:var(--antique)}
 .sgs-section--warm{width:100%;max-width:none;padding-inline:clamp(16px,4vw,48px);background:var(--antique)}
 .sgs-section--dark{width:100%;max-width:none;padding-inline:clamp(16px,4vw,48px);background:var(--navy);color:var(--white)}
+.sgs-section--surface > .sgs-section__head,
+.sgs-section--surface > .sgs-prod-grid,
+.sgs-section--surface > p{width:min(100%,1280px);margin-left:auto;margin-right:auto}
 .sgs-section__head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:32px}
 .sgs-section__head h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
 .sgs-section__center{max-width:640px;margin:0 auto 36px;text-align:center}
@@ -98,7 +102,7 @@
 /* ── Categories ── */
 .sgs-cat-slider{position:relative}
 .sgs-cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.sgs-cat{position:relative;min-height:260px;overflow:hidden;border-radius:var(--radius);display:flex;align-items:flex-end;color:var(--white);background-color:var(--navy);background-position:center;background-size:cover;transition:box-shadow 180ms}
+.sgs-cat{position:relative;min-height:260px;overflow:hidden;border-radius:var(--radius);display:flex;align-items:flex-end;color:var(--white);background-color:var(--navy);background-image:var(--sgs-cat-bg);background-position:center;background-size:cover;transition:box-shadow 180ms}
 .sgs-cat:hover{box-shadow:0 8px 24px rgba(0,0,0,.15)}
 .sgs-cat__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,58,.1) 0%,rgba(11,31,58,.42) 48%,rgba(11,31,58,.94) 100%),linear-gradient(90deg,rgba(11,31,58,.5) 0%,rgba(11,31,58,.16) 58%,rgba(11,31,58,.32) 100%);z-index:1}
 .sgs-cat__content{position:relative;z-index:2;padding:clamp(16px,2.5vw,24px);width:100%}
@@ -124,6 +128,7 @@
   .sgs-cat{
     flex:0 0 calc(100vw - 56px);
     min-height:220px;
+    background-image:var(--sgs-cat-bg-mobile,var(--sgs-cat-bg));
     scroll-snap-align:start;
   }
   .sgs-mobile-slider-controls{

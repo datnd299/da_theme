@@ -6,9 +6,12 @@
 
 $footer_contact = [
     'email'   => 'support@shopgraphicshirt.com',
-    'address' => __('United States', 'shopgraphicshirt'),
+    'address' => function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '',
     'hours'   => __('Monday - Friday, 10:00 AM - 6:00 PM PST', 'shopgraphicshirt'),
 ];
+$footer_contact['address'] = $footer_contact['address'] ?: __('United States', 'shopgraphicshirt');
+$account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
+$account_url = $account_url ? $account_url : home_url('/my-account/');
 ?>
 
 <footer class="sgs-footer">
@@ -310,7 +313,7 @@ $footer_contact = [
       <h3>Shop</h3>
       <ul>
         <li><a href="<?php echo esc_url(home_url('/shop/')); ?>">Shop All</a></li>
-        <li><a href="<?php echo esc_url(home_url('/best-sellers/')); ?>">Best Sellers</a></li>
+        <li><a href="<?php echo esc_url(dawp_product_category_url('best-sellers')); ?>">Best Sellers</a></li>
         <li><a href="<?php echo esc_url(home_url('/shop-by-categories/')); ?>">Shop By Categories</a></li>
         <li><a href="<?php echo esc_url(home_url('/product-category/american-flag-tees/')); ?>">American Flag Tees</a></li>
         <li><a href="<?php echo esc_url(home_url('/product-category/bomber-jackets/')); ?>">Bomber Jackets</a></li>
@@ -323,7 +326,7 @@ $footer_contact = [
         <li><a href="<?php echo esc_url(home_url('/about-us/')); ?>">About Us</a></li>
         <li><a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a></li>
         <li><a href="<?php echo esc_url(home_url('/track-order/')); ?>">Track Order</a></li>
-        <li><a href="<?php echo esc_url(wp_login_url()); ?>">My Account</a></li>
+        <li><a href="<?php echo esc_url($account_url); ?>">My Account</a></li>
         <li><a href="<?php echo esc_url(home_url('/faq/')); ?>">FAQs</a></li>
       </ul>
     </div>
@@ -357,17 +360,25 @@ $footer_contact = [
       <div class="sgs-footer-payments" aria-label="<?php esc_attr_e('Payment methods', 'shopgraphicshirt'); ?>">
         <?php
         $payments = [
+          ['file' => 'amex.png', 'name' => 'American Express'],
           ['file' => 'visa.png', 'name' => 'Visa'],
           ['file' => 'mastercard.png', 'name' => 'Mastercard'],
           ['file' => 'paypal.png', 'name' => 'PayPal'],
-          ['file' => 'jcb.png', 'name' => 'JCB'],
         ];
-        $payment_dir = '/assets/img/gallery/Oneshopvibe/payment/';
+        $payment_dir = '/assets/img/payment/';
         foreach ($payments as $pm) :
         ?>
-          <img src="<?php echo esc_url(get_theme_file_uri($payment_dir . $pm['file'])); ?>"
-               alt="<?php echo esc_attr($pm['name']); ?>"
-               loading="lazy" decoding="async">
+          <?php
+          echo dawp_theme_image(
+            $payment_dir . $pm['file'],
+            $pm['name'],
+            64,
+            40,
+            [[48, 30], [64, 40], [96, 60]],
+            '64px',
+            ['loading' => 'lazy', 'decoding' => 'async']
+          );
+          ?>
         <?php endforeach; ?>
       </div>
     </div>

@@ -5,7 +5,34 @@
  * Based on: site.md / design_system.md / home_plan.md
  * 7 sections: Hero + Strip | Categories | Best Sellers | Personalized | Occasions | Tributes | Trust
  */
-$sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home/';
+$sgs_best_sellers_url = dawp_product_category_url('best-sellers');
+$sgs_bomber_jackets_url = dawp_product_category_url('bomber-jackets');
+$sgs_flag_tees_url = dawp_product_category_url('american-flag-tees');
+$sgs_hats_url = dawp_product_category_url('hats-beanies');
+$sgs_premium_tees_url = dawp_product_category_url('premium-t-shirts');
+$sgs_accessories_url = dawp_product_category_url('patches-pins');
+$sgs_home_cat_images = [
+  'flag-tees' => 'assets/img/home/cat-flag-tees.png',
+  'bomber' => 'assets/img/home/cat-bomber.png',
+  'hats' => 'assets/img/home/cat-hats.png',
+  'tees' => 'assets/img/home/cat-tees.png',
+  'accessories' => 'assets/img/home/cat-accessories.png',
+  'best-seller' => 'assets/img/home/cat-best-seller.png',
+];
+$sgs_home_hero_bg = sprintf(
+  "--sgs-hero-bg:url('%s');--sgs-hero-bg-tablet:url('%s');--sgs-hero-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/home/gts-hero.png', 1600, 900)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/home/gts-hero.png', 900, 900)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/home/gts-hero.png', 640, 760))
+);
+$sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
+  $path = $sgs_home_cat_images[$key];
+  return sprintf(
+    "--sgs-cat-bg:url('%s');--sgs-cat-bg-mobile:url('%s')",
+    esc_url(dawp_theme_cdn_image_url($path, 720, 900)),
+    esc_url(dawp_theme_cdn_image_url($path, 420, 525))
+  );
+};
 ?>
 
 <section class="sgs-home">
@@ -13,15 +40,15 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
   <!-- ================================================================ -->
   <!-- SECTION 1 — Hero + Quick Shop Strip                              -->
   <!-- ================================================================ -->
-  <div class="sgs-hero">
+  <div class="sgs-hero" style="<?php echo esc_attr($sgs_home_hero_bg); ?>">
     <div class="sgs-hero__inner">
       <div class="sgs-hero__copy">
         <p class="sgs-eyebrow sgs-eyebrow--light">American Patriotic Apparel &amp; Custom Gifts</p>
         <h1>Wear The Freedom.<br>Live The Pride.</h1>
         <p class="sgs-hero__text">Premium graphic tees, bomber jackets, hats, hoodies, and accessories made for proud Americans.</p>
         <div class="sgs-hero__actions">
-          <a href="/best-sellers/" class="sgs-btn sgs-btn--primary sgs-btn--lg">Shop Best Sellers</a>
-          <a href="/product-category/bomber-jackets/" class="sgs-btn sgs-btn--ghost sgs-btn--lg">Customize Yours</a>
+          <a href="<?php echo esc_url($sgs_best_sellers_url); ?>" class="sgs-btn sgs-btn--primary sgs-btn--lg">Shop Best Sellers</a>
+          <a href="<?php echo esc_url($sgs_bomber_jackets_url); ?>" class="sgs-btn sgs-btn--ghost sgs-btn--lg">Customize Yours</a>
         </div>
         <p class="sgs-hero__trust">Secure checkout. Tracking included. Custom gifts made with care.</p>
       </div>
@@ -30,15 +57,15 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
 
   <!-- Quick-shop strip -->
   <div class="sgs-strip">
-    <a href="/product-category/american-flag-tees/" class="sgs-strip__card">
+    <a href="<?php echo esc_url($sgs_flag_tees_url); ?>" class="sgs-strip__card">
       <span>American Flag Tees</span>
       <span class="sgs-strip__cta">Shop Now →</span>
     </a>
-    <a href="/product-category/bomber-jackets/" class="sgs-strip__card">
+    <a href="<?php echo esc_url($sgs_bomber_jackets_url); ?>" class="sgs-strip__card">
       <span>Bomber Jackets</span>
       <span class="sgs-strip__cta">Shop Now →</span>
     </a>
-    <a href="/best-sellers/" class="sgs-strip__card">
+    <a href="<?php echo esc_url($sgs_best_sellers_url); ?>" class="sgs-strip__card">
       <span>Best Sellers</span>
       <span class="sgs-strip__cta">Shop Now →</span>
     </a>
@@ -59,7 +86,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
     <div class="sgs-cat-slider" data-collection-slider>
       <div class="sgs-cat-grid" data-collection-track>
       <!-- Flag Tees -->
-      <a href="/product-category/american-flag-tees/" class="sgs-cat" data-collection-slide style="background-image:url('<?php echo esc_url($sgs_home_img . 'cat-flag-tees.png'); ?>')">
+      <a href="<?php echo esc_url($sgs_flag_tees_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('flag-tees')); ?>">
         <div class="sgs-cat__overlay"></div>
         <div class="sgs-cat__content">
           <span class="sgs-cat__eyebrow">American Flag Tees</span>
@@ -69,7 +96,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         </div>
       </a>
       <!-- Bomber Jackets -->
-      <a href="/product-category/bomber-jackets/" class="sgs-cat" data-collection-slide style="background-image:url('<?php echo esc_url($sgs_home_img . 'cat-bomber.png'); ?>')">
+      <a href="<?php echo esc_url($sgs_bomber_jackets_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('bomber')); ?>">
         <div class="sgs-cat__overlay"></div>
         <div class="sgs-cat__content">
           <span class="sgs-cat__eyebrow">Bomber Jackets</span>
@@ -79,7 +106,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         </div>
       </a>
       <!-- Hats & Beanies -->
-      <a href="/product-category/hats-beanies/" class="sgs-cat" data-collection-slide style="background-image:url('<?php echo esc_url($sgs_home_img . 'cat-hats.png'); ?>')">
+      <a href="<?php echo esc_url($sgs_hats_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('hats')); ?>">
         <div class="sgs-cat__overlay"></div>
         <div class="sgs-cat__content">
           <span class="sgs-cat__eyebrow">Hats &amp; Beanies</span>
@@ -89,7 +116,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         </div>
       </a>
       <!-- Premium T-Shirts -->
-      <a href="/product-category/premium-t-shirts/" class="sgs-cat" data-collection-slide style="background-image:url('<?php echo esc_url($sgs_home_img . 'cat-tees.png'); ?>')">
+      <a href="<?php echo esc_url($sgs_premium_tees_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('tees')); ?>">
         <div class="sgs-cat__overlay"></div>
         <div class="sgs-cat__content">
           <span class="sgs-cat__eyebrow">Premium T-Shirts</span>
@@ -99,7 +126,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         </div>
       </a>
       <!-- Accessories -->
-      <a href="/product-category/patches-pins/" class="sgs-cat" data-collection-slide style="background-image:url('<?php echo esc_url($sgs_home_img . 'cat-accessories.png'); ?>')">
+      <a href="<?php echo esc_url($sgs_accessories_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('accessories')); ?>">
         <div class="sgs-cat__overlay"></div>
         <div class="sgs-cat__content">
           <span class="sgs-cat__eyebrow">Patches &amp; Pins</span>
@@ -109,7 +136,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         </div>
       </a>
       <!-- Best Sellers -->
-      <a href="/best-sellers/" class="sgs-cat" data-collection-slide style="background-image:url('<?php echo esc_url($sgs_home_img . 'cat-best-seller.png'); ?>')">
+      <a href="<?php echo esc_url($sgs_best_sellers_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('best-seller')); ?>">
         <div class="sgs-cat__overlay"></div>
         <div class="sgs-cat__content">
           <span class="sgs-cat__eyebrow">Customer Favorites</span>
@@ -143,7 +170,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         <p class="sgs-eyebrow">Best Sellers</p>
         <h2>Patriotic Favorites For Everyday Pride</h2>
       </div>
-      <a href="/best-sellers/" class="sgs-btn sgs-btn--dark sgs-btn--sm">View All →</a>
+      <a href="<?php echo esc_url($sgs_best_sellers_url); ?>" class="sgs-btn sgs-btn--dark sgs-btn--sm">View All →</a>
     </div>
 
     <div class="sgs-prod-grid">
@@ -194,7 +221,7 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         <?php endif; ?>
         <div class="sgs-prod__img">
           <?php if ($sgs_product_image_id) : ?>
-            <?php echo wp_get_attachment_image($sgs_product_image_id, 'woocommerce_thumbnail', false, ['loading' => 'lazy', 'alt' => $product->get_name()]); ?>
+            <?php echo dawp_product_responsive_image($product, '', '(max-width: 640px) calc(100vw - 72px), (max-width: 1024px) calc((100vw - 96px) / 2), 280px'); ?>
           <?php else : ?>
             <?php echo wc_placeholder_img('woocommerce_thumbnail'); ?>
           <?php endif; ?>
@@ -227,19 +254,19 @@ $sgs_home_img = trailingslashit(get_template_directory_uri()) . 'assets/img/home
         <span class="sgs-occ__icon">🎁</span>
         <h3>Father's Day Gifts</h3>
         <p>A meaningful gift for dads who love classic American style.</p>
-        <a href="/product-category/fathers-day/" class="sgs-occ__cta">Shop Gifts</a>
+        <a href="<?php echo esc_url(dawp_product_category_url('fathers-day-gifts')); ?>" class="sgs-occ__cta">Shop Gifts</a>
       </div>
       <div class="sgs-occ" data-occasion-slide>
         <span class="sgs-occ__icon">🕊️</span>
         <h3>Memorial Day Gifts</h3>
         <p>Remember and honor with patriotic tribute products.</p>
-        <a href="/product-category/memorial-day/" class="sgs-occ__cta">Shop Gifts</a>
+        <a href="<?php echo esc_url(dawp_product_category_url('memorial-day-gifts')); ?>" class="sgs-occ__cta">Shop Gifts</a>
       </div>
       <div class="sgs-occ" data-occasion-slide>
         <span class="sgs-occ__icon">🎆</span>
         <h3>Independence Day Gifts</h3>
         <p>Celebrate freedom with flag tees, hats, and accessories.</p>
-        <a href="/product-category/independence-day/" class="sgs-occ__cta">Shop Gifts</a>
+        <a href="<?php echo esc_url(dawp_product_category_url('independence-day-gifts')); ?>" class="sgs-occ__cta">Shop Gifts</a>
       </div>
       </div>
       <div class="sgs-occ-slider__controls" aria-label="Gift occasion slider controls">

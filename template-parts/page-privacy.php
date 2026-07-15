@@ -2,12 +2,16 @@
 /**
  * Privacy Policy - ShopGraphicshirt
  */
+$store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
+$store_address = $store_address ?: __('United States', 'dawp');
+
 get_header(); ?>
 <section class="sgs-home sgs-page">
 <style>
 .sgs-pp-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/policy/policy-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
 .sgs-pp-hero__inner{max-width:680px;margin:0 auto}
 .sgs-pp-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
+.sgs-pp-hero__meta{margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .sgs-pp-body{width:min(100% - 48px,860px);margin:0 auto;padding:var(--section-gap,56px) 0}
 .sgs-pp-body h2{margin:36px 0 12px;font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--ink)}
 .sgs-pp-body h2:first-child{margin-top:0}
@@ -21,11 +25,10 @@ get_header(); ?>
   <div class="sgs-pp-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Privacy Policy</p>
     <h1>Privacy Policy</h1>
+    <p class="sgs-pp-hero__meta">Last Updated: July 5 2026</p>
   </div>
 </div>
 <div class="sgs-pp-body">
-  <p><strong>Last Updated:</strong> July 2026</p>
-
   <p>This Privacy Policy explains how shopgraphicshirt.com (the "Site", "we", "us", or "our") collects, uses, and discloses your Personal Information when you visit, browse, or execute an apparel purchase from the Site.</p>
   <p>By utilizing our Site or purchasing products from our store, you acknowledge and agree to the data management and processing practices detailed in this policy.</p>
 
@@ -74,7 +77,7 @@ get_header(); ?>
   <p>For questions about our data practices, to file a privacy inquiry, or for help with an active order, please connect with our compliance officer via our verified communication block:</p>
   <p><strong>Store / Brand Name:</strong> Shop Graphic Shirt</p>
   <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
-  <p><strong>Physical Business Address:</strong> United States</p>
+  <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
   <p><strong>Customer Support Availability:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST.</p>
   <p><strong>Contact Page:</strong> <a href="/contact-us/">Contact Us</a></p>
 </div>

@@ -2,11 +2,16 @@
 /**
  * Contact Us — ShopGraphicshirt
  */
+$sgs_contact_hero_bg = sprintf(
+  "--sgs-contact-hero-bg:url('%s');--sgs-contact-hero-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/support-hero-background.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/support-hero-background.png', 720, 760))
+);
 get_header(); ?>
 <section class="sgs-home sgs-page">
 
 <style>
-.sgs-contact-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.86) 46%,rgba(11,31,58,.62) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/hero/support-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(72px,9vw,120px) clamp(24px,4vw,64px);text-align:center}
+.sgs-contact-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.86) 46%,rgba(11,31,58,.62) 100%),var(--sgs-contact-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(72px,9vw,120px) clamp(24px,4vw,64px);text-align:center}
 .sgs-contact-hero__inner{max-width:680px;margin:0 auto}
 .sgs-contact-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
 .sgs-contact-hero p{max-width:580px;margin:18px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
@@ -33,10 +38,10 @@ get_header(); ?>
 .sgs-ci-card span,.sgs-ci-card a{display:block;margin-top:3px;color:var(--muted);font-size:.85rem;line-height:1.5}
 .sgs-ci-card a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
 .sgs-ci-card a:hover{color:var(--red-dark)}
-@media(max-width:900px){.sgs-contact-grid{grid-template-columns:1fr}.sgs-cf__row{grid-template-columns:1fr}.sgs-cf__submit{width:100%}}
+@media(max-width:900px){.sgs-contact-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-contact-hero-bg-mobile,var(--sgs-contact-hero-bg))}.sgs-contact-grid{grid-template-columns:1fr}.sgs-cf__row{grid-template-columns:1fr}.sgs-cf__submit{width:100%}}
 </style>
 
-<div class="sgs-contact-hero">
+<div class="sgs-contact-hero" style="<?php echo esc_attr($sgs_contact_hero_bg); ?>">
   <div class="sgs-contact-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Get In Touch</p>
     <h1>We're Here To Help</h1>

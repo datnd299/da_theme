@@ -2,12 +2,16 @@
 /**
  * Terms & Conditions — ShopGraphicshirt
  */
+$store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
+$store_address = $store_address ?: __('United States', 'dawp');
+
 get_header(); ?>
 <section class="sgs-home sgs-page">
 <style>
 .sgs-tc-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/policy/policy-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
 .sgs-tc-hero__inner{max-width:680px;margin:0 auto}
 .sgs-tc-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
+.sgs-tc-hero__meta{margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
 .sgs-tc-body{width:min(100% - 48px,860px);margin:0 auto;padding:var(--section-gap,56px) 0}
 .sgs-tc-body h2{margin:36px 0 12px;font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--ink)}
 .sgs-tc-body h2:first-child{margin-top:0}
@@ -21,11 +25,11 @@ get_header(); ?>
   <div class="sgs-tc-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Terms &amp; Conditions</p>
     <h1>Terms &amp; Conditions</h1>
+    <p class="sgs-tc-hero__meta">Last Updated: July 5 2026</p>
   </div>
 </div>
 <div class="sgs-tc-body">
   <h2>Terms of Service</h2>
-  <p><strong>Last Updated:</strong> July 2026</p>
 
   <h2>Terms Overview</h2>
   <p>The following Terms of Service govern your access to and use of shopgraphicshirt.com (the "Site", "we", "us", or "our") and your commercial purchase of custom apparel, graphic shirts, and printed products from our online storefront.</p>
@@ -80,7 +84,7 @@ get_header(); ?>
   <p>For any policy inquiries, legal questions, or transactional support regarding these Terms, please reach out to our administration through our verified corporate channels:</p>
   <p><strong>Store/Brand Name:</strong> ShopGraphicshirt</p>
   <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
-  <p><strong>Physical Business Address:</strong> United States</p>
+  <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
   <p><strong>Customer Service Hours:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST</p>
   <p><strong>Contact Page:</strong> <a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a></p>
 </div>

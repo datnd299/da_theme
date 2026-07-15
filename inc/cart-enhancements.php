@@ -46,38 +46,59 @@ function dawp_render_empty_cart_intro() {
 }
 
 function dawp_render_empty_cart_extras() {
-    $categories = get_terms([
-        'taxonomy'   => 'product_cat',
-        'hide_empty' => true,
-        'number'     => 3,
-        'orderby'    => 'count',
+    $best_sellers = function_exists('wc_get_products') ? wc_get_products([
+        'status'     => 'publish',
+        'limit'      => 4,
+        'orderby'    => 'meta_value_num',
         'order'      => 'DESC',
-    ]);
+        'meta_key'   => 'total_sales',
+        'visibility' => 'catalog',
+    ]) : [];
+
+    if (empty($best_sellers) && function_exists('wc_get_products')) {
+        $best_sellers = wc_get_products([
+            'status'     => 'publish',
+            'limit'      => 4,
+            'orderby'    => 'date',
+            'order'      => 'DESC',
+            'visibility' => 'catalog',
+        ]);
+    }
 
     ob_start();
     ?>
     <section class="cart-empty-extras" aria-label="<?php esc_attr_e('Helpful shopping links', 'dawp'); ?>">
-        <?php if (!is_wp_error($categories) && !empty($categories)) : ?>
-            <div class="cart-empty-categories">
+        <?php if (!empty($best_sellers)) : ?>
+            <div class="cart-empty-recommendations">
                 <div class="cart-empty-section-head">
-                    <span><?php esc_html_e('Shop by category', 'dawp'); ?></span>
+                    <span><?php esc_html_e('You may also like', 'dawp'); ?></span>
                     <a href="<?php echo esc_url(function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/')); ?>">
                         <?php esc_html_e('View all', 'dawp'); ?>
                     </a>
                 </div>
-                <div class="cart-empty-category-grid">
-                    <?php foreach ($categories as $category) : ?>
-                        <a class="cart-empty-category" href="<?php echo esc_url(get_term_link($category)); ?>">
-                            <span><?php echo esc_html($category->name); ?></span>
-                            <small>
-                                <?php
-                                printf(
-                                    esc_html(_n('%s item', '%s items', (int) $category->count, 'dawp')),
-                                    esc_html(number_format_i18n((int) $category->count))
-                                );
-                                ?>
-                            </small>
-                        </a>
+                <div class="cart-empty-product-grid">
+                    <?php foreach ($best_sellers as $product) : ?>
+                        <?php
+                        if (!$product instanceof WC_Product) {
+                            continue;
+                        }
+
+                        $product_id = $product->get_id();
+                        ?>
+                        <article class="cart-empty-product">
+                            <a class="cart-empty-product__link" href="<?php echo esc_url(get_permalink($product_id)); ?>">
+                                <span class="cart-empty-product__image">
+                                    <?php echo wp_kses_post($product->get_image('woocommerce_thumbnail')); ?>
+                                </span>
+                                <span class="cart-empty-product__body">
+                                    <span class="cart-empty-product__name"><?php echo esc_html($product->get_name()); ?></span>
+                                    <span class="cart-empty-product__price"><?php echo wp_kses_post($product->get_price_html()); ?></span>
+                                </span>
+                            </a>
+                            <a class="cart-empty-product__button add_to_cart_button<?php echo $product->supports('ajax_add_to_cart') ? ' ajax_add_to_cart' : ''; ?>" href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-quantity="1" data-product_id="<?php echo esc_attr($product_id); ?>" data-product_sku="<?php echo esc_attr($product->get_sku()); ?>" aria-label="<?php echo esc_attr($product->add_to_cart_description()); ?>" rel="nofollow">
+                                <?php echo esc_html($product->add_to_cart_text()); ?>
+                            </a>
+                        </article>
                     <?php endforeach; ?>
                 </div>
             </div>

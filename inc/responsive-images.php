@@ -33,6 +33,12 @@ function dawp_cdn_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
     return add_query_arg($args, $cdn_url);
 }
 
+function dawp_theme_cdn_image_url($relative_path, $width = 0, $height = 0, $mode = 'resize') {
+    $url = get_template_directory_uri() . '/' . ltrim($relative_path, '/');
+
+    return dawp_cdn_image_url($url, $width, $height, $mode);
+}
+
 function dawp_responsive_image($url, $alt, $width, $height, $variants, $sizes, $attrs = array()) {
     $width = absint($width);
     $height = absint($height);

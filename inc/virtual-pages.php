@@ -50,6 +50,7 @@ function dawp_virtual_page_map() {
             'description' => 'Shop Shopgraphicshirt for patriotic apparel, polos, hats, America 250 designs, and custom gifts with free U.S. standard shipping.',
             'image'       => 'assets/img/Image New/image copy 8.png',
             'canonical'   => home_url('/'),
+            'schema_type' => 'CollectionPage',
         ],
         'about-us' => [
             'slug'        => 'about',
@@ -58,6 +59,7 @@ function dawp_virtual_page_map() {
             'seo_title'   => 'About Shopgraphicshirt | Patriotic Apparel & Gifts',
             'description' => 'Learn about Shopgraphicshirt, a patriotic apparel and custom gift brand creating American pride designs for proud Americans.',
             'image'       => 'assets/img/Image New/image copy 8.png',
+            'schema_type' => 'AboutPage',
         ],
         'shop-by-categories' => [
             'slug'        => 'shop-by-categories',
@@ -66,6 +68,7 @@ function dawp_virtual_page_map() {
             'seo_title'   => 'Shop By Categories | Shopgraphicshirt Patriotic Gifts',
             'description' => 'Shop Shopgraphicshirt by category, including American flag tees, bomber jackets, hats, premium T-shirts, America 250 designs, and holiday gifts.',
             'image'       => 'assets/img/Image New/image.png',
+            'schema_type' => 'CollectionPage',
         ],
         'faq' => [
             'slug'        => 'faq',
@@ -83,6 +86,7 @@ function dawp_virtual_page_map() {
             'seo_title'   => 'Contact Shopgraphicshirt | Customer Support',
             'description' => 'Contact Shopgraphicshirt for order updates, custom gift details, shipping questions, returns, refunds, delivery issues, and product support.',
             'image'       => 'assets/img/Image New/image copy 9.png',
+            'schema_type' => 'ContactPage',
         ],
         'shipping-policy' => [
             'slug'        => 'shipping-policy',
@@ -91,6 +95,7 @@ function dawp_virtual_page_map() {
             'seo_title'   => 'Shipping Policy | Shopgraphicshirt',
             'description' => 'Review Shopgraphicshirt shipping policy, including free standard U.S. shipping, 1-3 business day handling, 5-7 business day transit, and tracking.',
             'image'       => 'assets/img/Image New/image copy 3.png',
+            'schema_type' => 'WebPage',
         ],
         'refund-return-policy' => [
             'slug'        => 'refund-return-policy',
@@ -99,6 +104,7 @@ function dawp_virtual_page_map() {
             'seo_title'   => 'Refund & Return Policy | Shopgraphicshirt',
             'description' => 'Review Shopgraphicshirt returns and refunds, including the 30-day return window, eligible item condition, return shipping fees, and refund timing.',
             'image'       => 'assets/img/Image New/image copy 9.png',
+            'schema_type' => 'WebPage',
         ],
         'terms-conditions' => [
             'slug'        => 'terms-conditions',
@@ -107,6 +113,7 @@ function dawp_virtual_page_map() {
             'seo_title'   => 'Terms & Conditions | Shopgraphicshirt',
             'description' => 'Read Shopgraphicshirt terms and conditions for website use, online orders, payment security, product accuracy, returns, and store policies.',
             'image'       => 'assets/img/Image New/image copy.png',
+            'schema_type' => 'WebPage',
         ],
         'privacy-policy' => [
             'slug'        => 'privacy',
@@ -115,6 +122,7 @@ function dawp_virtual_page_map() {
             'seo_title'   => 'Privacy Policy | Shopgraphicshirt',
             'description' => 'Read how Shopgraphicshirt collects, uses, protects, and shares personal information for orders, checkout, shipping, analytics, and support.',
             'image'       => 'assets/img/Image New/image copy.png',
+            'schema_type' => 'PrivacyPolicy',
         ],
         'track-order' => [
             'slug'        => 'track-order',
@@ -123,6 +131,7 @@ function dawp_virtual_page_map() {
             'seo_title'   => 'Track Your Order | Shopgraphicshirt',
             'description' => 'Track your Shopgraphicshirt order status securely using your order details, or contact customer support for shipment and delivery help.',
             'image'       => 'assets/img/Image New/image copy 3.png',
+            'schema_type' => 'WebPage',
         ],
     ];
 }
@@ -163,6 +172,36 @@ function dawp_virtual_page_image_url($page) {
     }
 
     return get_template_directory_uri() . '/' . ltrim($page['image'], '/');
+}
+
+function dawp_virtual_page_image_path($page) {
+    if (empty($page['image'])) {
+        return '';
+    }
+
+    return get_template_directory() . '/' . ltrim($page['image'], '/');
+}
+
+function dawp_virtual_page_modified_time($page, $format = 'c') {
+    $timestamps = [];
+
+    if (!empty($page['slug'])) {
+        $template_path = get_template_directory() . '/template-parts/page-' . $page['slug'] . '.php';
+
+        if (file_exists($template_path)) {
+            $timestamps[] = filemtime($template_path);
+        }
+    }
+
+    $image_path = dawp_virtual_page_image_path($page);
+
+    if ($image_path && file_exists($image_path)) {
+        $timestamps[] = filemtime($image_path);
+    }
+
+    $timestamp = $timestamps ? max($timestamps) : filemtime(__FILE__);
+
+    return gmdate($format, $timestamp);
 }
 
 add_filter('document_title_parts', 'dawp_virtual_page_title');

@@ -3,6 +3,9 @@
  * Shipping Policy - ShopGraphicshirt
  * Style aligned with homepage. Content preserved from original.
  */
+$store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
+$store_address = $store_address ?: __('United States', 'dawp');
+
 get_header(); ?>
 <section class="sgs-home sgs-page">
 <style>
@@ -54,7 +57,7 @@ get_header(); ?>
   <div class="sgs-sp-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Shipping Policy</p>
     <h1>Shipping Policy</h1>
-    <p class="sgs-sp-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 2026</p>
+    <p class="sgs-sp-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 5 2026</p>
     <p>Clear, transparent shipping information for every order — no hidden fees, no surprises.</p>
   </div>
 </div>
@@ -169,7 +172,7 @@ get_header(); ?>
       </div>
       <div class="sgs-sp-support__item">
         <strong>Address</strong>
-        <span>United States</span>
+        <span><?php echo esc_html($store_address); ?></span>
       </div>
       <div class="sgs-sp-support__item">
         <strong>Response Time</strong>

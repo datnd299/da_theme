@@ -13,6 +13,16 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
+
+add_action('wp_head', 'dawp_site_favicon', 1);
+function dawp_site_favicon() {
+    $favicon_url = get_template_directory_uri() . '/assets/img/favicon.svg';
+    ?>
+    <link rel="icon" href="<?php echo esc_url($favicon_url); ?>" type="image/svg+xml" sizes="any">
+    <link rel="shortcut icon" href="<?php echo esc_url($favicon_url); ?>" type="image/svg+xml">
+    <?php
+}
+
 add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
     // Chỉ xử lý khi là trang search và chưa có post_type
@@ -51,13 +61,13 @@ function dawp_scripts() {
     
     if ( class_exists( 'WooCommerce' ) ) {
         if ( function_exists( 'is_account_page' ) && is_account_page() ) {
-            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', ['dawp-main'], '1.0.7');
+            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', ['dawp-main'], '1.0.8');
             dawp_remove_styles();
         } elseif ( is_product() ) {
             wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.9');
             dawp_remove_styles();
         } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.6');
+            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', ['dawp-main'], '1.0.9');
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
             wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.6');

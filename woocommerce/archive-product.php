@@ -5,12 +5,51 @@
 defined('ABSPATH') || exit;
 
 get_header();
+
+$sgs_is_best_sellers = is_product_category('best-sellers');
+$sgs_shop_classes = 'sgs-shop' . ($sgs_is_best_sellers ? ' sgs-shop--best-sellers' : '');
+$sgs_best_sellers_cover = get_template_directory_uri() . '/assets/img/home/cat-best-seller.png';
+$sgs_default_cover = get_template_directory_uri() . '/assets/img/hero/shop-theme-hero-background.png';
+$sgs_cover_image = $sgs_is_best_sellers ? $sgs_best_sellers_cover : $sgs_default_cover;
+$sgs_cover_eyebrow = __('Curated Collection', 'dawp');
+$sgs_cover_title = is_shop() ? __('All Products', 'dawp') : woocommerce_page_title(false);
+$sgs_cover_description = __('Explore patriotic graphic shirts, apparel, and gift-ready designs made for everyday pride.', 'dawp');
+
+if (is_shop()) {
+  $sgs_cover_eyebrow = __('ShopGraphicshirt Store', 'dawp');
+} elseif (is_product_tag()) {
+  $sgs_cover_eyebrow = __('Tagged Collection', 'dawp');
+  $sgs_cover_description = sprintf(__('Browse designs tagged with %s across our latest apparel and gift picks.', 'dawp'), $sgs_cover_title);
+} elseif (is_product_category()) {
+  $sgs_current_term = get_queried_object();
+  $sgs_cover_eyebrow = $sgs_is_best_sellers ? __('Customer Favorites', 'dawp') : __('Featured Category', 'dawp');
+  $sgs_term_description = term_description($sgs_current_term->term_id, 'product_cat');
+  if ($sgs_term_description) {
+    $sgs_cover_description = wp_strip_all_tags($sgs_term_description);
+  } elseif ($sgs_is_best_sellers) {
+    $sgs_cover_description = __('Top patriotic apparel, graphic shirts, and gift-ready pieces picked most often by ShopGraphicshirt customers.', 'dawp');
+  } else {
+    $sgs_cover_description = sprintf(__('Discover standout %s designs selected for comfort, detail, and patriotic style.', 'dawp'), $sgs_cover_title);
+  }
+
+  $sgs_thumbnail_id = get_term_meta($sgs_current_term->term_id, 'thumbnail_id', true);
+  $sgs_thumbnail_url = $sgs_thumbnail_id ? wp_get_attachment_image_url($sgs_thumbnail_id, 'full') : '';
+  if ($sgs_thumbnail_url && !$sgs_is_best_sellers) {
+    $sgs_cover_image = $sgs_thumbnail_url;
+  }
+}
+$sgs_cover_bg = sprintf(
+  "--sgs-cover-image:url('%s');--sgs-cover-image-mobile:url('%s')",
+  esc_url(dawp_cdn_image_url($sgs_cover_image, 1600, 640)),
+  esc_url(dawp_cdn_image_url($sgs_cover_image, 720, 760))
+);
 ?>
 
-<div class="sgs-shop">
+<div class="<?php echo esc_attr($sgs_shop_classes); ?>">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 .sgs-shop{background:var(--white);color:var(--ink);font-family:var(--font-body)}
+.sgs-shop--best-sellers{background:linear-gradient(180deg,#f7f2e8 0%,#fff 360px),radial-gradient(circle at 18% 12%,rgba(179,25,66,.12),transparent 28%),radial-gradient(circle at 82% 8%,rgba(198,161,91,.18),transparent 26%);background-blend-mode:normal,multiply,normal}
 .sgs-shop__container{width:min(100% - 48px,1280px);margin:0 auto;padding:24px 0 64px}
 .sgs-shop-breadcrumb{display:flex;flex-wrap:wrap;gap:6px;padding:14px 0;color:var(--muted);font-size:.82rem;font-weight:500}
 .sgs-shop-breadcrumb a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
@@ -18,6 +57,15 @@ get_header();
 .sgs-shop-breadcrumb .current{color:var(--ink);font-weight:700}
 .sgs-shop-breadcrumb .sep{margin:0 6px;color:var(--line)}
 .sgs-shop-header{margin-bottom:24px}
+.sgs-shop-cover{position:relative;isolation:isolate;display:grid;min-height:clamp(190px,24vw,300px);align-items:end;margin-bottom:24px;overflow:hidden;border-radius:var(--radius);background-color:var(--navy);background-image:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.82) 48%,rgba(11,31,58,.22) 100%),var(--sgs-cover-image);background-size:cover;background-position:center;color:var(--white);box-shadow:0 22px 48px rgba(11,31,58,.18)}
+.sgs-shop-cover:after{content:"";position:absolute;inset:auto 0 0;height:42%;z-index:-1;background:linear-gradient(180deg,transparent,rgba(11,31,58,.86))}
+.sgs-shop-cover__content{max-width:700px;padding:clamp(22px,4vw,40px)}
+.sgs-shop-cover__eyebrow{display:inline-flex;margin:0 0 10px;padding:6px 10px;border:1px solid rgba(255,255,255,.32);border-radius:5px;background:rgba(255,255,255,.12);font-family:var(--font-heading);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.88)}
+.sgs-shop-cover h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,5vw,4.3rem);font-weight:900;letter-spacing:-.02em;line-height:.98;color:var(--white)}
+.sgs-shop-cover p{margin:12px 0 0;color:rgba(255,255,255,.84);font-size:clamp(.94rem,1.4vw,1.08rem);line-height:1.65;max-width:560px}
+.sgs-shop-header{display:none}
+.sgs-shop--best-sellers .sgs-shop-toolbar{background:rgba(255,255,255,.9);box-shadow:0 10px 28px rgba(11,31,58,.08);backdrop-filter:blur(10px)}
+.sgs-shop--best-sellers .sgs-shop-product{box-shadow:0 12px 28px rgba(11,31,58,.08)}
 .sgs-shop-header h1{margin:0;font-family:var(--font-heading);font-size:clamp(1.6rem,3vw,2.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--navy)}
 .sgs-shop-header p{margin:10px 0 0;color:var(--muted);font-size:.92rem;line-height:1.6;max-width:640px}
 .sgs-shop-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px;padding:12px 16px;border:1px solid var(--line);border-radius:var(--radius)}
@@ -70,7 +118,7 @@ get_header();
 .sgs-shop-sidebar-overlay{display:block;position:fixed;inset:0;z-index:99;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity 250ms}
 .sgs-shop-sidebar-overlay.is-open{opacity:1;pointer-events:auto}
 .sgs-shop-products{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.sgs-shop-products{grid-template-columns:1fr}.sgs-shop-toolbar{flex-wrap:wrap}.sgs-shop-toolbar select{width:100%}}
+@media(max-width:640px){.sgs-shop__container{width:min(100% - 32px,1280px)}.sgs-shop-cover{min-height:250px;background-image:linear-gradient(180deg,rgba(11,31,58,.52) 0%,rgba(11,31,58,.96) 100%),var(--sgs-cover-image-mobile,var(--sgs-cover-image));background-position:center top}.sgs-shop-cover__content{padding:22px}.sgs-shop-products{grid-template-columns:1fr}.sgs-shop-toolbar{flex-wrap:wrap}.sgs-shop-toolbar select{width:100%}}
 </style>
 
 <div class="sgs-shop__container">
@@ -91,6 +139,14 @@ get_header();
       <span class="current">Shop</span>
     <?php endif; ?>
   </nav>
+
+  <section class="sgs-shop-cover" style="<?php echo esc_attr($sgs_cover_bg); ?>" aria-labelledby="sgsShopCoverTitle">
+    <div class="sgs-shop-cover__content">
+      <p class="sgs-shop-cover__eyebrow"><?php echo esc_html($sgs_cover_eyebrow); ?></p>
+      <h1 id="sgsShopCoverTitle"><?php echo esc_html($sgs_cover_title); ?></h1>
+      <p><?php echo esc_html($sgs_cover_description); ?></p>
+    </div>
+  </section>
 
   <div class="sgs-shop-header">
     <h1>
@@ -194,7 +250,7 @@ get_header();
               <a class="sgs-shop-product__media-link" href="<?php echo esc_url($product_url); ?>" aria-label="<?php echo esc_attr($product->get_name()); ?>">
               <div class="sgs-shop-product__img">
                 <?php if ($product->get_image()) : ?>
-                  <?php echo $product->get_image('woocommerce_thumbnail', ['loading' => 'lazy']); ?>
+                  <?php echo dawp_product_responsive_image($product, '', '(max-width: 640px) calc(100vw - 92px), (max-width: 1100px) calc((100vw - 88px) / 2), 300px'); ?>
                 <?php else : ?>
                   <span style="color:var(--muted);font-size:2.5rem;opacity:.3">👕</span>
                 <?php endif; ?>

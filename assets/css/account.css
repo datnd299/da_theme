@@ -5,24 +5,28 @@
 
 .account-page {
   --color-surface: #0B1F3A;
+  --color-surface-card: #FFFFFF;
+  --color-surface-alt: #F8FAFC;
   --color-background: #FFFFFF;
   --color-foreground: #111827;
+  --color-foreground-muted: #4B5563;
   --color-muted: #6B7280;
   --color-accent: #B31942;
   --color-accent-hover: #8a1433;
+  --color-accent-soft: #C6A15B;
   --color-border: #E5E7EB;
+  --color-alert: #B31942;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --duration-fast: 150ms;
+  --ease-fluid: ease;
+  --shadow-card: 0 14px 42px rgba(11, 31, 58, 0.08);
+  --shadow-card-hover: 0 18px 56px rgba(11, 31, 58, 0.12);
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Barlow Condensed', 'Impact', sans-serif;
   min-height: 62vh;
-  padding: 56px 16px 80px;
-  background:
-    linear-gradient(
-      180deg,
-      var(--color-surface) 0,
-      var(--color-surface) 240px,
-      var(--color-background) 240px,
-      var(--color-background) 100%
-    );
+  padding: 0 0 80px;
+  background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
   box-sizing: border-box;
@@ -36,7 +40,77 @@
 
 .account-page__container {
   width: min(100%, 1120px);
+  margin: -64px auto 0;
+  padding: 0 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.account-cover {
+  position: relative;
+  overflow: hidden;
+  min-height: 330px;
+  background:
+    linear-gradient(90deg, rgba(11, 31, 58, 0.96) 0%, rgba(11, 31, 58, 0.78) 48%, rgba(179, 25, 66, 0.36) 100%),
+    var(--account-cover-bg),
+    var(--color-surface);
+  background-position: center;
+  background-size: cover;
+  color: #FFFFFF;
+}
+
+.account-cover__inner {
+  width: min(100% - 32px, 1120px);
   margin: 0 auto;
+  padding: 76px 0 118px;
+}
+
+.account-cover__breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.account-page .account-cover__breadcrumb a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+
+.account-page .account-cover__breadcrumb a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.account-cover__eyebrow {
+  margin: 0 0 10px;
+  color: #C6A15B;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.account-cover h1 {
+  margin: 0;
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 0.95;
+}
+
+.account-cover__copy {
+  max-width: 560px;
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  line-height: 1.65;
 }
 
 .account-page .woocommerce {
@@ -105,7 +179,7 @@
 .account-page .woocommerce-form-register,
 .account-page .woocommerce-ResetPassword {
   padding: 28px;
-  background: var(--color-surface);
+  background: var(--color-surface-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card-hover);
@@ -302,10 +376,10 @@
   align-items: center;
   min-height: 44px;
   padding: 10px 14px;
-  background: var(--color-surface);
+  background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  color: var(--color-foreground-muted);
+  color: #243247;
   font-size: 0.9rem;
   font-weight: 700;
   box-sizing: border-box;
@@ -313,14 +387,14 @@
 
 .account-page .woocommerce-MyAccount-navigation a:hover,
 .account-page .woocommerce-MyAccount-navigation .is-active a {
-  color: var(--color-foreground);
-  background: var(--color-accent-soft);
-  border-color: var(--color-accent-soft);
+  color: #FFFFFF;
+  background: #0B1F3A;
+  border-color: #0B1F3A;
 }
 
 .account-page .woocommerce-MyAccount-content {
   padding: 24px;
-  background: var(--color-surface);
+  background: var(--color-surface-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
@@ -340,6 +414,45 @@
 
 .account-page .woocommerce-MyAccount-content p:last-child {
   margin-bottom: 0;
+}
+
+.account-page .woocommerce-MyAccount-content a,
+.account-page .woocommerce-MyAccount-content strong {
+  color: var(--color-foreground);
+}
+
+.account-page .woocommerce-MyAccount-content a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.account-page .woocommerce-info,
+.account-page .woocommerce-message,
+.account-page .woocommerce-error {
+  color: #111827;
+}
+
+.account-page .woocommerce-info .button,
+.account-page .woocommerce-message .button,
+.account-page .woocommerce-error .button,
+.account-page .woocommerce-MyAccount-content .button,
+.account-page .woocommerce-MyAccount-content button.button,
+.account-page .woocommerce-MyAccount-content input.button {
+  color: #FFFFFF;
+  text-decoration: none;
+  -webkit-text-fill-color: #FFFFFF;
+}
+
+.account-page .woocommerce-info .button:hover,
+.account-page .woocommerce-message .button:hover,
+.account-page .woocommerce-error .button:hover,
+.account-page .woocommerce-MyAccount-content .button:hover,
+.account-page .woocommerce-MyAccount-content button.button:hover,
+.account-page .woocommerce-MyAccount-content input.button:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  -webkit-text-fill-color: #FFFFFF;
 }
 
 .account-page mark {
@@ -401,7 +514,7 @@
 
 @media (min-width: 768px) {
   .account-page {
-    padding: 72px 24px 104px;
+    padding-bottom: 104px;
   }
 
   .account-page #customer_login {
@@ -445,8 +558,16 @@
 }
 
 @media (max-width: 640px) {
-  .account-page {
-    padding-top: 32px;
+  .account-cover {
+    min-height: 290px;
+  }
+
+  .account-cover__inner {
+    padding: 48px 0 92px;
+  }
+
+  .account-page__container {
+    margin-top: -44px;
   }
 
   .account-page #customer_login > .u-column1,

@@ -3,10 +3,15 @@
  * Refund & Return Policy - ShopGraphicshirt
  * Style aligned with homepage. Content preserved from git original.
  */
+$sgs_rr_hero_bg = sprintf(
+  "--sgs-rr-hero-bg:url('%s');--sgs-rr-hero-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 720, 520))
+);
 get_header(); ?>
 <section class="sgs-home sgs-page">
 <style>
-.sgs-rr-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/policy/policy-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
+.sgs-rr-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-rr-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
 .sgs-rr-hero__inner{max-width:680px;margin:0 auto}
 .sgs-rr-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
 .sgs-rr-hero p{max-width:640px;margin:18px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
@@ -47,9 +52,10 @@ get_header(); ?>
 .sgs-rr-note--gold{border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;background:#fff7e8;padding:18px 20px;margin-top:16px;color:var(--muted);font-size:.9rem;line-height:1.65}
 @media(max-width:960px){.sgs-rr-grid{grid-template-columns:1fr}.sgs-rr-grid--3{grid-template-columns:1fr}.sgs-rr-contact{grid-template-columns:repeat(2,1fr)}.sgs-rr-contact__item:nth-child(3n){border-right:1px solid var(--line)}.sgs-rr-contact__item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.sgs-rr-contact__item:nth-child(2n){border-right:0}.sgs-rr-contact__item:last-child{border-bottom:0}}
 @media(max-width:700px){.sgs-rr-contact{grid-template-columns:1fr}.sgs-rr-contact__item{border-right:0}.sgs-rr-contact__item:nth-child(3n),.sgs-rr-contact__item:nth-child(2n){border-right:0}.sgs-rr-contact__item:last-child{border-bottom:0}.sgs-rr-actions .sgs-btn{width:100%}}
+@media(max-width:640px){.sgs-rr-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-rr-hero-bg-mobile,var(--sgs-rr-hero-bg))}}
 </style>
 
-<div class="sgs-rr-hero">
+<div class="sgs-rr-hero" style="<?php echo esc_attr($sgs_rr_hero_bg); ?>">
   <div class="sgs-rr-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Customer Care</p>
     <h1>Refund &amp; Return Policy</h1>

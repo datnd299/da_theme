@@ -13,6 +13,69 @@ add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 add_action('woocommerce_single_product_summary', 'dawp_single_product_trust_badges', 31);
 add_action('woocommerce_after_single_product_summary', 'dawp_single_product_pride_banner', 8);
 
+// Route the single-product gallery (no theme template override exists for it) through the
+// i0.wp.com CDN, matching the shop grid. Filters are added/removed tightly around the gallery
+// render only, so they don't also catch the unrelated `dawp_product_responsive_image()` calls
+// used by the related-products loop further down the same page.
+add_action('woocommerce_before_single_product_summary', 'dawp_product_gallery_cdn_filters_on', 19);
+add_action('woocommerce_before_single_product_summary', 'dawp_product_gallery_cdn_filters_off', 21);
+
+function dawp_product_gallery_cdn_filters_on() {
+    add_filter('wp_get_attachment_image_attributes', 'dawp_product_gallery_cdn_image_attributes');
+    add_filter('wp_get_attachment_image_src', 'dawp_product_gallery_cdn_image_src');
+    add_filter('wp_calculate_image_srcset', 'dawp_product_gallery_cdn_image_srcset');
+}
+
+function dawp_product_gallery_cdn_filters_off() {
+    remove_filter('wp_get_attachment_image_attributes', 'dawp_product_gallery_cdn_image_attributes');
+    remove_filter('wp_get_attachment_image_src', 'dawp_product_gallery_cdn_image_src');
+    remove_filter('wp_calculate_image_srcset', 'dawp_product_gallery_cdn_image_srcset');
+}
+
+function dawp_product_gallery_cdn_image_attributes($attr) {
+    if (!function_exists('dawp_cdn_image_url')) {
+        return $attr;
+    }
+
+    $width = isset($attr['width']) ? (int) $attr['width'] : 0;
+
+    if (!empty($attr['src'])) {
+        $attr['src'] = dawp_cdn_image_url($attr['src'], $width);
+    }
+    if (!empty($attr['data-src'])) {
+        $attr['data-src'] = dawp_cdn_image_url($attr['data-src']);
+    }
+    if (!empty($attr['data-large_image'])) {
+        $attr['data-large_image'] = dawp_cdn_image_url($attr['data-large_image']);
+    }
+
+    return $attr;
+}
+
+function dawp_product_gallery_cdn_image_src($image) {
+    if (!function_exists('dawp_cdn_image_url') || empty($image[0])) {
+        return $image;
+    }
+
+    $image[0] = dawp_cdn_image_url($image[0], isset($image[1]) ? (int) $image[1] : 0);
+
+    return $image;
+}
+
+function dawp_product_gallery_cdn_image_srcset($sources) {
+    if (!function_exists('dawp_cdn_image_url') || empty($sources) || !is_array($sources)) {
+        return $sources;
+    }
+
+    foreach ($sources as $width => $source) {
+        if (!empty($source['url'])) {
+            $sources[$width]['url'] = dawp_cdn_image_url($source['url'], (int) $width);
+        }
+    }
+
+    return $sources;
+}
+
 function dawp_product_icon($path, $label = '') {
     return sprintf(
         '<svg class="dawp-product-icon" viewBox="0 0 24 24" aria-hidden="%1$s" role="img">%2$s</svg>',

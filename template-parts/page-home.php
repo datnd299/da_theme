@@ -30,7 +30,7 @@ $sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
   return sprintf(
     "--sgs-cat-bg:url('%s');--sgs-cat-bg-mobile:url('%s')",
     esc_url(dawp_theme_cdn_image_url($path, 720, 900)),
-    esc_url(dawp_theme_cdn_image_url($path, 420, 525))
+    esc_url(dawp_theme_cdn_image_url($path, 720, 440))
   );
 };
 ?>

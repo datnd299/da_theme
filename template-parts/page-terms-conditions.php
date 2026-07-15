@@ -5,10 +5,15 @@
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
 
+$sgs_tc_hero_bg = sprintf(
+  "--sgs-tc-hero-bg:url('%s');--sgs-tc-hero-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 720, 520))
+);
 get_header(); ?>
 <section class="sgs-home sgs-page">
 <style>
-.sgs-tc-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/policy/policy-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
+.sgs-tc-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-tc-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
 .sgs-tc-hero__inner{max-width:680px;margin:0 auto}
 .sgs-tc-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
 .sgs-tc-hero__meta{margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
@@ -20,8 +25,9 @@ get_header(); ?>
 .sgs-tc-body ul{padding-left:20px}
 .sgs-tc-body a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
 .sgs-tc-body li{margin:6px 0}
+@media(max-width:640px){.sgs-tc-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-tc-hero-bg-mobile,var(--sgs-tc-hero-bg))}}
 </style>
-<div class="sgs-tc-hero">
+<div class="sgs-tc-hero" style="<?php echo esc_attr($sgs_tc_hero_bg); ?>">
   <div class="sgs-tc-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Terms &amp; Conditions</p>
     <h1>Terms &amp; Conditions</h1>

@@ -32,7 +32,10 @@ function dawp_render_empty_cart_intro() {
         <div class="cart-empty-intro__panel" aria-hidden="true">
             <div class="cart-empty-intro__row">
                 <span><?php esc_html_e('Subtotal', 'dawp'); ?></span>
-                <strong><?php echo wp_kses_post(function_exists('wc_price') ? wc_price(0) : '$0.00'); ?></strong>
+                <strong><?php
+                    $cart_subtotal = (function_exists('WC') && WC()->cart) ? WC()->cart->get_subtotal() : 0;
+                    echo wp_kses_post(function_exists('wc_price') ? wc_price($cart_subtotal) : '$0.00');
+                ?></strong>
             </div>
             <div class="cart-empty-intro__line"></div>
             <div class="cart-empty-intro__chips">

@@ -2,10 +2,15 @@
 /**
  * Shop By Categories - ShopGraphicshirt
  */
+$sgs_st_hero_bg = sprintf(
+  "--sgs-st-hero-bg:url('%s');--sgs-st-hero-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/shop-theme-hero-background.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/shop-theme-hero-background.png', 720, 520))
+);
 get_header(); ?>
 <section class="sgs-home sgs-page">
 <style>
-.sgs-st-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/hero/shop-theme-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
+.sgs-st-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-st-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
 .sgs-st-hero__inner{max-width:680px;margin:0 auto}
 .sgs-st-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
 .sgs-st-hero p{max-width:540px;margin:14px auto 0;color:rgba(255,255,255,.8);font-size:.95rem;line-height:1.65}
@@ -21,9 +26,9 @@ get_header(); ?>
 .sgs-st-card:hover .sgs-st-card__cta::after{background:rgba(255,255,255,.26);transform:translateX(2px)}
 .sgs-st-card:focus-visible{outline:3px solid rgba(179,25,66,.24);outline-offset:4px}
 @media(max-width:900px){.sgs-st-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.sgs-st-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:min(100% - 28px,520px);padding:36px 0}.sgs-st-card{padding:22px 10px;min-width:0}.sgs-st-card:hover{transform:none}.sgs-st-card__icon{width:36px;height:36px;margin-bottom:10px;font-size:1rem}.sgs-st-card h3{font-size:.88rem;line-height:1.25}.sgs-st-card p{margin:6px 0 12px;font-size:.75rem;line-height:1.35}.sgs-st-card .sgs-st-card__cta{gap:6px;min-height:32px;padding:0 7px 0 12px;font-size:.62rem;box-shadow:0 6px 14px rgba(179,25,66,.18)}.sgs-st-card .sgs-st-card__cta::after{width:18px;height:18px;font-size:.78rem}}
+@media(max-width:640px){.sgs-st-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-st-hero-bg-mobile,var(--sgs-st-hero-bg))}.sgs-st-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:min(100% - 28px,520px);padding:36px 0}.sgs-st-card{padding:22px 10px;min-width:0}.sgs-st-card:hover{transform:none}.sgs-st-card__icon{width:36px;height:36px;margin-bottom:10px;font-size:1rem}.sgs-st-card h3{font-size:.88rem;line-height:1.25}.sgs-st-card p{margin:6px 0 12px;font-size:.75rem;line-height:1.35}.sgs-st-card .sgs-st-card__cta{gap:6px;min-height:32px;padding:0 7px 0 12px;font-size:.62rem;box-shadow:0 6px 14px rgba(179,25,66,.18)}.sgs-st-card .sgs-st-card__cta::after{width:18px;height:18px;font-size:.78rem}}
 </style>
-<div class="sgs-st-hero">
+<div class="sgs-st-hero" style="<?php echo esc_attr($sgs_st_hero_bg); ?>">
   <div class="sgs-st-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Shop By Categories</p>
     <h1>Browse By Categories</h1>

@@ -70,7 +70,7 @@ $sgs_cover_bg = sprintf(
 .sgs-shop-header p{margin:10px 0 0;color:var(--muted);font-size:.92rem;line-height:1.6;max-width:640px}
 .sgs-shop-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px;padding:12px 16px;border:1px solid var(--line);border-radius:var(--radius)}
 .sgs-shop-count{color:var(--muted);font-size:.85rem;font-weight:600}
-.sgs-shop-filter-btn{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px;border:1.5px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);font-size:.82rem;font-weight:700;cursor:pointer;transition:border-color 150ms}
+.sgs-shop-filter-btn{display:none;align-items:center;gap:8px;height:38px;padding:0 14px;border:1.5px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);font-size:.82rem;font-weight:700;cursor:pointer;transition:border-color 150ms}
 .sgs-shop-filter-btn:hover{border-color:var(--red);color:var(--red)}
 .sgs-shop-toolbar select{height:38px;padding:0 30px 0 12px;border:1.5px solid var(--line);border-radius:var(--radius);background:var(--white);color:var(--ink);font-size:.82rem;font-weight:600;appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236B7280' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer}
 .sgs-shop-layout{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
@@ -89,6 +89,7 @@ $sgs_cover_bg = sprintf(
 .sgs-shop-sidebar__panel{display:none;margin-top:8px}
 .sgs-shop-sidebar__widget--open .sgs-shop-sidebar__panel{display:block}
 .sgs-shop-sidebar__mobile-title{display:none}
+.sgs-shop-sidebar__close{display:none}
 .sgs-shop-main{min-height:40vh}
 .sgs-shop-products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .sgs-shop-product{display:flex;flex-direction:column;padding:14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);position:relative;transition:transform 180ms,border-color 180ms,box-shadow 180ms}
@@ -103,14 +104,19 @@ $sgs_cover_bg = sprintf(
 .sgs-shop-product .price{display:inline-flex;align-items:center;gap:6px;width:max-content;max-width:100%;margin-top:6px;padding:7px 10px;border:1px solid rgba(179,25,66,.18);border-radius:6px;background:rgba(179,25,66,.07);color:var(--red);font-family:var(--font-heading);font-size:1.18rem;font-weight:800;line-height:1.1;box-shadow:0 4px 12px rgba(179,25,66,.08)}
 .sgs-shop-product .price del{color:var(--muted);font-family:var(--font-body);font-size:.82rem;font-weight:600;margin-right:2px}
 .sgs-shop-product .price ins{text-decoration:none;color:var(--red);font-weight:800}
-.sgs-shop-pagination{display:flex;justify-content:center;gap:6px;margin-top:36px}
-.sgs-shop-pagination .page-numbers{display:inline-flex;min-width:40px;height:40px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:5px;color:var(--ink);font-size:.85rem;font-weight:600;transition:all 150ms}
-.sgs-shop-pagination .page-numbers:hover{border-color:var(--red);color:var(--red)}
-.sgs-shop-pagination .page-numbers.current{border-color:var(--red);background:var(--red);color:var(--white)}
+.sgs-shop-pagination{margin-top:40px;padding-top:28px;border-top:1px solid var(--line)}
+.sgs-shop-pagination nav{display:flex;justify-content:center;width:100%}
+.sgs-shop .sgs-shop-pagination ul.page-numbers{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;list-style:none;margin:0;padding:0;gap:8px}
+.sgs-shop .sgs-shop-pagination li .page-numbers{display:inline-flex;min-width:40px;height:40px;align-items:center;justify-content:center;padding:0 10px;border:1.5px solid var(--line);border-radius:8px;background:var(--white);color:var(--ink);font-family:var(--font-heading);font-size:.85rem;font-weight:700;text-decoration:none;transition:all 150ms}
+.sgs-shop .sgs-shop-pagination li a.page-numbers:hover{border-color:var(--red);color:var(--red);background:rgba(179,25,66,.06)}
+.sgs-shop .sgs-shop-pagination li .page-numbers.current{border-color:var(--red);background:var(--red);color:var(--white);box-shadow:0 6px 16px rgba(179,25,66,.22);cursor:default}
+.sgs-shop .sgs-shop-pagination li .page-numbers.dots{border-color:transparent;background:transparent;color:var(--muted);min-width:20px;padding:0}
+.sgs-shop .sgs-shop-pagination li a.page-numbers.next,.sgs-shop .sgs-shop-pagination li a.page-numbers.prev{color:var(--navy);font-size:1.05rem}
+.sgs-shop .sgs-shop-pagination li a.page-numbers.next:hover,.sgs-shop .sgs-shop-pagination li a.page-numbers.prev:hover{background:var(--navy);border-color:var(--navy);color:var(--white)}
 .sgs-shop-empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:.95rem}
 .sgs-shop-empty a{display:inline-block;margin-top:16px;color:var(--red);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .sgs-shop-sidebar-overlay{display:none}
-@media(max-width:1100px){.sgs-shop-layout{grid-template-columns:1fr}.sgs-shop-sidebar{position:fixed;top:0;left:0;z-index:100;width:min(100% - 48px,360px);height:100dvh;overflow-y:auto;background:var(--white);padding:24px 20px;transform:translateX(-100%);transition:transform 250ms;box-shadow:0 0 40px rgba(0,0,0,.2)}
+@media(max-width:1100px){.sgs-shop-layout{grid-template-columns:1fr}.sgs-shop-filter-btn{display:inline-flex}.sgs-shop-sidebar{position:fixed;top:0;left:0;z-index:100;width:min(100% - 48px,360px);height:100dvh;overflow-y:auto;background:var(--white);padding:24px 20px;transform:translateX(-100%);transition:transform 250ms;box-shadow:0 0 40px rgba(0,0,0,.2)}
 .sgs-shop-sidebar.is-open{transform:translateX(0)}
 .sgs-shop-sidebar__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .sgs-shop-sidebar__mobile-title{display:block;margin:0;font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--ink)}
@@ -118,7 +124,7 @@ $sgs_cover_bg = sprintf(
 .sgs-shop-sidebar-overlay{display:block;position:fixed;inset:0;z-index:99;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity 250ms}
 .sgs-shop-sidebar-overlay.is-open{opacity:1;pointer-events:auto}
 .sgs-shop-products{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.sgs-shop__container{width:min(100% - 32px,1280px)}.sgs-shop-cover{min-height:250px;background-image:linear-gradient(180deg,rgba(11,31,58,.52) 0%,rgba(11,31,58,.96) 100%),var(--sgs-cover-image-mobile,var(--sgs-cover-image));background-position:center top}.sgs-shop-cover__content{padding:22px}.sgs-shop-products{grid-template-columns:1fr}.sgs-shop-toolbar{flex-wrap:wrap}.sgs-shop-toolbar select{width:100%}}
+@media(max-width:640px){.sgs-shop__container{width:min(100% - 32px,1280px)}.sgs-shop-cover{min-height:250px;background-image:linear-gradient(180deg,rgba(11,31,58,.52) 0%,rgba(11,31,58,.96) 100%),var(--sgs-cover-image-mobile,var(--sgs-cover-image));background-position:center top}.sgs-shop-cover__content{padding:22px}.sgs-shop-products{grid-template-columns:repeat(2,1fr);gap:10px}.sgs-shop-toolbar{flex-wrap:wrap}.sgs-shop-toolbar select{width:100%}}
 </style>
 
 <div class="sgs-shop__container">
@@ -218,10 +224,11 @@ $sgs_cover_bg = sprintf(
         }
         if (empty($items)) continue;
         $panel_id = 'sgs-sidebar-section-' . $si;
+        $is_open = $has_current || $section['title'] === __('Shop by Collections', 'dawp');
       ?>
-      <div class="sgs-shop-sidebar__widget sgs-shop-sidebar__widget--accordion <?php echo $has_current ? 'sgs-shop-sidebar__widget--open' : ''; ?>">
+      <div class="sgs-shop-sidebar__widget sgs-shop-sidebar__widget--accordion <?php echo $is_open ? 'sgs-shop-sidebar__widget--open' : ''; ?>">
         <h3 class="sgs-shop-sidebar__title">
-          <button class="sgs-shop-sidebar__toggle" type="button" aria-expanded="<?php echo $has_current ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr($panel_id); ?>">
+          <button class="sgs-shop-sidebar__toggle" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>" aria-controls="<?php echo esc_attr($panel_id); ?>">
             <span><?php echo esc_html($section['title']); ?></span>
             <svg class="sgs-shop-sidebar__toggle-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
           </button>

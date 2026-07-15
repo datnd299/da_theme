@@ -2,10 +2,20 @@
 /**
  * Track Order - ShopGraphicshirt
  */
+$sgs_to_hero_bg = sprintf(
+  "--sgs-to-hero-bg:url('%s');--sgs-to-hero-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 720, 600))
+);
+$sgs_to_tips_bg = sprintf(
+  "--sgs-to-tips-bg:url('%s');--sgs-to-tips-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/track/tracking-tips-background.jpg', 900, 700)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/track/tracking-tips-background.jpg', 700, 420))
+);
 ?>
-<section class="sgs-home sgs-page">
+<section class="sgs-home sgs-page" style="<?php echo esc_attr($sgs_to_hero_bg . ';' . $sgs_to_tips_bg); ?>">
 <style>
-.sgs-to-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/hero/tracking-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(64px,8vw,108px) clamp(24px,4vw,64px);text-align:center}
+.sgs-to-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-to-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(64px,8vw,108px) clamp(24px,4vw,64px);text-align:center}
 .sgs-to-hero__inner{max-width:760px;margin:0 auto}
 .sgs-to-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
 .sgs-to-hero p{max-width:660px;margin:18px auto 0;color:rgba(255,255,255,.84);font-size:clamp(.95rem,1.3vw,1.08rem);line-height:1.7}
@@ -34,7 +44,7 @@
 .sgs-to-side{display:grid;gap:16px}
 .sgs-to-card{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);padding:24px;transition:box-shadow 180ms,transform 180ms}
 .sgs-to-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
-.sgs-to-card--tips{position:relative;overflow:hidden;display:flex;min-height:100%;flex-direction:column;justify-content:center;padding:clamp(28px,4vw,46px);background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.94) 42%,rgba(255,255,255,.74) 68%,rgba(255,255,255,.2) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/track/tracking-tips-background.jpg') center right/cover no-repeat,var(--white)}
+.sgs-to-card--tips{position:relative;overflow:hidden;display:flex;min-height:100%;flex-direction:column;justify-content:center;padding:clamp(28px,4vw,46px);background:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.94) 42%,rgba(255,255,255,.74) 68%,rgba(255,255,255,.2) 100%),var(--sgs-to-tips-bg) center right/cover no-repeat,var(--white)}
 .sgs-to-card--tips::after{content:'';position:absolute;inset:auto 0 0 0;height:4px;background:linear-gradient(90deg,var(--red),var(--gold));pointer-events:none}
 .sgs-to-card--tips h2,.sgs-to-card--tips p{position:relative;max-width:430px}
 .sgs-to-card--tips .sgs-to-link{font-family:var(--font-heading);font-weight:700}
@@ -64,7 +74,7 @@
 .sgs-to-faq summary::-webkit-details-marker{display:none}
 .sgs-to-faq details p{padding:0 20px 18px;margin:0;color:var(--muted);font-size:.88rem;line-height:1.65}
 @media(max-width:960px){.sgs-to-layout,.sgs-to-steps,.sgs-to-support{grid-template-columns:1fr}.sgs-to-meta{grid-template-columns:repeat(3,minmax(0,1fr))}.sgs-to-card--tips{min-height:340px;justify-content:flex-start}}
-@media(max-width:700px){.sgs-to-section{width:100%;padding:52px 0}.sgs-to-section>*,.sgs-to-section--surface>*{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-to-section--surface{padding-inline:0}.sgs-to-panel{padding:22px}.sgs-to-card--tips{min-height:310px;background:linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 54%,rgba(255,255,255,.48) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/track/tracking-tips-background.jpg') center bottom/cover no-repeat,var(--white)}.sgs-to-formwrap .woocommerce-form-track-order,.sgs-to-fallback{grid-template-columns:1fr}.sgs-to-meta{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.sgs-to-meta__item{min-height:62px;flex-direction:column;gap:5px;padding:9px 6px;text-align:center}.sgs-to-meta__icon{width:22px;height:22px;flex-basis:22px}.sgs-to-meta__icon svg{width:19px;height:19px}.sgs-to-meta__label{font-size:.68rem;line-height:1.15;white-space:normal}.sgs-to-formwrap .button,.sgs-to-fallback .sgs-btn{width:100%}.sgs-to-steps{display:flex;grid-template-columns:none;gap:14px;width:auto;margin-inline:-20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:0 20px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.sgs-to-steps::-webkit-scrollbar{display:none}.sgs-to-step{flex:0 0 min(82vw,360px);min-height:auto;scroll-snap-align:center}.sgs-to-steps-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px}}
+@media(max-width:700px){.sgs-to-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-to-hero-bg-mobile,var(--sgs-to-hero-bg))}.sgs-to-section{width:100%;padding:52px 0}.sgs-to-section>*,.sgs-to-section--surface>*{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-to-section--surface{padding-inline:0}.sgs-to-panel{padding:22px}.sgs-to-card--tips{min-height:310px;background:linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 54%,rgba(255,255,255,.48) 100%),var(--sgs-to-tips-bg-mobile,var(--sgs-to-tips-bg)) center bottom/cover no-repeat,var(--white)}.sgs-to-formwrap .woocommerce-form-track-order,.sgs-to-fallback{grid-template-columns:1fr}.sgs-to-meta{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.sgs-to-meta__item{min-height:62px;flex-direction:column;gap:5px;padding:9px 6px;text-align:center}.sgs-to-meta__icon{width:22px;height:22px;flex-basis:22px}.sgs-to-meta__icon svg{width:19px;height:19px}.sgs-to-meta__label{font-size:.68rem;line-height:1.15;white-space:normal}.sgs-to-formwrap .button,.sgs-to-fallback .sgs-btn{width:100%}.sgs-to-steps{display:flex;grid-template-columns:none;gap:14px;width:auto;margin-inline:-20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:0 20px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.sgs-to-steps::-webkit-scrollbar{display:none}.sgs-to-step{flex:0 0 min(82vw,360px);min-height:auto;scroll-snap-align:center}.sgs-to-steps-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px}}
 </style>
 
 <div class="sgs-to-hero">

@@ -6,10 +6,15 @@
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
 
+$sgs_sp_hero_bg = sprintf(
+  "--sgs-sp-hero-bg:url('%s');--sgs-sp-hero-bg-mobile:url('%s')",
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 720, 520))
+);
 get_header(); ?>
 <section class="sgs-home sgs-page">
 <style>
-.sgs-sp-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),url('<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/hero/tracking-hero-background.png') center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
+.sgs-sp-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-sp-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
 .sgs-sp-hero__inner{max-width:680px;margin:0 auto}
 .sgs-sp-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
 .sgs-sp-hero p{max-width:580px;margin:18px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
@@ -51,9 +56,10 @@ get_header(); ?>
 .sgs-sp-support__item a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
 @media(max-width:960px){.sgs-sp-grid{grid-template-columns:repeat(2,1fr)}.sgs-sp-support{grid-template-columns:repeat(2,1fr)}.sgs-sp-support__item:nth-child(3n){border-right:1px solid var(--line)}.sgs-sp-support__item:nth-last-child(-n+3){border-bottom:1px solid var(--line)}.sgs-sp-support__item:nth-child(2n){border-right:0}.sgs-sp-support__item:nth-last-child(-n+2){border-bottom:0}}
 @media(max-width:700px){.sgs-sp-section{width:100%;padding:52px 0}.sgs-sp-timeline{margin-bottom:28px}.sgs-sp-grid{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;padding:0 24px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.sgs-sp-grid::-webkit-scrollbar{display:none}.sgs-sp-grid .sgs-sp-card{flex:0 0 min(82vw,360px);min-height:136px;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:center}.sgs-sp-grid .sgs-sp-card:hover{box-shadow:none;transform:none}.sgs-sp-slider__controls{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:16px}.sgs-sp-slider__arrow{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--ink);font-family:var(--font-heading);font-size:1.35rem;line-height:1;box-shadow:0 8px 18px rgba(11,31,58,.08);transition:background 180ms,border-color 180ms,color 180ms,opacity 180ms}.sgs-sp-slider__arrow:disabled{opacity:.38;cursor:default}.sgs-sp-slider__arrow:not(:disabled):hover{border-color:var(--red);background:var(--red);color:var(--white)}.sgs-sp-slider__dots{display:flex;align-items:center;gap:7px}.sgs-sp-slider__dot{width:7px;height:7px;border:0;border-radius:999px;background:rgba(11,31,58,.22);padding:0;transition:width 180ms,background 180ms}.sgs-sp-slider__dot[data-active="true"]{width:22px;background:var(--red)}.sgs-sp-panel{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-sp-costs{grid-template-columns:1fr}.sgs-sp-support{grid-template-columns:1fr}.sgs-sp-support__item{border-right:0}.sgs-sp-support__item:nth-child(2n){border-right:0}.sgs-sp-support__item:nth-last-child(-n+2){border-bottom:1px solid var(--line)}.sgs-sp-support__item:last-child{border-bottom:0}.sgs-sp-actions .sgs-btn{width:100%}.sgs-sp-contact-actions{gap:10px}.sgs-sp-contact-actions .sgs-btn,.sgs-sp-mail{width:100%;justify-content:center}.sgs-sp-mail{justify-content:flex-start}}
+@media(max-width:640px){.sgs-sp-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-sp-hero-bg-mobile,var(--sgs-sp-hero-bg))}}
 </style>
 
-<div class="sgs-sp-hero">
+<div class="sgs-sp-hero" style="<?php echo esc_attr($sgs_sp_hero_bg); ?>">
   <div class="sgs-sp-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Shipping Policy</p>
     <h1>Shipping Policy</h1>

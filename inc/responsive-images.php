@@ -17,8 +17,12 @@ function dawp_cdn_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
         return $url;
     }
 
-    $path = '/' . implode('/', array_map('rawurlencode', explode('/', ltrim($parts['path'], '/'))));
-    $cdn_url = 'https://i0.wp.com/' . $parts['host'] . $path;
+    if ($host === 'i0.wp.com') {
+        $cdn_url = 'https://' . $parts['host'] . $parts['path'];
+    } else {
+        $path = '/' . implode('/', array_map('rawurlencode', explode('/', ltrim($parts['path'], '/'))));
+        $cdn_url = 'https://i0.wp.com/' . $parts['host'] . $path;
+    }
 
     $args = array('ssl' => '1');
     $width = absint($width);

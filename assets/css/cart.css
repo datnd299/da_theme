@@ -44,44 +44,11 @@ body.woocommerce-cart #content {
   color: #C87F86;
 }
 
-.free-shipping-banner__body {
-  flex: 1;
-  min-width: 0;
-}
-
 .free-shipping-banner__message {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 0.875rem;
   font-weight: 600;
   color: #4B403C;
-}
-
-.free-shipping-banner__message strong {
-  color: #2F2A28;
-}
-
-.free-shipping-banner__progress {
-  width: 100%;
-  height: 6px;
-  background: #E8DAD4;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.free-shipping-banner__progress-fill {
-  display: block;
-  height: 100%;
-  background: #C87F86;
-  border-radius: 999px;
-  transition: width 0.3s ease;
-}
-
-.free-shipping-banner.is-qualified {
-  border-color: #C87F86;
-}
-
-.free-shipping-banner.is-qualified .free-shipping-banner__progress-fill {
-  background: #C87F86;
 }
 
 @media (min-width: 768px) {

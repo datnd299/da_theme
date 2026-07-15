@@ -22,7 +22,7 @@ function da_theme_trust_badges_banner() {
                 <circle cx="6" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/>
                 <circle cx="17.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/>
             </svg>
-            <span>Free shipping on orders over $49</span>
+            <span>Free Shipping</span>
         </div>
         <div class="trust-badge">
             <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -35,40 +35,23 @@ function da_theme_trust_badges_banner() {
     <?php
 }
 
-// Free shipping progress banner on the Cart page (block-based cart)
+// Free shipping banner on the Cart page (block-based cart)
 add_filter('render_block_woocommerce/cart', 'da_theme_cart_free_shipping_banner', 10, 2);
 function da_theme_cart_free_shipping_banner($block_content, $block) {
     if (!function_exists('WC') || !WC()->cart) {
         return $block_content;
     }
 
-    $threshold = 49;
-    $qualifying_total = max(0, WC()->cart->get_subtotal() - WC()->cart->get_discount_total());
-    $remaining = max(0, $threshold - $qualifying_total);
-    $percent = $threshold > 0 ? min(100, ($qualifying_total / $threshold) * 100) : 100;
-    $qualified = $remaining <= 0;
-
     ob_start();
     ?>
-    <div class="free-shipping-banner<?php echo $qualified ? ' is-qualified' : ''; ?>" data-threshold="<?php echo esc_attr($threshold); ?>" role="status" aria-live="polite">
+    <div class="free-shipping-banner" role="status">
         <svg class="free-shipping-banner__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M1 7h13v9H1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
             <path d="M14 10h4l4 3.5V16h-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
             <circle cx="6" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/>
             <circle cx="17.5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/>
         </svg>
-        <div class="free-shipping-banner__body">
-            <p class="free-shipping-banner__message">
-                <?php if ($qualified): ?>
-                    You&rsquo;ve unlocked <strong>free shipping</strong>!
-                <?php else: ?>
-                    Add <strong><?php echo wp_kses_post(wc_price($remaining)); ?></strong> more to get <strong>free shipping</strong>
-                <?php endif; ?>
-            </p>
-            <div class="free-shipping-banner__progress">
-                <span class="free-shipping-banner__progress-fill" style="width: <?php echo esc_attr(round($percent, 2)); ?>%"></span>
-            </div>
-        </div>
+        <p class="free-shipping-banner__message">Free Shipping</p>
     </div>
     <?php
     $banner = ob_get_clean();

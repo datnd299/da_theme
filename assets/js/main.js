@@ -94,46 +94,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
-    // Cart page: keep the free shipping progress banner in sync with the live cart total
-    const banner = document.querySelector('.free-shipping-banner');
-    if (banner) {
-        const threshold = parseFloat(banner.dataset.threshold || '0');
-        const messageEl = banner.querySelector('.free-shipping-banner__message');
-        const fillEl = banner.querySelector('.free-shipping-banner__progress-fill');
-
-        const render = (subtotal) => {
-            const remaining = Math.max(0, threshold - subtotal);
-            const percent = threshold > 0 ? Math.min(100, (subtotal / threshold) * 100) : 100;
-            const qualified = remaining <= 0;
-
-            banner.classList.toggle('is-qualified', qualified);
-            if (fillEl) fillEl.style.width = percent + '%';
-            if (messageEl) {
-                messageEl.innerHTML = qualified
-                    ? 'You&rsquo;ve unlocked <strong>free shipping</strong>!'
-                    : `Add <strong>$${remaining.toFixed(2)}</strong> more to get <strong>free shipping</strong>`;
-            }
-        };
-
-        const updateFromStore = () => {
-            if (!window.wp || !wp.data || !wp.data.select('wc/store/cart')) return false;
-            const totals = wp.data.select('wc/store/cart').getCartTotals();
-            if (!totals) return false;
-            const divisor = Math.pow(10, totals.currency_minor_unit || 2);
-            const subtotal = (parseInt(totals.total_items, 10) - parseInt(totals.total_discount, 10)) / divisor;
-            render(subtotal);
-            return true;
-        };
-
-        if (!updateFromStore()) {
-            let attempts = 0;
-            const poll = setInterval(() => {
-                if (updateFromStore() || attempts++ > 20) clearInterval(poll);
-            }, 300);
-        }
-
-        if (window.wp && wp.data && wp.data.subscribe) {
-            wp.data.subscribe(updateFromStore);
-        }
-    }
 });

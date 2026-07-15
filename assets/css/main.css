@@ -335,12 +335,22 @@
    ============================================================= */
 
 body.woocommerce-account {
+  --account-primary: #0046BE;
+  --account-primary-hover: #00348F;
+  --account-cta: #FFE000;
+  --account-cta-hover: #F5D400;
+  --account-soft: #EAF2FF;
+  --account-background: #F5F6F8;
+  --account-surface: #FFFFFF;
+  --account-text: #1F2937;
+  --account-muted: #6B7280;
+  --account-border: #E5E7EB;
   background: var(--color-surface);
 }
 
 .woocommerce-account .site-content {
   background:
-    linear-gradient(180deg, var(--color-surface-alt) 0%, var(--color-surface) 42%, var(--color-background) 100%);
+    linear-gradient(180deg, var(--account-soft) 0%, var(--account-background) 45%, var(--account-surface) 100%);
   min-height: 62vh;
   padding: clamp(32px, 6vw, 72px) var(--container-pad-mobile);
 }
@@ -350,16 +360,16 @@ body.woocommerce-account {
   max-width: 1120px;
   margin: 0 auto;
   font-family: var(--font-sans);
-  color: var(--color-foreground);
+  color: var(--account-text);
 }
 
 .woocommerce-account:not(.logged-in) .site-content .woocommerce {
   display: grid;
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--account-border);
   border-radius: var(--radius-lg);
-  background: var(--color-background);
-  box-shadow: 0 18px 50px color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  background: var(--account-surface);
+  box-shadow: 0 18px 50px rgba(31, 41, 55, 0.10);
 }
 
 .woocommerce-account:not(.logged-in) .site-content .woocommerce::before {
@@ -367,9 +377,8 @@ body.woocommerce-account {
   display: block;
   min-height: 128px;
   background:
-    radial-gradient(circle at 22% 24%, color-mix(in srgb, var(--color-background) 72%, transparent) 0 18%, transparent 19%),
-    radial-gradient(circle at 72% 72%, color-mix(in srgb, var(--color-accent-blush) 52%, transparent) 0 16%, transparent 17%),
-    linear-gradient(135deg, var(--color-accent-hover), var(--color-accent));
+    linear-gradient(135deg, rgba(0, 70, 190, 0.92), rgba(0, 70, 190, 0.74)),
+    repeating-linear-gradient(135deg, rgba(255, 224, 0, 0.18) 0 12px, transparent 12px 24px);
 }
 
 .woocommerce-account:not(.logged-in) .woocommerce h2 {
@@ -378,7 +387,7 @@ body.woocommerce-account {
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 4vw, 2.625rem);
   line-height: 1.1;
-  color: var(--color-foreground);
+  color: var(--account-text);
 }
 
 .woocommerce-account .woocommerce form.login,
@@ -402,11 +411,11 @@ body.woocommerce-account {
   font-size: 0.8125rem;
   font-weight: 800;
   line-height: 1.4;
-  color: var(--color-foreground);
+  color: var(--account-text);
 }
 
 .woocommerce-account .woocommerce form .required {
-  color: var(--color-accent);
+  color: var(--account-primary);
 }
 
 .woocommerce-account .woocommerce input.input-text,
@@ -416,11 +425,11 @@ body.woocommerce-account {
   width: 100%;
   min-height: 48px;
   padding: 0 var(--space-md);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--account-border);
   border-radius: var(--radius-md);
   outline: none;
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--account-surface);
+  color: var(--account-text);
   font-family: var(--font-sans);
   font-size: 0.95rem;
   line-height: 1.4;
@@ -441,13 +450,13 @@ body.woocommerce-account {
 .woocommerce-account .woocommerce textarea:focus,
 .woocommerce-account .woocommerce select:focus {
   border-color: var(--color-accent);
-  background: var(--color-background);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
+  background: var(--account-surface);
+  box-shadow: 0 0 0 3px rgba(0, 70, 190, 0.16);
 }
 
 .woocommerce-account .woocommerce input:-webkit-autofill {
-  -webkit-text-fill-color: var(--color-foreground);
-  -webkit-box-shadow: 0 0 0 1000px var(--color-background) inset;
+  -webkit-text-fill-color: var(--account-text);
+  -webkit-box-shadow: 0 0 0 1000px var(--account-surface) inset;
 }
 
 .woocommerce-account .woocommerce .woocommerce-form__label-for-checkbox {
@@ -458,7 +467,7 @@ body.woocommerce-account {
   margin: 0 var(--space-md) var(--space-md) 0;
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--color-foreground-muted);
+  color: var(--account-muted);
   cursor: pointer;
 }
 
@@ -466,7 +475,7 @@ body.woocommerce-account {
   width: 18px;
   height: 18px;
   margin: 0;
-  accent-color: var(--color-accent);
+  accent-color: var(--account-primary);
 }
 
 .woocommerce-account .woocommerce .button,
@@ -479,8 +488,8 @@ body.woocommerce-account {
   padding: 0 var(--space-xl);
   border: 0;
   border-radius: var(--radius-md);
-  background: var(--color-accent);
-  color: var(--color-background);
+  background: var(--account-cta);
+  color: #111827;
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 900;
@@ -497,20 +506,20 @@ body.woocommerce-account {
 .woocommerce-account .woocommerce .button:hover,
 .woocommerce-account .woocommerce button.button:hover,
 .woocommerce-account .woocommerce a.button:hover {
-  background: var(--color-accent-hover);
-  color: var(--color-background);
+  background: var(--account-cta-hover);
+  color: #111827;
   transform: translateY(-1px);
 }
 
 .woocommerce-account .woocommerce a {
-  color: var(--color-accent);
+  color: var(--account-primary);
   font-weight: 700;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-fluid);
 }
 
 .woocommerce-account .woocommerce a:hover {
-  color: var(--color-accent-hover);
+  color: var(--account-primary-hover);
 }
 
 .woocommerce-account .woocommerce .lost_password {
@@ -520,7 +529,7 @@ body.woocommerce-account {
 
 .woocommerce-account .woocommerce .woocommerce-privacy-policy-text {
   margin: 0 0 var(--space-md);
-  color: var(--color-foreground-muted);
+  color: var(--account-muted);
   font-size: 0.9rem;
   line-height: 1.65;
 }
@@ -540,9 +549,9 @@ body.woocommerce-account {
   margin: 0;
   padding: var(--space-sm);
   list-style: none;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--account-border);
   border-radius: var(--radius-lg);
-  background: var(--color-background);
+  background: var(--account-surface);
   box-shadow: var(--shadow-card);
 }
 
@@ -556,23 +565,23 @@ body.woocommerce-account {
   min-height: 46px;
   padding: 0 var(--space-md);
   border-radius: var(--radius-md);
-  color: var(--color-foreground-muted);
+  color: var(--account-muted);
   font-size: 0.9rem;
   font-weight: 800;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation a:hover,
 .woocommerce-account .woocommerce-MyAccount-navigation .is-active a {
-  background: var(--color-accent-soft);
-  color: var(--color-accent-hover);
+  background: var(--account-soft);
+  color: var(--account-primary);
 }
 
 .woocommerce-account .woocommerce-MyAccount-content {
   min-width: 0;
   padding: var(--space-lg);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--account-border);
   border-radius: var(--radius-lg);
-  background: var(--color-background);
+  background: var(--account-surface);
   box-shadow: var(--shadow-card);
 }
 
@@ -581,15 +590,15 @@ body.woocommerce-account {
 }
 
 .woocommerce-account .woocommerce-MyAccount-content p {
-  color: var(--color-foreground-muted);
+  color: var(--account-muted);
   line-height: 1.75;
 }
 
 .woocommerce-account .woocommerce-MyAccount-content mark {
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  background: var(--color-accent-soft);
-  color: var(--color-accent-hover);
+  background: var(--account-soft);
+  color: var(--account-primary);
   font-weight: 800;
 }
 
@@ -602,32 +611,32 @@ body.woocommerce-account {
   font-family: var(--font-heading);
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   line-height: 1.2;
-  color: var(--color-foreground);
+  color: var(--account-text);
 }
 
 .woocommerce-account .woocommerce table.shop_table {
   width: 100%;
   margin: 0 0 var(--space-lg);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--account-border);
   border-collapse: separate;
   border-spacing: 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--color-background);
+  background: var(--account-surface);
 }
 
 .woocommerce-account .woocommerce table.shop_table th,
 .woocommerce-account .woocommerce table.shop_table td {
   padding: 14px var(--space-md);
   border: 0;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--account-border);
   text-align: left;
   vertical-align: middle;
 }
 
 .woocommerce-account .woocommerce table.shop_table th {
-  background: var(--color-surface);
-  color: var(--color-foreground);
+  background: var(--account-soft);
+  color: var(--account-text);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -646,9 +655,9 @@ body.woocommerce-account {
 .woocommerce-account .woocommerce .woocommerce-Address {
   width: auto;
   padding: var(--space-lg);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--account-border);
   border-radius: var(--radius-lg);
-  background: var(--color-surface);
+  background: var(--account-background);
 }
 
 .woocommerce-account .woocommerce .woocommerce-Address-title {
@@ -660,7 +669,7 @@ body.woocommerce-account {
 }
 
 .woocommerce-account .woocommerce address {
-  color: var(--color-foreground-muted);
+  color: var(--account-muted);
   font-style: normal;
   line-height: 1.75;
 }
@@ -674,13 +683,13 @@ body.woocommerce-account {
 .woocommerce-account .woocommerce fieldset {
   margin: var(--space-md) 0 0;
   padding: var(--space-lg);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--account-border);
   border-radius: var(--radius-lg);
 }
 
 .woocommerce-account .woocommerce legend {
   padding: 0 var(--space-sm);
-  color: var(--color-foreground);
+  color: var(--account-text);
   font-weight: 900;
 }
 

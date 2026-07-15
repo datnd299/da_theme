@@ -103,7 +103,7 @@ if (class_exists('WooCommerce')) {
             </div>
         </div>
         <div class="tgm-hero__media">
-            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=86" alt="Modern living room with smart home products" width="700" height="560" loading="eager" decoding="async">
+            <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=86', 'Modern living room with smart home products', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
             <div class="tgm-hero__deal">
                 <strong>Weekly Picks</strong>
                 <span>Home, tech and kitchen deals refreshed often.</span>
@@ -124,7 +124,7 @@ if (class_exists('WooCommerce')) {
         <div class="tgm-category-grid">
             <?php foreach ($categories as $category) : ?>
                 <a class="tgm-category" href="<?php echo esc_url($category['href']); ?>">
-                    <img src="<?php echo esc_url($category['image']); ?>" alt="<?php echo esc_attr($category['name']); ?>" width="520" height="360" loading="lazy" decoding="async">
+                    <?php echo dawp_get_responsive_image($category['image'], $category['name'], '', 520, 360, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'); ?>
                     <span class="tgm-category__body">
                         <strong><?php echo esc_html($category['name']); ?></strong>
                         <span><?php echo esc_html($category['desc']); ?></span>
@@ -168,7 +168,7 @@ if (class_exists('WooCommerce')) {
                 <?php foreach ($fallback_products as $product) : ?>
                     <article class="tgm-product">
                         <div class="tgm-product__image">
-                            <img src="<?php echo esc_url($product['image']); ?>" alt="<?php echo esc_attr($product['name']); ?>" width="520" height="520" loading="lazy" decoding="async">
+                            <?php echo dawp_get_responsive_image($product['image'], $product['name'], '', 520, 520, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'); ?>
                             <?php if (!empty($product['old'])) : ?><span class="tgm-sale">Sale</span><?php endif; ?>
                         </div>
                         <div class="tgm-product__body">
@@ -196,15 +196,15 @@ if (class_exists('WooCommerce')) {
         </div>
         <div class="tgm-collection-grid">
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/smart-home/')); ?>">
-                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=82" alt="Smart home devices" width="640" height="420" loading="lazy">
+                <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=82', 'Smart home devices', '', 640, 420, 'lazy', '(max-width: 760px) 100vw, 33vw'); ?>
                 <span><strong>Smart Living</strong><em>Lighting, security and connected comfort.</em></span>
             </a>
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/furniture/')); ?>">
-                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=82" alt="Modern home furniture" width="640" height="420" loading="lazy">
+                <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=82', 'Modern home furniture', '', 640, 420, 'lazy', '(max-width: 760px) 100vw, 33vw'); ?>
                 <span><strong>Home Refresh</strong><em>Furniture and organization essentials.</em></span>
             </a>
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/kitchen-dining/')); ?>">
-                <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=82" alt="Kitchen appliances and cookware" width="640" height="420" loading="lazy">
+                <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=82', 'Kitchen appliances and cookware', '', 640, 420, 'lazy', '(max-width: 760px) 100vw, 33vw'); ?>
                 <span><strong>Kitchen Favorites</strong><em>Appliances, cookware and coffee gear.</em></span>
             </a>
         </div>

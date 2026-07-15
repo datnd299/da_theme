@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Topgoodmart';
 $site_domain    = 'topgoodmart.com';
 $support_email  = 'support@topgoodmart.com';
-$store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $last_updated   = __('May 29, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
@@ -162,6 +162,29 @@ $sections = [
         ],
     ],
 ];
+
+$terms_faqs = [
+    [
+        'question' => __('What do these Terms cover?', 'dawp'),
+        'answer'   => __('These Terms govern access to Topgoodmart, browsing the catalog, creating an account, contacting support, and purchasing products through topgoodmart.com.', 'dawp'),
+    ],
+    [
+        'question' => __('When is an order accepted?', 'dawp'),
+        'answer'   => __('An order confirmation email means we received your purchase request. We may still review, decline, cancel, or limit an order when necessary for fraud, pricing, inventory, payment, shipping, or policy reasons.', 'dawp'),
+    ],
+    [
+        'question' => __('Which policies are part of the customer agreement?', 'dawp'),
+        'answer'   => __('Shipping, returns, refunds, and privacy terms are integrated into the customer agreement through the Shipping Policy, Return & Refund Policy, and Privacy Policy.', 'dawp'),
+    ],
+    [
+        'question' => __('How can I contact support about the Terms?', 'dawp'),
+        'answer'   => sprintf(
+            /* translators: support email */
+            __('Email %s or use the Contact Us page for questions, complaints, or clarification about these Terms & Conditions or an active order.', 'dawp'),
+            $support_email
+        ),
+    ],
+];
 ?>
 
 <div class="bg-white text-[#1F2937]">
@@ -189,9 +212,9 @@ $sections = [
             <div class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
                 <p class="mt-3 font-heading text-2xl font-extrabold text-[#1F2937]"><?php echo esc_html($last_updated); ?></p>
-                <div class="mt-5 grid gap-4 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                <div class="terms-highlight-slider mt-5 grid gap-4 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                     <?php foreach ($terms_highlights as $highlight) : ?>
-                        <article class="rounded-md border border-[#E5E7EB] bg-[#FFFFFF] p-4">
+                        <article class="terms-highlight-card rounded-md border border-[#E5E7EB] bg-[#FFFFFF] p-4">
                             <h2 class="font-heading text-base font-extrabold text-[#1F2937]"><?php echo esc_html($highlight['title']); ?></h2>
                             <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($highlight['copy']); ?></p>
                         </article>
@@ -279,6 +302,21 @@ $sections = [
                             </div>
                         <?php endforeach; ?>
                     </dl>
+                </article>
+
+                <article class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php esc_html_e('Terms FAQs', 'dawp'); ?></h2>
+                    <div class="mt-6 divide-y divide-[#E5E7EB]">
+                        <?php foreach ($terms_faqs as $item) : ?>
+                            <details class="group py-5 first:pt-0 last:pb-0">
+                                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#1F2937]">
+                                    <span><?php echo esc_html($item['question']); ?></span>
+                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#EAF2FF] text-[#0046BE] transition group-open:rotate-45" aria-hidden="true">+</span>
+                                </summary>
+                                <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($item['answer']); ?></p>
+                            </details>
+                        <?php endforeach; ?>
+                    </div>
                 </article>
             </div>
         </div>

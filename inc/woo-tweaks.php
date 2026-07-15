@@ -16,30 +16,39 @@ add_filter('woocommerce_enqueue_styles', '__return_empty_array');
  * @return string
  */
 function dawp_get_store_address() {
-    $address_1 = get_option('woocommerce_store_address', '');
-    $address_2 = get_option('woocommerce_store_address_2', '');
-    $city      = get_option('woocommerce_store_city', '');
-    $postcode  = get_option('woocommerce_store_postcode', '');
-    $country_state = get_option('woocommerce_default_country', '');
-    
-    $state = '';
-    if ( strpos( $country_state, ':' ) !== false ) {
-        list( $country, $state ) = explode( ':', $country_state );
+    $address_1     = trim((string) get_option('woocommerce_store_address', ''));
+    $address_2     = trim((string) get_option('woocommerce_store_address_2', ''));
+    $city          = trim((string) get_option('woocommerce_store_city', ''));
+    $postcode      = trim((string) get_option('woocommerce_store_postcode', ''));
+    $country_state = trim((string) get_option('woocommerce_default_country', ''));
+
+    $country = '';
+    $state   = '';
+
+    if (strpos($country_state, ':') !== false) {
+        [$country, $state] = array_pad(explode(':', $country_state, 2), 2, '');
     } else {
-        $state = $country_state; // fallback if no colon
+        $country = $country_state;
     }
 
-    $address = trim( $address_1 . ' ' . $address_2 );
-    if ( $city ) {
-        $address .= $address ? ', ' . $city : $city;
+    $woocommerce = function_exists('WC') ? WC() : null;
+
+    if ($woocommerce && !empty($woocommerce->countries)) {
+        $countries = $woocommerce->countries->get_countries();
+        $states    = $country ? $woocommerce->countries->get_states($country) : [];
+
+        if ($state && is_array($states) && isset($states[$state])) {
+            $state = $states[$state];
+        }
+
+        if ($country && isset($countries[$country])) {
+            $country = $countries[$country];
+        }
     }
-    if ( $state ) {
-        $address .= $address ? ', ' . $state : $state;
-    }
-    if ( $postcode ) {
-        $address .= $address ? ' ' . $postcode : $postcode;
-    }
-    
-    return $address;
+
+    $city_line = trim(implode(' ', array_filter([$city, $state, $postcode])));
+    $parts     = array_filter([$address_1, $address_2, $city_line, $country]);
+
+    return implode(', ', $parts);
 }
 

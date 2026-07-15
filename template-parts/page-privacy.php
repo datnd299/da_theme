@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Topgoodmart';
 $site_domain    = 'topgoodmart.com';
 $support_email  = 'support@topgoodmart.com';
-$store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
@@ -150,6 +150,25 @@ $sections = [
         ],
     ],
 ];
+
+$privacy_faqs = [
+    [
+        'question' => __('Does Topgoodmart sell my personal information?', 'dawp'),
+        'answer'   => __('No. Topgoodmart does not sell, rent, trade, or monetize personal information to third parties as a business practice.', 'dawp'),
+    ],
+    [
+        'question' => __('Does Topgoodmart store my full credit card number?', 'dawp'),
+        'answer'   => __('No. We do not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+    ],
+    [
+        'question' => __('Can I request access, correction, or deletion of my data?', 'dawp'),
+        'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain by contacting support.', 'dawp'),
+    ],
+    [
+        'question' => __('Can I disable cookies?', 'dawp'),
+        'answer'   => __('You can adjust cookie preferences through your browser settings, but disabling all cookies may affect core shopping features such as cart, checkout, and payment functionality.', 'dawp'),
+    ],
+];
 ?>
 
 <div class="bg-white text-[#1F2937]">
@@ -265,6 +284,21 @@ $sections = [
                             </div>
                         <?php endforeach; ?>
                     </dl>
+                </article>
+
+                <article class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php esc_html_e('Privacy FAQs', 'dawp'); ?></h2>
+                    <div class="mt-6 divide-y divide-[#E5E7EB]">
+                        <?php foreach ($privacy_faqs as $item) : ?>
+                            <details class="group py-5 first:pt-0 last:pb-0">
+                                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#1F2937]">
+                                    <span><?php echo esc_html($item['question']); ?></span>
+                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#EAF2FF] text-[#0046BE] transition group-open:rotate-45" aria-hidden="true">+</span>
+                                </summary>
+                                <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($item['answer']); ?></p>
+                            </details>
+                        <?php endforeach; ?>
+                    </div>
                 </article>
             </div>
         </div>

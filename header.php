@@ -31,13 +31,16 @@ if (!$account_url) {
 }
 
 $nav_items = [
-    ['title' => __('Home Essentials', 'dawp'), 'url' => home_url('/product-category/home-essentials/')],
-    ['title' => __('Furniture', 'dawp'), 'url' => home_url('/product-category/furniture/')],
-    ['title' => __('Electronics', 'dawp'), 'url' => home_url('/product-category/electronics/')],
-    ['title' => __('Smart Home', 'dawp'), 'url' => home_url('/product-category/smart-home/')],
-    ['title' => __('Kitchen & Dining', 'dawp'), 'url' => home_url('/product-category/kitchen-dining/')],
-    ['title' => __('Outdoor & Garden', 'dawp'), 'url' => home_url('/product-category/outdoor-garden/')],
+    ['title' => __('Home Essentials', 'dawp'), 'url' => home_url('/product-category/home-essentials/'), 'slug' => 'home-essentials'],
+    ['title' => __('Furniture', 'dawp'), 'url' => home_url('/product-category/furniture/'), 'slug' => 'furniture'],
+    ['title' => __('Electronics', 'dawp'), 'url' => home_url('/product-category/electronics/'), 'slug' => 'electronics'],
+    ['title' => __('Smart Home', 'dawp'), 'url' => home_url('/product-category/smart-home/'), 'slug' => 'smart-home'],
+    ['title' => __('Kitchen & Dining', 'dawp'), 'url' => home_url('/product-category/kitchen-dining/'), 'slug' => 'kitchen-dining'],
+    ['title' => __('Outdoor & Garden', 'dawp'), 'url' => home_url('/product-category/outdoor-garden/'), 'slug' => 'outdoor-garden'],
 ];
+
+$is_sale_nav_current = function_exists('is_shop') && is_shop() && isset($_GET['on_sale']) && '1' === sanitize_text_field(wp_unslash($_GET['on_sale']));
+$is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_current;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -66,32 +69,39 @@ $nav_items = [
         .tgm-actions { display:flex; align-items:center; gap:10px; }
         .tgm-icon-link, .tgm-menu-toggle { position:relative; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border:1px solid var(--tgm-line); border-radius:8px; background:#fff; color:var(--tgm-blue); transition:background .16s, color .16s, border-color .16s; }
         .tgm-icon-link:hover, .tgm-menu-toggle:hover { border-color:var(--tgm-blue); background:#eef5ff; }
+        .tgm-search-toggle { display:none; }
         .tgm-cart { background:var(--tgm-blue); color:#fff; border-color:var(--tgm-blue); }
         .tgm-cart:hover { background:#00389a; color:#fff; }
         .tgm-cart-count { position:absolute; right:-6px; top:-7px; display:flex; align-items:center; justify-content:center; min-width:21px; height:21px; border:2px solid #fff; border-radius:999px; background:var(--tgm-yellow); color:var(--tgm-ink); padding:0 5px; font-size:11px; font-weight:900; }
         .tgm-nav-wrap { border-top:1px solid var(--tgm-line); background:var(--tgm-soft); }
-        .tgm-nav { display:flex; align-items:center; gap:4px; min-height:46px; overflow-x:auto; scrollbar-width:none; }
+        .tgm-nav { display:flex; align-items:center; gap:3px; min-height:34px; overflow-x:auto; scrollbar-width:none; }
         .tgm-nav::-webkit-scrollbar { display:none; }
-        .tgm-nav a { flex:none; border-radius:8px; padding:10px 12px; color:#263244; font-size:.9rem; font-weight:800; text-decoration:none; transition:background .16s, color .16s; }
+        .tgm-nav a { flex:none; border-radius:5px; padding:5px 9px; color:#263244; font-size:.82rem; font-weight:600; line-height:1.2; text-decoration:none; transition:background .16s, color .16s; }
         .tgm-nav a:hover { background:#fff; color:var(--tgm-blue); }
-        .tgm-deal-link { background:var(--tgm-yellow); color:var(--tgm-ink) !important; }
-        .tgm-mobile-panel { display:none; border-top:1px solid var(--tgm-line); background:#fff; padding:14px 0 18px; }
+        .tgm-nav a.is-current { background:var(--tgm-yellow); color:var(--tgm-ink); font-weight:700; box-shadow:inset 0 -1px rgba(17,24,39,.12); }
+        .tgm-mobile-panel { display:none; border-top:1px solid var(--tgm-line); background:#fff; padding:12px 0 14px; }
         .tgm-mobile-panel.is-open { display:block; }
-        .tgm-mobile-nav { display:grid; gap:6px; margin-top:12px; }
-        .tgm-mobile-nav a { border-radius:8px; background:var(--tgm-soft); padding:12px 14px; color:var(--tgm-text); font-weight:800; text-decoration:none; }
+        .tgm-mobile-search-panel { padding:12px 0; }
+        .tgm-mobile-nav { display:grid; gap:5px; margin-top:8px; }
+        .tgm-mobile-nav a { border-radius:7px; background:var(--tgm-soft); padding:10px 12px; color:var(--tgm-text); font-size:.92rem; font-weight:600; text-decoration:none; }
+        .tgm-mobile-nav a.is-current { background:var(--tgm-yellow); color:var(--tgm-ink); font-weight:700; }
         @media (max-width: 960px) {
             .tgm-header__top-row { justify-content:center; text-align:center; }
             .tgm-header__top-links, .tgm-nav-wrap, .tgm-account-link { display:none; }
-            .tgm-header__main { grid-template-columns:auto auto; gap:12px; min-height:68px; }
-            .tgm-search { grid-column:1 / -1; order:3; }
+            .tgm-header__main { display:flex; justify-content:space-between; gap:12px; min-height:64px; }
+            .tgm-header-search { display:none; }
             .tgm-logo img { height:36px; max-width:168px; }
             .tgm-actions { justify-self:end; }
+            .tgm-search-toggle { display:inline-flex; }
         }
         @media (min-width: 961px) { .tgm-menu-toggle { display:none; } }
         @media (max-width: 520px) {
             .tgm-header__inner { width:min(100% - 24px,1280px); }
-            .tgm-logo img { height:32px; max-width:148px; }
-            .tgm-icon-link, .tgm-menu-toggle { width:40px; height:40px; }
+            .tgm-header__top-row { min-height:34px; font-size:.76rem; line-height:1.35; }
+            .tgm-logo img { height:30px; max-width:104px; }
+            .tgm-actions { gap:8px; }
+            .tgm-icon-link, .tgm-menu-toggle { width:38px; height:38px; }
+            .tgm-cart-count { right:-5px; top:-6px; min-width:19px; height:19px; font-size:10px; }
         }
     </style>
 
@@ -108,7 +118,6 @@ $nav_items = [
         <div class="tgm-header__inner tgm-header__top-row">
             <p><?php esc_html_e('Fast U.S. shipping, secure checkout and everyday deals for modern living.', 'dawp'); ?></p>
             <div class="tgm-header__top-links">
-                <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
                 <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
             </div>
         </div>
@@ -116,10 +125,10 @@ $nav_items = [
 
     <div class="tgm-header__inner tgm-header__main">
         <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('Topgoodmart home', 'dawp'); ?>">
-            <img src="<?php echo esc_url($logo_url); ?>" width="196" height="42" alt="<?php esc_attr_e('Topgoodmart', 'dawp'); ?>" decoding="async" fetchpriority="high">
+            <?php echo dawp_get_responsive_image($logo_url, __('Topgoodmart', 'dawp'), '', 196, 42, 'eager', '(max-width: 520px) 104px, (max-width: 960px) 168px, 196px', 'high'); ?>
         </a>
 
-        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="tgm-search">
+        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="tgm-search tgm-header-search">
             <label class="screen-reader-text" for="header-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
             <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search home, electronics, kitchen and more', 'dawp'); ?>">
             <input type="hidden" name="post_type" value="product">
@@ -129,6 +138,9 @@ $nav_items = [
         </form>
 
         <div class="tgm-actions">
+            <button type="button" class="tgm-icon-link tgm-search-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Open product search', 'dawp'); ?>" aria-controls="mobile-search-panel" onclick="const panel=document.getElementById('mobile-search-panel'); const input=document.getElementById('mobile-product-search'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); panel.classList.toggle('is-open'); if (!expanded && input) { window.setTimeout(() => input.focus(), 80); }">
+                <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+            </button>
             <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="tgm-icon-link" aria-label="<?php esc_attr_e('Track order', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle></svg>
             </a>
@@ -147,21 +159,36 @@ $nav_items = [
 
     <div class="tgm-nav-wrap">
         <nav class="tgm-header__inner tgm-nav" aria-label="<?php esc_attr_e('Store departments', 'dawp'); ?>">
-            <a class="tgm-deal-link" href="<?php echo esc_url(home_url('/shop/?on_sale=1')); ?>"><?php esc_html_e('Deals', 'dawp'); ?></a>
-            <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop All', 'dawp'); ?></a>
+            <a class="tgm-deal-link<?php echo $is_sale_nav_current ? ' is-current' : ''; ?>" href="<?php echo esc_url(home_url('/shop/?on_sale=1')); ?>"<?php echo $is_sale_nav_current ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Deals', 'dawp'); ?></a>
+            <a class="<?php echo $is_shop_nav_current ? 'is-current' : ''; ?>" href="<?php echo esc_url($shop_url); ?>"<?php echo $is_shop_nav_current ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Shop All', 'dawp'); ?></a>
             <?php foreach ($nav_items as $item) : ?>
-                <a href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
+                <?php $is_item_current = function_exists('is_product_category') && is_product_category($item['slug']); ?>
+                <a class="<?php echo $is_item_current ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $is_item_current ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
             <?php endforeach; ?>
         </nav>
+    </div>
+
+    <div id="mobile-search-panel" class="tgm-mobile-panel tgm-mobile-search-panel">
+        <div class="tgm-header__inner">
+            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="tgm-search">
+                <label class="screen-reader-text" for="mobile-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search products', 'dawp'); ?>">
+                <input type="hidden" name="post_type" value="product">
+                <button type="submit" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+                </button>
+            </form>
+        </div>
     </div>
 
     <div id="mobile-store-menu" class="tgm-mobile-panel">
         <div class="tgm-header__inner">
             <nav class="tgm-mobile-nav" aria-label="<?php esc_attr_e('Mobile store navigation', 'dawp'); ?>">
-                <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop All Products', 'dawp'); ?></a>
-                <a href="<?php echo esc_url(home_url('/shop/?on_sale=1')); ?>"><?php esc_html_e('Deals', 'dawp'); ?></a>
+                <a class="<?php echo $is_shop_nav_current ? 'is-current' : ''; ?>" href="<?php echo esc_url($shop_url); ?>"<?php echo $is_shop_nav_current ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Shop All Products', 'dawp'); ?></a>
+                <a class="<?php echo $is_sale_nav_current ? 'is-current' : ''; ?>" href="<?php echo esc_url(home_url('/shop/?on_sale=1')); ?>"<?php echo $is_sale_nav_current ? ' aria-current="page"' : ''; ?>><?php esc_html_e('Deals', 'dawp'); ?></a>
                 <?php foreach ($nav_items as $item) : ?>
-                    <a href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
+                    <?php $is_item_current = function_exists('is_product_category') && is_product_category($item['slug']); ?>
+                    <a class="<?php echo $is_item_current ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $is_item_current ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
                 <?php endforeach; ?>
                 <a href="<?php echo esc_url($account_url); ?>"><?php esc_html_e('My Account', 'dawp'); ?></a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>

@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 
 $store_name     = 'Topgoodmart';
 $support_email  = 'support@topgoodmart.com';
-$store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
@@ -105,6 +105,25 @@ $contact_cards = [
     [
         'label' => __('Response Time', 'dawp'),
         'value' => __('We aim to reply within 1 business day. Response times may vary on weekends, holidays, or high-volume periods.', 'dawp'),
+    ],
+];
+
+$return_faqs = [
+    [
+        'question' => __('What is the return window?', 'dawp'),
+        'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible defective and non-defective products.', 'dawp'),
+    ],
+    [
+        'question' => __('Who pays return shipping?', 'dawp'),
+        'answer'   => __('Topgoodmart covers return shipping for defective, damaged, carrier-damaged, or incorrect products. For customer-remorse returns, the actual prepaid label cost is deducted from the refund.', 'dawp'),
+    ],
+    [
+        'question' => __('Do you charge restocking fees?', 'dawp'),
+        'answer'   => __('No. Topgoodmart does not charge restocking fees for eligible returns.', 'dawp'),
+    ],
+    [
+        'question' => __('When will I receive my refund?', 'dawp'),
+        'answer'   => __('Once your return package is received, we inspect it within 1-2 business days. Approved refunds are processed automatically to the original payment method within 7 business days.', 'dawp'),
     ],
 ];
 ?>
@@ -266,6 +285,21 @@ $contact_cards = [
                             </div>
                         <?php endforeach; ?>
                     </dl>
+                </div>
+            </article>
+
+            <article class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm sm:p-8">
+                <h2 class="font-heading text-3xl font-extrabold text-[#1F2937] sm:text-4xl"><?php esc_html_e('Return & Refund FAQs', 'dawp'); ?></h2>
+                <div class="mt-6 divide-y divide-[#E5E7EB]">
+                    <?php foreach ($return_faqs as $item) : ?>
+                        <details class="group py-5 first:pt-0 last:pb-0">
+                            <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#1F2937]">
+                                <span><?php echo esc_html($item['question']); ?></span>
+                                <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#EAF2FF] text-[#0046BE] transition group-open:rotate-45" aria-hidden="true">+</span>
+                            </summary>
+                            <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($item['answer']); ?></p>
+                        </details>
+                    <?php endforeach; ?>
                 </div>
             </article>
         </div>

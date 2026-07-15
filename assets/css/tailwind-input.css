@@ -342,6 +342,10 @@
   scroll-snap-align: center;
 }
 
+.terms-highlight-card {
+  min-height: 100%;
+}
+
 @media (min-width: 40rem) {
   .about-story-gallery {
     display: grid;
@@ -398,7 +402,7 @@
   font-size: clamp(2.25rem, 6vw, 4.35rem);
   font-weight: 900;
   letter-spacing: 0;
-  line-height: 1.05;
+  line-height: 1.12;
   margin: 0;
   max-width: 820px;
 }
@@ -409,8 +413,8 @@
   color: #334155;
   font-size: clamp(1rem, 2vw, 1.13rem);
   font-weight: 500;
-  line-height: 1.65;
-  margin: 18px 0 0;
+  line-height: 1.72;
+  margin: 22px 0 0;
 }
 
 .tgm-about-hero__media,
@@ -462,13 +466,13 @@
   font-size: clamp(1.75rem, 3vw, 2.55rem);
   font-weight: 900;
   letter-spacing: 0;
-  line-height: 1.08;
+  line-height: 1.16;
   margin: 0;
 }
 
 .tgm-about-story__copy {
   display: grid;
-  gap: 14px;
+  gap: 18px;
 }
 
 .tgm-about-story__copy p {
@@ -494,7 +498,7 @@
   color: #050505;
   font-size: 1.08rem;
   font-weight: 900;
-  line-height: 1.25;
+  line-height: 1.32;
   margin: 0;
 }
 
@@ -502,8 +506,8 @@
 .tgm-about-policy__grid span {
   color: #4B5563;
   display: block;
-  line-height: 1.58;
-  margin-top: 10px;
+  line-height: 1.68;
+  margin-top: 12px;
 }
 
 .tgm-about-card:hover,
@@ -620,7 +624,7 @@
   color: #111827;
   font-weight: 900;
   letter-spacing: 0;
-  line-height: 1.05;
+  line-height: 1.14;
   margin: 0;
 }
 
@@ -634,8 +638,8 @@
   color: #263244;
   font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 500;
-  line-height: 1.6;
-  margin: 18px 0 0;
+  line-height: 1.7;
+  margin: 22px 0 0;
   max-width: 620px;
 }
 
@@ -780,8 +784,8 @@
 .tgm-newsletter p:not(.tgm-eyebrow) {
   color: #4B5563;
   font-weight: 500;
-  line-height: 1.58;
-  margin: 8px 0 0;
+  line-height: 1.68;
+  margin: 12px 0 0;
 }
 
 .tgm-link {
@@ -847,7 +851,7 @@
 .tgm-trust h3 {
   color: #050505;
   font-weight: 900;
-  line-height: 1.25;
+  line-height: 1.32;
 }
 
 .tgm-category__body span,
@@ -856,12 +860,12 @@
 .tgm-review p {
   color: #4B5563;
   font-style: normal;
-  line-height: 1.55;
+  line-height: 1.66;
 }
 
 .tgm-category__body span {
   font-size: 0.88rem;
-  margin-top: 7px;
+  margin-top: 9px;
 }
 
 .tgm-category__body em {
@@ -1210,6 +1214,93 @@
   .tgm-section__head {
     align-items: start;
     flex-direction: column;
+  }
+
+  .tgm-about-card-grid,
+  .tgm-collection-grid,
+  .tgm-product-grid,
+  .tgm-review-row,
+  .tgm-trust-grid,
+  .tgm-about-policy__grid,
+  .terms-highlight-slider {
+    display: flex;
+    gap: 14px;
+    margin-inline: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-inline: 1rem;
+    padding-bottom: 0.5rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .tgm-about-card-grid::-webkit-scrollbar,
+  .tgm-collection-grid::-webkit-scrollbar,
+  .tgm-product-grid::-webkit-scrollbar,
+  .tgm-review-row::-webkit-scrollbar,
+  .tgm-trust-grid::-webkit-scrollbar,
+  .tgm-about-policy__grid::-webkit-scrollbar,
+  .terms-highlight-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tgm-product {
+    flex: 0 0 calc((100% - 14px) / 1.5);
+    max-width: calc((100% - 14px) / 1.5);
+    scroll-snap-align: start;
+  }
+
+  .tgm-collection {
+    flex: 0 0 clamp(17rem, 82vw, 22rem);
+    max-width: clamp(17rem, 82vw, 22rem);
+    min-height: 220px;
+    scroll-snap-align: start;
+  }
+
+  .tgm-review {
+    flex: 0 0 clamp(17rem, 82vw, 22rem);
+    max-width: clamp(17rem, 82vw, 22rem);
+    min-height: 210px;
+    scroll-snap-align: start;
+  }
+
+  .tgm-about-card,
+  .tgm-trust,
+  .tgm-about-policy__grid a {
+    flex: 0 0 clamp(16rem, 82vw, 20rem);
+    max-width: clamp(16rem, 82vw, 20rem);
+    min-height: 150px;
+    scroll-snap-align: start;
+  }
+
+  .tgm-about-card-grid .tgm-about-card {
+    min-height: 170px;
+  }
+
+  .tgm-trust-grid .tgm-trust {
+    min-height: 166px;
+  }
+
+  .tgm-about-policy__grid a {
+    display: block;
+  }
+
+  .terms-highlight-card {
+    flex: 0 0 clamp(15.5rem, 78vw, 19rem);
+    max-width: clamp(15.5rem, 78vw, 19rem);
+    min-height: 236px;
+    scroll-snap-align: start;
+  }
+
+  .tgm-section--blue {
+    overflow: hidden;
+  }
+
+  .tgm-section--blue .tgm-container,
+  .tgm-section--soft .tgm-container,
+  .tgm-about-policy {
+    overflow: visible;
   }
 
   .tgm-category__body {

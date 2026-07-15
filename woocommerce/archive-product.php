@@ -14,16 +14,71 @@ $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object
 $archive_title = __('All Products', 'dawp');
 $archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from Topgoodmart.', 'dawp');
 $archive_eyebrow = __('Topgoodmart Collection', 'dawp');
+$archive_slug = 'shop';
+
+$shop_cover_images = [
+    'shop' => [
+        'url' => 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=86',
+        'alt' => __('Modern living room with furniture, decor, and connected home products', 'dawp'),
+    ],
+    'home-essentials' => [
+        'url' => 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1400&q=86',
+        'alt' => __('Organized home essentials and daily care products', 'dawp'),
+    ],
+    'furniture' => [
+        'url' => 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=86',
+        'alt' => __('Modern living room furniture with sofa and tables', 'dawp'),
+    ],
+    'electronics' => [
+        'url' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=86',
+        'alt' => __('Laptop and electronics accessories on a clean desk', 'dawp'),
+    ],
+    'smart-home' => [
+        'url' => 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1400&q=86',
+        'alt' => __('Smart home devices and connected lighting controls', 'dawp'),
+    ],
+    'kitchen-dining' => [
+        'url' => 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1400&q=86',
+        'alt' => __('Bright kitchen with cookware and dining essentials', 'dawp'),
+    ],
+    'outdoor-garden' => [
+        'url' => 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=86',
+        'alt' => __('Outdoor patio seating and garden living products', 'dawp'),
+    ],
+];
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;
+    $archive_slug = $archive_term->slug;
     $term_description = term_description($archive_term->term_id, $archive_term->taxonomy);
     $archive_description = $term_description ? wp_strip_all_tags($term_description) : $archive_description;
     $archive_eyebrow = is_product_tag() ? __('Shop By Tag', 'dawp') : __('Shop By Category', 'dawp');
 }
 
+$archive_cover = $shop_cover_images[$archive_slug] ?? $shop_cover_images['shop'];
+
+if ($archive_term && !is_wp_error($archive_term) && is_product_category()) {
+    $thumbnail_id = (int) get_term_meta($archive_term->term_id, 'thumbnail_id', true);
+
+    if ($thumbnail_id) {
+        $thumbnail_url = wp_get_attachment_image_url($thumbnail_id, 'full');
+
+        if ($thumbnail_url) {
+            $archive_cover = [
+                'url' => $thumbnail_url,
+                'alt' => sprintf(
+                    /* translators: %s: product category name */
+                    __('%s collection cover image', 'dawp'),
+                    $archive_title
+                ),
+            ];
+        }
+    }
+}
+
 global $wp_query;
 $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
+$categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
 ?>
 
 <div class="shop-page">
@@ -71,6 +126,9 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
                 </span>
                 <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all products', 'dawp'); ?></a>
             </div>
+        </div>
+        <div class="shop-header__media">
+            <?php echo dawp_get_responsive_image($archive_cover['url'], $archive_cover['alt'], '', 640, 520, 'eager', '(max-width: 900px) 100vw, 42vw', 'high'); ?>
         </div>
     </div>
 
@@ -136,7 +194,6 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
 
             <?php
             // Categories widget
-            $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
             if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
             <div class="shop-sidebar__widget">
                 <h3 class="shop-sidebar__title">Categories</h3>

@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email = 'support@topgoodmart.com';
-$store_address = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
+$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
 $last_updated  = __('May 29, 2026', 'dawp');
@@ -75,6 +75,25 @@ $contact_details = [
     [
         'label' => __('Response Time', 'dawp'),
         'value' => __('Within 24 business hours.', 'dawp'),
+    ],
+];
+
+$shipping_faqs = [
+    [
+        'question' => __('Where does Topgoodmart ship?', 'dawp'),
+        'answer'   => __('Topgoodmart currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+    ],
+    [
+        'question' => __('How much does standard shipping cost?', 'dawp'),
+        'answer'   => __('Standard U.S. shipping is free for all orders nationwide with no minimum purchase requirement. Optional upgraded shipping, when available, is shown clearly at checkout before payment.', 'dawp'),
+    ],
+    [
+        'question' => __('How long will my order take to arrive?', 'dawp'),
+        'answer'   => __('Order handling takes 1-3 business days and standard transit takes 5-7 business days, so estimated delivery is 6-10 business days total from the date of purchase.', 'dawp'),
+    ],
+    [
+        'question' => __('Will I receive tracking information?', 'dawp'),
+        'answer'   => __('Yes. Once your order is dispatched, we send a shipping confirmation email with a direct tracking link and courier details to the email address used at checkout.', 'dawp'),
     ],
 ];
 ?>
@@ -237,6 +256,23 @@ $contact_details = [
                         </div>
                     <?php endforeach; ?>
                 </div>
+            </div>
+        </section>
+
+        <section class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="shipping-faq-title">
+            <h2 id="shipping-faq-title" class="font-heading text-4xl font-extrabold leading-tight text-[#1F2937]">
+                <?php esc_html_e('Shipping FAQs', 'dawp'); ?>
+            </h2>
+            <div class="mt-6 divide-y divide-[#E5E7EB]">
+                <?php foreach ($shipping_faqs as $item) : ?>
+                    <details class="group py-5 first:pt-0 last:pb-0">
+                        <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#1F2937]">
+                            <span><?php echo esc_html($item['question']); ?></span>
+                            <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#EAF2FF] text-[#0046BE] transition group-open:rotate-45" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280] sm:text-base"><?php echo esc_html($item['answer']); ?></p>
+                    </details>
+                <?php endforeach; ?>
             </div>
         </section>
         </div>

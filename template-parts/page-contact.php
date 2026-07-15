@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Topgoodmart';
 $support_email  = 'support@topgoodmart.com';
 $business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM Pacific Time';
-$store_address  = function_exists('dawp_get_store_address') && dawp_get_store_address() ? dawp_get_store_address() : '4803 N Milwaukee Ave, Chicago, IL 60630';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $status         = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 
@@ -67,7 +67,7 @@ $contact_topics = [
             </div>
         </div>
         <div class="tgm-hero__media">
-            <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1400&q=86" alt="Customer support desk with laptop and shopping packages" width="700" height="560" loading="eager" decoding="async">
+            <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1400&q=86', 'Customer support desk with laptop and shopping packages', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
             <div class="tgm-hero__deal">
                 <strong>Support Hours</strong>
                 <span><?php echo esc_html($business_hours); ?></span>

@@ -11,6 +11,11 @@ if (!defined('ABSPATH')) {
 
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
+$support_email  = 'support@topgoodmart.com';
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$address_lines = preg_split('/,\s+(?=[A-Z]{2}\s+\d{5}(?:-\d{4})?$)/', $store_address, 2);
+$business_hours_lines = preg_split('/(?=5:00 PM, GMT-08:00 Pacific Standard Time)/', $business_hours, 2);
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -79,26 +84,62 @@ $footer_columns = [
 <footer class="tgm-footer" role="contentinfo">
     <style>
         .tgm-footer { background:#f1f3f5; border-top:1px solid #c9cdd2; color:#001e3c; font-family:"Avenir Next for Best Buy", "Avenir Next", Avenir, Arial, "Helvetica Neue", Helvetica, sans-serif; letter-spacing:0; text-rendering:optimizeLegibility; }
-        .tgm-footer__inner { width:min(100% - 32px,1280px); margin-inline:auto; }
+        .tgm-footer__inner { width:min(100% - 24px,1440px); margin-inline:auto; }
         .tgm-footer__main { padding:32px 0 44px; }
-        .tgm-footer__columns { display:grid; gap:28px 48px; }
-        .tgm-footer__columns h2 { margin:0 0 13px; color:#001e3c; font-size:15px; font-weight:800; line-height:1.25; }
+        .tgm-footer__columns { display:grid; justify-content:center; gap:28px 64px; }
+        .tgm-footer__columns h2 { margin:0 0 13px; color:#001e3c; font-size:15px; font-weight:700; line-height:1.25; }
         .tgm-footer__columns ul { display:grid; gap:12px; margin:0; padding:0; list-style:none; font-size:14px; line-height:1.3; }
-        .tgm-footer__columns a { color:#0046be; text-decoration:none; }
+        .tgm-footer__columns a { color:#0046be; font-weight:400; text-decoration:none; }
         .tgm-footer__columns a:hover { text-decoration:underline; }
-        .tgm-footer__bottom { border-top:1px solid #d6d9dd; padding:14px 0; color:#334155; font-size:13px; }
+        .tgm-footer__columns > section:first-child { padding-right:24px; }
+        .tgm-footer__contact-list { display:grid; gap:15px; margin:0; color:#0046be; font-size:14px; font-weight:400; line-height:1.3; }
+        .tgm-footer__contact-list div { display:grid; grid-template-columns:max-content minmax(0,1fr); align-items:start; gap:6px; }
+        .tgm-footer__contact-list .tgm-footer__contact-list-item--break dd { display:contents; }
+        .tgm-footer__contact-list .tgm-footer__contact-break-line { grid-column:1 / -1; }
+        .tgm-footer__contact-list dt { margin:0; color:#0046be; font-size:14px; font-weight:600; }
+        .tgm-footer__contact-list dd { margin:0; }
+        .tgm-footer__contact-list a { color:#0046be; text-decoration:none; overflow-wrap:anywhere; }
+        .tgm-footer__contact-list a:hover { text-decoration:underline; }
+        .tgm-footer__bottom { border-top:1px solid #d6d9dd; padding:14px 0; color:#334155; font-size:13px; font-weight:400; }
         .tgm-footer__bottom-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px 24px; }
         .tgm-footer__bottom p { margin:0; }
         .tgm-footer__payments { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
         .tgm-footer__payment { display:inline-flex; align-items:center; justify-content:center; width:54px; height:34px; padding:5px 7px; border:1px solid #d6d9dd; border-radius:6px; background:#fff; }
         .tgm-footer__payment img { display:block; max-width:100%; max-height:100%; object-fit:contain; }
         @media (min-width: 760px) {
-            .tgm-footer__columns { grid-template-columns:repeat(3,minmax(0,1fr)); }
+            .tgm-footer__columns { grid-template-columns:minmax(320px,380px) repeat(3,minmax(170px,220px)); }
         }
     </style>
 
     <div class="tgm-footer__inner tgm-footer__main">
         <div class="tgm-footer__columns">
+            <section aria-labelledby="tgm-footer-contact-title">
+                <h2 id="tgm-footer-contact-title"><?php esc_html_e('Contact Info', 'dawp'); ?></h2>
+                <dl class="tgm-footer__contact-list">
+                    <div class="tgm-footer__contact-list-item--break">
+                        <dt><?php esc_html_e('Address:', 'dawp'); ?></dt>
+                        <dd>
+                            <span><?php echo esc_html($address_lines[0]); ?></span>
+                            <?php if (!empty($address_lines[1])) : ?>
+                                <span class="tgm-footer__contact-break-line"><?php echo esc_html($address_lines[1]); ?></span>
+                            <?php endif; ?>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>
+                        <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
+                    </div>
+                    <div class="tgm-footer__contact-list-item--stacked tgm-footer__contact-list-item--break">
+                        <dt><?php esc_html_e('Business Hours:', 'dawp'); ?></dt>
+                        <dd>
+                            <span><?php echo esc_html($business_hours_lines[0]); ?></span>
+                            <?php if (!empty($business_hours_lines[1])) : ?>
+                                <span class="tgm-footer__contact-break-line"><?php echo esc_html($business_hours_lines[1]); ?></span>
+                            <?php endif; ?>
+                        </dd>
+                    </div>
+                </dl>
+            </section>
             <?php foreach ($footer_columns as $column) : ?>
                 <nav aria-label="<?php echo esc_attr($column['title']); ?>">
                     <h2><?php echo esc_html($column['title']); ?></h2>
@@ -128,7 +169,7 @@ $footer_columns = [
                     $payment_url = add_query_arg('ver', filemtime($payment_path), $payment_url);
                     ?>
                     <span class="tgm-footer__payment">
-                        <img src="<?php echo esc_url($payment_url); ?>" alt="<?php echo esc_attr($method['name']); ?>" loading="lazy" decoding="async">
+                        <?php echo dawp_get_responsive_image($payment_url, $method['name'], '', 54, 34, 'lazy', '54px'); ?>
                     </span>
                 <?php endforeach; ?>
             </div>

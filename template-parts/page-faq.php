@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Topgoodmart';
 $site_domain    = 'topgoodmart.com';
 $support_email  = 'support@topgoodmart.com';
-$store_address  = function_exists('dawp_get_store_address') && !empty(dawp_get_store_address()) ? dawp_get_store_address() : __('4803 N Milwaukee Ave, Chicago, IL 60630', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
@@ -90,7 +90,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Which products are eligible for return?', 'dawp'),
-                'answer'   => __('Eligible items must be unused, undamaged, and in their original condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
+                'answer'   => __('Eligible items must be unused, undamaged, and in their original, unaltered condition with all original packaging, manuals, labels, parts, accessories, boxes, and included components.', 'dawp'),
             ],
             [
                 'question' => __('How do I start a return?', 'dawp'),
@@ -114,11 +114,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Which items are non-returnable?', 'dawp'),
-                'answer'   => __('Final Sale or Non-Returnable items, gift cards, digital products or downloads, personalized or custom-made items, hygiene-sensitive items with broken seals, and items worn, washed, altered, or damaged after delivery are not eligible for return.', 'dawp'),
+                'answer'   => __('Items marked as Final Sale or Non-Returnable, gift cards or digital products/downloads, personalized or custom-made items, hygiene-sensitive sealed or consumable items with broken seals, and items used, installed, altered, or damaged after delivery are not eligible for return.', 'dawp'),
             ],
             [
                 'question' => __('What should I do if my package is damaged or lost?', 'dawp'),
-                'answer'   => __('Contact us within 30 days of the delivery date or recorded delivery date. For damage, include photos of the item, shipping packaging, and shipping label. For missing packages or stalled tracking, we will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'),
+                'answer'   => __('For damaged orders, contact us within 30 days of delivery with photos of the item, shipping packaging, and shipping label. For missing packages, stalled tracking, or packages marked delivered but not received, contact us within 30 days of the recorded delivery date so we can investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'),
             ],
         ],
     ],
@@ -127,7 +127,7 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What does Topgoodmart sell?', 'dawp'),
-                'answer'   => __('Topgoodmart focuses on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+                'answer'   => __('Topgoodmart focuses on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, outdoor living items, and other home, electronics and lifestyle products.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
@@ -135,7 +135,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
-                'answer'   => __('No. Topgoodmart does not sell counterfeit goods, replica logos, unauthorized branded items, or unsafe regulated products.', 'dawp'),
+                'answer'   => __('No. Topgoodmart does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),

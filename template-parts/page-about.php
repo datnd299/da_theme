@@ -53,7 +53,7 @@ $trust = [
             </div>
         </div>
         <div class="tgm-about-hero__media">
-            <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86" alt="Bright modern home with furniture and everyday living products" width="760" height="560" loading="eager" decoding="async">
+            <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86', 'Bright modern home with furniture and everyday living products', '', 760, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
             <div class="tgm-about-hero__badge">
                 <strong>Built For Smarter Shopping</strong>
                 <span>Organized departments, helpful policies and everyday value.</span>
@@ -97,7 +97,7 @@ $trust = [
 <section class="tgm-section">
     <div class="tgm-container tgm-about-split">
         <div class="tgm-about-split__media">
-            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=84" alt="Kitchen and dining products in a clean modern home" width="620" height="520" loading="lazy" decoding="async">
+            <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=84', 'Kitchen and dining products in a clean modern home', '', 620, 520, 'lazy', '(max-width: 900px) 100vw, 45vw'); ?>
         </div>
         <div class="tgm-about-split__content">
             <p class="tgm-eyebrow">What we carry</p>

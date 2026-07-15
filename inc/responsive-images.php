@@ -124,13 +124,13 @@ function dawp_product_responsive_image($product, $class = '', $sizes = '') {
     return dawp_responsive_image(
         $url,
         $product->get_name(),
-        600,
-        600,
+        300,
+        300,
         array(
             array(240, 240),
+            array(300, 300),
             array(400, 400),
             array(600, 600),
-            array(800, 800),
         ),
         $sizes ?: '(max-width: 767px) calc((100vw - 48px) / 2), (max-width: 1199px) calc((100vw - 360px) / 3), 300px',
         array('class' => $class)

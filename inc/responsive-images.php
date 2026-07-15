@@ -50,7 +50,13 @@ function dawp_responsive_image($url, $alt, $width, $height, $variants, $sizes, $
         return $variant_width ? array($variant_width, $variant_height) : null;
     }, $variants)));
 
-    $src_variant = !empty($variants) ? end($variants) : array($width, $height);
+    $src_variant = array($width, $height);
+    foreach ($variants as $variant) {
+        if ((int) $variant[0] === $width) {
+            $src_variant = $variant;
+            break;
+        }
+    }
     $src = dawp_cdn_image_url($url, $src_variant[0], $src_variant[1] ?? 0);
 
     $srcset = array();

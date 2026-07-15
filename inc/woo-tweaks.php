@@ -93,8 +93,8 @@ function dawp_single_product_trust_badges() {
         ),
         array(
             'icon' => '<path d="M4 7h10v10H4z"/><path d="M14 10h3l3 3v4h-6z"/><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M17 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>',
-            'title' => __('U.S. Shipping', 'dawp'),
-            'copy' => __('Packed with care and shipped across the United States.', 'dawp'),
+            'title' => __('Free Shipping $49+', 'dawp'),
+            'copy' => __('Free U.S. shipping on orders over $49, packed with care.', 'dawp'),
         ),
         array(
             'icon' => '<path d="M12 2l2.7 6.1 6.6.6-5 4.4 1.5 6.5L12 16.2 6.2 19.6l1.5-6.5-5-4.4 6.6-.6L12 2z"/>',

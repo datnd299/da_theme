@@ -45,7 +45,7 @@ get_header(); ?>
     <p class="sgs-eyebrow sgs-eyebrow--light">FAQ</p>
     <h1>Frequently Asked Questions</h1>
     <p class="sgs-faq-hero__meta">Last Updated: July 5 2026</p>
-    <p>Find clear answers about ShopGraphicshirt orders, free U.S. shipping, tracking, returns, refunds, checkout security, and customer support.</p>
+    <p>Find clear answers about ShopGraphicshirt orders, free U.S. shipping on orders over $49, tracking, returns, refunds, checkout security, and customer support.</p>
   </div>
 </div>
 

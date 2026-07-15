@@ -64,7 +64,7 @@ get_header(); ?>
     <p class="sgs-eyebrow sgs-eyebrow--light">Shipping Policy</p>
     <h1>Shipping Policy</h1>
     <p class="sgs-sp-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 5 2026</p>
-    <p>Clear, transparent shipping information for every order — no hidden fees, no surprises.</p>
+    <p>Clear, transparent shipping information for every order — no hidden fees, no surprises. Enjoy free standard shipping on all U.S. orders over $49.</p>
   </div>
 </div>
 
@@ -124,7 +124,7 @@ get_header(); ?>
     <div class="sgs-sp-costs">
       <div class="sgs-sp-card">
         <h3>Standard U.S. Shipping</h3>
-        <p>Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.</p>
+        <p>Free for all U.S. orders over $49. Orders under $49 have a flat shipping fee, shown clearly at checkout before payment.</p>
       </div>
       <div class="sgs-sp-card">
         <h3>Optional Upgraded Shipping</h3>

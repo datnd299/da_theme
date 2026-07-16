@@ -391,7 +391,7 @@ function dawp_scripts() {
     
     if ( class_exists( 'WooCommerce' ) ) {
         if ( is_product() ) {
-            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.2');
+            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], filemtime(get_theme_file_path('/assets/css/product.css')));
             dawp_remove_styles();
         } elseif ( is_cart() ) {
             wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.2');

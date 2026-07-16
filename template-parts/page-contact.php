@@ -17,21 +17,25 @@ if (!$shop_url) {
 $support_cards = [
     [
         'title' => 'Order Support',
+        'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-2-1-2 1-2-1-2 1-2-1-2 1z"/><path d="M9 8h6"/><path d="M9 12h6"/><path d="M9 16h3"/></svg>',
         'copy'  => 'Questions about order status, shipping updates, tracking links or address details.',
         'meta'  => 'Include your order number when available.',
     ],
     [
         'title' => 'Returns & Refunds',
+        'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 0 1 12-4.9"/><path d="M17 4v3.1h-3.1"/><path d="M19 12a7 7 0 0 1-12 4.9"/><path d="M7 20v-3.1h3.1"/></svg>',
         'copy'  => 'Start a return, report a damaged item or ask about refund timing and eligibility.',
         'meta'  => 'Returns are available within 30 days of delivery.',
     ],
     [
         'title' => 'Product Questions',
+        'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/></svg>',
         'copy'  => 'Need help comparing products, checking details or understanding everyday use cases?',
         'meta'  => 'Send the product name or page link.',
     ],
     [
         'title' => 'Privacy Requests',
+        'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.8 8.4-7 10-4.2-1.6-7-5.6-7-10V6z"/><path d="M9.5 12.5l1.7 1.7 3.8-4.4"/></svg>',
         'copy'  => 'Submit access, correction or deletion requests related to your customer information.',
         'meta'  => 'We may ask for details to verify the request.',
     ],
@@ -47,7 +51,7 @@ $contact_topics = [
 ?>
 
 <style>
-    .tgm-contact-grid{align-items:start;gap:18px;display:grid}.tgm-contact-form,.tgm-contact-panel{background:#fff;border:1px solid #d9dee7;border-radius:8px;box-shadow:0 10px 28px #11182714}.tgm-contact-form{gap:16px;padding:18px;display:grid}.tgm-form-row{gap:7px;display:grid}.tgm-form-row label{color:#111827;font-size:.9rem;font-weight:900}.tgm-form-row label span{color:#6b7280;font-weight:700}.tgm-form-row input,.tgm-form-row select,.tgm-form-row textarea{background:#fff;border:1px solid #cfd7e3;border-radius:8px;width:100%;min-height:46px;padding:10px 12px;color:#111827}.tgm-form-row textarea{min-height:150px;line-height:1.55}.tgm-form-row input:focus,.tgm-form-row select:focus,.tgm-form-row textarea:focus{border-color:#0046be;outline:3px solid #0046be24}.tgm-form-submit{border:0;cursor:pointer;width:100%;padding:0 22px}.tgm-honeypot{clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;width:1px;height:1px;margin:-1px;position:absolute;overflow:hidden}.tgm-form-notice{border-radius:8px;padding:13px 14px;font-size:.92rem;font-weight:800;line-height:1.45}.tgm-form-notice--success{color:#065f46;background:#dcfce7;border:1px solid #86efac}.tgm-form-notice--error{color:#991b1b;background:#fee2e2;border:1px solid #fecaca}.tgm-contact-panel{padding:20px}.tgm-contact-panel h3{color:#050505;margin:0;font-size:1.35rem;font-weight:900}.tgm-contact-panel dl{gap:16px;margin:18px 0 0;display:grid}.tgm-contact-panel dt{color:#0046be;text-transform:uppercase;font-size:.75rem;font-weight:900;letter-spacing:.08em}.tgm-contact-panel dd{color:#374151;margin:5px 0 0;line-height:1.6}.tgm-contact-panel dd a{color:#0046be;font-weight:900;text-decoration:none}.tgm-contact-panel dd a:hover{text-decoration:underline;text-underline-offset:3px}.tgm-contact-panel__links{border-top:1px solid #e5e7eb;gap:12px;margin-top:20px;padding-top:18px;display:grid}@media (min-width:768px){.tgm-contact-grid{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:22px}.tgm-contact-form{grid-template-columns:repeat(2,minmax(0,1fr));padding:24px}.tgm-form-row--wide,.tgm-form-notice,.tgm-form-submit{grid-column:1/-1}.tgm-form-submit{justify-self:start;width:auto}.tgm-contact-panel{position:sticky;top:96px;padding:24px}}
+    .tgm-contact-grid{align-items:start;gap:18px;display:grid}.tgm-contact-form,.tgm-contact-panel{background:#fff;border:1px solid #d9dee7;border-radius:8px;box-shadow:0 10px 28px #11182714}.tgm-contact-form{gap:16px;padding:18px;display:grid}.tgm-form-row{gap:7px;display:grid}.tgm-form-row label{color:#111827;font-size:.9rem;font-weight:900}.tgm-form-row label span{color:#6b7280;font-weight:700}.tgm-form-row input,.tgm-form-row select,.tgm-form-row textarea{background:#fff;border:1px solid #cfd7e3;border-radius:8px;width:100%;min-height:46px;padding:10px 12px;color:#111827}.tgm-form-row textarea{min-height:150px;line-height:1.55}.tgm-form-row input:focus,.tgm-form-row select:focus,.tgm-form-row textarea:focus{border-color:#0046be;outline:3px solid #0046be24}.tgm-form-submit{border:0;cursor:pointer;width:100%;padding:0 22px}.tgm-honeypot{clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;width:1px;height:1px;margin:-1px;position:absolute;overflow:hidden}.tgm-form-notice{border-radius:8px;padding:13px 14px;font-size:.92rem;font-weight:800;line-height:1.45}.tgm-form-notice--success{color:#065f46;background:#dcfce7;border:1px solid #86efac}.tgm-form-notice--error{color:#991b1b;background:#fee2e2;border:1px solid #fecaca}.tgm-contact-panel{padding:20px}.tgm-contact-panel h3{color:#050505;margin:0;font-size:1.35rem;font-weight:900}.tgm-contact-panel dl{gap:16px;margin:18px 0 0;display:grid}.tgm-contact-panel dt{color:#0046be;text-transform:uppercase;font-size:.75rem;font-weight:900;letter-spacing:.08em}.tgm-contact-panel dd{color:#374151;margin:5px 0 0;line-height:1.6}.tgm-contact-panel dd a{color:#0046be;font-weight:900;text-decoration:none}.tgm-contact-panel dd a.tgm-contact-email{text-transform:lowercase}.tgm-contact-panel dd a:hover{text-decoration:underline;text-underline-offset:3px}.tgm-contact-panel__links{border-top:1px solid #e5e7eb;gap:12px;margin-top:20px;padding-top:18px;display:grid}@media (min-width:768px){.tgm-contact-grid{grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:22px}.tgm-contact-form{grid-template-columns:repeat(2,minmax(0,1fr));padding:24px}.tgm-form-row--wide,.tgm-form-notice,.tgm-form-submit{grid-column:1/-1}.tgm-form-submit{justify-self:start;width:auto}.tgm-contact-panel{position:sticky;top:96px;padding:24px}}
 </style>
 
 <section class="tgm-hero">
@@ -67,7 +71,7 @@ $contact_topics = [
             </div>
         </div>
         <div class="tgm-hero__media">
-            <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=1400&q=86', 'Customer support desk with laptop and shopping packages', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
+            <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'), 'Customer support scene in office', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
             <div class="tgm-hero__deal">
                 <strong>Support Hours</strong>
                 <span><?php echo esc_html($business_hours); ?></span>
@@ -88,7 +92,15 @@ $contact_topics = [
         <div class="tgm-trust-grid contact-support-slider">
             <?php foreach ($support_cards as $card) : ?>
                 <article class="tgm-trust contact-support-card">
-                    <span>?</span>
+                    <span class="tgm-trust__icon"><?php echo wp_kses($card['icon'], [
+                        'svg'  => [
+                            'viewbox'     => true,
+                            'aria-hidden' => true,
+                        ],
+                        'path' => [
+                            'd' => true,
+                        ],
+                    ]); ?></span>
                     <h3><?php echo esc_html($card['title']); ?></h3>
                     <p><?php echo esc_html($card['copy']); ?></p>
                     <p><strong><?php echo esc_html($card['meta']); ?></strong></p>
@@ -153,7 +165,7 @@ $contact_topics = [
                 <dl>
                     <div>
                         <dt>Email</dt>
-                        <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
+                        <dd><a class="tgm-contact-email" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html(strtolower($support_email)); ?></a></dd>
                     </div>
                     <div>
                         <dt>Hours</dt>

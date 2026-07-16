@@ -13,37 +13,37 @@ $categories = [
     [
         'name' => 'Home Essentials',
         'desc' => 'Storage, cleaning, organization and practical everyday upgrades.',
-        'image' => 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=82',
+        'image' => get_theme_file_uri('assets/img/gallery/Modern_laundry_room_cleaning_sta…_202607161248.jpeg'),
         'href' => home_url('/product-category/home-essentials/'),
     ],
     [
         'name' => 'Furniture',
         'desc' => 'Comfortable pieces for living rooms, bedrooms and home offices.',
-        'image' => 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=82',
+        'image' => get_theme_file_uri('assets/img/gallery/Living_room_furniture_set_neutra…_202607161252.jpeg'),
         'href' => home_url('/product-category/furniture/'),
     ],
     [
         'name' => 'Electronics',
         'desc' => 'Entertainment, audio, accessories and connected tech essentials.',
-        'image' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=82',
+        'image' => get_theme_file_uri('assets/img/gallery/Home_entertainment_setup_televis…_202607161254.jpeg'),
         'href' => home_url('/product-category/electronics/'),
     ],
     [
         'name' => 'Smart Home',
         'desc' => 'Lighting, security, plugs and devices for a smarter routine.',
-        'image' => 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=82',
+        'image' => get_theme_file_uri('assets/img/gallery/Smart_home_security_front_door_202607161256.jpeg'),
         'href' => home_url('/product-category/smart-home/'),
     ],
     [
         'name' => 'Kitchen & Dining',
         'desc' => 'Cookware, appliances, coffee gear and dining favorites.',
-        'image' => 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=82',
+        'image' => get_theme_file_uri('assets/img/gallery/Cookware_on_induction_cooktop_202607161259.jpeg'),
         'href' => home_url('/product-category/kitchen-dining/'),
     ],
     [
         'name' => 'Outdoor & Garden',
         'desc' => 'Patio, grilling, garden and outdoor living picks.',
-        'image' => 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=82',
+        'image' => get_theme_file_uri('assets/img/gallery/Garden_lounge_area_with_hanging_202607161300.jpeg'),
         'href' => home_url('/product-category/outdoor-garden/'),
     ],
 ];
@@ -103,7 +103,7 @@ if (class_exists('WooCommerce')) {
             </div>
         </div>
         <div class="tgm-hero__media">
-            <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=86', 'Modern living room with smart home products', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
+            <img loading="eager" decoding="async" fetchpriority="high" width="700" height="560" src="<?php echo esc_url(get_theme_file_uri('assets/img/gallery/Modern_living_room_smart_electro…_202607161235.jpeg')); ?>" alt="Modern living room with smart home products">
             <div class="tgm-hero__deal">
                 <strong>Weekly Picks</strong>
                 <span>Home, tech and kitchen deals refreshed often.</span>
@@ -124,7 +124,7 @@ if (class_exists('WooCommerce')) {
         <div class="tgm-category-grid">
             <?php foreach ($categories as $category) : ?>
                 <a class="tgm-category" href="<?php echo esc_url($category['href']); ?>">
-                    <?php echo dawp_get_responsive_image($category['image'], $category['name'], '', 520, 360, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'); ?>
+                    <img loading="lazy" decoding="async" width="520" height="360" src="<?php echo esc_url($category['image']); ?>" alt="<?php echo esc_attr($category['name']); ?>">
                     <span class="tgm-category__body">
                         <strong><?php echo esc_html($category['name']); ?></strong>
                         <span><?php echo esc_html($category['desc']); ?></span>
@@ -196,15 +196,15 @@ if (class_exists('WooCommerce')) {
         </div>
         <div class="tgm-collection-grid">
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/smart-home/')); ?>">
-                <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=82', 'Smart home devices', '', 640, 420, 'lazy', '(max-width: 760px) 100vw, 33vw'); ?>
+                <img loading="lazy" decoding="async" width="640" height="420" src="<?php echo esc_url(get_theme_file_uri('assets/img/gallery/Living_ecosystem_with_smart_tech_202607161304.jpeg')); ?>" alt="Smart home devices">
                 <span><strong>Smart Living</strong><em>Lighting, security and connected comfort.</em></span>
             </a>
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/furniture/')); ?>">
-                <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=82', 'Modern home furniture', '', 640, 420, 'lazy', '(max-width: 760px) 100vw, 33vw'); ?>
+                <img loading="lazy" decoding="async" width="640" height="420" src="<?php echo esc_url(get_theme_file_uri('assets/img/gallery/Entryway_refresh_console_table_m…_202607161305.jpeg')); ?>" alt="Modern home furniture">
                 <span><strong>Home Refresh</strong><em>Furniture and organization essentials.</em></span>
             </a>
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/kitchen-dining/')); ?>">
-                <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=82', 'Kitchen appliances and cookware', '', 640, 420, 'lazy', '(max-width: 760px) 100vw, 33vw'); ?>
+                <img loading="lazy" decoding="async" width="640" height="420" src="<?php echo esc_url(get_theme_file_uri('assets/img/gallery/Dining_area_with_kitchen_favorites_202607161311.jpeg')); ?>" alt="Kitchen appliances and cookware">
                 <span><strong>Kitchen Favorites</strong><em>Appliances, cookware and coffee gear.</em></span>
             </a>
         </div>
@@ -216,15 +216,35 @@ if (class_exists('WooCommerce')) {
         <div class="tgm-trust-grid">
             <?php
             $trust = [
-                ['icon' => '>', 'title' => 'Fast Shipping', 'copy' => 'Reliable delivery across the United States.'],
-                ['icon' => '$', 'title' => 'Secure Checkout', 'copy' => 'Protected payment experience from cart to confirmation.'],
-                ['icon' => '30', 'title' => 'Easy Returns', 'copy' => 'Simple 30-day return process after delivery.'],
-                ['icon' => '?', 'title' => 'Friendly Support', 'copy' => 'Helpful service whenever you need order guidance.'],
+                [
+                    'icon' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 3v4h-7z"/><path d="M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
+                    'title' => 'Fast Shipping',
+                    'copy' => 'Reliable delivery across the United States.',
+                ],
+                [
+                    'icon' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.8 8.4-7 10-4.2-1.6-7-5.6-7-10V6z"/><path d="M9 12l2 2 4-5"/></svg>',
+                    'title' => 'Secure Checkout',
+                    'copy' => 'Protected payment experience from cart to confirmation.',
+                ],
+                [
+                    'icon' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 0 1 12-4.9"/><path d="M17 4v3.1h-3.1"/><path d="M19 12a7 7 0 0 1-12 4.9"/><path d="M7 20v-3.1h3.1"/><text x="12" y="15" text-anchor="middle">30</text></svg>',
+                    'title' => 'Easy Returns',
+                    'copy' => 'Simple 30-day return process after delivery.',
+                ],
+                [
+                    'icon' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><path d="M4 13h3v5H4z"/><path d="M17 13h3v5h-3z"/><path d="M9 20h4a4 4 0 0 0 4-4"/><path d="M13 20v-2"/></svg>',
+                    'title' => 'Friendly Support',
+                    'copy' => 'Helpful service whenever you need order guidance.',
+                ],
             ];
             foreach ($trust as $item) :
             ?>
                 <article class="tgm-trust">
-                    <span><?php echo esc_html($item['icon']); ?></span>
+                    <span class="tgm-trust__icon"><?php echo wp_kses($item['icon'], [
+                        'svg' => ['viewbox' => true, 'aria-hidden' => true],
+                        'path' => ['d' => true],
+                        'text' => ['x' => true, 'y' => true, 'text-anchor' => true],
+                    ]); ?></span>
                     <h3><?php echo esc_html($item['title']); ?></h3>
                     <p><?php echo esc_html($item['copy']); ?></p>
                 </article>

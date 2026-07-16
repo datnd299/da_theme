@@ -15,34 +15,37 @@ $archive_title = __('All Products', 'dawp');
 $archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from Topgoodmart.', 'dawp');
 $archive_eyebrow = __('Topgoodmart Collection', 'dawp');
 $archive_slug = 'shop';
+$gallery_image = static function ($filename) {
+    return get_theme_file_uri('assets/img/gallery/' . $filename);
+};
 
 $shop_cover_images = [
     'shop' => [
-        'url' => 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=86',
+        'url' => $gallery_image('Modern_living_room_smart_electro…_202607161235.jpeg'),
         'alt' => __('Modern living room with furniture, decor, and connected home products', 'dawp'),
     ],
     'home-essentials' => [
-        'url' => 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1400&q=86',
-        'alt' => __('Organized home essentials and daily care products', 'dawp'),
+        'url' => $gallery_image('Modern_laundry_room_cleaning_sta…_202607161248.jpeg'),
+        'alt' => __('Clean laundry room with organized home essentials and cleaning supplies', 'dawp'),
     ],
     'furniture' => [
-        'url' => 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1400&q=86',
+        'url' => $gallery_image('Living_room_furniture_set_neutra…_202607161252.jpeg'),
         'alt' => __('Modern living room furniture with sofa and tables', 'dawp'),
     ],
     'electronics' => [
-        'url' => 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=86',
-        'alt' => __('Laptop and electronics accessories on a clean desk', 'dawp'),
+        'url' => $gallery_image('Home_entertainment_setup_televis…_202607161254.jpeg'),
+        'alt' => __('Home entertainment setup with television and electronics', 'dawp'),
     ],
     'smart-home' => [
-        'url' => 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1400&q=86',
-        'alt' => __('Smart home devices and connected lighting controls', 'dawp'),
+        'url' => $gallery_image('Smart_home_security_front_door_202607161256.jpeg'),
+        'alt' => __('Smart home security devices at a front door', 'dawp'),
     ],
     'kitchen-dining' => [
-        'url' => 'https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1400&q=86',
+        'url' => $gallery_image('Dining_area_with_kitchen_favorites_202607161311.jpeg'),
         'alt' => __('Bright kitchen with cookware and dining essentials', 'dawp'),
     ],
     'outdoor-garden' => [
-        'url' => 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=86',
+        'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
         'alt' => __('Outdoor patio seating and garden living products', 'dawp'),
     ],
 ];
@@ -57,7 +60,7 @@ if ($archive_term && !is_wp_error($archive_term)) {
 
 $archive_cover = $shop_cover_images[$archive_slug] ?? $shop_cover_images['shop'];
 
-if ($archive_term && !is_wp_error($archive_term) && is_product_category()) {
+if ($archive_term && !is_wp_error($archive_term) && is_product_category() && !isset($shop_cover_images[$archive_slug])) {
     $thumbnail_id = (int) get_term_meta($archive_term->term_id, 'thumbnail_id', true);
 
     if ($thumbnail_id) {

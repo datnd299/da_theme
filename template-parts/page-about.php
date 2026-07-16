@@ -9,6 +9,22 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
+$about_hero_image_path = 'assets/img/gallery/Living_ecosystem_with_smart_tech_202607161304.jpeg';
+$about_hero_image_file = get_theme_file_path($about_hero_image_path);
+$about_hero_image_url = add_query_arg(
+    'ver',
+    file_exists($about_hero_image_file) ? filemtime($about_hero_image_file) : time(),
+    get_theme_file_uri($about_hero_image_path)
+);
+
+$about_departments_image_path = 'assets/img/gallery/Stainless_steel_kitchen_range_counter_202607161438.jpeg';
+$about_departments_image_file = get_theme_file_path($about_departments_image_path);
+$about_departments_image_url = add_query_arg(
+    'ver',
+    file_exists($about_departments_image_file) ? filemtime($about_departments_image_file) : time(),
+    get_theme_file_uri($about_departments_image_path)
+);
+
 $standards = [
     [
         'title' => 'Useful Everyday Products',
@@ -34,10 +50,26 @@ $departments = [
 ];
 
 $trust = [
-    ['label' => 'Secure Checkout', 'detail' => 'Protected payment flow from cart to confirmation.'],
-    ['label' => 'Fast Shipping', 'detail' => 'Most orders arrive in an estimated 6-9 business days.'],
-    ['label' => '30-Day Returns', 'detail' => 'Eligible items can be returned within 30 days after delivery.'],
-    ['label' => 'Order Tracking', 'detail' => 'Tracking information is shared after shipment.'],
+    [
+        'icon' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.8 8.4-7 10-4.2-1.6-7-5.6-7-10V6z"/><path d="M9 12l2 2 4-5"/></svg>',
+        'label' => 'Secure Checkout',
+        'detail' => 'Protected payment flow from cart to confirmation.',
+    ],
+    [
+        'icon' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v10H3z"/><path d="M14 9h4l3 3v4h-7z"/><path d="M7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M18 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
+        'label' => 'Fast Shipping',
+        'detail' => 'Most orders arrive in an estimated 6-9 business days.',
+    ],
+    [
+        'icon' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12a7 7 0 0 1 12-4.9"/><path d="M17 4v3.1h-3.1"/><path d="M19 12a7 7 0 0 1-12 4.9"/><path d="M7 20v-3.1h3.1"/><text x="12" y="15" text-anchor="middle">30</text></svg>',
+        'label' => '30-Day Returns',
+        'detail' => 'Eligible items can be returned within 30 days after delivery.',
+    ],
+    [
+        'icon' => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><path d="M4 13h3v5H4z"/><path d="M17 13h3v5h-3z"/><path d="M9 20h4a4 4 0 0 0 4-4"/><path d="M13 20v-2"/></svg>',
+        'label' => 'Order Tracking',
+        'detail' => 'Tracking information is shared after shipment.',
+    ],
 ];
 ?>
 
@@ -53,7 +85,7 @@ $trust = [
             </div>
         </div>
         <div class="tgm-about-hero__media">
-            <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86', 'Bright modern home with furniture and everyday living products', '', 760, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
+            <img loading="eager" decoding="async" fetchpriority="high" width="760" height="560" src="<?php echo esc_url($about_hero_image_url); ?>" alt="Bright modern home with furniture and everyday living products">
             <div class="tgm-about-hero__badge">
                 <strong>Built For Smarter Shopping</strong>
                 <span>Organized departments, helpful policies and everyday value.</span>
@@ -97,7 +129,7 @@ $trust = [
 <section class="tgm-section">
     <div class="tgm-container tgm-about-split">
         <div class="tgm-about-split__media">
-            <?php echo dawp_get_responsive_image('https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=84', 'Kitchen and dining products in a clean modern home', '', 620, 520, 'lazy', '(max-width: 900px) 100vw, 45vw'); ?>
+            <img loading="lazy" decoding="async" width="620" height="520" src="<?php echo esc_url($about_departments_image_url); ?>" alt="Kitchen and dining products in a clean modern home">
         </div>
         <div class="tgm-about-split__content">
             <p class="tgm-eyebrow">What we carry</p>
@@ -117,7 +149,11 @@ $trust = [
         <div class="tgm-trust-grid">
             <?php foreach ($trust as $item) : ?>
                 <article class="tgm-trust">
-                    <span><?php echo esc_html(substr($item['label'], 0, 1)); ?></span>
+                    <span class="tgm-trust__icon"><?php echo wp_kses($item['icon'], [
+                        'svg' => ['viewbox' => true, 'aria-hidden' => true],
+                        'path' => ['d' => true],
+                        'text' => ['x' => true, 'y' => true, 'text-anchor' => true],
+                    ]); ?></span>
                     <h3><?php echo esc_html($item['label']); ?></h3>
                     <p><?php echo esc_html($item['detail']); ?></p>
                 </article>

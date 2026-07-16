@@ -14,8 +14,6 @@ $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink(
 $support_email  = 'support@topgoodmart.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$address_lines = preg_split('/,\s+(?=[A-Z]{2}\s+\d{5}(?:-\d{4})?$)/', $store_address, 2);
-$business_hours_lines = preg_split('/(?=5:00 PM, GMT-08:00 Pacific Standard Time)/', $business_hours, 2);
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -93,11 +91,9 @@ $footer_columns = [
         .tgm-footer__columns a:hover { text-decoration:underline; }
         .tgm-footer__columns > section:first-child { padding-right:24px; }
         .tgm-footer__contact-list { display:grid; gap:15px; margin:0; color:#0046be; font-size:14px; font-weight:400; line-height:1.3; }
-        .tgm-footer__contact-list div { display:grid; grid-template-columns:max-content minmax(0,1fr); align-items:start; gap:6px; }
-        .tgm-footer__contact-list .tgm-footer__contact-list-item--break dd { display:contents; }
-        .tgm-footer__contact-list .tgm-footer__contact-break-line { grid-column:1 / -1; }
-        .tgm-footer__contact-list dt { margin:0; color:#0046be; font-size:14px; font-weight:600; }
-        .tgm-footer__contact-list dd { margin:0; }
+        .tgm-footer__contact-list div { display:block; max-width:100%; }
+        .tgm-footer__contact-list dt { display:inline; margin:0; color:#0046be; font-size:14px; font-weight:600; }
+        .tgm-footer__contact-list dd { display:inline; margin:0; }
         .tgm-footer__contact-list a { color:#0046be; text-decoration:none; overflow-wrap:anywhere; }
         .tgm-footer__contact-list a:hover { text-decoration:underline; }
         .tgm-footer__bottom { border-top:1px solid #d6d9dd; padding:14px 0; color:#334155; font-size:13px; font-weight:400; }
@@ -116,27 +112,17 @@ $footer_columns = [
             <section aria-labelledby="tgm-footer-contact-title">
                 <h2 id="tgm-footer-contact-title"><?php esc_html_e('Contact Info', 'dawp'); ?></h2>
                 <dl class="tgm-footer__contact-list">
-                    <div class="tgm-footer__contact-list-item--break">
+                    <div>
                         <dt><?php esc_html_e('Address:', 'dawp'); ?></dt>
-                        <dd>
-                            <span><?php echo esc_html($address_lines[0]); ?></span>
-                            <?php if (!empty($address_lines[1])) : ?>
-                                <span class="tgm-footer__contact-break-line"><?php echo esc_html($address_lines[1]); ?></span>
-                            <?php endif; ?>
-                        </dd>
+                        <dd><?php echo esc_html($store_address); ?></dd>
                     </div>
                     <div>
                         <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>
                         <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
                     </div>
-                    <div class="tgm-footer__contact-list-item--stacked tgm-footer__contact-list-item--break">
+                    <div>
                         <dt><?php esc_html_e('Business Hours:', 'dawp'); ?></dt>
-                        <dd>
-                            <span><?php echo esc_html($business_hours_lines[0]); ?></span>
-                            <?php if (!empty($business_hours_lines[1])) : ?>
-                                <span class="tgm-footer__contact-break-line"><?php echo esc_html($business_hours_lines[1]); ?></span>
-                            <?php endif; ?>
-                        </dd>
+                        <dd><?php echo esc_html($business_hours); ?></dd>
                     </div>
                 </dl>
             </section>

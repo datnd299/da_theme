@@ -99,9 +99,21 @@
   box-sizing: border-box;
 }
 
+.woo-page__container {
+  width: 100%;
+  min-height: 60vh;
+  padding: clamp(32px, 6vw, 96px) var(--container-pad-mobile);
+  box-sizing: border-box;
+}
+
 @media (min-width: 1024px) {
   .woocommerce-notices-wrapper {
     padding: 0 var(--container-pad-desktop);
+  }
+
+  .woo-page__container {
+    padding-right: var(--container-pad-desktop);
+    padding-left: var(--container-pad-desktop);
   }
 }
 

@@ -42,6 +42,10 @@
   /* === TYPOGRAPHY === */
   --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
   --font-heading: 'Lato', 'Inter', system-ui, sans-serif;
+  --text-body: clamp(1rem, 0.96rem + 0.18vw, 1.0625rem);
+  --text-body-sm: clamp(0.9375rem, 0.9rem + 0.14vw, 1rem);
+  --text-caption: clamp(0.8125rem, 0.78rem + 0.12vw, 0.875rem);
+  --line-body: 1.65;
 
   /* === SPACING === */
   --space-xs: 4px;
@@ -79,11 +83,145 @@
    ============================================================= */
 
 #content {
+  font-size: var(--text-body);
   font-family: var(--font-sans);
   background-color: var(--color-background);
   color: var(--color-foreground);
-  line-height: 1.6;
+  line-height: var(--line-body);
   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-size: var(--text-body);
+  line-height: var(--line-body);
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body p,
+body li,
+body dd,
+body blockquote,
+body label,
+body input,
+body select,
+body textarea,
+body button {
+  line-height: var(--line-body);
+}
+
+body p,
+body li,
+body dd,
+body blockquote {
+  font-size: max(1em, var(--text-body-sm));
+}
+
+body small,
+body figcaption,
+body .woocommerce-breadcrumb,
+body .shop-breadcrumb,
+body [class*="breadcrumb"],
+body [class*="eyebrow"],
+body [class*="badge"],
+body [class*="meta"],
+body [class*="caption"] {
+  font-size: max(0.8125rem, 1em);
+}
+
+body input,
+body select,
+body textarea {
+  font-size: max(1rem, 1em);
+}
+
+@media (max-width: 767px) {
+  :root {
+    --text-body: 1rem;
+    --text-body-sm: 0.96875rem;
+    --text-caption: 0.875rem;
+  }
+
+  body p,
+  body li,
+  body dd,
+  body blockquote {
+    line-height: 1.7;
+  }
+
+  body small,
+  body figcaption,
+  body .woocommerce-breadcrumb,
+  body .shop-breadcrumb,
+  body [class*="breadcrumb"],
+  body [class*="eyebrow"],
+  body [class*="badge"],
+  body [class*="meta"],
+  body [class*="caption"] {
+    font-size: max(var(--text-caption), 1em);
+  }
+
+  body [class^="sgs-"] p,
+  body [class*=" sgs-"] p,
+  body [class^="shop-"] p,
+  body [class*=" shop-"] p,
+  body [class^="cart-"] p,
+  body [class*=" cart-"] p,
+  body [class^="account-"] p,
+  body [class*=" account-"] p,
+  body [class^="product-"] p,
+  body [class*=" product-"] p,
+  body [class^="wc-"] p,
+  body [class*=" wc-"] p,
+  body [class^="woocommerce"] p,
+  body [class*=" woocommerce"] p,
+  body [class^="sgs-"] li,
+  body [class*=" sgs-"] li,
+  body [class^="shop-"] li,
+  body [class*=" shop-"] li,
+  body [class^="cart-"] li,
+  body [class*=" cart-"] li,
+  body [class^="account-"] li,
+  body [class*=" account-"] li,
+  body [class^="product-"] li,
+  body [class*=" product-"] li,
+  body [class^="wc-"] li,
+  body [class*=" wc-"] li,
+  body [class^="woocommerce"] li,
+  body [class*=" woocommerce"] li {
+    font-size: max(0.96875rem, 1em);
+  }
+
+  body [class^="sgs-"] a,
+  body [class*=" sgs-"] a,
+  body [class^="shop-"] a,
+  body [class*=" shop-"] a,
+  body [class^="cart-"] a,
+  body [class*=" cart-"] a,
+  body [class^="account-"] a,
+  body [class*=" account-"] a,
+  body [class^="product-"] a,
+  body [class*=" product-"] a,
+  body [class^="wc-"] a,
+  body [class*=" wc-"] a,
+  body [class^="woocommerce"] a,
+  body [class*=" woocommerce"] a,
+  body [class^="sgs-"] button,
+  body [class*=" sgs-"] button,
+  body [class^="shop-"] button,
+  body [class*=" shop-"] button,
+  body [class^="cart-"] button,
+  body [class*=" cart-"] button,
+  body [class^="account-"] button,
+  body [class*=" account-"] button,
+  body [class^="product-"] button,
+  body [class*=" product-"] button,
+  body [class^="wc-"] button,
+  body [class*=" wc-"] button,
+  body [class^="woocommerce"] button,
+  body [class*=" woocommerce"] button {
+    font-size: max(0.875rem, 1em);
+  }
 }
 
 /* =============================================================

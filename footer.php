@@ -52,14 +52,14 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
     .sgs-trust-item strong {
       display: block; color: #fff;
       font-family: var(--font-heading);
-      font-size: 14px; line-height: 1.2;
+      font-size: 15px; line-height: 1.25;
     }
 
     .sgs-trust-item > span:not(.sgs-trust-icon) { display: block; }
     .sgs-trust-item > span:not(.sgs-trust-icon) span {
       display: block; margin-top: 2px;
       color: rgba(255,255,255,0.62);
-      font-size: 12px; font-weight: 500;
+      font-size: 13px; font-weight: 500;
     }
 
     .sgs-footer-main {
@@ -107,20 +107,20 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
     .sgs-footer-contact strong {
       display: block; color: #fff;
       font-family: var(--font-heading);
-      font-size: 12px; font-weight: 800; line-height: 1.25;
+      font-size: 13px; font-weight: 800; line-height: 1.3;
     }
 
     .sgs-footer-contact adress,
     .sgs-footer-contact .contact-value {
       display: block; margin: 2px 0 0;
       color: rgba(255,255,255,0.6);
-      font-size: 13px; font-style: normal; font-weight: 500; line-height: 1.5;
+      font-size: 14px; font-style: normal; font-weight: 500; line-height: 1.6;
     }
 
     .sgs-footer-column h3 {
       margin: 0; color: #fff;
       font-family: var(--font-heading);
-      font-size: 13px; font-weight: 800;
+      font-size: 14px; font-weight: 800;
       letter-spacing: 0.04em; text-transform: uppercase;
     }
 
@@ -131,7 +131,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
 
     .sgs-footer-column a {
       color: rgba(255,255,255,0.65);
-      font-size: 13px; font-weight: 500;
+      font-size: 14px; font-weight: 500;
       transition: color 150ms;
     }
 
@@ -147,13 +147,13 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
     .sgs-footer-newsletter h3 {
       margin: 0; color: #fff;
       font-family: var(--font-heading);
-      font-size: 16px; line-height: 1.25;
+      font-size: 18px; line-height: 1.25;
     }
 
     .sgs-footer-newsletter p {
       margin: 6px 0 0;
       color: rgba(255,255,255,0.6);
-      font-size: 13px; line-height: 1.5;
+      font-size: 14px; line-height: 1.6;
     }
 
     .sgs-footer-form {
@@ -166,7 +166,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
       border: 1px solid rgba(255,255,255,0.15);
       border-radius: 6px;
       background: #fff; color: var(--ink, #111827);
-      padding: 0 14px; outline: none; font-size: 14px;
+      padding: 0 14px; outline: none; font-size: 16px;
       font-family: var(--font-body);
     }
 
@@ -174,7 +174,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
       height: 44px; border: 0; border-radius: 6px;
       background: var(--red, #B31942); color: #fff;
       padding: 0 16px; font-weight: 700; cursor: pointer;
-      font-family: var(--font-body); font-size: 13px;
+      font-family: var(--font-body); font-size: 14px;
       letter-spacing: 0.04em;
     }
 
@@ -189,7 +189,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
       display: flex; flex-direction: column; gap: 12px;
       padding-top: 18px; padding-bottom: 18px;
       color: rgba(255,255,255,0.55);
-      font-size: 12px; font-weight: 500;
+      font-size: 13px; font-weight: 500;
     }
 
     .sgs-footer-payments {

@@ -45,7 +45,11 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             background: var(--white);
             color: var(--ink);
             font-family: var(--font-body);
+            font-size: clamp(16px, 0.96rem + 0.18vw, 17px);
+            line-height: 1.65;
             -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
 
         a { color: inherit; text-decoration: none; }
@@ -63,7 +67,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             width: auto; height: auto; clip: auto;
             padding: 12px 16px; border-radius: var(--radius);
             background: var(--red); color: var(--white);
-            font-size: 14px; font-weight: 700; white-space: normal;
+            font-size: 15px; font-weight: 700; white-space: normal;
         }
 
         /* ── Header ── */
@@ -111,7 +115,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             padding: 10px 12px;
             color: rgba(255,255,255,0.82);
             font-family: var(--font-body);
-            font-size: 13px; font-weight: 600;
+            font-size: 14px; font-weight: 600;
             letter-spacing: 0.02em;
             transition: background 150ms, color 150ms;
         }
@@ -136,7 +140,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             border: 1px solid rgba(255,255,255,0.15); border-right: 0;
             border-radius: var(--radius) 0 0 var(--radius);
             background: var(--white); color: var(--ink);
-            padding: 0 14px; font-size: 14px; font-weight: 500; outline: none;
+            padding: 0 14px; font-size: 16px; font-weight: 500; outline: none;
             font-family: var(--font-body);
         }
 
@@ -186,7 +190,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             border: 2px solid var(--navy);
             border-radius: 999px; background: var(--white);
             color: var(--red);
-            font-size: 10px; font-weight: 800;
+            font-size: 11px; font-weight: 800;
         }
 
         .sgs-quicknav {
@@ -206,7 +210,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             padding: 8px 12px;
             color: rgba(255,255,255,0.78);
             font-family: var(--font-body);
-            font-size: 12px; font-weight: 700;
+            font-size: 13px; font-weight: 700;
             white-space: nowrap;
             transition: background 150ms, color 150ms;
         }
@@ -232,7 +236,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             border-radius: 10px;
             background: rgba(255,255,255,0.05);
             padding: 12px 14px; color: var(--white);
-            font-size: 14px; font-weight: 600; font-family: var(--font-body);
+            font-size: 16px; font-weight: 600; font-family: var(--font-body);
             cursor: pointer; text-align: left;
         }
 
@@ -242,7 +246,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
 
         .sgs-mobile-search-form button {
             width: auto; min-width: 80px; padding: 0 16px;
-            font-size: 13px; font-weight: 700;
+            font-size: 15px; font-weight: 700;
         }
 
         .sgs-mobile-only { display: none; }
@@ -252,7 +256,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
         }
 
         .sgs-cat-expand::after {
-            content: "+"; font-size: 16px; font-weight: 700;
+            content: "+"; font-size: 18px; font-weight: 700;
             transition: transform 200ms;
         }
 
@@ -266,7 +270,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
         }
 
         .sgs-subcats a {
-            font-size: 13px; padding: 8px 14px; border: 0;
+            font-size: 15px; padding: 9px 14px; border: 0;
         }
 
         .sgs-customize-btn {
@@ -275,7 +279,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             background: var(--red); color: var(--white);
             border-radius: var(--radius);
             font-family: var(--font-heading);
-            font-size: 14px; font-weight: 800; text-align: center;
+            font-size: 15px; font-weight: 800; text-align: center;
             letter-spacing: 0.06em; text-transform: uppercase;
         }
 
@@ -312,6 +316,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             .sgs-mobile-search-form button {
                 min-width: 70px;
                 padding-inline: 12px;
+                font-size: 14px;
             }
         }
     </style>

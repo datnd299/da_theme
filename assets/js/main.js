@@ -94,4 +94,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
+    // Related Products: fetched over AJAX (see dawp_ajax_load_related_products
+    // in inc/theme-setup.php) once the placeholder scrolls near the viewport,
+    // instead of running the query + render on every single-product load.
+    const relatedProducts = document.getElementById('dawp-related-products');
+    if (relatedProducts) {
+        const loadRelatedProducts = () => {
+            const { productId, nonce, ajaxUrl } = relatedProducts.dataset;
+            const body = new URLSearchParams({
+                action: 'dawp_load_related_products',
+                product_id: productId,
+                nonce: nonce,
+            });
+
+            fetch(ajaxUrl, { method: 'POST', body })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data && data.success && data.data && data.data.html) {
+                        relatedProducts.outerHTML = data.data.html;
+                    }
+                })
+                .catch(() => {});
+        };
+
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        obs.disconnect();
+                        loadRelatedProducts();
+                    }
+                });
+            }, { rootMargin: '400px 0px' });
+
+            observer.observe(relatedProducts);
+        } else {
+            loadRelatedProducts();
+        }
+    }
+
 });

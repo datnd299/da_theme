@@ -378,6 +378,104 @@ function theme_search_template($template) {
     return $template;
 }
 
+// Perf: hover-zoom is meaningless on touch devices; skip the eager full-size
+// zoom image download (~150-180KB) that WooCommerce preloads for it.
+add_filter('woocommerce_single_product_zoom_enabled', function ($enabled) {
+    return $enabled && !wp_is_mobile();
+});
+
+// Perf: the flex-control-thumbs nav strip is displayed at 64x64 (product.css)
+// but WC's default 'gallery_thumbnail' registered size is 100x100 and its
+// srcset still offers every large crop up to 2048w. Cap the base size to
+// 64x64 to match the CSS exactly (note: this will look slightly soft on
+// retina/high-DPR screens, since there's no 2x headroom -- bump to 128 if
+// that's noticeable in practice).
+add_filter('woocommerce_gallery_thumbnail_size', function () {
+    return [64, 64];
+});
+
+// Perf: all 6 gallery slides download eagerly on load even though only the
+// first is visible. Lazy-load every slide except the main image (LCP).
+add_filter('woocommerce_gallery_image_html_attachment_image_params', function ($attributes, $attachment_id, $image_size, $main_image) {
+    if (!$main_image) {
+        $attributes['loading'] = 'lazy';
+    }
+    return $attributes;
+}, 10, 4);
+
+// Perf: WP's auto-generated `sizes` attribute assumes the gallery image
+// renders at 100vw, but product.css constrains it inside a padded grid
+// column, so browsers were fetching a much larger srcset candidate than
+// needed. Give it a `sizes` that matches the actual layout.
+// Scoped to the `woocommerce_single` size specifically -- WC also calls this
+// hook with an array size (e.g. [100,100]) when building the flex-control
+// thumbnail nav, and that one must keep its own small `sizes` untouched.
+add_filter('wp_calculate_image_sizes', function ($sizes, $size) {
+    if (is_product() && 'woocommerce_single' === $size) {
+        $sizes = '(min-width: 1280px) 596px, (min-width: 768px) 45vw, calc(100vw - 32px)';
+    }
+    return $sizes;
+}, 10, 2);
+
+// Perf: the default related-products section runs a full product query
+// (relevance/upsell match + random sort) and renders 4 cards synchronously
+// on every single-product request, even though the section always sits
+// below the fold. Swap it for a lightweight placeholder and fetch the real
+// markup over AJAX once the user scrolls near it (see main.js).
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
+add_action('woocommerce_after_single_product_summary', 'dawp_related_products_placeholder', 20);
+function dawp_related_products_placeholder() {
+    global $product;
+
+    if (!($product instanceof WC_Product)) {
+        return;
+    }
+    ?>
+    <section
+        class="related products"
+        id="dawp-related-products"
+        data-product-id="<?php echo esc_attr($product->get_id()); ?>"
+        data-nonce="<?php echo esc_attr(wp_create_nonce('dawp_related_products')); ?>"
+        data-ajax-url="<?php echo esc_url(admin_url('admin-ajax.php')); ?>"
+    >
+        <h2>Related products</h2>
+        <ul class="products columns-4" aria-hidden="true">
+            <?php for ($i = 0; $i < 4; $i++) : ?>
+                <li class="product-card product-card--skeleton"><div class="product-card__shell"></div></li>
+            <?php endfor; ?>
+        </ul>
+    </section>
+    <?php
+}
+
+add_action('wp_ajax_dawp_load_related_products', 'dawp_ajax_load_related_products');
+add_action('wp_ajax_nopriv_dawp_load_related_products', 'dawp_ajax_load_related_products');
+function dawp_ajax_load_related_products() {
+    check_ajax_referer('dawp_related_products', 'nonce');
+
+    $product_id = isset($_POST['product_id']) ? absint($_POST['product_id']) : 0;
+    $product    = $product_id ? wc_get_product($product_id) : false;
+
+    if (!$product) {
+        wp_send_json_error();
+    }
+
+    global $post;
+    $post = get_post($product_id);
+    setup_postdata($post);
+
+    ob_start();
+    // woocommerce_output_related_products() (the hook this replaces) wraps
+    // the call with posts_per_page/columns = 4; woocommerce_related_products()
+    // called directly defaults to 2/2, which under-filled the 4-slot skeleton.
+    woocommerce_output_related_products();
+    $html = ob_get_clean();
+
+    wp_reset_postdata();
+
+    wp_send_json_success(['html' => $html]);
+}
+
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
     wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.2');

@@ -1312,6 +1312,24 @@ form.cart:not(.variations_form) {
   color: inherit;
 }
 
+/* Related products: skeleton shown while the AJAX fetch is in flight */
+.related.products .product-card--skeleton .product-card__shell {
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-bg-subtle);
+  animation: dawp-related-skeleton-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes dawp-related-skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .related.products .product-card--skeleton .product-card__shell {
+    animation: none;
+  }
+}
+
 /* WooCommerce native add-to-cart in related */
 .related.products .button {
   display: flex;

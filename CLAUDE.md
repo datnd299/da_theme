@@ -9,6 +9,15 @@ npm run build:tw      # Compile Tailwind CSS for all page variants
 npm run build:theme   # Full build: Tailwind + minify CSS/JS + package to dist/*.zip
 ```
 
+## Running PHP
+
+PHP is not available on the host — execute it inside the WordPress Docker container `da_wp-wp-1`. The theme is mounted at `/var/www/html/wp-content/themes/da_theme` inside the container.
+
+```bash
+docker exec da_wp-wp-1 php -v
+docker exec da_wp-wp-1 php -l wp-content/themes/da_theme/<file>.php   # lint check
+```
+
 ## Architecture
 
 ### Template Structure

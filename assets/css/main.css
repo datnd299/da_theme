@@ -347,22 +347,24 @@
    ============================================================= */
 
 body.woocommerce-account {
-  --account-primary: #0046BE;
-  --account-primary-hover: #00348F;
-  --account-cta: #FFE000;
-  --account-cta-hover: #F5D400;
-  --account-soft: #EAF2FF;
-  --account-background: #F5F6F8;
+  --account-primary: #A45A3F;
+  --account-primary-hover: #7F422F;
+  --account-cta: #2B2B2B;
+  --account-cta-hover: #A45A3F;
+  --account-soft: #F8F5F0;
+  --account-warm: #F2E9E2;
+  --account-background: #FBFAF7;
   --account-surface: #FFFFFF;
-  --account-text: #1F2937;
-  --account-muted: #6B7280;
-  --account-border: #E5E7EB;
-  background: var(--color-surface);
+  --account-text: #2B2B2B;
+  --account-muted: #746B64;
+  --account-border: #E8E5DF;
+  --account-shadow: 0 18px 42px rgba(43, 43, 43, 0.09);
+  background: var(--account-background);
 }
 
 .woocommerce-account .site-content {
   background:
-    linear-gradient(180deg, var(--account-soft) 0%, var(--account-background) 45%, var(--account-surface) 100%);
+    linear-gradient(180deg, var(--account-soft) 0%, var(--account-background) 52%, var(--account-surface) 100%);
   min-height: 62vh;
   padding: clamp(32px, 6vw, 72px) var(--container-pad-mobile);
 }
@@ -379,9 +381,9 @@ body.woocommerce-account {
   display: grid;
   overflow: hidden;
   border: 1px solid var(--account-border);
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   background: var(--account-surface);
-  box-shadow: 0 18px 50px rgba(31, 41, 55, 0.10);
+  box-shadow: var(--account-shadow);
 }
 
 .woocommerce-account:not(.logged-in) .site-content .woocommerce::before {
@@ -389,8 +391,9 @@ body.woocommerce-account {
   display: block;
   min-height: 128px;
   background:
-    linear-gradient(135deg, rgba(0, 70, 190, 0.92), rgba(0, 70, 190, 0.74)),
-    repeating-linear-gradient(135deg, rgba(255, 224, 0, 0.18) 0 12px, transparent 12px 24px);
+    linear-gradient(135deg, rgba(43, 43, 43, 0.82), rgba(164, 90, 63, 0.72)),
+    url("../img/home/Home_essentials_on_shelf_202607171221.jpeg") center/cover;
+  background-blend-mode: multiply;
 }
 
 .woocommerce-account:not(.logged-in) .woocommerce h2 {
@@ -438,7 +441,7 @@ body.woocommerce-account {
   min-height: 48px;
   padding: 0 var(--space-md);
   border: 1px solid var(--account-border);
-  border-radius: var(--radius-md);
+  border-radius: 4px;
   outline: none;
   background: var(--account-surface);
   color: var(--account-text);
@@ -461,9 +464,9 @@ body.woocommerce-account {
 .woocommerce-account .woocommerce input.input-text:focus,
 .woocommerce-account .woocommerce textarea:focus,
 .woocommerce-account .woocommerce select:focus {
-  border-color: var(--color-accent);
+  border-color: var(--account-primary);
   background: var(--account-surface);
-  box-shadow: 0 0 0 3px rgba(0, 70, 190, 0.16);
+  box-shadow: 0 0 0 3px rgba(164, 90, 63, 0.14);
 }
 
 .woocommerce-account .woocommerce input:-webkit-autofill {
@@ -498,10 +501,10 @@ body.woocommerce-account {
   justify-content: center;
   min-height: 48px;
   padding: 0 var(--space-xl);
-  border: 0;
-  border-radius: var(--radius-md);
+  border: 1px solid var(--account-cta);
+  border-radius: 2px;
   background: var(--account-cta);
-  color: #111827;
+  color: #FFFFFF;
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 900;
@@ -512,6 +515,8 @@ body.woocommerce-account {
   cursor: pointer;
   transition:
     background var(--duration-normal) var(--ease-fluid),
+    border-color var(--duration-normal) var(--ease-fluid),
+    color var(--duration-normal) var(--ease-fluid),
     transform var(--duration-fast) var(--ease-fluid);
 }
 
@@ -519,7 +524,8 @@ body.woocommerce-account {
 .woocommerce-account .woocommerce button.button:hover,
 .woocommerce-account .woocommerce a.button:hover {
   background: var(--account-cta-hover);
-  color: #111827;
+  border-color: var(--account-cta-hover);
+  color: #FFFFFF;
   transform: translateY(-1px);
 }
 
@@ -562,9 +568,9 @@ body.woocommerce-account {
   padding: var(--space-sm);
   list-style: none;
   border: 1px solid var(--account-border);
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   background: var(--account-surface);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 10px 28px rgba(43, 43, 43, 0.07);
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li {
@@ -576,7 +582,7 @@ body.woocommerce-account {
   align-items: center;
   min-height: 46px;
   padding: 0 var(--space-md);
-  border-radius: var(--radius-md);
+  border-radius: 2px;
   color: var(--account-muted);
   font-size: 0.9rem;
   font-weight: 800;
@@ -592,9 +598,9 @@ body.woocommerce-account {
   min-width: 0;
   padding: var(--space-lg);
   border: 1px solid var(--account-border);
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   background: var(--account-surface);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 10px 28px rgba(43, 43, 43, 0.07);
 }
 
 .woocommerce-account .woocommerce-MyAccount-content > p:first-child {
@@ -609,7 +615,7 @@ body.woocommerce-account {
 .woocommerce-account .woocommerce-MyAccount-content mark {
   padding: 2px 6px;
   border-radius: var(--radius-sm);
-  background: var(--account-soft);
+  background: var(--account-warm);
   color: var(--account-primary);
   font-weight: 800;
 }
@@ -632,7 +638,7 @@ body.woocommerce-account {
   border: 1px solid var(--account-border);
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
   overflow: hidden;
   background: var(--account-surface);
 }
@@ -668,8 +674,8 @@ body.woocommerce-account {
   width: auto;
   padding: var(--space-lg);
   border: 1px solid var(--account-border);
-  border-radius: var(--radius-lg);
-  background: var(--account-background);
+  border-radius: 4px;
+  background: var(--account-soft);
 }
 
 .woocommerce-account .woocommerce .woocommerce-Address-title {
@@ -696,7 +702,7 @@ body.woocommerce-account {
   margin: var(--space-md) 0 0;
   padding: var(--space-lg);
   border: 1px solid var(--account-border);
-  border-radius: var(--radius-lg);
+  border-radius: 4px;
 }
 
 .woocommerce-account .woocommerce legend {
@@ -770,7 +776,7 @@ body.woocommerce-account {
   }
 
   .woocommerce-account .woocommerce table.shop_table tr {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--account-border);
   }
 
   .woocommerce-account .woocommerce table.shop_table tr:last-child {
@@ -778,7 +784,7 @@ body.woocommerce-account {
   }
 
   .woocommerce-account .woocommerce table.shop_table td {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--account-border);
   }
 
   .woocommerce-account .woocommerce table.shop_table td:last-child {

@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms and conditions page for Topgoodmart.
+ * Terms and conditions page for MegaMallDepot.
  *
  * @package dawp
  */
@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'Topgoodmart';
-$site_domain    = 'topgoodmart.com';
-$support_email  = 'support@topgoodmart.com';
+$store_name     = 'MegaMallDepot';
+$site_domain    = 'megamalldepot.com';
+$support_email  = 'support@megamalldepot.com';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $last_updated   = __('May 29, 2026', 'dawp');
@@ -21,14 +21,14 @@ $privacy_url    = home_url('/privacy-policy/');
 $contact_url    = home_url('/contact-us/');
 
 $intro_paragraphs = [
-    __('Welcome to Topgoodmart! These Terms & Conditions ("Terms") govern your access to and use of our website topgoodmart.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
-    __('The Site is operated by Topgoodmart. Throughout the Site, the terms "we", "us" and "our" refer to Topgoodmart. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
+    __('Welcome to MegaMallDepot! These Terms & Conditions ("Terms") govern your access to and use of our website megamalldepot.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
+    __('The Site is operated by MegaMallDepot. Throughout the Site, the terms "we", "us" and "our" refer to MegaMallDepot. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
 ];
 
 $terms_highlights = [
     [
         'title' => __('Store Scope', 'dawp'),
-        'copy'  => __('Topgoodmart focuses on home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+        'copy'  => __('MegaMallDepot focuses on home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
     ],
     [
         'title' => __('Secure Checkout', 'dawp'),
@@ -41,7 +41,7 @@ $terms_highlights = [
 ];
 
 $shipping_parameters = [
-    __('Shipping Locations: Topgoodmart currently ships exclusively within the United States domestic market.', 'dawp'),
+    __('Shipping Locations: MegaMallDepot currently ships exclusively within the United States domestic market.', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
     __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time. Orders placed after this time begin processing on the following business day.', 'dawp'),
     __('Handling Time: Current order handling and packaging time is 1-3 business days, Monday through Friday, excluding standard U.S. public holidays.', 'dawp'),
@@ -85,9 +85,9 @@ $sections = [
     [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
-            __('Topgoodmart is an e-commerce store focused on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+            __('MegaMallDepot is an e-commerce store focused on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
             __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
-            __('Topgoodmart strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+            __('MegaMallDepot strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],
     ],
     [
@@ -151,8 +151,8 @@ $sections = [
     [
         'title' => __('8. Intellectual Property & Liability Limitations', 'dawp'),
         'copy'  => [
-            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to Topgoodmart and are protected by copyright laws.', 'dawp'),
-            __('To the fullest extent permitted by applicable law, Topgoodmart shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
+            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to MegaMallDepot and are protected by copyright laws.', 'dawp'),
+            __('To the fullest extent permitted by applicable law, MegaMallDepot shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
         ],
     ],
     [
@@ -166,7 +166,7 @@ $sections = [
 $terms_faqs = [
     [
         'question' => __('What do these Terms cover?', 'dawp'),
-        'answer'   => __('These Terms govern access to Topgoodmart, browsing the catalog, creating an account, contacting support, and purchasing products through topgoodmart.com.', 'dawp'),
+        'answer'   => __('These Terms govern access to MegaMallDepot, browsing the catalog, creating an account, contacting support, and purchasing products through megamalldepot.com.', 'dawp'),
     ],
     [
         'question' => __('When is an order accepted?', 'dawp'),
@@ -187,15 +187,15 @@ $terms_faqs = [
 ];
 ?>
 
-<div class="bg-white text-[#1F2937]">
-    <section class="bg-[#F5F6F8] py-14 sm:py-20" aria-labelledby="terms-title">
+<div class="bg-white text-[#2B2B2B]">
+    <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="terms-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
-                <h1 id="terms-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#1F2937] sm:text-5xl">
-                    <?php esc_html_e('Terms for using and shopping with Topgoodmart.', 'dawp'); ?>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
+                <h1 id="terms-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
+                    <?php esc_html_e('Terms for using and shopping with MegaMallDepot.', 'dawp'); ?>
                 </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B7280]">
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php
                     echo esc_html(
                         sprintf(
@@ -209,14 +209,14 @@ $terms_faqs = [
                 </p>
             </div>
 
-            <div class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#0046BE]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
-                <p class="mt-3 font-heading text-2xl font-extrabold text-[#1F2937]"><?php echo esc_html($last_updated); ?></p>
-                <div class="terms-highlight-slider mt-5 grid gap-4 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+            <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+                <p class="mt-3 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
+                <div class="terms-highlight-slider mt-5 hidden gap-4 md:grid md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                     <?php foreach ($terms_highlights as $highlight) : ?>
-                        <article class="terms-highlight-card rounded-md border border-[#E5E7EB] bg-[#FFFFFF] p-4">
-                            <h2 class="font-heading text-base font-extrabold text-[#1F2937]"><?php echo esc_html($highlight['title']); ?></h2>
-                            <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($highlight['copy']); ?></p>
+                        <article class="terms-highlight-card rounded-md border border-[#E8E5DF] bg-[#FFFFFF] p-4">
+                            <h2 class="font-heading text-base font-extrabold text-[#2B2B2B]"><?php echo esc_html($highlight['title']); ?></h2>
+                            <p class="mt-3 text-sm leading-6 text-[#4A4A4A]"><?php echo esc_html($highlight['copy']); ?></p>
                         </article>
                     <?php endforeach; ?>
                 </div>
@@ -227,21 +227,21 @@ $terms_faqs = [
     <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="terms-content-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h2 id="terms-content-title" class="font-heading text-2xl font-extrabold text-[#1F2937]"><?php esc_html_e('Terms overview', 'dawp'); ?></h2>
-                    <div class="mt-4 space-y-4 text-sm leading-7 text-[#6B7280]">
+                <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                    <h2 id="terms-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Terms overview', 'dawp'); ?></h2>
+                    <div class="mt-4 space-y-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php foreach ($intro_paragraphs as $paragraph) : ?>
                             <p><?php echo esc_html($paragraph); ?></p>
                         <?php endforeach; ?>
                     </div>
                     <div class="mt-6 grid gap-3">
-                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#0046BE] px-5 text-sm font-bold text-white transition hover:bg-[#1F2937]">
+                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-5 text-sm font-bold text-white transition hover:bg-[#7F422F]">
                             <?php esc_html_e('Shipping Policy', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0046BE] bg-white px-5 text-sm font-bold text-[#0046BE] transition hover:bg-[#EAF2FF]">
+                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-5 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
                             <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($privacy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0046BE] bg-white px-5 text-sm font-bold text-[#0046BE] transition hover:bg-[#EAF2FF]">
+                        <a href="<?php echo esc_url($privacy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-5 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
                             <?php esc_html_e('Privacy Policy', 'dawp'); ?>
                         </a>
                     </div>
@@ -250,11 +250,11 @@ $terms_faqs = [
 
             <div class="grid gap-5">
                 <?php foreach ($sections as $section) : ?>
-                    <article class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                        <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php echo esc_html($section['title']); ?></h2>
+                    <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                        <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($section['title']); ?></h2>
 
                         <?php if (!empty($section['copy'])) : ?>
-                            <div class="mt-4 space-y-4 text-sm leading-7 text-[#6B7280]">
+                            <div class="mt-4 space-y-4 text-sm leading-7 text-[#4A4A4A]">
                                 <?php foreach ($section['copy'] as $paragraph) : ?>
                                     <p><?php echo esc_html($paragraph); ?></p>
                                 <?php endforeach; ?>
@@ -262,7 +262,7 @@ $terms_faqs = [
                         <?php endif; ?>
 
                         <?php if (!empty($section['list'])) : ?>
-                            <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#6B7280]">
+                            <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#4A4A4A]">
                                 <?php foreach ($section['list'] as $item) : ?>
                                     <li class="flex gap-3">
                                         <span aria-hidden="true">&bull;</span>
@@ -273,9 +273,9 @@ $terms_faqs = [
                         <?php endif; ?>
 
                         <?php if (!empty($section['after'])) : ?>
-                            <p class="mt-5 text-sm leading-7 text-[#6B7280]">
+                            <p class="mt-5 text-sm leading-7 text-[#4A4A4A]">
                                 <?php echo esc_html($section['after']['text']); ?>
-                                <a class="font-bold text-[#0046BE] underline decoration-[#0046BE]/40 underline-offset-4 transition hover:text-[#1F2937]" href="<?php echo esc_url($section['after']['url']); ?>">
+                                <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="<?php echo esc_url($section['after']['url']); ?>">
                                     <?php echo esc_html($section['after']['link']); ?>
                                 </a>
                             </p>
@@ -283,18 +283,18 @@ $terms_faqs = [
                     </article>
                 <?php endforeach; ?>
 
-                <article class="rounded-md border border-[#E5E7EB] bg-[#F5F6F8] p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php esc_html_e('10. Customer Support & Business Identity', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6B7280]">
+                <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('10. Customer Support & Business Identity', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php esc_html_e('If you have questions, complaints, or require clarification regarding these Terms & Conditions or an active order, please contact our team via our verified corporate channels:', 'dawp'); ?>
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-2">
                         <?php foreach ($contact_details as $detail) : ?>
-                            <div class="rounded-md border border-[#E5E7EB] bg-white p-5">
-                                <dt class="text-sm font-extrabold text-[#1F2937]"><?php echo esc_html($detail['label']); ?></dt>
-                                <dd class="mt-3 text-sm leading-7 text-[#6B7280]">
+                            <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
+                                <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php echo esc_html($detail['label']); ?></dt>
+                                <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
                                     <?php if (!empty($detail['url'])) : ?>
-                                        <a class="font-bold text-[#0046BE] underline decoration-[#0046BE]/40 underline-offset-4 transition hover:text-[#1F2937]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
+                                        <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="<?php echo esc_url($detail['url']); ?>"><?php echo esc_html($detail['value']); ?></a>
                                     <?php else : ?>
                                         <?php echo esc_html($detail['value']); ?>
                                     <?php endif; ?>
@@ -304,16 +304,16 @@ $terms_faqs = [
                     </dl>
                 </article>
 
-                <article class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#1F2937]"><?php esc_html_e('Terms FAQs', 'dawp'); ?></h2>
-                    <div class="mt-6 divide-y divide-[#E5E7EB]">
+                <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Terms FAQs', 'dawp'); ?></h2>
+                    <div class="mt-6 divide-y divide-[#E8E5DF]">
                         <?php foreach ($terms_faqs as $item) : ?>
                             <details class="group py-5 first:pt-0 last:pb-0">
-                                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#1F2937]">
+                                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#2B2B2B]">
                                     <span><?php echo esc_html($item['question']); ?></span>
-                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#EAF2FF] text-[#0046BE] transition group-open:rotate-45" aria-hidden="true">+</span>
+                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F8F5F0] text-[#A45A3F] transition group-open:rotate-45" aria-hidden="true">+</span>
                                 </summary>
-                                <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php echo esc_html($item['answer']); ?></p>
+                                <p class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($item['answer']); ?></p>
                             </details>
                         <?php endforeach; ?>
                     </div>

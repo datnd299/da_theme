@@ -1,310 +1,363 @@
-# Topgoodmart — Home Plan
+# MegaMallDepot — Homepage Plan
 
-## Homepage Goal
+## Overview
 
-Build a clean, modern ecommerce homepage that helps customers quickly discover products across multiple categories while reinforcing trust and convenience.
+MegaMallDepot is a premium American home & lifestyle retailer. The homepage should feel warm, elegant, editorial and trustworthy, inspiring customers before presenting products.
 
-Core message:
+---
 
-> Everything You Need For Modern Living
+## Homepage Goals
 
-Homepage should feel:
-
-* Modern
-* Organized
-* Bright
-* Product-focused
-* Easy to browse
+- Inspire through lifestyle imagery
+- Showcase curated collections
+- Build trust
+- Make shopping effortless
+- Guide visitors from inspiration to purchase
 
 ---
 
 # Homepage Structure
 
-Use 7 sections:
-
-1. Hero Banner
-2. Shop By Category
-3. Featured Products
-4. Trending Collections
-5. Why Shop With Topgoodmart
-6. Customer Reviews Slider
-7. Newsletter & Trust Footer
+1. Announcement Bar
+2. Premium Header
+3. Editorial Hero
+4. Shop By Room
+5. Featured Collections
+6. Editorial Story
+7. Best Sellers
+8. Seasonal Inspiration
+9. New Arrivals
+10. Why Shop MegaMallDepot
+11. Customer Reviews
+12. Lifestyle Gallery
+13. Newsletter
+14. Premium Footer
 
 ---
 
-# Section 1 — Hero Banner
+# Section Guidelines
 
-## Purpose
+## Announcement Bar
 
-Create a strong first impression and promote current shopping opportunities.
+Display one simple trust message:
 
-Content:
+- Free Shipping
+- Easy Returns
+- Secure Checkout
 
-Eyebrow:
+Minimal, elegant and non-promotional.
 
-```txt
-Modern Home • Electronics • Lifestyle
-```
+---
+
+## Premium Header
+
+Include:
+
+- Logo
+- Search
+- Account
+- Wishlist
+- Cart
+- Category Navigation
+
+Header should be sticky, clean and spacious.
+
+---
+
+## Editorial Hero
 
 Headline:
 
-```txt
-Everything You Need For Modern Living
-```
+> Beautiful Spaces Begin At Home
 
-Description:
+Supporting copy:
 
-```txt
-Discover quality products for your home, technology and everyday lifestyle at competitive prices.
-```
+> Discover thoughtfully selected furniture, décor and home essentials designed for modern American living.
 
 CTA:
 
-* Shop Now
-* Explore Deals
+- Shop Collection
+- Explore New Arrivals
 
-Hero image:
-
-* Modern living room
-* Smart home devices
-* Kitchen appliances
-* Lifestyle scene
+Use bright luxury interiors with natural lighting.
 
 ---
 
-# Section 2 — Shop By Category
+## Shop By Room
 
-## Purpose
+Feature six lifestyle categories:
 
-Help customers immediately enter their preferred department.
+- Living Room
+- Bedroom
+- Kitchen
+- Dining
+- Bathroom
+- Outdoor
 
-Display 6 category cards:
-
-* Home Essentials
-* Furniture
-* Electronics
-* Smart Home
-* Kitchen & Dining
-* Outdoor & Garden
-
-Each card includes:
-
-* Category image
-* Category title
-* Short description
-* Shop Category button
-
-Desktop:
-
-3 columns × 2 rows
-
-Mobile:
-
-2 columns
+Large editorial cards with soft hover effects.
 
 ---
 
-# Section 3 — Featured Products
+## Featured Collections
 
-## Purpose
+Highlight curated collections such as:
 
-Display best-selling products early to encourage shopping.
+- Kitchen Essentials
+- Elegant Dining
+- Modern Furniture
+- Timeless Decor
+- Outdoor Living
 
-Header:
+Prioritize storytelling over promotions.
 
-```txt
-Featured Products
-```
+---
 
-Subheading:
+## Editorial Story
 
-```txt
-Popular choices for every home and lifestyle.
-```
+Explain the MegaMallDepot brand through lifestyle imagery and short editorial copy.
 
-Show:
+CTA:
 
-* 8 featured products
+Discover Our Story
+
+---
+
+## Best Sellers
+
+Display up to 8 products.
 
 Each product card includes:
 
-* Product image
-* Product name
-* Brand
-* Rating
-* Price
-* Sale badge (optional)
-* Add to Cart button
+- Image
+- Name
+- Collection
+- Price
+- Rating
+- Quick View
+- Add to Cart
 
-Desktop:
-
-4 columns
-
-Mobile:
-
-2 columns
+Lifestyle imagery should be prioritized.
 
 ---
 
-# Section 4 — Trending Collections
+## Seasonal Inspiration
 
-## Purpose
+Present seasonal edits using magazine-style layouts.
 
-Promote seasonal shopping and curated collections.
+Examples:
 
-Display 3 promotional banners:
-
-### Smart Living
-
-Featured smart home products.
-
----
-
-### Home Refresh
-
-Furniture and home organization essentials.
+- Summer Patio
+- Cozy Bedroom
+- Outdoor Dining
+- Holiday Living
 
 ---
 
-### Kitchen Favorites
+## New Arrivals
 
-Popular appliances and cookware.
+Display the latest curated products with a clean product grid.
 
-Each banner includes:
+Maximum:
 
-* Lifestyle image
-* Short description
-* Shop Collection CTA
+8 products.
 
 ---
 
-# Section 5 — Why Shop With Topgoodmart
+## Why Shop MegaMallDepot
 
-## Purpose
+Highlight:
 
-Build trust before purchase.
+- Fast Shipping
+- Easy Returns
+- Secure Checkout
+- Order Tracking
+- Customer Support
 
-Display 4 feature cards:
-
-### Fast Shipping
-
-Reliable delivery across the United States.
-
----
-
-### Secure Checkout
-
-Protected payment experience.
+Use simple icons and clean layouts.
 
 ---
 
-### Easy Returns
+## Customer Reviews
 
-Simple and transparent return process.
+Display authentic reviews with:
 
----
+- Rating
+- Customer name
+- Location
+- Verified Purchase
 
-### Friendly Support
-
-Helpful customer service whenever needed.
-
-Layout:
-
-4 cards desktop
-
-2 cards mobile
-
-Simple line icons only.
+Avoid fake testimonials.
 
 ---
 
-# Section 6 — Customer Reviews Slider
+## Lifestyle Gallery
 
-## Purpose
+Show beautiful home photography featuring:
 
-Increase credibility and customer confidence.
+- Kitchens
+- Living Rooms
+- Bedrooms
+- Outdoor Spaces
 
-Heading:
-
-```txt
-Trusted By Everyday Shoppers
-```
-
-Display review slider with 3–5 review cards.
-
-Each card:
-
-* Customer name
-* Location
-* Review text
-* 5-star display
-
-Use clean white cards with subtle shadows.
+Focus on inspiration rather than products.
 
 ---
-
-# Section 7 — Newsletter & Trust Footer
 
 ## Newsletter
 
 Headline:
 
-```txt
-Stay Updated With New Deals
-```
+Bring Inspiration Home
 
-Description:
-
-```txt
-Get exclusive offers, product launches and seasonal savings delivered to your inbox.
-```
-
-Components:
-
-* Email field
-* Subscribe button
+Collect email subscriptions using a simple centered form.
 
 ---
 
-## Footer Links
+## Premium Footer
 
-Display:
+Include:
 
-* About Us
-* Contact Us
-* Shipping Policy
-* Return & Refund Policy
-* Privacy Policy
-* Terms of Service
-* FAQ
-* Track Order
+### Shop
 
-Include trust badges:
+- Kitchen
+- Furniture
+- Decor
+- Bedding
+- Outdoor
 
-* Secure Checkout
-* Fast Shipping
-* Easy Returns
-* Customer Support
+### Customer Care
 
----
+- Contact
+- Shipping
+- Returns
+- Track Order
+- FAQ
 
-# Homepage Product Strategy
+### About
 
-Homepage should display:
-
-* 6 Main Categories
-* 8 Featured Products
-* 3 Promotional Collections
-* 4 Trust Features
-* Customer Reviews Slider
-* Newsletter Signup
-
-Avoid excessive text and keep the focus on products and shopping convenience.
+- Our Story
+- Privacy Policy
+- Terms
 
 ---
 
-# Final Homepage Feeling
+# Product Card Rules
 
-Topgoodmart should feel like:
+Every card should include:
 
-"A modern American online retailer where customers can easily browse, compare and purchase quality products for home, technology and everyday living with confidence."
+- Large product image
+- Product name
+- Price
+- Rating
+- Quick View
+- Add to Cart
+
+Use soft hover animations only.
+
+---
+
+# Content Guidelines
+
+Content should be:
+
+- Warm
+- Elegant
+- Helpful
+- Lifestyle-focused
+- Original
+- Benefit-driven
+
+Avoid:
+
+- Keyword stuffing
+- Flash-sale language
+- Fake urgency
+- Marketplace style
+
+---
+
+# Image Direction
+
+Use:
+
+- Bright interiors
+- Natural lighting
+- Editorial photography
+- Premium home styling
+
+Avoid:
+
+- White cutout product images
+- Busy graphics
+- Dark themes
+
+---
+
+# Mobile Experience
+
+- Responsive hero
+- Two-column product grids
+- Large touch targets
+- Simple navigation
+- Fast loading
+
+---
+
+# SEO & GMC
+
+Homepage should demonstrate:
+
+- Clear home & lifestyle niche
+- Original content
+- Transparent policies
+- Strong branding
+- Mobile-friendly design
+- Trustworthy shopping experience
+
+---
+
+# Homepage Journey
+
+Brand Inspiration
+
+↓
+
+Shop By Room
+
+↓
+
+Collections
+
+↓
+
+Brand Story
+
+↓
+
+Best Sellers
+
+↓
+
+Seasonal Inspiration
+
+↓
+
+Trust
+
+↓
+
+Reviews
+
+↓
+
+Newsletter
+
+↓
+
+Purchase
+
+---
+
+## Final Goal
+
+Create a calm, premium shopping experience that feels like a modern home magazine while making product discovery effortless.

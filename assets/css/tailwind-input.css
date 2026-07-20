@@ -1239,8 +1239,7 @@
   .tgm-product-grid,
   .tgm-review-row,
   .tgm-trust-grid,
-  .tgm-about-policy__grid,
-  .terms-highlight-slider {
+  .tgm-about-policy__grid {
     display: flex;
     gap: 14px;
     margin-inline: 0;
@@ -1258,8 +1257,7 @@
   .tgm-product-grid::-webkit-scrollbar,
   .tgm-review-row::-webkit-scrollbar,
   .tgm-trust-grid::-webkit-scrollbar,
-  .tgm-about-policy__grid::-webkit-scrollbar,
-  .terms-highlight-slider::-webkit-scrollbar {
+  .tgm-about-policy__grid::-webkit-scrollbar {
     display: none;
   }
 

@@ -1,34 +1,34 @@
-# Topgoodmart — Site.md
+# MegaMallDepot — Site.md
 
 ## Store Information
 
-* **Website:** topgoodmart.com
+* **Website:** megamalldepot.com
 * **Language:** English
 * **Primary Market:** United States
-* **Store Type:** General Merchandise Ecommerce
-* **Industry:** Home • Electronics • Lifestyle
+* **Store Type:** Premium Home & Lifestyle Ecommerce
+* **Industry:** Home • Kitchen • Furniture • Decor • Living
 
 ---
 
 # Brand Positioning
 
-Topgoodmart is a modern online shopping destination offering affordable products for everyday living, including home essentials, furniture, electronics, and smart lifestyle products.
+MegaMallDepot is a modern American home and lifestyle retailer inspired by premium home shopping experiences. The store focuses on quality products that elevate everyday living, combining elegant design with accessible pricing.
 
 The storefront should feel:
 
+* Warm
+* Premium
 * Modern
-* Clean
-* Reliable
+* Elegant
 * Organized
-* Convenient
-* Technology-driven
+* Inspirational
 
 Avoid:
 
 * Discount warehouse appearance
-* Generic dropshipping store
-* Luxury furniture branding
-* Overcrowded marketplace
+* Marketplace clutter
+* Electronics-first branding
+* Generic dropshipping style
 
 ---
 
@@ -37,75 +37,75 @@ Avoid:
 ## Primary Customers
 
 * Homeowners
-* Young families
-* Apartment renters
-* Tech enthusiasts
-* Online shoppers
+* Couples
+* Families
+* Interior enthusiasts
+* Home improvement shoppers
 
 Age:
 
-* 25–60
+* 28–60
 
 Shopping motivation:
 
-* Upgrade home
-* Improve daily life
-* Affordable technology
-* Convenient online shopping
+* Upgrade home spaces
+* Seasonal decorating
+* Better kitchen experiences
+* Comfortable everyday living
 
 ---
 
 # Main Categories
 
-## Home Essentials
+## Kitchen & Dining
 
-Storage, kitchen, cleaning, organization and daily household products.
+Cookware, bakeware, coffee, dining essentials and kitchen tools.
 
 ---
 
 ## Furniture
 
-Living room, bedroom, office and space-saving furniture.
+Living room, bedroom, dining room and home office furniture.
 
 ---
 
-## Electronics
+## Home Decor
 
-TVs, audio, computer accessories, smart devices and home entertainment.
-
----
-
-## Smart Home
-
-Smart lighting, security, Wi-Fi devices, smart plugs and automation.
+Wall décor, mirrors, rugs, lighting, decorative accessories and seasonal styling.
 
 ---
 
-## Kitchen & Dining
+## Bedding & Bath
 
-Cookware, appliances, coffee machines and dining essentials.
+Bedding collections, towels, bath accessories and everyday comfort.
 
 ---
 
-## Outdoor & Garden
+## Storage & Organization
 
-Patio furniture, grills, outdoor living and garden accessories.
+Closet organization, shelving, storage solutions and utility essentials.
+
+---
+
+## Outdoor Living
+
+Patio furniture, outdoor décor, garden accessories and entertaining essentials.
 
 ---
 
 # Homepage Direction
 
-Homepage should focus on helping customers discover products quickly.
+Homepage should inspire customers while making shopping effortless.
 
 Recommended sections:
 
-1. Hero Banner
-2. Shop By Category
-3. Featured Products
-4. Best Deals
-5. Smart Living Collections
-6. Customer Reviews
-7. Newsletter & Trust Footer
+1. Hero Lifestyle Banner
+2. Shop By Room
+3. Featured Collections
+4. Best Sellers
+5. Seasonal Inspiration
+6. Why Shop MegaMallDepot
+7. Customer Reviews
 
 ---
 
@@ -113,43 +113,42 @@ Recommended sections:
 
 Main message:
 
-"Everything You Need For Modern Living"
+"Beautiful Spaces Begin At Home"
 
 Supporting message:
 
-"Discover quality products for your home, technology and everyday lifestyle."
+"Discover thoughtfully selected furniture, décor and home essentials designed for modern American living."
 
 Primary CTA:
 
-* Shop Now
+* Shop Collection
 
 Secondary CTA:
 
-* Explore Deals
+* Explore New Arrivals
 
 Hero imagery:
 
-* Modern home
-* Smart devices
-* Clean interior
-* Lifestyle products
+* Bright luxury interior
+* Designer-inspired living room
+* Elegant dining table
+* Warm natural lighting
 
 ---
 
 # Product Experience
 
-Every product card should display:
+Each product card should include:
 
 * Product image
 * Product name
-* Brand
+* Collection
 * Price
-* Sale price (if applicable)
 * Rating
-* Shipping badge
-* Add to Cart button
+* Quick View
+* Add to Cart
 
-Products should be easy to compare and browse.
+Products should emphasize lifestyle before specifications.
 
 ---
 
@@ -157,23 +156,23 @@ Products should be easy to compare and browse.
 
 Descriptions should be:
 
-* Clear
-* Helpful
+* Elegant
+* Inspiring
 * Benefit-focused
-* Easy to understand
+* Lifestyle-oriented
 
 Include:
 
-* Key features
-* Everyday use
-* Product specifications
-* Compatibility (when applicable)
+* Materials
+* Design inspiration
+* Everyday functionality
+* Care information
 
 Avoid:
 
-* Overly technical descriptions
+* Technical specifications first
 * Keyword stuffing
-* Unrealistic claims
+* Cheap promotional language
 
 ---
 
@@ -183,15 +182,16 @@ Required:
 
 * Secure Checkout
 * Fast Shipping
-* Order Tracking
 * Easy Returns
-* Customer Support
+* Order Tracking
+* Dedicated Customer Support
 
-Homepage should reinforce:
+Shopping experience should feel:
 
-* Trusted online shopping
-* Competitive pricing
-* Reliable delivery
+* Premium
+* Helpful
+* Relaxing
+* Trustworthy
 
 ---
 
@@ -217,7 +217,7 @@ Estimated delivery:
 
 Usually 6–9 business days
 
-Customers receive tracking information after shipment.
+Tracking information is provided once orders are shipped.
 
 ---
 
@@ -234,9 +234,9 @@ Eligible returns:
 * Original packaging
 * Complete accessories included
 
-Return process should be:
+Return experience should be:
 
-* Easy
+* Simple
 * Transparent
 * Customer-friendly
 
@@ -246,42 +246,39 @@ Return process should be:
 
 Use:
 
-* Friendly
-* Professional
+* Warm
+* Elegant
 * Helpful
-* Modern
-* Confident
+* Refined
+* Inspiring
 
 Avoid:
 
-* Pushy sales language
-* Fake urgency
-* Marketplace-style clutter
+* Aggressive sales language
+* Flash-sale appearance
+* Overstock style
+* Marketplace terminology
 
 ---
 
 # Visual Direction
 
-Website should feel like:
-
-* Best Buy inspired
-* Modern retail
-* Bright and spacious
-* Product-focused
-* Easy navigation
+Website should resemble a premium lifestyle retailer rather than a general marketplace.
 
 Use:
 
+* Bright interiors
+* Editorial lifestyle photography
 * Large product imagery
-* Lifestyle photography
-* Clean category banners
-* Consistent spacing
+* Spacious layouts
+* Neutral backgrounds
 
 Avoid:
 
-* Busy layouts
-* Dark backgrounds
-* Overstock-style grids
+* Busy promotional graphics
+* Heavy discount banners
+* Dark themes
+* Technology-focused visuals
 
 ---
 
@@ -289,36 +286,36 @@ Avoid:
 
 Website should demonstrate:
 
-* Clear product categorization
-* Consistent branding
-* Original content
+* Clear home & lifestyle niche
+* Original product content
 * Transparent policies
+* Consistent branding
 * Mobile-friendly shopping
 * Trustworthy ecommerce experience
 
 Avoid:
 
-* Mixed unrelated products
-* Thin category pages
-* Spam promotions
+* Mixed unrelated categories
+* Thin product pages
+* Misleading promotions
 * Fake reviews
 
 ---
 
 # Brand Promise
 
-Topgoodmart provides:
+MegaMallDepot provides:
 
-* Everyday value
-* Convenient online shopping
-* Quality products
-* Reliable delivery
-* Modern home and technology solutions
+* Beautiful home inspiration
+* Carefully selected collections
+* Reliable shopping experience
+* Convenient delivery
+* Everyday quality for modern living
 
 ---
 
 # Final Brand Statement
 
-Topgoodmart is:
+MegaMallDepot is:
 
-"A modern online marketplace helping American families shop smarter with quality products for home, technology and everyday living."
+"A modern home and lifestyle destination helping American families create beautiful, comfortable spaces through thoughtfully curated furniture, décor and everyday essentials."

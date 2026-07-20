@@ -1,6 +1,6 @@
 <?php
 /**
- * Topgoodmart - Shop / Archive Product Template
+ * MegaMallDepot - Shop / Archive Product Template
  * Design System: Modern general merchandise, conversion-first
  * Section 10: Category / Shop Page rules
  */
@@ -12,44 +12,43 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from Topgoodmart.', 'dawp');
-$archive_eyebrow = __('Topgoodmart Collection', 'dawp');
+$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from MegaMallDepot.', 'dawp');
+$archive_eyebrow = __('MegaMallDepot Collection', 'dawp');
 $archive_slug = 'shop';
-$gallery_image = static function ($filename) {
-    return get_theme_file_uri('assets/img/gallery/' . $filename);
+$home_image = static function ($filename) {
+    return get_theme_file_uri('assets/img/home/' . $filename);
 };
 
 $shop_cover_images = [
     'shop' => [
-        'url' => $gallery_image('Modern_living_room_smart_electro…_202607161235.jpeg'),
-        'alt' => __('Modern living room with furniture, decor, and connected home products', 'dawp'),
+        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
+        'alt' => __('Curated home essentials arranged on a warm modern shelf', 'dawp'),
     ],
     'home-essentials' => [
-        'url' => $gallery_image('Modern_laundry_room_cleaning_sta…_202607161248.jpeg'),
-        'alt' => __('Clean laundry room with organized home essentials and cleaning supplies', 'dawp'),
+        'url' => $home_image('Fresh_Utility_Spaces.jpeg'),
+        'alt' => __('Fresh utility space with practical home organization essentials', 'dawp'),
     ],
     'furniture' => [
-        'url' => $gallery_image('Living_room_furniture_set_neutra…_202607161252.jpeg'),
-        'alt' => __('Modern living room furniture with sofa and tables', 'dawp'),
+        'url' => $home_image('Modern_furniture_clean-lined_pieces_202607171201.jpeg'),
+        'alt' => __('Clean-lined modern furniture in a warm living space', 'dawp'),
     ],
     'electronics' => [
-        'url' => $gallery_image('Home_entertainment_setup_televis…_202607161254.jpeg'),
-        'alt' => __('Home entertainment setup with television and electronics', 'dawp'),
+        'url' => $home_image('Living_Room.jpeg'),
+        'alt' => __('Modern living room ready for entertainment and connected devices', 'dawp'),
     ],
     'smart-home' => [
-        'url' => $gallery_image('Smart_home_security_front_door_202607161256.jpeg'),
-        'alt' => __('Smart home security devices at a front door', 'dawp'),
+        'url' => $home_image('Minimalist_living_room_with_ligh�_202607171221.jpeg'),
+        'alt' => __('Minimalist living room with warm lighting for smart home living', 'dawp'),
     ],
     'kitchen-dining' => [
-        'url' => $gallery_image('Dining_area_with_kitchen_favorites_202607161311.jpeg'),
-        'alt' => __('Bright kitchen with cookware and dining essentials', 'dawp'),
+        'url' => $home_image('Kitchen_essentials_tools_cookware_202607171159.jpeg'),
+        'alt' => __('Kitchen essentials, cookware, and everyday dining tools', 'dawp'),
     ],
     'outdoor-garden' => [
-        'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
-        'alt' => __('Outdoor patio seating and garden living products', 'dawp'),
+        'url' => $home_image('Outdoor_living_fresh_air_enterta�_202607171203.jpeg'),
+        'alt' => __('Outdoor living space arranged for fresh-air entertaining', 'dawp'),
     ],
 ];
-
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;
     $archive_slug = $archive_term->slug;
@@ -324,12 +323,12 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 
                 var loadMoreBtn = document.createElement('button');
                 // Use exact classes from header to ensure they exist, plus inline styles for safety
-                loadMoreBtn.className = 'inline-flex min-h-12 items-center justify-center rounded-md bg-[#0046BE] px-8 text-sm font-bold text-white transition hover:bg-[#00389A] cursor-pointer';
+                loadMoreBtn.className = 'inline-flex min-h-12 items-center justify-center rounded-md px-8 text-sm font-bold text-white transition cursor-pointer';
                 loadMoreBtn.style.minHeight = '3rem';
                 loadMoreBtn.style.paddingLeft = '2rem';
                 loadMoreBtn.style.paddingRight = '2rem';
                 loadMoreBtn.style.borderRadius = '0.375rem';
-                loadMoreBtn.style.backgroundColor = '#0046BE';
+                loadMoreBtn.style.backgroundColor = '#A45A3F';
                 loadMoreBtn.style.color = '#ffffff';
                 loadMoreBtn.style.fontWeight = '700';
                 loadMoreBtn.style.fontSize = '0.875rem';
@@ -337,8 +336,8 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 loadMoreBtn.style.cursor = 'pointer';
                 loadMoreBtn.style.transition = 'background-color 0.2s';
                 
-                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#00389A'; };
-                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#0046BE'; };
+                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#7F422F'; };
+                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#A45A3F'; };
 
                 loadMoreBtn.innerHTML = 'Load More Product';
                 

@@ -11,17 +11,17 @@ body.woocommerce-cart #content {
 body.woocommerce-cart {
   --cart-bg: #FFFFFF;
   --cart-surface: #FFFFFF;
-  --cart-surface-soft: #F5F6F8;
-  --cart-blue-soft: #EAF2FF;
-  --cart-ink: #1F2937;
-  --cart-muted: #6B7280;
-  --cart-border: #E5E7EB;
-  --cart-blue: #0046BE;
-  --cart-blue-hover: #00389A;
-  --cart-yellow: #FFE000;
+  --cart-surface-soft: #F8F5F0;
+  --cart-blue-soft: #FBF8F3;
+  --cart-ink: #2B2B2B;
+  --cart-muted: #746B64;
+  --cart-border: #E8E5DF;
+  --cart-blue: #A45A3F;
+  --cart-blue-hover: #7F422F;
+  --cart-yellow: #D8B26E;
   --cart-alert: #8A332B;
-  --cart-shadow: 0 8px 24px rgba(31, 41, 55, 0.10);
-  --cart-focus: 0 0 0 3px rgba(0, 70, 190, 0.18);
+  --cart-shadow: 0 12px 28px rgba(43, 43, 43, 0.08);
+  --cart-focus: 0 0 0 3px rgba(164, 90, 63, 0.16);
 }
 
 /* === 1. PAGE WRAPPER === */
@@ -277,7 +277,7 @@ body.woocommerce-cart {
 /* === 4. ORDER SUMMARY SIDEBAR === */
 .wc-block-cart__sidebar {
   background: var(--cart-blue-soft);
-  border: 1px solid rgba(0, 70, 190, 0.12);
+  border: 1px solid rgba(164, 90, 63, 0.16);
   border-radius: 16px;
   padding: 24px;
   box-sizing: border-box;
@@ -316,7 +316,7 @@ body.woocommerce-cart {
   align-items: baseline;
   gap: 12px;
   padding: 11px 0;
-  border-bottom: 1px solid rgba(0, 70, 190, 0.12);
+  border-bottom: 1px solid rgba(164, 90, 63, 0.16);
 }
 
 .wc-block-components-totals-item__label {
@@ -357,7 +357,7 @@ body.woocommerce-cart {
 
 /* === 5. COUPON === */
 .wc-block-components-totals-coupon {
-  border-bottom: 1px solid rgba(0, 70, 190, 0.12);
+  border-bottom: 1px solid rgba(164, 90, 63, 0.16);
 }
 
 .wc-block-components-panel__button {
@@ -498,7 +498,7 @@ body.woocommerce-cart {
   background: var(--cart-blue) !important;
   border: none !important;
   border-radius: 10px;
-  box-shadow: 0 8px 18px rgba(0, 70, 190, 0.18);
+  box-shadow: 0 8px 18px rgba(164, 90, 63, 0.18);
   text-decoration: none;
   cursor: pointer;
   box-sizing: border-box;

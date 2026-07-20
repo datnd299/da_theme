@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for Topgoodmart.
+ * Product category defaults for MegaMallDepot.
  *
  * @package dawp
  */

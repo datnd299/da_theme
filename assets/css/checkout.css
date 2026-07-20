@@ -1,17 +1,17 @@
 /* Checkout and thank-you pages */
 
 :root {
-    --checkout-primary: var(--color-primary, #0046BE);
-    --checkout-primary-dark: #003A9E;
-    --checkout-accent: var(--color-accent, #FFE000);
-    --checkout-bg: var(--color-background, #F5F6F8);
-    --checkout-surface: var(--color-surface, #FFFFFF);
-    --checkout-text: var(--color-foreground, #1F2937);
-    --checkout-muted: var(--color-foreground-muted, #6B7280);
-    --checkout-border: var(--color-border, #E5E7EB);
-    --checkout-border-strong: #D0D5DD;
+    --checkout-primary: #A45A3F;
+    --checkout-primary-dark: #7F422F;
+    --checkout-accent: #D8B26E;
+    --checkout-bg: #F8F5F0;
+    --checkout-surface: #FFFFFF;
+    --checkout-text: #2B2B2B;
+    --checkout-muted: #746B64;
+    --checkout-border: #E8E5DF;
+    --checkout-border-strong: #D8C7BE;
     --checkout-radius: 8px;
-    --checkout-shadow: 0 12px 32px rgba(31, 41, 55, 0.08);
+    --checkout-shadow: 0 14px 34px rgba(43, 43, 43, 0.07);
 }
 
 body.woocommerce-checkout,
@@ -188,7 +188,7 @@ body.woocommerce-checkout .woo-page *::after,
 .woocommerce-checkout .form-row label {
     display: block;
     margin-bottom: 0.4rem;
-    color: #344054;
+    color: var(--checkout-text);
     font-size: 0.875rem;
     font-weight: 700;
     line-height: 1.35;
@@ -239,7 +239,7 @@ body.woocommerce-checkout .woo-page *::after,
 .wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus {
     border-color: var(--checkout-primary);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 70, 190, 0.12);
+    box-shadow: 0 0 0 3px rgba(164, 90, 63, 0.14);
 }
 
 .woocommerce-checkout .select2-container {
@@ -305,7 +305,7 @@ body.woocommerce-checkout .woo-page *::after,
 
 .woocommerce-checkout table.shop_table th,
 .woocommerce-order-received table.shop_table th {
-    color: #344054;
+    color: var(--checkout-text);
     font-size: 0.875rem;
     font-weight: 700;
 }
@@ -595,7 +595,7 @@ body.woocommerce-checkout .woo-page *::after,
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    color: #344054;
+    color: var(--checkout-text);
     font-size: 0.95rem;
 }
 

@@ -1,24 +1,27 @@
-# Topgoodmart — Design System
+# MegaMallDepot — Design System
 
 ## Design Direction
 
-Topgoodmart is a modern American general merchandise store offering home essentials, furniture, electronics and smart lifestyle products.
+Inspired by premium home retailers like Williams Sonoma.
 
-Website feeling:
+Website should feel:
 
-* Modern
-* Clean
-* Bright
-* Trustworthy
-* Organized
-* Easy to shop
+* Warm
+* Elegant
+* Editorial
+* Spacious
+* Premium
+* Lifestyle-first
+
+Customers should feel they are browsing a modern home magazine rather than a discount ecommerce website.
 
 Avoid:
 
-* Marketplace clutter
-* Luxury aesthetics
-* Dark interfaces
-* Dropshipping appearance
+* Marketplace appearance
+* Heavy promotional banners
+* Flash sale styling
+* Overstock product grids
+* Technology-first layouts
 
 ---
 
@@ -27,228 +30,159 @@ Avoid:
 ## Primary
 
 ```txt
-Modern Blue
-#0046BE
+Charcoal
+#2B2B2B
 ```
 
-Usage:
+Used for:
 
-* Header
+* Logo
 * Navigation
-* Links
-* Brand elements
+* Headlines
+
+---
+
+## Secondary
+
+```txt
+Warm Ivory
+#F8F5F0
+```
+
+Used for:
+
+* Section backgrounds
+* Hero
+* Editorial blocks
 
 ---
 
 ## Accent
 
 ```txt
-Bright Yellow
-#FFE000
+Terracotta
+#A45A3F
 ```
 
-Usage:
+Used for:
 
-* CTA buttons
-* Promotions
-* Sale badges
-* Important highlights
+* Buttons
+* Small highlights
+* Links
 
 ---
 
-## Background
+## Neutral
 
 ```txt
 White
 #FFFFFF
 
-Light Gray
-#F5F6F8
-```
-
-Usage:
-
-* Product sections
-* Cards
-* Alternate sections
-
----
-
-## Text
-
-```txt
-Primary
-#1F2937
-
-Secondary
-#6B7280
-
 Border
-#E5E7EB
+#E8E5DF
+
+Text
+#4A4A4A
 ```
 
 ---
 
 # Typography
 
-Recommended:
+Headings
 
 ```txt
-Headings:
-Inter
+Cormorant Garamond
+```
 
-Body:
-Inter / Open Sans
+Body
+
+```txt
+Inter
 ```
 
 Style:
 
-* Bold headlines
-* Clean product information
-* Comfortable reading
+* Large elegant headings
+* Small readable body text
+* Editorial spacing
 
 Avoid:
 
-* Decorative fonts
-* Heavy condensed fonts
+* Bold oversized typography
+* Tech fonts
+* Decorative scripts
 
 ---
 
 # Layout System
 
+Container
+
 ```txt
-Container:
-max-w-7xl mx-auto px-4 md:px-6
-
-Section:
-py-12 md:py-16
-
-Grid:
-Mobile 2 columns
-Desktop 4 columns
-
-Card:
-rounded-xl
-border
-shadow-sm
+max-w-7xl mx-auto
 ```
+
+Spacing
+
+```txt
+py-16 md:py-24
+```
+
+Grid
+
+```txt
+2–4 columns
+```
+
+Lots of whitespace.
+
+Content should breathe.
 
 ---
 
 # Header
 
-Desktop:
+Structure
 
 ```txt
-Logo
-
-Search Bar
-
-Categories
-
-Deals
-
-Track Order
-
-Account
-
-Cart
-```
-
-Requirements:
-
-* Large centered search bar
-* Sticky navigation
-* Cart always visible
-
-Mobile:
-
-```txt
-Menu
+Announcement Bar
 
 Logo
 
 Search
 
+Account
+
+Wishlist
+
 Cart
+
+Category Navigation
 ```
+
+Header should feel minimal and premium.
 
 ---
 
 # Hero Section
 
-Structure:
+Use large editorial photography.
 
-```txt
-Eyebrow
+Layout:
 
-Large Heading
+50% imagery
 
-Short Description
+50% content
 
-Primary CTA
+Content includes:
 
-Secondary CTA
-
-Lifestyle Image
-```
-
-Hero should promote:
-
-* Smart shopping
-* Home upgrades
-* Seasonal deals
-
----
-
-# Category Cards
-
-Display:
-
-* Category image
-* Category name
+* Small eyebrow
+* Elegant headline
 * Short description
+* One primary CTA
 
-Hover:
-
-* Slight lift
-* Soft shadow
-
----
-
-# Product Card
-
-Required:
-
-* Product image
-* Product title
-* Brand
-* Rating
-* Current price
-* Original price (optional)
-* Shipping badge
-* Add to Cart
-
-Hover:
-
-* Slight image zoom
-* Button highlight
-
----
-
-# Product Grid
-
-Homepage:
-
-Desktop:
-
-4 products per row
-
-Mobile:
-
-2 products per row
-
-Spacing should remain clean and consistent.
+Avoid crowded hero content.
 
 ---
 
@@ -256,31 +190,34 @@ Spacing should remain clean and consistent.
 
 Use:
 
-* Hero Banner
-* Category Grid
+* Lifestyle Hero
+* Shop By Collection
+* Editorial Promotion
 * Featured Products
-* Promotional Banner
-* Product Collections
-* Customer Reviews Slider
-* Newsletter
+* Seasonal Collections
+* Brand Story
+* Customer Reviews
+
+Do not place large product grids immediately after the hero.
 
 ---
 
-# Trust Section
+# Product Cards
 
-Highlight:
+Display:
 
-```txt
-Fast Shipping
+* Large image
+* Product name
+* Price
+* Rating
+* Quick View
 
-Secure Checkout
+Hover:
 
-Easy Returns
+* Soft image zoom
+* Fade transition
 
-Customer Support
-```
-
-Display with simple icons inside clean cards.
+No aggressive sale badges.
 
 ---
 
@@ -288,70 +225,81 @@ Display with simple icons inside clean cards.
 
 Use:
 
-* Modern homes
-* Electronics
-* Furniture
-* Kitchen lifestyle
-* Smart devices
-* Family environments
+* Bright kitchens
+* Modern dining rooms
+* Elegant living spaces
+* Natural lighting
+* Premium home styling
+* Lifestyle photography
+
+Products should appear inside beautiful homes.
 
 Avoid:
 
-* Stock images with heavy filters
-* Overly dark backgrounds
-* Crowded compositions
+* White cutout backgrounds only
+* Dark scenes
+* Heavy graphics
+* Busy compositions
 
 ---
 
-# Button Style
+# Buttons
 
 Primary
 
 ```txt
-Background:
-#FFE000
+Background
+#2B2B2B
 
-Text:
-#111827
+Text
+White
 ```
 
 Secondary
 
 ```txt
-Background:
-#0046BE
+Border
+#2B2B2B
 
-Text:
-White
+Background
+Transparent
 ```
 
-Buttons:
-
-* Rounded-lg
-* Strong contrast
-* 44px minimum height
+Buttons should feel refined rather than promotional.
 
 ---
 
-# Animation
+# Motion
 
 Use:
 
-* Smooth hover
-* Soft shadow
-* Image scale
-* Fade transitions
+* Fade In
+* Soft hover
+* Image zoom
+* Gentle transitions
 
 Avoid:
 
-* Fast animations
-* Auto-playing sliders
-* Flashy effects
+* Fast sliders
+* Flashing banners
+* Large animations
+
+---
+
+# Visual Style
+
+Every section should alternate between:
+
+* Editorial storytelling
+* Lifestyle imagery
+* Product collections
+
+The homepage should read like a premium home inspiration magazine instead of a traditional ecommerce catalog.
 
 ---
 
 # Final Feeling
 
-Topgoodmart should feel like:
+MegaMallDepot should feel like:
 
-"A clean, modern American online retailer where customers can quickly discover quality products for home, technology and everyday living with confidence."
+"A thoughtfully curated home destination where customers discover beautiful products through inspiring spaces, timeless design and a calm shopping experience."

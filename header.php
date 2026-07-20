@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header — ShopGraphicshirt
+ * Theme header — Veterangift
  * Patriot Navy / Heritage Red / Antique White
  */
 
@@ -326,26 +326,26 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
 <?php wp_body_open(); ?>
 
 <a class="sr-only skip-link" href="#primary">
-    <?php esc_html_e('Skip to content', 'shopgraphicshirt'); ?>
+    <?php esc_html_e('Skip to content', 'veterangift'); ?>
 </a>
 
 <header id="masthead" class="sgs-header">
     <div class="sgs-container sgs-navrow">
         <button id="sgs-mobile-toggle" class="sgs-icon-btn sgs-mobile-only" type="button" aria-controls="sgs-mobile-menu" aria-expanded="false">
-            <span class="sr-only"><?php esc_html_e('Open menu', 'shopgraphicshirt'); ?></span>
+            <span class="sr-only"><?php esc_html_e('Open menu', 'veterangift'); ?></span>
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 7h16M4 12h16M4 17h16" /></svg>
         </button>
 
         <a href="<?php echo esc_url(home_url('/')); ?>" class="sgs-brand" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
             <img class="sgs-brand-logo"
-                 src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo-shopgraphicshirt.svg')); ?>"
+                 src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo-veterangift.svg')); ?>"
                  alt="<?php echo esc_attr(get_bloginfo('name')); ?>"
                  width="420"
                  height="112"
                  decoding="async">
         </a>
 
-        <nav class="sgs-main-nav" aria-label="<?php esc_attr_e('Primary', 'shopgraphicshirt'); ?>">
+        <nav class="sgs-main-nav" aria-label="<?php esc_attr_e('Primary', 'veterangift'); ?>">
             <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
             <a href="<?php echo esc_url($shop_url); ?>">Shop</a>
             <a href="<?php echo esc_url(home_url('/about-us/')); ?>">About</a>
@@ -355,23 +355,23 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
         <div class="sgs-header-actions">
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="sgs-search sgs-desktop-search">
                 <input type="hidden" name="post_type" value="product">
-                <label class="sr-only" for="sgs-prod-search"><?php esc_html_e('Search patriotic gifts...', 'shopgraphicshirt'); ?></label>
-                <input id="sgs-prod-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search patriotic gifts...', 'shopgraphicshirt'); ?>">
-                <button type="submit" aria-label="<?php esc_attr_e('Search', 'shopgraphicshirt'); ?>">
+                <label class="sr-only" for="sgs-prod-search"><?php esc_html_e('Search patriotic gifts...', 'veterangift'); ?></label>
+                <input id="sgs-prod-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search patriotic gifts...', 'veterangift'); ?>">
+                <button type="submit" aria-label="<?php esc_attr_e('Search', 'veterangift'); ?>">
                     <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
                 </button>
             </form>
 
             <button id="sgs-mobile-search-toggle" class="sgs-icon-btn sgs-mobile-only" type="button" aria-controls="sgs-mobile-search" aria-expanded="false">
-                <span class="sr-only"><?php esc_html_e('Search', 'shopgraphicshirt'); ?></span>
+                <span class="sr-only"><?php esc_html_e('Search', 'veterangift'); ?></span>
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
             </button>
 
-            <a href="<?php echo esc_url($account_url); ?>" class="sgs-icon-btn" aria-label="<?php esc_attr_e('My Account', 'shopgraphicshirt'); ?>">
+            <a href="<?php echo esc_url($account_url); ?>" class="sgs-icon-btn" aria-label="<?php esc_attr_e('My Account', 'veterangift'); ?>">
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
             </a>
 
-            <a href="<?php echo esc_url($cart_url); ?>" class="sgs-cart-btn" aria-label="<?php esc_attr_e('View cart', 'shopgraphicshirt'); ?>">
+            <a href="<?php echo esc_url($cart_url); ?>" class="sgs-cart-btn" aria-label="<?php esc_attr_e('View cart', 'veterangift'); ?>">
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H7M10 21h.01M18 21h.01"/></svg>
                 <?php if ($cart_count > 0) : ?>
                     <span class="sgs-cart-count"><?php echo esc_html($cart_count); ?></span>
@@ -383,13 +383,13 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
     <div id="sgs-mobile-search" class="sgs-mobile-panel hidden">
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="sgs-search sgs-mobile-search-form">
             <input type="hidden" name="post_type" value="product">
-            <label class="sr-only" for="sgs-mobile-search-input"><?php esc_html_e('Search patriotic gifts...', 'shopgraphicshirt'); ?></label>
-            <input id="sgs-mobile-search-input" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search patriotic gifts...', 'shopgraphicshirt'); ?>">
-            <button type="submit"><?php esc_html_e('Search', 'shopgraphicshirt'); ?></button>
+            <label class="sr-only" for="sgs-mobile-search-input"><?php esc_html_e('Search patriotic gifts...', 'veterangift'); ?></label>
+            <input id="sgs-mobile-search-input" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search patriotic gifts...', 'veterangift'); ?>">
+            <button type="submit"><?php esc_html_e('Search', 'veterangift'); ?></button>
         </form>
     </div>
 
-    <nav id="sgs-mobile-menu" class="sgs-mobile-panel hidden" aria-label="<?php esc_attr_e('Mobile navigation', 'shopgraphicshirt'); ?>">
+    <nav id="sgs-mobile-menu" class="sgs-mobile-panel hidden" aria-label="<?php esc_attr_e('Mobile navigation', 'veterangift'); ?>">
         <div class="sgs-mobile-grid">
             <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
             <a href="<?php echo esc_url($shop_url); ?>">Shop</a>

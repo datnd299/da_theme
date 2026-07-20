@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="320" height="80" viewBox="0 0 320 80" role="img" aria-labelledby="logo-title logo-desc">
-  <title id="logo-title">Shop Graphic Shirt</title>
-  <desc id="logo-desc">Shop Graphic Shirt website logo with a shirt icon and wordmark.</desc>
+  <title id="logo-title">Veterangift</title>
+  <desc id="logo-desc">Veterangift website logo with a shirt icon and wordmark.</desc>
   <defs>
     <linearGradient id="sgs-badge" x1="6" y1="8" x2="74" y2="72" gradientUnits="userSpaceOnUse">
       <stop stop-color="#f8f3e8"/>
@@ -24,13 +24,10 @@
   </g>
 
   <g>
-    <text x="88" y="35" fill="#ffffff" font-family="Inter, Arial, Helvetica, sans-serif" font-size="24" font-weight="900" letter-spacing="0">
-      Shop <tspan fill="#d6b66f">Graphic</tspan>
+    <text x="88" y="45" fill="#ffffff" font-family="Inter, Arial, Helvetica, sans-serif" font-size="24" font-weight="900" letter-spacing="0">
+      Veterangift<tspan fill="#d6b66f" font-size="17">.com</tspan>
     </text>
-    <text x="88" y="58" fill="#ffffff" font-family="Inter, Arial, Helvetica, sans-serif" font-size="24" font-weight="900" letter-spacing="0">
-      Shirt
-    </text>
-    <path d="M159 55h82" fill="none" stroke="#b31942" stroke-width="4" stroke-linecap="round"/>
-    <path d="M249 55h34" fill="none" stroke="#d6b66f" stroke-width="4" stroke-linecap="round"/>
+    <path d="M88 59h138" fill="none" stroke="#b31942" stroke-width="4" stroke-linecap="round"/>
+    <path d="M236 59h47" fill="none" stroke="#d6b66f" stroke-width="4" stroke-linecap="round"/>
   </g>
 </svg>

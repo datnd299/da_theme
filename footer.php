@@ -1,15 +1,15 @@
 <?php
 /**
- * Theme footer — ShopGraphicshirt
+ * Theme footer — Veterangift
  * Patriot Navy / Heritage Red / Antique White
  */
 
 $footer_contact = [
-    'email'   => 'support@shopgraphicshirt.com',
+    'email'   => 'support@veterangift.com',
     'address' => function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '',
-    'hours'   => __('Monday - Friday, 10:00 AM - 6:00 PM PST', 'shopgraphicshirt'),
+    'hours'   => __('Monday - Friday, 10:00 AM - 6:00 PM PST', 'veterangift'),
 ];
-$footer_contact['address'] = $footer_contact['address'] ?: __('United States', 'shopgraphicshirt');
+$footer_contact['address'] = $footer_contact['address'] ?: __('United States', 'veterangift');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $account_url = $account_url ? $account_url : home_url('/my-account/');
 ?>
@@ -249,14 +249,14 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
     }
   </style>
 
-  <section class="sgs-footer-trust" aria-label="<?php esc_attr_e('Store benefits', 'shopgraphicshirt'); ?>">
+  <section class="sgs-footer-trust" aria-label="<?php esc_attr_e('Store benefits', 'veterangift'); ?>">
     <div class="sgs-container sgs-footer-trust-grid">
       <?php
       $trust_items = [
-        ['title' => __('Secure Checkout', 'shopgraphicshirt'), 'text' => __('Protected payments', 'shopgraphicshirt'), 'icon' => 'fa-credit-card'],
-        ['title' => __('Tracking Included', 'shopgraphicshirt'), 'text' => __('Delivery updates', 'shopgraphicshirt'), 'icon' => 'fa-truck'],
-        ['title' => __('30-Day Returns', 'shopgraphicshirt'), 'text' => __('Eligible items', 'shopgraphicshirt'), 'icon' => 'fa-calendar'],
-        ['title' => __('Personalization Support', 'shopgraphicshirt'), 'text' => __('Review before ordering', 'shopgraphicshirt'), 'icon' => 'fa-headset'],
+        ['title' => __('Secure Checkout', 'veterangift'), 'text' => __('Protected payments', 'veterangift'), 'icon' => 'fa-credit-card'],
+        ['title' => __('Tracking Included', 'veterangift'), 'text' => __('Delivery updates', 'veterangift'), 'icon' => 'fa-truck'],
+        ['title' => __('30-Day Returns', 'veterangift'), 'text' => __('Eligible items', 'veterangift'), 'icon' => 'fa-calendar'],
+        ['title' => __('Personalization Support', 'veterangift'), 'text' => __('Review before ordering', 'veterangift'), 'icon' => 'fa-headset'],
       ];
       foreach ($trust_items as $item) :
       ?>
@@ -275,14 +275,14 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
     <div class="sgs-footer-info">
       <a href="<?php echo esc_url(home_url('/')); ?>" class="sgs-footer-brand">
         <img class="sgs-footer-logo"
-             src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo-shopgraphicshirt.svg')); ?>"
+             src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo-veterangift.svg')); ?>"
              alt="<?php echo esc_attr(get_bloginfo('name')); ?>"
              width="420"
              height="112"
              loading="lazy"
              decoding="async">
       </a>
-      <ul class="sgs-footer-contact" aria-label="<?php esc_attr_e('Contact', 'shopgraphicshirt'); ?>">
+      <ul class="sgs-footer-contact" aria-label="<?php esc_attr_e('Contact', 'veterangift'); ?>">
         <li>
           <a href="mailto:<?php echo esc_attr($footer_contact['email']); ?>">
             <span class="sgs-footer-contact-icon"><i class="fas fa-envelope"></i></span>
@@ -347,17 +347,17 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
         <p>Receive offers, patriotic apparel drops, and gift ideas.</p>
       </div>
       <form class="sgs-footer-form" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for signing up!');">
-        <label class="sr-only" for="sgs-footer-email"><?php esc_html_e('Email address', 'shopgraphicshirt'); ?></label>
-        <input id="sgs-footer-email" type="email" placeholder="<?php esc_attr_e('Enter your email', 'shopgraphicshirt'); ?>" required>
-        <button type="submit"><?php esc_html_e('Sign Up', 'shopgraphicshirt'); ?></button>
+        <label class="sr-only" for="sgs-footer-email"><?php esc_html_e('Email address', 'veterangift'); ?></label>
+        <input id="sgs-footer-email" type="email" placeholder="<?php esc_attr_e('Enter your email', 'veterangift'); ?>" required>
+        <button type="submit"><?php esc_html_e('Sign Up', 'veterangift'); ?></button>
       </form>
     </div>
   </div>
 
   <div class="sgs-footer-bottom">
     <div class="sgs-container sgs-footer-bottom-inner">
-      <p>&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php esc_html_e('Shop Graphic Shirt', 'shopgraphicshirt'); ?>. All rights reserved.</p>
-      <div class="sgs-footer-payments" aria-label="<?php esc_attr_e('Payment methods', 'shopgraphicshirt'); ?>">
+      <p>&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php esc_html_e('Veterangift', 'veterangift'); ?>. All rights reserved.</p>
+      <div class="sgs-footer-payments" aria-label="<?php esc_attr_e('Payment methods', 'veterangift'); ?>">
         <?php
         $payments = [
           ['file' => 'amex.png', 'name' => 'American Express'],

@@ -1,4 +1,4 @@
-# GraphicTShirtStore — Site Blueprint
+# Veteran Gift — Site Blueprint
 
 > *Strategy, brand architecture & content guide for the patriotic apparel, veteran tribute, and custom gift ecommerce brand.*
 
@@ -8,16 +8,16 @@
 
 | Field | Value |
 |---|---|
-| **Website** | `graphictshirtstore.com` |
-| **Brand Name** | GraphicTShirtStore |
-| **Short Name** | GTS |
+| **Website** | `Veterangift.com` |
+| **Brand Name** | Veteran Gift |
+| **Short Name** | VG |
 | **Language** | English (US) |
 | **Primary Market** | United States |
 | **Store Type** | Patriotic POD Apparel, Veteran Tribute Gear & Custom Gift Store |
 | **Core Products** | Graphic T-shirts, hoodies, bomber jackets, snapback hats, beanies, patches, pins, flags, patriotic accessories, veteran-inspired apparel, custom personalized gifts |
 | **Target Audience** | Veterans, active-duty service members, military families, patriotic Americans, gift shoppers, motorcycle & American heritage enthusiasts |
 | **Business Model** | Print-on-Demand + Dropshipping hybrid (zero inventory, broad catalog) |
-| **Support Email** | `support@graphictshirtstore.com` |
+| **Support Email** | `support@veterangift.com` |
 | **Business Hours** | Monday – Friday, 9:00 AM – 5:00 PM PST |
 
 ---
@@ -96,7 +96,7 @@
 
 ### Customer Pain Points
 
-| Problem | How GTS Solves It |
+| Problem | How VG Solves It |
 |---|---|
 | *"Hard to find quality patriotic apparel that doesn't look cheap"* | Premium POD with thick fabric, sharp prints, full-size runs |
 | *"Most veteran stores look fake or political"* | Respectful, non-political tribute language |
@@ -116,7 +116,7 @@
 | 2 | **Veteran Tribute** | Veteran-specific graphics, branch-inspired tees, "I Served" hoodies | Veteran Hoodie (customizable) |
 | 3 | **Bomber Jackets** | Classic MA-1 style, flag patches, embroidered custom name | Custom Name Bomber Jacket |
 | 4 | **Hats & Beanies** | Snapbacks, dad hats, beanies with flag/veteran patches | American Flag Snapback |
-| 5 | **Premium T-Shirts** | Heavy-weight cotton, vintage feel, American-made blanks | GTS Signature Tee |
+| 5 | **Premium T-Shirts** | Heavy-weight cotton, vintage feel, American-made blanks | VG Signature Tee |
 | 6 | **Best Sellers** | Top 12 products across all categories | Mixed grid |
 
 ### Tier 2 — Sub-collections (Internal Navigation)
@@ -451,12 +451,12 @@ Newsletter Sign-up             [CTA: Sign Up / 10% off]
 
 ## 13. Competitor Landscape
 
-| Competitor | Strengths | GTS Advantage |
+| Competitor | Strengths | VG Advantage |
 |---|---|---|
 | **Ranger Up** | Strong brand voice, loyal following | Broader product line, easier entry |
 | **Grunt Style** | Veteran-focused, humor-driven | Respectful tone, less polarizing |
 | **1776 Supply Co** | American-made focus | Free design variety, POD flexibility |
-| **Bold & Free America** | Flag-heavy catalog | GTS adds bomber jackets + hats |
+| **Bold & Free America** | Flag-heavy catalog | VG adds bomber jackets + hats |
 | **Generic Amazon POD** | Low price, huge selection | Brand identity, curated quality, personalization |
 
 ---
@@ -477,8 +477,8 @@ Newsletter Sign-up             [CTA: Sign Up / 10% off]
 
 ## 15. Final Brand Statement
 
-> **GraphicTShirtStore is an American patriotic apparel and custom gift brand built for veterans, military families, and proud Americans — offering premium graphic T-shirts, bomber jackets, hats, hoodies, and accessories that honor service, celebrate freedom, and let you wear your pride with authenticity.**
+> **Veteran Gift is an American patriotic apparel and custom gift brand built for veterans, military families, and proud Americans — offering premium graphic T-shirts, bomber jackets, hats, hoodies, and accessories that honor service, celebrate freedom, and let you wear your pride with authenticity.**
 
 ---
 
-*Version: 1.0 | Prepared for Antigravity / da_theme | GraphicTShirtStore Brand Blueprint*
+*Version: 1.0 | Prepared for Antigravity / da_theme | Veteran Gift Brand Blueprint*

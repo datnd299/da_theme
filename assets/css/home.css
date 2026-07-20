@@ -1,4 +1,4 @@
-/* ── ShopGraphicshirt Homepage ── */
+/* ── Veterangift Homepage ── */
 /* Navy #0B1F3A / Red #B31942 / Gold #C6A15B / Antique #F7F2E8 */
 
 .sgs-home {
@@ -77,10 +77,12 @@
 
 /* ── Quick-shop ── */
 .sgs-strip{display:grid;grid-template-columns:repeat(3,1fr);width:min(100% - 32px,1280px);margin:-20px auto 0;position:relative;z-index:2}
+.sgs-strip--four{grid-template-columns:repeat(4,1fr)}
 .sgs-strip__card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:22px 12px;background:var(--white);border:1px solid var(--line);border-right:0;text-align:center;font-family:var(--font-heading);font-size:.92rem;font-weight:700;color:var(--ink);transition:box-shadow 180ms,transform 180ms}
 .sgs-strip__card:last-child{border-right:1px solid var(--line)}
 .sgs-strip__card:hover{z-index:1;box-shadow:var(--shadow-sm);transform:translateY(-3px);border-color:var(--red)}
 .sgs-strip__cta{color:var(--red);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+@media(max-width:900px){.sgs-strip--four{grid-template-columns:repeat(2,1fr)}.sgs-strip--four .sgs-strip__card:nth-child(2n){border-right:1px solid var(--line)}}
 @media(max-width:768px){.sgs-strip{grid-template-columns:repeat(2,1fr);margin-top:-14px}.sgs-strip__card:nth-child(2){border-right:1px solid var(--line)}.sgs-strip__card{padding:16px 10px;font-size:.84rem}}
 
 /* ── Sections ── */
@@ -208,6 +210,7 @@
 .sgs-occ:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
 .sgs-occ--gold{border-color:var(--gold)}
 .sgs-occ__icon{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--radius);background:var(--navy);color:var(--white);font-size:20px;margin-bottom:16px}
+.sgs-occ__icon{font-size:.74rem;font-weight:800;letter-spacing:0}
 .sgs-occ__icon--gold{background:var(--gold)}
 .sgs-occ h3{margin:0;font-family:var(--font-heading);font-size:1.1rem;font-weight:700;color:var(--ink);line-height:1.2}
 .sgs-occ p{margin:8px 0 0;color:var(--muted);font-size:.88rem;line-height:1.5}

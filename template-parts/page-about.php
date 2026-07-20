@@ -1,6 +1,6 @@
 <?php
 /**
- * About Us — ShopGraphicshirt
+ * About Us — Veterangift
  * Patriotic apparel & gift brand.
  */
 $sgs_about_hero_bg = sprintf(
@@ -53,7 +53,7 @@ get_header(); ?>
   <div class="sgs-page-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">About Us</p>
     <h1>Patriotic Apparel And Gifts Made For American Pride</h1>
-    <p>ShopGraphicshirt is an American patriotic apparel and custom gift brand built for proud Americans who want meaningful products that carry classic style and pride.</p>
+    <p>Veterangift is an American patriotic apparel and custom gift brand built for proud Americans who want meaningful products that carry classic style and pride.</p>
   </div>
 </div>
 
@@ -111,12 +111,12 @@ get_header(); ?>
     <div class="sgs-story__content">
       <p class="sgs-eyebrow">Our Story</p>
       <h2>Built For Proud American Style</h2>
-      <p>ShopGraphicshirt was created because finding quality patriotic apparel shouldn't be complicated. Too many stores feel generic, political, or low-quality.</p>
+      <p>Veterangift was created because finding quality patriotic apparel shouldn't be complicated. Too many stores feel generic, political, or low-quality.</p>
       <p>We started this brand to change that, focusing on premium graphic tees, bomber jackets, hats, and accessories that actually look good, feel great, and celebrate American pride.</p>
       <p>Today, we help thousands of Americans express their pride with products that carry meaning.</p>
     </div>
     <div class="sgs-story__visual">
-      <?php echo dawp_theme_image('assets/img/about/about-story-patriotic-apparel.png', __('Patriotic apparel, custom gifts, and accessories arranged in a premium studio setting', 'shopgraphicshirt'), 900, 650, [[480, 347], [720, 520], [900, 650], [1200, 867]], '(max-width: 1024px) calc(100vw - 40px), 560px'); ?>
+      <?php echo dawp_theme_image('assets/img/about/about-story-patriotic-apparel.png', __('Patriotic apparel, custom gifts, and accessories arranged in a premium studio setting', 'veterangift'), 900, 650, [[480, 347], [720, 520], [900, 650], [1200, 867]], '(max-width: 1024px) calc(100vw - 40px), 560px'); ?>
       <span class="sgs-story__badge"><i class="fas fa-flag-usa" aria-hidden="true"></i> American Pride Since Day One</span>
     </div>
   </div>

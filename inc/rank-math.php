@@ -191,11 +191,11 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
             '@id'         => home_url('/#organization'),
             'name'        => get_bloginfo('name'),
             'url'         => home_url('/'),
-            'email'       => 'support@shopgraphicshirt.com',
+            'email'       => 'support@veterangift.com',
             'contactPoint' => [
                 '@type'             => 'ContactPoint',
                 'contactType'       => 'customer support',
-                'email'             => 'support@shopgraphicshirt.com',
+                'email'             => 'support@veterangift.com',
                 'availableLanguage' => ['English'],
             ],
         ];

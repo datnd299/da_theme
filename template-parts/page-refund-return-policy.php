@@ -1,6 +1,6 @@
 <?php
 /**
- * Refund & Return Policy - ShopGraphicshirt
+ * Refund & Return Policy - Veterangift
  * Style aligned with homepage. Content preserved from git original.
  */
 $sgs_rr_hero_bg = sprintf(
@@ -60,7 +60,7 @@ get_header(); ?>
     <p class="sgs-eyebrow sgs-eyebrow--light">Customer Care</p>
     <h1>Refund &amp; Return Policy</h1>
     <p class="sgs-rr-hero__meta" style="margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Last Updated: July 5 2026</p>
-    <p>We want every GraphicTShirtStore piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.</p>
+    <p>We want every Veterangift piece to feel just right for you and your loved ones. Please review the return requirements below before sending any patriotic apparel, accessories, or custom gift item back to us.</p>
   </div>
 </div>
 
@@ -171,7 +171,7 @@ get_header(); ?>
   <!-- Personalized Items -->
   <div class="sgs-rr-panel sgs-rr-panel--soft">
     <h2>Refunds on Personalized Items</h2>
-    <p>Personalized and custom-made items are produced specifically for you based on the personalization details you provide at checkout. These items are <strong>not eligible for return or refund</strong> unless they arrive defective, damaged, or with an error made by ShopGraphicshirt (e.g., incorrect personalization due to our production error, not a typo or mistake in the details you submitted). Please review all personalization details carefully before placing your order.</p>
+    <p>Personalized and custom-made items are produced specifically for you based on the personalization details you provide at checkout. These items are <strong>not eligible for return or refund</strong> unless they arrive defective, damaged, or with an error made by Veterangift (e.g., incorrect personalization due to our production error, not a typo or mistake in the details you submitted). Please review all personalization details carefully before placing your order.</p>
   </div>
 
   <!-- Contact Info -->
@@ -181,11 +181,11 @@ get_header(); ?>
     <div class="sgs-rr-contact">
       <div class="sgs-rr-contact__item">
         <strong>Store Name</strong>
-        <span>ShopGraphicshirt</span>
+        <span>Veterangift</span>
       </div>
       <div class="sgs-rr-contact__item">
         <strong>Customer Support Email</strong>
-        <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>
+        <a href="mailto:support@veterangift.com">support@veterangift.com</a>
       </div>
       <div class="sgs-rr-contact__item">
         <strong>Customer Service Hours</strong>

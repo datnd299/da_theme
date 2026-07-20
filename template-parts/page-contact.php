@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact Us — ShopGraphicshirt
+ * Contact Us — Veterangift
  */
 $sgs_contact_hero_bg = sprintf(
   "--sgs-contact-hero-bg:url('%s');--sgs-contact-hero-bg-mobile:url('%s')",
@@ -77,7 +77,7 @@ get_header(); ?>
 
   <div class="sgs-contact-info">
     <h2>Contact Information</h2>
-    <div class="sgs-ci-card"><div class="sgs-ci-icon">📧</div><div><strong>Email</strong><a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></div></div>
+    <div class="sgs-ci-card"><div class="sgs-ci-icon">📧</div><div><strong>Email</strong><a href="mailto:support@veterangift.com">support@veterangift.com</a></div></div>
     <div class="sgs-ci-card"><div class="sgs-ci-icon">🕐</div><div><strong>Business Hours</strong><span>Monday – Friday, 10:00 AM – 6:00 PM PST</span></div></div>
     <div class="sgs-ci-card"><div class="sgs-ci-icon">📦</div><div><strong>Order Support</strong><a href="/track-order/">Track Your Order</a></div></div>
     <div class="sgs-ci-card"><div class="sgs-ci-icon">📋</div><div><strong>Returns</strong><a href="/refund-return-policy/">Return &amp; Refund Policy</a></div></div>

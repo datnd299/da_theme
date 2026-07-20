@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms & Conditions — ShopGraphicshirt
+ * Terms & Conditions — Veterangift
  */
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
@@ -38,7 +38,7 @@ get_header(); ?>
   <h2>Terms of Service</h2>
 
   <h2>Terms Overview</h2>
-  <p>The following Terms of Service govern your access to and use of shopgraphicshirt.com (the "Site", "we", "us", or "our") and your commercial purchase of custom apparel, graphic shirts, and printed products from our online storefront.</p>
+  <p>The following Terms of Service govern your access to and use of veterangift.com (the "Site", "we", "us", or "our") and your commercial purchase of custom apparel, graphic shirts, and printed products from our online storefront.</p>
   <p>By accessing the Site, browsing our collection, or submitting an online purchase order, you expressly confirm that you are in agreement with and bound by these Terms and our integrated Privacy Policy. If you do not agree to these conditions, you are not authorized to utilize this Site or execute purchases through our storefront.</p>
 
   <h2>PART I: WEBSITE USAGE &amp; INTELLECTUAL PROPERTY</h2>
@@ -46,7 +46,7 @@ get_header(); ?>
   <p>We reserve the absolute right to update, modify, or rewrite these Terms at any time without prior written notice. Any dynamic modifications will become effective immediately upon being posted to the Site. Your continued interaction with the storefront following these updates constitutes your binding agreement to the revised Terms.</p>
 
   <h3>2. Intellectual Property Rights</h3>
-  <p>All designs, original graphics, apparel illustrations, text configurations, custom page layouts, and corporate logos displayed on this website are the exclusive property of ShopGraphicshirt and are protected under international copyright and trademark laws. You are strictly prohibited from copying, reproducing, distributing, modifying, or commercially exploiting any content or design layouts from this Site without explicit prior written authorization from our management.</p>
+  <p>All designs, original graphics, apparel illustrations, text configurations, custom page layouts, and corporate logos displayed on this website are the exclusive property of Veterangift and are protected under international copyright and trademark laws. You are strictly prohibited from copying, reproducing, distributing, modifying, or commercially exploiting any content or design layouts from this Site without explicit prior written authorization from our management.</p>
 
   <h3>3. User Conduct Policy</h3>
   <p>By interacting with our Site, you strictly agree NOT to:</p>
@@ -69,7 +69,7 @@ get_header(); ?>
 
   <h3>7. Pricing, Currency &amp; Secure Gateways</h3>
   <p>All retail prices are displayed transparently and denominated strictly in US Dollars ($). We reserve the right to modify pricing structures at any time without prior notification.</p>
-  <p>To maintain strict consumer data protection, shopgraphicshirt.com operates a protected checkout ecosystem:</p>
+  <p>To maintain strict consumer data protection, veterangift.com operates a protected checkout ecosystem:</p>
   <ul>
     <li>We do not collect, view, or retain your raw credit card numbers or banking passwords on our local databases.</li>
     <li>All monetary communications are encrypted utilizing secure SSL (Secure Sockets Layer) technology.</li>
@@ -81,15 +81,15 @@ get_header(); ?>
 
   <h2>PART III: LEGAL FRAMEWORK &amp; CORPORATE IDENTITY</h2>
   <h3>9. Limitation of Liability</h3>
-  <p>To the maximum extent permitted by applicable law, ShopGraphicshirt and its operational directors, officers, employees, or third-party service providers shall not be held liable for any indirect, incidental, special, punitive, or consequential damages (including, without limitation, loss of profits, data, or business opportunities) resulting from your utilization of our services, product usage, or unexpected logistical carrier delays beyond our reasonable control.</p>
+  <p>To the maximum extent permitted by applicable law, Veterangift and its operational directors, officers, employees, or third-party service providers shall not be held liable for any indirect, incidental, special, punitive, or consequential damages (including, without limitation, loss of profits, data, or business opportunities) resulting from your utilization of our services, product usage, or unexpected logistical carrier delays beyond our reasonable control.</p>
 
   <h3>10. Governing Law &amp; Jurisdiction</h3>
   <p>These Terms of Service, along with all contractual obligations regarding the purchase of goods from our store, shall be governed by, interpreted, and construed in accordance with the laws of the United States, without regard to conflict of law principles.</p>
 
   <h3>11. Customer Support &amp; Operational Contact</h3>
   <p>For any policy inquiries, legal questions, or transactional support regarding these Terms, please reach out to our administration through our verified corporate channels:</p>
-  <p><strong>Store/Brand Name:</strong> ShopGraphicshirt</p>
-  <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
+  <p><strong>Store/Brand Name:</strong> Veterangift</p>
+  <p><strong>Customer Support Email:</strong> <a href="mailto:support@veterangift.com">support@veterangift.com</a></p>
   <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
   <p><strong>Customer Service Hours:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST</p>
   <p><strong>Contact Page:</strong> <a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a></p>

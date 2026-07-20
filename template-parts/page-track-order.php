@@ -1,6 +1,6 @@
 <?php
 /**
- * Track Order - ShopGraphicshirt
+ * Track Order - Veterangift
  */
 $sgs_to_hero_bg = sprintf(
   "--sgs-to-hero-bg:url('%s');--sgs-to-hero-bg-mobile:url('%s')",
@@ -80,7 +80,7 @@ $sgs_to_tips_bg = sprintf(
 <div class="sgs-to-hero">
   <div class="sgs-to-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Order Tracking</p>
-    <h1>Track Your ShopGraphicshirt Order</h1>
+    <h1>Track Your Veterangift Order</h1>
     <p>Check the latest status for your patriotic apparel, custom gifts, and accessories using your order number and billing email.</p>
   </div>
 </div>
@@ -94,7 +94,7 @@ $sgs_to_tips_bg = sprintf(
         <?php if (shortcode_exists('woocommerce_order_tracking')) : ?>
           <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
         <?php else : ?>
-          <form class="sgs-to-fallback" onsubmit="event.preventDefault(); alert('Please contact support@shopgraphicshirt.com with your order number for tracking help.');">
+          <form class="sgs-to-fallback" onsubmit="event.preventDefault(); alert('Please contact support@veterangift.com with your order number for tracking help.');">
             <p>
               <label for="to-order">Order Number</label>
               <input id="to-order" type="text" placeholder="Example: #12345" required>
@@ -142,7 +142,7 @@ $sgs_to_tips_bg = sprintf(
       <div class="sgs-to-card">
         <h2>Need Help?</h2>
         <p>If the form cannot find your order, send us your order number and email. We will check the latest carrier status for you.</p>
-        <p><a class="sgs-to-link" href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
+        <p><a class="sgs-to-link" href="mailto:support@veterangift.com">support@veterangift.com</a></p>
       </div>
     </div>
   </div>

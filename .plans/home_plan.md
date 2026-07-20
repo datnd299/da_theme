@@ -1,6 +1,6 @@
-# GraphicTShirtStore — Home Plan
+# Veteran Gift — Home Plan
 
-> *Conversion-focused homepage blueprint: structure, content, components, and design rules for the patriotic apparel & custom gift brand.*
+> *Conversion-focused homepage blueprint: structure, content, components, and design rules for the Veteran Gift custom tribute gift brand.*
 
 ---
 
@@ -8,9 +8,9 @@
 
 | Goal | Description |
 |---|---|
-| **Primary** | Help customers quickly find patriotic apparel, veteran tribute gear, and custom gifts |
-| **Secondary** | Explain personalization value and build trust for first-time POD buyers |
-| **Emotional** | Create a sense of American pride, service honor, and gift-giving meaning |
+| **Primary** | Help customers quickly find meaningful veteran gifts, personalized keepsakes, and patriotic apparel |
+| **Secondary** | Explain customization options and build trust for first-time gift buyers |
+| **Emotional** | Create a sense of gratitude, service honor, family legacy, and American pride |
 | **Commercial** | Drive clicks to product pages and add-to-cart within 3 scrolls |
 
 ### Key Performance Targets
@@ -40,8 +40,8 @@
 │  SECTION 3: Best Sellers Product Grid       │
 │  8 Products — 4 columns desktop             │
 ├─────────────────────────────────────────────┤
-│  SECTION 4: Personalized Apparel Feature    │
-│  Value prop: custom name, rank, service yrs │
+│  SECTION 4: Personalized Gift Feature       │
+│  Value prop: name, branch, service yrs │
 ├─────────────────────────────────────────────┤
 │  SECTION 5: Gift By Occasion                │
 │  6 Occasion cards — holiday / event gifts   │
@@ -60,25 +60,25 @@
 
 ### Purpose
 
-Immediately communicate what GraphicTShirtStore sells, who it's for, and why it matters — then let users start shopping or customizing.
+Immediately communicate that Veteran Gift is a destination for personalized veteran gifts, tribute apparel, and patriotic keepsakes - then let users shop by recipient, category, or occasion.
 
 ### Hero Content
 
 | Element | Content |
 |---|---|
-| **Eyebrow** | `American Patriotic Apparel & Custom Gifts` |
-| **Headline H1** | `Wear The Freedom. Live The Pride.` |
-| **Subheadline** | `Premium graphic tees, bomber jackets, hats, hoodies, and accessories — made for veterans, military families, and proud Americans.` |
-| **Primary CTA** | `Shop Best Sellers` → `/best-sellers/` |
-| **Secondary CTA** | `Customize Yours` → `/product-category/bomber-jackets/` |
-| **Trust Line** | `Secure checkout. Tracking included. Custom gifts made with care.` |
+| **Eyebrow** | `Personalized Veteran Gifts & Patriotic Keepsakes` |
+| **Headline H1** | `Honor Their Service With A Gift That Lasts` |
+| **Subheadline** | `Custom apparel, tribute keepsakes, drinkware, hats, and accessories made for veterans, military families, and proud Americans.` |
+| **Primary CTA** | `Shop Veteran Gifts` -> `/best-sellers/` |
+| **Secondary CTA** | `Personalize A Gift` -> `/product-category/veteran-tribute/` |
+| **Trust Line** | `Secure checkout. Tracking included. Personalized gifts made with care.` |
 
 ### Visual
 
 | Element | Specification |
 |---|---|
 | Background | Patriot Navy `#0B1F3A` |
-| Hero image | Lifestyle photo: model wearing graphic tee or bomber jacket with American flag background |
+| Hero image | Lifestyle photo: veteran gift moment, custom apparel, or personalized keepsake with warm American flag context |
 | Overlay gradient | `linear-gradient(90deg, rgba(11,31,58,0.94) 0%, rgba(11,31,58,0.7) 50%, rgba(11,31,58,0.15) 100%)` |
 | Min height | `clamp(70vh, 600px, 90vh)` desktop, `auto` mobile |
 | Padding | `clamp(60px, 8vw, 120px)` top/bottom, `18px` sides |
@@ -147,12 +147,12 @@ Let users visually browse product categories and find what they need quickly.
 
 | Card | Eyebrow | Title | Description | CTA |
 |---|---|---|---|---|
-| 1 | American Flag Tees | Flag Collection | Graphic tees with bold American flag designs, distressed prints, and eagle graphics. | Shop Collection |
-| 2 | Veteran Tribute | Service Honor | Veteran-inspired apparel that respectfully honors service, branch pride, and sacrifice. | Shop Collection |
-| 3 | Bomber Jackets | Classic Bombers | MA-1 style bomber jackets with flag patches and custom name embroidery options. | Shop Collection |
-| 4 | Hats & Beanies | Headwear | Snapbacks, dad hats, and beanies featuring flag embroidery and patriotic patchwork. | Shop Collection |
-| 5 | Premium T-Shirts | Signature Tees | Heavy-weight cotton tees with vintage-style prints and American-made quality feel. | Shop Collection |
-| 6 | Patches & Pins | Accessories | Patriotic patches, enamel pins, mugs, and accessories for everyday American pride. | Shop Collection |
+| 1 | Personalized Gifts | Custom Keepsakes | Name, rank, branch, and service-year gifts made to feel personal from the first look. | Shop Gifts |
+| 2 | Veteran Tribute | Service Honor | Veteran-inspired apparel and keepsakes that respectfully honor service, branch pride, and sacrifice. | Shop Collection |
+| 3 | Bomber Jackets | Custom Bombers | MA-1 style bomber jackets with flag patches and custom name embroidery options. | Customize Yours |
+| 4 | Drinkware & Mugs | Daily Tribute | Coffee mugs, tumblers, and drinkware built for everyday reminders of service and pride. | Shop Drinkware |
+| 5 | Premium T-Shirts | Signature Tees | Heavy-weight cotton tees with vintage-style prints and American heritage energy. | Shop Tees |
+| 6 | Hats & Accessories | Finishing Touches | Patriotic hats, beanies, patches, pins, and small gifts for everyday American pride. | Shop Accessories |
 
 ### Design Specs
 
@@ -182,7 +182,7 @@ Drive commerce immediately — show products with prices visible, no friction.
 | Element | Content |
 |---|---|
 | **Eyebrow** | `Best Sellers` |
-| **Headline** | `Patriotic Favorites Made To Honor Service` |
+| **Headline** | `Most-Gifted Picks For Veterans And Families` |
 | **CTA** | `View All Best Sellers →` |
 
 ### Product Grid — 8 Products
@@ -234,11 +234,11 @@ Drive commerce immediately — show products with prices visible, no friction.
 
 ---
 
-## 6. Section 4 — Personalized Apparel Feature
+## 6. Section 4 - Personalized Gift Feature
 
 ### Purpose
 
-Explain a key differentiator: custom name, rank, and service years personalization.
+Explain the key differentiator: gifts that can carry name, rank, branch, service years, or a short tribute message.
 
 ### Section Layout
 
@@ -266,18 +266,19 @@ Explain a key differentiator: custom name, rank, and service years personalizati
 | Element | Content |
 |---|---|
 | **Eyebrow** | `Personalized With Pride` |
-| **Headline** | `Custom Apparel That Carries Name, Rank, And Service Years` |
+| **Headline** | `Custom Gifts That Carry Name, Branch, And Service Years` |
 | **CTA** | `Shop Custom Gifts` → `/product-category/veteran-tribute/` |
 
 ### Copy Content
 
 **Paragraph:**
-> Many GraphicTShirtStore products can be personalized with details that matter — from a veteran's name to service years, rank, or branch-inspired artwork. These are not just everyday apparel pieces; they are meaningful gifts made to honor service and legacy.
+> Many Veteran Gift products can be personalized with details that matter — from a veteran's name to service years, rank, or branch-inspired artwork. These are not just everyday apparel pieces; they are meaningful gifts made to honor service and legacy.
 
 **Feature points:**
 - Custom name options
 - Rank & service years
 - Branch-inspired designs
+- Optional tribute message
 - Gift-ready for veterans and families
 
 **Custom product note:**
@@ -292,7 +293,7 @@ Explain a key differentiator: custom name, rank, and service years personalizati
 | Mobile | Stacked (image on top) |
 | Background | Clean White |
 | Image ratio | 4:5 or 1:1 |
-| Visual | Custom bomber jacket close-up showing name + flag patch |
+| Visual | Custom gift close-up showing name, branch-inspired detail, flag accent, or service-year personalization |
 
 ---
 
@@ -300,7 +301,7 @@ Explain a key differentiator: custom name, rank, and service years personalizati
 
 ### Purpose
 
-Capture seasonal gift shoppers by occasion — Veterans Day, Father's Day, Memorial Day, Independence Day, America 250, Christmas.
+Capture seasonal gift shoppers by occasion - Veterans Day, Father's Day, Memorial Day, Independence Day, America 250, Christmas, birthdays, retirement, and welcome-home moments.
 
 ### Section Header
 
@@ -313,11 +314,11 @@ Capture seasonal gift shoppers by occasion — Veterans Day, Father's Day, Memor
 
 | Card | Title | Description | CTA |
 |---|---|---|---|
-| 1 | Father's Day Gifts | A meaningful gift for the veteran who carries the story. | Shop Gifts |
-| 2 | Veterans Day Gifts | Personalized apparel made to honor service years and family legacy. | Shop Gifts |
-| 3 | Memorial Day Gifts | Remember and honor with patriotic tribute products. | Shop Gifts |
-| 4 | Independence Day Gifts | Celebrate freedom with flag tees, hats, and accessories. | Shop Gifts |
-| 5 | America 250th Anniversary | Exclusive collection celebrating 250 years of American pride. | Explore |
+| 1 | Father's Day Gifts | A meaningful gift for the veteran, dad, or grandpa who carries the story. | Shop Gifts |
+| 2 | Veterans Day Gifts | Personalized gifts made to honor service years and family legacy. | Shop Gifts |
+| 3 | Retirement Gifts | Custom keepsakes for the service member closing one chapter and starting the next. | Shop Gifts |
+| 4 | Memorial Day Gifts | Remember and honor with respectful patriotic tribute products. | Shop Gifts |
+| 5 | Independence Day Gifts | Celebrate freedom with flag tees, hats, drinkware, and accessories. | Shop Gifts |
 | 6 | Christmas Gifts For Veterans | Give a gift that says thank you better than words. | Shop Gifts |
 
 ### Design Specs
@@ -349,15 +350,15 @@ Build emotional trust with genuine-feeling tribute statements (never fake review
 |---|---|
 | **Eyebrow** | `Customer Tributes` |
 | **Headline** | `Gift Moments Built Around Service, Memory, And Pride` |
-| **Intro** | Many customers choose personalized veteran apparel as a way to honor service, remember family legacy, and give a gift with meaning. |
+| **Intro** | Many customers choose personalized veteran gifts as a way to honor service, remember family legacy, and give something with meaning. |
 
 ### Tribute Cards
 
 | Card | Statement |
 |---|---|
 | 1 | *"A gift that helps families honor a father's years of service."* |
-| 2 | *"A custom bomber jacket that carries name, rank, and service years with pride."* |
-| 3 | *"A simple way to show American pride without saying too much."* |
+| 2 | *"A personalized keepsake that carries name, rank, and service years with pride."* |
+| 3 | *"A simple way to say thank you without needing too many words."* |
 
 ### Design Specs
 
@@ -394,7 +395,7 @@ Close the homepage with credibility, brand clarity, and email capture.
 │  │                                                     │   │
 │  │  Patriotic apparel and gifts made to honor service. │   │
 │  │                                                     │   │
-│  │  GraphicTShirtStore is a patriotic apparel and      │   │
+│  │  Veteran Gift is a patriotic apparel and      │   │
 │  │  custom gift brand created for veterans, military   │   │
 │  │  families, and proud Americans.                     │   │
 │  │                                                     │   │
@@ -422,14 +423,14 @@ Close the homepage with credibility, brand clarity, and email capture.
 | Element | Content |
 |---|---|
 | **Headline** | `Patriotic Apparel And Gifts Made To Honor Service` |
-| **Paragraph** | GraphicTShirtStore is a patriotic apparel and custom gift brand created for veterans, military families, and proud Americans who want meaningful products that carry service, legacy, and American pride. |
+| **Paragraph** | Veteran Gift is a patriotic custom gift brand created for veterans, military families, and proud Americans who want meaningful products that carry service, legacy, gratitude, and American pride. |
 | **CTA** | `Learn More →` → `/about-us/` |
 
 ### Newsletter
 
 | Element | Content |
 |---|---|
-| **Headline** | `Get New Patriotic Drops And Gift Ideas` |
+| **Headline** | `Get New Veteran Gift Ideas And Patriotic Drops` |
 | **Input placeholder** | `Enter your email` |
 | **CTA** | `Sign Up` |
 | **Background** | Clean White with subtle border |
@@ -482,29 +483,29 @@ Close the homepage with credibility, brand clarity, and email capture.
 
 | Image | Section | Suggested Filename | Specs |
 |---|---|---|---|
-| Hero lifestyle | Section 1 | `gts-hero.jpg` | 1920x1080, webp |
-| Quick shop flag tee | Strip | `gts-quick-flag.jpg` | 400x300, webp |
-| Quick shop bomber | Strip | `gts-quick-bomber.jpg` | 400x300, webp |
-| Quick shop veteran | Strip | `gts-quick-veteran.jpg` | 400x300, webp |
-| Quick shop best seller | Strip | `gts-quick-best.jpg` | 400x300, webp |
+| Hero lifestyle | Section 1 | `vg-hero.jpg` | 1920x1080, webp |
+| Quick shop flag tee | Strip | `vg-quick-flag.jpg` | 400x300, webp |
+| Quick shop bomber | Strip | `vg-quick-bomber.jpg` | 400x300, webp |
+| Quick shop veteran | Strip | `vg-quick-veteran.jpg` | 400x300, webp |
+| Quick shop best seller | Strip | `vg-quick-best.jpg` | 400x300, webp |
 | Category — Flag Tees | Section 2 | `cat-flag-tees.jpg` | 600x750, webp |
 | Category — Veteran | Section 2 | `cat-veteran.jpg` | 600x750, webp |
 | Category — Bomber | Section 2 | `cat-bomber.jpg` | 600x750, webp |
 | Category — Hats | Section 2 | `cat-hats.jpg` | 600x750, webp |
 | Category — Tees | Section 2 | `cat-tees.jpg` | 600x750, webp |
 | Category — Accessories | Section 2 | `cat-accessories.jpg` | 600x750, webp |
-| Product placeholder | Section 3 | `tire-placeholder.svg` | 600x600, svg/png |
-| Feature bomber close-up | Section 4 | `gts-feature-bomber.jpg` | 600x750, webp |
+| Product placeholder | Section 3 | `veteran-gift-placeholder.svg` | 600x600, svg/png |
+| Feature personalized gift close-up | Section 4 | `vg-feature-custom-gift.jpg` | 600x750, webp |
 | Newsletter background | Section 7 | — | None needed |
 
 ---
 
 ## 13. Final Homepage Feeling
 
-The GraphicTShirtStore homepage should feel like:
+The Veteran Gift homepage should feel like:
 
-> A patriotic American apparel homepage that immediately shows premium graphic tees, bomber jackets, and veteran tribute gear — helps customers shop by category or occasion, explains personalization value, builds trust for POD ordering, and captures emails, all within a warm, respectful, and product-focused layout.
+> A warm patriotic gift homepage that immediately shows personalized veteran gifts, tribute apparel, keepsakes, and everyday patriotic products - helps customers shop by recipient, category, or occasion, explains personalization value, builds trust for POD ordering, and captures emails within a respectful, product-focused layout.
 
 ---
 
-*Version: 1.0 | GraphicTShirtStore Home Plan*
+*Version: 1.0 | Veteran Gift Home Plan*

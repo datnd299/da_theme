@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy Policy - ShopGraphicshirt
+ * Privacy Policy - Veterangift
  */
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
@@ -35,7 +35,7 @@ get_header(); ?>
   </div>
 </div>
 <div class="sgs-pp-body">
-  <p>This Privacy Policy explains how shopgraphicshirt.com (the "Site", "we", "us", or "our") collects, uses, and discloses your Personal Information when you visit, browse, or execute an apparel purchase from the Site.</p>
+  <p>This Privacy Policy explains how veterangift.com (the "Site", "we", "us", or "our") collects, uses, and discloses your Personal Information when you visit, browse, or execute an apparel purchase from the Site.</p>
   <p>By utilizing our Site or purchasing products from our store, you acknowledge and agree to the data management and processing practices detailed in this policy.</p>
 
   <h2>1. Information We Collect</h2>
@@ -64,12 +64,12 @@ get_header(); ?>
   </ul>
 
   <h2>4. Secure Payments &amp; Transaction Encryption (GMC MANDATORY)</h2>
-  <p>To ensure the safety of your financial credentials, shopgraphicshirt.com operates a highly protected checkout ecosystem. All monetary communications and payment data transfers are encrypted utilizing secure SSL (Secure Sockets Layer) technology.</p>
+  <p>To ensure the safety of your financial credentials, veterangift.com operates a highly protected checkout ecosystem. All monetary communications and payment data transfers are encrypted utilizing secure SSL (Secure Sockets Layer) technology.</p>
   <p>Furthermore, we do not store, view, or retain raw credit card numbers or payment passwords on our local databases. All transactions are routed directly to accredited payment processors adhering to the strict global Payment Card Industry Data Security Standard (PCI-DSS).</p>
 
   <h2>5. Consumer Data Rights (GDPR &amp; CCPA Compliant)</h2>
   <p>Regardless of your geographic location, we respect your data privacy and grant you the following structural controls:</p>
-  <p><strong>GDPR (For EEA Residents):</strong> If you reside within the European Economic Area, you possess the right to access your data, port it to a new service, or request that your records be corrected, updated, or permanently deleted. To exercise these rights, please email us directly at <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>.</p>
+  <p><strong>GDPR (For EEA Residents):</strong> If you reside within the European Economic Area, you possess the right to access your data, port it to a new service, or request that your records be corrected, updated, or permanently deleted. To exercise these rights, please email us directly at <a href="mailto:support@veterangift.com">support@veterangift.com</a>.</p>
   <p><strong>CCPA (For California Residents):</strong> If you are a resident of California, you possess the specific "Right to Know" what personal data we collect, the right to request deletion of that data, and the right to opt-out of the sale of personal information.</p>
 
   <h2>6. Data Retention &amp; Cookies Policy</h2>
@@ -81,8 +81,8 @@ get_header(); ?>
 
   <h2>8. Corporate Identity &amp; Customer Support Channels</h2>
   <p>For questions about our data practices, to file a privacy inquiry, or for help with an active order, please connect with our compliance officer via our verified communication block:</p>
-  <p><strong>Store / Brand Name:</strong> Shop Graphic Shirt</p>
-  <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
+  <p><strong>Store / Brand Name:</strong> Veterangift</p>
+  <p><strong>Customer Support Email:</strong> <a href="mailto:support@veterangift.com">support@veterangift.com</a></p>
   <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
   <p><strong>Customer Support Availability:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST.</p>
   <p><strong>Contact Page:</strong> <a href="/contact-us/">Contact Us</a></p>

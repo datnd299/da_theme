@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop By Categories - ShopGraphicshirt
+ * Shop By Categories - Veterangift
  */
 $sgs_st_hero_bg = sprintf(
   "--sgs-st-hero-bg:url('%s');--sgs-st-hero-bg-mobile:url('%s')",

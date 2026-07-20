@@ -1,4 +1,4 @@
-# GraphicTShirtStore — Design System
+# Veteran Gift — Design System
 
 > *The visual language, component library, and design rules for the patriotic apparel & custom gift brand.*
 
@@ -8,7 +8,7 @@
 
 ### Visual Identity
 
-GraphicTShirtStore should look like a premium American heritage apparel brand — rugged, respectful, patriotic without being political, and product-focused.
+Veteran Gift should look like a premium American heritage apparel brand — rugged, respectful, patriotic without being political, and product-focused.
 
 | Attribute | Target |
 |---|---|
@@ -450,8 +450,8 @@ Style: Muted Gray text, Heritage Red current page, `>` separator.
 
 ## 14. Final Design Statement
 
-> The GraphicTShirtStore design system creates a warm, respectful, and product-focused visual identity — anchored in Patriot Navy, driven by Heritage Red, and elevated by Heritage Gold — that feels premium, trustworthy, and unmistakably American without being political or cheap.
+> The Veteran Gift design system creates a warm, respectful, and product-focused visual identity — anchored in Patriot Navy, driven by Heritage Red, and elevated by Heritage Gold — that feels premium, trustworthy, and unmistakably American without being political or cheap.
 
 ---
 
-*Version: 1.0 | GraphicTShirtStore Design System*
+*Version: 1.0 | Veteran Gift Design System*

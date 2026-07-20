@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop / Archive Product — ShopGraphicshirt
+ * Shop / Archive Product — Veterangift
  */
 defined('ABSPATH') || exit;
 
@@ -16,7 +16,7 @@ $sgs_cover_title = is_shop() ? __('All Products', 'dawp') : woocommerce_page_tit
 $sgs_cover_description = __('Explore patriotic graphic shirts, apparel, and gift-ready designs made for everyday pride.', 'dawp');
 
 if (is_shop()) {
-  $sgs_cover_eyebrow = __('ShopGraphicshirt Store', 'dawp');
+  $sgs_cover_eyebrow = __('Veterangift Store', 'dawp');
 } elseif (is_product_tag()) {
   $sgs_cover_eyebrow = __('Tagged Collection', 'dawp');
   $sgs_cover_description = sprintf(__('Browse designs tagged with %s across our latest apparel and gift picks.', 'dawp'), $sgs_cover_title);
@@ -27,7 +27,7 @@ if (is_shop()) {
   if ($sgs_term_description) {
     $sgs_cover_description = wp_strip_all_tags($sgs_term_description);
   } elseif ($sgs_is_best_sellers) {
-    $sgs_cover_description = __('Top patriotic apparel, graphic shirts, and gift-ready pieces picked most often by ShopGraphicshirt customers.', 'dawp');
+    $sgs_cover_description = __('Top patriotic apparel, graphic shirts, and gift-ready pieces picked most often by Veterangift customers.', 'dawp');
   } else {
     $sgs_cover_description = sprintf(__('Discover standout %s designs selected for comfort, detail, and patriotic style.', 'dawp'), $sgs_cover_title);
   }

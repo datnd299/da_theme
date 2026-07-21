@@ -9,9 +9,9 @@ if (!function_exists('dawp_get_responsive_image')) {
             return '';
         }
 
-        if (preg_match('#^(data:|blob:)#i', $image_url)) {
-            $fetchpriority_attr = $fetchpriority ? ' fetchpriority="' . esc_attr($fetchpriority) . '"' : '';
+        $fetchpriority_attr = $fetchpriority ? ' fetchpriority="' . esc_attr($fetchpriority) . '"' : '';
 
+        if (preg_match('#^(data:|blob:)#i', $image_url)) {
             return sprintf(
                 '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s"%s>',
                 esc_attr($loading),
@@ -27,6 +27,27 @@ if (!function_exists('dawp_get_responsive_image')) {
         $query = wp_parse_url($image_url, PHP_URL_QUERY);
         if ($query) {
             $image_url = remove_query_arg(array_keys(wp_parse_args($query)), $image_url);
+        }
+
+        $host = wp_parse_url($image_url, PHP_URL_HOST);
+        $site_host = wp_parse_url(home_url('/'), PHP_URL_HOST);
+        $local_hosts = ['localhost', '127.0.0.1', '::1'];
+        $is_local_host = in_array($host, $local_hosts, true)
+            || in_array($site_host, $local_hosts, true)
+            || (is_string($host) && preg_match('#^(10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.|192\.168\.)#', $host));
+        $is_local_env = function_exists('wp_get_environment_type') && in_array(wp_get_environment_type(), ['local', 'development'], true);
+
+        if ($is_local_host || $is_local_env) {
+            return sprintf(
+                '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s"%s>',
+                esc_attr($loading),
+                (int)$width,
+                (int)$height,
+                esc_url($image_url),
+                esc_attr($class),
+                esc_attr($alt),
+                $fetchpriority_attr
+            );
         }
 
         if (strpos($image_url, 'https://i0.wp.com/') === 0) {
@@ -59,7 +80,6 @@ if (!function_exists('dawp_get_responsive_image')) {
         }
         
         $src = esc_url($cdn_url . '?fit=' . $width . '%2C' . $height . '&ssl=1');
-        $fetchpriority_attr = $fetchpriority ? ' fetchpriority="' . esc_attr($fetchpriority) . '"' : '';
 
         $html = sprintf(
             '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s" srcset="%s" sizes="%s"%s>',

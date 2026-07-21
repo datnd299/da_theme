@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$store_name        = "Queen's Bracelet";
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
+$store_name        = "Altrevia";
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@altreviallc.com';
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');
@@ -125,7 +125,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Do your bracelets make wellness or third-party brand claims?', 'dawp'),
-                'a' => __('No. Queen\'s Bracelet sells fashion bracelets and giftable jewelry. We avoid unsupported third-party brand, premium-material, medical, wellness, and guaranteed benefit claims.', 'dawp'),
+                'a' => __('No. Altrevia sells fashion bracelets and giftable jewelry. We avoid unsupported third-party brand, premium-material, medical, wellness, and guaranteed benefit claims.', 'dawp'),
             ],
         ],
     ],
@@ -246,7 +246,7 @@ $faq_sections = [
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
-        <p class="qb-copy"><?php esc_html_e('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, bracelet details, checkout, privacy, and customer support at Queen\'s Bracelet.', 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, bracelet details, checkout, privacy, and customer support at Altrevia.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>

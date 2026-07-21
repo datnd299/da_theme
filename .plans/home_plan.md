@@ -1,4 +1,4 @@
-# Queen's Bracelet — Home Plan
+# Altrevia — Home Plan
 
 ## Homepage Goal
 
@@ -10,7 +10,7 @@ Main homepage message:
 Bracelets For Everyday Confidence
 ```
 
-The homepage must show clearly that Queen's Bracelet is:
+The homepage must show clearly that Altrevia is:
 
 * A bracelet-focused jewelry boutique
 * Feminine, modern, fresh, and giftable
@@ -47,7 +47,7 @@ This can be inserted after Section 3 if needed.
 
 ## Purpose
 
-Introduce Queen's Bracelet as a fresh, modern bracelet boutique for everyday confidence, meaningful gifts, and personal expression.
+Introduce Altrevia as a fresh, modern bracelet boutique for everyday confidence, meaningful gifts, and personal expression.
 
 ## Content
 
@@ -189,7 +189,7 @@ Each card should show a clear bracelet product image:
 
 Feature the strongest historical/social footprint: charm bracelets and owl bracelet designs.
 
-This section should create a clear brand identity and make Queen's Bracelet feel unique.
+This section should create a clear brand identity and make Altrevia feel unique.
 
 ## Content
 
@@ -208,7 +208,7 @@ Meaningful details made for everyday expression.
 Paragraph:
 
 ```txt
-From simple charm bracelets to owl-inspired designs, Queen's Bracelet offers feminine jewelry pieces that feel personal, easy to wear, and thoughtful to gift.
+From simple charm bracelets to owl-inspired designs, Altrevia offers feminine jewelry pieces that feel personal, easy to wear, and thoughtful to gift.
 ```
 
 Highlights:
@@ -333,7 +333,7 @@ Small pieces with thoughtful meaning.
 Paragraph:
 
 ```txt
-Whether you are choosing a bracelet for yourself or someone special, Queen's Bracelet brings together easy-to-wear styles that feel personal, polished, and gift-ready.
+Whether you are choosing a bracelet for yourself or someone special, Altrevia brings together easy-to-wear styles that feel personal, polished, and gift-ready.
 ```
 
 Gift moments:

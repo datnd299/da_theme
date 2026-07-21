@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$brand_name    = "Queen's Bracelet";
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
+$brand_name    = "Altrevia";
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@altreviallc.com';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
@@ -116,7 +116,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div class="qb-policy-stack">
         <section id="overview" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Overview', 'dawp'); ?></p>
-          <h2><?php esc_html_e('This website is operated by Queen\'s Bracelet.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('This website is operated by Altrevia.', 'dawp'); ?></h2>
           <p><?php echo esc_html(sprintf('Throughout the site, the terms "we," "us," and "our" refer to %s. We provide this website, including all information, tools, products, and services available from this site, to you conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.', $brand_name)); ?></p>
           <p><?php esc_html_e('By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by these Terms of Service ("Terms"), including any additional terms, conditions, and policies referenced here or available by hyperlink, including our Privacy Policy, Shipping Policy, and Return & Refund Policy.', 'dawp'); ?></p>
           <p><?php esc_html_e('These Terms apply to all users of the site, including without limitation browsers, customers, account holders, merchants/partners (if applicable), and contributors of content.', 'dawp'); ?></p>
@@ -292,7 +292,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="contact-info" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('20. Contact Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Queen\'s Bracelet support details.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Altrevia support details.', 'dawp'); ?></h2>
           <div class="qb-contact-card">
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>

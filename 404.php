@@ -287,7 +287,7 @@ get_header();
       <p class="qb-404__eyebrow"><?php esc_html_e('Page Not Found', 'dawp'); ?></p>
       <h1 id="qb-404-title" class="qb-404__title"><?php esc_html_e('This bracelet page slipped away.', 'dawp'); ?></h1>
       <p class="qb-404__copy">
-        <?php esc_html_e("The page you requested is not available. You can return to Queen's Bracelet, browse bracelet categories, or continue shopping current products.", 'dawp'); ?>
+        <?php esc_html_e("The page you requested is not available. You can return to Altrevia, browse bracelet categories, or continue shopping current products.", 'dawp'); ?>
       </p>
 
       <div class="qb-404__actions">

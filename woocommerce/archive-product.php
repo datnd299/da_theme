@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Queen's Bracelet.
+ * Shop and product category archive template for Altrevia.
  *
  * @package dawp
  */
@@ -31,7 +31,7 @@ if ($category_data) {
     $page_title  = 'All Bracelets';
     $headline    = 'Bracelets for everyday confidence, charm, and personal expression.';
     $description = 'Discover elegant and modern bracelets designed for daily styling, meaningful gifts, and personal expression.';
-    $intro       = 'Shop charm bracelets, owl bracelets, beaded bracelets, chain bracelets, and giftable styles from Queen\'s Bracelet.';
+    $intro       = 'Shop charm bracelets, owl bracelets, beaded bracelets, chain bracelets, and giftable styles from Altrevia.';
     $hero_image  = qb_theme_asset_image_url('Modern_Bracelets_Giftable_Jewelry.png');
     $highlights  = ['Charm and owl bracelets', 'Beaded and chain styles', 'Giftable jewelry for her'];
 }
@@ -61,7 +61,7 @@ get_header();
                     <?php endif; ?>
                 </nav>
 
-                <p class="shop-eyebrow"><?php esc_html_e('Queen\'s Bracelet Collection', 'dawp'); ?></p>
+                <p class="shop-eyebrow"><?php esc_html_e('Altrevia Collection', 'dawp'); ?></p>
                 <h1 class="shop-hero__title"><?php echo esc_html($headline); ?></h1>
                 <p class="shop-hero__copy"><?php echo esc_html($description); ?></p>
                 <p class="shop-hero__intro"><?php echo esc_html($intro); ?></p>
@@ -195,7 +195,7 @@ get_header();
         <section class="shop-care">
             <div>
                 <h2><?php esc_html_e('Material, Size & Care Details', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Queen\'s Bracelet product pages should include available material or finish notes, bracelet length or adjustable fit information, clasp details where available, and simple jewelry care guidance.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Altrevia product pages should include available material or finish notes, bracelet length or adjustable fit information, clasp details where available, and simple jewelry care guidance.', 'dawp'); ?></p>
             </div>
             <div>
                 <h2><?php esc_html_e('Giftable Bracelet Shopping', 'dawp'); ?></h2>

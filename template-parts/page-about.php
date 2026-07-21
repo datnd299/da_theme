@@ -388,10 +388,10 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
   <section class="qb-hero">
     <div class="qb-wrap qb-hero__grid">
       <div>
-        <p class="qb-eyebrow"><?php esc_html_e("About Queen's Bracelet", 'dawp'); ?></p>
+        <p class="qb-eyebrow"><?php esc_html_e("About Altrevia", 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('For The Stories You Wear Every Day.', 'dawp'); ?></h1>
         <p class="qb-copy">
-          <?php esc_html_e("Queen's Bracelet is a bracelet-focused fashion jewelry boutique offering elegant, modern, and giftable bracelet styles for daily wear, meaningful details, and personal expression.", 'dawp'); ?>
+          <?php esc_html_e("Altrevia is a bracelet-focused fashion jewelry boutique offering elegant, modern, and giftable bracelet styles for daily wear, meaningful details, and personal expression.", 'dawp'); ?>
         </p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Bracelets', 'dawp'); ?></a>
@@ -408,7 +408,7 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
           <?php
           echo qb_responsive_image(
               $hero_image,
-              __("Elegant bracelet style from Queen's Bracelet", 'dawp'),
+              __("Elegant bracelet style from Altrevia", 'dawp'),
               [
                   'width'         => 900,
                   'height'        => 1125,
@@ -496,7 +496,7 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
         <p class="qb-eyebrow"><?php esc_html_e('Honest Product Direction', 'dawp'); ?></p>
         <h2 class="qb-title"><?php esc_html_e('Fashion jewelry without misleading claims.', 'dawp'); ?></h2>
         <p class="qb-copy">
-          <?php esc_html_e("Queen's Bracelet does not sell fake designer jewelry, replica bracelets, counterfeit charms, or products presented as affiliated with protected luxury brands.", 'dawp'); ?>
+          <?php esc_html_e("Altrevia does not sell fake designer jewelry, replica bracelets, counterfeit charms, or products presented as affiliated with protected luxury brands.", 'dawp'); ?>
         </p>
         <ul class="qb-list">
           <li><?php esc_html_e('No replica, dupe, or designer-inspired wording', 'dawp'); ?></li>
@@ -542,11 +542,11 @@ $owl_image = get_template_directory_uri() . '/assets/images/home/image_about_two
       <p class="qb-eyebrow"><?php esc_html_e('Store Information', 'dawp'); ?></p>
       <h2 class="qb-title"><?php esc_html_e('Support and policy information are easy to find.', 'dawp'); ?></h2>
       <p class="qb-copy">
-        <?php esc_html_e("Queen's Bracelet serves customers shopping from the United States market. For order help, product questions, sizing, shipping, returns, or policy questions, contact our support team.", 'dawp'); ?>
+        <?php esc_html_e("Altrevia serves customers shopping from the United States market. For order help, product questions, sizing, shipping, returns, or policy questions, contact our support team.", 'dawp'); ?>
       </p>
 
       <div class="qb-policy-grid">
-        <p><?php esc_html_e('Support email: support@queens-bracelet.com', 'dawp'); ?></p>
+        <p><?php esc_html_e('Support email: support@altreviallc.com', 'dawp'); ?></p>
         <p><?php esc_html_e('Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
         <p><?php esc_html_e('Refunds are processed within 7 days after inspection approval.', 'dawp'); ?></p>
       </div>

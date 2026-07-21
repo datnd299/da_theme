@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage template for Queen's Bracelet.
+ * Homepage template for Altrevia.
  *
  * @package dawp
  */
@@ -893,7 +893,7 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
             <?php
             echo qb_responsive_image(
                 $hero_image,
-                __("Elegant bracelet style from Queen's Bracelet", 'dawp'),
+                __("Elegant bracelet style from Altrevia", 'dawp'),
                 [
                     'width'         => 900,
                     'height'        => 1125,
@@ -978,7 +978,7 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
         <p class="qb-eyebrow"><?php esc_html_e('Charm & Owl Bracelets', 'dawp'); ?></p>
         <h2 class="qb-title"><?php esc_html_e('Meaningful details made for everyday expression.', 'dawp'); ?></h2>
         <p class="qb-copy">
-          <?php esc_html_e("From simple charm bracelets to owl-inspired designs, Queen's Bracelet offers feminine jewelry pieces that feel personal, easy to wear, and thoughtful to gift.", 'dawp'); ?>
+          <?php esc_html_e("From simple charm bracelets to owl-inspired designs, Altrevia offers feminine jewelry pieces that feel personal, easy to wear, and thoughtful to gift.", 'dawp'); ?>
         </p>
 
         <ul class="qb-list">
@@ -1061,7 +1061,7 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
         <p class="qb-eyebrow"><?php esc_html_e('Giftable Jewelry', 'dawp'); ?></p>
         <h2 class="qb-title"><?php esc_html_e('Small pieces with thoughtful meaning.', 'dawp'); ?></h2>
         <p class="qb-copy">
-          <?php esc_html_e("Whether you are choosing a bracelet for yourself or someone special, Queen's Bracelet brings together easy-to-wear styles that feel personal, polished, and gift-ready.", 'dawp'); ?>
+          <?php esc_html_e("Whether you are choosing a bracelet for yourself or someone special, Altrevia brings together easy-to-wear styles that feel personal, polished, and gift-ready.", 'dawp'); ?>
         </p>
 
         <div class="qb-gift-card-grid">
@@ -1141,7 +1141,7 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
         <p><?php esc_html_e('Order cutoff is 5:00 PM Pacific Standard Time. Handling takes 1-3 business days, and fulfillment runs Monday-Friday excluding public holidays.', 'dawp'); ?></p>
         <p><?php esc_html_e('Standard U.S. shipping is free unless checkout shows otherwise, with 5-7 business day transit and usually 6-10 business days estimated delivery.', 'dawp'); ?></p>
         <p><?php esc_html_e('Eligible returns are accepted by mail within 30 days from delivery date after contacting support first. There is no restocking fee, and refunds are processed within 7 days after inspection approval.', 'dawp'); ?></p>
-        <p><?php esc_html_e('For order support, contact support@queens-bracelet.com. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
+        <p><?php esc_html_e('For order support, contact support@altreviallc.com. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
       </div>
 
     </div>

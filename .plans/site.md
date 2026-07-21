@@ -1,21 +1,21 @@
-# Queen's Bracelet — Site.md
+# Altrevia — Site.md
 
 ## Store Information
 
-* **Domain:** queens-bracelet.com
-* **Brand Name:** Queen's Bracelet
+* **Domain:** altreviallc.com
+* **Brand Name:** Altrevia
 * **Language:** English
 * **Store Type:** Women's Bracelet & Fashion Jewelry Boutique
 * **Primary Market:** United States
 * **Core Products:** Charm bracelets, owl bracelets, beaded bracelets, chain bracelets, statement bracelets, gift bracelets
-* **Support Email:** [support@queens-bracelet.com](mailto:support@queens-bracelet.com)
+* **Support Email:** [support@altreviallc.com](mailto:support@altreviallc.com)
 * **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
 ## Brand Positioning
 
-Queen's Bracelet is a bracelet-focused fashion jewelry boutique offering elegant, modern, and giftable bracelets for everyday style and personal expression.
+Altrevia is a bracelet-focused fashion jewelry boutique offering elegant, modern, and giftable bracelets for everyday style and personal expression.
 
 Core message:
 
@@ -61,7 +61,7 @@ The goal is to make the old bracelet-focused direction cleaner, more professiona
 
 ## Core Store Concept
 
-Queen's Bracelet offers bracelet styles for women who want simple jewelry pieces that feel elegant, meaningful, and easy to wear.
+Altrevia offers bracelet styles for women who want simple jewelry pieces that feel elegant, meaningful, and easy to wear.
 
 The store should focus on:
 

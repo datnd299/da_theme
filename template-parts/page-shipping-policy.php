@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$store_name     = "Queen's Bracelet";
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
+$store_name     = "Altrevia";
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@altreviallc.com';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '1777 Canal St, Merced, CA 95340';
 $support_portal = home_url('/contact-us/');
 ?>
@@ -100,7 +100,7 @@ $support_portal = home_url('/contact-us/');
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e("Queen's Bracelet currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.", 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e("Altrevia currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
@@ -124,7 +124,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-policy-stack">
         <section id="shipping-locations" class="qb-policy-card">
           <h2><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-          <p><?php esc_html_e("We currently ship exclusively within the United States. Queen's Bracelet serves customers shopping from the United States domestic market.", 'dawp'); ?></p>
+          <p><?php esc_html_e("We currently ship exclusively within the United States. Altrevia serves customers shopping from the United States domestic market.", 'dawp'); ?></p>
           <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
           <div class="qb-callout">
             <p><?php esc_html_e('Some jewelry orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
@@ -178,7 +178,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="tracking" class="qb-policy-card">
           <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php esc_html_e("To guarantee safe and efficient delivery, Queen's Bracelet partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.", 'dawp'); ?></p>
+          <p><?php esc_html_e("To guarantee safe and efficient delivery, Altrevia partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.", 'dawp'); ?></p>
           <ul class="qb-carrier-list">
             <li><?php esc_html_e('USPS', 'dawp'); ?></li>
             <li><?php esc_html_e('UPS', 'dawp'); ?></li>

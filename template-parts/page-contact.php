@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@altreviallc.com';
 $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
@@ -450,7 +450,7 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
   <section class="qb-hero">
     <div class="qb-wrap qb-hero__grid">
       <div>
-        <p class="qb-eyebrow"><?php esc_html_e('Contact Queen\'s Bracelet', 'dawp'); ?></p>
+        <p class="qb-eyebrow"><?php esc_html_e('Contact Altrevia', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Support For Your Bracelet Order.', 'dawp'); ?></h1>
         <p class="qb-copy">
           <?php esc_html_e('Questions about an order, bracelet size, material details, shipping, tracking, returns, or product care? Send us a message and our support team will help with clear next steps.', 'dawp'); ?>
@@ -583,7 +583,7 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
 
             <label class="qb-contact-form__consent" for="contact_consent">
               <input id="contact_consent" name="contact_consent" type="checkbox" required>
-              <span><?php esc_html_e('I agree that Queen\'s Bracelet may use this information to respond to my support request.', 'dawp'); ?></span>
+              <span><?php esc_html_e('I agree that Altrevia may use this information to respond to my support request.', 'dawp'); ?></span>
             </label>
 
             <label class="qb-contact-form__hidden" for="website">
@@ -622,7 +622,7 @@ $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_stor
 
       <div class="qb-actions">
         <a class="qb-button" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('Shop Bracelets', 'dawp'); ?></a>
-        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Queen\'s Bracelet', 'dawp'); ?></a>
+        <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Altrevia', 'dawp'); ?></a>
       </div>
     </div>
   </section>

@@ -1,4 +1,4 @@
-# Queen's Bracelet — Design System
+# Altrevia — Design System
 
 ## Design Goal
 
@@ -387,7 +387,7 @@ thoughtful gift
 
 ## Final Design Feeling
 
-Queen's Bracelet should look like:
+Altrevia should look like:
 
 > A fresh, modern, feminine bracelet boutique offering charm bracelets, owl bracelets, beaded styles, chain bracelets, and giftable jewelry for everyday confidence.
 

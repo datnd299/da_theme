@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$store_name     = "Queen's Bracelet";
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
+$store_name     = "Altrevia";
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@altreviallc.com';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
 ?>
@@ -176,7 +176,7 @@ $support_portal = home_url('/contact-us/');
             </div>
           </div>
           <div class="qb-address-box">
-            <strong><?php esc_html_e("Queen's Bracelet - Returns Department", 'dawp'); ?></strong>
+            <strong><?php esc_html_e("Altrevia - Returns Department", 'dawp'); ?></strong>
             <span><?php esc_html_e('127 WOOD RD, Rochester, NY 14626', 'dawp'); ?></span>
           </div>
           <div class="qb-actions">

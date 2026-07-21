@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer for Queen's Bracelet.
+ * Theme footer for Altrevia.
  *
  * @package dawp
  */
@@ -8,7 +8,7 @@
 $current_year = date_i18n('Y');
 $account_url  = get_permalink(get_option('woocommerce_myaccount_page_id'));
 $account_url  = $account_url ?: home_url('/my-account/');
-$footer_logo  = get_template_directory_uri() . '/assets/images/home/image.png';
+$footer_logo  = get_template_directory_uri() . '/assets/images/altrevia.png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 
 $footer_shop_links = [
@@ -235,11 +235,11 @@ $footer_policy_links = [
     <section>
         <div class="qb-footer-wrap qb-footer-main">
             <div class="qb-footer-brand">
-                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Queen's Bracelet home", 'dawp'); ?>">
+                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Altrevia home", 'dawp'); ?>">
                     <?php
                     echo qb_responsive_image(
                         $footer_logo,
-                        __("Queen's Bracelet", 'dawp'),
+                        __("Altrevia", 'dawp'),
                         [
                             'class'  => 'qb-footer-logo',
                             'width'  => 108,
@@ -258,11 +258,11 @@ $footer_policy_links = [
                         </svg>
                         <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
                     </span>
-                    <a href="mailto:support@queens-bracelet.com" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
+                    <a href="mailto:support@altreviallc.com" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.38l7 4.38 7-4.38V6.5a.5.5 0 0 0-.5-.5h-13Zm13 12a.5.5 0 0 0 .5-.5V9.25l-6.47 4.04a1 1 0 0 1-1.06 0L5 9.25v8.25a.5.5 0 0 0 .5.5h13Z"/>
                         </svg>
-                        support@queens-bracelet.com
+                        support@altreviallc.com
                     </a>
                     <?php if ($store_address) : ?>
                         <span>
@@ -272,7 +272,7 @@ $footer_policy_links = [
                             <?php echo esc_html($store_address); ?>
                         </span>
                     <?php endif; ?>
-                    <a href="https://www.facebook.com/queens.bracelet/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Facebook', 'dawp'); ?>">
+                    <a href="https://www.facebook.com/altreviallc/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Facebook', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.25 10.44 22v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.25 22 17.08 22 12.06Z"/>
                         </svg>
@@ -312,7 +312,7 @@ $footer_policy_links = [
 
     <div class="qb-footer-bottom">
         <div class="qb-footer-wrap qb-footer-bottom__inner">
-            <p>&copy; <?php echo esc_html($current_year); ?> <?php esc_html_e("Queen's Bracelet. All rights reserved.", 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html($current_year); ?> <?php esc_html_e("Altrevia. All rights reserved.", 'dawp'); ?></p>
             <div class="qb-payment" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <span><?php esc_html_e('Visa', 'dawp'); ?></span>
                 <span><?php esc_html_e('Mastercard', 'dawp'); ?></span>

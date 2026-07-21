@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header for Queen's Bracelet.
+ * Theme header for Altrevia.
  *
  * @package dawp
  */
@@ -368,10 +368,10 @@ $nav_items = [
     </div>
 
     <div class="qb-header-wrap qb-header-main">
-        <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Queen's Bracelet home", 'dawp'); ?>">
+        <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Altrevia home", 'dawp'); ?>">
             <?php
             echo qb_responsive_image(
-                get_template_directory_uri() . '/assets/images/home/image.png',
+                get_template_directory_uri() . '/assets/images/altrevia.png',
                 get_bloginfo('name'),
                 [
                     'width'   => 190,

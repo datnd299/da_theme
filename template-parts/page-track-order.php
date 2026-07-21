@@ -4,8 +4,8 @@
  */
 $sgs_to_hero_bg = sprintf(
   "--sgs-to-hero-bg:url('%s');--sgs-to-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 720, 600))
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/track-order-cover-v2.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/track-order-cover-v2.png', 720, 600))
 );
 $sgs_to_tips_bg = sprintf(
   "--sgs-to-tips-bg:url('%s');--sgs-to-tips-bg-mobile:url('%s')",

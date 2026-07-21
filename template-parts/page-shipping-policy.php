@@ -8,8 +8,8 @@ $store_address = $store_address ?: __('United States', 'dawp');
 
 $sgs_sp_hero_bg = sprintf(
   "--sgs-sp-hero-bg:url('%s');--sgs-sp-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/hero/tracking-hero-background.png', 720, 520))
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/track-order-cover-v2.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/track-order-cover-v2.png', 720, 520))
 );
 get_header(); ?>
 <section class="sgs-home sgs-page">

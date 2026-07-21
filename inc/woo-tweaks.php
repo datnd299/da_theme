@@ -121,7 +121,7 @@ function dawp_single_product_pride_banner() {
     ?>
     <section class="dawp-pride-banner" aria-label="<?php esc_attr_e('American pride product message', 'dawp'); ?>">
         <div class="dawp-pride-banner__emblem" aria-hidden="true">
-            <span>★</span>
+            <span>&#9733;</span>
         </div>
         <div class="dawp-pride-banner__content">
             <p><?php esc_html_e('American Pride Collection', 'dawp'); ?></p>

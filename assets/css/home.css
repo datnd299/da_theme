@@ -216,9 +216,7 @@
 .sgs-occ p{margin:8px 0 0;color:var(--muted);font-size:.88rem;line-height:1.5}
 .sgs-occ__cta{display:inline-block;margin-top:12px;color:var(--red);font-size:.73rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .sgs-occ-slider__controls{display:none}
-@media(min-width:901px){.sgs-occ--gold{grid-column:2}}
 @media(max-width:900px){.sgs-occ-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:768px) and (max-width:900px){.sgs-occ--gold{grid-column:1/-1;justify-self:center;width:calc((100% - 14px)/2)}}
 @media(max-width:767px){
   .sgs-occ-slider{width:100%;margin:0}
   .sgs-occ-grid{

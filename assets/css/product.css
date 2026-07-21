@@ -502,31 +502,53 @@ form.cart:not(.variations_form) {
 
 .dawp-product-trust {
   display: grid;
-  gap: 10px;
-  margin-top: 2px;
+  gap: 12px;
+  margin-top: 6px;
 }
 
 .dawp-product-trust__item {
+  position: relative;
   display: grid;
-  grid-template-columns: 42px 1fr;
-  gap: 12px;
+  grid-template-columns: 46px 1fr;
+  gap: 14px;
   align-items: center;
-  padding: 12px;
+  overflow: hidden;
+  padding: 13px 14px;
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 10px 24px rgba(11, 31, 58, 0.06);
+  background:
+    linear-gradient(90deg, rgba(11, 31, 58, 0.025), rgba(255, 255, 255, 0) 42%),
+    #ffffff;
+  box-shadow: 0 12px 26px rgba(11, 31, 58, 0.055);
+  transition: border-color 0.16s, box-shadow 0.16s, transform 0.16s;
+}
+
+.dawp-product-trust__item::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, #b31942, #c6a15b);
+}
+
+.dawp-product-trust__item:hover {
+  border-color: rgba(179, 25, 66, 0.22);
+  box-shadow: 0 16px 34px rgba(11, 31, 58, 0.09);
+  transform: translateY(-1px);
 }
 
 .dawp-product-trust__icon {
   display: inline-flex;
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
   color: #b31942;
-  background: #f7e8ec;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.56)),
+    #f7e8ec;
+  box-shadow: inset 0 0 0 1px rgba(179, 25, 66, 0.08);
 }
 
 .dawp-product-trust strong,
@@ -537,16 +559,16 @@ form.cart:not(.variations_form) {
 
 .dawp-product-trust strong {
   color: var(--color-text-primary);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 800;
   line-height: 1.25;
 }
 
 .dawp-product-trust small {
-  margin-top: 3px;
+  margin-top: 4px;
   color: var(--color-text-secondary);
   font-size: 0.8125rem;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .dawp-pride-banner {
@@ -555,32 +577,45 @@ form.cart:not(.variations_form) {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
   overflow: hidden;
-  margin-top: 20px;
-  padding: 22px 24px;
+  margin-top: 26px;
+  padding: 26px 28px;
   border-radius: 8px;
   background:
-    linear-gradient(90deg, rgba(11, 31, 58, 0.98) 0%, rgba(11, 31, 58, 0.92) 58%, rgba(179, 25, 66, 0.9) 100%),
+    radial-gradient(circle at 88% 8%, rgba(255, 255, 255, 0.18) 0 72px, transparent 74px),
+    linear-gradient(90deg, rgba(11, 31, 58, 0.98) 0%, rgba(18, 42, 75, 0.96) 50%, rgba(179, 25, 66, 0.94) 100%),
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0 7px, rgba(255, 255, 255, 0) 7px 14px);
   color: #ffffff;
-  box-shadow: 0 22px 50px rgba(11, 31, 58, 0.18);
+  box-shadow: 0 24px 54px rgba(11, 31, 58, 0.18);
+  isolation: isolate;
+}
+
+.dawp-pride-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 92px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 62px);
+  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.42), transparent 72%);
 }
 
 .dawp-pride-banner::after {
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 4px;
-  background: linear-gradient(90deg, #b31942 0 34%, #ffffff 34% 66%, #c6a15b 66% 100%);
+  height: 5px;
+  background: linear-gradient(90deg, #b31942 0 34%, #ffffff 34% 64%, #c6a15b 64% 100%);
 }
 
 .dawp-pride-banner__emblem {
   position: relative;
   z-index: 1;
   display: grid;
-  width: 70px;
-  height: 70px;
+  width: 72px;
+  height: 72px;
   place-items: center;
   border: 2px solid rgba(255, 255, 255, 0.36);
   border-radius: 50%;
@@ -591,8 +626,8 @@ form.cart:not(.variations_form) {
 
 .dawp-pride-banner__emblem span {
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   place-items: center;
   border-radius: 50%;
   background: #ffffff;
@@ -622,7 +657,7 @@ form.cart:not(.variations_form) {
   margin: 0;
   color: #ffffff;
   font-family: var(--font-primary);
-  font-size: clamp(1.35rem, 2.5vw, 2.25rem);
+  font-size: clamp(1.45rem, 2.55vw, 2.35rem);
   line-height: 1.12;
   letter-spacing: 0;
 }
@@ -634,6 +669,40 @@ form.cart:not(.variations_form) {
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.9rem;
   line-height: 1.55;
+}
+
+@media (max-width: 639px) {
+  .dawp-product-trust {
+    gap: 10px;
+  }
+
+  .dawp-product-trust__item {
+    grid-template-columns: 42px 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .dawp-product-trust__icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .dawp-pride-banner {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 22px 20px 24px;
+  }
+
+  .dawp-pride-banner__emblem {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dawp-pride-banner__emblem span {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
 }
 
 .dawp-customer-stories {
@@ -1032,7 +1101,7 @@ form.cart:not(.variations_form) {
 }
 
 .stars a::before {
-  content: "★";
+  content: "\2605";
   font-size: 26px;
 }
 
@@ -1470,7 +1539,7 @@ form.cart:not(.variations_form) {
   text-decoration: none;
 }
 .comment-form-rating p.stars a::before {
-  content: "★";
+  content: "\2605";
   font-size: 1.375rem;
   color: var(--color-border);
   transition: color 0.1s;

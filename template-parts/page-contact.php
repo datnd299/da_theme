@@ -4,8 +4,8 @@
  */
 $sgs_contact_hero_bg = sprintf(
   "--sgs-contact-hero-bg:url('%s');--sgs-contact-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/hero/support-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/hero/support-hero-background.png', 720, 600))
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/contact-hero-background.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/contact-hero-background.png', 720, 600))
 );
 get_header(); ?>
 <section class="sgs-home sgs-page">

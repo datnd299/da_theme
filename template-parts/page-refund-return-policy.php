@@ -5,8 +5,8 @@
  */
 $sgs_rr_hero_bg = sprintf(
   "--sgs-rr-hero-bg:url('%s');--sgs-rr-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 720, 520))
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/track-order-cover-v2.png', 1600, 760)),
+  esc_url(dawp_theme_cdn_image_url('assets/img/hero/track-order-cover-v2.png', 720, 520))
 );
 get_header(); ?>
 <section class="sgs-home sgs-page">

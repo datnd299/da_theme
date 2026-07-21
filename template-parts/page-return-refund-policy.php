@@ -11,37 +11,39 @@ if (!defined('ABSPATH')) {
 
 $store_name     = 'Topgoodmart';
 $support_email  = 'support@topgoodmart.com';
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$support_phone  = '826-207-1399';
+$store_address  = '423 Frontier Rd NE APT 6, Roanoke, VA 24012-3028';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
 
 $return_eligibility = [
     __('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'),
-    __('Condition: Items must be unused, undamaged, and in their original, unaltered condition.', 'dawp'),
+    __('Product Condition: Items must be unused, undamaged, in their original, unaltered condition, and suitable for resale (New only).', 'dawp'),
     __('Packaging: Items must be returned with all original packaging, manuals, labels, parts, accessories, boxes, and included components.', 'dawp'),
-    __('Restocking Fee: Free. We do not charge any restocking fees for eligible returns.', 'dawp'),
+    __('Return Method: By Mail only.', 'dawp'),
+    __('Restocking Fee: $0.00 / Free. We do not charge any restocking fees for eligible returns.', 'dawp'),
 ];
 
 $return_shipping_fees = [
     [
-        'title' => __('Defective, Damaged, or Incorrect Products (Wrong item, carrier damage, or defective):', 'dawp'),
-        'copy'  => __('No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.', 'dawp'),
+        'title' => __('Defective, Damaged, or Incorrect Products:', 'dawp'),
+        'copy'  => __('The customer is responsible for shipping the item back to our store. We do not cover return shipping costs or provide prepaid labels. If you receive a defective or damaged product, please contact us for instructions.', 'dawp'),
     ],
     [
-        'title' => __('Customer Remorse (Ordered wrong item/model/color, changed mind, or product does not fit the intended space):', 'dawp'),
-        'copy'  => __('The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.', 'dawp'),
+        'title' => __('Customer Remorse / Change of Mind:', 'dawp'),
+        'copy'  => __('The customer is responsible for all return shipping costs. The customer must choose their own shipping carrier and prepay the return shipping fee.', 'dawp'),
     ],
 ];
 
 $delivery_issues = [
     [
         'title' => __('Damaged on Arrival', 'dawp'),
-        'copy'  => __('If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will arrange a replacement or full refund at no cost to you.', 'dawp'),
+        'copy'  => __('If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will assist you with the return process.', 'dawp'),
     ],
     [
         'title' => __('Lost Packages / Never Arrived', 'dawp'),
-        'copy'  => __('If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'),
+        'copy'  => __('If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier.', 'dawp'),
     ],
 ];
 
@@ -53,20 +55,20 @@ $return_steps = [
     [
         'title' => __('Receive Approval & Pack Your Item', 'dawp'),
         'copy'  => [
-            __('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number along with a prepaid shipping label.', 'dawp'),
-            __('Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box.', 'dawp'),
+            __('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number and the Return Address details.', 'dawp'),
+            __('Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box. Write the RMA number clearly on the outside of the box.', 'dawp'),
         ],
     ],
     [
         'title' => __('Ship It Back to Our Returns Center', 'dawp'),
-        'copy'  => __('Print the prepaid shipping label, attach it to the outside of your shipping box, and drop it off at the designated carrier location.', 'dawp'),
+        'copy'  => __('Purchase a shipping label from your preferred carrier (e.g., USPS, UPS, FedEx, or DHL), attach it to the outside of your shipping box, and drop it off at the designated carrier location. The customer is responsible for all shipping costs. We recommend using a trackable shipping service.', 'dawp'),
     ],
 ];
 
 $refund_process = [
     __('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'),
     __('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'),
-    __('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns.', 'dawp'),
+    __('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns. Please note that original shipping costs (if any) are non-refundable.', 'dawp'),
     __('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'),
     __('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'),
 ];
@@ -94,6 +96,11 @@ $contact_cards = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
+        'label' => __('Phone', 'dawp'),
+        'value' => $support_phone,
+        'url'   => 'tel:' . $support_phone,
+    ],
+    [
         'label' => __('Contact Support', 'dawp'),
         'value' => __('Contact Us page', 'dawp'),
         'url'   => $contact_url,
@@ -111,15 +118,15 @@ $contact_cards = [
 $return_faqs = [
     [
         'question' => __('What is the return window?', 'dawp'),
-        'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible defective and non-defective products.', 'dawp'),
+        'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible defective and non-defective products in new condition.', 'dawp'),
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('Topgoodmart covers return shipping for defective, damaged, carrier-damaged, or incorrect products. For customer-remorse returns, the actual prepaid label cost is deducted from the refund.', 'dawp'),
+        'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not provide prepaid return labels.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),
-        'answer'   => __('No. Topgoodmart does not charge restocking fees for eligible returns.', 'dawp'),
+        'answer'   => __('No. Topgoodmart does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
     ],
     [
         'question' => __('When will I receive my refund?', 'dawp'),

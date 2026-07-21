@@ -10,7 +10,8 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email = 'support@topgoodmart.com';
-$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$support_phone = '826-207-1399';
+$store_address = '423 Frontier Rd NE APT 6, Roanoke, VA 24012-3028';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
 $last_updated  = __('May 29, 2026', 'dawp');
@@ -18,7 +19,7 @@ $last_updated  = __('May 29, 2026', 'dawp');
 $shipping_costs = [
     [
         'title' => __('Standard U.S. Shipping', 'dawp'),
-        'copy'  => __('Completely free for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.', 'dawp'),
+        'copy'  => __('Completely free ($0.00) for all orders nationwide. There is no minimum purchase requirement to qualify for free standard shipping.', 'dawp'),
     ],
     [
         'title' => __('Optional Upgraded Shipping', 'dawp'),
@@ -29,19 +30,19 @@ $shipping_costs = [
 $delivery_times = [
     [
         'title' => __('Order Cutoff Time', 'dawp'),
-        'copy'  => __('5:00 PM (GMT-08:00) Pacific Standard Time.', 'dawp'),
+        'copy'  => __('5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday).', 'dawp'),
     ],
     [
         'title' => __('Order Handling Time', 'dawp'),
-        'copy'  => __('1-3 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'),
+        'copy'  => __('1-2 business days (Monday to Friday). Orders placed after cutoff begin processing the following business day.', 'dawp'),
     ],
     [
         'title' => __('Transit Time', 'dawp'),
-        'copy'  => __('5-7 business days, Monday to Friday.', 'dawp'),
+        'copy'  => __('3-5 business days (Monday to Friday).', 'dawp'),
     ],
     [
         'title' => __('Estimated Delivery Time', 'dawp'),
-        'copy'  => __('6-10 business days total from the date of purchase.', 'dawp'),
+        'copy'  => __('4-7 business days total from the date of purchase (Monday to Friday).', 'dawp'),
     ],
 ];
 
@@ -69,6 +70,10 @@ $contact_details = [
         'value' => $support_email,
     ],
     [
+        'label' => __('Customer Support Phone', 'dawp'),
+        'value' => $support_phone,
+    ],
+    [
         'label' => __('Address', 'dawp'),
         'value' => $store_address,
     ],
@@ -89,7 +94,7 @@ $shipping_faqs = [
     ],
     [
         'question' => __('How long will my order take to arrive?', 'dawp'),
-        'answer'   => __('Order handling takes 1-3 business days and standard transit takes 5-7 business days, so estimated delivery is 6-10 business days total from the date of purchase.', 'dawp'),
+        'answer'   => __('Order handling takes 1-2 business days and standard transit takes 3-5 business days, so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
     ],
     [
         'question' => __('Will I receive tracking information?', 'dawp'),
@@ -233,6 +238,9 @@ $shipping_faqs = [
                 <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#1F2937] bg-white px-6 text-sm font-extrabold text-[#1F2937] transition hover:bg-[#EAF2FF]">
                     <?php echo esc_html($support_email); ?>
                 </a>
+                <a href="tel:<?php echo esc_attr($support_phone); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#1F2937] bg-white px-6 text-sm font-extrabold text-[#1F2937] transition hover:bg-[#EAF2FF]">
+                    <?php echo esc_html($support_phone); ?>
+                </a>
             </div>
         </section>
 
@@ -250,6 +258,8 @@ $shipping_faqs = [
                             <h3 class="text-sm font-extrabold text-[#1F2937]"><?php echo esc_html($detail['label']); ?></h3>
                             <?php if ($support_email === $detail['value']) : ?>
                                 <a href="mailto:<?php echo esc_attr($support_email); ?>" class="mt-3 block text-sm leading-6 text-[#6B7280] transition hover:text-[#0046BE]"><?php echo esc_html($detail['value']); ?></a>
+                            <?php elseif ($support_phone === $detail['value']) : ?>
+                                <a href="tel:<?php echo esc_attr($support_phone); ?>" class="mt-3 block text-sm leading-6 text-[#6B7280] transition hover:text-[#0046BE]"><?php echo esc_html($detail['value']); ?></a>
                             <?php else : ?>
                                 <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php echo esc_html($detail['value']); ?></p>
                             <?php endif; ?>

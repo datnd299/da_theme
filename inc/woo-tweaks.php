@@ -95,3 +95,62 @@ function dawp_get_store_address() {
     return implode(', ', $parts);
 }
 
+/* ============================================================
+ * GMC Compliance — GTIN / MPN Admin Fields
+ * ============================================================ */
+
+/**
+ * Add GTIN and MPN fields to product admin (Inventory tab, after SKU).
+ */
+add_action('woocommerce_product_options_sku', 'tgm_add_gtin_mpn_fields');
+function tgm_add_gtin_mpn_fields() {
+    woocommerce_wp_text_input([
+        'id'          => '_gtin',
+        'label'       => __('GTIN (UPC/EAN)', 'topgoodmart'),
+        'desc_tip'    => true,
+        'description' => __('Global Trade Item Number — required for Google Merchant Center.', 'topgoodmart'),
+        'placeholder' => 'e.g. 012345678905',
+    ]);
+    woocommerce_wp_text_input([
+        'id'          => '_mpn',
+        'label'       => __('MPN', 'topgoodmart'),
+        'desc_tip'    => true,
+        'description' => __('Manufacturer Part Number — required for Google Merchant Center.', 'topgoodmart'),
+        'placeholder' => 'e.g. TGM-MPN-0001',
+    ]);
+}
+
+/**
+ * Save GTIN and MPN meta when product is saved.
+ */
+add_action('woocommerce_admin_process_product_object', 'tgm_save_gtin_mpn_fields');
+function tgm_save_gtin_mpn_fields($product) {
+    if (isset($_POST['_gtin'])) {
+        $product->update_meta_data('_gtin', sanitize_text_field($_POST['_gtin']));
+    }
+    if (isset($_POST['_mpn'])) {
+        $product->update_meta_data('_mpn', sanitize_text_field($_POST['_mpn']));
+    }
+}
+
+/**
+ * Display GTIN and MPN on the product page (after SKU in product meta).
+ */
+add_action('woocommerce_product_meta_end', 'tgm_display_gtin_mpn');
+function tgm_display_gtin_mpn() {
+    global $product;
+    if (!$product) {
+        return;
+    }
+
+    $gtin = $product->get_meta('_gtin');
+    $mpn  = $product->get_meta('_mpn');
+
+    if (!empty($gtin)) {
+        echo '<span class="gtin_wrapper">GTIN: <span>' . esc_html($gtin) . '</span></span> ';
+    }
+    if (!empty($mpn)) {
+        echo '<span class="mpn_wrapper">MPN: <span>' . esc_html($mpn) . '</span></span>';
+    }
+}
+

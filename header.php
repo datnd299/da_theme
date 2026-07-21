@@ -47,6 +47,9 @@ $is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Topgoodmart — Your modern online marketplace for home essentials, furniture, electronics, smart home, kitchen and outdoor products. Fast U.S. shipping, secure checkout, and everyday deals.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
 
 
     <style>

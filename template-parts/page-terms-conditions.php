@@ -12,7 +12,8 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Topgoodmart';
 $site_domain    = 'topgoodmart.com';
 $support_email  = 'support@topgoodmart.com';
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$support_phone  = '826-207-1399';
+$store_address  = '423 Frontier Rd NE APT 6, Roanoke, VA 24012-3028';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $last_updated   = __('May 29, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
@@ -42,17 +43,17 @@ $terms_highlights = [
 
 $shipping_parameters = [
     __('Shipping Locations: Topgoodmart currently ships exclusively within the United States domestic market.', 'dawp'),
-    __('Shipping Fees: Standard U.S. shipping is free for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
-    __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time. Orders placed after this time begin processing on the following business day.', 'dawp'),
-    __('Handling Time: Current order handling and packaging time is 1-3 business days, Monday through Friday, excluding standard U.S. public holidays.', 'dawp'),
-    __('Transit Time: Standard U.S. transit takes 5-7 business days, Monday to Friday. Estimated delivery is 6-10 business days total from the date of purchase.', 'dawp'),
+    __('Shipping Fees: Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
+    __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
+    __('Handling Time: Current order handling and packaging time is 1-2 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
+    __('Transit Time: Standard U.S. transit takes 3-5 business days (Monday to Friday). Estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
     __('Carriers & Tracking: Orders are shipped using trusted domestic U.S. carriers such as USPS, UPS, FedEx, or DHL. Tracking details are emailed once an order is dispatched.', 'dawp'),
 ];
 
 $return_terms = [
-    __('Return Window: Customers may request returns or exchanges within 30 days of documented delivery. Returns are accepted for both defective and non-defective products.', 'dawp'),
-    __('Product Condition: Eligible products must be entirely unused, in their original pristine condition, and returned with original packaging, tags, labels, accessories, and included parts intact.', 'dawp'),
-    __('Fees & Shipping Costs: There is no restocking fee ($0.00). We cover full return shipping costs for defective, damaged, or incorrect products. Customers are responsible for actual return shipping fees for change-of-mind returns.', 'dawp'),
+    __('Return Window: Customers may request returns within 30 days of documented delivery. Returns are accepted for eligible products in new condition.', 'dawp'),
+    __('Product Condition: Eligible products must be entirely unused, in their original pristine condition (New only), and returned with original packaging, tags, labels, accessories, and included parts intact.', 'dawp'),
+    __('Fees & Shipping Costs: There is no restocking fee ($0.00). The customer is responsible for all return shipping costs for both defective/damaged items and change-of-mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
     __('Refund Timelines: Approved refunds are processed back to the original payment method within up to 7 business days.', 'dawp'),
 ];
 
@@ -65,6 +66,11 @@ $contact_details = [
         'label' => __('Customer Support Email', 'dawp'),
         'value' => $support_email,
         'url'   => 'mailto:' . $support_email,
+    ],
+    [
+        'label' => __('Customer Support Phone', 'dawp'),
+        'value' => $support_phone,
+        'url'   => 'tel:' . $support_phone,
     ],
     [
         'label' => __('Physical Business Address', 'dawp'),

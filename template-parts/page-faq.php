@@ -12,7 +12,8 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Topgoodmart';
 $site_domain    = 'topgoodmart.com';
 $support_email  = 'support@topgoodmart.com';
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$support_phone  = '826-207-1399';
+$store_address  = '423 Frontier Rd NE APT 6, Roanoke, VA 24012-3028';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
@@ -53,15 +54,15 @@ $faq_groups = [
             ],
             [
                 'question' => __('How much does shipping cost?', 'dawp'),
-                'answer'   => __('Standard U.S. shipping is free for all orders nationwide with no minimum purchase requirement. If optional upgraded shipping is available, the exact cost is displayed at checkout before payment.', 'dawp'),
+                'answer'   => __('Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. If optional upgraded shipping is available, the exact cost is displayed at checkout before payment.', 'dawp'),
             ],
             [
                 'question' => __('What is the daily order cutoff time?', 'dawp'),
-                'answer'   => __('The daily order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time. Orders placed after the cutoff begin processing on the following business day.', 'dawp'),
+                'answer'   => __('The daily order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after the cutoff begin processing on the following business day.', 'dawp'),
             ],
             [
                 'question' => __('How long does order handling and delivery take?', 'dawp'),
-                'answer'   => __('Order handling takes 1-3 business days, Monday through Friday, excluding standard U.S. public holidays. Standard transit takes 5-7 business days, so estimated delivery is 6-10 business days total from the date of purchase.', 'dawp'),
+                'answer'   => __('Order handling takes 1-2 business days (Monday to Friday), excluding standard U.S. public holidays. Standard transit takes 3-5 business days (Monday to Friday), so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
             ],
             [
                 'question' => __('Which carriers do you use?', 'dawp'),
@@ -86,11 +87,11 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What is the return window?', 'dawp'),
-                'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible defective and non-defective products.', 'dawp'),
+                'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible defective and non-defective products in new condition.', 'dawp'),
             ],
             [
                 'question' => __('Which products are eligible for return?', 'dawp'),
-                'answer'   => __('Eligible items must be unused, undamaged, and in their original, unaltered condition with all original packaging, manuals, labels, parts, accessories, boxes, and included components.', 'dawp'),
+                'answer'   => __('Eligible items must be unused, undamaged, and in their original, unaltered condition (New only) with all original packaging, manuals, labels, parts, accessories, boxes, and included components.', 'dawp'),
             ],
             [
                 'question' => __('How do I start a return?', 'dawp'),
@@ -98,11 +99,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('Topgoodmart covers 100% of return shipping for defective, damaged, carrier-damaged, or incorrect products and provides a prepaid label by email. For customer-remorse returns, such as wrong model, wrong color, changed mind, or does not fit, the actual prepaid label cost is deducted from the refund.', 'dawp'),
+                'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
-                'answer'   => __('No. Topgoodmart does not charge restocking fees for eligible returns.', 'dawp'),
+                'answer'   => __('No. Topgoodmart does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('Do you offer exchanges?', 'dawp'),
@@ -169,9 +170,10 @@ $faq_groups = [
             [
                 'question' => __('How do I contact Topgoodmart?', 'dawp'),
                 'answer'   => sprintf(
-                    /* translators: 1: email address, 2: business hours, 3: store address */
-                    __('Email %1$s or use the Contact Us page. Customer service hours are %2$s. Our business address is %3$s.', 'dawp'),
+                    /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
+                    __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
                     $support_email,
+                    $support_phone,
                     $business_hours,
                     $store_address
                 ),
@@ -286,11 +288,17 @@ $quick_links = [
                         );
                         ?>
                     </p>
-                    <dl class="mt-5 grid gap-4 md:grid-cols-2">
+                    <dl class="mt-5 grid gap-4 md:grid-cols-3">
                         <div class="rounded-md border border-[#E5E7EB] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#1F2937]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#6B7280]">
                                 <a class="font-bold text-[#0046BE] underline decoration-[#0046BE]/40 underline-offset-4 transition hover:text-[#1F2937]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                            </dd>
+                        </div>
+                        <div class="rounded-md border border-[#E5E7EB] bg-white p-5">
+                            <dt class="text-sm font-extrabold text-[#1F2937]"><?php esc_html_e('Customer Support Phone', 'dawp'); ?></dt>
+                            <dd class="mt-3 text-sm leading-7 text-[#6B7280]">
+                                <a class="font-bold text-[#0046BE] underline decoration-[#0046BE]/40 underline-offset-4 transition hover:text-[#1F2937]" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
                             </dd>
                         </div>
                         <div class="rounded-md border border-[#E5E7EB] bg-white p-5">

@@ -456,3 +456,205 @@ function dawp_remove_styles() {
         }
     }
 }
+
+/* ============================================================
+ * GMC Compliance — Schema.org Structured Data
+ * ============================================================ */
+
+/**
+ * Organization schema — injected on every page.
+ */
+add_action('wp_head', 'tgm_organization_schema');
+function tgm_organization_schema() {
+    $address_1  = trim((string) get_option('woocommerce_store_address', ''));
+    $address_2  = trim((string) get_option('woocommerce_store_address_2', ''));
+    $city       = trim((string) get_option('woocommerce_store_city', ''));
+    $postcode   = trim((string) get_option('woocommerce_store_postcode', ''));
+    $country_st = trim((string) get_option('woocommerce_default_country', 'US'));
+
+    $country = 'US';
+    $state   = '';
+    if (strpos($country_st, ':') !== false) {
+        [$country, $state] = array_pad(explode(':', $country_st, 2), 2, '');
+    } else {
+        $country = $country_st;
+    }
+
+    $schema = [
+        '@context'   => 'https://schema.org',
+        '@type'      => 'Organization',
+        'name'       => 'Topgoodmart',
+        'url'        => home_url('/'),
+        'description' => 'A modern online marketplace helping American families shop smarter with quality products for home, technology and everyday living.',
+        'email'      => 'support@topgoodmart.com',
+        'address'    => [
+            '@type'           => 'PostalAddress',
+            'streetAddress'   => trim($address_1 . ' ' . $address_2),
+            'addressLocality' => $city,
+            'addressRegion'   => $state,
+            'postalCode'      => $postcode,
+            'addressCountry'  => $country,
+        ],
+        'contactPoint' => [
+            '@type'        => 'ContactPoint',
+            'contactType'  => 'customer support',
+            'email'        => 'support@topgoodmart.com',
+            'hoursAvailable' => [
+                '@type'     => 'OpeningHoursSpecification',
+                'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                'opens'     => '09:00',
+                'closes'    => '17:00',
+                'timeZone'  => 'America/Los_Angeles',
+            ],
+        ],
+    ];
+
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * WebSite schema with SearchAction — injected on every page.
+ */
+add_action('wp_head', 'tgm_website_schema');
+function tgm_website_schema() {
+    $schema = [
+        '@context'        => 'https://schema.org',
+        '@type'           => 'WebSite',
+        'name'            => 'Topgoodmart',
+        'url'             => home_url('/'),
+        'potentialAction' => [
+            '@type'       => 'SearchAction',
+            'target'      => [
+                '@type'       => 'EntryPoint',
+                'urlTemplate' => home_url('/?s={search_term_string}&post_type=product'),
+            ],
+            'query-input' => 'required name=search_term_string',
+        ],
+    ];
+
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * Product schema — only on single product pages.
+ */
+add_action('wp_head', 'tgm_product_schema');
+function tgm_product_schema() {
+    if (!is_product() || !function_exists('wc_get_product')) {
+        return;
+    }
+
+    global $product;
+    if (!$product || !is_a($product, 'WC_Product')) {
+        return;
+    }
+
+    $image_id  = $product->get_image_id();
+    $image_url = wp_get_attachment_image_url($image_id, 'full') ?: wc_placeholder_img_src();
+
+    $schema = [
+        '@context'    => 'https://schema.org',
+        '@type'       => 'Product',
+        'name'        => $product->get_name(),
+        'description' => wp_strip_all_tags($product->get_description()),
+        'sku'         => $product->get_sku(),
+        'image'       => $image_url,
+        'url'         => get_permalink($product->get_id()),
+        'brand'       => [
+            '@type' => 'Brand',
+            'name'  => $product->get_attribute('brand') ?: 'Topgoodmart',
+        ],
+        'offers'      => [
+            '@type'           => 'Offer',
+            'url'             => get_permalink($product->get_id()),
+            'priceCurrency'   => get_woocommerce_currency(),
+            'price'           => $product->get_price(),
+            'availability'    => $product->is_in_stock()
+                ? 'https://schema.org/InStock'
+                : 'https://schema.org/OutOfStock',
+            'itemCondition'   => 'https://schema.org/NewCondition',
+            'shippingDetails' => [
+                '@type'               => 'OfferShippingDetails',
+                'shippingRate'        => [
+                    '@type'    => 'MonetaryAmount',
+                    'value'    => '0',
+                    'currency' => 'USD',
+                ],
+                'shippingDestination' => [
+                    '@type'          => 'DefinedRegion',
+                    'addressCountry' => 'US',
+                ],
+                'deliveryTime'        => [
+                    '@type'        => 'ShippingDeliveryTime',
+                    'handlingTime' => [
+                        '@type'    => 'QuantitativeValue',
+                        'minValue' => 1,
+                        'maxValue' => 2,
+                        'unitCode' => 'DAY',
+                    ],
+                    'transitTime'  => [
+                        '@type'    => 'QuantitativeValue',
+                        'minValue' => 5,
+                        'maxValue' => 7,
+                        'unitCode' => 'DAY',
+                    ],
+                ],
+            ],
+            'hasMerchantReturnPolicy' => [
+                '@type'                 => 'MerchantReturnPolicy',
+                'returnPolicyCategory'  => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                'merchantReturnDays'    => 30,
+                'returnMethod'          => 'https://schema.org/ReturnByMail',
+                'itemCondition'         => 'https://schema.org/NewCondition',
+            ],
+        ],
+    ];
+
+    $gtin = $product->get_meta('_gtin');
+    if (!empty($gtin)) {
+        $schema['gtin'] = $gtin;
+    }
+
+    $mpn = $product->get_meta('_mpn');
+    if (!empty($mpn)) {
+        $schema['mpn'] = $mpn;
+    }
+
+    $rating_count = $product->get_rating_count();
+    if ($rating_count > 0) {
+        $schema['aggregateRating'] = [
+            '@type'       => 'AggregateRating',
+            'ratingValue' => $product->get_average_rating(),
+            'reviewCount' => $rating_count,
+        ];
+    }
+
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}
+
+/**
+ * OnlineStore schema — homepage only, injected in footer.
+ */
+add_action('wp_footer', 'tgm_onlinestore_schema');
+function tgm_onlinestore_schema() {
+    if (!is_front_page()) {
+        return;
+    }
+
+    $schema = [
+        '@context'               => 'https://schema.org',
+        '@type'                  => 'OnlineStore',
+        'name'                   => 'Topgoodmart',
+        'url'                    => home_url('/'),
+        'currenciesAccepted'     => 'USD',
+        'paymentAccepted'        => 'Credit Card, Debit Card, PayPal',
+        'priceRange'             => '$$',
+        'hasMerchantReturnPolicy' => [
+            '@type'                => 'MerchantReturnPolicy',
+            'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+            'merchantReturnDays'   => 30,
+        ],
+    ];
+
+    echo '<script type="application/ld+json">' . wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . '</script>' . "\n";
+}

@@ -348,7 +348,7 @@ if (class_exists('WooCommerce')) {
                     <?php esc_html_e('Small handmade pieces made for everyday expression.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-[#475569]">
-                    <?php esc_html_e('From beaded bracelets to simple layering pieces, Scott Osterbind focuses on handmade details, natural textures, and personal accessories that feel easy to wear and thoughtful to gift.', 'dawp'); ?>
+                    <?php esc_html_e('From beaded bracelets to simple layering pieces, Patado LLC focuses on handmade details, natural textures, and personal accessories that feel easy to wear and thoughtful to gift.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -432,7 +432,7 @@ if (class_exists('WooCommerce')) {
                     <?php esc_html_e('Curated with warmth, detail, and everyday style in mind.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#FAF6EA]">
-                    <?php esc_html_e('Scott Osterbind brings together handmade jewelry, beaded pieces, vintage-inspired accessories, and curated finds with a personal creative point of view. Each item is selected or made to feel thoughtful, wearable, and expressive.', 'dawp'); ?>
+                    <?php esc_html_e('Patado LLC brings together handmade jewelry, beaded pieces, vintage-inspired accessories, and curated finds with a personal creative point of view. Each item is selected or made to feel thoughtful, wearable, and expressive.', 'dawp'); ?>
                 </p>
             </div>
 

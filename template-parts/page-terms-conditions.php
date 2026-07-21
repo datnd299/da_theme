@@ -3,14 +3,14 @@
  * Template Part: page-terms-conditions
  */
 
-$support_email = 'support@scottosterbind.com';
+$support_email = 'support@patadollc.com';
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 ?>
 
 <div id="primary" class="legal-page bg-[#F7F5EF] font-body text-[#1F2937]">
     <section class="bg-[#1B4F49] py-14 text-white lg:py-20">
         <div class="legal-page__container mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C89B3C]"><?php esc_html_e('Scott Osterbind Terms', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C89B3C]"><?php esc_html_e('Patado LLC Terms', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
             </h1>
@@ -43,7 +43,7 @@ $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_ge
                         [&_a]:font-semibold [&_a]:text-[#C89B3C] [&_a]:underline [&_a]:decoration-[#C89B3C] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-[#1F6F68]
                         [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#E8D9A6] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#1F6F68] md:[&_h2]:text-3xl
                         [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#1F2937] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
-                        <p id="terms-overview" class="scroll-mt-24 rounded-lg border border-[#C89B3C]/60 bg-[#F7F5EF] p-4 font-medium text-[#1F6F68]"><?php esc_html_e('Welcome to Scott Osterbind ("we", "us", or "our"). These Terms & Conditions ("Terms") govern your access to and use of scottosterbind.com (the "Site"), including creating an account, interacting with our customer support, and purchasing our handmade jewelry, vintage-inspired accessories, curated apparel, or artisan gifts (collectively, "Products").', 'dawp'); ?></p>
+                        <p id="terms-overview" class="scroll-mt-24 rounded-lg border border-[#C89B3C]/60 bg-[#F7F5EF] p-4 font-medium text-[#1F6F68]"><?php esc_html_e('Welcome to Patado LLC ("we", "us", or "our"). These Terms & Conditions ("Terms") govern your access to and use of patadollc.com (the "Site"), including creating an account, interacting with our customer support, and purchasing our handmade jewelry, vintage-inspired accessories, curated apparel, or artisan gifts (collectively, "Products").', 'dawp'); ?></p>
                         <p><?php esc_html_e('By accessing our Site or placing an order, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our website or services.', 'dawp'); ?></p>
 
                         <h2 id="terms-eligibility"><?php esc_html_e('1. Eligibility & Account Security', 'dawp'); ?></h2>
@@ -78,22 +78,22 @@ $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_ge
                         </ul>
 
                         <h2 id="terms-ip"><?php esc_html_e('7. Intellectual Property Rights', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('All materials on this Site - including but not limited to the Scott Osterbind brand name, logos, custom jewelry designs, artistic text, product descriptions, photography, graphics, icons, and layout - are owned by or licensed to us. These materials are fully protected by international copyright, trademark, and intellectual property laws. You may not copy or reuse them without our express written consent.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('All materials on this Site - including but not limited to the Patado LLC brand name, logos, custom jewelry designs, artistic text, product descriptions, photography, graphics, icons, and layout - are owned by or licensed to us. These materials are fully protected by international copyright, trademark, and intellectual property laws. You may not copy or reuse them without our express written consent.', 'dawp'); ?></p>
 
                         <h2 id="terms-liability"><?php esc_html_e('8. Limitation of Liability', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('To the fullest extent permitted by applicable law, Scott Osterbind and its associates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the website, delays in shipping, or the performance of artisan products purchased through the Site.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('To the fullest extent permitted by applicable law, Patado LLC and its associates shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the website, delays in shipping, or the performance of artisan products purchased through the Site.', 'dawp'); ?></p>
 
                         <h2 id="terms-law"><?php esc_html_e('9. Governing Law', 'dawp'); ?></h2>
                         <p><?php esc_html_e('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the United States, without regard to principles of conflicts of laws.', 'dawp'); ?></p>
 
                         <h2 id="terms-contact"><?php esc_html_e('10. Contact Us', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('For questions regarding these Terms & Conditions, order cancellations, or policy inquiries, please contact Scott Osterbind directly:', 'dawp'); ?></p>
+                        <p><?php esc_html_e('For questions regarding these Terms & Conditions, order cancellations, or policy inquiries, please contact Patado LLC directly:', 'dawp'); ?></p>
                         <ul>
-                            <li><strong><?php esc_html_e('Brand Name:', 'dawp'); ?></strong> <?php esc_html_e('Scott Osterbind', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Brand Name:', 'dawp'); ?></strong> <?php esc_html_e('Patado LLC', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></li>
                             <li><strong><?php esc_html_e('Physical Business Address:', 'dawp'); ?></strong> <?php echo esc_html($store_address !== '' ? $store_address : __('Available through checkout and official support channels.', 'dawp')); ?></li>
                             <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('scottosterbind.com', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('patadollc.com', 'dawp'); ?></li>
                         </ul>
                     </div>
                 </article>

@@ -18,7 +18,7 @@ $faq_sections = [
                 ],
             ],
             [
-                'question' => __('Where does Scott Osterbind ship?', 'dawp'),
+                'question' => __('Where does Patado LLC ship?', 'dawp'),
                 'answer' => [
                     __('We currently ship exclusively within the United States domestic market. If a product, destination, or carrier limitation prevents delivery to your address, you will be notified at checkout before payment is processed.', 'dawp'),
                     __('Some handmade jewelry, vintage-inspired accessories, curated apparel, or artisan gifts may ship separately when items require different fulfillment batches or specialized packing methods.', 'dawp'),
@@ -48,7 +48,7 @@ $faq_sections = [
             [
                 'question' => __('What happens if tracking says delivered but I cannot find the package?', 'dawp'),
                 'answer' => [
-                    __('First check the delivery area, building office, mailroom, household members, neighbors, and local carrier office. If the package still cannot be located, email support@scottosterbind.com with your order number, tracking number, checkout email, and full delivery address.', 'dawp'),
+                    __('First check the delivery area, building office, mailroom, household members, neighbors, and local carrier office. If the package still cannot be located, email support@patadollc.com with your order number, tracking number, checkout email, and full delivery address.', 'dawp'),
                     __('We will investigate with the carrier and help resolve the issue. If the package is confirmed lost, damaged, or otherwise affected by a delivery problem covered by our policy, we may arrange a replacement or refund as applicable.', 'dawp'),
                 ],
             ],
@@ -61,9 +61,9 @@ $faq_sections = [
         'tint' => '#F8F1E7',
         'items' => [
             [
-                'question' => __('What is Scott Osterbind\'s return window?', 'dawp'),
+                'question' => __('What is Patado LLC\'s return window?', 'dawp'),
                 'answer' => [
-                    __('You must initiate your return request within 30 days of delivery for eligible items purchased directly from Scott Osterbind.', 'dawp'),
+                    __('You must initiate your return request within 30 days of delivery for eligible items purchased directly from Patado LLC.', 'dawp'),
                     __('A return request is not automatically approved. Please wait for our Return Merchandise Authorization (RMA) number and return instructions before shipping anything back.', 'dawp'),
                 ],
             ],
@@ -71,7 +71,7 @@ $faq_sections = [
                 'question' => __('Which returns are eligible?', 'dawp'),
                 'answer' => [
                     __('Eligible items must be unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'),
-                    __('Items must be returned with all original packaging, tags, labels, care cards, pouches, boxes, and any included accessories where applicable. Scott Osterbind does not charge restocking fees for eligible returns.', 'dawp'),
+                    __('Items must be returned with all original packaging, tags, labels, care cards, pouches, boxes, and any included accessories where applicable. Patado LLC does not charge restocking fees for eligible returns.', 'dawp'),
                 ],
             ],
             [
@@ -84,7 +84,7 @@ $faq_sections = [
             [
                 'question' => __('How do I start a return request?', 'dawp'),
                 'answer' => [
-                    __('Email support@scottosterbind.com or use the Contact Page within 30 days of delivery. Include your order number, checkout email, item(s), reason for return, and photos or videos if the item is damaged.', 'dawp'),
+                    __('Email support@patadollc.com or use the Contact Page within 30 days of delivery. Include your order number, checkout email, item(s), reason for return, and photos or videos if the item is damaged.', 'dawp'),
                     __('Our support team reviews requests within 1-2 business days. If approved, we will email an RMA number with return instructions or a prepaid shipping label when applicable.', 'dawp'),
                 ],
             ],
@@ -99,7 +99,7 @@ $faq_sections = [
                 'question' => __('How long do refunds take?', 'dawp'),
                 'answer' => [
                     __('Once your return package is received, we inspect the item within 1-2 business days. If approved, the refund is processed automatically back to your original payment method within 7 business days.', 'dawp'),
-                    __('If you have not received your refund after 15 business days of approval, please check with your bank or card company first, then contact support@scottosterbind.com.', 'dawp'),
+                    __('If you have not received your refund after 15 business days of approval, please check with your bank or card company first, then contact support@patadollc.com.', 'dawp'),
                 ],
             ],
             [
@@ -134,7 +134,7 @@ $faq_sections = [
             [
                 'question' => __('Can I cancel or change an order after placing it?', 'dawp'),
                 'answer' => [
-                    __('Contact support@scottosterbind.com as soon as possible if you need to update order details, correct an address, or request cancellation. Changes can only be reviewed before the order has entered fulfillment or shipped.', 'dawp'),
+                    __('Contact support@patadollc.com as soon as possible if you need to update order details, correct an address, or request cancellation. Changes can only be reviewed before the order has entered fulfillment or shipped.', 'dawp'),
                     __('We may also refuse, limit, hold, review, or cancel an order in certain situations, including unavailable products, pricing errors, suspected fraud, inaccurate information, or restrictions tied to the same customer account, payment method, billing address, shipping address, email, or phone number.', 'dawp'),
                 ],
             ],
@@ -161,16 +161,16 @@ $faq_sections = [
         'tint' => '#F8F1E7',
         'items' => [
             [
-                'question' => __('How does Scott Osterbind use my personal information?', 'dawp'),
+                'question' => __('How does Patado LLC use my personal information?', 'dawp'),
                 'answer' => [
                     __('We use personal information to operate the store, process and confirm purchases, process payments through third-party payment processors, fulfill and ship orders, provide tracking, manage returns or refunds, provide customer support, improve the website, prevent fraud, and meet legal obligations.', 'dawp'),
                     __('This may include contact details, order and product information, payment-related references, device and technical data, website usage data, communications, support photos, and marketing preferences where applicable.', 'dawp'),
                 ],
             ],
             [
-                'question' => __('Does Scott Osterbind store my full credit card number?', 'dawp'),
+                'question' => __('Does Patado LLC store my full credit card number?', 'dawp'),
                 'answer' => [
-                    __('No. Payment information is processed by trusted third-party payment processors. Scott Osterbind does not store full credit card numbers, card security codes, or complete payment credentials on our website servers.', 'dawp'),
+                    __('No. Payment information is processed by trusted third-party payment processors. Patado LLC does not store full credit card numbers, card security codes, or complete payment credentials on our website servers.', 'dawp'),
                     __('Checkout pages and pages that collect personal information should be protected by HTTPS/SSL, but no website or online transmission can be guaranteed completely secure.', 'dawp'),
                 ],
             ],
@@ -192,13 +192,13 @@ $faq_sections = [
                 'question' => __('What privacy rights do I have?', 'dawp'),
                 'answer' => [
                     __('Depending on where you live, you may have rights to request access, correction, deletion, portability, restriction, objection, withdrawal of consent, or information about how we collect, use, and share personal information.', 'dawp'),
-                    __('To make a privacy request, contact support@scottosterbind.com. We may need enough information to verify your identity and locate the relevant order, account, or contact record.', 'dawp'),
+                    __('To make a privacy request, contact support@patadollc.com. We may need enough information to verify your identity and locate the relevant order, account, or contact record.', 'dawp'),
                 ],
             ],
             [
-                'question' => __('How can I contact Scott Osterbind support?', 'dawp'),
+                'question' => __('How can I contact Patado LLC support?', 'dawp'),
                 'answer' => [
-                    __('For shipping, returns, exchanges, refunds, privacy requests, product details, order status, or policy questions, email support@scottosterbind.com with your order number when available.', 'dawp'),
+                    __('For shipping, returns, exchanges, refunds, privacy requests, product details, order status, or policy questions, email support@patadollc.com with your order number when available.', 'dawp'),
                     __('Our support team responds within 24 business hours. Customer service hours are Monday-Friday, 9:00 AM-6:00 PM EST, excluding holidays and high-volume periods.', 'dawp'),
                 ],
             ],
@@ -210,12 +210,12 @@ $faq_sections = [
 <div id="primary" class="bg-[#F8F1E7] font-body text-[#24211E]">
     <section class="bg-[#5A3825] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Scott Osterbind Customer Care', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Patado LLC Customer Care', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#F8F1E7]">
-                <?php esc_html_e('Clear answers about U.S. shipping, free standard delivery, tracking, returns, refunds, products, privacy, and customer support for Scott Osterbind orders.', 'dawp'); ?>
+                <?php esc_html_e('Clear answers about U.S. shipping, free standard delivery, tracking, returns, refunds, products, privacy, and customer support for Patado LLC orders.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#D8C3A5]">
                 <?php esc_html_e('Last Updated: May 20, 2026', 'dawp'); ?>
@@ -297,10 +297,10 @@ $faq_sections = [
                             </div>
                             <h2 class="font-heading text-3xl font-black leading-tight"><?php esc_html_e('Still have questions?', 'dawp'); ?></h2>
                             <p class="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#F8F1E7]">
-                                <?php esc_html_e('Email support@scottosterbind.com with your order number when available. Support responds within 24 business hours, Monday through Friday, excluding holidays.', 'dawp'); ?>
+                                <?php esc_html_e('Email support@patadollc.com with your order number when available. Support responds within 24 business hours, Monday through Friday, excluding holidays.', 'dawp'); ?>
                             </p>
                             <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-                                <a href="mailto:support@scottosterbind.com" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-black text-[#34243A] transition hover:bg-[#C8A45D] hover:text-white">
+                                <a href="mailto:support@patadollc.com" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-black text-[#34243A] transition hover:bg-[#C8A45D] hover:text-white">
                                     <?php esc_html_e('Email Support', 'dawp'); ?>
                                 </a>
                                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 px-6 text-sm font-black text-white transition hover:border-white hover:bg-white/10">

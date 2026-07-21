@@ -6,7 +6,7 @@
  */
 
 $current_year = date_i18n('Y');
-$brand_name   = 'Scott Osterbind';
+$brand_name   = 'Patado LLC';
 $store_address = dawp_get_woocommerce_store_address();
 
 $term_url = static function ($slug) {
@@ -156,7 +156,7 @@ $footer_payment_methods = [
                    class="inline-flex items-center gap-3"
                    aria-label="<?php echo esc_attr($brand_name); ?>">
                     <img
-                        <?php echo dawp_responsive_image_attrs(get_template_directory_uri() . '/assets/img/gallery/Logo_Scott.png', 160, 160, [[80, 80], [160, 160], [320, 320]], '80px', 'h-20 w-auto', 'lazy'); ?>
+                        <?php echo dawp_responsive_image_attrs(get_template_directory_uri() . '/assets/img/patado.png', 226, 80, [[226, 80], [452, 160]], '226px', 'h-20 w-auto', 'lazy'); ?>
                         alt="<?php echo esc_attr($brand_name); ?>"
                     >
                 </a>
@@ -164,7 +164,7 @@ $footer_payment_methods = [
                 <div class="mt-5 space-y-1.5 text-sm leading-6 text-white/75">
                     <p>
                         <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
-                        <a href="mailto:support@scottosterbind.com" class="transition hover:text-[#C89B3C]">support@scottosterbind.com</a>
+                        <a href="mailto:support@patadollc.com" class="transition hover:text-[#C89B3C]">support@patadollc.com</a>
                     </p>
                     <?php if ($store_address !== '') : ?>
                         <p>
@@ -192,7 +192,7 @@ $footer_payment_methods = [
                         </svg>
                     </a>
                     <a
-                        href="https://www.etsy.com/shop/scottosterbind"
+                        href="https://www.etsy.com/shop/patadollc"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="scott-social-link inline-flex h-12 w-12 items-center justify-center rounded-full border shadow-lg shadow-black/20 transition"

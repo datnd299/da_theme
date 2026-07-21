@@ -14,8 +14,8 @@ $images = [
 $contact_cards = [
     [
         'title' => __('Email Support', 'dawp'),
-        'copy'  => __('support@scottosterbind.com', 'dawp'),
-        'url'   => 'mailto:support@scottosterbind.com',
+        'copy'  => __('support@patadollc.com', 'dawp'),
+        'url'   => 'mailto:support@patadollc.com',
         'icon'  => 'email',
     ],
     [
@@ -57,7 +57,7 @@ $help_topics = [
         <div class="mx-auto grid min-h-[480px] max-w-7xl grid-cols-1 items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:px-8 lg:py-20">
             <div class="relative z-10">
                 <p class="mb-5 inline-flex rounded-full border border-[#C89B3C]/60 bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#6E9B8E]">
-                    <?php esc_html_e('Contact Scott Osterbind', 'dawp'); ?>
+                    <?php esc_html_e('Contact Patado LLC', 'dawp'); ?>
                 </p>
 
                 <h1 class="font-heading text-5xl font-black leading-[0.98] text-[#1F6F68] sm:text-6xl lg:text-7xl">
@@ -71,7 +71,7 @@ $help_topics = [
 
             <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white shadow-xl">
                 <img <?php echo dawp_responsive_image_attrs($images['hero'], 760, 570, [[400, 300], [760, 570], [1024, 768]], '(max-width: 1023px) 100vw, 680px', 'aspect-[4/3] w-full object-cover', 'eager', 'high'); ?>
-                     alt="<?php esc_attr_e('Warm artisan jewelry workspace for Scott Osterbind customer support', 'dawp'); ?>"
+                     alt="<?php esc_attr_e('Warm artisan jewelry workspace for Patado LLC customer support', 'dawp'); ?>"
                 >
             </div>
         </div>
@@ -160,7 +160,7 @@ $help_topics = [
                         </div>
                     <?php elseif ($contact_status === 'failed') : ?>
                         <div class="mt-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-800" role="alert">
-                            <?php esc_html_e('Sorry, your message could not be sent right now. Please email us directly at support@scottosterbind.com.', 'dawp'); ?>
+                            <?php esc_html_e('Sorry, your message could not be sent right now. Please email us directly at support@patadollc.com.', 'dawp'); ?>
                         </div>
                     <?php endif; ?>
 

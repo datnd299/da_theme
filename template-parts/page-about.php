@@ -70,7 +70,7 @@ $trust_items = [
         <div class="mx-auto grid min-h-[560px] max-w-7xl grid-cols-1 items-center gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:px-8 lg:py-20">
             <div class="relative z-10">
                 <p class="mb-5 inline-flex rounded-full border border-[#C89B3C]/60 bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#6E9B8E]">
-                    <?php esc_html_e('About Scott Osterbind', 'dawp'); ?>
+                    <?php esc_html_e('About Patado LLC', 'dawp'); ?>
                 </p>
 
                 <h1 class="font-heading text-5xl font-black leading-[0.98] text-[#1F6F68] sm:text-6xl lg:text-7xl">
@@ -78,7 +78,7 @@ $trust_items = [
                 </h1>
 
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-[#475569]">
-                    <?php esc_html_e('Scott Osterbind brings together handmade bracelets, beaded jewelry, vintage-inspired accessories, curated apparel, and small creative gifts with a personal, boutique feel.', 'dawp'); ?>
+                    <?php esc_html_e('Patado LLC brings together handmade bracelets, beaded jewelry, vintage-inspired accessories, curated apparel, and small creative gifts with a personal, boutique feel.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -250,7 +250,7 @@ $trust_items = [
                         <?php esc_html_e('Support Information', 'dawp'); ?>
                     </p>
                     <p class="mt-3 text-sm font-semibold leading-7 text-[#FAF6EA]">
-                        <?php esc_html_e('Email support@scottosterbind.com. Business hours are Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?>
+                        <?php esc_html_e('Email support@patadollc.com. Business hours are Monday - Friday, 9:00 AM - 6:00 PM EST.', 'dawp'); ?>
                     </p>
                 </div>
 

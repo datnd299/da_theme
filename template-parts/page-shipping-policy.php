@@ -3,7 +3,7 @@
  * Template Part: page-shipping-policy
  */
 
-$support_email = 'support@scottosterbind.com';
+$support_email = 'support@patadollc.com';
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 
 $timeline_cards = [
@@ -28,7 +28,7 @@ $timeline_cards = [
 $support_details = [
     [
         'label' => __('Store Name', 'dawp'),
-        'value' => __('Scott Osterbind', 'dawp'),
+        'value' => __('Patado LLC', 'dawp'),
     ],
     [
         'label' => __('Customer Support Email', 'dawp'),
@@ -48,12 +48,12 @@ $support_details = [
 <div id="primary" class="bg-[#F8F1E7] font-body text-[#24211E]">
     <section class="bg-[#5A3825] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Scott Osterbind Customer Care', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Patado LLC Customer Care', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Shipping Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#F8F1E7]">
-                <?php esc_html_e('Shipping locations, delivery timelines, carrier tracking, multi-item handling, and support information for Scott Osterbind orders.', 'dawp'); ?>
+                <?php esc_html_e('Shipping locations, delivery timelines, carrier tracking, multi-item handling, and support information for Patado LLC orders.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#D8C3A5]">
                 <?php esc_html_e('Last Updated: May 20, 2026', 'dawp'); ?>
@@ -66,7 +66,7 @@ $support_details = [
             <article class="rounded-lg border border-[#D8C3A5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
                 <h2 class="font-heading text-3xl font-black leading-tight text-[#5A3825] md:text-4xl"><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
                 <div class="mt-5 space-y-5 text-base leading-8 text-[#5E554D]">
-                    <p><?php esc_html_e('We currently ship exclusively within the United States. Scott Osterbind serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('We currently ship exclusively within the United States. Patado LLC serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                     <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
                     <p class="rounded-lg border-l-4 border-[#C8A45D] bg-[#F8F1E7] p-5"><?php esc_html_e('Some handmade jewelry, vintage-inspired accessory, curated apparel, or artisan gift orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
                 </div>
@@ -111,7 +111,7 @@ $support_details = [
 
             <article class="rounded-lg border border-[#D8C3A5] bg-white p-6 shadow-sm sm:p-8 lg:p-10">
                 <h2 class="font-heading text-3xl font-black leading-tight text-[#5A3825] md:text-4xl"><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-                <p class="mt-5 text-base leading-8 text-[#5E554D]"><?php esc_html_e('To support safe and efficient delivery, Scott Osterbind partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
+                <p class="mt-5 text-base leading-8 text-[#5E554D]"><?php esc_html_e('To support safe and efficient delivery, Patado LLC partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
                 <div class="mt-5 flex flex-wrap gap-3">
                     <?php foreach (['USPS', 'UPS', 'FedEx', 'DHL'] as $carrier) : ?>
                         <span class="inline-flex min-h-10 items-center rounded-full border border-[#D8C3A5] bg-white px-6 text-sm font-black text-[#34243A]"><?php echo esc_html($carrier); ?></span>

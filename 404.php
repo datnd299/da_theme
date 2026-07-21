@@ -72,7 +72,7 @@ if (function_exists('dawp_product_category_definitions')) {
         </h1>
 
         <p class="mt-6 max-w-2xl text-lg leading-8 text-[#475569]">
-          <?php esc_html_e('The page may have moved, the link may be outdated, or a product category address may have changed. Use the shortcuts below to get back to the current Scott Osterbind catalog.', 'dawp'); ?>
+          <?php esc_html_e('The page may have moved, the link may be outdated, or a product category address may have changed. Use the shortcuts below to get back to the current Patado LLC catalog.', 'dawp'); ?>
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">

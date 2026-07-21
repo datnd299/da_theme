@@ -28,7 +28,7 @@ function dawp_setup() {
 
 add_filter('document_title_parts', 'dawp_brand_document_title_parts', 20);
 function dawp_brand_document_title_parts($parts) {
-    $brand_name = 'Scott Osterbind';
+    $brand_name = 'Patado LLC';
     $brand_slogan = 'Handmade Jewelry & Vintage-Inspired Accessories';
 
     if (is_front_page() || is_home()) {

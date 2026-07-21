@@ -41,7 +41,7 @@ if (function_exists('dawp_product_category_definitions')) {
     }
 }
 
-$support_email = 'support@scottosterbind.com';
+$support_email = 'support@patadollc.com';
 $track_order_url = home_url('/track-order/');
 $track_order_found = false;
 
@@ -81,10 +81,10 @@ if ($track_order_form) {
     <section class="track-hero">
         <div class="track-hero__inner">
             <div class="track-hero__copy">
-                <span class="track-hero__label"><?php esc_html_e('Scott Osterbind Order Status', 'dawp'); ?></span>
+                <span class="track-hero__label"><?php esc_html_e('Patado LLC Order Status', 'dawp'); ?></span>
                 <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Enter your order number and billing email to review the latest order details available from Scott Osterbind.', 'dawp'); ?>
+                    <?php esc_html_e('Enter your order number and billing email to review the latest order details available from Patado LLC.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a href="<?php echo esc_url($shop_url); ?>" class="track-hero__button track-hero__button--primary">
@@ -149,7 +149,7 @@ if ($track_order_form) {
                 <div class="track-help-box__content">
                     <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
                     <p class="track-help-box__text">
-                        <?php esc_html_e('If the tracking form cannot find your order, contact Scott Osterbind support at ', 'dawp'); ?>
+                        <?php esc_html_e('If the tracking form cannot find your order, contact Patado LLC support at ', 'dawp'); ?>
                         <a href="<?php echo esc_url('mailto:' . $support_email); ?>"><?php echo esc_html($support_email); ?></a>
                         <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
                     </p>
@@ -179,7 +179,7 @@ if ($track_order_form) {
             <div class="track-more-section__header">
                 <span class="track-more-section__label"><?php esc_html_e('Quick Links', 'dawp'); ?></span>
                 <h2 class="track-more-section__title"><?php esc_html_e('More ways we can help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and current shop categories for a smoother Scott Osterbind order experience.', 'dawp'); ?></p>
+                <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and current shop categories for a smoother Patado LLC order experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">

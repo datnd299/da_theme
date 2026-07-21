@@ -55,8 +55,8 @@
 <?php wp_body_open(); ?>
 
 <?php
-$brand_name  = 'Scott Osterbind';
-$brand_logo  = get_theme_file_uri('/assets/img/gallery/Logo_all (8).png');
+$brand_name  = 'Patado LLC';
+$brand_logo  = get_theme_file_uri('/assets/img/patado.png');
 $cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_id  = (int) get_option('woocommerce_myaccount_page_id');
@@ -141,7 +141,7 @@ $nav_items = [
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex shrink-0 items-center"
                aria-label="<?php echo esc_attr($brand_name); ?>">
-                <img <?php echo dawp_responsive_image_attrs($brand_logo, 135, 68, [[135, 68], [270, 136]], '135px', 'scott-header-logo', 'eager', 'high'); ?>
+                <img <?php echo dawp_responsive_image_attrs($brand_logo, 192, 68, [[192, 68], [384, 136]], '192px', 'scott-header-logo', 'eager', 'high'); ?>
                      alt="<?php echo esc_attr($brand_name); ?>">
             </a>
 

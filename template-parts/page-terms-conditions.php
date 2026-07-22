@@ -4,6 +4,7 @@
  */
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
+$support_phone = function_exists('dawp_get_support_phone') ? dawp_get_support_phone() : '901-675-3151';
 
 $sgs_tc_hero_bg = sprintf(
   "--sgs-tc-hero-bg:url('%s');--sgs-tc-hero-bg-mobile:url('%s')",
@@ -59,7 +60,7 @@ get_header(); ?>
 
   <h2>PART II: TERMS OF SALE &amp; PURCHASE CONTRACTS</h2>
   <h3>4. Order Formation &amp; Verification</h3>
-  <p>Official order acceptance and the execution of the purchase contract occur strictly when our automated systems transmit a confirmation email to your designated address. We reserve the right to refuse, limit, or cancel any transaction for reasons including suspected payment fraud, stock discrepancies, system pricing errors, or printing infrastructure failures. If an order is canceled post-payment, a 100% refund will be instantly processed to your original payment method.</p>
+  <p>Official order acceptance and the execution of the purchase contract occur strictly when our automated systems transmit a confirmation email to your designated address. We reserve the right to refuse, limit, or cancel any transaction for reasons including suspected payment fraud, stock discrepancies, system pricing errors, or printing infrastructure failures. If an order is canceled post-payment, a full refund will be processed promptly to your original payment method.</p>
 
   <h3>5. Product Variations &amp; Made-to-Order Disclaimer</h3>
   <p>Because our graphic shirts and apparel products are custom made-to-order, items may feature slight, minor variations in ink placement, scaling, and color vibrancy compared to the digital mockups displayed on our storefront. We strive to present highly accurate product photography; however, the exact color hues you witness will ultimately depend on your individual monitor settings and device calibrations.</p>
@@ -90,6 +91,7 @@ get_header(); ?>
   <p>For any policy inquiries, legal questions, or transactional support regarding these Terms, please reach out to our administration through our verified corporate channels:</p>
   <p><strong>Store/Brand Name:</strong> Veterangift</p>
   <p><strong>Customer Support Email:</strong> <a href="mailto:support@veterangift.com">support@veterangift.com</a></p>
+  <p><strong>Customer Support Phone:</strong> <a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></p>
   <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
   <p><strong>Customer Service Hours:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST</p>
   <p><strong>Contact Page:</strong> <a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a></p>

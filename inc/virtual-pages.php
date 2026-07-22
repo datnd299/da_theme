@@ -93,7 +93,7 @@ function dawp_virtual_page_map() {
             'title'       => 'Shipping Policy',
             'css'         => 'tw/tw-ship.css',
             'seo_title'   => 'Shipping Policy | Veterangift',
-            'description' => 'Review Veterangift shipping policy, including free standard U.S. shipping, 1-3 business day handling, 5-7 business day transit, and tracking.',
+            'description' => 'Review Veterangift shipping policy, including free standard U.S. shipping, 1-2 business day handling, 3-5 business day transit, and tracking.',
             'image'       => 'assets/img/Image New/image copy 3.png',
             'schema_type' => 'WebPage',
         ],

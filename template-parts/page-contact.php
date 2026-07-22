@@ -2,6 +2,10 @@
 /**
  * Contact Us — Veterangift
  */
+$store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
+$store_address = $store_address ?: __('United States', 'dawp');
+$support_phone = function_exists('dawp_get_support_phone') ? dawp_get_support_phone() : '901-675-3151';
+
 $sgs_contact_hero_bg = sprintf(
   "--sgs-contact-hero-bg:url('%s');--sgs-contact-hero-bg-mobile:url('%s')",
   esc_url(dawp_theme_cdn_image_url('assets/img/hero/contact-hero-background.png', 1600, 760)),
@@ -78,6 +82,8 @@ get_header(); ?>
   <div class="sgs-contact-info">
     <h2>Contact Information</h2>
     <div class="sgs-ci-card"><div class="sgs-ci-icon">📧</div><div><strong>Email</strong><a href="mailto:support@veterangift.com">support@veterangift.com</a></div></div>
+    <div class="sgs-ci-card"><div class="sgs-ci-icon">📞</div><div><strong>Phone</strong><a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></div></div>
+    <div class="sgs-ci-card"><div class="sgs-ci-icon">📍</div><div><strong>Address</strong><span><?php echo esc_html($store_address); ?></span></div></div>
     <div class="sgs-ci-card"><div class="sgs-ci-icon">🕐</div><div><strong>Business Hours</strong><span>Monday – Friday, 10:00 AM – 6:00 PM PST</span></div></div>
     <div class="sgs-ci-card"><div class="sgs-ci-icon">📦</div><div><strong>Order Support</strong><a href="/track-order/">Track Your Order</a></div></div>
     <div class="sgs-ci-card"><div class="sgs-ci-icon">📋</div><div><strong>Returns</strong><a href="/refund-return-policy/">Return &amp; Refund Policy</a></div></div>

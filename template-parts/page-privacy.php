@@ -4,6 +4,7 @@
  */
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
+$support_phone = function_exists('dawp_get_support_phone') ? dawp_get_support_phone() : '901-675-3151';
 
 $sgs_pp_hero_bg = sprintf(
   "--sgs-pp-hero-bg:url('%s');--sgs-pp-hero-bg-mobile:url('%s')",
@@ -83,6 +84,7 @@ get_header(); ?>
   <p>For questions about our data practices, to file a privacy inquiry, or for help with an active order, please connect with our compliance officer via our verified communication block:</p>
   <p><strong>Store / Brand Name:</strong> Veterangift</p>
   <p><strong>Customer Support Email:</strong> <a href="mailto:support@veterangift.com">support@veterangift.com</a></p>
+  <p><strong>Customer Support Phone:</strong> <a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></p>
   <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
   <p><strong>Customer Support Availability:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST.</p>
   <p><strong>Contact Page:</strong> <a href="/contact-us/">Contact Us</a></p>

@@ -5,6 +5,7 @@
  */
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
+$support_phone = function_exists('dawp_get_support_phone') ? dawp_get_support_phone() : '901-675-3151';
 
 $sgs_sp_hero_bg = sprintf(
   "--sgs-sp-hero-bg:url('%s');--sgs-sp-hero-bg-mobile:url('%s')",
@@ -77,15 +78,15 @@ get_header(); ?>
     </div>
     <div class="sgs-sp-card" data-shipping-slide>
       <h3>Order Handling Time</h3>
-      <p>1-3 business days. Orders placed after cutoff begin processing the following business day.</p>
+      <p>1-2 business days. Orders placed after cutoff begin processing the following business day.</p>
     </div>
     <div class="sgs-sp-card" data-shipping-slide>
       <h3>Transit Time</h3>
-      <p>5-7 business days, Monday to Friday.</p>
+      <p>3-5 business days, Monday to Friday.</p>
     </div>
     <div class="sgs-sp-card" data-shipping-slide>
       <h3>Estimated Delivery Time</h3>
-      <p>6-10 business days total from the date of purchase.</p>
+      <p>4-7 business days total from the date of purchase.</p>
     </div>
   </div>
   <div class="sgs-sp-slider__controls" aria-label="Shipping timeline slider controls">
@@ -124,7 +125,7 @@ get_header(); ?>
     <div class="sgs-sp-costs">
       <div class="sgs-sp-card">
         <h3>Standard U.S. Shipping</h3>
-        <p>Free for all U.S. orders over $49. Orders under $49 have a flat shipping fee, shown clearly at checkout before payment.</p>
+        <p>Free for all U.S. orders $49 and over. Orders under $49 have a flat $4.99 shipping fee.</p>
       </div>
       <div class="sgs-sp-card">
         <h3>Optional Upgraded Shipping</h3>
@@ -175,6 +176,10 @@ get_header(); ?>
       <div class="sgs-sp-support__item">
         <strong>Customer Support Email</strong>
         <a href="mailto:support@veterangift.com">support@veterangift.com</a>
+      </div>
+      <div class="sgs-sp-support__item">
+        <strong>Customer Support Phone</strong>
+        <a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
       </div>
       <div class="sgs-sp-support__item">
         <strong>Address</strong>

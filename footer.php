@@ -6,6 +6,7 @@
 
 $footer_contact = [
     'email'   => 'support@veterangift.com',
+    'phone'   => function_exists('dawp_get_support_phone') ? dawp_get_support_phone() : '901-675-3151',
     'address' => function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '',
     'hours'   => __('Monday - Friday, 10:00 AM - 6:00 PM PST', 'veterangift'),
 ];
@@ -289,6 +290,15 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
             <span class="sgs-footer-contact-body">
               <strong>Email</strong>
               <span class="contact-value"><?php echo esc_html($footer_contact['email']); ?></span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="tel:<?php echo esc_attr($footer_contact['phone']); ?>">
+            <span class="sgs-footer-contact-icon"><i class="fas fa-phone"></i></span>
+            <span class="sgs-footer-contact-body">
+              <strong>Phone</strong>
+              <span class="contact-value"><?php echo esc_html($footer_contact['phone']); ?></span>
             </span>
           </a>
         </li>

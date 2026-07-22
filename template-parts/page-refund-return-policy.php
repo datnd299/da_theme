@@ -3,6 +3,10 @@
  * Refund & Return Policy - Veterangift
  * Style aligned with homepage. Content preserved from git original.
  */
+$store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
+$store_address = $store_address ?: __('United States', 'dawp');
+$support_phone = function_exists('dawp_get_support_phone') ? dawp_get_support_phone() : '901-675-3151';
+
 $sgs_rr_hero_bg = sprintf(
   "--sgs-rr-hero-bg:url('%s');--sgs-rr-hero-bg-mobile:url('%s')",
   esc_url(dawp_theme_cdn_image_url('assets/img/hero/track-order-cover-v2.png', 1600, 760)),
@@ -83,13 +87,14 @@ get_header(); ?>
     <div class="sgs-rr-grid">
       <div class="sgs-rr-card">
         <h3>Defective, Damaged, or Incorrect Products (Wrong item, carrier damage, or defective):</h3>
-        <p>No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.</p>
+        <p>No cost to customer. Since the issue is on us, we cover 100% of the return shipping cost and will provide a prepaid shipping label via email.</p>
       </div>
       <div class="sgs-rr-card">
         <h3>Customer Remorse (Ordered wrong item/size/color, changed mind, or doesn't fit):</h3>
-        <p>The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.</p>
+        <p>A flat return shipping fee of $4.99 applies. This fee will be deducted from your refund amount.</p>
       </div>
     </div>
+    <p style="margin-top:12px">We do not charge a restocking fee. Original shipping costs, if any, are non-refundable.</p>
   </div>
 
   <!-- Common Delivery Issues -->
@@ -186,6 +191,14 @@ get_header(); ?>
       <div class="sgs-rr-contact__item">
         <strong>Customer Support Email</strong>
         <a href="mailto:support@veterangift.com">support@veterangift.com</a>
+      </div>
+      <div class="sgs-rr-contact__item">
+        <strong>Customer Support Phone</strong>
+        <a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
+      </div>
+      <div class="sgs-rr-contact__item">
+        <strong>Address</strong>
+        <span><?php echo esc_html($store_address); ?></span>
       </div>
       <div class="sgs-rr-contact__item">
         <strong>Customer Service Hours</strong>

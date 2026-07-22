@@ -27,7 +27,10 @@ if (!is_wp_error($cats) && !empty($cats)) {
         <div class="product-card__shell">
             <div class="product-card__inner">
                 <div class="product-card__img-wrap">
-                    <?php echo $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']); ?>
+                    <?php
+                    $product_image = dawp_get_responsive_attachment_image($product->get_image_id(), $product->get_name(), 'product-card__img', 560, 560, 'lazy', '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw');
+                    echo $product_image ?: $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']);
+                    ?>
                 </div>
 
                 <?php if ($product->is_on_sale()) : ?>

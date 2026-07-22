@@ -9,27 +9,15 @@ if (!function_exists('dawp_get_responsive_image')) {
             return '';
         }
 
-        $image_url = remove_query_arg(array_keys(wp_parse_args(wp_parse_url($image_url, PHP_URL_QUERY))), $image_url);
+        $image_url = strtok($image_url, '?');
         $image_host = wp_parse_url($image_url, PHP_URL_HOST);
-        $site_host = wp_parse_url(home_url('/'), PHP_URL_HOST);
 
-        if (!$image_host || ($site_host && $image_host === $site_host)) {
-            $fetchpriority_attr = $fetchpriority ? ' fetchpriority="' . esc_attr($fetchpriority) . '"' : '';
-
-            return sprintf(
-                '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s"%s>',
-                esc_attr($loading),
-                (int)$width,
-                (int)$height,
-                esc_url($image_url),
-                esc_attr($class),
-                esc_attr($alt),
-                $fetchpriority_attr
-            );
+        if (!$image_host) {
+            $image_url = home_url($image_url);
         }
 
-        if (strpos($image_url, 'https://i0.wp.com/') === 0) {
-            $cdn_url = strtok($image_url, '?');
+        if (strpos($image_url, 'https://i0.wp.com/') === 0 || strpos($image_url, 'http://i0.wp.com/') === 0) {
+            $cdn_url = preg_replace('#^http://#', 'https://', $image_url);
         } else {
             $cdn_url = preg_replace('#^https?://#', 'https://i0.wp.com/', $image_url);
         }
@@ -71,5 +59,40 @@ if (!function_exists('dawp_get_responsive_image')) {
         );
 
         return $html;
+    }
+}
+
+if (!function_exists('dawp_get_responsive_attachment_image')) {
+    function dawp_get_responsive_attachment_image($attachment_id, $alt = '', $class = '', $width = 520, $height = 520, $loading = 'lazy', $sizes = '', $fetchpriority = '') {
+        $attachment_id = (int) $attachment_id;
+
+        if (!$attachment_id) {
+            return '';
+        }
+
+        $image_src = wp_get_attachment_image_src($attachment_id, 'full');
+
+        if (!$image_src || empty($image_src[0])) {
+            return '';
+        }
+
+        if (!$alt) {
+            $alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
+        }
+
+        if (!$alt) {
+            $alt = get_the_title($attachment_id);
+        }
+
+        return dawp_get_responsive_image(
+            $image_src[0],
+            $alt,
+            $class,
+            $width ?: (int) $image_src[1],
+            $height ?: (int) $image_src[2],
+            $loading,
+            $sizes,
+            $fetchpriority
+        );
     }
 }

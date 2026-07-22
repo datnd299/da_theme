@@ -103,7 +103,7 @@ if (class_exists('WooCommerce')) {
             </div>
         </div>
         <div class="tgm-hero__media">
-            <img loading="eager" decoding="async" fetchpriority="high" width="700" height="560" src="<?php echo esc_url(get_theme_file_uri('assets/img/gallery/Modern_living_room_smart_electro…_202607161235.jpeg')); ?>" alt="Modern living room with smart home products">
+            <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Modern_living_room_smart_electro…_202607161235.jpeg'), 'Modern living room with smart home products', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
             <div class="tgm-hero__deal">
                 <strong>Weekly Picks</strong>
                 <span>Home, tech and kitchen deals refreshed often.</span>
@@ -124,7 +124,7 @@ if (class_exists('WooCommerce')) {
         <div class="tgm-category-grid">
             <?php foreach ($categories as $category) : ?>
                 <a class="tgm-category" href="<?php echo esc_url($category['href']); ?>">
-                    <img loading="lazy" decoding="async" width="520" height="360" src="<?php echo esc_url($category['image']); ?>" alt="<?php echo esc_attr($category['name']); ?>">
+                    <?php echo dawp_get_responsive_image($category['image'], $category['name'], '', 520, 360, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'); ?>
                     <span class="tgm-category__body">
                         <strong><?php echo esc_html($category['name']); ?></strong>
                         <span><?php echo esc_html($category['desc']); ?></span>
@@ -151,7 +151,10 @@ if (class_exists('WooCommerce')) {
                 <?php foreach ($wc_products as $product) : ?>
                     <article class="tgm-product">
                         <a class="tgm-product__image" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
-                            <?php echo $product->get_image('woocommerce_thumbnail'); ?>
+                            <?php
+                            $product_image = dawp_get_responsive_attachment_image($product->get_image_id(), $product->get_name(), '', 520, 520, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw');
+                            echo $product_image ?: $product->get_image('woocommerce_thumbnail');
+                            ?>
                             <?php if ($product->is_on_sale()) : ?><span class="tgm-sale">Sale</span><?php endif; ?>
                         </a>
                         <div class="tgm-product__body">
@@ -196,15 +199,15 @@ if (class_exists('WooCommerce')) {
         </div>
         <div class="tgm-collection-grid">
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/smart-home/')); ?>">
-                <img loading="lazy" decoding="async" width="640" height="420" src="<?php echo esc_url(get_theme_file_uri('assets/img/gallery/Living_ecosystem_with_smart_tech_202607161304.jpeg')); ?>" alt="Smart home devices">
+                <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Living_ecosystem_with_smart_tech_202607161304.jpeg'), 'Smart home devices', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
                 <span><strong>Smart Living</strong><em>Lighting, security and connected comfort.</em></span>
             </a>
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/furniture/')); ?>">
-                <img loading="lazy" decoding="async" width="640" height="420" src="<?php echo esc_url(get_theme_file_uri('assets/img/gallery/Entryway_refresh_console_table_m…_202607161305.jpeg')); ?>" alt="Modern home furniture">
+                <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Entryway_refresh_console_table_m…_202607161305.jpeg'), 'Modern home furniture', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
                 <span><strong>Home Refresh</strong><em>Furniture and organization essentials.</em></span>
             </a>
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/kitchen-dining/')); ?>">
-                <img loading="lazy" decoding="async" width="640" height="420" src="<?php echo esc_url(get_theme_file_uri('assets/img/gallery/Dining_area_with_kitchen_favorites_202607161311.jpeg')); ?>" alt="Kitchen appliances and cookware">
+                <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Dining_area_with_kitchen_favorites_202607161311.jpeg'), 'Kitchen appliances and cookware', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
                 <span><strong>Kitchen Favorites</strong><em>Appliances, cookware and coffee gear.</em></span>
             </a>
         </div>

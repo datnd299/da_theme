@@ -85,7 +85,7 @@ $trust = [
             </div>
         </div>
         <div class="tgm-about-hero__media">
-            <img loading="eager" decoding="async" fetchpriority="high" width="760" height="560" src="<?php echo esc_url($about_hero_image_url); ?>" alt="Bright modern home with furniture and everyday living products">
+            <?php echo dawp_get_responsive_image($about_hero_image_url, 'Bright modern home with furniture and everyday living products', '', 760, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
             <div class="tgm-about-hero__badge">
                 <strong>Built For Smarter Shopping</strong>
                 <span>Organized departments, helpful policies and everyday value.</span>
@@ -129,7 +129,7 @@ $trust = [
 <section class="tgm-section">
     <div class="tgm-container tgm-about-split">
         <div class="tgm-about-split__media">
-            <img loading="lazy" decoding="async" width="620" height="520" src="<?php echo esc_url($about_departments_image_url); ?>" alt="Kitchen and dining products in a clean modern home">
+            <?php echo dawp_get_responsive_image($about_departments_image_url, 'Kitchen and dining products in a clean modern home', '', 620, 520, 'lazy', '(max-width: 900px) 100vw, 48vw'); ?>
         </div>
         <div class="tgm-about-split__content">
             <p class="tgm-eyebrow">What we carry</p>

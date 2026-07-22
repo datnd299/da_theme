@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping and returns page for LBQ Shop.
+ * Shipping and returns page for GraphicShirt.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@lbqshop.com';
+$support_email  = 'support@graphicshirt.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $track_url      = home_url('/track-order/');
 $contact_url    = home_url('/contact-us/');
@@ -59,7 +59,7 @@ $return_requirements = [
     __('Return requests must be made within 30 days of delivery.', 'dawp'),
     __('Items must be unused, undamaged, and in original condition.', 'dawp'),
     __('Original packaging, tags, inserts, or accessories should be included where applicable.', 'dawp'),
-    __('Beauty accessories and personal-use items must meet hygiene and condition requirements to be eligible.', 'dawp'),
+    __('Eligible unworn apparel and unused decor must meet original-condition requirements to be eligible.', 'dawp'),
 ];
 
 $return_process = [
@@ -82,31 +82,31 @@ $render_icon = static function ($icon) {
 };
 ?>
 
-<div class="bg-white text-[#2F2A28]">
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="shipping-returns-title">
+<div class="bg-white text-[#102A43]">
+    <section class="bg-[#F7F3EA] py-14 sm:py-20" aria-labelledby="shipping-returns-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
                 <div>
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></p>
-                    <h1 id="shipping-returns-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
+                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#B83232]"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></p>
+                    <h1 id="shipping-returns-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#102A43] sm:text-5xl">
                         <?php esc_html_e('Clear delivery timelines and fair return support.', 'dawp'); ?>
                     </h1>
-                    <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
-                        <?php esc_html_e('LBQ Shop ships beauty and fashion accessories with transparent processing, tracking, and return details so you know what to expect before and after checkout.', 'dawp'); ?>
+                    <p class="mt-5 max-w-2xl text-base leading-8 text-[#52657A]">
+                        <?php esc_html_e('GraphicShirt ships patriotic apparel and American-inspired decor with transparent processing, tracking, and return details so you know what to expect before and after checkout.', 'dawp'); ?>
                     </p>
                 </div>
 
                 <div class="grid gap-4 sm:grid-cols-3">
                     <?php foreach ($policy_cards as $card) : ?>
-                        <article class="rounded-md border border-[#E8DAD4] bg-white p-5 shadow-sm">
-                            <div class="flex h-11 w-11 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
+                        <article class="rounded-md border border-[#D6DEE8] bg-white p-5 shadow-sm">
+                            <div class="flex h-11 w-11 items-center justify-center rounded-md bg-[#E8EEF5] text-[#B83232]">
                                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </svg>
                             </div>
-                            <p class="mt-4 text-xs font-extrabold uppercase tracking-[0.12em] text-[#A96870]"><?php echo esc_html($card['label']); ?></p>
-                            <h2 class="mt-2 font-heading text-xl font-extrabold text-[#2F2A28]"><?php echo esc_html($card['value']); ?></h2>
-                            <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
+                            <p class="mt-4 text-xs font-extrabold uppercase tracking-[0.12em] text-[#B83232]"><?php echo esc_html($card['label']); ?></p>
+                            <h2 class="mt-2 font-heading text-xl font-extrabold text-[#102A43]"><?php echo esc_html($card['value']); ?></h2>
+                            <p class="mt-3 text-sm leading-6 text-[#52657A]"><?php echo esc_html($card['copy']); ?></p>
                         </article>
                     <?php endforeach; ?>
                 </div>
@@ -114,29 +114,29 @@ $render_icon = static function ($icon) {
         </div>
     </section>
 
-    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="shipping-title">
+    <section class="bg-[#FBFCFE] py-14 sm:py-20" aria-labelledby="shipping-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
-                <h2 id="shipping-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#B83232]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
+                <h2 id="shipping-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#102A43] sm:text-4xl">
                     <?php esc_html_e('How your order moves from checkout to delivery.', 'dawp'); ?>
                 </h2>
-                <p class="mt-5 text-base leading-8 text-[#6F625D]">
+                <p class="mt-5 text-base leading-8 text-[#52657A]">
                     <?php esc_html_e('Orders are processed within 2-4 business days. After dispatch, standard US shipping typically takes 5-10 business days depending on the delivery address and carrier conditions.', 'dawp'); ?>
                 </p>
-                <a href="<?php echo esc_url($track_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
+                <a href="<?php echo esc_url($track_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#C83E3E] px-6 text-sm font-bold text-white transition hover:bg-[#102A43]">
                     <?php esc_html_e('Track Your Order', 'dawp'); ?>
                 </a>
             </div>
 
             <div class="grid gap-4">
                 <?php foreach ($shipping_steps as $index => $step) : ?>
-                    <article class="rounded-md border border-[#E8DAD4] bg-white p-5 shadow-sm">
+                    <article class="rounded-md border border-[#D6DEE8] bg-white p-5 shadow-sm">
                         <div class="flex gap-4">
-                            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[#FBEDEA] text-sm font-extrabold text-[#8A4F56]"><?php echo esc_html($index + 1); ?></span>
+                            <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[#E8EEF5] text-sm font-extrabold text-[#9B2C2C]"><?php echo esc_html($index + 1); ?></span>
                             <div>
-                                <h3 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($step['title']); ?></h3>
-                                <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($step['copy']); ?></p>
+                                <h3 class="font-heading text-lg font-extrabold text-[#102A43]"><?php echo esc_html($step['title']); ?></h3>
+                                <p class="mt-2 text-sm leading-6 text-[#52657A]"><?php echo esc_html($step['copy']); ?></p>
                             </div>
                         </div>
                     </article>
@@ -145,23 +145,23 @@ $render_icon = static function ($icon) {
         </div>
     </section>
 
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="returns-title">
+    <section class="bg-[#F7F3EA] py-14 sm:py-20" aria-labelledby="returns-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
-                <h2 id="returns-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#B83232]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
+                <h2 id="returns-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#102A43] sm:text-4xl">
                     <?php esc_html_e('Returns are available for eligible unused items.', 'dawp'); ?>
                 </h2>
-                <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('You may request a return within 30 days of delivery. Because many LBQ Shop products are beauty accessories or personal-use items, eligibility depends on hygiene, condition, and original packaging where applicable.', 'dawp'); ?>
+                <p class="mt-5 text-base leading-8 text-[#52657A]">
+                    <?php esc_html_e('You may request a return within 30 days of delivery. Because many GraphicShirt products are patriotic apparel or personal-use items, eligibility depends on hygiene, condition, and original packaging where applicable.', 'dawp'); ?>
                 </p>
 
-                <div class="mt-7 rounded-md border border-[#E8DAD4] bg-white p-6">
-                    <h3 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php esc_html_e('Return eligibility', 'dawp'); ?></h3>
-                    <ul class="mt-4 space-y-3 text-sm leading-6 text-[#6F625D]">
+                <div class="mt-7 rounded-md border border-[#D6DEE8] bg-white p-6">
+                    <h3 class="font-heading text-lg font-extrabold text-[#102A43]"><?php esc_html_e('Return eligibility', 'dawp'); ?></h3>
+                    <ul class="mt-4 space-y-3 text-sm leading-6 text-[#52657A]">
                         <?php foreach ($return_requirements as $requirement) : ?>
                             <li class="flex gap-3">
-                                <svg class="mt-1 h-4 w-4 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <svg class="mt-1 h-4 w-4 shrink-0 text-[#B83232]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 </svg>
                                 <span><?php echo esc_html($requirement); ?></span>
@@ -171,20 +171,20 @@ $render_icon = static function ($icon) {
                 </div>
             </div>
 
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                <h3 class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('How to request a return', 'dawp'); ?></h3>
+            <div class="rounded-md border border-[#D6DEE8] bg-white p-6 shadow-sm">
+                <h3 class="font-heading text-2xl font-extrabold text-[#102A43]"><?php esc_html_e('How to request a return', 'dawp'); ?></h3>
                 <div class="mt-6 grid gap-4">
                     <?php foreach ($return_process as $index => $process) : ?>
-                        <div class="flex gap-4 border-b border-[#E8DAD4] pb-4 last:border-0 last:pb-0">
-                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#FBEDEA] text-sm font-extrabold text-[#8A4F56]"><?php echo esc_html($index + 1); ?></span>
-                            <p class="text-sm leading-6 text-[#6F625D]"><?php echo esc_html($process); ?></p>
+                        <div class="flex gap-4 border-b border-[#D6DEE8] pb-4 last:border-0 last:pb-0">
+                            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-[#E8EEF5] text-sm font-extrabold text-[#9B2C2C]"><?php echo esc_html($index + 1); ?></span>
+                            <p class="text-sm leading-6 text-[#52657A]"><?php echo esc_html($process); ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
 
-                <div class="mt-7 rounded-md bg-[#FFFDFC] p-5">
-                    <h4 class="font-heading text-lg font-extrabold text-[#2F2A28]"><?php esc_html_e('Refunds and return shipping', 'dawp'); ?></h4>
-                    <p class="mt-3 text-sm leading-6 text-[#6F625D]">
+                <div class="mt-7 rounded-md bg-[#FBFCFE] p-5">
+                    <h4 class="font-heading text-lg font-extrabold text-[#102A43]"><?php esc_html_e('Refunds and return shipping', 'dawp'); ?></h4>
+                    <p class="mt-3 text-sm leading-6 text-[#52657A]">
                         <?php esc_html_e('Refunds are issued to the original payment method after the returned item is received and inspected. Customers are responsible for return shipping costs unless the item arrived damaged, defective, or incorrect.', 'dawp'); ?>
                     </p>
                 </div>
@@ -194,18 +194,18 @@ $render_icon = static function ($icon) {
 
     <section class="bg-white py-14 sm:py-20" aria-labelledby="shipping-help-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-6 sm:p-8">
+            <div class="rounded-md border border-[#D6DEE8] bg-[#FBFCFE] p-6 sm:p-8">
                 <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Customer Support', 'dawp'); ?></p>
-                        <h2 id="shipping-help-title" class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Need help with a shipment or return?', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-[#6F625D]">
+                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#B83232]"><?php esc_html_e('Customer Support', 'dawp'); ?></p>
+                        <h2 id="shipping-help-title" class="mt-3 font-heading text-2xl font-extrabold text-[#102A43]"><?php esc_html_e('Need help with a shipment or return?', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-[#52657A]">
                             <?php
                             echo wp_kses(
                                 sprintf(
                                     /* translators: 1: support email, 2: business hours */
                                     __('Email %1$s with your order number. Business hours: %2$s.', 'dawp'),
-                                    '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
+                                    '<a class="font-bold text-[#9B2C2C] underline decoration-[#C83E3E]/40 underline-offset-4 transition hover:text-[#102A43]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
                                     esc_html($business_hours)
                                 ),
                                 [
@@ -220,10 +220,10 @@ $render_icon = static function ($icon) {
                     </div>
 
                     <div class="flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
+                        <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#102A43] px-6 text-sm font-bold text-white transition hover:bg-[#9B2C2C]">
                             <?php esc_html_e('Contact Support', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($faq_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                        <a href="<?php echo esc_url($faq_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C83E3E] bg-white px-6 text-sm font-bold text-[#9B2C2C] transition hover:bg-[#E8EEF5]">
                             <?php esc_html_e('Read FAQ', 'dawp'); ?>
                         </a>
                     </div>

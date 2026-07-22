@@ -26,6 +26,15 @@ if (!function_exists('dawp_i0_image_url')) {
         $host = $parts['host'];
         $path = $parts['path'];
 
+        // The public WordPress image CDN cannot fetch assets from a local
+        // development server. Keep local URLs untouched so Docker-served
+        // images load directly from the mounted theme directory.
+        $local_hosts = ['localhost', '127.0.0.1', '::1'];
+
+        if (in_array(strtolower($host), $local_hosts, true) || preg_match('/\.(?:local|test)$/i', $host)) {
+            return $url;
+        }
+
         $cdn_url = ($host === 'i0.wp.com') ? 'https://i0.wp.com' . $path : 'https://i0.wp.com/' . $host . $path;
 
         $query = [];

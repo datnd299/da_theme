@@ -1,12 +1,8 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'beauty'     => 'beauty-accessories',
-        'organizers' => 'makeup-bags-organizers',
-        'makeup'     => 'makeup-bags-organizers',
-        'fashion'    => 'fashion-accessories',
-        'essentials' => 'everyday-style-essentials',
-        'gifts'      => 'giftable-finds',
+        'shirts' => 't-shirt', 'hoodies' => 'hoodie', 'polo' => 'polo-shirt',
+        'hats' => 'caps', 'decor' => 'metal-sign', 'america250' => 'america-250',
     ];
 
     return $map[$slug] ?? $slug;
@@ -29,12 +25,11 @@ function dawp_product_category_url($slug) {
 }
 
 function dawp_shop_category_items() {
-    $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'beauty-accessories'          => ['name' => __('Beauty Accessories', 'dawp')],
-        'makeup-bags-organizers'      => ['name' => __('Makeup Bags & Organizers', 'dawp')],
-        'fashion-accessories'         => ['name' => __('Fashion Accessories', 'dawp')],
-        'everyday-style-essentials'   => ['name' => __('Everyday Style Essentials', 'dawp')],
-        'giftable-finds'              => ['name' => __('Giftable Finds', 'dawp')],
+    $categories = function_exists('dawp_graphicshirt_product_categories') ? dawp_graphicshirt_product_categories() : [
+        't-shirt'=>['name'=>__('T-shirt','dawp')], 'hoodie'=>['name'=>__('Hoodie','dawp')],
+        'polo-shirt'=>['name'=>__('Polo Shirt','dawp')], 'caps'=>['name'=>__('Caps','dawp')],
+        'flags'=>['name'=>__('Flags','dawp')], 'metal-sign'=>['name'=>__('Metal Sign','dawp')],
+        'america-250'=>['name'=>__('America 250','dawp')],
     ];
 
     $items = [];
@@ -75,9 +70,11 @@ function dawp_footer_columns() {
         [
             'title' => __('Store Policy', 'dawp'),
             'links' => [
-                ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
+                ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
+                ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+                ['title' => __('Billing Terms & Conditions', 'dawp'), 'url' => home_url('/billing-terms-conditions/')],
                 ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-                ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+                ['title' => __('Terms of Service', 'dawp'), 'url' => home_url('/terms-of-service/')],
                 ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
             ],
         ],

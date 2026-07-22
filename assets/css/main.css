@@ -6,37 +6,37 @@
 
 :root {
   /* === BACKGROUNDS === */
-  --color-background: #FFFDFC;
+  --color-background: #FBFCFE;
   /* Clean white page background */
-  --color-surface: #F8F2EE;
+  --color-surface: #F7F3EA;
   /* Warm section/card background */
-  --color-surface-alt: #FFF3F1;
+  --color-surface-alt: #EEF3F8;
   /* Soft blush hover states and alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F2A28;
+  --color-foreground: #102A43;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #6F625D;
+  --color-foreground-muted: #52657A;
   /* Secondary text — descriptions, meta */
-  --color-muted: #6F625D;
+  --color-muted: #52657A;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #C87F86;
+  --color-accent: #C83E3E;
   /* Dusty rose primary CTA and links */
-  --color-accent-hover: #4B403C;
+  --color-accent-hover: #1E3A56;
   /* Deep warm-brown hover state */
-  --color-accent-soft: #FFF3F1;
+  --color-accent-soft: #EEF3F8;
   /* Soft blush subtle highlights and badges */
-  --color-accent-blush: #A8B99A;
+  --color-accent-blush: #4F7A68;
   /* Muted sage secondary accent */
 
   /* === UI === */
-  --color-border: #E8DAD4;
+  --color-border: #D6DEE8;
   /* Border — cards, dividers */
-  --color-alert: #8A332B;
+  --color-alert: #9B2C2C;
   /* Error / alert */
-  --color-success: #A8B99A;
+  --color-success: #4F7A68;
   /* Success / helpful state */
 
   /* === TYPOGRAPHY === */
@@ -64,8 +64,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(16, 42, 67, 0.06);
+  --shadow-card-hover: 0 6px 20px rgba(16, 42, 67, 0.12);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -243,8 +243,8 @@
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   color: #111827;
-  background: #F8F2EE;
-  border: 1.5px solid #E8DAD4;
+  background: #F7F3EA;
+  border: 1.5px solid #D6DEE8;
   border-radius: var(--radius-md);
   outline: none;
   box-sizing: border-box;
@@ -255,7 +255,7 @@
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #C87F86;
+  border-color: #C83E3E;
   box-shadow: 0 0 0 3px rgba(200, 127, 134, 0.18);
 }
 
@@ -290,7 +290,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
-  background: #C87F86;
+  background: #C83E3E;
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -298,7 +298,7 @@
 }
 
 #contact-form-1 input[type="submit"]:hover {
-  background: #4B403C;
+  background: #1E3A56;
 }
 
 #contact-form-1 .wpcf7-spinner {
@@ -318,7 +318,7 @@
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
   background: rgba(200, 127, 134, 0.12);
-  border-left: 3px solid #C87F86;
+  border-left: 3px solid #C83E3E;
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,

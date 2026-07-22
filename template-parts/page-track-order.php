@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page for LBQ Shop.
+ * Track order page for GraphicShirt.
  *
  * @package dawp
  */
@@ -9,12 +9,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@lbqshop.com';
+$support_email  = 'support@graphicshirt.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
-$shipping_url   = home_url('/shipping-returns/');
-$terms_url      = home_url('/terms-conditions/');
+$shipping_url   = home_url('/shipping-policy/');
+$terms_url      = home_url('/terms-of-service/');
 $privacy_url    = home_url('/privacy-policy/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
@@ -27,7 +27,7 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$lbq_category_url = static function ($slug) {
+$graphicshirt_category_url = static function ($slug) {
     if (function_exists('get_term_by')) {
         $term = get_term_by('slug', $slug, 'product_cat');
 
@@ -44,31 +44,11 @@ $lbq_category_url = static function ($slug) {
 };
 
 $category_links = [
-    [
-        'name' => __('Beauty Accessories', 'dawp'),
-        'copy' => __('Everyday tools and small beauty helpers for simple routines.', 'dawp'),
-        'url'  => $lbq_category_url('beauty-accessories'),
-    ],
-    [
-        'name' => __('Makeup Bags & Organizers', 'dawp'),
-        'copy' => __('Travel-friendly cases and cosmetic storage for cleaner carry.', 'dawp'),
-        'url'  => $lbq_category_url('makeup-bags-organizers'),
-    ],
-    [
-        'name' => __('Fashion Accessories', 'dawp'),
-        'copy' => __('Simple outfit accents selected for polished everyday style.', 'dawp'),
-        'url'  => $lbq_category_url('fashion-accessories'),
-    ],
-    [
-        'name' => __('Everyday Style Essentials', 'dawp'),
-        'copy' => __('Practical pieces for beauty, organization, travel, and daily use.', 'dawp'),
-        'url'  => $lbq_category_url('everyday-style-essentials'),
-    ],
-    [
-        'name' => __('Giftable Finds', 'dawp'),
-        'copy' => __('Pretty, useful accessories made for thoughtful small gifts.', 'dawp'),
-        'url'  => $lbq_category_url('giftable-finds'),
-    ],
+    ['name'=>__('T-shirt','dawp'),'copy'=>__('Original patriotic tees for every occasion.','dawp'),'url'=>$graphicshirt_category_url('t-shirt')],
+    ['name'=>__('Hoodie','dawp'),'copy'=>__('Warm patriotic hoodies made to stand out.','dawp'),'url'=>$graphicshirt_category_url('hoodie')],
+    ['name'=>__('Caps','dawp'),'copy'=>__('Patriotic caps for everyday American style.','dawp'),'url'=>$graphicshirt_category_url('caps')],
+    ['name'=>__('Metal Sign','dawp'),'copy'=>__('Americana wall decor with lasting character.','dawp'),'url'=>$graphicshirt_category_url('metal-sign')],
+    ['name'=>__('America 250','dawp'),'copy'=>__('Commemorative designs celebrating 250 years.','dawp'),'url'=>$graphicshirt_category_url('america-250')],
 ];
 
 $help_links = [
@@ -101,7 +81,7 @@ $policy_links = [
         <div class="track-hero__inner">
             <div class="track-hero__copy">
                 <p class="track-eyebrow"><?php esc_html_e('Order Tracking', 'dawp'); ?></p>
-                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your LBQ Shop order.', 'dawp'); ?></h1>
+                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your GraphicShirt order.', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
                     <?php esc_html_e('Enter your order ID and billing email to check your shipment status, order items, and delivery details.', 'dawp'); ?>
                 </p>
@@ -210,7 +190,7 @@ $policy_links = [
             <div class="track-section-heading track-section-heading--center">
                 <p class="track-eyebrow"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
                 <h2 id="track-helpful-title"><?php esc_html_e('Helpful links for your order.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Review the same store support pages used across LBQ Shop.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Review the same store support pages used across GraphicShirt.', 'dawp'); ?></p>
             </div>
 
             <div class="track-more-grid">
@@ -228,7 +208,7 @@ $policy_links = [
         <div class="track-category-section__inner">
             <div class="track-category-section__header">
                 <p class="track-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
-                <h2 id="track-category-title"><?php esc_html_e('Beauty and style categories from LBQ Shop.', 'dawp'); ?></h2>
+                <h2 id="track-category-title"><?php esc_html_e('Patriotic apparel categories from GraphicShirt.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Explore the same product categories featured across the current store experience.', 'dawp'); ?></p>
             </div>
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form handling for LBQ Shop.
+ * Contact form handling for GraphicShirt.
  *
  * @package dawp
  */
@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 
 add_action('init', 'dawp_register_contact_submission_cpt');
 function dawp_register_contact_submission_cpt() {
-    register_post_type('lbq_contact', [
+    register_post_type('graphicshirt_contact', [
         'labels'             => [
             'name'               => 'Contact Submissions',
             'singular_name'      => 'Contact Submission',
@@ -36,7 +36,7 @@ function dawp_register_contact_submission_cpt() {
 
 add_filter('post_row_actions', 'dawp_contact_remove_row_actions', 10, 2);
 function dawp_contact_remove_row_actions($actions, $post) {
-    if ($post->post_type === 'lbq_contact') {
+    if ($post->post_type === 'graphicshirt_contact') {
         unset($actions['inline hide-if-no-js'], $actions['trash'], $actions['clone']);
         $actions['trash'] = '<a href="' . get_delete_post_link($post->ID) . '" class="submitdelete">' . __('Delete') . '</a>';
     }
@@ -45,7 +45,7 @@ function dawp_contact_remove_row_actions($actions, $post) {
 
 add_action('add_meta_boxes', 'dawp_contact_meta_boxes');
 function dawp_contact_meta_boxes() {
-    add_meta_box('lbq_contact_details', 'Submission Details', 'dawp_contact_meta_box_cb', 'lbq_contact', 'normal', 'high');
+    add_meta_box('graphicshirt_contact_details', 'Submission Details', 'dawp_contact_meta_box_cb', 'graphicshirt_contact', 'normal', 'high');
 }
 function dawp_contact_meta_box_cb($post) {
     $fields = ['_contact_email', '_contact_topic', '_contact_order', '_contact_ip'];
@@ -58,8 +58,8 @@ function dawp_contact_meta_box_cb($post) {
     echo '</tbody></table>';
 }
 
-add_action('admin_post_nopriv_lbq_contact_form', 'dawp_handle_contact_form');
-add_action('admin_post_lbq_contact_form', 'dawp_handle_contact_form');
+add_action('admin_post_nopriv_graphicshirt_contact_form', 'dawp_handle_contact_form');
+add_action('admin_post_graphicshirt_contact_form', 'dawp_handle_contact_form');
 
 function dawp_handle_contact_form() {
     $redirect_base = home_url('/contact-us/');
@@ -69,9 +69,9 @@ function dawp_handle_contact_form() {
         $redirect_base = remove_query_arg('contact_status', $referer);
     }
 
-    $nonce = isset($_POST['lbq_contact_nonce']) ? sanitize_text_field(wp_unslash($_POST['lbq_contact_nonce'])) : '';
+    $nonce = isset($_POST['graphicshirt_contact_nonce']) ? sanitize_text_field(wp_unslash($_POST['graphicshirt_contact_nonce'])) : '';
 
-    if (!$nonce || !wp_verify_nonce($nonce, 'lbq_contact_form')) {
+    if (!$nonce || !wp_verify_nonce($nonce, 'graphicshirt_contact_form')) {
         wp_safe_redirect(add_query_arg('contact_status', 'error', $redirect_base));
         exit;
     }
@@ -108,7 +108,7 @@ function dawp_handle_contact_form() {
     $topic_label = $topics[$topic_key];
 
     $post_id = wp_insert_post([
-        'post_type'    => 'lbq_contact',
+        'post_type'    => 'graphicshirt_contact',
         'post_status'  => 'publish',
         'post_title'   => sprintf('[%s] %s <%s>', $topic_label, $name, $email),
         'post_content' => $message,
@@ -122,8 +122,8 @@ function dawp_handle_contact_form() {
         update_post_meta($post_id, '_contact_ip', sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')));
     }
 
-    $support_email = 'support@lbqshop.com';
-    $subject       = sprintf('[LBQ Shop] %s', $topic_label);
+    $support_email = 'support@graphicshirt.com';
+    $subject       = sprintf('[GraphicShirt] %s', $topic_label);
     $body          = sprintf(
         "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
         $name,

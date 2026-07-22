@@ -6,22 +6,22 @@
 /* CSS Variables */
 :root {
   --color-bg:             #FFFFFF;
-  --color-bg-subtle:      #FFF3F1;
-  --color-bg-muted:       #F8F2EE;
-  --color-text-primary:   #2F2A28;
-  --color-text-secondary: #4B403C;
-  --color-text-muted:     #6F625D;
-  --color-text-soft:      #6F625D;
-  --color-border:         #E8DAD4;
-  --color-accent:         #C87F86;
-  --color-accent-hover:   #4B403C;
+  --color-bg-subtle:      #EEF3F8;
+  --color-bg-muted:       #F7F3EA;
+  --color-text-primary:   #102A43;
+  --color-text-secondary: #1E3A56;
+  --color-text-muted:     #52657A;
+  --color-text-soft:      #52657A;
+  --color-border:         #D6DEE8;
+  --color-accent:         #C83E3E;
+  --color-accent-hover:   #1E3A56;
   --color-button-bg:      var(--color-accent-hover);
   --color-button-hover:   var(--color-accent);
   --color-button-text:    var(--color-bg);
-  --color-sale:           #8A332B;
-  --color-blush:          #A8B99A;
-  --color-navy:           #4B403C;
-  --color-navy-light:     #6F625D;
+  --color-sale:           #9B2C2C;
+  --color-blush:          #4F7A68;
+  --color-navy:           #1E3A56;
+  --color-navy-light:     #52657A;
   --color-ring:           rgba(200, 127, 134, 0.18);
   --color-background:     var(--color-bg);
   --color-foreground:     var(--color-text-primary);
@@ -34,8 +34,8 @@
   --radius-md:            8px;
   --radius-lg:            16px;
   --radius-xl:            24px;
-  --shadow-card:          0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover:    0 14px 34px rgba(47, 42, 40, 0.12);
+  --shadow-card:          0 1px 4px rgba(16, 42, 67, 0.06);
+  --shadow-card-hover:    0 14px 34px rgba(16, 42, 67, 0.12);
 }
 
 /* === 1. PAGE LAYOUT === */
@@ -102,7 +102,7 @@ body.single-product {
   border-radius: 999px;
   background: var(--color-bg);
   color: var(--color-sale);
-  box-shadow: 0 8px 18px rgba(47, 42, 40, 0.12);
+  box-shadow: 0 8px 18px rgba(16, 42, 67, 0.12);
   font-family: var(--font-primary);
   font-size: 0.7rem;
   font-weight: 900;

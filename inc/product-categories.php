@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for LBQ Shop.
+ * Product category defaults for GraphicShirt.
  *
  * @package dawp
  */
@@ -9,43 +9,39 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-function dawp_lbq_product_categories() {
+function dawp_graphicshirt_product_categories() {
     return [
-        'beauty-accessories' => [
-            'name'        => __('Beauty Accessories', 'dawp'),
-            'description' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
-            'short'       => __('Beauty tools and small helpers for everyday routines.', 'dawp'),
+        't-shirt' => [
+            'name' => __('T-shirt', 'dawp'), 'description' => __('Patriotic graphic T-shirts for American moments and everyday pride.', 'dawp'), 'short' => __('Original patriotic tees for every occasion.', 'dawp'),
         ],
-        'makeup-bags-organizers' => [
-            'name'        => __('Makeup Bags & Organizers', 'dawp'),
-            'description' => __('Travel-friendly cosmetic bags, storage pieces, and organizers that help keep beauty items neat and easy to find.', 'dawp'),
-            'short'       => __('Cosmetic bags, cases, and organizers for home or travel.', 'dawp'),
+        'hoodie' => [
+            'name' => __('Hoodie', 'dawp'), 'description' => __('Comfortable graphic hoodies featuring bold American-inspired designs.', 'dawp'), 'short' => __('Warm patriotic hoodies made to stand out.', 'dawp'),
         ],
-        'fashion-accessories' => [
-            'name'        => __('Fashion Accessories', 'dawp'),
-            'description' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
-            'short'       => __('Small accents for polished everyday styling.', 'dawp'),
+        'polo-shirt' => [
+            'name' => __('Polo Shirt', 'dawp'), 'description' => __('Classic polo shirts with clean patriotic details for a polished look.', 'dawp'), 'short' => __('Classic American style with a polished finish.', 'dawp'),
         ],
-        'everyday-style-essentials' => [
-            'name'        => __('Everyday Style Essentials', 'dawp'),
-            'description' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
-            'short'       => __('Practical daily pieces for beauty, travel, and style.', 'dawp'),
+        'caps' => [
+            'name' => __('Caps', 'dawp'), 'description' => __('Embroidered and printed caps inspired by American pride.', 'dawp'), 'short' => __('Patriotic caps for everyday American style.', 'dawp'),
         ],
-        'giftable-finds' => [
-            'name'        => __('Giftable Finds', 'dawp'),
-            'description' => __('Pretty, practical accessories made for thoughtful everyday gifting.', 'dawp'),
-            'short'       => __('Small beauty and style finds that are easy to gift.', 'dawp'),
+        'flags' => [
+            'name' => __('Flags', 'dawp'), 'description' => __('Decorative patriotic flags for homes, gardens, and celebrations.', 'dawp'), 'short' => __('Display American pride at home or outdoors.', 'dawp'),
+        ],
+        'metal-sign' => [
+            'name' => __('Metal Sign', 'dawp'), 'description' => __('Vintage-inspired metal signs made for patriotic home decor.', 'dawp'), 'short' => __('Americana wall decor with lasting character.', 'dawp'),
+        ],
+        'america-250' => [
+            'name' => __('America 250', 'dawp'), 'description' => __('Commemorative designs celebrating 250 years of American history.', 'dawp'), 'short' => __('Celebrate America’s 250th anniversary in 2026.', 'dawp'),
         ],
     ];
 }
 
-add_action('init', 'dawp_ensure_lbq_product_categories', 30);
-function dawp_ensure_lbq_product_categories() {
+add_action('init', 'dawp_ensure_graphicshirt_product_categories', 30);
+function dawp_ensure_graphicshirt_product_categories() {
     if (!taxonomy_exists('product_cat')) {
         return;
     }
 
-    foreach (dawp_lbq_product_categories() as $slug => $category) {
+    foreach (dawp_graphicshirt_product_categories() as $slug => $category) {
         $term = get_term_by('slug', $slug, 'product_cat');
 
         if (!$term || is_wp_error($term)) {

@@ -1,20 +1,20 @@
 /* =============================================================
-   TRACK ORDER PAGE - LBQ Shop
+   TRACK ORDER PAGE - GraphicShirt
    ============================================================= */
 
 .track-order-page {
-  --track-ink: #2F2A28;
-  --track-soft-ink: #4B403C;
-  --track-muted: #6F625D;
-  --track-rose: #C87F86;
-  --track-rose-dark: #8A4F56;
-  --track-rose-muted: #A96870;
-  --track-blush: #FBEDEA;
-  --track-cream: #F8F2EE;
-  --track-paper: #FFFDFC;
-  --track-border: #E8DAD4;
+  --track-ink: #102A43;
+  --track-soft-ink: #1E3A56;
+  --track-muted: #52657A;
+  --track-rose: #C83E3E;
+  --track-rose-dark: #9B2C2C;
+  --track-rose-muted: #B83232;
+  --track-blush: #E8EEF5;
+  --track-cream: #F7F3EA;
+  --track-paper: #FBFCFE;
+  --track-border: #D6DEE8;
   --track-white: #FFFFFF;
-  --track-danger: #8A332B;
+  --track-danger: #9B2C2C;
   --track-success: #315B3D;
   --track-shadow: 0 20px 44px rgba(138, 79, 86, 0.12);
 
@@ -45,7 +45,7 @@
 .track-hero {
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(47, 42, 40, 0.88), rgba(138, 79, 86, 0.78)),
+    linear-gradient(135deg, rgba(16, 42, 67, 0.88), rgba(138, 79, 86, 0.78)),
     linear-gradient(90deg, var(--track-cream), var(--track-blush));
   color: var(--track-white);
   padding: 4rem 1rem;
@@ -59,7 +59,7 @@
 }
 
 .track-hero .track-eyebrow {
-  color: #F6D5CF;
+  color: #F7F3EA;
 }
 
 .track-hero__title {
@@ -133,7 +133,7 @@
   border-radius: 0.5rem;
   background: rgba(255, 253, 252, 0.12);
   padding: 1.25rem;
-  box-shadow: 0 22px 50px rgba(47, 42, 40, 0.22);
+  box-shadow: 0 22px 50px rgba(16, 42, 67, 0.22);
   backdrop-filter: blur(10px);
 }
 
@@ -163,7 +163,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.375rem;
-  background: #F6D5CF;
+  background: #F7F3EA;
   color: var(--track-rose-dark);
   font-weight: 900;
 }
@@ -251,7 +251,7 @@
   border: 1px solid var(--track-border);
   border-radius: 0.5rem;
   background: var(--track-white);
-  box-shadow: 0 1px 3px rgba(47, 42, 40, 0.04);
+  box-shadow: 0 1px 3px rgba(16, 42, 67, 0.04);
 }
 
 .track-form-card {
@@ -493,7 +493,7 @@
 }
 
 .track-order-page .form-row input.input-text::placeholder {
-  color: #9C8E88 !important;
+  color: #718096 !important;
   opacity: 1 !important;
 }
 
@@ -533,7 +533,7 @@
 .track-order-page .woocommerce-form-row button.button:hover,
 .track-order-page button.button:hover {
   background: var(--track-ink) !important;
-  box-shadow: 0 16px 32px rgba(47, 42, 40, 0.18) !important;
+  box-shadow: 0 16px 32px rgba(16, 42, 67, 0.18) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -549,7 +549,7 @@
 
 .track-order-page .woocommerce-error {
   border: 1px solid rgba(138, 51, 43, 0.28) !important;
-  background: #FFF3F1 !important;
+  background: #EEF3F8 !important;
   color: var(--track-danger) !important;
   list-style: none !important;
 }

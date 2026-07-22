@@ -1,22 +1,22 @@
-# LBQ Shop Site.md
+# GraphicShirt Site.md
 
 ## Store Information
 
-* **Website:** lbqshop.com
-* **Brand Name:** LBQ Shop
+* **Website:** graphicshirt.com
+* **Brand Name:** GraphicShirt
 * **Language:** English
 * **Store Type:** Beauty & Fashion Accessories Store
 * **Primary Market:** United States
 * **Core Products:** Beauty accessories, makeup bags, cosmetic organizers, fashion accessories, everyday style essentials, giftable accessories
 * **Brand Direction:** Clean, feminine, modern, practical, lifestyle-focused, GMC-safe
-* **Support Email:** [support@lbqshop.com](mailto:support@lbqshop.com)
+* **Support Email:** [support@graphicshirt.com](mailto:support@graphicshirt.com)
 * **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
 # Brand Positioning
 
-LBQ Shop is a beauty and fashion accessories store focused on everyday style, simple organization, and small confidence-boosting essentials.
+GraphicShirt is a beauty and fashion accessories store focused on everyday style, simple organization, and small confidence-boosting essentials.
 
 The brand should feel:
 
@@ -31,7 +31,7 @@ The brand should feel:
 * Giftable
 * Trustworthy
 
-LBQ Shop should not feel like a random general store, cheap marketplace, counterfeit fashion shop, or overly luxury beauty boutique.
+GraphicShirt should not feel like a random general store, cheap marketplace, counterfeit fashion shop, or overly luxury beauty boutique.
 
 The website should focus on small, useful beauty and fashion accessories that help customers feel more organized, polished, and confident in daily life.
 
@@ -41,13 +41,13 @@ Core positioning:
 
 Expanded positioning:
 
-> LBQ Shop helps customers discover practical beauty accessories, makeup organizers, fashion accessories, and everyday essentials designed to support simple routines and personal style.
+> GraphicShirt helps customers discover practical beauty accessories, makeup organizers, fashion accessories, and everyday essentials designed to support simple routines and personal style.
 
 ---
 
 # Social Footprint Direction
 
-Based on the closest social media direction, LBQ Shop should be rebuilt around beauty, makeup, fashion, and accessories rather than home decor or a general store.
+Based on the closest social media direction, GraphicShirt should be rebuilt around beauty, makeup, fashion, and accessories rather than home decor or a general store.
 
 Relevant product signals include:
 
@@ -66,7 +66,7 @@ The new website should align with this recent beauty + fashion accessories footp
 
 # Core Store Concept
 
-LBQ Shop offers useful, feminine, and stylish accessories for everyday beauty routines and simple personal style.
+GraphicShirt offers useful, feminine, and stylish accessories for everyday beauty routines and simple personal style.
 
 The store should focus on products that help customers:
 
@@ -107,7 +107,7 @@ They may be:
 
 # Customer Psychology
 
-LBQ Shop customers are attracted to products that feel:
+GraphicShirt customers are attracted to products that feel:
 
 * Pretty
 * Useful
@@ -354,7 +354,7 @@ For GMC safety, do not sell or promote:
 
 # Brand Voice
 
-LBQ Shop should speak in a clean, feminine, and practical tone.
+GraphicShirt should speak in a clean, feminine, and practical tone.
 
 Tone should be:
 
@@ -485,7 +485,7 @@ Avoid:
 
 # Trust & Policy Requirements
 
-LBQ Shop should include clear customer trust pages:
+GraphicShirt should include clear customer trust pages:
 
 * About Us
 * Contact Us
@@ -573,7 +573,7 @@ Safe copy example:
 
 # GMC Compliance Direction
 
-LBQ Shop must appear as a legitimate beauty and fashion accessories store with a coherent product focus.
+GraphicShirt must appear as a legitimate beauty and fashion accessories store with a coherent product focus.
 
 ## GMC Priorities
 
@@ -638,7 +638,7 @@ Pretty, practical accessories made for thoughtful everyday gifting.
 
 # Strategic Build Goal
 
-The final LBQ Shop storefront should feel like:
+The final GraphicShirt storefront should feel like:
 
 > A clean and feminine beauty & fashion accessories store offering practical makeup organizers, beauty accessories, fashion accents, and everyday essentials for simple style and confidence.
 

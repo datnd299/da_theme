@@ -30,8 +30,13 @@ function dawp_virtual_page_map() {
         'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
         'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
         'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
-        'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
-        'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
+        'return-refund-policy'     => ['slug' => 'return-refund-policy',     'title' => 'Return & Refund Policy', 'css' => 'tw-terms.css'],
+        'shipping-policy'          => ['slug' => 'shipping-policy',          'title' => 'Shipping Policy', 'css' => 'tw-terms.css'],
+        'billing-terms-conditions' => ['slug' => 'billing-terms-conditions', 'title' => 'Billing Terms & Conditions', 'css' => 'tw-terms.css'],
+        'terms-of-service'         => ['slug' => 'terms-conditions',         'title' => 'Terms of Service', 'css' => 'tw-terms.css'],
+        // Compatibility aliases for links and bookmarks from the previous site version.
+        'shipping-returns' => ['slug' => 'shipping-policy',  'title' => 'Shipping Policy', 'css' => 'tw-terms.css'],
+        'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms of Service', 'css' => 'tw-terms.css'],
         'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
         'track-order'   => ['slug' => 'track-order',          'title' => 'Track Order', 'css' => 'track-order.css'],
     ];

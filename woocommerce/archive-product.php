@@ -12,8 +12,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical beauty accessories, makeup organizers, fashion accents, everyday essentials, and small giftable finds from LBQ Shop.', 'dawp');
-$archive_eyebrow = __('LBQ Shop Collection', 'dawp');
+$archive_description = __('Browse practical patriotic apparel, graphic apparel, fashion accents, everyday essentials, and small giftable finds from GraphicShirt.', 'dawp');
+$archive_eyebrow = __('GraphicShirt Collection', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;
@@ -26,8 +26,8 @@ global $wp_query;
 $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
 $category_chips = [];
 
-if (function_exists('dawp_lbq_product_categories')) {
-    foreach (dawp_lbq_product_categories() as $slug => $category) {
+if (function_exists('dawp_graphicshirt_product_categories')) {
+    foreach (dawp_graphicshirt_product_categories() as $slug => $category) {
         $term = get_term_by('slug', $slug, 'product_cat');
 
         if (!$term || is_wp_error($term)) {

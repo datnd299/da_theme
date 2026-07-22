@@ -3,19 +3,19 @@
    ============================================================ */
 
 :root {
-  --shop-bg: #FFF3F1;
+  --shop-bg: #EEF3F8;
   --shop-surface: #FFFFFF;
-  --shop-surface-soft: #F8F2EE;
-  --shop-surface-muted: #F8F2EE;
-  --shop-text: #2F2A28;
-  --shop-heading: #4B403C;
-  --shop-muted: #6F625D;
-  --shop-soft-text: #6F625D;
-  --shop-border: #E8DAD4;
-  --shop-accent: #C87F86;
-  --shop-accent-dark: #4B403C;
-  --shop-blush: #A8B99A;
-  --shop-sale: #8A332B;
+  --shop-surface-soft: #F7F3EA;
+  --shop-surface-muted: #F7F3EA;
+  --shop-text: #102A43;
+  --shop-heading: #1E3A56;
+  --shop-muted: #52657A;
+  --shop-soft-text: #52657A;
+  --shop-border: #D6DEE8;
+  --shop-accent: #C83E3E;
+  --shop-accent-dark: #1E3A56;
+  --shop-blush: #4F7A68;
+  --shop-sale: #9B2C2C;
   --shop-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --shop-heading-font: 'Manrope', 'Inter', system-ui, sans-serif;
   --shop-container: 1280px;
@@ -179,7 +179,7 @@
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 10px 28px rgba(47, 42, 40, 0.05);
+  box-shadow: 0 10px 28px rgba(16, 42, 67, 0.05);
   scrollbar-width: thin;
 }
 
@@ -239,7 +239,7 @@
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 10px 30px rgba(47, 42, 40, 0.06);
+  box-shadow: 0 10px 30px rgba(16, 42, 67, 0.06);
 }
 
 .shop-toolbar__left {
@@ -330,7 +330,7 @@
   inset: 0;
   z-index: 99;
   visibility: hidden;
-  background: rgba(47, 42, 40, 0.44);
+  background: rgba(16, 42, 67, 0.44);
   opacity: 0;
   transition: opacity 200ms ease, visibility 200ms ease;
 }
@@ -351,7 +351,7 @@
   overflow-y: auto;
   border-radius: 8px 8px 0 0;
   background: var(--shop-surface);
-  box-shadow: 0 -20px 50px rgba(47, 42, 40, 0.2);
+  box-shadow: 0 -20px 50px rgba(16, 42, 67, 0.2);
   transform: translateY(100%);
   transition: transform 240ms ease;
 }
@@ -406,7 +406,7 @@
     padding: 18px;
     border: 1px solid var(--shop-border);
     border-radius: 8px;
-    box-shadow: 0 14px 34px rgba(47, 42, 40, 0.06);
+    box-shadow: 0 14px 34px rgba(16, 42, 67, 0.06);
     transform: none;
   }
 
@@ -509,7 +509,7 @@
   height: 17px;
   border: 3px solid var(--shop-surface);
   border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(47, 42, 40, 0.2);
+  box-shadow: 0 2px 8px rgba(16, 42, 67, 0.2);
 }
 
 .widget_price_filter .price_label {
@@ -590,13 +590,13 @@ ul.products li.product,
   border: 1px solid var(--shop-border);
   border-radius: 8px;
   background: var(--shop-surface);
-  box-shadow: 0 8px 24px rgba(47, 42, 40, 0.05);
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.05);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
 
 .product-card:hover {
   border-color: rgba(200, 127, 134, 0.55);
-  box-shadow: 0 18px 38px rgba(47, 42, 40, 0.12);
+  box-shadow: 0 18px 38px rgba(16, 42, 67, 0.12);
   transform: translateY(-3px);
 }
 
@@ -654,7 +654,7 @@ ul.products li.product,
   border-radius: 999px;
   background: #FFFFFF;
   color: var(--shop-sale);
-  box-shadow: 0 8px 18px rgba(47, 42, 40, 0.12);
+  box-shadow: 0 8px 18px rgba(16, 42, 67, 0.12);
   font-size: 0.7rem;
   font-weight: 900;
   line-height: 1.2;
@@ -670,7 +670,7 @@ ul.products li.product,
   gap: 6px;
   padding: 8px 11px;
   border-radius: 999px;
-  background: rgba(47, 42, 40, 0.9);
+  background: rgba(16, 42, 67, 0.9);
   color: #FFFFFF;
   font-size: 0.78rem;
   font-weight: 800;
@@ -903,13 +903,13 @@ ul.products li.product,
 
 .shop-page {
   --shop-bg: #FFF6F3;
-  --shop-surface-soft: #FFFDFC;
+  --shop-surface-soft: #FBFCFE;
   --shop-surface-muted: #F7EFEB;
   --shop-ring: rgba(200, 127, 134, 0.18);
-  --shop-shadow-sm: 0 10px 28px rgba(47, 42, 40, 0.06);
-  --shop-shadow-md: 0 20px 48px rgba(47, 42, 40, 0.09);
+  --shop-shadow-sm: 0 10px 28px rgba(16, 42, 67, 0.06);
+  --shop-shadow-md: 0 20px 48px rgba(16, 42, 67, 0.09);
   background:
-    linear-gradient(180deg, #FFF3F1 0, #FFFDFC 360px, #FFFFFF 100%),
+    linear-gradient(180deg, #EEF3F8 0, #FBFCFE 360px, #FFFFFF 100%),
     #FFFFFF;
 }
 
@@ -938,7 +938,7 @@ ul.products li.product,
   background:
     radial-gradient(circle at 92% 12%, rgba(168, 185, 154, 0.24), transparent 28%),
     radial-gradient(circle at 8% 18%, rgba(200, 127, 134, 0.18), transparent 30%),
-    linear-gradient(135deg, #FFFFFF 0%, #FFF3F1 54%, #F8F2EE 100%);
+    linear-gradient(135deg, #FFFFFF 0%, #EEF3F8 54%, #F7F3EA 100%);
   box-shadow: var(--shop-shadow-sm);
 }
 
@@ -954,7 +954,7 @@ ul.products li.product,
 
 .shop-page .shop-header__eyebrow {
   margin-bottom: 10px;
-  color: #8A4F56;
+  color: #9B2C2C;
   font-size: 0.76rem;
   letter-spacing: 0.12em;
 }
@@ -1010,7 +1010,7 @@ ul.products li.product,
 }
 
 .shop-page .shop-header__meta a:hover {
-  background: #8A4F56;
+  background: #9B2C2C;
 }
 
 .shop-page .shop-category-nav {
@@ -1050,8 +1050,8 @@ ul.products li.product,
 
 .shop-page .shop-category-nav a:hover,
 .shop-page .shop-category-nav a.is-current {
-  border-color: #8A4F56;
-  background: #4B403C;
+  border-color: #9B2C2C;
+  background: #1E3A56;
   color: #FFFFFF;
 }
 
@@ -1063,8 +1063,8 @@ ul.products li.product,
   justify-content: center;
   padding: 0 7px;
   border-radius: 999px;
-  background: #FFF3F1;
-  color: #8A4F56;
+  background: #EEF3F8;
+  color: #9B2C2C;
   font-size: 0.72rem;
   font-weight: 900;
   line-height: 1;
@@ -1103,7 +1103,7 @@ ul.products li.product,
   align-items: center;
   padding: 0 12px;
   border-radius: 999px;
-  background: #F8F2EE;
+  background: #F7F3EA;
   color: var(--shop-heading);
   font-size: 0.88rem;
   font-weight: 850;
@@ -1123,7 +1123,7 @@ ul.products li.product,
 }
 
 .shop-page .woocommerce-ordering select:focus {
-  border-color: #C87F86;
+  border-color: #C83E3E;
   box-shadow: 0 0 0 4px var(--shop-ring);
 }
 
@@ -1179,8 +1179,8 @@ ul.products li.product,
 .shop-page .widget_product_categories a:hover,
 .shop-page .woocommerce-widget-layered-nav-list__item a:hover,
 .shop-page .woocommerce-widget-layered-nav-list__item--chosen a {
-  background: #FFF3F1;
-  color: #4B403C;
+  background: #EEF3F8;
+  color: #1E3A56;
 }
 
 .shop-page .shop-main ul.products,
@@ -1225,14 +1225,14 @@ ul.products li.product,
 
 .shop-page .product-card:hover {
   border-color: rgba(200, 127, 134, 0.6);
-  box-shadow: 0 22px 46px rgba(47, 42, 40, 0.13);
+  box-shadow: 0 22px 46px rgba(16, 42, 67, 0.13);
 }
 
 .shop-page .product-card__shell {
   aspect-ratio: 4 / 5;
   background:
     radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.78), transparent 34%),
-    linear-gradient(135deg, #F8F2EE 0%, #FFFDFC 48%, #FFF3F1 100%);
+    linear-gradient(135deg, #F7F3EA 0%, #FBFCFE 48%, #EEF3F8 100%);
 }
 
 .shop-page .product-card__img,

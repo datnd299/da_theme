@@ -80,7 +80,7 @@ $values = [
 
 $trust_items = [
     [__('Secure Checkout', 'dawp'), __('Encrypted checkout helps protect your payment details from cart to confirmation.', 'dawp')],
-    [__('Fast Shipping', 'dawp'), __('Orders are handled in 1-2 business days, with estimated delivery usually in 6-9 business days.', 'dawp')],
+    [__('Fast Shipping', 'dawp'), __('Orders are handled in 1-2 business days, with estimated delivery usually in 4-7 business days.', 'dawp')],
     [__('Easy Returns', 'dawp'), __('Eligible unused items can be returned within 30 days after delivery.', 'dawp')],
     [__('Order Tracking', 'dawp'), __('Tracking details are provided once your order ships so you can follow each step.', 'dawp')],
 ];

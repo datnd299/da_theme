@@ -211,11 +211,11 @@ Handling time:
 
 Transit time:
 
-5–7 business days (Monday–Friday)
+3–5 business days (Monday–Friday)
 
 Estimated delivery:
 
-Usually 6–9 business days
+Usually 4–7 business days
 
 Tracking information is provided once orders are shipped.
 

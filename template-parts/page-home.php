@@ -413,7 +413,7 @@ if (function_exists('wc_get_products')) {
             <div class="mmd-trust-grid">
                 <?php
                 $trust_items = [
-                    [__('Fast Shipping', 'dawp'), __('Orders ship after 1-2 business days and usually arrive in 6-9 business days.', 'dawp'), '<path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle>'],
+                    [__('Fast Shipping', 'dawp'), __('Orders ship after 1-2 business days and usually arrive in 4-7 business days.', 'dawp'), '<path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle>'],
                     [__('Easy Returns', 'dawp'), __('Return eligible unused items within 30 days of delivery.', 'dawp'), '<path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-15-6.7L3 13"></path>'],
                     [__('Secure Checkout', 'dawp'), __('Payment details are protected through encrypted checkout.', 'dawp'), '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>'],
                     [__('Order Tracking', 'dawp'), __('Tracking is provided once your order ships.', 'dawp'), '<path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2"></circle>'],

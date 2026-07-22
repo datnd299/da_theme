@@ -12,7 +12,8 @@ if (!defined('ABSPATH')) {
 $store_name     = 'MegaMallDepot';
 $site_domain    = 'megamalldepot.com';
 $support_email  = 'support@megamalldepot.com';
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$support_phone  = '826-207-1399';
+$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
@@ -72,6 +73,11 @@ $contact_details = [
         'label' => __('Customer Support Email', 'dawp'),
         'value' => $support_email,
         'url'   => 'mailto:' . $support_email,
+    ],
+    [
+        'label' => __('Customer Support Phone', 'dawp'),
+        'value' => $support_phone,
+        'url'   => 'tel:' . $support_phone,
     ],
     [
         'label' => __('Physical Business Address', 'dawp'),

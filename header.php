@@ -64,8 +64,8 @@ $is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_
         .tgm-header__top-row { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:36px; font-size:.82rem; font-weight:700; }
         .tgm-header__top-links { display:flex; align-items:center; gap:18px; white-space:nowrap; }
         .tgm-header__main { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:18px; min-height:78px; }
-        .tgm-logo { display:inline-flex; align-items:center; flex:none; }
-        .tgm-logo img { display:block; width:auto; height:40px; max-width:196px; object-fit:contain; }
+        .tgm-logo { display:inline-flex; align-items:center; flex:none; min-width:0; }
+        .tgm-logo img { display:block; width:auto; height:40px; max-width:min(196px, 100%); object-fit:contain; object-position:left center; }
         .tgm-search { display:flex; align-items:center; min-width:0; border:2px solid var(--tgm-blue); border-radius:8px; background:#fff; overflow:hidden; }
         .tgm-search input { width:100%; min-height:46px; border:0; padding:0 16px; outline:0; color:var(--tgm-ink); font-size:.95rem; }
         .tgm-search button { display:inline-flex; align-items:center; justify-content:center; width:54px; align-self:stretch; border:0; background:var(--tgm-yellow); color:var(--tgm-ink); cursor:pointer; }
@@ -128,7 +128,7 @@ $is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_
 
     <div class="tgm-header__inner tgm-header__main">
         <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('Topgoodmart home', 'dawp'); ?>">
-            <?php echo dawp_get_responsive_image($logo_url, __('Topgoodmart', 'dawp'), '', 196, 42, 'eager', '(max-width: 520px) 104px, (max-width: 960px) 168px, 196px', 'high'); ?>
+            <?php echo dawp_get_responsive_image($logo_url, __('Topgoodmart', 'dawp'), '', 196, 42, 'eager', '(max-width: 520px) 104px, (max-width: 960px) 168px, 196px', 'high', 'contain'); ?>
         </a>
 
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="tgm-search tgm-header-search">

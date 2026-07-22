@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!function_exists('dawp_get_responsive_image')) {
-    function dawp_get_responsive_image($image_url, $alt, $class, $width, $height, $loading = 'lazy', $sizes = '', $fetchpriority = '') {
+    function dawp_get_responsive_image($image_url, $alt, $class, $width, $height, $loading = 'lazy', $sizes = '', $fetchpriority = '', $fit_mode = 'crop') {
         if (empty($image_url)) {
             return '';
         }
@@ -31,8 +31,15 @@ if (!function_exists('dawp_get_responsive_image')) {
         }
         sort($sizes_arr);
 
+        $fit_mode = 'contain' === $fit_mode ? 'contain' : 'crop';
+
         $srcset_arr = [];
         foreach ($sizes_arr as $w) {
+            if ('contain' === $fit_mode) {
+                $srcset_arr[] = esc_url($cdn_url . '?resize=' . $w . '&ssl=1') . ' ' . $w . 'w';
+                continue;
+            }
+
             $h = (int) round($w / $ratio);
             $srcset_arr[] = esc_url($cdn_url . '?resize=' . $w . '%2C' . $h . '&ssl=1') . ' ' . $w . 'w';
         }
@@ -42,7 +49,11 @@ if (!function_exists('dawp_get_responsive_image')) {
             $sizes = '(max-width: ' . (int) $width . 'px) 100vw, ' . (int) $width . 'px';
         }
         
-        $src = esc_url($cdn_url . '?fit=' . $width . '%2C' . $height . '&ssl=1');
+        if ('contain' === $fit_mode) {
+            $src = esc_url($cdn_url . '?resize=' . $width . '&ssl=1');
+        } else {
+            $src = esc_url($cdn_url . '?fit=' . $width . '%2C' . $height . '&ssl=1');
+        }
         $fetchpriority_attr = $fetchpriority ? ' fetchpriority="' . esc_attr($fetchpriority) . '"' : '';
 
         $html = sprintf(
@@ -63,7 +74,7 @@ if (!function_exists('dawp_get_responsive_image')) {
 }
 
 if (!function_exists('dawp_get_responsive_attachment_image')) {
-    function dawp_get_responsive_attachment_image($attachment_id, $alt = '', $class = '', $width = 520, $height = 520, $loading = 'lazy', $sizes = '', $fetchpriority = '') {
+    function dawp_get_responsive_attachment_image($attachment_id, $alt = '', $class = '', $width = 520, $height = 520, $loading = 'lazy', $sizes = '', $fetchpriority = '', $fit_mode = 'crop') {
         $attachment_id = (int) $attachment_id;
 
         if (!$attachment_id) {
@@ -92,7 +103,8 @@ if (!function_exists('dawp_get_responsive_attachment_image')) {
             $height ?: (int) $image_src[2],
             $loading,
             $sizes,
-            $fetchpriority
+            $fetchpriority,
+            $fit_mode
         );
     }
 }

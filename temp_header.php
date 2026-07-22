@@ -48,8 +48,9 @@ $nav_items = [
             display: block;
             width: auto;
             height: clamp(3rem, 5vw, 4rem);
-            max-width: min(38vw, 8rem);
+            max-width: min(38vw, 12rem);
             object-fit: contain;
+            object-position: left center;
             image-rendering: auto;
             transform: translateZ(0);
         }
@@ -80,7 +81,7 @@ $nav_items = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex min-h-20 items-center justify-between gap-4">
             <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('Topgoodmart home', 'dawp'); ?>">
-                <?php echo dawp_get_responsive_image($logo_url, __('Topgoodmart', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high'); ?>
+                <?php echo dawp_get_responsive_image($logo_url, __('Topgoodmart', 'dawp'), 'site-logo-img', 196, 64, 'eager', '(max-width: 520px) 104px, 196px', 'high', 'contain'); ?>
             </a>
 
             <nav class="hidden items-center gap-1 xl:flex" aria-label="<?php esc_attr_e('Main store navigation', 'dawp'); ?>">

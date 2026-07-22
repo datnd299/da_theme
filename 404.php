@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main min-h-[82vh] bg-[#080808] px-4 py-20 text-white md:py-28">
+<main id="primary" class="site-main min-h-[82vh] bg-[#161A1E] px-4 py-20 text-white md:py-28">
     <div class="mx-auto grid w-[min(100%,980px)] gap-10 md:grid-cols-[0.75fr_1fr] md:items-center">
         <div>
             <p class="font-heading text-[120px] font-black leading-none text-[#D71920] md:text-[180px]">404</p>
@@ -19,14 +19,14 @@ get_header();
                 <?php esc_html_e('This route is off the map.', 'dawp'); ?>
             </h1>
             <p class="mt-5 text-lg leading-8 text-white/72">
-                <?php esc_html_e('The page may have moved or the link may be incorrect. Start with the shop, vehicle collections, or support pages below.', 'dawp'); ?>
+                <?php esc_html_e('The page may have moved or the link may be incorrect. Start with the shop, categories, or support pages below.', 'dawp'); ?>
             </p>
 
             <div class="mt-8 flex flex-wrap gap-3">
                 <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#D71920] px-7 text-sm font-black uppercase text-white hover:bg-[#A70F14]">
                     <?php esc_html_e('Browse Shop', 'dawp'); ?>
                 </a>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/30 px-7 text-sm font-black uppercase text-white hover:bg-white hover:text-[#080808]">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/30 px-7 text-sm font-black uppercase text-white hover:bg-white hover:text-[#161A1E]">
                     <?php esc_html_e('Back Home', 'dawp'); ?>
                 </a>
             </div>
@@ -37,9 +37,9 @@ get_header();
                     <?php
                     $quick_links = [
                         ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-                        ['title' => __('Tacoma Accessories', 'dawp'), 'url' => home_url('/product-category/tacoma-accessories/')],
-                        ['title' => __('4Runner Accessories', 'dawp'), 'url' => home_url('/product-category/4runner-accessories/')],
-                        ['title' => __('Interior Accessories', 'dawp'), 'url' => home_url('/product-category/interior-accessories/')],
+                        ['title' => __('Tools', 'dawp'), 'url' => home_url('/product-category/tools/')],
+                        ['title' => __('Houseware', 'dawp'), 'url' => home_url('/product-category/houseware/')],
+                        ['title' => __('Pet Supplies', 'dawp'), 'url' => home_url('/product-category/pet-supplies/')],
                         ['title' => __('Contact Support', 'dawp'), 'url' => home_url('/contact-us/')],
                     ];
                     foreach ($quick_links as $link) : ?>

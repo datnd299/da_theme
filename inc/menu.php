@@ -21,18 +21,17 @@ function dawp_footer_columns() {
             'title' => __('Shop', 'dawp'),
             'links' => [
                 ['title' => __('All Products', 'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Interior Accessories', 'dawp'), 'url' => home_url('/product-category/interior-accessories/')],
-                ['title' => __('Exterior Add-Ons', 'dawp'), 'url' => home_url('/product-category/exterior-accessories/')],
-                ['title' => __('Driver Lifestyle Merch', 'dawp'), 'url' => home_url('/product-category/driver-merch/')],
+                ['title' => __('Tools', 'dawp'), 'url' => home_url('/product-category/tools/')],
+                ['title' => __('Houseware', 'dawp'), 'url' => home_url('/product-category/houseware/')],
+                ['title' => __('Clothing and Accessories', 'dawp'), 'url' => home_url('/product-category/clothing-accessories/')],
             ],
         ],
         [
-            'title' => __('Vehicles', 'dawp'),
+            'title' => __('Categories', 'dawp'),
             'links' => [
-                ['title' => __('Tacoma Accessories', 'dawp'), 'url' => home_url('/product-category/tacoma-accessories/')],
-                ['title' => __('4Runner Accessories', 'dawp'), 'url' => home_url('/product-category/4runner-accessories/')],
-                ['title' => __('FJ Cruiser Accessories', 'dawp'), 'url' => home_url('/product-category/fj-cruiser-accessories/')],
-                ['title' => __('Tundra Accessories', 'dawp'), 'url' => home_url('/product-category/tundra-accessories/')],
+                ['title' => __('Vehicle Service', 'dawp'), 'url' => home_url('/product-category/vehicle-service/')],
+                ['title' => __('Gift and Toy', 'dawp'), 'url' => home_url('/product-category/gift-and-toy/')],
+                ['title' => __('Pet Supplies', 'dawp'), 'url' => home_url('/product-category/pet-supplies/')],
             ],
         ],
         [

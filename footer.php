@@ -1,20 +1,20 @@
 </div><!-- #content -->
 
-<footer id="colophon" class="bg-[#080808] text-white" role="contentinfo">
+<footer id="colophon" class="bg-[#161A1E] text-white" role="contentinfo">
     <div class="max-w-[1280px] mx-auto px-4 lg:px-6 py-12 lg:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10">
         <div class="sm:col-span-2 lg:col-span-2">
-            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center gap-3 mb-4">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/toyocartv-logo.svg'); ?>" alt="ToyocarTV" width="282" height="72" class="h-14 w-auto" loading="lazy" decoding="async">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center mb-4">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shopmivo_logo.png'); ?>" alt="Shopmivo" class="h-10 w-auto">
             </a>
 
             <?php $dawp_store_address = dawp_get_woocommerce_store_address(); ?>
             <ul class="space-y-2.5 text-sm text-white/85 mb-6">
                 <li>
-                    <a href="mailto:support@toyocartv.com" class="flex items-start gap-2 hover:text-white transition-colors">
+                    <a href="mailto:support@shopmivo.com" class="flex items-start gap-2 hover:text-white transition-colors">
                         <svg class="shrink-0 mt-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
                         </svg>
-                        support@toyocartv.com
+                        support@shopmivo.com
                     </a>
                 </li>
                 <?php if ($dawp_store_address) : ?>
@@ -34,7 +34,7 @@
             </ul>
 
             <p class="text-xs text-white/55 leading-relaxed max-w-md">
-                <?php esc_html_e('ToyocarTV is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer. Vehicle model names are used only to help customers identify compatible-style product collections.', 'dawp'); ?>
+                <?php esc_html_e('Shopmivo is an independent general merchandise store and is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer.', 'dawp'); ?>
             </p>
         </div>
 
@@ -52,9 +52,9 @@
         <?php endforeach; ?>
 
         <div class="sm:col-span-2 lg:col-span-2">
-            <h4 class="text-sm font-black uppercase tracking-wider text-white mb-5"><?php esc_html_e('Garage Updates', 'dawp'); ?></h4>
+            <h4 class="text-sm font-black uppercase tracking-wider text-white mb-5"><?php esc_html_e('Shopmivo Deals', 'dawp'); ?></h4>
             <p class="text-sm text-white/76 leading-relaxed mb-4">
-                <?php esc_html_e('Get new accessory drops, vehicle collection updates, and practical driver lifestyle picks.', 'dawp'); ?>
+                <?php esc_html_e('Get new arrivals, seasonal picks, and deals across every category.', 'dawp'); ?>
             </p>
             <form id="footer-newsletter-form" class="flex gap-2">
                 <label for="footer-email" class="sr-only"><?php esc_html_e('Email address', 'dawp'); ?></label>
@@ -66,15 +66,15 @@
             <ul class="mt-6 space-y-2 text-xs text-white/78">
                 <li><?php esc_html_e('Secure Checkout', 'dawp'); ?></li>
                 <li><?php esc_html_e('Tracking Included', 'dawp'); ?></li>
-                <li><?php esc_html_e('30-Day Returns on Eligible Unused Items', 'dawp'); ?></li>
-                <li><?php esc_html_e('Compatibility Notes on Product Pages', 'dawp'); ?></li>
+                <li><?php esc_html_e('30-Day Returns on Eligible Items', 'dawp'); ?></li>
+                <li><?php esc_html_e('Everyday Low Prices', 'dawp'); ?></li>
             </ul>
         </div>
     </div>
 
     <div class="border-t border-white/12">
         <div class="max-w-[1280px] mx-auto px-4 lg:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/70">
-            <p>&copy; <?php echo esc_html(date('Y')); ?> ToyocarTV. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(date('Y')); ?> Shopmivo. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
         </div>
     </div>
 </footer>

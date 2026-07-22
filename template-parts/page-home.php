@@ -1,18 +1,13 @@
 <?php
 /**
- * Template Part: ToyocarTV Homepage
+ * Template Part: Shopmivo Homepage
  */
 
-$theme_uri                = get_template_directory_uri();
-$hero_image_original      = $theme_uri . '/assets/img/toyocartv/toyocartv-hero.png';
-$accessory_image_original = $theme_uri . '/assets/img/toyocartv/toyocartv-accessories.png';
-$hero_image               = dawp_i0_image_url($hero_image_original, 1672, 941);
-$accessory_image          = dawp_i0_image_url($accessory_image_original, 1448, 1086);
-$card_image_base          = $theme_uri . '/assets/img/toyocartv/';
-$shop_url                 = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$theme_uri = get_template_directory_uri();
+$shop_url  = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
-if (!function_exists('toyocartv_category_url')) {
-    function toyocartv_category_url($slug) {
+if (!function_exists('shopmivo_category_url')) {
+    function shopmivo_category_url($slug) {
         if (taxonomy_exists('product_cat')) {
             $term = get_term_by('slug', $slug, 'product_cat');
 
@@ -29,8 +24,8 @@ if (!function_exists('toyocartv_category_url')) {
     }
 }
 
-if (!function_exists('toyocartv_home_products')) {
-    function toyocartv_home_products($args, $fallback_to_date = false) {
+if (!function_exists('shopmivo_home_products')) {
+    function shopmivo_home_products($args, $fallback_to_date = false) {
         if (!function_exists('wc_get_products')) {
             return [];
         }
@@ -54,28 +49,24 @@ if (!function_exists('toyocartv_home_products')) {
     }
 }
 
-if (!function_exists('toyocartv_product_collection_label')) {
-    function toyocartv_product_collection_label($product) {
+if (!function_exists('shopmivo_product_collection_label')) {
+    function shopmivo_product_collection_label($product) {
         if (!$product || !function_exists('wc_get_product_terms')) {
-            return __('Compatible-style accessory', 'dawp');
+            return __('Everyday essential', 'dawp');
         }
 
         $terms = wc_get_product_terms($product->get_id(), 'product_cat', ['fields' => 'all']);
 
-        foreach ($terms as $term) {
-            $name = strtolower($term->name);
-
-            if (strpos($name, 'tacoma') !== false || strpos($name, '4runner') !== false || strpos($name, 'fj cruiser') !== false || strpos($name, 'tundra') !== false) {
-                return $term->name;
-            }
+        if (!empty($terms) && !is_wp_error($terms)) {
+            return $terms[0]->name;
         }
 
-        return __('Compatible-style accessory', 'dawp');
+        return __('Everyday essential', 'dawp');
     }
 }
 
-if (!function_exists('toyocartv_product_card')) {
-    function toyocartv_product_card($product) {
+if (!function_exists('shopmivo_product_card')) {
+    function shopmivo_product_card($product) {
         if (!$product) {
             return;
         }
@@ -94,7 +85,7 @@ if (!function_exists('toyocartv_product_card')) {
                 ?>
             </a>
             <div class="tt-product-card__body">
-                <span class="tt-product-card__meta"><?php echo esc_html(toyocartv_product_collection_label($product)); ?></span>
+                <span class="tt-product-card__meta"><?php echo esc_html(shopmivo_product_collection_label($product)); ?></span>
                 <h3>
                     <a href="<?php echo esc_url($product->get_permalink()); ?>">
                         <?php echo esc_html($product->get_name()); ?>
@@ -112,8 +103,8 @@ if (!function_exists('toyocartv_product_card')) {
     }
 }
 
-if (!function_exists('toyocartv_home_reviews')) {
-    function toyocartv_home_reviews($limit = 3) {
+if (!function_exists('shopmivo_home_reviews')) {
+    function shopmivo_home_reviews($limit = 3) {
         if (!function_exists('get_comments')) {
             return [];
         }
@@ -135,8 +126,8 @@ if (!function_exists('toyocartv_home_reviews')) {
     }
 }
 
-if (!function_exists('toyocartv_review_initials')) {
-    function toyocartv_review_initials($name) {
+if (!function_exists('shopmivo_review_initials')) {
+    function shopmivo_review_initials($name) {
         $name  = trim((string) $name);
         $parts = preg_split('/\s+/', $name);
 
@@ -151,148 +142,189 @@ if (!function_exists('toyocartv_review_initials')) {
     }
 }
 
+if (!function_exists('shopmivo_icon')) {
+    function shopmivo_icon($name) {
+        $icons = [
+            'tools'     => '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/>',
+            'houseware' => '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
+            'vehicle'   => '<path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11"/><rect x="3" y="11" width="18" height="6" rx="2"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/>',
+            'gift'      => '<polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>',
+            'pet'       => '<circle cx="4.5" cy="9.5" r="2"/><circle cx="9" cy="5" r="2"/><circle cx="15" cy="5" r="2"/><circle cx="19.5" cy="9.5" r="2"/><path d="M12 12c-3.2 0-7.5 2.1-7.5 6.1A2.9 2.9 0 0 0 7.4 21c1.6 0 2.1-1 4.6-1s3 1 4.6 1a2.9 2.9 0 0 0 2.9-2.9c0-4-4.3-6.1-7.5-6.1z"/>',
+            'clothing'  => '<path d="M16 3l6 3-2 4-3-1v11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V9l-3 1-2-4 6-3a4 4 0 0 0 8 0z"/>',
+            'bag'       => '<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+            'grid'      => '<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>',
+            'clipboard' => '<path d="M8 4h8l2 3v13H6V7l2-3z"/><path d="M9 10h6"/><path d="M9 14h4"/><path d="M8 4v3h10"/>',
+            'tag'       => '<path d="M20.59 13.41L13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/>',
+        ];
+        return isset($icons[$name]) ? $icons[$name] : '';
+    }
+}
+
 $vehicle_collections = [
     [
-        'title' => 'Tacoma Accessories',
-        'copy'  => 'Interior, exterior, and driver lifestyle accessories for Tacoma-style truck owners.',
-        'slug'  => 'tacoma-accessories',
-        'image' => dawp_i0_image_url($card_image_base . 'home-card-tacoma.png', 560, 720),
+        'title' => 'Tools',
+        'copy'  => 'Hand tools, power tool accessories, and tool storage for home and garage projects.',
+        'slug'  => 'tools',
+        'icon'  => 'tools',
         'links' => [
-            ['Tacoma Interior', 'tacoma-interior'],
-            ['Tacoma Exterior', 'tacoma-exterior'],
-            ['Tacoma Merch', 'tacoma-merch'],
+            ['Hand Tools', 'hand-tools'],
+            ['Power Tool Accessories', 'power-tool-accessories'],
+            ['Tool Storage', 'tool-storage'],
         ],
     ],
     [
-        'title' => '4Runner Accessories',
-        'copy'  => 'Practical interior, exterior, and merch picks for 4Runner-style adventures.',
-        'slug'  => '4runner-accessories',
-        'image' => dawp_i0_image_url($card_image_base . 'home-card-4runner.png', 560, 720),
+        'title' => 'Houseware',
+        'copy'  => 'Kitchenware, home storage, and cleaning essentials for a well-run household.',
+        'slug'  => 'houseware',
+        'icon'  => 'houseware',
         'links' => [
-            ['4Runner Interior', '4runner-interior'],
-            ['4Runner Exterior', '4runner-exterior'],
-            ['4Runner Merch', '4runner-merch'],
+            ['Kitchenware', 'kitchenware'],
+            ['Home Storage', 'home-storage'],
+            ['Cleaning Essentials', 'cleaning-essentials'],
         ],
     ],
     [
-        'title' => 'FJ Cruiser Accessories',
-        'copy'  => 'Utility-focused add-ons and lifestyle merch for FJ Cruiser-style vehicles.',
-        'slug'  => 'fj-cruiser-accessories',
-        'image' => dawp_i0_image_url($card_image_base . 'home-card-fj-cruiser.png', 560, 720),
+        'title' => 'Vehicle Service',
+        'copy'  => 'Car care essentials, maintenance tools, and simple accessories for any vehicle.',
+        'slug'  => 'vehicle-service',
+        'icon'  => 'vehicle',
         'links' => [
-            ['FJ Cruiser Interior', 'fj-cruiser-interior'],
-            ['FJ Cruiser Exterior', 'fj-cruiser-exterior'],
-            ['FJ Cruiser Merch', 'fj-cruiser-merch'],
+            ['Car Care', 'car-care'],
+            ['Maintenance Tools', 'maintenance-tools'],
+            ['Interior & Exterior Accessories', 'interior-exterior-accessories'],
         ],
     ],
     [
-        'title' => 'Tundra Accessories',
-        'copy'  => 'Interior, exterior, and everyday accessories for Tundra-style truck owners.',
-        'slug'  => 'tundra-accessories',
-        'image' => dawp_i0_image_url($card_image_base . 'home-card-tundra.png', 560, 720),
+        'title' => 'Gift and Toy',
+        'copy'  => 'Toys, games, and gift-ready picks for kids and gift shoppers of every occasion.',
+        'slug'  => 'gift-and-toy',
+        'icon'  => 'gift',
         'links' => [
-            ['Tundra Interior', 'tundra-interior'],
-            ['Tundra Exterior', 'tundra-exterior'],
-            ['Tundra Merch', 'tundra-merch'],
+            ['Kids Toys', 'kids-toys'],
+            ['Games & Puzzles', 'games-puzzles'],
+            ['Gift Sets', 'gift-sets'],
+        ],
+    ],
+    [
+        'title' => 'Pet Supplies',
+        'copy'  => 'Food, accessories, and everyday essentials for dogs, cats, and other pets.',
+        'slug'  => 'pet-supplies',
+        'icon'  => 'pet',
+        'links' => [
+            ['Dog Supplies', 'dog-supplies'],
+            ['Cat Supplies', 'cat-supplies'],
+            ['Pet Accessories', 'pet-accessories'],
+        ],
+    ],
+    [
+        'title' => 'Clothing and Accessories',
+        'copy'  => 'Everyday apparel and accessories for men and women at value prices.',
+        'slug'  => 'clothing-accessories',
+        'icon'  => 'clothing',
+        'links' => [
+            ["Men's Clothing", 'mens-clothing'],
+            ["Women's Clothing", 'womens-clothing'],
+            ['Accessories', 'accessories'],
         ],
     ],
 ];
 
 $use_cards = [
     [
-        'title' => 'Interior Accessories',
-        'copy'  => 'Organizers, holders, storage add-ons, and comfort upgrades for daily driving.',
-        'cta'   => 'Shop Interior',
-        'slug'  => 'interior-accessories',
-        'image' => dawp_i0_image_url($card_image_base . 'home-card-interior.png', 760, 720),
+        'title' => 'Home & Garage Essentials',
+        'copy'  => 'Tools, storage, and houseware picks to keep every home project and household running.',
+        'cta'   => 'Shop Home & Garage',
+        'slug'  => 'tools',
+        'icon'  => 'tools',
     ],
     [
-        'title' => 'Exterior Accessories',
-        'copy'  => 'Simple exterior add-ons, guards, covers, and protective details for your vehicle.',
-        'cta'   => 'Shop Exterior',
-        'slug'  => 'exterior-accessories',
-        'image' => dawp_i0_image_url($card_image_base . 'home-card-exterior.png', 760, 720),
+        'title' => 'Gifts & Toys For Everyone',
+        'copy'  => 'Toys, games, and gift sets ready for birthdays, holidays, and every occasion.',
+        'cta'   => 'Shop Gifts & Toys',
+        'slug'  => 'gift-and-toy',
+        'icon'  => 'gift',
     ],
     [
-        'title' => 'Driver Lifestyle Merch',
-        'copy'  => 'Caps, shirts, stickers, keychains, and garage-friendly lifestyle picks.',
-        'cta'   => 'Shop Merch',
-        'slug'  => 'driver-merch',
-        'image' => dawp_i0_image_url($card_image_base . 'home-card-merch.png', 760, 720),
+        'title' => 'Pet Care Favorites',
+        'copy'  => 'Everyday food, accessories, and comfort items for dogs, cats, and other pets.',
+        'cta'   => 'Shop Pet Supplies',
+        'slug'  => 'pet-supplies',
+        'icon'  => 'pet',
     ],
 ];
 
-$new_arrivals = toyocartv_home_products([
-    'orderby' => 'date',
-    'order'   => 'DESC',
-]);
+$new_arrivals = shopmivo_home_products([
+    'orderby'  => 'date',
+    'order'    => 'DESC',
+    'category' => ['tools'],
+], true);
 
-$customer_favorites = toyocartv_home_products([
+$customer_favorites = shopmivo_home_products([
     'orderby' => 'popularity',
     'order'   => 'DESC',
 ], true);
 
-$customer_reviews = toyocartv_home_reviews(10);
+$customer_reviews = shopmivo_home_reviews(10);
 $sample_customer_reviews = [
     [
         'author'  => 'Michael Carter',
-        'product' => 'Interior Organizer',
+        'product' => 'Hand Tool Set',
         'rating'  => 5,
-        'text'    => 'The organizer keeps small items in place and makes the cabin feel cleaner during daily driving.',
+        'text'    => 'Solid everyday tool set at a fair price. Everything I needed for a weekend of small home repairs.',
     ],
     [
         'author'  => 'Sarah Nguyen',
-        'product' => 'Exterior Add-On',
+        'product' => 'Kitchen Storage Set',
         'rating'  => 5,
-        'text'    => 'The product details were easy to understand, and the accessory matched the practical look I wanted.',
+        'text'    => 'The product details were easy to understand, and the containers matched exactly what I expected.',
     ],
     [
         'author'  => 'David Miller',
-        'product' => 'Truck Storage Accessory',
+        'product' => 'Car Care Kit',
         'rating'  => 5,
-        'text'    => 'A useful upgrade for keeping everyday gear organized without making the vehicle feel crowded.',
+        'text'    => 'A useful kit for keeping the car clean without buying a dozen separate products.',
     ],
     [
         'author'  => 'Emily Johnson',
-        'product' => 'Driver Lifestyle Merch',
+        'product' => 'Kids Building Set',
         'rating'  => 4,
-        'text'    => 'Good everyday merch with a clean style. It works well as a small gift for a truck enthusiast.',
+        'text'    => 'Good quality toy with a clean design. It works well as a small birthday gift.',
     ],
     [
         'author'  => 'Chris Anderson',
-        'product' => 'Console Accessory',
+        'product' => 'Pet Bed',
         'rating'  => 5,
-        'text'    => 'Simple, practical, and easy to use. It helped reduce clutter around the center console.',
+        'text'    => 'Simple, comfortable, and easy to clean. Our dog took to it right away.',
     ],
     [
         'author'  => 'Jessica Brown',
-        'product' => 'Protective Exterior Detail',
+        'product' => "Men's Everyday T-Shirt",
         'rating'  => 5,
-        'text'    => 'The accessory gives the vehicle a more finished look while still feeling subtle and functional.',
+        'text'    => 'Great fit and fabric for the price. Ordered two more colors after the first one arrived.',
     ],
     [
         'author'  => 'Daniel Wilson',
-        'product' => 'Storage Tray',
+        'product' => 'Home Storage Bins',
         'rating'  => 4,
-        'text'    => 'Helpful for daily essentials like keys, cards, and cables. The cabin feels easier to manage.',
+        'text'    => 'Helpful for organizing the garage. Stack neatly and the sizing is accurate.',
     ],
     [
         'author'  => 'Amanda Lee',
-        'product' => 'Interior Upgrade',
+        'product' => 'Gift Set Bundle',
         'rating'  => 5,
-        'text'    => 'The fitment notes made shopping easier, and the accessory is a practical addition for regular use.',
+        'text'    => 'The product details made shopping easy, and the set felt like great value as a gift.',
     ],
     [
         'author'  => 'Ryan Thompson',
-        'product' => 'Garage-Friendly Merch',
+        'product' => 'Tool Storage Box',
         'rating'  => 5,
-        'text'    => 'Clean design and easy to pair with other truck lifestyle items. Nice addition to the collection.',
+        'text'    => 'Durable build and easy to organize. Nice addition to the garage setup.',
     ],
     [
         'author'  => 'Olivia Martinez',
-        'product' => 'Everyday Auto Accessory',
+        'product' => 'Cat Accessory Bundle',
         'rating'  => 5,
-        'text'    => 'A straightforward accessory that makes the vehicle more convenient without adding anything complicated.',
+        'text'    => 'A straightforward bundle that covered everything we needed without any extra hassle.',
     ],
 ];
 $using_sample_reviews = empty($customer_reviews);
@@ -300,11 +332,11 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 ?>
 
 <style>
-    .toyocartv-home {
+    .shopmivo-home {
         --tt-red: #D71920;
         --tt-red-dark: #A70F14;
-        --tt-black: #080808;
-        --tt-charcoal: #1F2933;
+        --tt-black: #161A1E;
+        --tt-charcoal: #2B3742;
         --tt-asphalt: #111827;
         --tt-silver: #E5E7EB;
         --tt-steel: #6B7280;
@@ -315,7 +347,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
         overflow: hidden;
     }
 
-    .toyocartv-home * {
+    .shopmivo-home * {
         box-sizing: border-box;
     }
 
@@ -476,12 +508,12 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
     .tt-hero:before {
         background:
-            linear-gradient(90deg, rgba(8, 8, 8, .96) 0%, rgba(8, 8, 8, .88) 36%, rgba(8, 8, 8, .34) 70%, rgba(8, 8, 8, .58) 100%),
-            url('<?php echo esc_url($hero_image); ?>') center right / cover no-repeat;
+            radial-gradient(1100px 620px at 82% 18%, rgba(215, 25, 32, .22), transparent 60%),
+            linear-gradient(115deg, #161A1E 0%, #111827 46%, #2B3742 100%);
     }
 
     .tt-hero:after {
-        background: linear-gradient(180deg, rgba(8, 8, 8, 0) 60%, #080808 100%);
+        background: linear-gradient(180deg, rgba(22, 26, 30, 0) 60%, #161A1E 100%);
     }
 
     .tt-hero__grid {
@@ -606,45 +638,52 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-vehicle-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .tt-vehicle-card {
         background: var(--tt-black);
         border-radius: 20px;
         color: var(--tt-white);
-        min-height: 360px;
+        min-height: 300px;
         overflow: hidden;
         position: relative;
         text-decoration: none;
     }
 
     .tt-vehicle-card:before {
-        background:
-            linear-gradient(180deg, rgba(8, 8, 8, .22) 0%, rgba(8, 8, 8, .64) 52%, rgba(8, 8, 8, .98) 100%),
-            linear-gradient(90deg, rgba(8, 8, 8, .78) 0%, rgba(8, 8, 8, .42) 54%, rgba(8, 8, 8, .16) 100%),
-            var(--tt-card-image, url('<?php echo esc_url($hero_image); ?>')) center / cover no-repeat;
+        background: linear-gradient(155deg, var(--tt-charcoal) 0%, var(--tt-black) 78%);
         content: "";
         inset: 0;
         position: absolute;
-        transform: scale(1.02);
         transition: transform .35s ease;
     }
 
-    .tt-vehicle-card:nth-child(2):before {
-        background-position: 70% center;
-    }
-
-    .tt-vehicle-card:nth-child(3):before {
-        background-position: 44% center;
-    }
-
-    .tt-vehicle-card:nth-child(4):before {
-        background-position: 88% center;
+    .tt-vehicle-card:nth-child(even):before {
+        background: linear-gradient(155deg, var(--tt-black) 0%, var(--tt-charcoal) 78%);
     }
 
     .tt-vehicle-card:hover:before {
-        transform: scale(1.08);
+        transform: scale(1.04);
+    }
+
+    .tt-vehicle-card__icon {
+        align-items: center;
+        background: rgba(215, 25, 32, .16);
+        border-radius: 14px;
+        color: var(--tt-red);
+        display: flex;
+        height: 52px;
+        justify-content: center;
+        margin: 24px 24px 0;
+        position: relative;
+        width: 52px;
+        z-index: 1;
+    }
+
+    .tt-vehicle-card__icon svg {
+        height: 26px;
+        width: 26px;
     }
 
     .tt-vehicle-card__content {
@@ -688,7 +727,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-sub-links span {
-        background: rgba(8, 8, 8, .34);
+        background: rgba(22, 26, 30, .34);
         border: 1px solid rgba(255, 255, 255, .42);
         border-radius: 999px;
         color: var(--tt-white);
@@ -750,11 +789,17 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-product-card h3 {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
         font-size: 16px;
         font-weight: 900;
+        line-clamp: 3;
         line-height: 1.34;
         margin: 0;
-        min-height: 44px;
+        min-height: 64px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .tt-product-card h3 a {
@@ -822,25 +867,38 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-use-card:before {
-        background:
-            linear-gradient(180deg, rgba(8, 8, 8, .04) 0%, rgba(8, 8, 8, .58) 54%, rgba(8, 8, 8, .95) 100%),
-            var(--tt-card-image, url('<?php echo esc_url($accessory_image); ?>')) center / cover no-repeat;
+        background: linear-gradient(155deg, var(--tt-charcoal) 0%, var(--tt-black) 82%);
         content: "";
         inset: 0;
         position: absolute;
         transition: transform .35s ease;
     }
 
-    .tt-use-card:nth-child(2):before {
-        background-position: 78% center;
-    }
-
-    .tt-use-card:nth-child(3):before {
-        background-position: 22% center;
+    .tt-use-card:nth-child(even):before {
+        background: linear-gradient(155deg, var(--tt-black) 0%, var(--tt-charcoal) 82%);
     }
 
     .tt-use-card:hover:before {
-        transform: scale(1.06);
+        transform: scale(1.04);
+    }
+
+    .tt-use-card__icon {
+        align-items: center;
+        background: rgba(215, 25, 32, .16);
+        border-radius: 14px;
+        color: var(--tt-red);
+        display: flex;
+        height: 52px;
+        justify-content: center;
+        margin: 28px 28px 0;
+        position: relative;
+        width: 52px;
+        z-index: 1;
+    }
+
+    .tt-use-card__icon svg {
+        height: 26px;
+        width: 26px;
     }
 
     .tt-use-card__body {
@@ -1064,23 +1122,29 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-feedback-card__media {
+        align-items: center;
         aspect-ratio: 16 / 10;
         background: rgba(255, 255, 255, .06);
         border-bottom: 1px solid rgba(255, 255, 255, .12);
+        display: flex;
+        justify-content: center;
         overflow: hidden;
     }
 
-    .tt-feedback-card__media img {
-        display: block;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        transition: transform .35s ease;
-        width: 100%;
+    .tt-feedback-card__media .tt-feedback-card__icon {
+        align-items: center;
+        background: rgba(215, 25, 32, .16);
+        border-radius: 16px;
+        color: var(--tt-red);
+        display: flex;
+        height: 64px;
+        justify-content: center;
+        width: 64px;
     }
 
-    .tt-feedback-card:hover .tt-feedback-card__media img {
-        transform: scale(1.04);
+    .tt-feedback-card__media .tt-feedback-card__icon svg {
+        height: 32px;
+        width: 32px;
     }
 
     .tt-feedback-card__body {
@@ -1227,8 +1291,8 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
     .tt-newsletter {
         background:
-            linear-gradient(180deg, rgba(8, 8, 8, .70), rgba(8, 8, 8, .92)),
-            url('<?php echo esc_url($accessory_image); ?>') center / cover no-repeat;
+            radial-gradient(720px 420px at 85% 0%, rgba(215, 25, 32, .28), transparent 62%),
+            linear-gradient(155deg, #161A1E 0%, #2B3742 100%);
         color: var(--tt-white);
     }
 
@@ -1309,8 +1373,8 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
         .tt-hero:before {
             background:
-                linear-gradient(180deg, rgba(8, 8, 8, .90) 0%, rgba(8, 8, 8, .82) 48%, rgba(8, 8, 8, .94) 100%),
-                url('<?php echo esc_url($hero_image); ?>') center right / cover no-repeat;
+                radial-gradient(720px 420px at 70% 0%, rgba(215, 25, 32, .22), transparent 60%),
+                linear-gradient(180deg, #161A1E 0%, #111827 55%, #2B3742 100%);
         }
 
         .tt-hero__grid {
@@ -1327,10 +1391,14 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
         }
 
         .tt-feature-strip,
-        .tt-product-grid,
         .tt-review-grid,
         .tt-trust-grid {
             grid-template-columns: 1fr;
+        }
+
+        .tt-product-grid {
+            gap: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .tt-product-grid--mobile-slider {
@@ -1432,55 +1500,58 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 </style>
 
-<div class="toyocartv-home">
+<div class="shopmivo-home">
     <section class="tt-hero">
         <div class="tt-container tt-hero__grid">
             <div>
-                <span class="tt-eyebrow"><?php esc_html_e('Independent Auto Accessories Store', 'dawp'); ?></span>
-                <h1 class="tt-heading"><?php esc_html_e('Car Accessories For Cleaner, Easier Everyday Drives', 'dawp'); ?></h1>
+                <span class="tt-eyebrow"><?php esc_html_e('Independent General Merchandise Store', 'dawp'); ?></span>
+                <h1 class="tt-heading"><?php esc_html_e('Everything You Need, All In One Place', 'dawp'); ?></h1>
                 <p class="tt-copy">
-                    <?php esc_html_e('Shop Tacoma, 4Runner, FJ Cruiser, and Tundra-style accessory collections designed for practical interior organization, exterior add-ons, and driver lifestyle upgrades.', 'dawp'); ?>
+                    <?php esc_html_e('Shop Tools, Houseware, Vehicle Service, Gift and Toy, Pet Supplies, and Clothing and Accessories — all at everyday low prices.', 'dawp'); ?>
                 </p>
                 <div class="tt-hero__actions">
-                    <a class="tt-button tt-button--primary" href="#vehicle-collections"><?php esc_html_e('Shop Vehicle Collections', 'dawp'); ?></a>
-                    <a class="tt-button tt-button--light-outline" href="<?php echo esc_url(toyocartv_category_url('interior-accessories')); ?>"><?php esc_html_e('Explore Interior Accessories', 'dawp'); ?></a>
+                    <a class="tt-button tt-button--primary" href="#shop-categories"><?php esc_html_e('Shop All Categories', 'dawp'); ?></a>
+                    <a class="tt-button tt-button--light-outline" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e("Explore Today's Picks", 'dawp'); ?></a>
                 </div>
                 <div class="tt-hero__trust" aria-label="<?php esc_attr_e('Store trust notes', 'dawp'); ?>">
                     <span><?php esc_html_e('Secure checkout', 'dawp'); ?></span>
                     <span><?php esc_html_e('Tracking included', 'dawp'); ?></span>
-                    <span><?php esc_html_e('30-day returns on eligible unused items', 'dawp'); ?></span>
+                    <span><?php esc_html_e('30-day returns on eligible items', 'dawp'); ?></span>
                 </div>
             </div>
 
             <aside class="tt-hero-panel" aria-label="<?php esc_attr_e('Homepage shopping summary', 'dawp'); ?>">
-                <span class="tt-hero-panel__label"><?php esc_html_e('Shop By Collection', 'dawp'); ?></span>
-                <strong class="tt-hero-panel__number">4</strong>
-                <p><?php esc_html_e('Tacoma, 4Runner, FJ Cruiser, and Tundra-style accessory collections built for practical interior, exterior, and driver lifestyle shopping.', 'dawp'); ?></p>
+                <span class="tt-hero-panel__label"><?php esc_html_e('Shop By Category', 'dawp'); ?></span>
+                <strong class="tt-hero-panel__number">6</strong>
+                <p><?php esc_html_e('Tools, Houseware, Vehicle Service, Gift and Toy, Pet Supplies, and Clothing and Accessories — everything sorted into one easy-to-shop store.', 'dawp'); ?></p>
             </aside>
         </div>
     </section>
 
     <div class="tt-container tt-feature-strip" aria-label="<?php esc_attr_e('Quick shopping links', 'dawp'); ?>">
-        <a href="<?php echo esc_url(toyocartv_category_url('interior-accessories')); ?>"><?php esc_html_e('Interior Organizers', 'dawp'); ?><span aria-hidden="true"></span></a>
-        <a href="<?php echo esc_url(toyocartv_category_url('exterior-accessories')); ?>"><?php esc_html_e('Exterior Add-Ons', 'dawp'); ?><span aria-hidden="true"></span></a>
-        <a href="<?php echo esc_url(toyocartv_category_url('driver-merch')); ?>"><?php esc_html_e('Driver Merch', 'dawp'); ?><span aria-hidden="true"></span></a>
+        <a href="<?php echo esc_url(shopmivo_category_url('tools')); ?>"><?php esc_html_e('Tools', 'dawp'); ?><span aria-hidden="true"></span></a>
+        <a href="<?php echo esc_url(shopmivo_category_url('houseware')); ?>"><?php esc_html_e('Houseware', 'dawp'); ?><span aria-hidden="true"></span></a>
+        <a href="<?php echo esc_url(shopmivo_category_url('pet-supplies')); ?>"><?php esc_html_e('Pet Supplies', 'dawp'); ?><span aria-hidden="true"></span></a>
         <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('New Arrivals', 'dawp'); ?><span aria-hidden="true"></span></a>
     </div>
 
-    <section id="vehicle-collections" class="tt-section">
+    <section id="shop-categories" class="tt-section">
         <div class="tt-container">
             <div class="tt-section-head">
                 <div class="tt-section-head__content">
-                    <span class="tt-eyebrow"><?php esc_html_e('Shop By Vehicle Collection', 'dawp'); ?></span>
-                    <h2 class="tt-heading"><?php esc_html_e('Start with your truck or SUV style', 'dawp'); ?></h2>
-                    <p class="tt-copy"><?php esc_html_e('Browse practical compatible-style accessory collections by vehicle model name, then review product details before ordering.', 'dawp'); ?></p>
+                    <span class="tt-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></span>
+                    <h2 class="tt-heading"><?php esc_html_e('Six categories, one easy store', 'dawp'); ?></h2>
+                    <p class="tt-copy"><?php esc_html_e('Browse everyday essentials by category, then review product details before ordering.', 'dawp'); ?></p>
                 </div>
                 <a class="tt-button tt-button--outline" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All Products', 'dawp'); ?></a>
             </div>
 
             <div class="tt-vehicle-grid">
                 <?php foreach ($vehicle_collections as $collection) : ?>
-                    <a class="tt-vehicle-card" href="<?php echo esc_url(toyocartv_category_url($collection['slug'])); ?>" style="--tt-card-image: url('<?php echo esc_url($collection['image']); ?>');">
+                    <a class="tt-vehicle-card" href="<?php echo esc_url(shopmivo_category_url($collection['slug'])); ?>">
+                        <div class="tt-vehicle-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon($collection['icon']); ?></svg>
+                        </div>
                         <div class="tt-vehicle-card__content">
                             <h3><?php echo esc_html($collection['title']); ?></h3>
                             <p><?php echo esc_html($collection['copy']); ?></p>
@@ -1501,7 +1572,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             <div class="tt-section-head">
                 <div class="tt-section-head__content">
                     <span class="tt-eyebrow"><?php esc_html_e('New Arrivals', 'dawp'); ?></span>
-                    <h2 class="tt-heading"><?php esc_html_e('Fresh accessories for your next drive', 'dawp'); ?></h2>
+                    <h2 class="tt-heading"><?php esc_html_e('Fresh picks across every category', 'dawp'); ?></h2>
                 </div>
                 <a class="tt-button tt-button--dark" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All Products', 'dawp'); ?></a>
             </div>
@@ -1509,12 +1580,12 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             <div class="tt-product-grid">
                 <?php if (!empty($new_arrivals)) : ?>
                     <?php foreach ($new_arrivals as $product) : ?>
-                        <?php toyocartv_product_card($product); ?>
+                        <?php shopmivo_product_card($product); ?>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <div class="tt-empty-products">
                         <strong><?php esc_html_e('Products are being added to this collection.', 'dawp'); ?></strong>
-                        <?php esc_html_e('Use the vehicle and accessory category links to prepare the store structure while published products are loading in WooCommerce.', 'dawp'); ?>
+                        <?php esc_html_e('Use the category links to prepare the store structure while published products are loading in WooCommerce.', 'dawp'); ?>
                     </div>
                 <?php endif; ?>
             </div>
@@ -1525,18 +1596,21 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
         <div class="tt-container">
             <div class="tt-section-head">
                 <div class="tt-section-head__content">
-                    <span class="tt-eyebrow"><?php esc_html_e('Shop By Use', 'dawp'); ?></span>
-                    <h2 class="tt-heading"><?php esc_html_e('Find the right upgrade for the way you drive', 'dawp'); ?></h2>
+                    <span class="tt-eyebrow"><?php esc_html_e('Shop By Need', 'dawp'); ?></span>
+                    <h2 class="tt-heading"><?php esc_html_e('Find the right pick for what you need today', 'dawp'); ?></h2>
                 </div>
-                <div class="tt-use-actions" aria-label="<?php esc_attr_e('Shop by use slider controls', 'dawp'); ?>">
-                    <button type="button" data-tt-use-slide="prev" aria-label="<?php esc_attr_e('Previous shop by use slide', 'dawp'); ?>">&lsaquo;</button>
-                    <button type="button" data-tt-use-slide="next" aria-label="<?php esc_attr_e('Next shop by use slide', 'dawp'); ?>">&rsaquo;</button>
+                <div class="tt-use-actions" aria-label="<?php esc_attr_e('Shop by need slider controls', 'dawp'); ?>">
+                    <button type="button" data-tt-use-slide="prev" aria-label="<?php esc_attr_e('Previous shop by need slide', 'dawp'); ?>">&lsaquo;</button>
+                    <button type="button" data-tt-use-slide="next" aria-label="<?php esc_attr_e('Next shop by need slide', 'dawp'); ?>">&rsaquo;</button>
                 </div>
             </div>
 
             <div class="tt-use-grid" data-tt-use-track>
                 <?php foreach ($use_cards as $card) : ?>
-                    <a class="tt-use-card" href="<?php echo esc_url(toyocartv_category_url($card['slug'])); ?>" style="--tt-card-image: url('<?php echo esc_url($card['image']); ?>');">
+                    <a class="tt-use-card" href="<?php echo esc_url(shopmivo_category_url($card['slug'])); ?>">
+                        <div class="tt-use-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon($card['icon']); ?></svg>
+                        </div>
                         <div class="tt-use-card__body">
                             <h3><?php echo esc_html($card['title']); ?></h3>
                             <p><?php echo esc_html($card['copy']); ?></p>
@@ -1553,15 +1627,15 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             <div class="tt-section-head">
                 <div class="tt-section-head__content">
                     <span class="tt-eyebrow"><?php esc_html_e('Customer Favorites', 'dawp'); ?></span>
-                    <h2 class="tt-heading"><?php esc_html_e('Popular picks for truck and SUV owners', 'dawp'); ?></h2>
+                    <h2 class="tt-heading"><?php esc_html_e('Popular picks across every category', 'dawp'); ?></h2>
                 </div>
-                <a class="tt-button tt-button--outline" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Popular Accessories', 'dawp'); ?></a>
+                <a class="tt-button tt-button--outline" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Popular Picks', 'dawp'); ?></a>
             </div>
 
             <div class="tt-product-grid<?php echo !empty($customer_favorites) ? ' tt-product-grid--mobile-slider' : ''; ?>">
                 <?php if (!empty($customer_favorites)) : ?>
                     <?php foreach ($customer_favorites as $product) : ?>
-                        <?php toyocartv_product_card($product); ?>
+                        <?php shopmivo_product_card($product); ?>
                     <?php endforeach; ?>
                 <?php else : ?>
                     <div class="tt-empty-products">
@@ -1577,86 +1651,58 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
         <div class="tt-container tt-feedback">
             <div>
                 <span class="tt-eyebrow"><?php esc_html_e('Customer Feedback', 'dawp'); ?></span>
-                <h2 class="tt-heading"><?php esc_html_e('What drivers look for in everyday auto accessories', 'dawp'); ?></h2>
-                <p class="tt-copy"><?php esc_html_e('Truck and SUV owners shop for accessories that are practical, easy to understand, and simple to use. These feedback areas can be replaced with verified customer reviews as the store grows.', 'dawp'); ?></p>
+                <h2 class="tt-heading"><?php esc_html_e('What shoppers look for in an everyday general store', 'dawp'); ?></h2>
+                <p class="tt-copy"><?php esc_html_e('Shoppers come to Shopmivo for products that are practical, easy to understand, and simple to buy. These feedback areas can be replaced with verified customer reviews as the store grows.', 'dawp'); ?></p>
                 <div class="tt-slider-controls" aria-label="<?php esc_attr_e('Feedback slider controls', 'dawp'); ?>">
                     <button type="button" data-tt-slide="prev" aria-label="<?php esc_attr_e('Previous feedback slide', 'dawp'); ?>">&lsaquo;</button>
                     <button type="button" data-tt-slide="next" aria-label="<?php esc_attr_e('Next feedback slide', 'dawp'); ?>">&rsaquo;</button>
                 </div>
-                <a class="tt-button tt-button--primary" href="<?php echo esc_url($shop_url); ?>" style="margin-top: 28px;"><?php esc_html_e('Shop Popular Accessories', 'dawp'); ?></a>
+                <a class="tt-button tt-button--primary" href="<?php echo esc_url($shop_url); ?>" style="margin-top: 28px;"><?php esc_html_e('Shop Popular Picks', 'dawp'); ?></a>
             </div>
 
             <div class="tt-feedback-track" data-tt-feedback-track>
                 <article class="tt-feedback-card">
                     <div class="tt-feedback-card__media">
-                        <?php
-                        echo dawp_responsive_image($card_image_base . 'home-feedback-organization.png', [
-                            'alt'           => __('Interior organizer and storage accessories arranged for a vehicle', 'dawp'),
-                            'width'         => 640,
-                            'height'        => 400,
-                            'srcset_widths' => [320, 480, 640],
-                            'sizes'         => '(max-width: 760px) 86vw, (max-width: 1100px) 50vw, 640px',
-                            'loading'       => 'lazy',
-                        ]);
-                        ?>
+                        <div class="tt-feedback-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon('bag'); ?></svg>
+                        </div>
                     </div>
                     <div class="tt-feedback-card__body">
-                        <span><?php esc_html_e('Easy Organization', 'dawp'); ?></span>
-                        <p><?php esc_html_e('Interior organizers and storage accessories help keep daily driving cleaner and less cluttered.', 'dawp'); ?></p>
+                        <span><?php esc_html_e('Easy Everyday Shopping', 'dawp'); ?></span>
+                        <p><?php esc_html_e('One simple checkout for tools, houseware, and everything in between, without shopping five different stores.', 'dawp'); ?></p>
                     </div>
                 </article>
                 <article class="tt-feedback-card">
                     <div class="tt-feedback-card__media">
-                        <?php
-                        echo dawp_responsive_image($card_image_base . 'home-feedback-addons.png', [
-                            'alt'           => __('Truck and SUV accessories staged outside a garage', 'dawp'),
-                            'width'         => 640,
-                            'height'        => 400,
-                            'srcset_widths' => [320, 480, 640],
-                            'sizes'         => '(max-width: 760px) 86vw, (max-width: 1100px) 50vw, 640px',
-                            'loading'       => 'lazy',
-                        ]);
-                        ?>
+                        <div class="tt-feedback-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon('grid'); ?></svg>
+                        </div>
                     </div>
                     <div class="tt-feedback-card__body">
-                        <span><?php esc_html_e('Practical Add-Ons', 'dawp'); ?></span>
-                        <p><?php esc_html_e('Simple exterior and interior add-ons make vehicle upgrades easier to shop and understand.', 'dawp'); ?></p>
+                        <span><?php esc_html_e('One Store, Every Category', 'dawp'); ?></span>
+                        <p><?php esc_html_e('Tools, houseware, pet supplies, and more organized clearly so nothing gets lost in a giant catalog.', 'dawp'); ?></p>
                     </div>
                 </article>
                 <article class="tt-feedback-card">
                     <div class="tt-feedback-card__media">
-                        <?php
-                        echo dawp_responsive_image($card_image_base . 'home-feedback-details.png', [
-                            'alt'           => __('Auto accessory product details and organized parts on a work surface', 'dawp'),
-                            'width'         => 640,
-                            'height'        => 400,
-                            'srcset_widths' => [320, 480, 640],
-                            'sizes'         => '(max-width: 760px) 86vw, (max-width: 1100px) 50vw, 640px',
-                            'loading'       => 'lazy',
-                        ]);
-                        ?>
+                        <div class="tt-feedback-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon('clipboard'); ?></svg>
+                        </div>
                     </div>
                     <div class="tt-feedback-card__body">
                         <span><?php esc_html_e('Clear Product Details', 'dawp'); ?></span>
-                        <p><?php esc_html_e('Compatibility notes, product photos, and installation details help customers order with more confidence.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Sizing, materials, and included items are listed clearly so customers can order with confidence.', 'dawp'); ?></p>
                     </div>
                 </article>
                 <article class="tt-feedback-card">
                     <div class="tt-feedback-card__media">
-                        <?php
-                        echo dawp_responsive_image($card_image_base . 'home-feedback-lifestyle.png', [
-                            'alt'           => __('Driver lifestyle merch and vehicle accessories displayed near a truck', 'dawp'),
-                            'width'         => 640,
-                            'height'        => 400,
-                            'srcset_widths' => [320, 480, 640],
-                            'sizes'         => '(max-width: 760px) 86vw, (max-width: 1100px) 50vw, 640px',
-                            'loading'       => 'lazy',
-                        ]);
-                        ?>
+                        <div class="tt-feedback-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon('tag'); ?></svg>
+                        </div>
                     </div>
                     <div class="tt-feedback-card__body">
-                        <span><?php esc_html_e('Driver Lifestyle', 'dawp'); ?></span>
-                        <p><?php esc_html_e('Merch and small accessories are easy gift ideas for truck and SUV enthusiasts.', 'dawp'); ?></p>
+                        <span><?php esc_html_e('Value You Can Trust', 'dawp'); ?></span>
+                        <p><?php esc_html_e('Everyday low prices across every category, from tools and toys to pet supplies and clothing.', 'dawp'); ?></p>
                     </div>
                 </article>
             </div>
@@ -1668,9 +1714,9 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             <div class="tt-section-head">
                 <div class="tt-section-head__content">
                     <span class="tt-eyebrow"><?php esc_html_e('Customer Reviews', 'dawp'); ?></span>
-                    <h2 class="tt-heading"><?php esc_html_e('What customers say about practical accessories', 'dawp'); ?></h2>
+                    <h2 class="tt-heading"><?php esc_html_e('What customers say about shopping at Shopmivo', 'dawp'); ?></h2>
                     <?php if ($using_sample_reviews) : ?>
-                        <p class="tt-copy"><?php esc_html_e('See what customers value most in practical truck and SUV accessories. Approved WooCommerce product reviews will replace these homepage examples automatically when available.', 'dawp'); ?></p>
+                        <p class="tt-copy"><?php esc_html_e('See what customers value most across every category. Approved WooCommerce product reviews will replace these homepage examples automatically when available.', 'dawp'); ?></p>
                     <?php else : ?>
                         <p class="tt-copy"><?php esc_html_e('Browse up to 10 approved WooCommerce product reviews. The slider shows three reviews first on desktop, then scrolls horizontally for the rest.', 'dawp'); ?></p>
                     <?php endif; ?>
@@ -1705,7 +1751,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
                     ?>
                     <article class="tt-review-card">
                         <div class="tt-review-card__head">
-                            <div class="tt-review-card__avatar" aria-hidden="true"><?php echo esc_html(toyocartv_review_initials($review_author)); ?></div>
+                            <div class="tt-review-card__avatar" aria-hidden="true"><?php echo esc_html(shopmivo_review_initials($review_author)); ?></div>
                             <div>
                                 <h3><?php echo esc_html($review_author); ?></h3>
                                 <?php if ($review_product_name) : ?>
@@ -1770,24 +1816,22 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
                 <article class="tt-trust-card">
                     <div class="tt-trust-card__icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M8 4h8l2 3v13H6V7l2-3z"/>
-                            <path d="M9 10h6"/>
-                            <path d="M9 14h4"/>
-                            <path d="M8 4v3h10"/>
+                            <path d="M20.59 13.41L13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
+                            <circle cx="7" cy="7" r="1.5"/>
                         </svg>
                     </div>
-                    <h3><?php esc_html_e('Compatibility Notes', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Review product details and fitment notes before ordering.', 'dawp'); ?></p>
+                    <h3><?php esc_html_e('Everyday Low Prices', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Quality products at prices that make sense for every budget.', 'dawp'); ?></p>
                 </article>
             </div>
 
             <div class="tt-final">
-                <section class="tt-about-panel" aria-labelledby="toyocartv-about-heading">
-                    <span class="tt-eyebrow"><?php esc_html_e('About ToyocarTV', 'dawp'); ?></span>
-                    <h3 id="toyocartv-about-heading"><?php esc_html_e('Built for truck and SUV accessory shoppers.', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('ToyocarTV is an independent auto accessories store built for drivers who want practical interior, exterior, and lifestyle accessories organized by vehicle collection.', 'dawp'); ?></p>
+                <section class="tt-about-panel" aria-labelledby="shopmivo-about-heading">
+                    <span class="tt-eyebrow"><?php esc_html_e('About Shopmivo', 'dawp'); ?></span>
+                    <h3 id="shopmivo-about-heading"><?php esc_html_e('Built for everyday, one-stop shoppers.', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Shopmivo is an independent general merchandise store built for households who want tools, houseware, vehicle service essentials, gifts and toys, pet supplies, and clothing — all in one place.', 'dawp'); ?></p>
                     <div class="tt-disclaimer">
-                        <?php esc_html_e('ToyocarTV is an independent auto accessories store and is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer. Vehicle model names are used only to help customers identify compatible-style product collections.', 'dawp'); ?>
+                        <?php esc_html_e('Shopmivo is an independent general merchandise store and is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer.', 'dawp'); ?>
                     </div>
                     <div class="tt-policy-links">
                         <a href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Us', 'dawp'); ?></a>
@@ -1797,13 +1841,13 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
                     </div>
                 </section>
 
-                <section class="tt-newsletter" aria-labelledby="toyocartv-newsletter-heading">
-                    <span class="tt-eyebrow"><?php esc_html_e('Garage Updates', 'dawp'); ?></span>
-                    <h3 id="toyocartv-newsletter-heading"><?php esc_html_e('Get new accessory drops and garage updates', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Join the list for new arrivals, vehicle collection updates, and practical accessory picks.', 'dawp'); ?></p>
+                <section class="tt-newsletter" aria-labelledby="shopmivo-newsletter-heading">
+                    <span class="tt-eyebrow"><?php esc_html_e('Shopmivo Deals', 'dawp'); ?></span>
+                    <h3 id="shopmivo-newsletter-heading"><?php esc_html_e('Get new arrivals and everyday deals', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Join the list for new arrivals, seasonal picks, and deals across every category.', 'dawp'); ?></p>
                     <form id="newsletter-form">
-                        <label class="screen-reader-text" for="toyocartv-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-                        <input id="toyocartv-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Enter your email', 'dawp'); ?>" required>
+                        <label class="screen-reader-text" for="shopmivo-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
+                        <input id="shopmivo-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Enter your email', 'dawp'); ?>" required>
                         <button class="tt-button tt-button--primary" type="submit"><?php esc_html_e('Sign Up', 'dawp'); ?></button>
                     </form>
                     <div id="newsletter-msg" role="status" aria-live="polite"></div>

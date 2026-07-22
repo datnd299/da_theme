@@ -10,7 +10,7 @@
             <span class="track-order-kicker"><?php esc_html_e('Order Status', 'dawp'); ?></span>
             <h1 class="track-order-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
             <p class="track-order-hero__text">
-                <?php esc_html_e('Use your order number and checkout email to view the latest available ToyocarTV order status.', 'dawp'); ?>
+                <?php esc_html_e('Use your order number and checkout email to view the latest available Shopmivo order status.', 'dawp'); ?>
             </p>
         </div>
     </header>
@@ -42,7 +42,7 @@
             </div>
             <p class="track-order-help__text">
                 <?php esc_html_e('If you have trouble finding tracking details, email ', 'dawp'); ?>
-                <a href="mailto:support@toyocartv.com">support@toyocartv.com</a>
+                <a href="mailto:support@shopmivo.com">support@shopmivo.com</a>
                 <?php esc_html_e(' with your order number and the email address used at checkout.', 'dawp'); ?>
             </p>
         </section>

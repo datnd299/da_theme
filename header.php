@@ -25,13 +25,13 @@ $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalin
 $nav_items     = dawp_main_menu_items();
 ?>
 
-<div class="hidden md:flex bg-[#080808] text-white py-1.5">
+<div class="hidden md:flex bg-[#161A1E] text-white py-1.5">
     <div class="max-w-[1280px] w-full mx-auto px-6 flex items-center justify-center gap-6 text-xs font-semibold text-white/90">
-        <span><?php esc_html_e('Independent auto accessories store. Secure checkout, tracking included, 30-day returns on eligible unused items.', 'dawp'); ?></span>
+        <span><?php esc_html_e('Everything you need, every day. Secure checkout, tracking included, 30-day returns on eligible items.', 'dawp'); ?></span>
     </div>
 </div>
 
-<header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-[#080808] shadow-sm border-b border-white/10" role="banner">
+<header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-[#161A1E] shadow-sm border-b border-white/10" role="banner">
     <div class="max-w-[1280px] mx-auto px-4 lg:px-6 h-14 lg:h-16 flex items-center justify-between gap-3">
         <button id="menu-toggle"
                 class="flex lg:hidden items-center justify-center w-10 h-10 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-colors shrink-0"
@@ -43,15 +43,8 @@ $nav_items     = dawp_main_menu_items();
             </svg>
         </button>
 
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="shrink-0 flex items-center gap-3" aria-label="ToyocarTV">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/toyocartv-logo.svg'); ?>"
-                 alt="ToyocarTV"
-                 width="282"
-                 height="72"
-                 class="h-8 w-auto"
-                 loading="eager"
-                 decoding="async"
-                 fetchpriority="high">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="shrink-0 flex items-center" aria-label="Shopmivo">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shopmivo_logo.png'); ?>" alt="Shopmivo" class="h-8 lg:h-9 w-auto">
         </a>
 
         <nav class="hidden lg:flex items-center gap-0.5 flex-1 px-4" aria-label="<?php esc_attr_e('Main Navigation', 'dawp'); ?>">
@@ -72,7 +65,7 @@ $nav_items     = dawp_main_menu_items();
                 <input type="search"
                        name="s"
                        value="<?php echo esc_attr(get_search_query()); ?>"
-                       placeholder="<?php esc_attr_e('Search accessories...', 'dawp'); ?>"
+                       placeholder="<?php esc_attr_e('Search everything...', 'dawp'); ?>"
                        class="w-full h-9 pl-4 pr-10 text-sm bg-white/12 border border-white/25 rounded-md text-white placeholder:text-white/60 focus:outline-none focus:border-white focus:bg-white/18 transition-colors">
                 <button type="submit" class="absolute right-0 top-0 h-9 w-9 flex items-center justify-center text-white/65 hover:text-white transition-colors" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -111,7 +104,7 @@ $nav_items     = dawp_main_menu_items();
     <div id="mobile-search-bar" class="hidden lg:hidden border-t border-white/15 px-4 py-3 bg-[#111827]">
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="relative">
             <input type="hidden" name="post_type" value="product">
-            <input type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search accessories...', 'dawp'); ?>" class="w-full h-10 pl-4 pr-10 text-sm bg-white/15 border border-white/25 rounded-md text-white placeholder:text-white/70 focus:outline-none focus:border-white transition-colors">
+            <input type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search everything...', 'dawp'); ?>" class="w-full h-10 pl-4 pr-10 text-sm bg-white/15 border border-white/25 rounded-md text-white placeholder:text-white/70 focus:outline-none focus:border-white transition-colors">
             <button type="submit" class="absolute right-0 top-0 h-10 w-10 flex items-center justify-center text-white/65" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
@@ -123,10 +116,10 @@ $nav_items     = dawp_main_menu_items();
 
 <div id="drawer-overlay" class="fixed inset-0 z-40 bg-black/55" aria-hidden="true"></div>
 
-<aside id="mobile-drawer" class="fixed top-0 left-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm bg-[#080808] overflow-y-auto shadow-2xl" aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
+<aside id="mobile-drawer" class="fixed top-0 left-0 z-50 h-full w-[calc(100%-4rem)] max-w-sm bg-[#161A1E] overflow-y-auto shadow-2xl" aria-label="<?php esc_attr_e('Mobile Navigation', 'dawp'); ?>">
     <div class="flex items-center justify-between px-4 h-14 border-b border-white/10">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-3">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/toyocartv-logo.svg'); ?>" alt="ToyocarTV" width="282" height="72" class="h-9 w-auto" loading="lazy" decoding="async">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/shopmivo_logo.png'); ?>" alt="Shopmivo" class="h-8 w-auto">
         </a>
         <button id="drawer-close" class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white hover:bg-white/10 rounded-md transition-colors" aria-label="<?php esc_attr_e('Close menu', 'dawp'); ?>">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -150,7 +143,7 @@ $nav_items     = dawp_main_menu_items();
     </nav>
 
     <div class="px-5 py-5 border-t border-white/10 text-xs text-white/55 leading-relaxed">
-        <?php esc_html_e('ToyocarTV is an independent auto accessories store and is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer.', 'dawp'); ?>
+        <?php esc_html_e('Shopmivo is an independent general merchandise store and is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer.', 'dawp'); ?>
     </div>
 </aside>
 

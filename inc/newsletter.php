@@ -14,13 +14,13 @@ function dawp_newsletter_subscribe() {
 
     $site_name = get_bloginfo('name');
     $subject   = 'Thank you for joining ' . $site_name . '!';
-    $message   = "Hi there,\n\nThank you for joining ToyocarTV updates.\n\nYou'll hear about new accessory drops, vehicle collection updates, and practical driver lifestyle picks.\n\nThe " . $site_name . " Team";
+    $message   = "Hi there,\n\nThank you for joining Shopmivo updates.\n\nYou'll hear about new arrivals, seasonal picks, and deals across every category.\n\nThe " . $site_name . " Team";
     $headers   = ['Content-Type: text/plain; charset=UTF-8'];
 
     $sent = wp_mail($email, $subject, $message, $headers);
 
     if ($sent) {
-        wp_send_json_success(['message' => 'Thank you for joining ToyocarTV updates. Please check your inbox.']);
+        wp_send_json_success(['message' => 'Thank you for joining Shopmivo updates. Please check your inbox.']);
     } else {
         wp_send_json_error(['message' => 'Something went wrong. Please try again later.']);
     }

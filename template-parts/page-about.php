@@ -2,35 +2,19 @@
 /**
  * Template Part: About Us
  */
-
-$theme_uri                = get_template_directory_uri();
-$hero_image               = $theme_uri . '/assets/img/toyocartv/toyocartv-hero.png';
-$accessory_image          = $theme_uri . '/assets/img/toyocartv/toyocartv-accessories.png';
 ?>
 
 <section class="bg-white">
-    <div class="relative min-h-[520px] overflow-hidden bg-[#080808]">
-        <?php
-        echo dawp_responsive_image($hero_image, [
-            'alt'             => __('Truck and SUV accessory lifestyle scene', 'dawp'),
-            'class'           => 'absolute inset-0 h-full w-full object-cover opacity-55',
-            'width'           => 1672,
-            'height'          => 941,
-            'srcset_widths'   => [480, 768, 1180, 1440, 1672],
-            'sizes'           => '100vw',
-            'loading'         => 'eager',
-            'fetchpriority'   => 'high',
-        ]);
-        ?>
-        <div class="absolute inset-0 bg-gradient-to-r from-[#080808] via-[#080808]/85 to-[#080808]/35"></div>
+    <div class="relative min-h-[520px] overflow-hidden bg-[#161A1E]">
+        <div class="absolute inset-0" style="background: radial-gradient(1100px 620px at 80% 15%, rgba(215,25,32,.24), transparent 60%), linear-gradient(120deg, #161A1E 0%, #111827 45%, #2B3742 100%);"></div>
         <div class="relative mx-auto flex min-h-[520px] w-[min(100%-32px,1180px)] items-center py-20">
             <div class="max-w-3xl">
-                <span class="mb-5 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('About ToyocarTV', 'dawp'); ?></span>
+                <span class="mb-5 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('About Shopmivo', 'dawp'); ?></span>
                 <h1 class="font-heading text-5xl font-black uppercase leading-none text-white md:text-7xl">
-                    <?php esc_html_e('Built For Truck And SUV Accessory Shoppers', 'dawp'); ?>
+                    <?php esc_html_e('Built For Everyday, One-Stop Shoppers', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg leading-8 text-white/80">
-                    <?php esc_html_e('ToyocarTV is an independent auto accessories store built for drivers who want practical interior, exterior, and lifestyle accessories organized by vehicle collection.', 'dawp'); ?>
+                    <?php esc_html_e('Shopmivo is an independent general merchandise store built for households who want tools, houseware, vehicle service essentials, gifts and toys, pet supplies, and clothing — all in one place.', 'dawp'); ?>
                 </p>
             </div>
         </div>
@@ -41,34 +25,24 @@ $accessory_image          = $theme_uri . '/assets/img/toyocartv/toyocartv-access
             <div>
                 <span class="mb-4 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('Independent Store', 'dawp'); ?></span>
                 <h2 class="font-heading text-4xl font-black uppercase leading-tight text-[#111827] md:text-5xl">
-                    <?php esc_html_e('Practical parts, clear collections, no official-brand claims.', 'dawp'); ?>
+                    <?php esc_html_e('One catalog, six categories, no official-brand claims.', 'dawp'); ?>
                 </h2>
                 <div class="mt-6 space-y-5 text-base leading-8 text-[#6B7280]">
-                    <p><?php esc_html_e('The store is organized around Tacoma, 4Runner, FJ Cruiser, and Tundra-style collections so customers can start with the vehicle style they shop for, then review each product page before ordering.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('Our focus is everyday usefulness: cabin organization, storage, protective exterior details, small garage accessories, and driver lifestyle merch that makes shopping straightforward.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('Vehicle model names are used only to describe compatible-style shopping collections. Product details, dimensions, materials, and installation notes should always be checked before purchase.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('The store is organized around six main categories — Tools, Houseware, Vehicle Service, Gift and Toy, Pet Supplies, and Clothing and Accessories — so customers can start with the category they need, then review each product page before ordering.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Our focus is everyday usefulness: practical tools, household essentials, simple vehicle care, gift-ready picks, pet care items, and everyday apparel that makes shopping straightforward.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Product details, dimensions, materials, and included items should always be checked on the product page before purchase.', 'dawp'); ?></p>
                 </div>
             </div>
             <div class="rounded-2xl border border-[#E5E7EB] bg-[#F7F8FA] p-5 shadow-card">
-                <?php
-                echo dawp_responsive_image($accessory_image, [
-                    'alt'           => __('Auto accessories product scene', 'dawp'),
-                    'class'         => 'aspect-[4/3] w-full rounded-xl object-cover',
-                    'width'         => 920,
-                    'height'        => 690,
-                    'srcset_widths' => [360, 560, 768, 920],
-                    'sizes'         => '(max-width: 1023px) calc(100vw - 32px), 520px',
-                    'loading'       => 'lazy',
-                ]);
-                ?>
+                <div class="aspect-[4/3] w-full rounded-xl" style="background: linear-gradient(150deg, #2B3742 0%, #161A1E 100%);"></div>
                 <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
                     <div class="rounded-lg bg-white p-4">
-                        <strong class="block text-[#111827]"><?php esc_html_e('Interior', 'dawp'); ?></strong>
-                        <span class="text-[#6B7280]"><?php esc_html_e('Organizers and daily-use upgrades', 'dawp'); ?></span>
+                        <strong class="block text-[#111827]"><?php esc_html_e('Tools & Houseware', 'dawp'); ?></strong>
+                        <span class="text-[#6B7280]"><?php esc_html_e('Everyday home and garage essentials', 'dawp'); ?></span>
                     </div>
                     <div class="rounded-lg bg-white p-4">
-                        <strong class="block text-[#111827]"><?php esc_html_e('Exterior', 'dawp'); ?></strong>
-                        <span class="text-[#6B7280]"><?php esc_html_e('Simple add-ons and protection', 'dawp'); ?></span>
+                        <strong class="block text-[#111827]"><?php esc_html_e('Gifts & Pet Supplies', 'dawp'); ?></strong>
+                        <span class="text-[#6B7280]"><?php esc_html_e('Easy picks for family and pets', 'dawp'); ?></span>
                     </div>
                 </div>
             </div>
@@ -84,10 +58,10 @@ $accessory_image          = $theme_uri . '/assets/img/toyocartv/toyocartv-access
             <div class="-mx-4 grid grid-flow-col grid-cols-none auto-cols-[minmax(260px,86%)] gap-5 overflow-x-auto px-4 pb-5 scroll-px-4 snap-x snap-mandatory md:mx-0 md:grid-flow-row md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4">
                 <?php
                 $values = [
-                    ['Clear Collections', 'Shop by vehicle collection or by use: interior, exterior, and driver lifestyle merch.'],
-                    ['Compatibility Notes', 'Review product details and fitment notes before ordering any compatible-style item.'],
+                    ['Clear Categories', 'Shop by category or by need: home & garage, gifts & toys, or pet care.'],
+                    ['Everyday Low Prices', 'Review product details and pricing before ordering any item.'],
                     ['Tracking Included', 'Tracking details are provided once your order ships.'],
-                    ['30-Day Returns', 'Eligible unused, uninstalled items may be returned within 30 days of delivery.'],
+                    ['30-Day Returns', 'Eligible unused items may be returned within 30 days of delivery.'],
                 ];
                 foreach ($values as $value) :
                 ?>
@@ -102,17 +76,17 @@ $accessory_image          = $theme_uri . '/assets/img/toyocartv/toyocartv-access
     </div>
 
     <div class="mx-auto w-[min(100%-32px,1180px)] py-16 lg:py-20">
-        <div class="rounded-2xl bg-[#080808] p-8 text-white lg:p-12">
+        <div class="rounded-2xl bg-[#161A1E] p-8 text-white lg:p-12">
             <div class="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
                 <div>
                     <span class="mb-4 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('Important Disclaimer', 'dawp'); ?></span>
-                    <h2 class="font-heading text-3xl font-black uppercase md:text-4xl"><?php esc_html_e('Independent auto accessories store.', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-3xl font-black uppercase md:text-4xl"><?php esc_html_e('Independent general merchandise store.', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-white/72">
-                        <?php esc_html_e('ToyocarTV is an independent auto accessories store and is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer. Vehicle model names are used only to help customers identify compatible-style product collections.', 'dawp'); ?>
+                        <?php esc_html_e('Shopmivo is an independent general merchandise store and is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer.', 'dawp'); ?>
                     </p>
                 </div>
                 <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#D71920] px-6 text-sm font-black uppercase text-white hover:bg-[#A70F14]">
-                    <?php esc_html_e('Shop Accessories', 'dawp'); ?>
+                    <?php esc_html_e('Shop All Categories', 'dawp'); ?>
                 </a>
             </div>
         </div>

@@ -14,7 +14,7 @@
                 <?php esc_html_e('Last Updated: June 3, 2026', 'dawp'); ?>
             </p>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#6B7280]">
-                <?php esc_html_e('ToyocarTV accepts eligible unused, uninstalled automotive accessories and driver lifestyle items within 30 days of delivery.', 'dawp'); ?>
+                <?php esc_html_e('Shopmivo accepts eligible unused items in original condition within 30 days of delivery.', 'dawp'); ?>
             </p>
         </div>
 
@@ -24,8 +24,8 @@
                     <p class="mt-5 leading-8 text-[#6B7280]"><?php esc_html_e('To be eligible for a return, your item must meet the following criteria:', 'dawp'); ?></p>
                     <ul class="mt-6 space-y-4 leading-8 text-[#6B7280]">
                         <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'); ?></li>
-                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Condition: Items must be unused, uninstalled, undamaged, and in their original, unaltered condition.', 'dawp'); ?></li>
-                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Packaging: Items must be returned with all original packaging, tags, labels, manuals, fitment notes, protective packaging, boxes, mounting hardware, and any included accessories.', 'dawp'); ?></li>
+                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Condition: Items must be unused, undamaged, and in their original, unaltered condition.', 'dawp'); ?></li>
+                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Packaging: Items must be returned with all original packaging, tags, labels, manuals, and any included accessories.', 'dawp'); ?></li>
                         <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Restocking Fee: Free. We do not charge any restocking fees for eligible returns.', 'dawp'); ?></li>
                     </ul>
                 </section>
@@ -100,19 +100,19 @@
                     </div>
 
                     <div class="mt-6 rounded-lg border border-[#F2C94C] bg-[#FFF7E6] p-5">
-                        <p class="font-black text-[#111827]"><?php esc_html_e('ToyocarTV - Returns Department', 'dawp'); ?></p>
+                        <p class="font-black text-[#111827]"><?php esc_html_e('Shopmivo - Returns Department', 'dawp'); ?></p>
                         <p class="mt-2 text-[#111827]">1777 Canal St, Merced, CA 95340, United States</p>
                     </div>
 
                     <div class="mt-7 flex flex-wrap gap-3">
                         <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center rounded-full bg-[#111827] px-6 text-sm font-black uppercase tracking-wide text-white hover:bg-[#D71920]"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
-                        <a href="mailto:support@toyocartv.com" class="inline-flex min-h-12 items-center rounded-full border border-[#111827] bg-white px-6 text-sm font-black text-[#111827] hover:border-[#D71920] hover:text-[#D71920]">support@toyocartv.com</a>
+                        <a href="mailto:support@shopmivo.com" class="inline-flex min-h-12 items-center rounded-full border border-[#111827] bg-white px-6 text-sm font-black text-[#111827] hover:border-[#D71920] hover:text-[#D71920]">support@shopmivo.com</a>
                     </div>
                 </section>
 
                 <section id="exchanges" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
                     <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
-                    <p class="mt-5 leading-8 text-[#6B7280]"><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different size, color, model, or fitment, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
+                    <p class="mt-5 leading-8 text-[#6B7280]"><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different size, color, or item, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
                 </section>
 
                 <section id="refund-process" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
@@ -121,7 +121,7 @@
                         <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'); ?></li>
                         <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'); ?></li>
                         <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns.', 'dawp'); ?></li>
-                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, manuals, mounting hardware, or shows signs of installation, wear, or damage, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
+                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or manuals, or shows signs of use, wear, or damage, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'); ?></li>
                         <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'); ?></li>
                     </ul>
                     <p class="mt-7"><a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center rounded-full border border-[#111827] bg-white px-6 text-sm font-black text-[#111827] hover:border-[#D71920] hover:text-[#D71920]"><?php esc_html_e('Contact Support', 'dawp'); ?></a></p>
@@ -133,9 +133,9 @@
                     <ul class="mt-6 space-y-4 leading-8 text-[#6B7280]">
                         <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'); ?></li>
                         <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Gift cards or digital products/downloads.', 'dawp'); ?></li>
-                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Personalized, custom-made, modified, or vehicle-specific special-order items.', 'dawp'); ?></li>
-                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Opened or used hygiene-sensitive driver lifestyle items, including apparel or wearable accessories where the product seal has been broken.', 'dawp'); ?></li>
-                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Items that have been used, installed, washed, altered, or damaged after delivery.', 'dawp'); ?></li>
+                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Personalized, custom-made, or modified special-order items.', 'dawp'); ?></li>
+                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Opened or used hygiene-sensitive items, including apparel or accessories where the product seal has been broken.', 'dawp'); ?></li>
+                        <li class="rounded-lg bg-[#F7F8FA] p-5"><?php esc_html_e('Items that have been used, washed, altered, or damaged after delivery.', 'dawp'); ?></li>
                     </ul>
                 </section>
 
@@ -144,7 +144,7 @@
                     <dl class="mt-6 grid gap-4 md:grid-cols-2">
                         <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                             <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Store Name', 'dawp'); ?></dt>
-                            <dd class="font-bold text-[#111827]">ToyocarTV</dd>
+                            <dd class="font-bold text-[#111827]">Shopmivo</dd>
                         </div>
                         <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                             <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Address', 'dawp'); ?></dt>
@@ -152,7 +152,7 @@
                         </div>
                         <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                             <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Email', 'dawp'); ?></dt>
-                            <dd><a href="mailto:support@toyocartv.com" class="font-bold text-[#111827] hover:text-[#D71920]">support@toyocartv.com</a></dd>
+                            <dd><a href="mailto:support@shopmivo.com" class="font-bold text-[#111827] hover:text-[#D71920]">support@shopmivo.com</a></dd>
                         </div>
                         <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                             <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Contact Support', 'dawp'); ?></dt>

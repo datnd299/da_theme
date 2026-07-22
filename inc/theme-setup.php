@@ -107,7 +107,7 @@ function dawp_render_cart_policy_snapshot() {
         [
             'label'  => __('Return Window', 'dawp'),
             'value'  => __('30 Days', 'dawp'),
-            'detail' => __('Eligible unused, uninstalled items may be returned after approval.', 'dawp'),
+            'detail' => __('Eligible unused items may be returned after approval.', 'dawp'),
             'url'    => home_url('/refund-return-policy/'),
         ],
         [
@@ -119,7 +119,7 @@ function dawp_render_cart_policy_snapshot() {
         [
             'label'  => __('Support', 'dawp'),
             'value'  => __('Mon-Fri', 'dawp'),
-            'detail' => __('Email support with order, fitment, delivery, or return questions.', 'dawp'),
+            'detail' => __('Email support with order, product, delivery, or return questions.', 'dawp'),
             'url'    => home_url('/contact-us/'),
         ],
     ];
@@ -131,7 +131,7 @@ function dawp_render_cart_policy_snapshot() {
             <div class="cart-policy-snapshot__header">
                 <span class="cart-policy-snapshot__eyebrow"><?php esc_html_e('Order Confidence', 'dawp'); ?></span>
                 <h2 id="cart-policy-snapshot-heading"><?php esc_html_e('Policy snapshot before checkout', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Review the key shipping, tracking, return, and support details that apply to ToyocarTV orders.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Review the key shipping, tracking, return, and support details that apply to Shopmivo orders.', 'dawp'); ?></p>
             </div>
 
             <div class="cart-policy-snapshot__grid">

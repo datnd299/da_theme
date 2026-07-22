@@ -36,20 +36,15 @@ function dawp_handle_virtual_pages() {
 }
 
 function dawp_virtual_page_map() {
-    $theme_uri = get_template_directory_uri();
-    $hero_image = dawp_i0_image_url($theme_uri . '/assets/img/toyocartv/toyocartv-hero.png', 1200, 675);
-    $accessory_image = dawp_i0_image_url($theme_uri . '/assets/img/toyocartv/toyocartv-accessories.png', 1200, 900);
-
     return [
         'home' => [
             'slug'  => 'home',
             'title' => 'Home',
             'css'   => 'tw/tw-home.css',
             'seo'   => [
-                'title'       => 'Car Accessories for Cleaner, Easier Everyday Drives',
-                'description' => 'Shop practical Tacoma, 4Runner, FJ Cruiser, and Tundra-style accessories, including interior organizers, exterior add-ons, and driver lifestyle merch.',
+                'title'       => 'Everything You Need, All In One Place',
+                'description' => 'Shop Tools, Houseware, Vehicle Service, Gift and Toy, Pet Supplies, and Clothing and Accessories at everyday low prices.',
                 'canonical'   => home_url('/'),
-                'image'       => $hero_image,
                 'schema_type' => 'WebPage',
             ],
         ],
@@ -58,9 +53,8 @@ function dawp_virtual_page_map() {
             'title' => 'About Us',
             'css'   => 'tw/tw-about.css',
             'seo'   => [
-                'title'       => 'About ToyocarTV',
-                'description' => 'Learn about ToyocarTV, an independent auto accessories store for practical truck and SUV interior, exterior, and driver lifestyle products.',
-                'image'       => $hero_image,
+                'title'       => 'About Shopmivo',
+                'description' => 'Learn about Shopmivo, an independent general merchandise store for tools, houseware, vehicle service essentials, gifts and toys, pet supplies, and clothing.',
                 'schema_type' => 'AboutPage',
             ],
         ],
@@ -69,9 +63,8 @@ function dawp_virtual_page_map() {
             'title' => 'FAQ',
             'css'   => 'tw/tw-faq.css',
             'seo'   => [
-                'title'       => 'ToyocarTV FAQ',
-                'description' => 'Find answers about ToyocarTV orders, U.S. shipping, tracking, returns, refunds, product compatibility, secure checkout, and support.',
-                'image'       => $accessory_image,
+                'title'       => 'Shopmivo FAQ',
+                'description' => 'Find answers about Shopmivo orders, U.S. shipping, tracking, returns, refunds, products, secure checkout, and support.',
                 'schema_type' => 'FAQPage',
                 'faqs'        => dawp_virtual_page_faq_schema_items(),
             ],
@@ -81,9 +74,8 @@ function dawp_virtual_page_map() {
             'title' => 'Contact Us',
             'css'   => 'tw/tw-contact.css',
             'seo'   => [
-                'title'       => 'Contact ToyocarTV Support',
-                'description' => 'Contact ToyocarTV for order help, product questions, compatibility concerns, tracking support, returns, and customer service.',
-                'image'       => $accessory_image,
+                'title'       => 'Contact Shopmivo Support',
+                'description' => 'Contact Shopmivo for order help, product questions, tracking support, returns, and customer service.',
                 'schema_type' => 'ContactPage',
             ],
         ],
@@ -93,8 +85,7 @@ function dawp_virtual_page_map() {
             'css'   => 'tw/tw-ship.css',
             'seo'   => [
                 'title'       => 'Shipping Policy',
-                'description' => 'Review ToyocarTV U.S. shipping locations, free standard shipping, processing times, carrier details, tracking, delivery issues, and support.',
-                'image'       => $accessory_image,
+                'description' => 'Review Shopmivo U.S. shipping locations, free standard shipping, processing times, carrier details, tracking, delivery issues, and support.',
                 'schema_type' => 'WebPage',
             ],
         ],
@@ -104,8 +95,7 @@ function dawp_virtual_page_map() {
             'css'   => 'tw/tw-ship.css',
             'seo'   => [
                 'title'       => 'Refund & Return Policy',
-                'description' => 'Review ToyocarTV return eligibility, 30-day return window, refund timing, return shipping fees, exchanges, and non-returnable items.',
-                'image'       => $accessory_image,
+                'description' => 'Review Shopmivo return eligibility, 30-day return window, refund timing, return shipping fees, exchanges, and non-returnable items.',
                 'schema_type' => 'WebPage',
             ],
         ],
@@ -115,8 +105,7 @@ function dawp_virtual_page_map() {
             'css'   => 'tw/tw-terms.css',
             'seo'   => [
                 'title'       => 'Terms & Conditions',
-                'description' => 'Read the ToyocarTV terms covering website use, purchases, product information, compatibility, shipping, returns, privacy, and customer responsibilities.',
-                'image'       => $accessory_image,
+                'description' => 'Read the Shopmivo terms covering website use, purchases, product information, shipping, returns, privacy, and customer responsibilities.',
                 'schema_type' => 'WebPage',
             ],
         ],
@@ -126,8 +115,7 @@ function dawp_virtual_page_map() {
             'css'   => 'tw/tw-privacy.css',
             'seo'   => [
                 'title'       => 'Privacy Policy',
-                'description' => 'Learn how ToyocarTV collects, uses, protects, and shares personal information for orders, accounts, payments, shipping, support, cookies, and analytics.',
-                'image'       => $accessory_image,
+                'description' => 'Learn how Shopmivo collects, uses, protects, and shares personal information for orders, accounts, payments, shipping, support, cookies, and analytics.',
                 'schema_type' => 'WebPage',
             ],
         ],
@@ -136,9 +124,8 @@ function dawp_virtual_page_map() {
             'title' => 'Track Order',
             'css'   => 'track-order.css',
             'seo'   => [
-                'title'       => 'Track Your ToyocarTV Order',
-                'description' => 'Track your ToyocarTV order using your order number and checkout email, and get support if shipment tracking is delayed.',
-                'image'       => $accessory_image,
+                'title'       => 'Track Your Shopmivo Order',
+                'description' => 'Track your Shopmivo order using your order number and checkout email, and get support if shipment tracking is delayed.',
                 'schema_type' => 'WebPage',
             ],
         ],
@@ -225,7 +212,7 @@ function dawp_prepare_virtual_page_seo($path, $page) {
 
 function dawp_format_virtual_page_seo_title($page) {
     $title = $page['seo']['title'] ?? $page['title'] ?? '';
-    $site_name = get_bloginfo('name') ?: 'ToyocarTV';
+    $site_name = get_bloginfo('name') ?: 'Shopmivo';
 
     if ($title === '' || stripos($title, $site_name) !== false) {
         return $title;
@@ -403,8 +390,8 @@ function dawp_virtual_page_fallback_meta() {
 function dawp_virtual_page_faq_schema_items() {
     $items = [
         [
-            'question' => 'Where does ToyocarTV ship?',
-            'answer'   => 'ToyocarTV currently ships within the United States. Product, destination, or carrier restrictions are shown at checkout when applicable.',
+            'question' => 'Where does Shopmivo ship?',
+            'answer'   => 'Shopmivo currently ships within the United States. Product, destination, or carrier restrictions are shown at checkout when applicable.',
         ],
         [
             'question' => 'How much does shipping cost?',
@@ -416,11 +403,11 @@ function dawp_virtual_page_faq_schema_items() {
         ],
         [
             'question' => 'What is your return window?',
-            'answer'   => 'Eligible unused and uninstalled automotive accessories and driver lifestyle items may be returned within 30 days of delivery.',
+            'answer'   => 'Eligible unused items in original condition may be returned within 30 days of delivery.',
         ],
         [
-            'question' => 'Is ToyocarTV affiliated with Toyota?',
-            'answer'   => 'No. ToyocarTV is an independent auto accessories store and is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer.',
+            'question' => 'Is Shopmivo affiliated with Walmart?',
+            'answer'   => 'No. Shopmivo is an independent general merchandise store and is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer.',
         ],
     ];
 

@@ -1,7 +1,7 @@
 <?php
 /**
- * ToyocarTV Shop / Archive Product Template
- * Design System: Independent auto accessories, conversion-first.
+ * Shopmivo Shop / Archive Product Template
+ * Design System: Independent general merchandise store, conversion-first.
  */
 defined('ABSPATH') || exit;
 
@@ -11,9 +11,9 @@ global $wp_query;
 
 $shop_url       = get_permalink(wc_get_page_id('shop'));
 $queried_object = get_queried_object();
-$page_title     = (is_product_category() || is_product_tag()) ? single_term_title('', false) : __('All Accessories', 'dawp');
+$page_title     = (is_product_category() || is_product_tag()) ? single_term_title('', false) : __('All Products', 'dawp');
 $total_products = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
-$product_label  = $total_products === 1 ? __('accessory', 'dawp') : __('accessories', 'dawp');
+$product_label  = $total_products === 1 ? __('product', 'dawp') : __('products', 'dawp');
 $current_url    = is_product_category() || is_product_tag() ? get_term_link($queried_object) : $shop_url;
 $current_url    = is_wp_error($current_url) ? $shop_url : $current_url;
 $search_term    = get_search_query();
@@ -52,15 +52,14 @@ $product_tags = get_terms([
 $product_tags = is_wp_error($product_tags) ? [] : $product_tags;
 
 $product_type_links = [
-    ['title' => __('Interior Accessories', 'dawp'), 'url' => home_url('/product-category/interior-accessories/')],
-    ['title' => __('Exterior Add-Ons', 'dawp'), 'url' => home_url('/product-category/exterior-accessories/')],
-    ['title' => __('Driver Lifestyle Merch', 'dawp'), 'url' => home_url('/product-category/driver-merch/')],
+    ['title' => __('Tools', 'dawp'), 'url' => home_url('/product-category/tools/')],
+    ['title' => __('Houseware', 'dawp'), 'url' => home_url('/product-category/houseware/')],
+    ['title' => __('Vehicle Service', 'dawp'), 'url' => home_url('/product-category/vehicle-service/')],
 ];
 $vehicle_links = [
-    ['title' => __('Tacoma Accessories', 'dawp'), 'url' => home_url('/product-category/tacoma-accessories/')],
-    ['title' => __('4Runner Accessories', 'dawp'), 'url' => home_url('/product-category/4runner-accessories/')],
-    ['title' => __('FJ Cruiser Accessories', 'dawp'), 'url' => home_url('/product-category/fj-cruiser-accessories/')],
-    ['title' => __('Tundra Accessories', 'dawp'), 'url' => home_url('/product-category/tundra-accessories/')],
+    ['title' => __('Gift and Toy', 'dawp'), 'url' => home_url('/product-category/gift-and-toy/')],
+    ['title' => __('Pet Supplies', 'dawp'), 'url' => home_url('/product-category/pet-supplies/')],
+    ['title' => __('Clothing and Accessories', 'dawp'), 'url' => home_url('/product-category/clothing-accessories/')],
 ];
 $curated_category_links = array_merge($product_type_links, $vehicle_links);
 
@@ -172,10 +171,10 @@ foreach ($attribute_filters as $filter) {
 
             <div class="shop-hero__grid">
                 <div class="shop-hero__copy">
-                    <p class="shop-eyebrow"><?php esc_html_e('Independent Auto Accessories Store', 'dawp'); ?></p>
+                    <p class="shop-eyebrow"><?php esc_html_e('Independent General Merchandise Store', 'dawp'); ?></p>
                     <h1 class="shop-hero__title"><?php echo esc_html($page_title); ?></h1>
                     <p class="shop-hero__text">
-                        <?php esc_html_e('Browse practical interior accessories, exterior add-ons, and driver lifestyle merch organized by vehicle collection. Review each product page for compatibility notes before ordering.', 'dawp'); ?>
+                        <?php esc_html_e('Browse Tools, Houseware, Vehicle Service, Gift and Toy, Pet Supplies, and Clothing and Accessories organized by category. Review each product page for sizing and details before ordering.', 'dawp'); ?>
                     </p>
                     <div class="shop-hero__actions">
                         <a href="#shopProducts" class="shop-btn shop-btn--primary"><?php esc_html_e('Shop Products', 'dawp'); ?></a>
@@ -249,7 +248,7 @@ foreach ($attribute_filters as $filter) {
         <div class="shop-layout">
             <aside class="shop-sidebar" id="shopSidebar" aria-label="<?php esc_attr_e('Product filters', 'dawp'); ?>">
                 <div class="shop-sidebar__header">
-                    <h2 class="shop-sidebar__mobile-title"><?php esc_html_e('Filter Accessories', 'dawp'); ?></h2>
+                    <h2 class="shop-sidebar__mobile-title"><?php esc_html_e('Filter Products', 'dawp'); ?></h2>
                     <button type="button" class="shop-sidebar__close" id="shopSidebarClose" aria-label="<?php esc_attr_e('Close filters', 'dawp'); ?>">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <line x1="18" y1="6" x2="6" y2="18"/>
@@ -259,9 +258,9 @@ foreach ($attribute_filters as $filter) {
                 </div>
 
                 <form role="search" method="get" class="shop-filter-search" action="<?php echo esc_url($shop_url); ?>">
-                    <label for="shop-filter-search"><?php esc_html_e('Search accessories', 'dawp'); ?></label>
+                    <label for="shop-filter-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
                     <div>
-                        <input id="shop-filter-search" type="search" name="s" value="<?php echo esc_attr($search_term); ?>" placeholder="<?php esc_attr_e('Interior, exterior, merch...', 'dawp'); ?>">
+                        <input id="shop-filter-search" type="search" name="s" value="<?php echo esc_attr($search_term); ?>" placeholder="<?php esc_attr_e('Tools, houseware, gifts...', 'dawp'); ?>">
                         <input type="hidden" name="post_type" value="product">
                         <button type="submit" aria-label="<?php esc_attr_e('Search products', 'dawp'); ?>">
                             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -357,8 +356,8 @@ foreach ($attribute_filters as $filter) {
                 <?php endif; ?>
 
                 <div class="shop-sidebar__note">
-                    <strong><?php esc_html_e('Compatibility reminder', 'dawp'); ?></strong>
-                    <p><?php esc_html_e('Vehicle model names help organize compatible-style collections. Always check product photos, dimensions, materials, and installation notes before ordering.', 'dawp'); ?></p>
+                    <strong><?php esc_html_e('Before you order', 'dawp'); ?></strong>
+                    <p><?php esc_html_e('Always check product photos, dimensions, materials, and included items before ordering.', 'dawp'); ?></p>
                 </div>
             </aside>
 
@@ -375,8 +374,8 @@ foreach ($attribute_filters as $filter) {
                     </div>
                 <?php else : ?>
                     <div class="shop-empty">
-                        <p><?php esc_html_e('No accessories found for the selected filters.', 'dawp'); ?></p>
-                        <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse all accessories', 'dawp'); ?> &rarr;</a>
+                        <p><?php esc_html_e('No products found for the selected filters.', 'dawp'); ?></p>
+                        <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse all products', 'dawp'); ?> &rarr;</a>
                     </div>
                 <?php endif; ?>
             </main>
@@ -402,7 +401,7 @@ foreach ($attribute_filters as $filter) {
                                     <?php endforeach; ?>
                                 </ul>
                             <?php else : ?>
-                                <p><?php esc_html_e('Browse products and fitment notes in this collection.', 'dawp'); ?></p>
+                                <p><?php esc_html_e('Browse products and details in this category.', 'dawp'); ?></p>
                             <?php endif; ?>
                         </article>
                     <?php endforeach; ?>
@@ -420,7 +419,7 @@ foreach ($attribute_filters as $filter) {
                     </article>
                     <article class="shop-collection-group">
                         <a class="shop-collection-group__title" href="<?php echo esc_url($shop_url); ?>">
-                            <?php esc_html_e('Vehicle Collections', 'dawp'); ?>
+                            <?php esc_html_e('More Categories', 'dawp'); ?>
                             <span><?php echo esc_html(number_format_i18n(count($vehicle_links))); ?></span>
                         </a>
                         <ul>
@@ -447,8 +446,8 @@ foreach ($attribute_filters as $filter) {
         <section class="shop-info-grid" aria-label="<?php esc_attr_e('Shopping support', 'dawp'); ?>">
             <article>
                 <span><?php esc_html_e('01', 'dawp'); ?></span>
-                <h2><?php esc_html_e('Shop by vehicle collection', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Use the vehicle collection links to start broadly, then narrow by category, price, tag, or product attribute when available.', 'dawp'); ?></p>
+                <h2><?php esc_html_e('Shop by category', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Use the category links to start broadly, then narrow by collection, price, tag, or product attribute when available.', 'dawp'); ?></p>
                 <div class="shop-link-list">
                     <?php foreach ($vehicle_links as $link) : ?>
                         <a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a>
@@ -457,8 +456,8 @@ foreach ($attribute_filters as $filter) {
             </article>
             <article>
                 <span><?php esc_html_e('02', 'dawp'); ?></span>
-                <h2><?php esc_html_e('Review details before install', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Check dimensions, material, finish, surface prep, included parts, and return condition before installing adhesive, mounting, or trim-based items.', 'dawp'); ?></p>
+                <h2><?php esc_html_e('Review details before you buy', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Check dimensions, material, finish, included items, and return condition before ordering.', 'dawp'); ?></p>
             </article>
             <article>
                 <span><?php esc_html_e('03', 'dawp'); ?></span>

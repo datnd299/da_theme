@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css - ToyocarTV Design System
+   main.css - Shopmivo Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -28,7 +28,7 @@
   /* Signal Red Dark hover state */
   --color-accent-soft: #FDE7E8;
   /* Soft red highlight surface */
-  --color-accent-blush: #1F2933;
+  --color-accent-blush: #2B3742;
   /* Off-Road Charcoal secondary surface */
 
   /* === UI === */
@@ -213,7 +213,7 @@
   margin-top: 1px;
 }
 
-/* ToyocarTV brand override */
+/* Shopmivo brand override */
 :root {
   --color-background: #FFFFFF;
   --color-surface: #F7F8FA;
@@ -224,7 +224,7 @@
   --color-accent: #D71920;
   --color-accent-hover: #A70F14;
   --color-accent-soft: #FDE7E8;
-  --color-accent-blush: #1F2933;
+  --color-accent-blush: #2B3742;
   --color-border: #E5E7EB;
   --color-alert: #D71920;
   --color-success: #15803D;
@@ -235,8 +235,8 @@
   --color-text-muted: #9CA3AF;
   --color-sale: #D71920;
   --color-original-price: #6B7280;
-  --color-navy: #080808;
-  --color-navy-light: #1F2933;
+  --color-navy: #161A1E;
+  --color-navy-light: #2B3742;
   --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
   --font-heading: 'Oswald', 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --font-primary: 'Inter', 'Manrope', system-ui, sans-serif;

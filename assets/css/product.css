@@ -1,5 +1,5 @@
 /* ============================================================
-   Product Page - ToyocarTV
+   Product Page - Shopmivo
    Design System: Independent auto accessories, conversion-first
    Skill: WooCommerce Theme Developer (pure CSS + CSS vars)
    ============================================================ */
@@ -163,6 +163,48 @@ body.single-product {
 .flex-control-thumbs img.flex-active,
 .flex-control-thumbs img:hover {
   border-color: var(--color-accent);
+}
+
+/* Thumbnails scroll wrapper + prev/next arrows */
+.gallery-thumbs-wrapper {
+  position: relative;
+}
+
+.gallery-thumbs-wrapper .flex-control-thumbs {
+  margin: 16px 0 0;
+}
+
+.gallery-thumbs-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(calc(-50% - 4px));
+  z-index: 5;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.gallery-thumbs-btn:hover {
+  background: var(--color-bg-subtle);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.gallery-thumbs-btn.prev {
+  left: -4px;
+}
+
+.gallery-thumbs-btn.next {
+  right: -4px;
 }
 
 /* === 3. SUMMARY === */
@@ -1038,7 +1080,7 @@ form.cart:not(.variations_form) {
   transform: scale(0.97);
 }
 
-/* ToyocarTV product polish */
+/* Shopmivo product polish */
 body.single-product {
   background: #F7F8FA;
 }

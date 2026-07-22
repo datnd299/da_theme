@@ -1,39 +1,39 @@
-# ToyocarTV — Design System
+# Shopmivo — Design System
 
 ## Overview
 
-ToyocarTV is an independent auto accessories store organized by vehicle model collections:
+Shopmivo is an independent general merchandise store organized by broad shopping categories:
 
 ```txt
-Tacoma Accessories
-4Runner Accessories
-FJ Cruiser Accessories
-Tundra Accessories
+Tools
+Houseware
+Vehicle Service
+Gift and Toy
+Pet Supplies
+Clothing and Accessories
 ```
 
 The design should feel:
 
 ```txt
-automotive
 bold
-rugged
-American
 clean
 practical
-truck/SUV-focused
+one-stop-shop
 easy to shop
+value-focused
 GMC-safe
 ```
 
-The visual style should appeal to U.S. truck and SUV owners who like Tacoma-style, 4Runner-style, FJ Cruiser-style, and Tundra-style builds.
+The visual style should appeal to U.S. households doing everyday shopping across many categories — the general-store equivalent of a Walmart-style shopping experience, but as an independent retailer.
 
 Important rule:
 
 ```txt
-Use red, black, and white as the main visual direction, but do not imitate Toyota official branding or claim affiliation.
+Use red, black, and white as the main visual direction — the existing site color system carries over unchanged from the previous build. Do not imitate Walmart's official branding or claim affiliation.
 ```
 
-The website should feel like an independent enthusiast auto accessories store, not an official Toyota website.
+The website should feel like an independent general merchandise store, not an official Walmart website.
 
 ---
 
@@ -42,16 +42,15 @@ The website should feel like an independent enthusiast auto accessories store, n
 Core style:
 
 ```txt
-Bold American Auto Accessories
+Bold Everyday General Store
 ```
 
 Brand feeling:
 
-* Rugged but clean
+* Broad but organized
 * Utility-focused
-* Outdoor-ready
-* Driver lifestyle
-* Practical everyday upgrades
+* Family-friendly
+* Practical everyday value
 * Strong visual contrast
 * Clear category navigation
 * Trustworthy ecommerce
@@ -59,11 +58,10 @@ Brand feeling:
 Avoid:
 
 ```txt
-fake OEM store
-official Toyota look
+official Walmart look
 cheap dropshipping marketplace
-overly aggressive racing site
-messy parts warehouse
+cluttered catch-all catalog feel
+messy warehouse dump
 ```
 
 ---
@@ -81,7 +79,7 @@ Use for primary CTA buttons, active states, category highlights, sale-safe accen
 ### Deep Black
 
 ```txt
-#080808
+#161A1E
 ```
 
 Use for header, footer, hero overlays, dark sections, and bold contrast.
@@ -89,7 +87,7 @@ Use for header, footer, hero overlays, dark sections, and bold contrast.
 ### Off-Road Charcoal
 
 ```txt
-#1F2933
+#2B3742
 ```
 
 Use for dark card backgrounds, section depth, product highlight panels, and strong secondary surfaces.
@@ -165,10 +163,10 @@ Avoid using red everywhere. The site should feel bold, not visually noisy.
 Do not use:
 
 ```txt
-official Toyota logo red/brand lockups
-Toyota badge shapes
-Toyota official type treatment
-Toyota official slogans
+official Walmart logo/brand lockups
+Walmart spark/badge shapes
+Walmart official type treatment
+Walmart official slogans
 ```
 
 ---
@@ -195,7 +193,7 @@ Body/UI: Inter or Manrope
 
 Typography style:
 
-* Headings: strong, condensed, automotive
+* Headings: strong, condensed, bold
 * Body: clean and readable
 * Buttons: bold uppercase
 * Category labels: short and direct
@@ -208,7 +206,7 @@ luxury serif fonts
 playful fonts
 thin fashion fonts
 script fonts
-overly futuristic racing fonts
+overly futuristic fonts
 ```
 
 ---
@@ -272,21 +270,21 @@ Text transform: uppercase
 
 ## Layout Style
 
-Use a clean automotive ecommerce layout.
+Use a clean general-merchandise ecommerce layout.
 
 Follow the saved homepage structure:
 
 ```txt
 1. Hero Section
-2. Shop By Vehicle Collection
+2. Shop By Category
 3. New Arrivals
-4. Feature Section
-5. Everyday Drive Picks
-6. Customer Favorites
-7. Trust Section
-8. About Brand
-9. Newsletter
-10. Gallery
+4. Shop By Need
+5. Customer Favorites
+6. Customer Feedback
+7. Customer Reviews
+8. Trust Section
+9. About Brand
+10. Newsletter
 ```
 
 Do not add extra homepage sections unless requested.
@@ -306,10 +304,9 @@ Grid rules:
 
 ```txt
 Hero: 2 columns desktop, stacked mobile
-Vehicle collection cards: 4 columns desktop, 2 tablet, 1 mobile
+Category cards: 3 columns desktop, 2 tablet, 1 mobile (horizontal scroll)
 Product grid: 4 columns desktop, 2 mobile
 Trust cards: 4 columns desktop, 2 tablet, 1 mobile
-Gallery: 3 columns desktop, 2 mobile
 ```
 
 Spacing:
@@ -363,9 +360,9 @@ Text: uppercase, bold
 Example CTAs:
 
 ```txt
-Shop Vehicle Collections
-Shop Tacoma Accessories
-Explore Interior Accessories
+Shop All Categories
+Shop Tools
+Explore Houseware
 ```
 
 ### Secondary Button
@@ -373,10 +370,10 @@ Explore Interior Accessories
 Use for supporting CTAs.
 
 ```txt
-Background: #080808
+Background: #161A1E
 Text: #FFFFFF
-Border: #080808
-Hover background: #1F2933
+Border: #161A1E
+Hover background: #2B3742
 Radius: 12px
 ```
 
@@ -402,43 +399,38 @@ Background: transparent
 Text: #FFFFFF
 Border: rgba(255,255,255,0.45)
 Hover background: #FFFFFF
-Hover text: #080808
+Hover text: #161A1E
 ```
 
 ---
 
 ## Cards
 
-### Vehicle Collection Card
+### Category Card
 
 Use for:
 
 ```txt
-Tacoma Accessories
-4Runner Accessories
-FJ Cruiser Accessories
-Tundra Accessories
+Tools
+Houseware
+Vehicle Service
+Gift and Toy
+Pet Supplies
+Clothing and Accessories
 ```
 
 Style:
 
 ```txt
-Image-heavy card
-Dark gradient overlay
+Dark card background (Deep Black / Off-Road Charcoal)
+Large centered category icon
 Bottom-aligned title
 Short description
 Red accent line or CTA
 Radius: 18–22px
 ```
 
-Card copy should use independent-safe wording:
-
-```txt
-Tacoma-style accessories
-4Runner-style adventures
-FJ Cruiser-style utility
-Tundra-style truck owners
-```
+Since category photography isn't always available across a wide catalog, category cards use a flat dark background with a bold line-icon instead of a photo — this keeps the card style consistent with the rest of the site.
 
 ### Product Card
 
@@ -467,9 +459,8 @@ View Product CTA
 Optional metadata:
 
 ```txt
-Vehicle collection
-Interior / Exterior / Merch
-Compatibility note
+Category
+Subcategory
 ```
 
 ### Feature Card
@@ -488,10 +479,10 @@ Shadow: subtle
 
 ### Dark Feature Card
 
-Use for rugged automotive impact.
+Use for bold section impact.
 
 ```txt
-Background: #080808 or #1F2933
+Background: #161A1E or #2B3742
 Text: #FFFFFF
 Accent: #D71920
 Border: rgba(255,255,255,0.10)
@@ -506,53 +497,46 @@ Border: rgba(255,255,255,0.10)
 Hero message:
 
 ```txt
-Car Accessories For Cleaner, Easier Everyday Drives
+Everything You Need, All In One Place
 ```
 
 Subheadline:
 
 ```txt
-Shop Tacoma, 4Runner, FJ Cruiser, and Tundra-style accessory collections designed for practical interior organization, exterior add-ons, and driver lifestyle upgrades.
+Shop Tools, Houseware, Vehicle Service, Gift and Toy, Pet Supplies, and Clothing and Accessories — all at everyday low prices.
 ```
 
 Hero visual:
 
-* Truck/SUV lifestyle image
-* Dark overlay
+* Dark overlay with red accent shapes (no single-subject photo needed)
 * Red CTA
 * Secondary dark/outline CTA
-* Small trust card or model collection highlight
+* Small trust panel or category count highlight
 
-Hero should feel bold, American, and practical.
+Hero should feel bold and practical.
 
-Do not use official Toyota logos or dealership-like graphics.
+Do not use official Walmart logos or retailer-branded graphics.
 
 ---
 
-### Shop By Vehicle Collection
+### Shop By Category
 
-Use 4 cards:
-
-```txt
-Tacoma Accessories
-4Runner Accessories
-FJ Cruiser Accessories
-Tundra Accessories
-```
-
-Each card can preview:
+Use 6 cards:
 
 ```txt
-Interior
-Exterior
-Merch
+Tools
+Houseware
+Vehicle Service
+Gift and Toy
+Pet Supplies
+Clothing and Accessories
 ```
+
+Each card can preview its 3 subcategories.
 
 Design:
 
-* Image cards
-* Strong vehicle imagery
-* Dark overlay
+* Icon cards on dark backgrounds
 * Red CTA accent
 * Short copy
 
@@ -575,45 +559,23 @@ Product cards should be clean, white, and easy to scan.
 
 ---
 
-### Feature Section
+### Shop By Need
 
-Recommended feature:
-
-```txt
-Interior Accessories For Daily Comfort
-```
-
-Purpose:
-
-Show practical product value:
+Use 3 cards grouping categories by everyday need, e.g.:
 
 ```txt
-storage
-organization
-comfort
-daily driving convenience
+Home & Garage Essentials
+Gifts & Toys For Everyone
+Pet Care Favorites
 ```
 
 Design:
 
-* Image left
-* Content card right
+* Icon card left/content right or icon-on-dark card
 * Red CTA
 * Clean white/garage silver background
 
----
-
-### Everyday Drive Picks
-
-Use 3 cards:
-
-```txt
-Interior Organization
-Exterior Add-Ons
-Driver Lifestyle Merch
-```
-
-Copy should focus on practical use, not performance claims.
+Copy should focus on practical use and everyday value, not performance claims.
 
 ---
 
@@ -635,14 +597,14 @@ Use 4 trust cards:
 Secure Checkout
 Tracking Included
 30-Day Returns
-Compatibility Notes
+Everyday Low Prices
 ```
 
 Trust copy should mention:
 
 ```txt
 check product details
-review fitment notes
+review return policy
 keep packaging
 contact support
 ```
@@ -651,16 +613,16 @@ contact support
 
 ### About Brand
 
-Position ToyocarTV clearly as independent:
+Position Shopmivo clearly as independent:
 
 ```txt
-ToyocarTV is an independent auto accessories store built for truck and SUV owners who want practical interior, exterior, and lifestyle accessories organized by vehicle collection.
+Shopmivo is an independent general merchandise store built for households who want tools, houseware, vehicle service essentials, gifts and toys, pet supplies, and clothing — all in one place.
 ```
 
 Include short disclaimer:
 
 ```txt
-ToyocarTV is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer.
+Shopmivo is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer.
 ```
 
 ---
@@ -670,10 +632,9 @@ ToyocarTV is not affiliated with, endorsed by, or sponsored by Toyota Motor Corp
 Purpose:
 
 ```txt
-new accessory drops
-garage tips
-driver lifestyle updates
-vehicle collection updates
+new arrivals
+seasonal picks
+deals across every category
 ```
 
 Design:
@@ -684,48 +645,20 @@ Design:
 
 ---
 
-### Gallery
-
-Use visual mood:
-
-```txt
-truck/SUV exterior shots
-interior organizer scenes
-garage lifestyle
-off-road inspired product visuals
-clean accessory detail shots
-```
-
-Avoid:
-
-```txt
-Toyota logos
-license plates with personal data
-official brand assets
-text-heavy banners
-```
-
----
-
 ## Image Direction
 
 Use:
 
-* Red / black / gray truck and SUV imagery
-* Garage scenes
-* Off-road lifestyle photos
-* Interior organizer shots
-* Exterior accessory detail shots
-* Driver lifestyle merch photos
+* Clean product shots on neutral backgrounds
+* Icon-based category tiles where photography isn't available
+* Simple lifestyle scenes (home, garage, family, pets) when real photography exists
 * Clean product mockups
 
 Avoid:
 
 ```txt
-Toyota official logos
-dealership photos
-factory/OEM claims
-overly aggressive illegal mods
+Walmart official logos
+dealership/retailer-branded photos
 cheap supplier collage images
 text inside images
 ```
@@ -734,11 +667,10 @@ Preferred image mood:
 
 ```txt
 bold
-rugged
 clean
-American truck lifestyle
-outdoor-ready
-modern garage
+practical everyday life
+organized
+modern retail
 ```
 
 ---
@@ -749,23 +681,14 @@ Every product page should include:
 
 ```txt
 Product type
-Vehicle model collection
-Interior / Exterior / Merch label
-Compatibility / fitment note
-Material or finish
-Dimensions if relevant
-Included parts/accessories
-Installation or use note if applicable
-Care instructions if applicable
+Category / subcategory
+Material or contents
+Dimensions or size if relevant
+Included items
+Use/care instructions if applicable
 Shipping note
 Return condition
 Clear product images
-```
-
-For adhesive, mounting, or install-based products:
-
-```txt
-Please confirm fitment and surface compatibility before installation. Installed, used, modified, adhesive-applied, cut, trimmed, or damaged items may not be eligible for return unless defective, incorrect, or damaged on arrival.
 ```
 
 ---
@@ -778,8 +701,6 @@ Always include:
 Secure Checkout
 Tracking Included
 30-Day Returns
-Product Compatibility Notes
-Installation Notes
 Customer Support
 Shipping Policy
 Return & Refund Policy
@@ -789,7 +710,7 @@ Independent Store Disclaimer
 Important disclaimer:
 
 ```txt
-ToyocarTV is an independent auto accessories store and is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer. Vehicle model names are used only to help customers identify compatible-style product collections.
+Shopmivo is an independent general merchandise store and is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer. Product names and categories are used only to help customers navigate the catalog.
 ```
 
 ---
@@ -799,73 +720,57 @@ ToyocarTV is an independent auto accessories store and is not affiliated with, e
 Do not use:
 
 ```txt
-Official Toyota
-Toyota authorized
-Toyota certified
-Toyota partner
-Toyota OEM
-Genuine Toyota parts
-Factory Toyota accessories
-Toyota logo
-Toyota badge
+Official Walmart
+Walmart authorized
+Walmart certified
+Walmart partner
+Walmart logo
+Walmart spark badge
 replica
 dupe
-illegal modification
-license plate blocker
-radar detector claims
-guaranteed performance
-safety guaranteed
+guaranteed lowest price anywhere
+fake urgency claims
 ```
 
 Use safe wording:
 
 ```txt
-independent auto accessories store
-vehicle model collections
-Tacoma-style accessories
-4Runner-style accessories
-FJ Cruiser-style accessories
-Tundra-style accessories
-interior accessories
-exterior add-ons
-driver lifestyle merch
-compatible-style accessories
+independent general merchandise store
+everyday essentials
+value pricing
+one-stop shopping
+practical everyday use
 check product details before ordering
 ```
 
-Only use direct fitment wording like “fits Tacoma” when product data confirms compatibility.
-
 ---
 
-## Do’s and Don’ts
+## Do's and Don'ts
 
 ### Do
 
 * Use red, black, and white as the main brand palette.
-* Keep the design bold, rugged, and American.
-* Organize navigation by vehicle model collections.
+* Keep the design bold, clean, and practical.
+* Organize navigation by the 6 main categories.
 * Add clear independent-store disclaimer.
-* Use product compatibility notes.
 * Keep product cards clean and easy to scan.
 * Use strong red CTAs for conversion.
 * Follow the saved homepage structure.
 
-### Don’t
+### Don't
 
-* Don’t imitate Toyota’s official website.
-* Don’t use Toyota logos, badges, or official assets.
-* Don’t claim OEM, genuine, certified, or authorized status.
-* Don’t sell or promote restricted / illegal auto accessories.
-* Don’t make unverified fitment claims.
-* Don’t overload the design with too many red blocks.
-* Don’t add extra homepage sections unless requested.
+* Don't imitate Walmart's official website.
+* Don't use Walmart logos, badges, or official assets.
+* Don't claim official, authorized, or partner status with any retailer.
+* Don't overload the design with too many red blocks.
+* Don't add extra homepage sections unless requested.
 
 ---
 
 ## Final Feeling
 
-ToyocarTV should look like:
+Shopmivo should look like:
 
-> A bold, independent American auto accessories store organized by Tacoma, 4Runner, FJ Cruiser, and Tundra-style vehicle collections.
+> A bold, independent general merchandise store organized by Tools, Houseware, Vehicle Service, Gift and Toy, Pet Supplies, and Clothing and Accessories.
 
-The website should feel rugged, practical, clean, trustworthy, easy to shop, and built for U.S. truck and SUV enthusiasts while remaining GMC-safe.
+The website should feel practical, clean, trustworthy, easy to shop, and built for everyday U.S. households while remaining GMC-safe.

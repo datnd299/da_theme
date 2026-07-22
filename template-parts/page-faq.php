@@ -14,7 +14,7 @@
                 <?php esc_html_e('Last Updated: June 3, 2026', 'dawp'); ?>
             </p>
             <p class="mx-auto mt-4 max-w-4xl text-lg leading-8 text-[#6B7280]">
-                <?php esc_html_e('Find fast answers about ToyocarTV orders, U.S. shipping, tracking, returns, refunds, compatibility, checkout security, and customer support.', 'dawp'); ?>
+                <?php esc_html_e('Find fast answers about Shopmivo orders, U.S. shipping, tracking, returns, refunds, products, checkout security, and customer support.', 'dawp'); ?>
             </p>
         </div>
 
@@ -35,7 +35,7 @@
                     </a>
                     <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-[#111827] p-6 text-white hover:border-[#D71920]">
                         <h2 class="text-lg font-black"><?php esc_html_e('Contact Support', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Send your order number, product question, or compatibility concern.', 'dawp'); ?></p>
+                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Send your order number, product question, or return request.', 'dawp'); ?></p>
                     </a>
                 </div>
             </section>
@@ -44,8 +44,8 @@
                 <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Orders & Shipping', 'dawp'); ?></h2>
                 <div class="mt-6 space-y-4">
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
-                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Where does ToyocarTV ship?', 'dawp'); ?></summary>
-                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('ToyocarTV currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to your address, that restriction will be shown at checkout before payment is processed.', 'dawp'); ?></p>
+                        <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Where does Shopmivo ship?', 'dawp'); ?></summary>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Shopmivo currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to your address, that restriction will be shown at checkout before payment is processed.', 'dawp'); ?></p>
                     </details>
 
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
@@ -60,12 +60,12 @@
 
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                         <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Which carriers do you use?', 'dawp'); ?></summary>
-                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('ToyocarTV ships orders through trusted domestic U.S. carriers, including USPS, UPS, FedEx, or DHL. The final carrier is selected when your package is labeled and prepared for shipment.', 'dawp'); ?></p>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Shopmivo ships orders through trusted domestic U.S. carriers, including USPS, UPS, FedEx, or DHL. The final carrier is selected when your package is labeled and prepared for shipment.', 'dawp'); ?></p>
                     </details>
 
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                         <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Will multiple items ship together?', 'dawp'); ?></summary>
-                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Some multi-item automotive accessory orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods. You will receive tracking details for each package once available.', 'dawp'); ?></p>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Some multi-item orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods. You will receive tracking details for each package once available.', 'dawp'); ?></p>
                     </details>
                 </div>
             </section>
@@ -95,22 +95,22 @@
                 <div class="mt-6 space-y-4">
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                         <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('What is your return window?', 'dawp'); ?></summary>
-                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Eligible unused, uninstalled automotive accessories and driver lifestyle items may be returned within 30 days of delivery.', 'dawp'); ?></p>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Eligible unused items in original condition may be returned within 30 days of delivery.', 'dawp'); ?></p>
                     </details>
 
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                         <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('What condition must a return be in?', 'dawp'); ?></summary>
-                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Returned items must be unused, uninstalled, undamaged, and in original condition with original packaging, tags, labels, manuals, fitment notes, protective packaging, boxes, mounting hardware, and included accessories.', 'dawp'); ?></p>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('Returned items must be unused, undamaged, and in original condition with original packaging, tags, labels, manuals, and included accessories where applicable.', 'dawp'); ?></p>
                     </details>
 
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                         <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Who pays return shipping?', 'dawp'); ?></summary>
-                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('For defective, damaged, or incorrect products, ToyocarTV covers 100% of return shipping and provides a prepaid label by email. For customer remorse, such as ordering the wrong item, changing your mind, or fitment not matching your expectations, the prepaid label cost is deducted from the final refund.', 'dawp'); ?></p>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('For defective, damaged, or incorrect products, Shopmivo covers 100% of return shipping and provides a prepaid label by email. For customer remorse, such as ordering the wrong item or changing your mind, the prepaid label cost is deducted from the final refund.', 'dawp'); ?></p>
                     </details>
 
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                         <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Do you charge restocking fees?', 'dawp'); ?></summary>
-                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('No. ToyocarTV does not charge restocking fees for eligible returns.', 'dawp'); ?></p>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('No. Shopmivo does not charge restocking fees for eligible returns.', 'dawp'); ?></p>
                     </details>
 
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
@@ -120,21 +120,21 @@
 
                     <details class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-5">
                         <summary class="cursor-pointer text-lg font-black text-[#111827]"><?php esc_html_e('Do you offer exchanges?', 'dawp'); ?></summary>
-                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('We do not process direct one-for-one exchanges. To get a different size, color, model, or fitment, return the original purchase through the approved return process and place a new order on our website.', 'dawp'); ?></p>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('We do not process direct one-for-one exchanges. To get a different size, color, or item, return the original purchase through the approved return process and place a new order on our website.', 'dawp'); ?></p>
                     </details>
                 </div>
             </section>
 
-            <section id="products-compatibility" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
-                <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Products & Compatibility', 'dawp'); ?></h2>
+            <section id="products-categories" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
+                <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Products & Categories', 'dawp'); ?></h2>
                 <div class="mt-6 grid gap-5 md:grid-cols-2">
                     <div class="rounded-lg bg-[#F7F8FA] p-6">
-                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('How do I confirm product fitment?', 'dawp'); ?></h3>
-                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Review all product details, measurements, compatibility notes, and installation guidance before placing an order and before installing any item. For adhesive-backed, mounting, trim, or installation-based products, confirm exact vehicle fitment and surface compatibility before use.', 'dawp'); ?></p>
+                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('How do I find the right product?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Browse by category — Tools, Houseware, Vehicle Service, Gift and Toy, Pet Supplies, or Clothing and Accessories — then review the product page for sizing, materials, and included items before placing an order.', 'dawp'); ?></p>
                     </div>
                     <div class="rounded-lg bg-[#F7F8FA] p-6">
-                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('Is ToyocarTV affiliated with Toyota?', 'dawp'); ?></h3>
-                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('No. ToyocarTV is an independent automotive accessories store and is not affiliated with, endorsed by, or sponsored by Toyota Motor Corporation or any vehicle manufacturer. Vehicle model names are used only to help customers identify compatible-style product collections.', 'dawp'); ?></p>
+                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('Is Shopmivo affiliated with Walmart?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('No. Shopmivo is an independent general merchandise store and is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer.', 'dawp'); ?></p>
                     </div>
                 </div>
             </section>
@@ -144,7 +144,7 @@
                 <div class="mt-6 grid gap-5 md:grid-cols-2">
                     <div class="rounded-lg bg-[#111827] p-6 text-white">
                         <h3 class="text-xl font-black"><?php esc_html_e('Is checkout secure?', 'dawp'); ?></h3>
-                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Yes. Checkout uses encrypted HTTPS/SSL connections, and payments are handled by trusted third-party payment processors that comply with PCI-DSS standards. ToyocarTV does not store, view, or retain your raw credit card numbers on our servers.', 'dawp'); ?></p>
+                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Yes. Checkout uses encrypted HTTPS/SSL connections, and payments are handled by trusted third-party payment processors that comply with PCI-DSS standards. Shopmivo does not store, view, or retain your raw credit card numbers on our servers.', 'dawp'); ?></p>
                     </div>
                     <div class="rounded-lg bg-[#F7F8FA] p-6">
                         <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('How is my personal information used?', 'dawp'); ?></h3>
@@ -158,15 +158,15 @@
 
             <section id="contact-information" class="rounded-xl border border-dashed border-[#D71920]/35 bg-white p-8 shadow-card md:p-10">
                 <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Still Need Help?', 'dawp'); ?></h2>
-                <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('For order support, return requests, delivery issues, or compatibility questions, contact ToyocarTV through our official support channels below. Please include your order number and checkout email when asking about an existing order.', 'dawp'); ?></p>
+                <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('For order support, return requests, delivery issues, or product questions, contact Shopmivo through our official support channels below. Please include your order number and checkout email when asking about an existing order.', 'dawp'); ?></p>
                 <dl class="mt-6 grid gap-4 md:grid-cols-2">
                     <div class="rounded-lg bg-[#F7F8FA] p-5">
                         <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Store Name', 'dawp'); ?></dt>
-                        <dd class="font-bold text-[#111827]">ToyocarTV</dd>
+                        <dd class="font-bold text-[#111827]">Shopmivo</dd>
                     </div>
                     <div class="rounded-lg bg-[#F7F8FA] p-5">
                         <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
-                        <dd><a href="mailto:support@toyocartv.com" class="font-bold text-[#111827] hover:text-[#D71920]">support@toyocartv.com</a></dd>
+                        <dd><a href="mailto:support@shopmivo.com" class="font-bold text-[#111827] hover:text-[#D71920]">support@shopmivo.com</a></dd>
                     </div>
                     <div class="rounded-lg bg-[#F7F8FA] p-5">
                         <dt class="mb-2 text-xs font-black uppercase tracking-widest text-[#D71920]"><?php esc_html_e('Physical Business Address', 'dawp'); ?></dt>

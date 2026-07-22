@@ -12,7 +12,7 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from Topgoodmart.', 'dawp');
+$archive_description = __('Browse home, garden, tools, electronics, sports, toys, beauty, pets, school, office and art supplies from Topgoodmart.', 'dawp');
 $archive_eyebrow = __('Topgoodmart Collection', 'dawp');
 $archive_slug = 'shop';
 $gallery_image = static function ($filename) {
@@ -48,6 +48,22 @@ $shop_cover_images = [
         'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
         'alt' => __('Outdoor patio seating and garden living products', 'dawp'),
     ],
+];
+
+$shop_cover_images['home-garden-tools'] = $shop_cover_images['home-essentials'];
+$shop_cover_images['sports-outdoors'] = $shop_cover_images['outdoor-garden'];
+$shop_cover_images['toys-outdoor-play'] = $shop_cover_images['furniture'];
+$shop_cover_images['beauty-personal-care'] = [
+    'url' => get_theme_file_uri('assets/img/about/about-hero-beauty-essentials.jpg'),
+    'alt' => __('Beauty and personal care essentials', 'dawp'),
+];
+$shop_cover_images['pets'] = [
+    'url' => get_theme_file_uri('assets/img/about/about-giftable-flat-lay.jpg'),
+    'alt' => __('Everyday pet care supplies', 'dawp'),
+];
+$shop_cover_images['school-office-art-supplies'] = [
+    'url' => $gallery_image('Customer_support_scene_in_office_202607161445.jpeg'),
+    'alt' => __('Office, school and art supplies', 'dawp'),
 ];
 
 if ($archive_term && !is_wp_error($archive_term)) {

@@ -29,7 +29,7 @@ $intro_paragraphs = [
 $terms_highlights = [
     [
         'title' => __('Store Scope', 'dawp'),
-        'copy'  => __('Topgoodmart focuses on home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+        'copy'  => __('Topgoodmart focuses on home, garden, tools, electronics, sports, toys, beauty, pets, school, office and art supplies.', 'dawp'),
     ],
     [
         'title' => __('Secure Checkout', 'dawp'),
@@ -91,7 +91,7 @@ $sections = [
     [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
-            __('Topgoodmart is an e-commerce store focused on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+            __('Topgoodmart is an e-commerce store focused on practical home, garden, tools, electronics, sports, toys, beauty, pets, school, office and art supplies.', 'dawp'),
             __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
             __('Topgoodmart strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],

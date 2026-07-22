@@ -11,35 +11,40 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'home-essentials' => [
-            'name'        => __('Home Essentials', 'dawp'),
-            'description' => __('Storage, cleaning, organization and practical everyday products for a better home routine.', 'dawp'),
-            'short'       => __('Storage, cleaning and organization for everyday living.', 'dawp'),
-        ],
-        'furniture' => [
-            'name'        => __('Furniture', 'dawp'),
-            'description' => __('Living room, bedroom, office and space-saving furniture for modern homes.', 'dawp'),
-            'short'       => __('Comfortable furniture for living, working and relaxing.', 'dawp'),
+        'home-garden-tools' => [
+            'name'        => __('Home, Garden & Tools', 'dawp'),
+            'description' => __('Home essentials, garden care, storage, maintenance and practical tools for everyday projects.', 'dawp'),
+            'short'       => __('Home upgrades, garden care and practical tools.', 'dawp'),
         ],
         'electronics' => [
             'name'        => __('Electronics', 'dawp'),
             'description' => __('TVs, audio, computer accessories, connected devices and practical home entertainment products.', 'dawp'),
             'short'       => __('Audio, entertainment and connected tech essentials.', 'dawp'),
         ],
-        'smart-home' => [
-            'name'        => __('Smart Home', 'dawp'),
-            'description' => __('Smart lighting, security, plugs, Wi-Fi devices and automation products for connected living.', 'dawp'),
-            'short'       => __('Smart lighting, security and automation devices.', 'dawp'),
+        'sports-outdoors' => [
+            'name'        => __('Sports & Outdoors', 'dawp'),
+            'description' => __('Fitness, recreation, camping, outdoor activity and sports essentials for active routines.', 'dawp'),
+            'short'       => __('Fitness, recreation and outdoor activity gear.', 'dawp'),
         ],
-        'kitchen-dining' => [
-            'name'        => __('Kitchen & Dining', 'dawp'),
-            'description' => __('Cookware, appliances, coffee gear and dining essentials for everyday meals.', 'dawp'),
-            'short'       => __('Cookware, appliances and dining favorites.', 'dawp'),
+        'toys-outdoor-play' => [
+            'name'        => __('Toys & Outdoor Play', 'dawp'),
+            'description' => __('Toys, games, creative play and outdoor play products for kids and family time.', 'dawp'),
+            'short'       => __('Toys, games and outdoor play favorites.', 'dawp'),
         ],
-        'outdoor-garden' => [
-            'name'        => __('Outdoor & Garden', 'dawp'),
-            'description' => __('Patio, garden, grilling and outdoor living products for home spaces outside.', 'dawp'),
-            'short'       => __('Patio, garden and outdoor living picks.', 'dawp'),
+        'beauty-personal-care' => [
+            'name'        => __('Beauty & Personal Care', 'dawp'),
+            'description' => __('Beauty, grooming, skincare, wellness and personal care essentials for daily routines.', 'dawp'),
+            'short'       => __('Beauty, grooming and daily care essentials.', 'dawp'),
+        ],
+        'pets' => [
+            'name'        => __('Pets', 'dawp'),
+            'description' => __('Pet supplies, feeding, grooming, comfort and everyday care products for cats, dogs and more.', 'dawp'),
+            'short'       => __('Pet care, feeding and comfort supplies.', 'dawp'),
+        ],
+        'school-office-art-supplies' => [
+            'name'        => __('School, Office & Art Supplies', 'dawp'),
+            'description' => __('School supplies, office tools, stationery, art materials and organization products.', 'dawp'),
+            'short'       => __('School, office, stationery and art supplies.', 'dawp'),
         ],
     ];
 }

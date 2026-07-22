@@ -48,16 +48,32 @@ $categories = [
     ],
 ];
 
-$fallback_products = [
-    ['name' => 'Smart LED Floor Lamp', 'brand' => 'Topgood Home', 'price' => '$49.99', 'old' => '$69.99', 'image' => 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=700&q=82'],
-    ['name' => 'Compact Air Fryer Oven', 'brand' => 'KitchenPro', 'price' => '$89.99', 'old' => '$119.99', 'image' => 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?auto=format&fit=crop&w=700&q=82'],
-    ['name' => 'Wireless Charging Station', 'brand' => 'VoltEase', 'price' => '$34.99', 'old' => '', 'image' => 'https://images.unsplash.com/photo-1616410011236-7a42121dd981?auto=format&fit=crop&w=700&q=82'],
-    ['name' => 'Modern Storage Cabinet', 'brand' => 'RoomReady', 'price' => '$129.99', 'old' => '$159.99', 'image' => 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=700&q=82'],
-    ['name' => 'Smart Security Camera', 'brand' => 'SafeNest', 'price' => '$59.99', 'old' => '$79.99', 'image' => 'https://images.unsplash.com/photo-1558002038-bb4237b214c4?auto=format&fit=crop&w=700&q=82'],
-    ['name' => 'Patio Bistro Chair Set', 'brand' => 'OpenAir', 'price' => '$149.99', 'old' => '', 'image' => 'https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=700&q=82'],
-    ['name' => 'Bluetooth Sound Bar', 'brand' => 'ClearWave', 'price' => '$74.99', 'old' => '$99.99', 'image' => 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=700&q=82'],
-    ['name' => 'Countertop Coffee Maker', 'brand' => 'BrewDaily', 'price' => '$64.99', 'old' => '', 'image' => 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?auto=format&fit=crop&w=700&q=82'],
-];
+if (function_exists('dawp_lbq_product_categories')) {
+    $category_images = [
+        'home-garden-tools' => get_theme_file_uri('assets/img/gallery/Modern_laundry_room_cleaning_staâ€¦_202607161248.jpeg'),
+        'electronics' => get_theme_file_uri('assets/img/gallery/Home_entertainment_setup_televisâ€¦_202607161254.jpeg'),
+        'sports-outdoors' => get_theme_file_uri('assets/img/gallery/Garden_lounge_area_with_hanging_202607161300.jpeg'),
+        'toys-outdoor-play' => get_theme_file_uri('assets/img/gallery/Living_room_furniture_set_neutraâ€¦_202607161252.jpeg'),
+        'beauty-personal-care' => get_theme_file_uri('assets/img/about/about-hero-beauty-essentials.jpg'),
+        'pets' => get_theme_file_uri('assets/img/about/about-giftable-flat-lay.jpg'),
+        'school-office-art-supplies' => get_theme_file_uri('assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'),
+    ];
+
+    $categories = [];
+
+    foreach (dawp_lbq_product_categories() as $slug => $category) {
+        if ($slug === 'school-office-art-supplies') {
+            continue;
+        }
+
+        $categories[] = [
+            'name' => $category['name'],
+            'desc' => $category['short'],
+            'image' => $category_images[$slug] ?? get_theme_file_uri('assets/img/gallery/Modern_living_room_smart_electroâ€¦_202607161235.jpeg'),
+            'href' => function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : home_url('/product-category/' . trim($slug, '/') . '/'),
+        ];
+    }
+}
 
 $wc_products = [];
 if (class_exists('WooCommerce')) {
@@ -89,9 +105,9 @@ if (class_exists('WooCommerce')) {
 <section class="tgm-hero">
     <div class="tgm-container tgm-hero__grid">
         <div class="tgm-hero__content">
-            <p class="tgm-eyebrow">Modern Home &bull; Electronics &bull; Lifestyle</p>
-            <h1>Everything You Need For Modern Living</h1>
-            <p class="tgm-hero__copy">Discover quality products for your home, technology and everyday lifestyle at competitive prices.</p>
+            <p class="tgm-eyebrow">Home &bull; Electronics &bull; Outdoor &bull; Everyday Supplies</p>
+            <h1>Everything You Need For Everyday Shopping</h1>
+            <p class="tgm-hero__copy">Discover quality products across home, tech, sports, toys, beauty, pets and supplies at competitive prices.</p>
             <div class="tgm-hero__actions">
                 <a class="tgm-btn tgm-btn--primary" href="<?php echo esc_url($shop_url); ?>">Shop Now</a>
                 <a class="tgm-btn tgm-btn--secondary" href="<?php echo esc_url(home_url('/shop/?on_sale=1')); ?>">Explore Deals</a>
@@ -106,7 +122,7 @@ if (class_exists('WooCommerce')) {
             <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Modern_living_room_smart_electro…_202607161235.jpeg'), 'Modern living room with smart home products', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
             <div class="tgm-hero__deal">
                 <strong>Weekly Picks</strong>
-                <span>Home, tech and kitchen deals refreshed often.</span>
+                <span>Home, tech and everyday deals refreshed often.</span>
             </div>
         </div>
     </div>
@@ -136,58 +152,41 @@ if (class_exists('WooCommerce')) {
     </div>
 </section>
 
+<?php if (!empty($wc_products)) : ?>
 <section class="tgm-section tgm-section--soft">
     <div class="tgm-container">
         <div class="tgm-section__head">
             <div>
                 <p class="tgm-eyebrow">Popular now</p>
                 <h2>Featured Products</h2>
-                <p>Popular choices for every home and lifestyle.</p>
+                <p>Popular choices across everyday departments.</p>
             </div>
             <a class="tgm-link" href="<?php echo esc_url($shop_url); ?>">Shop all products</a>
         </div>
         <div class="tgm-product-grid">
-            <?php if (!empty($wc_products)) : ?>
-                <?php foreach ($wc_products as $product) : ?>
-                    <article class="tgm-product">
-                        <a class="tgm-product__image" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
-                            <?php
-                            $product_image = dawp_get_responsive_attachment_image($product->get_image_id(), $product->get_name(), '', 520, 520, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw');
-                            echo $product_image ?: $product->get_image('woocommerce_thumbnail');
-                            ?>
-                            <?php if ($product->is_on_sale()) : ?><span class="tgm-sale">Sale</span><?php endif; ?>
-                        </a>
-                        <div class="tgm-product__body">
-                            <p class="tgm-product__brand"><?php echo esc_html($product->get_attribute('brand') ?: 'Topgoodmart'); ?></p>
-                            <h3><a href="<?php echo esc_url(get_permalink($product->get_id())); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
-                            <div class="tgm-rating" aria-label="Rated <?php echo esc_attr($product->get_average_rating() ?: '5'); ?> out of 5">&#9733;&#9733;&#9733;&#9733;&#9733; <span><?php echo esc_html($product->get_review_count() ?: '12'); ?></span></div>
-                            <div class="tgm-product__price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
-                            <p class="tgm-ship">Fast shipping available</p>
-                            <a class="tgm-add" href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>">Add to Cart</a>
-                        </div>
-                    </article>
-                <?php endforeach; ?>
-            <?php else : ?>
-                <?php foreach ($fallback_products as $product) : ?>
-                    <article class="tgm-product">
-                        <div class="tgm-product__image">
-                            <?php echo dawp_get_responsive_image($product['image'], $product['name'], '', 520, 520, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw'); ?>
-                            <?php if (!empty($product['old'])) : ?><span class="tgm-sale">Sale</span><?php endif; ?>
-                        </div>
-                        <div class="tgm-product__body">
-                            <p class="tgm-product__brand"><?php echo esc_html($product['brand']); ?></p>
-                            <h3><?php echo esc_html($product['name']); ?></h3>
-                            <div class="tgm-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>24</span></div>
-                            <div class="tgm-product__price"><strong><?php echo esc_html($product['price']); ?></strong><?php if ($product['old']) : ?><del><?php echo esc_html($product['old']); ?></del><?php endif; ?></div>
-                            <p class="tgm-ship">Fast shipping available</p>
-                            <a class="tgm-add" href="<?php echo esc_url($shop_url); ?>">Add to Cart</a>
-                        </div>
-                    </article>
-                <?php endforeach; ?>
-            <?php endif; ?>
+            <?php foreach ($wc_products as $product) : ?>
+                <article class="tgm-product">
+                    <a class="tgm-product__image" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
+                        <?php
+                        $product_image = dawp_get_responsive_attachment_image($product->get_image_id(), $product->get_name(), '', 520, 520, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw');
+                        echo $product_image ?: $product->get_image('woocommerce_thumbnail');
+                        ?>
+                        <?php if ($product->is_on_sale()) : ?><span class="tgm-sale">Sale</span><?php endif; ?>
+                    </a>
+                    <div class="tgm-product__body">
+                        <p class="tgm-product__brand"><?php echo esc_html($product->get_attribute('brand') ?: 'Topgoodmart'); ?></p>
+                        <h3><a href="<?php echo esc_url(get_permalink($product->get_id())); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
+                        <div class="tgm-rating" aria-label="Rated <?php echo esc_attr($product->get_average_rating() ?: '5'); ?> out of 5">&#9733;&#9733;&#9733;&#9733;&#9733; <span><?php echo esc_html($product->get_review_count() ?: '12'); ?></span></div>
+                        <div class="tgm-product__price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
+                        <p class="tgm-ship">Fast shipping available</p>
+                        <a class="tgm-add" href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>">Add to Cart</a>
+                    </div>
+                </article>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <section class="tgm-section">
     <div class="tgm-container">
@@ -198,17 +197,17 @@ if (class_exists('WooCommerce')) {
             </div>
         </div>
         <div class="tgm-collection-grid">
-            <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/smart-home/')); ?>">
+            <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/electronics/')); ?>">
                 <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Living_ecosystem_with_smart_tech_202607161304.jpeg'), 'Smart home devices', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
-                <span><strong>Smart Living</strong><em>Lighting, security and connected comfort.</em></span>
+                <span><strong>Electronics Picks</strong><em>Audio, accessories and connected comfort.</em></span>
             </a>
-            <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/furniture/')); ?>">
+            <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/home-garden-tools/')); ?>">
                 <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Entryway_refresh_console_table_m…_202607161305.jpeg'), 'Modern home furniture', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
-                <span><strong>Home Refresh</strong><em>Furniture and organization essentials.</em></span>
+                <span><strong>Home Refresh</strong><em>Home, garden and tool essentials.</em></span>
             </a>
-            <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/kitchen-dining/')); ?>">
+            <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/school-office-art-supplies/')); ?>">
                 <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Dining_area_with_kitchen_favorites_202607161311.jpeg'), 'Kitchen appliances and cookware', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
-                <span><strong>Kitchen Favorites</strong><em>Appliances, cookware and coffee gear.</em></span>
+                <span><strong>Work & Study</strong><em>Office, school and creative supplies.</em></span>
             </a>
         </div>
     </div>

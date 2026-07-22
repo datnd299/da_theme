@@ -32,25 +32,25 @@ if (!$shop_url) {
 }
 
 $quick_links = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-    'home-essentials' => [
-        'name'  => __('Home Essentials', 'dawp'),
-        'short' => __('Storage, cleaning and organization for everyday living.', 'dawp'),
-    ],
-    'furniture' => [
-        'name'  => __('Furniture', 'dawp'),
-        'short' => __('Comfortable furniture for living, working and relaxing.', 'dawp'),
+    'home-garden-tools' => [
+        'name'  => __('Home, Garden & Tools', 'dawp'),
+        'short' => __('Home upgrades, garden care and practical tools.', 'dawp'),
     ],
     'electronics' => [
         'name'  => __('Electronics', 'dawp'),
         'short' => __('Audio, entertainment and connected tech essentials.', 'dawp'),
     ],
-    'smart-home' => [
-        'name'  => __('Smart Home', 'dawp'),
-        'short' => __('Smart lighting, security and automation devices.', 'dawp'),
+    'sports-outdoors' => [
+        'name'  => __('Sports & Outdoors', 'dawp'),
+        'short' => __('Fitness, recreation and outdoor activity gear.', 'dawp'),
     ],
-    'kitchen-dining' => [
-        'name'  => __('Kitchen & Dining', 'dawp'),
-        'short' => __('Cookware, appliances and dining favorites.', 'dawp'),
+    'toys-outdoor-play' => [
+        'name'  => __('Toys & Outdoor Play', 'dawp'),
+        'short' => __('Toys, games and outdoor play favorites.', 'dawp'),
+    ],
+    'beauty-personal-care' => [
+        'name'  => __('Beauty & Personal Care', 'dawp'),
+        'short' => __('Beauty, grooming and daily care essentials.', 'dawp'),
     ],
 ];
 
@@ -86,7 +86,7 @@ $support_links = [
                     <?php esc_html_e('This page is not available.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B7280] sm:text-lg">
-                    <?php esc_html_e('The link may have changed, but you can continue shopping Topgoodmart for home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products.', 'dawp'); ?>
+                    <?php esc_html_e('The link may have changed, but you can continue shopping Topgoodmart for home, garden, tools, electronics, sports, toys, beauty, pets, school, office and art supplies.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#0046BE] px-6 text-sm font-bold text-white shadow-lg shadow-[#0046BE]/15 transition hover:bg-[#1F2937]">

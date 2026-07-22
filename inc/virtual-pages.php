@@ -42,8 +42,8 @@ function dawp_virtual_page_map() {
 function dawp_home_page_seo_data() {
     return [
         'slug'           => 'home',
-        'title'          => 'Topgoodmart - Home, Electronics & Everyday Essentials',
-        'desc'           => 'Shop Topgoodmart for practical home essentials, furniture, electronics, smart home products, kitchen favorites and outdoor living picks.',
+        'title'          => 'Topgoodmart - Everyday Departments & Essentials',
+        'desc'           => 'Shop Topgoodmart for home, garden, tools, electronics, sports, toys, beauty, pets, school, office and art supplies.',
         'canonical_path' => '',
         'schema_type'    => 'WebSite',
         'image'          => get_template_directory_uri() . '/assets/img/home/5f4f0066-d0af-4d77-af44-11e501dd5cc9 (1).png',

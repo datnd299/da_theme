@@ -28,7 +28,7 @@ $about_departments_image_url = add_query_arg(
 $standards = [
     [
         'title' => 'Useful Everyday Products',
-        'copy' => 'We focus on practical home, technology and lifestyle products that make daily routines easier.',
+        'copy' => 'We focus on practical products across home, technology, outdoor, family, care and supply routines.',
     ],
     [
         'title' => 'Clear Shopping Experience',
@@ -40,13 +40,14 @@ $standards = [
     ],
 ];
 
-$departments = [
-    'Home Essentials',
-    'Furniture',
+$departments = function_exists('dawp_lbq_product_categories') ? wp_list_pluck(dawp_lbq_product_categories(), 'name') : [
+    'Home, Garden & Tools',
     'Electronics',
-    'Smart Home',
-    'Kitchen & Dining',
-    'Outdoor & Garden',
+    'Sports & Outdoors',
+    'Toys & Outdoor Play',
+    'Beauty & Personal Care',
+    'Pets',
+    'School, Office & Art Supplies',
 ];
 
 $trust = [
@@ -77,8 +78,8 @@ $trust = [
     <div class="tgm-container tgm-about-hero__grid">
         <div class="tgm-about-hero__content">
             <p class="tgm-eyebrow">About Topgoodmart</p>
-            <h1>A Modern Store For Home, Technology And Everyday Living</h1>
-            <p>Topgoodmart helps American shoppers discover quality products across home essentials, furniture, electronics and smart lifestyle categories with a clean, reliable shopping experience.</p>
+            <h1>A Modern Store For Everyday Departments</h1>
+            <p>Topgoodmart helps American shoppers discover quality products across home, garden, tools, electronics, sports, toys, beauty, pets and supplies with a clean, reliable shopping experience.</p>
             <div class="tgm-hero__actions">
                 <a class="tgm-btn tgm-btn--primary" href="<?php echo esc_url($shop_url); ?>">Shop Products</a>
                 <a class="tgm-btn tgm-btn--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Support</a>
@@ -101,7 +102,7 @@ $trust = [
             <h2>Helping customers upgrade daily life without the clutter.</h2>
         </div>
         <div class="tgm-about-story__copy">
-            <p>Topgoodmart was shaped around a simple idea: online shopping should be organized, practical and easy to trust. Instead of feeling like a crowded marketplace, the store brings together useful products for the home, connected living, kitchen, outdoor spaces and everyday routines.</p>
+            <p>Topgoodmart was shaped around a simple idea: online shopping should be organized, practical and easy to trust. Instead of feeling like a crowded marketplace, the store brings together useful products for home projects, connected living, outdoor activity, family routines, personal care and everyday supplies.</p>
             <p>Our goal is to make product discovery straightforward. Customers should be able to browse clear departments, compare product information and understand shipping, returns and support before placing an order.</p>
         </div>
     </div>
@@ -134,7 +135,7 @@ $trust = [
         <div class="tgm-about-split__content">
             <p class="tgm-eyebrow">What we carry</p>
             <h2>Departments made for real homes and busy routines.</h2>
-            <p>From storage and furniture to smart devices, coffee gear and patio picks, Topgoodmart focuses on categories customers can use often. The assortment is designed to support home upgrades, work-from-home spaces, family routines and convenient online shopping.</p>
+            <p>From home and garden tools to electronics, pet care, toys, beauty and school supplies, Topgoodmart focuses on categories customers can use often. The assortment is designed to support household projects, active routines, family needs and convenient online shopping.</p>
             <div class="tgm-about-tags" aria-label="Topgoodmart departments">
                 <?php foreach ($departments as $department) : ?>
                     <span><?php echo esc_html($department); ?></span>

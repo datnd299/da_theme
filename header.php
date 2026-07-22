@@ -30,14 +30,16 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$nav_items = [
-    ['title' => __('Home Essentials', 'dawp'), 'url' => home_url('/product-category/home-essentials/'), 'slug' => 'home-essentials'],
-    ['title' => __('Furniture', 'dawp'), 'url' => home_url('/product-category/furniture/'), 'slug' => 'furniture'],
-    ['title' => __('Electronics', 'dawp'), 'url' => home_url('/product-category/electronics/'), 'slug' => 'electronics'],
-    ['title' => __('Smart Home', 'dawp'), 'url' => home_url('/product-category/smart-home/'), 'slug' => 'smart-home'],
-    ['title' => __('Kitchen & Dining', 'dawp'), 'url' => home_url('/product-category/kitchen-dining/'), 'slug' => 'kitchen-dining'],
-    ['title' => __('Outdoor & Garden', 'dawp'), 'url' => home_url('/product-category/outdoor-garden/'), 'slug' => 'outdoor-garden'],
-];
+$nav_items = [];
+$nav_categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [];
+
+foreach ($nav_categories as $slug => $category) {
+    $nav_items[] = [
+        'title' => $category['name'],
+        'url'   => function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : home_url('/product-category/' . trim($slug, '/') . '/'),
+        'slug'  => $slug,
+    ];
+}
 
 $is_sale_nav_current = function_exists('is_shop') && is_shop() && isset($_GET['on_sale']) && '1' === sanitize_text_field(wp_unslash($_GET['on_sale']));
 $is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_current;
@@ -47,7 +49,7 @@ $is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Topgoodmart — Your modern online marketplace for home essentials, furniture, electronics, smart home, kitchen and outdoor products. Fast U.S. shipping, secure checkout, and everyday deals.">
+    <meta name="description" content="Topgoodmart - Your modern online marketplace for home, garden, tools, electronics, sports, toys, beauty, pets, school, office and art supplies. Fast U.S. shipping, secure checkout, and everyday deals.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
 
@@ -119,7 +121,7 @@ $is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_
 <header id="site-header" class="tgm-header" role="banner">
     <div class="tgm-header__top">
         <div class="tgm-header__inner tgm-header__top-row">
-            <p><?php esc_html_e('Fast U.S. shipping, secure checkout and everyday deals for modern living.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Fast U.S. shipping, secure checkout and everyday deals across top departments.', 'dawp'); ?></p>
             <div class="tgm-header__top-links">
                 <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
             </div>
@@ -133,7 +135,7 @@ $is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_
 
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="tgm-search tgm-header-search">
             <label class="screen-reader-text" for="header-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-            <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search home, electronics, kitchen and more', 'dawp'); ?>">
+            <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search electronics, pets, school supplies and more', 'dawp'); ?>">
             <input type="hidden" name="post_type" value="product">
             <button type="submit" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>

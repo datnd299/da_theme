@@ -128,7 +128,7 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What does Topgoodmart sell?', 'dawp'),
-                'answer'   => __('Topgoodmart focuses on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, outdoor living items, and other home, electronics and lifestyle products.', 'dawp'),
+                'answer'   => __('Topgoodmart focuses on home, garden, tools, electronics, sports, toys, beauty, personal care, pets, school, office and art supplies.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),

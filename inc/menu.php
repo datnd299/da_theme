@@ -1,13 +1,22 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'essentials' => 'home-essentials',
-        'home'       => 'home-essentials',
-        'furniture'  => 'furniture',
+        'essentials' => 'home',
+        'home'       => 'home',
+        'furniture'  => 'home',
         'electronics'=> 'electronics',
-        'smart'      => 'smart-home',
-        'kitchen'    => 'kitchen-dining',
-        'outdoor'    => 'outdoor-garden',
+        'smart'      => 'electronics',
+        'kitchen'    => 'home',
+        'outdoor'    => 'sports-outdoors',
+        'garden'     => 'garden-tools',
+        'tools'      => 'garden-tools',
+        'sports'     => 'sports-outdoors',
+        'toys'       => 'toys-outdoor-play',
+        'beauty'     => 'beauty-personal-care',
+        'pets'       => 'pets',
+        'school'     => 'school-office-art-supplies',
+        'office'     => 'school-office-art-supplies',
+        'art'        => 'school-office-art-supplies',
     ];
 
     return $map[$slug] ?? $slug;
@@ -31,12 +40,14 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'home-essentials' => ['name' => __('Home Essentials', 'dawp')],
-        'furniture'       => ['name' => __('Furniture', 'dawp')],
-        'electronics'     => ['name' => __('Electronics', 'dawp')],
-        'smart-home'      => ['name' => __('Smart Home', 'dawp')],
-        'kitchen-dining'  => ['name' => __('Kitchen & Dining', 'dawp')],
-        'outdoor-garden'  => ['name' => __('Outdoor & Garden', 'dawp')],
+        'home'                       => ['name' => __('Home', 'dawp')],
+        'garden-tools'               => ['name' => __('Garden & Tools', 'dawp')],
+        'electronics'                => ['name' => __('Electronics', 'dawp')],
+        'sports-outdoors'            => ['name' => __('Sports & Outdoors', 'dawp')],
+        'toys-outdoor-play'          => ['name' => __('Toys & Outdoor Play', 'dawp')],
+        'beauty-personal-care'       => ['name' => __('Beauty & Personal Care', 'dawp')],
+        'pets'                       => ['name' => __('Pets', 'dawp')],
+        'school-office-art-supplies' => ['name' => __('School, Office & Art Supplies', 'dawp')],
     ];
 
     $items = [];

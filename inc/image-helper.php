@@ -29,27 +29,6 @@ if (!function_exists('dawp_get_responsive_image')) {
             $image_url = remove_query_arg(array_keys(wp_parse_args($query)), $image_url);
         }
 
-        $host = wp_parse_url($image_url, PHP_URL_HOST);
-        $site_host = wp_parse_url(home_url('/'), PHP_URL_HOST);
-        $local_hosts = ['localhost', '127.0.0.1', '::1'];
-        $is_local_host = in_array($host, $local_hosts, true)
-            || in_array($site_host, $local_hosts, true)
-            || (is_string($host) && preg_match('#^(10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.|192\.168\.)#', $host));
-        $is_local_env = function_exists('wp_get_environment_type') && in_array(wp_get_environment_type(), ['local', 'development'], true);
-
-        if ($is_local_host || $is_local_env) {
-            return sprintf(
-                '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s"%s>',
-                esc_attr($loading),
-                (int)$width,
-                (int)$height,
-                esc_url($image_url),
-                esc_attr($class),
-                esc_attr($alt),
-                $fetchpriority_attr
-            );
-        }
-
         if (strpos($image_url, 'https://i0.wp.com/') === 0) {
             $cdn_url = strtok($image_url, '?');
         } else {
@@ -58,10 +37,12 @@ if (!function_exists('dawp_get_responsive_image')) {
 
         $ratio = $height > 0 ? $width / $height : 1;
 
-        if ($width <= 120) {
-            $sizes_arr = array_values(array_unique(array_filter([(int) $width, (int) $width * 2, (int) $width * 3])));
-        } elseif ($width <= 320) {
-            $sizes_arr = array_values(array_unique(array_filter([160, 240, (int) $width, min((int) $width * 2, 640)])));
+        if ($width <= 80) {
+            $sizes_arr = array_values(array_unique(array_filter([(int) $width, (int) $width * 2, min((int) $width * 3, 240)])));
+        } elseif ($width <= 240) {
+            $sizes_arr = array_values(array_unique(array_filter([120, 160, (int) $width, min((int) $width * 2, 480)])));
+        } elseif ($width <= 640) {
+            $sizes_arr = array_values(array_unique(array_filter([240, 320, 480, (int) $width, min((int) $width * 2, 1024)])));
         } else {
             $sizes_arr = array_values(array_unique(array_filter([320, 480, 768, 1024, (int) $width, min(max((int) $width * 2, 1200), 1600)])));
         }

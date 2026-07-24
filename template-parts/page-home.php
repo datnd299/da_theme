@@ -69,6 +69,19 @@ $mmd_img = static function ($file, $alt, $class = '', $width = 900, $height = 70
     );
 };
 
+$mmd_category_media = static function ($card) use ($mmd_img) {
+    if (!empty($card['image'])) {
+        echo $mmd_img($card['image'], $card['title'], '', 560, 420, 'lazy', '(max-width: 699px) 82vw, (max-width: 899px) 33vw, 25vw');
+        return;
+    }
+
+    printf(
+        '<span class="mmd-room-card__missing-image">%s<br><strong>%s</strong></span>',
+        esc_html__('Add image in assets/img/gallery/', 'dawp'),
+        esc_html($card['image_hint'])
+    );
+};
+
 $mmd_product_card = static function ($product_id) {
     if (!function_exists('wc_get_product')) {
         return;
@@ -114,18 +127,18 @@ $mmd_product_card = static function ($product_id) {
 };
 
 $room_cards = [
-    ['title' => __('Living Room', 'dawp'), 'copy' => __('Layered seating, refined storage and warm accents for everyday gathering.', 'dawp'), 'image' => 'Living_Room.jpeg', 'slug' => 'furniture'],
-    ['title' => __('Bedroom', 'dawp'), 'copy' => __('Soft textiles, calming furniture and details that turn rest into ritual.', 'dawp'), 'image' => 'Bedroom.jpeg', 'slug' => 'bedding-bath'],
-    ['title' => __('Kitchen', 'dawp'), 'copy' => __('Cookware, prep tools and counter pieces made for beautiful daily use.', 'dawp'), 'image' => 'Kitchen_need.jpeg', 'slug' => 'kitchen-dining'],
-    ['title' => __('Dining', 'dawp'), 'copy' => __('Tablescape essentials and serving pieces for meals that feel considered.', 'dawp'), 'image' => 'Dining.jpeg', 'slug' => 'kitchen-dining'],
-    ['title' => __('Bath & Utility', 'dawp'), 'copy' => __('Fresh storage, laundry helpers and bath comforts with a clean finish.', 'dawp'), 'image' => 'Bathroom.jpeg', 'slug' => 'home-essentials'],
-    ['title' => __('Outdoor', 'dawp'), 'copy' => __('Patio textures, garden accents and entertaining pieces for open-air living.', 'dawp'), 'image' => 'Outdoor.jpeg', 'slug' => 'outdoor-garden'],
+    ['title' => __('Home', 'dawp'), 'copy' => __('Home essentials, furniture, kitchen favorites and practical everyday pieces.', 'dawp'), 'image' => 'Living_room_furniture_set_neutra…_202607161252.jpeg', 'image_hint' => 'home.jpeg', 'slug' => 'home'],
+    ['title' => __('Garden & Tools', 'dawp'), 'copy' => __('Garden, patio and useful tools for home projects and outdoor care.', 'dawp'), 'image' => 'Garden_lounge_area_with_hanging_202607161300.jpeg', 'image_hint' => 'garden-tools.jpeg', 'slug' => 'garden-tools'],
+    ['title' => __('Electronics', 'dawp'), 'copy' => __('Entertainment, connected tech and useful electronic essentials.', 'dawp'), 'image' => 'Modern_living_room_smart_electro…_202607161235.jpeg', 'image_hint' => 'electronics.jpeg', 'slug' => 'electronics'],
+    ['title' => __('Sports & Outdoors', 'dawp'), 'copy' => __('Fitness, recreation and outdoor activity gear for active days.', 'dawp'), 'image' => 'Home_gym_setup_cork_mat_202607241524.jpeg', 'image_hint' => 'sports-outdoors.jpeg', 'slug' => 'sports-outdoors'],
+    ['title' => __('Beauty & Personal Care', 'dawp'), 'copy' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'), 'image' => 'Skincare_bottles_on_marble_vanity_202607241524.jpeg', 'image_hint' => 'beauty-personal-care.jpeg', 'slug' => 'beauty-personal-care'],
+    ['title' => __('School, Office & Art Supplies', 'dawp'), 'copy' => __('School supplies, office essentials, stationery and art materials.', 'dawp'), 'image' => 'Minimalist_home_office_desk_setup_202607241524.jpeg', 'image_hint' => 'school-office-art-supplies.jpeg', 'slug' => 'school-office-art-supplies'],
 ];
 
 $collections = [
-    ['title' => __('Kitchen Essentials', 'dawp'), 'copy' => __('Tools and cookware selected for weeknight rhythm and weekend hosting.', 'dawp'), 'image' => 'Kitchen_essentials_tools_cookware_202607171159.jpeg', 'slug' => 'kitchen-dining'],
-    ['title' => __('Modern Furniture', 'dawp'), 'copy' => __('Clean-lined pieces that anchor the room without overwhelming it.', 'dawp'), 'image' => 'Modern_furniture_clean-lined_pieces_202607171201.jpeg', 'slug' => 'furniture'],
-    ['title' => __('Outdoor Living', 'dawp'), 'copy' => __('Relaxed materials and garden-ready details for fresh-air entertaining.', 'dawp'), 'image' => 'Outdoor_living_fresh_air_enterta…_202607171203.jpeg', 'slug' => 'outdoor-garden'],
+    ['title' => __('Kitchen Essentials', 'dawp'), 'copy' => __('Tools and cookware selected for weeknight rhythm and weekend hosting.', 'dawp'), 'image' => 'Kitchen_essentials_tools_cookware_202607171159.jpeg', 'slug' => 'home'],
+    ['title' => __('Modern Furniture', 'dawp'), 'copy' => __('Clean-lined pieces that anchor the room without overwhelming it.', 'dawp'), 'image' => 'Modern_furniture_clean-lined_pieces_202607171201.jpeg', 'slug' => 'home'],
+    ['title' => __('Outdoor Living', 'dawp'), 'copy' => __('Relaxed materials and garden-ready details for fresh-air entertaining.', 'dawp'), 'image' => 'Outdoor_living_fresh_air_enterta…_202607171203.jpeg', 'slug' => 'garden-tools'],
 ];
 
 $seasonal = [
@@ -191,6 +204,8 @@ if (function_exists('wc_get_products')) {
     .mmd-room-card, .mmd-collection-card, .mmd-product-card, .mmd-trust-card, .mmd-review-card { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; overflow:hidden; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
     .mmd-room-card { color:inherit; display:flex; flex-direction:column; min-height:100%; text-decoration:none; }
     .mmd-room-card img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .35s ease; }
+    .mmd-room-card__missing-image { aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#F5F6F8; color:#6B7280; padding:18px; text-align:center; font-size:.84rem; line-height:1.45; }
+    .mmd-room-card__missing-image strong { margin-top:6px; color:var(--mmd-ink); font-size:.9rem; word-break:break-word; }
     .mmd-room-card__body { display:flex; flex:1; flex-direction:column; padding:18px; }
     .mmd-room-card h3 { font-size:1.28rem; line-height:1.14; }
     .mmd-room-card p { margin-top:9px; font-size:.92rem; line-height:1.56; }
@@ -284,16 +299,16 @@ if (function_exists('wc_get_products')) {
         <div class="mmd-container">
             <div class="mmd-section__head">
                 <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Shop By Room', 'dawp'); ?></p>
-                    <h2 id="mmd-room-title"><?php esc_html_e('Start with the space you are creating.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Browse room-focused edits that make it easier to build a polished, comfortable home one layer at a time.', 'dawp'); ?></p>
+                    <p class="mmd-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
+                    <h2 id="mmd-room-title"><?php esc_html_e('Browse the departments you need most.', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Shop practical everyday categories across home, tech, outdoors, play, beauty, pets and supplies.', 'dawp'); ?></p>
                 </div>
-                <a class="mmd-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all rooms', 'dawp'); ?></a>
+                <a class="mmd-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all categories', 'dawp'); ?></a>
             </div>
             <div class="mmd-room-grid">
                 <?php foreach ($room_cards as $card) : ?>
                     <a class="mmd-room-card" href="<?php echo esc_url($mmd_cat_url($card['slug'])); ?>">
-                        <?php echo $mmd_img($card['image'], $card['title'], '', 560, 420, 'lazy', '(max-width: 699px) 82vw, (max-width: 899px) 33vw, 30vw'); ?>
+                        <?php $mmd_category_media($card); ?>
                         <span class="mmd-room-card__body">
                             <h3><?php echo esc_html($card['title']); ?></h3>
                             <p><?php echo esc_html($card['copy']); ?></p>

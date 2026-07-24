@@ -18,35 +18,46 @@ $archive_slug = 'shop';
 $home_image = static function ($filename) {
     return get_theme_file_uri('assets/img/home/' . $filename);
 };
+$gallery_image = static function ($filename) {
+    return get_theme_file_uri('assets/img/gallery/' . $filename);
+};
 
 $shop_cover_images = [
     'shop' => [
         'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
         'alt' => __('Curated home essentials arranged on a warm modern shelf', 'dawp'),
     ],
-    'home-essentials' => [
-        'url' => $home_image('Fresh_Utility_Spaces.jpeg'),
-        'alt' => __('Fresh utility space with practical home organization essentials', 'dawp'),
+    'home' => [
+        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
+        'alt' => __('Bright modern shelves styled with everyday home essentials', 'dawp'),
     ],
-    'furniture' => [
-        'url' => $home_image('Modern_furniture_clean-lined_pieces_202607171201.jpeg'),
-        'alt' => __('Clean-lined modern furniture in a warm living space', 'dawp'),
+    'garden-tools' => [
+        'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
+        'alt' => __('Garden lounge area with outdoor tools and patio essentials', 'dawp'),
     ],
     'electronics' => [
         'url' => $home_image('Living_Room.jpeg'),
         'alt' => __('Modern living room ready for entertainment and connected devices', 'dawp'),
     ],
-    'smart-home' => [
-        'url' => $home_image('Minimalist_living_room_with_ligh…_202607171221.jpeg'),
-        'alt' => __('Minimalist living room with warm lighting for smart home living', 'dawp'),
+    'sports-outdoors' => [
+        'url' => $gallery_image('Home_gym_setup_cork_mat_202607241524.jpeg'),
+        'alt' => __('Home gym setup with fitness and outdoor activity gear', 'dawp'),
     ],
-    'kitchen-dining' => [
-        'url' => $home_image('Kitchen_essentials_tools_cookware_202607171159.jpeg'),
-        'alt' => __('Kitchen essentials, cookware, and everyday dining tools', 'dawp'),
+    'toys-outdoor-play' => [
+        'url' => $gallery_image('Children_playing_tumble_tower_game_202607241524.jpeg'),
+        'alt' => __('Children playing an outdoor tumble tower game', 'dawp'),
     ],
-    'outdoor-garden' => [
-        'url' => $home_image('Outdoor_living_fresh_air_enterta…_202607171203.jpeg'),
-        'alt' => __('Outdoor living space arranged for fresh-air entertaining', 'dawp'),
+    'beauty-personal-care' => [
+        'url' => $gallery_image('Skincare_bottles_on_marble_vanity_202607241524.jpeg'),
+        'alt' => __('Skincare and personal care bottles arranged on a marble vanity', 'dawp'),
+    ],
+    'pets' => [
+        'url' => $gallery_image('Pet_bed_with_cat_202607241524.jpeg'),
+        'alt' => __('Comfortable pet bed styled for everyday pet care', 'dawp'),
+    ],
+    'school-office-art-supplies' => [
+        'url' => $gallery_image('Minimalist_home_office_desk_setup_202607241524.jpeg'),
+        'alt' => __('Minimalist desk setup with office and school supplies', 'dawp'),
     ],
 ];
 if ($archive_term && !is_wp_error($archive_term)) {

@@ -37,19 +37,22 @@ get_header(); ?>
 </div>
 <div class="sgs-st-grid">
   <?php
-  $categories = [
-    ['American Flag Tees', 'American flag tees, hats, and more.', 'american-flag-tees', 'AF'],
-    ['Bomber Jackets', 'Bomber jackets and outerwear.', 'bomber-jackets', 'BJ'],
-    ['Hats & Beanies', 'Patriotic caps and snapbacks.', 'hats-beanies', 'HB'],
-    ['Premium T-Shirts', 'Graphic tees for every patriot.', 'premium-t-shirts', 'TS'],
-    ['Patches & Pins', 'Accessories for everyday American pride.', 'patches-pins', 'PP'],
-    ['Best Sellers', 'Customer-favorite patriotic apparel and gifts.', 'best-sellers', 'BS'],
-  ];
-  foreach ($categories as $t): ?>
-  <a href="<?php echo esc_url(dawp_product_category_url($t[2])); ?>" class="sgs-st-card">
-    <span class="sgs-st-card__icon"><?php echo esc_html($t[3]); ?></span>
-    <h3><?php echo esc_html($t[0]); ?></h3>
-    <p><?php echo esc_html($t[1]); ?></p>
+  $category_groups = function_exists('dawp_product_category_group') ? [
+    dawp_product_category_group('featured'),
+    dawp_product_category_group('collections'),
+    dawp_product_category_group('gifts'),
+  ] : [];
+  $categories = [];
+
+  foreach ($category_groups as $group) {
+    $categories = array_merge($categories, $group);
+  }
+
+  foreach ($categories as $slug => $category): ?>
+  <a href="<?php echo esc_url(dawp_product_category_url($slug)); ?>" class="sgs-st-card">
+    <span class="sgs-st-card__icon"><?php echo esc_html($category['icon'] ?? strtoupper(substr($slug, 0, 2))); ?></span>
+    <h3><?php echo esc_html($category['name']); ?></h3>
+    <p><?php echo esc_html($category['description']); ?></p>
     <span class="sgs-st-card__cta">Shop Now</span>
   </a>
   <?php endforeach; ?>

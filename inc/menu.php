@@ -9,17 +9,35 @@ function dawp_main_menu_items() {
 }
 
 function dawp_megamenu_sections() {
+    $collection_links = [];
+    $gift_links       = [];
+
+    if (function_exists('dawp_product_category_group')) {
+        foreach (dawp_product_category_group('collections') as $slug => $category) {
+            $collection_links[] = [
+                'title'       => $category['name'],
+                'url'         => dawp_product_category_url($slug),
+                'description' => $category['description'],
+            ];
+        }
+
+        foreach (dawp_product_category_group('gifts') as $slug => $category) {
+            $gift_links[] = [
+                'title'       => $category['name'],
+                'url'         => dawp_product_category_url($slug),
+                'description' => $category['description'],
+            ];
+        }
+    }
+
     return [
         [
             'title' => __('Shop by Collections', 'dawp'),
-            'links' => [
-                ['title' => __('American Flag Tees', 'dawp'), 'url' => dawp_product_category_url('american-flag-tees'), 'description' => __('American pride flag designs.', 'dawp')],
-                ['title' => __('Bomber Jackets', 'dawp'), 'url' => dawp_product_category_url('bomber-jackets'), 'description' => __('Outerwear with patriotic character.', 'dawp')],
-                ['title' => __('Hats & Beanies', 'dawp'), 'url' => dawp_product_category_url('hats-beanies'), 'description' => __('Patriotic caps and beanies for everyday wear.', 'dawp')],
-                ['title' => __('Premium T-Shirts', 'dawp'), 'url' => dawp_product_category_url('premium-t-shirts'), 'description' => __('Classic patriotic tees.', 'dawp')],
-                ['title' => __('Patches & Pins', 'dawp'), 'url' => dawp_product_category_url('patches-pins'), 'description' => __('Accessories with American pride.', 'dawp')],
-                ['title' => __('America 250 Collection', 'dawp'), 'url' => dawp_product_category_url('america-250'), 'description' => __('Anniversary apparel and gifts.', 'dawp')],
-            ],
+            'links' => $collection_links,
+        ],
+        [
+            'title' => __('Shop by Occasion', 'dawp'),
+            'links' => $gift_links,
         ],
     ];
 }
@@ -32,8 +50,11 @@ function dawp_product_category_slugs() {
         'hats-beanies',
         'premium-t-shirts',
         'patches-pins',
+        'veteran-tribute',
+        'mugs-drinkware',
         'america-250',
         'fathers-day-gifts',
+        'veterans-day-gifts',
         'memorial-day-gifts',
         'independence-day-gifts',
     ];

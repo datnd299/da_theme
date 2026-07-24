@@ -29,6 +29,21 @@ if (!function_exists('dawp_get_responsive_image')) {
             $image_url = remove_query_arg(array_keys(wp_parse_args($query)), $image_url);
         }
 
+        $host = wp_parse_url($image_url, PHP_URL_HOST);
+        $local_hosts = ['localhost', '127.0.0.1', '::1'];
+        if ($host && in_array(strtolower($host), $local_hosts, true)) {
+            return sprintf(
+                '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s"%s>',
+                esc_attr($loading),
+                (int)$width,
+                (int)$height,
+                esc_url($image_url),
+                esc_attr($class),
+                esc_attr($alt),
+                $fetchpriority_attr
+            );
+        }
+
         if (strpos($image_url, 'https://i0.wp.com/') === 0) {
             $cdn_url = strtok($image_url, '?');
         } else {

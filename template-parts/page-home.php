@@ -36,19 +36,9 @@ $mmd_asset = static function ($file) use ($theme_uri, $theme_dir) {
 };
 
 $mmd_cat_url = static function ($slug) {
-    $slug = trim($slug, '/');
-
-    if (function_exists('get_term_by')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-        if ($term && !is_wp_error($term)) {
-            $link = get_term_link($term);
-            if (!is_wp_error($link)) {
-                return $link;
-            }
-        }
-    }
-
-    return home_url('/product-category/' . $slug . '/');
+    return function_exists('dawp_product_category_url')
+        ? dawp_product_category_url($slug)
+        : home_url('/product-category/' . trim($slug, '/') . '/');
 };
 
 $mmd_img = static function ($file, $alt, $class = '', $width = 900, $height = 700, $loading = 'lazy', $sizes = '') use ($mmd_asset) {
@@ -131,7 +121,9 @@ $room_cards = [
     ['title' => __('Garden & Tools', 'dawp'), 'copy' => __('Garden, patio and useful tools for home projects and outdoor care.', 'dawp'), 'image' => 'Garden_lounge_area_with_hanging_202607161300.jpeg', 'image_hint' => 'garden-tools.jpeg', 'slug' => 'garden-tools'],
     ['title' => __('Electronics', 'dawp'), 'copy' => __('Entertainment, connected tech and useful electronic essentials.', 'dawp'), 'image' => 'Modern_living_room_smart_electro…_202607161235.jpeg', 'image_hint' => 'electronics.jpeg', 'slug' => 'electronics'],
     ['title' => __('Sports & Outdoors', 'dawp'), 'copy' => __('Fitness, recreation and outdoor activity gear for active days.', 'dawp'), 'image' => 'Home_gym_setup_cork_mat_202607241524.jpeg', 'image_hint' => 'sports-outdoors.jpeg', 'slug' => 'sports-outdoors'],
+    ['title' => __('Toys & Outdoor Play', 'dawp'), 'copy' => __('Toys, games and outdoor play favorites for kids and family time.', 'dawp'), 'image' => 'Children_playing_tumble_tower_game_202607241524.jpeg', 'image_hint' => 'toys-outdoor-play.jpeg', 'slug' => 'toys-outdoor-play'],
     ['title' => __('Beauty & Personal Care', 'dawp'), 'copy' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'), 'image' => 'Skincare_bottles_on_marble_vanity_202607241524.jpeg', 'image_hint' => 'beauty-personal-care.jpeg', 'slug' => 'beauty-personal-care'],
+    ['title' => __('Pets', 'dawp'), 'copy' => __('Pet care, comfort, toys and everyday supplies for home companions.', 'dawp'), 'image' => 'Pet_bed_with_cat_202607241524.jpeg', 'image_hint' => 'pets.jpeg', 'slug' => 'pets'],
     ['title' => __('School, Office & Art Supplies', 'dawp'), 'copy' => __('School supplies, office essentials, stationery and art materials.', 'dawp'), 'image' => 'Minimalist_home_office_desk_setup_202607241524.jpeg', 'image_hint' => 'school-office-art-supplies.jpeg', 'slug' => 'school-office-art-supplies'],
 ];
 

@@ -96,14 +96,6 @@ function dawp_ensure_lbq_product_categories() {
         return;
     }
 
-    foreach (dawp_lbq_retired_product_category_slugs() as $slug) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-
-        if ($term && !is_wp_error($term)) {
-            wp_delete_term((int) $term->term_id, 'product_cat');
-        }
-    }
-
     foreach (dawp_lbq_product_categories() as $slug => $category) {
         $term = get_term_by('slug', $slug, 'product_cat');
 
@@ -136,5 +128,33 @@ function dawp_ensure_lbq_product_categories() {
         }
 
         update_term_meta((int) $term->term_id, 'dawp_category_card_copy', $category['short']);
+    }
+
+    $home_term = get_term_by('slug', 'home', 'product_cat');
+    if ($home_term && !is_wp_error($home_term)) {
+        update_option('default_product_cat', (int) $home_term->term_id);
+    }
+
+    dawp_remove_non_lbq_product_categories();
+}
+
+function dawp_remove_non_lbq_product_categories() {
+    $allowed_slugs = dawp_lbq_product_category_slugs();
+    $terms = get_terms([
+        'taxonomy'   => 'product_cat',
+        'hide_empty' => false,
+        'fields'     => 'all',
+    ]);
+
+    if (is_wp_error($terms) || empty($terms)) {
+        return;
+    }
+
+    foreach ($terms as $term) {
+        if (in_array($term->slug, $allowed_slugs, true)) {
+            continue;
+        }
+
+        wp_delete_term((int) $term->term_id, 'product_cat');
     }
 }

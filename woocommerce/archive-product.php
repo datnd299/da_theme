@@ -21,19 +21,19 @@ $gallery_image = static function ($filename) {
 
 $shop_cover_images = [
     'shop' => [
-        'url' => $gallery_image('Modern_living_room_smart_electro…_202607161235.jpeg'),
+        'url' => $gallery_image('modern-living-room-smart-electronics-202607161235.jpeg'),
         'alt' => __('Modern living room with furniture, decor, and connected home products', 'dawp'),
     ],
     'home-essentials' => [
-        'url' => $gallery_image('Modern_laundry_room_cleaning_sta…_202607161248.jpeg'),
+        'url' => $gallery_image('modern-laundry-room-cleaning-station-202607161248.jpeg'),
         'alt' => __('Clean laundry room with organized home essentials and cleaning supplies', 'dawp'),
     ],
     'furniture' => [
-        'url' => $gallery_image('Living_room_furniture_set_neutra…_202607161252.jpeg'),
+        'url' => $gallery_image('living-room-furniture-set-neutral-202607161252.jpeg'),
         'alt' => __('Modern living room furniture with sofa and tables', 'dawp'),
     ],
     'electronics' => [
-        'url' => $gallery_image('Home_entertainment_setup_televis…_202607161254.jpeg'),
+        'url' => $gallery_image('home-entertainment-setup-television-202607161254.jpeg'),
         'alt' => __('Home entertainment setup with television and electronics', 'dawp'),
     ],
     'smart-home' => [
@@ -54,15 +54,15 @@ $shop_cover_images['home-garden-tools'] = $shop_cover_images['home-essentials'];
 $shop_cover_images['sports-outdoors'] = $shop_cover_images['outdoor-garden'];
 $shop_cover_images['toys-outdoor-play'] = $shop_cover_images['furniture'];
 $shop_cover_images['beauty-personal-care'] = [
-    'url' => get_theme_file_uri('assets/img/about/about-hero-beauty-essentials.jpg'),
+    'url' => $gallery_image('wooden-hairbrushes-grooming-tools-202607241406.jpeg'),
     'alt' => __('Beauty and personal care essentials', 'dawp'),
 ];
 $shop_cover_images['pets'] = [
-    'url' => get_theme_file_uri('assets/img/about/about-giftable-flat-lay.jpg'),
+    'url' => $gallery_image('golden-retriever-puppy-eating-feed-202607241402.jpeg'),
     'alt' => __('Everyday pet care supplies', 'dawp'),
 ];
 $shop_cover_images['school-office-art-supplies'] = [
-    'url' => $gallery_image('Customer_support_scene_in_office_202607161445.jpeg'),
+    'url' => $gallery_image('creative-supply-setup-watercolor-202607241409.jpeg'),
     'alt' => __('Office, school and art supplies', 'dawp'),
 ];
 

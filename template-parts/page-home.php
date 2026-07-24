@@ -9,54 +9,58 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
+$gallery_image = static function ($filename) {
+    return get_theme_file_uri('assets/img/gallery/' . $filename);
+};
+
 $categories = [
     [
         'name' => 'Home Essentials',
         'desc' => 'Storage, cleaning, organization and practical everyday upgrades.',
-        'image' => get_theme_file_uri('assets/img/gallery/Modern_laundry_room_cleaning_sta…_202607161248.jpeg'),
+        'image' => $gallery_image('modern-laundry-room-cleaning-station-202607161248.jpeg'),
         'href' => home_url('/product-category/home-essentials/'),
     ],
     [
         'name' => 'Furniture',
         'desc' => 'Comfortable pieces for living rooms, bedrooms and home offices.',
-        'image' => get_theme_file_uri('assets/img/gallery/Living_room_furniture_set_neutra…_202607161252.jpeg'),
+        'image' => $gallery_image('living-room-furniture-set-neutral-202607161252.jpeg'),
         'href' => home_url('/product-category/furniture/'),
     ],
     [
         'name' => 'Electronics',
         'desc' => 'Entertainment, audio, accessories and connected tech essentials.',
-        'image' => get_theme_file_uri('assets/img/gallery/Home_entertainment_setup_televis…_202607161254.jpeg'),
+        'image' => $gallery_image('home-entertainment-setup-television-202607161254.jpeg'),
         'href' => home_url('/product-category/electronics/'),
     ],
     [
         'name' => 'Smart Home',
         'desc' => 'Lighting, security, plugs and devices for a smarter routine.',
-        'image' => get_theme_file_uri('assets/img/gallery/Smart_home_security_front_door_202607161256.jpeg'),
+        'image' => $gallery_image('Smart_home_security_front_door_202607161256.jpeg'),
         'href' => home_url('/product-category/smart-home/'),
     ],
     [
         'name' => 'Kitchen & Dining',
         'desc' => 'Cookware, appliances, coffee gear and dining favorites.',
-        'image' => get_theme_file_uri('assets/img/gallery/Cookware_on_induction_cooktop_202607161259.jpeg'),
+        'image' => $gallery_image('Cookware_on_induction_cooktop_202607161259.jpeg'),
         'href' => home_url('/product-category/kitchen-dining/'),
     ],
     [
         'name' => 'Outdoor & Garden',
         'desc' => 'Patio, grilling, garden and outdoor living picks.',
-        'image' => get_theme_file_uri('assets/img/gallery/Garden_lounge_area_with_hanging_202607161300.jpeg'),
+        'image' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
         'href' => home_url('/product-category/outdoor-garden/'),
     ],
 ];
 
 if (function_exists('dawp_lbq_product_categories')) {
     $category_images = [
-        'home-garden-tools' => get_theme_file_uri('assets/img/gallery/Modern_laundry_room_cleaning_staâ€¦_202607161248.jpeg'),
-        'electronics' => get_theme_file_uri('assets/img/gallery/Home_entertainment_setup_televisâ€¦_202607161254.jpeg'),
-        'sports-outdoors' => get_theme_file_uri('assets/img/gallery/Garden_lounge_area_with_hanging_202607161300.jpeg'),
-        'toys-outdoor-play' => get_theme_file_uri('assets/img/gallery/Living_room_furniture_set_neutraâ€¦_202607161252.jpeg'),
-        'beauty-personal-care' => get_theme_file_uri('assets/img/about/about-hero-beauty-essentials.jpg'),
-        'pets' => get_theme_file_uri('assets/img/about/about-giftable-flat-lay.jpg'),
-        'school-office-art-supplies' => get_theme_file_uri('assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'),
+        'home-garden-tools' => $gallery_image('modern-laundry-room-cleaning-station-202607161248.jpeg'),
+        'electronics' => $gallery_image('home-entertainment-setup-television-202607161254.jpeg'),
+        'sports-outdoors' => $gallery_image('Hiking_boots_daypack_trekking_poles_202607241407.jpeg'),
+        'toys-outdoor-play' => $gallery_image('Cornhole_boards_with_bean_bags_202607241407.jpeg'),
+        'beauty-personal-care' => $gallery_image('wooden-hairbrushes-grooming-tools-202607241406.jpeg'),
+        'pets' => $gallery_image('golden-retriever-puppy-eating-feed-202607241402.jpeg'),
+        'school-office-art-supplies' => $gallery_image('creative-supply-setup-watercolor-202607241409.jpeg'),
     ];
 
     $categories = [];
@@ -69,7 +73,7 @@ if (function_exists('dawp_lbq_product_categories')) {
         $categories[] = [
             'name' => $category['name'],
             'desc' => $category['short'],
-            'image' => $category_images[$slug] ?? get_theme_file_uri('assets/img/gallery/Modern_living_room_smart_electroâ€¦_202607161235.jpeg'),
+            'image' => $category_images[$slug] ?? $gallery_image('modern-living-room-smart-electronics-202607161235.jpeg'),
             'href' => function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : home_url('/product-category/' . trim($slug, '/') . '/'),
         ];
     }
@@ -119,7 +123,7 @@ if (class_exists('WooCommerce')) {
             </div>
         </div>
         <div class="tgm-hero__media">
-            <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Modern_living_room_smart_electro…_202607161235.jpeg'), 'Modern living room with smart home products', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
+            <?php echo dawp_get_responsive_image($gallery_image('modern-living-room-smart-electronics-202607161235.jpeg'), 'Modern living room with smart home products', '', 700, 560, 'eager', '(max-width: 900px) 100vw, 50vw', 'high'); ?>
             <div class="tgm-hero__deal">
                 <strong>Weekly Picks</strong>
                 <span>Home, tech and everyday deals refreshed often.</span>
@@ -171,12 +175,10 @@ if (class_exists('WooCommerce')) {
                         $product_image = dawp_get_responsive_attachment_image($product->get_image_id(), $product->get_name(), '', 520, 520, 'lazy', '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw');
                         echo $product_image ?: $product->get_image('woocommerce_thumbnail');
                         ?>
-                        <?php if ($product->is_on_sale()) : ?><span class="tgm-sale">Sale</span><?php endif; ?>
                     </a>
                     <div class="tgm-product__body">
                         <p class="tgm-product__brand"><?php echo esc_html($product->get_attribute('brand') ?: 'Topgoodmart'); ?></p>
                         <h3><a href="<?php echo esc_url(get_permalink($product->get_id())); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
-                        <div class="tgm-rating" aria-label="Rated <?php echo esc_attr($product->get_average_rating() ?: '5'); ?> out of 5">&#9733;&#9733;&#9733;&#9733;&#9733; <span><?php echo esc_html($product->get_review_count() ?: '12'); ?></span></div>
                         <div class="tgm-product__price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
                         <p class="tgm-ship">Fast shipping available</p>
                         <a class="tgm-add" href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-product_id="<?php echo esc_attr($product->get_id()); ?>">Add to Cart</a>
@@ -198,15 +200,15 @@ if (class_exists('WooCommerce')) {
         </div>
         <div class="tgm-collection-grid">
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/electronics/')); ?>">
-                <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Living_ecosystem_with_smart_tech_202607161304.jpeg'), 'Smart home devices', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
+                <?php echo dawp_get_responsive_image($gallery_image('Living_ecosystem_with_smart_tech_202607161304.jpeg'), 'Smart home devices', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
                 <span><strong>Electronics Picks</strong><em>Audio, accessories and connected comfort.</em></span>
             </a>
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/home-garden-tools/')); ?>">
-                <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Entryway_refresh_console_table_m…_202607161305.jpeg'), 'Modern home furniture', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
+                <?php echo dawp_get_responsive_image($gallery_image('entryway-refresh-console-table-202607161305.jpeg'), 'Modern entryway with home organization and decor', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
                 <span><strong>Home Refresh</strong><em>Home, garden and tool essentials.</em></span>
             </a>
             <a class="tgm-collection" href="<?php echo esc_url(home_url('/product-category/school-office-art-supplies/')); ?>">
-                <?php echo dawp_get_responsive_image(get_theme_file_uri('assets/img/gallery/Dining_area_with_kitchen_favorites_202607161311.jpeg'), 'Kitchen appliances and cookware', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
+                <?php echo dawp_get_responsive_image($gallery_image('creative-supply-setup-watercolor-202607241409.jpeg'), 'Creative school office and art supplies', '', 640, 420, 'lazy', '(max-width: 900px) 100vw, 33vw'); ?>
                 <span><strong>Work & Study</strong><em>Office, school and creative supplies.</em></span>
             </a>
         </div>

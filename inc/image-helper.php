@@ -10,9 +10,12 @@ if (!function_exists('dawp_get_responsive_image')) {
         }
 
         $image_url = strtok($image_url, '?');
-        $image_host = wp_parse_url($image_url, PHP_URL_HOST);
 
-        if (!$image_host) {
+        if (strpos($image_url, '//') === 0) {
+            $image_url = 'https:' . $image_url;
+        }
+
+        if (!wp_parse_url($image_url, PHP_URL_HOST)) {
             $image_url = home_url($image_url);
         }
 
@@ -25,7 +28,7 @@ if (!function_exists('dawp_get_responsive_image')) {
         $ratio = $height > 0 ? $width / $height : 1;
 
         if ($width <= 240) {
-            $sizes_arr = array_values(array_unique(array_filter([(int) $width, (int) $width * 2, (int) $width * 3])));
+            $sizes_arr = array_values(array_unique(array_filter([(int) $width, min((int) $width * 2, 480), min((int) $width * 3, 720)])));
         } else {
             $sizes_arr = array_values(array_unique(array_filter([320, 480, 768, 1024, (int) $width, min(max((int) $width * 2, 1200), 1600)])));
         }

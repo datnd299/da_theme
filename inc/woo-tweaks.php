@@ -55,6 +55,47 @@ function dawp_product_trust_strip() {
     <?php
 }
 
+add_action('woocommerce_after_add_to_cart_form', 'dawp_product_quantity_discount', 5);
+function dawp_product_quantity_discount() {
+    if (!is_product()) return;
+
+    global $product;
+    if (!$product instanceof WC_Product) return;
+
+    $price = (float) $product->get_price();
+    if ($price <= 0) return;
+
+    $tiers = [
+        ['qty' => 2, 'percent' => 5],
+        ['qty' => 3, 'percent' => 10],
+        ['qty' => 4, 'percent' => 15],
+    ];
+    $last  = count($tiers) - 1;
+    ?>
+    <div class="product-qty-discount">
+        <div class="product-qty-discount__head">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            <span>Buy More, Save More</span>
+        </div>
+        <ul class="product-qty-discount__list">
+            <?php foreach ($tiers as $i => $tier) :
+                $unit_price  = $price * (1 - $tier['percent'] / 100);
+                $total_price = $unit_price * $tier['qty'];
+                $savings     = ($price * $tier['qty']) - $total_price;
+                $is_best     = $i === $last;
+            ?>
+                <li class="product-qty-discount__item<?php echo $is_best ? ' is-best' : ''; ?>">
+                    <?php if ($is_best) : ?><span class="product-qty-discount__flag">Best Deal</span><?php endif; ?>
+                    <span class="product-qty-discount__qty">Buy <strong><?php echo esc_html($tier['qty']); ?></strong></span>
+                    <span class="product-qty-discount__badge">Save <?php echo esc_html($tier['percent']); ?>%</span>
+                    <span class="product-qty-discount__save">You save <?php echo wp_kses_post(wc_price($savings)); ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <?php
+}
+
 add_action('woocommerce_after_add_to_cart_form', 'dawp_product_urgency_signals');
 function dawp_product_urgency_signals() {
     if (!is_product()) return;

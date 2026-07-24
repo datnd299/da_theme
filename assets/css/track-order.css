@@ -8,9 +8,9 @@
 
 .track-order-hero {
     background:
-        linear-gradient(135deg, rgba(22, 26, 30, 0.96), rgba(17, 24, 39, 0.94)),
-        radial-gradient(circle at 82% 22%, rgba(215, 25, 32, 0.24), transparent 34%);
-    color: var(--color-background);
+        radial-gradient(circle at 82% 22%, rgba(215, 25, 32, 0.12), transparent 34%),
+        linear-gradient(135deg, #ffffff 0%, #f7f8fa 100%);
+    color: var(--color-foreground);
     padding: clamp(56px, 8vw, 96px) 16px;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .track-order-hero__text {
-    color: rgba(255, 255, 255, 0.78);
+    color: var(--color-foreground-muted);
     font-size: 1.0625rem;
     line-height: 1.75;
     margin: 22px auto 0;
@@ -66,8 +66,9 @@
 }
 
 .track-order-panel__intro {
-    background: var(--color-foreground);
-    color: var(--color-background);
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    color: var(--color-foreground);
     padding: clamp(28px, 5vw, 44px);
 }
 
@@ -81,7 +82,7 @@
 }
 
 .track-order-panel__text {
-    color: rgba(255, 255, 255, 0.76);
+    color: var(--color-foreground-muted);
     font-size: 0.975rem;
     line-height: 1.75;
     margin: 18px 0 0;
@@ -99,7 +100,7 @@
     display: grid;
     grid-template-columns: 18px 1fr;
     gap: 10px;
-    color: rgba(255, 255, 255, 0.86);
+    color: var(--color-foreground);
     font-size: 0.9rem;
     line-height: 1.45;
 }

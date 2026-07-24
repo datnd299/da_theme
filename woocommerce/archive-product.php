@@ -9,6 +9,7 @@ get_header();
 
 global $wp_query;
 
+$theme_uri      = get_template_directory_uri();
 $shop_url       = get_permalink(wc_get_page_id('shop'));
 $queried_object = get_queried_object();
 $page_title     = (is_product_category() || is_product_tag()) ? single_term_title('', false) : __('All Products', 'dawp');
@@ -155,7 +156,7 @@ foreach ($attribute_filters as $filter) {
 ?>
 
 <div class="shop-page">
-    <section class="shop-hero">
+    <section class="shop-hero" style="background-image: url('<?php echo esc_url($theme_uri . '/assets/img/hero-banner-alt.jpeg'); ?>');">
         <div class="shop-container shop-hero__inner">
             <nav class="shop-breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
                 <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>

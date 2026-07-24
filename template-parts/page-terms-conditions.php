@@ -49,9 +49,9 @@
                             <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('Customer Responsibility', 'dawp'); ?></h3>
                             <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Customers are strictly and solely responsible for reviewing all product details, sizing, and specifications before finalizing an order and prior to use.', 'dawp'); ?></p>
                         </div>
-                        <div class="rounded-lg bg-[#111827] p-6 text-white">
-                            <h3 class="text-xl font-black"><?php esc_html_e('Use & Care Instructions', 'dawp'); ?></h3>
-                            <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('For products with specific use, assembly, or care instructions, follow the included guidance before first use. Shopmivo is not responsible for damage caused by improper use, assembly, or care of a product.', 'dawp'); ?></p>
+                        <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6">
+                            <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('Use & Care Instructions', 'dawp'); ?></h3>
+                            <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('For products with specific use, assembly, or care instructions, follow the included guidance before first use. Shopmivo is not responsible for damage caused by improper use, assembly, or care of a product.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </section>
@@ -102,9 +102,9 @@
                     <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('9. Limitation of Liability', 'dawp'); ?></h2>
                     <p class="mt-5 leading-8 text-[#6B7280]"><?php esc_html_e('The website and all products sold are provided on an "as available" basis. To the fullest extent permitted by applicable law, Shopmivo shall not be liable for any indirect, incidental, special, punitive, or consequential damages arising out of or related to your use of the Site or product purchases.', 'dawp'); ?></p>
 
-                    <div class="mt-8 rounded-lg bg-[#111827] p-6 text-white">
-                        <h2 class="font-heading text-3xl font-black uppercase"><?php esc_html_e('10. Governing Law', 'dawp'); ?></h2>
-                        <p class="mt-4 leading-8 text-white/72"><?php esc_html_e('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the State of California, United States.', 'dawp'); ?></p>
+                    <div class="mt-8 rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6">
+                        <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('10. Governing Law', 'dawp'); ?></h2>
+                        <p class="mt-4 leading-8 text-[#6B7280]"><?php esc_html_e('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the State of California, United States.', 'dawp'); ?></p>
                     </div>
                 </section>
 

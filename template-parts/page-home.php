@@ -166,6 +166,7 @@ $vehicle_collections = [
         'copy'  => 'Hand tools, power tool accessories, and tool storage for home and garage projects.',
         'slug'  => 'tools',
         'icon'  => 'tools',
+        'image' => 'hand-tools.jpeg',
         'links' => [
             ['Hand Tools', 'hand-tools'],
             ['Power Tool Accessories', 'power-tool-accessories'],
@@ -177,6 +178,7 @@ $vehicle_collections = [
         'copy'  => 'Kitchenware, home storage, and cleaning essentials for a well-run household.',
         'slug'  => 'houseware',
         'icon'  => 'houseware',
+        'image' => 'modern-kitchenware.jpeg',
         'links' => [
             ['Kitchenware', 'kitchenware'],
             ['Home Storage', 'home-storage'],
@@ -188,6 +190,7 @@ $vehicle_collections = [
         'copy'  => 'Car care essentials, maintenance tools, and simple accessories for any vehicle.',
         'slug'  => 'vehicle-service',
         'icon'  => 'vehicle',
+        'image' => 'car-care-products.jpeg',
         'links' => [
             ['Car Care', 'car-care'],
             ['Maintenance Tools', 'maintenance-tools'],
@@ -199,6 +202,7 @@ $vehicle_collections = [
         'copy'  => 'Toys, games, and gift-ready picks for kids and gift shoppers of every occasion.',
         'slug'  => 'gift-and-toy',
         'icon'  => 'gift',
+        'image' => 'colorful-kids-toys.jpeg',
         'links' => [
             ['Kids Toys', 'kids-toys'],
             ['Games & Puzzles', 'games-puzzles'],
@@ -210,6 +214,7 @@ $vehicle_collections = [
         'copy'  => 'Food, accessories, and everyday essentials for dogs, cats, and other pets.',
         'slug'  => 'pet-supplies',
         'icon'  => 'pet',
+        'image' => 'pet-supplies-flatlay.jpeg',
         'links' => [
             ['Dog Supplies', 'dog-supplies'],
             ['Cat Supplies', 'cat-supplies'],
@@ -221,6 +226,7 @@ $vehicle_collections = [
         'copy'  => 'Everyday apparel and accessories for men and women at value prices.',
         'slug'  => 'clothing-accessories',
         'icon'  => 'clothing',
+        'image' => 'casual-apparel.jpeg',
         'links' => [
             ["Men's Clothing", 'mens-clothing'],
             ["Women's Clothing", 'womens-clothing'],
@@ -236,6 +242,7 @@ $use_cards = [
         'cta'   => 'Shop Home & Garage',
         'slug'  => 'tools',
         'icon'  => 'tools',
+        'image' => 'home-garage-essentials.jpeg',
     ],
     [
         'title' => 'Gifts & Toys For Everyone',
@@ -243,6 +250,7 @@ $use_cards = [
         'cta'   => 'Shop Gifts & Toys',
         'slug'  => 'gift-and-toy',
         'icon'  => 'gift',
+        'image' => 'festive-gifts-toys.jpeg',
     ],
     [
         'title' => 'Pet Care Favorites',
@@ -250,6 +258,7 @@ $use_cards = [
         'cta'   => 'Shop Pet Supplies',
         'slug'  => 'pet-supplies',
         'icon'  => 'pet',
+        'image' => 'pet-care-products.jpeg',
     ],
 ];
 
@@ -365,8 +374,8 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-section--dark {
-        background: var(--tt-black);
-        color: var(--tt-white);
+        background: #F7F8FA;
+        color: var(--tt-asphalt);
     }
 
     .tt-eyebrow {
@@ -391,21 +400,11 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
         text-transform: uppercase;
     }
 
-    .tt-section--dark .tt-heading,
-    .tt-hero .tt-heading {
-        color: var(--tt-white);
-    }
-
     .tt-copy {
         color: var(--tt-steel);
         font-size: 17px;
         line-height: 1.68;
         margin: 16px 0 0;
-    }
-
-    .tt-section--dark .tt-copy,
-    .tt-hero .tt-copy {
-        color: rgba(255, 255, 255, .78);
     }
 
     .tt-section-head {
@@ -479,20 +478,20 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-button--light-outline {
-        background: rgba(255, 255, 255, .04);
-        border-color: rgba(255, 255, 255, .38);
-        color: var(--tt-white);
+        background: transparent;
+        border-color: rgba(17, 24, 39, .65);
+        color: var(--tt-asphalt);
     }
 
     .tt-button--light-outline:hover {
-        background: var(--tt-white);
-        border-color: var(--tt-white);
-        color: var(--tt-black);
+        background: var(--tt-asphalt);
+        border-color: var(--tt-asphalt);
+        color: var(--tt-white);
     }
 
     .tt-hero {
-        background: var(--tt-black);
-        color: var(--tt-white);
+        background: var(--tt-white) url('<?php echo esc_url($theme_uri); ?>/assets/img/banner.jpeg') center center / cover no-repeat;
+        color: var(--tt-asphalt);
         min-height: 720px;
         padding: 76px 0 36px;
         position: relative;
@@ -508,12 +507,12 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
     .tt-hero:before {
         background:
-            radial-gradient(1100px 620px at 82% 18%, rgba(215, 25, 32, .22), transparent 60%),
-            linear-gradient(115deg, #161A1E 0%, #111827 46%, #2B3742 100%);
+            radial-gradient(1100px 620px at 82% 18%, rgba(215, 25, 32, .12), transparent 60%),
+            linear-gradient(100deg, rgba(255, 255, 255, .8) 0%, rgba(255, 255, 255, .5) 34%, rgba(255, 255, 255, .16) 58%, rgba(255, 255, 255, 0) 82%);
     }
 
     .tt-hero:after {
-        background: linear-gradient(180deg, rgba(22, 26, 30, 0) 60%, #161A1E 100%);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 78%, #FFFFFF 100%);
     }
 
     .tt-hero__grid {
@@ -540,7 +539,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
     .tt-hero__trust {
         align-items: center;
-        color: rgba(255, 255, 255, .78);
+        color: var(--tt-steel);
         display: flex;
         flex-wrap: wrap;
         font-size: 14px;
@@ -564,16 +563,16 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
     .tt-hero-panel {
         align-self: end;
-        background: rgba(17, 24, 39, .78);
-        border: 1px solid rgba(255, 255, 255, .14);
+        background: rgba(255, 255, 255, .92);
+        border: 1px solid var(--tt-silver);
         border-radius: 22px;
-        box-shadow: 0 28px 80px rgba(0, 0, 0, .35);
+        box-shadow: 0 28px 80px rgba(17, 24, 39, .14);
         padding: 24px;
         backdrop-filter: blur(12px);
     }
 
     .tt-hero-panel__label {
-        color: rgba(255, 255, 255, .66);
+        color: var(--tt-steel);
         font-size: 12px;
         font-weight: 800;
         letter-spacing: .12em;
@@ -581,7 +580,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-hero-panel__number {
-        color: var(--tt-white);
+        color: var(--tt-asphalt);
         display: block;
         font-family: Oswald, Impact, sans-serif;
         font-size: 58px;
@@ -591,7 +590,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-hero-panel p {
-        color: rgba(255, 255, 255, .76);
+        color: var(--tt-steel);
         line-height: 1.55;
         margin: 0;
     }
@@ -642,43 +641,44 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-vehicle-card {
-        background: var(--tt-black);
+        background: var(--tt-white);
+        border: 1px solid var(--tt-silver);
         border-radius: 20px;
-        color: var(--tt-white);
-        min-height: 300px;
+        color: var(--tt-asphalt);
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
-        position: relative;
         text-decoration: none;
+        transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
     }
 
-    .tt-vehicle-card:before {
-        background: linear-gradient(155deg, var(--tt-charcoal) 0%, var(--tt-black) 78%);
-        content: "";
-        inset: 0;
-        position: absolute;
-        transition: transform .35s ease;
+    .tt-vehicle-card:hover {
+        border-color: rgba(215, 25, 32, .35);
+        box-shadow: 0 18px 38px rgba(17, 24, 39, .12);
+        transform: translateY(-2px);
     }
 
-    .tt-vehicle-card:nth-child(even):before {
-        background: linear-gradient(155deg, var(--tt-black) 0%, var(--tt-charcoal) 78%);
-    }
-
-    .tt-vehicle-card:hover:before {
-        transform: scale(1.04);
+    .tt-vehicle-card__media {
+        background-color: #F3F4F6;
+        background-position: center;
+        background-size: cover;
+        height: 168px;
+        position: relative;
     }
 
     .tt-vehicle-card__icon {
         align-items: center;
-        background: rgba(215, 25, 32, .16);
+        background: rgba(255, 255, 255, .95);
         border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(17, 24, 39, .14);
         color: var(--tt-red);
         display: flex;
         height: 52px;
         justify-content: center;
-        margin: 24px 24px 0;
-        position: relative;
+        left: 20px;
+        position: absolute;
+        top: 20px;
         width: 52px;
-        z-index: 1;
     }
 
     .tt-vehicle-card__icon svg {
@@ -687,10 +687,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-vehicle-card__content {
-        inset: auto 0 0 0;
-        padding: 24px;
-        position: absolute;
-        z-index: 1;
+        padding: 22px 24px 24px;
     }
 
     .tt-vehicle-card__content:before {
@@ -698,26 +695,24 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
         content: "";
         display: block;
         height: 4px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
         width: 54px;
     }
 
     .tt-vehicle-card h3 {
         font-family: Oswald, Impact, sans-serif;
-        font-size: 29px;
+        font-size: 25px;
         font-weight: 800;
-        line-height: 1.08;
-        margin: 0 0 10px;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, .72);
+        line-height: 1.1;
+        margin: 0 0 8px;
         text-transform: uppercase;
     }
 
     .tt-vehicle-card p {
-        color: rgba(255, 255, 255, .94);
+        color: var(--tt-steel);
         font-size: 14px;
         line-height: 1.55;
         margin: 0 0 16px;
-        text-shadow: 0 1px 10px rgba(0, 0, 0, .72);
     }
 
     .tt-sub-links {
@@ -727,14 +722,13 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-sub-links span {
-        background: rgba(22, 26, 30, .34);
-        border: 1px solid rgba(255, 255, 255, .42);
+        background: #F3F4F6;
+        border: 1px solid var(--tt-silver);
         border-radius: 999px;
-        color: var(--tt-white);
+        color: var(--tt-asphalt);
         font-size: 12px;
         font-weight: 800;
         padding: 7px 10px;
-        text-shadow: 0 1px 8px rgba(0, 0, 0, .68);
     }
 
     .tt-product-grid {
@@ -857,43 +851,44 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-use-card {
-        background: var(--tt-black);
+        background: var(--tt-white);
+        border: 1px solid var(--tt-silver);
         border-radius: 20px;
-        color: var(--tt-white);
-        min-height: 360px;
+        color: var(--tt-asphalt);
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
-        position: relative;
         text-decoration: none;
+        transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
     }
 
-    .tt-use-card:before {
-        background: linear-gradient(155deg, var(--tt-charcoal) 0%, var(--tt-black) 82%);
-        content: "";
-        inset: 0;
-        position: absolute;
-        transition: transform .35s ease;
+    .tt-use-card:hover {
+        border-color: rgba(215, 25, 32, .35);
+        box-shadow: 0 18px 38px rgba(17, 24, 39, .12);
+        transform: translateY(-2px);
     }
 
-    .tt-use-card:nth-child(even):before {
-        background: linear-gradient(155deg, var(--tt-black) 0%, var(--tt-charcoal) 82%);
-    }
-
-    .tt-use-card:hover:before {
-        transform: scale(1.04);
+    .tt-use-card__media {
+        background-color: #F3F4F6;
+        background-position: center;
+        background-size: cover;
+        height: 200px;
+        position: relative;
     }
 
     .tt-use-card__icon {
         align-items: center;
-        background: rgba(215, 25, 32, .16);
+        background: rgba(255, 255, 255, .95);
         border-radius: 14px;
+        box-shadow: 0 8px 20px rgba(17, 24, 39, .14);
         color: var(--tt-red);
         display: flex;
         height: 52px;
         justify-content: center;
-        margin: 28px 28px 0;
-        position: relative;
+        left: 24px;
+        position: absolute;
+        top: 24px;
         width: 52px;
-        z-index: 1;
     }
 
     .tt-use-card__icon svg {
@@ -902,29 +897,26 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-use-card__body {
-        inset: auto 0 0 0;
-        padding: 28px;
-        position: absolute;
-        z-index: 1;
+        padding: 24px 28px 28px;
     }
 
     .tt-use-card__body h3 {
         font-family: Oswald, Impact, sans-serif;
-        font-size: 32px;
+        font-size: 27px;
         font-weight: 800;
-        line-height: 1.05;
-        margin: 0 0 12px;
+        line-height: 1.08;
+        margin: 0 0 10px;
         text-transform: uppercase;
     }
 
     .tt-use-card__body p {
-        color: rgba(255, 255, 255, .78);
+        color: var(--tt-steel);
         line-height: 1.55;
-        margin: 0 0 20px;
+        margin: 0 0 18px;
     }
 
     .tt-use-card__cta {
-        color: var(--tt-white);
+        color: var(--tt-asphalt);
         display: inline-flex;
         font-size: 13px;
         font-weight: 900;
@@ -970,6 +962,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
         grid-auto-columns: calc((100% - 40px) / 3);
         grid-auto-flow: column;
         overflow-x: auto;
+        overscroll-behavior-x: contain;
         padding: 4px 2px 18px;
         scroll-snap-type: x mandatory;
         scrollbar-color: var(--tt-red) rgba(17, 24, 39, .12);
@@ -1104,15 +1097,17 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
         grid-auto-columns: minmax(280px, 1fr);
         grid-auto-flow: column;
         overflow-x: auto;
+        overscroll-behavior-x: contain;
         padding-bottom: 12px;
         scroll-snap-type: x mandatory;
         scrollbar-color: var(--tt-red) rgba(255, 255, 255, .12);
     }
 
     .tt-feedback-card {
-        background: rgba(255, 255, 255, .08);
-        border: 1px solid rgba(255, 255, 255, .12);
+        background: var(--tt-white);
+        border: 1px solid var(--tt-silver);
         border-radius: 18px;
+        box-shadow: 0 16px 34px rgba(17, 24, 39, .08);
         display: flex;
         flex-direction: column;
         min-height: 255px;
@@ -1124,8 +1119,8 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     .tt-feedback-card__media {
         align-items: center;
         aspect-ratio: 16 / 10;
-        background: rgba(255, 255, 255, .06);
-        border-bottom: 1px solid rgba(255, 255, 255, .12);
+        background: #F3F4F6;
+        border-bottom: 1px solid var(--tt-silver);
         display: flex;
         justify-content: center;
         overflow: hidden;
@@ -1160,7 +1155,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-feedback-card p {
-        color: rgba(255, 255, 255, .84);
+        color: var(--tt-asphalt);
         font-size: 20px;
         font-weight: 800;
         line-height: 1.45;
@@ -1175,17 +1170,24 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
     .tt-slider-controls button {
         align-items: center;
-        background: rgba(255, 255, 255, .08);
-        border: 1px solid rgba(255, 255, 255, .18);
+        background: var(--tt-white);
+        border: 1px solid var(--tt-silver);
         border-radius: 12px;
-        color: var(--tt-white);
+        color: var(--tt-asphalt);
         cursor: pointer;
         display: inline-flex;
         font-size: 20px;
         font-weight: 900;
         height: 44px;
         justify-content: center;
+        transition: background .2s ease, border-color .2s ease, color .2s ease;
         width: 44px;
+    }
+
+    .tt-slider-controls button:hover {
+        background: var(--tt-black);
+        border-color: var(--tt-black);
+        color: var(--tt-white);
     }
 
     .tt-trust-grid {
@@ -1291,13 +1293,14 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
     .tt-newsletter {
         background:
-            radial-gradient(720px 420px at 85% 0%, rgba(215, 25, 32, .28), transparent 62%),
-            linear-gradient(155deg, #161A1E 0%, #2B3742 100%);
-        color: var(--tt-white);
+            radial-gradient(720px 420px at 85% 0%, rgba(215, 25, 32, .1), transparent 62%),
+            linear-gradient(155deg, #FFFFFF 0%, #F7F8FA 100%);
+        border: 1px solid var(--tt-silver);
+        color: var(--tt-asphalt);
     }
 
     .tt-newsletter p {
-        color: rgba(255, 255, 255, .78);
+        color: var(--tt-steel);
         line-height: 1.6;
         margin: 0 0 24px;
     }
@@ -1308,10 +1311,10 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-newsletter input {
-        background: rgba(255, 255, 255, .12);
-        border: 1px solid rgba(255, 255, 255, .22);
+        background: var(--tt-white);
+        border: 1px solid var(--tt-silver);
         border-radius: 12px;
-        color: var(--tt-white);
+        color: var(--tt-asphalt);
         min-height: 50px;
         min-width: 0;
         padding: 0 16px;
@@ -1319,7 +1322,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
     }
 
     .tt-newsletter input::placeholder {
-        color: rgba(255, 255, 255, .68);
+        color: var(--tt-steel);
     }
 
     .tt-newsletter button {
@@ -1373,8 +1376,8 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
 
         .tt-hero:before {
             background:
-                radial-gradient(720px 420px at 70% 0%, rgba(215, 25, 32, .22), transparent 60%),
-                linear-gradient(180deg, #161A1E 0%, #111827 55%, #2B3742 100%);
+                radial-gradient(720px 420px at 70% 0%, rgba(215, 25, 32, .1), transparent 60%),
+                linear-gradient(180deg, rgba(255, 255, 255, .78) 0%, rgba(255, 255, 255, .42) 45%, rgba(255, 255, 255, .12) 70%, rgba(255, 255, 255, 0) 100%);
         }
 
         .tt-hero__grid {
@@ -1410,6 +1413,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             margin-left: -16px;
             margin-right: -16px;
             overflow-x: auto;
+            overscroll-behavior-x: contain;
             padding: 2px 16px 18px;
             scroll-padding-left: 16px;
             scroll-snap-type: x mandatory;
@@ -1429,6 +1433,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             margin-left: -16px;
             margin-right: -16px;
             overflow-x: auto;
+            overscroll-behavior-x: contain;
             padding: 2px 16px 18px;
             scroll-padding-left: 16px;
             scroll-snap-type: x mandatory;
@@ -1457,6 +1462,7 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             margin-left: -16px;
             margin-right: -16px;
             overflow-x: auto;
+            overscroll-behavior-x: contain;
             padding: 2px 16px 18px;
             scroll-padding-left: 16px;
             scroll-snap-type: x mandatory;
@@ -1549,8 +1555,10 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             <div class="tt-vehicle-grid">
                 <?php foreach ($vehicle_collections as $collection) : ?>
                     <a class="tt-vehicle-card" href="<?php echo esc_url(shopmivo_category_url($collection['slug'])); ?>">
-                        <div class="tt-vehicle-card__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon($collection['icon']); ?></svg>
+                        <div class="tt-vehicle-card__media" style="background-image: url('<?php echo esc_url($theme_uri . '/assets/img/' . $collection['image']); ?>');">
+                            <div class="tt-vehicle-card__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon($collection['icon']); ?></svg>
+                            </div>
                         </div>
                         <div class="tt-vehicle-card__content">
                             <h3><?php echo esc_html($collection['title']); ?></h3>
@@ -1608,8 +1616,10 @@ $homepage_reviews     = $using_sample_reviews ? $sample_customer_reviews : $cust
             <div class="tt-use-grid" data-tt-use-track>
                 <?php foreach ($use_cards as $card) : ?>
                     <a class="tt-use-card" href="<?php echo esc_url(shopmivo_category_url($card['slug'])); ?>">
-                        <div class="tt-use-card__icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon($card['icon']); ?></svg>
+                        <div class="tt-use-card__media" style="background-image: url('<?php echo esc_url($theme_uri . '/assets/img/' . $card['image']); ?>');">
+                            <div class="tt-use-card__icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><?php echo shopmivo_icon($card['icon']); ?></svg>
+                            </div>
                         </div>
                         <div class="tt-use-card__body">
                             <h3><?php echo esc_html($card['title']); ?></h3>

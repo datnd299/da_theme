@@ -33,9 +33,9 @@
                             <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('Order & Contact Information', 'dawp'); ?></h3>
                             <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('When you make a purchase or attempt to purchase through the Site, we collect specific details required to fulfill your transaction. This includes your name, billing address, shipping address, email address, phone number, secure payment confirmations, purchase contents, and any communication history with our support team.', 'dawp'); ?></p>
                         </div>
-                        <div class="rounded-lg bg-[#111827] p-6 text-white">
-                            <h3 class="text-xl font-black"><?php esc_html_e('Device & Tracking Information', 'dawp'); ?></h3>
-                            <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('When you browse Shopmivo, our systems automatically collect technical metrics about your device and session. This includes your web browser type, IP address, time zone, individual pages or products viewed, referring websites, and data collected via cookies.', 'dawp'); ?></p>
+                        <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6">
+                            <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('Device & Tracking Information', 'dawp'); ?></h3>
+                            <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('When you browse Shopmivo, our systems automatically collect technical metrics about your device and session. This includes your web browser type, IP address, time zone, individual pages or products viewed, referring websites, and data collected via cookies.', 'dawp'); ?></p>
 
                         </div>
                     </div>

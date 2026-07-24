@@ -33,9 +33,9 @@
                         <h2 class="text-lg font-black text-[#111827]"><?php esc_html_e('Track Order', 'dawp'); ?></h2>
                         <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Use your order details to check the latest available shipment status.', 'dawp'); ?></p>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-[#111827] p-6 text-white hover:border-[#D71920]">
-                        <h2 class="text-lg font-black"><?php esc_html_e('Contact Support', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Send your order number, product question, or return request.', 'dawp'); ?></p>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6 hover:border-[#D71920]">
+                        <h2 class="text-lg font-black text-[#111827]"><?php esc_html_e('Contact Support', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Send your order number, product question, or return request.', 'dawp'); ?></p>
                     </a>
                 </div>
             </section>
@@ -80,9 +80,9 @@
                             <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="font-bold text-[#D71920] hover:underline"><?php esc_html_e('Track Order page', 'dawp'); ?></a>.
                         </p>
                     </div>
-                    <div class="rounded-lg bg-[#111827] p-6 text-white">
-                        <h3 class="text-xl font-black"><?php esc_html_e('What if tracking stops updating?', 'dawp'); ?></h3>
-                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('If tracking stops updating, shows an extended delay, or is marked delivered but you did not receive the package, contact support with your order number, checkout email, full delivery address, and any relevant photos if damage is involved.', 'dawp'); ?></p>
+                    <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6">
+                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('What if tracking stops updating?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('If tracking stops updating, shows an extended delay, or is marked delivered but you did not receive the package, contact support with your order number, checkout email, full delivery address, and any relevant photos if damage is involved.', 'dawp'); ?></p>
                     </div>
                 </div>
                 <div class="mt-6 rounded-lg border border-[#F2C94C] bg-[#FFF7E6] p-5 leading-8 text-[#111827]">
@@ -142,9 +142,9 @@
             <section id="payments-privacy" class="rounded-xl border border-[#E5E7EB] bg-white p-8 shadow-card md:p-10">
                 <h2 class="font-heading text-3xl font-black uppercase text-[#111827]"><?php esc_html_e('Payments & Privacy', 'dawp'); ?></h2>
                 <div class="mt-6 grid gap-5 md:grid-cols-2">
-                    <div class="rounded-lg bg-[#111827] p-6 text-white">
-                        <h3 class="text-xl font-black"><?php esc_html_e('Is checkout secure?', 'dawp'); ?></h3>
-                        <p class="mt-3 text-sm leading-7 text-white/72"><?php esc_html_e('Yes. Checkout uses encrypted HTTPS/SSL connections, and payments are handled by trusted third-party payment processors that comply with PCI-DSS standards. Shopmivo does not store, view, or retain your raw credit card numbers on our servers.', 'dawp'); ?></p>
+                    <div class="rounded-lg border border-[#E5E7EB] bg-[#F7F8FA] p-6">
+                        <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('Is checkout secure?', 'dawp'); ?></h3>
+                        <p class="mt-3 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Yes. Checkout uses encrypted HTTPS/SSL connections, and payments are handled by trusted third-party payment processors that comply with PCI-DSS standards. Shopmivo does not store, view, or retain your raw credit card numbers on our servers.', 'dawp'); ?></p>
                     </div>
                     <div class="rounded-lg bg-[#F7F8FA] p-6">
                         <h3 class="text-xl font-black text-[#111827]"><?php esc_html_e('How is my personal information used?', 'dawp'); ?></h3>

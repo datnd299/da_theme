@@ -2,18 +2,19 @@
 /**
  * Template Part: About Us
  */
+$theme_uri = get_template_directory_uri();
 ?>
 
 <section class="bg-white">
-    <div class="relative min-h-[520px] overflow-hidden bg-[#161A1E]">
-        <div class="absolute inset-0" style="background: radial-gradient(1100px 620px at 80% 15%, rgba(215,25,32,.24), transparent 60%), linear-gradient(120deg, #161A1E 0%, #111827 45%, #2B3742 100%);"></div>
+    <div class="relative min-h-[520px] overflow-hidden bg-white bg-cover bg-center" style="background-image: url('<?php echo esc_url($theme_uri . '/assets/img/banner.jpeg'); ?>');">
+        <div class="absolute inset-0" style="background: radial-gradient(1100px 620px at 82% 18%, rgba(215,25,32,.12), transparent 60%), linear-gradient(100deg, rgba(255,255,255,.82) 0%, rgba(255,255,255,.5) 34%, rgba(255,255,255,.16) 58%, rgba(255,255,255,0) 82%);"></div>
         <div class="relative mx-auto flex min-h-[520px] w-[min(100%-32px,1180px)] items-center py-20">
             <div class="max-w-3xl">
                 <span class="mb-5 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('About Shopmivo', 'dawp'); ?></span>
-                <h1 class="font-heading text-5xl font-black uppercase leading-none text-white md:text-7xl">
+                <h1 class="font-heading text-5xl font-black uppercase leading-none text-[#111827] md:text-7xl">
                     <?php esc_html_e('Built For Everyday, One-Stop Shoppers', 'dawp'); ?>
                 </h1>
-                <p class="mt-6 max-w-2xl text-lg leading-8 text-white/80">
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-[#6B7280]">
                     <?php esc_html_e('Shopmivo is an independent general merchandise store built for households who want tools, houseware, vehicle service essentials, gifts and toys, pet supplies, and clothing — all in one place.', 'dawp'); ?>
                 </p>
             </div>
@@ -34,7 +35,7 @@
                 </div>
             </div>
             <div class="rounded-2xl border border-[#E5E7EB] bg-[#F7F8FA] p-5 shadow-card">
-                <div class="aspect-[4/3] w-full rounded-xl" style="background: linear-gradient(150deg, #2B3742 0%, #161A1E 100%);"></div>
+                <div class="aspect-[4/3] w-full rounded-xl border border-[#E5E7EB] bg-cover bg-center" style="background-image: url('<?php echo esc_url($theme_uri . '/assets/img/home-garage-essentials.jpeg'); ?>');"></div>
                 <div class="mt-5 grid grid-cols-2 gap-3 text-sm">
                     <div class="rounded-lg bg-white p-4">
                         <strong class="block text-[#111827]"><?php esc_html_e('Tools & Houseware', 'dawp'); ?></strong>
@@ -76,12 +77,12 @@
     </div>
 
     <div class="mx-auto w-[min(100%-32px,1180px)] py-16 lg:py-20">
-        <div class="rounded-2xl bg-[#161A1E] p-8 text-white lg:p-12">
+        <div class="rounded-2xl border border-[#E5E7EB] bg-[#F7F8FA] p-8 text-[#111827] lg:p-12">
             <div class="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-center">
                 <div>
                     <span class="mb-4 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('Important Disclaimer', 'dawp'); ?></span>
                     <h2 class="font-heading text-3xl font-black uppercase md:text-4xl"><?php esc_html_e('Independent general merchandise store.', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-white/72">
+                    <p class="mt-4 text-sm leading-7 text-[#6B7280]">
                         <?php esc_html_e('Shopmivo is an independent general merchandise store and is not affiliated with, endorsed by, or sponsored by Walmart Inc. or any other retailer.', 'dawp'); ?>
                     </p>
                 </div>

@@ -3,20 +3,21 @@
  * Template Part: Contact Us
  */
 
-$maps_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode('1777 Canal St, Merced, CA 95340');
+$maps_url  = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode('1777 Canal St, Merced, CA 95340');
+$theme_uri = get_template_directory_uri();
 ?>
 
 <section class="bg-white">
-    <div class="bg-[#161A1E] py-16 text-white lg:py-24">
+    <div class="bg-white py-16 text-[#111827] lg:py-24">
         <div class="mx-auto grid w-[min(100%-32px,1180px)] gap-10 lg:grid-cols-[0.95fr_1fr] lg:items-center">
             <div>
                 <span class="mb-4 inline-flex text-xs font-black uppercase tracking-[0.18em] text-[#D71920]"><?php esc_html_e('Contact Support', 'dawp'); ?></span>
                 <h1 class="font-heading text-5xl font-black uppercase leading-none md:text-7xl"><?php esc_html_e('Need Help With An Order Or Product?', 'dawp'); ?></h1>
-                <p class="mt-6 text-lg leading-8 text-white/76">
+                <p class="mt-6 text-lg leading-8 text-[#6B7280]">
                     <?php esc_html_e('Send us your order number, product question, or return request. Our support team will reply within 24 business hours.', 'dawp'); ?>
                 </p>
             </div>
-            <div class="aspect-[16/10] w-full rounded-2xl" style="background: radial-gradient(720px 420px at 75% 20%, rgba(215,25,32,.24), transparent 60%), linear-gradient(140deg, #2B3742 0%, #161A1E 100%);"></div>
+            <div class="aspect-[16/10] w-full rounded-2xl bg-cover bg-center" style="background-image: radial-gradient(720px 420px at 75% 20%, rgba(215,25,32,.14), transparent 60%), url('<?php echo esc_url($theme_uri . '/assets/img/support_contact.png'); ?>');"></div>
         </div>
     </div>
 
@@ -42,9 +43,9 @@ $maps_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode('1
                 </a>
             <?php endforeach; ?>
 
-            <div class="rounded-xl bg-[#111827] p-6 text-white">
+            <div class="rounded-xl border border-[#E5E7EB] bg-[#F7F8FA] p-6 text-[#111827]">
                 <h2 class="font-heading text-2xl font-black uppercase"><?php esc_html_e('Before You Return An Item', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-6 text-white/72"><?php esc_html_e('Items should be unused, undamaged, and in original condition with original packaging where applicable. Used, installed, modified, or damaged items may not be eligible for return unless defective, incorrect, or damaged on arrival.', 'dawp'); ?></p>
+                <p class="mt-3 text-sm leading-6 text-[#6B7280]"><?php esc_html_e('Items should be unused, undamaged, and in original condition with original packaging where applicable. Used, installed, modified, or damaged items may not be eligible for return unless defective, incorrect, or damaged on arrival.', 'dawp'); ?></p>
             </div>
         </div>
 

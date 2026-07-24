@@ -1,374 +1,176 @@
-<main>
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-[#FAF7F2] to-[#FFF6F3] py-10 md:py-16">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_0.95fr] lg:gap-12">
-        <div>
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Women & Children Boutique</p>
-          <h1 class="font-serif text-5xl leading-[0.95] tracking-[-0.04em] text-[#2F2A28] md:text-7xl">
-            Sweet styles for everyday moments.
-          </h1>
-          <p class="mt-6 max-w-xl text-lg leading-8 text-[#6F625D]">
-            Discover warm, wearable boutique fashion for women and young girls, from seasonal outfits to mommy and daughter favorites.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#2F2A28] hover:border-[#2F2A28]">
-              Shop Collections
-            </a>
-            <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:-translate-y-0.5 hover:bg-[#FAF7F2]">
-              Our Brand Story
-            </a>
-          </div>
-        </div>
+<?php
+/**
+ * Template Part: simple homepage
+ */
 
-        <div class="relative">
-          <div class="overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <?php echo dawp_theme_image(
-              'assets/img/banner_baby.png',
-              'Mother and daughter boutique lifestyle fashion',
-              900,
-              520,
-              array(array(400, 420), array(640, 520), array(900, 520), array(1086, 520)),
-              '(max-width: 1023px) calc(100vw - 32px), 560px',
-              array('class' => 'h-[420px] w-full object-cover md:h-[520px]', 'loading' => 'eager', 'fetchpriority' => 'high')
-            ); ?>
-          </div>
-          <div class="absolute -left-6 bottom-7 hidden h-[270px] w-[230px] overflow-hidden rounded-[28px] border-[10px] border-white bg-white shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
-            <?php echo dawp_theme_image(
-              'assets/img/fashion_baby.png',
-              'Women casual boutique style',
-              460,
-              540,
-              array(array(230, 270), array(460, 540)),
-              '230px',
-              array('class' => 'h-full w-full object-cover')
-            ); ?>
-          </div>
-          <div class="absolute bottom-8 right-6 hidden max-w-[240px] rounded-2xl bg-white p-5 shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:block">
-            <strong class="mb-1 block text-[#2F2A28]">Curated with care</strong>
-            <p class="text-sm leading-6 text-[#6F625D]">Family-friendly styles for seasons, weekends, and everyday wear.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+$shop_url = home_url('/shop/');
+$collections = array(
+    array(
+        'title' => __('Girls Dresses', 'dawp'),
+        'copy'  => __('Soft, playful dresses for celebrations and everyday sparkle.', 'dawp'),
+        'image' => 'assets/img/babygirls_dress.png',
+        'url'   => home_url('/product-category/girls-dresses/'),
+    ),
+    array(
+        'title' => __('Mommy & Me', 'dawp'),
+        'copy'  => __('Coordinated outfits made for warm family moments.', 'dawp'),
+        'image' => 'assets/img/Mom&me_collection.png',
+        'url'   => home_url('/product-category/mommy-me-matching-sets/'),
+    ),
+    array(
+        'title' => __('Women Casual', 'dawp'),
+        'copy'  => __('Easy boutique pieces for weekends, errands, and sunny days.', 'dawp'),
+        'image' => 'assets/img/women_casual.png',
+        'url'   => home_url('/product-category/women-casual/'),
+    ),
+);
+?>
 
-    <!-- Shop By Collection -->
-    <section class="py-14 md:py-20" id="women">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Shop By Collection</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Warm boutique favorites</h2>
-          </div>
-          <p class="max-w-lg text-[#6F625D]">Browse curated categories designed for women, young girls, and special family moments.</p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <a href="<?php echo esc_url(home_url('/product-category/girls-dresses/')); ?>" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <?php echo dawp_theme_image(
-              'assets/img/babygirls_dress.png',
-              'Girls Dresses collection',
-              600,
-              640,
-              array(array(360, 420), array(480, 540), array(600, 640), array(720, 760)),
-              '(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 52px) / 2), 280px',
-              array('class' => 'h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105')
-            ); ?>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Girls Dresses</h3>
-              <p class="mt-1 text-sm text-white/90">Sweet floral patterns and twirl-worthy styles.</p>
+<div class="home-page overflow-hidden">
+    <section class="bg-[#FAF7F2]">
+        <div class="mx-auto grid min-h-[calc(100vh-64px)] w-[min(100%-32px,1180px)] items-center gap-10 py-12 lg:grid-cols-[0.9fr_1.1fr] lg:py-16">
+            <div>
+                <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-[#A64B55]"><?php esc_html_e('Women and Girls Boutique', 'dawp'); ?></p>
+                <h1 class="mt-4 font-serif text-5xl font-bold leading-none text-[#2F2A28] md:text-7xl">
+                    <?php esc_html_e('Sweet everyday style, made simple.', 'dawp'); ?>
+                </h1>
+                <p class="mt-6 max-w-xl text-lg leading-8 text-[#6F625D]">
+                    <?php esc_html_e('A clean one-page boutique experience featuring soft dresses, casual women styles, and matching family favorites.', 'dawp'); ?>
+                </p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A64B55] px-6 text-sm font-extrabold text-white transition hover:bg-[#2F2A28]">
+                        <?php esc_html_e('Shop Now', 'dawp'); ?>
+                    </a>
+                    <a href="#collections" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E6DDD6] bg-white px-6 text-sm font-extrabold text-[#2F2A28] transition hover:border-[#A64B55] hover:text-[#A64B55]">
+                        <?php esc_html_e('View Collections', 'dawp'); ?>
+                    </a>
+                </div>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" id="mommy-me" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <?php echo dawp_theme_image(
-              'assets/img/Mom&me_collection.png',
-              'Mommy and Me collection',
-              600,
-              640,
-              array(array(360, 420), array(480, 540), array(600, 640), array(720, 760)),
-              '(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 52px) / 2), 280px',
-              array('class' => 'h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105')
-            ); ?>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Mommy & Me</h3>
-              <p class="mt-1 text-sm text-white/90">Matching outfits for you and your mini-me.</p>
+            <div class="relative">
+                <div class="overflow-hidden rounded-lg bg-white shadow-[0_20px_50px_rgba(47,42,40,0.12)]">
+                    <?php echo dawp_theme_image(
+                        'assets/img/banner_baby.png',
+                        'Boutique fashion for women and girls',
+                        1086,
+                        620,
+                        array(array(420, 420), array(720, 560), array(1086, 620)),
+                        '(max-width: 1023px) calc(100vw - 32px), 620px',
+                        array('class' => 'h-[430px] w-full object-cover md:h-[620px]', 'loading' => 'eager', 'fetchpriority' => 'high')
+                    ); ?>
+                </div>
             </div>
-          </a>
+        </div>
+    </section>
 
-          <a href="<?php echo esc_url(home_url('/product-category/women-casual/')); ?>" id="women-casual" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <?php echo dawp_theme_image(
-              'assets/img/women_casual.png',
-              'Women Casual collection',
-              600,
-              640,
-              array(array(360, 420), array(480, 540), array(600, 640), array(720, 760)),
-              '(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 52px) / 2), 280px',
-              array('class' => 'h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105')
-            ); ?>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Women Casual</h3>
-              <p class="mt-1 text-sm text-white/90">Effortless pieces for your everyday look.</p>
+    <section id="collections" class="py-14 md:py-20">
+        <div class="mx-auto w-[min(100%-32px,1180px)]">
+            <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-[#A64B55]"><?php esc_html_e('Collections', 'dawp'); ?></p>
+                    <h2 class="mt-3 font-serif text-4xl font-bold leading-tight md:text-5xl"><?php esc_html_e('Shop the essentials', 'dawp'); ?></h2>
+                </div>
+                <p class="max-w-lg text-[#6F625D]"><?php esc_html_e('Only the core sections customers need on the homepage: discover, browse, trust, and contact.', 'dawp'); ?></p>
             </div>
-          </a>
 
-          <a href="<?php echo esc_url(home_url('/product-category/baby-girl-boutique/')); ?>" id="baby-girl" class="group relative min-h-[320px] overflow-hidden rounded-2xl bg-[#F5F3F1] shadow-sm">
-            <?php echo dawp_theme_image(
-              'assets/img/Baby_girls.png',
-              'Baby Girl collection',
-              600,
-              640,
-              array(array(360, 420), array(480, 540), array(600, 640), array(720, 760)),
-              '(max-width: 639px) calc(100vw - 32px), (max-width: 1023px) calc((100vw - 52px) / 2), 280px',
-              array('class' => 'h-full min-h-[320px] w-full object-cover transition duration-300 group-hover:scale-105')
-            ); ?>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/45 to-black/5"></div>
-            <div class="absolute bottom-5 left-5 right-5 text-white">
-              <h3 class="font-serif text-2xl">Baby Girl</h3>
-              <p class="mt-1 text-sm text-white/90">Soft fabrics and adorable first outfits.</p>
+            <div class="grid gap-5 md:grid-cols-3">
+                <?php foreach ($collections as $collection) : ?>
+                    <a href="<?php echo esc_url($collection['url']); ?>" class="group overflow-hidden rounded-lg border border-[#E6DDD6] bg-white transition hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(47,42,40,0.10)]">
+                        <?php echo dawp_theme_image(
+                            $collection['image'],
+                            $collection['title'],
+                            640,
+                            520,
+                            array(array(360, 320), array(520, 440), array(640, 520)),
+                            '(max-width: 767px) calc(100vw - 32px), 374px',
+                            array('class' => 'h-80 w-full object-cover transition duration-300 group-hover:scale-105')
+                        ); ?>
+                        <div class="p-5">
+                            <h3 class="font-serif text-2xl font-bold"><?php echo esc_html($collection['title']); ?></h3>
+                            <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($collection['copy']); ?></p>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
             </div>
-          </a>
         </div>
-      </div>
     </section>
 
-    <!-- New Arrivals -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20" id="new-arrivals">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex items-end justify-between gap-5">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Trending Now</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Top picks for you</h2>
-          </div>
-          <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="hidden min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:bg-[#FAF7F2] sm:inline-flex">View All</a>
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
-          <?php
-          $top_picks = wc_get_products( array(
-            'status'  => 'publish',
-            'limit'   => 4,
-            'orderby' => 'date',
-            'order'   => 'DESC',
-          ) );
-          foreach ( $top_picks as $product ) :
-          ?>
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-              <?php echo dawp_product_responsive_image(
-                $product,
-                'aspect-square w-full object-cover',
-                '(max-width: 767px) calc((100vw - 48px) / 2), (max-width: 1023px) calc((100vw - 80px) / 2), 280px'
-              ); ?>
-            </a>
-            <div class="p-3 md:p-4">
-              <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
-              <p class="mt-1 font-bold text-[#C98A8A]"><?php echo $product->get_price_html(); ?></p>
-              <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
+    <section id="new-arrivals" class="bg-[#FAF7F2] py-14 md:py-20">
+        <div class="mx-auto w-[min(100%-32px,1180px)]">
+            <div class="mb-8 flex items-end justify-between gap-4">
+                <div>
+                    <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-[#A64B55]"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
+                    <h2 class="mt-3 font-serif text-4xl font-bold leading-tight md:text-5xl"><?php esc_html_e('Fresh from the boutique', 'dawp'); ?></h2>
+                </div>
+                <a href="<?php echo esc_url($shop_url); ?>" class="hidden min-h-11 items-center justify-center rounded-md bg-white px-5 text-sm font-extrabold text-[#2F2A28] transition hover:text-[#A64B55] sm:inline-flex"><?php esc_html_e('Shop All', 'dawp'); ?></a>
             </div>
-          </article>
-          <?php endforeach; ?>
+
+            <?php
+            $products = class_exists('WooCommerce') ? wc_get_products(array(
+                'status'  => 'publish',
+                'limit'   => 4,
+                'orderby' => 'date',
+                'order'   => 'DESC',
+            )) : array();
+            ?>
+
+            <?php if (!empty($products)) : ?>
+                <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+                    <?php foreach ($products as $product) : ?>
+                        <article class="overflow-hidden rounded-lg border border-[#E6DDD6] bg-white">
+                            <a href="<?php echo esc_url($product->get_permalink()); ?>">
+                                <?php echo dawp_product_responsive_image($product, 'aspect-square w-full object-cover', '(max-width: 767px) calc((100vw - 48px) / 2), 280px'); ?>
+                            </a>
+                            <div class="p-4">
+                                <h3 class="line-clamp-2 min-h-10 text-sm font-extrabold"><?php echo esc_html($product->get_name()); ?></h3>
+                                <p class="mt-2 font-extrabold text-[#A64B55]"><?php echo wp_kses_post($product->get_price_html()); ?></p>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            <?php else : ?>
+                <div class="rounded-lg border border-[#E6DDD6] bg-white p-8 text-center">
+                    <p class="font-serif text-3xl font-bold"><?php esc_html_e('Products will appear here.', 'dawp'); ?></p>
+                    <p class="mx-auto mt-3 max-w-xl text-[#6F625D]"><?php esc_html_e('Once WooCommerce products are published, the latest four items will be shown automatically.', 'dawp'); ?></p>
+                </div>
+            <?php endif; ?>
         </div>
-      </div>
     </section>
 
-    <!-- Mommy & Me Feature -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-6 lg:grid-cols-2">
-        <div class="overflow-hidden rounded-[28px] bg-[#F5F3F1]">
-          <?php echo dawp_theme_image(
-            'assets/img/Mom&me.png',
-            'Mommy and daughter boutique outfits',
-            900,
-            520,
-            array(array(400, 420), array(640, 520), array(900, 520), array(1024, 520)),
-            '(max-width: 1023px) calc(100vw - 32px), 580px',
-            array('class' => 'h-[420px] w-full object-cover md:h-[520px]')
-          ); ?>
-        </div>
-        <div class="rounded-[28px] border border-[#E6DDD6] bg-white p-8 shadow-[0_12px_30px_rgba(47,42,40,0.08)] md:p-10">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Mommy & Me</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Matching moments made beautifully simple.</h2>
-          <p class="mt-5 text-[#6F625D]">
-            Create sweet everyday memories with coordinated boutique styles for mothers and daughters. Soft colors, easy silhouettes, and seasonal pieces made for family photos, weekends, and special days.
-          </p>
-          <a href="<?php echo esc_url(home_url('/product-category/mommy-me-matching-sets/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28] hover:border-[#2F2A28]">Shop Matching Styles</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seasonal Picks -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Seasonal Boutique Picks</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Style for every little occasion</h2>
-          </div>
-          <p class="max-w-lg text-[#6F625D]">Simple seasonal collections help customers shop naturally without overwhelming the experience.</p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Spring Styles</h3>
-            <p class="mt-3 text-[#6F625D]">Light layers, soft dresses, and cheerful everyday outfits for warmer days.</p>
-          </div>
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Girls Holiday Looks</h3>
-            <p class="mt-3 text-[#6F625D]">Sweet pieces for family gatherings, photos, celebrations, and special moments.</p>
-          </div>
-          <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-            <h3 class="font-serif text-2xl">Summer Favorites</h3>
-            <p class="mt-3 text-[#6F625D]">Comfortable boutique essentials for sunny weekends and casual family outings.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Boutique Favorites -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 flex items-end justify-between gap-5">
-          <div>
-            <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Loved By The Boutique</p>
-            <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Boutique favorites</h2>
-          </div>
-
-        </div>
-
-        <div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
-          <?php
-          $favorites = wc_get_products( array(
-            'status'   => 'publish',
-            'limit'    => 4,
-            'orderby'  => 'date',
-            'order'    => 'ASC',
-          ) );
-          if ( empty( $favorites ) ) {
-            $favorites = wc_get_products( array(
-              'status'  => 'publish',
-              'limit'   => 4,
-              'orderby' => 'date',
-              'order'   => 'ASC',
-            ) );
-          }
-          foreach ( $favorites as $product ) :
-          ?>
-          <article class="overflow-hidden rounded-2xl border border-[#E6DDD6] bg-white transition hover:-translate-y-0.5 hover:shadow-[0_12px_30px_rgba(47,42,40,0.08)]">
-            <a href="<?php echo esc_url( $product->get_permalink() ); ?>">
-              <?php echo dawp_product_responsive_image(
-                $product,
-                'aspect-square w-full object-cover',
-                '(max-width: 767px) calc((100vw - 48px) / 2), (max-width: 1023px) calc((100vw - 80px) / 2), 280px'
-              ); ?>
-            </a>
-            <div class="p-3 md:p-4">
-              <h3 class="line-clamp-2 text-sm font-bold md:text-base"><?php echo esc_html( $product->get_name() ); ?></h3>
-              <p class="mt-1 font-bold text-[#C98A8A]"><?php echo $product->get_price_html(); ?></p>
-              <a href="<?php echo esc_url( $product->get_permalink() ); ?>" class="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-full border border-[#E6DDD6] bg-[#FAF7F2] text-xs font-bold text-[#2F2A28] md:text-sm">View Product</a>
+    <section id="story" class="py-14 md:py-20">
+        <div class="mx-auto grid w-[min(100%-32px,1180px)] items-center gap-8 lg:grid-cols-2">
+            <div class="overflow-hidden rounded-lg bg-[#F5F3F1]">
+                <?php echo dawp_theme_image(
+                    'assets/img/mom_baby_store.png',
+                    'Warm boutique shopping story',
+                    900,
+                    560,
+                    array(array(420, 380), array(700, 520), array(900, 560)),
+                    '(max-width: 1023px) calc(100vw - 32px), 560px',
+                    array('class' => 'h-[420px] w-full object-cover md:h-[560px]')
+                ); ?>
             </div>
-          </article>
-          <?php endforeach; ?>
+            <div>
+                <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-[#A64B55]"><?php esc_html_e('Our Story', 'dawp'); ?></p>
+                <h2 class="mt-3 font-serif text-4xl font-bold leading-tight md:text-5xl"><?php esc_html_e('A softer way to shop family style.', 'dawp'); ?></h2>
+                <p class="mt-5 text-lg leading-8 text-[#6F625D]">
+                    <?php esc_html_e('This rebuilt homepage keeps the brand focused: a friendly header, a strong first impression, useful collection paths, recent products, and a compact footer.', 'dawp'); ?>
+                </p>
+                <div class="mt-8 grid gap-4 sm:grid-cols-3">
+                    <div class="rounded-lg border border-[#E6DDD6] p-5">
+                        <strong class="block text-2xl text-[#A64B55]">01</strong>
+                        <span class="mt-2 block text-sm font-bold"><?php esc_html_e('Simple', 'dawp'); ?></span>
+                    </div>
+                    <div class="rounded-lg border border-[#E6DDD6] p-5">
+                        <strong class="block text-2xl text-[#A64B55]">02</strong>
+                        <span class="mt-2 block text-sm font-bold"><?php esc_html_e('Responsive', 'dawp'); ?></span>
+                    </div>
+                    <div class="rounded-lg border border-[#E6DDD6] p-5">
+                        <strong class="block text-2xl text-[#A64B55]">03</strong>
+                        <span class="mt-2 block text-sm font-bold"><?php esc_html_e('Shop Ready', 'dawp'); ?></span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-
-    <!-- Trust Section -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">01</div>
-          <h3 class="font-serif text-2xl">Free U.S. Shipping</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Free standard shipping on all U.S. orders with no minimum required.</p>
-        </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">02</div>
-          <h3 class="font-serif text-2xl">30-Day Eligible Returns</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Eligible items can be returned within 30 days of delivery with original tags and packaging.</p>
-        </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">03</div>
-          <h3 class="font-serif text-2xl">Secure Checkout</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">A clean and protected checkout experience for every order.</p>
-        </div>
-        <div class="rounded-2xl border border-[#E6DDD6] bg-white p-6">
-          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-[#FAF7F2] text-sm font-bold text-[#C98A8A]">04</div>
-          <h3 class="font-serif text-2xl">Friendly Support</h3>
-          <p class="mt-2 text-sm leading-6 text-[#6F625D]">Helpful boutique customer support for order and product questions.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Brand -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-8 rounded-[28px] bg-[#FAF7F2] p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr]">
-        <div class="overflow-hidden rounded-2xl">
-          <?php echo dawp_theme_image(
-            'assets/img/mom_baby_store.png',
-            'Warm local boutique shopping experience',
-            900,
-            420,
-            array(array(400, 360), array(640, 420), array(900, 420), array(1024, 420)),
-            '(max-width: 1023px) calc(100vw - 80px), 440px',
-            array('class' => 'h-[360px] w-full object-cover md:h-[420px]')
-          ); ?>
-        </div>
-        <div class="p-2 md:p-6">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Our Boutique Story</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">A warm shopping place for women and young girls.</h2>
-          <p class="mt-5 max-w-xl text-[#6F625D]">
-            Shop Kelli brings together curated women’s clothing, girls outfits, and seasonal boutique pieces for families who love comfortable, cheerful, and easy-to-wear style.
-          </p>
-          <a href="<?php echo esc_url(home_url('/about-us/')); ?>" class="mt-7 inline-flex min-h-12 items-center justify-center rounded-full border border-[#E6DDD6] bg-white px-6 text-sm font-bold text-[#2F2A28] transition hover:bg-[#FAF7F2]">Learn About Us</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="py-14 md:py-20">
-      <div class="mx-auto grid w-[min(100%-32px,1180px)] grid-cols-1 items-center gap-8 rounded-[28px] bg-[#2F2A28] p-8 text-white md:p-12 lg:grid-cols-2">
-        <div>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">Join the boutique community</h2>
-          <p class="mt-4 text-white/80">Get updates on new arrivals, seasonal collections, and warm family-friendly style inspiration.</p>
-        </div>
-        <div class="flex flex-col gap-3">
-          <form id="newsletter-form" class="flex flex-col gap-3 rounded-2xl bg-white/10 p-2 sm:flex-row sm:rounded-full">
-            <input class="min-h-12 flex-1 bg-transparent px-4 text-white placeholder:text-white/70 outline-none" type="email" placeholder="Enter your email" aria-label="Email address" required />
-            <button class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#C98A8A] bg-[#C98A8A] px-6 text-sm font-bold text-white transition hover:bg-white hover:text-[#2F2A28]" type="submit">
-              Sign Up
-            </button>
-          </form>
-          <p id="newsletter-msg" aria-live="polite" style="display:none" class="text-center text-sm text-white/80"></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery -->
-    <section class="bg-[#FAF7F2] py-14 md:py-20">
-      <div class="mx-auto w-[min(100%-32px,1180px)]">
-        <div class="mb-8 text-center">
-          <p class="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]">Boutique Life</p>
-          <h2 class="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-5xl">From our gallery</h2>
-        </div>
-        <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
-          <?php
-          $gallery_imgs = ['gallery1','gallery2','gallery3','gallery4','gallery5','gallery6'];
-          foreach ( $gallery_imgs as $img ) : ?>
-          <div class="group overflow-hidden rounded-2xl">
-            <?php echo dawp_theme_image(
-              'assets/img/gallery/' . $img . '.jpg',
-              'Boutique lifestyle photo',
-              640,
-              288,
-              array(array(220, 240), array(400, 288), array(640, 288)),
-              '(max-width: 767px) calc((100vw - 44px) / 2), 380px',
-              array('class' => 'h-60 w-full object-cover transition duration-500 group-hover:scale-105 md:h-72')
-            ); ?>
-          </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </section>
-  </main>
+</div>

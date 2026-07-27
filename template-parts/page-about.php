@@ -11,7 +11,7 @@ $asset = static function ($path) use ($theme_uri) {
     return $theme_uri . '/assets/img/' . ltrim($path, '/');
 };
 
-$support_email = 'support@vivisshop.com';
+$support_email = 'support@gudwear.com';
 $support_link = '<a class="font-semibold text-[#4B3528] underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
 $link_support_email = static function ($text) use ($support_email, $support_link) {
     return str_replace(esc_html($support_email), $support_link, esc_html($text));
@@ -78,7 +78,7 @@ $trust_cards = [
     ],
     [
         'title' => __('Customer Support', 'dawp'),
-        'copy'  => __('Contact support@vivisshop.com. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'),
+        'copy'  => __('Contact support@gudwear.com. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'),
     ],
 ];
 ?>
@@ -93,8 +93,8 @@ $trust_cards = [
                 </h2>
             </div>
             <div class="space-y-5 text-base leading-8 text-[#756A62]">
-                <p><?php esc_html_e('Vivisshop was created around a simple idea: everyday clothing should be comfortable, easy to style, and softly feminine without feeling loud or overly trendy.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Our collection direction focuses on wearable women\'s apparel such as casual tops, tunic tops, relaxed blouses, soft graphic tops, easy dresses, and seasonal pieces that suit daily routines.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Gudwear.com was created around a simple idea: everyday clothing should be comfortable, easy to style, and softly feminine without feeling loud or overly trendy.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Our collection direction focuses on mens edits, women collections, personalized apparel, easy wardrobe pieces, and seasonal styles that suit daily routines.', 'dawp'); ?></p>
                 <p><?php esc_html_e('We keep the store focused so customers can quickly understand what we offer, browse clear categories, and shop with confidence through transparent support and policy information.', 'dawp'); ?></p>
             </div>
         </div>
@@ -105,7 +105,7 @@ $trust_cards = [
             <div class="max-w-3xl">
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Our Focus', 'dawp'); ?></p>
                 <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Made for comfort-first, everyday dressing.', 'dawp'); ?></h2>
-                <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('The Vivisshop experience is built around a clear women\'s apparel niche and a calm shopping journey.', 'dawp'); ?></p>
+                <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('The Gudwear.com experience is built around a clear women\'s apparel niche and a calm shopping journey.', 'dawp'); ?></p>
             </div>
 
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -124,23 +124,23 @@ $trust_cards = [
 
     <section class="bg-white py-16 lg:py-24">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
-            <img src="<?php echo esc_url($asset('gallery/vivisshop/Tunic_Tops_Relaxed.png')); ?>" alt="<?php esc_attr_e('Relaxed tunic top styled for everyday wear', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
+            <img src="<?php echo esc_url($asset('gallery/Gudwear/Women_Collection_Easy_Tees_202607271343.jpeg')); ?>" alt="<?php esc_attr_e('Relaxed Gudwear everyday apparel styled for daily wear', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
             <div>
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('What We Choose', 'dawp'); ?></p>
                 <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Soft pieces that fit into real routines.', 'dawp'); ?></h2>
                 <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('We look for relaxed silhouettes, soft-looking textures, gentle colors, and simple details that help women feel comfortable and naturally put together.', 'dawp'); ?></p>
                 <div class="mt-6 grid gap-3 sm:grid-cols-2">
-                    <a href="<?php echo esc_url($category_url('relaxed-tops')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
-                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Relaxed Tops', 'dawp'); ?></span>
-                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Easy tops for daily comfort.', 'dawp'); ?></span>
+                    <a href="<?php echo esc_url($category_url('mens-edit')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
+                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Mens edit', 'dawp'); ?></span>
+                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Everyday menswear picks.', 'dawp'); ?></span>
                     </a>
-                    <a href="<?php echo esc_url($category_url('soft-tunics')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
-                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Soft Tunics', 'dawp'); ?></span>
-                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Longer relaxed fits.', 'dawp'); ?></span>
+                    <a href="<?php echo esc_url($category_url('women-collection')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
+                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Women Collection', 'dawp'); ?></span>
+                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Curated womenswear styles.', 'dawp'); ?></span>
                     </a>
-                    <a href="<?php echo esc_url($category_url('gentle-blouses')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
-                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Gentle Blouses', 'dawp'); ?></span>
-                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Soft polish for casual days.', 'dawp'); ?></span>
+                    <a href="<?php echo esc_url($category_url('personalize-apparel')); ?>" class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-5 transition hover:bg-[#F3E7DA]">
+                        <span class="block font-bold text-[#4B3528]"><?php esc_html_e('Personalize apparel', 'dawp'); ?></span>
+                        <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php esc_html_e('Custom-ready daily apparel.', 'dawp'); ?></span>
                     </a>
                 </div>
             </div>
@@ -149,11 +149,11 @@ $trust_cards = [
 
     <section class="bg-[#FFF8EF] py-16 lg:py-24">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8 lg:[&>*:first-child]:order-2">
-            <img src="<?php echo esc_url($asset('gallery/vivisshop/Blouse_Shirts_Simple.png')); ?>" alt="<?php esc_attr_e('Simple blouse styled for a relaxed polished day', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
+            <img src="<?php echo esc_url($asset('gallery/Gudwear/Graphic_apparel_for_daily_rotation_202607271339.jpeg')); ?>" alt="<?php esc_attr_e('Gudwear graphic apparel styled for a relaxed polished day', 'dawp'); ?>" class="aspect-[4/3] w-full rounded-[2rem] object-cover">
             <div>
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('Our Store Standards', 'dawp'); ?></p>
                 <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Clear, honest, and focused on women\'s apparel.', 'dawp'); ?></h2>
-                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('Vivisshop is built to present a legitimate, coherent fashion store with transparent customer information and realistic product direction.', 'dawp'); ?></p>
+                <p class="mt-5 text-base leading-8 text-[#756A62]"><?php esc_html_e('Gudwear.com is built to present a legitimate, coherent fashion store with transparent customer information and realistic product direction.', 'dawp'); ?></p>
                 <div class="mt-7 grid gap-3">
                     <?php foreach ($values as $value) : ?>
                         <div class="flex gap-3 rounded-2xl border border-[#E7D8C8] bg-white p-4">
@@ -206,17 +206,17 @@ $trust_cards = [
                         <h2 class="mt-3 font-heading text-4xl font-bold leading-tight"><?php esc_html_e('Explore relaxed pieces made for comfortable daily dressing.', 'dawp'); ?></h2>
                     </div>
                     <div class="grid gap-4 md:grid-cols-3">
-                        <a href="<?php echo esc_url($category_url('relaxed-tops')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
-                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Relaxed Tops', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Soft everyday favorites.', 'dawp'); ?></span>
+                        <a href="<?php echo esc_url($category_url('mens-edit')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
+                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Mens edit', 'dawp'); ?></span>
+                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Everyday menswear picks.', 'dawp'); ?></span>
                         </a>
-                        <a href="<?php echo esc_url($category_url('soft-tunics')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
-                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Soft Tunics', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Longer relaxed fits.', 'dawp'); ?></span>
+                        <a href="<?php echo esc_url($category_url('women-collection')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
+                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Women Collection', 'dawp'); ?></span>
+                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Curated womenswear styles.', 'dawp'); ?></span>
                         </a>
-                        <a href="<?php echo esc_url($category_url('gentle-blouses')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
-                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Gentle Blouses', 'dawp'); ?></span>
-                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Soft polish for casual days.', 'dawp'); ?></span>
+                        <a href="<?php echo esc_url($category_url('personalize-apparel')); ?>" class="group rounded-2xl border border-white/15 bg-white/10 p-5 transition hover:bg-white">
+                            <span class="block font-bold text-white transition group-hover:text-[#4B3528]"><?php esc_html_e('Personalize apparel', 'dawp'); ?></span>
+                            <span class="mt-2 block text-sm leading-6 text-white/80 transition group-hover:text-[#756A62]"><?php esc_html_e('Custom-ready daily apparel.', 'dawp'); ?></span>
                         </a>
                     </div>
                 </div>

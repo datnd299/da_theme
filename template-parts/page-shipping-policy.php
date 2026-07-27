@@ -6,7 +6,7 @@
  */
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-$support_email = 'support@vivisshop.com';
+$support_email = 'support@gudwear.com';
 $support_link_on_dark = '<a class="font-semibold text-white underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
 $link_support_email = static function ($text, $link) use ($support_email) {
     return str_replace(esc_html($support_email), $link, esc_html($text));
@@ -29,8 +29,9 @@ $summary_cards = [
                     <?php esc_html_e('Shipping Policy', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-3xl text-lg leading-8 text-[#756A62]">
-                    <?php esc_html_e('Clear delivery information for Vivisshop orders, including processing time, estimated US delivery, tracking, and address guidance.', 'dawp'); ?>
+                    <?php esc_html_e('Clear delivery information for Gudwear.com orders, including processing time, estimated US delivery, tracking, and address guidance.', 'dawp'); ?>
                 </p>
+                <p class="mt-4 text-sm font-semibold text-[#4B3528]"><?php esc_html_e('Last updated: May 13, 2026', 'dawp'); ?></p>
             </div>
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 <?php foreach ($summary_cards as $card) : ?>
@@ -62,7 +63,7 @@ $summary_cards = [
                 <section class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm sm:p-8">
                     <h2 class="font-heading text-3xl font-bold text-[#4B3528]"><?php esc_html_e('Order Processing', 'dawp'); ?></h2>
                     <div class="mt-5 space-y-4 text-base leading-8 text-[#756A62]">
-                        <p><?php esc_html_e('Vivisshop currently focuses on standard shipping for customers in the United States. Orders are processed Monday through Friday, excluding holidays.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Gudwear.com currently focuses on standard shipping for customers in the United States. Orders are processed Monday through Friday, excluding holidays.', 'dawp'); ?></p>
                         <p><?php esc_html_e('Order processing usually takes 2-4 business days before dispatch. Processing time may be affected by order volume, payment review, address issues, holidays, or operational delays.', 'dawp'); ?></p>
                     </div>
                 </section>
@@ -94,7 +95,7 @@ $summary_cards = [
                 <section class="rounded-[2rem] bg-[#4B3528] p-6 text-white sm:p-8">
                     <h2 class="font-heading text-3xl font-bold"><?php esc_html_e('Need help with shipping?', 'dawp'); ?></h2>
                     <p class="mt-4 max-w-3xl text-base leading-8 text-white/80">
-                        <?php echo wp_kses_post($link_support_email(__('Email support@vivisshop.com with your order number. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'), $support_link_on_dark)); ?>
+                        <?php echo wp_kses_post($link_support_email(__('Email support@gudwear.com with your order number. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'), $support_link_on_dark)); ?>
                     </p>
                     <div class="mt-7 flex flex-col gap-3 sm:flex-row">
                         <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('Email Support', 'dawp'); ?></a>

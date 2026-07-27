@@ -1,8 +1,8 @@
-# Vivisshop Women’s Fashion Home Plan
+# Gudwear.com Women’s Fashion Home Plan
 
 ## Homepage Objective
 
-The Vivisshop homepage should clearly position the brand as a soft, simple, and mature women’s fashion store for everyday clothing.
+The Gudwear.com homepage should clearly position the brand as a soft, simple, and mature women’s fashion store for everyday clothing.
 
 The homepage must communicate:
 
@@ -23,7 +23,7 @@ It should feel calm, wearable, and approachable for women aged 30–45.
 
 # Core Homepage Message
 
-Vivisshop helps women find soft, relaxed, and easy-to-wear fashion for real everyday life.
+Gudwear.com helps women find soft, relaxed, and easy-to-wear fashion for real everyday life.
 
 Main homepage concept:
 
@@ -45,7 +45,7 @@ The homepage should focus on:
 
 The page should guide customers through this journey:
 
-1. Discover Vivisshop as a soft everyday women’s fashion store
+1. Discover Gudwear.com as a soft everyday women’s fashion store
 2. Shop by style and fit
 3. Explore main collections
 4. Highlight casual tops as the strongest category
@@ -62,7 +62,7 @@ The page should guide customers through this journey:
 
 ## Purpose
 
-The hero section should immediately communicate the Vivisshop style: soft, relaxed, feminine, and wearable.
+The hero section should immediately communicate the Gudwear.com style: soft, relaxed, feminine, and wearable.
 
 It should not look like a discount banner.
 
@@ -522,7 +522,7 @@ Fresh pieces for softer everyday dressing.
 Supporting text:
 
 ```text
-Discover relaxed tops, gentle blouses, soft graphic pieces, and easy seasonal styles added to the Vivisshop collection.
+Discover relaxed tops, gentle blouses, soft graphic pieces, and easy seasonal styles added to the Gudwear.com collection.
 ```
 
 CTA:
@@ -589,7 +589,7 @@ Shop Seasonal Favorites
 
 ---
 
-# Section 10: Why Women Love Vivisshop
+# Section 10: Why Women Love Gudwear.com
 
 ## Purpose
 
@@ -683,7 +683,7 @@ Customers may request returns within 30 days of delivery for eligible unworn and
 ### Support
 
 ```text
-Need help with sizing, orders, or product questions? Contact support@vivisshop.com during business hours.
+Need help with sizing, orders, or product questions? Contact support@gudwear.com during business hours.
 ```
 
 CTA:
@@ -723,7 +723,7 @@ Soft new styles, straight to your inbox.
 Paragraph:
 
 ```text
-Join the Vivisshop list for new arrivals, seasonal favorites, and easy everyday outfit ideas.
+Join the Gudwear.com list for new arrivals, seasonal favorites, and easy everyday outfit ideas.
 ```
 
 CTA:
@@ -823,7 +823,7 @@ Soft Graphic Tops Feature
 Blouses & Shirts Feature
 New Arrivals
 Seasonal Favorites
-Why Women Love Vivisshop
+Why Women Love Gudwear.com
 Shipping, Returns & Support
 Newsletter
 ```
@@ -834,7 +834,7 @@ Newsletter
 
 After viewing the homepage, customers should feel:
 
-* Vivisshop clearly sells women’s casual fashion
+* Gudwear.com clearly sells women’s casual fashion
 * The style is soft, mature, and comfortable
 * Products feel wearable for daily life
 * The store feels calm and trustworthy
@@ -843,4 +843,4 @@ After viewing the homepage, customers should feel:
 
 The homepage should communicate:
 
-> Vivisshop is a gentle women’s fashion store for relaxed tops, tunics, blouses, and soft everyday styles.
+> Gudwear.com is a gentle women’s fashion store for relaxed tops, tunics, blouses, and soft everyday styles.

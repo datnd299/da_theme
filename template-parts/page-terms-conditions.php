@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$support_email = 'support@vivisshop.com';
+$support_email = 'support@gudwear.com';
 $support_link = '<a class="font-semibold text-[#4B3528] underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
 $link_support_email = static function ($text) use ($support_email, $support_link) {
     return str_replace(esc_html($support_email), $support_link, esc_html($text));
@@ -15,14 +15,14 @@ $terms_sections = [
     [
         'title' => __('Use Of This Website', 'dawp'),
         'copy'  => [
-            __('By using vivisshop.com, you agree to use the website for lawful personal shopping purposes and not to misuse, interfere with, copy, scrape, or disrupt the website, checkout, accounts, or security features.', 'dawp'),
+            __('By using Gudwear.com, you agree to use the website for lawful personal shopping purposes and not to misuse, interfere with, copy, scrape, or disrupt the website, checkout, accounts, or security features.', 'dawp'),
             __('We may update, suspend, or limit access to parts of the website when needed for maintenance, security, fraud prevention, or business operations.', 'dawp'),
         ],
     ],
     [
         'title' => __('Product Information', 'dawp'),
         'copy'  => [
-            __('Vivisshop focuses on women\'s everyday fashion including relaxed tops, tunics, blouses, soft graphic tops, dresses, and casual wardrobe pieces. We aim to present product descriptions, prices, images, colors, and availability clearly and accurately.', 'dawp'),
+            __('Gudwear.com focuses on women\'s everyday fashion including relaxed tops, tunics, blouses, soft graphic tops, dresses, and casual wardrobe pieces. We aim to present product descriptions, prices, images, colors, and availability clearly and accurately.', 'dawp'),
             __('Colors may vary slightly because of screen settings, lighting, and photography. Size, fit, fabric, and care information should be reviewed on each product page before purchase.', 'dawp'),
         ],
     ],
@@ -44,7 +44,7 @@ $terms_sections = [
         'title' => __('Returns & Refunds', 'dawp'),
         'copy'  => [
             __('Eligible items may be returned within 30 days of delivery if they are unworn, unwashed, unused, and in original condition with original packaging and tags where applicable.', 'dawp'),
-            __('Please email support@vivisshop.com before returning an item. Return shipping costs are the customer\'s responsibility unless the item arrived damaged, defective, or incorrect. Approved refunds are issued to the original payment method after inspection.', 'dawp'),
+            __('Please email support@gudwear.com before returning an item. Return shipping costs are the customer\'s responsibility unless the item arrived damaged, defective, or incorrect. Approved refunds are issued to the original payment method after inspection.', 'dawp'),
         ],
     ],
     [
@@ -56,13 +56,13 @@ $terms_sections = [
     [
         'title' => __('Intellectual Property', 'dawp'),
         'copy'  => [
-            __('Website text, layout, graphics, product presentation, photos, brand elements, and other content are owned by Vivisshop or used with permission. You may not copy, reproduce, sell, or reuse website content without written permission.', 'dawp'),
+            __('Website text, layout, graphics, product presentation, photos, brand elements, and other content are owned by Gudwear.com or used with permission. You may not copy, reproduce, sell, or reuse website content without written permission.', 'dawp'),
         ],
     ],
     [
         'title' => __('Limitation Of Liability', 'dawp'),
         'copy'  => [
-            __('To the fullest extent allowed by law, Vivisshop is not responsible for indirect, incidental, special, or consequential damages related to website use, product use, delivery delays, or inability to access the website.', 'dawp'),
+            __('To the fullest extent allowed by law, Gudwear.com is not responsible for indirect, incidental, special, or consequential damages related to website use, product use, delivery delays, or inability to access the website.', 'dawp'),
             __('Nothing in these terms limits rights that cannot be limited under applicable law.', 'dawp'),
         ],
     ],
@@ -71,7 +71,7 @@ $terms_sections = [
 $trust_cards = [
     __('Transparent order totals before checkout', 'dawp'),
     __('Clear shipping and return timelines', 'dawp'),
-    __('Support available at support@vivisshop.com', 'dawp'),
+    __('Support available at support@gudwear.com', 'dawp'),
 ];
 ?>
 
@@ -84,7 +84,7 @@ $trust_cards = [
                     <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-3xl text-lg leading-8 text-[#756A62]">
-                    <?php esc_html_e('These terms explain the basic rules for using Vivisshop, placing orders, reviewing product information, and contacting us about shipping, returns, or support.', 'dawp'); ?>
+                    <?php esc_html_e('These terms explain the basic rules for using Gudwear.com, placing orders, reviewing product information, and contacting us about shipping, returns, or support.', 'dawp'); ?>
                 </p>
                 <p class="mt-4 text-sm font-semibold text-[#4B3528]"><?php esc_html_e('Last updated: May 13, 2026', 'dawp'); ?></p>
             </div>

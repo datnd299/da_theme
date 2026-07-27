@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$support_email = 'support@vivisshop.com';
+$support_email = 'support@gudwear.com';
 $support_link = '<a class="font-semibold text-[#4B3528] underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
 $link_support_email = static function ($text) use ($support_email, $support_link) {
     return str_replace(esc_html($support_email), $support_link, esc_html($text));
@@ -38,7 +38,7 @@ $faq_groups = [
             ],
             [
                 'q' => __('How do I start a return?', 'dawp'),
-                'a' => __('Email support@vivisshop.com with your order number and return reason before sending anything back. We will provide return instructions for eligible requests.', 'dawp'),
+                'a' => __('Email support@gudwear.com with your order number and return reason before sending anything back. We will provide return instructions for eligible requests.', 'dawp'),
             ],
             [
                 'q' => __('Who pays return shipping?', 'dawp'),
@@ -50,8 +50,8 @@ $faq_groups = [
         'label' => __('Products & Sizing', 'dawp'),
         'items' => [
             [
-                'q' => __('What type of clothing does Vivisshop sell?', 'dawp'),
-                'a' => __('Vivisshop focuses on soft everyday women\'s fashion, including relaxed tops, tunics, blouses, soft graphic tops, dresses, and easy casual pieces.', 'dawp'),
+                'q' => __('What type of clothing does Gudwear.com sell?', 'dawp'),
+                'a' => __('Gudwear.com focuses on soft everyday women\'s fashion, including relaxed tops, tunics, blouses, soft graphic tops, dresses, and easy casual pieces.', 'dawp'),
             ],
             [
                 'q' => __('How should I choose a size?', 'dawp'),
@@ -68,15 +68,15 @@ $faq_groups = [
         'items' => [
             [
                 'q' => __('Is checkout secure?', 'dawp'),
-                'a' => __('Vivisshop uses secure checkout tools provided by our ecommerce and payment partners. Full card numbers are not stored by Vivisshop on this website.', 'dawp'),
+                'a' => __('Gudwear.com uses secure checkout tools provided by our ecommerce and payment partners. Full card numbers are not stored by Gudwear.com on this website.', 'dawp'),
             ],
             [
                 'q' => __('Can I change or cancel an order?', 'dawp'),
-                'a' => __('Contact us as soon as possible at support@vivisshop.com. We cannot guarantee changes after an order enters processing or has shipped, but we will review the request.', 'dawp'),
+                'a' => __('Contact us as soon as possible at support@gudwear.com. We cannot guarantee changes after an order enters processing or has shipped, but we will review the request.', 'dawp'),
             ],
             [
                 'q' => __('How do I contact customer support?', 'dawp'),
-                'a' => __('Email support@vivisshop.com. Business hours: Monday-Friday, 9:00 AM-5:00 PM. Include your order number when asking about an order.', 'dawp'),
+                'a' => __('Email support@gudwear.com. Business hours: Monday-Friday, 9:00 AM-5:00 PM. Include your order number when asking about an order.', 'dawp'),
             ],
         ],
     ],
@@ -92,8 +92,9 @@ $faq_groups = [
                     <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-3xl text-lg leading-8 text-[#756A62]">
-                    <?php esc_html_e('Quick answers about Vivisshop orders, shipping, returns, sizing, payment, and customer support.', 'dawp'); ?>
+                    <?php esc_html_e('Quick answers about Gudwear.com orders, shipping, returns, sizing, payment, and customer support.', 'dawp'); ?>
                 </p>
+                <p class="mt-4 text-sm font-semibold text-[#4B3528]"><?php esc_html_e('Last updated: May 13, 2026', 'dawp'); ?></p>
             </div>
         </div>
     </section>
@@ -105,7 +106,7 @@ $faq_groups = [
                 <p class="mt-4 text-sm leading-7 text-[#756A62]">
                     <?php esc_html_e('For order-specific questions, include your order number so our support team can review the details faster.', 'dawp'); ?>
                 </p>
-                <a href="mailto:support@vivisshop.com" class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-[#4B3528]">
+                <a href="mailto:support@gudwear.com" class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-[#4B3528]">
                     <?php esc_html_e('Email Support', 'dawp'); ?>
                 </a>
                 <div class="mt-6 rounded-2xl bg-white p-5 text-sm leading-6 text-[#756A62]">

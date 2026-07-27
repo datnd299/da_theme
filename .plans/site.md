@@ -1,442 +1,193 @@
-# Vivisshop Site.md
+# Gudwear.com Site.md
 
 ## Store Information
 
-* **Website:** vivisshop.com
+* **Website:** Gudwear.com
 * **Language:** English
-* **Store Type:** Women’s Casual Fashion Store
+* **Store Type:** Women's Casual Fashion Store
 * **Primary Market:** United States
-* **Target Audience:** Women aged 30–45
-* **Style Direction:** Soft, simple, relaxed, feminine, wearable everyday fashion
-* **Support Email:** [support@vivisshop.com](mailto:support@vivisshop.com)
-* **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
+* **Target Audience:** Women aged 30-45
+* **Style Direction:** Clean, relaxed, naturally polished everyday fashion
+* **Support Email:** [support@gudwear.com](mailto:support@gudwear.com)
+* **Business Hours:** Monday-Friday, 9:00 AM-6:00 PM EST
 
 ---
 
 # Brand Positioning
 
-Vivisshop is a women’s fashion store focused on soft, relaxed, and easy-to-wear clothing for everyday life.
+Gudwear.com is a women's apparel store focused on easy, comfortable clothing that still feels neat, modern, and thoughtfully styled.
 
 The brand should feel:
 
-* Gentle
-* Feminine
+* Natural
 * Comfortable
-* Simple
+* Polished
+* Calm
 * Mature
-* Relaxed
-* Approachable
+* Practical
+* Fresh
 * Everyday-friendly
-* Not trend-chasing
 
-Vivisshop should not feel like a young streetwear brand, luxury boutique, or random fashion marketplace.
+Gudwear.com should not feel like teen streetwear, luxury runway fashion, clubwear, or a random fashion marketplace.
 
-The store should focus on wearable pieces that suit women who want to feel comfortable, polished, and naturally stylish without dressing too loudly.
+The core promise:
+
+> Good everyday pieces for women who want comfort, ease, and quiet confidence.
 
 ---
 
 # Core Store Concept
 
-Vivisshop offers soft everyday clothing for women who love relaxed silhouettes, comfortable fabrics, feminine details, and easy styling.
+Gudwear.com offers wearable women's clothing for daily routines, casual workdays, errands, weekends, travel, and relaxed gatherings.
 
-The product direction is inspired by items such as:
+Main product direction:
 
-* Loose casual tops
-* Soft tunic tops
-* Relaxed blouses
-* Lightweight shirts
-* Linen-look tops
-* Cotton gauze tops
-* Simple printed tops
-* Soft graphic tops
-* Everyday layering pieces
-* Easy pants and casual bottoms
+* Relaxed casual tops
+* Easy tunic tops
+* Soft blouses and shirts
+* Lightweight layering pieces
+* Subtle graphic tops
+* Casual dresses
+* Comfortable pants and bottoms
+* Seasonal wardrobe refreshes
 
-The store should communicate:
-
-> Soft everyday styles for women who love comfort, ease, and quiet beauty.
+The store should communicate comfort without looking sleepy, and polish without feeling formal.
 
 ---
 
 # Target Audience
 
-## Primary Audience
+Primary customers are women aged 30-45 who want clothing that feels:
 
-Women aged 30–45 who want clothing that feels:
+* Comfortable on real days
+* Easy to mix and repeat
+* Feminine without being overly sweet
+* Casual but presentable
+* Soft, flattering, and practical
+* Suitable for home, errands, weekends, and casual plans
 
-* Comfortable
-* Easy to wear
-* Feminine but not overly youthful
-* Casual but still presentable
-* Soft and flattering
-* Suitable for daily routines
-* Good for home, errands, casual outings, weekends, and relaxed gatherings
-
-They may be:
-
-* Mothers
-* Working women
-* Women who prefer relaxed clothing
-* Women who like boutique-style casual fashion
-* Women who want soft colors and easy outfits
-* Women who avoid tight or overly revealing clothing
-
-## Secondary Audience
-
-* Women aged 45–55 who like relaxed boutique tops
-* Gift shoppers buying for wives, mothers, sisters, or friends
-* Women looking for simple seasonal wardrobe refreshes
+Secondary customers include women aged 45-55 who prefer relaxed boutique-style pieces, and gift shoppers buying simple wardrobe staples.
 
 ---
 
 # Customer Psychology
 
-Vivisshop customers are not looking for loud fashion.
+Gudwear.com customers are not chasing loud trends. They want reliable pieces that make them feel comfortable, capable, and naturally put together.
 
-They want clothes that help them feel:
+They respond well to:
 
-* Comfortable in their body
-* Effortlessly put together
-* Softly feminine
-* Relaxed and confident
-* Age-appropriate without feeling old-fashioned
-* Stylish without trying too hard
-
-They are likely attracted to:
-
-* Loose silhouettes
+* Relaxed silhouettes
 * Natural-looking fabrics
-* Soft colors
-* Light prints
-* Gentle graphic details
-* V-neck tops
-* Tunic shapes
-* Easy layering
-* Comfortable sleeves
-* Flowy fits
+* Olive, ivory, stone, denim, blush, and muted earth tones
+* Simple prints and nature-inspired graphics
+* Easy necklines
+* Longer tunic shapes
+* Layering-friendly tops
+* Clear sizing and product details
 
 Good messaging:
 
-* Easy styles for everyday comfort
-* Soft tops made for relaxed days
-* Feminine pieces you can wear again and again
-* Simple outfits for home, weekends, and casual plans
-* Feel comfortable, look naturally polished
+* Good fits for everyday plans
+* Easy tops with a naturally polished feel
+* Comfortable pieces you can wear on repeat
+* Relaxed clothing for real routines
+* Soft style, simple confidence
 
 Avoid messaging:
 
 * Sexy outfits
-* Party fashion
-* Ultra-trendy looks
-* Viral fashion
-* Bodycon styling
+* Viral trends
 * Luxury claims
-* Teen/Gen Z slang
-* Aggressive discount language
+* Teen slang
+* Fake urgency
+* Heavy discount pressure
 
 ---
 
 # Product Categories
 
-Keep the store focused and easy to understand.
-
-## Main Categories
-
-* **New Arrivals**
-* **Casual Tops**
-* **Blouses & Shirts**
-* **Tunic Tops**
-* **Soft Graphic Tops**
-* **Dresses**
-* **Pants & Bottoms**
-* **Seasonal Favorites**
-
-## Optional Categories
-
-* **Best Sellers**
-* **Everyday Essentials**
-* **Weekend Styles**
-* **Relaxed Fit Collection**
-
-Do not create too many unrelated categories.
-
-Vivisshop should feel like a curated women’s apparel store, not a mass fashion warehouse.
-
----
-
-# Category Direction
-
-## Casual Tops
-
-This should be the strongest category.
-
-Products should include:
-
-* Loose V-neck tops
-* Soft pullover tops
-* Short sleeve tops
-* Three-quarter sleeve tops
-* Lightweight casual shirts
-* Relaxed everyday tops
-
-Tone:
-
-Comfortable, soft, easy to style.
-
-## Blouses & Shirts
-
-Products should feel slightly more polished but still relaxed.
-
-Examples:
-
-* Soft button blouses
-* Lightweight shirts
-* Casual woven tops
-* Feminine blouses
-* Easy office-to-weekend tops
-
-Tone:
-
-Gentle, mature, presentable.
-
-## Tunic Tops
-
-This category is important for women aged 30–45 and older shoppers who like longer relaxed fits.
-
-Examples:
-
-* Loose tunic tops
-* Oversized cotton tops
-* Linen-look tunics
-* Flowing longline tops
-* Easy V-neck tunics
-
-Tone:
-
-Relaxed, flattering, comfortable.
-
-## Soft Graphic Tops
-
-Inspired by the reference images.
-
-Products can include subtle prints such as:
-
-* Dragonfly motif
-* Floral artwork
-* Nature-inspired graphics
-* Soft typography
-* Watercolor prints
-* Gentle seasonal graphics
-
-Avoid:
-
-* Loud slogans
-* Offensive graphics
-* Copyright characters
-* Celebrity or brand logos
-* Teen-style meme prints
-
-## Dresses
-
-Keep dresses simple and wearable.
-
-Examples:
-
-* Casual day dresses
-* Loose summer dresses
-* Soft floral dresses
-* Shirt dresses
-* Relaxed weekend dresses
-
-Avoid:
-
-* Overly sexy bodycon dresses
-* Extreme cutouts
-* Nightclub style
-
-## Pants & Bottoms
-
-Use as supporting category.
-
-Examples:
-
-* Relaxed pants
-* Linen-look pants
-* Casual wide-leg pants
-* Soft everyday bottoms
-
-Tone:
-
-Comfort and ease.
-
----
-
-# Product Style Rules
-
-Vivisshop products should generally have:
-
-* Relaxed silhouettes
-* Soft or natural-looking fabric textures
-* Feminine but subtle details
-* Simple prints or embroidery-style graphics
-* Comfortable sleeves
-* Easy neckline shapes
-* Soft colors
-* Neutral or pastel tones
-* Casual styling
-
-Avoid products that look:
-
-* Too revealing
-* Too tight
-* Too young
-* Too trendy
-* Too cheap
-* Too loud
-* Too formal
-* Too sporty
-
----
-
-# Color & Style Direction For Products
-
-Preferred product colors:
-
-* White
-* Ivory
-* Cream
-* Soft lavender
-* Sage green
-* Dusty blue
-* Light gray
-* Blush pink
-* Taupe
-* Sand beige
-* Muted coral
-* Soft yellow
-
-Preferred prints:
-
-* Small floral
-* Nature motifs
-* Dragonfly
-* Leaf patterns
-* Watercolor artwork
-* Gentle abstract prints
-* Soft seasonal designs
-
-Avoid:
-
-* Neon colors
-* Heavy black-only fashion
-* Loud animal prints
-* Large aggressive slogans
-* Harsh contrast graphics
-
----
-
-# Brand Voice
-
-Vivisshop should speak softly and clearly.
-
-Tone should be:
-
-* Warm
-* Calm
-* Feminine
-* Mature
-* Reassuring
-* Simple
-* Friendly
-* Not overly luxurious
-
-Good examples:
-
-* Soft styles for everyday comfort
-* Relaxed pieces made for real days
-* Easy tops you can wear again and again
-* Simple wardrobe favorites for home, errands, and weekends
-* Comfortable clothing with gentle feminine details
-
-Avoid:
-
-* Slay your look
-* Hot girl style
-* Sexy must-have
-* Viral fashion trend
-* Luxury wardrobe upgrade
-* Crazy sale
-* Limited stock pressure
+Main categories:
+
+* New Arrivals
+* Casual Tops
+* Tunic Tops
+* Blouses & Shirts
+* Soft Graphic Tops
+* Dresses
+* Pants & Bottoms
+* Seasonal Favorites
+
+Optional categories:
+
+* Best Sellers
+* Everyday Essentials
+* Weekend Styles
+* Relaxed Fit Collection
+
+Keep the catalog focused and curated. Gudwear.com should feel like a coherent apparel shop, not a mixed-product warehouse.
 
 ---
 
 # Visual Direction
 
-Vivisshop should use calm, soft, realistic fashion imagery.
+Gudwear.com should use realistic lifestyle and ecommerce imagery with a clean natural feel.
 
 Images should show:
 
-* Women aged around 30–45
-* Casual indoor and outdoor settings
-* Soft natural light
-* Relaxed poses
-* Comfortable tops and blouses
-* Boutique-like styling
-* Home, garden, café, weekend, and lifestyle scenes
+* Women aged around 30-45
+* Relaxed tops, tunics, blouses, dresses, and casual bottoms
+* Natural light
+* Home, cafe, garden, sidewalk, and weekend settings
+* Comfortable poses and real-life styling
+* Fabric texture and easy layering
 
-Preferred visual feel:
+Preferred visual mood:
 
-* Gentle boutique lookbook
-* Realistic ecommerce lifestyle photography
-* Soft colors
-* Natural fabric textures
-* Calm backgrounds
-* Not over-retouched
+* Fresh ivory and stone backgrounds
+* Olive and muted green accents
+* Soft denim, white, taupe, and warm neutrals
+* Clean boutique product discovery
 
 Avoid:
 
-* Teen fashion poses
-* Nightclub styling
-* Luxury editorial fashion
 * Overly sexy photography
-* Heavy streetwear look
-* Fast fashion collage style
-* Low-quality product cutouts
+* Nightclub styling
+* Teen poses
+* Heavy streetwear
+* Luxury editorial shots
+* Low-quality screenshots
+* Fake logos or copyrighted characters
 
 ---
 
 # Homepage Direction
 
-Homepage should make the brand feel like a soft women’s fashion destination.
-
 Recommended homepage flow:
 
-1. Hero: Soft Everyday Styles For Women
+1. Hero: Good Everyday Wear For Women
 2. Shop by Style
-3. Casual Tops Feature
-4. Tunic Tops Feature
+3. Tunic Tops Feature
+4. Soft Graphic Tops Feature
 5. Blouses & Shirts Feature
-6. Soft Graphic Tops Feature
-7. New Arrivals
-8. Why Women Love Vivisshop
-9. Seasonal Favorites
-10. Shipping / Returns / Customer Support
-11. Newsletter
+6. New Arrivals
+7. Why Women Choose Gudwear.com
+8. Shipping / Returns / Customer Support
+9. Newsletter
 
-Homepage should focus on:
+Homepage priorities:
 
-* Comfort
-* Ease
-* Softness
-* Everyday wear
-* Mature feminine style
-* Trust and clear policies
+* Brand name and domain are clearly Gudwear.com
+* Fresh visual feel: more olive, ink, ivory, and stone
+* Comfort-first but clean and polished
+* Clear category routes
+* Visible trust policies
+* No fake urgency or exaggerated claims
 
 ---
 
 # Trust & Policy Requirements
 
-Vivisshop should include clear customer trust pages:
+Gudwear.com should include:
 
 * About Us
 * Contact Us
@@ -447,23 +198,22 @@ Vivisshop should include clear customer trust pages:
 * FAQ
 * Track Your Order
 
-Trust elements should be visible:
+Trust elements:
 
-* Support email
+* support@gudwear.com
 * Business hours
-* Shipping timeline
-* Return window
+* Processing and shipping timeline
+* 30-day return window
 * Secure checkout messaging
-* Clear product categories
-* Consistent footer navigation
+* Clear categories and footer navigation
 
 ---
 
 # Shipping Information
 
-Orders are processed within **2–4 business days**.
+Orders are processed within **2-4 business days**.
 
-After dispatch, standard US shipping typically takes **5–10 business days** depending on destination and carrier conditions.
+After dispatch, standard US shipping typically takes **5-10 business days** depending on destination and carrier conditions.
 
 Tracking information is provided once an order ships.
 
@@ -473,55 +223,26 @@ Tracking information is provided once an order ships.
 
 Customers may request returns within **30 days** of delivery.
 
-Eligible items should be:
-
-* Unworn
-* Unwashed
-* Unused
-* In original condition
-* Returned with original packaging where applicable
-
-Return copy should feel clear, fair, and customer-friendly.
+Eligible items should be unworn, unwashed, unused, in original condition, and returned with original packaging where applicable.
 
 ---
 
 # GMC Compliance Direction
 
-Vivisshop must appear as a legitimate women’s apparel store with a coherent product focus.
+Gudwear.com must appear as a legitimate women's apparel store with a focused product niche and transparent policies.
 
-## GMC Priorities
+Avoid:
 
-* Clear women’s fashion niche
-* Consistent product categories
-* Transparent policies
-* Realistic product descriptions
-* No counterfeit brands
-* No copyrighted character graphics
-* No offensive prints
-* No fake urgency
-* Clean navigation
-* Trustworthy checkout experience
-
-## Avoid
-
-* Mixed general store products
-* Viral gadget content
-* Dropshipping-style product spam
-* Countdown timers
-* Fake reviews
-* Unsupported fabric or health claims
-* Overly revealing sexualized fashion
+* Mixed general-store products
+* Counterfeit brands
 * Copyrighted graphics
-* Brand imitation products
+* Offensive prints
+* Unsupported product claims
+* Fake countdowns
+* Fake reviews
+* Aggressive discount pressure
+* Overly revealing sexualized fashion
 
----
+Final build goal:
 
-# Strategic Build Goal
-
-The final Vivisshop storefront should feel like:
-
-> A gentle women’s fashion store offering soft, comfortable, relaxed clothing for everyday life — especially casual tops, tunics, blouses, soft graphic tops, and easy seasonal pieces for women aged 30–45.
-
-The store should feel curated, calm, wearable, and trustworthy.
-
-It should not feel like a random fashion warehouse.
+> Gudwear.com should feel like a clean, trustworthy women's fashion store offering comfortable everyday tops, tunics, blouses, dresses, and easy wardrobe pieces for women aged 30-45.

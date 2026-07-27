@@ -10,18 +10,17 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
 $cart_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_count = 0;
+$logo_path = '/assets/img/gallery/Gudwear/gudwear-logo.png';
 
 if (function_exists('WC') && WC()->cart) {
     $cart_count = WC()->cart->get_cart_contents_count();
 }
 
 $nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
-    ['title' => __('Shop All', 'dawp'), 'url' => $shop_url],
-    ['title' => __('Relaxed Tops', 'dawp'), 'url' => home_url('/product-category/relaxed-tops/')],
-    ['title' => __('Soft Tunics', 'dawp'), 'url' => home_url('/product-category/soft-tunics/')],
-    ['title' => __('Gentle Blouses', 'dawp'), 'url' => home_url('/product-category/gentle-blouses/')],
+    ['title' => __('Home', 'dawp'), 'url' => $home_url],
+    ['title' => __('Shop', 'dawp'), 'url' => $shop_url],
     ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
-    ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+    ['title' => __('Contact us', 'dawp'), 'url' => home_url('/contact-us/')],
 ];
 ?>
 <!DOCTYPE html>
@@ -55,12 +54,12 @@ $nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : 
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex min-h-20 items-center justify-between gap-4">
-            <a href="<?php echo esc_url($home_url); ?>" class="flex min-w-0 items-center" aria-label="<?php esc_attr_e('Vivisshop home', 'dawp'); ?>">
+            <a href="<?php echo esc_url($home_url); ?>" class="flex min-w-0 items-center" aria-label="<?php esc_attr_e('Gudwear.com home', 'dawp'); ?>">
                 <span class="flex h-12 w-[8.5rem] max-w-[42vw] shrink-0 items-center lg:w-[9.5rem]">
-                    <?php if (file_exists(get_template_directory() . '/assets/img/gallery/vivisshop/Logo (11).png')) : ?>
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/vivisshop/Logo (11).png'); ?>" alt="<?php esc_attr_e('Vivisshop', 'dawp'); ?>" class="h-auto max-h-11 max-w-full object-contain">
+                    <?php if (file_exists(get_template_directory() . $logo_path)) : ?>
+                        <img src="<?php echo esc_url(get_template_directory_uri() . $logo_path); ?>" alt="<?php esc_attr_e('Gudwear.com', 'dawp'); ?>" class="h-auto max-h-11 max-w-full object-contain">
                     <?php else : ?>
-                        VS
+                        GW
                     <?php endif; ?>
                 </span>
             </a>
@@ -104,7 +103,7 @@ $nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : 
                     <?php endif; ?>
                 </a>
 
-                <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E7D8C8] text-[#4B3528] transition hover:bg-[#F3E7DA] lg:hidden" aria-expanded="false" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>" aria-controls="vivisshop-mobile-menu" onclick="const menu=document.getElementById('vivisshop-mobile-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('hidden');">
+                <button type="button" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E7D8C8] text-[#4B3528] transition hover:bg-[#F3E7DA] lg:hidden" aria-expanded="false" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>" aria-controls="gudwear-mobile-menu" onclick="const menu=document.getElementById('gudwear-mobile-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('hidden');">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -115,7 +114,7 @@ $nav_items = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : 
         </div>
     </div>
 
-    <div id="vivisshop-mobile-menu" class="hidden border-t border-[#E7D8C8] bg-white lg:hidden">
+    <div id="gudwear-mobile-menu" class="hidden border-t border-[#E7D8C8] bg-white lg:hidden">
         <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mb-4 flex items-center rounded-full border border-[#E7D8C8] bg-[#FFF8EF] px-4 py-3">
                 <label for="mobile-product-search" class="sr-only"><?php esc_html_e('Search products', 'dawp'); ?></label>

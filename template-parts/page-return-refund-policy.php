@@ -6,7 +6,7 @@
  */
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-$support_email = 'support@vivisshop.com';
+$support_email = 'support@gudwear.com';
 $support_link = '<a class="font-semibold text-[#4B3528] underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
 $support_link_on_dark = '<a class="font-semibold text-white underline decoration-[#B89B83] underline-offset-4" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>';
 $link_support_email = static function ($text, $link) use ($support_email) {
@@ -21,7 +21,7 @@ $summary_cards = [
 ];
 
 $return_steps = [
-    __('Email support@vivisshop.com within 30 days of delivery with your order number and return reason.', 'dawp'),
+    __('Email support@gudwear.com within 30 days of delivery with your order number and return reason.', 'dawp'),
     __('Wait for return instructions before sending anything back so we can match the package to your order.', 'dawp'),
     __('Ship the approved item in original condition with packaging and tags where applicable.', 'dawp'),
     __('After inspection, approved refunds are issued to the original payment method.', 'dawp'),
@@ -37,8 +37,9 @@ $return_steps = [
                     <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-3xl text-lg leading-8 text-[#756A62]">
-                    <?php esc_html_e('Return eligibility, refund timing, return shipping responsibility, and the steps to request a return for a Vivisshop order.', 'dawp'); ?>
+                    <?php esc_html_e('Return eligibility, refund timing, return shipping responsibility, and the steps to request a return for a Gudwear.com order.', 'dawp'); ?>
                 </p>
+                <p class="mt-4 text-sm font-semibold text-[#4B3528]"><?php esc_html_e('Last updated: May 13, 2026', 'dawp'); ?></p>
             </div>
             <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 <?php foreach ($summary_cards as $card) : ?>
@@ -106,7 +107,7 @@ $return_steps = [
                 <section class="rounded-[2rem] bg-[#4B3528] p-6 text-white sm:p-8">
                     <h2 class="font-heading text-3xl font-bold"><?php esc_html_e('Need help with a return?', 'dawp'); ?></h2>
                     <p class="mt-4 max-w-3xl text-base leading-8 text-white/80">
-                        <?php echo wp_kses_post($link_support_email(__('Email support@vivisshop.com with your order number. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'), $support_link_on_dark)); ?>
+                        <?php echo wp_kses_post($link_support_email(__('Email support@gudwear.com with your order number. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'), $support_link_on_dark)); ?>
                     </p>
                     <div class="mt-7 flex flex-col gap-3 sm:flex-row">
                         <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('Email Support', 'dawp'); ?></a>

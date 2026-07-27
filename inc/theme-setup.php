@@ -8,6 +8,19 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
+
+add_action('widgets_init', 'dawp_register_sidebars');
+function dawp_register_sidebars() {
+    register_sidebar([
+        'name'          => __('Shop Sidebar', 'dawp'),
+        'id'            => 'shop-sidebar',
+        'description'   => __('Optional filters shown under the main product categories on shop archives.', 'dawp'),
+        'before_widget' => '<div id="%1$s" class="shop-sidebar__widget widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="shop-sidebar__title">',
+        'after_title'   => '</h3>',
+    ]);
+}
 add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
     // Chỉ xử lý khi là trang search và chưa có post_type
@@ -36,7 +49,13 @@ function dawp_scripts() {
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
     if ( is_front_page() ) {
-        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
+        $home_css = get_template_directory() . '/assets/css/tw/tw-home.css';
+        wp_enqueue_style(
+            'dawp-home',
+            get_template_directory_uri() . '/assets/css/tw/tw-home.css',
+            [],
+            file_exists($home_css) ? filemtime($home_css) : '1.0.2'
+        );
         dawp_remove_styles();
     }
     
@@ -48,7 +67,13 @@ function dawp_scripts() {
             wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.3');
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
-            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.4');
+            $checkout_css = get_template_directory() . '/assets/css/checkout.css';
+            wp_enqueue_style(
+                'dawp-checkout',
+                get_template_directory_uri() . '/assets/css/checkout.css',
+                [],
+                file_exists($checkout_css) ? filemtime($checkout_css) : '1.0.5'
+            );
         } elseif ( function_exists('is_account_page') && is_account_page() ) {
             $account_css = get_template_directory() . '/assets/css/account.css';
             wp_enqueue_style(

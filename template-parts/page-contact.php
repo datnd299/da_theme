@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$support_email = 'support@vivisshop.com';
+$support_email = 'support@gudwear.com';
 
 $help_topics = [
     [
@@ -50,7 +50,7 @@ $quick_links = [
                     <?php esc_html_e('We are here to help.', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-xl text-lg leading-8 text-[#756A62]">
-                    <?php esc_html_e('Have a question about an order, a soft everyday style, shipping, or returns? Reach out to Vivisshop support and we will help you with clear, friendly guidance.', 'dawp'); ?>
+                    <?php esc_html_e('Have a question about an order, a soft everyday style, shipping, or returns? Reach out to Gudwear.com support and we will help you with clear, friendly guidance.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-7 text-sm font-bold text-white shadow-lg shadow-[#4B3528]/10 transition hover:bg-[#4B3528]">
@@ -63,7 +63,7 @@ $quick_links = [
             </div>
             <div class="relative">
                 <div class="overflow-hidden rounded-[2rem] border border-[#E7D8C8] bg-white shadow-2xl shadow-[#4B3528]/10">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/vivisshop/Soft_Women\'s_Everyday_Fashion.png'); ?>" alt="<?php esc_attr_e('Relaxed Vivisshop everyday fashion customer care', 'dawp'); ?>" class="aspect-[4/5] h-full w-full object-cover lg:aspect-[5/4]">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/gallery/Gudwear/Women_Collection_confident_casual_202607271349.jpeg'); ?>" alt="<?php esc_attr_e('Relaxed Gudwear.com everyday fashion customer care', 'dawp'); ?>" class="aspect-[4/5] h-full w-full object-cover lg:aspect-[5/4]">
                 </div>
                 <div class="absolute bottom-4 left-4 w-[min(100%-32px,640px)] rounded-[1.35rem] border border-white/70 bg-white/95 p-5 shadow-xl">
                     <p class="text-sm font-bold text-[#4B3528]"><?php esc_html_e('Support hours', 'dawp'); ?></p>
@@ -178,7 +178,7 @@ $quick_links = [
                 </button>
 
                 <p class="mt-4 text-xs leading-6 text-[#756A62]">
-                    <?php esc_html_e('This form opens your email app so you can send your message directly to Vivisshop support.', 'dawp'); ?>
+                    <?php esc_html_e('This form opens your email app so you can send your message directly to Gudwear.com support.', 'dawp'); ?>
                 </p>
             </form>
         </div>

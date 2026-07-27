@@ -29,19 +29,19 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
 
 $quick_links = [
     [
-        'title' => __('Relaxed Tops', 'dawp'),
-        'copy'  => __('Easy tops made for comfort, errands, and weekends.', 'dawp'),
-        'url'   => $category_url('relaxed-tops'),
+        'title' => __('Mens edit', 'dawp'),
+        'copy'  => __('Everyday menswear picks with a clean, wearable feel.', 'dawp'),
+        'url'   => $category_url('mens-edit'),
     ],
     [
-        'title' => __('Soft Tunics', 'dawp'),
-        'copy'  => __('Longer relaxed silhouettes with a flattering feel.', 'dawp'),
-        'url'   => $category_url('soft-tunics'),
+        'title' => __('Women Collection', 'dawp'),
+        'copy'  => __('Curated womenswear styles for daily dressing.', 'dawp'),
+        'url'   => $category_url('women-collection'),
     ],
     [
-        'title' => __('Gentle Blouses', 'dawp'),
-        'copy'  => __('Light polish for casual workdays and daily plans.', 'dawp'),
-        'url'   => $category_url('gentle-blouses'),
+        'title' => __('Personalize apparel', 'dawp'),
+        'copy'  => __('Custom-ready apparel for individual style.', 'dawp'),
+        'url'   => $category_url('personalize-apparel'),
     ],
 ];
 ?>
@@ -58,7 +58,7 @@ $quick_links = [
                     <?php esc_html_e('This page slipped out of the wardrobe.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#756A62] sm:text-lg">
-                    <?php esc_html_e('The link may be outdated, but you can keep browsing Vivisshop for soft everyday women\'s fashion, relaxed tops, tunics, blouses, and fresh arrivals.', 'dawp'); ?>
+                    <?php esc_html_e('The link may be outdated, but you can keep browsing Gudwear.com for mens edits, women collections, personalized apparel, and fresh arrivals.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-7 text-sm font-bold text-white shadow-lg shadow-[#4B3528]/10 transition hover:bg-[#4B3528]">

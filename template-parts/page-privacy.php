@@ -7,7 +7,7 @@
 
 $privacy_cards = [
     ['title' => __('Order Information', 'dawp'), 'copy' => __('We collect details needed to process purchases, including name, email, shipping address, billing address, phone number when provided, and order details.', 'dawp')],
-    ['title' => __('Payment Security', 'dawp'), 'copy' => __('Payments are handled through secure payment providers. Vivisshop does not store full payment card numbers on this website.', 'dawp')],
+    ['title' => __('Payment Security', 'dawp'), 'copy' => __('Payments are handled through secure payment providers. Gudwear.com does not store full payment card numbers on this website.', 'dawp')],
     ['title' => __('Customer Support', 'dawp'), 'copy' => __('Messages sent to support may be used to answer questions, resolve order issues, and improve service quality.', 'dawp')],
 ];
 
@@ -15,7 +15,7 @@ $policy_sections = [
     [
         'title' => __('Information We Collect', 'dawp'),
         'copy'  => [
-            __('When you browse or shop at Vivisshop, we may collect information you provide directly, such as your name, email address, shipping address, billing address, phone number, order details, and customer service messages.', 'dawp'),
+            __('When you browse or shop at Gudwear.com, we may collect information you provide directly, such as your name, email address, shipping address, billing address, phone number, order details, and customer service messages.', 'dawp'),
             __('We may also collect basic technical information such as IP address, browser type, device information, pages visited, referring pages, and cookie data to help operate and protect the website.', 'dawp'),
         ],
     ],
@@ -63,7 +63,7 @@ $policy_sections = [
                     <?php esc_html_e('Privacy Policy', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-3xl text-lg leading-8 text-[#756A62]">
-                    <?php esc_html_e('This policy explains how Vivisshop collects, uses, and protects information when you browse our women\'s fashion store, place an order, or contact customer support.', 'dawp'); ?>
+                    <?php esc_html_e('This policy explains how Gudwear.com collects, uses, and protects information when you browse our women\'s fashion store, place an order, or contact customer support.', 'dawp'); ?>
                 </p>
                 <p class="mt-4 text-sm font-semibold text-[#4B3528]"><?php esc_html_e('Last updated: May 13, 2026', 'dawp'); ?></p>
             </div>
@@ -87,8 +87,8 @@ $policy_sections = [
                     <p class="mt-4 text-sm leading-7 text-[#756A62]">
                         <?php esc_html_e('For privacy questions or requests, email us with enough detail to identify your order or account.', 'dawp'); ?>
                     </p>
-                    <a class="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-[#4B3528]" href="mailto:support@vivisshop.com">
-                        <?php esc_html_e('support@vivisshop.com', 'dawp'); ?>
+                    <a class="mt-5 inline-flex min-h-12 items-center justify-center rounded-full bg-[#B89B83] px-6 text-sm font-bold text-white transition hover:bg-[#4B3528]" href="mailto:support@gudwear.com">
+                        <?php esc_html_e('support@gudwear.com', 'dawp'); ?>
                     </a>
                     <p class="mt-5 text-sm leading-6 text-[#756A62]"><?php esc_html_e('Business hours: Monday-Friday, 9:00 AM-5:00 PM', 'dawp'); ?></p>
                 </aside>

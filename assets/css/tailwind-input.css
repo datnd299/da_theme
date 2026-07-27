@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - Vivisshop backgrounds === */
+  /* === COLORS - Gudwear.com backgrounds === */
   --color-background: #FFFFFF;
   --color-surface: #FFF8EF;
   --color-surface-alt: #F3E7DA;
 
-  /* === COLORS - Vivisshop text === */
+  /* === COLORS - Gudwear.com text === */
   --color-foreground: #2F2925;
   --color-foreground-muted: #756A62;
   --color-muted: #8C8178;
 
-  /* === COLORS - Vivisshop brand === */
+  /* === COLORS - Gudwear.com brand === */
   --color-accent: #B89B83;
   --color-accent-hover: #4B3528;
   --color-accent-soft: #F3E7DA;
@@ -51,4 +51,130 @@
   --duration-fast: 150ms;
   --duration-normal: 250ms;
   --duration-slow: 400ms;
+}
+
+@layer components {
+  .home-cta-primary,
+  .home-cta-primary:visited,
+  .home-cta-primary:hover,
+  .home-cta-primary:focus {
+    color: #ffffff !important;
+  }
+
+  .home-cta-secondary,
+  .home-cta-secondary:visited,
+  .home-cta-secondary:hover,
+  .home-cta-secondary:focus {
+    color: #24312b !important;
+  }
+
+  @media (max-width: 767px) {
+    .home-category-slider,
+    .home-trust-slider,
+    .home-care-slider {
+      display: flex !important;
+      gap: 1rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      overflow-x: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 0.75rem;
+      scroll-padding-left: 1rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .home-category-slider::-webkit-scrollbar,
+    .home-trust-slider::-webkit-scrollbar,
+    .home-care-slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .home-category-slider,
+    .home-trust-slider,
+    .home-care-slider {
+      scrollbar-width: none;
+    }
+
+    .home-category-slide,
+    .home-trust-slide,
+    .home-care-slide {
+      flex: 0 0 min(82vw, 22rem);
+      scroll-snap-align: start;
+    }
+
+    .home-trust-slide,
+    .home-care-slide {
+      min-height: 13rem;
+    }
+
+    .home-category-slider-controls,
+    .home-trust-slider-controls,
+    .home-care-slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .home-category-slider-button,
+    .home-trust-slider-button,
+    .home-care-slider-button {
+      display: inline-flex;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #D8D0C2;
+      border-radius: 999px;
+      background: #ffffff;
+      color: #24312B;
+      font-size: 1.75rem;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: 0 8px 24px rgba(36, 49, 43, 0.08);
+    }
+
+    .home-category-slider-button:disabled,
+    .home-trust-slider-button:disabled,
+    .home-care-slider-button:disabled {
+      opacity: 0.35;
+    }
+
+    .home-category-slider-dots,
+    .home-trust-slider-dots,
+    .home-care-slider-dots {
+      display: flex;
+      min-width: 4rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+    }
+
+    .home-category-slider-dot,
+    .home-trust-slider-dot,
+    .home-care-slider-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: #D8D0C2;
+      transition: width 150ms ease, background-color 150ms ease;
+    }
+
+    .home-category-slider-dot.is-active,
+    .home-trust-slider-dot.is-active,
+    .home-care-slider-dot.is-active {
+      width: 1.25rem;
+      background: #6F7F58;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .home-category-slider-controls,
+    .home-trust-slider-controls,
+    .home-care-slider-controls {
+      display: none;
+    }
+  }
 }

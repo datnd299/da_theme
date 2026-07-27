@@ -75,7 +75,7 @@ get_header();
                     <line x1="8" y1="12" x2="20" y2="12"/>
                     <line x1="12" y1="18" x2="20" y2="18"/>
                 </svg>
-                Filter
+                Categories
             </button>
         </div>
 
@@ -93,61 +93,7 @@ get_header();
     <div class="shop-layout">
 
         <?php // ── Sidebar ────────────────────────────────── ?>
-        <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
-            <div class="shop-sidebar__header">
-                <h2 class="shop-sidebar__mobile-title">Filter Products</h2>
-                <button
-                    class="shop-sidebar__close"
-                    id="shopSidebarClose"
-                    aria-label="Close filters"
-                >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-
-            <?php
-            // Categories widget
-            $categories = get_terms([
-                'taxonomy'   => 'product_cat',
-                'hide_empty' => true,
-                'parent'     => 0,
-                'exclude'    => [ get_term_by('slug', 'uncategorized', 'product_cat')->term_id ?? 0 ],
-            ]);
-            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
-            <div class="shop-sidebar__widget">
-                <h3 class="shop-sidebar__title">Categories</h3>
-                <ul class="shop-sidebar__categories">
-                    <li>
-                        <a href="<?php echo esc_url( get_permalink( wc_get_page_id('shop') ) ); ?>">
-                            All Products
-                        </a>
-                    </li>
-                    <?php foreach ( $categories as $cat ) :
-                        $is_current = ( is_product_category( $cat->slug ) ); ?>
-                        <li>
-                            <a
-                                href="<?php echo esc_url( get_term_link( $cat ) ); ?>"
-                                <?php if ( $is_current ) echo 'aria-current="page"'; ?>
-                            >
-                                <?php echo esc_html( $cat->name ); ?>
-                                <span class="count">(<?php echo (int) $cat->count; ?>)</span>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <?php endif; ?>
-
-            <?php
-            // Price filter / other widgets
-            if ( is_active_sidebar('shop-sidebar') ) {
-                dynamic_sidebar('shop-sidebar');
-            }
-            ?>
-        </aside>
+        <?php get_sidebar('shop'); ?>
 
         <?php // ── Main Product Area ────────────────────────── ?>
         <main class="shop-main" id="main-content">

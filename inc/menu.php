@@ -1,11 +1,14 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'casual-tops'       => 'relaxed-tops',
-        'tunic-tops'        => 'soft-tunics',
-        'blouses-shirts'    => 'gentle-blouses',
-        'new-arrivals'      => 'relaxed-tops',
-        'soft-graphic-tops' => 'relaxed-tops',
+        'casual-tops'       => 'mens-edit',
+        'tunic-tops'        => 'women-collection',
+        'blouses-shirts'    => 'personalize-apparel',
+        'new-arrivals'      => 'women-collection',
+        'soft-graphic-tops' => 'personalize-apparel',
+        'relaxed-tops'      => 'mens-edit',
+        'soft-tunics'       => 'women-collection',
+        'gentle-blouses'    => 'personalize-apparel',
     ];
 
     return $map[$slug] ?? $slug;
@@ -29,19 +32,19 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     return [
-        ['title' => __('Relaxed Tops', 'dawp'), 'url' => dawp_product_category_url('relaxed-tops')],
-        ['title' => __('Soft Tunics', 'dawp'), 'url' => dawp_product_category_url('soft-tunics')],
-        ['title' => __('Gentle Blouses', 'dawp'), 'url' => dawp_product_category_url('gentle-blouses')],
+        ['title' => __('Mens edit', 'dawp'), 'url' => dawp_product_category_url('mens-edit')],
+        ['title' => __('Women Collection', 'dawp'), 'url' => dawp_product_category_url('women-collection')],
+        ['title' => __('Personalize apparel', 'dawp'), 'url' => dawp_product_category_url('personalize-apparel')],
     ];
 }
 
 function dawp_main_menu_items() {
-    return array_merge([
-        ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-    ], dawp_shop_category_items(), [
+    return [
+        ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
+        ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')],
         ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
-        ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
-    ]);
+        ['title' => __('Contact us', 'dawp'), 'url' => home_url('/contact-us/')],
+    ];
 }
 function dawp_is_current_url($url) {
     $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');

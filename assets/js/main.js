@@ -27,6 +27,97 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const initMobileSlider = ({ sliderSelector, controlsSelector, slideSelector, prevSelector, nextSelector, dotsSelector, dotClass }) => {
+        const slider = document.querySelector(sliderSelector);
+        const controls = document.querySelector(controlsSelector);
+
+        if (!slider || !controls) return;
+
+        const slides = Array.from(slider.querySelectorAll(slideSelector));
+        const prevButton = controls.querySelector(prevSelector);
+        const nextButton = controls.querySelector(nextSelector);
+        const dotsWrap = controls.querySelector(dotsSelector);
+        let dots = [];
+
+        if (dotsWrap) {
+            dotsWrap.innerHTML = '';
+            dots = slides.map((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = dotClass;
+                dot.dataset.slide = String(index);
+                dotsWrap.appendChild(dot);
+                return dot;
+            });
+        }
+
+        const getActiveIndex = () => {
+            if (!slides.length) return 0;
+
+            return slides.reduce((activeIndex, slide, index) => {
+                const activeDistance = Math.abs(slides[activeIndex].offsetLeft - slider.scrollLeft);
+                const slideDistance = Math.abs(slide.offsetLeft - slider.scrollLeft);
+                return slideDistance < activeDistance ? index : activeIndex;
+            }, 0);
+        };
+
+        const scrollToSlide = (index) => {
+            const target = slides[Math.max(0, Math.min(index, slides.length - 1))];
+            if (target) {
+                slider.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+            }
+        };
+
+        const updateSlider = () => {
+            const activeIndex = getActiveIndex();
+            dots.forEach((dot, index) => dot.classList.toggle('is-active', index === activeIndex));
+
+            if (prevButton) prevButton.disabled = activeIndex === 0;
+            if (nextButton) nextButton.disabled = activeIndex === slides.length - 1;
+        };
+
+        if (prevButton) {
+            prevButton.addEventListener('click', () => scrollToSlide(getActiveIndex() - 1));
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', () => scrollToSlide(getActiveIndex() + 1));
+        }
+
+        slider.addEventListener('scroll', updateSlider, { passive: true });
+        window.addEventListener('resize', updateSlider, { passive: true });
+        updateSlider();
+    };
+
+    initMobileSlider({
+        sliderSelector: '.home-category-slider',
+        controlsSelector: '.home-category-slider-controls',
+        slideSelector: '.home-category-slide',
+        prevSelector: '.home-category-slider-prev',
+        nextSelector: '.home-category-slider-next',
+        dotsSelector: '.home-category-slider-dots',
+        dotClass: 'home-category-slider-dot',
+    });
+
+    initMobileSlider({
+        sliderSelector: '.home-trust-slider',
+        controlsSelector: '.home-trust-slider-controls',
+        slideSelector: '.home-trust-slide',
+        prevSelector: '.home-trust-slider-prev',
+        nextSelector: '.home-trust-slider-next',
+        dotsSelector: '.home-trust-slider-dots',
+        dotClass: 'home-trust-slider-dot',
+    });
+
+    initMobileSlider({
+        sliderSelector: '.home-care-slider',
+        controlsSelector: '.home-care-slider-controls',
+        slideSelector: '.home-care-slide',
+        prevSelector: '.home-care-slider-prev',
+        nextSelector: '.home-care-slider-next',
+        dotsSelector: '.home-care-slider-dots',
+        dotClass: 'home-care-slider-dot',
+    });
+
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');

@@ -33,12 +33,6 @@ function dawp_product_category_definitions() {
             'group'       => 'collections',
             'icon'        => 'TS',
         ],
-        'patches-pins' => [
-            'name'        => __('Patches & Pins', 'dawp'),
-            'description' => __('Patriotic patches, pins, mugs, and daily carry gifts for American heritage.', 'dawp'),
-            'group'       => 'collections',
-            'icon'        => 'PP',
-        ],
         'veteran-tribute' => [
             'name'        => __('Veteran Tribute', 'dawp'),
             'description' => __('Veteran tribute apparel and gifts honoring service, family legacy, and American pride.', 'dawp'),
@@ -116,6 +110,7 @@ function dawp_product_category_url($slug) {
 
 function dawp_product_category_redirects() {
     return [
+        'patches-pins' => 'shop',
         'best-sellers' => 'best-sellers',
         'flag' => 'american-flag-tees',
         'hoodie' => 'premium-t-shirts',
@@ -131,6 +126,16 @@ function dawp_product_category_redirects() {
     ];
 }
 
+function dawp_product_category_redirect_url($destination) {
+    if ($destination === 'shop') {
+        $shop_url = function_exists('wc_get_page_id') ? get_permalink(wc_get_page_id('shop')) : '';
+
+        return $shop_url ?: home_url('/shop/');
+    }
+
+    return dawp_product_category_url($destination);
+}
+
 add_action('template_redirect', 'dawp_redirect_legacy_product_category_links', 1);
 function dawp_redirect_legacy_product_category_links() {
     $request_path = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
@@ -143,7 +148,7 @@ function dawp_redirect_legacy_product_category_links() {
     $redirects = dawp_product_category_redirects();
 
     if (isset($redirects[$request_path])) {
-        wp_safe_redirect(dawp_product_category_url($redirects[$request_path]), 301);
+        wp_safe_redirect(dawp_product_category_redirect_url($redirects[$request_path]), 301);
         exit;
     }
 
@@ -151,10 +156,28 @@ function dawp_redirect_legacy_product_category_links() {
         $legacy_slug = sanitize_title($matches[1]);
 
         if (isset($redirects[$legacy_slug]) && $redirects[$legacy_slug] !== $legacy_slug) {
-            wp_safe_redirect(dawp_product_category_url($redirects[$legacy_slug]), 301);
+            wp_safe_redirect(dawp_product_category_redirect_url($redirects[$legacy_slug]), 301);
             exit;
         }
     }
+}
+
+function dawp_hidden_product_category_slugs() {
+    return [
+        'patches-pins',
+    ];
+}
+
+function dawp_visible_product_terms($terms) {
+    if (is_wp_error($terms) || empty($terms)) {
+        return [];
+    }
+
+    $hidden_slugs = function_exists('dawp_hidden_product_category_slugs') ? dawp_hidden_product_category_slugs() : [];
+
+    return array_values(array_filter($terms, function ($term) use ($hidden_slugs) {
+        return ! in_array($term->slug, $hidden_slugs, true);
+    }));
 }
 
 function dawp_seed_product_categories() {

@@ -49,7 +49,6 @@ function dawp_product_category_slugs() {
         'bomber-jackets',
         'hats-beanies',
         'premium-t-shirts',
-        'patches-pins',
         'veteran-tribute',
         'mugs-drinkware',
         'america-250',

@@ -37,16 +37,43 @@ get_header(); ?>
 </div>
 <div class="sgs-st-grid">
   <?php
-  $category_groups = function_exists('dawp_product_category_group') ? [
-    dawp_product_category_group('featured'),
-    dawp_product_category_group('collections'),
-    dawp_product_category_group('gifts'),
-  ] : [];
-  $categories = [];
-
-  foreach ($category_groups as $group) {
-    $categories = array_merge($categories, $group);
-  }
+  $categories = [
+    'american-flag-tees' => [
+      'name' => 'American Flag Tees',
+      'description' => 'Patriotic tees featuring bold American flag designs.',
+      'icon' => 'AF',
+    ],
+    'bomber-jackets' => [
+      'name' => 'Bomber Jackets',
+      'description' => 'Classic outerwear with veteran-inspired details.',
+      'icon' => 'BJ',
+    ],
+    'hats-beanies' => [
+      'name' => 'Hats & Beanies',
+      'description' => 'Everyday headwear for patriotic style and comfort.',
+      'icon' => 'HB',
+    ],
+    'premium-t-shirts' => [
+      'name' => 'Premium T-Shirts',
+      'description' => 'Soft, durable tees made for everyday wear.',
+      'icon' => 'PT',
+    ],
+    'veteran-tribute' => [
+      'name' => 'Veteran Tribute',
+      'description' => 'Meaningful designs honoring service and sacrifice.',
+      'icon' => 'VT',
+    ],
+    'mugs-drinkware' => [
+      'name' => 'Mugs & Drinkware',
+      'description' => 'Patriotic mugs and drinkware for daily use.',
+      'icon' => 'MD',
+    ],
+    'america-250' => [
+      'name' => 'America 250 Collection',
+      'description' => 'Commemorative styles for America 250.',
+      'icon' => '250',
+    ],
+  ];
 
   foreach ($categories as $slug => $category): ?>
   <a href="<?php echo esc_url(dawp_product_category_url($slug)); ?>" class="sgs-st-card">

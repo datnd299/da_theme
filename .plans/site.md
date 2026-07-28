@@ -1,321 +1,439 @@
 # MegaMallDepot — Site.md
 
+
 ## Store Information
 
+
 * **Website:** megamalldepot.com
-* **Language:** English
-* **Primary Market:** United States
-* **Store Type:** Premium Home & Lifestyle Ecommerce
-* **Industry:** Home • Kitchen • Furniture • Decor • Living
+* **Language:** Bahasa Melayu
+* **Primary Market:** Malaysia
+* **Store Type:** Premium Kitchen & Home Essentials Ecommerce
+* **Industry:** Dapur • Peralatan Rumah • Alat Memasak • Organisasi Rumah
+
 
 ---
+
 
 # Brand Positioning
 
-MegaMallDepot is a modern American home and lifestyle retailer inspired by premium home shopping experiences. The store focuses on quality products that elevate everyday living, combining elegant design with accessible pricing.
 
-The storefront should feel:
+MegaMallDepot ialah kedai dalam talian moden yang menawarkan pelbagai peralatan dapur dan keperluan rumah berkualiti untuk membantu keluarga Malaysia menikmati kehidupan harian yang lebih mudah, kemas dan selesa.
 
-* Warm
-* Premium
-* Modern
-* Elegant
-* Organized
-* Inspirational
 
-Avoid:
+Laman web perlu memberikan suasana:
 
-* Discount warehouse appearance
-* Marketplace clutter
-* Electronics-first branding
-* Generic dropshipping style
+
+* Moden
+* Kemas
+* Elegan
+* Praktikal
+* Mesra keluarga
+* Dipercayai
+
+
+Elakkan:
+
+
+* Gaya gudang diskaun
+* Marketplace yang berselerak
+* Kedai elektronik
+* Rupa kedai dropshipping
+
 
 ---
+
 
 # Target Audience
 
-## Primary Customers
 
-* Homeowners
-* Couples
-* Families
-* Interior enthusiasts
-* Home improvement shoppers
+## Pelanggan Utama
 
-Age:
 
-* 28–60
+* Pemilik rumah
+* Pasangan muda
+* Keluarga
+* Peminat memasak
+* Pengguna yang gemar mengatur rumah
 
-Shopping motivation:
 
-* Upgrade home spaces
-* Seasonal decorating
-* Better kitchen experiences
-* Comfortable everyday living
+Umur:
+
+
+* 25–55 tahun
+
+
+Motivasi pembelian:
+
+
+* Memudahkan kerja dapur
+* Menjadikan rumah lebih kemas
+* Memasak dengan lebih selesa
+* Menaik taraf keperluan rumah
+
 
 ---
+
 
 # Main Categories
 
-## Kitchen & Dining
 
-Cookware, bakeware, coffee, dining essentials and kitchen tools.
+## Peralatan Memasak
 
----
 
-## Furniture
+Periuk, kuali, pengukus, bakeware dan aksesori memasak.
 
-Living room, bedroom, dining room and home office furniture.
 
 ---
 
-## Home Decor
 
-Wall décor, mirrors, rugs, lighting, decorative accessories and seasonal styling.
+## Pisau & Papan Pemotong
 
----
 
-## Bedding & Bath
+Pisau dapur, set pisau, papan pemotong dan aksesori penyediaan makanan.
 
-Bedding collections, towels, bath accessories and everyday comfort.
 
 ---
 
-## Storage & Organization
 
-Closet organization, shelving, storage solutions and utility essentials.
+## Peralatan Dapur
+
+
+Peralatan memasak, alat penyediaan makanan, bekas penyimpanan dan perkakas harian.
+
+
+---
+
+
+## Penyimpanan & Organisasi
+
+
+Rak dapur, bekas makanan, laci penyimpanan dan penyusun rumah.
+
 
 ---
 
-## Outdoor Living
 
-Patio furniture, outdoor décor, garden accessories and entertaining essentials.
+## Peralatan Makan
+
+
+Pinggan, mangkuk, cawan, sudu garpu dan aksesori meja makan.
+
 
 ---
+
+
+## Keperluan Rumah
+
+
+Produk pembersihan, organisasi rumah dan keperluan harian.
+
+
+---
+
 
 # Homepage Direction
 
-Homepage should inspire customers while making shopping effortless.
 
-Recommended sections:
+Laman utama perlu memberi inspirasi kepada pelanggan sambil memudahkan pengalaman membeli-belah.
 
-1. Hero Lifestyle Banner
-2. Shop By Room
-3. Featured Collections
-4. Best Sellers
-5. Seasonal Inspiration
-6. Why Shop MegaMallDepot
-7. Customer Reviews
+
+Cadangan seksyen:
+
+
+1. Hero Banner
+2. Beli Mengikut Kategori
+3. Koleksi Pilihan
+4. Produk Terlaris
+5. Inspirasi Dapur
+6. Mengapa Pilih MegaMallDepot
+7. Ulasan Pelanggan
+
 
 ---
+
 
 # Hero Direction
 
-Main message:
 
-"Beautiful Spaces Begin At Home"
+Mesej utama:
 
-Supporting message:
 
-"Discover thoughtfully selected furniture, décor and home essentials designed for modern American living."
+"Hadirkan Keselesaan Dalam Setiap Ruang Dapur"
+
+
+Mesej sokongan:
+
+
+"Temui peralatan dapur dan keperluan rumah yang berkualiti untuk memudahkan kehidupan seharian."
+
 
 Primary CTA:
 
-* Shop Collection
+
+* Beli Sekarang
+
 
 Secondary CTA:
 
-* Explore New Arrivals
+
+* Lihat Koleksi
+
 
 Hero imagery:
 
-* Bright luxury interior
-* Designer-inspired living room
-* Elegant dining table
-* Warm natural lighting
+
+* Dapur moden
+* Peralatan memasak premium
+* Meja makan yang kemas
+* Cahaya semula jadi yang hangat
+
 
 ---
+
 
 # Product Experience
 
-Each product card should include:
 
-* Product image
-* Product name
-* Collection
-* Price
-* Rating
+Setiap kad produk perlu memaparkan:
+
+
+* Gambar produk
+* Nama produk
+* Harga
+* Penilaian
 * Quick View
-* Add to Cart
+* Tambah ke Troli
 
-Products should emphasize lifestyle before specifications.
+
+Produk perlu menonjolkan kegunaan sebenar dalam kehidupan harian.
+
 
 ---
+
 
 # Product Content Direction
 
-Descriptions should be:
 
-* Elegant
-* Inspiring
-* Benefit-focused
-* Lifestyle-oriented
+Penerangan produk perlu:
 
-Include:
 
-* Materials
-* Design inspiration
-* Everyday functionality
-* Care information
+* Ringkas
+* Jelas
+* Praktikal
+* Berorientasikan manfaat
 
-Avoid:
 
-* Technical specifications first
+Sertakan:
+
+
+* Material
+* Fungsi utama
+* Kegunaan harian
+* Cara penjagaan
+
+
+Elakkan:
+
+
+* Terlalu teknikal
 * Keyword stuffing
-* Cheap promotional language
+* Bahasa promosi berlebihan
+
 
 ---
+
 
 # Trust Elements
 
-Required:
 
-* Secure Checkout
-* Fast Shipping
-* Easy Returns
-* Order Tracking
-* Dedicated Customer Support
+Wajib dipaparkan:
 
-Shopping experience should feel:
 
-* Premium
-* Helpful
-* Relaxing
-* Trustworthy
+* Pembayaran Selamat
+* Penghantaran Pantas
+* Pemulangan Mudah
+* Penjejakan Pesanan
+* Khidmat Pelanggan
+
+
+Pengalaman membeli-belah perlu terasa:
+
+
+* Profesional
+* Mesra
+* Mudah
+* Dipercayai
+
 
 ---
+
 
 # Shipping Information
 
-Default shipping parameters:
+
+Parameter penghantaran:
+
 
 Order cutoff:
 
-5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles)
 
-Orders placed after the cutoff begin processing on the next business day.
+5:00 PM (GMT+08:00) Malaysia Time
+
+
+Pesanan selepas waktu tersebut akan diproses pada hari bekerja berikutnya.
+
 
 Handling time:
 
-1–2 business days (Monday–Friday)
+
+1–2 hari bekerja (Isnin–Jumaat)
+
 
 Transit time:
 
-3–5 business days (Monday–Friday)
+
+3–5 hari bekerja (Isnin–Jumaat)
+
 
 Estimated delivery:
 
-Usually 4–7 business days
 
-Tracking information is provided once orders are shipped.
+Kebiasaannya 4–7 hari bekerja
+
+
+Nombor penjejakan akan diberikan selepas pesanan dihantar.
+
 
 ---
+
 
 # Return & Refund Direction
 
-Return window:
 
-30 days after delivery
+Tempoh pemulangan:
 
-Eligible returns:
 
-* Unused
-* Original condition
-* Original packaging
-* Complete accessories included
+30 hari selepas penerimaan pesanan.
 
-Return experience should be:
 
-* Simple
-* Transparent
-* Customer-friendly
+Produk layak dipulangkan sekiranya:
+
+
+* Belum digunakan
+* Dalam keadaan asal
+* Pembungkusan asal
+* Semua aksesori lengkap
+
+
+Proses pemulangan perlu:
+
+
+* Mudah
+* Telus
+* Mesra pelanggan
+
 
 ---
+
 
 # Brand Tone
 
-Use:
 
-* Warm
-* Elegant
-* Helpful
-* Refined
-* Inspiring
+Gunakan gaya bahasa:
 
-Avoid:
 
-* Aggressive sales language
-* Flash-sale appearance
-* Overstock style
-* Marketplace terminology
+* Mesra
+* Profesional
+* Ringkas
+* Dipercayai
+* Membantu
+
+
+Elakkan:
+
+
+* Bahasa jualan yang agresif
+* Promosi berlebihan
+* Gaya marketplace
+
 
 ---
+
 
 # Visual Direction
 
-Website should resemble a premium lifestyle retailer rather than a general marketplace.
 
-Use:
+Laman web perlu menyerupai sebuah kedai premium peralatan dapur moden.
 
-* Bright interiors
-* Editorial lifestyle photography
-* Large product imagery
-* Spacious layouts
-* Neutral backgrounds
 
-Avoid:
+Gunakan:
 
-* Busy promotional graphics
-* Heavy discount banners
-* Dark themes
-* Technology-focused visuals
+
+* Dapur moden yang cerah
+* Fotografi gaya hidup
+* Gambar produk berkualiti tinggi
+* Susun atur yang luas
+* Warna neutral
+
+
+Elakkan:
+
+
+* Banner promosi yang terlalu padat
+* Tema gelap
+* Grafik berlebihan
+* Susun atur berselerak
+
 
 ---
 
-# GMC Compliance Direction
+
+# Ecommerce Direction
+
 
 Website should demonstrate:
 
-* Clear home & lifestyle niche
+
+* Kitchen-focused branding
 * Original product content
 * Transparent policies
 * Consistent branding
 * Mobile-friendly shopping
 * Trustworthy ecommerce experience
 
+
 Avoid:
+
 
 * Mixed unrelated categories
 * Thin product pages
 * Misleading promotions
 * Fake reviews
 
+
 ---
+
 
 # Brand Promise
 
-MegaMallDepot provides:
 
-* Beautiful home inspiration
-* Carefully selected collections
-* Reliable shopping experience
-* Convenient delivery
-* Everyday quality for modern living
+MegaMallDepot menyediakan:
+
+
+* Peralatan dapur berkualiti
+* Produk rumah yang praktikal
+* Pengalaman membeli-belah yang mudah
+* Penghantaran yang boleh dipercayai
+* Penyelesaian harian untuk setiap keluarga
+
 
 ---
 
+
 # Final Brand Statement
 
-MegaMallDepot is:
 
-"A modern home and lifestyle destination helping American families create beautiful, comfortable spaces through thoughtfully curated furniture, décor and everyday essentials."
+MegaMallDepot ialah:
+
+
+"Destinasi membeli-belah dalam talian yang membantu keluarga Malaysia menikmati dapur yang lebih kemas, memasak dengan lebih mudah dan menjadikan setiap ruang rumah lebih selesa."

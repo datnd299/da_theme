@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Premium about page template part.
  *
@@ -58,31 +58,31 @@ $mmd_about_img = static function ($file, $alt, $class = '', $width = 900, $heigh
 
 $principles = [
     [
-        'title' => __('Lifestyle-first selection', 'dawp'),
-        'copy'  => __('We look for pieces that help a room feel more complete, useful and welcoming, from quiet storage to dinner-ready table details.', 'dawp'),
+        'title' => __('Pilihan berteraskan gaya hidup', 'dawp'),
+        'copy'  => __('Kami memilih produk yang menjadikan ruang dapur dan rumah lebih lengkap, berguna dan mesra untuk rutin harian.', 'dawp'),
     ],
     [
-        'title' => __('Modern American comfort', 'dawp'),
-        'copy'  => __('Our catalog is shaped around real homes, busy kitchens, shared living rooms, restful bedrooms and outdoor spaces made for gathering.', 'dawp'),
+        'title' => __('Keselesaan moden Malaysia', 'dawp'),
+        'copy'  => __('Katalog kami dibina untuk rumah sebenar di Malaysia: dapur yang sibuk, ruang makan keluarga dan sudut penyimpanan yang perlu sentiasa kemas.', 'dawp'),
     ],
     [
-        'title' => __('Quality without the noise', 'dawp'),
-        'copy'  => __('MegaMallDepot avoids cluttered marketplace browsing and focuses on curated home essentials with clear, helpful product presentation.', 'dawp'),
+        'title' => __('Kualiti tanpa serabut', 'dawp'),
+        'copy'  => __('Imartmy memudahkan pembelian dengan pilihan peralatan dapur dan rumah yang dikurasi, jelas dan mudah dibandingkan.', 'dawp'),
     ],
 ];
 
 $values = [
-    __('Warm editorial inspiration', 'dawp'),
-    __('Furniture, decor and daily essentials', 'dawp'),
-    __('Transparent shipping and returns', 'dawp'),
-    __('Helpful support after purchase', 'dawp'),
+    __('Inspirasi dapur yang hangat', 'dawp'),
+    __('Peralatan dapur dan keperluan harian', 'dawp'),
+    __('Penghantaran dan pemulangan yang telus', 'dawp'),
+    __('Sokongan berguna selepas pembelian', 'dawp'),
 ];
 
 $trust_items = [
-    [__('Secure Checkout', 'dawp'), __('Encrypted checkout helps protect your payment details from cart to confirmation.', 'dawp')],
-    [__('Fast Shipping', 'dawp'), __('Orders are handled in 1-2 business days, with estimated delivery usually in 4-7 business days.', 'dawp')],
-    [__('Easy Returns', 'dawp'), __('Eligible unused items can be returned within 30 days after delivery.', 'dawp')],
-    [__('Order Tracking', 'dawp'), __('Tracking details are provided once your order ships so you can follow each step.', 'dawp')],
+    [__('Checkout Selamat', 'dawp'), __('Checkout terenkripsi membantu melindungi butiran pembayaran anda dari troli hingga pengesahan.', 'dawp')],
+    [__('Penghantaran Pantas', 'dawp'), __('Pesanan diproses dalam 1-2 hari bekerja, dengan anggaran penghantaran biasanya 4-7 hari bekerja.', 'dawp')],
+    [__('Pemulangan Mudah', 'dawp'), __('Item layak yang belum digunakan boleh dipulangkan dalam 30 hari selepas diterima.', 'dawp')],
+    [__('Penjejakan Pesanan', 'dawp'), __('Butiran penjejakan diberikan selepas pesanan dihantar supaya anda boleh mengikuti status penghantaran.', 'dawp')],
 ];
 ?>
 
@@ -163,17 +163,17 @@ $trust_items = [
     <section class="mmd-about-hero" aria-labelledby="mmd-about-title">
         <div class="mmd-about-container mmd-about-hero__grid">
             <div class="mmd-about-hero__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('About MegaMallDepot', 'dawp'); ?></p>
-                <h1 id="mmd-about-title"><?php esc_html_e('A modern home destination for beautiful everyday living.', 'dawp'); ?></h1>
-                <p class="mmd-about-hero__copy"><?php esc_html_e('MegaMallDepot helps American families create warm, comfortable spaces through thoughtfully selected furniture, decor, kitchen, bedding, bath, storage and outdoor essentials.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('Tentang Imartmy', 'dawp'); ?></p>
+                <h1 id="mmd-about-title"><?php esc_html_e('Destinasi peralatan dapur dan rumah untuk kehidupan harian yang lebih kemas.', 'dawp'); ?></h1>
+                <p class="mmd-about-hero__copy"><?php esc_html_e('Imartmy membantu keluarga Malaysia melengkapkan dapur dan rumah dengan pilihan cookware, penyimpanan, peralatan makan, pembersihan dan keperluan harian yang praktikal.', 'dawp'); ?></p>
                 <div class="mmd-about-hero__actions">
-                    <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
-                    <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+                    <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Beli Koleksi', 'dawp'); ?></a>
+                    <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Hubungi Kami', 'dawp'); ?></a>
                 </div>
             </div>
             <div class="mmd-about-hero__media">
-                <?php echo $mmd_about_img('Living_Room.jpeg', __('Bright living room styled with refined furniture and decor', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: home should feel considered, calm and ready for real life.', 'dawp'); ?></div>
+                <?php echo $mmd_about_img('Living_Room.jpeg', __('Ruang rumah cerah dengan kelengkapan yang tersusun', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
+                <div class="mmd-about-hero__note"><?php esc_html_e('Pegangan kami mudah: dapur dan rumah perlu terasa teratur, selesa dan bersedia untuk kehidupan sebenar.', 'dawp'); ?></div>
             </div>
         </div>
     </section>
@@ -181,14 +181,14 @@ $trust_items = [
     <section class="mmd-about-section" aria-labelledby="mmd-about-story-title">
         <div class="mmd-about-container mmd-about-story">
             <div class="mmd-about-story__media">
-                <?php echo $mmd_about_img('Dining.jpeg', __('Elegant dining room with natural light', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
-                <?php echo $mmd_about_img('Home_essentials_on_shelf_202607171221.jpeg', __('Curated home essentials arranged on a shelf', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
+                <?php echo $mmd_about_img('Dining.jpeg', __('Ruang makan elegan dengan cahaya semula jadi', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
+                <?php echo $mmd_about_img('Home_essentials_on_shelf_202607171221.jpeg', __('Keperluan rumah tersusun kemas di rak', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
             </div>
             <div class="mmd-about-story__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Our Story', 'dawp'); ?></p>
-                <h2 id="mmd-about-story-title"><?php esc_html_e('Curated for rooms that feel lived in, polished and personal.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('We built MegaMallDepot for shoppers who want a clearer, more inspiring way to find home products. Instead of overwhelming customers with unrelated items, we focus on the pieces that support everyday rituals: cooking, hosting, resting, organizing and relaxing outside.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Every collection is guided by usefulness, inviting materials and timeless styling, so it is easier to refresh a room without losing the warmth of home.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('Kisah Kami', 'dawp'); ?></p>
+                <h2 id="mmd-about-story-title"><?php esc_html_e('Dikurasi untuk dapur dan rumah yang terasa hidup, kemas dan peribadi.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Kami membina Imartmy untuk pelanggan yang mahukan cara lebih jelas mencari produk dapur dan rumah. Daripada membanjiri anda dengan barang tidak berkaitan, kami fokus pada produk yang menyokong rutin harian: memasak, menjamu, menyimpan, membersih dan berehat di rumah.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Setiap koleksi dipandu oleh fungsi, bahan yang menyenangkan dan gaya yang tahan lama supaya ruang mudah diperbaharui tanpa kehilangan kehangatan rumah.', 'dawp'); ?></p>
                 <div class="mmd-about-values">
                     <?php foreach ($values as $value) : ?>
                         <span><?php echo esc_html($value); ?></span>
@@ -202,9 +202,9 @@ $trust_items = [
         <div class="mmd-about-container">
             <div class="mmd-about-section__head">
                 <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('What Guides Us', 'dawp'); ?></p>
-                    <h2 id="mmd-about-principles-title"><?php esc_html_e('A refined shopping experience, from inspiration to checkout.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Our store is designed to feel organized, warm and helpful, closer to browsing a home magazine than searching through a crowded marketplace.', 'dawp'); ?></p>
+                    <p class="mmd-about-eyebrow"><?php esc_html_e('Pegangan Kami', 'dawp'); ?></p>
+                    <h2 id="mmd-about-principles-title"><?php esc_html_e('Pengalaman membeli-belah yang kemas, dari inspirasi hingga checkout.', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Kedai kami direka supaya terasa teratur, mesra dan membantu, seperti melihat idea rumah yang dipilih rapi dan bukannya mencari dalam pasar yang sesak.', 'dawp'); ?></p>
                 </div>
             </div>
             <div class="mmd-about-principles">
@@ -221,13 +221,13 @@ $trust_items = [
     <section class="mmd-about-section" aria-labelledby="mmd-about-curation-title">
         <div class="mmd-about-container mmd-about-feature">
             <div class="mmd-about-feature__media">
-                <?php echo $mmd_about_img('Kitchen_essentials_tools_cookware_202607171159.jpeg', __('Kitchen tools and cookware arranged for daily cooking', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
+                <?php echo $mmd_about_img('Kitchen_essentials_tools_cookware_202607171159.jpeg', __('Alat dapur dan cookware tersusun untuk masakan harian', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
             </div>
             <div class="mmd-about-feature__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Our Curation', 'dawp'); ?></p>
-                <h2 id="mmd-about-curation-title"><?php esc_html_e('Home essentials chosen for beauty, comfort and daily function.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('From kitchen and dining to furniture, decor, bedding, bath, storage and outdoor living, each category is shaped around how people actually use their homes. Product pages emphasize lifestyle benefits, materials, care and practical details so customers can shop with confidence.', 'dawp'); ?></p>
-                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse The Shop', 'dawp'); ?></a>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('Kurasi Kami', 'dawp'); ?></p>
+                <h2 id="mmd-about-curation-title"><?php esc_html_e('Keperluan dapur dan rumah dipilih untuk fungsi harian, keselesaan dan gaya.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Daripada cookware dan peralatan makan hingga penyimpanan, pembersihan dan kelengkapan rumah, setiap kategori disusun mengikut cara keluarga Malaysia benar-benar menggunakan ruang mereka. Halaman produk menonjolkan fungsi, bahan, penjagaan dan butiran praktikal supaya pelanggan boleh membeli dengan yakin.', 'dawp'); ?></p>
+                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Layari Kedai', 'dawp'); ?></a>
             </div>
         </div>
     </section>
@@ -236,8 +236,8 @@ $trust_items = [
         <div class="mmd-about-container">
             <div class="mmd-about-section__head">
                 <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Reliable Shopping', 'dawp'); ?></p>
-                    <h2 id="mmd-about-trust-title"><?php esc_html_e('Trust built into each step of the experience.', 'dawp'); ?></h2>
+                    <p class="mmd-about-eyebrow"><?php esc_html_e('Membeli Dengan Yakin', 'dawp'); ?></p>
+                    <h2 id="mmd-about-trust-title"><?php esc_html_e('Keyakinan dibina pada setiap langkah pembelian.', 'dawp'); ?></h2>
                 </div>
             </div>
             <div class="mmd-about-trust">
@@ -256,23 +256,23 @@ $trust_items = [
         <div class="mmd-about-container">
             <div class="mmd-about-section__head">
                 <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Helpful Details', 'dawp'); ?></p>
-                    <h2 id="mmd-about-policies-title"><?php esc_html_e('Clear policies for a calmer purchase.', 'dawp'); ?></h2>
+                    <p class="mmd-about-eyebrow"><?php esc_html_e('Butiran Berguna', 'dawp'); ?></p>
+                    <h2 id="mmd-about-policies-title"><?php esc_html_e('Polisi yang jelas untuk pembelian yang lebih tenang.', 'dawp'); ?></h2>
                 </div>
-                <a class="mmd-about-link" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Need help?', 'dawp'); ?></a>
+                <a class="mmd-about-link" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Perlukan bantuan?', 'dawp'); ?></a>
             </div>
             <div class="mmd-about-policy-grid">
                 <a class="mmd-about-policy-card" href="<?php echo esc_url($shipping_url); ?>">
-                    <h3><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Review handling time, transit estimates and tracking information before you order.', 'dawp'); ?></p>
+                    <h3><?php esc_html_e('Polisi Penghantaran', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Semak masa pemprosesan, anggaran penghantaran dan maklumat penjejakan sebelum membuat pesanan.', 'dawp'); ?></p>
                 </a>
                 <a class="mmd-about-policy-card" href="<?php echo esc_url($returns_url); ?>">
-                    <h3><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Learn how eligible unused items can be returned within 30 days after delivery.', 'dawp'); ?></p>
+                    <h3><?php esc_html_e('Polisi Pemulangan & Bayaran Balik', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Ketahui cara produk layak yang belum digunakan boleh dipulangkan dalam 30 hari selepas diterima.', 'dawp'); ?></p>
                 </a>
                 <a class="mmd-about-policy-card" href="<?php echo esc_url(home_url('/track-order/')); ?>">
-                    <h3><?php esc_html_e('Track Order', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Follow your shipment once tracking details have been shared after dispatch.', 'dawp'); ?></p>
+                    <h3><?php esc_html_e('Jejak Pesanan', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Ikuti penghantaran anda selepas butiran penjejakan dikongsi selepas pesanan dihantar.', 'dawp'); ?></p>
                 </a>
             </div>
         </div>
@@ -282,15 +282,15 @@ $trust_items = [
         <div class="mmd-about-container">
             <div class="mmd-about-section__head">
                 <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Our World', 'dawp'); ?></p>
-                    <h2 id="mmd-about-gallery-title"><?php esc_html_e('Spaces that inspire the way we curate.', 'dawp'); ?></h2>
+                    <p class="mmd-about-eyebrow"><?php esc_html_e('Dunia Kami', 'dawp'); ?></p>
+                    <h2 id="mmd-about-gallery-title"><?php esc_html_e('Ruang yang mengilhamkan cara kami memilih produk.', 'dawp'); ?></h2>
                 </div>
             </div>
             <div class="mmd-about-gallery">
-                <?php echo $mmd_about_img('Bedroom.jpeg', __('Layered bedroom with soft textiles', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Outdoor.jpeg', __('Outdoor living space for relaxed entertaining', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Elegant_Dining_Evenings.jpeg', __('Elegant dining table prepared for evening hosting', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Fresh_Utility_Spaces.jpeg', __('Fresh utility space with organized home essentials', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('Bedroom.jpeg', __('Bilik tidur berlapis tekstil lembut', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('Outdoor.jpeg', __('Ruang luar rumah untuk santai bersama keluarga', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('Elegant_Dining_Evenings.jpeg', __('Meja makan elegan untuk hidangan malam', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('Fresh_Utility_Spaces.jpeg', __('Ruang utiliti segar dengan keperluan rumah tersusun', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
             </div>
         </div>
     </section>
@@ -298,13 +298,13 @@ $trust_items = [
     <section class="mmd-about-cta" aria-labelledby="mmd-about-cta-title">
         <div class="mmd-about-container mmd-about-cta__inner">
             <div>
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></p>
-                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find thoughtful pieces for the rooms you use every day.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover furniture, decor and essentials selected to make modern American living feel more comfortable, organized and beautiful.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('Ruang Indah Bermula Di Rumah', 'dawp'); ?></p>
+                <h2 id="mmd-about-cta-title"><?php esc_html_e('Cari pilihan praktikal untuk ruang yang anda gunakan setiap hari.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Temui peralatan dapur dan kelengkapan rumah yang dipilih supaya kehidupan moden Malaysia terasa lebih selesa, tersusun dan cantik.', 'dawp'); ?></p>
             </div>
             <div class="mmd-about-cta__actions">
-                <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
-                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('View FAQs', 'dawp'); ?></a>
+                <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Beli Koleksi', 'dawp'); ?></a>
+                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('Lihat Soalan Lazim', 'dawp'); ?></a>
             </div>
         </div>
     </section>

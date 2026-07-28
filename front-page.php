@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 get_header();
 ?>
 <main class="front-page-content">

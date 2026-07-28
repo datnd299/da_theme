@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Theme header.
  *
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@megamalldepot.com';
+$support_email  = 'support@imartmy.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $home_url       = home_url('/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -29,7 +29,7 @@ if (!$account_url) {
 $nav_items = [
     ['title' => __('Home', 'dawp'), 'url' => $home_url],
     ['title' => __('Shop', 'dawp'), 'url' => $shop_url],
-    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+    ['title' => __('Hubungi Kami', 'dawp'), 'url' => home_url('/contact-us/')],
     ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
 ];
 ?>
@@ -62,7 +62,7 @@ $nav_items = [
 <?php wp_body_open(); ?>
 
 <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-sm focus:font-bold focus:text-[#1F2937] focus:shadow-lg">
-    <?php esc_html_e('Skip to content', 'dawp'); ?>
+    <?php esc_html_e('Langkau ke kandungan', 'dawp'); ?>
 </a>
 
 <header id="site-header" class="sticky top-0 z-50 border-b border-[#E5E7EB] bg-[#FFFFFF]/95 text-[#1F2937] backdrop-blur" role="banner">
@@ -72,18 +72,18 @@ $nav_items = [
             <div class="flex items-center gap-5">
                 <a class="transition hover:text-[#0046BE]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
                 <span><?php echo esc_html($business_hours); ?></span>
-                <a class="font-bold text-[#0046BE] transition hover:text-[#1F2937]" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+                <a class="font-bold text-[#0046BE] transition hover:text-[#1F2937]" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Jejak Pesanan', 'dawp'); ?></a>
             </div>
         </div>
     </div>
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex min-h-20 items-center justify-between gap-4">
-            <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('MegaMallDepot home', 'dawp'); ?>">
+            <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('Imartmy home', 'dawp'); ?>">
                 <?php
                 echo function_exists('dawp_get_responsive_image')
-                    ? dawp_get_responsive_image($logo_url, __('MegaMallDepot', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high')
-                    : '<img class="site-logo-img" src="' . esc_url($logo_url) . '" width="1290" height="1290" alt="' . esc_attr__('MegaMallDepot', 'dawp') . '" decoding="async" fetchpriority="high">';
+                    ? dawp_get_responsive_image($logo_url, __('Imartmy', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high')
+                    : '<img class="site-logo-img" src="' . esc_url($logo_url) . '" width="1290" height="1290" alt="' . esc_attr__('Imartmy', 'dawp') . '" decoding="async" fetchpriority="high">';
                 ?>
             </a>
 
@@ -97,10 +97,10 @@ $nav_items = [
 
             <div class="flex shrink-0 items-center gap-2">
                 <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="hidden items-center rounded-md border border-[#E5E7EB] bg-white px-3 py-2 lg:flex">
-                    <label class="sr-only" for="header-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                    <label class="sr-only" for="header-product-search"><?php esc_html_e('Cari produk', 'dawp'); ?></label>
                     <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search home, electronics, kitchen and more', 'dawp'); ?>" class="w-40 bg-transparent text-sm text-[#1F2937] outline-none placeholder:text-[#8D7D77]">
                     <input type="hidden" name="post_type" value="product">
-                    <button type="submit" class="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-md text-[#0046BE] transition hover:bg-[#EAF2FF] hover:text-[#1F2937]" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
+                    <button type="submit" class="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-md text-[#0046BE] transition hover:bg-[#EAF2FF] hover:text-[#1F2937]" aria-label="<?php esc_attr_e('Hantar carian produk', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <circle cx="11" cy="11" r="7"></circle>
                             <path d="m16 16 4 4"></path>
@@ -115,7 +115,7 @@ $nav_items = [
                     </svg>
                 </a>
 
-                <a href="<?php echo esc_url($cart_url); ?>" class="relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-[#0046BE] text-white transition hover:bg-[#1F2937]" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
+                <a href="<?php echo esc_url($cart_url); ?>" class="relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-[#0046BE] text-white transition hover:bg-[#1F2937]" aria-label="<?php esc_attr_e('Troli beli-belah', 'dawp'); ?>">
                     <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
@@ -128,7 +128,7 @@ $nav_items = [
                     <?php endif; ?>
                 </a>
 
-                <button type="button" class="menu-toggle inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0046BE] transition hover:bg-[#EAF2FF] hover:text-[#1F2937] xl:hidden" aria-expanded="false" aria-label="<?php esc_attr_e('Open store menu', 'dawp'); ?>" aria-controls="mobile-store-menu" onclick="const menu=document.getElementById('mobile-store-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('hidden');">
+                <button type="button" class="menu-toggle inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#E5E7EB] text-[#0046BE] transition hover:bg-[#EAF2FF] hover:text-[#1F2937] xl:hidden" aria-expanded="false" aria-label="<?php esc_attr_e('Buka menu kedai', 'dawp'); ?>" aria-controls="mobile-store-menu" onclick="const menu=document.getElementById('mobile-store-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('hidden');">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="4" y1="7" x2="20" y2="7"></line>
                         <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -142,10 +142,10 @@ $nav_items = [
     <div id="mobile-store-menu" class="hidden border-t border-[#E5E7EB] bg-[#FFFFFF] xl:hidden">
         <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mb-4 flex items-center rounded-md border border-[#E5E7EB] bg-[#F5F6F8] px-4 py-3">
-                <label class="sr-only" for="mobile-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                <label class="sr-only" for="mobile-product-search"><?php esc_html_e('Cari produk', 'dawp'); ?></label>
                 <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search home, electronics, kitchen and more', 'dawp'); ?>" class="w-full bg-transparent text-sm text-[#1F2937] outline-none placeholder:text-[#8D7D77]">
                 <input type="hidden" name="post_type" value="product">
-                <button type="submit" class="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-md bg-white text-[#0046BE]" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
+                <button type="submit" class="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-md bg-white text-[#0046BE]" aria-label="<?php esc_attr_e('Hantar carian produk', 'dawp'); ?>">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="11" cy="11" r="7"></circle>
                         <path d="m16 16 4 4"></path>
@@ -153,7 +153,7 @@ $nav_items = [
                 </button>
             </form>
 
-            <nav class="grid gap-1" aria-label="<?php esc_attr_e('Mobile store navigation', 'dawp'); ?>">
+            <nav class="grid gap-1" aria-label="<?php esc_attr_e('Navigasi kedai mudah alih', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
                     <a href="<?php echo esc_url($item['url']); ?>" class="rounded-md px-4 py-3 text-base font-bold text-[#4B403C] transition hover:bg-[#EAF2FF] hover:text-[#0046BE]">
                         <?php echo esc_html($item['title']); ?>
@@ -163,13 +163,13 @@ $nav_items = [
 
             <div class="mt-4 grid gap-3 sm:grid-cols-3">
                 <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0046BE] px-5 text-sm font-bold text-[#0046BE] transition hover:bg-[#EAF2FF]">
-                    <?php esc_html_e('Track Order', 'dawp'); ?>
+                    <?php esc_html_e('Jejak Pesanan', 'dawp'); ?>
                 </a>
                 <a href="<?php echo esc_url($account_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#0046BE] px-5 text-sm font-bold text-[#0046BE] transition hover:bg-[#EAF2FF]">
-                    <?php esc_html_e('My Account', 'dawp'); ?>
+                    <?php esc_html_e('Akaun Saya', 'dawp'); ?>
                 </a>
                 <a href="<?php echo esc_url($cart_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#0046BE] px-5 text-sm font-bold text-white transition hover:bg-[#1F2937]">
-                    <?php esc_html_e('Cart', 'dawp'); ?>
+                    <?php esc_html_e('Troli', 'dawp'); ?>
                 </a>
             </div>
 
@@ -178,7 +178,7 @@ $nav_items = [
                 echo wp_kses(
                     sprintf(
                         /* translators: 1: support email, 2: business hours */
-                        __('Need help? Email %1$s. Business hours: %2$s.', 'dawp'),
+                        __('Perlukan bantuan? Email %1$s. Business hours: %2$s.', 'dawp'),
                         '<a class="font-bold text-[#0046BE]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
                         esc_html($business_hours)
                     ),

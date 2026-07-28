@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Privacy policy page for MegaMallDepot.
+ * Privasi policy page for Imartmy.
  *
  * @package dawp
  */
@@ -9,36 +9,36 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'MegaMallDepot';
-$site_domain    = 'megamalldepot.com';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '826-207-1399';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$store_name     = 'Imartmy';
+$site_domain    = 'Imartmy.com';
+$support_email  = 'support@imartmy.com';
+$support_phone  = '+60 3-8605 3388';
+$store_address  = 'Kuala Lumpur, Malaysia';
+$business_hours = __('Isnin - Jumaat, 9:00 pagi - 5:00 petang, GMT+08:00 Waktu Malaysia', 'dawp');
 $contact_url    = home_url('/contact-us/');
-$last_updated   = __('May 29, 2026', 'dawp');
+$last_updated   = __('29 Mei 2026', 'dawp');
 
 $policy_intro = [
-    __('At MegaMallDepot, accessible via megamalldepot.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase home, electronics and lifestyle products from our online store.', 'dawp'),
-    __('By accessing our Site or placing an order, you acknowledge and agree to the data management practices described in this policy.', 'dawp'),
+    __('Di Imartmy, melalui Imartmy.com ("Laman"), kami komited melindungi privasi, keselamatan dan data peribadi pelawat serta pelanggan. Polisi Privasi ini menerangkan cara maklumat peribadi dikumpul, digunakan, dikongsi dan dilindungi apabila anda melayari katalog, membuat akaun, menghubungi sokongan atau membeli produk rumah, elektronik dan gaya hidup daripada kedai dalam talian kami.', 'dawp'),
+    __('Dengan mengakses Laman atau membuat pesanan, anda mengakui dan bersetuju dengan amalan pengurusan data dalam polisi ini.', 'dawp'),
 ];
 
 $information_collected = [
     [
-        'title' => __('Information You Provide Directly', 'dawp'),
-        'copy'  => __('This includes your full name, email address, physical shipping address, billing address, phone number when provided, specific purchase history, credit card processing tokens, and any direct transcripts of customer service messages sent to our support team.', 'dawp'),
+        'title' => __('Maklumat Yang Anda Berikan Secara Langsung', 'dawp'),
+        'copy'  => __('Ini termasuk nama penuh, alamat e-mel, alamat penghantaran, alamat bil, nombor telefon jika diberikan, sejarah pembelian, token pemprosesan kad dan mesej khidmat pelanggan yang dihantar kepada pasukan sokongan.', 'dawp'),
     ],
     [
-        'title' => __('Information Collected Automatically', 'dawp'),
-        'copy'  => __('Whenever you navigate through MegaMallDepot, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
+        'title' => __('Maklumat Yang Dikumpul Secara Automatik', 'dawp'),
+        'copy'  => __('Whenever you navigate through Imartmy, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
     ],
 ];
 
 $information_uses = [
     __('Process, manage, bill, and securely dispatch your online product orders.', 'dawp'),
-    __('Provide real-time shipping tracking codes and automated invoice confirmations.', 'dawp'),
+    __('Menyediakan kod penjejakan penghantaran dan pengesahan invois automatik.', 'dawp'),
     __('Screen transactional logs for potential operational risks, technical vulnerabilities, or system fraud.', 'dawp'),
-    __('Handle standard product returns and resolve customer service inquiries.', 'dawp'),
+    __('Mengurus pemulangan produk standard dan menyelesaikan pertanyaan khidmat pelanggan.', 'dawp'),
     __('Optimize website layout responsiveness, page loading speed, and inventory selection.', 'dawp'),
     __('With your explicit opt-in consent, deliver store newsletters and promotional updates, featuring an immediate "Unsubscribe" link in every email.', 'dawp'),
 ];
@@ -50,11 +50,11 @@ $sharing_partners = [
     ],
     [
         'title' => __('Logistics & Payment', 'dawp'),
-        'copy'  => __('Certified payment processing gateways and trusted domestic U.S. shipping carriers used to deliver your orders.', 'dawp'),
+        'copy'  => __('Certified payment processing gateways and trusted domestic penghantaran Malaysia carriers used to deliver your orders.', 'dawp'),
     ],
     [
         'title' => __('Regulatory Demands', 'dawp'),
-        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of MegaMallDepot and our consumers.', 'dawp'),
+        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of Imartmy and our consumers.', 'dawp'),
     ],
 ];
 
@@ -66,44 +66,44 @@ $privacy_rights = [
 
 $contact_details = [
     [
-        'label' => __('Store/Brand Name', 'dawp'),
+        'label' => __('Nama Kedai/Jenama', 'dawp'),
         'value' => $store_name,
     ],
     [
-        'label' => __('Customer Support Email', 'dawp'),
+        'label' => __('E-mel Sokongan Pelanggan', 'dawp'),
         'value' => $support_email,
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Customer Support Phone', 'dawp'),
+        'label' => __('Telefon Sokongan Pelanggan', 'dawp'),
         'value' => $support_phone,
         'url'   => 'tel:' . $support_phone,
     ],
     [
-        'label' => __('Physical Business Address', 'dawp'),
+        'label' => __('Physical Alamat Perniagaan', 'dawp'),
         'value' => $store_address,
     ],
     [
-        'label' => __('Business Operating Hours', 'dawp'),
+        'label' => __('Waktu Operasi Perniagaan', 'dawp'),
         'value' => $business_hours,
     ],
     [
-        'label' => __('Contact Page', 'dawp'),
-        'value' => __('Contact Us', 'dawp'),
+        'label' => __('Halaman Hubungi', 'dawp'),
+        'value' => __('Hubungi Kami', 'dawp'),
         'url'   => $contact_url,
     ],
 ];
 
 $sections = [
     [
-        'title' => __('1. Information We Collect', 'dawp'),
+        'title' => __('1. Maklumat Yang Kami Kumpul', 'dawp'),
         'copy'  => [
             __('To fulfill your orders and provide a seamless e-commerce experience, we gather two primary categories of data:', 'dawp'),
         ],
         'cards' => $information_collected,
     ],
     [
-        'title' => __('2. How We Use Your Information', 'dawp'),
+        'title' => __('2. Cara Kami Menggunakan Maklumat Anda', 'dawp'),
         'copy'  => [
             __('We process your personal information based on legitimate commercial obligations, specifically to:', 'dawp'),
         ],
@@ -112,21 +112,21 @@ $sections = [
     [
         'title' => __('3. Cookies and Tracking Technologies', 'dawp'),
         'copy'  => [
-            __('MegaMallDepot utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
+            __('Imartmy utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
             __('You can adjust your cookie preferences through your individual browser settings; however, disabling all cookies may break core shopping features, such as the checkout and payment process.', 'dawp'),
         ],
     ],
     [
-        'title' => __('4. How Information Is Shared', 'dawp'),
+        'title' => __('4. Cara Maklumat Dikongsi', 'dawp'),
         'copy'  => [
             __('We do not sell, rent, trade, or monetize your personal information to third parties as a business practice. We share transactional data strictly with trusted service providers who assist us in operating our storefront, including:', 'dawp'),
         ],
         'cards' => $sharing_partners,
     ],
     [
-        'title' => __('5. Secure Payments & Data Encryption', 'dawp'),
+        'title' => __('5. Pembayaran Selamat & Enkripsi Data', 'dawp'),
         'copy'  => [
-            __('Your financial safety is our highest priority. MegaMallDepot does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+            __('Your financial safety is our highest priority. Imartmy does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             __('All checkout transactions are executed over a fully secure, encrypted SSL (Secure Sockets Layer) connection. Financial data processing is handled entirely by certified third-party payment gateways that comply strictly with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
         ],
     ],
@@ -138,9 +138,9 @@ $sections = [
         ],
     ],
     [
-        'title' => __('7. Your US State Privacy Rights (CCPA Compliance)', 'dawp'),
+        'title' => __('7. Hak Privasi Anda', 'dawp'),
         'copy'  => [
-            __('Depending on your geographic location, particularly residents of states with active privacy laws such as the California Consumer Privacy Act - CCPA, you possess specific consumer protection rights regarding your data:', 'dawp'),
+            __('Tertakluk kepada lokasi dan undang-undang privasi Malaysia yang berkenaan, anda mungkin mempunyai hak perlindungan pengguna tertentu berkaitan data anda:', 'dawp'),
         ],
         'list'  => $privacy_rights,
         'after' => sprintf(
@@ -150,28 +150,28 @@ $sections = [
         ),
     ],
     [
-        'title' => __('8. Children\'s Privacy', 'dawp'),
+        'title' => __('8. Children\'s Privasi', 'dawp'),
         'copy'  => [
-            __('MegaMallDepot is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
+            __('Imartmy is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
         ],
     ],
 ];
 
 $privacy_faqs = [
     [
-        'question' => __('Does MegaMallDepot sell my personal information?', 'dawp'),
-        'answer'   => __('No. MegaMallDepot does not sell, rent, trade, or monetize personal information to third parties as a business practice.', 'dawp'),
+        'question' => __('Adakah Imartmy menjual maklumat peribadi saya?', 'dawp'),
+        'answer'   => __('No. Imartmy does not sell, rent, trade, or monetize personal information to third parties as a business practice.', 'dawp'),
     ],
     [
-        'question' => __('Does MegaMallDepot store my full credit card number?', 'dawp'),
+        'question' => __('Adakah Imartmy menyimpan nombor kad kredit penuh saya?', 'dawp'),
         'answer'   => __('No. We do not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
     ],
     [
-        'question' => __('Can I request access, correction, or deletion of my data?', 'dawp'),
-        'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain by contacting support.', 'dawp'),
+        'question' => __('Bolehkah saya meminta akses, pembetulan atau pemadaman data saya?', 'dawp'),
+        'answer'   => __('Tertakluk kepada undang-undang privasi yang berkenaan di Malaysia, anda boleh meminta akses, pembetulan atau pemadaman data peribadi yang kami simpan dengan menghubungi sokongan.', 'dawp'),
     ],
     [
-        'question' => __('Can I disable cookies?', 'dawp'),
+        'question' => __('Bolehkah saya mematikan cookies?', 'dawp'),
         'answer'   => __('You can adjust cookie preferences through your browser settings, but disabling all cookies may affect core shopping features such as cart, checkout, and payment functionality.', 'dawp'),
     ],
 ];
@@ -181,9 +181,9 @@ $privacy_faqs = [
     <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="privacy-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Polisi Privasi', 'dawp'); ?></p>
                 <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('How MegaMallDepot protects customer information.', 'dawp'); ?>
+                    <?php esc_html_e('Cara Imartmy melindungi maklumat pelanggan.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php
@@ -200,14 +200,14 @@ $privacy_faqs = [
             </div>
 
             <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Dikemas Kini', 'dawp'); ?></p>
                 <p class="mt-3 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
                 <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                     <?php esc_html_e('For privacy questions, account data requests, or data-removal inquiries, contact our support team through our official channels.', 'dawp'); ?>
                 </p>
                 <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
                     <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-6 text-sm font-bold text-white transition hover:bg-[#7F422F]">
-                        <?php esc_html_e('Contact Us', 'dawp'); ?>
+                        <?php esc_html_e('Hubungi Kami', 'dawp'); ?>
                     </a>
                     <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-6 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
                         <?php echo esc_html($support_email); ?>
@@ -221,7 +221,7 @@ $privacy_faqs = [
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="lg:sticky lg:top-24 lg:self-start">
                 <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                    <h2 id="privacy-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Privacy overview', 'dawp'); ?></h2>
+                    <h2 id="privacy-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Ringkasan privasi', 'dawp'); ?></h2>
                     <div class="mt-4 space-y-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php foreach ($policy_intro as $paragraph) : ?>
                             <p><?php echo esc_html($paragraph); ?></p>
@@ -272,7 +272,7 @@ $privacy_faqs = [
                 <?php endforeach; ?>
 
                 <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('9. Contact Us & Business Identity', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('9. Hubungi Kami & Identiti Perniagaan', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php esc_html_e('For questions regarding our privacy practices, or if you need to submit a data inquiry, please contact our team through our verified corporate channels:', 'dawp'); ?>
                     </p>
@@ -293,7 +293,7 @@ $privacy_faqs = [
                 </article>
 
                 <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Privacy FAQs', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Soalan Lazim Privasi', 'dawp'); ?></h2>
                     <div class="mt-6 divide-y divide-[#E8E5DF]">
                         <?php foreach ($privacy_faqs as $item) : ?>
                             <details class="group py-5 first:pt-0 last:pb-0">

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Theme footer.
  *
@@ -11,11 +11,11 @@ if (!defined('ABSPATH')) {
 
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
-$support_email  = 'support@megamalldepot.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$support_email  = 'support@imartmy.com';
+$business_hours = __('Isnin - Jumaat, 9:00 pagi - 5:00 petang, GMT+08:00 Waktu Malaysia', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$logo_path       = get_template_directory() . '/assets/img/about/Capture.JPG';
-$logo_url        = get_template_directory_uri() . '/assets/img/about/Capture.JPG';
+$logo_path       = get_template_directory() . '/assets/img/about/Capture__1_-removebg-preview.png';
+$logo_url        = get_template_directory_uri() . '/assets/img/about/Capture__1_-removebg-preview.png';
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -51,29 +51,29 @@ $footer_category_url = static function ($slug) {
 
 $footer_columns = [
     [
-        'title' => __('Explore', 'dawp'),
+        'title' => __('Teroka', 'dawp'),
         'links' => [
-            ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
-            ['title' => __('Shop', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
-            ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
+            ['title' => __('Utama', 'dawp'), 'url' => home_url('/')],
+            ['title' => __('Kedai', 'dawp'), 'url' => $shop_url],
+            ['title' => __('Hubungi', 'dawp'), 'url' => home_url('/contact-us/')],
+            ['title' => __('Tentang Kami', 'dawp'), 'url' => home_url('/about-us/')],
         ],
     ],
     [
-        'title' => __('Customer Care', 'dawp'),
+        'title' => __('Khidmat Pelanggan', 'dawp'),
         'links' => [
-            ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
-            ['title' => __('My Account', 'dawp'), 'url' => $account_url],
-            ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
+            ['title' => __('Jejak Pesanan', 'dawp'), 'url' => home_url('/track-order/')],
+            ['title' => __('Akaun Saya', 'dawp'), 'url' => $account_url],
+            ['title' => __('Soalan Lazim', 'dawp'), 'url' => home_url('/faq/')],
         ],
     ],
     [
-        'title' => __('Policies', 'dawp'),
+        'title' => __('Polisi', 'dawp'),
         'links' => [
-            ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
-            ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
-            ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-            ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+            ['title' => __('Polisi Penghantaran', 'dawp'), 'url' => home_url('/shipping-policy/')],
+            ['title' => __('Polisi Pemulangan & Bayaran Balik', 'dawp'), 'url' => home_url('/return-refund-policy/')],
+            ['title' => __('Polisi Privasi', 'dawp'), 'url' => home_url('/privacy-policy/')],
+            ['title' => __('Terma & Syarat', 'dawp'), 'url' => home_url('/terms-conditions/')],
         ],
     ],
 ];
@@ -113,25 +113,25 @@ $footer_columns = [
 
     <div class="tgm-footer__inner tgm-footer__main">
         <div class="tgm-footer__columns">
-            <section aria-label="<?php esc_attr_e('Contact information', 'dawp'); ?>">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="tgm-footer__brand" aria-label="<?php esc_attr_e('MegaMallDepot home', 'dawp'); ?>">
+            <section aria-label="<?php esc_attr_e('Hubungi information', 'dawp'); ?>">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="tgm-footer__brand" aria-label="<?php esc_attr_e('Laman utama Imartmy', 'dawp'); ?>">
                     <?php
                     echo function_exists('dawp_get_responsive_image')
-                        ? dawp_get_responsive_image($logo_url, __('MegaMallDepot', 'dawp'), '', 190, 56, 'lazy', '190px')
-                        : '<img src="' . esc_url($logo_url) . '" width="190" height="56" alt="' . esc_attr__('MegaMallDepot', 'dawp') . '" decoding="async" loading="lazy">';
+                        ? dawp_get_responsive_image($logo_url, __('Imartmy', 'dawp'), '', 190, 56, 'lazy', '190px')
+                        : '<img src="' . esc_url($logo_url) . '" width="190" height="56" alt="' . esc_attr__('Imartmy', 'dawp') . '" decoding="async" loading="lazy">';
                     ?>
                 </a>
                 <dl class="tgm-footer__contact-list">
                     <div>
-                        <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('E-mel:', 'dawp'); ?></dt>
                         <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
                     </div>
                     <div>
-                        <dt><?php esc_html_e('Address:', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Alamat:', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($store_address); ?></dd>
                     </div>
                     <div>
-                        <dt><?php esc_html_e('Business Hours:', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Waktu Operasi:', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($business_hours); ?></dd>
                     </div>
                 </dl>
@@ -151,8 +151,8 @@ $footer_columns = [
 
     <div class="tgm-footer__bottom">
         <div class="tgm-footer__inner tgm-footer__bottom-row">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> MegaMallDepot. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
-            <div class="tgm-footer__payments" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Imartmy. <?php esc_html_e('Hak cipta terpelihara.', 'dawp'); ?></p>
+            <div class="tgm-footer__payments" aria-label="<?php esc_attr_e('Kaedah pembayaran diterima', 'dawp'); ?>">
                 <?php foreach ($payment_methods as $method) : ?>
                     <?php
                     $payment_path = get_template_directory() . '/assets/img/payment/' . $method['file'];

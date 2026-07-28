@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Contact form handling for MegaMallDepot.
+ * Contact form handling for Imartmy.
  *
  * @package dawp
  */
@@ -13,9 +13,9 @@ add_action('init', 'dawp_register_contact_submission_cpt');
 function dawp_register_contact_submission_cpt() {
     register_post_type('lbq_contact', [
         'labels'             => [
-            'name'               => 'Contact Submissions',
-            'singular_name'      => 'Contact Submission',
-            'menu_name'          => 'Contact Submissions',
+            'name'               => 'Kiriman Hubungan',
+            'singular_name'      => 'Kiriman Hubungan',
+            'menu_name'          => 'Kiriman Hubungan',
             'all_items'          => 'All Submissions',
             'view_item'          => 'View Submission',
             'search_items'       => 'Search Submissions',
@@ -49,11 +49,11 @@ function dawp_contact_meta_boxes() {
 }
 function dawp_contact_meta_box_cb($post) {
     $fields = ['_contact_email', '_contact_topic', '_contact_order', '_contact_ip'];
-    $labels = ['Email', 'Topic', 'Order Number', 'IP Address'];
+    $labels = ['E-mel', 'Topik', 'Nombor Pesanan', 'Alamat IP'];
     echo '<table class="form-table"><tbody>';
     foreach ($fields as $i => $key) {
         $value = get_post_meta($post->ID, $key, true);
-        echo '<tr><th>' . esc_html($labels[$i]) . '</th><td>' . esc_html($value ?: '—') . '</td></tr>';
+        echo '<tr><th>' . esc_html($labels[$i]) . '</th><td>' . esc_html($value ?: 'â€”') . '</td></tr>';
     }
     echo '</tbody></table>';
 }
@@ -83,11 +83,11 @@ function dawp_handle_contact_form() {
     }
 
     $topics = [
-        'order'   => 'Order or tracking question',
-        'return'  => 'Return or refund request',
-        'product' => 'Product question',
-        'privacy' => 'Privacy request',
-        'other'   => 'General support',
+        'order'   => 'Soalan pesanan atau penjejakan',
+        'return'  => 'Permintaan pemulangan atau bayaran balik',
+        'product' => 'Soalan produk',
+        'privacy' => 'Privasi request',
+        'other'   => 'Sokongan umum',
     ];
 
     $name         = isset($_POST['contact_name']) ? sanitize_text_field(wp_unslash($_POST['contact_name'])) : '';
@@ -122,10 +122,10 @@ function dawp_handle_contact_form() {
         update_post_meta($post_id, '_contact_ip', sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')));
     }
 
-    $support_email = 'support@megamalldepot.com';
-    $subject       = sprintf('[MegaMallDepot] %s', $topic_label);
+    $support_email = 'support@imartmy.com';
+    $subject       = sprintf('[Imartmy] %s', $topic_label);
     $body          = sprintf(
-        "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
+        "New contact form submission.\n\nName: %s\nE-mel: %s\nTopik: %s\nOrder number: %s\n\nMesej:\n%s",
         $name,
         $email,
         $topic_label,

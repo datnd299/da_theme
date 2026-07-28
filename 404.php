@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * 404 Not Found Template.
  *
@@ -33,42 +33,42 @@ if (!$shop_url) {
 
 $quick_links = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
     'home-essentials' => [
-        'name'  => __('Home Essentials', 'dawp'),
-        'short' => __('Storage, cleaning and organization for everyday living.', 'dawp'),
+        'name'  => __('Keperluan Rumah', 'dawp'),
+        'short' => __('Penyimpanan, pembersihan dan susunan untuk kehidupan harian.', 'dawp'),
     ],
     'furniture' => [
-        'name'  => __('Furniture', 'dawp'),
-        'short' => __('Comfortable furniture for living, working and relaxing.', 'dawp'),
+        'name'  => __('Perabot', 'dawp'),
+        'short' => __('Kelengkapan selesa untuk ruang hidup, kerja dan santai.', 'dawp'),
     ],
     'electronics' => [
-        'name'  => __('Electronics', 'dawp'),
-        'short' => __('Audio, entertainment and connected tech essentials.', 'dawp'),
+        'name'  => __('Elektronik', 'dawp'),
+        'short' => __('Keperluan audio, hiburan dan teknologi rumah.', 'dawp'),
     ],
     'smart-home' => [
-        'name'  => __('Smart Home', 'dawp'),
-        'short' => __('Smart lighting, security and automation devices.', 'dawp'),
+        'name'  => __('Rumah Pintar', 'dawp'),
+        'short' => __('Lampu pintar, keselamatan dan peranti automasi.', 'dawp'),
     ],
     'kitchen-dining' => [
-        'name'  => __('Kitchen & Dining', 'dawp'),
-        'short' => __('Cookware, appliances and dining favorites.', 'dawp'),
+        'name'  => __('Dapur & Makan', 'dawp'),
+        'short' => __('Cookware, perkakas dapur dan pilihan meja makan.', 'dawp'),
     ],
     'outdoor-garden' => [
-        'name'  => __('Outdoor & Garden', 'dawp'),
-        'short' => __('Patio, garden and outdoor living picks.', 'dawp'),
+        'name'  => __('Luar Rumah & Taman', 'dawp'),
+        'short' => __('Pilihan patio, taman dan ruang luar rumah.', 'dawp'),
     ],
 ];
 
 $support_links = [
     [
-        'title' => __('Track Order', 'dawp'),
+        'title' => __('Jejak Pesanan', 'dawp'),
         'url'   => home_url('/track-order/'),
     ],
     [
-        'title' => __('Contact Support', 'dawp'),
+        'title' => __('Hubungi Sokongan', 'dawp'),
         'url'   => home_url('/contact-us/'),
     ],
     [
-        'title' => __('FAQs', 'dawp'),
+        'title' => __('Soalan Lazim', 'dawp'),
         'url'   => home_url('/faq/'),
     ],
 ];
@@ -81,30 +81,30 @@ $support_links = [
         <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
             <div class="max-w-2xl">
                 <p class="inline-flex rounded-md border border-[#E8E5DF] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#A45A3F] shadow-sm">
-                    <?php esc_html_e('Page Not Found', 'dawp'); ?>
+                    <?php esc_html_e('Halaman Tidak Dijumpai', 'dawp'); ?>
                 </p>
                 <p class="mt-5 select-none font-heading text-[7rem] font-extrabold leading-none text-[#D8C7BE] sm:text-[9rem] lg:text-[11rem]" aria-hidden="true">
                     404
                 </p>
                 <h1 id="error-title" class="-mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl lg:text-6xl">
-                    <?php esc_html_e('This page is not available.', 'dawp'); ?>
+                    <?php esc_html_e('Halaman ini tidak tersedia.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#554E49] sm:text-lg">
-                    <?php esc_html_e('The link may have changed, but you can continue shopping MegaMallDepot for home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products.', 'dawp'); ?>
+                    <?php esc_html_e('Pautan ini mungkin telah berubah, tetapi anda masih boleh membeli peralatan dapur, cookware, penyimpanan, kelengkapan rumah dan pilihan harian di Imartmy.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2B2B2B] px-6 text-sm font-bold text-white shadow-lg transition hover:bg-[#A45A3F]">
-                        <?php esc_html_e('Shop Products', 'dawp'); ?>
+                        <?php esc_html_e('Beli Produk', 'dawp'); ?>
                     </a>
                     <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#2B2B2B] bg-white px-6 text-sm font-bold text-[#2B2B2B] transition hover:border-[#A45A3F] hover:bg-[#F8F5F0] hover:text-[#A45A3F]">
-                        <?php esc_html_e('Back To Home', 'dawp'); ?>
+                        <?php esc_html_e('Kembali Ke Laman Utama', 'dawp'); ?>
                     </a>
                 </div>
             </div>
 
             <div>
                 <div class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-xl sm:p-6 lg:p-8">
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
+                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Beli Mengikut Kategori', 'dawp'); ?></p>
                     <div class="mt-6 grid gap-3">
                         <?php foreach ($quick_links as $slug => $link) : ?>
                             <a href="<?php echo esc_url($category_url($slug)); ?>" class="group flex gap-4 rounded-md border border-[#E8E5DF] bg-[#FFFFFF] p-4 transition hover:-translate-y-0.5 hover:border-[#D8C7BE] hover:bg-[#F8F5F0]">
@@ -113,7 +113,7 @@ $support_links = [
                                     <span class="block font-heading text-base font-extrabold text-[#2B2B2B] transition group-hover:text-[#A45A3F]"><?php echo esc_html($link['name']); ?></span>
                                     <span class="mt-1 block text-sm leading-6 text-[#554E49]"><?php echo esc_html($link['short'] ?? $link['description'] ?? ''); ?></span>
                                     <span class="mt-3 inline-flex text-sm font-bold text-[#A45A3F]">
-                                        <?php esc_html_e('Shop category', 'dawp'); ?>
+                                        <?php esc_html_e('Beli kategori', 'dawp'); ?>
                                         <span class="ml-2" aria-hidden="true">-&gt;</span>
                                     </span>
                                 </span>
@@ -122,7 +122,7 @@ $support_links = [
                     </div>
                 </div>
 
-                <nav class="mt-5 grid gap-3 sm:grid-cols-3" aria-label="<?php esc_attr_e('Helpful links', 'dawp'); ?>">
+                <nav class="mt-5 grid gap-3 sm:grid-cols-3" aria-label="<?php esc_attr_e('Pautan berguna', 'dawp'); ?>">
                     <?php foreach ($support_links as $link) : ?>
                         <a href="<?php echo esc_url($link['url']); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E8E5DF] bg-white px-4 text-sm font-bold text-[#2B2B2B] transition hover:border-[#D8C7BE] hover:bg-[#F8F5F0] hover:text-[#A45A3F]">
                             <?php echo esc_html($link['title']); ?>

@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Product category defaults for MegaMallDepot.
+ * Product category defaults for Imartmy.
  *
  * @package dawp
  */
@@ -12,44 +12,44 @@ if (!defined('ABSPATH')) {
 function dawp_lbq_product_categories() {
     return [
         'home' => [
-            'name'        => __('Home', 'dawp'),
-            'description' => __('Home essentials, furniture, kitchen favorites and practical pieces for everyday living.', 'dawp'),
-            'short'       => __('Everyday essentials and home comfort picks.', 'dawp'),
+            'name'        => __('Utama', 'dawp'),
+            'description' => __('Utama essentials, furniture, kitchen favorites and practical pieces for everyday living.', 'dawp'),
+            'short'       => __('Keperluan harian dan pilihan rumah selesa.', 'dawp'),
         ],
         'garden-tools' => [
-            'name'        => __('Garden & Tools', 'dawp'),
-            'description' => __('Garden, patio, outdoor care and handy tools for home projects.', 'dawp'),
-            'short'       => __('Garden gear, patio picks and useful tools.', 'dawp'),
+            'name'        => __('Taman & Peralatan', 'dawp'),
+            'description' => __('Peralatan taman, patio dan projek rumah.', 'dawp'),
+            'short'       => __('Kelengkapan taman, patio dan alat berguna.', 'dawp'),
         ],
         'electronics' => [
-            'name'        => __('Electronics', 'dawp'),
-            'description' => __('TVs, audio, computer accessories, connected devices and practical home entertainment products.', 'dawp'),
-            'short'       => __('Audio, entertainment and connected tech essentials.', 'dawp'),
+            'name'        => __('Elektronik', 'dawp'),
+            'description' => __('TV, audio, aksesori komputer dan peranti rumah yang praktikal.', 'dawp'),
+            'short'       => __('Keperluan audio, hiburan dan teknologi rumah.', 'dawp'),
         ],
         'sports-outdoors' => [
-            'name'        => __('Sports & Outdoors', 'dawp'),
-            'description' => __('Sports, fitness, recreation and outdoor activity products.', 'dawp'),
-            'short'       => __('Fitness, recreation and outdoor activity gear.', 'dawp'),
+            'name'        => __('Sukan & Aktiviti Luar', 'dawp'),
+            'description' => __('Produk sukan, kecergasan, rekreasi dan aktiviti luar.', 'dawp'),
+            'short'       => __('Kelengkapan kecergasan, rekreasi dan aktiviti luar.', 'dawp'),
         ],
         'toys-outdoor-play' => [
-            'name'        => __('Toys & Outdoor Play', 'dawp'),
-            'description' => __('Toys, games and outdoor play products for kids and families.', 'dawp'),
-            'short'       => __('Toys, games and outdoor play favorites.', 'dawp'),
+            'name'        => __('Mainan & Permainan Luar', 'dawp'),
+            'description' => __('Mainan, permainan dan produk aktiviti luar untuk kanak-kanak serta keluarga.', 'dawp'),
+            'short'       => __('Pilihan mainan, permainan dan aktiviti luar.', 'dawp'),
         ],
         'beauty-personal-care' => [
-            'name'        => __('Beauty & Personal Care', 'dawp'),
-            'description' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'),
-            'short'       => __('Beauty, grooming and personal care essentials.', 'dawp'),
+            'name'        => __('Kecantikan & Penjagaan Diri', 'dawp'),
+            'description' => __('Produk kecantikan, dandanan dan penjagaan diri untuk rutin harian.', 'dawp'),
+            'short'       => __('Keperluan kecantikan, dandanan dan penjagaan diri.', 'dawp'),
         ],
         'pets' => [
-            'name'        => __('Pets', 'dawp'),
-            'description' => __('Pet food, care, toys, beds and everyday supplies for animal companions.', 'dawp'),
-            'short'       => __('Care, comfort and everyday pet supplies.', 'dawp'),
+            'name'        => __('Haiwan Peliharaan', 'dawp'),
+            'description' => __('Makanan, penjagaan, mainan, katil dan bekalan harian haiwan peliharaan.', 'dawp'),
+            'short'       => __('Penjagaan, keselesaan dan bekalan harian haiwan peliharaan.', 'dawp'),
         ],
         'school-office-art-supplies' => [
-            'name'        => __('School, Office & Art Supplies', 'dawp'),
-            'description' => __('School supplies, office essentials, stationery and art materials.', 'dawp'),
-            'short'       => __('School, office, stationery and art supplies.', 'dawp'),
+            'name'        => __('Sekolah, Pejabat & Seni', 'dawp'),
+            'description' => __('Kelengkapan sekolah, pejabat, alat tulis dan bahan seni.', 'dawp'),
+            'short'       => __('Kelengkapan sekolah, pejabat, alat tulis dan seni.', 'dawp'),
         ],
     ];
 }

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Theme header.
  *
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@megamalldepot.com';
+$support_email = 'support@imartmy.com';
 $home_url      = home_url('/');
 $shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $contact_url   = home_url('/contact-us/');
@@ -17,8 +17,8 @@ $about_url     = home_url('/about-us/');
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_path     = get_template_directory() . '/assets/img/about/Capture.JPG';
-$logo_url      = get_template_directory_uri() . '/assets/img/about/Capture.JPG';
+$logo_path     = get_template_directory() . '/assets/img/about/Capture__1_-removebg-preview.png';
+$logo_url      = get_template_directory_uri() . '/assets/img/about/Capture__1_-removebg-preview.png';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -34,10 +34,10 @@ if (file_exists($logo_path)) {
 
 $current_path = function_exists('dawp_current_request_path') ? dawp_current_request_path() : trim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '', '/');
 $nav_items = [
-    ['title' => __('Home', 'dawp'), 'url' => $home_url, 'active' => is_front_page() || '' === $current_path],
-    ['title' => __('Shop', 'dawp'), 'url' => $shop_url, 'active' => (function_exists('is_shop') && is_shop()) || (function_exists('is_product_taxonomy') && is_product_taxonomy()) || (function_exists('is_product') && is_product())],
-    ['title' => __('Contact', 'dawp'), 'url' => $contact_url, 'active' => 'contact-us' === $current_path],
-    ['title' => __('About', 'dawp'), 'url' => $about_url, 'active' => 'about-us' === $current_path],
+    ['title' => __('Utama', 'dawp'), 'url' => $home_url, 'active' => is_front_page() || '' === $current_path],
+    ['title' => __('Kedai', 'dawp'), 'url' => $shop_url, 'active' => (function_exists('is_shop') && is_shop()) || (function_exists('is_product_taxonomy') && is_product_taxonomy()) || (function_exists('is_product') && is_product())],
+    ['title' => __('Hubungi', 'dawp'), 'url' => $contact_url, 'active' => 'contact-us' === $current_path],
+    ['title' => __('Tentang Kami', 'dawp'), 'url' => $about_url, 'active' => 'about-us' === $current_path],
 ];
 ?>
 <!DOCTYPE html>
@@ -113,12 +113,12 @@ $nav_items = [
 <body <?php body_class('bg-white antialiased'); ?>>
 <?php wp_body_open(); ?>
 
-<a href="#content" class="tgm-skip"><?php esc_html_e('Skip to content', 'dawp'); ?></a>
+<a href="#content" class="tgm-skip"><?php esc_html_e('Langkau ke kandungan', 'dawp'); ?></a>
 
 <header id="site-header" class="tgm-header" role="banner">
     <div class="tgm-header__top">
         <div class="tgm-header__inner tgm-header__top-row">
-            <p><?php esc_html_e('Free Shipping on Home Essentials & More. Shop Now', 'dawp'); ?></p>
+            <p><?php esc_html_e('Penghantaran percuma untuk keperluan rumah dan banyak lagi. Beli sekarang', 'dawp'); ?></p>
             <div class="tgm-header__top-links">
                 <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
             </div>
@@ -126,48 +126,48 @@ $nav_items = [
     </div>
 
     <div class="tgm-header__inner tgm-header__main">
-        <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('MegaMallDepot home', 'dawp'); ?>">
+        <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('Laman utama Imartmy', 'dawp'); ?>">
             <?php
             echo function_exists('dawp_get_responsive_image')
-                ? dawp_get_responsive_image($logo_url, __('MegaMallDepot', 'dawp'), '', 220, 64, 'eager', '(max-width: 520px) 142px, (max-width: 960px) 170px, 220px', 'high')
-                : '<img src="' . esc_url($logo_url) . '" width="220" height="64" alt="' . esc_attr__('MegaMallDepot', 'dawp') . '" decoding="async" fetchpriority="high">';
+                ? dawp_get_responsive_image($logo_url, __('Imartmy', 'dawp'), '', 220, 64, 'eager', '(max-width: 520px) 142px, (max-width: 960px) 170px, 220px', 'high')
+                : '<img src="' . esc_url($logo_url) . '" width="220" height="64" alt="' . esc_attr__('Imartmy', 'dawp') . '" decoding="async" fetchpriority="high">';
             ?>
         </a>
 
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="tgm-search tgm-header-search">
-            <label class="screen-reader-text" for="header-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-            <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search room essentials and home finds', 'dawp'); ?>">
+            <label class="screen-reader-text" for="header-product-search"><?php esc_html_e('Cari produk', 'dawp'); ?></label>
+            <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Cari keperluan rumah dan pilihan harian', 'dawp'); ?>">
             <input type="hidden" name="post_type" value="product">
-            <button type="submit" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
+            <button type="submit" aria-label="<?php esc_attr_e('Hantar carian produk', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
             </button>
         </form>
 
         <div class="tgm-actions">
-            <button type="button" class="tgm-icon-link tgm-search-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Open product search', 'dawp'); ?>" aria-controls="mobile-search-panel" onclick="const panel=document.getElementById('mobile-search-panel'); const input=document.getElementById('mobile-product-search'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); panel.classList.toggle('is-open'); if (!expanded && input) { window.setTimeout(() => input.focus(), 80); }">
+            <button type="button" class="tgm-icon-link tgm-search-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Buka carian produk', 'dawp'); ?>" aria-controls="mobile-search-panel" onclick="const panel=document.getElementById('mobile-search-panel'); const input=document.getElementById('mobile-product-search'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); panel.classList.toggle('is-open'); if (!expanded && input) { window.setTimeout(() => input.focus(), 80); }">
                 <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
             </button>
-            <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="tgm-icon-link" aria-label="<?php esc_attr_e('Track order', 'dawp'); ?>">
+            <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="tgm-icon-link" aria-label="<?php esc_attr_e('Jejak pesanan', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle></svg>
-                <span><?php esc_html_e('Track Order', 'dawp'); ?></span>
+                <span><?php esc_html_e('Jejak Pesanan', 'dawp'); ?></span>
             </a>
-            <a href="<?php echo esc_url($account_url); ?>" class="tgm-icon-link tgm-account-link" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
+            <a href="<?php echo esc_url($account_url); ?>" class="tgm-icon-link tgm-account-link" aria-label="<?php esc_attr_e('Akaun saya', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                <span><?php esc_html_e('Account', 'dawp'); ?></span>
+                <span><?php esc_html_e('Akaun', 'dawp'); ?></span>
             </a>
-            <a href="<?php echo esc_url($cart_url); ?>" class="tgm-icon-link tgm-cart" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
+            <a href="<?php echo esc_url($cart_url); ?>" class="tgm-icon-link tgm-cart" aria-label="<?php esc_attr_e('Troli beli-belah', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 6H6"></path></svg>
                 <?php if ($cart_count > 0) : ?><span class="tgm-cart-count"><?php echo esc_html($cart_count); ?></span><?php endif; ?>
-                <span><?php echo esc_html(sprintf(__('Cart (%d)', 'dawp'), $cart_count)); ?></span>
+                <span><?php echo esc_html(sprintf(__('Troli (%d)', 'dawp'), $cart_count)); ?></span>
             </a>
-            <button type="button" class="tgm-menu-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Open store menu', 'dawp'); ?>" aria-controls="mobile-store-menu" onclick="const menu=document.getElementById('mobile-store-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('is-open');">
+            <button type="button" class="tgm-menu-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Buka menu kedai', 'dawp'); ?>" aria-controls="mobile-store-menu" onclick="const menu=document.getElementById('mobile-store-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('is-open');">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
             </button>
         </div>
     </div>
 
     <div class="tgm-desktop-nav">
-        <nav class="tgm-header__inner tgm-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
+        <nav class="tgm-header__inner tgm-nav" aria-label="<?php esc_attr_e('Navigasi utama', 'dawp'); ?>">
             <?php foreach ($nav_items as $item) : ?>
                 <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
             <?php endforeach; ?>
@@ -177,10 +177,10 @@ $nav_items = [
     <div id="mobile-search-panel" class="tgm-mobile-panel tgm-mobile-search-panel">
         <div class="tgm-header__inner">
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="tgm-search">
-                <label class="screen-reader-text" for="mobile-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-                <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search products', 'dawp'); ?>">
+                <label class="screen-reader-text" for="mobile-product-search"><?php esc_html_e('Cari produk', 'dawp'); ?></label>
+                <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Cari produk', 'dawp'); ?>">
                 <input type="hidden" name="post_type" value="product">
-                <button type="submit" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
+                <button type="submit" aria-label="<?php esc_attr_e('Hantar carian produk', 'dawp'); ?>">
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
                 </button>
             </form>
@@ -189,7 +189,7 @@ $nav_items = [
 
     <div id="mobile-store-menu" class="tgm-mobile-panel">
         <div class="tgm-header__inner">
-            <nav class="tgm-mobile-nav" aria-label="<?php esc_attr_e('Mobile store navigation', 'dawp'); ?>">
+            <nav class="tgm-mobile-nav" aria-label="<?php esc_attr_e('Navigasi kedai mudah alih', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
                     <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
                 <?php endforeach; ?>

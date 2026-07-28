@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Premium contact page template part.
  *
@@ -11,9 +11,9 @@ if (!defined('ABSPATH')) {
 
 $theme_uri      = get_template_directory_uri();
 $theme_dir      = get_template_directory();
-$store_name     = 'MegaMallDepot';
-$support_email  = 'support@megamalldepot.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$store_name     = 'Imartmy';
+$support_email  = 'support@imartmy.com';
+$business_hours = __('Isnin - Jumaat, 9:00 pagi - 5:00 petang, GMT+08:00 Waktu Malaysia', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $track_url      = home_url('/track-order/');
@@ -64,23 +64,23 @@ $mmd_contact_img = static function ($file, $alt, $class = '', $width = 900, $hei
 
 $contact_methods = [
     [
-        'title' => __('Customer Support Email', 'dawp'),
-        'copy'  => __('For order questions, product details, returns, delivery updates and general assistance.', 'dawp'),
+        'title' => __('E-mel Sokongan Pelanggan', 'dawp'),
+        'copy'  => __('Untuk soalan pesanan, butiran produk, pemulangan, kemas kini penghantaran dan bantuan umum.', 'dawp'),
         'value' => $support_email,
         'url'   => 'mailto:' . $support_email,
         'icon'  => '<path d="M4 6h16v12H4z"></path><path d="m4 8 8 5 8-5"></path>',
     ],
     [
-        'title' => __('Order Tracking', 'dawp'),
+        'title' => __('Penjejakan Pesanan', 'dawp'),
         'copy'  => __('Follow your shipment once your tracking details have been sent after dispatch.', 'dawp'),
-        'value' => __('Track an order', 'dawp'),
+        'value' => __('Jejak pesanan', 'dawp'),
         'url'   => $track_url,
         'icon'  => '<path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2"></circle>',
     ],
     [
-        'title' => __('Returns & Refunds', 'dawp'),
+        'title' => __('Pemulangan & Bayaran Balik', 'dawp'),
         'copy'  => __('Start with the policy details, then contact support with your order number if you need help.', 'dawp'),
-        'value' => __('Review returns', 'dawp'),
+        'value' => __('Semak pemulangan', 'dawp'),
         'url'   => $returns_url,
         'icon'  => '<path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-15-6.7L3 13"></path>',
     ],
@@ -92,44 +92,44 @@ $support_steps = [
         'copy'  => __('Include your order number, checkout email, product name and a clear description so our team can review your request quickly.', 'dawp'),
     ],
     [
-        'title' => __('We review your request', 'dawp'),
-        'copy'  => __('Most messages are reviewed within 1 business day during our customer service hours, excluding weekends and holidays.', 'dawp'),
+        'title' => __('Kami menyemak permintaan anda', 'dawp'),
+        'copy'  => __('Most messages are reviewed within 1 hari bekerja during our customer service hours, excluding weekends and holidays.', 'dawp'),
     ],
     [
         'title' => __('Receive helpful next steps', 'dawp'),
-        'copy'  => __('We will guide you through tracking, product questions, shipping concerns, return eligibility or refund timing.', 'dawp'),
+        'copy'  => __('Kami akan membimbing anda tentang penjejakan, soalan produk, isu penghantaran, kelayakan pemulangan atau masa bayaran balik.', 'dawp'),
     ],
 ];
 
 $quick_help = [
     [
-        'title' => __('Shipping Timeline', 'dawp'),
-        'copy'  => __('Orders are handled in 1-2 business days and usually arrive in 4-7 business days.', 'dawp'),
+        'title' => __('Garis Masa Penghantaran', 'dawp'),
+        'copy'  => __('Orders are handled in 1-2 hari bekerja and usually arrive in 4-7 hari bekerja.', 'dawp'),
         'url'   => $shipping_url,
     ],
     [
-        'title' => __('30-Day Returns', 'dawp'),
+        'title' => __('Pemulangan 30 Hari', 'dawp'),
         'copy'  => __('Eligible unused items may be returned within 30 days after delivery.', 'dawp'),
         'url'   => $returns_url,
     ],
     [
-        'title' => __('Frequently Asked Questions', 'dawp'),
-        'copy'  => __('Find fast answers about orders, shipping, returns, products and secure checkout.', 'dawp'),
+        'title' => __('Soalan Lazim', 'dawp'),
+        'copy'  => __('Cari jawapan pantas tentang pesanan, penghantaran, pemulangan, produk dan checkout selamat.', 'dawp'),
         'url'   => $faq_url,
     ],
 ];
 
 $contact_faqs = [
     [
-        'question' => __('How quickly will support reply?', 'dawp'),
-        'answer'   => __('We aim to reply within 1 business day during customer service hours. Response times may vary on weekends, holidays or high-volume periods.', 'dawp'),
+        'question' => __('Berapa cepat sokongan akan membalas?', 'dawp'),
+        'answer'   => __('We aim to reply within 1 hari bekerja during customer service hours. Response times may vary on weekends, holidays or high-volume periods.', 'dawp'),
     ],
     [
-        'question' => __('What should I include for an order issue?', 'dawp'),
+        'question' => __('Apa yang perlu saya sertakan untuk isu pesanan?', 'dawp'),
         'answer'   => __('Please include your order number, the email used at checkout, the item involved and photos if your package arrived damaged or incorrect.', 'dawp'),
     ],
     [
-        'question' => __('Can I change an order after checkout?', 'dawp'),
+        'question' => __('Bolehkah saya menukar pesanan selepas checkout?', 'dawp'),
         'answer'   => __('Contact us as soon as possible. Changes cannot be guaranteed once an order has entered processing, been labeled or shipped.', 'dawp'),
     ],
 ];
@@ -218,16 +218,16 @@ $contact_faqs = [
     <section class="mmd-contact-hero" aria-labelledby="mmd-contact-title">
         <div class="mmd-contact-container mmd-contact-hero__grid">
             <div class="mmd-contact-hero__content">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact MegaMallDepot', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Hubungi Imartmy', 'dawp'); ?></p>
                 <h1 id="mmd-contact-title"><?php esc_html_e('Helpful support for a calmer home shopping experience.', 'dawp'); ?></h1>
-                <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about an order, delivery, product details or a return? Our customer care team is here to help you shop with confidence from inspiration to arrival.', 'dawp'); ?></p>
+                <p class="mmd-contact-hero__copy"><?php esc_html_e('Ada soalan tentang pesanan, penghantaran, butiran produk atau pemulangan? Pasukan khidmat pelanggan kami sedia membantu anda membeli-belah dengan yakin dari awal hingga barang tiba.', 'dawp'); ?></p>
                 <div class="mmd-contact-hero__actions">
-                    <a class="mmd-contact-btn mmd-contact-btn--primary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
-                    <a class="mmd-contact-btn mmd-contact-btn--secondary" href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+                    <a class="mmd-contact-btn mmd-contact-btn--primary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('E-mel Sokongan', 'dawp'); ?></a>
+                    <a class="mmd-contact-btn mmd-contact-btn--secondary" href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Jejak Pesanan', 'dawp'); ?></a>
                 </div>
             </div>
             <div class="mmd-contact-hero__media">
-                <?php echo $mmd_contact_img('Customer_support_scene_in_office_202607161445.jpeg', __('Customer support desk for home shopping assistance', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
+                <?php echo $mmd_contact_img('Customer_support_scene_in_office_202607161445.jpeg', __('Meja sokongan pelanggan untuk bantuan membeli-belah rumah', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
                 <div class="mmd-contact-hero__note"><?php esc_html_e('For the fastest help, include your order number and the email used at checkout.', 'dawp'); ?></div>
             </div>
         </div>
@@ -237,9 +237,9 @@ $contact_faqs = [
         <div class="mmd-contact-container">
             <div class="mmd-contact-section__head">
                 <div>
-                    <p class="mmd-contact-eyebrow"><?php esc_html_e('How To Reach Us', 'dawp'); ?></p>
-                    <h2 id="mmd-contact-methods-title"><?php esc_html_e('Choose the support path that fits your question.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Whether you need order guidance, tracking details or return information, these links keep the next step clear.', 'dawp'); ?></p>
+                    <p class="mmd-contact-eyebrow"><?php esc_html_e('Cara Menghubungi Kami', 'dawp'); ?></p>
+                    <h2 id="mmd-contact-methods-title"><?php esc_html_e('Pilih saluran sokongan yang sesuai dengan pertanyaan anda.', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Sama ada anda perlukan panduan pesanan, butiran penjejakan atau maklumat pemulangan, pautan ini memudahkan langkah seterusnya.', 'dawp'); ?></p>
                 </div>
             </div>
             <div class="mmd-contact-methods">
@@ -258,81 +258,81 @@ $contact_faqs = [
     <section class="mmd-contact-section mmd-contact-section--soft" aria-labelledby="mmd-contact-form-title">
         <div class="mmd-contact-container mmd-contact-main">
             <article class="mmd-contact-form-card">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Send A Message', 'dawp'); ?></p>
-                <h2 id="mmd-contact-form-title"><?php esc_html_e('Tell us how we can help.', 'dawp'); ?></h2>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Hantar Mesej', 'dawp'); ?></p>
+                <h2 id="mmd-contact-form-title"><?php esc_html_e('Beritahu kami bagaimana kami boleh membantu.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Use the secure form below to reach our support team. Add as much detail as possible so we can respond with useful next steps.', 'dawp'); ?></p>
                 <form class="mmd-contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
                     <?php wp_nonce_field('lbq_contact_form', 'lbq_contact_nonce'); ?>
                     <input type="hidden" name="action" value="lbq_contact_form">
-                    <label class="mmd-contact-honeypot" for="mmd-contact-company"><?php esc_html_e('Company website', 'dawp'); ?></label>
+                    <label class="mmd-contact-honeypot" for="mmd-contact-company"><?php esc_html_e('Laman web syarikat', 'dawp'); ?></label>
                     <input class="mmd-contact-honeypot" id="mmd-contact-company" type="text" name="company_website" tabindex="-1" autocomplete="off">
                     <?php if ($status === 'success') : ?>
-                        <div class="mmd-contact-notice mmd-contact-notice--success" role="status"><?php esc_html_e('Thank you. Your message has been received and our support team will reply as soon as possible.', 'dawp'); ?></div>
+                        <div class="mmd-contact-notice mmd-contact-notice--success" role="status"><?php esc_html_e('Terima kasih. Mesej anda telah diterima dan pasukan sokongan kami akan membalas secepat mungkin.', 'dawp'); ?></div>
                     <?php elseif ($status === 'error') : ?>
-                        <div class="mmd-contact-notice mmd-contact-notice--error" role="alert"><?php esc_html_e('Please check the required fields and try again.', 'dawp'); ?></div>
+                        <div class="mmd-contact-notice mmd-contact-notice--error" role="alert"><?php esc_html_e('Sila semak medan wajib dan cuba lagi.', 'dawp'); ?></div>
                     <?php endif; ?>
                     <div class="mmd-contact-form__row">
                         <div class="mmd-contact-field">
-                            <label for="mmd-contact-name"><?php esc_html_e('Full Name', 'dawp'); ?></label>
+                            <label for="mmd-contact-name"><?php esc_html_e('Nama Penuh', 'dawp'); ?></label>
                             <input id="mmd-contact-name" name="contact_name" type="text" autocomplete="name" required>
                         </div>
                         <div class="mmd-contact-field">
-                            <label for="mmd-contact-email"><?php esc_html_e('Email Address', 'dawp'); ?></label>
+                            <label for="mmd-contact-email"><?php esc_html_e('E-mel Alamat', 'dawp'); ?></label>
                             <input id="mmd-contact-email" name="contact_email" type="email" autocomplete="email" required>
                         </div>
                     </div>
                     <div class="mmd-contact-form__row">
                         <div class="mmd-contact-field">
-                            <label for="mmd-contact-order"><?php esc_html_e('Order Number', 'dawp'); ?></label>
-                            <input id="mmd-contact-order" name="order_number" type="text" autocomplete="off" placeholder="<?php esc_attr_e('Optional', 'dawp'); ?>">
+                            <label for="mmd-contact-order"><?php esc_html_e('Nombor Pesanan', 'dawp'); ?></label>
+                            <input id="mmd-contact-order" name="order_number" type="text" autocomplete="off" placeholder="<?php esc_attr_e('Pilihan', 'dawp'); ?>">
                         </div>
                         <div class="mmd-contact-field">
-                            <label for="mmd-contact-topic"><?php esc_html_e('Topic', 'dawp'); ?></label>
+                            <label for="mmd-contact-topic"><?php esc_html_e('Topik', 'dawp'); ?></label>
                             <select id="mmd-contact-topic" name="contact_topic" required>
-                                <option value=""><?php esc_html_e('Select a topic', 'dawp'); ?></option>
-                                <option value="order"><?php esc_html_e('Order or tracking question', 'dawp'); ?></option>
-                                <option value="return"><?php esc_html_e('Return or refund request', 'dawp'); ?></option>
-                                <option value="product"><?php esc_html_e('Product question', 'dawp'); ?></option>
-                                <option value="privacy"><?php esc_html_e('Privacy request', 'dawp'); ?></option>
-                                <option value="other"><?php esc_html_e('General support', 'dawp'); ?></option>
+                                <option value=""><?php esc_html_e('Pilih topik', 'dawp'); ?></option>
+                                <option value="order"><?php esc_html_e('Soalan pesanan atau penjejakan', 'dawp'); ?></option>
+                                <option value="return"><?php esc_html_e('Permintaan pemulangan atau bayaran balik', 'dawp'); ?></option>
+                                <option value="product"><?php esc_html_e('Soalan produk', 'dawp'); ?></option>
+                                <option value="privacy"><?php esc_html_e('Privasi request', 'dawp'); ?></option>
+                                <option value="other"><?php esc_html_e('Sokongan umum', 'dawp'); ?></option>
                             </select>
                         </div>
                     </div>
                     <div class="mmd-contact-field">
-                        <label for="mmd-contact-message"><?php esc_html_e('Message', 'dawp'); ?></label>
+                        <label for="mmd-contact-message"><?php esc_html_e('Mesej', 'dawp'); ?></label>
                         <textarea id="mmd-contact-message" name="contact_message" required></textarea>
                     </div>
-                    <p class="mmd-contact-form__note"><?php esc_html_e('Please do not include full payment card numbers or sensitive account credentials in your message.', 'dawp'); ?></p>
-                    <button class="mmd-contact-btn mmd-contact-btn--primary" type="submit"><?php esc_html_e('Send Message', 'dawp'); ?></button>
+                    <p class="mmd-contact-form__note"><?php esc_html_e('Jangan sertakan nombor kad pembayaran penuh atau maklumat akaun sensitif dalam mesej anda.', 'dawp'); ?></p>
+                    <button class="mmd-contact-btn mmd-contact-btn--primary" type="submit"><?php esc_html_e('Hantar Mesej', 'dawp'); ?></button>
                 </form>
             </article>
 
             <aside class="mmd-contact-sidebar" aria-labelledby="mmd-contact-details-title">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Customer Care Details', 'dawp'); ?></p>
-                <h2 id="mmd-contact-details-title"><?php esc_html_e('Support information at a glance.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Our team supports shoppers across the United States with clear, policy-aligned guidance.', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Khidmat Pelanggan Details', 'dawp'); ?></p>
+                <h2 id="mmd-contact-details-title"><?php esc_html_e('Maklumat sokongan sepintas lalu.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Our team supports shoppers across the Malaysia with clear, policy-aligned guidance.', 'dawp'); ?></p>
                 <dl>
                     <div>
-                        <dt><?php esc_html_e('Store', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Kedai', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($store_name); ?></dd>
                     </div>
                     <div>
-                        <dt><?php esc_html_e('Email', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('E-mel', 'dawp'); ?></dt>
                         <dd><a class="mmd-contact-link" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
                     </div>
                     <?php if ($store_address) : ?>
                         <div>
-                            <dt><?php esc_html_e('Business Address', 'dawp'); ?></dt>
+                            <dt><?php esc_html_e('Alamat Perniagaan', 'dawp'); ?></dt>
                             <dd><?php echo esc_html($store_address); ?></dd>
                         </div>
                     <?php endif; ?>
                     <div>
-                        <dt><?php esc_html_e('Business Hours', 'dawp'); ?></dt>
+                        <dt><?php esc_html_e('Waktu Operasi', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($business_hours); ?></dd>
                     </div>
                     <div>
-                        <dt><?php esc_html_e('Response Time', 'dawp'); ?></dt>
-                        <dd><?php esc_html_e('We aim to reply within 1 business day.', 'dawp'); ?></dd>
+                        <dt><?php esc_html_e('Masa Respons', 'dawp'); ?></dt>
+                        <dd><?php esc_html_e('We aim to reply within 1 hari bekerja.', 'dawp'); ?></dd>
                     </div>
                 </dl>
             </aside>
@@ -343,7 +343,7 @@ $contact_faqs = [
         <div class="mmd-contact-container">
             <div class="mmd-contact-section__head">
                 <div>
-                    <p class="mmd-contact-eyebrow"><?php esc_html_e('What Happens Next', 'dawp'); ?></p>
+                    <p class="mmd-contact-eyebrow"><?php esc_html_e('Apa Berlaku Seterusnya', 'dawp'); ?></p>
                     <h2 id="mmd-contact-steps-title"><?php esc_html_e('A simple path from question to resolution.', 'dawp'); ?></h2>
                 </div>
             </div>
@@ -371,7 +371,7 @@ $contact_faqs = [
                     <a class="mmd-contact-help-card" href="<?php echo esc_url($item['url']); ?>">
                         <h3><?php echo esc_html($item['title']); ?></h3>
                         <p><?php echo esc_html($item['copy']); ?></p>
-                        <span><?php esc_html_e('Learn more', 'dawp'); ?></span>
+                        <span><?php esc_html_e('Ketahui lanjut', 'dawp'); ?></span>
                     </a>
                 <?php endforeach; ?>
             </div>
@@ -382,7 +382,7 @@ $contact_faqs = [
         <div class="mmd-contact-container">
             <div class="mmd-contact-section__head">
                 <div>
-                    <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact FAQs', 'dawp'); ?></p>
+                    <p class="mmd-contact-eyebrow"><?php esc_html_e('Soalan Lazim Hubungan', 'dawp'); ?></p>
                     <h2 id="mmd-contact-faq-title"><?php esc_html_e('A few notes that make support easier.', 'dawp'); ?></h2>
                 </div>
             </div>
@@ -400,13 +400,13 @@ $contact_faqs = [
     <section class="mmd-contact-cta" aria-labelledby="mmd-contact-cta-title">
         <div class="mmd-contact-container mmd-contact-cta__inner">
             <div>
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></p>
-                <h2 id="mmd-contact-cta-title"><?php esc_html_e('Still browsing? Explore thoughtful pieces for every room.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover furniture, decor, kitchen, bedding, bath, storage and outdoor essentials selected for modern American living.', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Ruang Indah Bermula Di Rumah', 'dawp'); ?></p>
+                <h2 id="mmd-contact-cta-title"><?php esc_html_e('Still browsing? Teroka thoughtful pieces for every room.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Discover furniture, decor, kitchen, bedding, bath, storage and outdoor essentials selected for kehidupan moden Malaysia.', 'dawp'); ?></p>
             </div>
             <div class="mmd-contact-cta__actions">
-                <a class="mmd-contact-btn mmd-contact-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
-                <a class="mmd-contact-btn mmd-contact-btn--secondary" href="<?php echo esc_url($faq_url); ?>"><?php esc_html_e('View FAQs', 'dawp'); ?></a>
+                <a class="mmd-contact-btn mmd-contact-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Beli Koleksi', 'dawp'); ?></a>
+                <a class="mmd-contact-btn mmd-contact-btn--secondary" href="<?php echo esc_url($faq_url); ?>"><?php esc_html_e('Lihat Soalan Lazim', 'dawp'); ?></a>
             </div>
         </div>
     </section>

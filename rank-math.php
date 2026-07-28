@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Rank Math SEO integration for theme virtual pages.
  *

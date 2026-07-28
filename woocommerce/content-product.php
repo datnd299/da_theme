@@ -1,59 +1,42 @@
 <?php
 /**
- * Content-product: single product card in the shop loop.
+ * Product card used by shop and product archives.
  */
 defined('ABSPATH') || exit;
 
 global $product;
-if (empty($product) || !$product->is_visible()) return;
 
-$cats     = get_the_terms($product->get_id(), 'product_cat');
-$cat_name = '';
+if (!$product || !$product->is_visible()) {
+    return;
+}
 
-if (!is_wp_error($cats) && !empty($cats)) {
-    foreach ($cats as $cat) {
-        if (function_exists('dawp_is_lbq_product_category_slug') && !dawp_is_lbq_product_category_slug($cat->slug)) {
-            continue;
-        }
+$category_name = '';
+$categories    = get_the_terms($product->get_id(), 'product_cat');
 
-        $cat_name = $cat->name;
-        break;
-    }
+if (!is_wp_error($categories) && !empty($categories)) {
+    $category_name = $categories[0]->name;
 }
 ?>
+
 <li <?php wc_product_class('product-card', $product); ?>>
-    <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">
+    <a class="product-card__link" href="<?php the_permalink(); ?>" aria-label="<?php the_title_attribute(); ?>">
+        <span class="product-card__media">
+            <?php
+            echo function_exists('dawp_get_product_responsive_image')
+                ? dawp_get_product_responsive_image($product, 'product-card__image', 520, 520, '(max-width: 700px) 50vw, (max-width: 1024px) 33vw, 25vw')
+                : $product->get_image('woocommerce_single', ['class' => 'product-card__image', 'loading' => 'lazy']);
+            ?>
+            <?php if ($product->is_on_sale()) : ?>
+                <span class="product-card__badge"><?php esc_html_e('Sale', 'dawp'); ?></span>
+            <?php endif; ?>
+        </span>
 
-        <div class="product-card__shell">
-            <div class="product-card__inner">
-                <div class="product-card__img-wrap">
-                    <?php
-                    echo function_exists('dawp_get_product_responsive_image')
-                        ? dawp_get_product_responsive_image($product, 'product-card__img', 420, 420, '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw')
-                        : $product->get_image('woocommerce_single', ['class' => 'product-card__img', 'loading' => 'lazy']);
-                    ?>
-                </div>
-
-                <?php if ($product->is_on_sale()) : ?>
-                    <span class="product-card__badge">Sale</span>
-                <?php endif; ?>
-
-                <div class="product-card__cta" aria-hidden="true">
-                    <span>View</span>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                </div>
-            </div>
-        </div>
-
-        <div class="product-card__meta">
-            <div class="product-card__info">
-                <h3 class="product-card__title"><?php the_title(); ?></h3>
-                <?php if ($cat_name) : ?>
-                    <span class="product-card__cat"><?php echo esc_html($cat_name); ?></span>
-                <?php endif; ?>
-            </div>
-            <div class="product-card__price"><?php echo $product->get_price_html(); ?></div>
-        </div>
-
+        <span class="product-card__body">
+            <?php if ($category_name) : ?>
+                <span class="product-card__category"><?php echo esc_html($category_name); ?></span>
+            <?php endif; ?>
+            <span class="product-card__title"><?php the_title(); ?></span>
+            <span class="product-card__price"><?php echo wp_kses_post($product->get_price_html()); ?></span>
+        </span>
     </a>
 </li>

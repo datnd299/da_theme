@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 add_action('template_redirect', 'dawp_handle_virtual_pages');
 function dawp_handle_virtual_pages() {
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
@@ -27,24 +27,24 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'             => ['slug' => 'about',                'title' => 'About MegaMallDepot', 'desc' => 'Learn more about MegaMallDepot, a modern online store for practical home, technology and everyday lifestyle products.', 'keywords' => 'MegaMallDepot, about MegaMallDepot, home essentials store, online lifestyle store', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86'],
-        'faq'                  => ['slug' => 'faq',                  'title' => 'MegaMallDepot FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at MegaMallDepot.', 'keywords' => 'MegaMallDepot FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
-        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact MegaMallDepot', 'desc' => 'Contact MegaMallDepot support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact MegaMallDepot, MegaMallDepot support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => get_template_directory_uri() . '/assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'],
-        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review MegaMallDepot shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'MegaMallDepot shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
-        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review MegaMallDepot shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'MegaMallDepot shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
-        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the MegaMallDepot return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'MegaMallDepot return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
-        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the MegaMallDepot terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'MegaMallDepot terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
-        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how MegaMallDepot collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'MegaMallDepot privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
-        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your MegaMallDepot Order', 'desc' => 'Track your MegaMallDepot order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track MegaMallDepot order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
+        'about-us'             => ['slug' => 'about',                'title' => 'Tentang Imartmy', 'desc' => 'Ketahui lanjut tentang Imartmy, kedai dalam talian Malaysia untuk peralatan dapur, kelengkapan rumah dan keperluan harian praktikal.', 'keywords' => 'Imartmy, tentang Imartmy, kedai peralatan dapur Malaysia, kelengkapan rumah', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86'],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'Soalan Lazim Imartmy', 'desc' => 'Cari jawapan lazim tentang penghantaran, pemulangan, produk, pembayaran dan sokongan di Imartmy.', 'keywords' => 'Imartmy FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
+        'contact-us'           => ['slug' => 'contact',              'title' => 'Hubungi Imartmy', 'desc' => 'Hubungi Imartmy support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Imartmy, Imartmy support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => get_template_directory_uri() . '/assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'],
+        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Polisi Penghantaran', 'desc' => 'Semak liputan penghantaran Malaysia, masa pemprosesan, anggaran penghantaran, kurier dan sokongan penghantaran Imartmy.', 'keywords' => 'Imartmy shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Polisi Penghantaran', 'desc' => 'Semak liputan penghantaran Malaysia, masa pemprosesan, anggaran penghantaran, kurier dan sokongan penghantaran Imartmy.', 'keywords' => 'Imartmy shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Polisi Pemulangan & Bayaran Balik', 'desc' => 'Read the Imartmy return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'Imartmy return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
+        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terma & Syarat', 'desc' => 'Read the Imartmy terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'Imartmy terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
+        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Polisi Privasi', 'desc' => 'Ketahui cara Imartmy mengumpul, menggunakan, melindungi dan mengurus maklumat pelanggan, kuki, permintaan privasi dan data akaun.', 'keywords' => 'Imartmy privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivasiPolicy'],
+        'track-order'          => ['slug' => 'track-order',          'title' => 'Jejak Pesanan Imartmy Anda', 'desc' => 'Jejak pesanan Imartmy secara dalam talian menggunakan ID pesanan dan e-mel bil, atau hubungi sokongan untuk bantuan penghantaran.', 'keywords' => 'track Imartmy order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
     ];
 }
 
 function dawp_home_page_seo_data() {
     return [
         'slug'           => 'home',
-        'title'          => 'MegaMallDepot - Home, Electronics & Everyday Essentials',
-        'desc'           => 'Shop MegaMallDepot for practical home essentials, furniture, electronics, smart home products, kitchen favorites and outdoor living picks.',
-        'keywords'       => 'MegaMallDepot, home essentials, furniture, electronics, kitchen products, outdoor living',
+        'title'          => 'Imartmy - Home, Elektronik & Everyday Essentials',
+        'desc'           => 'Beli peralatan dapur, cookware, penyimpanan, peralatan makan dan kelengkapan rumah praktikal di Imartmy.',
+        'keywords'       => 'Imartmy, peralatan dapur Malaysia, cookware, penyimpanan dapur, kelengkapan rumah',
         'canonical_path' => '',
         'schema_type'    => 'WebSite',
         'image'          => get_template_directory_uri() . '/assets/img/home/Home_essentials_on_shelf_202607171221.jpeg',
@@ -81,14 +81,14 @@ function dawp_virtual_page_assets() {
     $request_uri = dawp_current_request_path();
     $pages = dawp_virtual_page_map();
 
-    // Không phải virtual page hoặc page không cấu hình css
+    // KhÃ´ng pháº£i virtual page hoáº·c page khÃ´ng cáº¥u hÃ¬nh css
     if (!isset($pages[$request_uri]) || empty($pages[$request_uri]['css'])) {
         return;
     }
 
     $css_file_name = ltrim($pages[$request_uri]['css'], '/');
 
-    // Đường dẫn vật lý
+    // ÄÆ°á»ng dáº«n váº­t lÃ½
     if (str_contains($css_file_name, 'tw-')) {
         $css_file_path = get_template_directory() . '/assets/css/tw/' . $css_file_name;
         $css_file_url = get_template_directory_uri() . '/assets/css/tw/' . $css_file_name;
@@ -160,7 +160,7 @@ function dawp_rank_math_organization_schema() {
         '@id'   => home_url('/#organization'),
         'name'  => get_bloginfo('name'),
         'url'   => home_url('/'),
-        'email' => 'support@megamalldepot.com',
+        'email' => 'support@imartmy.com',
         'logo'  => [
             '@type' => 'ImageObject',
             'url'   => get_template_directory_uri() . '/assets/img/home/megamalldepot-logo.png',
@@ -191,20 +191,20 @@ function dawp_rank_math_faq_schema_entities($slug) {
 
     $items = [
         [
-            'question' => 'Where does MegaMallDepot ship?',
-            'answer'   => 'MegaMallDepot currently ships exclusively within the United States domestic market.',
+            'question' => 'Ke mana Imartmy membuat penghantaran?',
+            'answer'   => 'Imartmy currently ships exclusively within the pasaran domestik Malaysia.',
         ],
         [
-            'question' => 'How much does shipping cost?',
-            'answer'   => 'Shipping cost is shown during checkout before payment is processed.',
+            'question' => 'Berapakah kos penghantaran?',
+            'answer'   => 'Kos penghantaran dipaparkan semasa checkout sebelum pembayaran diproses.',
         ],
         [
-            'question' => 'What is the return window?',
+            'question' => 'Apakah tempoh pemulangan?',
             'answer'   => 'Eligible products can be returned within 30 days after delivery.',
         ],
         [
-            'question' => 'How do I contact MegaMallDepot?',
-            'answer'   => 'Customers can contact MegaMallDepot support by email at support@megamalldepot.com or through the Contact Us page.',
+            'question' => 'Bagaimana saya menghubungi Imartmy?',
+            'answer'   => 'Customers can contact Imartmy support by email at support@imartmy.com or through the Hubungi Kami page.',
         ],
     ];
 

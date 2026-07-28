@@ -12,11 +12,11 @@ function fake_sales_report_data( $report_data ) {
         return $report_data;
     }
 
-    // ===== Cấu hình chính =====
-    $total_sales       = 583749.25; // Tổng doanh thu trong khoảng thời gian (có thể đổi)
+    // ===== Cáº¥u hÃ¬nh chÃ­nh =====
+    $total_sales       = 583749.25; // Tá»•ng doanh thu trong khoáº£ng thá»i gian (cÃ³ thá»ƒ Ä‘á»•i)
     $average_sales     = 67.7;
     $total_orders      = (int) round( $total_sales / $average_sales ); // 7353
-    $items_per_order   = 1.47;  // tỉ lệ items / order — có thể đổi
+    $items_per_order   = 1.47;  // tá»‰ lá»‡ items / order â€” cÃ³ thá»ƒ Ä‘á»•i
     $total_items       = (int) round( $total_orders * $items_per_order );
 
     // Refund config
@@ -28,10 +28,10 @@ function fake_sales_report_data( $report_data ) {
     $refunded_order_items  = (int) round( $total_refunded_orders * $items_per_order * 1.2 );
 
     // Coupon config
-    $coupon_rate   = 0.04223;  // 4% doanh thu dùng coupon
+    $coupon_rate   = 0.04223;  // 4% doanh thu dÃ¹ng coupon
     $total_coupons = round( $total_sales * $coupon_rate, 2 ); // ~$20,000
 
-    // ===== Xác định range ngày =====
+    // ===== XÃ¡c Ä‘á»‹nh range ngÃ y =====
     $end_date   = current_time( 'timestamp' );
     $start_date = strtotime( '-7 days', $end_date );
 
@@ -63,8 +63,8 @@ function fake_sales_report_data( $report_data ) {
 
     $days = max( 1, (int) round( ( $end_date - $start_date ) / DAY_IN_SECONDS ) + 1 );
 
-    // ===== Helper: phân bổ ngẫu nhiên 1 tổng vào N ngày =====
-    // Mỗi ngày được random weight từ 0.5 đến 1.5, sau đó normalize.
+    // ===== Helper: phÃ¢n bá»• ngáº«u nhiÃªn 1 tá»•ng vÃ o N ngÃ y =====
+    // Má»—i ngÃ y Ä‘Æ°á»£c random weight tá»« 0.5 Ä‘áº¿n 1.5, sau Ä‘Ã³ normalize.
     $generate_random_weights = function( $n, $start_ts, $weekend_boost = 1.25, $volatility = 0.15 ) {
         $weights = array();
         $prev    = 1.0;
@@ -73,37 +73,37 @@ function fake_sales_report_data( $report_data ) {
             $day_ts  = $start_ts + ( $i * DAY_IN_SECONDS );
             $dow     = (int) date( 'w', $day_ts ); // 0 = CN, 6 = T7
 
-            // Base weight với weekly pattern
+            // Base weight vá»›i weekly pattern
             $base = 1.0;
             if ( $dow === 0 || $dow === 6 ) {
                 $base = $weekend_boost;
             } elseif ( $dow === 5 ) {
-                // Thứ 6 cũng cao hơn chút
+                // Thá»© 6 cÅ©ng cao hÆ¡n chÃºt
                 $base = 1.0 + ( $weekend_boost - 1.0 ) * 0.5;
             } elseif ( $dow === 1 ) {
-                // Thứ 2 thường thấp
+                // Thá»© 2 thÆ°á»ng tháº¥p
                 $base = 0.85;
             }
 
-            // Random walk: ngày sau gần ngày trước, cộng noise nhỏ
+            // Random walk: ngÃ y sau gáº§n ngÃ y trÆ°á»›c, cá»™ng noise nhá»
             $noise   = ( mt_rand( -100, 100 ) / 100 ) * $volatility;
             $current = $base * ( 1 + $noise );
 
-            // Smooth: blend với ngày trước
+            // Smooth: blend vá»›i ngÃ y trÆ°á»›c
             $current = ( $current * 0.7 ) + ( $prev * 0.3 );
 
             $weights[] = $current;
             $prev      = $current;
         }
 
-        // Normalize tổng = 1
+        // Normalize tá»•ng = 1
         $sum = array_sum( $weights );
         return array_map( function( $w ) use ( $sum ) {
             return $w / $sum;
         }, $weights );
     };
 
-    // Phân bổ random + đảm bảo tổng đúng (ngày cuối nhận phần dư)
+    // PhÃ¢n bá»• random + Ä‘áº£m báº£o tá»•ng Ä‘Ãºng (ngÃ y cuá»‘i nháº­n pháº§n dÆ°)
     $distribute = function( $total, $weights, $is_int = false ) {
         $n         = count( $weights );
         $result    = array();
@@ -119,12 +119,12 @@ function fake_sales_report_data( $report_data ) {
             $result[]  = $value;
             $remaining -= $value;
         }
-        // Ngày cuối nhận phần dư để đảm bảo tổng đúng
+        // NgÃ y cuá»‘i nháº­n pháº§n dÆ° Ä‘á»ƒ Ä‘áº£m báº£o tá»•ng Ä‘Ãºng
         $result[] = $is_int ? (int) round( $remaining ) : round( $remaining, 2 );
         return $result;
     };
 
-    // Tạo weights ngẫu nhiên cho từng metric (mỗi metric có pattern riêng)
+    // Táº¡o weights ngáº«u nhiÃªn cho tá»«ng metric (má»—i metric cÃ³ pattern riÃªng)
     $sales_weights  = $generate_random_weights( $days, $start_date, 1.30, 0.12 );
     $orders_weights = $generate_random_weights( $days, $start_date, 1.25, 0.10 );
     $items_weights  = $generate_random_weights( $days, $start_date, 1.25, 0.10 );
@@ -133,7 +133,7 @@ function fake_sales_report_data( $report_data ) {
     $orders_per_day = $distribute( $total_orders, $orders_weights, true );
     $items_per_day  = $distribute( $total_items, $items_weights, true );
 
-    // ===== Sinh dữ liệu orders / order_counts / order_items =====
+    // ===== Sinh dá»¯ liá»‡u orders / order_counts / order_items =====
     $orders_arr       = array();
     $order_counts_arr = array();
     $order_items_arr  = array();
@@ -171,7 +171,7 @@ function fake_sales_report_data( $report_data ) {
         );
     }
 
-    // ===== Sinh dữ liệu refunds =====
+    // ===== Sinh dá»¯ liá»‡u refunds =====
     $full_refunds_arr    = array();
     $partial_refunds_arr = array();
     $refund_lines_arr    = array();
@@ -195,7 +195,7 @@ $refund_items_weights  = $generate_random_weights( $days, $start_date, 1.05, 0.3
         $day_partial_count = $partial_count_per_day[ $i ];
         $day_refund_items  = $refund_items_per_day[ $i ];
 
-        // Full refunds chiếm ~60% giá trị refund của ngày, partial chiếm ~40%
+        // Full refunds chiáº¿m ~60% giÃ¡ trá»‹ refund cá»§a ngÃ y, partial chiáº¿m ~40%
         $day_full_amount    = round( $day_refund_amount * 0.6, 2 );
         $day_partial_amount = round( $day_refund_amount - $day_full_amount, 2 );
 
@@ -265,7 +265,7 @@ $refund_items_weights  = $generate_random_weights( $days, $start_date, 1.05, 0.3
         }
     }
 
-    // ===== Sinh dữ liệu coupons =====
+    // ===== Sinh dá»¯ liá»‡u coupons =====
     $coupons_arr     = array();
     $coupon_codes    = array( 'SUMMER20', 'WELCOME10', 'FLASH50', 'VIP15', 'SAVE5' );
     $coupon_weights = $generate_random_weights( $days, $start_date, 1.35, 0.20 );
@@ -277,11 +277,11 @@ $refund_items_weights  = $generate_random_weights( $days, $start_date, 1.05, 0.3
 
         $day_coupon_total = $coupon_per_day[ $i ];
 
-        // Mỗi ngày có 2-4 coupon code khác nhau được dùng
+        // Má»—i ngÃ y cÃ³ 2-4 coupon code khÃ¡c nhau Ä‘Æ°á»£c dÃ¹ng
         $num_coupons_today = mt_rand( 2, min( 4, count( $coupon_codes ) ) );
         $picked_codes      = (array) array_rand( array_flip( $coupon_codes ), $num_coupons_today );
 
-        // Phân bổ tiền coupon ngày này cho các code random
+        // PhÃ¢n bá»• tiá»n coupon ngÃ y nÃ y cho cÃ¡c code random
         $code_weights      = $generate_random_weights( $num_coupons_today, $start_date, 1.35, 0.20 );
         $code_distribution = $distribute( $day_coupon_total, $code_weights, false );
 
@@ -294,7 +294,7 @@ $refund_items_weights  = $generate_random_weights( $days, $start_date, 1.05, 0.3
         }
     }
 
-    // Tổng refund tax / shipping
+    // Tá»•ng refund tax / shipping
     $total_tax_refunded          = array_sum( wp_list_pluck( $refund_lines_arr, 'total_tax' ) );
     $total_shipping_refunded     = array_sum( wp_list_pluck( $refund_lines_arr, 'total_shipping' ) );
     $total_shipping_tax_refunded = array_sum( wp_list_pluck( $refund_lines_arr, 'total_shipping_tax' ) );
@@ -315,7 +315,7 @@ $refund_items_weights  = $generate_random_weights( $days, $start_date, 1.05, 0.3
     $report_data->total_refunds               = $total_refunds;
     $report_data->total_refunded_orders       = $full_refund_count;
 
-    // Tính lại totals (đã trừ refund)
+    // TÃ­nh láº¡i totals (Ä‘Ã£ trá»« refund)
     $gross_tax      = array_sum( wp_list_pluck( $orders_arr, 'total_tax' ) );
     $gross_shipping = array_sum( wp_list_pluck( $orders_arr, 'total_shipping' ) );
     $gross_ship_tax = array_sum( wp_list_pluck( $orders_arr, 'total_shipping_tax' ) );
@@ -332,8 +332,8 @@ $refund_items_weights  = $generate_random_weights( $days, $start_date, 1.05, 0.3
         2
     );
 
-    // FIX: average dùng đúng số interval của report.
-    // chart_interval = số ngày - 1, nên chia cho ($days) để bằng (chart_interval + 1).
+    // FIX: average dÃ¹ng Ä‘Ãºng sá»‘ interval cá»§a report.
+    // chart_interval = sá»‘ ngÃ y - 1, nÃªn chia cho ($days) Ä‘á»ƒ báº±ng (chart_interval + 1).
     $report_data->average_sales       = wc_format_decimal( $report_data->net_sales / $days, 2 );
     $report_data->average_total_sales = wc_format_decimal( $report_data->total_sales / $days, 2 );
 
@@ -359,7 +359,7 @@ function dawp_setup() {
 }
 add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
-    // Chỉ xử lý khi là trang search và chưa có post_type
+    // Chá»‰ xá»­ lÃ½ khi lÃ  trang search vÃ  chÆ°a cÃ³ post_type
     if (is_search() && !isset($_GET['post_type'])) {
         wp_safe_redirect(
             add_query_arg('post_type', 'product', $_SERVER['REQUEST_URI'])
@@ -399,7 +399,7 @@ function dawp_scripts() {
         } elseif ( is_checkout() ) {
             wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.9');
         } elseif ( is_woocommerce()  ) {
-            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.2');
+            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], filemtime(get_theme_file_path('/assets/css/shop.css')));
             dawp_remove_styles();
         }
     }
@@ -425,7 +425,7 @@ function dawp_remove_styles() {
     wp_dequeue_style( 'wc-blocks-cart-block-style' );
     wp_deregister_style( 'wc-blocks-cart-block-style' );
     
-    // Một số version dùng handle khác:
+    // Má»™t sá»‘ version dÃ¹ng handle khÃ¡c:
     wp_dequeue_style( 'wc-blocks-style-cart' );
     wp_deregister_style( 'wc-blocks-style-cart' );
     global $wp_styles;

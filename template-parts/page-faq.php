@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * FAQs page for MegaMallDepot.
+ * FAQs page for Imartmy.
  *
  * @package dawp
  */
@@ -9,12 +9,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'MegaMallDepot';
-$site_domain    = 'megamalldepot.com';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '826-207-1399';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$store_name     = 'Imartmy';
+$site_domain    = 'Imartmy.com';
+$support_email  = 'support@imartmy.com';
+$support_phone  = '+60 3-8605 3388';
+$store_address  = 'Kuala Lumpur, Malaysia';
+$business_hours = __('Isnin - Jumaat, 9:00 pagi - 5:00 petang, GMT+08:00 Waktu Malaysia', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!$shop_url) {
@@ -27,151 +27,151 @@ $privacy_url  = home_url('/privacy-policy/');
 $terms_url    = home_url('/terms-conditions/');
 $track_url    = home_url('/track-order/');
 $contact_url  = home_url('/contact-us/');
-$last_updated = __('May 29, 2026', 'dawp');
+$last_updated = __('29 Mei 2026', 'dawp');
 
 $policy_highlights = [
     [
-        'title' => __('Free U.S. Shipping', 'dawp'),
-        'copy'  => __('Standard shipping is free nationwide within the United States, with no minimum purchase requirement.', 'dawp'),
+        'title' => __('Penghantaran Percuma Malaysia', 'dawp'),
+        'copy'  => __('Penghantaran standard percuma ke seluruh Malaysia tanpa syarat pembelian minimum.', 'dawp'),
     ],
     [
-        'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unused items may be returned within 30 days of documented delivery.', 'dawp'),
+        'title' => __('Pemulangan 30 Hari', 'dawp'),
+        'copy'  => __('Item layak yang belum digunakan boleh dipulangkan dalam 30 hari selepas tarikh penerimaan yang direkodkan.', 'dawp'),
     ],
     [
-        'title' => __('Secure Checkout', 'dawp'),
-        'copy'  => __('Payments are processed through encrypted checkout and certified third-party payment gateways.', 'dawp'),
+        'title' => __('Checkout Selamat', 'dawp'),
+        'copy'  => __('Pembayaran diproses melalui checkout berenkripsi dan gerbang pembayaran pihak ketiga yang diperakui.', 'dawp'),
     ],
 ];
 
 $faq_groups = [
     [
-        'label' => __('Orders & Shipping', 'dawp'),
+        'label' => __('Pesanan & Penghantaran', 'dawp'),
         'items' => [
             [
-                'question' => __('Where does MegaMallDepot ship?', 'dawp'),
-                'answer'   => __('MegaMallDepot currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+                'question' => __('Ke mana Imartmy membuat penghantaran?', 'dawp'),
+                'answer'   => __('Imartmy kini menghantar pesanan dalam pasaran domestik Malaysia sahaja. Jika destinasi atau had kurier menghalang penghantaran ke alamat anda, checkout akan memaklumkan sebelum pembayaran diproses.', 'dawp'),
             ],
             [
-                'question' => __('How much does shipping cost?', 'dawp'),
-                'answer'   => __('Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. If optional upgraded shipping is available, the exact cost is displayed at checkout before payment.', 'dawp'),
+                'question' => __('Berapakah kos penghantaran?', 'dawp'),
+                'answer'   => __('Penghantaran standard Malaysia adalah percuma (RM0.00) untuk semua pesanan tanpa minimum pembelian. Jika penghantaran naik taraf tersedia, kos tepat akan dipaparkan di checkout sebelum pembayaran.', 'dawp'),
             ],
             [
-                'question' => __('What is the daily order cutoff time?', 'dawp'),
-                'answer'   => __('The daily order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after the cutoff begin processing on the following business day.', 'dawp'),
+                'question' => __('Apakah waktu akhir pesanan harian?', 'dawp'),
+                'answer'   => __('Waktu akhir pesanan harian ialah 5:00 petang (GMT+08:00) Waktu Malaysia, Isnin hingga Jumaat. Pesanan selepas waktu ini diproses pada hari bekerja berikutnya.', 'dawp'),
             ],
             [
-                'question' => __('How long does order handling and delivery take?', 'dawp'),
-                'answer'   => __('Order handling takes 1-2 business days (Monday to Friday), excluding standard U.S. public holidays. Standard transit takes 3-5 business days (Monday to Friday), so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+                'question' => __('Berapa lama pemprosesan dan penghantaran pesanan?', 'dawp'),
+                'answer'   => __('Pemprosesan pesanan mengambil 1-2 hari bekerja, tidak termasuk cuti umum Malaysia. Transit standard mengambil 3-5 hari bekerja, jadi anggaran penghantaran ialah 4-7 hari bekerja dari tarikh pembelian.', 'dawp'),
             ],
             [
-                'question' => __('Which carriers do you use?', 'dawp'),
-                'answer'   => __('Orders are shipped with trusted domestic U.S. carriers such as USPS, UPS, FedEx, or DHL. The final carrier is selected when your package is labeled and prepared for dispatch.', 'dawp'),
+                'question' => __('Kurier apakah yang digunakan?', 'dawp'),
+                'answer'   => __('Pesanan dihantar melalui kurier tempatan yang dipercayai seperti Pos Malaysia, J&T Express, Ninja Van, DHL eCommerce atau rakan kurier lain. Kurier akhir dipilih apabila bungkusan disediakan untuk penghantaran.', 'dawp'),
             ],
             [
-                'question' => __('Will I receive tracking information?', 'dawp'),
-                'answer'   => __('Yes. Once your order is dispatched, an automated shipping confirmation email with a direct tracking link and courier details is sent to the email address used at checkout.', 'dawp'),
+                'question' => __('Adakah saya akan menerima maklumat penjejakan?', 'dawp'),
+                'answer'   => __('Ya. Selepas pesanan dihantar, e-mel pengesahan penghantaran dengan pautan penjejakan dan butiran kurier akan dihantar ke e-mel checkout anda.', 'dawp'),
             ],
             [
-                'question' => __('Why did my items ship separately?', 'dawp'),
-                'answer'   => __('Multi-item orders may ship in separate packages if products are prepared from different fulfillment batches or require different packing methods. You will receive tracking details for each package when available.', 'dawp'),
+                'question' => __('Mengapa item saya dihantar berasingan?', 'dawp'),
+                'answer'   => __('Pesanan berbilang item mungkin dihantar dalam bungkusan berasingan jika produk datang daripada kumpulan pemenuhan atau kaedah pembungkusan berbeza. Butiran penjejakan akan diberikan untuk setiap bungkusan apabila tersedia.', 'dawp'),
             ],
             [
-                'question' => __('Can I change my shipping address after placing an order?', 'dawp'),
-                'answer'   => __('Contact support as soon as possible with your order number and the correct address. Address changes cannot be guaranteed once an order has entered processing, been labeled, or shipped.', 'dawp'),
+                'question' => __('Bolehkah saya menukar alamat penghantaran selepas membuat pesanan?', 'dawp'),
+                'answer'   => __('Hubungi sokongan secepat mungkin dengan nombor pesanan dan alamat yang betul. Perubahan alamat tidak boleh dijamin selepas pesanan diproses, dilabel atau dihantar.', 'dawp'),
             ],
         ],
     ],
     [
-        'label' => __('Returns & Refunds', 'dawp'),
+        'label' => __('Pemulangan & Bayaran Balik', 'dawp'),
         'items' => [
             [
-                'question' => __('What is the return window?', 'dawp'),
-                'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible defective and non-defective products in new condition.', 'dawp'),
+                'question' => __('Apakah tempoh pemulangan?', 'dawp'),
+                'answer'   => __('Anda perlu memulakan permintaan pemulangan dalam 30 hari selepas diterima. Pemulangan diterima untuk produk layak, sama ada rosak atau tidak rosak, dalam keadaan baharu.', 'dawp'),
             ],
             [
-                'question' => __('Which products are eligible for return?', 'dawp'),
+                'question' => __('Produk manakah yang layak dipulangkan?', 'dawp'),
                 'answer'   => __('Eligible items must be unused, undamaged, and in their original, unaltered condition (New only) with all original packaging, manuals, labels, parts, accessories, boxes, and included components.', 'dawp'),
             ],
             [
-                'question' => __('How do I start a return?', 'dawp'),
-                'answer'   => __('Email support or use the Contact Us page within 30 days of delivery. Include your order number, checkout email, item(s) you want to return, the return reason, and photos or videos if the item arrived damaged or incorrect.', 'dawp'),
+                'question' => __('Bagaimana saya memulakan pemulangan?', 'dawp'),
+                'answer'   => __('E-mel sokongan atau gunakan halaman Hubungi Kami dalam 30 hari selepas penerimaan. Sertakan nombor pesanan, e-mel checkout, item yang ingin dipulangkan, sebab pemulangan serta foto atau video jika item rosak atau salah.', 'dawp'),
             ],
             [
-                'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
+                'question' => __('Siapa yang membayar kos penghantaran pemulangan?', 'dawp'),
+                'answer'   => __('Pelanggan bertanggungjawab membayar semua kos penghantaran pemulangan untuk item rosak/cacat dan juga pemulangan kerana berubah fikiran. Kami tidak menanggung kos pemulangan atau menyediakan label prabayar.', 'dawp'),
             ],
             [
-                'question' => __('Do you charge restocking fees?', 'dawp'),
-                'answer'   => __('No. MegaMallDepot does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
+                'question' => __('Adakah terdapat caj restocking?', 'dawp'),
+                'answer'   => __('Tidak. Imartmy tidak mengenakan caj restocking (RM0.00) untuk pemulangan yang layak.', 'dawp'),
             ],
             [
-                'question' => __('Do you offer exchanges?', 'dawp'),
-                'answer'   => __('We do not process direct one-for-one product exchanges. To get a different size, color, or model, return the original eligible item for a refund and place a new order on the website.', 'dawp'),
+                'question' => __('Adakah pertukaran produk disediakan?', 'dawp'),
+                'answer'   => __('Kami tidak memproses pertukaran terus satu-sama-satu. Untuk saiz, warna atau model lain, pulangkan item asal yang layak untuk bayaran balik dan buat pesanan baharu di laman web.', 'dawp'),
             ],
             [
-                'question' => __('When will I receive my refund?', 'dawp'),
-                'answer'   => __('Once your return package is received, we inspect it within 1-2 business days. Approved refunds are processed automatically to the original payment method within 7 business days. If you have not received your refund after 15 business days of approval, contact support after checking with your bank or credit card company.', 'dawp'),
+                'question' => __('Bilakah saya akan menerima bayaran balik?', 'dawp'),
+                'answer'   => __('Selepas bungkusan pemulangan diterima, kami akan memeriksanya dalam 1-2 hari bekerja. Bayaran balik yang diluluskan diproses ke kaedah pembayaran asal dalam 7 hari bekerja. Jika masih belum diterima selepas 15 hari bekerja, semak dengan bank atau penyedia kad dahulu, kemudian hubungi sokongan.', 'dawp'),
             ],
             [
-                'question' => __('Which items are non-returnable?', 'dawp'),
+                'question' => __('Item manakah yang tidak boleh dipulangkan?', 'dawp'),
                 'answer'   => __('Items marked as Final Sale or Non-Returnable, gift cards or digital products/downloads, personalized or custom-made items, hygiene-sensitive sealed or consumable items with broken seals, and items used, installed, altered, or damaged after delivery are not eligible for return.', 'dawp'),
             ],
             [
-                'question' => __('What should I do if my package is damaged or lost?', 'dawp'),
+                'question' => __('Apa perlu saya lakukan jika bungkusan rosak atau hilang?', 'dawp'),
                 'answer'   => __('For damaged orders, contact us within 30 days of delivery with photos of the item, shipping packaging, and shipping label. For missing packages, stalled tracking, or packages marked delivered but not received, contact us within 30 days of the recorded delivery date so we can investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'),
             ],
         ],
     ],
     [
-        'label' => __('Products & Store', 'dawp'),
+        'label' => __('Produk & Kedai', 'dawp'),
         'items' => [
             [
-                'question' => __('What does MegaMallDepot sell?', 'dawp'),
-                'answer'   => __('MegaMallDepot focuses on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, outdoor living items, and other home, electronics and lifestyle products.', 'dawp'),
+                'question' => __('Apakah yang dijual oleh Imartmy?', 'dawp'),
+                'answer'   => __('Imartmy focuses on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, outdoor living items, and other home, electronics and lifestyle products.', 'dawp'),
             ],
             [
-                'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
+                'question' => __('Adakah foto dan warna produk sentiasa sama seperti barang sebenar?', 'dawp'),
                 'answer'   => __('We work to present descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small differences in color, texture, or appearance may occur because of screen settings, digital photography lighting, or supplier updates.', 'dawp'),
             ],
             [
-                'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
-                'answer'   => __('No. MegaMallDepot does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+                'question' => __('Adakah anda menjual produk tiruan atau replika?', 'dawp'),
+                'answer'   => __('No. Imartmy does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
-                'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),
+                'question' => __('Adakah produk anda membuat tuntutan perubatan, keselamatan atau rawatan?', 'dawp'),
                 'answer'   => __('No. Our catalog is focused on home, electronics and lifestyle products. We do not sell dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
-                'question' => __('Where can I find product details?', 'dawp'),
+                'question' => __('Di mana saya boleh melihat butiran produk?', 'dawp'),
                 'answer'   => __('Product pages include available details such as item use, materials, dimensions, capacity, care notes, price, and availability. Please review the product page before ordering and contact support if you need clarification.', 'dawp'),
             ],
         ],
     ],
     [
-        'label' => __('Payment, Privacy & Support', 'dawp'),
+        'label' => __('Pembayaran, Privasi & Sokongan', 'dawp'),
         'items' => [
             [
-                'question' => __('Is checkout secure?', 'dawp'),
+                'question' => __('Adakah checkout selamat?', 'dawp'),
                 'answer'   => __('Yes. Checkout transactions are executed over an encrypted SSL connection and payment processing is handled by certified third-party payment gateways that follow PCI-DSS standards.', 'dawp'),
             ],
             [
-                'question' => __('Does MegaMallDepot store my full credit card number?', 'dawp'),
-                'answer'   => __('No. MegaMallDepot does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+                'question' => __('Adakah Imartmy menyimpan nombor kad kredit penuh saya?', 'dawp'),
+                'answer'   => __('No. Imartmy does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             ],
             [
-                'question' => __('How is my information used?', 'dawp'),
+                'question' => __('Bagaimana maklumat saya digunakan?', 'dawp'),
                 'answer'   => __('Customer information is used to process, bill, manage, and ship orders; send tracking and invoices; provide support; handle returns; improve site performance; prevent fraud; and meet legal or accounting obligations.', 'dawp'),
             ],
             [
-                'question' => __('Can I request access, correction, or deletion of my personal data?', 'dawp'),
-                'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain. Submit privacy requests through support.', 'dawp'),
+                'question' => __('Bolehkah saya meminta akses, pembetulan atau pemadaman data peribadi?', 'dawp'),
+                'answer'   => __('Tertakluk kepada undang-undang privasi yang berkenaan di Malaysia, anda boleh meminta akses, pembetulan atau pemadaman data peribadi yang kami simpan melalui sokongan.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact MegaMallDepot?', 'dawp'),
+                'question' => __('Bagaimana saya menghubungi Imartmy?', 'dawp'),
                 'answer'   => sprintf(
                     /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
-                    __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
+                    __('E-mel %1$s, call %2$s, or use the Hubungi Kami page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
                     $support_email,
                     $support_phone,
                     $business_hours,
@@ -184,27 +184,27 @@ $faq_groups = [
 
 $quick_links = [
     [
-        'title' => __('Track Order', 'dawp'),
+        'title' => __('Jejak Pesanan', 'dawp'),
         'copy'  => __('Check shipment status after your tracking email arrives.', 'dawp'),
         'url'   => $track_url,
     ],
     [
-        'title' => __('Shipping Policy', 'dawp'),
-        'copy'  => __('Review U.S. shipping scope, free standard shipping, handling, transit, carriers, and tracking.', 'dawp'),
+        'title' => __('Polisi Penghantaran', 'dawp'),
+        'copy'  => __('Review penghantaran Malaysia scope, free standard shipping, handling, transit, carriers, and tracking.', 'dawp'),
         'url'   => $shipping_url,
     ],
     [
-        'title' => __('Return & Refund Policy', 'dawp'),
+        'title' => __('Polisi Pemulangan & Bayaran Balik', 'dawp'),
         'copy'  => __('Review eligibility, return shipping fees, RMA steps, refund timing, and non-returnable items.', 'dawp'),
         'url'   => $returns_url,
     ],
     [
-        'title' => __('Privacy Policy', 'dawp'),
+        'title' => __('Polisi Privasi', 'dawp'),
         'copy'  => __('Learn how customer information, cookies, payment security, retention, and privacy requests are handled.', 'dawp'),
         'url'   => $privacy_url,
     ],
     [
-        'title' => __('Terms & Conditions', 'dawp'),
+        'title' => __('Terma & Syarat', 'dawp'),
         'copy'  => __('Read the store terms covering website use, orders, payments, policies, and limitations.', 'dawp'),
         'url'   => $terms_url,
     ],
@@ -216,14 +216,14 @@ $quick_links = [
         <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
             <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
             <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                <?php esc_html_e('Quick answers for shopping with MegaMallDepot.', 'dawp'); ?>
+                <?php esc_html_e('Jawapan pantas untuk membeli-belah dengan Imartmy.', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#4A4A4A]">
                 <?php
                 echo esc_html(
                     sprintf(
                         /* translators: 1: store name, 2: site domain */
-                        __('Find policy-aligned answers about orders, shipping, returns, refunds, products, privacy, and support when shopping with %1$s through %2$s.', 'dawp'),
+                        __('Dapatkan jawapan selaras polisi tentang pesanan, penghantaran, pemulangan, bayaran balik, produk, privasi dan sokongan apabila membeli-belah di %1$s melalui %2$s.', 'dawp'),
                         $store_name,
                         $site_domain
                     )
@@ -231,7 +231,7 @@ $quick_links = [
                 ?>
             </p>
             <div class="mt-6 rounded-md border border-[#E8E5DF] bg-white px-5 py-4 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Dikemas Kini', 'dawp'); ?></p>
                 <p class="mt-2 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
             </div>
         </div>
@@ -241,9 +241,9 @@ $quick_links = [
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
             <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start">
                 <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                    <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
+                    <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Pautan berguna', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
-                        <?php esc_html_e('This FAQ summarizes the current store policies. Review the full policy pages for complete details before placing an order, requesting a return, or submitting a privacy request.', 'dawp'); ?>
+                        <?php esc_html_e('Soalan Lazim ini merumuskan polisi kedai semasa. Sila baca halaman polisi penuh sebelum membuat pesanan, memohon pemulangan atau menghantar permintaan privasi.', 'dawp'); ?>
                     </p>
                     <div class="mt-6 grid gap-3">
                         <?php foreach ($quick_links as $link) : ?>
@@ -275,13 +275,13 @@ $quick_links = [
                 <?php endforeach; ?>
 
                 <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Still need help?', 'dawp'); ?></h2>
+                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Masih perlukan bantuan?', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
                         <?php
                         echo esc_html(
                             sprintf(
                                 /* translators: 1: email address, 2: business hours */
-                                __('Email %1$s or use the Contact Us page with your order number, checkout email, and a short description of the issue. Customer service hours are %2$s.', 'dawp'),
+                                __('E-mel %1$s or use the Hubungi Kami page with your order number, checkout email, and a short description of the issue. Customer service hours are %2$s.', 'dawp'),
                                 $support_email,
                                 $business_hours
                             )
@@ -290,28 +290,28 @@ $quick_links = [
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-3">
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
+                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('E-mel Sokongan Pelanggan', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
                                 <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
                             </dd>
                         </div>
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Phone', 'dawp'); ?></dt>
+                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Telefon Sokongan Pelanggan', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
                                 <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
                             </dd>
                         </div>
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Business Address', 'dawp'); ?></dt>
+                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Alamat Perniagaan', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($store_address); ?></dd>
                         </div>
                     </dl>
                     <div class="mt-7 flex flex-col gap-3 sm:flex-row">
                         <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-6 text-sm font-bold text-white transition hover:bg-[#7F422F]">
-                            <?php esc_html_e('Contact Us', 'dawp'); ?>
+                            <?php esc_html_e('Hubungi Kami', 'dawp'); ?>
                         </a>
                         <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-6 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
-                            <?php esc_html_e('Shop Products', 'dawp'); ?>
+                            <?php esc_html_e('Beli Produk', 'dawp'); ?>
                         </a>
                     </div>
                 </article>

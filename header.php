@@ -37,7 +37,7 @@ $cart_count  = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_cont
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : wp_login_url();
 $site_name   = get_bloginfo('name');
-$logo_url    = get_template_directory_uri() . '/assets/img/gallery/Logo_all (10).png';
+$logo_url    = get_template_directory_uri() . '/assets/img/norvexa.png';
 
 $nav_items = [
     ['title' => __('Home', 'dawp'),    'url' => home_url('/')],

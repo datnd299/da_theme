@@ -10,7 +10,7 @@ if (!function_exists('dawp_home_product_grid')) {
         if (empty($products)) {
             ?>
             <div class="col-span-full rounded-3xl border border-[#D8CEC6] bg-white p-8 text-center">
-                <p class="text-[#6F625D]"><?php esc_html_e('New Myveganblog style pieces will be available soon.', 'dawp'); ?></p>
+                <p class="text-[#6F625D]"><?php esc_html_e('New Norvexa style pieces will be available soon.', 'dawp'); ?></p>
             </div>
             <?php
             return;
@@ -139,7 +139,7 @@ $trust_cards = [
         <div class="relative mx-auto grid min-h-[660px] w-[min(100%,1180px)] content-end px-4 pb-8 pt-20 sm:px-6 lg:px-8 lg:pb-12">
             <div class="max-w-4xl">
                 <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]">
-                    <?php esc_html_e('Myveganblog', 'dawp'); ?>
+                    <?php esc_html_e('Norvexa', 'dawp'); ?>
                 </span>
                 <h1 class="mt-7 max-w-4xl font-serif text-4xl leading-[1.02] text-white sm:text-6xl lg:text-7xl">
                     <?php esc_html_e('Women\'s Shoes & Accessories For Everyday Style', 'dawp'); ?>
@@ -271,7 +271,7 @@ $trust_cards = [
                     <?php esc_html_e('Shoes, sandals, bags, and accessories that work with real wardrobes.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Myveganblog focuses on feminine footwear, practical handbags, and simple accessories that fit workdays, weekends, travel moments, and everyday routines.', 'dawp'); ?>
+                    <?php esc_html_e('Norvexa focuses on feminine footwear, practical handbags, and simple accessories that fit workdays, weekends, travel moments, and everyday routines.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 grid gap-3 sm:grid-cols-3">
                     <div class="rounded-2xl bg-[#F8F3EC] p-4">
@@ -329,7 +329,7 @@ $trust_cards = [
                     <?php esc_html_e('A clear place for polished women\'s shoes, handbags, and accessories.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-white/78">
-                    <?php esc_html_e('Myveganblog brings together women\'s footwear, handbags, and fashion accessories for shoppers who want practical style pieces that are easy to wear and easy to pair.', 'dawp'); ?>
+                    <?php esc_html_e('Norvexa brings together women\'s footwear, handbags, and fashion accessories for shoppers who want practical style pieces that are easy to wear and easy to pair.', 'dawp'); ?>
                 </p>
                 <form id="newsletter-form" class="mt-8 grid gap-3 sm:grid-cols-[1fr_auto]" method="post" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" novalidate>
                     <input type="hidden" name="action" value="dawp_newsletter">

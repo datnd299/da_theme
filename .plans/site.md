@@ -1,21 +1,22 @@
-# My Vegan Blog — Site.md
+# Norvexa — Site.md
 
 ## Store Information
 
-* **Domain:** myveganblog.com
-* **Brand Name:** My Vegan Blog
+* **Domain:** norvexaholdingsllc.com
+* **Brand Name:** Norvexa
+* **Legal Entity:** Norvexa Holdings LLC
 * **Language:** English
 * **Store Type:** Women’s Shoes, Handbags & Fashion Accessories Store
 * **Primary Market:** United States
 * **Core Products:** Women’s leather shoes, women’s sandals, women’s handbags, fashion accessories
-* **Support Email:** [support@myveganblog.com](mailto:support@myveganblog.com)
+* **Support Email:** [support@norvexaholdingsllc.com](mailto:support@norvexaholdingsllc.com)
 * **Business Hours:** Monday – Friday, 9:00 AM – 5:00 PM, GMT-08:00 Pacific Standard Time (Los Angeles)
 
 ---
 
 ## Brand Positioning
 
-My Vegan Blog is a women’s fashion accessories store focused on polished everyday style, feminine footwear, handbags, and simple outfit-finishing essentials.
+Norvexa is a women’s fashion accessories store focused on polished everyday style, feminine footwear, handbags, and simple outfit-finishing essentials.
 
 Core message:
 
@@ -23,7 +24,7 @@ Core message:
 
 Expanded message:
 
-> My Vegan Blog brings together women’s leather shoes, sandals, handbags, and fashion accessories designed for daily outfits, relaxed weekends, travel moments, and confident everyday looks.
+> Norvexa brings together women’s leather shoes, sandals, handbags, and fashion accessories designed for daily outfits, relaxed weekends, travel moments, and confident everyday looks.
 
 The store should feel:
 
@@ -48,7 +49,7 @@ The store should not feel like:
 
 ## Core Store Concept
 
-My Vegan Blog focuses on women’s footwear, handbags, and fashion accessories for customers who want practical style pieces that are easy to wear and easy to pair.
+Norvexa focuses on women’s footwear, handbags, and fashion accessories for customers who want practical style pieces that are easy to wear and easy to pair.
 
 Use only these 4 visible categories:
 

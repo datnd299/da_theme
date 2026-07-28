@@ -7,11 +7,11 @@ add_action('admin_head', 'dawp_output_favicon');
 add_action('login_head', 'dawp_output_favicon');
 
 function dawp_site_name() {
-    return 'Myveganblog';
+    return 'Norvexa';
 }
 
 function dawp_output_favicon() {
-    $favicon_url = get_template_directory_uri() . '/assets/img/gallery/Logo_all (10).png';
+    $favicon_url = get_template_directory_uri() . '/assets/img/norvexa.png';
     ?>
     <link rel="icon" href="<?php echo esc_url($favicon_url); ?>" type="image/png">
     <link rel="apple-touch-icon" href="<?php echo esc_url($favicon_url); ?>">
@@ -19,7 +19,7 @@ function dawp_output_favicon() {
 }
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'MVB-' . $order_id;
+    return 'NRV-' . $order_id;
 }
 function dawp_setup() {
     add_theme_support('title-tag');

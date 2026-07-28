@@ -14,7 +14,7 @@ function dawp_newsletter_subscribe() {
 
     $site_name = get_bloginfo('name');
     $subject   = 'Thank you for joining ' . $site_name . '!';
-    $message   = "Hi there,\n\nThank you for joining the Myveganblog community. We're glad to have you here.\n\nYou'll be the first to know about new women's shoes, sandals, handbags, fashion accessories, and polished everyday style updates.\n\nWith care,\nThe " . $site_name . " Team";
+    $message   = "Hi there,\n\nThank you for joining the Norvexa community. We're glad to have you here.\n\nYou'll be the first to know about new women's shoes, sandals, handbags, fashion accessories, and polished everyday style updates.\n\nWith care,\nThe " . $site_name . " Team";
     $headers   = ['Content-Type: text/plain; charset=UTF-8'];
 
     $sent = wp_mail($email, $subject, $message, $headers);
@@ -50,7 +50,7 @@ function dawp_contact_submit() {
     }
 
     $site_name   = get_bloginfo('name');
-    $support_email = 'support@myveganblog.com';
+    $support_email = 'support@norvexaholdingsllc.com';
 
     $subject_labels = [
         'general' => 'General Inquiry',
@@ -78,7 +78,7 @@ function dawp_contact_submit() {
     );
 
     if (!$admin_sent) {
-        wp_send_json_error(['message' => 'Something went wrong. Please email us directly at support@myveganblog.com.']);
+        wp_send_json_error(['message' => 'Something went wrong. Please email us directly at support@norvexaholdingsllc.com.']);
     }
 
     $confirm_subject = 'We received your message - ' . $site_name;

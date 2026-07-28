@@ -30,11 +30,11 @@ $footer_payment_methods = [
     ['file' => 'image copy 3.png', 'label' => __('Payment method', 'dawp')],
 ];
 
-$support_email = 'support@myveganblog.com';
+$support_email = 'support@norvexaholdingsllc.com';
 $business_hours = __('Business Hours: Monday-Friday, 9:00 AM-5:00 PM, GMT-08:00', 'dawp');
 $business_address = dawp_store_address();
 $site_name     = get_bloginfo('name');
-$logo_url      = get_template_directory_uri() . '/assets/img/gallery/Logo_all (10).png';
+$logo_url      = get_template_directory_uri() . '/assets/img/norvexa.png';
 ?>
 
 <footer id="colophon" class="bg-[#2F2A28] text-white" role="contentinfo">

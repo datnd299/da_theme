@@ -118,6 +118,56 @@ document.addEventListener('DOMContentLoaded', () => {
         dotClass: 'home-care-slider-dot',
     });
 
+    initMobileSlider({
+        sliderSelector: '.about-focus-slider',
+        controlsSelector: '.about-focus-slider-controls',
+        slideSelector: '.about-focus-slide',
+        prevSelector: '.about-focus-slider-prev',
+        nextSelector: '.about-focus-slider-next',
+        dotsSelector: '.about-focus-slider-dots',
+        dotClass: 'about-focus-slider-dot',
+    });
+
+    initMobileSlider({
+        sliderSelector: '.about-trust-slider',
+        controlsSelector: '.about-trust-slider-controls',
+        slideSelector: '.about-trust-slide',
+        prevSelector: '.about-trust-slider-prev',
+        nextSelector: '.about-trust-slider-next',
+        dotsSelector: '.about-trust-slider-dots',
+        dotClass: 'about-trust-slider-dot',
+    });
+
+    initMobileSlider({
+        sliderSelector: '.contact-info-slider',
+        controlsSelector: '.contact-info-slider-controls',
+        slideSelector: '.contact-info-slide',
+        prevSelector: '.contact-info-slider-prev',
+        nextSelector: '.contact-info-slider-next',
+        dotsSelector: '.contact-info-slider-dots',
+        dotClass: 'contact-info-slider-dot',
+    });
+
+    initMobileSlider({
+        sliderSelector: '.contact-help-slider',
+        controlsSelector: '.contact-help-slider-controls',
+        slideSelector: '.contact-help-slide',
+        prevSelector: '.contact-help-slider-prev',
+        nextSelector: '.contact-help-slider-next',
+        dotsSelector: '.contact-help-slider-dots',
+        dotClass: 'contact-help-slider-dot',
+    });
+
+    initMobileSlider({
+        sliderSelector: '.contact-resources-slider',
+        controlsSelector: '.contact-resources-slider-controls',
+        slideSelector: '.contact-resources-slide',
+        prevSelector: '.contact-resources-slider-prev',
+        nextSelector: '.contact-resources-slider-next',
+        dotsSelector: '.contact-resources-slider-dots',
+        dotClass: 'contact-resources-slider-dot',
+    });
+
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');

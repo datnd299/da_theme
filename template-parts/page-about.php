@@ -108,9 +108,9 @@ $trust_cards = [
                 <p class="mt-4 text-base leading-7 text-[#756A62]"><?php esc_html_e('The Gudwear.com experience is built around a clear women\'s apparel niche and a calm shopping journey.', 'dawp'); ?></p>
             </div>
 
-            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="about-focus-slider mt-10 gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-4" aria-label="<?php esc_attr_e('Gudwear focus points', 'dawp'); ?>">
                 <?php foreach ($focus_cards as $index => $card) : ?>
-                    <div class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
+                    <div class="about-focus-slide rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
                         <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full <?php echo 1 === $index % 2 ? 'bg-[#A8B99A]' : 'bg-[#B89B83]'; ?> text-sm font-bold text-white">
                             <?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?>
                         </div>
@@ -118,6 +118,15 @@ $trust_cards = [
                         <p class="mt-3 text-sm leading-6 text-[#756A62]"><?php echo esc_html($card['copy']); ?></p>
                     </div>
                 <?php endforeach; ?>
+            </div>
+            <div class="about-focus-slider-controls mt-4" aria-label="<?php esc_attr_e('Gudwear focus slider controls', 'dawp'); ?>">
+                <button class="about-focus-slider-button about-focus-slider-prev" type="button" aria-label="<?php esc_attr_e('Previous focus item', 'dawp'); ?>">
+                    <span aria-hidden="true">&lsaquo;</span>
+                </button>
+                <div class="about-focus-slider-dots" aria-hidden="true"></div>
+                <button class="about-focus-slider-button about-focus-slider-next" type="button" aria-label="<?php esc_attr_e('Next focus item', 'dawp'); ?>">
+                    <span aria-hidden="true">&rsaquo;</span>
+                </button>
             </div>
         </div>
     </section>
@@ -181,9 +190,9 @@ $trust_cards = [
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="inline-flex min-h-11 items-center justify-center rounded-full border border-[#B89B83] px-6 text-sm font-bold text-[#4B3528] transition hover:bg-[#F3E7DA]"><?php esc_html_e('View Shipping Policy', 'dawp'); ?></a>
             </div>
 
-            <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="about-trust-slider mt-10 gap-5 sm:grid sm:grid-cols-2 lg:grid-cols-4" aria-label="<?php esc_attr_e('Customer trust points', 'dawp'); ?>">
                 <?php foreach ($trust_cards as $card) : ?>
-                    <div class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
+                    <div class="about-trust-slide rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
                         <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FFF8EF] text-[#4B3528]" aria-hidden="true">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 6 9 17l-5-5"></path>
@@ -193,6 +202,15 @@ $trust_cards = [
                         <p class="mt-2 text-sm leading-6 text-[#756A62]"><?php echo wp_kses_post($link_support_email($card['copy'])); ?></p>
                     </div>
                 <?php endforeach; ?>
+            </div>
+            <div class="about-trust-slider-controls mt-4" aria-label="<?php esc_attr_e('Customer trust slider controls', 'dawp'); ?>">
+                <button class="about-trust-slider-button about-trust-slider-prev" type="button" aria-label="<?php esc_attr_e('Previous trust item', 'dawp'); ?>">
+                    <span aria-hidden="true">&lsaquo;</span>
+                </button>
+                <div class="about-trust-slider-dots" aria-hidden="true"></div>
+                <button class="about-trust-slider-button about-trust-slider-next" type="button" aria-label="<?php esc_attr_e('Next trust item', 'dawp'); ?>">
+                    <span aria-hidden="true">&rsaquo;</span>
+                </button>
             </div>
         </div>
     </section>

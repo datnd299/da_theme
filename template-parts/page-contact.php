@@ -74,8 +74,8 @@ $quick_links = [
     </section>
 
     <section class="bg-white py-16 lg:py-20">
-        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
-            <div class="rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-6 shadow-sm">
+        <div class="contact-info-slider mx-auto max-w-7xl gap-6 px-4 sm:px-6 md:grid md:grid-cols-3 lg:px-8" aria-label="<?php esc_attr_e('Contact information', 'dawp'); ?>">
+            <div class="contact-info-slide rounded-2xl border border-[#E7D8C8] bg-[#FFF8EF] p-6 shadow-sm">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#4B3528]" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect width="20" height="16" x="2" y="4" rx="2"></rect>
@@ -88,7 +88,7 @@ $quick_links = [
                 </p>
             </div>
 
-            <div class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
+            <div class="contact-info-slide rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#F3E7DA] text-[#4B3528]" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="10"></circle>
@@ -99,7 +99,7 @@ $quick_links = [
                 <p class="mt-2 text-sm leading-6 text-[#756A62]"><?php esc_html_e('Business hours: Monday-Friday, 9:00 AM-5:00 PM', 'dawp'); ?></p>
             </div>
 
-            <div class="rounded-2xl border border-[#E7D8C8] bg-[#F3E7DA] p-6 shadow-sm">
+            <div class="contact-info-slide rounded-2xl border border-[#E7D8C8] bg-[#F3E7DA] p-6 shadow-sm">
                 <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#4B3528]" aria-hidden="true">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -110,6 +110,15 @@ $quick_links = [
                 <h2 class="text-xl font-bold text-[#4B3528]"><?php esc_html_e('Response Time', 'dawp'); ?></h2>
                 <p class="mt-2 text-sm leading-6 text-[#756A62]"><?php esc_html_e('We usually reply within 1-2 business days. Business hours: Monday-Friday, 9:00 AM-5:00 PM.', 'dawp'); ?></p>
             </div>
+        </div>
+        <div class="contact-info-slider-controls mt-4" aria-label="<?php esc_attr_e('Contact information slider controls', 'dawp'); ?>">
+            <button class="contact-info-slider-button contact-info-slider-prev" type="button" aria-label="<?php esc_attr_e('Previous contact information item', 'dawp'); ?>">
+                <span aria-hidden="true">&lsaquo;</span>
+            </button>
+            <div class="contact-info-slider-dots" aria-hidden="true"></div>
+            <button class="contact-info-slider-button contact-info-slider-next" type="button" aria-label="<?php esc_attr_e('Next contact information item', 'dawp'); ?>">
+                <span aria-hidden="true">&rsaquo;</span>
+            </button>
         </div>
     </section>
 
@@ -190,9 +199,9 @@ $quick_links = [
                 <p class="text-sm font-bold uppercase tracking-[0.18em] text-[#8C6D58]"><?php esc_html_e('How We Can Help', 'dawp'); ?></p>
                 <h2 class="mt-3 font-heading text-4xl font-bold leading-tight text-[#4B3528]"><?php esc_html_e('Clear support for a calm shopping experience.', 'dawp'); ?></h2>
             </div>
-            <div class="mt-10 grid gap-5 md:grid-cols-3">
+            <div class="contact-help-slider mt-10 gap-5 md:grid md:grid-cols-3" aria-label="<?php esc_attr_e('How we can help topics', 'dawp'); ?>">
                 <?php foreach ($help_topics as $topic) : ?>
-                    <div class="rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4B3528]/10">
+                    <div class="contact-help-slide rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4B3528]/10">
                         <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#FFF8EF] text-[#4B3528]" aria-hidden="true">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 6 9 17l-5-5"></path>
@@ -202,6 +211,15 @@ $quick_links = [
                         <p class="mt-2 text-sm leading-6 text-[#756A62]"><?php echo esc_html($topic['copy']); ?></p>
                     </div>
                 <?php endforeach; ?>
+            </div>
+            <div class="contact-help-slider-controls mt-4" aria-label="<?php esc_attr_e('How we can help slider controls', 'dawp'); ?>">
+                <button class="contact-help-slider-button contact-help-slider-prev" type="button" aria-label="<?php esc_attr_e('Previous help topic', 'dawp'); ?>">
+                    <span aria-hidden="true">&lsaquo;</span>
+                </button>
+                <div class="contact-help-slider-dots" aria-hidden="true"></div>
+                <button class="contact-help-slider-button contact-help-slider-next" type="button" aria-label="<?php esc_attr_e('Next help topic', 'dawp'); ?>">
+                    <span aria-hidden="true">&rsaquo;</span>
+                </button>
             </div>
         </div>
     </section>
@@ -218,13 +236,22 @@ $quick_links = [
                 </a>
             </div>
 
-            <div class="mt-10 grid gap-5 md:grid-cols-3">
+            <div class="contact-resources-slider mt-10 gap-5 md:grid md:grid-cols-3" aria-label="<?php esc_attr_e('Customer resources', 'dawp'); ?>">
                 <?php foreach ($quick_links as $link) : ?>
-                    <a href="<?php echo esc_url($link['url']); ?>" class="group rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4B3528]/10">
+                    <a href="<?php echo esc_url($link['url']); ?>" class="contact-resources-slide group rounded-2xl border border-[#E7D8C8] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#4B3528]/10">
                         <span class="block text-lg font-bold text-[#4B3528] group-hover:text-[#B89B83]"><?php echo esc_html($link['title']); ?></span>
                         <span class="mt-2 block text-sm leading-6 text-[#756A62]"><?php echo esc_html($link['copy']); ?></span>
                     </a>
                 <?php endforeach; ?>
+            </div>
+            <div class="contact-resources-slider-controls mt-4" aria-label="<?php esc_attr_e('Customer resources slider controls', 'dawp'); ?>">
+                <button class="contact-resources-slider-button contact-resources-slider-prev" type="button" aria-label="<?php esc_attr_e('Previous customer resource', 'dawp'); ?>">
+                    <span aria-hidden="true">&lsaquo;</span>
+                </button>
+                <div class="contact-resources-slider-dots" aria-hidden="true"></div>
+                <button class="contact-resources-slider-button contact-resources-slider-next" type="button" aria-label="<?php esc_attr_e('Next customer resource', 'dawp'); ?>">
+                    <span aria-hidden="true">&rsaquo;</span>
+                </button>
             </div>
         </div>
     </section>

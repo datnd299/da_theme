@@ -71,7 +71,12 @@
   @media (max-width: 767px) {
     .home-category-slider,
     .home-trust-slider,
-    .home-care-slider {
+    .home-care-slider,
+    .about-focus-slider,
+    .about-trust-slider,
+    .contact-info-slider,
+    .contact-help-slider,
+    .contact-resources-slider {
       display: flex !important;
       gap: 1rem;
       margin-left: -1rem;
@@ -87,31 +92,56 @@
 
     .home-category-slider::-webkit-scrollbar,
     .home-trust-slider::-webkit-scrollbar,
-    .home-care-slider::-webkit-scrollbar {
+    .home-care-slider::-webkit-scrollbar,
+    .about-focus-slider::-webkit-scrollbar,
+    .about-trust-slider::-webkit-scrollbar,
+    .contact-info-slider::-webkit-scrollbar,
+    .contact-help-slider::-webkit-scrollbar,
+    .contact-resources-slider::-webkit-scrollbar {
       display: none;
     }
 
     .home-category-slider,
     .home-trust-slider,
-    .home-care-slider {
+    .home-care-slider,
+    .about-focus-slider,
+    .about-trust-slider,
+    .contact-info-slider,
+    .contact-help-slider,
+    .contact-resources-slider {
       scrollbar-width: none;
     }
 
     .home-category-slide,
     .home-trust-slide,
-    .home-care-slide {
+    .home-care-slide,
+    .about-focus-slide,
+    .about-trust-slide,
+    .contact-info-slide,
+    .contact-help-slide,
+    .contact-resources-slide {
       flex: 0 0 min(82vw, 22rem);
       scroll-snap-align: start;
     }
 
     .home-trust-slide,
-    .home-care-slide {
+    .home-care-slide,
+    .about-focus-slide,
+    .about-trust-slide,
+    .contact-info-slide,
+    .contact-help-slide,
+    .contact-resources-slide {
       min-height: 13rem;
     }
 
     .home-category-slider-controls,
     .home-trust-slider-controls,
-    .home-care-slider-controls {
+    .home-care-slider-controls,
+    .about-focus-slider-controls,
+    .about-trust-slider-controls,
+    .contact-info-slider-controls,
+    .contact-help-slider-controls,
+    .contact-resources-slider-controls {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -120,7 +150,12 @@
 
     .home-category-slider-button,
     .home-trust-slider-button,
-    .home-care-slider-button {
+    .home-care-slider-button,
+    .about-focus-slider-button,
+    .about-trust-slider-button,
+    .contact-info-slider-button,
+    .contact-help-slider-button,
+    .contact-resources-slider-button {
       display: inline-flex;
       width: 2.5rem;
       height: 2.5rem;
@@ -138,13 +173,23 @@
 
     .home-category-slider-button:disabled,
     .home-trust-slider-button:disabled,
-    .home-care-slider-button:disabled {
+    .home-care-slider-button:disabled,
+    .about-focus-slider-button:disabled,
+    .about-trust-slider-button:disabled,
+    .contact-info-slider-button:disabled,
+    .contact-help-slider-button:disabled,
+    .contact-resources-slider-button:disabled {
       opacity: 0.35;
     }
 
     .home-category-slider-dots,
     .home-trust-slider-dots,
-    .home-care-slider-dots {
+    .home-care-slider-dots,
+    .about-focus-slider-dots,
+    .about-trust-slider-dots,
+    .contact-info-slider-dots,
+    .contact-help-slider-dots,
+    .contact-resources-slider-dots {
       display: flex;
       min-width: 4rem;
       align-items: center;
@@ -154,7 +199,12 @@
 
     .home-category-slider-dot,
     .home-trust-slider-dot,
-    .home-care-slider-dot {
+    .home-care-slider-dot,
+    .about-focus-slider-dot,
+    .about-trust-slider-dot,
+    .contact-info-slider-dot,
+    .contact-help-slider-dot,
+    .contact-resources-slider-dot {
       width: 0.5rem;
       height: 0.5rem;
       border-radius: 999px;
@@ -164,7 +214,12 @@
 
     .home-category-slider-dot.is-active,
     .home-trust-slider-dot.is-active,
-    .home-care-slider-dot.is-active {
+    .home-care-slider-dot.is-active,
+    .about-focus-slider-dot.is-active,
+    .about-trust-slider-dot.is-active,
+    .contact-info-slider-dot.is-active,
+    .contact-help-slider-dot.is-active,
+    .contact-resources-slider-dot.is-active {
       width: 1.25rem;
       background: #6F7F58;
     }
@@ -173,7 +228,12 @@
   @media (min-width: 768px) {
     .home-category-slider-controls,
     .home-trust-slider-controls,
-    .home-care-slider-controls {
+    .home-care-slider-controls,
+    .about-focus-slider-controls,
+    .about-trust-slider-controls,
+    .contact-info-slider-controls,
+    .contact-help-slider-controls,
+    .contact-resources-slider-controls {
       display: none;
     }
   }

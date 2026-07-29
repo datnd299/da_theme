@@ -53,7 +53,7 @@ $shipping_parameters = [
 $return_terms = [
     __('Return Window: Customers may request returns within 30 days of documented delivery. Returns are accepted for eligible products in new condition.', 'dawp'),
     __('Product Condition: Eligible products must be entirely unused, in their original pristine condition (New only), and returned with original packaging, tags, labels, accessories, and included parts intact.', 'dawp'),
-    __('Fees & Shipping Costs: There is no restocking fee ($0.00). The customer is responsible for all return shipping costs for both defective/damaged items and change-of-mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
+    __('Fees & Shipping Costs: There is no restocking fee ($0.00). We cover all return shipping costs for both defective/damaged items and change-of-mind returns. Contact us and we will email you a free prepaid shipping label.', 'dawp'),
     __('Refund Timelines: Approved refunds are processed back to the original payment method within up to 7 business days.', 'dawp'),
 ];
 
@@ -164,7 +164,7 @@ $sections = [
     [
         'title' => __('9. Governing Law', 'dawp'),
         'copy'  => [
-            __('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the State of California, United States.', 'dawp'),
+            __('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the United States.', 'dawp'),
         ],
     ],
 ];

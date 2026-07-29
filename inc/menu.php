@@ -43,7 +43,7 @@ function dawp_product_category_url($slug) {
     return home_url('/product-category/' . trim($slug, '/') . '/');
 }
 
-function dawp_shop_category_items() {
+function dawp_shop_category_items($exclude_slugs = []) {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
         'home-garden-tools' => ['name' => __('Home, Garden & Tools', 'dawp')],
         'electronics'       => ['name' => __('Electronics', 'dawp')],
@@ -57,6 +57,10 @@ function dawp_shop_category_items() {
     $items = [];
 
     foreach ($categories as $slug => $category) {
+        if (in_array($slug, $exclude_slugs, true)) {
+            continue;
+        }
+
         $items[] = [
             'title' => $category['name'],
             'url'   => dawp_product_category_url($slug),

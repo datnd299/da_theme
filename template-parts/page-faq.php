@@ -99,7 +99,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
+                'answer'   => __('We do. Topgoodmart covers return shipping costs in all cases, including change of mind returns. Just contact us and we will email you a free prepaid shipping label.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
@@ -107,7 +107,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do you offer exchanges?', 'dawp'),
-                'answer'   => __('We do not process direct one-for-one product exchanges. To get a different size, color, or model, return the original eligible item for a refund and place a new order on the website.', 'dawp'),
+                'answer'   => __('Yes, we accept exchanges. If you would like a different size, color, or model, contact us and our support team will help arrange the exchange for your order.', 'dawp'),
             ],
             [
                 'question' => __('When will I receive my refund?', 'dawp'),

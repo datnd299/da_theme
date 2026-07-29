@@ -12,8 +12,9 @@ if (!defined('ABSPATH')) {
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $support_email  = 'support@topgoodmart.com';
+$support_phone  = '826-207-1399';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$store_address  = '423 Frontier Rd NE APT 6, Roanoke, VA 24012-3028';
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -29,31 +30,13 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$footer_category_url = static function ($slug) {
-    if (function_exists('get_term_by')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-        if ($term && !is_wp_error($term)) {
-            $link = get_term_link($term);
-            if (!is_wp_error($link)) {
-                return $link;
-            }
-        }
-    }
-
-    return home_url('/product-category/' . trim($slug, '/') . '/');
-};
-
 $footer_columns = [
     [
         'title' => __('Departments', 'dawp'),
-        'links' => [
-            ['title' => __('Shop All', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Home Essentials', 'dawp'), 'url' => $footer_category_url('home-essentials')],
-            ['title' => __('Furniture', 'dawp'), 'url' => $footer_category_url('furniture')],
-            ['title' => __('Electronics', 'dawp'), 'url' => $footer_category_url('electronics')],
-            ['title' => __('Smart Home', 'dawp'), 'url' => $footer_category_url('smart-home')],
-            ['title' => __('Kitchen & Dining', 'dawp'), 'url' => $footer_category_url('kitchen-dining')],
-        ],
+        'links' => array_merge(
+            [['title' => __('Shop All', 'dawp'), 'url' => $shop_url]],
+            function_exists('dawp_shop_category_items') ? dawp_shop_category_items(['pets', 'school-office-art-supplies']) : []
+        ),
     ],
     [
         'title' => __('Customer Care', 'dawp'),
@@ -115,6 +98,10 @@ $footer_columns = [
                     <div>
                         <dt><?php esc_html_e('Address:', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($store_address); ?></dd>
+                    </div>
+                    <div>
+                        <dt><?php esc_html_e('Phone:', 'dawp'); ?></dt>
+                        <dd><a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></dd>
                     </div>
                     <div>
                         <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>

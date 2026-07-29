@@ -28,11 +28,11 @@ $return_eligibility = [
 $return_shipping_fees = [
     [
         'title' => __('Defective, Damaged, or Incorrect Products:', 'dawp'),
-        'copy'  => __('The customer is responsible for shipping the item back to our store. We do not cover return shipping costs or provide prepaid labels. If you receive a defective or damaged product, please contact us for instructions.', 'dawp'),
+        'copy'  => __('We cover all return shipping costs. Please contact us and we will email you a free prepaid shipping label.', 'dawp'),
     ],
     [
         'title' => __('Customer Remorse / Change of Mind:', 'dawp'),
-        'copy'  => __('The customer is responsible for all return shipping costs. The customer must choose their own shipping carrier and prepay the return shipping fee.', 'dawp'),
+        'copy'  => __('We cover all return shipping costs. Please contact us and we will email you a free prepaid shipping label.', 'dawp'),
     ],
 ];
 
@@ -61,7 +61,7 @@ $return_steps = [
     ],
     [
         'title' => __('Ship It Back to Our Returns Center', 'dawp'),
-        'copy'  => __('Purchase a shipping label from your preferred carrier (e.g., USPS, UPS, FedEx, or DHL), attach it to the outside of your shipping box, and drop it off at the designated carrier location. The customer is responsible for all shipping costs. We recommend using a trackable shipping service.', 'dawp'),
+        'copy'  => __('We will email you a free prepaid shipping label along with your RMA approval. Attach it to the outside of your shipping box and drop it off at the designated carrier location. There is no cost to you for return shipping.', 'dawp'),
     ],
 ];
 
@@ -122,7 +122,7 @@ $return_faqs = [
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not provide prepaid return labels.', 'dawp'),
+        'answer'   => __('We do. Topgoodmart covers return shipping costs in all cases, including change of mind returns. Just contact us and we will email you a free prepaid shipping label.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),
@@ -244,7 +244,7 @@ $return_faqs = [
 
             <article class="rounded-md border border-[#E5E7EB] bg-white p-6 shadow-sm sm:p-8">
                 <h2 class="font-heading text-3xl font-extrabold text-[#1F2937] sm:text-4xl"><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
-                <p class="mt-5 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different size, color, or model, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
+                <p class="mt-5 text-sm leading-7 text-[#6B7280]"><?php esc_html_e('Yes, we accept exchanges. If you would like a different size, color, or model, please contact us and our support team will help arrange the exchange for your order.', 'dawp'); ?></p>
             </article>
 
             <article class="rounded-md border border-[#E5E7EB] bg-[#F5F6F8] p-6 shadow-sm sm:p-8">

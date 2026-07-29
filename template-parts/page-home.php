@@ -257,34 +257,6 @@ if (class_exists('WooCommerce')) {
     </div>
 </section>
 
-<section class="tgm-section">
-    <div class="tgm-container">
-        <div class="tgm-section__head">
-            <div>
-                <p class="tgm-eyebrow">Customer confidence</p>
-                <h2>Trusted By Everyday Shoppers</h2>
-            </div>
-        </div>
-        <div class="tgm-review-row" aria-label="Customer reviews">
-            <?php
-            $reviews = [
-                ['name' => 'Megan R.', 'location' => 'Austin, TX', 'text' => 'The site made it easy to compare products and my kitchen order arrived right inside the delivery estimate.'],
-                ['name' => 'Chris L.', 'location' => 'Denver, CO', 'text' => 'Clean shopping experience, clear pricing and useful product details. I found home office upgrades quickly.'],
-                ['name' => 'Ashley P.', 'location' => 'Tampa, FL', 'text' => 'I liked the mix of home and tech products. Checkout felt straightforward and tracking was easy to follow.'],
-            ];
-            foreach ($reviews as $review) :
-            ?>
-                <article class="tgm-review">
-                    <div class="tgm-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <p><?php echo esc_html($review['text']); ?></p>
-                    <strong><?php echo esc_html($review['name']); ?></strong>
-                    <span><?php echo esc_html($review['location']); ?></span>
-                </article>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
-
 <section class="tgm-newsletter">
     <div class="tgm-container tgm-newsletter__inner">
         <div>

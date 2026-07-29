@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Topgoodmart';
 $support_email  = 'support@topgoodmart.com';
 $business_hours = 'Monday - Friday, 9:00 AM - 5:00 PM Pacific Time';
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$store_address  = '423 Frontier Rd NE APT 6, Roanoke, VA 24012-3028';
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $status         = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 

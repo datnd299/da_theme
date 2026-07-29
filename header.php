@@ -18,6 +18,9 @@ $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_co
 $logo_path     = get_template_directory() . '/assets/img/home/5f4f0066-d0af-4d77-af44-11e501dd5cc9 (1).png';
 $logo_url      = get_template_directory_uri() . '/assets/img/home/5f4f0066-d0af-4d77-af44-11e501dd5cc9 (1).png';
 
+$dawp_page_seo = function_exists('dawp_rank_math_page_seo_data') ? dawp_rank_math_page_seo_data() : false;
+$meta_description = $dawp_page_seo['desc'] ?? 'Topgoodmart - Your modern online marketplace for home, garden, tools, electronics, sports, toys, beauty, pets, school, office and art supplies. Fast U.S. shipping, secure checkout, and everyday deals.';
+
 if (file_exists($logo_path)) {
     $logo_url = add_query_arg('ver', filemtime($logo_path), $logo_url);
 }
@@ -49,7 +52,7 @@ $is_shop_nav_current = function_exists('is_shop') && is_shop() && !$is_sale_nav_
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Topgoodmart - Your modern online marketplace for home, garden, tools, electronics, sports, toys, beauty, pets, school, office and art supplies. Fast U.S. shipping, secure checkout, and everyday deals.">
+    <meta name="description" content="<?php echo esc_attr($meta_description); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
 

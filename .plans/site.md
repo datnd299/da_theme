@@ -1,34 +1,37 @@
-# MegaMallDepot — Site.md
+# Crowdfused — Site.md
 
 ## Store Information
 
-* **Website:** megamalldepot.com
+* **Website:** crowdfused.com
 * **Language:** English
 * **Primary Market:** United States
-* **Store Type:** Premium Home & Lifestyle Ecommerce
-* **Industry:** Home • Kitchen • Furniture • Decor • Living
+* **Store Type:** Premium Innovation & Lifestyle Ecommerce
+* **Industry:** Innovative Products • Smart Living • Outdoor • Everyday Technology
 
 ---
 
 # Brand Positioning
 
-MegaMallDepot is a modern American home and lifestyle retailer inspired by premium home shopping experiences. The store focuses on quality products that elevate everyday living, combining elegant design with accessible pricing.
+Crowdfused is a premium online destination for discovering innovative products inspired by breakthrough ideas, modern lifestyles, and crowdfunding innovation.
+
+The brand brings together carefully selected products that combine functionality, creativity, and exceptional design, making everyday life simpler, smarter, and more enjoyable.
 
 The storefront should feel:
 
-* Warm
-* Premium
+* Innovative
 * Modern
-* Elegant
-* Organized
-* Inspirational
+* Premium
+* Clean
+* Trustworthy
+* Inspiring
 
 Avoid:
 
-* Discount warehouse appearance
+* Cheap gadget shop appearance
 * Marketplace clutter
-* Electronics-first branding
+* Flash-sale branding
 * Generic dropshipping style
+* Overly technical presentation
 
 ---
 
@@ -36,76 +39,100 @@ Avoid:
 
 ## Primary Customers
 
-* Homeowners
-* Couples
-* Families
-* Interior enthusiasts
-* Home improvement shoppers
+* Technology enthusiasts
+* Professionals
+* Travelers
+* Outdoor lovers
+* Smart home adopters
+* Gift shoppers
+* Everyday problem solvers
 
 Age:
 
-* 28–60
+* 25–55
 
 Shopping motivation:
 
-* Upgrade home spaces
-* Seasonal decorating
-* Better kitchen experiences
-* Comfortable everyday living
+* Discover unique innovations
+* Improve daily routines
+* Upgrade lifestyle
+* Find thoughtful gifts
+* Save time with practical solutions
 
 ---
 
-# Main Categories
+# Core Product Categories
 
-## Kitchen & Dining
+## Smart Home
 
-Cookware, bakeware, coffee, dining essentials and kitchen tools.
-
----
-
-## Furniture
-
-Living room, bedroom, dining room and home office furniture.
+Modern home gadgets, automation accessories, organization tools and daily convenience products.
 
 ---
 
-## Home Decor
+## Outdoor & Adventure
 
-Wall décor, mirrors, rugs, lighting, decorative accessories and seasonal styling.
-
----
-
-## Bedding & Bath
-
-Bedding collections, towels, bath accessories and everyday comfort.
+Camping gear, travel essentials, portable equipment and outdoor innovations.
 
 ---
 
-## Storage & Organization
+## Everyday Carry
 
-Closet organization, shelving, storage solutions and utility essentials.
+Compact tools, multifunction accessories, wallets, organizers and portable gadgets.
 
 ---
 
-## Outdoor Living
+## Kitchen Innovation
 
-Patio furniture, outdoor décor, garden accessories and entertaining essentials.
+Smart kitchen accessories, cooking tools, food preparation products and organization solutions.
+
+---
+
+## Health & Wellness
+
+Personal care devices, ergonomic products, recovery tools and wellness accessories.
+
+---
+
+## Office & Productivity
+
+Desk accessories, workspace organization, charging solutions and productivity products.
+
+---
+
+## Travel Essentials
+
+Portable accessories, luggage organizers, travel gadgets and comfort solutions.
+
+---
+
+## Auto & Tires
+
+Vehicle accessories, tire care essentials and practical tools that keep everyday journeys running smoothly.
+
+---
+
+## Featured Innovations
+
+Recently launched products inspired by successful crowdfunding campaigns and emerging technologies.
 
 ---
 
 # Homepage Direction
 
-Homepage should inspire customers while making shopping effortless.
+Homepage should inspire visitors to explore innovative products while maintaining a premium shopping experience.
 
 Recommended sections:
 
-1. Hero Lifestyle Banner
-2. Shop By Room
-3. Featured Collections
-4. Best Sellers
-5. Seasonal Inspiration
-6. Why Shop MegaMallDepot
-7. Customer Reviews
+1. Hero Innovation Banner
+2. Trending Innovations
+3. Shop By Lifestyle
+4. Featured Collections
+5. Best Sellers
+6. New Arrivals
+7. Why Choose Crowdfused
+8. Customer Reviews
+9. Innovation Spotlight
+10. Newsletter
 
 ---
 
@@ -113,42 +140,49 @@ Recommended sections:
 
 Main message:
 
-"Beautiful Spaces Begin At Home"
+"Innovation Made Everyday"
 
 Supporting message:
 
-"Discover thoughtfully selected furniture, décor and home essentials designed for modern American living."
+"Discover thoughtfully selected products that combine smart design, practical functionality and modern living."
 
 Primary CTA:
 
-* Shop Collection
+* Shop Innovations
 
 Secondary CTA:
 
-* Explore New Arrivals
+* Explore Best Sellers
 
 Hero imagery:
 
-* Bright luxury interior
-* Designer-inspired living room
-* Elegant dining table
-* Warm natural lighting
+* Modern lifestyle environment
+* Premium everyday gadgets
+* Smart workspace
+* Outdoor lifestyle scenes
+* Clean minimalist backgrounds
+* Natural lighting
 
 ---
 
 # Product Experience
 
-Each product card should include:
+Each product page should include:
 
-* Product image
+* High-quality product gallery
+* Lifestyle imagery
 * Product name
-* Collection
+* Short value proposition
 * Price
-* Rating
-* Quick View
-* Add to Cart
+* Ratings
+* Product highlights
+* Feature icons
+* Frequently Asked Questions
+* Shipping information
+* Customer reviews
+* Related products
 
-Products should emphasize lifestyle before specifications.
+Shopping should emphasize benefits before specifications.
 
 ---
 
@@ -156,23 +190,28 @@ Products should emphasize lifestyle before specifications.
 
 Descriptions should be:
 
-* Elegant
-* Inspiring
+* Clear
+* Premium
 * Benefit-focused
-* Lifestyle-oriented
+* Educational
+* Story-driven
 
 Include:
 
-* Materials
+* Everyday use cases
+* Key benefits
+* Product materials
+* Build quality
 * Design inspiration
-* Everyday functionality
-* Care information
+* Care instructions
+* What's included
 
 Avoid:
 
-* Technical specifications first
+* Overly technical language
 * Keyword stuffing
-* Cheap promotional language
+* Excessive hype
+* Unrealistic claims
 
 ---
 
@@ -184,14 +223,17 @@ Required:
 * Fast Shipping
 * Easy Returns
 * Order Tracking
-* Dedicated Customer Support
+* Responsive Customer Support
+* SSL Protection
+* Safe Payment Methods
 
 Shopping experience should feel:
 
-* Premium
+* Professional
+* Reliable
+* Transparent
 * Helpful
-* Relaxing
-* Trustworthy
+* Modern
 
 ---
 
@@ -201,23 +243,26 @@ Default shipping parameters:
 
 Order cutoff:
 
-5:00 PM (GMT-08:00) Pacific Standard Time (Los Angeles)
+5:00 PM (GMT-08:00)
+Pacific Standard Time (Los Angeles)
 
 Orders placed after the cutoff begin processing on the next business day.
 
 Handling time:
 
-1–2 business days (Monday–Friday)
+1–2 business days
+(Monday–Friday)
 
 Transit time:
 
-3–5 business days (Monday–Friday)
+3–7 business days
+(Monday–Friday)
 
 Estimated delivery:
 
-Usually 4–7 business days
+Usually 4–9 business days
 
-Tracking information is provided once orders are shipped.
+Tracking information is provided once the order has shipped.
 
 ---
 
@@ -232,13 +277,14 @@ Eligible returns:
 * Unused
 * Original condition
 * Original packaging
-* Complete accessories included
+* All accessories included
 
 Return experience should be:
 
-* Simple
+* Easy
 * Transparent
-* Customer-friendly
+* Customer-first
+* Hassle-free
 
 ---
 
@@ -246,39 +292,92 @@ Return experience should be:
 
 Use:
 
-* Warm
-* Elegant
-* Helpful
-* Refined
+* Modern
+* Friendly
+* Knowledgeable
+* Confident
 * Inspiring
+* Helpful
 
 Avoid:
 
-* Aggressive sales language
-* Flash-sale appearance
-* Overstock style
-* Marketplace terminology
+* Aggressive selling
+* Cheap promotional wording
+* Fake urgency
+* Clickbait headlines
+* Marketplace language
 
 ---
 
 # Visual Direction
 
-Website should resemble a premium lifestyle retailer rather than a general marketplace.
+Crowdfused should resemble a premium innovation retailer rather than a discount gadget store.
 
 Use:
 
-* Bright interiors
-* Editorial lifestyle photography
-* Large product imagery
+* Bright layouts
+* White backgrounds
+* Editorial product photography
+* Lifestyle imagery
+* Large product visuals
+* Minimal color palette
+* Premium typography
 * Spacious layouts
-* Neutral backgrounds
+* Clean iconography
 
 Avoid:
 
-* Busy promotional graphics
-* Heavy discount banners
-* Dark themes
-* Technology-focused visuals
+* Busy banners
+* Neon colors
+* Overstock appearance
+* Cluttered homepage
+* Heavy discount graphics
+
+---
+
+# Homepage Design Style
+
+Overall visual style:
+
+* Apple-inspired simplicity
+* Kickstarter storytelling
+* Premium Shopify aesthetic
+* Editorial layouts
+* Large visual hierarchy
+* Smooth animations
+* Soft shadows
+* Rounded UI elements
+
+Color palette:
+
+Primary:
+
+* White
+
+Secondary:
+
+* Charcoal
+
+Accent:
+
+* Electric Blue
+
+Neutral:
+
+* Light Gray
+
+---
+
+# Content Philosophy
+
+Every product should answer:
+
+* What problem does it solve?
+* Why is it better?
+* How does it improve everyday life?
+* Why can customers trust it?
+
+Customers should understand the product within seconds.
 
 ---
 
@@ -286,36 +385,56 @@ Avoid:
 
 Website should demonstrate:
 
-* Clear home & lifestyle niche
 * Original product content
-* Transparent policies
+* Clear niche positioning
+* Transparent business policies
 * Consistent branding
-* Mobile-friendly shopping
-* Trustworthy ecommerce experience
+* High-quality imagery
+* Mobile-first experience
+* Trustworthy ecommerce practices
 
 Avoid:
 
 * Mixed unrelated categories
-* Thin product pages
+* Thin product descriptions
 * Misleading promotions
-* Fake reviews
+* Fake scarcity
+* Unrealistic product claims
+
+---
+
+# SEO Direction
+
+Focus keywords should naturally revolve around:
+
+* Innovative products
+* Smart gadgets
+* Everyday innovation
+* Lifestyle accessories
+* Modern living
+* Outdoor gear
+* Productivity tools
+* Travel essentials
+* Smart home products
+
+Content should prioritize user experience over keyword density.
 
 ---
 
 # Brand Promise
 
-MegaMallDepot provides:
+Crowdfused provides:
 
-* Beautiful home inspiration
-* Carefully selected collections
-* Reliable shopping experience
-* Convenient delivery
-* Everyday quality for modern living
+* Carefully curated innovations
+* Premium shopping experience
+* Reliable customer support
+* Modern lifestyle inspiration
+* Practical products that improve everyday living
 
 ---
 
 # Final Brand Statement
 
-MegaMallDepot is:
+Crowdfused is:
 
-"A modern home and lifestyle destination helping American families create beautiful, comfortable spaces through thoughtfully curated furniture, décor and everyday essentials."
+"A modern destination for discovering innovative products that combine smart design, practical functionality, and exceptional quality—helping people enhance everyday life through thoughtfully curated solutions."

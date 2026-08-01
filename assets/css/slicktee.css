@@ -1,15 +1,15 @@
 /* ─── CSS Variables ─── */
 :root {
-  --black: #0e0e0e;
-  --charcoal: #1a1a1a;
+  --black: #222222;
+  --charcoal: #222222;
   --dark: #222222;
-  --mid: #3a3a3a;
-  --smoke: #8c8c8c;
-  --light: #d9d9d9;
-  --off-white: #f0ede8;
+  --mid: #666666;
+  --smoke: #8A8A8A;
+  --light: #E9ECEF;
+  --off-white: #FAFAFA;
   --white: #ffffff;
-  --beige: #c8b89a;
-  --olive: #8a8570;
+  --beige: #F58220;
+  --olive: #8A8A8A;
 
   --font-display: 'Barlow Condensed', sans-serif;
   --font-body: 'DM Sans', sans-serif;

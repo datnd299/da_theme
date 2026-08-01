@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for MegaMallDepot.
+ * Product category defaults for Crowdfused.
  *
  * @package dawp
  */
@@ -15,6 +15,11 @@ function dawp_lbq_product_categories() {
             'name'        => __('Home', 'dawp'),
             'description' => __('Home essentials, furniture, kitchen favorites and practical pieces for everyday living.', 'dawp'),
             'short'       => __('Everyday essentials and home comfort picks.', 'dawp'),
+        ],
+        'auto-tires' => [
+            'name'        => __('Auto & Tires', 'dawp'),
+            'description' => __('Vehicle accessories, tire care essentials and practical tools that keep everyday journeys running smoothly.', 'dawp'),
+            'short'       => __('Practical vehicle care and auto accessories for the road ahead.', 'dawp'),
         ],
         'garden-tools' => [
             'name'        => __('Garden & Tools', 'dawp'),

@@ -1,348 +1,462 @@
-# MegaMallDepot — Homepage Plan
+# Crowdfused — HomePlan
 
-## Overview
+## Homepage Objective
 
-MegaMallDepot is a premium American home & lifestyle retailer. The homepage should feel warm, elegant, editorial and trustworthy, inspiring customers before presenting products.
+The homepage should introduce Crowdfused as a premium destination for innovative products that improve everyday life.
 
----
+Rather than overwhelming visitors with hundreds of products, every section should gradually build trust, demonstrate product value, and encourage exploration.
 
-## Homepage Goals
-
-- Inspire through lifestyle imagery
-- Showcase curated collections
-- Build trust
-- Make shopping effortless
-- Guide visitors from inspiration to purchase
+The shopping experience should feel curated, inspiring and effortless.
 
 ---
 
 # Homepage Structure
 
+Recommended order:
+
 1. Announcement Bar
-2. Premium Header
-3. Editorial Hero
-4. Shop By Room
-5. Featured Collections
-6. Editorial Story
+2. Header Navigation
+3. Hero Banner
+4. Featured Categories
+5. Trending Innovations
+6. Problem → Solution
 7. Best Sellers
-8. Seasonal Inspiration
-9. New Arrivals
-10. Why Shop MegaMallDepot
-11. Customer Reviews
-12. Lifestyle Gallery
-13. Newsletter
-14. Premium Footer
+8. Why Crowdfused
+9. Featured Lifestyle Story
+10. Customer Reviews
+11. Newsletter
+12. Footer
+
+The homepage should alternate between storytelling and product discovery.
+
+Avoid stacking multiple product grids together.
 
 ---
 
-# Section Guidelines
+# 1. Announcement Bar
 
-## Announcement Bar
+Purpose:
 
-Display one simple trust message:
+Communicate trust before selling.
 
-- Free Shipping
-- Easy Returns
-- Secure Checkout
+Examples:
 
-Minimal, elegant and non-promotional.
+* Free Shipping on Eligible Orders
+* 30-Day Easy Returns
+* Secure Checkout
+* Fast Order Processing
+
+Keep the bar slim and minimal.
 
 ---
 
-## Premium Header
+# 2. Header
 
 Include:
 
-- Logo
-- Search
-- Account
-- Wishlist
-- Cart
-- Category Navigation
+* Logo
+* Search
+* Navigation
+* Account
+* Wishlist
+* Cart
 
-Header should be sticky, clean and spacious.
+Navigation should remain clean.
+
+Suggested categories:
+
+* New Arrivals
+* Best Sellers
+* Smart Home
+* Outdoor
+* Travel
+* Kitchen
+* Everyday Carry
+
+Sticky on scroll.
 
 ---
 
-## Editorial Hero
+# 3. Hero Banner
+
+Purpose:
+
+Introduce the Crowdfused philosophy rather than a single product.
 
 Headline:
 
-> Beautiful Spaces Begin At Home
+Innovation That Fits Into Everyday Life
 
-Supporting copy:
+Supporting Text:
 
-> Discover thoughtfully selected furniture, décor and home essentials designed for modern American living.
+Discover thoughtfully selected products designed to simplify routines, solve everyday challenges and enhance modern living.
 
-CTA:
+Primary CTA:
 
-- Shop Collection
-- Explore New Arrivals
+Shop Innovations
 
-Use bright luxury interiors with natural lighting.
+Secondary CTA:
 
----
+Explore Best Sellers
 
-## Shop By Room
+Layout:
 
-Feature six lifestyle categories:
+55% Lifestyle Photography
 
-- Living Room
-- Bedroom
-- Kitchen
-- Dining
-- Bathroom
-- Outdoor
+45% Content
 
-Large editorial cards with soft hover effects.
+Hero imagery should show products naturally integrated into everyday environments.
 
 ---
 
-## Featured Collections
+# 4. Featured Categories
 
-Highlight curated collections such as:
+Title:
 
-- Kitchen Essentials
-- Elegant Dining
-- Modern Furniture
-- Timeless Decor
-- Outdoor Living
+Explore By Lifestyle
 
-Prioritize storytelling over promotions.
+Display:
+
+Six category cards
+
+Recommended:
+
+* Smart Home
+* Outdoor Adventure
+* Travel Essentials
+* Kitchen Innovation
+* Office Productivity
+* Everyday Carry
+
+Each card includes:
+
+* Lifestyle image
+* Category name
+* Short description
+
+No product prices.
 
 ---
 
-## Editorial Story
+# 5. Trending Innovations
 
-Explain the MegaMallDepot brand through lifestyle imagery and short editorial copy.
+Purpose:
+
+Highlight the newest and most exciting products.
+
+Section Title:
+
+Trending Right Now
+
+Display:
+
+4–8 premium product cards.
+
+Each card includes:
+
+* Large image
+* Product title
+* Short benefit
+* Rating
+* Price
+* Quick View
+
+Products should appear curated rather than randomly listed.
+
+---
+
+# 6. Problem → Solution Section
+
+Purpose:
+
+Explain why Crowdfused products matter.
+
+Layout:
+
+Left:
+
+Lifestyle image
+
+Right:
+
+Three solution blocks
+
+Example:
+
+Problem
+
+Busy mornings.
+
+↓
+
+Solution
+
+Smart products that simplify daily routines.
+
+---
+
+Problem
+
+Messy spaces.
+
+↓
+
+Solution
+
+Innovative organization designed for modern living.
+
+---
+
+Problem
+
+Travel inconvenience.
+
+↓
+
+Solution
+
+Compact gear built for every journey.
+
+Focus on benefits instead of features.
+
+---
+
+# 7. Best Sellers
+
+Title:
+
+Customer Favorites
+
+Display:
+
+Six featured products.
+
+Include:
+
+* Rating
+* Price
+* Wishlist
+* Quick View
+
+Avoid excessive sale badges.
+
+---
+
+# 8. Why Crowdfused
+
+Purpose:
+
+Build trust.
+
+Layout:
+
+Four feature cards.
+
+Examples:
+
+Curated Innovation
+
+Every product is carefully selected for quality and functionality.
+
+---
+
+Reliable Shipping
+
+Fast processing with order tracking included.
+
+---
+
+Shop Securely
+
+Protected payments and encrypted checkout.
+
+---
+
+Customer Support
+
+Friendly assistance whenever you need help.
+
+Use simple icons.
+
+---
+
+# 9. Lifestyle Story
+
+Purpose:
+
+Strengthen emotional connection.
+
+Layout:
+
+Large editorial image.
+
+Content:
+
+Headline:
+
+Innovation Should Feel Effortless
+
+Body:
+
+Crowdfused believes the best products aren't the most complicated—they're the ones that quietly make everyday life easier, more enjoyable and more efficient.
 
 CTA:
 
 Discover Our Story
 
----
-
-## Best Sellers
-
-Display up to 8 products.
-
-Each product card includes:
-
-- Image
-- Name
-- Collection
-- Price
-- Rating
-- Quick View
-- Add to Cart
-
-Lifestyle imagery should be prioritized.
+Avoid long paragraphs.
 
 ---
 
-## Seasonal Inspiration
+# 10. Customer Reviews
 
-Present seasonal edits using magazine-style layouts.
+Title:
 
-Examples:
+Trusted By Thousands
 
-- Summer Patio
-- Cozy Bedroom
-- Outdoor Dining
-- Holiday Living
+Display:
 
----
-
-## New Arrivals
-
-Display the latest curated products with a clean product grid.
-
-Maximum:
-
-8 products.
-
----
-
-## Why Shop MegaMallDepot
-
-Highlight:
-
-- Fast Shipping
-- Easy Returns
-- Secure Checkout
-- Order Tracking
-- Customer Support
-
-Use simple icons and clean layouts.
-
----
-
-## Customer Reviews
-
-Display authentic reviews with:
-
-- Rating
-- Customer name
-- Location
-- Verified Purchase
-
-Avoid fake testimonials.
-
----
-
-## Lifestyle Gallery
-
-Show beautiful home photography featuring:
-
-- Kitchens
-- Living Rooms
-- Bedrooms
-- Outdoor Spaces
-
-Focus on inspiration rather than products.
-
----
-
-## Newsletter
-
-Headline:
-
-Bring Inspiration Home
-
-Collect email subscriptions using a simple centered form.
-
----
-
-## Premium Footer
+Three to six testimonials.
 
 Include:
 
-### Shop
+* Customer photo (optional)
+* Name
+* Rating
+* Review
 
-- Kitchen
-- Furniture
-- Decor
-- Bedding
-- Outdoor
-
-### Customer Care
-
-- Contact
-- Shipping
-- Returns
-- Track Order
-- FAQ
-
-### About
-
-- Our Story
-- Privacy Policy
-- Terms
+Reviews should emphasize product usefulness and shopping experience.
 
 ---
 
-# Product Card Rules
+# 11. Newsletter
 
-Every card should include:
+Purpose:
 
-- Large product image
-- Product name
-- Price
-- Rating
-- Quick View
-- Add to Cart
+Encourage long-term engagement.
 
-Use soft hover animations only.
+Headline:
 
----
+Stay Ahead of What's Next
 
-# Content Guidelines
+Supporting Text:
 
-Content should be:
+Receive updates on innovative products, exclusive launches and special offers.
 
-- Warm
-- Elegant
-- Helpful
-- Lifestyle-focused
-- Original
-- Benefit-driven
+CTA:
 
-Avoid:
+Subscribe
 
-- Keyword stuffing
-- Flash-sale language
-- Fake urgency
-- Marketplace style
+Minimal layout.
 
 ---
 
-# Image Direction
+# 12. Footer
 
-Use:
+Include:
 
-- Bright interiors
-- Natural lighting
-- Editorial photography
-- Premium home styling
+Shop
 
-Avoid:
+* Categories
+* New Arrivals
+* Best Sellers
 
-- White cutout product images
-- Busy graphics
-- Dark themes
+Customer Service
 
----
+* Contact
+* Shipping Policy
+* Return Policy
+* FAQs
 
-# Mobile Experience
+Company
 
-- Responsive hero
-- Two-column product grids
-- Large touch targets
-- Simple navigation
-- Fast loading
+* About Crowdfused
+* Privacy Policy
+* Terms of Service
 
----
+Social
 
-# SEO & GMC
+* Facebook
+* Instagram
+* Pinterest
+* YouTube
 
-Homepage should demonstrate:
+Payment Icons
 
-- Clear home & lifestyle niche
-- Original content
-- Transparent policies
-- Strong branding
-- Mobile-friendly design
-- Trustworthy shopping experience
+Shipping Information
+
+Copyright
 
 ---
 
-# Homepage Journey
+# Homepage Content Principles
 
-Brand Inspiration
+Every section should answer at least one question:
 
-↓
+* Why is this product useful?
+* Why trust Crowdfused?
+* How does it improve daily life?
+* Why is it different?
 
-Shop By Room
+Never force users to read long paragraphs.
 
-↓
+---
 
-Collections
+# Product Distribution
 
-↓
+Hero
 
-Brand Story
+0 Products
 
-↓
+Featured Categories
+
+6 Categories
+
+Trending
+
+4–8 Products
 
 Best Sellers
 
+6 Products
+
+Related Collections
+
+Optional
+
+The homepage should never resemble a crowded marketplace.
+
+---
+
+# Visual Rhythm
+
+Alternate between:
+
+Editorial Story
+
 ↓
 
-Seasonal Inspiration
+Categories
+
+↓
+
+Products
+
+↓
+
+Benefits
+
+↓
+
+Products
 
 ↓
 
 Trust
+
+↓
+
+Storytelling
 
 ↓
 
@@ -352,12 +466,52 @@ Reviews
 
 Newsletter
 
-↓
-
-Purchase
+This creates a natural browsing flow without visual fatigue.
 
 ---
 
-## Final Goal
+# Mobile Experience
 
-Create a calm, premium shopping experience that feels like a modern home magazine while making product discovery effortless.
+Prioritize:
+
+Large touch targets
+
+Comfortable spacing
+
+Readable typography
+
+Fast loading
+
+Single-column storytelling
+
+Swipeable product carousels
+
+Avoid long scrolling product grids.
+
+---
+
+# Conversion Strategy
+
+Visitors should experience the following journey:
+
+1. Discover the brand.
+2. Understand the value.
+3. Explore categories.
+4. Browse curated products.
+5. Build trust.
+6. Read customer experiences.
+7. Purchase confidently.
+
+Every section should naturally lead to the next.
+
+---
+
+# Final Homepage Feeling
+
+The homepage should feel like:
+
+"A modern innovation magazine where every product is thoughtfully selected, beautifully presented and clearly demonstrates how it can make everyday life smarter, simpler and more enjoyable."
+
+Customers should leave with one lasting impression:
+
+**Crowdfused isn't just selling products—it curates innovations worth bringing into everyday life.**

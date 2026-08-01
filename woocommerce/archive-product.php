@@ -1,6 +1,6 @@
 <?php
 /**
- * MegaMallDepot - Shop / Archive Product Template
+ * Crowdfused - Shop / Archive Product Template
  * Design System: Modern general merchandise, conversion-first
  * Section 10: Category / Shop Page rules
  */
@@ -12,52 +12,52 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from MegaMallDepot.', 'dawp');
-$archive_eyebrow = __('MegaMallDepot Collection', 'dawp');
+$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from Crowdfused.', 'dawp');
+$archive_eyebrow = __('Crowdfused Collection', 'dawp');
 $archive_slug = 'shop';
 $home_image = static function ($filename) {
     return get_theme_file_uri('assets/img/home/' . $filename);
 };
-$gallery_image = static function ($filename) {
-    return get_theme_file_uri('assets/img/gallery/' . $filename);
+$new_home_image = static function ($filename) {
+    return get_theme_file_uri('assets/img/New_homepage/' . $filename);
 };
 
 $shop_cover_images = [
     'shop' => [
-        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
-        'alt' => __('Curated home essentials arranged on a warm modern shelf', 'dawp'),
+        'url' => $new_home_image('Innovation_Made_Everyday.jpeg'),
+        'alt' => __('Modern everyday products styled for innovation at home', 'dawp'),
     ],
     'home' => [
-        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
-        'alt' => __('Bright modern shelves styled with everyday home essentials', 'dawp'),
+        'url' => $new_home_image('Kitchen_Home_Innovation_Smart_Tools_202607281513.jpeg'),
+        'alt' => __('Smart kitchen and home tools arranged in a modern setting', 'dawp'),
     ],
     'garden-tools' => [
-        'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
-        'alt' => __('Garden lounge area with outdoor tools and patio essentials', 'dawp'),
+        'url' => $new_home_image('Patio_garden_handy_tools_202607281516.jpeg'),
+        'alt' => __('Patio garden and handy tools for relaxed outdoor living', 'dawp'),
     ],
     'electronics' => [
-        'url' => $home_image('Living_Room.jpeg'),
-        'alt' => __('Modern living room ready for entertainment and connected devices', 'dawp'),
+        'url' => $new_home_image('Smart_home_connected_devices_202607281526.jpeg'),
+        'alt' => __('Smart home connected devices in a clean modern home', 'dawp'),
     ],
     'sports-outdoors' => [
-        'url' => $gallery_image('Home_gym_setup_cork_mat_202607241524.jpeg'),
-        'alt' => __('Home gym setup with fitness and outdoor activity gear', 'dawp'),
+        'url' => $new_home_image('Outdoor&Adventure.jpeg'),
+        'alt' => __('Outdoor and adventure gear selected for time outside', 'dawp'),
     ],
     'toys-outdoor-play' => [
-        'url' => $gallery_image('Children_playing_tumble_tower_game_202607241524.jpeg'),
-        'alt' => __('Children playing an outdoor tumble tower game', 'dawp'),
+        'url' => $home_image('Outdoor.jpeg'),
+        'alt' => __('Outdoor living products for family time outside', 'dawp'),
     ],
     'beauty-personal-care' => [
-        'url' => $gallery_image('Skincare_bottles_on_marble_vanity_202607241524.jpeg'),
-        'alt' => __('Skincare and personal care bottles arranged on a marble vanity', 'dawp'),
+        'url' => $new_home_image('Wellness_self-care_personal_care…_202607281533.jpeg'),
+        'alt' => __('Wellness and self care products in a calm routine setting', 'dawp'),
     ],
     'pets' => [
-        'url' => $gallery_image('Pet_bed_with_cat_202607241524.jpeg'),
-        'alt' => __('Comfortable pet bed styled for everyday pet care', 'dawp'),
+        'url' => $home_image('Cozy_Bedroom_Layers.jpeg'),
+        'alt' => __('Cozy home essentials styled for everyday comfort', 'dawp'),
     ],
     'school-office-art-supplies' => [
-        'url' => $gallery_image('Minimalist_home_office_desk_setup_202607241524.jpeg'),
-        'alt' => __('Minimalist desk setup with office and school supplies', 'dawp'),
+        'url' => $new_home_image('Office_desk_accessories_workspac…_202607281532.jpeg'),
+        'alt' => __('Office desk accessories for focused productive days', 'dawp'),
     ],
 ];
 if ($archive_term && !is_wp_error($archive_term)) {
@@ -338,8 +338,8 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 loadMoreBtn.style.minHeight = '3rem';
                 loadMoreBtn.style.paddingLeft = '2rem';
                 loadMoreBtn.style.paddingRight = '2rem';
-                loadMoreBtn.style.borderRadius = '0.375rem';
-                loadMoreBtn.style.backgroundColor = '#A45A3F';
+                loadMoreBtn.style.borderRadius = '999px';
+                loadMoreBtn.style.backgroundColor = '#F58220';
                 loadMoreBtn.style.color = '#ffffff';
                 loadMoreBtn.style.fontWeight = '700';
                 loadMoreBtn.style.fontSize = '0.875rem';
@@ -347,10 +347,10 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 loadMoreBtn.style.cursor = 'pointer';
                 loadMoreBtn.style.transition = 'background-color 0.2s';
                 
-                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#7F422F'; };
-                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#A45A3F'; };
+                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#E96F00'; };
+                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#F58220'; };
 
-                loadMoreBtn.innerHTML = 'Load More Product';
+                loadMoreBtn.innerHTML = 'Load More Products';
                 
                 loadMoreContainer.appendChild(loadMoreBtn);
                 paginationContainer.parentNode.insertBefore(loadMoreContainer, paginationContainer.nextSibling);

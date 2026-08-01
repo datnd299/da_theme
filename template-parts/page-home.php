@@ -1,6 +1,6 @@
 <?php
 /**
- * Premium home page template part.
+ * Homepage content — Crowdfused.
  *
  * @package dawp
  */
@@ -9,24 +9,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$theme_uri = get_template_directory_uri();
-$theme_dir = get_template_directory();
-$shop_url  = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$theme_uri   = get_template_directory_uri();
+$theme_dir   = get_template_directory();
+$shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$about_url   = home_url('/about-us/');
+$contact_url = home_url('/contact-us/');
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$mmd_asset = static function ($file) use ($theme_uri, $theme_dir) {
-    $relative = 'assets/img/gallery/' . $file;
+$cf_asset = static function ($file, $folder = 'gallery') use ($theme_uri, $theme_dir) {
+    $relative = 'assets/img/' . $folder . '/' . $file;
     $path     = $theme_dir . '/' . $relative;
-
-    if (!file_exists($path)) {
-        $relative = 'assets/img/home/' . $file;
-        $path     = $theme_dir . '/' . $relative;
-    }
-
-    $url = $theme_uri . '/' . $relative;
+    $url      = $theme_uri . '/' . $relative;
 
     if (file_exists($path)) {
         return add_query_arg('ver', filemtime($path), $url);
@@ -35,14 +31,8 @@ $mmd_asset = static function ($file) use ($theme_uri, $theme_dir) {
     return $url;
 };
 
-$mmd_cat_url = static function ($slug) {
-    return function_exists('dawp_product_category_url')
-        ? dawp_product_category_url($slug)
-        : home_url('/product-category/' . trim($slug, '/') . '/');
-};
-
-$mmd_img = static function ($file, $alt, $class = '', $width = 900, $height = 700, $loading = 'lazy', $sizes = '') use ($mmd_asset) {
-    $url = $mmd_asset($file);
+$cf_img = static function ($file, $alt, $folder = 'gallery', $class = '', $width = 900, $height = 700, $loading = 'lazy', $sizes = '') use ($cf_asset) {
+    $url = $cf_asset($file, $folder);
 
     if (function_exists('dawp_get_responsive_image')) {
         return dawp_get_responsive_image($url, $alt, $class, $width, $height, $loading, $sizes);
@@ -59,445 +49,601 @@ $mmd_img = static function ($file, $alt, $class = '', $width = 900, $height = 70
     );
 };
 
-$mmd_category_media = static function ($card) use ($mmd_img) {
-    if (!empty($card['image'])) {
-        echo $mmd_img($card['image'], $card['title'], '', 560, 420, 'lazy', '(max-width: 699px) 82vw, (max-width: 899px) 33vw, 25vw');
-        return;
+$cf_category_link = static function ($slug) {
+    if (function_exists('get_term_by')) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+        if ($term && !is_wp_error($term)) {
+            $link = get_term_link($term);
+            if (!is_wp_error($link)) {
+                return ['url' => $link, 'count' => (int) $term->count];
+            }
+        }
     }
 
-    printf(
-        '<span class="mmd-room-card__missing-image">%s<br><strong>%s</strong></span>',
-        esc_html__('Add image in assets/img/gallery/', 'dawp'),
-        esc_html($card['image_hint'])
+    return ['url' => home_url('/product-category/' . trim($slug, '/') . '/'), 'count' => 0];
+};
+
+$cf_rating_html = static function ($rating, $count) {
+    if ($count < 1) {
+        return '<p class="cf-rating cf-rating--empty">' . esc_html__('Be the first to review', 'dawp') . '</p>';
+    }
+
+    return sprintf(
+        '<p class="cf-rating" aria-label="%s"><span class="cf-rating__stars" style="--cf-rating:%s"></span><span class="cf-rating__count">(%d)</span></p>',
+        esc_attr(sprintf(__('Rated %s out of 5', 'dawp'), $rating)),
+        esc_attr($rating),
+        (int) $count
     );
 };
 
-$mmd_product_card = static function ($product_id) {
-    if (!function_exists('wc_get_product')) {
-        return;
+$cf_product_card = static function ($product, $eager = false) use ($cf_rating_html) {
+    if (!$product || !is_a($product, 'WC_Product') || !$product->is_visible()) {
+        return '';
     }
 
-    $product = wc_get_product($product_id);
-    if (!$product || !$product->is_visible()) {
-        return;
+    $benefit = wp_strip_all_tags($product->get_short_description());
+    if (!$benefit) {
+        $benefit = wp_strip_all_tags($product->get_description());
     }
+    $benefit = $benefit ? wp_trim_words($benefit, 14) : __('Thoughtfully designed to make everyday life a little easier.', 'dawp');
 
-    $terms      = get_the_terms($product_id, 'product_cat');
-    $collection = __('Home Collection', 'dawp');
-    if (!is_wp_error($terms) && !empty($terms)) {
-        $collection = $terms[0]->name;
-    }
+    $image = function_exists('dawp_get_product_responsive_image')
+        ? dawp_get_product_responsive_image($product, 'cf-product__img', 480, 480, '(max-width: 699px) 74vw, (max-width: 1023px) 40vw, 22vw')
+        : $product->get_image('woocommerce_single', ['class' => 'cf-product__img', 'loading' => $eager ? 'eager' : 'lazy']);
 
-    $rating = (float) $product->get_average_rating();
-    $count  = (int) $product->get_rating_count();
+    ob_start();
     ?>
-    <article class="mmd-product-card">
-        <a class="mmd-product-card__media" href="<?php echo esc_url(get_permalink($product_id)); ?>">
-            <?php
-            echo function_exists('dawp_get_product_responsive_image')
-                ? dawp_get_product_responsive_image($product, 'mmd-product-card__img', 420, 420, '(max-width: 699px) 82vw, (max-width: 899px) 50vw, 25vw')
-                : $product->get_image('woocommerce_single', ['class' => 'mmd-product-card__img', 'loading' => 'lazy']);
-            ?>
-            <span><?php esc_html_e('Quick View', 'dawp'); ?></span>
+    <article class="cf-product">
+        <a class="cf-product__media" href="<?php echo esc_url($product->get_permalink()); ?>" aria-label="<?php echo esc_attr($product->get_name()); ?>">
+            <?php echo $image; ?>
+            <?php if ($product->is_on_sale()) : ?>
+                <span class="cf-product__flag"><?php esc_html_e('New Lower Price', 'dawp'); ?></span>
+            <?php endif; ?>
         </a>
-        <div class="mmd-product-card__body">
-            <p><?php echo esc_html($collection); ?></p>
-            <h3><a href="<?php echo esc_url(get_permalink($product_id)); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
-            <div class="mmd-product-card__rating" aria-label="<?php echo esc_attr(sprintf(__('Rated %s out of 5', 'dawp'), $rating ?: '4.8')); ?>">
-                <span aria-hidden="true"><?php echo esc_html($rating ? str_repeat('*', max(1, min(5, (int) round($rating)))) : '*****'); ?></span>
-                <em><?php echo esc_html($count ? sprintf(_n('%d review', '%d reviews', $count, 'dawp'), $count) : __('Customer favorite', 'dawp')); ?></em>
+        <div class="cf-product__body">
+            <h3 class="cf-product__title"><a href="<?php echo esc_url($product->get_permalink()); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
+            <p class="cf-product__benefit"><?php echo esc_html($benefit); ?></p>
+            <?php echo $cf_rating_html(number_format((float) $product->get_average_rating(), 1), $product->get_rating_count()); ?>
+            <div class="cf-product__foot">
+                <span class="cf-product__price"><?php echo wp_kses_post($product->get_price_html()); ?></span>
+                <a class="cf-product__cta" href="<?php echo esc_url($product->get_permalink()); ?>"><?php esc_html_e('View Product', 'dawp'); ?></a>
             </div>
-            <div class="mmd-product-card__price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
-            <a class="mmd-product-card__add" href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-quantity="1" data-product_id="<?php echo esc_attr($product_id); ?>" rel="nofollow">
-                <?php esc_html_e('Add to Cart', 'dawp'); ?>
-            </a>
         </div>
     </article>
     <?php
+    return ob_get_clean();
 };
 
-$room_cards = [
-    ['title' => __('Home', 'dawp'), 'copy' => __('Home essentials, furniture, kitchen favorites and practical everyday pieces.', 'dawp'), 'image' => 'Living_room_furniture_set_neutra…_202607161252.jpeg', 'image_hint' => 'home.jpeg', 'slug' => 'home'],
-    ['title' => __('Garden & Tools', 'dawp'), 'copy' => __('Garden, patio and useful tools for home projects and outdoor care.', 'dawp'), 'image' => 'Garden_lounge_area_with_hanging_202607161300.jpeg', 'image_hint' => 'garden-tools.jpeg', 'slug' => 'garden-tools'],
-    ['title' => __('Electronics', 'dawp'), 'copy' => __('Entertainment, connected tech and useful electronic essentials.', 'dawp'), 'image' => 'Modern_living_room_smart_electro…_202607161235.jpeg', 'image_hint' => 'electronics.jpeg', 'slug' => 'electronics'],
-    ['title' => __('Sports & Outdoors', 'dawp'), 'copy' => __('Fitness, recreation and outdoor activity gear for active days.', 'dawp'), 'image' => 'Home_gym_setup_cork_mat_202607241524.jpeg', 'image_hint' => 'sports-outdoors.jpeg', 'slug' => 'sports-outdoors'],
-    ['title' => __('Toys & Outdoor Play', 'dawp'), 'copy' => __('Toys, games and outdoor play favorites for kids and family time.', 'dawp'), 'image' => 'Children_playing_tumble_tower_game_202607241524.jpeg', 'image_hint' => 'toys-outdoor-play.jpeg', 'slug' => 'toys-outdoor-play'],
-    ['title' => __('Beauty & Personal Care', 'dawp'), 'copy' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'), 'image' => 'Skincare_bottles_on_marble_vanity_202607241524.jpeg', 'image_hint' => 'beauty-personal-care.jpeg', 'slug' => 'beauty-personal-care'],
-    ['title' => __('Pets', 'dawp'), 'copy' => __('Pet care, comfort, toys and everyday supplies for home companions.', 'dawp'), 'image' => 'Pet_bed_with_cat_202607241524.jpeg', 'image_hint' => 'pets.jpeg', 'slug' => 'pets'],
-    ['title' => __('School, Office & Art Supplies', 'dawp'), 'copy' => __('School supplies, office essentials, stationery and art materials.', 'dawp'), 'image' => 'Minimalist_home_office_desk_setup_202607241524.jpeg', 'image_hint' => 'school-office-art-supplies.jpeg', 'slug' => 'school-office-art-supplies'],
-];
-
-$collections = [
-    ['title' => __('Kitchen Essentials', 'dawp'), 'copy' => __('Tools and cookware selected for weeknight rhythm and weekend hosting.', 'dawp'), 'image' => 'Kitchen_essentials_tools_cookware_202607171159.jpeg', 'slug' => 'home'],
-    ['title' => __('Modern Furniture', 'dawp'), 'copy' => __('Clean-lined pieces that anchor the room without overwhelming it.', 'dawp'), 'image' => 'Modern_furniture_clean-lined_pieces_202607171201.jpeg', 'slug' => 'home'],
-    ['title' => __('Outdoor Living', 'dawp'), 'copy' => __('Relaxed materials and garden-ready details for fresh-air entertaining.', 'dawp'), 'image' => 'Outdoor_living_fresh_air_enterta…_202607171203.jpeg', 'slug' => 'garden-tools'],
-];
-
-$seasonal = [
-    ['title' => __('Summer Patio Edit', 'dawp'), 'image' => 'Summer_Patio_Edit.jpeg'],
-    ['title' => __('Cozy Bedroom Layers', 'dawp'), 'image' => 'Cozy_Bedroom_Layers.jpeg'],
-    ['title' => __('Elegant Dining Evenings', 'dawp'), 'image' => 'Elegant_Dining_Evenings.jpeg'],
-    ['title' => __('Fresh Utility Spaces', 'dawp'), 'image' => 'Fresh_Utility_Spaces.jpeg'],
-];
-
-$best_sellers = [];
-$new_arrivals = [];
+$cf_trending  = [];
 
 if (function_exists('wc_get_products')) {
-    $best_sellers = wc_get_products([
+    $cf_trending = wc_get_products([
         'status'   => 'publish',
         'limit'    => 8,
-        'orderby'  => 'popularity',
-        'return'   => 'ids',
-        'featured' => false,
+        'orderby'  => 'date',
+        'order'    => 'DESC',
+        'featured' => true,
     ]);
 
-    $new_arrivals = wc_get_products([
-        'status'  => 'publish',
-        'limit'   => 8,
-        'orderby' => 'date',
-        'order'   => 'DESC',
-        'return'  => 'ids',
-    ]);
+    if (count($cf_trending) < 4) {
+        $cf_trending_ids = wp_list_pluck($cf_trending, 'id');
+        $more = wc_get_products([
+            'status'  => 'publish',
+            'limit'   => 8 - count($cf_trending),
+            'orderby' => 'date',
+            'order'   => 'DESC',
+            'exclude' => $cf_trending_ids,
+        ]);
+        $cf_trending = array_merge($cf_trending, $more);
+    }
 }
+
+$cf_categories = [
+    ['slug' => 'electronics', 'title' => __('Smart Home & Tech', 'dawp'), 'copy' => __('Connected devices and everyday tech that quietly make home life easier.', 'dawp'), 'image' => 'Smart_home_connected_devices_202607281526.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'sports-outdoors', 'title' => __('Outdoor & Adventure', 'dawp'), 'copy' => __('Portable gear and recreation essentials built for time outside.', 'dawp'), 'image' => 'Outdoor&Adventure.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'home', 'title' => __('Kitchen & Home Innovation', 'dawp'), 'copy' => __('Smart cooking tools and home essentials that simplify daily routines.', 'dawp'), 'image' => 'Kitchen_Home_Innovation_Smart_Tools_202607281513.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'garden-tools', 'title' => __('Outdoor Living & Patio', 'dawp'), 'copy' => __('Patio, garden and handy tools designed for relaxed outdoor living.', 'dawp'), 'image' => 'Patio_garden_handy_tools_202607281516.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'school-office-art-supplies', 'title' => __('Office & Productivity', 'dawp'), 'copy' => __('Desk accessories and workspace essentials for focused, organized days.', 'dawp'), 'image' => 'Office_desk_accessories_workspac…_202607281532.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'beauty-personal-care', 'title' => __('Wellness & Self-Care', 'dawp'), 'copy' => __('Thoughtful personal care finds that make everyday routines feel better.', 'dawp'), 'image' => 'Wellness_self-care_personal_care…_202607281533.jpeg', 'folder' => 'New_homepage'],
+];
+
+$cf_collections = [
+    [
+        'slug'  => 'auto-tires',
+        'label' => __('Auto & Tires', 'dawp'),
+        'title' => __('Gear Up For The Road', 'dawp'),
+        'copy'  => __('Practical vehicle accessories, tire care and tools that keep every drive running smoothly.', 'dawp'),
+        'cta'   => __('Shop Auto & Tires', 'dawp'),
+        'image' => 'car_tire.jpg',
+        'folder' => 'New_homepage',
+    ],
+    [
+        'slug'   => 'garden-tools',
+        'label'  => __('Patio Picks', 'dawp'),
+        'title'  => __('Smart Picks for Your Patio', 'dawp'),
+        'copy'   => __('Weather-ready accents, lighting and handy tools that make outdoor living effortless.', 'dawp'),
+        'cta'    => __('Shop Patio Picks', 'dawp'),
+        'image'  => 'Summer_Patio_Edit.jpeg',
+        'folder' => 'home',
+    ],
+];
+
+$cf_problem_solution = [
+    [
+        'problem'  => __('Busy mornings.', 'dawp'),
+        'solution' => __('Smart products that simplify daily routines.', 'dawp'),
+        'icon'     => '<circle cx="12" cy="13" r="7"></circle><path d="M12 9.5v4l2.6 1.6"></path><path d="M5 3.5 3.2 5.3M19 3.5l1.8 1.8"></path>',
+    ],
+    [
+        'problem'  => __('Messy spaces.', 'dawp'),
+        'solution' => __('Innovative organization designed for modern living.', 'dawp'),
+        'icon'     => '<path d="M3.5 7 12 3l8.5 4-8.5 4-8.5-4Z"></path><path d="M3.5 7v10l8.5 4 8.5-4V7"></path><path d="M12 11v10"></path>',
+    ],
+    [
+        'problem'  => __('Travel inconvenience.', 'dawp'),
+        'solution' => __('Compact gear built for every journey.', 'dawp'),
+        'icon'     => '<rect x="3.5" y="7.5" width="17" height="12.5" rx="2.2"></rect><path d="M9 7.5v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M3.5 13h17"></path>',
+    ],
+];
+
+$cf_why_shop = [
+    [
+        'title' => __('Exclusive Deals', 'dawp'),
+        'copy'  => __("Shop unique deals you won't easily find anywhere else.", 'dawp'),
+        'icon'  => '<rect x="3" y="6.5" width="18" height="11" rx="1.6"></rect><path d="M7 6.5V5.2A1.7 1.7 0 0 1 8.7 3.5h6.6A1.7 1.7 0 0 1 17 5.2v1.3"></path><path d="M7 10.5h6M7 13.5h4"></path>',
+    ],
+    [
+        'title' => __('Free Shipping', 'dawp'),
+        'copy'  => __('Enjoy delivery with no extra shipping cost.', 'dawp'),
+        'icon'  => '<path d="M3 7h11v9H3z"></path><path d="M14 10.5h4l3 2.5v3h-7z"></path><circle cx="7.5" cy="18" r="1.8"></circle><circle cx="17.5" cy="18" r="1.8"></circle>',
+    ],
+    [
+        'title' => __('Trusted by Customers', 'dawp'),
+        'copy'  => __('Over 70% of shoppers return for more great deals.', 'dawp'),
+        'icon'  => '<path d="M12 3.2 14.5 9l6.3.6-4.8 4.1 1.5 6.1L12 16.8 6.5 19.8 8 13.7 3.2 9.6 9.5 9z"></path>',
+    ],
+    [
+        'title' => __('30-Day Return Policy', 'dawp'),
+        'copy'  => __('Enjoy easy, hassle-free returns within 30 days for a confident shopping experience.', 'dawp'),
+        'icon'  => '<path d="M5.5 5.5h9a3.5 3.5 0 0 1 0 7H9"></path><path d="m11 9.5-3-3 3-3"></path><path d="M5.5 12v7h13v-7"></path>',
+    ],
+];
+
+$cf_testimonials = [
+    ['name' => __('Amara K.', 'dawp'), 'location' => __('Austin, TX', 'dawp'), 'rating' => '5.0', 'copy' => __('The kitchen tools I ordered are genuinely well made, and checkout was quick. It felt like shopping somewhere that actually curates what it sells.', 'dawp')],
+    ['name' => __('Jordan T.', 'dawp'), 'location' => __('Denver, CO', 'dawp'), 'rating' => '5.0', 'copy' => __('Tracking updates were clear from the moment my order shipped. Everything arrived exactly as described, no surprises.', 'dawp')],
+    ['name' => __('Priya S.', 'dawp'), 'location' => __('Seattle, WA', 'dawp'), 'rating' => '4.8', 'copy' => __('I was hunting for smart home gadgets that did not feel gimmicky. Crowdfused had exactly that balance of useful and well designed.', 'dawp')],
+    ['name' => __('Marcus B.', 'dawp'), 'location' => __('Raleigh, NC', 'dawp'), 'rating' => '5.0', 'copy' => __('Support answered my question about a return within a day and made the whole process painless.', 'dawp')],
+    ['name' => __('Elena R.', 'dawp'), 'location' => __('Phoenix, AZ', 'dawp'), 'rating' => '4.9', 'copy' => __('Our patio finally feels finished. The product pages made it easy to know what I was getting before I bought it.', 'dawp')],
+];
 ?>
 
 <style>
-    .mmd-home { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
-    .mmd-home * { box-sizing:border-box; }
-    .mmd-container { width:min(100% - 32px, 1280px); margin-inline:auto; }
-    .mmd-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .mmd-home h1, .mmd-home h2, .mmd-home h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
-    .mmd-home p { margin:0; }
-    .mmd-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
-    .mmd-btn:hover { transform:translateY(-1px); }
-    .mmd-btn--primary { background:var(--mmd-ink); color:#fff; }
-    .mmd-btn--primary:hover { background:var(--mmd-accent); border-color:var(--mmd-accent); color:#fff; }
-    .mmd-btn--secondary { background:transparent; color:var(--mmd-ink); }
-    .mmd-btn--secondary:hover { background:var(--mmd-ink); color:#fff; }
-    .mmd-hero { background:var(--mmd-ivory); border-bottom:1px solid var(--mmd-line); }
-    .mmd-hero__grid { display:grid; gap:28px; min-height:580px; padding:42px 0; }
-    .mmd-hero__content { display:flex; flex-direction:column; justify-content:center; max-width:610px; }
-    .mmd-hero h1 { font-size:clamp(2.35rem, 5.2vw, 4.35rem); line-height:1.08; }
-    .mmd-hero__copy { max-width:560px; margin-top:18px; color:#554E49; font-size:clamp(.94rem, 1.2vw, 1.03rem); line-height:1.68; }
-    .mmd-hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
-    .mmd-hero__media { min-height:360px; overflow:hidden; position:relative; }
-    .mmd-hero__media img { width:100%; height:100%; min-height:360px; object-fit:cover; }
-    .mmd-hero__note { position:absolute; right:18px; bottom:18px; max-width:260px; background:rgba(255,255,255,.94); border:1px solid var(--mmd-line); padding:16px; color:var(--mmd-ink); font-size:.84rem; line-height:1.5; }
-    .mmd-section { padding:68px 0; }
-    .mmd-section--soft { background:var(--mmd-ivory); }
-    .mmd-section__head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
-    .mmd-section__head h2, .mmd-newsletter h2 { font-size:clamp(1.7rem, 2.8vw, 2.55rem); line-height:1.12; }
-    .mmd-section__head p:not(.mmd-eyebrow) { max-width:590px; margin-top:10px; font-size:.95rem; line-height:1.62; }
-    .mmd-text-link { color:var(--mmd-accent); font-weight:800; text-decoration:none; }
-    .mmd-text-link:hover { color:var(--mmd-accent-dark); text-decoration:underline; text-underline-offset:4px; }
-    .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-trust-grid, .mmd-review-grid, .mmd-gallery-grid { display:grid; gap:18px; }
-    .mmd-room-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-room-card, .mmd-collection-card, .mmd-product-card, .mmd-trust-card, .mmd-review-card { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; overflow:hidden; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
-    .mmd-room-card { color:inherit; display:flex; flex-direction:column; min-height:100%; text-decoration:none; }
-    .mmd-room-card img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .35s ease; }
-    .mmd-room-card__missing-image { aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#F5F6F8; color:#6B7280; padding:18px; text-align:center; font-size:.84rem; line-height:1.45; }
-    .mmd-room-card__missing-image strong { margin-top:6px; color:var(--mmd-ink); font-size:.9rem; word-break:break-word; }
-    .mmd-room-card__body { display:flex; flex:1; flex-direction:column; padding:18px; }
-    .mmd-room-card h3 { font-size:1.28rem; line-height:1.14; }
-    .mmd-room-card p { margin-top:9px; font-size:.92rem; line-height:1.56; }
-    .mmd-room-card__cta { margin-top:auto; padding-top:16px; color:var(--mmd-accent); font-size:.76rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-    .mmd-room-card:hover, .mmd-product-card:hover, .mmd-review-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
-    .mmd-room-card:hover img, .mmd-collection-card:hover img { transform:scale(1.04); }
-    .mmd-collection-grid { display:grid; gap:18px; }
-    .mmd-collection-card { display:grid; min-height:330px; color:#fff; text-decoration:none; }
-    .mmd-collection-card img, .mmd-collection-card__content { grid-area:1/1; }
-    .mmd-collection-card img { width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
-    .mmd-collection-card:after { content:""; grid-area:1/1; background:linear-gradient(180deg, rgba(0,0,0,.03), rgba(43,43,43,.58)); z-index:1; }
-    .mmd-collection-card__content { align-self:end; display:grid; gap:8px; padding:26px; position:relative; z-index:2; }
-    .mmd-collection-card h3 { color:#fff; font-size:1.5rem; line-height:1.14; }
-    .mmd-collection-card p { max-width:430px; color:rgba(255,255,255,.9); font-size:.92rem; line-height:1.56; }
-    .mmd-story { display:grid; gap:30px; align-items:center; }
-    .mmd-story__media { display:grid; grid-template-columns:1fr .74fr; gap:14px; align-items:end; }
-    .mmd-story__media img { width:100%; object-fit:cover; }
-    .mmd-story__media img:first-child { aspect-ratio:4/5; }
-    .mmd-story__media img:last-child { aspect-ratio:4/3; margin-bottom:34px; }
-    .mmd-story__content h2 { font-size:clamp(1.75rem, 3vw, 2.65rem); line-height:1.12; }
-    .mmd-story__content p { margin-top:16px; line-height:1.68; font-size:.96rem; }
-    .mmd-story__content .mmd-btn { margin-top:28px; }
-    .mmd-product-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-product-card { display:flex; flex-direction:column; }
-    .mmd-product-card__media { display:block; position:relative; overflow:hidden; background:#F6F3EE; text-decoration:none; }
-    .mmd-product-card__img { width:100%; aspect-ratio:1; object-fit:contain; padding:18px; transition:transform .25s ease; }
-    .mmd-product-card__media span { position:absolute; inset:auto 12px 12px; display:flex; align-items:center; justify-content:center; min-height:38px; background:rgba(255,255,255,.94); color:var(--mmd-ink); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; opacity:0; transform:translateY(8px); transition:opacity .2s ease, transform .2s ease; }
-    .mmd-product-card:hover .mmd-product-card__img { transform:scale(1.035); }
-    .mmd-product-card:hover .mmd-product-card__media span { opacity:1; transform:translateY(0); }
-    .mmd-product-card__body { display:flex; flex:1; flex-direction:column; padding:16px; }
-    .mmd-product-card__body p { color:var(--mmd-accent); font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-    .mmd-product-card h3 { margin-top:7px; min-height:2.5em; font-family:Inter, Arial, sans-serif; font-size:.92rem; font-weight:700; line-height:1.34; }
-    .mmd-product-card h3 a { color:inherit; text-decoration:none; }
-    .mmd-product-card__rating { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; color:#B98235; font-size:.8rem; font-style:normal; }
-    .mmd-product-card__rating em { color:#77706A; font-style:normal; }
-    .mmd-product-card__price { margin-top:8px; color:var(--mmd-ink); font-weight:800; }
-    .mmd-product-card__add { display:flex; align-items:center; justify-content:center; min-height:42px; margin-top:auto; border:1px solid var(--mmd-ink); color:var(--mmd-ink); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
-    .mmd-product-card__add:hover { background:var(--mmd-ink); color:#fff; }
-    .mmd-empty-products { grid-column:1/-1; border:1px solid var(--mmd-line); background:#fff; padding:28px; text-align:center; }
-    .mmd-season-grid { grid-template-columns:1fr; }
-    .mmd-season-card { display:grid; min-height:240px; overflow:hidden; color:#fff; text-decoration:none; }
-    .mmd-season-card img, .mmd-season-card span { grid-area:1/1; }
-    .mmd-season-card img { width:100%; height:100%; object-fit:cover; }
-    .mmd-season-card:after { content:""; grid-area:1/1; background:linear-gradient(180deg, rgba(0,0,0,0), rgba(43,43,43,.55)); z-index:1; }
-    .mmd-season-card span { align-self:end; padding:20px; position:relative; z-index:2; font-family:"Cormorant Garamond", Georgia, serif; font-size:1.35rem; line-height:1.12; }
-    .mmd-trust-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-trust-card { padding:22px; }
-    .mmd-trust-card svg { width:30px; height:30px; margin-bottom:14px; color:var(--mmd-accent); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-    .mmd-trust-card h3 { font-family:Inter, Arial, sans-serif; font-size:.92rem; font-weight:800; }
-    .mmd-trust-card p { margin-top:8px; font-size:.9rem; line-height:1.56; }
-    .mmd-review-grid { grid-template-columns:1fr; }
-    .mmd-review-card { padding:24px; }
-    .mmd-review-card__stars { color:#B98235; font-weight:800; }
-    .mmd-review-card blockquote { margin:14px 0 20px; color:#383430; font-family:"Cormorant Garamond", Georgia, serif; font-size:1.12rem; line-height:1.36; }
-    .mmd-review-card strong, .mmd-review-card span { display:block; }
-    .mmd-review-card span { margin-top:3px; color:#77706A; font-size:.9rem; }
-    .mmd-gallery-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-gallery-grid img { width:100%; aspect-ratio:1; object-fit:cover; }
-    .mmd-newsletter { padding:62px 0; background:var(--mmd-ink); color:#fff; }
-    .mmd-newsletter h2 { color:#fff; }
-    .mmd-newsletter__inner { display:grid; gap:24px; align-items:center; }
-    .mmd-newsletter p:not(.mmd-eyebrow) { max-width:560px; margin-top:10px; color:rgba(255,255,255,.76); font-size:.95rem; line-height:1.62; }
-    .mmd-newsletter form { display:grid; gap:10px; width:100%; max-width:540px; }
-    .mmd-newsletter input { min-height:48px; border:1px solid rgba(255,255,255,.28); background:#fff; padding:0 14px; color:var(--mmd-ink); }
-    .mmd-newsletter button { min-height:48px; border:1px solid var(--mmd-accent); background:var(--mmd-accent); color:#fff; cursor:pointer; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-    @media (min-width:700px) { .mmd-room-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-collection-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-season-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-review-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-gallery-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-newsletter form { grid-template-columns:1fr auto; justify-self:end; } }
-    @media (min-width:900px) { .mmd-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-story { grid-template-columns:1.06fr .94fr; } .mmd-product-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-trust-grid { grid-template-columns:repeat(5, minmax(0, 1fr)); } .mmd-newsletter__inner { grid-template-columns:1fr minmax(380px, 540px); } }
-    @media (max-width:699px) { .mmd-section { padding:50px 0; } .mmd-section__head { align-items:start; flex-direction:column; } .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-review-grid, .mmd-trust-grid { display:flex; gap:14px; margin-inline:-16px; overflow-x:auto; padding-inline:16px; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-room-grid::-webkit-scrollbar, .mmd-product-grid::-webkit-scrollbar, .mmd-season-grid::-webkit-scrollbar, .mmd-review-grid::-webkit-scrollbar, .mmd-trust-grid::-webkit-scrollbar { display:none; } .mmd-room-card, .mmd-product-card, .mmd-season-card, .mmd-review-card, .mmd-trust-card { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-gallery-grid { gap:10px; } .mmd-hero__note { left:14px; right:14px; } }
+    .cf-home { --cf-orange:#F58220; --cf-orange-dark:#E96F00; --cf-white:#FFFFFF; --cf-charcoal:#222222; --cf-text:#666666; --cf-light:#8A8A8A; --cf-bg:#FAFAFA; --cf-border:#E9ECEF; --cf-red:#E64A3B; --cf-green:#43A047; --cf-font-heading:'Manrope', 'Inter', Arial, sans-serif; --cf-font-body:'Inter', Arial, sans-serif; --cf-radius:16px; }
+    .cf-home { background:var(--cf-white); color:var(--cf-text); font-family:var(--cf-font-body); letter-spacing:0; }
+    .cf-home * { box-sizing:border-box; }
+    .cf-home p { margin:0; }
+    .cf-home h1, .cf-home h2, .cf-home h3 { margin:0; color:var(--cf-charcoal); font-family:var(--cf-font-heading); font-weight:800; letter-spacing:-0.01em; line-height:1.15; }
+    .cf-container { width:min(100% - 40px, 1280px); margin-inline:auto; }
+    .cf-eyebrow { margin:0 0 10px; color:var(--cf-orange); font-size:.78rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+    .cf-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; border-radius:999px; padding:0 26px; font-size:.92rem; font-weight:700; text-decoration:none; transition:background 220ms ease, color 220ms ease, border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease; }
+    .cf-btn--primary { background:var(--cf-orange); color:var(--cf-white); border:1px solid var(--cf-orange); }
+    .cf-btn--primary:hover { background:var(--cf-orange-dark); border-color:var(--cf-orange-dark); transform:translateY(-1px); box-shadow:0 12px 26px rgba(245,130,32,.28); }
+    .cf-btn--secondary { background:transparent; color:var(--cf-orange); border:1px solid var(--cf-orange); }
+    .cf-btn--secondary:hover { background:var(--cf-orange); color:var(--cf-white); transform:translateY(-1px); }
+    .cf-link { color:var(--cf-charcoal); font-weight:700; text-decoration:none; border-bottom:2px solid var(--cf-orange); padding-bottom:2px; }
+    .cf-link:hover { color:var(--cf-orange); }
+    .cf-section { padding:64px 0; }
+    .cf-section--soft { background:var(--cf-bg); }
+    .cf-section__head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:32px; }
+    .cf-section__head h2 { font-size:clamp(1.6rem, 2.6vw, 2.35rem); }
+    .cf-section__head p:not(.cf-eyebrow) { max-width:560px; margin-top:10px; font-size:.96rem; line-height:1.65; }
+
+    /* Hero */
+    .cf-hero { background:var(--cf-bg); border-bottom:1px solid var(--cf-border); padding:40px 0 52px; }
+    .cf-hero__grid { display:grid; gap:32px; align-items:center; }
+    .cf-hero__content { max-width:560px; }
+    .cf-hero h1 { font-size:clamp(2rem, 4.4vw, 3.1rem); }
+    .cf-hero__copy { margin-top:18px; font-size:clamp(1rem, 1.6vw, 1.1rem); line-height:1.7; color:var(--cf-text); }
+    .cf-hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .cf-hero__proof { display:flex; flex-wrap:wrap; gap:16px 22px; margin-top:26px; }
+    .cf-hero__proof span { display:inline-flex; align-items:center; gap:8px; color:var(--cf-charcoal); font-size:.84rem; font-weight:700; }
+    .cf-hero__proof svg { flex:none; color:var(--cf-green); }
+    .cf-hero__media { position:relative; overflow:hidden; border-radius:var(--cf-radius); box-shadow:0 24px 48px rgba(34,34,34,.14); }
+    .cf-hero__media img { width:100%; height:100%; min-height:320px; object-fit:cover; display:block; }
+
+    /* Category grid */
+    .cf-category-grid { display:grid; gap:18px; }
+    .cf-category { position:relative; display:flex; flex-direction:column; min-height:100%; border-radius:var(--cf-radius); overflow:hidden; background:var(--cf-white); border:1px solid var(--cf-border); color:inherit; text-decoration:none; transition:transform 260ms ease, box-shadow 260ms ease; }
+    .cf-category:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(34,34,34,.12); }
+    .cf-category__media { overflow:hidden; }
+    .cf-category__media img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform 320ms ease; }
+    .cf-category:hover .cf-category__media img { transform:scale(1.05); }
+    .cf-category__body { padding:20px; }
+    .cf-category__body h3 { font-size:1.05rem; }
+    .cf-category__body p { margin-top:8px; font-size:.88rem; line-height:1.6; color:var(--cf-text); }
+    .cf-category__count { display:inline-block; margin-top:12px; color:var(--cf-orange); font-size:.82rem; font-weight:800; }
+
+    /* Featured collections */
+    .cf-collection-grid { display:grid; gap:18px; }
+    .cf-collection { display:flex; flex-direction:column; border-radius:var(--cf-radius); overflow:hidden; background:var(--cf-white); border:1px solid var(--cf-border); color:inherit; text-decoration:none; transition:transform 260ms ease, box-shadow 260ms ease; }
+    .cf-collection:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(34,34,34,.12); }
+    .cf-collection__media { position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--cf-bg); }
+    .cf-collection__media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 320ms ease; }
+    .cf-collection:hover .cf-collection__media img { transform:scale(1.05); }
+    .cf-collection__media--icon { display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, var(--cf-orange) 0%, var(--cf-orange-dark) 100%); }
+    .cf-collection__media--icon svg { width:56px; height:56px; fill:none; stroke:var(--cf-white); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; opacity:.94; }
+    .cf-collection__body { padding:24px; }
+    .cf-collection__label { color:var(--cf-orange); font-size:.76rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .cf-collection__body h3 { margin-top:6px; font-size:1.2rem; }
+    .cf-collection__body p { margin-top:8px; font-size:.9rem; line-height:1.6; color:var(--cf-text); }
+    .cf-collection__cta { display:inline-flex; align-items:center; gap:6px; margin-top:16px; color:var(--cf-charcoal); font-size:.86rem; font-weight:800; }
+    .cf-collection__cta svg { transition:transform 220ms ease; }
+    .cf-collection:hover .cf-collection__cta { color:var(--cf-orange); }
+    .cf-collection:hover .cf-collection__cta svg { transform:translateX(3px); }
+
+    /* Product grid + card */
+    .cf-product-grid { display:grid; gap:18px; }
+    .cf-product { display:flex; flex-direction:column; border-radius:var(--cf-radius); overflow:hidden; background:var(--cf-white); border:1px solid var(--cf-border); transition:transform 260ms ease, box-shadow 260ms ease; }
+    .cf-product:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(34,34,34,.12); }
+    .cf-product__media { position:relative; display:block; background:var(--cf-bg); overflow:hidden; }
+    .cf-product__media img { width:100%; aspect-ratio:1; object-fit:contain; padding:18px; transition:transform 260ms ease; }
+    .cf-product:hover .cf-product__media img { transform:scale(1.05); }
+    .cf-product__flag { position:absolute; top:12px; left:12px; background:var(--cf-white); border:1px solid var(--cf-border); border-radius:999px; padding:5px 10px; color:var(--cf-charcoal); font-size:.68rem; font-weight:800; }
+    .cf-product__body { display:flex; flex:1; flex-direction:column; padding:16px; border-top:1px solid var(--cf-border); }
+    .cf-product__title { font-size:.98rem; font-weight:700; line-height:1.35; min-height:2.6em; }
+    .cf-product__title a { color:var(--cf-charcoal); text-decoration:none; }
+    .cf-product__title a:hover { color:var(--cf-orange); }
+    .cf-product__benefit { margin-top:6px; font-size:.84rem; line-height:1.55; color:var(--cf-text); display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+    .cf-rating { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:.8rem; font-weight:700; color:var(--cf-light); }
+    .cf-rating--empty { color:var(--cf-light); font-weight:600; }
+    .cf-rating__stars { position:relative; display:inline-block; font-size:.86rem; letter-spacing:1px; color:var(--cf-border); }
+    .cf-rating__stars::before { content:"\2605\2605\2605\2605\2605"; }
+    .cf-rating__stars::after { content:"\2605\2605\2605\2605\2605"; position:absolute; inset:0; overflow:hidden; width:calc(var(--cf-rating) / 5 * 100%); color:var(--cf-orange); }
+    .cf-product__foot { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:14px; }
+    .cf-product__price { font-family:var(--cf-font-heading); font-size:1.05rem; font-weight:800; color:var(--cf-charcoal); }
+    .cf-product__price del { font-size:.82rem; font-weight:500; color:var(--cf-light); margin-right:4px; }
+    .cf-product__price ins { text-decoration:none; }
+    .cf-product__cta { color:var(--cf-orange); font-size:.82rem; font-weight:800; text-decoration:none; white-space:nowrap; }
+    .cf-product__cta:hover { color:var(--cf-orange-dark); text-decoration:underline; text-underline-offset:3px; }
+    .cf-empty-note { padding:28px; text-align:center; border:1px dashed var(--cf-border); border-radius:var(--cf-radius); color:var(--cf-light); font-size:.92rem; }
+
+    /* Problem -> Solution */
+    .cf-solution { display:grid; gap:36px; align-items:center; }
+    .cf-solution__media { position:relative; border-radius:var(--cf-radius); overflow:hidden; box-shadow:0 24px 48px rgba(34,34,34,.12); }
+    .cf-solution__media img { width:100%; height:100%; min-height:320px; object-fit:cover; display:block; }
+    .cf-solution__badge { position:absolute; left:16px; bottom:16px; right:16px; display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:14px; background:rgba(255,255,255,.96); box-shadow:0 16px 32px rgba(34,34,34,.18); backdrop-filter:blur(6px); }
+    .cf-solution__badge-icon { display:inline-flex; align-items:center; justify-content:center; flex:none; width:38px; height:38px; border-radius:999px; background:var(--cf-orange); color:var(--cf-white); }
+    .cf-solution__badge-icon svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+    .cf-solution__badge-text { display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .cf-solution__badge-text strong { font-family:var(--cf-font-heading); font-size:.9rem; font-weight:800; color:var(--cf-charcoal); line-height:1.3; }
+    .cf-solution__badge-text span { font-size:.78rem; color:var(--cf-text); line-height:1.3; }
+    .cf-solution__intro { margin-top:14px; max-width:480px; font-size:.96rem; line-height:1.65; color:var(--cf-text); }
+    .cf-solution__list { display:grid; gap:14px; margin-top:26px; }
+    .cf-solution__item { display:flex; align-items:flex-start; gap:16px; border:1px solid var(--cf-border); border-radius:var(--cf-radius); padding:18px 20px; background:var(--cf-white); transition:border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease; }
+    .cf-solution__item:hover { border-color:rgba(245,130,32,.45); box-shadow:0 16px 32px rgba(34,34,34,.1); transform:translateY(-2px); }
+    .cf-solution__icon { display:inline-flex; align-items:center; justify-content:center; flex:none; width:44px; height:44px; margin-top:1px; border-radius:999px; background:var(--cf-bg); color:var(--cf-orange); }
+    .cf-solution__icon svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+    .cf-solution__text { margin:6px 0 0; font-size:.96rem; line-height:1.6; }
+    .cf-solution__problem { color:var(--cf-text); text-decoration:line-through; text-decoration-color:var(--cf-light); text-decoration-thickness:1.5px; text-underline-offset:2px; }
+    .cf-solution__sep { display:inline-block; margin:0 8px; color:var(--cf-orange); font-weight:700; }
+    .cf-solution__answer { font-family:var(--cf-font-heading); font-weight:700; color:var(--cf-charcoal); }
+
+    /* Why Shop / Crowdfused */
+    .cf-whyshop__head { max-width:720px; margin:0 auto 36px; text-align:center; }
+    .cf-whyshop__head h2 { font-size:clamp(1.5rem, 3vw, 2.15rem); text-transform:uppercase; letter-spacing:.02em; }
+    .cf-whyshop__head h2 span { color:var(--cf-orange); }
+    .cf-whyshop__head p { margin-top:14px; font-size:.96rem; line-height:1.7; color:var(--cf-text); }
+    .cf-whyshop-grid { display:grid; gap:18px; }
+    .cf-whyshop-card { border:1px solid var(--cf-border); border-radius:12px; padding:28px 22px; background:var(--cf-white); text-align:center; }
+    .cf-whyshop-card__icon { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; margin-bottom:16px; border-radius:999px; background:var(--cf-bg); color:var(--cf-orange); }
+    .cf-whyshop-card__icon svg { width:22px; height:22px; }
+    .cf-whyshop-card h3 { font-size:1rem; }
+    .cf-whyshop-card p { margin-top:8px; font-size:.86rem; line-height:1.6; color:var(--cf-text); }
+
+    /* Lifestyle story */
+    .cf-story { position:relative; overflow:hidden; border-radius:var(--cf-radius); min-height:420px; display:flex; align-items:flex-end; }
+    .cf-story img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+    .cf-story::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(15,15,15,.82) 0%, rgba(15,15,15,.55) 32%, rgba(15,15,15,.15) 62%, rgba(15,15,15,0) 80%), linear-gradient(0deg, rgba(15,15,15,.55), rgba(15,15,15,0) 65%); z-index:1; }
+    .cf-story__content { position:relative; z-index:2; padding:36px; max-width:560px; color:var(--cf-white); }
+    .cf-story__content h2 { color:var(--cf-white); font-size:clamp(1.6rem, 3vw, 2.35rem); }
+    .cf-story__content p { margin-top:14px; color:rgba(255,255,255,.86); font-size:1rem; line-height:1.65; }
+    .cf-story__content .cf-btn { margin-top:22px; }
+
+    /* Reviews (always a slider, including desktop) */
+    .cf-review-grid { display:flex; gap:16px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scrollbar-width:none; padding-bottom:6px; }
+    .cf-review-grid::-webkit-scrollbar { display:none; }
+    .cf-review { flex:0 0 clamp(16rem, 82vw, 20rem); max-width:clamp(16rem, 82vw, 20rem); scroll-snap-align:start; border:1px solid var(--cf-border); border-radius:var(--cf-radius); padding:22px; background:var(--cf-white); }
+    .cf-slider-nav { display:flex; gap:10px; flex:none; }
+    .cf-slider-nav__btn { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:999px; border:1px solid var(--cf-border); background:var(--cf-white); color:var(--cf-charcoal); cursor:pointer; transition:border-color 200ms ease, color 200ms ease, transform 200ms ease; }
+    .cf-slider-nav__btn:hover { border-color:var(--cf-orange); color:var(--cf-orange); }
+    .cf-slider-nav__btn:disabled { opacity:.4; cursor:default; border-color:var(--cf-border); color:var(--cf-charcoal); }
+    .cf-slider-nav__btn svg { width:18px; height:18px; }
+    .cf-review__head { display:flex; align-items:center; gap:12px; }
+    .cf-review__avatar { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:999px; background:var(--cf-bg); color:var(--cf-orange); font-family:var(--cf-font-heading); font-weight:800; font-size:.9rem; flex:none; }
+    .cf-review__name { font-weight:800; color:var(--cf-charcoal); font-size:.92rem; }
+    .cf-review__location { display:block; margin-top:2px; color:var(--cf-light); font-size:.78rem; }
+    .cf-review p.cf-review__copy { margin-top:14px; font-size:.9rem; line-height:1.65; color:var(--cf-text); }
+
+    /* Newsletter */
+    .cf-newsletter { background:var(--cf-charcoal); padding:52px 0; }
+    .cf-newsletter__inner { display:grid; gap:24px; align-items:center; }
+    .cf-newsletter h2 { color:var(--cf-white); font-size:clamp(1.5rem, 2.6vw, 2.1rem); }
+    .cf-newsletter p:not(.cf-eyebrow) { margin-top:10px; color:rgba(255,255,255,.72); font-size:.94rem; line-height:1.6; max-width:480px; }
+    .cf-newsletter__form { display:flex; flex-wrap:wrap; gap:10px; }
+    .cf-newsletter__form input { flex:1 1 240px; min-height:50px; border-radius:999px; border:1px solid rgba(255,255,255,.24); background:rgba(255,255,255,.06); padding:0 20px; color:var(--cf-white); font-size:.92rem; }
+    .cf-newsletter__form input::placeholder { color:rgba(255,255,255,.5); }
+    .cf-newsletter__form input:focus { outline:2px solid var(--cf-orange); outline-offset:2px; }
+    .cf-newsletter__form button { border:0; cursor:pointer; }
+
+    /* Slider (mobile) */
+    @media (max-width:759px) {
+        .cf-category-grid, .cf-product-grid, .cf-whyshop-grid { display:flex; gap:14px; margin-inline:-20px; overflow-x:auto; overscroll-behavior-x:contain; padding-inline:20px; padding-bottom:6px; scroll-snap-type:x mandatory; scrollbar-width:none; }
+        .cf-category-grid::-webkit-scrollbar, .cf-product-grid::-webkit-scrollbar, .cf-whyshop-grid::-webkit-scrollbar { display:none; }
+        .cf-review-grid { margin-inline:-20px; padding-inline:20px; }
+        .cf-category, .cf-product { flex:0 0 clamp(15.5rem, 70vw, 17.5rem); max-width:clamp(15.5rem, 70vw, 17.5rem); scroll-snap-align:start; }
+        .cf-whyshop-card { flex:0 0 clamp(16rem, 82vw, 20rem); max-width:clamp(16rem, 82vw, 20rem); scroll-snap-align:start; }
+        .cf-section__head { flex-direction:column; align-items:start; }
+        .cf-solution__media { min-height:220px; }
+        .cf-solution__media img { min-height:220px; }
+        .cf-solution__badge { left:12px; right:12px; bottom:12px; padding:12px 14px; }
+        .cf-solution__item { padding:16px; }
+    }
+
+    @media (min-width:640px) { .cf-newsletter__form { flex-wrap:nowrap; } }
+
+    @media (min-width:760px) {
+        .cf-hero__grid { grid-template-columns:0.92fr 1.08fr; min-height:480px; }
+        .cf-hero__media { min-height:420px; }
+        .cf-hero__media img { min-height:420px; }
+        .cf-category-grid { grid-template-columns:repeat(3, minmax(0,1fr)); }
+        .cf-collection-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
+        .cf-product-grid { grid-template-columns:repeat(3, minmax(0,1fr)); }
+        .cf-solution { grid-template-columns:0.9fr 1.1fr; }
+        .cf-whyshop-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
+        .cf-review { flex-basis:calc(50% - 8px); max-width:calc(50% - 8px); }
+        .cf-newsletter__inner { grid-template-columns:1fr auto; }
+    }
+
+    @media (min-width:1024px) {
+        .cf-section { padding:96px 0; }
+        .cf-product-grid { grid-template-columns:repeat(4, minmax(0,1fr)); }
+        .cf-whyshop-grid { grid-template-columns:repeat(4, minmax(0,1fr)); }
+        .cf-review { flex-basis:calc(33.333% - 11px); max-width:calc(33.333% - 11px); }
+    }
 </style>
 
-<div class="mmd-home">
-    <section class="mmd-hero" aria-labelledby="mmd-hero-title">
-        <div class="mmd-container mmd-hero__grid">
-            <div class="mmd-hero__content">
-                <p class="mmd-eyebrow"><?php esc_html_e('MegaMallDepot Home & Lifestyle', 'dawp'); ?></p>
-                <h1 id="mmd-hero-title"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></h1>
-                <p class="mmd-hero__copy"><?php esc_html_e('Discover thoughtfully selected furniture, decor and home essentials designed for modern American living.', 'dawp'); ?></p>
-                <div class="mmd-hero__actions">
-                    <a class="mmd-btn mmd-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
-                    <a class="mmd-btn mmd-btn--secondary" href="#new-arrivals"><?php esc_html_e('Explore New Arrivals', 'dawp'); ?></a>
+<div class="cf-home">
+
+    <section class="cf-hero" id="hero" aria-labelledby="cf-hero-title">
+        <div class="cf-container cf-hero__grid">
+            <div class="cf-hero__content">
+                <p class="cf-eyebrow"><?php esc_html_e('Innovation Made Everyday', 'dawp'); ?></p>
+                <h1 id="cf-hero-title"><?php esc_html_e('Innovation That Fits Into Everyday Life', 'dawp'); ?></h1>
+                <p class="cf-hero__copy"><?php esc_html_e('Discover thoughtfully selected products designed to simplify routines, solve everyday challenges and enhance modern living.', 'dawp'); ?></p>
+                <div class="cf-hero__actions">
+                    <a class="cf-btn cf-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Innovations', 'dawp'); ?></a>
+                    <a class="cf-btn cf-btn--secondary" href="<?php echo esc_url(add_query_arg('orderby', 'popularity', $shop_url)); ?>"><?php esc_html_e('Explore Best Sellers', 'dawp'); ?></a>
+                </div>
+                <div class="cf-hero__proof">
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><?php esc_html_e('Free Shipping on Eligible Orders', 'dawp'); ?></span>
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><?php esc_html_e('30-Day Easy Returns', 'dawp'); ?></span>
+                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><?php esc_html_e('Secure Checkout', 'dawp'); ?></span>
                 </div>
             </div>
-            <div class="mmd-hero__media">
-                <?php echo $mmd_img('Living_ecosystem_with_smart_tech_202607161304.jpeg', __('Warm modern living room with layered home furnishings', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-hero__note"><?php esc_html_e('Curated pieces, natural textures and everyday comfort for rooms that feel quietly finished.', 'dawp'); ?></div>
+            <div class="cf-hero__media">
+                <?php echo $cf_img('Innovation_Made_Everyday.jpeg', __('Innovation that fits into everyday life, shown through modern products in a real home', 'dawp'), 'New_homepage', '', 980, 760, 'eager', '(min-width: 760px) 54vw, 100vw'); ?>
             </div>
         </div>
     </section>
 
-    <section class="mmd-section" aria-labelledby="mmd-room-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
+    <section class="cf-section" id="categories" aria-labelledby="cf-categories-title">
+        <div class="cf-container">
+            <div class="cf-section__head">
                 <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
-                    <h2 id="mmd-room-title"><?php esc_html_e('Browse the departments you need most.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Shop practical everyday categories across home, tech, outdoors, play, beauty, pets and supplies.', 'dawp'); ?></p>
+                    <p class="cf-eyebrow"><?php esc_html_e('Shop By Lifestyle', 'dawp'); ?></p>
+                    <h2 id="cf-categories-title"><?php esc_html_e('Explore By Lifestyle', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Six ways Crowdfused fits into modern living, from the kitchen to the backyard.', 'dawp'); ?></p>
                 </div>
-                <a class="mmd-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all categories', 'dawp'); ?></a>
+                <a class="cf-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All', 'dawp'); ?></a>
             </div>
-            <div class="mmd-room-grid">
-                <?php foreach ($room_cards as $card) : ?>
-                    <a class="mmd-room-card" href="<?php echo esc_url($mmd_cat_url($card['slug'])); ?>">
-                        <?php $mmd_category_media($card); ?>
-                        <span class="mmd-room-card__body">
-                            <h3><?php echo esc_html($card['title']); ?></h3>
-                            <p><?php echo esc_html($card['copy']); ?></p>
-                            <span class="mmd-room-card__cta"><?php esc_html_e('Explore', 'dawp'); ?></span>
-                        </span>
+            <div class="cf-category-grid">
+                <?php foreach ($cf_categories as $category) :
+                    $link = $cf_category_link($category['slug']);
+                    ?>
+                    <a class="cf-category" href="<?php echo esc_url($link['url']); ?>">
+                        <div class="cf-category__media">
+                            <?php echo $cf_img($category['image'], $category['title'], $category['folder'] ?? 'gallery', '', 480, 360, 'lazy', '(max-width: 759px) 70vw, (max-width: 1023px) 33vw, 25vw'); ?>
+                        </div>
+                        <div class="cf-category__body">
+                            <h3><?php echo esc_html($category['title']); ?></h3>
+                            <p><?php echo esc_html($category['copy']); ?></p>
+                            <?php if ($link['count'] > 0) : ?>
+                                <span class="cf-category__count"><?php echo esc_html(sprintf(_n('%d product', '%d products', $link['count'], 'dawp'), $link['count'])); ?></span>
+                            <?php endif; ?>
+                        </div>
                     </a>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="mmd-section mmd-section--soft" aria-labelledby="mmd-collections-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
+    <section class="cf-section" id="collections" aria-labelledby="cf-collections-title">
+        <div class="cf-container">
+            <div class="cf-section__head">
                 <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Featured Collections', 'dawp'); ?></p>
-                    <h2 id="mmd-collections-title"><?php esc_html_e('Thoughtful edits for the way you live.', 'dawp'); ?></h2>
+                    <p class="cf-eyebrow"><?php esc_html_e('Featured Collections', 'dawp'); ?></p>
+                    <h2 id="cf-collections-title"><?php esc_html_e('Curated Edits Worth Exploring', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Spotlight collections built around the moments and spaces that matter most.', 'dawp'); ?></p>
                 </div>
             </div>
-            <div class="mmd-collection-grid">
-                <?php foreach ($collections as $collection) : ?>
-                    <a class="mmd-collection-card" href="<?php echo esc_url($mmd_cat_url($collection['slug'])); ?>">
-                        <?php echo $mmd_img($collection['image'], $collection['title'], '', 680, 520, 'lazy', '(max-width: 699px) 100vw, 33vw'); ?>
-                        <span class="mmd-collection-card__content">
+            <div class="cf-collection-grid">
+                <?php foreach ($cf_collections as $collection) :
+                    $link = $cf_category_link($collection['slug']);
+                    ?>
+                    <a class="cf-collection" href="<?php echo esc_url($link['url']); ?>">
+                        <div class="cf-collection__media<?php echo empty($collection['image']) ? ' cf-collection__media--icon' : ''; ?>">
+                            <?php if (!empty($collection['image'])) : ?>
+                                <?php echo $cf_img($collection['image'], $collection['title'], $collection['folder'] ?? 'gallery', '', 760, 480, 'lazy', '(max-width: 759px) 100vw, 50vw'); ?>
+                            <?php else : ?>
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><?php echo $collection['icon']; ?></svg>
+                            <?php endif; ?>
+                        </div>
+                        <div class="cf-collection__body">
+                            <p class="cf-collection__label"><?php echo esc_html($collection['label']); ?></p>
                             <h3><?php echo esc_html($collection['title']); ?></h3>
                             <p><?php echo esc_html($collection['copy']); ?></p>
-                        </span>
+                            <span class="cf-collection__cta">
+                                <?php echo esc_html($collection['cta']); ?>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                            </span>
+                        </div>
                     </a>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="mmd-section" aria-labelledby="mmd-story-title">
-        <div class="mmd-container mmd-story">
-            <div class="mmd-story__media">
-                <?php echo $mmd_img('Home_essentials_on_shelf_202607171221.jpeg', __('Home essentials arranged on a shelf', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
-                <?php echo $mmd_img('Minimalist_living_room_with_ligh…_202607171221.jpeg', __('Minimalist living room with light neutral decor', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
-            </div>
-            <div class="mmd-story__content">
-                <p class="mmd-eyebrow"><?php esc_html_e('Our Point Of View', 'dawp'); ?></p>
-                <h2 id="mmd-story-title"><?php esc_html_e('A calmer way to furnish, refresh and enjoy home.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('MegaMallDepot brings together practical essentials and design-led accents so your home feels collected, not crowded. Each edit is chosen for everyday usefulness, inviting materials and timeless appeal.', 'dawp'); ?></p>
-                <a class="mmd-btn mmd-btn--secondary" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('Discover Our Story', 'dawp'); ?></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section mmd-section--soft" aria-labelledby="mmd-best-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
+    <section class="cf-section cf-section--soft" id="trending" aria-labelledby="cf-trending-title">
+        <div class="cf-container">
+            <div class="cf-section__head">
                 <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Best Sellers', 'dawp'); ?></p>
-                    <h2 id="mmd-best-title"><?php esc_html_e('Pieces customers return to again and again.', 'dawp'); ?></h2>
+                    <p class="cf-eyebrow"><?php esc_html_e('Just Landed', 'dawp'); ?></p>
+                    <h2 id="cf-trending-title"><?php esc_html_e('Trending Right Now', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('The newest additions to our lineup, chosen for how well they solve everyday problems.', 'dawp'); ?></p>
                 </div>
-                <a class="mmd-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all products', 'dawp'); ?></a>
+                <a class="cf-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All', 'dawp'); ?></a>
             </div>
-            <div class="mmd-product-grid">
-                <?php if (!empty($best_sellers)) : ?>
-                    <?php foreach ($best_sellers as $product_id) : ?>
-                        <?php $mmd_product_card($product_id); ?>
+            <?php if (!empty($cf_trending)) : ?>
+                <div class="cf-product-grid">
+                    <?php foreach ($cf_trending as $index => $product) : ?>
+                        <?php echo $cf_product_card($product, 0 === $index); ?>
                     <?php endforeach; ?>
-                <?php else : ?>
-                    <div class="mmd-empty-products"><?php esc_html_e('Add WooCommerce products to feature best sellers in this editorial grid.', 'dawp'); ?></div>
-                <?php endif; ?>
-            </div>
+                </div>
+            <?php else : ?>
+                <p class="cf-empty-note"><?php esc_html_e('New innovations are on their way. Check back soon.', 'dawp'); ?></p>
+            <?php endif; ?>
         </div>
     </section>
 
-    <section class="mmd-section" aria-labelledby="mmd-season-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Seasonal Inspiration', 'dawp'); ?></p>
-                    <h2 id="mmd-season-title"><?php esc_html_e('Fresh ideas for the months ahead.', 'dawp'); ?></h2>
+    <section class="cf-section" aria-labelledby="cf-why-it-matters-title">
+        <div class="cf-container cf-solution">
+            <div class="cf-solution__media">
+                <?php echo $cf_img('Fresh_Utility_Spaces.jpeg', __('Organized, fresh home space designed to simplify daily routines', 'dawp'), 'home', '', 780, 620, 'lazy', '(max-width: 759px) 100vw, 44vw'); ?>
+                <div class="cf-solution__badge">
+                    <span class="cf-solution__badge-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3v3.5M12 17.5V21M3 12h3.5M17.5 12H21"></path><circle cx="12" cy="12" r="5.2"></circle></svg>
+                    </span>
+                    <span class="cf-solution__badge-text">
+                        <strong><?php esc_html_e('3 everyday problems', 'dawp'); ?></strong>
+                        <span><?php esc_html_e('solved by thoughtful design', 'dawp'); ?></span>
+                    </span>
                 </div>
             </div>
-            <div class="mmd-season-grid">
-                <?php foreach ($seasonal as $edit) : ?>
-                    <a class="mmd-season-card" href="<?php echo esc_url($shop_url); ?>">
-                        <?php echo $mmd_img($edit['image'], $edit['title'], '', 520, 420, 'lazy', '(max-width: 699px) 82vw, 25vw'); ?>
-                        <span><?php echo esc_html($edit['title']); ?></span>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section id="new-arrivals" class="mmd-section mmd-section--soft" aria-labelledby="mmd-new-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
-                    <h2 id="mmd-new-title"><?php esc_html_e('Just added to the home edit.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-product-grid">
-                <?php if (!empty($new_arrivals)) : ?>
-                    <?php foreach ($new_arrivals as $product_id) : ?>
-                        <?php $mmd_product_card($product_id); ?>
-                    <?php endforeach; ?>
-                <?php else : ?>
-                    <div class="mmd-empty-products"><?php esc_html_e('New arrivals will appear here as soon as products are published.', 'dawp'); ?></div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section" aria-labelledby="mmd-trust-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Why Shop MegaMallDepot', 'dawp'); ?></p>
-                    <h2 id="mmd-trust-title"><?php esc_html_e('A reliable path from inspiration to delivery.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-trust-grid">
-                <?php
-                $trust_items = [
-                    [__('Fast Shipping', 'dawp'), __('Orders ship after 1-2 business days and usually arrive in 4-7 business days.', 'dawp'), '<path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle>'],
-                    [__('Easy Returns', 'dawp'), __('Return eligible unused items within 30 days of delivery.', 'dawp'), '<path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-15-6.7L3 13"></path>'],
-                    [__('Secure Checkout', 'dawp'), __('Payment details are protected through encrypted checkout.', 'dawp'), '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>'],
-                    [__('Order Tracking', 'dawp'), __('Tracking is provided once your order ships.', 'dawp'), '<path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2"></circle>'],
-                    [__('Customer Support', 'dawp'), __('A dedicated care team is available Monday through Friday.', 'dawp'), '<path d="M4 12a8 8 0 0 1 16 0"></path><path d="M4 12v4a2 2 0 0 0 2 2h2v-8H6a2 2 0 0 0-2 2z"></path><path d="M20 12v4a2 2 0 0 1-2 2h-2v-8h2a2 2 0 0 1 2 2z"></path>'],
-                ];
-                ?>
-                <?php foreach ($trust_items as $item) : ?>
-                    <article class="mmd-trust-card">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><?php echo $item[2]; ?></svg>
-                        <h3><?php echo esc_html($item[0]); ?></h3>
-                        <p><?php echo esc_html($item[1]); ?></p>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section mmd-section--soft" aria-labelledby="mmd-reviews-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Customer Reviews', 'dawp'); ?></p>
-                    <h2 id="mmd-reviews-title"><?php esc_html_e('Homes made more comfortable.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-review-grid">
-                <article class="mmd-review-card">
-                    <div class="mmd-review-card__stars" aria-hidden="true">*****</div>
-                    <blockquote><?php esc_html_e('The dining pieces feel refined without being fussy, and everything arrived well packed.', 'dawp'); ?></blockquote>
-                    <strong><?php esc_html_e('Emily R.', 'dawp'); ?></strong>
-                    <span><?php esc_html_e('Portland, OR - Verified Purchase', 'dawp'); ?></span>
-                </article>
-                <article class="mmd-review-card">
-                    <div class="mmd-review-card__stars" aria-hidden="true">*****</div>
-                    <blockquote><?php esc_html_e('I found practical storage that still looks beautiful in the room.', 'dawp'); ?></blockquote>
-                    <strong><?php esc_html_e('Natalie C.', 'dawp'); ?></strong>
-                    <span><?php esc_html_e('Austin, TX - Verified Purchase', 'dawp'); ?></span>
-                </article>
-                <article class="mmd-review-card">
-                    <div class="mmd-review-card__stars" aria-hidden="true">*****</div>
-                    <blockquote><?php esc_html_e('The collection made our patio refresh simple and cohesive.', 'dawp'); ?></blockquote>
-                    <strong><?php esc_html_e('Marcus W.', 'dawp'); ?></strong>
-                    <span><?php esc_html_e('Charlotte, NC - Verified Purchase', 'dawp'); ?></span>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section" aria-labelledby="mmd-gallery-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Lifestyle Gallery', 'dawp'); ?></p>
-                    <h2 id="mmd-gallery-title"><?php esc_html_e('Inspiration in every corner.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-gallery-grid">
-                <?php echo $mmd_img('Cookware_on_induction_cooktop_202607161259.jpeg', __('Cookware on a bright kitchen cooktop', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Living_room_furniture_set_neutra…_202607161252.jpeg', __('Neutral living room furniture set', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Garden_lounge_area_with_hanging_202607161300.jpeg', __('Garden lounge area with relaxed outdoor seating', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Dining_area_with_kitchen_favorites_202607161311.jpeg', __('Dining area styled with kitchen favorites', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-newsletter" aria-labelledby="mmd-newsletter-title">
-        <div class="mmd-container mmd-newsletter__inner">
             <div>
-                <p class="mmd-eyebrow"><?php esc_html_e('Bring Inspiration Home', 'dawp'); ?></p>
-                <h2 id="mmd-newsletter-title"><?php esc_html_e('Receive new edits, room ideas and thoughtful finds.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Sign up for a calmer inbox with seasonal home inspiration and product discoveries from MegaMallDepot.', 'dawp'); ?></p>
+                <p class="cf-eyebrow"><?php esc_html_e('Why It Matters', 'dawp'); ?></p>
+                <h2 id="cf-why-it-matters-title"><?php esc_html_e('Innovation solves real everyday problems.', 'dawp'); ?></h2>
+                <p class="cf-solution__intro"><?php esc_html_e('Every product we carry starts with a frustration worth fixing. Here are a few that show up in daily life.', 'dawp'); ?></p>
+                <div class="cf-solution__list">
+                    <?php foreach ($cf_problem_solution as $item) : ?>
+                        <div class="cf-solution__item">
+                            <span class="cf-solution__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><?php echo $item['icon']; ?></svg></span>
+                            <p class="cf-solution__text">
+                                <span class="cf-solution__problem"><?php echo esc_html($item['problem']); ?></span>
+                                <span class="cf-solution__sep" aria-hidden="true">&rarr;</span>
+                                <span class="cf-solution__answer"><?php echo esc_html($item['solution']); ?></span>
+                            </p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
-            <form action="<?php echo esc_url(home_url('/')); ?>" method="post">
-                <label class="screen-reader-text" for="mmd-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-                <input id="mmd-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>" required>
-                <button type="submit"><?php esc_html_e('Sign Up', 'dawp'); ?></button>
+        </div>
+    </section>
+
+    <section class="cf-section cf-section--soft" id="our-story" aria-labelledby="cf-story-title">
+        <div class="cf-container">
+            <div class="cf-story">
+                <?php echo $cf_img('Living_room_minimalist_design_ph…_202607281539.jpeg', __('Calm, minimalist living room reflecting effortless everyday design', 'dawp'), 'New_homepage', '', 1200, 700, 'lazy', '100vw'); ?>
+                <div class="cf-story__content">
+                    <p class="cf-eyebrow" style="color:#FFC98A;"><?php esc_html_e('Our Philosophy', 'dawp'); ?></p>
+                    <h2 id="cf-story-title"><?php esc_html_e('Innovation Should Feel Effortless', 'dawp'); ?></h2>
+                    <p><?php esc_html_e("Crowdfused believes the best products aren't the most complicated. They're the ones that quietly make everyday life easier, more enjoyable and more efficient.", 'dawp'); ?></p>
+                    <a class="cf-btn cf-btn--primary" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('Discover Our Story', 'dawp'); ?></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cf-section cf-section--soft cf-whyshop" id="why-shop" aria-labelledby="cf-whyshop-title">
+        <div class="cf-container">
+            <div class="cf-whyshop__head">
+                <h2 id="cf-whyshop-title"><?php esc_html_e('Why Shop', 'dawp'); ?> / <span><?php esc_html_e('Crowdfused', 'dawp'); ?></span></h2>
+                <p><?php esc_html_e('Thoughtfully chosen everyday innovations, shipped fast and backed by an easy 30-day return policy.', 'dawp'); ?></p>
+            </div>
+            <div class="cf-whyshop-grid">
+                <?php foreach ($cf_why_shop as $item) : ?>
+                    <div class="cf-whyshop-card">
+                        <span class="cf-whyshop-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><?php echo $item['icon']; ?></svg></span>
+                        <h3><?php echo esc_html($item['title']); ?></h3>
+                        <p><?php echo esc_html($item['copy']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="cf-section" id="reviews" aria-labelledby="cf-reviews-title">
+        <div class="cf-container">
+            <div class="cf-section__head">
+                <div>
+                    <p class="cf-eyebrow"><?php esc_html_e('Social Proof', 'dawp'); ?></p>
+                    <h2 id="cf-reviews-title"><?php esc_html_e('Trusted By Thousands', 'dawp'); ?></h2>
+                </div>
+                <div class="cf-slider-nav" data-slider-nav="cf-review-track">
+                    <button type="button" class="cf-slider-nav__btn" data-slider-prev aria-label="<?php esc_attr_e('Previous reviews', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+                    </button>
+                    <button type="button" class="cf-slider-nav__btn" data-slider-next aria-label="<?php esc_attr_e('Next reviews', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="cf-review-grid" id="cf-review-track">
+                <?php foreach ($cf_testimonials as $review) :
+                    $initials = '';
+                    foreach (explode(' ', $review['name']) as $part) {
+                        $initials .= mb_substr($part, 0, 1);
+                    }
+                    ?>
+                    <div class="cf-review">
+                        <div class="cf-review__head">
+                            <span class="cf-review__avatar" aria-hidden="true"><?php echo esc_html($initials); ?></span>
+                            <div>
+                                <span class="cf-review__name"><?php echo esc_html($review['name']); ?></span>
+                                <span class="cf-review__location"><?php echo esc_html($review['location']); ?></span>
+                            </div>
+                        </div>
+                        <?php echo $cf_rating_html($review['rating'], 1); ?>
+                        <p class="cf-review__copy">&ldquo;<?php echo esc_html($review['copy']); ?>&rdquo;</p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="cf-newsletter" id="newsletter" aria-labelledby="cf-newsletter-title">
+        <div class="cf-container cf-newsletter__inner">
+            <div>
+                <p class="cf-eyebrow" style="color:#FFC98A;"><?php esc_html_e('Stay In The Loop', 'dawp'); ?></p>
+                <h2 id="cf-newsletter-title"><?php esc_html_e('Stay Ahead of What&rsquo;s Next', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Receive updates on innovative products, exclusive launches and special offers.', 'dawp'); ?></p>
+            </div>
+            <form class="cf-newsletter__form" method="post" action="<?php echo esc_url(home_url('/')); ?>">
+                <label class="screen-reader-text" for="cf-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
+                <input id="cf-newsletter-email" type="email" name="email" required placeholder="<?php esc_attr_e('Enter your email address', 'dawp'); ?>">
+                <button type="submit" class="cf-btn cf-btn--primary"><?php esc_html_e('Subscribe', 'dawp'); ?></button>
             </form>
         </div>
     </section>
+
 </div>

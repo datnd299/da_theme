@@ -89,6 +89,29 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveDot(0);
     });
 
+    // Slider nav buttons (e.g. reviews slider on desktop)
+    document.querySelectorAll('[data-slider-nav]').forEach((nav) => {
+        const track = document.getElementById(nav.dataset.sliderNav);
+        const prevBtn = nav.querySelector('[data-slider-prev]');
+        const nextBtn = nav.querySelector('[data-slider-next]');
+        if (!track || !prevBtn || !nextBtn) return;
+
+        const scrollAmount = () => track.clientWidth * 0.9;
+        prevBtn.addEventListener('click', () => track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+        nextBtn.addEventListener('click', () => track.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
+
+        const updateNav = () => {
+            const atStart = track.scrollLeft <= 4;
+            const atEnd = Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth - 4;
+            prevBtn.disabled = atStart;
+            nextBtn.disabled = atEnd;
+        };
+
+        track.addEventListener('scroll', updateNav, { passive: true });
+        window.addEventListener('resize', updateNav, { passive: true });
+        updateNav();
+    });
+
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');

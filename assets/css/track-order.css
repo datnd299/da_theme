@@ -1,23 +1,23 @@
 /* =============================================================
-   TRACK ORDER PAGE - Topgoodmart
+   TRACK ORDER PAGE - Crowdfused
    ============================================================= */
 
 .track-order-page {
-  --track-ink: #2B2B2B;
-  --track-soft-ink: #554E49;
-  --track-muted: #746B64;
-  --track-rose: #A45A3F;
-  --track-rose-dark: #7F422F;
-  --track-rose-muted: #A45A3F;
-  --track-yellow: #D8C7BE;
-  --track-blush: #F2E9E2;
-  --track-cream: #F8F5F0;
+  --track-ink: #222222;
+  --track-soft-ink: #666666;
+  --track-muted: #8A8A8A;
+  --track-rose: #F58220;
+  --track-rose-dark: #E96F00;
+  --track-rose-muted: #F58220;
+  --track-yellow: #E9ECEF;
+  --track-blush: #FAFAFA;
+  --track-cream: #FAFAFA;
   --track-paper: #FFFFFF;
-  --track-border: #E8E5DF;
+  --track-border: #E9ECEF;
   --track-white: #FFFFFF;
-  --track-danger: #8A332B;
-  --track-success: #315B3D;
-  --track-shadow: 0 18px 38px rgba(43, 43, 43, 0.10);
+  --track-danger: #E64A3B;
+  --track-success: #43A047;
+  --track-shadow: 0 18px 38px rgba(34, 34, 34, 0.10);
 
   background: var(--track-paper);
   color: var(--track-ink);
@@ -47,7 +47,7 @@
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(216, 199, 190, 0.34), rgba(255, 255, 255, 0) 38%),
-    #F8F5F0;
+    #FAFAFA;
   border-bottom: 1px solid var(--track-border);
   color: var(--track-ink);
   padding: 3rem 1rem;
@@ -120,7 +120,7 @@
 .track-button--primary {
   background: var(--track-rose);
   color: var(--track-white);
-  box-shadow: 0 12px 24px rgba(164, 90, 63, 0.20);
+  box-shadow: 0 12px 24px rgba(245, 130, 32, 0.20);
 }
 
 .track-order-page .track-button--primary,
@@ -278,7 +278,7 @@
   border: 1px solid var(--track-border);
   border-radius: 0.5rem;
   background: var(--track-white);
-  box-shadow: 0 1px 3px rgba(47, 42, 40, 0.04);
+  box-shadow: 0 1px 3px rgba(34, 34, 34, 0.04);
 }
 
 .track-form-card {
@@ -325,7 +325,7 @@
   color: var(--track-rose-dark);
   font-weight: 800;
   text-decoration: underline;
-  text-decoration-color: rgba(164, 90, 63, 0.35);
+  text-decoration-color: rgba(245, 130, 32, 0.35);
   text-underline-offset: 0.25rem;
 }
 
@@ -409,7 +409,7 @@
 .track-more-card:hover,
 .track-category-card:hover {
   border-color: var(--track-rose);
-  box-shadow: 0 14px 30px rgba(164, 90, 63, 0.14);
+  box-shadow: 0 14px 30px rgba(245, 130, 32, 0.14);
   transform: translateY(-2px);
 }
 
@@ -520,7 +520,7 @@
 }
 
 .track-order-page .form-row input.input-text::placeholder {
-  color: #9C8E88 !important;
+  color: #8A8A8A !important;
   opacity: 1 !important;
 }
 
@@ -528,7 +528,7 @@
 .track-order-page .woocommerce-form-row input.input-text:focus {
   border-color: var(--track-rose) !important;
   background: var(--track-white) !important;
-  box-shadow: 0 0 0 4px rgba(164, 90, 63, 0.14) !important;
+  box-shadow: 0 0 0 4px rgba(245, 130, 32, 0.14) !important;
 }
 
 .track-order-page .form-row button.button,
@@ -543,7 +543,7 @@
   border-radius: 0.375rem !important;
   background: var(--track-rose) !important;
   color: var(--track-white) !important;
-  box-shadow: 0 14px 28px rgba(164, 90, 63, 0.18) !important;
+  box-shadow: 0 14px 28px rgba(245, 130, 32, 0.18) !important;
   cursor: pointer !important;
   font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif) !important;
   font-size: 0.875rem !important;
@@ -560,7 +560,7 @@
 .track-order-page .woocommerce-form-row button.button:hover,
 .track-order-page button.button:hover {
   background: var(--track-rose-dark) !important;
-  box-shadow: 0 16px 32px rgba(164, 90, 63, 0.22) !important;
+  box-shadow: 0 16px 32px rgba(245, 130, 32, 0.22) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -576,7 +576,7 @@
 
 .track-order-page .woocommerce-error {
   border: 1px solid rgba(138, 51, 43, 0.28) !important;
-  background: #FFF3F1 !important;
+  background: #FAFAFA !important;
   color: var(--track-danger) !important;
   list-style: none !important;
 }
@@ -584,7 +584,7 @@
 .track-order-page .woocommerce-message,
 .track-order-page .woocommerce-info {
   border: 1px solid rgba(49, 91, 61, 0.22) !important;
-  background: #F0FAF3 !important;
+  background: #FAFAFA !important;
   color: var(--track-success) !important;
 }
 

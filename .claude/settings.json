@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/xampp/htdocs/**)",
+      "Bash(php -v)",
+      "Bash(find /c/xampp/htdocs -maxdepth 1 -iname \"wp-config.php\")",
+      "Bash(curl -s http://localhost/)",
+      "Bash(curl -s \"http://localhost/product-category/auto-tires/\" -o /dev/null -w \"%{http_code}\\\\n\")"
+    ]
+  }
+}

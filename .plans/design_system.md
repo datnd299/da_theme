@@ -1,27 +1,48 @@
-# MegaMallDepot — Design System
+# Crowdfused — Design System
 
 ## Design Direction
 
-Inspired by premium home retailers like Williams Sonoma.
+Inspired by modern innovation retailers and premium crowdfunding platforms such as Kickstarter, Peak Design and Apple.
 
-Website should feel:
+The website should communicate innovation through simplicity rather than complexity.
 
-* Warm
-* Elegant
-* Editorial
-* Spacious
+Every page should feel:
+
+* Modern
+* Innovative
 * Premium
-* Lifestyle-first
+* Clean
+* Functional
+* Confident
+* Minimal
 
-Customers should feel they are browsing a modern home magazine rather than a discount ecommerce website.
+Customers should feel they are discovering breakthrough products rather than shopping in a generic gadget marketplace.
 
 Avoid:
 
 * Marketplace appearance
-* Heavy promotional banners
-* Flash sale styling
+* Dropshipping layouts
+* Flash-sale styling
 * Overstock product grids
-* Technology-first layouts
+* Neon cyberpunk themes
+* Excessive gradients
+* Cheap promotional graphics
+
+---
+
+# Brand Personality
+
+Crowdfused represents products that solve real-world problems through thoughtful design.
+
+The visual identity should express:
+
+* Smart Innovation
+* Everyday Simplicity
+* Premium Quality
+* Functional Beauty
+* Human-centered Design
+
+The interface should always prioritize clarity over decoration.
 
 ---
 
@@ -30,59 +51,94 @@ Avoid:
 ## Primary
 
 ```txt
-Charcoal
-#2B2B2B
+Crowdfused Orange
+#F58220
 ```
 
 Used for:
 
-* Logo
-* Navigation
-* Headlines
+* Primary buttons
+* CTA highlights
+* Icons
+* Interactive elements
+* Active navigation
+
+Orange represents creativity, innovation and energy.
 
 ---
 
 ## Secondary
 
 ```txt
-Warm Ivory
-#F8F5F0
+Pure White
+#FFFFFF
 ```
 
 Used for:
 
-* Section backgrounds
-* Hero
-* Editorial blocks
+* Main backgrounds
+* Product sections
+* Cards
+* Layout foundation
+
+White creates breathing room and allows products to become the visual focus.
 
 ---
 
-## Accent
+## Accent 01
 
 ```txt
-Terracotta
-#A45A3F
+Innovation Red
+#E64A3B
 ```
 
 Used for:
 
-* Buttons
-* Small highlights
-* Links
+* Limited highlights
+* Small promotional labels
+* Important notices
+* Micro accents
+
+Should never dominate the interface.
+
+---
+
+## Accent 02
+
+```txt
+Fresh Green
+#43A047
+```
+
+Used for:
+
+* Success messages
+* Trust indicators
+* Eco-friendly products
+* Verified badges
+* Positive product benefits
+
+Green should be used sparingly.
 
 ---
 
 ## Neutral
 
 ```txt
-White
-#FFFFFF
+Background
+#FAFAFA
 
 Border
-#E8E5DF
+#E9ECEF
 
-Text
-#4A4A4A
+Dark Text
+#222222
+
+Secondary Text
+#666666
+
+Light Text
+#8A8A8A
 ```
 
 ---
@@ -92,7 +148,7 @@ Text
 Headings
 
 ```txt
-Cormorant Garamond
+Manrope
 ```
 
 Body
@@ -101,17 +157,24 @@ Body
 Inter
 ```
 
-Style:
+Style
 
-* Large elegant headings
-* Small readable body text
-* Editorial spacing
+* Clean
+* Geometric
+* Highly readable
+* Premium
+* Modern
+
+Headlines should be bold but never oversized.
+
+Body copy should remain concise and comfortable to scan.
 
 Avoid:
 
-* Bold oversized typography
-* Tech fonts
-* Decorative scripts
+* Decorative fonts
+* Tech-style monospace fonts
+* Thin typography
+* Excessively compressed spacing
 
 ---
 
@@ -126,7 +189,7 @@ max-w-7xl mx-auto
 Spacing
 
 ```txt
-py-16 md:py-24
+py-20 md:py-28
 ```
 
 Grid
@@ -135,9 +198,9 @@ Grid
 2–4 columns
 ```
 
-Lots of whitespace.
+Generous whitespace is essential.
 
-Content should breathe.
+Every section should feel open and easy to explore.
 
 ---
 
@@ -161,85 +224,149 @@ Cart
 Category Navigation
 ```
 
-Header should feel minimal and premium.
+Header should feel:
+
+* Lightweight
+* Premium
+* Minimal
+* Sticky
+* Clean
+
+Navigation should never feel crowded.
 
 ---
 
 # Hero Section
 
-Use large editorial photography.
+Hero should immediately communicate innovation.
 
-Layout:
+Layout
 
-50% imagery
+55% Product Lifestyle
 
-50% content
+45% Content
 
 Content includes:
 
-* Small eyebrow
-* Elegant headline
-* Short description
-* One primary CTA
+* Small category label
+* Strong headline
+* Short value proposition
+* Primary CTA
+* Secondary CTA
 
-Avoid crowded hero content.
+Hero imagery should focus on products being used naturally rather than isolated renders.
+
+Avoid busy compositions.
 
 ---
 
 # Homepage Components
 
-Use:
+Recommended order:
 
-* Lifestyle Hero
-* Shop By Collection
-* Editorial Promotion
-* Featured Products
-* Seasonal Collections
-* Brand Story
+* Hero Banner
+* Trending Innovations
+* Featured Categories
+* Best Sellers
+* Lifestyle Benefits
+* New Arrivals
+* Problem → Solution Showcase
 * Customer Reviews
+* Why Crowdfused
+* Newsletter
 
-Do not place large product grids immediately after the hero.
+Avoid placing dense product grids directly below the hero.
+
+The homepage should alternate between storytelling and shopping.
 
 ---
 
 # Product Cards
 
-Display:
+Display
 
-* Large image
+* Large product image
 * Product name
+* Short benefit
 * Price
 * Rating
 * Quick View
+* Wishlist
 
-Hover:
+Hover
 
-* Soft image zoom
-* Fade transition
+* Slight lift
+* Soft shadow
+* Smooth image zoom
+* Button reveal
 
-No aggressive sale badges.
+Cards should feel modern rather than sales-driven.
+
+Avoid loud badges.
+
+---
+
+# Product Page Layout
+
+Recommended order
+
+* Gallery
+* Product Summary
+* Key Benefits
+* Feature Icons
+* Product Description
+* Lifestyle Images
+* Specifications
+* FAQ
+* Reviews
+* Related Products
+
+The first screen should explain why the product matters before discussing specifications.
 
 ---
 
 # Image Direction
 
-Use:
+Photography should emphasize real-life usage.
 
-* Bright kitchens
-* Modern dining rooms
-* Elegant living spaces
-* Natural lighting
-* Premium home styling
-* Lifestyle photography
+Preferred imagery:
 
-Products should appear inside beautiful homes.
+* Clean workspaces
+* Outdoor adventures
+* Smart homes
+* Travel environments
+* Everyday lifestyle
+* Product in use
+* Soft natural lighting
+* Minimal interiors
+
+Products should always feel useful rather than technical.
 
 Avoid:
 
-* White cutout backgrounds only
-* Dark scenes
-* Heavy graphics
-* Busy compositions
+* White cutout images only
+* CGI renders
+* Busy graphics
+* Heavy text overlays
+* Dark futuristic environments
+
+---
+
+# Iconography
+
+Use:
+
+* Rounded line icons
+* Minimal stroke icons
+* Consistent sizing
+
+Icons should communicate functionality quickly.
+
+Avoid:
+
+* 3D icons
+* Cartoon icons
+* Filled icon sets
 
 ---
 
@@ -249,57 +376,164 @@ Primary
 
 ```txt
 Background
-#2B2B2B
+#F58220
 
 Text
 White
 ```
 
+Hover
+
+```txt
+#E96F00
+```
+
+---
+
 Secondary
 
 ```txt
 Border
-#2B2B2B
+#F58220
 
 Background
 Transparent
+
+Text
+#F58220
 ```
 
-Buttons should feel refined rather than promotional.
+---
+
+Success
+
+```txt
+Background
+#43A047
+
+Text
+White
+```
+
+Buttons should appear confident and modern rather than promotional.
+
+---
+
+# Cards
+
+Border Radius
+
+```txt
+16px
+```
+
+Shadow
+
+```txt
+Soft
+```
+
+Padding
+
+```txt
+24px
+```
+
+Cards should float gently above the page rather than feel boxed in.
 
 ---
 
 # Motion
 
-Use:
+Use
 
 * Fade In
-* Soft hover
-* Image zoom
-* Gentle transitions
+* Smooth Scroll
+* Soft Lift
+* Gentle Hover
+* Image Zoom
+* Button Ripple
+* Card Elevation
 
-Avoid:
+Duration
 
+```txt
+200–350ms
+```
+
+Avoid
+
+* Flashing effects
 * Fast sliders
-* Flashing banners
-* Large animations
+* Excessive parallax
+* Aggressive animations
 
 ---
 
-# Visual Style
+# Section Style
 
-Every section should alternate between:
+Alternate between:
 
-* Editorial storytelling
-* Lifestyle imagery
+* Product storytelling
+* Lifestyle photography
+* Feature explanations
 * Product collections
+* Customer trust
+* Social proof
 
-The homepage should read like a premium home inspiration magazine instead of a traditional ecommerce catalog.
+Avoid repetitive product grids.
+
+---
+
+# Trust Components
+
+Use visual trust throughout the site:
+
+* Secure Checkout
+* Fast Shipping
+* Easy Returns
+* Order Tracking
+* Customer Support
+* Verified Reviews
+* Money-back Guarantee
+
+These should feel integrated into the experience rather than promotional banners.
+
+---
+
+# Visual Language
+
+Every design decision should answer:
+
+* Is it easy to understand?
+* Does it make the product feel innovative?
+* Does it reduce visual noise?
+* Does it create trust?
+* Does it highlight the product?
+
+If not, simplify.
+
+---
+
+# Overall Experience
+
+Crowdfused should resemble a premium innovation brand rather than an online gadget marketplace.
+
+The shopping experience should feel:
+
+* Curated
+* Intelligent
+* Helpful
+* Inspiring
+* Modern
+* Effortless
+
+Products should always be presented as solutions, not simply items for sale.
 
 ---
 
 # Final Feeling
 
-MegaMallDepot should feel like:
+Crowdfused should feel like:
 
-"A thoughtfully curated home destination where customers discover beautiful products through inspiring spaces, timeless design and a calm shopping experience."
+"A carefully curated destination where modern innovation meets everyday life, helping people discover thoughtfully designed products that make daily experiences smarter, simpler and more enjoyable."

@@ -1,6 +1,6 @@
 /* ===================================================
    Cart page - WooCommerce Block Cart
-   Topgoodmart brand palette
+   Crowdfused brand palette
    =================================================== */
 
 body.woocommerce-cart,
@@ -11,17 +11,17 @@ body.woocommerce-cart #content {
 body.woocommerce-cart {
   --cart-bg: #FFFFFF;
   --cart-surface: #FFFFFF;
-  --cart-surface-soft: #F8F5F0;
-  --cart-blue-soft: #FBF8F3;
-  --cart-ink: #2B2B2B;
-  --cart-muted: #746B64;
-  --cart-border: #E8E5DF;
-  --cart-blue: #A45A3F;
-  --cart-blue-hover: #7F422F;
-  --cart-yellow: #D8B26E;
-  --cart-alert: #8A332B;
-  --cart-shadow: 0 12px 28px rgba(43, 43, 43, 0.08);
-  --cart-focus: 0 0 0 3px rgba(164, 90, 63, 0.16);
+  --cart-surface-soft: #FAFAFA;
+  --cart-blue-soft: #FAFAFA;
+  --cart-ink: #222222;
+  --cart-muted: #8A8A8A;
+  --cart-border: #E9ECEF;
+  --cart-blue: #F58220;
+  --cart-blue-hover: #E96F00;
+  --cart-yellow: #F58220;
+  --cart-alert: #E64A3B;
+  --cart-shadow: 0 12px 28px rgba(34, 34, 34, 0.08);
+  --cart-focus: 0 0 0 3px rgba(245, 130, 32, 0.16);
 }
 
 /* === 1. PAGE WRAPPER === */
@@ -277,7 +277,7 @@ body.woocommerce-cart {
 /* === 4. ORDER SUMMARY SIDEBAR === */
 .wc-block-cart__sidebar {
   background: var(--cart-blue-soft);
-  border: 1px solid rgba(164, 90, 63, 0.16);
+  border: 1px solid rgba(245, 130, 32, 0.16);
   border-radius: 16px;
   padding: 24px;
   box-sizing: border-box;
@@ -316,7 +316,7 @@ body.woocommerce-cart {
   align-items: baseline;
   gap: 12px;
   padding: 11px 0;
-  border-bottom: 1px solid rgba(164, 90, 63, 0.16);
+  border-bottom: 1px solid rgba(245, 130, 32, 0.16);
 }
 
 .wc-block-components-totals-item__label {
@@ -357,7 +357,7 @@ body.woocommerce-cart {
 
 /* === 5. COUPON === */
 .wc-block-components-totals-coupon {
-  border-bottom: 1px solid rgba(164, 90, 63, 0.16);
+  border-bottom: 1px solid rgba(245, 130, 32, 0.16);
 }
 
 .wc-block-components-panel__button {
@@ -498,7 +498,7 @@ body.woocommerce-cart {
   background: var(--cart-blue) !important;
   border: none !important;
   border-radius: 10px;
-  box-shadow: 0 8px 18px rgba(164, 90, 63, 0.18);
+  box-shadow: 0 8px 18px rgba(245, 130, 32, 0.18);
   text-decoration: none;
   cursor: pointer;
   box-sizing: border-box;

@@ -1,17 +1,17 @@
 /* Checkout and thank-you pages */
 
 :root {
-    --checkout-primary: #A45A3F;
-    --checkout-primary-dark: #7F422F;
-    --checkout-accent: #D8B26E;
-    --checkout-bg: #F8F5F0;
+    --checkout-primary: #F58220;
+    --checkout-primary-dark: #E96F00;
+    --checkout-accent: #F58220;
+    --checkout-bg: #FAFAFA;
     --checkout-surface: #FFFFFF;
-    --checkout-text: #2B2B2B;
-    --checkout-muted: #746B64;
-    --checkout-border: #E8E5DF;
-    --checkout-border-strong: #D8C7BE;
+    --checkout-text: #222222;
+    --checkout-muted: #8A8A8A;
+    --checkout-border: #E9ECEF;
+    --checkout-border-strong: #E9ECEF;
     --checkout-radius: 8px;
-    --checkout-shadow: 0 14px 34px rgba(43, 43, 43, 0.07);
+    --checkout-shadow: 0 14px 34px rgba(34, 34, 34, 0.07);
 }
 
 body.woocommerce-checkout,
@@ -63,7 +63,7 @@ body.woocommerce-checkout .woo-page *::after,
 }
 
 .woocommerce-checkout .woocommerce-error {
-    border-left-color: #B42318;
+    border-left-color: #E64A3B;
 }
 
 .woocommerce-checkout .woocommerce-info a,
@@ -239,7 +239,7 @@ body.woocommerce-checkout .woo-page *::after,
 .wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus {
     border-color: var(--checkout-primary);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(164, 90, 63, 0.14);
+    box-shadow: 0 0 0 3px rgba(245, 130, 32, 0.14);
 }
 
 .woocommerce-checkout .select2-container {

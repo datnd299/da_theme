@@ -24,6 +24,7 @@ if (!function_exists('dawp_get_responsive_image')) {
             );
         }
 
+        $original_url = $image_url;
         $query = wp_parse_url($image_url, PHP_URL_QUERY);
         if ($query) {
             $image_url = remove_query_arg(array_keys(wp_parse_args($query)), $image_url);
@@ -31,21 +32,22 @@ if (!function_exists('dawp_get_responsive_image')) {
 
         $host = wp_parse_url($image_url, PHP_URL_HOST);
         $local_hosts = ['localhost', '127.0.0.1', '::1'];
-        if ($host && in_array(strtolower($host), $local_hosts, true)) {
-            return sprintf(
-                '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s"%s>',
-                esc_attr($loading),
-                (int)$width,
-                (int)$height,
-                esc_url($image_url),
-                esc_attr($class),
-                esc_attr($alt),
-                $fetchpriority_attr
-            );
-        }
+        $is_local_url = $host && in_array(strtolower($host), $local_hosts, true);
 
         if (strpos($image_url, 'https://i0.wp.com/') === 0) {
             $cdn_url = strtok($image_url, '?');
+        } elseif ($is_local_url) {
+            $site_path = wp_parse_url(home_url('/'), PHP_URL_PATH);
+            $image_path = wp_parse_url($image_url, PHP_URL_PATH);
+            $site_path = $site_path ? '/' . trim($site_path, '/') . '/' : '/';
+            $relative_path = $image_path;
+
+            if ($image_path && '/' !== $site_path && 0 === strpos($image_path, $site_path)) {
+                $relative_path = '/' . ltrim(substr($image_path, strlen($site_path)), '/');
+            }
+
+            $cdn_host = apply_filters('dawp_responsive_image_cdn_host', 'crowdfused.com');
+            $cdn_url = 'https://i0.wp.com/' . trim($cdn_host, '/') . $relative_path;
         } else {
             $cdn_url = preg_replace('#^https?://#', 'https://i0.wp.com/', $image_url);
         }
@@ -75,7 +77,9 @@ if (!function_exists('dawp_get_responsive_image')) {
             $sizes = '(max-width: ' . (int) $width . 'px) 100vw, ' . (int) $width . 'px';
         }
         
-        $src = esc_url($cdn_url . '?fit=' . $width . '%2C' . $height . '&ssl=1');
+        $src = $is_local_url
+            ? esc_url($original_url)
+            : esc_url($cdn_url . '?fit=' . $width . '%2C' . $height . '&ssl=1');
 
         $html = sprintf(
             '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s" srcset="%s" sizes="%s"%s>',

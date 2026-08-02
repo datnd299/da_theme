@@ -256,7 +256,11 @@ $nav_items = [
                                         <p><?php esc_html_e('A polished shortcut to the same product worlds featured on the Homepage, from smart tech to patio-ready picks.', 'dawp'); ?></p>
                                     </div>
                                     <span class="cf-mega__visual" aria-hidden="true">
-                                        <img src="<?php echo esc_url($mega_feature_image_url); ?>" alt="" loading="lazy" decoding="async">
+                                        <?php
+                                        echo function_exists('dawp_get_responsive_image')
+                                            ? dawp_get_responsive_image($mega_feature_image_url, '', '', 280, 118, 'lazy', '280px')
+                                            : '<img src="' . esc_url($mega_feature_image_url) . '" alt="" loading="lazy" decoding="async">';
+                                        ?>
                                     </span>
                                     <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All Products', 'dawp'); ?></a>
                                 </div>

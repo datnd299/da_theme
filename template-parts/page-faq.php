@@ -13,7 +13,7 @@ $store_name     = 'Crowdfused';
 $site_domain    = 'Crowdfused.com';
 $support_email  = 'support@Crowdfused.com';
 $support_phone  = '826-207-1399';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 

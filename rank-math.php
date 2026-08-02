@@ -36,6 +36,12 @@ if (!function_exists('dawp_rm_page_image')) {
     }
 }
 
+if (!function_exists('dawp_rm_page_image_alt')) {
+    function dawp_rm_page_image_alt($page) {
+        return function_exists('dawp_rank_math_page_image_alt') ? dawp_rank_math_page_image_alt($page) : dawp_rm_page_title($page);
+    }
+}
+
 add_filter('rank_math/frontend/title', function($title) {
     $page = dawp_rm_current_page();
     return $page ? dawp_rm_page_title($page) : $title;
@@ -99,7 +105,7 @@ add_filter('rank_math/opengraph/twitter/image', $dawp_rm_social_image);
 
 $dawp_rm_social_image_alt = function($alt) {
     $page = dawp_rm_current_page();
-    return $page ? dawp_rm_page_title($page) : $alt;
+    return $page ? dawp_rm_page_image_alt($page) : $alt;
 };
 add_filter('rank_math/opengraph/facebook/image_alt', $dawp_rm_social_image_alt);
 add_filter('rank_math/opengraph/twitter/image_alt', $dawp_rm_social_image_alt);
@@ -159,10 +165,20 @@ add_filter('rank_math/json_ld', function($data) {
         'inLanguage'  => get_bloginfo('language'),
     ];
 
+    if (!empty($page['date_modified'])) {
+        $data['dawp_webpage']['dateModified'] = $page['date_modified'];
+    }
+
+    if (function_exists('dawp_rank_math_breadcrumb_schema')) {
+        $data['dawp_breadcrumb'] = dawp_rank_math_breadcrumb_schema($page);
+        $data['dawp_webpage']['breadcrumb'] = ['@id' => $page_url . '#breadcrumb'];
+    }
+
     if ($image) {
         $data['dawp_webpage']['primaryImageOfPage'] = [
             '@type' => 'ImageObject',
             'url'   => $image,
+            'caption' => dawp_rm_page_image_alt($page),
         ];
     }
 

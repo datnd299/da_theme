@@ -10,6 +10,85 @@ document.addEventListener('DOMContentLoaded', () => {
         onScroll();
     }
 
+    const menuToggle = document.querySelector('[data-cf-menu-toggle]');
+    const menuClose = document.querySelector('[data-cf-menu-close]');
+    const menuDrawer = document.getElementById('mobile-store-menu');
+    const menuOverlay = document.querySelector('[data-cf-mobile-overlay]');
+    const searchToggle = document.querySelector('[data-cf-search-toggle]');
+    const searchPanel = document.getElementById('mobile-search-panel');
+    const searchInput = document.getElementById('mobile-product-search');
+
+    const closeSearchPanel = () => {
+        if (!searchToggle || !searchPanel) return;
+        searchToggle.setAttribute('aria-expanded', 'false');
+        searchPanel.classList.remove('is-open');
+    };
+
+    const setMobileMenu = (open, returnFocus = false) => {
+        if (!menuToggle || !menuDrawer) return;
+
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuDrawer.classList.toggle('is-open', open);
+        menuDrawer.setAttribute('aria-hidden', String(!open));
+        document.body.classList.toggle('cf-mobile-menu-open', open);
+
+        if (menuOverlay) {
+            menuOverlay.classList.toggle('is-open', open);
+            menuOverlay.setAttribute('aria-hidden', String(!open));
+        }
+
+        if (open) {
+            closeSearchPanel();
+            const firstLink = menuDrawer.querySelector('a, button');
+            if (firstLink) window.setTimeout(() => firstLink.focus(), 120);
+        } else if (returnFocus) {
+            menuToggle.focus({ preventScroll: true });
+        }
+    };
+
+    if (menuToggle && menuDrawer) {
+        menuToggle.addEventListener('click', () => {
+            setMobileMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+        });
+
+        if (menuClose) {
+            menuClose.addEventListener('click', () => setMobileMenu(false, true));
+        }
+
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', () => setMobileMenu(false, true));
+        }
+
+        menuDrawer.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => setMobileMenu(false));
+        });
+    }
+
+    if (searchToggle && searchPanel) {
+        searchToggle.addEventListener('click', () => {
+            const open = searchToggle.getAttribute('aria-expanded') !== 'true';
+            searchToggle.setAttribute('aria-expanded', String(open));
+            searchPanel.classList.toggle('is-open', open);
+
+            if (open) {
+                if (menuToggle && menuToggle.getAttribute('aria-expanded') === 'true') {
+                    setMobileMenu(false);
+                }
+                if (searchInput) window.setTimeout(() => searchInput.focus(), 80);
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key !== 'Escape') return;
+
+        if (menuToggle && menuToggle.getAttribute('aria-expanded') === 'true') {
+            setMobileMenu(false, true);
+        }
+
+        closeSearchPanel();
+    });
+
     // Mobile menu toggle
     if (toggle && nav) {
         toggle.addEventListener('click', () => {

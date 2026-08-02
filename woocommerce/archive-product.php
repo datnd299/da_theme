@@ -27,13 +27,13 @@ $shop_cover_images = [
         'url' => $new_home_image('Innovation_Made_Everyday.jpeg'),
         'alt' => __('Modern everyday products styled for innovation at home', 'dawp'),
     ],
-    'home' => [
-        'url' => $new_home_image('Kitchen_Home_Innovation_Smart_Tools_202607281513.jpeg'),
-        'alt' => __('Smart kitchen and home tools arranged in a modern setting', 'dawp'),
+    'home-improvement' => [
+        'url' => $new_home_image('Home_improvement.jpg'),
+        'alt' => __('Home improvement essentials for practical everyday projects', 'dawp'),
     ],
-    'garden-tools' => [
-        'url' => $new_home_image('Patio_garden_handy_tools_202607281516.jpeg'),
-        'alt' => __('Patio garden and handy tools for relaxed outdoor living', 'dawp'),
+    'home-garden-tools' => [
+        'url' => $new_home_image('Garden_tools_outdoor_care_planting_202608020050.jpeg'),
+        'alt' => __('Garden tools and outdoor care essentials for tidy outdoor spaces', 'dawp'),
     ],
     'electronics' => [
         'url' => $new_home_image('Smart_home_connected_devices_202607281526.jpeg'),
@@ -43,21 +43,21 @@ $shop_cover_images = [
         'url' => $new_home_image('Outdoor&Adventure.jpeg'),
         'alt' => __('Outdoor and adventure gear selected for time outside', 'dawp'),
     ],
-    'toys-outdoor-play' => [
-        'url' => $home_image('Outdoor.jpeg'),
-        'alt' => __('Outdoor living products for family time outside', 'dawp'),
-    ],
-    'beauty-personal-care' => [
+    'personal-care' => [
         'url' => $new_home_image('Wellness_self-care_personal_care…_202607281533.jpeg'),
         'alt' => __('Wellness and self care products in a calm routine setting', 'dawp'),
     ],
-    'pets' => [
-        'url' => $home_image('Cozy_Bedroom_Layers.jpeg'),
-        'alt' => __('Cozy home essentials styled for everyday comfort', 'dawp'),
+    'auto-tires' => [
+        'url' => $new_home_image('car_tire.jpg'),
+        'alt' => __('Auto and tire accessories selected for road-ready care', 'dawp'),
     ],
-    'school-office-art-supplies' => [
+    'office-and-school-supplies' => [
         'url' => $new_home_image('Office_desk_accessories_workspac…_202607281532.jpeg'),
         'alt' => __('Office desk accessories for focused productive days', 'dawp'),
+    ],
+    'patio-garden' => [
+        'url' => $new_home_image('Patio_picks_for_outdoor_living_202608020057.jpg'),
+        'alt' => __('Patio picks and outdoor living accents arranged for easy entertaining', 'dawp'),
     ],
 ];
 if ($archive_term && !is_wp_error($archive_term)) {
@@ -91,7 +91,6 @@ if ($archive_term && !is_wp_error($archive_term) && is_product_category() && !is
 
 global $wp_query;
 $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
-$categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
 ?>
 
 <div class="shop-page">
@@ -161,87 +160,15 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 );
                 ?>
             </span>
-            <button
-                class="shop-filter-btn"
-                id="shopFilterBtn"
-                aria-expanded="false"
-                aria-controls="shopSidebar"
-            >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <line x1="4" y1="6" x2="20" y2="6"/>
-                    <line x1="8" y1="12" x2="20" y2="12"/>
-                    <line x1="12" y1="18" x2="20" y2="18"/>
-                </svg>
-                Filter
-            </button>
         </div>
 
         <?php woocommerce_catalog_ordering(); ?>
     </div>
 
     <?php
-    // ── Sidebar overlay (mobile bottom sheet backdrop) ─────
-    ?>
-    <div class="shop-sidebar-overlay" id="shopSidebarOverlay" aria-hidden="true"></div>
-
-    <?php
     // ── Layout ─────────────────────────────────────────────
     ?>
     <div class="shop-layout">
-
-        <?php // ── Sidebar ────────────────────────────────── ?>
-        <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
-            <div class="shop-sidebar__header">
-                <h2 class="shop-sidebar__mobile-title">Filter Products</h2>
-                <button
-                    class="shop-sidebar__close"
-                    id="shopSidebarClose"
-                    aria-label="Close filters"
-                >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-
-            <?php
-            // Categories widget
-            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
-            <div class="shop-sidebar__widget">
-                <h3 class="shop-sidebar__title">Categories</h3>
-                <ul class="shop-sidebar__categories">
-                    <li>
-                        <a
-                            href="<?php echo esc_url( $shop_url ); ?>"
-                            <?php if ( is_shop() ) echo 'aria-current="page"'; ?>
-                        >
-                            All Products
-                        </a>
-                    </li>
-                    <?php foreach ( $categories as $cat ) :
-                        $is_current = ( is_product_category( $cat->slug ) ); ?>
-                        <li>
-                            <a
-                                href="<?php echo esc_url( get_term_link( $cat ) ); ?>"
-                                <?php if ( $is_current ) echo 'aria-current="page"'; ?>
-                            >
-                                <?php echo esc_html( $cat->name ); ?>
-                                <span class="count">(<?php echo (int) $cat->count; ?>)</span>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <?php endif; ?>
-
-            <?php
-            // Price filter / other widgets
-            if ( is_active_sidebar('shop-sidebar') ) {
-                dynamic_sidebar('shop-sidebar');
-            }
-            ?>
-        </aside>
 
         <?php // ── Main Product Area ────────────────────────── ?>
         <main class="shop-main" id="main-content">
@@ -278,43 +205,6 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
 
 <script>
 (function () {
-    var filterBtn   = document.getElementById('shopFilterBtn');
-    var sidebar     = document.getElementById('shopSidebar');
-    var overlay     = document.getElementById('shopSidebarOverlay');
-    var closeBtn    = document.getElementById('shopSidebarClose');
-
-    function openSidebar() {
-        sidebar.classList.add('is-open');
-        overlay.classList.add('is-open');
-        overlay.removeAttribute('aria-hidden');
-        filterBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeSidebar() {
-        sidebar.classList.remove('is-open');
-        overlay.classList.remove('is-open');
-        overlay.setAttribute('aria-hidden', 'true');
-        filterBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-    }
-
-    if (filterBtn && sidebar) {
-        filterBtn.addEventListener('click', openSidebar);
-    }
-    if (overlay) {
-        overlay.addEventListener('click', closeSidebar);
-    }
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeSidebar);
-    }
-    // Close on Escape
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && sidebar.classList.contains('is-open')) {
-            closeSidebar();
-        }
-    });
-
     // --- Load More Products logic ---
     var paginationContainer = document.querySelector('.shop-pagination');
     if (paginationContainer) {

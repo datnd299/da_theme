@@ -11,50 +11,45 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'home' => [
-            'name'        => __('Home', 'dawp'),
-            'description' => __('Home essentials, furniture, kitchen favorites and practical pieces for everyday living.', 'dawp'),
-            'short'       => __('Everyday essentials and home comfort picks.', 'dawp'),
+        'electronics' => [
+            'name'        => __('Smart Home & Tech', 'dawp'),
+            'description' => __('Connected devices and everyday tech that quietly make home life easier.', 'dawp'),
+            'short'       => __('Connected devices and everyday tech for modern living.', 'dawp'),
+        ],
+        'sports-outdoors' => [
+            'name'        => __('Outdoor & Adventure', 'dawp'),
+            'description' => __('Portable gear and recreation essentials built for time outside.', 'dawp'),
+            'short'       => __('Portable gear and recreation essentials for time outside.', 'dawp'),
+        ],
+        'home-improvement' => [
+            'name'        => __('Home Improvement Essentials', 'dawp'),
+            'description' => __('Practical tools, fixtures and upgrades that make home projects simpler.', 'dawp'),
+            'short'       => __('Tools, fixtures and practical upgrades for easier home projects.', 'dawp'),
+        ],
+        'home-garden-tools' => [
+            'name'        => __('Garden Tools & Outdoor Care', 'dawp'),
+            'description' => __('Practical gardening tools and yard essentials for planting, pruning and keeping outdoor spaces tidy.', 'dawp'),
+            'short'       => __('Garden gear, patio helpers and outdoor care essentials.', 'dawp'),
+        ],
+        'office-and-school-supplies' => [
+            'name'        => __('Office & Productivity', 'dawp'),
+            'description' => __('Desk accessories and workspace essentials for focused, organized days.', 'dawp'),
+            'short'       => __('Desk accessories, school supplies and workspace organization.', 'dawp'),
+        ],
+        'personal-care' => [
+            'name'        => __('Wellness & Self-Care', 'dawp'),
+            'description' => __('Thoughtful personal care finds that make everyday routines feel better.', 'dawp'),
+            'short'       => __('Beauty, grooming and personal care finds for daily routines.', 'dawp'),
         ],
         'auto-tires' => [
             'name'        => __('Auto & Tires', 'dawp'),
-            'description' => __('Vehicle accessories, tire care essentials and practical tools that keep everyday journeys running smoothly.', 'dawp'),
-            'short'       => __('Practical vehicle care and auto accessories for the road ahead.', 'dawp'),
+            'description' => __('Practical vehicle accessories, tire care and tools that keep every drive running smoothly.', 'dawp'),
+            'short'       => __('Vehicle accessories, tire care and useful road-ready tools.', 'dawp'),
         ],
-        'garden-tools' => [
-            'name'        => __('Garden & Tools', 'dawp'),
-            'description' => __('Garden, patio, outdoor care and handy tools for home projects.', 'dawp'),
-            'short'       => __('Garden gear, patio picks and useful tools.', 'dawp'),
-        ],
-        'electronics' => [
-            'name'        => __('Electronics', 'dawp'),
-            'description' => __('TVs, audio, computer accessories, connected devices and practical home entertainment products.', 'dawp'),
-            'short'       => __('Audio, entertainment and connected tech essentials.', 'dawp'),
-        ],
-        'sports-outdoors' => [
-            'name'        => __('Sports & Outdoors', 'dawp'),
-            'description' => __('Sports, fitness, recreation and outdoor activity products.', 'dawp'),
-            'short'       => __('Fitness, recreation and outdoor activity gear.', 'dawp'),
-        ],
-        'toys-outdoor-play' => [
-            'name'        => __('Toys & Outdoor Play', 'dawp'),
-            'description' => __('Toys, games and outdoor play products for kids and families.', 'dawp'),
-            'short'       => __('Toys, games and outdoor play favorites.', 'dawp'),
-        ],
-        'beauty-personal-care' => [
-            'name'        => __('Beauty & Personal Care', 'dawp'),
-            'description' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'),
-            'short'       => __('Beauty, grooming and personal care essentials.', 'dawp'),
-        ],
-        'pets' => [
-            'name'        => __('Pets', 'dawp'),
-            'description' => __('Pet food, care, toys, beds and everyday supplies for animal companions.', 'dawp'),
-            'short'       => __('Care, comfort and everyday pet supplies.', 'dawp'),
-        ],
-        'school-office-art-supplies' => [
-            'name'        => __('School, Office & Art Supplies', 'dawp'),
-            'description' => __('School supplies, office essentials, stationery and art materials.', 'dawp'),
-            'short'       => __('School, office, stationery and art supplies.', 'dawp'),
+        'patio-garden' => [
+            'name'        => __('Patio Picks', 'dawp'),
+            'description' => __('Weather-ready accents, lighting and handy tools that make outdoor living effortless.', 'dawp'),
+            'short'       => __('Weather-ready accents and handy pieces for outdoor living.', 'dawp'),
         ],
     ];
 }
@@ -66,6 +61,27 @@ function dawp_lbq_retired_product_category_slugs() {
         'smart-home',
         'kitchen-dining',
         'outdoor-garden',
+        'garden-tools',
+        'beauty-personal-care',
+        'school-office-art-supplies',
+        'toys-outdoor-play',
+        'pets',
+    ];
+}
+
+function dawp_lbq_product_category_slug_aliases() {
+    return [
+        'home'                       => 'home-improvement',
+        'home-essentials'            => 'home-improvement',
+        'furniture'                  => 'home-improvement',
+        'smart-home'                 => 'electronics',
+        'kitchen-dining'             => 'home-improvement',
+        'outdoor-garden'             => 'home-garden-tools',
+        'garden-tools'               => 'home-garden-tools',
+        'beauty-personal-care'       => 'personal-care',
+        'school-office-art-supplies' => 'office-and-school-supplies',
+        'toys-outdoor-play'          => 'sports-outdoors',
+        'pets'                       => 'home-improvement',
     ];
 }
 
@@ -100,6 +116,8 @@ function dawp_ensure_lbq_product_categories() {
     if (!taxonomy_exists('product_cat')) {
         return;
     }
+
+    dawp_migrate_lbq_product_category_slugs();
 
     foreach (dawp_lbq_product_categories() as $slug => $category) {
         $term = get_term_by('slug', $slug, 'product_cat');
@@ -141,6 +159,40 @@ function dawp_ensure_lbq_product_categories() {
     }
 
     dawp_remove_non_lbq_product_categories();
+}
+
+function dawp_migrate_lbq_product_category_slugs() {
+    foreach (dawp_lbq_product_category_slug_aliases() as $old_slug => $new_slug) {
+        $old_term = get_term_by('slug', $old_slug, 'product_cat');
+
+        if (!$old_term || is_wp_error($old_term)) {
+            continue;
+        }
+
+        $new_term = get_term_by('slug', $new_slug, 'product_cat');
+
+        if (!$new_term || is_wp_error($new_term)) {
+            wp_update_term((int) $old_term->term_id, 'product_cat', ['slug' => $new_slug]);
+            continue;
+        }
+
+        $product_ids = get_posts([
+            'post_type'      => 'product',
+            'posts_per_page' => -1,
+            'fields'         => 'ids',
+            'tax_query'      => [
+                [
+                    'taxonomy' => 'product_cat',
+                    'field'    => 'term_id',
+                    'terms'    => (int) $old_term->term_id,
+                ],
+            ],
+        ]);
+
+        foreach ($product_ids as $product_id) {
+            wp_set_object_terms((int) $product_id, (int) $new_term->term_id, 'product_cat', true);
+        }
+    }
 }
 
 function dawp_remove_non_lbq_product_categories() {

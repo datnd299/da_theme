@@ -14,8 +14,8 @@ $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink(
 $support_email  = 'support@Crowdfused.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$logo_path       = get_template_directory() . '/assets/img/gallery/logo_crowd_cropped.png';
-$logo_url        = get_template_directory_uri() . '/assets/img/gallery/logo_crowd_cropped.png';
+$logo_path       = get_template_directory() . '/assets/img/logo_file/logo_crowd_cropped.png';
+$logo_url        = get_template_directory_uri() . '/assets/img/logo_file/logo_crowd_cropped.png';
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -95,7 +95,6 @@ $footer_columns = [
         .cf-footer__columns a { color:var(--cf-text); font-weight:400; text-decoration:none; transition:color 180ms ease; }
         .cf-footer__columns a:hover { color:var(--cf-orange); text-decoration:underline; text-underline-offset:4px; }
         .cf-footer__columns > section:first-child { padding-right:24px; }
-        .cf-footer__tagline { margin:0 0 18px; max-width:320px; font-size:14px; line-height:1.6; color:var(--cf-text); }
         .cf-footer__contact-list { display:grid; gap:13px; margin:0; color:var(--cf-text); font-size:14px; font-weight:400; line-height:1.45; }
         .cf-footer__contact-list div { display:block; max-width:100%; }
         .cf-footer__contact-list dt { display:inline; margin:0; color:var(--cf-charcoal); font-size:14px; font-weight:700; }
@@ -123,7 +122,6 @@ $footer_columns = [
                         : '<img src="' . esc_url($logo_url) . '" width="180" height="78" alt="' . esc_attr__('Crowdfused', 'dawp') . '" decoding="async" loading="lazy">';
                     ?>
                 </a>
-                <p class="cf-footer__tagline"><?php esc_html_e('A curated destination for thoughtfully designed products that make everyday life smarter, simpler and more enjoyable.', 'dawp'); ?></p>
                 <dl class="cf-footer__contact-list">
                     <div>
                         <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>

@@ -1,22 +1,33 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'essentials' => 'home',
-        'home'       => 'home',
-        'furniture'  => 'home',
-        'electronics'=> 'electronics',
-        'smart'      => 'electronics',
-        'kitchen'    => 'home',
-        'outdoor'    => 'sports-outdoors',
-        'garden'     => 'garden-tools',
-        'tools'      => 'garden-tools',
-        'sports'     => 'sports-outdoors',
-        'toys'       => 'toys-outdoor-play',
-        'beauty'     => 'beauty-personal-care',
-        'pets'       => 'pets',
-        'school'     => 'school-office-art-supplies',
-        'office'     => 'school-office-art-supplies',
-        'art'        => 'school-office-art-supplies',
+        'essentials'                  => 'home-improvement',
+        'home'                        => 'home-improvement',
+        'furniture'                   => 'home-improvement',
+        'home-improvement'            => 'home-improvement',
+        'kitchen'                     => 'home-improvement',
+        'electronics'                 => 'electronics',
+        'smart'                       => 'electronics',
+        'smart-home-tech'             => 'electronics',
+        'outdoor'                     => 'sports-outdoors',
+        'outdoor-adventure'           => 'sports-outdoors',
+        'sports'                      => 'sports-outdoors',
+        'garden'                      => 'home-garden-tools',
+        'tools'                       => 'home-garden-tools',
+        'garden-tools'                => 'home-garden-tools',
+        'home-garden-tools'           => 'home-garden-tools',
+        'patio-garden'                => 'patio-garden',
+        'toys'                        => 'toys-outdoor-play',
+        'beauty'                      => 'personal-care',
+        'beauty-personal-care'        => 'personal-care',
+        'personal-care'               => 'personal-care',
+        'wellness-self-care'          => 'personal-care',
+        'pets'                        => 'pets',
+        'school'                      => 'office-and-school-supplies',
+        'office'                      => 'office-and-school-supplies',
+        'school-office-art-supplies'  => 'office-and-school-supplies',
+        'office-and-school-supplies'  => 'office-and-school-supplies',
+        'art'                         => 'office-and-school-supplies',
     ];
 
     return $map[$slug] ?? $slug;
@@ -40,14 +51,14 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'home'                       => ['name' => __('Home', 'dawp')],
-        'garden-tools'               => ['name' => __('Garden & Tools', 'dawp')],
-        'electronics'                => ['name' => __('Electronics', 'dawp')],
-        'sports-outdoors'            => ['name' => __('Sports & Outdoors', 'dawp')],
-        'toys-outdoor-play'          => ['name' => __('Toys & Outdoor Play', 'dawp')],
-        'beauty-personal-care'       => ['name' => __('Beauty & Personal Care', 'dawp')],
-        'pets'                       => ['name' => __('Pets', 'dawp')],
-        'school-office-art-supplies' => ['name' => __('School, Office & Art Supplies', 'dawp')],
+        'electronics'                => ['name' => __('Smart Home & Tech', 'dawp')],
+        'sports-outdoors'            => ['name' => __('Outdoor & Adventure', 'dawp')],
+        'home-improvement'           => ['name' => __('Home Improvement Essentials', 'dawp')],
+        'home-garden-tools'          => ['name' => __('Garden Tools & Outdoor Care', 'dawp')],
+        'office-and-school-supplies' => ['name' => __('Office & Productivity', 'dawp')],
+        'personal-care'              => ['name' => __('Wellness & Self-Care', 'dawp')],
+        'auto-tires'                 => ['name' => __('Auto & Tires', 'dawp')],
+        'patio-garden'               => ['name' => __('Patio Picks', 'dawp')],
     ];
 
     $items = [];
@@ -60,6 +71,59 @@ function dawp_shop_category_items() {
     }
 
     return $items;
+}
+
+function dawp_homepage_mega_menu_items() {
+    return [
+        [
+            'title' => __('Smart Home & Tech', 'dawp'),
+            'slug'  => 'electronics',
+            'copy'  => __('Connected devices, entertainment and practical everyday tech.', 'dawp'),
+            'tag'   => __('Tech', 'dawp'),
+        ],
+        [
+            'title' => __('Outdoor & Adventure', 'dawp'),
+            'slug'  => 'sports-outdoors',
+            'copy'  => __('Portable gear and recreation essentials for time outside.', 'dawp'),
+            'tag'   => __('Explore', 'dawp'),
+        ],
+        [
+            'title' => __('Home Improvement Essentials', 'dawp'),
+            'slug'  => 'home-improvement',
+            'copy'  => __('Tools, fixtures and practical upgrades for easier home projects.', 'dawp'),
+            'tag'   => __('Home', 'dawp'),
+        ],
+        [
+            'title' => __('Garden Tools & Outdoor Care', 'dawp'),
+            'slug'  => 'home-garden-tools',
+            'copy'  => __('Garden gear, patio helpers and outdoor care essentials.', 'dawp'),
+            'tag'   => __('Garden', 'dawp'),
+        ],
+        [
+            'title' => __('Office & Productivity', 'dawp'),
+            'slug'  => 'office-and-school-supplies',
+            'copy'  => __('Desk accessories, school supplies and workspace organization.', 'dawp'),
+            'tag'   => __('Work', 'dawp'),
+        ],
+        [
+            'title' => __('Wellness & Self-Care', 'dawp'),
+            'slug'  => 'personal-care',
+            'copy'  => __('Beauty, grooming and personal care finds for daily routines.', 'dawp'),
+            'tag'   => __('Care', 'dawp'),
+        ],
+        [
+            'title' => __('Auto & Tires', 'dawp'),
+            'slug'  => 'auto-tires',
+            'copy'  => __('Vehicle accessories, tire care and useful road-ready tools.', 'dawp'),
+            'tag'   => __('Auto', 'dawp'),
+        ],
+        [
+            'title' => __('Patio Picks', 'dawp'),
+            'slug'  => 'patio-garden',
+            'copy'  => __('Weather-ready accents and handy pieces for outdoor living.', 'dawp'),
+            'tag'   => __('Patio', 'dawp'),
+        ],
+    ];
 }
 
 function dawp_main_menu_items() {

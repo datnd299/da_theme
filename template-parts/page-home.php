@@ -141,10 +141,10 @@ if (function_exists('wc_get_products')) {
 $cf_categories = [
     ['slug' => 'electronics', 'title' => __('Smart Home & Tech', 'dawp'), 'copy' => __('Connected devices and everyday tech that quietly make home life easier.', 'dawp'), 'image' => 'Smart_home_connected_devices_202607281526.jpeg', 'folder' => 'New_homepage'],
     ['slug' => 'sports-outdoors', 'title' => __('Outdoor & Adventure', 'dawp'), 'copy' => __('Portable gear and recreation essentials built for time outside.', 'dawp'), 'image' => 'Outdoor&Adventure.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'home', 'title' => __('Kitchen & Home Innovation', 'dawp'), 'copy' => __('Smart cooking tools and home essentials that simplify daily routines.', 'dawp'), 'image' => 'Kitchen_Home_Innovation_Smart_Tools_202607281513.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'garden-tools', 'title' => __('Outdoor Living & Patio', 'dawp'), 'copy' => __('Patio, garden and handy tools designed for relaxed outdoor living.', 'dawp'), 'image' => 'Patio_garden_handy_tools_202607281516.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'school-office-art-supplies', 'title' => __('Office & Productivity', 'dawp'), 'copy' => __('Desk accessories and workspace essentials for focused, organized days.', 'dawp'), 'image' => 'Office_desk_accessories_workspac…_202607281532.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'beauty-personal-care', 'title' => __('Wellness & Self-Care', 'dawp'), 'copy' => __('Thoughtful personal care finds that make everyday routines feel better.', 'dawp'), 'image' => 'Wellness_self-care_personal_care…_202607281533.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'home-improvement', 'title' => __('Home Improvement Essentials', 'dawp'), 'copy' => __('Practical tools, fixtures and upgrades that make home projects simpler.', 'dawp'), 'image' => 'Home_improvement.jpg', 'folder' => 'New_homepage'],
+    ['slug' => 'home-garden-tools', 'title' => __('Garden Tools & Outdoor Care', 'dawp'), 'copy' => __('Practical gardening tools and yard essentials for planting, pruning and keeping outdoor spaces tidy.', 'dawp'), 'image' => 'Garden_tools_outdoor_care_planting_202608020050.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'office-and-school-supplies', 'title' => __('Office & Productivity', 'dawp'), 'copy' => __('Desk accessories and workspace essentials for focused, organized days.', 'dawp'), 'image' => 'Office_desk_accessories_workspac…_202607281532.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'personal-care', 'title' => __('Wellness & Self-Care', 'dawp'), 'copy' => __('Thoughtful personal care finds that make everyday routines feel better.', 'dawp'), 'image' => 'Wellness_self-care_personal_care…_202607281533.jpeg', 'folder' => 'New_homepage'],
 ];
 
 $cf_collections = [
@@ -158,13 +158,13 @@ $cf_collections = [
         'folder' => 'New_homepage',
     ],
     [
-        'slug'   => 'garden-tools',
+        'slug'   => 'patio-garden',
         'label'  => __('Patio Picks', 'dawp'),
         'title'  => __('Smart Picks for Your Patio', 'dawp'),
         'copy'   => __('Weather-ready accents, lighting and handy tools that make outdoor living effortless.', 'dawp'),
         'cta'    => __('Shop Patio Picks', 'dawp'),
-        'image'  => 'Summer_Patio_Edit.jpeg',
-        'folder' => 'home',
+        'image'  => 'Patio_picks_for_outdoor_living_202608020057.jpg',
+        'folder' => 'New_homepage',
     ],
 ];
 
@@ -529,7 +529,7 @@ $cf_testimonials = [
     <section class="cf-section" aria-labelledby="cf-why-it-matters-title">
         <div class="cf-container cf-solution">
             <div class="cf-solution__media">
-                <?php echo $cf_img('Fresh_Utility_Spaces.jpeg', __('Organized, fresh home space designed to simplify daily routines', 'dawp'), 'home', '', 780, 620, 'lazy', '(max-width: 759px) 100vw, 44vw'); ?>
+                <?php echo $cf_img('Innovation_fits_everyday_life_202607281529.jpeg', __('Organized, fresh home space designed to simplify daily routines', 'dawp'), 'New_homepage', '', 780, 620, 'lazy', '(max-width: 759px) 100vw, 44vw'); ?>
                 <div class="cf-solution__badge">
                     <span class="cf-solution__badge-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24"><path d="M12 3v3.5M12 17.5V21M3 12h3.5M17.5 12H21"></path><circle cx="12" cy="12" r="5.2"></circle></svg>

@@ -17,8 +17,10 @@ $about_url     = home_url('/about-us/');
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_path     = get_template_directory() . '/assets/img/gallery/logo_crowd_cropped.png';
-$logo_url      = get_template_directory_uri() . '/assets/img/gallery/logo_crowd_cropped.png';
+$logo_path     = get_template_directory() . '/assets/img/logo_file/logo_crowd_cropped.png';
+$logo_url      = get_template_directory_uri() . '/assets/img/logo_file/logo_crowd_cropped.png';
+$mega_feature_image_path = get_template_directory() . '/assets/img/New_homepage/Innovation_fits_everyday_life_202607281529.jpeg';
+$mega_feature_image_url  = get_template_directory_uri() . '/assets/img/New_homepage/Innovation_fits_everyday_life_202607281529.jpeg';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -32,10 +34,15 @@ if (file_exists($logo_path)) {
     $logo_url = add_query_arg('ver', filemtime($logo_path), $logo_url);
 }
 
+if (file_exists($mega_feature_image_path)) {
+    $mega_feature_image_url = add_query_arg('ver', filemtime($mega_feature_image_path), $mega_feature_image_url);
+}
+
 $current_path = function_exists('dawp_current_request_path') ? dawp_current_request_path() : trim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '', '/');
+$mega_menu_items = function_exists('dawp_homepage_mega_menu_items') ? dawp_homepage_mega_menu_items() : [];
 $nav_items = [
     ['title' => __('Home', 'dawp'), 'url' => $home_url, 'active' => is_front_page() || '' === $current_path],
-    ['title' => __('Shop', 'dawp'), 'url' => $shop_url, 'active' => (function_exists('is_shop') && is_shop()) || (function_exists('is_product_taxonomy') && is_product_taxonomy()) || (function_exists('is_product') && is_product())],
+    ['title' => __('Shop', 'dawp'), 'url' => $shop_url, 'active' => (function_exists('is_shop') && is_shop()) || (function_exists('is_product_taxonomy') && is_product_taxonomy()) || (function_exists('is_product') && is_product()), 'mega' => true],
     ['title' => __('Contact', 'dawp'), 'url' => $contact_url, 'active' => 'contact-us' === $current_path],
     ['title' => __('About', 'dawp'), 'url' => $about_url, 'active' => 'about-us' === $current_path],
 ];
@@ -80,18 +87,69 @@ $nav_items = [
         .cf-cart-count { position:absolute; right:2px; top:2px; display:flex; align-items:center; justify-content:center; min-width:18px; height:18px; border:2px solid #fff; border-radius:999px; background:var(--cf-orange); color:#fff; padding:0 4px; font-size:10px; font-weight:800; }
 
         .cf-desktop-nav { border-top:1px solid var(--cf-border); }
-        .cf-nav { display:flex; justify-content:center; align-items:center; gap:8px; min-height:48px; overflow-x:auto; scrollbar-width:none; }
+        .cf-nav { display:flex; justify-content:center; align-items:center; gap:8px; min-height:48px; overflow:visible; scrollbar-width:none; }
         .cf-nav::-webkit-scrollbar { display:none; }
-        .cf-nav a { flex:none; border-radius:999px; padding:8px 18px; color:var(--cf-text); font-family:var(--cf-font-heading); font-size:.84rem; font-weight:700; letter-spacing:.01em; line-height:1.25; text-decoration:none; transition:background 180ms ease, color 180ms ease; }
-        .cf-nav a:hover { background:var(--cf-bg); color:var(--cf-orange); }
-        .cf-nav a.is-current { color:var(--cf-orange); background:rgba(245,130,32,.1); }
+        .cf-nav__item { position:relative; display:flex; align-items:center; }
+        .cf-nav__link { flex:none; display:inline-flex; align-items:center; gap:7px; border-radius:999px; padding:8px 18px; color:var(--cf-text); font-family:var(--cf-font-heading); font-size:.84rem; font-weight:700; letter-spacing:.01em; line-height:1.25; text-decoration:none; transition:background 180ms ease, color 180ms ease; }
+        .cf-nav__link:hover, .cf-nav__item:focus-within > .cf-nav__link { background:var(--cf-bg); color:var(--cf-orange); }
+        .cf-nav__link.is-current { color:var(--cf-orange); background:rgba(245,130,32,.1); }
+        .cf-nav__chevron { width:14px; height:14px; transition:transform 180ms ease; }
+        .cf-nav__item:hover .cf-nav__chevron, .cf-nav__item:focus-within .cf-nav__chevron { transform:rotate(180deg); }
+        .cf-mega { position:absolute; left:50%; top:calc(100% + 8px); z-index:70; width:min(1120px, calc(100vw - 40px)); transform:translateX(-50%) translateY(10px); border:1px solid rgba(34,34,34,.1); border-radius:8px; background:#fff; box-shadow:0 30px 70px rgba(17,24,39,.18), 0 10px 24px rgba(17,24,39,.08); opacity:0; visibility:hidden; pointer-events:none; transition:opacity 180ms ease, transform 180ms ease, visibility 180ms ease; overflow:hidden; }
+        .cf-nav__item:hover .cf-mega, .cf-nav__item:focus-within .cf-mega { opacity:1; visibility:visible; pointer-events:auto; transform:translateX(-50%) translateY(0); }
+        .cf-mega::before { content:""; position:absolute; left:0; right:0; top:0; height:4px; background:linear-gradient(90deg, var(--cf-orange), #FFC98A 55%, #0046BE); }
+        .cf-mega::after { content:""; position:absolute; left:280px; top:4px; bottom:0; width:1px; background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(233,236,239,.95) 18%, rgba(233,236,239,.7)); pointer-events:none; }
+        .cf-mega__inner { display:grid; grid-template-columns:280px minmax(0,1fr); gap:0; }
+        .cf-mega__feature { position:relative; display:flex; flex-direction:column; justify-content:space-between; gap:18px; background:linear-gradient(160deg, #222 0%, #2b2b2b 62%, #181818 100%); padding:28px; color:#fff; overflow:hidden; }
+        .cf-mega__feature::before { content:""; position:absolute; inset:0; background:linear-gradient(135deg, rgba(245,130,32,.18), transparent 36%), linear-gradient(0deg, rgba(0,0,0,.38), transparent 46%); pointer-events:none; }
+        .cf-mega__feature > * { position:relative; z-index:1; }
+        .cf-mega__feature p { margin:0; color:rgba(255,255,255,.72); font-size:.9rem; line-height:1.6; }
+        .cf-mega__feature strong { display:block; color:#fff; font-family:var(--cf-font-heading); font-size:1.35rem; line-height:1.18; }
+        .cf-mega__feature a { display:inline-flex; align-items:center; justify-content:center; min-height:42px; width:max-content; border-radius:999px; background:var(--cf-orange); padding:0 18px; color:#fff; font-size:.84rem; font-weight:800; text-decoration:none; transition:background 180ms ease, transform 180ms ease; }
+        .cf-mega__feature a:hover { background:var(--cf-orange-dark); transform:translateY(-1px); }
+        .cf-mega__visual { position:relative; display:block; min-height:118px; border:1px solid rgba(255,255,255,.18); border-radius:8px; overflow:hidden; box-shadow:0 18px 36px rgba(0,0,0,.28); }
+        .cf-mega__visual img { display:block; width:100%; height:118px; object-fit:cover; }
+        .cf-mega__visual::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 42%, rgba(0,0,0,.42)); }
+        .cf-mega__grid { display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:0; padding:24px; background:linear-gradient(90deg, rgba(245,130,32,.04), transparent 28%); }
+        .cf-mega__card { position:relative; display:grid; gap:8px; min-height:132px; border:1px solid transparent; border-radius:8px; padding:14px; color:inherit; text-decoration:none; transition:background 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
+        .cf-mega__card::before { content:""; position:absolute; left:0; right:0; top:-1px; height:1px; background:var(--cf-border); opacity:.82; }
+        .cf-mega__card::after { content:""; position:absolute; top:14px; right:0; bottom:14px; width:1px; background:var(--cf-border); opacity:.82; }
+        .cf-mega__card:nth-child(-n+4)::before { display:none; }
+        .cf-mega__card:nth-child(4n)::after { display:none; }
+        .cf-mega__card:hover, .cf-mega__card:focus { border-color:rgba(245,130,32,.38); background:var(--cf-bg); transform:translateY(-2px); box-shadow:0 12px 28px rgba(34,34,34,.08); outline:0; }
+        .cf-mega__tag { width:max-content; border-radius:999px; background:rgba(245,130,32,.1); padding:4px 8px; color:var(--cf-orange); font-size:.68rem; font-weight:800; line-height:1; text-transform:uppercase; }
+        .cf-mega__title { color:var(--cf-charcoal); font-family:var(--cf-font-heading); font-size:.95rem; font-weight:800; line-height:1.25; }
+        .cf-mega__copy { color:var(--cf-text); font-size:.78rem; line-height:1.5; }
 
-        .cf-mobile-panel { display:none; border-top:1px solid var(--cf-border); background:#fff; padding:14px 0 16px; }
+        .cf-mobile-panel { display:none; border-top:1px solid var(--cf-border); background:#fff; }
         .cf-mobile-panel.is-open { display:block; }
-        .cf-mobile-search-panel { padding:14px 0; }
-        .cf-mobile-nav { display:grid; gap:6px; margin-top:8px; }
-        .cf-mobile-nav a { border-radius:12px; background:var(--cf-bg); padding:13px 16px; color:var(--cf-charcoal); font-family:var(--cf-font-heading); font-size:.92rem; font-weight:700; text-decoration:none; }
+        .cf-mobile-search-panel { padding:14px 0; box-shadow:0 18px 36px rgba(17,24,39,.08); }
+        .cf-mobile-overlay { position:fixed; inset:0; z-index:48; visibility:hidden; background:rgba(34,34,34,.34); opacity:0; pointer-events:none; transition:opacity 180ms ease, visibility 180ms ease; }
+        .cf-mobile-overlay.is-open { visibility:visible; opacity:1; pointer-events:auto; }
+        body.cf-mobile-menu-open { overflow:hidden; }
+        .cf-mobile-drawer { position:absolute; left:0; right:0; top:100%; z-index:80; visibility:hidden; border-top:1px solid var(--cf-border); background:#fff; box-shadow:0 22px 42px rgba(17,24,39,.16); opacity:0; pointer-events:none; transform:translateY(-10px); transition:opacity 180ms ease, transform 180ms ease, visibility 180ms ease; }
+        .cf-mobile-drawer.is-open { visibility:visible; opacity:1; pointer-events:auto; transform:translateY(0); }
+        .cf-mobile-drawer__head { display:flex; align-items:center; justify-content:space-between; gap:14px; border-bottom:1px solid var(--cf-border); padding:12px 14px; }
+        .cf-mobile-drawer__brand { display:flex; min-width:0; flex-direction:column; gap:2px; }
+        .cf-mobile-drawer__brand strong { color:var(--cf-charcoal); font-family:var(--cf-font-heading); font-size:1rem; font-weight:800; line-height:1.22; }
+        .cf-mobile-drawer__brand span { color:var(--cf-light); font-size:.74rem; font-weight:500; line-height:1.35; }
+        .cf-mobile-close { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; flex:none; border:1px solid var(--cf-border); border-radius:8px; background:#fff; color:var(--cf-charcoal); cursor:pointer; transition:background 180ms ease, color 180ms ease, border-color 180ms ease; }
+        .cf-mobile-close:hover { border-color:rgba(245,130,32,.45); background:rgba(245,130,32,.08); color:var(--cf-orange); }
+        .cf-mobile-drawer__body { max-height:calc(100vh - 116px); overflow:auto; overscroll-behavior:contain; padding:12px 14px 16px; }
+        .cf-mobile-quick { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:7px; margin-bottom:10px; }
+        .cf-mobile-quick a { display:grid; place-items:center; min-height:42px; border:1px solid var(--cf-border); border-radius:8px; background:#fff; color:var(--cf-charcoal); font-size:.72rem; font-weight:700; line-height:1.25; text-align:center; text-decoration:none; }
+        .cf-mobile-nav { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:7px; }
+        .cf-mobile-nav a { display:flex; align-items:center; justify-content:center; min-height:42px; border-radius:8px; background:var(--cf-bg); padding:8px 10px; color:var(--cf-charcoal); font-family:var(--cf-font-heading); font-size:.88rem; font-weight:700; line-height:1.25; text-align:center; text-decoration:none; }
+        .cf-mobile-category-grid a::after { content:""; width:7px; height:7px; flex:none; border-top:2px solid currentColor; border-right:2px solid currentColor; opacity:.38; transform:rotate(45deg); }
         .cf-mobile-nav a.is-current { background:var(--cf-orange); color:#fff; }
+        .cf-mobile-categories { margin-top:12px; border-top:1px solid var(--cf-border); padding-top:12px; }
+        .cf-mobile-categories__head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:8px; }
+        .cf-mobile-categories__title { margin:0; color:var(--cf-light); font-size:.68rem; font-weight:700; letter-spacing:.08em; line-height:1.3; text-transform:uppercase; }
+        .cf-mobile-categories__all { color:var(--cf-orange); font-size:.78rem; font-weight:700; text-decoration:none; }
+        .cf-mobile-category-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:7px; }
+        .cf-mobile-category-grid a { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:5px 8px; align-items:center; min-height:50px; border-radius:8px; border:1px solid var(--cf-border); background:#fff; padding:9px 10px; color:inherit; text-decoration:none; }
+        .cf-mobile-category-grid strong { color:var(--cf-charcoal); font-family:var(--cf-font-body); font-size:.8rem; font-weight:650; line-height:1.28; }
+        .cf-mobile-category-grid span { display:none; }
 
         @media (max-width: 960px) {
             .cf-header__announce-row { justify-content:center; text-align:center; }
@@ -104,12 +162,19 @@ $nav_items = [
             .cf-icon-link, .cf-menu-toggle { min-width:40px; width:40px; height:40px; border-radius:10px; }
             .cf-icon-link span:not(.cf-cart-count) { display:none; }
         }
+        @media (min-width: 961px) {
+            .cf-mobile-overlay, .cf-mobile-drawer { display:none; }
+        }
         @media (min-width: 961px) { .cf-menu-toggle { display:none; } }
         @media (max-width: 520px) {
             .cf-header__inner { width:min(100% - 24px,1280px); }
             .cf-header__announce-row { min-height:34px; font-size:.72rem; line-height:1.35; }
             .cf-logo img { height:28px; max-width:140px; }
             .cf-actions { gap:2px; }
+            .cf-mobile-drawer__head, .cf-mobile-drawer__body { padding-inline:12px; }
+            .cf-mobile-quick a { min-height:40px; font-size:.68rem; }
+            .cf-mobile-nav a { min-height:40px; font-size:.84rem; }
+            .cf-mobile-category-grid strong { font-size:.75rem; line-height:1.3; }
         }
     </style>
 
@@ -150,7 +215,7 @@ $nav_items = [
         </form>
 
         <div class="cf-actions">
-            <button type="button" class="cf-icon-link cf-search-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Open product search', 'dawp'); ?>" aria-controls="mobile-search-panel" onclick="const panel=document.getElementById('mobile-search-panel'); const input=document.getElementById('mobile-product-search'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); panel.classList.toggle('is-open'); if (!expanded && input) { window.setTimeout(() => input.focus(), 80); }">
+            <button type="button" class="cf-icon-link cf-search-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Open product search', 'dawp'); ?>" aria-controls="mobile-search-panel" data-cf-search-toggle>
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
             </button>
             <a href="<?php echo esc_url(home_url('/track-order/')); ?>" class="cf-icon-link" aria-label="<?php esc_attr_e('Track order', 'dawp'); ?>">
@@ -166,7 +231,7 @@ $nav_items = [
                 <?php if ($cart_count > 0) : ?><span class="cf-cart-count"><?php echo esc_html($cart_count); ?></span><?php endif; ?>
                 <span><?php echo esc_html(sprintf(__('Cart (%d)', 'dawp'), $cart_count)); ?></span>
             </a>
-            <button type="button" class="cf-menu-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Open store menu', 'dawp'); ?>" aria-controls="mobile-store-menu" onclick="const menu=document.getElementById('mobile-store-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('is-open');">
+            <button type="button" class="cf-menu-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Open store menu', 'dawp'); ?>" aria-controls="mobile-store-menu" data-cf-menu-toggle>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
             </button>
         </div>
@@ -175,7 +240,39 @@ $nav_items = [
     <div class="cf-desktop-nav">
         <nav class="cf-header__inner cf-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
             <?php foreach ($nav_items as $item) : ?>
-                <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
+                <div class="cf-nav__item">
+                    <a class="cf-nav__link <?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>>
+                        <?php echo esc_html($item['title']); ?>
+                        <?php if (!empty($item['mega']) && !empty($mega_menu_items)) : ?>
+                            <svg class="cf-nav__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+                        <?php endif; ?>
+                    </a>
+                    <?php if (!empty($item['mega']) && !empty($mega_menu_items)) : ?>
+                        <div class="cf-mega" role="group" aria-label="<?php esc_attr_e('Shop product categories', 'dawp'); ?>">
+                            <div class="cf-mega__inner">
+                                <div class="cf-mega__feature">
+                                    <div>
+                                        <strong><?php esc_html_e('Shop every Crowdfused lifestyle category.', 'dawp'); ?></strong>
+                                        <p><?php esc_html_e('A polished shortcut to the same product worlds featured on the Homepage, from smart tech to patio-ready picks.', 'dawp'); ?></p>
+                                    </div>
+                                    <span class="cf-mega__visual" aria-hidden="true">
+                                        <img src="<?php echo esc_url($mega_feature_image_url); ?>" alt="" loading="lazy" decoding="async">
+                                    </span>
+                                    <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All Products', 'dawp'); ?></a>
+                                </div>
+                                <div class="cf-mega__grid">
+                                    <?php foreach ($mega_menu_items as $mega_item) : ?>
+                                        <a class="cf-mega__card" href="<?php echo esc_url(function_exists('dawp_product_category_url') ? dawp_product_category_url($mega_item['slug']) : home_url('/product-category/' . trim($mega_item['slug'], '/') . '/')); ?>">
+                                            <span class="cf-mega__tag"><?php echo esc_html($mega_item['tag']); ?></span>
+                                            <span class="cf-mega__title"><?php echo esc_html($mega_item['title']); ?></span>
+                                            <span class="cf-mega__copy"><?php echo esc_html($mega_item['copy']); ?></span>
+                                        </a>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
             <?php endforeach; ?>
         </nav>
     </div>
@@ -193,13 +290,45 @@ $nav_items = [
         </div>
     </div>
 
-    <div id="mobile-store-menu" class="cf-mobile-panel">
-        <div class="cf-header__inner">
+    <div class="cf-mobile-overlay" data-cf-mobile-overlay aria-hidden="true"></div>
+
+    <div id="mobile-store-menu" class="cf-mobile-drawer" aria-hidden="true">
+        <div class="cf-mobile-drawer__head">
+            <div class="cf-mobile-drawer__brand">
+                <strong><?php esc_html_e('Crowdfused Menu', 'dawp'); ?></strong>
+                <span><?php esc_html_e('Quick links and categories', 'dawp'); ?></span>
+            </div>
+            <button type="button" class="cf-mobile-close" aria-label="<?php esc_attr_e('Close store menu', 'dawp'); ?>" data-cf-menu-close>
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+            </button>
+        </div>
+        <div class="cf-mobile-drawer__body">
+            <div class="cf-mobile-quick" aria-label="<?php esc_attr_e('Quick links', 'dawp'); ?>">
+                <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop All', 'dawp'); ?></a>
+                <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
+                <a href="<?php echo esc_url($account_url); ?>"><?php esc_html_e('Account', 'dawp'); ?></a>
+            </div>
             <nav class="cf-mobile-nav" aria-label="<?php esc_attr_e('Mobile store navigation', 'dawp'); ?>">
                 <?php foreach ($nav_items as $item) : ?>
                     <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
                 <?php endforeach; ?>
             </nav>
+            <?php if (!empty($mega_menu_items)) : ?>
+                <div class="cf-mobile-categories">
+                    <div class="cf-mobile-categories__head">
+                        <p class="cf-mobile-categories__title"><?php esc_html_e('Shop Categories', 'dawp'); ?></p>
+                        <a class="cf-mobile-categories__all" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all', 'dawp'); ?></a>
+                    </div>
+                    <div class="cf-mobile-category-grid">
+                        <?php foreach ($mega_menu_items as $mega_item) : ?>
+                            <a href="<?php echo esc_url(function_exists('dawp_product_category_url') ? dawp_product_category_url($mega_item['slug']) : home_url('/product-category/' . trim($mega_item['slug'], '/') . '/')); ?>">
+                                <strong><?php echo esc_html($mega_item['title']); ?></strong>
+                                <span><?php echo esc_html($mega_item['copy']); ?></span>
+                            </a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </header>

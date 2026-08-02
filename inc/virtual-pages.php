@@ -163,7 +163,7 @@ function dawp_rank_math_organization_schema() {
         'email' => 'support@Crowdfused.com',
         'logo'  => [
             '@type' => 'ImageObject',
-            'url'   => get_template_directory_uri() . '/assets/img/gallery/logo_crowd_cropped.png',
+            'url'   => get_template_directory_uri() . '/assets/img/logo_file/logo_crowd_cropped.png',
         ],
     ];
 }

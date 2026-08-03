@@ -10,13 +10,15 @@ if (!function_exists('dawp_get_responsive_image')) {
         }
 
         $fetchpriority_attr = $fetchpriority ? ' fetchpriority="' . esc_attr($fetchpriority) . '"' : '';
+        $width              = max(1, (int) $width);
+        $height             = max(1, (int) $height);
 
         if (preg_match('#^(data:|blob:)#i', $image_url)) {
             return sprintf(
                 '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s"%s>',
                 esc_attr($loading),
-                (int)$width,
-                (int)$height,
+                $width,
+                $height,
                 esc_url($image_url),
                 esc_attr($class),
                 esc_attr($alt),
@@ -31,15 +33,23 @@ if (!function_exists('dawp_get_responsive_image')) {
         }
 
         $host = wp_parse_url($image_url, PHP_URL_HOST);
+        $host_lower = $host ? strtolower($host) : '';
         $local_hosts = ['localhost', '127.0.0.1', '::1'];
-        $is_local_url = $host && in_array(strtolower($host), $local_hosts, true);
+        $is_local_url = $host_lower && (
+            in_array($host_lower, $local_hosts, true)
+            || preg_match('/\.(local|test|localhost)$/', $host_lower)
+        );
+
+        if (!$sizes) {
+            $sizes = '(max-width: ' . $width . 'px) 100vw, ' . $width . 'px';
+        }
 
         if ($is_local_url) {
             return sprintf(
                 '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s" sizes="%s"%s>',
                 esc_attr($loading),
-                (int)$width,
-                (int)$height,
+                $width,
+                $height,
                 esc_url($original_url),
                 esc_attr($class),
                 esc_attr($alt),
@@ -54,38 +64,33 @@ if (!function_exists('dawp_get_responsive_image')) {
             $cdn_url = preg_replace('#^https?://#', 'https://i0.wp.com/', $image_url);
         }
 
-        $ratio = $height > 0 ? $width / $height : 1;
+        $ratio = $width / $height;
 
         if ($width <= 80) {
-            $sizes_arr = array_values(array_unique(array_filter([(int) $width, (int) $width * 2, min((int) $width * 3, 240)])));
+            $sizes_arr = array_values(array_unique(array_filter([$width, $width * 2, min($width * 3, 240)])));
         } elseif ($width <= 240) {
-            $sizes_arr = array_values(array_unique(array_filter([120, 160, (int) $width, min((int) $width * 2, 480)])));
+            $sizes_arr = array_values(array_unique(array_filter([120, 160, $width, min($width * 2, 480)])));
         } elseif ($width <= 640) {
-            $sizes_arr = array_values(array_unique(array_filter([240, 320, 480, (int) $width, min((int) $width * 2, 1024)])));
+            $sizes_arr = array_values(array_unique(array_filter([240, 320, 480, $width, min($width * 2, 1024)])));
         } else {
-            $sizes_arr = array_values(array_unique(array_filter([320, 480, 768, 1024, (int) $width, min(max((int) $width * 2, 1200), 1600)])));
+            $sizes_arr = array_values(array_unique(array_filter([320, 480, 768, 1024, $width, min(max($width * 2, 1200), 1600)])));
         }
         sort($sizes_arr);
 
         $srcset_arr = [];
         foreach ($sizes_arr as $w) {
             $h = (int) round($w / $ratio);
-            $mode = $w === (int) $width ? 'fit' : 'resize';
-            $srcset_arr[] = esc_url($cdn_url . '?' . $mode . '=' . $w . '%2C' . $h . '&ssl=1') . ' ' . $w . 'w';
+            $srcset_arr[] = esc_url($cdn_url . '?resize=' . $w . '%2C' . $h . '&ssl=1') . ' ' . $w . 'w';
         }
         $srcset = implode(', ', $srcset_arr);
-
-        if (!$sizes) {
-            $sizes = '(max-width: ' . (int) $width . 'px) 100vw, ' . (int) $width . 'px';
-        }
         
         $src = esc_url($cdn_url . '?fit=' . $width . '%2C' . $height . '&ssl=1');
 
         $html = sprintf(
             '<img loading="%s" decoding="async" width="%d" height="%d" src="%s" class="%s" alt="%s" srcset="%s" sizes="%s"%s>',
             esc_attr($loading),
-            (int)$width,
-            (int)$height,
+            $width,
+            $height,
             $src,
             esc_attr($class),
             esc_attr($alt),

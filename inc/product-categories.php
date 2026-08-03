@@ -11,45 +11,59 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
+        'auto-tires' => [
+            'name'        => __('Auto & Tires', 'dawp'),
+            'description' => __('Road-ready vehicle accessories, tire care and practical tools for everyday drives.', 'dawp'),
+            'short'       => __('Vehicle accessories, tire care and useful road-ready tools.', 'dawp'),
+            'image'       => 'car_tire.jpg',
+        ],
         'electronics' => [
-            'name'        => __('Smart Home & Tech', 'dawp'),
-            'description' => __('Connected devices and everyday tech that quietly make home life easier.', 'dawp'),
+            'name'        => __('Electronics', 'dawp'),
+            'description' => __('Everyday electronics, connected devices and practical tech for modern homes.', 'dawp'),
             'short'       => __('Connected devices and everyday tech for modern living.', 'dawp'),
+            'image'       => 'Smart_home_connected_devices_202607281526.jpeg',
         ],
-        'sports-outdoors' => [
-            'name'        => __('Outdoor & Adventure', 'dawp'),
-            'description' => __('Portable gear and recreation essentials built for time outside.', 'dawp'),
-            'short'       => __('Portable gear and recreation essentials for time outside.', 'dawp'),
-        ],
-        'home-improvement' => [
+        'home-improvement-essentials' => [
             'name'        => __('Home Improvement Essentials', 'dawp'),
             'description' => __('Practical tools, fixtures and upgrades that make home projects simpler.', 'dawp'),
             'short'       => __('Tools, fixtures and practical upgrades for easier home projects.', 'dawp'),
+            'image'       => 'Home_improvement.jpg',
         ],
-        'home-garden-tools' => [
-            'name'        => __('Garden Tools & Outdoor Care', 'dawp'),
-            'description' => __('Practical gardening tools and yard essentials for planting, pruning and keeping outdoor spaces tidy.', 'dawp'),
-            'short'       => __('Garden gear, patio helpers and outdoor care essentials.', 'dawp'),
-        ],
-        'office-and-school-supplies' => [
-            'name'        => __('Office & Productivity', 'dawp'),
-            'description' => __('Desk accessories and workspace essentials for focused, organized days.', 'dawp'),
-            'short'       => __('Desk accessories, school supplies and workspace organization.', 'dawp'),
-        ],
-        'personal-care' => [
-            'name'        => __('Wellness & Self-Care', 'dawp'),
-            'description' => __('Thoughtful personal care finds that make everyday routines feel better.', 'dawp'),
-            'short'       => __('Beauty, grooming and personal care finds for daily routines.', 'dawp'),
-        ],
-        'auto-tires' => [
-            'name'        => __('Auto & Tires', 'dawp'),
-            'description' => __('Practical vehicle accessories, tire care and tools that keep every drive running smoothly.', 'dawp'),
-            'short'       => __('Vehicle accessories, tire care and useful road-ready tools.', 'dawp'),
+        'home-furniture-appliances' => [
+            'name'        => __('Home, Furniture & Appliances', 'dawp'),
+            'description' => __('Furniture, home essentials and appliances that make daily spaces easier to live in.', 'dawp'),
+            'short'       => __('Furniture, appliances and useful pieces for comfortable home living.', 'dawp'),
+            'image'       => 'Living_room_minimalist_design_ph…_202607281539.jpeg',
         ],
         'patio-garden' => [
-            'name'        => __('Patio Picks', 'dawp'),
-            'description' => __('Weather-ready accents, lighting and handy tools that make outdoor living effortless.', 'dawp'),
-            'short'       => __('Weather-ready accents and handy pieces for outdoor living.', 'dawp'),
+            'name'        => __('Patio & Garden', 'dawp'),
+            'description' => __('Garden gear, patio accents and outdoor care essentials for better open-air spaces.', 'dawp'),
+            'short'       => __('Garden gear, patio accents and outdoor care essentials.', 'dawp'),
+            'image'       => 'Garden_tools_outdoor_care_planting_202608020050.jpeg',
+        ],
+        'seasonal-decor' => [
+            'name'        => __('Seasonal Decor', 'dawp'),
+            'description' => __('Decor, accents and timely updates that help your home match the season.', 'dawp'),
+            'short'       => __('Decor and accents for seasonal home updates.', 'dawp'),
+            'image'       => 'Patio_picks_for_outdoor_living_202608020057.jpg',
+        ],
+        'sports-outdoors' => [
+            'name'        => __('Sports & Outdoors', 'dawp'),
+            'description' => __('Sports gear and outdoor essentials built for recreation, training and time outside.', 'dawp'),
+            'short'       => __('Sports gear and outdoor essentials for active days.', 'dawp'),
+            'image'       => 'Outdoor&Adventure.jpeg',
+        ],
+        'toys-outdoor-play' => [
+            'name'        => __('Toys & Outdoor Play', 'dawp'),
+            'description' => __('Playtime favorites and outdoor activity picks for kids, families and backyards.', 'dawp'),
+            'short'       => __('Toys and outdoor activity picks for playful days.', 'dawp'),
+            'image'       => 'Patio_garden_handy_tools_202607281516.jpeg',
+        ],
+        'toys' => [
+            'name'        => __('Toys', 'dawp'),
+            'description' => __('Fun, giftable toys and play essentials for everyday imagination.', 'dawp'),
+            'short'       => __('Giftable toys and play essentials for everyday fun.', 'dawp'),
+            'image'       => 'Kitchen_Home_Innovation_Smart_Tools_202607281513.jpeg',
         ],
     ];
 }
@@ -58,30 +72,36 @@ function dawp_lbq_retired_product_category_slugs() {
     return [
         'home-essentials',
         'furniture',
+        'home-improvement',
+        'home-garden-tools',
         'smart-home',
         'kitchen-dining',
         'outdoor-garden',
         'garden-tools',
         'beauty-personal-care',
+        'personal-care',
         'school-office-art-supplies',
-        'toys-outdoor-play',
+        'office-and-school-supplies',
         'pets',
     ];
 }
 
 function dawp_lbq_product_category_slug_aliases() {
     return [
-        'home'                       => 'home-improvement',
-        'home-essentials'            => 'home-improvement',
-        'furniture'                  => 'home-improvement',
+        'home'                       => 'home-furniture-appliances',
+        'home-essentials'            => 'home-furniture-appliances',
+        'furniture'                  => 'home-furniture-appliances',
+        'home-improvement'           => 'home-improvement-essentials',
         'smart-home'                 => 'electronics',
-        'kitchen-dining'             => 'home-improvement',
-        'outdoor-garden'             => 'home-garden-tools',
-        'garden-tools'               => 'home-garden-tools',
-        'beauty-personal-care'       => 'personal-care',
-        'school-office-art-supplies' => 'office-and-school-supplies',
-        'toys-outdoor-play'          => 'sports-outdoors',
-        'pets'                       => 'home-improvement',
+        'kitchen-dining'             => 'home-furniture-appliances',
+        'outdoor-garden'             => 'patio-garden',
+        'garden-tools'               => 'patio-garden',
+        'home-garden-tools'          => 'patio-garden',
+        'beauty-personal-care'       => 'seasonal-decor',
+        'personal-care'              => 'seasonal-decor',
+        'school-office-art-supplies' => 'home-improvement-essentials',
+        'office-and-school-supplies' => 'home-improvement-essentials',
+        'pets'                       => 'home-furniture-appliances',
     ];
 }
 
@@ -121,6 +141,7 @@ function dawp_ensure_lbq_product_categories() {
 
     foreach (dawp_lbq_product_categories() as $slug => $category) {
         $term = get_term_by('slug', $slug, 'product_cat');
+        $term_id = 0;
 
         if (!$term || is_wp_error($term)) {
             $created = wp_insert_term(
@@ -136,29 +157,98 @@ function dawp_ensure_lbq_product_categories() {
                 continue;
             }
 
-            update_term_meta((int) $created['term_id'], 'dawp_category_card_copy', $category['short']);
-            continue;
-        }
+            $term_id = (int) $created['term_id'];
+        } else {
+            $term_id = (int) $term->term_id;
 
-        if (empty($term->description)) {
             wp_update_term(
-                (int) $term->term_id,
+                $term_id,
                 'product_cat',
                 [
+                    'name'        => $category['name'],
+                    'slug'        => $slug,
                     'description' => $category['description'],
                 ]
             );
         }
 
-        update_term_meta((int) $term->term_id, 'dawp_category_card_copy', $category['short']);
+        update_term_meta($term_id, 'dawp_category_card_copy', $category['short']);
+        dawp_update_lbq_product_category_thumbnail($term_id, $category);
     }
 
-    $home_term = get_term_by('slug', 'home', 'product_cat');
+    $home_term = get_term_by('slug', 'home-furniture-appliances', 'product_cat');
     if ($home_term && !is_wp_error($home_term)) {
         update_option('default_product_cat', (int) $home_term->term_id);
     }
 
     dawp_remove_non_lbq_product_categories();
+}
+
+function dawp_update_lbq_product_category_thumbnail($term_id, $category) {
+    if (empty($category['image'])) {
+        return;
+    }
+
+    $attachment_id = dawp_lbq_category_image_attachment_id($category['image']);
+
+    if ($attachment_id) {
+        update_term_meta((int) $term_id, 'thumbnail_id', $attachment_id);
+    }
+}
+
+function dawp_lbq_category_image_attachment_id($filename) {
+    $basename = basename($filename);
+    $existing = get_posts([
+        'post_type'      => 'attachment',
+        'post_status'    => 'inherit',
+        'posts_per_page' => 1,
+        'fields'         => 'ids',
+        'meta_query'     => [
+            [
+                'key'     => '_wp_attached_file',
+                'value'   => $basename,
+                'compare' => 'LIKE',
+            ],
+        ],
+    ]);
+
+    if (!empty($existing[0])) {
+        return (int) $existing[0];
+    }
+
+    $source = get_template_directory() . '/assets/img/New_homepage/' . $filename;
+
+    if (!file_exists($source) || !is_readable($source)) {
+        return 0;
+    }
+
+    $upload = wp_upload_bits($basename, null, file_get_contents($source));
+
+    if (!empty($upload['error']) || empty($upload['file'])) {
+        return 0;
+    }
+
+    $filetype = wp_check_filetype($upload['file']);
+    $attachment_id = wp_insert_attachment(
+        [
+            'post_mime_type' => $filetype['type'],
+            'post_title'     => sanitize_file_name(pathinfo($basename, PATHINFO_FILENAME)),
+            'post_content'   => '',
+            'post_status'    => 'inherit',
+        ],
+        $upload['file']
+    );
+
+    if (is_wp_error($attachment_id) || !$attachment_id) {
+        return 0;
+    }
+
+    require_once ABSPATH . 'wp-admin/includes/image.php';
+
+    $metadata = wp_generate_attachment_metadata((int) $attachment_id, $upload['file']);
+    wp_update_attachment_metadata((int) $attachment_id, $metadata);
+
+    return (int) $attachment_id;
 }
 
 function dawp_migrate_lbq_product_category_slugs() {

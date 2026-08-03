@@ -139,30 +139,30 @@ if (function_exists('wc_get_products')) {
 }
 
 $cf_categories = [
-    ['slug' => 'electronics', 'title' => __('Smart Home & Tech', 'dawp'), 'copy' => __('Connected devices and everyday tech that quietly make home life easier.', 'dawp'), 'image' => 'Smart_home_connected_devices_202607281526.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'sports-outdoors', 'title' => __('Outdoor & Adventure', 'dawp'), 'copy' => __('Portable gear and recreation essentials built for time outside.', 'dawp'), 'image' => 'Outdoor&Adventure.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'home-improvement', 'title' => __('Home Improvement Essentials', 'dawp'), 'copy' => __('Practical tools, fixtures and upgrades that make home projects simpler.', 'dawp'), 'image' => 'Home_improvement.jpg', 'folder' => 'New_homepage'],
-    ['slug' => 'home-garden-tools', 'title' => __('Garden Tools & Outdoor Care', 'dawp'), 'copy' => __('Practical gardening tools and yard essentials for planting, pruning and keeping outdoor spaces tidy.', 'dawp'), 'image' => 'Garden_tools_outdoor_care_planting_202608020050.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'office-and-school-supplies', 'title' => __('Office & Productivity', 'dawp'), 'copy' => __('Desk accessories and workspace essentials for focused, organized days.', 'dawp'), 'image' => 'Office_desk_accessories_workspac…_202607281532.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'personal-care', 'title' => __('Wellness & Self-Care', 'dawp'), 'copy' => __('Thoughtful personal care finds that make everyday routines feel better.', 'dawp'), 'image' => 'Wellness_self-care_personal_care…_202607281533.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'auto-tires', 'title' => __('Auto & Tires', 'dawp'), 'copy' => __('Vehicle accessories, tire care and practical tools for everyday drives.', 'dawp'), 'image' => 'car_tire.jpg', 'folder' => 'New_homepage'],
+    ['slug' => 'electronics', 'title' => __('Electronics', 'dawp'), 'copy' => __('Everyday electronics, connected devices and practical tech for modern homes.', 'dawp'), 'image' => 'Smart_home_connected_devices_202607281526.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'home-improvement-essentials', 'title' => __('Home Improvement Essentials', 'dawp'), 'copy' => __('Practical tools, fixtures and upgrades that make home projects simpler.', 'dawp'), 'image' => 'Home_improvement.jpg', 'folder' => 'New_homepage'],
+    ['slug' => 'patio-garden', 'title' => __('Patio & Garden', 'dawp'), 'copy' => __('Garden gear, patio accents and outdoor care essentials for better open-air spaces.', 'dawp'), 'image' => 'Garden_tools_outdoor_care_planting_202608020050.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'sports-outdoors', 'title' => __('Sports & Outdoors', 'dawp'), 'copy' => __('Sports gear and outdoor essentials built for recreation, training and time outside.', 'dawp'), 'image' => 'Outdoor&Adventure.jpeg', 'folder' => 'New_homepage'],
+    ['slug' => 'toys-outdoor-play', 'title' => __('Toys & Outdoor Play', 'dawp'), 'copy' => __('Playtime favorites and outdoor activity picks for kids, families and backyards.', 'dawp'), 'image' => 'Toys_and_outdoor_play_202608031238.jpeg', 'folder' => 'New_homepage'],
 ];
 
 $cf_collections = [
     [
-        'slug'  => 'auto-tires',
-        'label' => __('Auto & Tires', 'dawp'),
-        'title' => __('Gear Up For The Road', 'dawp'),
-        'copy'  => __('Practical vehicle accessories, tire care and tools that keep every drive running smoothly.', 'dawp'),
-        'cta'   => __('Shop Auto & Tires', 'dawp'),
-        'image' => 'car_tire.jpg',
+        'slug'  => 'home-furniture-appliances',
+        'label' => __('Home, Furniture & Appliances', 'dawp'),
+        'title' => __('Comfortable Home Upgrades', 'dawp'),
+        'copy'  => __('Useful furniture, appliances and home pieces for easier everyday living.', 'dawp'),
+        'cta'   => __('Shop Home, Furniture & Appliances', 'dawp'),
+        'image' => 'Living_room_minimalist_design_ph…_202607281539.jpeg',
         'folder' => 'New_homepage',
     ],
     [
-        'slug'   => 'patio-garden',
-        'label'  => __('Patio Picks', 'dawp'),
-        'title'  => __('Smart Picks for Your Patio', 'dawp'),
-        'copy'   => __('Weather-ready accents, lighting and handy tools that make outdoor living effortless.', 'dawp'),
-        'cta'    => __('Shop Patio Picks', 'dawp'),
+        'slug'   => 'seasonal-decor',
+        'label'  => __('Seasonal Decor', 'dawp'),
+        'title'  => __('Refresh For The Season', 'dawp'),
+        'copy'   => __('Timely decor and accents that bring the right seasonal feel home.', 'dawp'),
+        'cta'    => __('Shop Seasonal Decor', 'dawp'),
         'image'  => 'Patio_picks_for_outdoor_living_202608020057.jpg',
         'folder' => 'New_homepage',
     ],
@@ -443,7 +443,7 @@ $cf_testimonials = [
                 <div>
                     <p class="cf-eyebrow"><?php esc_html_e('Shop By Lifestyle', 'dawp'); ?></p>
                     <h2 id="cf-categories-title"><?php esc_html_e('Explore By Lifestyle', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Six ways Crowdfused fits into modern living, from the kitchen to the backyard.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Browse the core Crowdfused categories, from road-ready essentials to home, garden, tech and play.', 'dawp'); ?></p>
                 </div>
                 <a class="cf-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All', 'dawp'); ?></a>
             </div>

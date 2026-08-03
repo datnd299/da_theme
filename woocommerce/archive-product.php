@@ -12,7 +12,7 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from Crowdfused.', 'dawp');
+$archive_description = __('Browse practical picks across auto, electronics, home, patio, seasonal decor, sports and toys from Crowdfused.', 'dawp');
 $archive_eyebrow = __('Crowdfused Collection', 'dawp');
 $archive_slug = 'shop';
 $home_image = static function ($filename) {
@@ -27,37 +27,41 @@ $shop_cover_images = [
         'url' => $new_home_image('Innovation_Made_Everyday.jpeg'),
         'alt' => __('Modern everyday products styled for innovation at home', 'dawp'),
     ],
-    'home-improvement' => [
-        'url' => $new_home_image('Home_improvement.jpg'),
-        'alt' => __('Home improvement essentials for practical everyday projects', 'dawp'),
-    ],
-    'home-garden-tools' => [
-        'url' => $new_home_image('Garden_tools_outdoor_care_planting_202608020050.jpeg'),
-        'alt' => __('Garden tools and outdoor care essentials for tidy outdoor spaces', 'dawp'),
-    ],
-    'electronics' => [
-        'url' => $new_home_image('Smart_home_connected_devices_202607281526.jpeg'),
-        'alt' => __('Smart home connected devices in a clean modern home', 'dawp'),
-    ],
-    'sports-outdoors' => [
-        'url' => $new_home_image('Outdoor&Adventure.jpeg'),
-        'alt' => __('Outdoor and adventure gear selected for time outside', 'dawp'),
-    ],
-    'personal-care' => [
-        'url' => $new_home_image('Wellness_self-care_personal_care…_202607281533.jpeg'),
-        'alt' => __('Wellness and self care products in a calm routine setting', 'dawp'),
-    ],
     'auto-tires' => [
         'url' => $new_home_image('car_tire.jpg'),
         'alt' => __('Auto and tire accessories selected for road-ready care', 'dawp'),
     ],
-    'office-and-school-supplies' => [
-        'url' => $new_home_image('Office_desk_accessories_workspac…_202607281532.jpeg'),
-        'alt' => __('Office desk accessories for focused productive days', 'dawp'),
+    'electronics' => [
+        'url' => $new_home_image('Smart_home_connected_devices_202607281526.jpeg'),
+        'alt' => __('Electronics and connected devices in a clean modern home', 'dawp'),
+    ],
+    'home-improvement-essentials' => [
+        'url' => $new_home_image('Home_improvement.jpg'),
+        'alt' => __('Home improvement essentials for practical everyday projects', 'dawp'),
+    ],
+    'home-furniture-appliances' => [
+        'url' => $new_home_image('Kitchen_with_appliances_clean_lines_202608031552.jpg'),
+        'alt' => __('Home furniture and appliances styled in a comfortable living space', 'dawp'),
     ],
     'patio-garden' => [
+        'url' => $new_home_image('Garden_tools_outdoor_care_planting_202608020050.jpeg'),
+        'alt' => __('Patio and garden essentials for tidy outdoor spaces', 'dawp'),
+    ],
+    'seasonal-decor' => [
         'url' => $new_home_image('Patio_picks_for_outdoor_living_202608020057.jpg'),
-        'alt' => __('Patio picks and outdoor living accents arranged for easy entertaining', 'dawp'),
+        'alt' => __('Seasonal decor and accents arranged for a refreshed home', 'dawp'),
+    ],
+    'sports-outdoors' => [
+        'url' => $new_home_image('Outdoor&Adventure.jpeg'),
+        'alt' => __('Sports and outdoor gear selected for time outside', 'dawp'),
+    ],
+    'toys-outdoor-play' => [
+        'url' => $new_home_image('Toys_and_outdoor_play_202608031238.jpeg'),
+        'alt' => __('Toys and outdoor play essentials for active family days', 'dawp'),
+    ],
+    'toys' => [
+        'url' => $new_home_image('Playroom_scene_with_giftable_toys_202608031619.jpeg'),
+        'alt' => __('Toy and play essentials selected for everyday fun', 'dawp'),
     ],
 ];
 if ($archive_term && !is_wp_error($archive_term)) {
@@ -97,20 +101,20 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
 <div class="shop-container">
 
     <?php
-    // ── Breadcrumb ─────────────────────────────────────────
+    // Breadcrumb
     ?>
     <nav class="shop-breadcrumb" aria-label="Breadcrumb">
         <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
-        <span aria-hidden="true">›</span>
+        <span aria-hidden="true">&rsaquo;</span>
         <?php if ( is_product_category() ) :
             $cat = get_queried_object(); ?>
             <a href="<?php echo esc_url( $shop_url ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
+            <span aria-hidden="true">&rsaquo;</span>
             <span><?php echo esc_html( $cat->name ); ?></span>
         <?php elseif ( is_product_tag() ) :
             $tag = get_queried_object(); ?>
             <a href="<?php echo esc_url( $shop_url ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
+            <span aria-hidden="true">&rsaquo;</span>
             <span><?php echo esc_html( $tag->name ); ?></span>
         <?php else : ?>
             <span>Shop</span>
@@ -118,7 +122,7 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
     </nav>
 
     <?php
-    // ── Page heading ───────────────────────────────────────
+    // Page heading
     ?>
     <div class="shop-header">
         <div class="shop-header__content">
@@ -145,7 +149,7 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
     </div>
 
     <?php
-    // ── Toolbar: count + filter toggle + sort ──────────────
+    // Toolbar: count + filter toggle + sort
     ?>
     <div class="shop-toolbar">
         <div class="shop-toolbar__left">
@@ -166,11 +170,11 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
     </div>
 
     <?php
-    // ── Layout ─────────────────────────────────────────────
+    // Layout
     ?>
     <div class="shop-layout">
 
-        <?php // ── Main Product Area ────────────────────────── ?>
+        <?php // Main Product Area ?>
         <main class="shop-main" id="main-content">
 
             <?php if ( woocommerce_product_loop() ) : ?>
@@ -192,7 +196,7 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
                 <div class="shop-empty">
                     <p>No products found in this collection.</p>
                     <a href="<?php echo esc_url( $shop_url ); ?>">
-                        Browse all products →
+                        Browse all products &rarr;
                     </a>
                 </div>
             <?php endif; ?>

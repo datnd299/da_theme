@@ -90,6 +90,7 @@ $nav_items = [
         .cf-nav { display:flex; justify-content:center; align-items:center; gap:8px; min-height:48px; overflow:visible; scrollbar-width:none; }
         .cf-nav::-webkit-scrollbar { display:none; }
         .cf-nav__item { position:relative; display:flex; align-items:center; }
+        .cf-nav__item--mega::after { content:""; position:absolute; left:-18px; right:-18px; top:100%; height:18px; }
         .cf-nav__link { flex:none; display:inline-flex; align-items:center; gap:7px; border-radius:999px; padding:8px 18px; color:var(--cf-text); font-family:var(--cf-font-heading); font-size:.84rem; font-weight:700; letter-spacing:.01em; line-height:1.25; text-decoration:none; transition:background 180ms ease, color 180ms ease; }
         .cf-nav__link:hover, .cf-nav__item:focus-within > .cf-nav__link { background:var(--cf-bg); color:var(--cf-orange); }
         .cf-nav__link.is-current { color:var(--cf-orange); background:rgba(245,130,32,.1); }
@@ -240,7 +241,7 @@ $nav_items = [
     <div class="cf-desktop-nav">
         <nav class="cf-header__inner cf-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
             <?php foreach ($nav_items as $item) : ?>
-                <div class="cf-nav__item">
+                <div class="cf-nav__item <?php echo !empty($item['mega']) && !empty($mega_menu_items) ? 'cf-nav__item--mega' : ''; ?>">
                     <a class="cf-nav__link <?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>>
                         <?php echo esc_html($item['title']); ?>
                         <?php if (!empty($item['mega']) && !empty($mega_menu_items)) : ?>

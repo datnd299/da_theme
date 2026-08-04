@@ -12,6 +12,8 @@ import { minify as terserMinify } from 'terser';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
+const noImages = process.argv.includes('--no-images');
+const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg', '.avif', '.bmp', '.ico']);
 
 // ── Parse style.css ─────────────────────────────────────────────
 const styleCss = readFileSync(resolve(root, 'style.css'), 'utf8');
@@ -35,6 +37,7 @@ const randomVersion = `1.${Math.floor(Math.random() * 9) + 1}.${String(Math.floo
 console.log(`Theme   : ${themeName}`);
 console.log(`Slug    : ${themeSlug}`);
 console.log(`Version : ${themeVersion} → ${randomVersion}`);
+console.log(`Images  : ${noImages ? 'excluded' : 'included'}`);
 console.log('');
 
 // ── Build Tailwind ──────────────────────────────────────────────
@@ -60,6 +63,7 @@ function copyDir(src, dest) {
     if (shouldSkip(entry)) continue;
     const s = join(src, entry);
     const d = join(dest, entry);
+    if (!statSync(s).isDirectory() && noImages && IMAGE_EXTS.has(extname(entry).toLowerCase())) continue;
     statSync(s).isDirectory() ? copyDir(s, d) : copyFileSync(s, d);
   }
 }
@@ -225,7 +229,7 @@ await walkAndProcess(distDir);
 
 // ── Zip ────────────────────────────────────────────────────────
 const distRoot = resolve(root, 'dist');
-const zipFile  = `${themeSlug}.zip`;
+const zipFile  = noImages ? `${themeSlug}-no-images.zip` : `${themeSlug}.zip`;
 const zipPath  = join(distRoot, zipFile);
 
 if (existsSync(zipPath)) rmSync(zipPath);

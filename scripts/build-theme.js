@@ -30,6 +30,43 @@ if (!themeName) {
   process.exit(1);
 }
 
+function assertWordPressTheme(dir) {
+  const requiredFiles = ['style.css', 'index.php', 'functions.php'];
+  const missing = requiredFiles.filter((file) => !existsSync(join(dir, file)));
+
+  if (missing.length) {
+    throw new Error(`Missing required WordPress theme file(s): ${missing.join(', ')}`);
+  }
+
+  const packagedStyleCss = readFileSync(join(dir, 'style.css'), 'utf8');
+  if (!/^Theme Name:\s*.+$/m.test(packagedStyleCss)) {
+    throw new Error('style.css must contain a valid "Theme Name:" header.');
+  }
+}
+
+function assertZipShape(zipPath, slug) {
+  const entries = execSync(`tar -tf "${zipPath}"`, { encoding: 'utf8' })
+    .split(/\r?\n/)
+    .filter(Boolean)
+    .map((entry) => entry.replace(/\\/g, '/'));
+
+  const requiredEntries = [
+    `${slug}/style.css`,
+    `${slug}/index.php`,
+    `${slug}/functions.php`
+  ];
+
+  const missing = requiredEntries.filter((entry) => !entries.includes(entry));
+  if (missing.length) {
+    throw new Error(`Invalid theme zip. Missing required entry: ${missing.join(', ')}`);
+  }
+
+  const invalidRootEntries = entries.filter((entry) => !entry.startsWith(`${slug}/`));
+  if (invalidRootEntries.length) {
+    throw new Error(`Invalid theme zip. Files must be inside the "${slug}" folder.`);
+  }
+}
+
 const randomVersion = `1.${Math.floor(Math.random() * 9) + 1}.${String(Math.floor(Math.random() * 99) + 1).padStart(2, '0')}`;
 
 console.log(`Theme   : ${themeName}`);
@@ -223,6 +260,9 @@ async function walkAndProcess(dir) {
 console.log('Processing files...');
 await walkAndProcess(distDir);
 
+console.log('Validating WordPress theme files...');
+assertWordPressTheme(distDir);
+
 // ── Zip ────────────────────────────────────────────────────────
 const distRoot = resolve(root, 'dist');
 const zipFile  = `${themeSlug}.zip`;
@@ -239,5 +279,8 @@ if (process.platform === 'win32') {
 } else {
   execSync(`zip -r ${zipFile} ${themeSlug}`, { cwd: distRoot, stdio: 'inherit' });
 }
+
+console.log('Validating zip structure...');
+assertZipShape(zipPath, themeSlug);
 
 console.log(`\nDone → dist/${zipFile}`);

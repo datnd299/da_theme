@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage — ShopGraphicshirt
+ * Homepage — ShopGraphicShirt
  * Patriotic apparel & custom gift brand.
  * Based on: site.md / design_system.md / home_plan.md
  * 7 sections: Hero + Strip | Categories | Best Sellers | Personalized | Occasions | Tributes | Trust
@@ -329,7 +329,7 @@ $sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
 
     <div class="sgs-about">
       <h2>Patriotic Apparel And Gifts Made For American Pride</h2>
-      <p>ShopGraphicshirt is a patriotic apparel and custom gift brand created for proud Americans who want meaningful products that carry classic style and American pride.</p>
+      <p>ShopGraphicShirt is a patriotic apparel and custom gift brand created for proud Americans who want meaningful products that carry classic style and American pride.</p>
       <a href="/about-us/" class="sgs-btn sgs-btn--secondary">Learn More →</a>
     </div>
 

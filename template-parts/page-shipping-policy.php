@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping Policy - ShopGraphicshirt
+ * Shipping Policy - ShopGraphicShirt
  * Style aligned with homepage. Content preserved from original.
  */
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
@@ -113,7 +113,7 @@ get_header(); ?>
 
   <article class="sgs-sp-panel">
     <h2>Shipping Locations &amp; Market</h2>
-    <p>We currently ship exclusively within the <strong>United States</strong>. ShopGraphicshirt serves customers shopping from the United States domestic market.</p>
+    <p>We currently ship exclusively within the <strong>United States</strong>. ShopGraphicShirt serves customers shopping from the United States domestic market.</p>
     <p>If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.</p>
     <div class="sgs-sp-note">Some apparel and custom gift orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.</div>
   </article>
@@ -131,7 +131,7 @@ get_header(); ?>
 
   <article class="sgs-sp-panel">
     <h2>Carrier Services &amp; Delivery Tracking</h2>
-    <p>To guarantee safe and efficient delivery, ShopGraphicshirt partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.</p>
+    <p>To guarantee safe and efficient delivery, ShopGraphicShirt partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.</p>
     <div class="sgs-sp-pills">
       <span class="sgs-sp-pill">USPS</span>
       <span class="sgs-sp-pill">UPS</span>
@@ -166,7 +166,7 @@ get_header(); ?>
     <div class="sgs-sp-support">
       <div class="sgs-sp-support__item">
         <strong>Store Name</strong>
-        <span>ShopGraphicshirt</span>
+        <span>ShopGraphicShirt</span>
       </div>
       <div class="sgs-sp-support__item">
         <strong>Customer Support Email</strong>

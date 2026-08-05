@@ -1,6 +1,6 @@
 <?php
 /**
- * About Us — ShopGraphicshirt
+ * About Us — ShopGraphicShirt
  * Patriotic apparel & gift brand.
  */
 $sgs_about_hero_bg = sprintf(
@@ -53,7 +53,7 @@ get_header(); ?>
   <div class="sgs-page-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">About Us</p>
     <h1>Patriotic Apparel And Gifts Made For American Pride</h1>
-    <p>ShopGraphicshirt is an American patriotic apparel and custom gift brand built for proud Americans who want meaningful products that carry classic style and pride.</p>
+    <p>ShopGraphicShirt is an American patriotic apparel and custom gift brand built for proud Americans who want meaningful products that carry classic style and pride.</p>
   </div>
 </div>
 
@@ -89,11 +89,6 @@ get_header(); ?>
       <p>Heavy-weight cotton, durable prints, and comfortable fits made to last.</p>
     </div>
     <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-palette"></i></div>
-      <h3>Unique Designs</h3>
-      <p>Original patriotic graphics you won't find anywhere else.</p>
-    </div>
-    <div class="sgs-card">
       <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-box"></i></div>
       <h3>Easy Ordering</h3>
       <p>Simple checkout, tracking included, and reliable delivery to your door.</p>
@@ -111,7 +106,7 @@ get_header(); ?>
     <div class="sgs-story__content">
       <p class="sgs-eyebrow">Our Story</p>
       <h2>Built For Proud American Style</h2>
-      <p>ShopGraphicshirt was created because finding quality patriotic apparel shouldn't be complicated. Too many stores feel generic, political, or low-quality.</p>
+      <p>ShopGraphicShirt was created because finding quality patriotic apparel shouldn't be complicated. Too many stores feel generic, political, or low-quality.</p>
       <p>We started this brand to change that, focusing on premium graphic tees, bomber jackets, hats, and accessories that actually look good, feel great, and celebrate American pride.</p>
       <p>Today, we help thousands of Americans express their pride with products that carry meaning.</p>
     </div>

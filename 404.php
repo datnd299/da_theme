@@ -1,6 +1,6 @@
 <?php
 /**
- * 404 Not Found - ShopGraphicshirt
+ * 404 Not Found - ShopGraphicShirt
  */
 get_header();
 

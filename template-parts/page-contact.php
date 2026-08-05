@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact Us — ShopGraphicshirt
+ * Contact Us — ShopGraphicShirt
  */
 $sgs_contact_hero_bg = sprintf(
   "--sgs-contact-hero-bg:url('%s');--sgs-contact-hero-bg-mobile:url('%s')",

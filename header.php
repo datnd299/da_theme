@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header — ShopGraphicshirt
+ * Theme header — ShopGraphicShirt
  * Patriot Navy / Heritage Red / Antique White
  */
 

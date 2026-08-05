@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms & Conditions — ShopGraphicshirt
+ * Terms & Conditions — ShopGraphicShirt
  */
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
@@ -46,7 +46,7 @@ get_header(); ?>
   <p>We reserve the absolute right to update, modify, or rewrite these Terms at any time without prior written notice. Any dynamic modifications will become effective immediately upon being posted to the Site. Your continued interaction with the storefront following these updates constitutes your binding agreement to the revised Terms.</p>
 
   <h3>2. Intellectual Property Rights</h3>
-  <p>All designs, original graphics, apparel illustrations, text configurations, custom page layouts, and corporate logos displayed on this website are the exclusive property of ShopGraphicshirt and are protected under international copyright and trademark laws. You are strictly prohibited from copying, reproducing, distributing, modifying, or commercially exploiting any content or design layouts from this Site without explicit prior written authorization from our management.</p>
+  <p>All designs, original graphics, apparel illustrations, text configurations, custom page layouts, and corporate logos displayed on this website are the exclusive property of ShopGraphicShirt and are protected under international copyright and trademark laws. You are strictly prohibited from copying, reproducing, distributing, modifying, or commercially exploiting any content or design layouts from this Site without explicit prior written authorization from our management.</p>
 
   <h3>3. User Conduct Policy</h3>
   <p>By interacting with our Site, you strictly agree NOT to:</p>
@@ -81,14 +81,14 @@ get_header(); ?>
 
   <h2>PART III: LEGAL FRAMEWORK &amp; CORPORATE IDENTITY</h2>
   <h3>9. Limitation of Liability</h3>
-  <p>To the maximum extent permitted by applicable law, ShopGraphicshirt and its operational directors, officers, employees, or third-party service providers shall not be held liable for any indirect, incidental, special, punitive, or consequential damages (including, without limitation, loss of profits, data, or business opportunities) resulting from your utilization of our services, product usage, or unexpected logistical carrier delays beyond our reasonable control.</p>
+  <p>To the maximum extent permitted by applicable law, ShopGraphicShirt and its operational directors, officers, employees, or third-party service providers shall not be held liable for any indirect, incidental, special, punitive, or consequential damages (including, without limitation, loss of profits, data, or business opportunities) resulting from your utilization of our services, product usage, or unexpected logistical carrier delays beyond our reasonable control.</p>
 
   <h3>10. Governing Law &amp; Jurisdiction</h3>
   <p>These Terms of Service, along with all contractual obligations regarding the purchase of goods from our store, shall be governed by, interpreted, and construed in accordance with the laws of the United States, without regard to conflict of law principles.</p>
 
   <h3>11. Customer Support &amp; Operational Contact</h3>
   <p>For any policy inquiries, legal questions, or transactional support regarding these Terms, please reach out to our administration through our verified corporate channels:</p>
-  <p><strong>Store/Brand Name:</strong> ShopGraphicshirt</p>
+  <p><strong>Store/Brand Name:</strong> ShopGraphicShirt</p>
   <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
   <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
   <p><strong>Customer Service Hours:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST</p>

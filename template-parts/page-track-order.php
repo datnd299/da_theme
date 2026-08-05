@@ -1,6 +1,6 @@
 <?php
 /**
- * Track Order - ShopGraphicshirt
+ * Track Order - ShopGraphicShirt
  */
 $sgs_to_hero_bg = sprintf(
   "--sgs-to-hero-bg:url('%s');--sgs-to-hero-bg-mobile:url('%s')",
@@ -80,7 +80,7 @@ $sgs_to_tips_bg = sprintf(
 <div class="sgs-to-hero">
   <div class="sgs-to-hero__inner">
     <p class="sgs-eyebrow sgs-eyebrow--light">Order Tracking</p>
-    <h1>Track Your ShopGraphicshirt Order</h1>
+    <h1>Track Your ShopGraphicShirt Order</h1>
     <p>Check the latest status for your patriotic apparel, custom gifts, and accessories using your order number and billing email.</p>
   </div>
 </div>

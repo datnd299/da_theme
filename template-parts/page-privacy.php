@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy Policy - ShopGraphicshirt
+ * Privacy Policy - ShopGraphicShirt
  */
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 $store_address = $store_address ?: __('United States', 'dawp');
@@ -81,7 +81,7 @@ get_header(); ?>
 
   <h2>8. Corporate Identity &amp; Customer Support Channels</h2>
   <p>For questions about our data practices, to file a privacy inquiry, or for help with an active order, please connect with our compliance officer via our verified communication block:</p>
-  <p><strong>Store / Brand Name:</strong> Shop Graphic Shirt</p>
+  <p><strong>Store / Brand Name:</strong> ShopGraphicShirt</p>
   <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
   <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
   <p><strong>Customer Support Availability:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST.</p>

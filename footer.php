@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer — ShopGraphicshirt
+ * Theme footer — ShopGraphicShirt
  * Patriot Navy / Heritage Red / Antique White
  */
 
@@ -356,7 +356,7 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
 
   <div class="sgs-footer-bottom">
     <div class="sgs-container sgs-footer-bottom-inner">
-      <p>&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php esc_html_e('Shop Graphic Shirt', 'shopgraphicshirt'); ?>. All rights reserved.</p>
+      <p>&copy; <?php echo esc_html(date_i18n('Y')); ?> <?php esc_html_e('ShopGraphicShirt', 'shopgraphicshirt'); ?>. All rights reserved.</p>
       <div class="sgs-footer-payments" aria-label="<?php esc_attr_e('Payment methods', 'shopgraphicshirt'); ?>">
         <?php
         $payments = [

@@ -36,7 +36,7 @@ get_header(); ?>
 .sgs-sp-note{margin-top:16px;border-left:4px solid var(--gold);border-radius:0 var(--radius) var(--radius) 0;background:#fff7e8;padding:18px 20px;color:var(--muted);font-size:.9rem;line-height:1.65}
 .sgs-sp-pills{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
 .sgs-sp-pill{display:inline-flex;min-width:60px;min-height:34px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:999px;background:var(--white);color:var(--ink);font-size:.8rem;font-weight:700}
-.sgs-sp-costs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
+.sgs-sp-costs{display:grid;grid-template-columns:1fr;max-width:360px;margin-top:12px;margin-inline:auto}
 .sgs-sp-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
 .sgs-sp-contact-actions{align-items:center;gap:10px;margin-top:22px}
 .sgs-sp-contact-actions .sgs-btn,.sgs-sp-mail{display:inline-flex;min-height:42px;align-items:center;justify-content:center;border-radius:6px;padding:10px 16px;font-family:var(--font-heading);font-size:.82rem;font-weight:700;line-height:1.2;text-decoration:none;box-shadow:none;transition:background 180ms,border-color 180ms,color 180ms}
@@ -124,11 +124,7 @@ get_header(); ?>
     <div class="sgs-sp-costs">
       <div class="sgs-sp-card">
         <h3>Standard U.S. Shipping</h3>
-        <p>Free for all U.S. orders over $49. Orders under $49 have a flat shipping fee, shown clearly at checkout before payment.</p>
-      </div>
-      <div class="sgs-sp-card">
-        <h3>Optional Upgraded Shipping</h3>
-        <p>If expedited or assisted shipping services are available for your destination, the exact cost will be displayed clearly on the checkout page before you complete your payment.</p>
+        <p>Free for all U.S. orders over $49. Orders under $49 have a flat shipping fee of $4.99, shown clearly at checkout before payment.</p>
       </div>
     </div>
   </article>

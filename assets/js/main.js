@@ -494,6 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!drawer || !window.dawpCart) return;
 
         const qtyTimers = {};
+        let isAddingToCart = false;
 
         const setLoading = (isLoading) => drawer.classList.toggle('is-loading', isLoading);
 
@@ -598,12 +599,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
             e.preventDefault();
 
+            // Some plugins (e.g. CommerceKit's sticky add-to-cart bar) clone
+            // the whole form.cart element into a second, independent form on
+            // the same page. This guard makes sure only one add-to-cart
+            // request is ever in flight at a time, no matter which of those
+            // forms — or a stray double submit — triggers it.
+            if (isAddingToCart) return;
+            isAddingToCart = true;
+
             const submitBtn = form.querySelector('button[type="submit"], .single_add_to_cart_button');
             submitBtn?.setAttribute('disabled', 'disabled');
 
             const body = new FormData(form);
-            if (submitBtn?.name === 'add-to-cart' && !body.has('add-to-cart')) {
-                body.set('add-to-cart', submitBtn.value);
+            const productId = body.get('add-to-cart') || (submitBtn?.name === 'add-to-cart' ? submitBtn.value : null);
+
+            // WooCommerce's own WC_Form_Handler::add_to_cart_action() runs on
+            // the "wp_loaded" hook, which fires during admin-ajax.php's WP
+            // bootstrap *before* our wp_ajax_dawp_cart_add handler runs. It
+            // blindly adds to the cart whenever "add-to-cart" is present in
+            // the request, so leaving that field in place caused every item
+            // to be added twice. Send the product id under a different key.
+            body.delete('add-to-cart');
+            if (productId) {
+                body.set('dawp_product_id', productId);
             }
             body.set('action', 'dawp_cart_add');
             body.set('nonce', window.dawpCart.nonce);
@@ -619,8 +637,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = json.data.product_url;
                 }
             } catch {
-                form.submit();
+                // Don't fall back to a native form.submit() here: the AJAX
+                // request may have already added the item server-side before
+                // failing client-side (e.g. a malformed response), and
+                // resubmitting the form would add it a second time. Leaving
+                // the button re-enabled lets the user retry deliberately.
             } finally {
+                isAddingToCart = false;
                 setLoading(false);
                 submitBtn?.removeAttribute('disabled');
             }

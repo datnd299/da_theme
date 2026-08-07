@@ -197,7 +197,7 @@ function dawp_cart_ajax_add() {
         wp_send_json_error();
     }
 
-    $product_id = isset($_POST['add-to-cart']) ? absint(wp_unslash($_POST['add-to-cart'])) : 0;
+    $product_id = isset($_POST['dawp_product_id']) ? absint(wp_unslash($_POST['dawp_product_id'])) : 0;
     if (!$product_id) {
         wp_send_json_error();
     }
@@ -223,7 +223,14 @@ function dawp_cart_ajax_add() {
 
     $passed_validation = apply_filters('woocommerce_add_to_cart_validation', true, $product_id, $quantity, $variation_id, $variation);
 
-    if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id, $variation)) {
+    // Buffer and discard stray output (e.g. a stray notice/warning from a
+    // hooked plugin) so it can never leak into the JSON response and break
+    // client-side parsing of an otherwise-successful add.
+    ob_start();
+    $added = $passed_validation && WC()->cart->add_to_cart($product_id, $quantity, $variation_id, $variation);
+    ob_end_clean();
+
+    if ($added) {
         do_action('woocommerce_ajax_added_to_cart', $product_id);
         dawp_cart_send_fragments();
     }
@@ -255,11 +262,13 @@ function dawp_cart_ajax_update_qty() {
 
     $quantity = isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : 0;
 
+    ob_start();
     if ($quantity <= 0) {
         WC()->cart->remove_cart_item($cart_item_key);
     } else {
         WC()->cart->set_quantity($cart_item_key, $quantity, true);
     }
+    ob_end_clean();
 
     dawp_cart_send_fragments();
 }
@@ -275,7 +284,11 @@ function dawp_cart_ajax_remove_item() {
 
     $cart_item_key = isset($_POST['cart_item_key']) ? wc_clean(wp_unslash($_POST['cart_item_key'])) : '';
 
-    if (!$cart_item_key || false === WC()->cart->remove_cart_item($cart_item_key)) {
+    ob_start();
+    $removed = $cart_item_key && false !== WC()->cart->remove_cart_item($cart_item_key);
+    ob_end_clean();
+
+    if (!$removed) {
         wp_send_json_error();
     }
 

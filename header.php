@@ -371,11 +371,9 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
             </a>
 
-            <a href="<?php echo esc_url($cart_url); ?>" class="sgs-cart-btn" aria-label="<?php esc_attr_e('View cart', 'shopgraphicshirt'); ?>">
+            <a href="<?php echo esc_url($cart_url); ?>" class="sgs-cart-btn" id="dawp-cart-toggle" aria-label="<?php esc_attr_e('View cart', 'shopgraphicshirt'); ?>">
                 <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H7M10 21h.01M18 21h.01"/></svg>
-                <?php if ($cart_count > 0) : ?>
-                    <span class="sgs-cart-count"><?php echo esc_html($cart_count); ?></span>
-                <?php endif; ?>
+                <span class="sgs-cart-count<?php echo $cart_count > 0 ? '' : ' hidden'; ?>"><?php echo esc_html($cart_count); ?></span>
             </a>
         </div>
     </div>

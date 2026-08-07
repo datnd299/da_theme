@@ -385,6 +385,9 @@ $account_url = $account_url ? $account_url : home_url('/my-account/');
   </div>
 </footer>
 
+<?php if (function_exists('dawp_cart_fab_markup')) : dawp_cart_fab_markup(); endif; ?>
+<?php if (function_exists('dawp_cart_drawer_markup')) : dawp_cart_drawer_markup(); endif; ?>
+
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -486,7 +486,159 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
+    // Side cart drawer
+    function initCartDrawer() {
+        const drawer  = document.getElementById('dawp-cart-drawer');
+        const toggle  = document.getElementById('dawp-cart-toggle');
+        const fab     = document.getElementById('dawp-cart-fab');
+        if (!drawer || !window.dawpCart) return;
+
+        const qtyTimers = {};
+
+        const setLoading = (isLoading) => drawer.classList.toggle('is-loading', isLoading);
+
+        const openDrawer = () => {
+            drawer.classList.add('is-open');
+            drawer.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('dawp-cart-open');
+        };
+
+        const closeDrawer = () => {
+            drawer.classList.remove('is-open');
+            drawer.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('dawp-cart-open');
+        };
+
+        const applyFragments = (fragments) => {
+            if (!fragments) return;
+            Object.keys(fragments).forEach((selector) => {
+                document.querySelectorAll(selector).forEach((el) => {
+                    el.outerHTML = fragments[selector];
+                });
+            });
+        };
+
+        const postCart = async (action, extra) => {
+            const body = new FormData();
+            body.append('action', action);
+            body.append('nonce', window.dawpCart.nonce);
+            Object.keys(extra || {}).forEach((key) => body.append(key, extra[key]));
+
+            setLoading(true);
+            try {
+                const res  = await fetch(window.dawpCart.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' });
+                const json = await res.json();
+                if (json.success) applyFragments(json.data);
+                return json;
+            } catch {
+                return { success: false };
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        const queueQtyUpdate = (cartKey, qty) => {
+            clearTimeout(qtyTimers[cartKey]);
+            qtyTimers[cartKey] = setTimeout(() => {
+                postCart('dawp_cart_update_qty', { cart_item_key: cartKey, quantity: qty });
+            }, 400);
+        };
+
+        [toggle, fab].forEach((btn) => {
+            btn?.addEventListener('click', (e) => {
+                e.preventDefault();
+                openDrawer();
+            });
+        });
+
+        drawer.addEventListener('click', (e) => {
+            if (e.target.closest('[data-cart-close]')) {
+                closeDrawer();
+                return;
+            }
+
+            const removeBtn = e.target.closest('[data-cart-remove]');
+            if (removeBtn) {
+                const item = removeBtn.closest('[data-cart-key]');
+                if (item) postCart('dawp_cart_remove_item', { cart_item_key: item.dataset.cartKey });
+                return;
+            }
+
+            const decrease = e.target.closest('[data-qty-decrease]');
+            const increase = e.target.closest('[data-qty-increase]');
+            if (decrease || increase) {
+                const item  = (decrease || increase).closest('[data-cart-key]');
+                const input = item?.querySelector('[data-qty-input]');
+                if (!item || !input) return;
+                const current = parseInt(input.value, 10) || 0;
+                const next = decrease ? Math.max(0, current - 1) : current + 1;
+                input.value = next;
+                queueQtyUpdate(item.dataset.cartKey, next);
+            }
+        });
+
+        drawer.addEventListener('change', (e) => {
+            const input = e.target.closest('[data-qty-input]');
+            if (!input) return;
+            const item = input.closest('[data-cart-key]');
+            if (!item) return;
+            const next = Math.max(0, parseInt(input.value, 10) || 0);
+            input.value = next;
+            queueQtyUpdate(item.dataset.cartKey, next);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
+        });
+
+        document.addEventListener('submit', async (e) => {
+            const form = e.target;
+            if (!(form instanceof HTMLFormElement) || !form.matches('form.cart')) return;
+            if (!form.querySelector('[name="add-to-cart"]')) return;
+
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('button[type="submit"], .single_add_to_cart_button');
+            submitBtn?.setAttribute('disabled', 'disabled');
+
+            const body = new FormData(form);
+            if (submitBtn?.name === 'add-to-cart' && !body.has('add-to-cart')) {
+                body.set('add-to-cart', submitBtn.value);
+            }
+            body.set('action', 'dawp_cart_add');
+            body.set('nonce', window.dawpCart.nonce);
+
+            setLoading(true);
+            try {
+                const res  = await fetch(window.dawpCart.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' });
+                const json = await res.json();
+                if (json.success) {
+                    applyFragments(json.data);
+                    openDrawer();
+                } else if (json.data?.product_url) {
+                    window.location.href = json.data.product_url;
+                }
+            } catch {
+                form.submit();
+            } finally {
+                setLoading(false);
+                submitBtn?.removeAttribute('disabled');
+            }
+        });
+
+        // Covers WooCommerce's own ajax_add_to_cart buttons (e.g. empty-cart
+        // recommendations), whose fragments already include our drawer markup
+        // via the woocommerce_add_to_cart_fragments filter.
+        if (window.jQuery) {
+            window.jQuery(document.body).on('added_to_cart', (e, fragments) => {
+                applyFragments(fragments);
+                openDrawer();
+            });
+        }
+    }
+
     initNewsletterForm('newsletter-form', 'newsletter-msg', '#a8f0c8', '#f9a8a8');
     initNewsletterForm('footer-newsletter-form', 'footer-newsletter-msg', '#a8f0c8', '#f9a8a8');
     initContactForm();
+    initCartDrawer();
 });

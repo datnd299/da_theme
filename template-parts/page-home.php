@@ -345,7 +345,7 @@ if (class_exists('WooCommerce')) {
                         <?php esc_html_e('Simple essentials for routines, style, and self-care.', 'dawp'); ?>
                     </h2>
                     <p class="mt-5 text-base leading-8 text-[#475467]">
-                        <?php esc_html_e('From personal care accessories to beauty organizers and everyday style pieces, Elite Shop Express brings together practical finds designed for simple routines and polished daily living.', 'dawp'); ?>
+                        <?php esc_html_e('From personal care accessories to beauty organizers and everyday style pieces, Meridova brings together practical finds designed for simple routines and polished daily living.', 'dawp'); ?>
                     </p>
                     <a href="<?php echo esc_url(dawp_get_product_category_url('beauty-personal-care')); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#C026D3] px-6 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#101828]">
                         <?php esc_html_e('Explore Personal Care & Accessories', 'dawp'); ?>

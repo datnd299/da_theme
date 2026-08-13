@@ -146,7 +146,7 @@ if (taxonomy_exists('product_cat')) {
                         <?php esc_html_e('Find what you were looking for.', 'dawp'); ?>
                     </h2>
                     <p class="mt-4 text-base leading-7 text-[#475467]">
-                        <?php esc_html_e('Jump into the main product categories used across Elite Shop Express.', 'dawp'); ?>
+                        <?php esc_html_e('Jump into the main product categories used across Meridova.', 'dawp'); ?>
                     </p>
                 </div>
 

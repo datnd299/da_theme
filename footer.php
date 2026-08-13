@@ -6,8 +6,8 @@
  */
 
 $current_year  = date_i18n('Y');
-$support_email = 'support@eliteshopexpress.com';
-$support_address = '123 Market Street, New York, NY 10001';
+$support_email = 'support@meridova.net';
+$support_address = dawp_get_store_address();
 $operating_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
 
 $footer_shop_links = dawp_product_category_links();
@@ -38,12 +38,12 @@ $footer_policy_links = [
             <div>
                 <a href="<?php echo esc_url(home_url('/')); ?>"
                    class="inline-flex leading-none"
-                   aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'Elite Shop Express'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/footer-logo.png'); ?>"
-                         alt="<?php echo esc_attr(get_bloginfo('name') ?: 'Elite Shop Express'); ?>"
+                   aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'Meridova'); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
+                         alt="<?php echo esc_attr(get_bloginfo('name') ?: 'Meridova'); ?>"
                          class="h-auto w-[220px] max-w-full object-contain sm:w-[240px]"
-                         width="189"
-                         height="60">
+                         width="895"
+                         height="279">
                 </a>
 
                 <div class="mt-7 space-y-3 text-sm font-bold text-white/75">
@@ -134,7 +134,7 @@ $footer_policy_links = [
     <div class="border-t border-white/10">
         <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-white/60 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <p>
-                &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('Elite Shop Express'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
+                &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('Meridova'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
             </p>
 
             <div class="flex flex-col gap-2 lg:items-center">

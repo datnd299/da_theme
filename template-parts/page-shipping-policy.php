@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name     = 'Elite Shop Express';
-$support_email  = 'support@eliteshopexpress.com';
-$store_address  = 'United States';
+$store_name     = 'Meridova';
+$support_email  = 'support@meridova.net';
+$store_address  = dawp_get_store_address();
 $support_portal = home_url('/contact-us/');
 ?>
 
@@ -78,7 +78,7 @@ $support_portal = home_url('/contact-us/');
         <p class="ese-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="ese-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
         <p class="ese-updated"><?php esc_html_e('Last Updated: June 5, 2026', 'dawp'); ?></p>
-        <p class="ese-copy"><?php esc_html_e('Elite Shop Express currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.', 'dawp'); ?></p>
+        <p class="ese-copy"><?php esc_html_e('Meridova currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.', 'dawp'); ?></p>
         <div class="ese-actions">
           <a class="ese-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="ese-button ese-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
@@ -92,7 +92,7 @@ $support_portal = home_url('/contact-us/');
       <div class="ese-policy-stack">
         <section id="shipping-locations" class="ese-policy-card">
           <h2><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We currently ship exclusively within the United States. Elite Shop Express serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We currently ship exclusively within the United States. Meridova serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
           <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
           <div class="ese-callout">
             <p><?php esc_html_e('Some everyday essentials and lifestyle orders may ship separately if items are prepared from different fulfillment batches or require distinct packing methods to ensure safe transit.', 'dawp'); ?></p>
@@ -146,7 +146,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="tracking" class="ese-policy-card">
           <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php esc_html_e('To guarantee safe and efficient delivery, Elite Shop Express partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
+          <p><?php esc_html_e('To guarantee safe and efficient delivery, Meridova partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
           <ul class="ese-carrier-list">
             <li><?php esc_html_e('USPS', 'dawp'); ?></li>
             <li><?php esc_html_e('UPS', 'dawp'); ?></li>

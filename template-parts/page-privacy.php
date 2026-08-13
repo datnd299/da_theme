@@ -5,10 +5,10 @@
  * @package dawp
  */
 
-$store_name      = 'Elite Shop Express';
-$site_url        = 'eliteshopexpress.com';
-$support_email   = 'support@eliteshopexpress.com';
-$support_address = '123 Market Street, New York, NY 10001';
+$store_name      = 'Meridova';
+$site_url        = 'meridova.net';
+$support_email   = 'support@meridova.net';
+$support_address = dawp_get_store_address();
 $operating_hours = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
 $product_scope   = 'home essentials, beauty and personal care accessories, fashion accessories, lifestyle items, and giftable everyday finds';
 $contact_url     = home_url('/contact-us/');

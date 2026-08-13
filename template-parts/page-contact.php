@@ -49,7 +49,7 @@ $quick_help = [
             <div class="grid grid-cols-1 gap-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-center">
                 <div class="max-w-4xl">
                     <p class="mb-5 inline-flex rounded-full bg-[#DBEAFE] px-4 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]">
-                        <?php esc_html_e('Contact Elite Shop Express', 'dawp'); ?>
+                        <?php esc_html_e('Contact Meridova', 'dawp'); ?>
                     </p>
 
                     <h1 class="font-heading text-4xl font-black uppercase leading-[0.98] text-[#101828] sm:text-5xl lg:text-[4.25rem]">
@@ -74,12 +74,12 @@ $quick_help = [
                 </div>
 
                 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 lg:justify-self-end">
-                    <a href="mailto:support@eliteshopexpress.com"
+                    <a href="mailto:support@meridova.net"
                        class="group grid grid-cols-[auto_1fr] items-center gap-5 border border-[#E5E7EB] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#2563EB]/30 hover:shadow-xl hover:shadow-[#101828]/10 lg:w-[26rem]">
                         <span class="flex h-11 w-11 items-center justify-center rounded-full bg-[#2563EB] text-sm font-black text-white">@</span>
                         <span class="min-w-0">
                             <span class="block text-xs font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('Support Email', 'dawp'); ?></span>
-                            <span class="mt-2 block break-words text-base font-black leading-6 text-[#101828] group-hover:text-[#2563EB]">support@eliteshopexpress.com</span>
+                            <span class="mt-2 block break-words text-base font-black leading-6 text-[#101828] group-hover:text-[#2563EB]">support@meridova.net</span>
                         </span>
                     </a>
 
@@ -143,10 +143,10 @@ $quick_help = [
                     </p>
 
                     <div class="mt-7 grid gap-4">
-                        <a href="mailto:support@eliteshopexpress.com"
+                        <a href="mailto:support@meridova.net"
                            class="rounded-2xl border border-white/10 bg-white/5 p-5 transition hover:border-[#67E8F9] hover:bg-white/10">
                             <span class="block text-xs font-black uppercase tracking-[0.18em] text-[#67E8F9]"><?php esc_html_e('Email', 'dawp'); ?></span>
-                            <span class="mt-2 block break-words text-base font-black text-white">support@eliteshopexpress.com</span>
+                            <span class="mt-2 block break-words text-base font-black text-white">support@meridova.net</span>
                         </a>
 
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">

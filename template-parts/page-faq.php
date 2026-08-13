@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$support_email     = 'support@eliteshopexpress.com';
-$support_address   = '123 Market Street, New York, NY 10001';
+$support_email     = 'support@meridova.net';
+$support_address   = dawp_get_store_address();
 $operating_hours   = 'Monday - Friday, 9:00 AM - 6:00 PM EST';
 $response_time     = __('within 1 business day', 'dawp');
 
@@ -17,8 +17,8 @@ $faq_sections = [
         'title'   => __('Product details before checkout.', 'dawp'),
         'items'   => [
             [
-                'question' => __('What does Elite Shop Express sell?', 'dawp'),
-                'answer'   => __('Elite Shop Express offers home essentials, beauty and personal care accessories, fashion accessories, lifestyle items, and giftable everyday finds. Product pages include the available details customers need to review features, included items, materials, sizing, and care notes where relevant.', 'dawp'),
+                'question' => __('What does Meridova sell?', 'dawp'),
+                'answer'   => __('Meridova offers home essentials, beauty and personal care accessories, fashion accessories, lifestyle items, and giftable everyday finds. Product pages include the available details customers need to review features, included items, materials, sizing, and care notes where relevant.', 'dawp'),
             ],
             [
                 'question' => __('Are your products medical treatments or branded replicas?', 'dawp'),
@@ -45,7 +45,7 @@ $faq_sections = [
             ],
             [
                 'question' => __('How are payments processed?', 'dawp'),
-                'answer'   => __('Payments are processed through certified third-party payment gateways such as Stripe or PayPal. Elite Shop Express does not store, collect, or retain raw credit card numbers or payment credentials on our servers.', 'dawp'),
+                'answer'   => __('Payments are processed through certified third-party payment gateways such as Stripe or PayPal. Meridova does not store, collect, or retain raw credit card numbers or payment credentials on our servers.', 'dawp'),
             ],
             [
                 'question' => __('Why was my order not accepted or delayed?', 'dawp'),
@@ -60,7 +60,7 @@ $faq_sections = [
         'items'   => [
             [
                 'question' => __('Where do you ship?', 'dawp'),
-                'answer'   => __('Elite Shop Express currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to a specific address, the order will not be available for that location and the customer will be notified at checkout before payment is processed.', 'dawp'),
+                'answer'   => __('Meridova currently ships exclusively within the United States. If a product, destination, or carrier limitation prevents delivery to a specific address, the order will not be available for that location and the customer will be notified at checkout before payment is processed.', 'dawp'),
             ],
             [
                 'question' => __('How much does standard shipping cost?', 'dawp'),
@@ -103,7 +103,7 @@ $faq_sections = [
             ],
             [
                 'question' => __('Do you charge a restocking fee?', 'dawp'),
-                'answer'   => __('No. Elite Shop Express does not charge restocking fees for eligible returns.', 'dawp'),
+                'answer'   => __('No. Meridova does not charge restocking fees for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('How should I package a return?', 'dawp'),
@@ -142,10 +142,10 @@ $faq_sections = [
             ],
             [
                 'question' => __('What privacy rights can U.S. customers request?', 'dawp'),
-                'answer'   => __('U.S. customers may request access to personal data, correction of inaccurate records, deletion where legally available, and opt-out choices for targeted third-party advertising tracking. Elite Shop Express does not sell personal data.', 'dawp'),
+                'answer'   => __('U.S. customers may request access to personal data, correction of inaccurate records, deletion where legally available, and opt-out choices for targeted third-party advertising tracking. Meridova does not sell personal data.', 'dawp'),
             ],
             [
-                'question' => __('How can I contact Elite Shop Express?', 'dawp'),
+                'question' => __('How can I contact Meridova?', 'dawp'),
                 'answer'   => sprintf(
                     /* translators: 1: support email, 2: support hours, 3: support address, 4: response time. */
                     __('Email %1$s for order, shipping, return, product, account, or privacy questions. Support hours are %2$s, and we aim to reply %4$s. Corporate address: %3$s.', 'dawp'),

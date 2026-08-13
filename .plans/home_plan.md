@@ -1,4 +1,4 @@
-# Elite Shop Express — Home Plan
+# Meridova — Home Plan
 
 ## Homepage Goal
 
@@ -12,7 +12,7 @@ Everyday Essentials, Delivered With Ease
 
 The homepage must make customers understand:
 
-* Elite Shop Express is a curated lifestyle ecommerce store
+* Meridova is a curated lifestyle ecommerce store
 * Products are practical, useful, and easy to understand
 * Categories are organized, not random
 * The visual style is modern, bright, and current
@@ -48,7 +48,7 @@ This can be inserted after Section 2 or before Section 5 if stronger ecommerce i
 
 ## Purpose
 
-Introduce Elite Shop Express as a modern lifestyle store for practical everyday products.
+Introduce Meridova as a modern lifestyle store for practical everyday products.
 
 The first impression should be bright, current, trustworthy, and product-focused.
 
@@ -342,7 +342,7 @@ Simple essentials for routines, style, and self-care.
 Paragraph:
 
 ```txt
-From personal care accessories to beauty organizers and everyday style pieces, Elite Shop Express brings together practical finds designed for simple routines and polished daily living.
+From personal care accessories to beauty organizers and everyday style pieces, Meridova brings together practical finds designed for simple routines and polished daily living.
 ```
 
 Mini cards:

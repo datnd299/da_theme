@@ -1,21 +1,21 @@
-# Elite Shop Express — Site.md
+# Meridova — Site.md
 
 ## Store Information
 
-* **Domain:** eliteshopexpress.com
-* **Brand Name:** Elite Shop Express
+* **Domain:** meridova.net
+* **Brand Name:** Meridova
 * **Language:** English
 * **Store Type:** Everyday Essentials & Lifestyle Finds Store
 * **Primary Market:** United States
 * **Core Products:** Home essentials, beauty & personal care items, fashion accessories, lifestyle accessories, giftable finds
-* **Support Email:** [support@eliteshopexpress.com](mailto:support@eliteshopexpress.com)
+* **Support Email:** [support@meridova.net](mailto:support@meridova.net)
 * **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
 ## Brand Positioning
 
-Elite Shop Express is a clean lifestyle ecommerce store focused on practical everyday essentials for home, beauty, personal care, accessories, and simple daily living.
+Meridova is a clean lifestyle ecommerce store focused on practical everyday essentials for home, beauty, personal care, accessories, and simple daily living.
 
 Core message:
 
@@ -23,7 +23,7 @@ Core message:
 
 Expanded message:
 
-> Elite Shop Express helps customers discover practical home, beauty, personal care, accessory, and lifestyle products selected for simple daily needs.
+> Meridova helps customers discover practical home, beauty, personal care, accessory, and lifestyle products selected for simple daily needs.
 
 The store should feel:
 
@@ -67,7 +67,7 @@ Avoid broad wording like:
 
 ## Core Store Concept
 
-Elite Shop Express offers practical lifestyle products for daily routines.
+Meridova offers practical lifestyle products for daily routines.
 
 The store should focus on:
 

@@ -48,7 +48,7 @@ function dawp_handle_notification_signup() {
         update_option('dawp_notification_subscribers', $subscribers, false);
     }
 
-    $support_email = 'support@eliteshopexpress.com';
+    $support_email = 'support@meridova.net';
     $site_name     = wp_specialchars_decode(get_bloginfo('name'), ENT_QUOTES);
     $subject       = sprintf(__('New notification signup on %s', 'dawp'), $site_name);
     $message       = sprintf(

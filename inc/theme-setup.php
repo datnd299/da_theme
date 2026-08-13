@@ -16,6 +16,31 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-slider');
 }
 
+function dawp_get_store_address( $separator = ', ' ) {
+    if ( ! function_exists( 'WC' ) || ! WC()->countries ) {
+        return '';
+    }
+
+    $countries    = WC()->countries;
+    $country_code = $countries->get_base_country();
+    $state_code   = $countries->get_base_state();
+    $states       = $country_code ? $countries->get_states( $country_code ) : array();
+    $state_name   = ( $state_code && isset( $states[ $state_code ] ) ) ? $states[ $state_code ] : $state_code;
+    $country_name = isset( $countries->countries[ $country_code ] ) ? $countries->countries[ $country_code ] : $country_code;
+
+    $parts = array(
+        $countries->get_base_address(),
+        $countries->get_base_address_2(),
+        $countries->get_base_city(),
+        trim( $state_name . ' ' . $countries->get_base_postcode() ),
+        $country_name,
+    );
+
+    $parts = array_filter( array_map( 'trim', $parts ) );
+
+    return implode( $separator, $parts );
+}
+
 function dawp_favicon() {
     $asset_uri = get_template_directory_uri() . '/assets/img';
     ?>

@@ -26,7 +26,7 @@ $nav_items = [
     ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
 ];
 
-$support_email = 'support@eliteshopexpress.com';
+$support_email = 'support@meridova.net';
 ?>
 
 <header id="masthead" class="sticky top-0 z-50 border-b border-[#E5E7EB] bg-white/95 text-[#101828] shadow-sm backdrop-blur" role="banner">
@@ -50,12 +50,12 @@ $support_email = 'support@eliteshopexpress.com';
         <div class="flex min-h-20 items-center justify-between gap-4">
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex h-12 w-[160px] shrink-0 items-center justify-start sm:h-14 sm:w-[205px]"
-               aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'Elite Shop Express'); ?>">
-                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/elite-shop-express-logo.png'); ?>"
-                     alt="<?php echo esc_attr(get_bloginfo('name') ?: 'Elite Shop Express'); ?>"
+               aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'Meridova'); ?>">
+                <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>"
+                     alt="<?php echo esc_attr(get_bloginfo('name') ?: 'Meridova'); ?>"
                      class="block h-full w-full object-contain object-left transition duration-200 group-hover:scale-[1.02]"
-                     width="799"
-                     height="245"
+                     width="895"
+                     height="279"
                      decoding="async"
                      fetchpriority="high">
             </a>

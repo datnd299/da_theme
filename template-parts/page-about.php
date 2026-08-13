@@ -71,9 +71,9 @@ $categories = [
                 </div>
 
                 <div class="space-y-5 rounded-[1.5rem] border border-[#EEF2F7] bg-white p-6 text-base leading-8 text-[#475467] shadow-[0_16px_50px_rgba(16,24,40,0.08)] lg:p-8">
-                    <p><?php esc_html_e('We built Elite Shop Express for customers who want practical everyday products presented in a clear, organized way. Our store covers daily-use categories such as home essentials, beauty and personal care accessories, fashion accessories, lifestyle accessories, and giftable finds.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('We built Meridova for customers who want practical everyday products presented in a clear, organized way. Our store covers daily-use categories such as home essentials, beauty and personal care accessories, fashion accessories, lifestyle accessories, and giftable finds.', 'dawp'); ?></p>
                     <p><?php esc_html_e('Our goal is to make product discovery straightforward. We avoid exaggerated claims, fake urgency, counterfeit branding, and confusing product listings. Customers should be able to understand what an item is, how it may fit into daily routines, and where to find help if they need it.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('Elite Shop Express serves customers in the United States with clear support information, order tracking after shipment, and transparent shipping and return expectations.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Meridova serves customers in the United States with clear support information, order tracking after shipment, and transparent shipping and return expectations.', 'dawp'); ?></p>
                 </div>
             </div>
         </div>

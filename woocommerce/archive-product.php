@@ -1,6 +1,6 @@
 <?php
 /**
- * Elite Shop Express — Shop / Archive Product Template
+ * Meridova — Shop / Archive Product Template
  * Design System: Trusted Hardware, conversion-first
  * Section 10: Category / Shop Page rules
  */

@@ -5,10 +5,10 @@
  * @package dawp
  */
 
-$store_name      = 'Elite Shop Express';
-$site_url        = 'eliteshopexpress.com';
-$support_email   = 'support@eliteshopexpress.com';
-$support_address = '123 Market Street, New York, NY 10001';
+$store_name      = 'Meridova';
+$site_url        = 'meridova.net';
+$support_email   = 'support@meridova.net';
+$support_address = dawp_get_store_address();
 $contact_url     = home_url('/contact-us/');
 $shipping_url    = home_url('/shipping-policy/');
 $return_url      = home_url('/return-refund-policy/');
@@ -50,7 +50,7 @@ $privacy_url     = home_url('/privacy-policy/');
                 <p class="ese-eyebrow"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
                 <h1 class="ese-title"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></h1>
                 <p class="ese-updated"><?php esc_html_e('Last Updated: June 5, 2026', 'dawp'); ?></p>
-                <p class="ese-copy"><?php esc_html_e('Welcome to Elite Shop Express! These Terms & Conditions govern your access to and use of eliteshopexpress.com, including browsing our product catalog, creating an account, interacting with our customer support, or purchasing products from our online store.', 'dawp'); ?></p>
+                <p class="ese-copy"><?php esc_html_e('Welcome to Meridova! These Terms & Conditions govern your access to and use of meridova.net, including browsing our product catalog, creating an account, interacting with our customer support, or purchasing products from our online store.', 'dawp'); ?></p>
                 <div class="ese-actions">
                     <a class="ese-button" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
                     <a class="ese-button ese-button--secondary" href="<?php echo esc_url($privacy_url); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
@@ -83,7 +83,7 @@ $privacy_url     = home_url('/privacy-policy/');
                 <section id="store-scope" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('2. Store Scope & Product Representation', 'dawp'); ?></p>
                     <div class="space-y-4 text-base leading-8 text-[#475467]">
-                        <p><?php esc_html_e('Elite Shop Express is a lifestyle e-commerce store focused on practical, high-quality products for home essentials, beauty and personal care accessories, fashion accessories, lifestyle items, and giftable everyday finds.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Meridova is a lifestyle e-commerce store focused on practical, high-quality products for home essentials, beauty and personal care accessories, fashion accessories, lifestyle items, and giftable everyday finds.', 'dawp'); ?></p>
                         <p><?php esc_html_e('We make every reasonable effort to display product descriptions, features, materials, sizing, and included components as accurately as possible. However, please note that actual product images, colors, and packaging details may vary slightly due to personal screen monitor settings, photography studio lighting, or periodic manufacturer updates. Product availability, descriptions, and pricing are subject to change without prior notice.', 'dawp'); ?></p>
                     </div>
                 </section>
@@ -100,7 +100,7 @@ $privacy_url     = home_url('/privacy-policy/');
                 <section id="shipping-delivery" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('4. Shipping, Delivery, and Destination Responsibilities', 'dawp'); ?></p>
                     <div class="space-y-4 text-base leading-8 text-[#475467]">
-                        <p><?php esc_html_e('Your purchases and logistics are governed by our Shipping Policy. Elite Shop Express currently ships exclusively within the United States and provides free standard U.S. shipping for every order.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Your purchases and logistics are governed by our Shipping Policy. Meridova currently ships exclusively within the United States and provides free standard U.S. shipping for every order.', 'dawp'); ?></p>
                         <p><strong class="font-black text-[#101828]"><?php esc_html_e('Cutoff, Handling & Transit Times:', 'dawp'); ?></strong> <?php esc_html_e('The daily order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time. Order handling takes 1-3 business days, Monday through Friday, excluding standard U.S. public holidays. Standard domestic transit typically takes 5-7 business days after dispatch, with an estimated total delivery window of 6-10 business days from the date of purchase.', 'dawp'); ?></p>
                         <p><strong class="font-black text-[#101828]"><?php esc_html_e('Tracking & Delays:', 'dawp'); ?></strong> <?php esc_html_e('Tracking information is provided by email once an order is dispatched. Delivery timelines are estimates, not guarantees, and may be affected by extreme weather, carrier capacity issues, regional holidays, high-volume shipping periods, incorrect addresses, or other conditions outside our control.', 'dawp'); ?></p>
                         <p><strong class="font-black text-[#101828]"><?php esc_html_e('Address Accuracy & Full Policy:', 'dawp'); ?></strong> <?php esc_html_e('Customers are responsible for providing a complete and accurate shipping address before submitting an order. For full logistics details, carrier information, multi-item shipment rules, and delivery issue support steps, please review our comprehensive ', 'dawp'); ?><a href="<?php echo esc_url($shipping_url); ?>" class="font-black text-[#2563EB] transition hover:text-[#101828]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a><?php esc_html_e('.', 'dawp'); ?></p>
@@ -121,14 +121,14 @@ $privacy_url     = home_url('/privacy-policy/');
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('6. Privacy & Intellectual Property', 'dawp'); ?></p>
                     <div class="space-y-4 text-base leading-8 text-[#475467]">
                         <p><strong class="font-black text-[#101828]"><?php esc_html_e('Data Privacy:', 'dawp'); ?></strong> <?php esc_html_e('Your submission of personal data through the storefront is strictly governed by our ', 'dawp'); ?><a href="<?php echo esc_url($privacy_url); ?>" class="font-black text-[#2563EB] transition hover:text-[#101828]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a><?php esc_html_e('.', 'dawp'); ?></p>
-                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Proprietary Content:', 'dawp'); ?></strong> <?php esc_html_e('All website designs, page layouts, text descriptions, graphics, logos, and custom photography selections are the exclusive property of Elite Shop Express and are protected by applicable copyright and intellectual property laws.', 'dawp'); ?></p>
+                        <p><strong class="font-black text-[#101828]"><?php esc_html_e('Proprietary Content:', 'dawp'); ?></strong> <?php esc_html_e('All website designs, page layouts, text descriptions, graphics, logos, and custom photography selections are the exclusive property of Meridova and are protected by applicable copyright and intellectual property laws.', 'dawp'); ?></p>
                     </div>
                 </section>
 
                 <section id="limitation-of-liability" class="border border-[#E5E7EB] bg-[#F8FAFC] p-7 lg:p-10">
                     <p class="mb-3 text-sm font-black uppercase tracking-[0.18em] text-[#2563EB]"><?php esc_html_e('7. Limitation Of Liability', 'dawp'); ?></p>
                     <p class="text-base leading-8 text-[#475467]">
-                        <?php esc_html_e('To the fullest extent permitted by applicable law, Elite Shop Express shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, product consumption, shipping carrier delays, or data interruptions.', 'dawp'); ?>
+                        <?php esc_html_e('To the fullest extent permitted by applicable law, Meridova shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, product consumption, shipping carrier delays, or data interruptions.', 'dawp'); ?>
                     </p>
                 </section>
 

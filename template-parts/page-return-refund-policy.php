@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name      = 'Elite Shop Express';
-$support_email   = 'support@eliteshopexpress.com';
-$support_address = '123 Market Street, New York, NY 10001';
+$store_name      = 'Meridova';
+$support_email   = 'support@meridova.net';
+$support_address = dawp_get_store_address();
 $contact_url     = home_url('/contact-us/');
 
 $eligibility_items = [
@@ -141,7 +141,7 @@ $contact_cards = [
                 <p class="ese-eyebrow"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
                 <h1 class="ese-title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
                 <p class="ese-updated"><?php esc_html_e('Last Updated: June 5, 2026', 'dawp'); ?></p>
-                <p class="ese-copy"><?php esc_html_e('This policy explains return eligibility, return shipping fees, common delivery issues, refund timing, exchanges, and customer support details for Elite Shop Express orders.', 'dawp'); ?></p>
+                <p class="ese-copy"><?php esc_html_e('This policy explains return eligibility, return shipping fees, common delivery issues, refund timing, exchanges, and customer support details for Meridova orders.', 'dawp'); ?></p>
             </div>
         </div>
     </section>

@@ -7,7 +7,7 @@ $shop_links = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() :
     ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
 ];
 
-$support_email = 'support@oneshopvibe.com';
+$support_email = 'support@crestovia.net';
 ?>
 
 <main class="track-order-page">
@@ -18,7 +18,7 @@ $support_email = 'support@oneshopvibe.com';
                 <span class="track-hero__label"><?php esc_html_e('Order Status', 'dawp'); ?></span>
                 <h1 class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Enter your order number and billing email to check the latest One Shop Vibe delivery update.', 'dawp'); ?>
+                    <?php esc_html_e('Enter your order number and billing email to check the latest Crestovia delivery update.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="track-hero__button track-hero__button--primary">
@@ -80,7 +80,7 @@ $support_email = 'support@oneshopvibe.com';
                 <div class="track-help-box__content">
                     <h4 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h4>
                     <p class="track-help-box__text">
-                        <?php esc_html_e('If the tracking form cannot find your order, contact One Shop Vibe support at ', 'dawp'); ?>
+                        <?php esc_html_e('If the tracking form cannot find your order, contact Crestovia support at ', 'dawp'); ?>
                         <a href="<?php echo esc_url('mailto:' . $support_email); ?>"><?php echo esc_html($support_email); ?></a>
                         <?php esc_html_e(' with your order number and we\'ll be happy to assist you.', 'dawp'); ?>
                     </p>
@@ -110,16 +110,16 @@ $support_email = 'support@oneshopvibe.com';
             <div class="track-more-section__header">
                 <span class="track-more-section__label"><?php esc_html_e('Quick Links', 'dawp'); ?></span>
                 <h2 class="track-more-section__title"><?php esc_html_e('More ways we can help', 'dawp'); ?></h2>
-                <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and correct shop categories for a smooth One Shop Vibe order experience.', 'dawp'); ?></p>
+                <p class="track-more-section__subtitle"><?php esc_html_e('Useful pages and correct shop categories for a smooth Crestovia order experience.', 'dawp'); ?></p>
             </div>
             <div class="track-more-grid">
                 <a href="<?php echo esc_url(home_url('/shipping-policy/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Review free standard U.S. shipping, 1-3 business day handling, 5-7 business day transit, and carrier tracking details.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Review free standard U.S. shipping, 1-3 business day handling, 10-15 business day transit, and carrier tracking details.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('Contact Us', 'dawp'); ?></h3>
-                    <p class="track-more-card__desc"><?php esc_html_e('Our One Shop Vibe support team is here to help with order and delivery questions.', 'dawp'); ?></p>
+                    <p class="track-more-card__desc"><?php esc_html_e('Our Crestovia support team is here to help with order and delivery questions.', 'dawp'); ?></p>
                 </a>
                 <a href="<?php echo esc_url(home_url('/faq/')); ?>" class="track-more-card">
                     <h3 class="track-more-card__title"><?php esc_html_e('FAQ', 'dawp'); ?></h3>

@@ -11,7 +11,7 @@
                 <?php esc_html_e('Privacy Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#6B6470]">
-                <?php esc_html_e('How One Shop Vibe collects, uses, protects, and shares personal information when you browse our website, contact us, or place an order.', 'dawp'); ?>
+                <?php esc_html_e('How Crestovia collects, uses, protects, and shares personal information when you browse our website, contact us, or place an order.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#6B6470]">
                 <?php esc_html_e('Last Updated: June 11, 2026', 'dawp'); ?>
@@ -27,10 +27,10 @@
                         [&_a]:font-semibold [&_a]:text-[#2D2633] [&_a]:underline [&_a]:decoration-[#DCD5FF] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-[#F7C948] hover:[&_a]:decoration-[#F7C948]
                         [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#E8E6EB] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#2D2633] md:[&_h2]:text-3xl
                         [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#2D2633] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
-                        <p class="rounded-lg border border-[#F7E4A3] bg-[#FFF9E6] p-4 font-medium text-[#2D2633]"><?php esc_html_e('This Privacy Policy explains how oneshopvibe.com collects, uses, protects, and discloses personal information when you visit, browse, contact us, or make a purchase from One Shop Vibe.', 'dawp'); ?></p>
+                        <p class="rounded-lg border border-[#F7E4A3] bg-[#FFF9E6] p-4 font-medium text-[#2D2633]"><?php esc_html_e('This Privacy Policy explains how crestovia.net collects, uses, protects, and discloses personal information when you visit, browse, contact us, or make a purchase from Crestovia.', 'dawp'); ?></p>
 
                         <h2 id="privacy-overview"><?php esc_html_e('Policy Overview', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('This Privacy Policy explains how oneshopvibe.com, the Site, we, us, or our, collects, uses, and discloses your personal information when you visit, browse, place an order, create an account, or contact our customer support team.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('This Privacy Policy explains how crestovia.net, the Site, we, us, or our, collects, uses, and discloses your personal information when you visit, browse, place an order, create an account, or contact our customer support team.', 'dawp'); ?></p>
                         <p><?php esc_html_e('By using our Site, you acknowledge the data collection and processing practices described in this policy. If you do not agree with this policy, please do not use the website or submit personal information through our services.', 'dawp'); ?></p>
 
                         <h2 id="collecting-information"><?php esc_html_e('1. Collecting Personal Information', 'dawp'); ?></h2>
@@ -69,7 +69,7 @@
                         </ul>
 
                         <h2><?php esc_html_e('5. Payment Security and Data Encryption', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('To protect customer transactions, oneshopvibe.com operates a secure digital environment. Checkout data transfers are encrypted using SSL technology.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('To protect customer transactions, crestovia.net operates a secure digital environment. Checkout data transfers are encrypted using SSL technology.', 'dawp'); ?></p>
                         <p><?php esc_html_e('We do not store or process raw financial credentials or full credit card numbers in our local databases. Transactions are routed through third-party payment infrastructure that is expected to maintain Payment Card Industry Data Security Standard, or PCI-DSS, compliance.', 'dawp'); ?></p>
 
                         <h2><?php esc_html_e('6. Retention and Automatic Decision-Making', 'dawp'); ?></h2>
@@ -96,10 +96,10 @@
                         <p><?php esc_html_e('We may update this Privacy Policy from time to time to reflect changes to our operations, technology, legal obligations, or regulatory requirements. Updates will be posted on this page with a revised Last Updated date.', 'dawp'); ?></p>
 
                         <h2 id="privacy-contact"><?php esc_html_e('9. Business Identity and Customer Contact Channels', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('For questions about our data security practices, to exercise privacy rights, or to submit a formal privacy inquiry, please contact One Shop Vibe through our verified channels:', 'dawp'); ?></p>
+                        <p><?php esc_html_e('For questions about our data security practices, to exercise privacy rights, or to submit a formal privacy inquiry, please contact Crestovia through our verified channels:', 'dawp'); ?></p>
                         <ul>
-                            <li><strong><?php esc_html_e('Store/Brand Name:', 'dawp'); ?></strong> <?php esc_html_e('One Shop Vibe', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a></li>
+                            <li><strong><?php esc_html_e('Store/Brand Name:', 'dawp'); ?></strong> <?php esc_html_e('Crestovia', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Customer Support Email:', 'dawp'); ?></strong> <a href="mailto:support@crestovia.net">support@crestovia.net</a></li>
                             <li><strong><?php esc_html_e('Physical Business Address:', 'dawp'); ?></strong> <?php dawp_store_address(); ?></li>
                             <li><strong><?php esc_html_e('Customer Service Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></li>
                             <li><strong><?php esc_html_e('Contact Page:', 'dawp'); ?></strong> <a href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a></li>

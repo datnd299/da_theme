@@ -94,11 +94,11 @@ function dawp_rank_math_template_page_schema($data, $jsonld) {
 
 function dawp_rank_math_faq_schema_entities() {
     $questions = [
-        'Where does One Shop Vibe sell and ship products?' => 'One Shop Vibe currently serves customers in the United States domestic market and ships exclusively within the United States.',
+        'Where does Crestovia sell and ship products?' => 'Crestovia currently serves customers in the United States domestic market and ships exclusively within the United States.',
         'How much does standard shipping cost?' => 'Standard U.S. shipping is free on every order with no minimum purchase requirement.',
-        'How long does delivery take?' => 'Most orders arrive within 6-10 business days from purchase, including 1-3 business days for handling and 5-7 business days for carrier transit.',
+        'How long does delivery take?' => 'Most orders arrive within 11-18 business days from purchase, including 1-3 business days for handling and 10-15 business days for carrier transit.',
         'What is your return window?' => 'Eligible return requests must be initiated within 30 days of delivery, and items must be unused, undamaged, and returned with original packaging.',
-        'How can I contact One Shop Vibe?' => 'For order questions, shipping issues, returns, refunds, privacy requests, or policy inquiries, contact support@oneshopvibe.com.',
+        'How can I contact Crestovia?' => 'For order questions, shipping issues, returns, refunds, privacy requests, or policy inquiries, contact support@crestovia.net.',
     ];
 
     return array_map(

@@ -46,11 +46,11 @@ $footer_payment_methods = [
             <div>
                 <a href="<?php echo esc_url(home_url('/')); ?>"
                    class="inline-flex items-center gap-3"
-                   aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'One Shop Vibe'); ?>">
+                   aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'Crestovia'); ?>">
                     <?php
                     echo dawp_responsive_image([
-                        'src'           => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/image.png',
-                        'alt'           => __('One Shop Vibe', 'dawp'),
+                        'src'           => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/image.jpeg',
+                        'alt'           => __('Crestovia', 'dawp'),
                         'width'         => 96,
                         'height'        => 96,
                         'class'         => 'h-12 w-auto',
@@ -62,12 +62,12 @@ $footer_payment_methods = [
 
 
                 <div class="mt-7 space-y-5 text-sm leading-relaxed text-white/80">
-                    <a href="mailto:support@oneshopvibe.com"
+                    <a href="mailto:support@crestovia.net"
                        class="flex items-start gap-3 text-white/80 transition hover:text-[#F7C948]">
                         <svg aria-hidden="true" viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-[#F7C948]">
                             <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm-.4 4.25-7.07 4.42a1 1 0 0 1-1.06 0L4.4 8.25a1 1 0 0 1 1.06-1.7L12 10.64l6.54-4.09a1 1 0 1 1 1.06 1.7Z"></path>
                         </svg>
-                        <span>support@oneshopvibe.com</span>
+                        <span>support@crestovia.net</span>
                     </a>
 
                     <div class="flex items-start gap-3">
@@ -89,18 +89,6 @@ $footer_payment_methods = [
                             <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
                         </div>
                     </div>
-
-                    <a href="https://www.facebook.com/people/One-Shop-Vibe/61575413724507/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="flex items-center gap-3 text-white/80 transition hover:text-[#F7C948]">
-                        <span class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#F7C948] bg-[#1877F2] text-white shadow-[0_0_24px_rgba(247,201,72,0.35)] ring-4 ring-white/10 transition hover:-translate-y-0.5 hover:bg-[#F7C948] hover:text-[#2D2633] hover:shadow-[0_0_32px_rgba(247,201,72,0.5)]">
-                            <svg aria-hidden="true" viewBox="0 0 24 24" class="h-6 w-6 fill-current">
-                                <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.48H15.2c-1.24 0-1.63.78-1.63 1.57v1.87h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"></path>
-                            </svg>
-                        </span>
-                        <span><?php esc_html_e('Facebook Fanpage', 'dawp'); ?></span>
-                    </a>
                 </div>
 
 
@@ -168,7 +156,7 @@ $footer_payment_methods = [
     <div class="border-t border-white/10">
         <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-6 text-sm text-white/60 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <p>
-                &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('One Shop Vibe'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
+                &copy; <?php echo esc_html($current_year); ?> <?php echo esc_html('Crestovia'); ?>. <?php esc_html_e('All rights reserved.', 'dawp'); ?>
             </p>
 
             <div class="flex flex-col gap-3 lg:items-center">

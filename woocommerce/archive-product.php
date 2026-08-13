@@ -1,6 +1,6 @@
 <?php
 /**
- * One Shop Vibe - Shop / Archive Product Template
+ * Crestovia - Shop / Archive Product Template
  * Design System: Beauty essentials, conversion-first
  */
 defined('ABSPATH') || exit;

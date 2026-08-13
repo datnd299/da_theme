@@ -93,7 +93,7 @@ $categories = [
                         <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Business day handling', 'dawp'); ?></p>
                     </div>
                     <div class="rounded-2xl bg-white p-5 shadow-sm">
-                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('6-10', 'dawp'); ?></p>
+                        <p class="text-2xl font-black text-[#2D2633]"><?php esc_html_e('11-18', 'dawp'); ?></p>
                         <p class="mt-1 text-sm leading-6 text-[#6B6470]"><?php esc_html_e('Business day total delivery', 'dawp'); ?></p>
                     </div>
                     <div class="rounded-2xl bg-white p-5 shadow-sm">
@@ -211,7 +211,7 @@ $categories = [
                 </h2>
 
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B6470]">
-                    <?php esc_html_e('From brushes and applicators to mirrors and small beauty helpers, One Shop Vibe brings practical accessories that make daily routines feel easier and more organized.', 'dawp'); ?>
+                    <?php esc_html_e('From brushes and applicators to mirrors and small beauty helpers, Crestovia brings practical accessories that make daily routines feel easier and more organized.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -358,7 +358,7 @@ $categories = [
                         <?php esc_html_e('Shipping Note', 'dawp'); ?>
                     </p>
                     <p class="mt-3 text-sm leading-7 text-white/75">
-                        <?php esc_html_e('Orders are handled within 1-3 business days. Standard U.S. transit typically takes 5-7 business days after courier dispatch, for an estimated total delivery time of 6-10 business days from purchase.', 'dawp'); ?>
+                        <?php esc_html_e('Orders are handled within 1-3 business days. Standard U.S. transit typically takes 10-15 business days after courier dispatch, for an estimated total delivery time of 11-18 business days from purchase.', 'dawp'); ?>
                     </p>
                 </div>
 

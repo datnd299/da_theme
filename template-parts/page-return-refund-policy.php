@@ -8,13 +8,13 @@
     <section class="bg-[#F6F7F9] py-14 lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
             <p class="text-sm font-black uppercase tracking-[0.18em] text-[#6B6470]">
-                <?php esc_html_e('One Shop Vibe Policy', 'dawp'); ?>
+                <?php esc_html_e('Crestovia Policy', 'dawp'); ?>
             </p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-6xl">
                 <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#6B6470]">
-                <?php esc_html_e('Return eligibility, shipping fees, refund timing, exchanges, and support details for One Shop Vibe orders.', 'dawp'); ?>
+                <?php esc_html_e('Return eligibility, shipping fees, refund timing, exchanges, and support details for Crestovia orders.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#6B6470]">
                 <?php esc_html_e('Last Updated: June 11, 2026', 'dawp'); ?>
@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="not-prose mt-6 rounded-lg border border-[#F7E4A3] bg-[#FFF9E6] p-5 text-[#2D2633]">
-                            <p class="font-bold"><?php esc_html_e('One Shop Vibe - Returns Department', 'dawp'); ?></p>
+                            <p class="font-bold"><?php esc_html_e('Crestovia - Returns Department', 'dawp'); ?></p>
                             <p class="mt-2 text-[#6B6470]"><?php dawp_store_address(); ?></p>
                         </div>
 
@@ -124,16 +124,16 @@
                         </ul>
 
                         <h2 id="return-contact"><?php esc_html_e('Contact Information', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('For return questions, refund status checks, or delivery issue support, please contact One Shop Vibe through our verified channels:', 'dawp'); ?></p>
+                        <p><?php esc_html_e('For return questions, refund status checks, or delivery issue support, please contact Crestovia through our verified channels:', 'dawp'); ?></p>
                         <div class="not-prose mt-6 rounded-lg border border-[#E5E7EB] bg-[#FBFCFA] p-4">
                             <div class="grid gap-4 md:grid-cols-2">
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
                                     <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Store Name', 'dawp'); ?></p>
-                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('One Shop Vibe', 'dawp'); ?></p>
+                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('Crestovia', 'dawp'); ?></p>
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
                                     <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></p>
-                                    <p class="mt-3"><a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948]" href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a></p>
+                                    <p class="mt-3"><a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948]" href="mailto:support@crestovia.net">support@crestovia.net</a></p>
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
                                     <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Address', 'dawp'); ?></p>
@@ -156,7 +156,7 @@
 
                         <div class="not-prose mt-7 flex flex-wrap gap-3">
                             <a class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black text-white no-underline transition hover:bg-[#F7C948] hover:text-[#2D2633]" href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
-                            <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black text-[#2D2633] no-underline transition hover:bg-[#2D2633] hover:text-white" href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a>
+                            <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black text-[#2D2633] no-underline transition hover:bg-[#2D2633] hover:text-white" href="mailto:support@crestovia.net">support@crestovia.net</a>
                         </div>
                     </div>
                 </article>

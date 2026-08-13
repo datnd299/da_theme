@@ -1,4 +1,4 @@
-# One Shop Vibe — Home Plan
+# Crestovia — Home Plan
 
 ## Homepage Goal
 
@@ -32,7 +32,7 @@ Use 5 sections only:
 
 ## Purpose
 
-Introduce One Shop Vibe as a fresh beauty essentials store for simple daily routines.
+Introduce Crestovia as a fresh beauty essentials store for simple daily routines.
 
 ## Content
 
@@ -167,7 +167,7 @@ Simple tools for cleaner, easier beauty routines.
 Paragraph:
 
 ```txt
-From brushes and applicators to mirrors and small beauty helpers, One Shop Vibe brings practical accessories that make daily routines feel easier and more organized.
+From brushes and applicators to mirrors and small beauty helpers, Crestovia brings practical accessories that make daily routines feel easier and more organized.
 ```
 
 Highlights:

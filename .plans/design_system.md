@@ -1,4 +1,4 @@
-# One Shop Vibe — Design System
+# Crestovia — Design System
 
 ## Design Goal
 
@@ -312,7 +312,7 @@ everyday confidence
 
 ## Final Design Feeling
 
-One Shop Vibe should look like:
+Crestovia should look like:
 
 > A fresh, clean, feminine beauty essentials store for makeup tools, beauty accessories, hair care items, personal care tools, and organizers.
 

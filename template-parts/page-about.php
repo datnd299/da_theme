@@ -19,7 +19,7 @@ $images = [
 
         <div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24 text-center">
             <p class="mb-5 inline-flex rounded-full bg-white px-5 py-2 text-xs font-black uppercase tracking-[0.18em] text-[#2D2633] shadow-sm">
-                <?php esc_html_e('About One Shop Vibe', 'dawp'); ?>
+                <?php esc_html_e('About Crestovia', 'dawp'); ?>
             </p>
 
             <h1 class="mx-auto max-w-4xl font-heading text-5xl font-black leading-[0.96] text-[#2D2633] sm:text-6xl lg:text-7xl">
@@ -45,7 +45,7 @@ $images = [
                 </h2>
 
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#6B6470]">
-                    <?php esc_html_e('At One Shop Vibe, we know that an organized vanity and the right tools can make all the difference in your day. Our goal is to provide simple, reliable, and affordable beauty helpers that support your everyday routine.', 'dawp'); ?>
+                    <?php esc_html_e('At Crestovia, we know that an organized vanity and the right tools can make all the difference in your day. Our goal is to provide simple, reliable, and affordable beauty helpers that support your everyday routine.', 'dawp'); ?>
                 </p>
                 <p class="mt-4 max-w-2xl text-base leading-8 text-[#6B6470]">
                     <?php esc_html_e('Whether you are looking for soft makeup sponges, organized cosmetic storage, or daily hair care essentials, our curated collection is focused on practical items that you will reach for time and time again.', 'dawp'); ?>

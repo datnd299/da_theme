@@ -8,13 +8,13 @@
     <section class="bg-[#F6F7F9] py-14 lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
             <p class="text-sm font-black uppercase tracking-[0.18em] text-[#6B6470]">
-                <?php esc_html_e('One Shop Vibe Help Center', 'dawp'); ?>
+                <?php esc_html_e('Crestovia Help Center', 'dawp'); ?>
             </p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-6xl">
                 <?php esc_html_e('Frequently Asked Questions', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#6B6470]">
-                <?php esc_html_e('Helpful answers about ordering, shipping, returns, refunds, payments, privacy, and customer support at One Shop Vibe.', 'dawp'); ?>
+                <?php esc_html_e('Helpful answers about ordering, shipping, returns, refunds, payments, privacy, and customer support at Crestovia.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#6B6470]">
                 <?php esc_html_e('Last Updated: June 11, 2026', 'dawp'); ?>
@@ -36,8 +36,8 @@
 
                         <h2 id="faq-orders"><?php esc_html_e('Orders & Account Information', 'dawp'); ?></h2>
 
-                        <h3><?php esc_html_e('Where does One Shop Vibe sell and ship products?', 'dawp'); ?></h3>
-                        <p><?php esc_html_e('One Shop Vibe currently serves customers in the United States domestic market and ships exclusively within the United States. If a product or address is not eligible for delivery, checkout will not allow that shipment to proceed before payment is completed.', 'dawp'); ?></p>
+                        <h3><?php esc_html_e('Where does Crestovia sell and ship products?', 'dawp'); ?></h3>
+                        <p><?php esc_html_e('Crestovia currently serves customers in the United States domestic market and ships exclusively within the United States. If a product or address is not eligible for delivery, checkout will not allow that shipment to proceed before payment is completed.', 'dawp'); ?></p>
 
                         <h3><?php esc_html_e('What types of products do you sell?', 'dawp'); ?></h3>
                         <p><?php esc_html_e('We offer beauty accessories, makeup tools, hair care essentials, organizers, self-care tools, and related everyday personal care products. Product details are provided for general shopping information and are not intended as medical advice, diagnosis, treatment, cure, or prevention of any condition.', 'dawp'); ?></p>
@@ -58,8 +58,8 @@
                         <p><?php esc_html_e('Orders are processed Monday through Friday, excluding standard U.S. public holidays. Our order cutoff time is 5:00 PM PST (GMT-08:00). Orders placed after cutoff begin processing the following business day.', 'dawp'); ?></p>
                         <ul>
                             <li><strong><?php esc_html_e('Order Handling Time:', 'dawp'); ?></strong> <?php esc_html_e('1-3 business days.', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Transit Time:', 'dawp'); ?></strong> <?php esc_html_e('5-7 business days after courier dispatch.', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Estimated Total Delivery Time:', 'dawp'); ?></strong> <?php esc_html_e('6-10 business days from the date of purchase.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Transit Time:', 'dawp'); ?></strong> <?php esc_html_e('10-15 business days after courier dispatch.', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Estimated Total Delivery Time:', 'dawp'); ?></strong> <?php esc_html_e('11-18 business days from the date of purchase.', 'dawp'); ?></li>
                         </ul>
 
                         <h3><?php esc_html_e('Which carriers do you use?', 'dawp'); ?></h3>
@@ -100,7 +100,7 @@
                         <h2 id="faq-payments"><?php esc_html_e('Payments, Pricing & Product Information', 'dawp'); ?></h2>
 
                         <h3><?php esc_html_e('Do you store my full credit card details?', 'dawp'); ?></h3>
-                        <p><?php esc_html_e('No. One Shop Vibe does not collect, view, or store raw credit card numbers. Transactions are secured through SSL encryption and processed through third-party payment infrastructure expected to comply with PCI-DSS standards.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('No. Crestovia does not collect, view, or store raw credit card numbers. Transactions are secured through SSL encryption and processed through third-party payment infrastructure expected to comply with PCI-DSS standards.', 'dawp'); ?></p>
 
                         <h3><?php esc_html_e('Can prices or product availability change?', 'dawp'); ?></h3>
                         <p><?php esc_html_e('Yes. Product prices, descriptions, specifications, promotions, stock availability, and shipping options may change without notice. If an error materially affects an order, we may contact you to reconfirm the corrected details or cancel the purchase for a full refund.', 'dawp'); ?></p>
@@ -124,17 +124,17 @@
 
                         <h2 id="faq-contact"><?php esc_html_e('Customer Support', 'dawp'); ?></h2>
 
-                        <h3><?php esc_html_e('How can I contact One Shop Vibe?', 'dawp'); ?></h3>
+                        <h3><?php esc_html_e('How can I contact Crestovia?', 'dawp'); ?></h3>
                         <p><?php esc_html_e('For order questions, shipping issues, returns, refunds, privacy requests, or policy inquiries, please contact us through our verified support channels.', 'dawp'); ?></p>
                         <div class="not-prose mt-6 rounded-lg border border-[#E5E7EB] bg-[#FBFCFA] p-4">
                             <div class="grid gap-4 md:grid-cols-2">
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
                                     <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Store Name', 'dawp'); ?></p>
-                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('One Shop Vibe', 'dawp'); ?></p>
+                                    <p class="mt-3 text-[#6B6470]"><?php esc_html_e('Crestovia', 'dawp'); ?></p>
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
                                     <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></p>
-                                    <p class="mt-3"><a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948]" href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a></p>
+                                    <p class="mt-3"><a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948]" href="mailto:support@crestovia.net">support@crestovia.net</a></p>
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-5">
                                     <p class="text-sm font-black text-[#2D2633]"><?php esc_html_e('Address', 'dawp'); ?></p>
@@ -157,7 +157,7 @@
 
                         <div class="not-prose mt-7 flex flex-wrap gap-3">
                             <a class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black text-white no-underline transition hover:bg-[#F7C948] hover:text-[#2D2633]" href="<?php echo esc_url(home_url('/contact/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
-                            <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black text-[#2D2633] no-underline transition hover:bg-[#2D2633] hover:text-white" href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a>
+                            <a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black text-[#2D2633] no-underline transition hover:bg-[#2D2633] hover:text-white" href="mailto:support@crestovia.net">support@crestovia.net</a>
                         </div>
                     </div>
                 </article>

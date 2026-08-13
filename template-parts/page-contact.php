@@ -47,7 +47,7 @@
                                     <?php esc_html_e('Email Support', 'dawp'); ?>
                                 </h3>
                                 <p class="mt-1 text-sm text-[#6B6470]">
-                                    <a href="mailto:support@oneshopvibe.com" class="hover:text-[#F7C948] transition-colors">support@oneshopvibe.com</a>
+                                    <a href="mailto:support@crestovia.net" class="hover:text-[#F7C948] transition-colors">support@crestovia.net</a>
                                 </p>
                             </div>
                         </div>

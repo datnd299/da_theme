@@ -8,13 +8,13 @@
     <section class="bg-[#F6F7F9] py-14 lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
             <p class="text-sm font-black uppercase tracking-[0.18em] text-[#6B6470]">
-                <?php esc_html_e('One Shop Vibe Delivery Guide', 'dawp'); ?>
+                <?php esc_html_e('Crestovia Delivery Guide', 'dawp'); ?>
             </p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight text-[#2D2633] lg:text-6xl">
                 <?php esc_html_e('Shipping Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#6B6470]">
-                <?php esc_html_e('Clear shipping locations, costs, processing times, delivery tracking, and support details for One Shop Vibe orders.', 'dawp'); ?>
+                <?php esc_html_e('Clear shipping locations, costs, processing times, delivery tracking, and support details for Crestovia orders.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#6B6470]">
                 <?php esc_html_e('Last Updated: June 11, 2026', 'dawp'); ?>
@@ -31,11 +31,11 @@
                         [&_h3]:mt-7 [&_h3]:font-heading [&_h3]:text-xl [&_h3]:font-bold [&_h3]:leading-snug [&_h3]:text-[#2D2633]
                         [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#2D2633] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
                         <p class="rounded-lg border border-[#F7E4A3] bg-[#FFF9E6] p-4 font-medium text-[#2D2633]">
-                            <?php esc_html_e('Standard U.S. shipping is free on every order. Most orders arrive within 6-10 business days after purchase, including order handling and carrier transit time.', 'dawp'); ?>
+                            <?php esc_html_e('Standard U.S. shipping is free on every order. Most orders arrive within 11-18 business days after purchase, including order handling and carrier transit time.', 'dawp'); ?>
                         </p>
 
                         <h2 id="shipping-overview"><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('We currently ship exclusively within the United States. One Shop Vibe serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('We currently ship exclusively within the United States. Crestovia serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                         <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
                         <p class="rounded-lg border border-[#E5E7EB] bg-[#F6F7F9] p-4 text-[#2D2633]">
                             <?php esc_html_e('Some beauty and personal care orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?>
@@ -71,12 +71,12 @@
                             </div>
                             <div class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm">
                                 <p class="text-sm font-black uppercase tracking-wide text-[#6B6470]"><?php esc_html_e('Transit Time', 'dawp'); ?></p>
-                                <p class="mt-2 font-heading text-2xl font-black text-[#2D2633]"><?php esc_html_e('5-7 Business Days', 'dawp'); ?></p>
+                                <p class="mt-2 font-heading text-2xl font-black text-[#2D2633]"><?php esc_html_e('10-15 Business Days', 'dawp'); ?></p>
                                 <p class="mt-3 leading-7 text-[#6B6470]"><?php esc_html_e('Monday through Friday after courier dispatch.', 'dawp'); ?></p>
                             </div>
                             <div class="rounded-lg border border-[#E5E7EB] bg-white p-5 shadow-sm">
                                 <p class="text-sm font-black uppercase tracking-wide text-[#6B6470]"><?php esc_html_e('Estimated Delivery Time', 'dawp'); ?></p>
-                                <p class="mt-2 font-heading text-2xl font-black text-[#2D2633]"><?php esc_html_e('6-10 Business Days', 'dawp'); ?></p>
+                                <p class="mt-2 font-heading text-2xl font-black text-[#2D2633]"><?php esc_html_e('11-18 Business Days', 'dawp'); ?></p>
                                 <p class="mt-3 leading-7 text-[#6B6470]"><?php esc_html_e('Total estimated window from the date of purchase.', 'dawp'); ?></p>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                         <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain delicate, hygiene-sensitive, or high-demand beauty and personal care items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
 
                         <h2 id="shipping-tracking"><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('To guarantee safe and efficient delivery, One Shop Vibe partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('To guarantee safe and efficient delivery, Crestovia partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
                         <div class="not-prose my-5 flex flex-wrap gap-3">
                             <span class="rounded-full border border-[#E5E7EB] bg-[#FBFCFA] px-5 py-2 text-sm font-black text-[#2D2633]"><?php esc_html_e('USPS', 'dawp'); ?></span>
                             <span class="rounded-full border border-[#E5E7EB] bg-[#FBFCFA] px-5 py-2 text-sm font-black text-[#2D2633]"><?php esc_html_e('UPS', 'dawp'); ?></span>
@@ -105,7 +105,7 @@
                         <p><?php esc_html_e('Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp'); ?></p>
                         <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
                         <ul>
-                            <li><?php esc_html_e('Your exact Order Number, such as #OSV1001.', 'dawp'); ?></li>
+                            <li><?php esc_html_e('Your exact Order Number, such as #CRV1001.', 'dawp'); ?></li>
                             <li><?php esc_html_e('The specific Email Address utilized during checkout.', 'dawp'); ?></li>
                             <li><?php esc_html_e('The full and complete Delivery Address.', 'dawp'); ?></li>
                             <li><?php esc_html_e('Clear, well-lit photos if the package container or beauty item arrived damaged.', 'dawp'); ?></li>
@@ -114,8 +114,8 @@
                             <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-[#2D2633] px-7 text-sm font-black text-white no-underline transition hover:bg-[#F7C948] hover:text-[#2D2633]">
                                 <?php esc_html_e('Contact Support', 'dawp'); ?>
                             </a>
-                            <a href="mailto:support@oneshopvibe.com" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black text-[#2D2633] no-underline transition hover:bg-[#2D2633] hover:text-white">
-                                support@oneshopvibe.com
+                            <a href="mailto:support@crestovia.net" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2D2633] bg-white px-7 text-sm font-black text-[#2D2633] no-underline transition hover:bg-[#2D2633] hover:text-white">
+                                support@crestovia.net
                             </a>
                         </div>
 
@@ -125,11 +125,11 @@
                             <div class="grid gap-4 md:grid-cols-2">
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-4">
                                     <p class="font-bold text-[#2D2633]"><?php esc_html_e('Store Name', 'dawp'); ?></p>
-                                    <p class="mt-2 text-[#6B6470]"><?php esc_html_e('One Shop Vibe', 'dawp'); ?></p>
+                                    <p class="mt-2 text-[#6B6470]"><?php esc_html_e('Crestovia', 'dawp'); ?></p>
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-4">
                                     <p class="font-bold text-[#2D2633]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></p>
-                                    <p class="mt-2"><a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948]" href="mailto:support@oneshopvibe.com">support@oneshopvibe.com</a></p>
+                                    <p class="mt-2"><a class="font-semibold text-[#2D2633] underline decoration-[#DCD5FF] decoration-2 underline-offset-4 hover:text-[#F7C948]" href="mailto:support@crestovia.net">support@crestovia.net</a></p>
                                 </div>
                                 <div class="rounded-lg border border-[#E5E7EB] bg-white p-4">
                                     <p class="font-bold text-[#2D2633]"><?php esc_html_e('Address', 'dawp'); ?></p>

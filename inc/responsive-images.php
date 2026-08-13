@@ -5,6 +5,25 @@
  * @package dawp
  */
 
+function dawp_is_local_env() {
+    static $is_local = null;
+
+    if ($is_local !== null) {
+        return $is_local;
+    }
+
+    if (function_exists('wp_get_environment_type') && wp_get_environment_type() === 'local') {
+        return $is_local = true;
+    }
+
+    $host = (string) wp_parse_url(home_url(), PHP_URL_HOST);
+
+    return $is_local = (bool) preg_match(
+        '/(^localhost$|\.local$|\.test$|\.localhost$|^127\.\d+\.\d+\.\d+$|^::1$|^192\.168\.|^10\.|^172\.(1[6-9]|2\d|3[01])\.)/i',
+        $host
+    );
+}
+
 function dawp_i0_source_url($url) {
     $url = html_entity_decode((string) $url);
     $url = preg_replace('/\?.*$/', '', $url);
@@ -19,6 +38,10 @@ function dawp_i0_source_url($url) {
 }
 
 function dawp_i0_resize_url($url, $width, $height = 0) {
+    if (dawp_is_local_env()) {
+        return esc_url($url);
+    }
+
     $width  = absint($width);
     $height = absint($height);
 
@@ -34,6 +57,10 @@ function dawp_i0_resize_url($url, $width, $height = 0) {
 }
 
 function dawp_i0_srcset($url, $width, $height, $widths = []) {
+    if (dawp_is_local_env()) {
+        return '';
+    }
+
     $width  = absint($width);
     $height = absint($height);
 

@@ -42,11 +42,11 @@ $nav_items = [
         <div class="flex h-20 items-center justify-between gap-4">
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex shrink-0 items-center gap-3"
-               aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'One Shop Vibe'); ?>">
+               aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'Crestovia'); ?>">
                 <?php
                 echo dawp_responsive_image([
-                    'src'           => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/image.png',
-                    'alt'           => __('One Shop Vibe', 'dawp'),
+                    'src'           => get_template_directory_uri() . '/assets/img/gallery/Oneshopvibe/image.jpeg',
+                    'alt'           => __('Crestovia', 'dawp'),
                     'width'         => 96,
                     'height'        => 96,
                     'class'         => 'h-12 w-auto',

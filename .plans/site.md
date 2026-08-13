@@ -1,21 +1,21 @@
-# One Shop Vibe — Site.md
+# Crestovia — Site.md
 
 ## Store Information
 
-* **Domain:** oneshopvibe.com
-* **Brand Name:** One Shop Vibe
+* **Domain:** crestovia.net
+* **Brand Name:** Crestovia
 * **Language:** English
 * **Store Type:** Beauty Essentials & Personal Care Accessories Store
 * **Primary Market:** United States / beauty shoppers
 * **Core Products:** Beauty accessories, makeup tools, hair care essentials, personal care tools, beauty organizers
-* **Support Email:** [support@oneshopvibe.com](mailto:support@oneshopvibe.com)
+* **Support Email:** [support@crestovia.net](mailto:support@crestovia.net)
 * **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
 ## Brand Positioning
 
-One Shop Vibe is a beauty essentials store focused on simple beauty accessories, personal care tools, makeup helpers, and everyday self-care products.
+Crestovia is a beauty essentials store focused on simple beauty accessories, personal care tools, makeup helpers, and everyday self-care products.
 
 Core message:
 

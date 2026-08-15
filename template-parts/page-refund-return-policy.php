@@ -167,9 +167,16 @@ get_header(); ?>
     </ul>
   </div>
 
+  <!-- Return Method & Exchanges -->
+  <div class="sgs-rr-panel sgs-rr-panel--soft">
+    <h2>Return Method &amp; Exchanges</h2>
+    <p><strong>Return Method:</strong> All returns are processed <strong>by mail</strong> using an authorized shipping label. Items returned without prior authorization or sent directly to our business address without a Return Merchandise Authorization (RMA) number will not be accepted.</p>
+    <p style="margin-top:12px"><strong>Exchanges:</strong> We do not offer direct one-to-one exchanges. If you need a different size, color, or item, please return your eligible item for a refund and place a new order on our website at your convenience.</p>
+  </div>
+
   <!-- Refund Timing -->
   <div class="sgs-rr-panel">
-    <h2>Refund Timing</h2>
+    <h2>Refund Timing &amp; Processing</h2>
     <p>Once your return package is received at our facility, we inspect the item within <strong>1-2 business days</strong>. If the return is approved, the refund will be issued to your <strong>original payment method</strong> within <strong>7 business days</strong>. Depending on your bank or card issuer, it may take additional time for the refund to appear in your account. If you have not received a refund after <strong>15 business days</strong> of approval, please contact us after checking with your bank or payment provider.</p>
   </div>
 

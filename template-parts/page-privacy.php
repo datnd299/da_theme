@@ -56,7 +56,8 @@ get_header(); ?>
   </ul>
 
   <h2>3. Sharing Your Information &amp; Third-Party Service Providers</h2>
-  <p>We share your Personal Information with trusted corporate service providers to help us deliver our e-commerce services and execute our contractual agreements with you. For example:</p>
+  <p><strong>Non-Sale Guarantee:</strong> We do not sell, rent, trade, or lease your Personal Information to third parties under any circumstances. We do not collect or store user personal information for purposes unrelated to fulfilling your order or providing customer service.</p>
+  <p>We share your Personal Information only with trusted service providers strictly necessary to operate our store and fulfill contracts with you. For example:</p>
   <ul>
     <li>We use WooCommerce to power our digital storefront infrastructure.</li>
     <li>We use verified payment processors to handle transactional settlements and reliable shipping carriers to physically deliver your apparel packages.</li>

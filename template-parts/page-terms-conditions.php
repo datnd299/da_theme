@@ -68,8 +68,8 @@ get_header(); ?>
   <h3>6. Custom &amp; Personalized Merchandise</h3>
   <p>Personalized items are fabricated specifically according to your digital inputs. Customers are solely responsible for reviewing all sizing metrics, spelling, and customization details thoroughly before finalizing their checkout. Once the automated printing production queue begins, design changes cannot be accommodated. Custom items are not eligible for return or exchange unless they arrive defective, physically damaged, or misprinted.</p>
 
-  <h3>7. Pricing, Currency &amp; Secure Gateways</h3>
-  <p>All retail prices are displayed transparently and denominated strictly in US Dollars ($). We reserve the right to modify pricing structures at any time without prior notification.</p>
+  <h3>7. Pricing, Currency, Sales Tax &amp; Secure Gateways</h3>
+  <p>All retail prices are displayed transparently and denominated strictly in US Dollars ($). Applicable U.S. state sales taxes are calculated transparently at checkout prior to order completion in compliance with state tax regulations. We do not charge hidden fees or surprise fees at checkout.</p>
   <p>To maintain strict consumer data protection, veterangift.com operates a protected checkout ecosystem:</p>
   <ul>
     <li>We do not collect, view, or retain your raw credit card numbers or banking passwords on our local databases.</li>

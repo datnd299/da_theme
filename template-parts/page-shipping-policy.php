@@ -120,18 +120,23 @@ get_header(); ?>
   </article>
 
   <article class="sgs-sp-panel sgs-sp-panel--soft">
-    <h2>Shipping Fees &amp; Costs</h2>
-    <p>We believe in full transparency with no hidden fees at checkout. Our shipping costs are structured as follows:</p>
+    <h2>Shipping Fees, Taxes &amp; Transparency</h2>
+    <p>We believe in full transparency with no hidden fees at checkout. Our shipping costs and tax policies are structured as follows:</p>
     <div class="sgs-sp-costs">
       <div class="sgs-sp-card">
         <h3>Standard U.S. Shipping</h3>
         <p>Free for all U.S. orders $49 and over. Orders under $49 have a flat $4.99 shipping fee.</p>
       </div>
       <div class="sgs-sp-card">
-        <h3>Optional Upgraded Shipping</h3>
-        <p>If expedited or assisted shipping services are available for your destination, the exact cost will be displayed clearly on the checkout page before you complete your payment.</p>
+        <h3>Taxes &amp; Customs Duties</h3>
+        <p>Applicable U.S. state sales taxes are calculated transparently at checkout before you complete payment. There are no hidden fees, tariffs, or import duties for domestic U.S. orders.</p>
       </div>
     </div>
+  </article>
+
+  <article class="sgs-sp-panel">
+    <h2>Order Cancellations &amp; Address Modifications</h2>
+    <p>If you need to cancel your order or update your shipping address, please contact us as soon as possible after placing your order. Once an order enters our automated printing or carrier dispatch queue (typically within 12-24 hours), changes or cancellations may no longer be possible. If the order has already shipped, you may return the item following our <a class="sgs-sp-link" href="/refund-return-policy/">Refund &amp; Return Policy</a> upon arrival.</p>
   </article>
 
   <article class="sgs-sp-panel">

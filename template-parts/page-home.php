@@ -9,7 +9,6 @@ $sgs_bomber_jackets_url = dawp_product_category_url('bomber-jackets');
 $sgs_flag_tees_url = dawp_product_category_url('american-flag-tees');
 $sgs_hats_url = dawp_product_category_url('hats-beanies');
 $sgs_premium_tees_url = dawp_product_category_url('premium-t-shirts');
-$sgs_accessories_url = dawp_product_category_url('patches-pins');
 $sgs_drinkware_url = dawp_product_category_url('mugs-drinkware');
 
 $sgs_home_cat_images = [
@@ -116,7 +115,7 @@ $sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
           <div class="sgs-cat__content">
             <span class="sgs-cat__eyebrow">Drinkware &amp; Mugs</span>
             <h3>Daily Tribute</h3>
-            <p>Mugs, tumblers, patches, and small gifts for everyday pride.</p>
+            <p>Mugs, tumblers, and small gifts for everyday pride.</p>
             <span class="sgs-cat__cta">Shop Drinkware</span>
           </div>
         </a>
@@ -134,7 +133,7 @@ $sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
           <div class="sgs-cat__content">
             <span class="sgs-cat__eyebrow">Hats &amp; Accessories</span>
             <h3>Finishing Touches</h3>
-            <p>Patriotic hats, beanies, patches, and pins for everyday wear.</p>
+            <p>Patriotic hats, beanies, and everyday accessories.</p>
             <span class="sgs-cat__cta">Shop Accessories</span>
           </div>
         </a>

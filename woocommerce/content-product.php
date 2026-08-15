@@ -8,6 +8,7 @@ global $product;
 if (empty($product) || !$product->is_visible()) return;
 
 $cats     = get_the_terms($product->get_id(), 'product_cat');
+$cats     = function_exists('dawp_visible_product_terms') ? dawp_visible_product_terms($cats) : $cats;
 $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
 ?>
 <li <?php wc_product_class('product-card', $product); ?>>

@@ -7,11 +7,11 @@ add_action('admin_head', 'dawp_output_favicon');
 add_action('login_head', 'dawp_output_favicon');
 
 function dawp_site_name() {
-    return 'Myveganblog';
+    return 'Smartbasketco';
 }
 
 function dawp_output_favicon() {
-    $favicon_url = get_template_directory_uri() . '/assets/img/gallery/Logo_all (10).png';
+    $favicon_url = get_template_directory_uri() . '/assets/img/gallery/logo.png';
     ?>
     <link rel="icon" href="<?php echo esc_url($favicon_url); ?>" type="image/png">
     <link rel="apple-touch-icon" href="<?php echo esc_url($favicon_url); ?>">

@@ -5,12 +5,12 @@
 
 defined('ABSPATH') || exit;
 
-$support_email = 'support@myveganblog.com';
+$support_email = 'support@smartbasketco.com';
 $updated_date  = 'May 28, 2026';
 $store_address = function_exists('dawp_store_address') ? dawp_store_address() : '';
 $shipping_image = get_template_directory_uri() . '/assets/img/All_image/image copy 5.png';
 
-$shipping_locations_note = __('Some Myveganblog orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp');
+$shipping_locations_note = __('Some Smartbasketco orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp');
 
 $shipping_fees = [
     [
@@ -48,7 +48,7 @@ $delivery_issue_items = [
     __('Your exact Order Number, such as #MB1001.', 'dawp'),
     __('The specific Email Address utilized during checkout.', 'dawp'),
     __('The full and complete Delivery Address.', 'dawp'),
-    __('Clear, well-lit photos if the package container or Myveganblog item arrived damaged.', 'dawp'),
+    __('Clear, well-lit photos if the package container or Smartbasketco item arrived damaged.', 'dawp'),
 ];
 ?>
 
@@ -61,7 +61,7 @@ $delivery_issue_items = [
         <div class="relative mx-auto grid w-[min(100%,1180px)] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div class="max-w-3xl">
                 <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Shipping Policy', 'dawp'); ?></span>
-                <h1 class="mt-7 font-serif text-4xl leading-tight text-white sm:text-6xl"><?php esc_html_e('Shipping details for Myveganblog orders.', 'dawp'); ?></h1>
+                <h1 class="mt-7 font-serif text-4xl leading-tight text-white sm:text-6xl"><?php esc_html_e('Shipping details for Smartbasketco orders.', 'dawp'); ?></h1>
                 <p class="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
                     <?php esc_html_e('Review our U.S. shipping locations, fees, processing timelines, carrier services, tracking details, delivery issue guidance, and customer support information.', 'dawp'); ?>
                 </p>
@@ -70,7 +70,7 @@ $delivery_issue_items = [
                 <dl class="grid gap-5 sm:grid-cols-2">
                     <div>
                         <dt class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Store', 'dawp'); ?></dt>
-                        <dd class="mt-2 font-serif text-2xl text-white"><?php esc_html_e('Myveganblog', 'dawp'); ?></dd>
+                        <dd class="mt-2 font-serif text-2xl text-white"><?php esc_html_e('Smartbasketco', 'dawp'); ?></dd>
                     </div>
                     <div>
                         <dt class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Updated', 'dawp'); ?></dt>
@@ -86,7 +86,7 @@ $delivery_issue_items = [
             <article class="rounded-[28px] border border-[#D8CEC6] bg-white p-6 shadow-[0_12px_30px_rgba(47,42,40,0.06)] sm:p-8 lg:p-10">
                 <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
                 <div class="mt-5 space-y-4 text-base leading-8 text-[#6F625D]">
-                    <p><?php esc_html_e('We currently ship exclusively within the United States. Myveganblog serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('We currently ship exclusively within the United States. Smartbasketco serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                     <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
                 </div>
                 <p class="mt-5 text-base leading-8 text-[#6F625D]"><?php echo esc_html($shipping_locations_note); ?></p>
@@ -122,14 +122,14 @@ $delivery_issue_items = [
             <article class="rounded-[28px] border border-[#D8CEC6] bg-white p-6 shadow-[0_12px_30px_rgba(47,42,40,0.06)] sm:p-8 lg:p-10">
                 <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?></h2>
                 <div class="mt-5 space-y-4 text-base leading-8 text-[#6F625D]">
-                    <p><?php esc_html_e('If your purchase includes multiple Myveganblog items or diverse fashion items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
-                    <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand Myveganblog items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('If your purchase includes multiple Smartbasketco items or diverse fashion items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand Smartbasketco items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
                 </div>
             </article>
 
             <article class="rounded-[28px] border border-[#D8CEC6] bg-white p-6 shadow-[0_12px_30px_rgba(47,42,40,0.06)] sm:p-8 lg:p-10">
                 <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-                <p class="mt-5 text-base leading-8 text-[#6F625D]"><?php esc_html_e('To guarantee safe and efficient delivery, Myveganblog partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
+                <p class="mt-5 text-base leading-8 text-[#6F625D]"><?php esc_html_e('To guarantee safe and efficient delivery, Smartbasketco partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?></p>
                 <div class="mt-5 flex flex-wrap gap-3">
                     <?php foreach ($carrier_badges as $carrier) : ?>
                         <span class="inline-flex min-h-9 items-center justify-center rounded-full border border-[#D8CEC6] bg-white px-6 text-sm font-bold text-[#2F2A28]"><?php echo esc_html($carrier); ?></span>
@@ -169,7 +169,7 @@ $delivery_issue_items = [
                     <dl class="grid gap-4 md:grid-cols-2">
                         <div class="rounded-[18px] border border-[#D8CEC6] bg-white p-5">
                             <dt class="text-sm font-bold text-[#2F2A28]"><?php esc_html_e('Store Name', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Myveganblog', 'dawp'); ?></dd>
+                            <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Smartbasketco', 'dawp'); ?></dd>
                         </div>
                         <div class="rounded-[18px] border border-[#D8CEC6] bg-white p-5">
                             <dt class="text-sm font-bold text-[#2F2A28]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>

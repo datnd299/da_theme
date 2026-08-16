@@ -47,7 +47,7 @@
                             </span>
                             <div>
                                 <h3 class="font-bold text-foreground"><?php esc_html_e('Email', 'dawp'); ?></h3>
-                                <a href="mailto:support@myveganblog.com" class="mt-1 inline-flex text-foreground-muted transition-colors hover:text-accent">support@myveganblog.com</a>
+                                <a href="mailto:support@smartbasketco.com" class="mt-1 inline-flex text-foreground-muted transition-colors hover:text-accent">support@smartbasketco.com</a>
                             </div>
                         </div>
 

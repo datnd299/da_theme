@@ -5,8 +5,8 @@
 
 defined('ABSPATH') || exit;
 
-$support_email  = 'support@myveganblog.com';
-$store_name     = 'Myveganblog';
+$support_email  = 'support@smartbasketco.com';
+$store_name     = 'Smartbasketco';
 $store_address  = function_exists('dawp_store_address') ? dawp_store_address() : '';
 $updated_date   = 'May 28, 2026';
 $business_hours = __('Monday-Friday, 9:00 AM-5:00 PM, GMT-08:00', 'dawp');
@@ -66,8 +66,8 @@ $faq_groups = [
         'description' => __('Shipping coverage, fulfillment timing, tracking, and delivery issue guidance.', 'dawp'),
         'items'       => [
             [
-                'question' => __('Where does Myveganblog ship?', 'dawp'),
-                'answer'   => __('Myveganblog currently ships eligible orders within the United States. If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location at checkout.', 'dawp'),
+                'question' => __('Where does Smartbasketco ship?', 'dawp'),
+                'answer'   => __('Smartbasketco currently ships eligible orders within the United States. If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location at checkout.', 'dawp'),
             ],
             [
                 'question' => __('How long does delivery usually take?', 'dawp'),
@@ -112,11 +112,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays for return shipping?', 'dawp'),
-                'answer'   => __('For approved returns caused by a defective, incorrect, or damaged product, Myveganblog covers the return shipping cost and provides a prepaid shipping label by email. For wrong size, wrong color, wrong model, preference change, or no longer wanting the item, the actual return shipping cost is deducted from the final refund amount.', 'dawp'),
+                'answer'   => __('For approved returns caused by a defective, incorrect, or damaged product, Smartbasketco covers the return shipping cost and provides a prepaid shipping label by email. For wrong size, wrong color, wrong model, preference change, or no longer wanting the item, the actual return shipping cost is deducted from the final refund amount.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge a restocking fee?', 'dawp'),
-                'answer'   => __('No. Myveganblog does not charge any restocking fee for eligible approved returns.', 'dawp'),
+                'answer'   => __('No. Smartbasketco does not charge any restocking fee for eligible approved returns.', 'dawp'),
             ],
             [
                 'question' => __('How long does a refund take?', 'dawp'),
@@ -158,7 +158,7 @@ $faq_groups = [
         'items'       => [
             [
                 'question' => __('How can I contact customer support?', 'dawp'),
-                'answer'   => __('Email support@myveganblog.com or use the Contact Us page. Include your order number if your question is about a recent purchase.', 'dawp'),
+                'answer'   => __('Email support@smartbasketco.com or use the Contact Us page. Include your order number if your question is about a recent purchase.', 'dawp'),
             ],
             [
                 'question' => __('When is customer support available?', 'dawp'),
@@ -185,7 +185,7 @@ $faq_groups = [
                 <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Customer Help', 'dawp'); ?></span>
                 <h1 class="mt-7 font-serif text-4xl leading-tight text-white sm:text-6xl"><?php esc_html_e('Frequently asked questions.', 'dawp'); ?></h1>
                 <p class="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-                    <?php esc_html_e('Quick answers about Myveganblog orders, shipping, delivery, returns, refunds, products, and customer support.', 'dawp'); ?>
+                    <?php esc_html_e('Quick answers about Smartbasketco orders, shipping, delivery, returns, refunds, products, and customer support.', 'dawp'); ?>
                 </p>
             </div>
             <div class="rounded-[28px] border border-white/18 bg-white/10 p-6 backdrop-blur sm:p-8">

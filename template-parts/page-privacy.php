@@ -5,7 +5,7 @@
 
 defined('ABSPATH') || exit;
 
-$support_email  = 'support@myveganblog.com';
+$support_email  = 'support@smartbasketco.com';
 $updated_date   = 'May 28, 2026';
 $store_address  = function_exists('dawp_store_address') ? dawp_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00', 'dawp');
@@ -16,7 +16,7 @@ $privacy_image  = get_template_directory_uri() . '/assets/img/All_image/image co
 <main class="bg-[#F8F3EC] text-[#2F2A28]">
     <section class="relative overflow-hidden bg-[#241F1D] px-4 py-20 text-white sm:px-6 lg:px-8 lg:py-24">
         <div class="absolute inset-0 opacity-35">
-            <img src="<?php echo esc_url($privacy_image); ?>" alt="<?php esc_attr_e('Women\'s shoes, handbags, and accessories arranged for Myveganblog privacy policy', 'dawp'); ?>" class="h-full w-full object-cover" loading="eager">
+            <img src="<?php echo esc_url($privacy_image); ?>" alt="<?php esc_attr_e('Women\'s shoes, handbags, and accessories arranged for Smartbasketco privacy policy', 'dawp'); ?>" class="h-full w-full object-cover" loading="eager">
             <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,31,29,0.98)_0%,rgba(36,31,29,0.78)_52%,rgba(36,31,29,0.42)_100%)]"></div>
         </div>
         <div class="relative mx-auto grid w-[min(100%,1180px)] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
@@ -24,14 +24,14 @@ $privacy_image  = get_template_directory_uri() . '/assets/img/All_image/image co
                 <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></span>
                 <h1 class="mt-7 font-serif text-4xl leading-tight text-white sm:text-6xl"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
                 <p class="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-                    <?php esc_html_e('At Myveganblog, accessible from myveganblog.com, we are deeply committed to protecting the privacy, confidentiality, and security of our visitors and customers.', 'dawp'); ?>
+                    <?php esc_html_e('At Smartbasketco, accessible from smartbasketco.com, we are deeply committed to protecting the privacy, confidentiality, and security of our visitors and customers.', 'dawp'); ?>
                 </p>
             </div>
             <div class="rounded-[28px] border border-white/18 bg-white/10 p-6 backdrop-blur sm:p-8">
                 <dl class="grid gap-5 sm:grid-cols-2">
                     <div>
                         <dt class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Store', 'dawp'); ?></dt>
-                        <dd class="mt-2 font-serif text-2xl text-white"><?php esc_html_e('Myveganblog', 'dawp'); ?></dd>
+                        <dd class="mt-2 font-serif text-2xl text-white"><?php esc_html_e('Smartbasketco', 'dawp'); ?></dd>
                     </div>
                     <div>
                         <dt class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Last Updated', 'dawp'); ?></dt>
@@ -47,7 +47,7 @@ $privacy_image  = get_template_directory_uri() . '/assets/img/All_image/image co
             <article class="rounded-[28px] border border-[#D8CEC6] bg-white p-6 shadow-[0_12px_30px_rgba(47,42,40,0.06)] sm:p-8 lg:p-10">
                 <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h2>
                 <p class="mt-5 text-base leading-8 text-[#6F625D]"><?php echo esc_html(sprintf(__('Last Updated: %s', 'dawp'), $updated_date)); ?></p>
-                <p class="mt-5 text-base leading-8 text-[#6F625D]"><?php esc_html_e('At Myveganblog, accessible from myveganblog.com (the "Site"), we are deeply committed to protecting the privacy, confidentiality, and security of our visitors and customers. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you browse our website or purchase our women\'s shoes, handbags, and accessories.', 'dawp'); ?></p>
+                <p class="mt-5 text-base leading-8 text-[#6F625D]"><?php esc_html_e('At Smartbasketco, accessible from smartbasketco.com (the "Site"), we are deeply committed to protecting the privacy, confidentiality, and security of our visitors and customers. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you browse our website or purchase our women\'s shoes, handbags, and accessories.', 'dawp'); ?></p>
             </article>
 
             <article class="rounded-[28px] border border-[#D8CEC6] bg-white p-6 shadow-[0_12px_30px_rgba(47,42,40,0.06)] sm:p-8 lg:p-10">
@@ -66,7 +66,7 @@ $privacy_image  = get_template_directory_uri() . '/assets/img/All_image/image co
                     <li><?php esc_html_e('Arranging secure shipping, sending order confirmations, and providing tracking updates.', 'dawp'); ?></li>
                     <li><?php esc_html_e('Responding to customer service inquiries, managing returns, and issuing refunds.', 'dawp'); ?></li>
                     <li><?php esc_html_e('Detecting, preventing, and mitigating fraudulent transactions or security risks.', 'dawp'); ?></li>
-                    <li><?php esc_html_e('With your explicit consent, sending newsletters, new arrival notices, style updates, or promotional marketing offers related to Myveganblog. You can opt out of these emails at any time.', 'dawp'); ?></li>
+                    <li><?php esc_html_e('With your explicit consent, sending newsletters, new arrival notices, style updates, or promotional marketing offers related to Smartbasketco. You can opt out of these emails at any time.', 'dawp'); ?></li>
                 </ul>
             </article>
 
@@ -85,7 +85,7 @@ $privacy_image  = get_template_directory_uri() . '/assets/img/All_image/image co
                     <li><strong class="text-[#2F2A28]"><?php esc_html_e('Payment Processors:', 'dawp'); ?></strong> <?php esc_html_e('To execute secure transactions without storing raw financial details on our servers.', 'dawp'); ?></li>
                     <li><strong class="text-[#2F2A28]"><?php esc_html_e('Shipping & Logistics Carriers:', 'dawp'); ?></strong> <?php esc_html_e('To print labels and deliver your shoes, bags, and accessories.', 'dawp'); ?></li>
                     <li><strong class="text-[#2F2A28]"><?php esc_html_e('Corporate Operations:', 'dawp'); ?></strong> <?php esc_html_e('E-mail service providers, analytics platforms (such as Google Analytics), fraud prevention tools, and website hosting partners.', 'dawp'); ?></li>
-                    <li><strong class="text-[#2F2A28]"><?php esc_html_e('Legal Compliance:', 'dawp'); ?></strong> <?php esc_html_e('We may disclose information if required to do so by applicable laws, subpoenas, or legal processes to protect the safety, rights, and property of Myveganblog, our customers, or the public.', 'dawp'); ?></li>
+                    <li><strong class="text-[#2F2A28]"><?php esc_html_e('Legal Compliance:', 'dawp'); ?></strong> <?php esc_html_e('We may disclose information if required to do so by applicable laws, subpoenas, or legal processes to protect the safety, rights, and property of Smartbasketco, our customers, or the public.', 'dawp'); ?></li>
                 </ul>
             </article>
 
@@ -114,7 +114,7 @@ $privacy_image  = get_template_directory_uri() . '/assets/img/All_image/image co
                     <dl class="grid gap-4 md:grid-cols-2">
                         <div class="rounded-[18px] border border-[#D8CEC6] bg-white p-5">
                             <dt class="text-sm font-bold text-[#2F2A28]"><?php esc_html_e('Store Name', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Myveganblog', 'dawp'); ?></dd>
+                            <dd class="mt-3 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Smartbasketco', 'dawp'); ?></dd>
                         </div>
                         <div class="rounded-[18px] border border-[#D8CEC6] bg-white p-5">
                             <dt class="text-sm font-bold text-[#2F2A28]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>

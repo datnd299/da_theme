@@ -5,8 +5,8 @@
 
 defined('ABSPATH') || exit;
 
-$support_email  = 'support@myveganblog.com';
-$store_name     = 'Myveganblog';
+$support_email  = 'support@smartbasketco.com';
+$store_name     = 'Smartbasketco';
 $store_address  = function_exists('dawp_store_address') ? dawp_store_address() : '';
 $updated_date   = 'May 28, 2026';
 $business_hours = __('Monday-Friday, 9:00 AM-5:00 PM, GMT-08:00', 'dawp');
@@ -18,8 +18,8 @@ $terms_sections = [
         'number' => '01',
         'title'  => __('Agreement To These Terms', 'dawp'),
         'body'   => [
-            __('This website is operated by Myveganblog. By accessing our website, browsing products, creating an account, placing an order, or contacting us for support, you agree to these Terms & Conditions Policy and the policies referenced on this site.', 'dawp'),
-            __('If you do not agree with these terms, you should not use the website or purchase products from Myveganblog.', 'dawp'),
+            __('This website is operated by Smartbasketco. By accessing our website, browsing products, creating an account, placing an order, or contacting us for support, you agree to these Terms & Conditions Policy and the policies referenced on this site.', 'dawp'),
+            __('If you do not agree with these terms, you should not use the website or purchase products from Smartbasketco.', 'dawp'),
         ],
     ],
     [
@@ -34,7 +34,7 @@ $terms_sections = [
         'number' => '03',
         'title'  => __('Products, Materials & Availability', 'dawp'),
         'body'   => [
-            __('Myveganblog offers women\'s shoes, women\'s sandals, women\'s handbags, and fashion accessories. Product descriptions, images, colors, sizes, dimensions, finishes, materials, and care notes are provided to help customers make informed choices.', 'dawp'),
+            __('Smartbasketco offers women\'s shoes, women\'s sandals, women\'s handbags, and fashion accessories. Product descriptions, images, colors, sizes, dimensions, finishes, materials, and care notes are provided to help customers make informed choices.', 'dawp'),
             __('We make reasonable efforts to display products accurately, but screen settings, photography, lighting, supplier updates, and inventory changes may affect how colors or details appear. Product availability, pricing, and descriptions may change without notice.', 'dawp'),
         ],
     ],
@@ -74,8 +74,8 @@ $terms_sections = [
         'number' => '08',
         'title'  => __('Intellectual Property', 'dawp'),
         'body'   => [
-            __('The website design, page content, photography selections, graphics, logos, text, product presentation, and other site materials are owned by or licensed to Myveganblog and are protected by applicable intellectual property laws.', 'dawp'),
-            __('You may not copy, reproduce, modify, sell, redistribute, or exploit our website content without written permission from Myveganblog.', 'dawp'),
+            __('The website design, page content, photography selections, graphics, logos, text, product presentation, and other site materials are owned by or licensed to Smartbasketco and are protected by applicable intellectual property laws.', 'dawp'),
+            __('You may not copy, reproduce, modify, sell, redistribute, or exploit our website content without written permission from Smartbasketco.', 'dawp'),
         ],
     ],
     [
@@ -89,7 +89,7 @@ $terms_sections = [
         'number' => '10',
         'title'  => __('Limitation Of Liability', 'dawp'),
         'body'   => [
-            __('To the fullest extent permitted by applicable law, Myveganblog is not liable for indirect, incidental, special, consequential, or punitive damages arising from website use, product use, shipping delays, service interruptions, data loss, unauthorized access, or inability to use the site.', 'dawp'),
+            __('To the fullest extent permitted by applicable law, Smartbasketco is not liable for indirect, incidental, special, consequential, or punitive damages arising from website use, product use, shipping delays, service interruptions, data loss, unauthorized access, or inability to use the site.', 'dawp'),
             __('Nothing in these terms is intended to limit rights that cannot be limited under applicable consumer protection laws.', 'dawp'),
         ],
     ],
@@ -113,9 +113,9 @@ $terms_sections = [
         <div class="relative mx-auto grid w-[min(100%,1180px)] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div class="max-w-3xl">
                 <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Terms & Conditions Policy', 'dawp'); ?></span>
-                <h1 class="mt-7 font-serif text-4xl leading-tight text-white sm:text-6xl"><?php esc_html_e('Terms for using Myveganblog.', 'dawp'); ?></h1>
+                <h1 class="mt-7 font-serif text-4xl leading-tight text-white sm:text-6xl"><?php esc_html_e('Terms for using Smartbasketco.', 'dawp'); ?></h1>
                 <p class="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-                    <?php esc_html_e('Please review these terms before using our website or purchasing women\'s shoes, handbags, and accessories from Myveganblog.', 'dawp'); ?>
+                    <?php esc_html_e('Please review these terms before using our website or purchasing women\'s shoes, handbags, and accessories from Smartbasketco.', 'dawp'); ?>
                 </p>
             </div>
             <div class="rounded-[28px] border border-white/18 bg-white/10 p-6 backdrop-blur sm:p-8">

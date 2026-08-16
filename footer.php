@@ -30,11 +30,11 @@ $footer_payment_methods = [
     ['file' => 'image copy 3.png', 'label' => __('Payment method', 'dawp')],
 ];
 
-$support_email = 'support@myveganblog.com';
+$support_email = 'support@smartbasketco.com';
 $business_hours = __('Business Hours: Monday-Friday, 9:00 AM-5:00 PM, GMT-08:00', 'dawp');
 $business_address = dawp_store_address();
 $site_name     = get_bloginfo('name');
-$logo_url      = get_template_directory_uri() . '/assets/img/gallery/Logo_all (10).png';
+$logo_url      = get_template_directory_uri() . '/assets/img/gallery/logo.png';
 ?>
 
 <footer id="colophon" class="bg-[#2F2A28] text-white" role="contentinfo">
@@ -74,14 +74,6 @@ $logo_url      = get_template_directory_uri() . '/assets/img/gallery/Logo_all (1
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                     <span><?php echo esc_html($business_address); ?></span>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/VegetarianShoes/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 transition-colors hover:text-white">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.77l-.44 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"></path>
-                        </svg>
-                        <?php esc_html_e('Facebook Page', 'dawp'); ?>
-                    </a>
                 </li>
             </ul>
 

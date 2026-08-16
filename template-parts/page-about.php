@@ -27,7 +27,7 @@ $principles = [
     ],
     [
         'title' => __('Easy Outfit Finishing', 'dawp'),
-        'copy'  => __('Myveganblog supports simple wardrobe choices with feminine footwear, practical handbags, and finishing accessories.', 'dawp'),
+        'copy'  => __('Smartbasketco supports simple wardrobe choices with feminine footwear, practical handbags, and finishing accessories.', 'dawp'),
         'icon'  => '<path d="M12 21s-7-4.35-9-9.28C1.6 8.15 3.85 5 7.33 5c2.04 0 3.25 1.1 4.67 2.75C13.42 6.1 14.63 5 16.67 5 20.15 5 22.4 8.15 21 11.72 19 16.65 12 21 12 21Z"/>',
     ],
 ];
@@ -65,13 +65,13 @@ $trust_items = [
         <div class="relative mx-auto grid min-h-[560px] w-[min(100%,1180px)] content-end px-4 pb-8 pt-20 sm:px-6 lg:min-h-[680px] lg:px-8 lg:pb-12">
             <div class="max-w-3xl">
                 <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]">
-                    <?php esc_html_e('About Myveganblog', 'dawp'); ?>
+                    <?php esc_html_e('About Smartbasketco', 'dawp'); ?>
                 </span>
                 <h1 class="mt-7 max-w-4xl font-serif text-4xl leading-[1.04] text-white sm:text-6xl lg:text-7xl">
                     <?php esc_html_e('Polished women\'s style made practical.', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-                    <?php esc_html_e('Myveganblog is a women\'s fashion accessories store focused on polished everyday style, feminine footwear, handbags, and simple outfit-finishing essentials.', 'dawp'); ?>
+                    <?php esc_html_e('Smartbasketco is a women\'s fashion accessories store focused on polished everyday style, feminine footwear, handbags, and simple outfit-finishing essentials.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-bold text-[#2F2A28] transition-colors duration-300 hover:bg-[#E8D8C8]">
@@ -112,7 +112,7 @@ $trust_items = [
                     <?php esc_html_e('Everyday style should feel clear, polished, and genuinely wearable.', 'dawp'); ?>
                 </h2>
                 <div class="mt-6 space-y-5 text-base leading-8 text-[#6F625D]">
-                    <p><?php esc_html_e('We built Myveganblog around a simple idea: daily style works best when it is practical. A good pair of shoes should be easy to wear, a handbag should support real routines, and accessories should finish an outfit without overcomplicating it.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('We built Smartbasketco around a simple idea: daily style works best when it is practical. A good pair of shoes should be easy to wear, a handbag should support real routines, and accessories should finish an outfit without overcomplicating it.', 'dawp'); ?></p>
                     <p><?php esc_html_e('We focus on helpful product choices: polished shoes, relaxed sandals, practical handbags, thoughtful product notes, and simple accessories that are easy to return to.', 'dawp'); ?></p>
                 </div>
                 <div class="mt-8 grid gap-3 sm:grid-cols-3">
@@ -134,7 +134,7 @@ $trust_items = [
                     <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('What Guides Us', 'dawp'); ?></span>
                     <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('The standards behind every product edit.', 'dawp'); ?></h2>
                 </div>
-                <p class="max-w-md text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Myveganblog is built for shoppers who want useful style pieces without confusing claims, fake luxury signals, or unrelated products.', 'dawp'); ?></p>
+                <p class="max-w-md text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Smartbasketco is built for shoppers who want useful style pieces without confusing claims, fake luxury signals, or unrelated products.', 'dawp'); ?></p>
             </div>
 
             <div class="grid gap-4 md:grid-cols-3">

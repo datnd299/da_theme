@@ -1,8 +1,8 @@
-# My Vegan Blog — Design System
+# Smartbasketco — Design System
 
 ## Overview
 
-My Vegan Blog is a clean women’s shoes, handbags, and fashion accessories store. The design should feel modern, feminine, warm, polished, and boutique-inspired while staying clear and GMC-safe.
+Smartbasketco is a clean women’s shoes, handbags, and fashion accessories store. The design should feel modern, feminine, warm, polished, and boutique-inspired while staying clear and GMC-safe.
 
 This system adapts the uploaded design system form into a fashion-accessories direction for:
 
@@ -527,7 +527,7 @@ easy daily styling
 
 ## Final Feeling
 
-My Vegan Blog should look like:
+Smartbasketco should look like:
 
 > A clean feminine boutique offering women’s leather shoes, sandals, handbags, and fashion accessories for polished everyday style.
 

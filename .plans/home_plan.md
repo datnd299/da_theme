@@ -1,4 +1,4 @@
-# My Vegan Blog — Home Plan
+# Smartbasketco — Home Plan
 
 ## Homepage Goal
 
@@ -61,7 +61,7 @@ This matches the standard homepage structure used in the current Antigravity/the
 
 ## Purpose
 
-Introduce My Vegan Blog as a women’s shoes, handbags, and accessories store for polished everyday style.
+Introduce Smartbasketco as a women’s shoes, handbags, and accessories store for polished everyday style.
 
 ## Content
 
@@ -263,7 +263,7 @@ Shoes that make everyday outfits feel complete.
 Paragraph:
 
 ```txt
-From polished women’s shoes to easy sandals, My Vegan Blog focuses on wearable styles that pair naturally with workdays, weekends, travel moments, and simple daily looks.
+From polished women’s shoes to easy sandals, Smartbasketco focuses on wearable styles that pair naturally with workdays, weekends, travel moments, and simple daily looks.
 ```
 
 CTA:
@@ -454,7 +454,7 @@ A clean shopping place for shoes, handbags, and everyday accessories.
 Paragraph:
 
 ```txt
-My Vegan Blog brings together women’s shoes, sandals, handbags, and fashion accessories for customers who want simple pieces that are easy to wear, easy to pair, and easy to love in daily outfits.
+Smartbasketco brings together women’s shoes, sandals, handbags, and fashion accessories for customers who want simple pieces that are easy to wear, easy to pair, and easy to love in daily outfits.
 ```
 
 CTA:
@@ -584,14 +584,14 @@ supplier collages
 Suggested image filenames:
 
 ```txt
-myveganblog-hero.png
-myveganblog-secondary.png
+smartbasketco-hero.png
+smartbasketco-secondary.png
 women-leather-shoes.png
 women-sandals.png
 women-handbags.png
 fashion-accessories.png
 women-shoes-feature.png
-myveganblog-about.png
+smartbasketco-about.png
 gallery/gallery1.jpg
 gallery/gallery2.jpg
 gallery/gallery3.jpg

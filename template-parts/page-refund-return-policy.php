@@ -5,8 +5,8 @@
 
 defined('ABSPATH') || exit;
 
-$support_email    = 'support@myveganblog.com';
-$store_name       = 'Myveganblog';
+$support_email    = 'support@smartbasketco.com';
+$store_name       = 'Smartbasketco';
 $store_address    = function_exists('dawp_store_address') ? dawp_store_address() : '';
 $updated_date     = 'May 28, 2026';
 $policy_image     = get_template_directory_uri() . '/assets/img/All_image/image copy 6.png';
@@ -73,7 +73,7 @@ $non_returnable_items = [
                 <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></span>
                 <h1 class="mt-7 font-serif text-4xl leading-tight text-white sm:text-6xl"><?php esc_html_e('Returns, refunds, and exchanges.', 'dawp'); ?></h1>
                 <p class="mt-6 max-w-2xl text-base leading-8 text-white/78 sm:text-lg">
-                    <?php esc_html_e('Review Myveganblog return eligibility, return shipping fees, delivery issue guidance, refund timing, non-returnable items, and contact information before starting a return.', 'dawp'); ?>
+                    <?php esc_html_e('Review Smartbasketco return eligibility, return shipping fees, delivery issue guidance, refund timing, non-returnable items, and contact information before starting a return.', 'dawp'); ?>
                 </p>
             </div>
             <div class="rounded-[28px] border border-white/18 bg-white/10 p-6 backdrop-blur sm:p-8">

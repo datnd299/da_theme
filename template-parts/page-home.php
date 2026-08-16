@@ -1,348 +1,280 @@
 <?php
 /**
- * Homepage — ShopGraphicshirt
- * Patriotic apparel & custom gift brand.
- * Based on: site.md / design_system.md / home_plan.md
- * 7 sections: Hero + Strip | Categories | Best Sellers | Personalized | Occasions | Tributes | Trust
+ * Homepage — hero, collections, featured watches, atelier, movement, bespoke, service.
+ * See .plans/site.md §4.
  */
-$sgs_best_sellers_url = dawp_product_category_url('best-sellers');
-$sgs_bomber_jackets_url = dawp_product_category_url('bomber-jackets');
-$sgs_flag_tees_url = dawp_product_category_url('american-flag-tees');
-$sgs_hats_url = dawp_product_category_url('hats-beanies');
-$sgs_premium_tees_url = dawp_product_category_url('premium-t-shirts');
-$sgs_accessories_url = dawp_product_category_url('patches-pins');
-$sgs_home_cat_images = [
-  'flag-tees' => 'assets/img/home/cat-flag-tees.png',
-  'bomber' => 'assets/img/home/cat-bomber.png',
-  'hats' => 'assets/img/home/cat-hats.png',
-  'tees' => 'assets/img/home/cat-tees.png',
-  'accessories' => 'assets/img/home/cat-accessories.png',
-  'best-seller' => 'assets/img/home/cat-best-seller.png',
-];
-$sgs_home_hero_bg = sprintf(
-  "--sgs-hero-bg:url('%s');--sgs-hero-bg-tablet:url('%s');--sgs-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/home/gts-hero.png', 1600, 900)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/home/gts-hero.png', 900, 900)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/home/gts-hero.png', 640, 760))
-);
-$sgs_cat_bg = static function ($key) use ($sgs_home_cat_images) {
-  $path = $sgs_home_cat_images[$key];
-  return sprintf(
-    "--sgs-cat-bg:url('%s');--sgs-cat-bg-mobile:url('%s')",
-    esc_url(dawp_theme_cdn_image_url($path, 720, 900)),
-    esc_url(dawp_theme_cdn_image_url($path, 720, 440))
-  );
-};
+
+defined('ABSPATH') || exit;
+
+$dawp_collections = dawp_collections();
+
+$dawp_featured = [];
+if (class_exists('WooCommerce')) {
+    $dawp_featured_query = new WP_Query([
+        'post_type'           => 'product',
+        'posts_per_page'      => 4,
+        'post_status'         => 'publish',
+        'ignore_sticky_posts' => true,
+        'no_found_rows'       => true,
+        'orderby'             => 'date',
+        'order'               => 'DESC',
+        'tax_query'           => [[
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+            'terms'    => 'exclude-from-catalog',
+            'operator' => 'NOT IN',
+        ]],
+    ]);
+    $dawp_featured = $dawp_featured_query->posts;
+}
 ?>
 
-<section class="sgs-home">
+<!-- ============================================================ HERO -->
+<section class="relative overflow-hidden border-b border-border bg-background" aria-labelledby="hero-title">
+    <div class="pointer-events-none absolute -right-[18%] top-[-12%] hidden h-[820px] w-[820px] rounded-pill border border-border lg:block" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -left-[22%] bottom-[-30%] hidden h-[520px] w-[520px] rounded-pill bg-surface-alt lg:block" aria-hidden="true"></div>
 
-  <!-- ================================================================ -->
-  <!-- SECTION 1 — Hero + Quick Shop Strip                              -->
-  <!-- ================================================================ -->
-  <div class="sgs-hero" style="<?php echo esc_attr($sgs_home_hero_bg); ?>">
-    <div class="sgs-hero__inner">
-      <div class="sgs-hero__copy">
-        <p class="sgs-eyebrow sgs-eyebrow--light">American Patriotic Apparel &amp; Custom Gifts</p>
-        <h1>Wear The Freedom.<br>Live The Pride.</h1>
-        <p class="sgs-hero__text">Premium graphic tees, bomber jackets, hats, hoodies, and accessories made for proud Americans.</p>
-        <div class="sgs-hero__actions">
-          <a href="<?php echo esc_url($sgs_best_sellers_url); ?>" class="sgs-btn sgs-btn--primary sgs-btn--lg">Shop Best Sellers</a>
-          <a href="<?php echo esc_url($sgs_bomber_jackets_url); ?>" class="sgs-btn sgs-btn--ghost sgs-btn--lg">Customize Yours</a>
+    <div class="container relative grid items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-28">
+
+        <div class="order-2 lg:order-1">
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="c-eyebrow"><?php esc_html_e('Est. 2016 — United States', 'dawp'); ?></p>
+
+            <h1 id="hero-title" class="font-heading text-display font-light leading-[0.94] tracking-tight text-foreground">
+                <?php esc_html_e('Time,', 'dawp'); ?><br>
+                <span class="italic"><?php esc_html_e('measured', 'dawp'); ?></span> <?php esc_html_e('by hand.', 'dawp'); ?>
+            </h1>
+
+            <p class="mt-8 max-w-md text-body text-foreground-muted">
+                <?php esc_html_e('An independent atelier building mechanical watches one at a time. Steel cases finished by hand. Japanese automatic movements, regulated in five positions.', 'dawp'); ?>
+            </p>
+
+            <div class="mt-10 flex flex-wrap gap-4">
+                <a class="c-btn" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('The Collections', 'dawp'); ?></a>
+                <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('The Atelier', 'dawp'); ?></a>
+            </div>
+
+            <dl class="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-border pt-8">
+                <div>
+                    <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Movement', 'dawp'); ?></dt>
+                    <dd class="m-0 mt-2 font-heading text-h3 text-foreground"><?php esc_html_e('Automatic', 'dawp'); ?></dd>
+                </div>
+                <div>
+                    <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Frequency', 'dawp'); ?></dt>
+                    <dd class="m-0 mt-2 font-heading text-h3 text-foreground"><?php esc_html_e('28,800', 'dawp'); ?></dd>
+                </div>
+                <div>
+                    <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Warranty', 'dawp'); ?></dt>
+                    <dd class="m-0 mt-2 font-heading text-h3 text-foreground"><?php esc_html_e('5 years', 'dawp'); ?></dd>
+                </div>
+            </dl>
         </div>
-        <p class="sgs-hero__trust">Secure checkout. Tracking included. Custom gifts made with care.</p>
-      </div>
-    </div>
-  </div>
 
-  <!-- Quick-shop strip -->
-  <div class="sgs-strip">
-    <a href="<?php echo esc_url($sgs_flag_tees_url); ?>" class="sgs-strip__card">
-      <span>American Flag Tees</span>
-      <span class="sgs-strip__cta">Shop Now →</span>
-    </a>
-    <a href="<?php echo esc_url($sgs_bomber_jackets_url); ?>" class="sgs-strip__card">
-      <span>Bomber Jackets</span>
-      <span class="sgs-strip__cta">Shop Now →</span>
-    </a>
-    <a href="<?php echo esc_url($sgs_best_sellers_url); ?>" class="sgs-strip__card">
-      <span>Best Sellers</span>
-      <span class="sgs-strip__cta">Shop Now →</span>
-    </a>
-  </div>
-
-  <!-- ================================================================ -->
-  <!-- SECTION 2 — Shop By Category                                     -->
-  <!-- ================================================================ -->
-  <div class="sgs-section">
-    <div class="sgs-section__head">
-      <div>
-        <p class="sgs-eyebrow">Categories</p>
-        <h2>Shop By Collection</h2>
-      </div>
-      <a href="/shop/" class="sgs-btn sgs-btn--dark sgs-btn--sm">View All →</a>
-    </div>
-
-    <div class="sgs-cat-slider" data-collection-slider>
-      <div class="sgs-cat-grid" data-collection-track>
-      <!-- Flag Tees -->
-      <a href="<?php echo esc_url($sgs_flag_tees_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('flag-tees')); ?>">
-        <div class="sgs-cat__overlay"></div>
-        <div class="sgs-cat__content">
-          <span class="sgs-cat__eyebrow">American Flag Tees</span>
-          <h3>Flag Collection</h3>
-          <p>Bold flag designs, distressed prints, and eagle graphics.</p>
-          <span class="sgs-cat__cta">Shop Collection</span>
+        <div class="order-1 lg:order-2">
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/hero/hero-watch.svg')); ?>"
+                 alt="<?php esc_attr_e('A CHRONEL automatic watch on a steel bracelet', 'dawp'); ?>"
+                 width="320" height="460" fetchpriority="high" decoding="async"
+                 class="mx-auto h-[340px] w-auto sm:h-[440px] lg:h-[600px]">
         </div>
-      </a>
-      <!-- Bomber Jackets -->
-      <a href="<?php echo esc_url($sgs_bomber_jackets_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('bomber')); ?>">
-        <div class="sgs-cat__overlay"></div>
-        <div class="sgs-cat__content">
-          <span class="sgs-cat__eyebrow">Bomber Jackets</span>
-          <h3>Classic Bombers</h3>
-          <p>MA-1 style with flag patches and custom embroidery.</p>
-          <span class="sgs-cat__cta">Shop Collection</span>
-        </div>
-      </a>
-      <!-- Hats & Beanies -->
-      <a href="<?php echo esc_url($sgs_hats_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('hats')); ?>">
-        <div class="sgs-cat__overlay"></div>
-        <div class="sgs-cat__content">
-          <span class="sgs-cat__eyebrow">Hats &amp; Beanies</span>
-          <h3>Headwear</h3>
-          <p>Snapbacks, dad hats, beanies with flag embroidery.</p>
-          <span class="sgs-cat__cta">Shop Collection</span>
-        </div>
-      </a>
-      <!-- Premium T-Shirts -->
-      <a href="<?php echo esc_url($sgs_premium_tees_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('tees')); ?>">
-        <div class="sgs-cat__overlay"></div>
-        <div class="sgs-cat__content">
-          <span class="sgs-cat__eyebrow">Premium T-Shirts</span>
-          <h3>Signature Tees</h3>
-          <p>Heavy-weight cotton with vintage-style prints.</p>
-          <span class="sgs-cat__cta">Shop Collection</span>
-        </div>
-      </a>
-      <!-- Accessories -->
-      <a href="<?php echo esc_url($sgs_accessories_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('accessories')); ?>">
-        <div class="sgs-cat__overlay"></div>
-        <div class="sgs-cat__content">
-          <span class="sgs-cat__eyebrow">Patches &amp; Pins</span>
-          <h3>Accessories</h3>
-          <p>Patches, pins, mugs for everyday American pride.</p>
-          <span class="sgs-cat__cta">Shop Collection</span>
-        </div>
-      </a>
-      <!-- Best Sellers -->
-      <a href="<?php echo esc_url($sgs_best_sellers_url); ?>" class="sgs-cat" data-collection-slide style="<?php echo esc_attr($sgs_cat_bg('best-seller')); ?>">
-        <div class="sgs-cat__overlay"></div>
-        <div class="sgs-cat__content">
-          <span class="sgs-cat__eyebrow">Customer Favorites</span>
-          <h3>Best Seller</h3>
-          <p>Top-rated tees, jackets, hats, and gifts picked by proud Americans.</p>
-          <span class="sgs-cat__cta">Shop Best Sellers</span>
-        </div>
-      </a>
-      </div>
-      <div class="sgs-mobile-slider-controls" aria-label="Collection slider controls">
-        <button class="sgs-mobile-slider-btn" type="button" data-collection-prev aria-label="Previous collection">&lsaquo;</button>
-        <div class="sgs-mobile-slider-dots" aria-label="Collection slider pages">
-          <button type="button" data-collection-dot aria-label="Go to collection 1"></button>
-          <button type="button" data-collection-dot aria-label="Go to collection 2"></button>
-          <button type="button" data-collection-dot aria-label="Go to collection 3"></button>
-          <button type="button" data-collection-dot aria-label="Go to collection 4"></button>
-          <button type="button" data-collection-dot aria-label="Go to collection 5"></button>
-          <button type="button" data-collection-dot aria-label="Go to collection 6"></button>
-        </div>
-        <button class="sgs-mobile-slider-btn" type="button" data-collection-next aria-label="Next collection">&rsaquo;</button>
-      </div>
     </div>
-  </div>
+</section>
 
-  <!-- ================================================================ -->
-  <!-- SECTION 3 — Best Sellers Product Grid                            -->
-  <!-- ================================================================ -->
-  <div class="sgs-section sgs-section--surface">
-    <div class="sgs-section__head">
-      <div>
-        <p class="sgs-eyebrow">Best Sellers</p>
-        <h2>Patriotic Favorites For Everyday Pride</h2>
-      </div>
-      <a href="<?php echo esc_url($sgs_best_sellers_url); ?>" class="sgs-btn sgs-btn--dark sgs-btn--sm">View All →</a>
-    </div>
-
-    <div class="sgs-prod-grid">
-      <?php
-      $sgs_products = [];
-
-      if (function_exists('wc_get_products')) {
-        $sgs_products = wc_get_products([
-          'status' => 'publish',
-          'limit' => 8,
-          'featured' => true,
-          'orderby' => 'date',
-          'order' => 'DESC',
-        ]);
-
-        if (count($sgs_products) < 8) {
-          $sgs_existing_ids = array_map(
-            static function ($product) {
-              return $product instanceof WC_Product ? $product->get_id() : 0;
-            },
-            $sgs_products
-          );
-
-          $sgs_products = array_merge($sgs_products, wc_get_products([
-            'status' => 'publish',
-            'limit' => 8 - count($sgs_products),
-            'exclude' => array_filter($sgs_existing_ids),
-            'orderby' => 'date',
-            'order' => 'DESC',
-          ]));
-        }
-      }
-      ?>
-      <?php if (!empty($sgs_products)) : ?>
-      <?php foreach ($sgs_products as $index => $product) : ?>
-      <?php
-      if (!$product instanceof WC_Product) {
-        continue;
-      }
-
-      $sgs_product_image_id = $product->get_image_id();
-      ?>
-      <div class="sgs-prod">
-        <?php if ($product->is_featured() || $index < 3) : ?>
-          <span class="sgs-prod__badge">Best Seller</span>
-        <?php elseif ((time() - get_post_time('U', true, $product->get_id())) <= MONTH_IN_SECONDS) : ?>
-          <span class="sgs-prod__badge sgs-prod__badge--gold">New</span>
-        <?php endif; ?>
-        <div class="sgs-prod__img">
-          <?php if ($sgs_product_image_id) : ?>
-            <?php echo dawp_product_responsive_image($product, '', '(max-width: 640px) calc(100vw - 72px), (max-width: 1024px) calc((100vw - 96px) / 2), 280px'); ?>
-          <?php else : ?>
-            <?php echo wc_placeholder_img('woocommerce_thumbnail'); ?>
-          <?php endif; ?>
+<!-- ============================================================ COLLECTIONS -->
+<section class="border-b border-border bg-background section-y" aria-labelledby="collections-title">
+    <div class="container">
+        <div class="mb-14 max-w-2xl">
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="c-eyebrow"><?php esc_html_e('Four collections', 'dawp'); ?></p>
+            <h2 id="collections-title" class="c-title"><?php esc_html_e('Each one built for a different life.', 'dawp'); ?></h2>
         </div>
-        <h3><?php echo esc_html($product->get_name()); ?></h3>
-        <span class="sgs-prod__price">
-          <?php echo wp_kses_post($product->get_price_html()); ?>
-        </span>
-        <a href="<?php echo esc_url($product->get_permalink()); ?>" class="sgs-btn sgs-btn--primary">Shop Now</a>
-      </div>
-      <?php endforeach; ?>
-      <?php else : ?>
-        <p><?php esc_html_e('Products will appear here after they are imported and published.', 'shopgraphicshirt'); ?></p>
-      <?php endif; ?>
-    </div>
-  </div>
 
-  <!-- ================================================================ -->
-  <!-- SECTION 4 — Gift By Occasion                                     -->
-  <!-- ================================================================ -->
-  <div class="sgs-section sgs-section--warm">
-    <div class="sgs-section__center">
-      <p class="sgs-eyebrow">Gift By Occasion</p>
-      <h2>Meaningful Patriotic Gifts For Moments That Matter</h2>
+        <ul class="m-0 grid list-none grid-cols-1 gap-px border border-border bg-border p-0 sm:grid-cols-2 lg:grid-cols-4">
+            <?php foreach ($dawp_collections as $collection) : ?>
+                <li class="bg-background">
+                    <a class="group flex h-full flex-col" href="<?php echo esc_url(dawp_product_category_url($collection['slug'])); ?>">
+                        <span class="block overflow-hidden bg-surface-alt py-10">
+                            <img src="<?php echo esc_url(dawp_asset_uri($collection['image'])); ?>"
+                                 alt="<?php echo esc_attr(sprintf(__('%s watch', 'dawp'), $collection['name'])); ?>"
+                                 width="320" height="460" loading="lazy" decoding="async"
+                                 class="mx-auto h-56 w-auto transition-transform duration-700 ease-fluid group-hover:scale-105">
+                        </span>
+                        <span class="flex flex-1 flex-col p-8">
+                            <span class="text-eyebrow uppercase tracking-wide text-muted"><?php echo esc_html($collection['kicker']); ?></span>
+                            <span class="mt-3 block font-heading text-h3 leading-none text-foreground"><?php echo esc_html($collection['name']); ?></span>
+                            <span class="mt-2 block text-caption text-accent-deep"><?php echo esc_html($collection['tagline']); ?></span>
+                            <span class="mt-4 block text-body-sm text-foreground-muted"><?php echo esc_html($collection['summary']); ?></span>
+                            <span class="mt-6 block text-eyebrow uppercase tracking-wide text-foreground">
+                                <?php esc_html_e('Discover', 'dawp'); ?>
+                                <span class="ml-2 inline-block transition-transform duration-400 ease-fluid group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
+</section>
 
-    <div class="sgs-occ-slider" data-occasion-slider>
-      <div class="sgs-occ-grid" data-occasion-track>
-      <div class="sgs-occ" data-occasion-slide>
-        <span class="sgs-occ__icon">🎁</span>
-        <h3>Father's Day Gifts</h3>
-        <p>A meaningful gift for dads who love classic American style.</p>
-        <a href="<?php echo esc_url(dawp_product_category_url('fathers-day-gifts')); ?>" class="sgs-occ__cta">Shop Gifts</a>
-      </div>
-      <div class="sgs-occ" data-occasion-slide>
-        <span class="sgs-occ__icon">🕊️</span>
-        <h3>Memorial Day Gifts</h3>
-        <p>Remember and honor with patriotic tribute products.</p>
-        <a href="<?php echo esc_url(dawp_product_category_url('memorial-day-gifts')); ?>" class="sgs-occ__cta">Shop Gifts</a>
-      </div>
-      <div class="sgs-occ" data-occasion-slide>
-        <span class="sgs-occ__icon">🎆</span>
-        <h3>Independence Day Gifts</h3>
-        <p>Celebrate freedom with flag tees, hats, and accessories.</p>
-        <a href="<?php echo esc_url(dawp_product_category_url('independence-day-gifts')); ?>" class="sgs-occ__cta">Shop Gifts</a>
-      </div>
-      </div>
-      <div class="sgs-occ-slider__controls" aria-label="Gift occasion slider controls">
-        <button class="sgs-occ-slider__arrow" type="button" data-occasion-prev aria-label="Previous occasion">&lsaquo;</button>
-        <div class="sgs-occ-slider__dots" aria-label="Gift occasion slides">
-          <?php for ($i = 0; $i < 3; $i++) : ?>
-            <button class="sgs-occ-slider__dot" type="button" data-occasion-dot aria-label="<?php echo esc_attr(sprintf('Go to occasion %d', $i + 1)); ?>"></button>
-          <?php endfor; ?>
+<?php if (!empty($dawp_featured)) : ?>
+<!-- ============================================================ FEATURED WATCHES -->
+<section class="border-b border-border bg-surface-alt section-y" aria-labelledby="featured-title">
+    <div class="container">
+        <div class="mb-12 flex flex-wrap items-end justify-between gap-6">
+            <div class="max-w-xl">
+                <span class="c-rule" aria-hidden="true"></span>
+                <p class="c-eyebrow"><?php esc_html_e('Recently completed', 'dawp'); ?></p>
+                <h2 id="featured-title" class="c-title"><?php esc_html_e('Fresh from the bench.', 'dawp'); ?></h2>
+            </div>
+            <a class="c-link" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
         </div>
-        <button class="sgs-occ-slider__arrow" type="button" data-occasion-next aria-label="Next occasion">&rsaquo;</button>
-      </div>
-    </div>
-  </div>
 
-  <!-- ================================================================ -->
-  <!-- SECTION 5 — Trust + About + Newsletter                           -->
-  <!-- ================================================================ -->
-  <div class="sgs-section">
-    <div class="sgs-trust-slider" data-trust-slider>
-    <div class="sgs-trust-grid" data-trust-track>
-      <div class="sgs-trust" data-trust-slide>
-        <span class="sgs-trust__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>
-        </span>
-        <h3>Secure Checkout</h3>
-        <p>A safe and simple checkout experience for every order.</p>
-      </div>
-      <div class="sgs-trust" data-trust-slide>
-        <span class="sgs-trust__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
-        </span>
-        <h3>Tracking Included</h3>
-        <p>Tracking details are provided once your order ships.</p>
-      </div>
-      <div class="sgs-trust" data-trust-slide>
-        <span class="sgs-trust__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-        </span>
-        <h3>30-Day Returns</h3>
-        <p>Eligible non-personalized items may be returned within 30 days.</p>
-      </div>
-      <div class="sgs-trust" data-trust-slide>
-        <span class="sgs-trust__icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-5.2 7-12A7 7 0 0 0 5 9c0 6.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        </span>
-        <h3>Personalization Support</h3>
-        <p>Review your custom details carefully before ordering.</p>
-      </div>
+        <ul class="m-0 grid list-none grid-cols-2 gap-4 p-0 lg:grid-cols-4 lg:gap-6">
+            <?php foreach ($dawp_featured as $dawp_post) :
+                $product = wc_get_product($dawp_post->ID);
+                if (!$product) {
+                    continue;
+                }
+                ?>
+                <li>
+                    <a class="group flex h-full flex-col border border-border bg-background transition-colors duration-400 ease-fluid hover:border-accent" href="<?php echo esc_url(get_permalink($dawp_post->ID)); ?>">
+                        <span class="block overflow-hidden bg-surface-alt p-6">
+                            <span class="block transition-transform duration-700 ease-fluid group-hover:scale-105">
+                                <?php echo dawp_product_responsive_image($product, 'mx-auto h-auto w-full', '(max-width: 767px) calc((100vw - 56px) / 2), 300px'); ?>
+                            </span>
+                        </span>
+                        <span class="flex flex-1 flex-col p-5 lg:p-6">
+                            <span class="block font-heading text-h3 leading-tight text-foreground"><?php echo esc_html($product->get_name()); ?></span>
+                            <span class="mt-auto pt-4 block text-body-sm text-accent-deep"><?php echo wp_kses_post($product->get_price_html()); ?></span>
+                        </span>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
-      <div class="sgs-trust-slider__controls" aria-label="Trust slider controls">
-        <button class="sgs-trust-slider__arrow" type="button" data-trust-prev aria-label="Previous trust item">&lsaquo;</button>
-        <div class="sgs-trust-slider__dots" aria-label="Trust slides">
-          <?php for ($i = 0; $i < 4; $i++) : ?>
-            <button class="sgs-trust-slider__dot" type="button" data-trust-dot aria-label="<?php echo esc_attr(sprintf('Go to trust item %d', $i + 1)); ?>"></button>
-          <?php endfor; ?>
+</section>
+<?php endif; ?>
+
+<!-- ============================================================ THE ATELIER -->
+<section class="border-b border-border bg-background section-y" aria-labelledby="atelier-title">
+    <div class="container grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+        <div class="order-2 lg:order-1">
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="c-eyebrow"><?php esc_html_e('The atelier', 'dawp'); ?></p>
+            <h2 id="atelier-title" class="c-title"><?php esc_html_e('One watchmaker. One watch. Start to finish.', 'dawp'); ?></h2>
+            <p class="c-lede"><?php esc_html_e('A CHRONEL is not passed down a line. A single watchmaker cases the movement, fits the dial and hands, sets the rate, and signs the certificate. It takes as long as it takes.', 'dawp'); ?></p>
+
+            <ul class="m-0 mt-10 list-none space-y-0 p-0">
+                <?php
+                $dawp_craft = [
+                    ['n' => '01', 't' => __('Cases finished by hand', 'dawp'), 'd' => __('316L steel, brushed along the lug and polished on the bevel. Each surface is worked separately.', 'dawp')],
+                    ['n' => '02', 't' => __('Movements regulated in five positions', 'dawp'), 'd' => __('Japanese automatic calibres, timed over 72 hours before the case back is closed.', 'dawp')],
+                    ['n' => '03', 't' => __('Sealed, numbered, recorded', 'dawp'), 'd' => __('Gaskets seated, pressure tested, serial engraved and entered in the atelier register.', 'dawp')],
+                ];
+                foreach ($dawp_craft as $step) : ?>
+                    <li class="flex gap-6 border-t border-border py-6">
+                        <span class="shrink-0 font-heading text-h3 text-accent"><?php echo esc_html($step['n']); ?></span>
+                        <span>
+                            <span class="block text-body text-foreground"><?php echo esc_html($step['t']); ?></span>
+                            <span class="mt-1 block text-body-sm text-foreground-muted"><?php echo esc_html($step['d']); ?></span>
+                        </span>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
-        <button class="sgs-trust-slider__arrow" type="button" data-trust-next aria-label="Next trust item">&rsaquo;</button>
-      </div>
-    </div>
 
-    <div class="sgs-about">
-      <h2>Patriotic Apparel And Gifts Made For American Pride</h2>
-      <p>ShopGraphicshirt is a patriotic apparel and custom gift brand created for proud Americans who want meaningful products that carry classic style and American pride.</p>
-      <a href="/about-us/" class="sgs-btn sgs-btn--secondary">Learn More →</a>
+        <div class="order-1 lg:order-2">
+            <div class="border border-border bg-surface-alt">
+                <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.svg')); ?>"
+                     alt="<?php esc_attr_e('A watchmaker\'s bench with a loupe, tweezers, and a movement in its holder', 'dawp'); ?>"
+                     width="640" height="480" loading="lazy" decoding="async" class="w-full">
+            </div>
+        </div>
     </div>
+</section>
 
-    <div class="sgs-newsletter">
-      <div>
-        <h2>Get New Patriotic Drops And Gift Ideas</h2>
-      </div>
-      <form class="sgs-newsletter__form" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for signing up!');">
-        <label class="sr-only" for="sgs-hm-email">Email</label>
-        <input id="sgs-hm-email" type="email" placeholder="Enter your email" required>
-        <button class="sgs-btn sgs-btn--primary" type="submit">Sign Up</button>
-      </form>
+<!-- ============================================================ THE MOVEMENT (deep section) -->
+<section id="movement" class="bg-ink text-on-ink section-y" aria-labelledby="movement-title">
+    <div class="container grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+        <div>
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.svg')); ?>"
+                 alt="<?php esc_attr_e('The calibre CH-01 Japanese automatic movement', 'dawp'); ?>"
+                 width="480" height="480" loading="lazy" decoding="async"
+                 class="mx-auto w-full max-w-[420px]">
+        </div>
+
+        <div>
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="text-eyebrow font-medium uppercase tracking-wide text-accent"><?php esc_html_e('Calibre CH-01', 'dawp'); ?></p>
+            <h2 id="movement-title" class="mt-4 font-heading text-h2 font-light leading-[1.05] text-on-ink"><?php esc_html_e('A Japanese heart, set by American hands.', 'dawp'); ?></h2>
+            <p class="mt-6 max-w-lg text-body-sm text-on-ink-muted"><?php esc_html_e('We import our automatic movements from Japan, where they are built to a tolerance we could not better. Everything after that happens here: inspection, regulation, casing, and the final 72-hour test on the timing machine.', 'dawp'); ?></p>
+
+            <dl class="mt-10 grid grid-cols-2 gap-px border border-border-ink bg-border-ink sm:grid-cols-3">
+                <?php
+                $dawp_specs = [
+                    ['t' => __('Type', 'dawp'), 'v' => __('Automatic', 'dawp')],
+                    ['t' => __('Jewels', 'dawp'), 'v' => __('24', 'dawp')],
+                    ['t' => __('Frequency', 'dawp'), 'v' => __('28,800 vph', 'dawp')],
+                    ['t' => __('Power reserve', 'dawp'), 'v' => __('~40 hours', 'dawp')],
+                    ['t' => __('Crystal', 'dawp'), 'v' => __('Sapphire', 'dawp')],
+                    ['t' => __('Case', 'dawp'), 'v' => __('316L steel', 'dawp')],
+                ];
+                foreach ($dawp_specs as $spec) : ?>
+                    <div class="bg-ink p-5">
+                        <dt class="text-eyebrow uppercase tracking-wide text-on-ink-muted"><?php echo esc_html($spec['t']); ?></dt>
+                        <dd class="m-0 mt-2 font-heading text-h3 text-on-ink"><?php echo esc_html($spec['v']); ?></dd>
+                    </div>
+                <?php endforeach; ?>
+            </dl>
+        </div>
     </div>
-  </div>
+</section>
 
+<!-- ============================================================ BESPOKE -->
+<section class="border-b border-border bg-background section-y" aria-labelledby="bespoke-title">
+    <div class="container">
+        <div class="grid items-center gap-10 border border-border bg-surface-alt p-10 lg:grid-cols-[1fr_auto] lg:gap-16 lg:p-20">
+            <div class="max-w-2xl">
+                <span class="c-rule" aria-hidden="true"></span>
+                <p class="c-eyebrow"><?php esc_html_e('Bespoke', 'dawp'); ?></p>
+                <h2 id="bespoke-title" class="c-title"><?php esc_html_e('A watch built to your specification, one at a time.', 'dawp'); ?></h2>
+                <p class="c-lede"><?php esc_html_e('Case finish, bezel, dial colour, hand set, engraving. Decided with the atelier, then assembled over twelve weeks. There is no configurator here — every commission begins with a conversation.', 'dawp'); ?></p>
+            </div>
+            <div class="shrink-0">
+                <a class="c-btn" href="<?php echo esc_url(home_url('/custom/')); ?>"><?php esc_html_e('Begin an enquiry', 'dawp'); ?></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ SERVICE -->
+<section class="bg-background pb-20 lg:pb-32" aria-labelledby="service-title">
+    <div class="container">
+        <div class="mb-12 max-w-xl">
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="c-eyebrow"><?php esc_html_e('Ownership', 'dawp'); ?></p>
+            <h2 id="service-title" class="c-title"><?php esc_html_e('What comes with the watch.', 'dawp'); ?></h2>
+        </div>
+
+        <ul class="m-0 grid list-none grid-cols-1 gap-px border border-border bg-border p-0 sm:grid-cols-2 lg:grid-cols-4">
+            <?php
+            $dawp_assurances = [
+                ['t' => __('Five-year warranty', 'dawp'), 'd' => __('Full movement cover from the day your watch is delivered.', 'dawp')],
+                ['t' => __('Lifetime service', 'dawp'), 'd' => __('We service your watch at cost for as long as you own it.', 'dawp')],
+                ['t' => __('Insured delivery', 'dawp'), 'd' => __('Complimentary, signature required, insured for full value.', 'dawp')],
+                ['t' => __('30-day return', 'dawp'), 'd' => __('Return an unworn watch in its original condition within 30 days.', 'dawp')],
+            ];
+            foreach ($dawp_assurances as $item) : ?>
+                <li class="bg-background p-8">
+                    <span class="block h-px w-8 bg-accent" aria-hidden="true"></span>
+                    <span class="mt-6 block font-heading text-h3 leading-none text-foreground"><?php echo esc_html($item['t']); ?></span>
+                    <span class="mt-3 block text-body-sm text-foreground-muted"><?php echo esc_html($item['d']); ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+
+        <p class="mt-8 text-caption text-muted">
+            <?php esc_html_e('Full terms on the', 'dawp'); ?>
+            <a class="text-accent-deep underline underline-offset-4" href="<?php echo esc_url(home_url('/service-warranty/')); ?>"><?php esc_html_e('Service & Warranty page', 'dawp'); ?></a>.
+        </p>
+    </div>
 </section>

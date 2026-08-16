@@ -1,10 +1,11 @@
 <?php
-add_action('after_setup_theme', 'dawp_setup');
-add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
+/**
+ * Theme setup, asset loading, and small platform tweaks.
+ */
 
-function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SGS-' . $order_id;
-}
+defined('ABSPATH') || exit;
+
+add_action('after_setup_theme', 'dawp_setup');
 function dawp_setup() {
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -12,104 +13,151 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
+    add_theme_support('html5', ['search-form', 'gallery', 'caption', 'style', 'script']);
+}
+
+add_filter('woocommerce_order_number', 'dawp_woocommerce_order_prefix', 10, 2);
+function dawp_woocommerce_order_prefix($order_id, $order) {
+    return 'CHR-' . $order_id;
+}
+
+/**
+ * Cache-busting version for a theme-relative asset.
+ */
+function dawp_asset_version($relative_path) {
+    $path = get_template_directory() . '/' . ltrim($relative_path, '/');
+
+    return file_exists($path) ? (string) filemtime($path) : '1.0.0';
+}
+
+function dawp_asset_uri($relative_path) {
+    return get_template_directory_uri() . '/' . ltrim($relative_path, '/');
 }
 
 add_action('wp_head', 'dawp_site_favicon', 1);
 function dawp_site_favicon() {
-    $favicon_url = get_template_directory_uri() . '/assets/img/favicon.svg';
+    $favicon_url = dawp_asset_uri('assets/img/favicon.svg');
     ?>
     <link rel="icon" href="<?php echo esc_url($favicon_url); ?>" type="image/svg+xml" sizes="any">
     <link rel="shortcut icon" href="<?php echo esc_url($favicon_url); ?>" type="image/svg+xml">
+    <meta name="theme-color" content="#14140F">
     <?php
 }
 
-add_action('template_redirect', 'redirect_search_to_product');
-function redirect_search_to_product() {
-    // Chỉ xử lý khi là trang search và chưa có post_type
+add_action('template_redirect', 'dawp_redirect_search_to_product');
+function dawp_redirect_search_to_product() {
     if (is_search() && !isset($_GET['post_type'])) {
-        wp_safe_redirect(
-            add_query_arg('post_type', 'product', $_SERVER['REQUEST_URI'])
-        );
+        wp_safe_redirect(add_query_arg('post_type', 'product', $_SERVER['REQUEST_URI']));
         exit;
     }
 }
-add_filter('template_include', 'theme_search_template');
-function theme_search_template($template) {
+
+add_filter('template_include', 'dawp_search_template');
+function dawp_search_template($template) {
     if (is_search() && get_query_var('post_type') === 'product') {
-        $new_template = locate_template(array('woocommerce/archive-product.php'));
+        $new_template = locate_template(['woocommerce/archive-product.php']);
+
         if ($new_template) {
             return $new_template;
         }
     }
+
     return $template;
 }
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.7');
+    // Typography — Cormorant Garamond (display serif) + Jost (UI sans).
+    wp_enqueue_style(
+        'dawp-fonts',
+        'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap',
+        [],
+        null
+    );
 
-    wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
+    wp_enqueue_style('dawp-main', dawp_asset_uri('assets/css/main.css'), ['dawp-fonts'], dawp_asset_version('assets/css/main.css'));
+    wp_enqueue_style('dawp-tw-main', dawp_asset_uri('assets/css/tw/tw-main.css'), ['dawp-main'], dawp_asset_version('assets/css/tw/tw-main.css'));
 
-    if ( is_404() ) {
-        wp_enqueue_style('dawp-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', ['dawp-tw-main'], '1.0.3');
+    if (is_404()) {
+        wp_enqueue_style('dawp-404', dawp_asset_uri('assets/css/tw/tw-404.css'), ['dawp-tw-main'], dawp_asset_version('assets/css/tw/tw-404.css'));
     }
 
-    if ( is_front_page() ) {
-        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/home.css', [], '1.0.1');
-        dawp_remove_styles();
+    if (is_front_page()) {
+        wp_enqueue_style('dawp-tw-home', dawp_asset_uri('assets/css/tw/tw-home.css'), ['dawp-tw-main'], dawp_asset_version('assets/css/tw/tw-home.css'));
+        wp_enqueue_style('dawp-home', dawp_asset_uri('assets/css/home.css'), ['dawp-tw-home'], dawp_asset_version('assets/css/home.css'));
+        dawp_remove_block_styles();
     }
-    
-    if ( class_exists( 'WooCommerce' ) ) {
-        if ( function_exists( 'is_account_page' ) && is_account_page() ) {
-            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', ['dawp-main'], '1.0.8');
-            dawp_remove_styles();
-        } elseif ( is_product() ) {
-            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.9');
-            dawp_remove_styles();
-        } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', ['dawp-main'], '1.0.9');
-            dawp_remove_styles();
-        } elseif ( is_checkout() ) {
-            wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.6');
-        } elseif ( is_woocommerce()  ) {
-            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.8');
-            dawp_remove_styles();
+
+    if (class_exists('WooCommerce')) {
+        $woo_sheets = [];
+
+        if (function_exists('is_account_page') && is_account_page()) {
+            $woo_sheets[] = 'account.css';
+        } elseif (is_product()) {
+            $woo_sheets[] = 'product.css';
+        } elseif (is_cart()) {
+            $woo_sheets[] = 'cart.css';
+        } elseif (is_checkout()) {
+            $woo_sheets[] = 'checkout.css';
+        } elseif (is_woocommerce()) {
+            $woo_sheets[] = 'shop.css';
+        }
+
+        foreach ($woo_sheets as $sheet) {
+            wp_enqueue_style(
+                'dawp-' . basename($sheet, '.css'),
+                dawp_asset_uri('assets/css/' . $sheet),
+                ['dawp-main'],
+                dawp_asset_version('assets/css/' . $sheet)
+            );
+        }
+
+        if ($woo_sheets) {
+            dawp_remove_block_styles();
         }
     }
 
-    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.7', true);
+    wp_enqueue_script('dawp-main', dawp_asset_uri('assets/js/main.js'), [], dawp_asset_version('assets/js/main.js'), true);
     wp_localize_script('dawp-main', 'dawpAjax', [
         'url'          => admin_url('admin-ajax.php'),
         'nonce'        => wp_create_nonce('dawp_newsletter_nonce'),
         'contactNonce' => wp_create_nonce('dawp_contact_nonce'),
     ]);
-
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
 }
 
-function dawp_remove_styles() {
-    wp_dequeue_style( 'wc-blocks-style' );
-    // wp_dequeue_style( 'photoswipe-default-skin' );
-    wp_dequeue_style( 'wc-blocks-style' );
-    wp_dequeue_style( 'wc-blocks-vendors-style' );
-    wp_dequeue_style( 'wc-block-style' );
-    wp_dequeue_style( 'wc-blocks-packages-style' );
+add_action('wp_head', 'dawp_preconnect_fonts', 0);
+function dawp_preconnect_fonts() {
+    ?>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <?php
+}
 
-    wp_deregister_style( 'wc-blocks-style' );
-    wp_deregister_style( 'wc-blocks-vendors-style' );
-    wp_deregister_style( 'wc-block-style' );
-    wp_deregister_style( 'wc-blocks-packages-style' );
+/**
+ * WooCommerce block stylesheets fight the theme's own CSS on pages we fully control.
+ */
+function dawp_remove_block_styles() {
+    $handles = [
+        'wc-blocks-style',
+        'wc-blocks-vendors-style',
+        'wc-block-style',
+        'wc-blocks-packages-style',
+        'wc-blocks-cart-block-style',
+        'wc-blocks-style-cart',
+    ];
 
-    wp_dequeue_style( 'wc-blocks-cart-block-style' );
-    wp_deregister_style( 'wc-blocks-cart-block-style' );
-    
-    // Một số version dùng handle khác:
-    wp_dequeue_style( 'wc-blocks-style-cart' );
-    wp_deregister_style( 'wc-blocks-style-cart' );
+    foreach ($handles as $handle) {
+        wp_dequeue_style($handle);
+        wp_deregister_style($handle);
+    }
+
     global $wp_styles;
-    
-    if ( ! is_object( $wp_styles ) ) return;
-    $blocked_files = array(
+
+    if (!is_object($wp_styles)) {
+        return;
+    }
+
+    $blocked_files = [
         '/blocks/cart.css',
         '/blocks/checkout.css',
         '/blocks/all-products.css',
@@ -123,13 +171,13 @@ function dawp_remove_styles() {
         '/blocks/featured-category.css',
         '/blocks/product-categories.css',
         '/blocks/reviews.css',
-    );
-    
-    foreach ( $wp_styles->registered as $handle => $style ) {
-        foreach ( $blocked_files as $file ) {
-            if ( strpos( $style->src, $file ) !== false ) {
-                wp_dequeue_style( $handle );
-                wp_deregister_style( $handle );
+    ];
+
+    foreach ($wp_styles->registered as $handle => $style) {
+        foreach ($blocked_files as $file) {
+            if (!empty($style->src) && strpos($style->src, $file) !== false) {
+                wp_dequeue_style($handle);
+                wp_deregister_style($handle);
             }
         }
     }

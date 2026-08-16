@@ -1,22 +1,29 @@
 <?php
+/**
+ * WooCommerce behaviour tweaks and the extra blocks shown on a single product.
+ */
+
+defined('ABSPATH') || exit;
+
 remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 add_filter('woocommerce_show_page_title', '__return_false');
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
 
-add_filter('loop_shop_columns', function() { return 3; });
-add_filter('loop_shop_per_page', function() { return 12; });
+add_filter('loop_shop_columns', function () { return 4; });
+add_filter('loop_shop_per_page', function () { return 12; });
 
-// Disable all default WooCommerce CSS
+// The theme ships its own complete stylesheets.
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
-add_action('woocommerce_single_product_summary', 'dawp_single_product_trust_badges', 31);
-add_action('woocommerce_after_single_product_summary', 'dawp_single_product_pride_banner', 8);
+add_action('woocommerce_single_product_summary', 'dawp_single_product_assurances', 31);
+add_action('woocommerce_after_single_product_summary', 'dawp_single_product_atelier_banner', 8);
 
-// Route the single-product gallery (no theme template override exists for it) through the
-// i0.wp.com CDN, matching the shop grid. Filters are added/removed tightly around the gallery
-// render only, so they don't also catch the unrelated `dawp_product_responsive_image()` calls
-// used by the related-products loop further down the same page.
+/**
+ * Route the single-product gallery through the image CDN, matching the shop grid.
+ * Filters are added and removed tightly around the gallery render only, so they do not
+ * also catch the `dawp_product_responsive_image()` calls used by related products below.
+ */
 add_action('woocommerce_before_single_product_summary', 'dawp_product_gallery_cdn_filters_on', 19);
 add_action('woocommerce_before_single_product_summary', 'dawp_product_gallery_cdn_filters_off', 21);
 
@@ -78,32 +85,40 @@ function dawp_product_gallery_cdn_image_srcset($sources) {
 
 function dawp_product_icon($path, $label = '') {
     return sprintf(
-        '<svg class="dawp-product-icon" viewBox="0 0 24 24" aria-hidden="%1$s" role="img">%2$s</svg>',
+        '<svg class="dawp-product-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="%1$s" role="img">%2$s</svg>',
         $label ? 'false' : 'true',
         $path
     );
 }
 
-function dawp_single_product_trust_badges() {
-    $badges = array(
-        array(
-            'icon' => '<path d="M12 3l7 3v5c0 4.5-2.9 8.5-7 10-4.1-1.5-7-5.5-7-10V6l7-3z"/><path d="M8.8 12.1l2.1 2.1 4.5-5"/>',
-            'title' => __('Proudly American Style', 'dawp'),
-            'copy' => __('Red, white, and blue designs made for everyday pride.', 'dawp'),
-        ),
-        array(
-            'icon' => '<path d="M4 7h10v10H4z"/><path d="M14 10h3l3 3v4h-6z"/><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M17 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>',
-            'title' => __('Free Shipping $49+', 'dawp'),
-            'copy' => __('Free U.S. shipping on orders over $49, packed with care.', 'dawp'),
-        ),
-        array(
-            'icon' => '<path d="M12 2l2.7 6.1 6.6.6-5 4.4 1.5 6.5L12 16.2 6.2 19.6l1.5-6.5-5-4.4 6.6-.6L12 2z"/>',
-            'title' => __('Gift-Ready Favorite', 'dawp'),
-            'copy' => __('A meaningful pick for families and proud Americans.', 'dawp'),
-        ),
-    );
+/**
+ * The four assurances shown under the add-to-cart form.
+ */
+function dawp_single_product_assurances() {
+    $badges = [
+        [
+            'icon'  => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+            'title' => __('Japanese automatic movement', 'dawp'),
+            'copy'  => __('24 jewels, 28,800 vph, regulated in five positions.', 'dawp'),
+        ],
+        [
+            'icon'  => '<path d="M12 3l7 3v5c0 4.3-2.9 8.2-7 9.6C7.9 19.2 5 15.3 5 11V6l7-3z"/><path d="M9 12l2 2 4-4.5"/>',
+            'title' => __('Five-year movement warranty', 'dawp'),
+            'copy'  => __('Backed by our lifetime service programme.', 'dawp'),
+        ],
+        [
+            'icon'  => '<path d="M3 8h11v8H3z"/><path d="M14 11h4l3 3v2h-7z"/><circle cx="7" cy="18.5" r="1.8"/><circle cx="17" cy="18.5" r="1.8"/>',
+            'title' => __('Insured delivery, included', 'dawp'),
+            'copy'  => __('Signature required, fully insured across the United States.', 'dawp'),
+        ],
+        [
+            'icon'  => '<path d="M12 3l2.4 5.4 5.6.6-4.2 3.9 1.2 5.6L12 15.7 6.9 18.5l1.2-5.6L4 9l5.6-.6z"/>',
+            'title' => __('Individually numbered', 'dawp'),
+            'copy'  => __('Serial engraved on the case back and recorded on the certificate.', 'dawp'),
+        ],
+    ];
     ?>
-    <section class="dawp-product-trust" aria-label="<?php esc_attr_e('Product trust highlights', 'dawp'); ?>">
+    <section class="dawp-product-trust" aria-label="<?php esc_attr_e('Ownership assurances', 'dawp'); ?>">
         <?php foreach ($badges as $badge) : ?>
             <div class="dawp-product-trust__item">
                 <span class="dawp-product-trust__icon"><?php echo dawp_product_icon($badge['icon']); ?></span>
@@ -117,18 +132,21 @@ function dawp_single_product_trust_badges() {
     <?php
 }
 
-function dawp_single_product_pride_banner() {
+/**
+ * A quiet atelier band below the product summary.
+ */
+function dawp_single_product_atelier_banner() {
     ?>
-    <section class="dawp-pride-banner" aria-label="<?php esc_attr_e('American pride product message', 'dawp'); ?>">
-        <div class="dawp-pride-banner__emblem" aria-hidden="true">
-            <span>★</span>
+    <section class="dawp-atelier-banner" aria-label="<?php esc_attr_e('About the atelier', 'dawp'); ?>">
+        <div class="dawp-atelier-banner__figure" aria-hidden="true">
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.svg')); ?>" alt="" width="480" height="480" loading="lazy" decoding="async">
         </div>
-        <div class="dawp-pride-banner__content">
-            <p><?php esc_html_e('American Pride Collection', 'dawp'); ?></p>
-            <h2><?php esc_html_e('Wear the colors. Carry the pride.', 'dawp'); ?></h2>
-            <small><?php esc_html_e('Patriotic shirts and gifts made for proud everyday moments.', 'dawp'); ?></small>
+        <div class="dawp-atelier-banner__content">
+            <p class="dawp-atelier-banner__eyebrow"><?php esc_html_e('Calibre CH-01', 'dawp'); ?></p>
+            <h2><?php esc_html_e('Assembled by one watchmaker, start to finish.', 'dawp'); ?></h2>
+            <p><?php esc_html_e('Every movement is cased, timed, and inspected by the same hands. Nothing leaves the atelier until it holds its rate across five positions.', 'dawp'); ?></p>
+            <a class="dawp-atelier-banner__link" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('Inside the atelier', 'dawp'); ?></a>
         </div>
     </section>
     <?php
 }
-

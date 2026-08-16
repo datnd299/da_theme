@@ -1,47 +1,93 @@
 <?php
+/**
+ * CHRONEL collections — the four product categories plus their presentation data.
+ * See .plans/site.md §2.
+ */
+
 defined('ABSPATH') || exit;
 
 function dawp_product_category_definitions() {
     return [
-        'best-sellers' => [
-            'name'        => __('Best Sellers', 'dawp'),
-            'description' => __('Customer-favorite patriotic apparel and gifts made for classic American pride.', 'dawp'),
+        'the-meridian' => [
+            'name'        => __('The Meridian', 'dawp'),
+            'description' => __('The everyday dress watch. A fluted bezel, a sunburst dial, and a date at three. Hand-assembled in 316L steel around a Japanese automatic movement.', 'dawp'),
         ],
-        'american-flag-tees' => [
-            'name'        => __('American Flag Tees', 'dawp'),
-            'description' => __('Graphic tees with bold American flag designs, distressed prints, and eagle graphics.', 'dawp'),
+        'the-abyss' => [
+            'name'        => __('The Abyss', 'dawp'),
+            'description' => __('The dive watch. A 60-minute rotating bezel, luminous markers, and 200 metres of water resistance. Built for depth, finished by hand.', 'dawp'),
         ],
-        'bomber-jackets' => [
-            'name'        => __('Bomber Jackets', 'dawp'),
-            'description' => __('MA-1 style bomber jackets with flag patches and custom name options.', 'dawp'),
+        'the-sovereign' => [
+            'name'        => __('The Sovereign', 'dawp'),
+            'description' => __('The statement piece. Day and date, a champagne dial, and a five-link bracelet finished entirely by hand in our atelier.', 'dawp'),
         ],
-        'hats-beanies' => [
-            'name'        => __('Hats & Beanies', 'dawp'),
-            'description' => __('Snapbacks, dad hats, and beanies with patriotic patchwork.', 'dawp'),
+        'the-aviator' => [
+            'name'        => __('The Aviator', 'dawp'),
+            'description' => __('The pilot\'s watch. A 24-hour scale, a second time zone hand, and a deep blue dial. Made for those who keep two clocks.', 'dawp'),
         ],
-        'premium-t-shirts' => [
-            'name'        => __('Premium T-Shirts', 'dawp'),
-            'description' => __('Heavy-weight cotton tees with vintage-style American pride prints.', 'dawp'),
+        'limited-editions' => [
+            'name'        => __('Limited Editions', 'dawp'),
+            'description' => __('Numbered series, produced once. Each piece carries its own serial and is retired when the run closes.', 'dawp'),
         ],
-        'patches-pins' => [
-            'name'        => __('Patches & Pins', 'dawp'),
-            'description' => __('Patriotic patches, pins, mugs, and daily carry gifts for American heritage.', 'dawp'),
+    ];
+}
+
+/**
+ * Presentation data for the four headline collections.
+ * Order here is the order shown across the site.
+ */
+function dawp_collections() {
+    return [
+        [
+            'slug'      => 'the-meridian',
+            'name'      => __('The Meridian', 'dawp'),
+            'kicker'    => __('Collection 01', 'dawp'),
+            'tagline'   => __('The everyday dress watch', 'dawp'),
+            'summary'   => __('A fluted bezel, a sunburst dial, and a date at three. Restrained enough for a cuff, precise enough to live by.', 'dawp'),
+            'image'     => 'assets/img/watches/meridian.svg',
+            'specs'     => [
+                __('39mm 316L steel case', 'dawp'),
+                __('Sunburst silver dial', 'dawp'),
+                __('100m water resistance', 'dawp'),
+            ],
         ],
-        'america-250' => [
-            'name'        => __('America 250 Collection', 'dawp'),
-            'description' => __('Celebrate America\'s 250th Anniversary with patriotic apparel, accessories, and meaningful gifts.', 'dawp'),
+        [
+            'slug'      => 'the-abyss',
+            'name'      => __('The Abyss', 'dawp'),
+            'kicker'    => __('Collection 02', 'dawp'),
+            'tagline'   => __('The dive watch', 'dawp'),
+            'summary'   => __('A 60-minute rotating bezel and luminous markers that hold their glow through a long night dive.', 'dawp'),
+            'image'     => 'assets/img/watches/abyss.svg',
+            'specs'     => [
+                __('41mm 316L steel case', 'dawp'),
+                __('Unidirectional dive bezel', 'dawp'),
+                __('200m water resistance', 'dawp'),
+            ],
         ],
-        'fathers-day-gifts' => [
-            'name'        => __('Father\'s Day Gifts', 'dawp'),
-            'description' => __('Meaningful Father\'s Day gifts for husbands, dads, grandfathers, and proud families.', 'dawp'),
+        [
+            'slug'      => 'the-sovereign',
+            'name'      => __('The Sovereign', 'dawp'),
+            'kicker'    => __('Collection 03', 'dawp'),
+            'tagline'   => __('The statement piece', 'dawp'),
+            'summary'   => __('Day and date, a champagne dial, and a five-link bracelet that closes without a sound.', 'dawp'),
+            'image'     => 'assets/img/watches/sovereign.svg',
+            'specs'     => [
+                __('40mm gold-finished case', 'dawp'),
+                __('Day and date display', 'dawp'),
+                __('Five-link bracelet', 'dawp'),
+            ],
         ],
-        'memorial-day-gifts' => [
-            'name'        => __('Memorial Day Gifts', 'dawp'),
-            'description' => __('Respectful patriotic gifts and apparel for remembrance, family legacy, and American pride.', 'dawp'),
-        ],
-        'independence-day-gifts' => [
-            'name'        => __('Independence Day Gifts', 'dawp'),
-            'description' => __('Red, white, and blue apparel, accessories, and custom gifts for proud American celebrations.', 'dawp'),
+        [
+            'slug'      => 'the-aviator',
+            'name'      => __('The Aviator', 'dawp'),
+            'kicker'    => __('Collection 04', 'dawp'),
+            'tagline'   => __('The pilot\'s watch', 'dawp'),
+            'summary'   => __('A 24-hour scale and an independent second time zone hand, for those who keep two clocks.', 'dawp'),
+            'image'     => 'assets/img/watches/aviator.svg',
+            'specs'     => [
+                __('42mm 316L steel case', 'dawp'),
+                __('Second time zone hand', 'dawp'),
+                __('Deep blue lacquer dial', 'dawp'),
+            ],
         ],
     ];
 }
@@ -64,17 +110,25 @@ function dawp_product_category_url($slug) {
     return home_url('/product-category/' . $slug . '/');
 }
 
+/**
+ * Legacy paths from the previous brand, kept so old links do not 404.
+ */
 function dawp_product_category_redirects() {
     return [
-        'best-sellers' => 'best-sellers',
-        'flag' => 'american-flag-tees',
-        'hoodie' => 'premium-t-shirts',
-        'jacket' => 'bomber-jackets',
-        't-shirt' => 'premium-t-shirts',
-        'cap' => 'hats-beanies',
-        'fathers-day' => 'fathers-day-gifts',
-        'memorial-day' => 'memorial-day-gifts',
-        'independence-day' => 'independence-day-gifts',
+        'best-sellers'            => 'the-meridian',
+        'american-flag-tees'      => 'the-meridian',
+        'bomber-jackets'          => 'the-aviator',
+        'hats-beanies'            => 'the-meridian',
+        'premium-t-shirts'        => 'the-meridian',
+        'patches-pins'            => 'limited-editions',
+        'america-250'             => 'limited-editions',
+        'fathers-day-gifts'       => 'the-sovereign',
+        'memorial-day-gifts'      => 'the-sovereign',
+        'independence-day-gifts'  => 'the-sovereign',
+        'meridian'                => 'the-meridian',
+        'abyss'                   => 'the-abyss',
+        'sovereign'               => 'the-sovereign',
+        'aviator'                 => 'the-aviator',
     ];
 }
 
@@ -110,7 +164,7 @@ function dawp_seed_product_categories() {
     }
 
     $seeded_version = get_option('dawp_seeded_product_categories_version');
-    $target_version = '2026-07-15-link-fixes';
+    $target_version = 'chronel-2026-08-collections';
 
     if ($seeded_version === $target_version) {
         return;

@@ -1,44 +1,69 @@
 @import "tailwindcss";
 
+/* =============================================================
+   CHRONEL — theme tokens (single source of truth)
+   Direction: Ivory + Champagne Gold. See .plans/design_system.md
+   ============================================================= */
+
 @theme {
   /* === COLORS — Backgrounds === */
-  --color-background:  #FFFFFF;   /* Warm White */
-  --color-surface:     #FAF7F2;   /* Soft Cream */
-  --color-surface-alt: #F5F3F1;   /* Soft Gray */
+  --color-background:  #FAF8F4;   /* Ivory — page ground */
+  --color-surface:     #FFFFFF;   /* Cards, inputs */
+  --color-surface-alt: #F2EEE6;   /* Warm sand — bands, hover */
+  --color-ink:         #14140F;   /* Deep narrative sections, footer */
+  --color-ink-soft:    #1F1F1A;   /* Raised areas inside deep sections */
 
   /* === COLORS — Text === */
-  --color-foreground:        #2F2A28;
-  --color-foreground-muted:  #6F625D;
-  --color-muted:             #9A8C86;
+  --color-foreground:       #1A1A18;
+  --color-foreground-muted: #6E6A63;
+  --color-muted:            #9A9389;
+  --color-on-ink:           #F4F1EA;
+  --color-on-ink-muted:     #A39D92;
 
-  /* === COLORS — Brand === */
-  --color-accent:       #C98A8A;  /* Dusty Rose */
-  --color-accent-hover: #B87575;
-  --color-accent-soft:  #E8D8C8;  /* Soft Beige */
-  --color-accent-blush: #DFA39A;  /* Warm Blush */
+  /* === COLORS — Brand (champagne gold) === */
+  --color-accent:       #B08D4F;
+  --color-accent-hover: #96763C;
+  --color-accent-soft:  #E8DCC4;
+  --color-accent-deep:  #7A5F2E;  /* gold used as TEXT on light grounds */
 
   /* === COLORS — UI === */
-  --color-border:   #E6DDD6;
-  --color-alert:    #C0392B;
-  --color-success:  #5C8A6A;
+  --color-border:        #E3DDD2;
+  --color-border-strong: #C9C0B1;
+  --color-border-ink:    #2C2C25;
+  --color-alert:         #A33A2A;
+  --color-success:       #4A6B4F;
+
+  /* === TYPOGRAPHY === */
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans:    'Jost', 'Inter', system-ui, -apple-system, sans-serif;
+
+  --text-display:    clamp(2.75rem, 1.6rem + 5.2vw, 6rem);
+  --text-h1:         clamp(2.25rem, 1.5rem + 3.2vw, 4rem);
+  --text-h2:         clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  --text-h3:         clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --text-body:       clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  --text-body-sm:    clamp(0.9375rem, 0.92rem + 0.1vw, 1rem);
+  --text-caption:    clamp(0.8125rem, 0.8rem + 0.08vw, 0.875rem);
+  --text-eyebrow:    0.6875rem;
+
+  --tracking-brand: 0.42em;
+  --tracking-wide:  0.22em;
+  --tracking-tight: -0.02em;
 
   /* === BORDER RADIUS === */
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
+  --radius-sm:   2px;
+  --radius-md:   3px;
+  --radius-lg:   4px;
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card:       0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
-
-  /* === TYPOGRAPHY === */
-  --font-sans:    'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Playfair Display', 'Georgia', serif;
+  --shadow-card:       0 1px 2px rgba(26, 26, 24, 0.04);
+  --shadow-card-hover: 0 12px 40px rgba(26, 26, 24, 0.10);
+  --shadow-ink:        0 24px 60px rgba(20, 20, 15, 0.28);
 
   /* === TRANSITIONS === */
-  --ease-fluid:      cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast:   150ms;
-  --duration-normal: 250ms;
-  --duration-slow:   400ms;
+  --ease-fluid:      cubic-bezier(0.22, 0.61, 0.36, 1);
+  --duration-fast:   180ms;
+  --duration-normal: 400ms;
+  --duration-slow:   700ms;
 }

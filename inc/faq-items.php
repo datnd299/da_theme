@@ -1,41 +1,65 @@
 <?php
 /**
- * Shared FAQ content for the FAQ page and JSON-LD schema.
+ * Shared FAQ content for the FAQ page and its JSON-LD schema.
+ * Grouped by 'group' so the FAQ page can render sections.
  */
 
-if (!defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') || exit;
 
 if (!function_exists('dawp_get_faq_items')) {
     function dawp_get_faq_items() {
         return [
-            ['question' => 'Where can I buy ShopGraphicshirt products?', 'answer' => 'Products shown on ShopGraphicshirt are available for direct purchase through our online store. Add available items to your cart and complete checkout securely on the website.'],
-            ['question' => 'Where do you ship?', 'answer' => 'ShopGraphicshirt currently ships exclusively within the United States. If a product, address, or carrier limitation prevents delivery to your location, you will be notified at checkout before payment is completed.'],
-            ['question' => 'How much does shipping cost?', 'answer' => 'Standard U.S. shipping is free on all orders over $49. Orders under $49 have a flat shipping fee shown at checkout. Optional upgraded shipping, when available, will show its exact cost at checkout before you pay.'],
-            ['question' => 'How long does delivery take?', 'answer' => 'Orders are processed in 1-3 business days after purchase. Standard transit usually takes 5-7 business days, so the estimated delivery window is 6-10 business days total from the purchase date.'],
-            ['question' => 'What is your order cutoff time?', 'answer' => 'Our order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time. Orders placed after the cutoff begin processing on the following business day.'],
-            ['question' => 'How do I track my order?', 'answer' => 'After your order ships, we send a shipping confirmation email with a tracking link and carrier details. You can also use the <a href="/track-order/">Track Order page</a> with your order information.'],
-            ['question' => 'Why did I receive multiple tracking numbers?', 'answer' => 'Orders containing multiple apparel pieces, hats, accessories, or custom gifts may ship separately from different fulfillment batches. Each shipment will have its own tracking number.'],
-            ['question' => 'Can I cancel or change my order after checkout?', 'answer' => 'Please contact us as soon as possible if you need to request a change or cancellation. We cannot guarantee changes after an order has entered processing, shipment preparation, or carrier handoff.'],
-            ['question' => 'When is my order officially accepted?', 'answer' => 'Your order is accepted when our automated system sends a confirmation email to the address provided at checkout. We may refuse, limit, or cancel an order for reasons such as suspected payment fraud, stock discrepancies, pricing errors, or production limitations. If a paid order is canceled by us, the refund is processed to the original payment method.'],
-            ['question' => 'Will my printed item look exactly like the product mockup?', 'answer' => 'Because graphic shirts and apparel products may be made to order, minor variations in ink placement, scaling, and color vibrancy can occur. Product images are prepared to be accurate, but final color appearance can also depend on your device and monitor settings.'],
-            ['question' => 'Can I change personalized details after placing an order?', 'answer' => 'Customers are responsible for reviewing sizing, spelling, and customization details before checkout. Once a personalized item enters the production queue, design changes may not be possible. Personalized or custom-made items are not eligible for return or exchange unless they arrive defective, damaged, incorrect, or misprinted due to our error.'],
-            ['question' => 'What should I do if my package is delayed, lost, or marked delivered but missing?', 'answer' => 'Contact customer support within 30 days of the recorded delivery date or expected delivery issue. Include your order number, checkout email address, full delivery address, and any carrier tracking details so we can investigate.'],
-            ['question' => 'What if my item arrives damaged or incorrect?', 'answer' => 'Contact us within 30 days of delivery with your order number and clear photos of the item, packaging, and shipping label. For defective, damaged, incorrect, or carrier-damaged products, we cover the return shipping cost and arrange the appropriate replacement or refund.'],
-            ['question' => 'What is your return window?', 'answer' => 'Eligible return requests must be initiated within 30 days of delivery. Items must be unworn, unused, undamaged, and returned in their original condition with packaging, tags, labels, care cards, garment bags, boxes, and included accessories.'],
-            ['question' => 'Do you charge a restocking fee?', 'answer' => 'No. ShopGraphicshirt does not charge restocking fees for eligible returns.'],
-            ['question' => 'Who pays for return shipping?', 'answer' => 'For defective, damaged, incorrect, or carrier-damaged products, ShopGraphicshirt covers return shipping and provides a prepaid label by email. For customer remorse, including wrong size, wrong color, changed mind, or does not fit, the customer is responsible for return shipping and the label cost may be deducted from the refund.'],
-            ['question' => 'When will I receive my refund?', 'answer' => 'After your return package is received, we inspect the item within 1-2 business days. If approved, the refund is issued to your original payment method within 7 business days. If you have not received a refund after 15 business days of approval, please contact us after checking with your bank or card issuer.'],
-            ['question' => 'How do I start a return?', 'answer' => 'Email us or use the <a href="/contact-us/">Contact Us page</a> within 30 days of delivery. Include your order number, checkout email, item or items you want to return, reason for return, and photos or videos if the item is damaged, defective, or incorrect. Do not ship an item back without return authorization.'],
-            ['question' => 'Do you offer exchanges?', 'answer' => 'We do not process direct one-for-one exchanges. To get a different size, color, or style, please return the original eligible item for a refund and place a new order on the website.'],
-            ['question' => 'Which items are non-returnable?', 'answer' => 'Final sale or non-returnable items, gift cards, digital products, personalized or custom-made items, certain hygiene-sensitive items with broken seals, and items worn, washed, altered, or damaged after delivery are not eligible for return.'],
-            ['question' => 'Is checkout secure?', 'answer' => 'Yes. Checkout uses SSL-protected payment transmission through WooCommerce and certified third-party payment gateways. ShopGraphicshirt does not store raw credit card numbers on local storefront servers.'],
-            ['question' => 'What payment methods are available?', 'answer' => 'Available payment methods are shown during checkout before order completion. The checkout page displays the full order cost before payment is submitted.'],
-            ['question' => 'How do you use my personal information?', 'answer' => 'We use order, device, and support information to process payments, fulfill purchases, arrange shipping, send order updates, screen transactions for risk, improve the store experience, and provide customer support according to our Privacy Policy.'],
-            ['question' => 'Do you use cookies?', 'answer' => 'Yes. We use essential cookies for cart persistence, login states, and storefront performance. You can adjust or clear cookies in your browser settings, but disabling essential cookies may prevent checkout from working properly.'],
-            ['question' => 'How can I request access, correction, or deletion of my data?', 'answer' => 'You can email <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a> to request access, correction, updates, or deletion of your personal information where applicable under privacy laws such as GDPR or CCPA.'],
-            ['question' => 'How can I contact customer support?', 'answer' => 'Reach us at <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a> or through the <a href="/contact-us/">Contact Us page</a>. Our customer service hours are Monday - Friday, 10:00 AM - 6:00 PM PST, and we typically respond within 24 business hours.'],
+            // --- The watch ---
+            ['group' => 'The Watch', 'question' => 'Who makes a CHRONEL watch?', 'answer' => 'We do. CHRONEL is an independent atelier. Every watch is assembled, regulated, and inspected by hand in the United States before it is cased and sealed.'],
+            ['group' => 'The Watch', 'question' => 'What movement is inside?', 'answer' => 'A Japanese automatic movement, imported from Japan and fitted in our atelier. It runs at 28,800 vibrations per hour, carries 24 jewels, and holds a power reserve of approximately 40 hours. We regulate every movement in five positions before delivery.'],
+            ['group' => 'The Watch', 'question' => 'Does the watch need a battery?', 'answer' => 'No. The movement is mechanical and self-winding. It draws its energy from the motion of your wrist. If the watch has been at rest, wind the crown 25 to 30 turns to restart it.'],
+            ['group' => 'The Watch', 'question' => 'How accurate is it?', 'answer' => 'Each movement leaves the atelier regulated to within -10 to +20 seconds per day under normal wear. Accuracy varies with position, temperature, and how much the watch is worn.'],
+            ['group' => 'The Watch', 'question' => 'What are the cases and crystals made of?', 'answer' => 'Cases are 316L stainless steel, hand-brushed and polished. Crystals are sapphire with an anti-reflective coating on the underside. The case back is screwed down and gasket-sealed.'],
+            ['group' => 'The Watch', 'question' => 'How water resistant are they?', 'answer' => 'The Meridian, The Sovereign, and The Aviator are rated to 100 metres. The Abyss is rated to 200 metres with a screw-down crown. Water resistance depends on intact gaskets, so have them checked at each service.'],
+            ['group' => 'The Watch', 'question' => 'Is each watch numbered?', 'answer' => 'Yes. Every CHRONEL carries an individual serial number engraved on the case back and recorded on the certificate that ships with the watch.'],
+
+            // --- Ordering & sizing ---
+            ['group' => 'Ordering', 'question' => 'How do I choose a size?', 'answer' => 'Case diameters run from 39mm to 42mm. A 39mm or 40mm case suits a wrist under 7 inches; 41mm and 42mm suit larger wrists. If you are unsure, contact client care with your wrist measurement and we will advise.'],
+            ['group' => 'Ordering', 'question' => 'Can the bracelet be adjusted?', 'answer' => 'Yes. Every bracelet ships with removable links and a sizing tool. If you prefer, send us your wrist measurement at checkout and we will size the bracelet before it leaves the atelier at no cost.'],
+            ['group' => 'Ordering', 'question' => 'Can I have the watch engraved?', 'answer' => 'Case-back engraving is available on request. Contact client care before ordering, or note it in the enquiry form on the Bespoke page. Engraved watches are made to order and are not eligible for return unless they arrive faulty.'],
+            ['group' => 'Ordering', 'question' => 'When is my order confirmed?', 'answer' => 'Your order is accepted when our system sends a confirmation email to the address used at checkout. We may decline or cancel an order in cases of suspected payment fraud, a pricing error, or a stock discrepancy. Where a paid order is cancelled by us, the full amount is refunded to the original payment method.'],
+            ['group' => 'Ordering', 'question' => 'Can I change or cancel an order?', 'answer' => 'Contact client care as soon as possible. We can usually amend an order before it enters final inspection. Once a watch has been sized, engraved, or handed to the carrier, changes are no longer possible.'],
+
+            // --- Bespoke ---
+            ['group' => 'Bespoke', 'question' => 'What is a bespoke commission?', 'answer' => 'A single watch built to your specification. You choose the case finish, bezel, dial colour, hand set, and engraving with our atelier. There is no configurator on this site; every commission begins with a conversation.'],
+            ['group' => 'Bespoke', 'question' => 'How long does a commission take?', 'answer' => 'Approximately twelve weeks from the moment the specification is agreed. Complex dial work can extend this. You receive a progress note at each of the four stages.'],
+            ['group' => 'Bespoke', 'question' => 'How do I start a commission?', 'answer' => 'Send an enquiry through the <a href="/custom/">Bespoke page</a>. An atelier specialist replies within two business days with a proposal and a quotation. Nothing is charged until the specification is agreed.'],
+            ['group' => 'Bespoke', 'question' => 'Are bespoke watches returnable?', 'answer' => 'A commissioned watch is made for one person and cannot be returned for a change of mind. The five-year movement warranty and lifetime service programme apply in full.'],
+
+            // --- Delivery ---
+            ['group' => 'Delivery', 'question' => 'Where do you ship?', 'answer' => 'CHRONEL ships within the United States. Shipping is complimentary, fully insured, and requires an adult signature on delivery.'],
+            ['group' => 'Delivery', 'question' => 'How long does delivery take?', 'answer' => 'In-stock watches are prepared in 1 to 3 business days and arrive within 2 to 5 business days of dispatch. Bespoke commissions follow the twelve-week schedule agreed with the atelier.'],
+            ['group' => 'Delivery', 'question' => 'How do I track my watch?', 'answer' => 'A dispatch email with a tracking link is sent the moment your watch leaves the atelier. You can also use the <a href="/track-order/">Track Your Order page</a> with your order number and checkout email.'],
+            ['group' => 'Delivery', 'question' => 'What if the package is delayed or lost?', 'answer' => 'Every shipment is insured for its full value. Contact client care within 30 days of the expected delivery date with your order number and we will open a claim with the carrier and arrange a replacement or refund.'],
+
+            // --- Service, warranty & returns ---
+            ['group' => 'Service & Returns', 'question' => 'What does the warranty cover?', 'answer' => 'Five years on the movement from the delivery date, covering defects in materials and workmanship. It does not cover normal wear, water damage from a compromised gasket that was not serviced, accidental damage, or work carried out by a third party.'],
+            ['group' => 'Service & Returns', 'question' => 'What is the lifetime service programme?', 'answer' => 'For as long as you own the watch, we service it at cost. We recommend a full service every five to seven years: the movement is disassembled, cleaned, lubricated, regulated, and the gaskets replaced.'],
+            ['group' => 'Service & Returns', 'question' => 'What is the return window?', 'answer' => 'Thirty days from delivery. The watch must be unworn and returned in its original condition with the box, papers, certificate, and every removed link. Sized bracelets are fine; scratches on the case, crystal, or clasp are not.'],
+            ['group' => 'Service & Returns', 'question' => 'Who pays for return shipping?', 'answer' => 'If a watch arrives faulty, damaged, or incorrect, we cover return shipping and send a prepaid insured label. For a change of mind, return shipping and insurance are the client\'s responsibility.'],
+            ['group' => 'Service & Returns', 'question' => 'When is a refund issued?', 'answer' => 'We inspect returned watches within two business days of receipt. Approved refunds are issued to the original payment method within seven business days. Banks may take a further few days to post the credit.'],
+            ['group' => 'Service & Returns', 'question' => 'How do I contact client care?', 'answer' => 'Write to <a href="mailto:support@chronelwatches.com">support@chronelwatches.com</a> or use the <a href="/contact-us/">Contact page</a>. Client care is open Monday to Friday, 9:00 AM to 6:00 PM PST, and replies within one business day.'],
         ];
+    }
+}
+
+if (!function_exists('dawp_get_faq_groups')) {
+    /**
+     * FAQ items keyed by group, preserving the order they are defined in.
+     */
+    function dawp_get_faq_groups() {
+        $groups = [];
+
+        foreach (dawp_get_faq_items() as $item) {
+            $group = $item['group'] ?? 'General';
+            $groups[$group][] = $item;
+        }
+
+        return $groups;
     }
 }

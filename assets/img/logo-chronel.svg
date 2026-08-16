@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 52" width="280" height="52" role="img" aria-label="CHRONEL">
+  <g>
+    <circle cx="26" cy="26" r="24" fill="none" stroke="#1A1A18" stroke-width="1.6"/>
+    <circle cx="26" cy="26" r="18" fill="none" stroke="#B08D4F" stroke-width="1"/>
+    <line x1="26" y1="11.5" x2="26" y2="8" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+    <line x1="33.25" y1="13.44" x2="35" y2="10.41" stroke="#1A1A18" stroke-width="1" stroke-linecap="round"/>
+    <line x1="38.56" y1="18.75" x2="41.59" y2="17" stroke="#1A1A18" stroke-width="1" stroke-linecap="round"/>
+    <line x1="40.5" y1="26" x2="44" y2="26" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+    <line x1="38.56" y1="33.25" x2="41.59" y2="35" stroke="#1A1A18" stroke-width="1" stroke-linecap="round"/>
+    <line x1="33.25" y1="38.56" x2="35" y2="41.59" stroke="#1A1A18" stroke-width="1" stroke-linecap="round"/>
+    <line x1="26" y1="40.5" x2="26" y2="44" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+    <line x1="18.75" y1="38.56" x2="17" y2="41.59" stroke="#1A1A18" stroke-width="1" stroke-linecap="round"/>
+    <line x1="13.44" y1="33.25" x2="10.41" y2="35" stroke="#1A1A18" stroke-width="1" stroke-linecap="round"/>
+    <line x1="11.5" y1="26" x2="8" y2="26" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+    <line x1="13.44" y1="18.75" x2="10.41" y2="17" stroke="#1A1A18" stroke-width="1" stroke-linecap="round"/>
+    <line x1="18.75" y1="13.44" x2="17" y2="10.41" stroke="#1A1A18" stroke-width="1" stroke-linecap="round"/>
+    <path d="M26 15 l4 7 h-8 z" fill="#B08D4F"/>
+    <line x1="26" y1="26" x2="26" y2="17.5" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+    <line x1="26" y1="26" x2="34" y2="30" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="26" cy="26" r="2" fill="#B08D4F"/></g>
+  <text x="68" y="34" font-family="Cormorant Garamond, Playfair Display, Georgia, serif" font-size="29" font-weight="400" letter-spacing="9.6" fill="#1A1A18">CHRONEL</text>
+  <text x="70" y="45" font-family="Jost, Helvetica, Arial, sans-serif" font-size="6.4" letter-spacing="3.5" fill="#B08D4F">HAND-ASSEMBLED IN AMERICA</text>
+</svg>

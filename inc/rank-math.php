@@ -191,20 +191,20 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
             '@id'         => home_url('/#organization'),
             'name'        => get_bloginfo('name'),
             'url'         => home_url('/'),
-            'email'       => 'support@shopgraphicshirt.com',
+            'email'       => dawp_brand('support_email'),
             'contactPoint' => [
                 '@type'             => 'ContactPoint',
                 'contactType'       => 'customer support',
-                'email'             => 'support@shopgraphicshirt.com',
+                'email'             => dawp_brand('support_email'),
                 'availableLanguage' => ['English'],
             ],
         ];
     }
 
-    if (in_array($page['path'], ['home', 'shop-by-categories'], true)) {
+    if (in_array($page['path'], ['home', 'collections'], true)) {
         $schema['about'] = [
             '@type' => 'Thing',
-            'name'  => 'Patriotic apparel and custom gifts',
+            'name'  => 'Handcrafted luxury watches with Japanese automatic movements',
         ];
     }
 

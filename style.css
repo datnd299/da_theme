@@ -1,27 +1,17 @@
 /*
-Theme Name: Shopgraphicshirt
-Theme URI: https://shopgraphicshirt.com
-Author: Shopgraphicshirt
-Author URI: https://shopgraphicshirt.com
-Description: Shopgraphicshirt
-Version: 1.0.0
-Text Domain: shopgraphicshirt
+Theme Name: CHRONEL
+Theme URI: https://chronelwatches.com
+Author: CHRONEL
+Author URI: https://chronelwatches.com
+Description: CHRONEL — handcrafted luxury watches, assembled by hand in the United States around Japanese automatic movements. A WooCommerce storefront built for a single brand.
+Version: 2.0.0
+Requires at least: 6.0
+Requires PHP: 8.0
+Text Domain: dawp
+Tags: woocommerce, luxury, minimal, ecommerce
 */
 
-.footer-accordion > summary::-webkit-details-marker {
-    display: none;
-}
-
-.footer-accordion:not([open]) > .footer-accordion-panel {
-    display: none;
-}
-
-.footer-accordion[open] .footer-accordion-icon {
-    transform: rotate(180deg);
-}
-
-@media (min-width: 640px) {
-    .footer-accordion > .footer-accordion-panel {
-        display: block !important;
-    }
-}
+/*
+ * Styles live in assets/css/. This file exists for the WordPress theme header only.
+ * See assets/css/main.css for the shared layer and .plans/design_system.md for tokens.
+ */

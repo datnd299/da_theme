@@ -1,21 +1,38 @@
 <?php
+/**
+ * Virtual pages — hardcoded static pages served from template-parts.
+ * See .plans/site.md §3.
+ */
+
+defined('ABSPATH') || exit;
+
+/**
+ * Old paths from the previous brand, and shorter aliases, mapped to live routes.
+ */
+function dawp_virtual_page_redirects() {
+    return [
+        'shipping-returns'     => 'service-warranty',
+        'shipping-policy'      => 'service-warranty',
+        'warranty'             => 'service-warranty',
+        'return-refund-policy' => 'returns',
+        'refund-return-policy' => 'returns',
+        'shop-by-theme'        => 'collections',
+        'shop-by-categories'   => 'collections',
+        'about'                => 'about-us',
+        'contact'              => 'contact-us',
+        'bespoke'              => 'custom',
+        'custom-watches'       => 'custom',
+    ];
+}
+
 add_action('template_redirect', 'dawp_handle_virtual_pages');
 function dawp_handle_virtual_pages() {
-    $request_uri = dawp_current_virtual_page_key(false);
+    $request_uri   = dawp_current_virtual_page_key(false);
     $virtual_pages = dawp_virtual_page_map();
+    $redirects     = dawp_virtual_page_redirects();
 
-    if ($request_uri === 'shipping-returns') {
-        wp_safe_redirect(home_url('/shipping-policy/'), 301);
-        exit;
-    }
-
-    if ($request_uri === 'return-refund-policy') {
-        wp_safe_redirect(home_url('/refund-return-policy/'), 301);
-        exit;
-    }
-
-    if ($request_uri === 'shop-by-theme') {
-        wp_safe_redirect(home_url('/shop-by-categories/'), 301);
+    if (isset($redirects[$request_uri])) {
+        wp_safe_redirect(home_url('/' . $redirects[$request_uri] . '/'), 301);
         exit;
     }
 
@@ -28,8 +45,8 @@ function dawp_handle_virtual_pages() {
     nocache_headers();
 
     global $wp_query;
-    $wp_query->is_404 = false;
-    $wp_query->is_page = true;
+    $wp_query->is_404      = false;
+    $wp_query->is_page     = true;
     $wp_query->is_singular = true;
 
     get_header();
@@ -46,91 +63,100 @@ function dawp_virtual_page_map() {
             'slug'        => 'home',
             'title'       => 'Home',
             'css'         => 'tw/tw-home.css',
-            'seo_title'   => 'Shopgraphicshirt | Patriotic Apparel & Custom Gifts',
-            'description' => 'Shop Shopgraphicshirt for patriotic apparel, polos, hats, America 250 designs, and custom gifts with free U.S. standard shipping.',
-            'image'       => 'assets/img/Image New/image copy 8.png',
+            'seo_title'   => 'CHRONEL | Handcrafted Luxury Watches, Made in America',
+            'description' => 'CHRONEL builds luxury watches by hand in the United States, powered by Japanese automatic movements. Four collections, a five-year movement warranty, and lifetime service.',
+            'image'       => 'assets/img/hero/hero-watch.svg',
             'canonical'   => home_url('/'),
             'schema_type' => 'CollectionPage',
         ],
+        'collections' => [
+            'slug'        => 'collections',
+            'title'       => 'Collections',
+            'css'         => 'tw/tw-collections.css',
+            'seo_title'   => 'Collections | CHRONEL Handcrafted Watches',
+            'description' => 'Four CHRONEL collections: The Meridian dress watch, The Abyss diver, The Sovereign day-date, and The Aviator with a second time zone.',
+            'image'       => 'assets/img/watches/meridian.svg',
+            'schema_type' => 'CollectionPage',
+        ],
+        'custom' => [
+            'slug'        => 'custom',
+            'title'       => 'Bespoke',
+            'css'         => 'tw/tw-custom.css',
+            'seo_title'   => 'Bespoke Commission | CHRONEL Custom Watches',
+            'description' => 'Commission a CHRONEL watch built to your specification. Case, dial, hands, and engraving decided with our atelier, then assembled by hand over twelve weeks.',
+            'image'       => 'assets/img/atelier/workbench.svg',
+            'schema_type' => 'Service',
+        ],
         'about-us' => [
             'slug'        => 'about',
-            'title'       => 'About Us',
+            'title'       => 'The Atelier',
             'css'         => 'tw/tw-about.css',
-            'seo_title'   => 'About Shopgraphicshirt | Patriotic Apparel & Gifts',
-            'description' => 'Learn about Shopgraphicshirt, a patriotic apparel and custom gift brand creating American pride designs for proud Americans.',
-            'image'       => 'assets/img/Image New/image copy 8.png',
+            'seo_title'   => 'The Atelier | How a CHRONEL Watch Is Made',
+            'description' => 'Inside the CHRONEL atelier: 316L steel cases finished by hand, sapphire crystals, and Japanese automatic movements regulated in five positions before delivery.',
+            'image'       => 'assets/img/atelier/movement.svg',
             'schema_type' => 'AboutPage',
         ],
-        'shop-by-categories' => [
-            'slug'        => 'shop-by-categories',
-            'title'       => 'Shop By Categories',
-            'css'         => 'tw/tw-shop-by-categories.css',
-            'seo_title'   => 'Shop By Categories | Shopgraphicshirt Patriotic Gifts',
-            'description' => 'Shop Shopgraphicshirt by category, including American flag tees, bomber jackets, hats, premium T-shirts, America 250 designs, and holiday gifts.',
-            'image'       => 'assets/img/Image New/image.png',
-            'schema_type' => 'CollectionPage',
+        'contact-us' => [
+            'slug'        => 'contact',
+            'title'       => 'Contact',
+            'css'         => 'tw/tw-contact.css',
+            'seo_title'   => 'Contact CHRONEL | Client Care',
+            'description' => 'Reach CHRONEL client care for orders, servicing, warranty claims, bespoke commissions, and delivery questions. Monday to Friday, 9:00 AM to 6:00 PM PST.',
+            'image'       => 'assets/img/logo-chronel.svg',
+            'schema_type' => 'ContactPage',
         ],
         'faq' => [
             'slug'        => 'faq',
             'title'       => 'FAQ',
             'css'         => 'tw/tw-faq.css',
-            'seo_title'   => 'Shopgraphicshirt FAQ | Shipping, Returns & Orders',
-            'description' => 'Find answers about Shopgraphicshirt orders, checkout, free U.S. shipping, tracking, returns, refunds, payment security, and customer support.',
-            'image'       => 'assets/img/Image New/image copy 9.png',
+            'seo_title'   => 'Frequently Asked Questions | CHRONEL',
+            'description' => 'Answers on CHRONEL movements, water resistance, sizing, servicing intervals, the five-year warranty, insured shipping, returns, and bespoke commissions.',
+            'image'       => 'assets/img/watches/meridian.svg',
             'schema_type' => 'FAQPage',
         ],
-        'contact-us' => [
-            'slug'        => 'contact',
-            'title'       => 'Contact Us',
-            'css'         => 'tw/tw-contact.css',
-            'seo_title'   => 'Contact Shopgraphicshirt | Customer Support',
-            'description' => 'Contact Shopgraphicshirt for order updates, custom gift details, shipping questions, returns, refunds, delivery issues, and product support.',
-            'image'       => 'assets/img/Image New/image copy 9.png',
-            'schema_type' => 'ContactPage',
-        ],
-        'shipping-policy' => [
+        'service-warranty' => [
             'slug'        => 'shipping-policy',
-            'title'       => 'Shipping Policy',
-            'css'         => 'tw/tw-ship.css',
-            'seo_title'   => 'Shipping Policy | Shopgraphicshirt',
-            'description' => 'Review Shopgraphicshirt shipping policy, including free standard U.S. shipping, 1-3 business day handling, 5-7 business day transit, and tracking.',
-            'image'       => 'assets/img/Image New/image copy 3.png',
+            'title'       => 'Service & Warranty',
+            'css'         => 'tw/tw-legal.css',
+            'seo_title'   => 'Shipping, Service & Warranty | CHRONEL',
+            'description' => 'CHRONEL ships insured and signature-required across the United States, and covers every movement for five years with a lifetime service programme.',
+            'image'       => 'assets/img/atelier/workbench.svg',
             'schema_type' => 'WebPage',
         ],
-        'refund-return-policy' => [
+        'returns' => [
             'slug'        => 'refund-return-policy',
-            'title'       => 'Refund & Return Policy',
-            'css'         => 'tw/tw-ship.css',
-            'seo_title'   => 'Refund & Return Policy | Shopgraphicshirt',
-            'description' => 'Review Shopgraphicshirt returns and refunds, including the 30-day return window, eligible item condition, return shipping fees, and refund timing.',
-            'image'       => 'assets/img/Image New/image copy 9.png',
+            'title'       => 'Returns',
+            'css'         => 'tw/tw-legal.css',
+            'seo_title'   => 'Returns & Refunds | CHRONEL',
+            'description' => 'Return an unworn CHRONEL watch within 30 days in its original condition, with box, papers, and links. Refunds are issued to the original payment method.',
+            'image'       => 'assets/img/watches/abyss.svg',
             'schema_type' => 'WebPage',
         ],
         'terms-conditions' => [
             'slug'        => 'terms-conditions',
             'title'       => 'Terms & Conditions',
-            'css'         => 'tw/tw-terms.css',
-            'seo_title'   => 'Terms & Conditions | Shopgraphicshirt',
-            'description' => 'Read Shopgraphicshirt terms and conditions for website use, online orders, payment security, product accuracy, returns, and store policies.',
-            'image'       => 'assets/img/Image New/image copy.png',
+            'css'         => 'tw/tw-legal.css',
+            'seo_title'   => 'Terms & Conditions | CHRONEL',
+            'description' => 'The terms governing use of the CHRONEL website, orders, pricing, bespoke commissions, warranty coverage, and limitation of liability.',
+            'image'       => 'assets/img/logo-chronel.svg',
             'schema_type' => 'WebPage',
         ],
         'privacy-policy' => [
             'slug'        => 'privacy',
             'title'       => 'Privacy Policy',
-            'css'         => 'tw/tw-privacy.css',
-            'seo_title'   => 'Privacy Policy | Shopgraphicshirt',
-            'description' => 'Read how Shopgraphicshirt collects, uses, protects, and shares personal information for orders, checkout, shipping, analytics, and support.',
-            'image'       => 'assets/img/Image New/image copy.png',
+            'css'         => 'tw/tw-legal.css',
+            'seo_title'   => 'Privacy Policy | CHRONEL',
+            'description' => 'How CHRONEL collects, uses, and protects personal information for orders, payment, delivery, servicing records, and client care.',
+            'image'       => 'assets/img/logo-chronel.svg',
             'schema_type' => 'PrivacyPolicy',
         ],
         'track-order' => [
             'slug'        => 'track-order',
-            'title'       => 'Track Order',
+            'title'       => 'Track Your Order',
             'css'         => 'track-order.css',
-            'seo_title'   => 'Track Your Order | Shopgraphicshirt',
-            'description' => 'Track your Shopgraphicshirt order status securely using your order details, or contact customer support for shipment and delivery help.',
-            'image'       => 'assets/img/Image New/image copy 3.png',
+            'seo_title'   => 'Track Your Order | CHRONEL',
+            'description' => 'Follow a CHRONEL order from the atelier to your door with your order number and the email used at checkout.',
+            'image'       => 'assets/img/watches/aviator.svg',
             'schema_type' => 'WebPage',
         ],
     ];
@@ -215,14 +241,11 @@ function dawp_virtual_page_title($parts) {
     return $parts;
 }
 
-
 add_action('wp_enqueue_scripts', 'dawp_virtual_page_assets');
-
 function dawp_virtual_page_assets() {
     $request_uri = dawp_current_virtual_page_key(false);
-    $pages = dawp_virtual_page_map();
+    $pages       = dawp_virtual_page_map();
 
-    // Không phải virtual page hoặc page không cấu hình css
     if (!isset($pages[$request_uri]) || empty($pages[$request_uri]['css'])) {
         return;
     }
@@ -232,9 +255,9 @@ function dawp_virtual_page_assets() {
     $css_file_url  = get_template_directory_uri() . '/assets/css/' . $css_file_name;
 
     wp_enqueue_style(
-        'dawp-virtual-page-' . sanitize_title($pages[$request_uri]['slug']),
+        'dawp-virtual-page-' . sanitize_title($request_uri),
         $css_file_url,
-        [],
+        ['dawp-main'],
         file_exists($css_file_path) ? filemtime($css_file_path) : '1.0.0'
     );
 }

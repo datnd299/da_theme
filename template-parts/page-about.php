@@ -1,134 +1,186 @@
 <?php
 /**
- * About Us — ShopGraphicshirt
- * Patriotic apparel & gift brand.
+ * The Atelier — brand story, craft process, movement, people.
  */
-$sgs_about_hero_bg = sprintf(
-  "--about-hero-bg:url('%s');--about-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/about/about-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/about/about-hero-background.png', 720, 760))
-);
-get_header(); ?>
-<section class="sgs-home sgs-page">
 
-<style>
-.sgs-page-hero{position:relative;isolation:isolate;background-color:var(--navy);background-image:var(--about-hero-bg);background-size:cover;background-position:center;color:var(--white);padding:clamp(96px,12vw,160px) clamp(24px,4vw,64px);text-align:center;overflow:hidden}
-.sgs-page-hero:before{content:"";position:absolute;inset:0;z-index:-2;background:inherit;background-size:cover;background-position:center;transform:scale(1.01)}
-.sgs-page-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,31,58,.88),rgba(11,31,58,.72) 28%,rgba(11,31,58,.68) 50%,rgba(11,31,58,.72) 72%,rgba(11,31,58,.88)),linear-gradient(180deg,rgba(11,31,58,.58),rgba(11,31,58,.28) 42%,rgba(11,31,58,.78))}
-.sgs-page-hero__inner{max-width:760px;margin:0 auto;position:relative;z-index:1}
-.sgs-page-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
-.sgs-page-hero p{max-width:640px;margin:20px auto 0;color:rgba(255,255,255,.82);font-size:clamp(.95rem,1.3vw,1.1rem);line-height:1.7}
-.sgs-pg{width:min(100% - 48px,1200px);margin:0 auto;padding:var(--section-gap,72px) 0}
-.sgs-pg--surface{width:100%;max-width:none;padding-inline:clamp(24px,4vw,64px);background:var(--antique)}
-.sgs-pg__center{max-width:640px;margin:0 auto 36px;text-align:center}
-.sgs-pg__center h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
-.sgs-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.sgs-card{padding:32px 24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--white);text-align:center;transition:box-shadow 180ms,transform 180ms}
-.sgs-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-3px)}
-.sgs-card__icon{display:grid;place-items:center;width:52px;height:52px;border-radius:var(--radius);background:var(--navy);color:var(--white);font-size:22px;margin:0 auto 18px}
-.sgs-card__icon i{line-height:1}
-.sgs-card h3{margin:0;font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--ink)}
-.sgs-card p{margin:10px 0 0;color:var(--muted);font-size:.9rem;line-height:1.6}
-.sgs-card--4{grid-template-columns:repeat(4,1fr)}
-.sgs-story{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
-.sgs-story__content h2{margin:0 0 16px;font-family:var(--font-heading);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;letter-spacing:-.01em;line-height:1.1;color:var(--ink)}
-.sgs-story__content p{margin:14px 0 0;color:var(--muted);font-size:.95rem;line-height:1.7}
-.sgs-story__content p:first-of-type{margin-top:0}
-.sgs-story__visual{position:relative;border-radius:var(--radius);background:var(--antique);min-height:320px;overflow:hidden;box-shadow:0 18px 40px rgba(11,31,58,.12)}
-.sgs-story__visual img{width:100%;height:100%;min-height:320px;object-fit:cover}
-.sgs-story__visual:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,31,58,0) 48%,rgba(11,31,58,.22));pointer-events:none}
-.sgs-story__badge{position:absolute;left:18px;bottom:18px;z-index:1;display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--radius);background:rgba(255,255,255,.92);color:var(--navy);font-family:var(--font-heading);font-size:.86rem;font-weight:800;box-shadow:0 10px 24px rgba(11,31,58,.18)}
-.sgs-story__badge i{color:var(--red)}
-.sgs-cta-block{text-align:center;max-width:580px;margin:0 auto}
-.sgs-cta-block h2{margin:0;font-family:var(--font-heading);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--ink);line-height:1.15}
-.sgs-cta-block p{margin:14px 0 24px;color:var(--muted);font-size:.95rem;line-height:1.6}
-.sgs-cta-block .sgs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 30px;border:2px solid var(--red);border-radius:var(--radius);background:var(--red);color:var(--white)!important;font-family:var(--font-heading);font-size:.82rem;font-weight:800;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;box-shadow:0 3px 10px rgba(179,25,66,.25);transition:transform 180ms,background-color 180ms,border-color 180ms,box-shadow 180ms}
-.sgs-cta-block .sgs-btn:hover{transform:translateY(-2px);background:#8c1233;border-color:#8c1233;color:var(--white)!important;box-shadow:0 6px 16px rgba(179,25,66,.32)}
-.sgs-cta-block .sgs-btn:focus-visible{outline:3px solid rgba(179,25,66,.28);outline-offset:3px}
-@media(max-width:1024px){.sgs-card-grid{grid-template-columns:repeat(2,1fr)}.sgs-card--4{grid-template-columns:repeat(2,1fr)}.sgs-story{grid-template-columns:1fr;gap:28px}.sgs-story__visual{min-height:260px;order:-1}}
-@media(max-width:640px){.sgs-page-hero{background-image:var(--about-hero-bg-mobile,var(--about-hero-bg))}.sgs-pg{width:100%;padding:52px 0}.sgs-pg--surface{padding-inline:0}.sgs-pg__center{width:min(100% - 40px,640px);margin-bottom:28px}.sgs-card-grid,.sgs-card--4{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;padding:0 20px 8px;-webkit-overflow-scrolling:touch}.sgs-card-grid::-webkit-scrollbar{display:none}.sgs-card-grid{scrollbar-width:none}.sgs-card{flex:0 0 min(82vw,360px);scroll-snap-align:center;min-height:244px;display:flex;flex-direction:column;justify-content:center}.sgs-card:hover{box-shadow:none;transform:none}.sgs-story{width:min(100% - 40px,1200px);margin-inline:auto}.sgs-cta-block{width:min(100% - 40px,580px)}.sgs-cta-block .sgs-btn{width:100%}}
-</style>
+defined('ABSPATH') || exit;
+?>
 
-<div class="sgs-page-hero" style="<?php echo esc_attr($sgs_about_hero_bg); ?>">
-  <div class="sgs-page-hero__inner">
-    <p class="sgs-eyebrow sgs-eyebrow--light">About Us</p>
-    <h1>Patriotic Apparel And Gifts Made For American Pride</h1>
-    <p>ShopGraphicshirt is an American patriotic apparel and custom gift brand built for proud Americans who want meaningful products that carry classic style and pride.</p>
-  </div>
-</div>
+<!-- ============================================================ HERO -->
+<section class="border-b border-border bg-background" aria-labelledby="about-hero-title">
+    <div class="container py-16 lg:py-28">
+        <nav class="mb-10 flex items-center gap-2 text-caption text-muted" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
+            <a class="transition-colors duration-400 ease-fluid hover:text-accent-deep" href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>
+            <span aria-hidden="true">/</span>
+            <span class="text-foreground"><?php esc_html_e('The Atelier', 'dawp'); ?></span>
+        </nav>
 
-<div class="sgs-pg">
-  <div class="sgs-card-grid">
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-bullseye"></i></div>
-      <h3>Our Mission</h3>
-      <p>To provide every American with a simple, affordable, and meaningful way to wear their pride.</p>
-    </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-eye"></i></div>
-      <h3>Our Vision</h3>
-      <p>To become the most trusted patriotic apparel destination for proud Americans nationwide.</p>
-    </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
-      <h3>Our Promise</h3>
-      <p>Premium quality, clear product information, reliable delivery, and support that actually helps you find the right products.</p>
-    </div>
-  </div>
-</div>
+        <div class="max-w-4xl">
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="c-eyebrow"><?php esc_html_e('Est. 2016 — United States', 'dawp'); ?></p>
+            <h1 id="about-hero-title" class="font-heading text-h1 font-light leading-[1.02] tracking-tight text-foreground"><?php esc_html_e('We build watches slowly, because there is no other way to build them well.', 'dawp'); ?></h1>
+            <p class="c-lede"><?php esc_html_e('CHRONEL is a small independent atelier. We do not run a production line. We buy the best automatic movements Japan makes, and we spend our time on everything that surrounds them.', 'dawp'); ?></p>
+        </div>
 
-<div class="sgs-pg sgs-pg--surface">
-  <div class="sgs-pg__center">
-    <p class="sgs-eyebrow">Why Shop With Us</p>
-    <h2>What Sets Us Apart</h2>
-  </div>
-  <div class="sgs-card-grid sgs-card--4">
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-shirt"></i></div>
-      <h3>Premium Quality</h3>
-      <p>Heavy-weight cotton, durable prints, and comfortable fits made to last.</p>
+        <dl class="mt-16 grid grid-cols-2 gap-px border border-border bg-border lg:grid-cols-4">
+            <?php
+            $dawp_facts = [
+                ['t' => __('Founded', 'dawp'), 'v' => __('2016', 'dawp')],
+                ['t' => __('Watchmakers', 'dawp'), 'v' => __('Nine', 'dawp')],
+                ['t' => __('Watches a year', 'dawp'), 'v' => __('Under 900', 'dawp')],
+                ['t' => __('Assembled in', 'dawp'), 'v' => __('The USA', 'dawp')],
+            ];
+            foreach ($dawp_facts as $fact) : ?>
+                <div class="bg-background p-6 lg:p-8">
+                    <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php echo esc_html($fact['t']); ?></dt>
+                    <dd class="m-0 mt-3 font-heading text-h2 font-light leading-none text-foreground"><?php echo esc_html($fact['v']); ?></dd>
+                </div>
+            <?php endforeach; ?>
+        </dl>
     </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-palette"></i></div>
-      <h3>Unique Designs</h3>
-      <p>Original patriotic graphics you won't find anywhere else.</p>
-    </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-box"></i></div>
-      <h3>Easy Ordering</h3>
-      <p>Simple checkout, tracking included, and reliable delivery to your door.</p>
-    </div>
-    <div class="sgs-card">
-      <div class="sgs-card__icon" aria-hidden="true"><i class="fas fa-gift"></i></div>
-      <h3>Personalization</h3>
-      <p>Custom name options for meaningful gifts.</p>
-    </div>
-  </div>
-</div>
-
-<div class="sgs-pg">
-  <div class="sgs-story">
-    <div class="sgs-story__content">
-      <p class="sgs-eyebrow">Our Story</p>
-      <h2>Built For Proud American Style</h2>
-      <p>ShopGraphicshirt was created because finding quality patriotic apparel shouldn't be complicated. Too many stores feel generic, political, or low-quality.</p>
-      <p>We started this brand to change that, focusing on premium graphic tees, bomber jackets, hats, and accessories that actually look good, feel great, and celebrate American pride.</p>
-      <p>Today, we help thousands of Americans express their pride with products that carry meaning.</p>
-    </div>
-    <div class="sgs-story__visual">
-      <?php echo dawp_theme_image('assets/img/about/about-story-patriotic-apparel.png', __('Patriotic apparel, custom gifts, and accessories arranged in a premium studio setting', 'shopgraphicshirt'), 900, 650, [[480, 347], [720, 520], [900, 650], [1200, 867]], '(max-width: 1024px) calc(100vw - 40px), 560px'); ?>
-      <span class="sgs-story__badge"><i class="fas fa-flag-usa" aria-hidden="true"></i> American Pride Since Day One</span>
-    </div>
-  </div>
-</div>
-
-<div class="sgs-pg sgs-pg--surface">
-  <div class="sgs-cta-block">
-    <h2>Have Questions? We're Here To Help</h2>
-    <p>Our team is ready to assist you with product selection, orders, or any questions you may have.</p>
-    <a class="sgs-btn sgs-btn--primary" href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact Us</a>
-  </div>
-</div>
-
 </section>
-<?php get_footer(); ?>
+
+<!-- ============================================================ STORY -->
+<section class="border-b border-border bg-background section-y" aria-labelledby="story-title">
+    <div class="container grid items-start gap-12 lg:grid-cols-2 lg:gap-24">
+        <div>
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="c-eyebrow"><?php esc_html_e('The beginning', 'dawp'); ?></p>
+            <h2 id="story-title" class="c-title"><?php esc_html_e('It started with a watch that could not be repaired.', 'dawp'); ?></h2>
+        </div>
+
+        <div class="space-y-6 text-body text-foreground-muted">
+            <p class="m-0"><?php esc_html_e('Our founder inherited a mechanical watch that had stopped in 1994. Three shops refused it. The parts were gone, the maker was gone, and nobody had kept a record of how it had been put together. It was, in every sense, disposable.', 'dawp'); ?></p>
+            <p class="m-0"><?php esc_html_e('That is the problem CHRONEL was set up to solve. We build watches that can be opened, understood, and repaired — by us, decades from now, from a register that lists every component in every serial we have ever shipped.', 'dawp'); ?></p>
+            <p class="m-0"><?php esc_html_e('That is also why we import our movements from Japan rather than making our own. Japanese automatic calibres are produced to a tolerance and a consistency that a workshop of our size could not match, and their parts will still be available long after we are.', 'dawp'); ?></p>
+            <p class="m-0 border-l border-accent pl-6 font-heading text-h3 leading-snug text-foreground"><?php esc_html_e('A watch you cannot service is a watch you are only renting.', 'dawp'); ?></p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ CRAFT -->
+<section class="border-b border-border bg-surface-alt section-y" aria-labelledby="craft-title">
+    <div class="container">
+        <div class="mb-14 max-w-2xl">
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="c-eyebrow"><?php esc_html_e('How it is made', 'dawp'); ?></p>
+            <h2 id="craft-title" class="c-title"><?php esc_html_e('Six benches. One watch at a time.', 'dawp'); ?></h2>
+        </div>
+
+        <div class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+            <div class="border border-border bg-background">
+                <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.svg')); ?>"
+                     alt="<?php esc_attr_e('A watchmaker\'s bench with a loupe, tweezers, and a movement in its holder', 'dawp'); ?>"
+                     width="640" height="480" loading="lazy" decoding="async" class="w-full">
+            </div>
+
+            <ol class="m-0 list-none p-0">
+                <?php
+                $dawp_stages = [
+                    ['n' => '01', 't' => __('Inspection', 'dawp'), 'd' => __('Every movement is opened and checked against its specification before anything else happens. Roughly one in forty is returned.', 'dawp')],
+                    ['n' => '02', 't' => __('Case finishing', 'dawp'), 'd' => __('316L steel is brushed along the lug and polished on the bevel. Each surface is masked and worked separately, by hand.', 'dawp')],
+                    ['n' => '03', 't' => __('Dial and hands', 'dawp'), 'd' => __('Indices are applied under a loupe. Hands are fitted, checked for clearance at every hour, and refitted if they are not perfect.', 'dawp')],
+                    ['n' => '04', 't' => __('Regulation', 'dawp'), 'd' => __('The movement is timed in five positions over 72 hours. It stays on the machine until it holds its rate.', 'dawp')],
+                    ['n' => '05', 't' => __('Sealing and testing', 'dawp'), 'd' => __('Gaskets are seated, the case back is torqued, and the watch is pressure tested to its rated depth.', 'dawp')],
+                    ['n' => '06', 't' => __('The register', 'dawp'), 'd' => __('The serial is engraved and entered with a full component list, so the watch can be serviced correctly in thirty years.', 'dawp')],
+                ];
+                foreach ($dawp_stages as $stage) : ?>
+                    <li class="flex gap-6 border-t border-border py-6 last:border-b">
+                        <span class="shrink-0 font-heading text-h3 text-accent"><?php echo esc_html($stage['n']); ?></span>
+                        <span>
+                            <span class="block text-body text-foreground"><?php echo esc_html($stage['t']); ?></span>
+                            <span class="mt-1 block text-body-sm text-foreground-muted"><?php echo esc_html($stage['d']); ?></span>
+                        </span>
+                    </li>
+                <?php endforeach; ?>
+            </ol>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ MOVEMENT (deep section) -->
+<section id="movement" class="bg-ink text-on-ink section-y" aria-labelledby="about-movement-title">
+    <div class="container grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-24">
+        <div>
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="text-eyebrow font-medium uppercase tracking-wide text-accent"><?php esc_html_e('Calibre CH-01', 'dawp'); ?></p>
+            <h2 id="about-movement-title" class="mt-4 font-heading text-h2 font-light leading-[1.05] text-on-ink"><?php esc_html_e('Why the movement comes from Japan.', 'dawp'); ?></h2>
+
+            <div class="mt-8 space-y-5 text-body-sm text-on-ink-muted">
+                <p class="m-0"><?php esc_html_e('Building a mechanical calibre from nothing takes decades and a factory. Building one badly takes a year. We chose neither.', 'dawp'); ?></p>
+                <p class="m-0"><?php esc_html_e('Our automatic movements are made in Japan by a manufacturer that has been producing them for over half a century. They arrive with a tolerance we could not better, and with a parts supply that will outlast the watch.', 'dawp'); ?></p>
+                <p class="m-0"><?php esc_html_e('Everything after that is ours: inspection, regulation in five positions, casing, sealing, and the final 72-hour test. That is where a watch is actually made or ruined.', 'dawp'); ?></p>
+            </div>
+
+            <dl class="mt-10 grid grid-cols-2 gap-px border border-border-ink bg-border-ink sm:grid-cols-3">
+                <?php
+                $dawp_specs = [
+                    ['t' => __('Type', 'dawp'), 'v' => __('Automatic', 'dawp')],
+                    ['t' => __('Jewels', 'dawp'), 'v' => __('24', 'dawp')],
+                    ['t' => __('Frequency', 'dawp'), 'v' => __('28,800 vph', 'dawp')],
+                    ['t' => __('Power reserve', 'dawp'), 'v' => __('~40 hours', 'dawp')],
+                    ['t' => __('Regulation', 'dawp'), 'v' => __('5 positions', 'dawp')],
+                    ['t' => __('Test period', 'dawp'), 'v' => __('72 hours', 'dawp')],
+                ];
+                foreach ($dawp_specs as $spec) : ?>
+                    <div class="bg-ink p-5">
+                        <dt class="text-eyebrow uppercase tracking-wide text-on-ink-muted"><?php echo esc_html($spec['t']); ?></dt>
+                        <dd class="m-0 mt-2 font-heading text-h3 text-on-ink"><?php echo esc_html($spec['v']); ?></dd>
+                    </div>
+                <?php endforeach; ?>
+            </dl>
+        </div>
+
+        <div>
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.svg')); ?>"
+                 alt="<?php esc_attr_e('The calibre CH-01 Japanese automatic movement', 'dawp'); ?>"
+                 width="480" height="480" loading="lazy" decoding="async"
+                 class="mx-auto w-full max-w-[420px]">
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ PRINCIPLES -->
+<section class="border-b border-border bg-background section-y" aria-labelledby="principles-title">
+    <div class="container">
+        <div class="mb-14 max-w-2xl">
+            <span class="c-rule" aria-hidden="true"></span>
+            <p class="c-eyebrow"><?php esc_html_e('What we hold to', 'dawp'); ?></p>
+            <h2 id="principles-title" class="c-title"><?php esc_html_e('Four rules we do not bend.', 'dawp'); ?></h2>
+        </div>
+
+        <ul class="m-0 grid list-none grid-cols-1 gap-px border border-border bg-border p-0 sm:grid-cols-2 lg:grid-cols-4">
+            <?php
+            $dawp_principles = [
+                ['t' => __('Serviceable forever', 'dawp'), 'd' => __('Every serial is recorded with its full component list. We service what we build, for as long as it exists.', 'dawp')],
+                ['t' => __('No hidden quantities', 'dawp'), 'd' => __('A limited series states its number and closes. We do not reopen a run because it sold well.', 'dawp')],
+                ['t' => __('One watchmaker per watch', 'dawp'), 'd' => __('The person who cases your movement is the person who signs its certificate.', 'dawp')],
+                ['t' => __('Honest description', 'dawp'), 'd' => __('We state what a watch is, what is inside it, and where each part comes from. Nothing more.', 'dawp')],
+            ];
+            foreach ($dawp_principles as $principle) : ?>
+                <li class="bg-background p-8">
+                    <span class="block h-px w-8 bg-accent" aria-hidden="true"></span>
+                    <span class="mt-6 block font-heading text-h3 leading-none text-foreground"><?php echo esc_html($principle['t']); ?></span>
+                    <span class="mt-3 block text-body-sm text-foreground-muted"><?php echo esc_html($principle['d']); ?></span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================================================ CTA -->
+<section class="bg-background pb-20 lg:pb-32" aria-labelledby="about-cta-title">
+    <div class="container">
+        <div class="grid items-center gap-10 border border-border bg-surface-alt p-10 lg:grid-cols-[1fr_auto] lg:gap-16 lg:p-20">
+            <div class="max-w-2xl">
+                <span class="c-rule" aria-hidden="true"></span>
+                <h2 id="about-cta-title" class="c-title"><?php esc_html_e('Come and see what we made.', 'dawp'); ?></h2>
+                <p class="c-lede"><?php esc_html_e('Four collections, all built on the same calibre. Or commission one that does not exist yet.', 'dawp'); ?></p>
+            </div>
+            <div class="flex shrink-0 flex-wrap gap-4">
+                <a class="c-btn" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('The collections', 'dawp'); ?></a>
+                <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/custom/')); ?>"><?php esc_html_e('Bespoke', 'dawp'); ?></a>
+            </div>
+        </div>
+    </div>
+</section>

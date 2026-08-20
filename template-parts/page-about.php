@@ -15,6 +15,7 @@ $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink(
 $contact_url = home_url('/contact-us/');
 $returns_url = home_url('/return-refund-policy/');
 $shipping_url = home_url('/shipping-policy/');
+$store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -124,6 +125,8 @@ $trust_items = [
     .mmd-about-story__content p { margin-top:16px; line-height:1.68; font-size:.96rem; }
     .mmd-about-values { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
     .mmd-about-values span { border:1px solid #D8C7BE; background:#fff; color:var(--mmd-ink); padding:9px 12px; font-size:.78rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; }
+    .mmd-about-address { margin-top:20px; font-size:.92rem; line-height:1.6; color:var(--mmd-text); }
+    .mmd-about-address strong { color:var(--mmd-ink); }
     .mmd-about-principles, .mmd-about-trust, .mmd-about-policy-grid, .mmd-about-gallery { display:grid; gap:18px; }
     .mmd-about-principles { grid-template-columns:1fr; }
     .mmd-about-card, .mmd-about-trust-card, .mmd-about-policy-card { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
@@ -194,6 +197,7 @@ $trust_items = [
                         <span><?php echo esc_html($value); ?></span>
                     <?php endforeach; ?>
                 </div>
+                <p class="mmd-about-address"><strong><?php esc_html_e('Store Address:', 'dawp'); ?></strong> <?php echo esc_html($store_address); ?></p>
             </div>
         </div>
     </section>

@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) {
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $support_email  = 'support@megamalldepot.com';
+$support_phone  = '757-804-6538';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $logo_path       = get_template_directory() . '/assets/img/about/Capture.JPG';
@@ -129,6 +130,10 @@ $footer_columns = [
                     <div>
                         <dt><?php esc_html_e('Address:', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($store_address); ?></dd>
+                    </div>
+                    <div>
+                        <dt><?php esc_html_e('Phone:', 'dawp'); ?></dt>
+                        <dd><a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></dd>
                     </div>
                     <div>
                         <dt><?php esc_html_e('Business Hours:', 'dawp'); ?></dt>

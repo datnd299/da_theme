@@ -191,9 +191,9 @@ if (function_exists('wc_get_products')) {
     .mmd-section__head p:not(.mmd-eyebrow) { max-width:590px; margin-top:10px; font-size:.95rem; line-height:1.62; }
     .mmd-text-link { color:var(--mmd-accent); font-weight:800; text-decoration:none; }
     .mmd-text-link:hover { color:var(--mmd-accent-dark); text-decoration:underline; text-underline-offset:4px; }
-    .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-trust-grid, .mmd-review-grid, .mmd-gallery-grid { display:grid; gap:18px; }
+    .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-trust-grid, .mmd-gallery-grid { display:grid; gap:18px; }
     .mmd-room-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-room-card, .mmd-collection-card, .mmd-product-card, .mmd-trust-card, .mmd-review-card { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; overflow:hidden; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
+    .mmd-room-card, .mmd-collection-card, .mmd-product-card, .mmd-trust-card { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; overflow:hidden; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
     .mmd-room-card { color:inherit; display:flex; flex-direction:column; min-height:100%; text-decoration:none; }
     .mmd-room-card img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .35s ease; }
     .mmd-room-card__missing-image { aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#F5F6F8; color:#6B7280; padding:18px; text-align:center; font-size:.84rem; line-height:1.45; }
@@ -202,7 +202,7 @@ if (function_exists('wc_get_products')) {
     .mmd-room-card h3 { font-size:1.28rem; line-height:1.14; }
     .mmd-room-card p { margin-top:9px; font-size:.92rem; line-height:1.56; }
     .mmd-room-card__cta { margin-top:auto; padding-top:16px; color:var(--mmd-accent); font-size:.76rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-    .mmd-room-card:hover, .mmd-product-card:hover, .mmd-review-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
+    .mmd-room-card:hover, .mmd-product-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
     .mmd-room-card:hover img, .mmd-collection-card:hover img { transform:scale(1.04); }
     .mmd-collection-grid { display:grid; gap:18px; }
     .mmd-collection-card { display:grid; min-height:330px; color:#fff; text-decoration:none; }
@@ -248,12 +248,6 @@ if (function_exists('wc_get_products')) {
     .mmd-trust-card svg { width:30px; height:30px; margin-bottom:14px; color:var(--mmd-accent); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
     .mmd-trust-card h3 { font-family:Inter, Arial, sans-serif; font-size:.92rem; font-weight:800; }
     .mmd-trust-card p { margin-top:8px; font-size:.9rem; line-height:1.56; }
-    .mmd-review-grid { grid-template-columns:1fr; }
-    .mmd-review-card { padding:24px; }
-    .mmd-review-card__stars { color:#B98235; font-weight:800; }
-    .mmd-review-card blockquote { margin:14px 0 20px; color:#383430; font-family:"Cormorant Garamond", Georgia, serif; font-size:1.12rem; line-height:1.36; }
-    .mmd-review-card strong, .mmd-review-card span { display:block; }
-    .mmd-review-card span { margin-top:3px; color:#77706A; font-size:.9rem; }
     .mmd-gallery-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
     .mmd-gallery-grid img { width:100%; aspect-ratio:1; object-fit:cover; }
     .mmd-newsletter { padding:62px 0; background:var(--mmd-ink); color:#fff; }
@@ -263,9 +257,9 @@ if (function_exists('wc_get_products')) {
     .mmd-newsletter form { display:grid; gap:10px; width:100%; max-width:540px; }
     .mmd-newsletter input { min-height:48px; border:1px solid rgba(255,255,255,.28); background:#fff; padding:0 14px; color:var(--mmd-ink); }
     .mmd-newsletter button { min-height:48px; border:1px solid var(--mmd-accent); background:var(--mmd-accent); color:#fff; cursor:pointer; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-    @media (min-width:700px) { .mmd-room-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-collection-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-season-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-review-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-gallery-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-newsletter form { grid-template-columns:1fr auto; justify-self:end; } }
+    @media (min-width:700px) { .mmd-room-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-collection-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-season-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-gallery-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-newsletter form { grid-template-columns:1fr auto; justify-self:end; } }
     @media (min-width:900px) { .mmd-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-story { grid-template-columns:1.06fr .94fr; } .mmd-product-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-trust-grid { grid-template-columns:repeat(5, minmax(0, 1fr)); } .mmd-newsletter__inner { grid-template-columns:1fr minmax(380px, 540px); } }
-    @media (max-width:699px) { .mmd-section { padding:50px 0; } .mmd-section__head { align-items:start; flex-direction:column; } .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-review-grid, .mmd-trust-grid { display:flex; gap:14px; margin-inline:-16px; overflow-x:auto; padding-inline:16px; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-room-grid::-webkit-scrollbar, .mmd-product-grid::-webkit-scrollbar, .mmd-season-grid::-webkit-scrollbar, .mmd-review-grid::-webkit-scrollbar, .mmd-trust-grid::-webkit-scrollbar { display:none; } .mmd-room-card, .mmd-product-card, .mmd-season-card, .mmd-review-card, .mmd-trust-card { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-gallery-grid { gap:10px; } .mmd-hero__note { left:14px; right:14px; } }
+    @media (max-width:699px) { .mmd-section { padding:50px 0; } .mmd-section__head { align-items:start; flex-direction:column; } .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-trust-grid { display:flex; gap:14px; margin-inline:-16px; overflow-x:auto; padding-inline:16px; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-room-grid::-webkit-scrollbar, .mmd-product-grid::-webkit-scrollbar, .mmd-season-grid::-webkit-scrollbar, .mmd-trust-grid::-webkit-scrollbar { display:none; } .mmd-room-card, .mmd-product-card, .mmd-season-card, .mmd-trust-card { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-gallery-grid { gap:10px; } .mmd-hero__note { left:14px; right:14px; } }
 </style>
 
 <div class="mmd-home">
@@ -434,37 +428,6 @@ if (function_exists('wc_get_products')) {
                         <p><?php echo esc_html($item[1]); ?></p>
                     </article>
                 <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section mmd-section--soft" aria-labelledby="mmd-reviews-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Customer Reviews', 'dawp'); ?></p>
-                    <h2 id="mmd-reviews-title"><?php esc_html_e('Homes made more comfortable.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-review-grid">
-                <article class="mmd-review-card">
-                    <div class="mmd-review-card__stars" aria-hidden="true">*****</div>
-                    <blockquote><?php esc_html_e('The dining pieces feel refined without being fussy, and everything arrived well packed.', 'dawp'); ?></blockquote>
-                    <strong><?php esc_html_e('Emily R.', 'dawp'); ?></strong>
-                    <span><?php esc_html_e('Portland, OR - Verified Purchase', 'dawp'); ?></span>
-                </article>
-                <article class="mmd-review-card">
-                    <div class="mmd-review-card__stars" aria-hidden="true">*****</div>
-                    <blockquote><?php esc_html_e('I found practical storage that still looks beautiful in the room.', 'dawp'); ?></blockquote>
-                    <strong><?php esc_html_e('Natalie C.', 'dawp'); ?></strong>
-                    <span><?php esc_html_e('Austin, TX - Verified Purchase', 'dawp'); ?></span>
-                </article>
-                <article class="mmd-review-card">
-                    <div class="mmd-review-card__stars" aria-hidden="true">*****</div>
-                    <blockquote><?php esc_html_e('The collection made our patio refresh simple and cohesive.', 'dawp'); ?></blockquote>
-                    <strong><?php esc_html_e('Marcus W.', 'dawp'); ?></strong>
-                    <span><?php esc_html_e('Charlotte, NC - Verified Purchase', 'dawp'); ?></span>
-                </article>
             </div>
         </div>
     </section>

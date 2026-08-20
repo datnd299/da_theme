@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'MegaMallDepot';
 $site_domain    = 'megamalldepot.com';
 $support_email  = 'support@megamalldepot.com';
-$support_phone  = '826-207-1399';
+$support_phone  = '757-804-6538';
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $last_updated   = __('May 29, 2026', 'dawp');

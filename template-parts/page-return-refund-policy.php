@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 
 $store_name     = 'MegaMallDepot';
 $support_email  = 'support@megamalldepot.com';
-$support_phone  = '826-207-1399';
+$support_phone  = '757-804-6538';
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
@@ -28,11 +28,11 @@ $return_eligibility = [
 $return_shipping_fees = [
     [
         'title' => __('Defective, Damaged, or Incorrect Products:', 'dawp'),
-        'copy'  => __('The customer is responsible for shipping the item back to our store. We do not cover return shipping costs or provide prepaid labels. If you receive a defective or damaged product, please contact us for instructions.', 'dawp'),
+        'copy'  => __('MegaMallDepot covers the return shipping cost. Once your return is approved, we will email you a prepaid shipping label so you can send the item back to us at no cost to you.', 'dawp'),
     ],
     [
         'title' => __('Customer Remorse / Change of Mind:', 'dawp'),
-        'copy'  => __('The customer is responsible for all return shipping costs. The customer must choose their own shipping carrier and prepay the return shipping fee.', 'dawp'),
+        'copy'  => __('Free returns within 30 days of delivery, no questions asked. MegaMallDepot covers the return shipping cost and emails you a prepaid shipping label.', 'dawp'),
     ],
 ];
 
@@ -122,7 +122,7 @@ $return_faqs = [
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not provide prepaid return labels.', 'dawp'),
+        'answer'   => __('MegaMallDepot covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),

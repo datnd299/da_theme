@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email = 'support@megamalldepot.com';
-$support_phone = '826-207-1399';
+$support_phone = '757-804-6538';
 $store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
@@ -137,9 +137,9 @@ $shipping_faqs = [
     <section class="bg-[#F8F5F0] py-12 sm:py-16">
         <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:px-8">
         <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="shipping-locations-title">
-            <h1 id="shipping-locations-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
+            <h2 id="shipping-locations-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
                 <?php esc_html_e('Shipping Locations & Market', 'dawp'); ?>
-            </h1>
+            </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
                 <p><?php esc_html_e('We currently ship exclusively within the United States. MegaMallDepot serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                 <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>

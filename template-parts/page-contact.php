@@ -13,8 +13,9 @@ $theme_uri      = get_template_directory_uri();
 $theme_dir      = get_template_directory();
 $store_name     = 'MegaMallDepot';
 $support_email  = 'support@megamalldepot.com';
+$support_phone  = '757-804-6538';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
+$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $track_url      = home_url('/track-order/');
 $shipping_url   = home_url('/shipping-policy/');
@@ -319,6 +320,10 @@ $contact_faqs = [
                     <div>
                         <dt><?php esc_html_e('Email', 'dawp'); ?></dt>
                         <dd><a class="mmd-contact-link" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
+                    </div>
+                    <div>
+                        <dt><?php esc_html_e('Phone', 'dawp'); ?></dt>
+                        <dd><a class="mmd-contact-link" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></dd>
                     </div>
                     <?php if ($store_address) : ?>
                         <div>

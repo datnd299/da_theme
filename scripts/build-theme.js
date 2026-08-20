@@ -9,6 +9,8 @@ import { fileURLToPath } from 'url';
 import postcss from 'postcss';
 import cssnano from 'cssnano';
 import { minify as terserMinify } from 'terser';
+import { ZipArchive } from 'archiver';
+import { createWriteStream } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
@@ -231,13 +233,16 @@ const zipPath  = join(distRoot, zipFile);
 if (existsSync(zipPath)) rmSync(zipPath);
 
 console.log(`Packaging → dist/${zipFile}`);
-if (process.platform === 'win32') {
-  execSync(
-    `powershell -NoProfile -ExecutionPolicy Bypass -Command "Compress-Archive -Path .\\${themeSlug} -DestinationPath .\\${zipFile} -Force"`,
-    { cwd: distRoot, stdio: 'inherit' }
-  );
-} else {
-  execSync(`zip -r ${zipFile} ${themeSlug}`, { cwd: distRoot, stdio: 'inherit' });
-}
+await new Promise((resolvePromise, rejectPromise) => {
+  const output = createWriteStream(zipPath);
+  const archive = new ZipArchive({ zlib: { level: 9 } });
+
+  output.on('close', resolvePromise);
+  archive.on('error', rejectPromise);
+
+  archive.pipe(output);
+  archive.directory(distDir, themeSlug);
+  archive.finalize();
+});
 
 console.log(`\nDone → dist/${zipFile}`);

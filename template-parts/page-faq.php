@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 $store_name     = 'MegaMallDepot';
 $site_domain    = 'megamalldepot.com';
 $support_email  = 'support@megamalldepot.com';
-$support_phone  = '826-207-1399';
+$support_phone  = '757-804-6538';
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -99,7 +99,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
+                'answer'   => __('MegaMallDepot covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
@@ -292,7 +292,7 @@ $quick_links = [
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
-                                <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                                <a class="break-words font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
                             </dd>
                         </div>
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">

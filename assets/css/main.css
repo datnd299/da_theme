@@ -690,6 +690,13 @@ body textarea {
   max-width: 52ch;
 }
 
+.c-policy-updated {
+  display: block;
+  font-size: var(--text-caption);
+  color: var(--color-accent);
+  margin: var(--space-md) 0 0;
+}
+
 .c-policy-breadcrumb {
   display: flex;
   align-items: center;

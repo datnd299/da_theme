@@ -158,10 +158,9 @@ function dawp_render_empty_cart_intro() {
             <span class="c-rule" aria-hidden="true"></span>
             <span class="cart-empty-intro__eyebrow"><?php esc_html_e('Nothing selected', 'dawp'); ?></span>
             <h1><?php esc_html_e('Your cart is empty.', 'dawp'); ?></h1>
-            <p><?php esc_html_e('Four collections, each built on the same Japanese automatic calibre. Take your time.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Four collections, each built on the same carefully selected automatic calibre. Take your time.', 'dawp'); ?></p>
             <div class="cart-empty-intro__actions">
-                <a class="c-btn" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('The collections', 'dawp'); ?></a>
-                <a class="c-btn-ghost" href="<?php echo esc_url(dawp_shop_permalink()); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
+                <a class="c-btn" href="<?php echo esc_url(dawp_shop_permalink()); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
             </div>
         </div>
         <ul class="cart-empty-intro__panel">

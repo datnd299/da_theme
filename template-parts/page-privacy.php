@@ -5,7 +5,8 @@
 
 defined('ABSPATH') || exit;
 
-$dawp_support_email = dawp_brand('support_email');
+$dawp_support_email    = dawp_brand('support_email');
+$dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 ?>
 
 <section class="c-policy-hero">
@@ -20,6 +21,7 @@ $dawp_support_email = dawp_brand('support_email');
             <p class="c-eyebrow"><?php esc_html_e('Legal', 'dawp'); ?></p>
             <h1><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
             <p><?php esc_html_e('What we collect, why we hold it, and how to have it removed.', 'dawp'); ?></p>
+            <p class="c-policy-updated"><?php esc_html_e('Last updated: August 21, 2026', 'dawp'); ?></p>
         </div>
     </div>
 </section>
@@ -36,15 +38,24 @@ $dawp_support_email = dawp_brand('support_email');
                     esc_html(dawp_brand('name'))
                 );
             ?></p>
+            <?php if ($dawp_business_address) : ?>
+                <p><?php
+                    printf(
+                        /* translators: %s: business address */
+                        esc_html__('Business address: %s.', 'dawp'),
+                        esc_html($dawp_business_address)
+                    );
+                ?></p>
+            <?php endif; ?>
         </section>
 
         <section>
             <h2><?php esc_html_e('2. What we collect', 'dawp'); ?></h2>
             <ul>
                 <li><?php esc_html_e('Order information: name, billing and delivery address, email, telephone number, and what you bought.', 'dawp'); ?></li>
-                <li><?php esc_html_e('Payment information: handled by our payment provider. We receive a confirmation and the last four digits of the card. We never see or store the full card number.', 'dawp'); ?></li>
+                <li><?php esc_html_e('Payment information: handled by PayPal, our payment provider. We receive a confirmation and, where you pay by card, the last four digits. We never see or store the full card number.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Ownership records: the serial number of your watch, the components fitted, and any service carried out.', 'dawp'); ?></li>
-                <li><?php esc_html_e('Correspondence: messages you send through the contact and bespoke enquiry forms.', 'dawp'); ?></li>
+                <li><?php esc_html_e('Correspondence: messages you send through the contact form.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Technical information: IP address, browser, device type, and pages viewed.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Marketing preferences: your email address, if you join the register.', 'dawp'); ?></li>
             </ul>
@@ -71,7 +82,7 @@ $dawp_support_email = dawp_brand('support_email');
             <h2><?php esc_html_e('5. Who we share it with', 'dawp'); ?></h2>
             <p><?php esc_html_e('We share only what is necessary, and only with:', 'dawp'); ?></p>
             <ul>
-                <li><?php esc_html_e('Our payment provider, to take and secure payment.', 'dawp'); ?></li>
+                <li><?php esc_html_e('PayPal, our payment provider, to take and secure payment.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Our insured carrier, to deliver your watch.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Our hosting and email providers, who process data on our instructions.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Law enforcement or regulators, where we are legally required to.', 'dawp'); ?></li>

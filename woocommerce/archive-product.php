@@ -16,7 +16,7 @@ $collections = function_exists('dawp_collections') ? dawp_collections() : [];
 
 $eyebrow     = __('The catalogue', 'dawp');
 $title       = __('All Watches', 'dawp');
-$description = __('Every reference currently built in the atelier. Each one is hand-assembled around a Japanese automatic movement.', 'dawp');
+$description = __('Every reference currently built in the atelier. Each one is hand-assembled around a carefully selected automatic movement.', 'dawp');
 
 if (is_search()) {
     $eyebrow     = __('Search', 'dawp');
@@ -143,12 +143,6 @@ if (is_search()) {
                     </ul>
                 </nav>
 
-                <div class="shop-sidebar__note">
-                    <h3 class="shop-sidebar__title"><?php esc_html_e('Not listed?', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('A commission starts from any collection and changes what needs changing.', 'dawp'); ?></p>
-                    <a class="c-link" href="<?php echo esc_url(home_url('/custom/')); ?>"><?php esc_html_e('Bespoke', 'dawp'); ?></a>
-                </div>
-
                 <?php if (is_active_sidebar('shop-sidebar')) { dynamic_sidebar('shop-sidebar'); } ?>
             </aside>
 
@@ -176,7 +170,6 @@ if (is_search()) {
                         <p><?php esc_html_e('This collection has no watches available at the moment. New references are added as they leave the bench.', 'dawp'); ?></p>
                         <div class="shop-empty__actions">
                             <a class="c-btn" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
-                            <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/custom/')); ?>"><?php esc_html_e('Commission one', 'dawp'); ?></a>
                         </div>
                     </div>
 

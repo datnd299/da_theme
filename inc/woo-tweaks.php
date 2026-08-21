@@ -98,7 +98,7 @@ function dawp_single_product_assurances() {
     $badges = [
         [
             'icon'  => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
-            'title' => __('Japanese automatic movement', 'dawp'),
+            'title' => __('Carefully selected automatic movement', 'dawp'),
             'copy'  => __('24 jewels, 28,800 vph, regulated in five positions.', 'dawp'),
         ],
         [

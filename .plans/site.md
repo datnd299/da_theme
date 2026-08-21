@@ -12,13 +12,24 @@
 |---|---|
 | Brand name | **CHRONEL** |
 | Domain | chronelwatches.com |
-| Category | Handcrafted luxury custom watches |
+| Category | Handcrafted luxury watches |
 | Market | United States |
-| Positioning | An independent American atelier. Each watch is assembled and finished by hand, powered by a Japanese automatic movement. |
+| Positioning | An independent atelier. Each watch is assembled and finished by hand, powered by a carefully selected automatic movement. |
 | Support email | support@chronelwatches.com |
 | Atelier email | atelier@chronelwatches.com |
-| Support hours | Monday – Friday, 9:00 AM – 6:00 PM PST |
+| Support hours | Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Time (New York) |
+| Support response time | Within 1 business day |
 | Order number prefix | `CHR-` |
+
+### 1.1a Fulfillment & shipping (used across Shipping Policy, FAQ, Terms of Service)
+
+| Field | Value |
+|---|---|
+| Order cutoff time | 5:00 PM (GMT-05:00) Eastern Time (New York). Orders placed after cutoff, or on a weekend/holiday, begin processing the next business day — the order keeps its place in line. |
+| Order handling time | 1–2 business days, Monday to Friday. Covers assembly, quality check, and packing. |
+| Transit time | 3–5 business days, Monday to Friday. |
+| Total estimated delivery time | 4–7 business days (handling + transit), for in-stock watches shipped within the United States. |
+| Payment processor | PayPal. Accepts PayPal balance and Visa/Mastercard/American Express via PayPal Checkout — no PayPal account required to pay by card. |
 
 ### 1.1 Brand voice rules
 
@@ -34,7 +45,7 @@
 ### 1.2 Product truth (what we may claim)
 
 - Cases: 316L stainless steel, hand-brushed and polished.
-- Movements: **Japanese automatic**, imported from Japan. 24 jewels, 28,800 vph, ~40h reserve.
+- Movements: **carefully selected automatic**, 24 jewels, 28,800 vph, ~40h reserve.
 - Crystal: sapphire, anti-reflective coating.
 - Assembly: by hand, in our United States atelier.
 - Water resistance: 100m standard, 200m on The Abyss.
@@ -65,24 +76,22 @@ Static pages are hardcoded PHP in `template-parts/` and served as virtual pages.
 | Route | Template part | Purpose |
 |---|---|---|
 | `/` | `page-home.php` | Hero, collections, atelier story, movement, service |
-| `/collections/` | `page-collections.php` | The four collections, side by side |
-| `/custom/` | `page-custom.php` | Bespoke commission service — **enquiry form only, no configurator** |
 | `/about-us/` | `page-about.php` | Atelier story, craft process, people |
 | `/contact-us/` | `page-contact.php` | Contact form + details |
 | `/faq/` | `page-faq.php` | Ownership, service, shipping, returns |
-| `/service-warranty/` | `page-shipping-policy.php` | Shipping, delivery, warranty & service |
-| `/returns/` | `page-refund-return-policy.php` | Returns and refunds |
-| `/privacy-policy/` | `page-privacy.php` | Privacy |
-| `/terms-conditions/` | `page-terms-conditions.php` | Terms |
+| `/shipping-policy/` | `page-shipping-policy.php` | Shipping Policy — cutoff, handling, transit, delivery |
+| `/service-warranty/` | `page-service-warranty.php` | Warranty & lifetime service programme |
+| `/returns/` | `page-refund-return-policy.php` | Return & Refund Policy |
+| `/billing-terms/` | `page-billing-terms.php` | Billing Terms & Conditions — payment, currency, billing |
+| `/privacy-policy/` | `page-privacy.php` | Privacy Policy |
+| `/terms-conditions/` | `page-terms-conditions.php` | Terms of Service |
 | `/track-order/` | `page-track-order.php` | Order tracking |
 | `/shop/` | `woocommerce/archive-product.php` | All watches |
 | 404 | `404.php` | Not found |
 
-### 3.1 Custom page — scope
-
-The custom service is **presented, not configured**. The page explains the commission
-process in four steps and ends in a single enquiry form (`#contact-form`, reusing the
-existing AJAX handler). There is no live builder, no price calculator, no product variants.
+CHRONEL no longer offers bespoke/custom commissions. `/collections/` and `/custom/`
+redirect (301) to `/shop/` and `/` respectively — see `dawp_virtual_page_redirects()`
+in `inc/virtual-pages.php`.
 
 ---
 
@@ -92,16 +101,15 @@ existing AJAX handler). There is no live builder, no price calculator, no produc
 2. **Collections** — the four collections as tall cards.
 3. **Featured watches** — live WooCommerce products (falls back to nothing if empty).
 4. **The Atelier** — craft story, split layout, three proof points.
-5. **The Movement** — Japanese automatic caliber, specification list.
-6. **Bespoke** — quiet band linking to `/custom/`.
-7. **Service & Warranty** — four assurances.
-8. **Newsletter** — single field, restrained.
+5. **The Movement** — carefully selected automatic caliber, specification list.
+6. **Service & Warranty** — four assurances.
+7. **Newsletter** — single field, restrained.
 
 ---
 
 ## 5. Navigation
 
-**Primary:** Collections · The Atelier · Bespoke · Service · Contact
+**Primary:** Home · Shop · Contact Us · Track Order
 **Utility:** Search · Account · Cart
 **Footer columns:** Collections · Maison · Client Care · Legal
 
@@ -109,12 +117,12 @@ existing AJAX handler). There is no live builder, no price calculator, no produc
 
 ## 6. Standard copy blocks
 
-- Tagline: `Hand-assembled in America. Powered by Japan.`
+- Tagline: `Hand-assembled. Every movement carefully selected.`
 - Hero line: `Time, measured by hand.`
 - Shipping: `Complimentary insured shipping on every order within the United States.`
+- Delivery estimate: `4-7 business days: 1-2 business days handling, 3-5 business days transit.`
 - Returns: `30 days to return an unworn watch in its original condition.`
 - Warranty: `Five-year movement warranty. Lifetime service.`
-- Bespoke: `A watch built to your specification, one at a time.`
 
 ---
 

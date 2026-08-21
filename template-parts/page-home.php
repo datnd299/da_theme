@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage — hero, collections, featured watches, atelier, movement, bespoke, service.
+ * Homepage — hero, collections, featured watches, atelier, movement, service.
  * See .plans/site.md §4.
  */
 
@@ -46,11 +46,11 @@ if (class_exists('WooCommerce')) {
             </h1>
 
             <p class="mt-8 max-w-md text-body text-foreground-muted">
-                <?php esc_html_e('An independent atelier building mechanical watches one at a time. Steel cases finished by hand. Japanese automatic movements, regulated in five positions.', 'dawp'); ?>
+                <?php esc_html_e('An independent atelier building mechanical watches one at a time. Steel cases finished by hand. Carefully selected automatic movements, regulated in five positions.', 'dawp'); ?>
             </p>
 
             <div class="mt-10 flex flex-wrap gap-4">
-                <a class="c-btn" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('The Collections', 'dawp'); ?></a>
+                <a class="c-btn" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('The Collections', 'dawp'); ?></a>
                 <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('The Atelier', 'dawp'); ?></a>
             </div>
 
@@ -167,7 +167,7 @@ if (class_exists('WooCommerce')) {
                 <?php
                 $dawp_craft = [
                     ['n' => '01', 't' => __('Cases finished by hand', 'dawp'), 'd' => __('316L steel, brushed along the lug and polished on the bevel. Each surface is worked separately.', 'dawp')],
-                    ['n' => '02', 't' => __('Movements regulated in five positions', 'dawp'), 'd' => __('Japanese automatic calibres, timed over 72 hours before the case back is closed.', 'dawp')],
+                    ['n' => '02', 't' => __('Movements regulated in five positions', 'dawp'), 'd' => __('Carefully selected automatic calibres, timed over 72 hours before the case back is closed.', 'dawp')],
                     ['n' => '03', 't' => __('Sealed, numbered, recorded', 'dawp'), 'd' => __('Gaskets seated, pressure tested, serial engraved and entered in the atelier register.', 'dawp')],
                 ];
                 foreach ($dawp_craft as $step) : ?>
@@ -197,7 +197,7 @@ if (class_exists('WooCommerce')) {
     <div class="container grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
         <div>
             <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.jpeg')); ?>"
-                 alt="<?php esc_attr_e('The calibre CH-01 Japanese automatic movement', 'dawp'); ?>"
+                 alt="<?php esc_attr_e('The calibre CH-01, a carefully selected automatic movement', 'dawp'); ?>"
                  width="1024" height="1024" loading="lazy" decoding="async"
                  class="mx-auto w-full max-w-[420px]">
         </div>
@@ -205,8 +205,8 @@ if (class_exists('WooCommerce')) {
         <div>
             <span class="c-rule" aria-hidden="true"></span>
             <p class="text-eyebrow font-medium uppercase tracking-wide text-accent"><?php esc_html_e('Calibre CH-01', 'dawp'); ?></p>
-            <h2 id="movement-title" class="mt-4 font-heading text-h2 font-light leading-[1.05] text-on-ink"><?php esc_html_e('A Japanese heart, set by American hands.', 'dawp'); ?></h2>
-            <p class="mt-6 max-w-lg text-body-sm text-on-ink-muted"><?php esc_html_e('We import our automatic movements from Japan, where they are built to a tolerance we could not better. Everything after that happens here: inspection, regulation, casing, and the final 72-hour test on the timing machine.', 'dawp'); ?></p>
+            <h2 id="movement-title" class="mt-4 font-heading text-h2 font-light leading-[1.05] text-on-ink"><?php esc_html_e('A carefully chosen heart, set by hand.', 'dawp'); ?></h2>
+            <p class="mt-6 max-w-lg text-body-sm text-on-ink-muted"><?php esc_html_e('We select our automatic movements for a tolerance we could not better. Everything after that happens here: inspection, regulation, casing, and the final 72-hour test on the timing machine.', 'dawp'); ?></p>
 
             <dl class="mt-10 grid grid-cols-2 gap-px border border-border-ink bg-border-ink sm:grid-cols-3">
                 <?php
@@ -225,23 +225,6 @@ if (class_exists('WooCommerce')) {
                     </div>
                 <?php endforeach; ?>
             </dl>
-        </div>
-    </div>
-</section>
-
-<!-- ============================================================ BESPOKE -->
-<section class="border-b border-border bg-background section-y" aria-labelledby="bespoke-title">
-    <div class="container">
-        <div class="grid items-center gap-10 border border-border bg-surface-alt p-10 lg:grid-cols-[1fr_auto] lg:gap-16 lg:p-20">
-            <div class="max-w-2xl">
-                <span class="c-rule" aria-hidden="true"></span>
-                <p class="c-eyebrow"><?php esc_html_e('Bespoke', 'dawp'); ?></p>
-                <h2 id="bespoke-title" class="c-title"><?php esc_html_e('A watch built to your specification, one at a time.', 'dawp'); ?></h2>
-                <p class="c-lede"><?php esc_html_e('Case finish, bezel, dial colour, hand set, engraving. Decided with the atelier, then assembled over twelve weeks. There is no configurator here — every commission begins with a conversation.', 'dawp'); ?></p>
-            </div>
-            <div class="shrink-0">
-                <a class="c-btn" href="<?php echo esc_url(home_url('/custom/')); ?>"><?php esc_html_e('Begin an enquiry', 'dawp'); ?></a>
-            </div>
         </div>
     </div>
 </section>
@@ -274,7 +257,11 @@ if (class_exists('WooCommerce')) {
 
         <p class="mt-8 text-caption text-muted">
             <?php esc_html_e('Full terms on the', 'dawp'); ?>
-            <a class="text-accent-deep underline underline-offset-4" href="<?php echo esc_url(home_url('/service-warranty/')); ?>"><?php esc_html_e('Service & Warranty page', 'dawp'); ?></a>.
+            <a class="text-accent-deep underline underline-offset-4" href="<?php echo esc_url(home_url('/service-warranty/')); ?>"><?php esc_html_e('Service & Warranty', 'dawp'); ?></a>,
+            <a class="text-accent-deep underline underline-offset-4" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>,
+            <?php esc_html_e('and', 'dawp'); ?>
+            <a class="text-accent-deep underline underline-offset-4" href="<?php echo esc_url(home_url('/returns/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
+            <?php esc_html_e('pages.', 'dawp'); ?>
         </p>
     </div>
 </section>

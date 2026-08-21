@@ -5,7 +5,8 @@
 
 defined('ABSPATH') || exit;
 
-$dawp_support_email = dawp_brand('support_email');
+$dawp_support_email    = dawp_brand('support_email');
+$dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 ?>
 
 <section class="c-policy-hero">
@@ -14,12 +15,13 @@ $dawp_support_email = dawp_brand('support_email');
             <nav class="c-policy-breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
                 <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>
                 <span aria-hidden="true">/</span>
-                <span><?php esc_html_e('Returns', 'dawp'); ?></span>
+                <span><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></span>
             </nav>
             <span class="c-rule" aria-hidden="true"></span>
             <p class="c-eyebrow"><?php esc_html_e('Client care', 'dawp'); ?></p>
-            <h1><?php esc_html_e('Returns & Refunds', 'dawp'); ?></h1>
+            <h1><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
             <p><?php esc_html_e('Thirty days to decide. Unworn, complete, and in its original condition.', 'dawp'); ?></p>
+            <p class="c-policy-updated"><?php esc_html_e('Last updated: August 21, 2026', 'dawp'); ?></p>
         </div>
     </div>
 </section>
@@ -47,7 +49,6 @@ $dawp_support_email = dawp_brand('support_email');
         <section>
             <h2><?php esc_html_e('3. What cannot be returned', 'dawp'); ?></h2>
             <ul>
-                <li><?php esc_html_e('Bespoke commissions, which are made for one person to an agreed specification.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Watches with case-back engraving carried out at your request.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Gift cards.', 'dawp'); ?></li>
                 <li><?php esc_html_e('Watches worn, damaged, or altered after delivery.', 'dawp'); ?></li>
@@ -84,7 +85,13 @@ $dawp_support_email = dawp_brand('support_email');
 
         <section>
             <h2><?php esc_html_e('6. Inspection and refund', 'dawp'); ?></h2>
-            <p><?php esc_html_e('A returned watch is inspected by a watchmaker within two business days of arrival. If it meets the condition above, the refund is issued to the original payment method within seven business days. Your bank may take a further few days to post the credit.', 'dawp'); ?></p>
+            <p><?php
+                printf(
+                    /* translators: %s: link to the billing terms page */
+                    esc_html__('A returned watch is inspected by a watchmaker within two business days of arrival. If it meets the condition above, the refund is issued to your original PayPal account or the card used at checkout within seven business days. Your bank or PayPal may take a further few days to post the credit. See our %s for how payment is processed.', 'dawp'),
+                    '<a href="' . esc_url(home_url('/billing-terms/')) . '">' . esc_html__('Billing Terms & Conditions', 'dawp') . '</a>'
+                );
+            ?></p>
             <p><?php esc_html_e('If a watch does not meet the condition required, we photograph the issue, explain it, and offer either a partial refund or return of the watch at our cost. Nothing is decided without telling you first.', 'dawp'); ?></p>
         </section>
 
@@ -107,6 +114,26 @@ $dawp_support_email = dawp_brand('support_email');
                     '<a href="' . esc_url(home_url('/service-warranty/')) . '">' . esc_html__('Service & Warranty', 'dawp') . '</a>'
                 );
             ?></p>
+        </section>
+
+        <section>
+            <h2><?php esc_html_e('10. Contact', 'dawp'); ?></h2>
+            <p><?php
+                printf(
+                    /* translators: %s: support email link */
+                    esc_html__('Questions about this policy go to %s.', 'dawp'),
+                    '<a href="mailto:' . esc_attr($dawp_support_email) . '">' . esc_html($dawp_support_email) . '</a>'
+                );
+            ?></p>
+            <?php if ($dawp_business_address) : ?>
+                <p><?php
+                    printf(
+                        /* translators: %s: business address */
+                        esc_html__('Business address: %s.', 'dawp'),
+                        esc_html($dawp_business_address)
+                    );
+                ?></p>
+            <?php endif; ?>
         </section>
     </div>
 </section>

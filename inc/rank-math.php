@@ -201,10 +201,10 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
         ];
     }
 
-    if (in_array($page['path'], ['home', 'collections'], true)) {
+    if ($page['path'] === 'home') {
         $schema['about'] = [
             '@type' => 'Thing',
-            'name'  => 'Handcrafted luxury watches with Japanese automatic movements',
+            'name'  => 'Handcrafted luxury watches with carefully selected automatic movements',
         ];
     }
 

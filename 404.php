@@ -21,7 +21,7 @@ $dawp_collections = dawp_collections();
                 <p class="c-lede"><?php esc_html_e('The address you followed does not exist, or the page has moved. Nothing is broken on your side.', 'dawp'); ?></p>
 
                 <div class="mt-10 flex flex-wrap gap-4">
-                    <a class="c-btn" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('The collections', 'dawp'); ?></a>
+                    <a class="c-btn" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
                     <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Back to home', 'dawp'); ?></a>
                 </div>
 

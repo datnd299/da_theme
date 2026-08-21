@@ -8,11 +8,10 @@ defined('ABSPATH') || exit;
 
 function dawp_main_menu_items() {
     return [
-        ['title' => __('Collections', 'dawp'), 'url' => home_url('/collections/'), 'megamenu' => true],
-        ['title' => __('The Atelier', 'dawp'), 'url' => home_url('/about-us/'), 'megamenu' => false],
-        ['title' => __('Bespoke', 'dawp'), 'url' => home_url('/custom/'), 'megamenu' => false],
-        ['title' => __('Service', 'dawp'), 'url' => home_url('/service-warranty/'), 'megamenu' => false],
-        ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/'), 'megamenu' => false],
+        ['title' => __('Home', 'dawp'), 'url' => home_url('/'), 'megamenu' => false],
+        ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/'), 'megamenu' => true],
+        ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/'), 'megamenu' => false],
+        ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/'), 'megamenu' => false],
     ];
 }
 
@@ -38,8 +37,8 @@ function dawp_megamenu_sections() {
             'links' => [
                 ['title' => __('All Watches', 'dawp'), 'url' => home_url('/shop/'), 'description' => __('The complete catalogue.', 'dawp')],
                 ['title' => __('Limited Editions', 'dawp'), 'url' => dawp_product_category_url('limited-editions'), 'description' => __('Numbered series, produced once.', 'dawp')],
-                ['title' => __('Bespoke Commission', 'dawp'), 'url' => home_url('/custom/'), 'description' => __('A watch built to your specification.', 'dawp')],
-                ['title' => __('The Movement', 'dawp'), 'url' => home_url('/about-us/#movement'), 'description' => __('Japanese automatic, calibre CH-01.', 'dawp')],
+                ['title' => __('The Atelier', 'dawp'), 'url' => home_url('/about-us/'), 'description' => __('How a CHRONEL watch is made.', 'dawp')],
+                ['title' => __('The Movement', 'dawp'), 'url' => home_url('/about-us/#movement'), 'description' => __('Carefully selected automatic, calibre CH-01.', 'dawp')],
             ],
         ],
     ];
@@ -78,8 +77,7 @@ function dawp_footer_columns() {
         [
             'title' => __('Maison', 'dawp'),
             'links' => [
-                ['title' => __('The Atelier', 'dawp'), 'url' => home_url('/about-us/')],
-                ['title' => __('Bespoke Commission', 'dawp'), 'url' => home_url('/custom/')],
+                ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
                 ['title' => __('Limited Editions', 'dawp'), 'url' => dawp_product_category_url('limited-editions')],
                 ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
             ],
@@ -89,7 +87,6 @@ function dawp_footer_columns() {
             'links' => [
                 ['title' => __('Service & Warranty', 'dawp'), 'url' => home_url('/service-warranty/')],
                 ['title' => __('Track Your Order', 'dawp'), 'url' => home_url('/track-order/')],
-                ['title' => __('Returns', 'dawp'), 'url' => home_url('/returns/')],
                 ['title' => __('My Account', 'dawp'), 'url' => $account_url],
                 ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
             ],
@@ -98,7 +95,10 @@ function dawp_footer_columns() {
             'title' => __('Legal', 'dawp'),
             'links' => [
                 ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-                ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+                ['title' => __('Terms of Service', 'dawp'), 'url' => home_url('/terms-conditions/')],
+                ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/returns/')],
+                ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+                ['title' => __('Billing Terms & Conditions', 'dawp'), 'url' => home_url('/billing-terms/')],
             ],
         ],
     ];

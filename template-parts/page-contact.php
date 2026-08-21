@@ -23,7 +23,7 @@ $dawp_store_address = function_exists('dawp_get_woocommerce_store_address') ? da
             <span class="c-rule" aria-hidden="true"></span>
             <p class="c-eyebrow"><?php esc_html_e('Client care', 'dawp'); ?></p>
             <h1 id="contact-hero-title" class="font-heading text-h1 font-light leading-[1.02] tracking-tight text-foreground"><?php esc_html_e('Write to us. A person will answer.', 'dawp'); ?></h1>
-            <p class="c-lede"><?php esc_html_e('Orders, sizing, servicing, warranty, or a commission you have been thinking about for a while. We reply within one business day.', 'dawp'); ?></p>
+            <p class="c-lede"><?php esc_html_e('Orders, sizing, servicing, or warranty. We reply within one business day.', 'dawp'); ?></p>
         </div>
     </div>
 </section>
@@ -45,7 +45,7 @@ $dawp_store_address = function_exists('dawp_get_woocommerce_store_address') ? da
                 <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('The atelier', 'dawp'); ?></dt>
                 <dd class="m-0 mt-3">
                     <a class="font-heading text-h3 text-foreground transition-colors duration-400 ease-fluid hover:text-accent-deep" href="mailto:<?php echo esc_attr($dawp_atelier_email); ?>"><?php echo esc_html($dawp_atelier_email); ?></a>
-                    <span class="mt-2 block text-body-sm text-foreground-muted"><?php esc_html_e('Bespoke commissions and technical questions.', 'dawp'); ?></span>
+                    <span class="mt-2 block text-body-sm text-foreground-muted"><?php esc_html_e('Technical questions about your watch.', 'dawp'); ?></span>
                 </dd>
             </div>
             <div class="bg-background p-8">
@@ -59,14 +59,13 @@ $dawp_store_address = function_exists('dawp_get_woocommerce_store_address') ? da
                 <dt class="text-eyebrow uppercase tracking-wide text-muted"><?php esc_html_e('Response time', 'dawp'); ?></dt>
                 <dd class="m-0 mt-3">
                     <span class="block font-heading text-h3 text-foreground"><?php esc_html_e('1 business day', 'dawp'); ?></span>
-                    <span class="mt-2 block text-body-sm text-foreground-muted"><?php esc_html_e('Two days for commission proposals.', 'dawp'); ?></span>
                 </dd>
             </div>
         </dl>
 
         <?php if ($dawp_store_address) : ?>
             <p class="mt-6 text-caption text-muted">
-                <span class="text-eyebrow uppercase tracking-wide text-accent-deep"><?php esc_html_e('Atelier', 'dawp'); ?></span>
+                <span class="text-eyebrow uppercase tracking-wide text-accent-deep"><?php esc_html_e('Business Address', 'dawp'); ?></span>
                 <span class="ml-3"><?php echo esc_html($dawp_store_address); ?></span>
                 <span class="ml-3"><?php esc_html_e('Visits by appointment only.', 'dawp'); ?></span>
             </p>
@@ -111,7 +110,6 @@ $dawp_store_address = function_exists('dawp_get_woocommerce_store_address') ? da
                     <option value="service"><?php esc_html_e('Service & warranty', 'dawp'); ?></option>
                     <option value="shipping"><?php esc_html_e('Delivery', 'dawp'); ?></option>
                     <option value="return"><?php esc_html_e('Returns', 'dawp'); ?></option>
-                    <option value="bespoke"><?php esc_html_e('Bespoke commission', 'dawp'); ?></option>
                     <option value="press"><?php esc_html_e('Press', 'dawp'); ?></option>
                     <option value="other"><?php esc_html_e('Other', 'dawp'); ?></option>
                 </select>

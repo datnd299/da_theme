@@ -19,7 +19,7 @@ defined('ABSPATH') || exit;
             <span class="c-rule" aria-hidden="true"></span>
             <p class="c-eyebrow"><?php esc_html_e('Est. 2016 — United States', 'dawp'); ?></p>
             <h1 id="about-hero-title" class="font-heading text-h1 font-light leading-[1.02] tracking-tight text-foreground"><?php esc_html_e('We build watches slowly, because there is no other way to build them well.', 'dawp'); ?></h1>
-            <p class="c-lede"><?php esc_html_e('CHRONEL is a small independent atelier. We do not run a production line. We buy the best automatic movements Japan makes, and we spend our time on everything that surrounds them.', 'dawp'); ?></p>
+            <p class="c-lede"><?php esc_html_e('CHRONEL is a small independent atelier. We do not run a production line. We carefully select the automatic movements we build around, and we spend our time on everything that surrounds them.', 'dawp'); ?></p>
         </div>
 
         <dl class="mt-16 grid grid-cols-2 gap-px border border-border bg-border lg:grid-cols-4">
@@ -52,7 +52,7 @@ defined('ABSPATH') || exit;
         <div class="space-y-6 text-body text-foreground-muted">
             <p class="m-0"><?php esc_html_e('Our founder inherited a mechanical watch that had stopped in 1994. Three shops refused it. The parts were gone, the maker was gone, and nobody had kept a record of how it had been put together. It was, in every sense, disposable.', 'dawp'); ?></p>
             <p class="m-0"><?php esc_html_e('That is the problem CHRONEL was set up to solve. We build watches that can be opened, understood, and repaired — by us, decades from now, from a register that lists every component in every serial we have ever shipped.', 'dawp'); ?></p>
-            <p class="m-0"><?php esc_html_e('That is also why we import our movements from Japan rather than making our own. Japanese automatic calibres are produced to a tolerance and a consistency that a workshop of our size could not match, and their parts will still be available long after we are.', 'dawp'); ?></p>
+            <p class="m-0"><?php esc_html_e('That is also why we source our movements rather than making our own. Each automatic calibre is carefully selected for a tolerance and a consistency that a workshop of our size could not match, and their parts will still be available long after we are.', 'dawp'); ?></p>
             <p class="m-0 border-l border-accent pl-6 font-heading text-h3 leading-snug text-foreground"><?php esc_html_e('A watch you cannot service is a watch you are only renting.', 'dawp'); ?></p>
         </div>
     </div>
@@ -104,11 +104,11 @@ defined('ABSPATH') || exit;
         <div>
             <span class="c-rule" aria-hidden="true"></span>
             <p class="text-eyebrow font-medium uppercase tracking-wide text-accent"><?php esc_html_e('Calibre CH-01', 'dawp'); ?></p>
-            <h2 id="about-movement-title" class="mt-4 font-heading text-h2 font-light leading-[1.05] text-on-ink"><?php esc_html_e('Why the movement comes from Japan.', 'dawp'); ?></h2>
+            <h2 id="about-movement-title" class="mt-4 font-heading text-h2 font-light leading-[1.05] text-on-ink"><?php esc_html_e('Why we choose our movement with care.', 'dawp'); ?></h2>
 
             <div class="mt-8 space-y-5 text-body-sm text-on-ink-muted">
                 <p class="m-0"><?php esc_html_e('Building a mechanical calibre from nothing takes decades and a factory. Building one badly takes a year. We chose neither.', 'dawp'); ?></p>
-                <p class="m-0"><?php esc_html_e('Our automatic movements are made in Japan by a manufacturer that has been producing them for over half a century. They arrive with a tolerance we could not better, and with a parts supply that will outlast the watch.', 'dawp'); ?></p>
+                <p class="m-0"><?php esc_html_e('Our automatic movements are sourced from a manufacturer that has been producing them for over half a century. They arrive with a tolerance we could not better, and with a parts supply that will outlast the watch.', 'dawp'); ?></p>
                 <p class="m-0"><?php esc_html_e('Everything after that is ours: inspection, regulation in five positions, casing, sealing, and the final 72-hour test. That is where a watch is actually made or ruined.', 'dawp'); ?></p>
             </div>
 
@@ -133,7 +133,7 @@ defined('ABSPATH') || exit;
 
         <div>
             <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.jpeg')); ?>"
-                 alt="<?php esc_attr_e('The calibre CH-01 Japanese automatic movement', 'dawp'); ?>"
+                 alt="<?php esc_attr_e('The calibre CH-01, a carefully selected automatic movement', 'dawp'); ?>"
                  width="1024" height="1024" loading="lazy" decoding="async"
                  class="mx-auto w-full max-w-[420px]">
         </div>
@@ -175,11 +175,10 @@ defined('ABSPATH') || exit;
             <div class="max-w-2xl">
                 <span class="c-rule" aria-hidden="true"></span>
                 <h2 id="about-cta-title" class="c-title"><?php esc_html_e('Come and see what we made.', 'dawp'); ?></h2>
-                <p class="c-lede"><?php esc_html_e('Four collections, all built on the same calibre. Or commission one that does not exist yet.', 'dawp'); ?></p>
+                <p class="c-lede"><?php esc_html_e('Four collections, all built on the same calibre.', 'dawp'); ?></p>
             </div>
             <div class="flex shrink-0 flex-wrap gap-4">
-                <a class="c-btn" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('The collections', 'dawp'); ?></a>
-                <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/custom/')); ?>"><?php esc_html_e('Bespoke', 'dawp'); ?></a>
+                <a class="c-btn" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('The collections', 'dawp'); ?></a>
             </div>
         </div>
     </div>

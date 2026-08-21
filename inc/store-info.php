@@ -13,12 +13,16 @@ if (!function_exists('dawp_brand')) {
         $brand = [
             'name'          => 'CHRONEL',
             'domain'        => 'chronelwatches.com',
-            'tagline'       => __('Hand-assembled in America. Powered by Japan.', 'dawp'),
+            'tagline'       => __('Hand-assembled. Every movement carefully selected.', 'dawp'),
             'support_email' => 'support@chronelwatches.com',
             'atelier_email' => 'atelier@chronelwatches.com',
-            'hours'         => __('Monday – Friday, 9:00 AM – 6:00 PM PST', 'dawp'),
-            'response_time' => __('Within one business day', 'dawp'),
-            'founded'       => '2016',
+            'hours'             => __('Monday – Friday, 9:00 AM – 5:00 PM (GMT-05:00) Eastern Time', 'dawp'),
+            'response_time'     => __('Within 1 business day', 'dawp'),
+            'order_cutoff'      => __('5:00 PM (GMT-05:00) Eastern Time', 'dawp'),
+            'handling_time'     => __('1–2 business days', 'dawp'),
+            'transit_time'      => __('3–5 business days', 'dawp'),
+            'delivery_estimate' => __('4–7 business days', 'dawp'),
+            'founded'           => '2016',
         ];
 
         if ($key === null) {

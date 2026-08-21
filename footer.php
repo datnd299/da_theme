@@ -40,7 +40,7 @@ $dawp_support_email  = dawp_brand('support_email');
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'CHRONEL'); ?>">
                     <img src="<?php echo esc_url(dawp_asset_uri('assets/img/chrone_logo_white.png')); ?>" alt="<?php esc_attr_e('CHRONEL', 'dawp'); ?>" width="525" height="164" class="h-11 w-auto" loading="lazy" decoding="async">
                 </a>
-                <p class="mt-6 max-w-xs text-body-sm text-on-ink-muted"><?php esc_html_e('An independent atelier. Every watch assembled and regulated by hand, powered by a Japanese automatic movement.', 'dawp'); ?></p>
+                <p class="mt-6 max-w-xs text-body-sm text-on-ink-muted"><?php esc_html_e('An independent atelier. Every watch assembled and regulated by hand, powered by a carefully selected automatic movement.', 'dawp'); ?></p>
 
                 <dl class="mt-8 space-y-4 text-caption">
                     <div>
@@ -53,7 +53,7 @@ $dawp_support_email  = dawp_brand('support_email');
                     </div>
                     <?php if ($dawp_store_address) : ?>
                         <div>
-                            <dt class="text-eyebrow uppercase tracking-wide text-accent"><?php esc_html_e('Atelier', 'dawp'); ?></dt>
+                            <dt class="text-eyebrow uppercase tracking-wide text-accent"><?php esc_html_e('Business Address', 'dawp'); ?></dt>
                             <dd class="m-0 mt-1"><?php echo esc_html($dawp_store_address); ?></dd>
                         </div>
                     <?php endif; ?>

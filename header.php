@@ -168,9 +168,7 @@ $dawp_cart_count  = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->
             </ul>
 
             <ul class="m-0 mt-8 list-none space-y-4 border-t border-border p-0 pt-6 text-body-sm">
-                <li><a class="text-foreground-muted" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('All Watches', 'dawp'); ?></a></li>
                 <li><a class="text-foreground-muted" href="<?php echo esc_url($dawp_account_url); ?>"><?php esc_html_e('My Account', 'dawp'); ?></a></li>
-                <li><a class="text-foreground-muted" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Your Order', 'dawp'); ?></a></li>
             </ul>
         </nav>
     </div>
@@ -204,9 +202,8 @@ $dawp_cart_count  = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->
                 <span class="c-rule c-rule--center" aria-hidden="true"></span>
                 <p class="c-eyebrow"><?php esc_html_e('Nothing selected', 'dawp'); ?></p>
                 <h2><?php esc_html_e('Your cart is empty.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Four collections, each built on the same Japanese automatic calibre. Take your time.', 'dawp'); ?></p>
-                <a class="c-btn" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('The collections', 'dawp'); ?></a>
-                <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
+                <p><?php esc_html_e('Four collections, each built on the same carefully selected automatic calibre. Take your time.', 'dawp'); ?></p>
+                <a class="c-btn" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
             </div>
 
         </div>

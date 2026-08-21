@@ -9,11 +9,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@lbqshop.com';
+$support_email  = 'support@uswatchstore.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
-$store_address  = __('4803 N Milwaukee Ave, Chicago, IL, United States, Illinois', 'dawp');
-$instagram_url  = 'https://www.instagram.com/thelbqshop/';
-$facebook_url   = 'https://www.facebook.com/lacedbyQ/';
+$store_address  = __('1420 Kettner Blvd, San Diego, CA 92101, United States', 'dawp');
+$instagram_url  = 'https://www.instagram.com/uswatchstore/';
+$facebook_url   = 'https://www.facebook.com/uswatchstore/';
 
 $footer_category_url = static function ($slug) {
     if (function_exists('get_term_by')) {
@@ -48,11 +48,10 @@ $footer_columns = [
         'title' => __('Shop Categories', 'dawp'),
         'links' => [
             ['title' => __('Shop All', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Beauty Accessories', 'dawp'), 'url' => $footer_category_url('beauty-accessories')],
-            ['title' => __('Makeup Bags & Organizers', 'dawp'), 'url' => $footer_category_url('makeup-bags-organizers')],
-            ['title' => __('Fashion Accessories', 'dawp'), 'url' => $footer_category_url('fashion-accessories')],
-            ['title' => __('Everyday Style Essentials', 'dawp'), 'url' => $footer_category_url('everyday-style-essentials')],
-            ['title' => __('Giftable Finds', 'dawp'), 'url' => $footer_category_url('giftable-finds')],
+            ['title' => __('Quartz Watches', 'dawp'), 'url' => $footer_category_url('quartz-watches')],
+            ['title' => __('Mechanical Watches', 'dawp'), 'url' => $footer_category_url('mechanical-watches')],
+            ['title' => __('Smartwatches', 'dawp'), 'url' => $footer_category_url('smartwatches')],
+            ['title' => __('Digital Watches', 'dawp'), 'url' => $footer_category_url('digital-watches')],
         ],
     ],
     [
@@ -79,13 +78,13 @@ $footer_columns = [
 
 </div><!-- #content -->
 
-<footer class="bg-[#2F2A28] text-white" role="contentinfo">
-    <div class="border-b border-white/10 bg-[#3A302C]">
+<footer class="bg-[#10151C] text-white" role="contentinfo">
+    <div class="border-b border-white/10 bg-[#182230]">
         <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 text-sm text-white/80 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-            <p class="font-semibold text-[#F6D5CF]"><?php esc_html_e('Pretty, practical accessories for beauty routines, travel, and everyday style.', 'dawp'); ?></p>
+            <p class="font-semibold text-[#9FC1E0]"><?php esc_html_e('Precision timepieces, delivered across America.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <span><?php esc_html_e('Processing: 2-4 business days', 'dawp'); ?></span>
-                <span><?php esc_html_e('US shipping: 5-10 business days after dispatch', 'dawp'); ?></span>
+                <span><?php esc_html_e('Processing: 1-3 business days', 'dawp'); ?></span>
+                <span><?php esc_html_e('US shipping: 3-7 business days after dispatch', 'dawp'); ?></span>
                 <span><?php esc_html_e('30-day eligible returns', 'dawp'); ?></span>
             </div>
         </div>
@@ -94,22 +93,20 @@ $footer_columns = [
     <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
         <div class="grid gap-9 lg:grid-cols-[0.95fr_1.7fr]">
             <div>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('LBQ Shop home', 'dawp'); ?>">
-                    <img
-                        class="h-auto w-48 sm:w-56 lg:w-60"
-                        <?php echo dawp_i0_img_attrs(get_template_directory_uri() . '/assets/img/gallery/logo-footer.png', [
-                            'width'  => 240,
-                            'height' => 108,
-                            'srcset' => [[192, 86], [224, 100], [240, 108], [480, 216]],
-                            'sizes'  => '(max-width: 640px) 192px, (max-width: 1024px) 224px, 240px',
-                        ]); ?>
-                        alt="<?php esc_attr_e('LBQ Shop', 'dawp'); ?>"
-                    >
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center gap-2 text-white" aria-label="<?php esc_attr_e('US Watch Store home', 'dawp'); ?>">
+                    <svg class="h-9 w-9 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="8.4"></circle>
+                        <path d="M12 8v4l2.6 1.6"></path>
+                        <path d="M9.3 3.2h5.4M9.3 20.8h5.4"></path>
+                    </svg>
+                    <span class="font-heading text-xl font-extrabold uppercase tracking-[0.04em]">
+                        <?php esc_html_e('US Watch Store', 'dawp'); ?>
+                    </span>
                 </a>
 
                 <div class="mt-6 grid gap-3 text-sm leading-6 text-white/75">
                     <div class="flex items-start gap-3">
-                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-[#F6D5CF]" aria-hidden="true">
+                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-[#9FC1E0]" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                 <path d="m22 7-10 6L2 7"></path>
@@ -117,12 +114,12 @@ $footer_columns = [
                         </span>
                         <p>
                             <span class="font-bold text-white"><?php esc_html_e('Email:', 'dawp'); ?></span>
-                            <a class="break-all transition hover:text-[#F6D5CF]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                            <a class="break-all transition hover:text-[#9FC1E0]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
                         </p>
                     </div>
 
                     <div class="flex items-start gap-3">
-                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-[#F6D5CF]" aria-hidden="true">
+                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-[#9FC1E0]" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
@@ -135,7 +132,7 @@ $footer_columns = [
                     </div>
 
                     <div class="flex items-start gap-3">
-                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-[#F6D5CF]" aria-hidden="true">
+                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-[#9FC1E0]" aria-hidden="true">
                             <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <path d="M12 6v6l4 2"></path>
@@ -149,16 +146,16 @@ $footer_columns = [
                 </div>
 
                 <div class="mt-6">
-                    <p class="text-sm font-bold text-white"><?php esc_html_e('Follow LBQ Shop', 'dawp'); ?></p>
+                    <p class="text-sm font-bold text-white"><?php esc_html_e('Follow US Watch Store', 'dawp'); ?></p>
                     <div class="mt-3 flex items-center gap-3">
-                        <a class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#E4405F] text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#E4405F]" href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow LBQ Shop on Instagram', 'dawp'); ?>">
+                        <a class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#E4405F] text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:text-[#E4405F]" href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow US Watch Store on Instagram', 'dawp'); ?>">
                             <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <rect width="18" height="18" x="3" y="3" rx="5"></rect>
                                 <circle cx="12" cy="12" r="4"></circle>
                                 <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
                             </svg>
                         </a>
-                        <a class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#1877F2] text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5 hover:bg-white hover:text-[#1877F2]" href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow LBQ Shop on Facebook', 'dawp'); ?>">
+                        <a class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-[#1877F2] text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:text-[#1877F2]" href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Follow US Watch Store on Facebook', 'dawp'); ?>">
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
                                 <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.2-1.5 1.5-1.5h1.7V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.1V10H7.5v3h2.7v8h3.3Z"></path>
                             </svg>
@@ -170,7 +167,7 @@ $footer_columns = [
                     <p class="text-sm font-bold text-white"><?php esc_html_e('Accepted Payments', 'dawp'); ?></p>
                     <ul class="mt-3 flex flex-wrap items-center gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                         <li>
-                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white shadow-lg shadow-black/10" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
+                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white shadow-sm" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
                                 <span class="sr-only"><?php esc_html_e('Visa', 'dawp'); ?></span>
                                 <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
                                     <rect width="64" height="40" rx="5" fill="#fff"></rect>
@@ -179,7 +176,7 @@ $footer_columns = [
                             </span>
                         </li>
                         <li>
-                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white shadow-lg shadow-black/10" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
+                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white shadow-sm" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
                                 <span class="sr-only"><?php esc_html_e('Mastercard', 'dawp'); ?></span>
                                 <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
                                     <rect width="64" height="40" rx="5" fill="#fff"></rect>
@@ -190,7 +187,7 @@ $footer_columns = [
                             </span>
                         </li>
                         <li>
-                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white shadow-lg shadow-black/10" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
+                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white shadow-sm" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
                                 <span class="sr-only"><?php esc_html_e('American Express', 'dawp'); ?></span>
                                 <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
                                     <rect width="64" height="40" rx="5" fill="#2E77BC"></rect>
@@ -199,7 +196,7 @@ $footer_columns = [
                             </span>
                         </li>
                         <li>
-                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white shadow-lg shadow-black/10" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
+                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white shadow-sm" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
                                 <span class="sr-only"><?php esc_html_e('PayPal', 'dawp'); ?></span>
                                 <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
                                     <rect width="64" height="40" rx="5" fill="#fff"></rect>
@@ -216,11 +213,11 @@ $footer_columns = [
             <div class="grid gap-7 sm:grid-cols-3 lg:pt-1">
                 <?php foreach ($footer_columns as $column) : ?>
                     <nav aria-label="<?php echo esc_attr($column['title']); ?>">
-                        <h2 class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#F6D5CF]"><?php echo esc_html($column['title']); ?></h2>
+                        <h2 class="text-xs font-extrabold uppercase tracking-[0.16em] text-[#9FC1E0]"><?php echo esc_html($column['title']); ?></h2>
                         <ul class="mt-4 grid gap-2 text-sm leading-6 text-white/75">
                             <?php foreach ($column['links'] as $link) : ?>
                                 <li>
-                                    <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url($link['url']); ?>">
+                                    <a class="transition hover:text-[#9FC1E0]" href="<?php echo esc_url($link['url']); ?>">
                                         <?php echo esc_html($link['title']); ?>
                                     </a>
                                 </li>
@@ -232,12 +229,12 @@ $footer_columns = [
         </div>
 
         <div class="mt-8 flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/60 lg:flex-row lg:items-center lg:justify-between">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> LBQ Shop. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> US Watch Store. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
-                <a class="transition hover:text-[#F6D5CF]" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
+                <a class="transition hover:text-[#9FC1E0]" href="<?php echo esc_url(home_url('/shipping-returns/')); ?>"><?php esc_html_e('Shipping & Returns', 'dawp'); ?></a>
+                <a class="transition hover:text-[#9FC1E0]" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
+                <a class="transition hover:text-[#9FC1E0]" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
+                <a class="transition hover:text-[#9FC1E0]" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
             </div>
         </div>
     </div>

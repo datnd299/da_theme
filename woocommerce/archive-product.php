@@ -1,6 +1,6 @@
 <?php
 /**
- * Elite Shop Express — Shop / Archive Product Template
+ * US Watch Store — Shop / Archive Product Template
  * Design System: Trusted Hardware, conversion-first
  * Section 10: Category / Shop Page rules
  */
@@ -12,8 +12,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical beauty accessories, makeup organizers, fashion accents, everyday essentials, and small giftable finds from LBQ Shop.', 'dawp');
-$archive_eyebrow = __('LBQ Shop Collection', 'dawp');
+$archive_description = __('Browse quartz, mechanical, smart, and digital watches — curated for quality, backed by warranty, shipped fast from the US.', 'dawp');
+$archive_eyebrow = __('US Watch Store Collection', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;

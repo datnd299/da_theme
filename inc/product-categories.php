@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for LBQ Shop.
+ * Product category defaults for US Watch Store.
  *
  * @package dawp
  */
@@ -11,30 +11,25 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'beauty-accessories' => [
-            'name'        => __('Beauty Accessories', 'dawp'),
-            'description' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
-            'short'       => __('Beauty tools and small helpers for everyday routines.', 'dawp'),
+        'quartz-watches' => [
+            'name'        => __('Quartz Watches', 'dawp'),
+            'description' => __('Battery-powered precision timekeeping with reliable, low-maintenance movements for everyday wear.', 'dawp'),
+            'short'       => __('Reliable, low-maintenance precision timekeeping.', 'dawp'),
         ],
-        'makeup-bags-organizers' => [
-            'name'        => __('Makeup Bags & Organizers', 'dawp'),
-            'description' => __('Travel-friendly cosmetic bags, storage pieces, and organizers that help keep beauty items neat and easy to find.', 'dawp'),
-            'short'       => __('Cosmetic bags, cases, and organizers for home or travel.', 'dawp'),
+        'mechanical-watches' => [
+            'name'        => __('Mechanical Watches', 'dawp'),
+            'description' => __('Traditional automatic and hand-wound movements built for collectors who appreciate the craft.', 'dawp'),
+            'short'       => __('Automatic and hand-wound movements for collectors.', 'dawp'),
         ],
-        'fashion-accessories' => [
-            'name'        => __('Fashion Accessories', 'dawp'),
-            'description' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
-            'short'       => __('Small accents for polished everyday styling.', 'dawp'),
+        'smartwatches' => [
+            'name'        => __('Smartwatches', 'dawp'),
+            'description' => __('Connected watches with fitness tracking, notifications, and apps for life on the go.', 'dawp'),
+            'short'       => __('Fitness tracking, notifications, and apps on your wrist.', 'dawp'),
         ],
-        'everyday-style-essentials' => [
-            'name'        => __('Everyday Style Essentials', 'dawp'),
-            'description' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
-            'short'       => __('Practical daily pieces for beauty, travel, and style.', 'dawp'),
-        ],
-        'giftable-finds' => [
-            'name'        => __('Giftable Finds', 'dawp'),
-            'description' => __('Pretty, practical accessories made for thoughtful everyday gifting.', 'dawp'),
-            'short'       => __('Small beauty and style finds that are easy to gift.', 'dawp'),
+        'digital-watches' => [
+            'name'        => __('Digital Watches', 'dawp'),
+            'description' => __('Rugged, easy-to-read digital displays built for everyday durability and everyday use.', 'dawp'),
+            'short'       => __('Rugged, easy-to-read displays built to last.', 'dawp'),
         ],
     ];
 }

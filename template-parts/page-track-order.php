@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page for LBQ Shop.
+ * Track order page for US Watch Store.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@lbqshop.com';
+$support_email  = 'support@uswatchstore.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
@@ -45,29 +45,24 @@ $lbq_category_url = static function ($slug) {
 
 $category_links = [
     [
-        'name' => __('Beauty Accessories', 'dawp'),
-        'copy' => __('Everyday tools and small beauty helpers for simple routines.', 'dawp'),
-        'url'  => $lbq_category_url('beauty-accessories'),
+        'name' => __('Quartz Watches', 'dawp'),
+        'copy' => __('Battery-powered precision with reliable, low-maintenance timekeeping.', 'dawp'),
+        'url'  => $lbq_category_url('quartz-watches'),
     ],
     [
-        'name' => __('Makeup Bags & Organizers', 'dawp'),
-        'copy' => __('Travel-friendly cases and cosmetic storage for cleaner carry.', 'dawp'),
-        'url'  => $lbq_category_url('makeup-bags-organizers'),
+        'name' => __('Mechanical Watches', 'dawp'),
+        'copy' => __('Traditional automatic and hand-wound movements built for collectors.', 'dawp'),
+        'url'  => $lbq_category_url('mechanical-watches'),
     ],
     [
-        'name' => __('Fashion Accessories', 'dawp'),
-        'copy' => __('Simple outfit accents selected for polished everyday style.', 'dawp'),
-        'url'  => $lbq_category_url('fashion-accessories'),
+        'name' => __('Smartwatches', 'dawp'),
+        'copy' => __('Connected watches with fitness tracking, notifications, and apps.', 'dawp'),
+        'url'  => $lbq_category_url('smartwatches'),
     ],
     [
-        'name' => __('Everyday Style Essentials', 'dawp'),
-        'copy' => __('Practical pieces for beauty, organization, travel, and daily use.', 'dawp'),
-        'url'  => $lbq_category_url('everyday-style-essentials'),
-    ],
-    [
-        'name' => __('Giftable Finds', 'dawp'),
-        'copy' => __('Pretty, useful accessories made for thoughtful small gifts.', 'dawp'),
-        'url'  => $lbq_category_url('giftable-finds'),
+        'name' => __('Digital Watches', 'dawp'),
+        'copy' => __('Rugged, readable digital displays built for everyday durability.', 'dawp'),
+        'url'  => $lbq_category_url('digital-watches'),
     ],
 ];
 
@@ -101,7 +96,7 @@ $policy_links = [
         <div class="track-hero__inner">
             <div class="track-hero__copy">
                 <p class="track-eyebrow"><?php esc_html_e('Order Tracking', 'dawp'); ?></p>
-                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your LBQ Shop order.', 'dawp'); ?></h1>
+                <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track your US Watch Store order.', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
                     <?php esc_html_e('Enter your order ID and billing email to check your shipment status, order items, and delivery details.', 'dawp'); ?>
                 </p>
@@ -124,14 +119,14 @@ $policy_links = [
                         <span class="track-timeline__icon" aria-hidden="true">2</span>
                         <div>
                             <h2><?php esc_html_e('Processing', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Orders are prepared within 2-4 business days.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Orders are prepared within 1-3 business days.', 'dawp'); ?></p>
                         </div>
                     </div>
                     <div class="track-timeline__item">
                         <span class="track-timeline__icon" aria-hidden="true">3</span>
                         <div>
                             <h2><?php esc_html_e('On the way', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Standard US shipping typically takes 3-7 business days after dispatch.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -199,7 +194,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('2-4 Day Processing', 'dawp'); ?>
+                    <?php esc_html_e('1-3 Day Processing', 'dawp'); ?>
                 </div>
             </div>
         </div>
@@ -210,7 +205,7 @@ $policy_links = [
             <div class="track-section-heading track-section-heading--center">
                 <p class="track-eyebrow"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
                 <h2 id="track-helpful-title"><?php esc_html_e('Helpful links for your order.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Review the same store support pages used across LBQ Shop.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Review the same store support pages used across US Watch Store.', 'dawp'); ?></p>
             </div>
 
             <div class="track-more-grid">
@@ -228,8 +223,8 @@ $policy_links = [
         <div class="track-category-section__inner">
             <div class="track-category-section__header">
                 <p class="track-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
-                <h2 id="track-category-title"><?php esc_html_e('Beauty and style categories from LBQ Shop.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Explore the same product categories featured across the current store experience.', 'dawp'); ?></p>
+                <h2 id="track-category-title"><?php esc_html_e('Watch categories from US Watch Store.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Explore quartz, mechanical, smart, and digital watches from the current store lineup.', 'dawp'); ?></p>
             </div>
 
             <div class="track-category-grid">

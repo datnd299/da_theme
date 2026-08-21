@@ -5,7 +5,7 @@ add_filter( 'woocommerce_admin_report_data', 'fake_sales_report_data', 999 );
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'LBQ-' . $order_id;
+    return 'USWS-' . $order_id;
 }
 function fake_sales_report_data( $report_data ) {
     if ( ! is_admin() ) {

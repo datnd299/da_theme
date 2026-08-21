@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact page for LBQ Shop.
+ * Contact page for US Watch Store.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@lbqshop.com';
+$support_email  = 'support@uswatchstore.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $track_url      = home_url('/track-order/');
 $faq_url        = home_url('/faq/');
@@ -93,79 +93,79 @@ $render_icon = static function ($icon) {
 };
 ?>
 
-<div class="bg-white text-[#2F2A28]">
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="contact-title">
+<div class="bg-white text-[#10151C]">
+    <section class="bg-[#EEF2F6] py-14 sm:py-20" aria-labelledby="contact-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Contact Us', 'dawp'); ?></p>
-                <h1 id="contact-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                    <?php esc_html_e('Clear support for beauty and style orders.', 'dawp'); ?>
+                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('Contact Us', 'dawp'); ?></p>
+                <h1 id="contact-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#10151C] sm:text-5xl">
+                    <?php esc_html_e('Clear support for your watch order.', 'dawp'); ?>
                 </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Have a question about an order, product detail, return request, or store policy? Contact LBQ Shop and include the details our support team needs to help.', 'dawp'); ?>
+                <p class="mt-5 max-w-2xl text-base leading-8 text-[#64748B]">
+                    <?php esc_html_e('Have a question about an order, a watch, a return request, or store policy? Contact US Watch Store and include the details our support team needs to help.', 'dawp'); ?>
                 </p>
             </div>
 
             <div class="grid gap-4 md:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
                 <?php foreach ($support_cards as $card) : ?>
-                    <article class="rounded-md border border-[#E8DAD4] bg-white p-5 shadow-sm">
-                        <div class="flex h-11 w-11 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
+                    <article class="rounded-md border border-[#E2E8F0] bg-white p-5 shadow-sm">
+                        <div class="flex h-11 w-11 items-center justify-center rounded-md bg-[#E6EDF5] text-[#5B7A99]">
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
                         </div>
-                        <h2 class="mt-4 font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($card['title']); ?></h2>
-                        <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
-                        <p class="mt-4 text-sm font-bold text-[#8A4F56]"><?php echo esc_html($card['meta']); ?></p>
+                        <h2 class="mt-4 font-heading text-lg font-extrabold text-[#10151C]"><?php echo esc_html($card['title']); ?></h2>
+                        <p class="mt-3 text-sm leading-6 text-[#64748B]"><?php echo esc_html($card['copy']); ?></p>
+                        <p class="mt-4 text-sm font-bold text-[#14324D]"><?php echo esc_html($card['meta']); ?></p>
                     </article>
                 <?php endforeach; ?>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="contact-form-title">
+    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="contact-form-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
             <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                    <h2 class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Before you send', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]">
+                <div class="rounded-md border border-[#E2E8F0] bg-white p-6 shadow-sm">
+                    <h2 class="font-heading text-2xl font-extrabold text-[#10151C]"><?php esc_html_e('Before you send', 'dawp'); ?></h2>
+                    <p class="mt-4 text-sm leading-7 text-[#64748B]">
                         <?php esc_html_e('For order questions, include your order number and the email used at checkout. For product questions, include the product name or link if available.', 'dawp'); ?>
                     </p>
 
-                    <div class="mt-6 grid gap-3 text-sm leading-6 text-[#6F625D]">
-                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
-                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <div class="mt-6 grid gap-3 text-sm leading-6 text-[#64748B]">
+                        <div class="flex gap-3 rounded-md bg-[#EEF2F6] p-4">
+                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#5B7A99]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><strong class="text-[#2F2A28]"><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('We aim to reply within 1 business day.', 'dawp'); ?></span>
+                            <span><strong class="text-[#10151C]"><?php esc_html_e('Response Time:', 'dawp'); ?></strong> <?php esc_html_e('We aim to reply within 1 business day.', 'dawp'); ?></span>
                         </div>
-                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
-                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <div class="flex gap-3 rounded-md bg-[#EEF2F6] p-4">
+                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#5B7A99]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Orders are processed within 2-4 business days.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Orders are processed within 1-3 business days.', 'dawp'); ?></span>
                         </div>
-                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
-                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <div class="flex gap-3 rounded-md bg-[#EEF2F6] p-4">
+                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#5B7A99]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Standard US shipping typically takes 3-7 business days after dispatch.', 'dawp'); ?></span>
                         </div>
-                        <div class="flex gap-3 rounded-md bg-[#F8F2EE] p-4">
-                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#A96870]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <div class="flex gap-3 rounded-md bg-[#EEF2F6] p-4">
+                            <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#5B7A99]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                             </svg>
-                            <span><?php esc_html_e('Eligible unused items may be returned within 30 days of delivery.', 'dawp'); ?></span>
+                            <span><?php esc_html_e('Eligible unused watches may be returned within 30 days of delivery.', 'dawp'); ?></span>
                         </div>
                     </div>
 
-                    <p class="mt-6 text-sm leading-7 text-[#6F625D]">
+                    <p class="mt-6 text-sm leading-7 text-[#64748B]">
                         <?php
                         echo wp_kses(
                             sprintf(
                                 /* translators: 1: support email link, 2: business hours */
                                 __('Prefer email? Contact %1$s. Business hours: %2$s.', 'dawp'),
-                                '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
+                                '<a class="font-bold text-[#14324D] underline decoration-[#1F4E79]/40 underline-offset-4 transition hover:text-[#10151C]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
                                 esc_html($business_hours)
                             ),
                             [
@@ -180,26 +180,26 @@ $render_icon = static function ($icon) {
                 </div>
             </aside>
 
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm sm:p-8">
+            <div class="rounded-md border border-[#E2E8F0] bg-white p-6 shadow-sm sm:p-8">
                 <div class="max-w-2xl">
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Support Form', 'dawp'); ?></p>
-                    <h2 id="contact-form-title" class="mt-3 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28]">
+                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('Support Form', 'dawp'); ?></p>
+                    <h2 id="contact-form-title" class="mt-3 font-heading text-3xl font-extrabold leading-tight text-[#10151C]">
                         <?php esc_html_e('Send us a message.', 'dawp'); ?>
                     </h2>
-                    <p class="mt-3 text-sm leading-7 text-[#6F625D]">
+                    <p class="mt-3 text-sm leading-7 text-[#64748B]">
                         <?php esc_html_e('We use the information you provide to respond to your request and support your shopping experience.', 'dawp'); ?>
                     </p>
                 </div>
 
                 <?php if ($status === 'success') : ?>
-                    <div class="mt-6 flex gap-3 rounded-md border border-[#B7D8C2] bg-[#F0FAF3] p-4 text-sm leading-6 text-[#315B3D]" role="status">
+                    <div class="mt-6 flex gap-3 rounded-md border border-[#B7D8C2] bg-[#E3F1E9] p-4 text-sm leading-6 text-[#315B3D]" role="status">
                         <svg class="mt-0.5 h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <?php echo $render_icon('check'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </svg>
-                        <p><?php esc_html_e('Thank you. Your message has been sent to LBQ Shop support.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Thank you. Your message has been sent to US Watch Store support.', 'dawp'); ?></p>
                     </div>
                 <?php elseif ($status === 'error') : ?>
-                    <div class="mt-6 flex gap-3 rounded-md border border-[#E7B8B4] bg-[#FFF3F1] p-4 text-sm leading-6 text-[#8A332B]" role="alert">
+                    <div class="mt-6 flex gap-3 rounded-md border border-[#F8E2E0] bg-[#E6EDF5] p-4 text-sm leading-6 text-[#9A2A21]" role="alert">
                         <svg class="mt-0.5 h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <?php echo $render_icon('alert'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         </svg>
@@ -218,20 +218,20 @@ $render_icon = static function ($icon) {
 
                     <div class="grid gap-5 sm:grid-cols-2">
                         <div>
-                            <label for="contact-name" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Name', 'dawp'); ?> <span class="text-[#A96870]">*</span></label>
-                            <input id="contact-name" name="contact_name" type="text" autocomplete="name" required class="mt-2 block min-h-12 w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 text-sm text-[#2F2A28] outline-none transition placeholder:text-[#9C8E88] focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]" placeholder="<?php esc_attr_e('Your name', 'dawp'); ?>">
+                            <label for="contact-name" class="block text-sm font-extrabold text-[#10151C]"><?php esc_html_e('Name', 'dawp'); ?> <span class="text-[#5B7A99]">*</span></label>
+                            <input id="contact-name" name="contact_name" type="text" autocomplete="name" required class="mt-2 block min-h-12 w-full rounded-md border border-[#E2E8F0] bg-[#FFFFFF] px-4 text-sm text-[#10151C] outline-none transition placeholder:text-[#64748B] focus:border-[#1F4E79] focus:ring-4 focus:ring-[#E6EDF5]" placeholder="<?php esc_attr_e('Your name', 'dawp'); ?>">
                         </div>
 
                         <div>
-                            <label for="contact-email" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Email', 'dawp'); ?> <span class="text-[#A96870]">*</span></label>
-                            <input id="contact-email" name="contact_email" type="email" autocomplete="email" required class="mt-2 block min-h-12 w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 text-sm text-[#2F2A28] outline-none transition placeholder:text-[#9C8E88] focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]" placeholder="<?php esc_attr_e('you@example.com', 'dawp'); ?>">
+                            <label for="contact-email" class="block text-sm font-extrabold text-[#10151C]"><?php esc_html_e('Email', 'dawp'); ?> <span class="text-[#5B7A99]">*</span></label>
+                            <input id="contact-email" name="contact_email" type="email" autocomplete="email" required class="mt-2 block min-h-12 w-full rounded-md border border-[#E2E8F0] bg-[#FFFFFF] px-4 text-sm text-[#10151C] outline-none transition placeholder:text-[#64748B] focus:border-[#1F4E79] focus:ring-4 focus:ring-[#E6EDF5]" placeholder="<?php esc_attr_e('you@example.com', 'dawp'); ?>">
                         </div>
                     </div>
 
                     <div class="grid gap-5 sm:grid-cols-2">
                         <div>
-                            <label for="contact-topic" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Topic', 'dawp'); ?></label>
-                            <select id="contact-topic" name="contact_topic" class="mt-2 block min-h-12 w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 text-sm text-[#2F2A28] outline-none transition focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]">
+                            <label for="contact-topic" class="block text-sm font-extrabold text-[#10151C]"><?php esc_html_e('Topic', 'dawp'); ?></label>
+                            <select id="contact-topic" name="contact_topic" class="mt-2 block min-h-12 w-full rounded-md border border-[#E2E8F0] bg-[#FFFFFF] px-4 text-sm text-[#10151C] outline-none transition focus:border-[#1F4E79] focus:ring-4 focus:ring-[#E6EDF5]">
                                 <?php foreach ($form_topics as $value => $label) : ?>
                                     <option value="<?php echo esc_attr($value); ?>"><?php echo esc_html($label); ?></option>
                                 <?php endforeach; ?>
@@ -239,23 +239,23 @@ $render_icon = static function ($icon) {
                         </div>
 
                         <div>
-                            <label for="order-number" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Order number', 'dawp'); ?></label>
-                            <input id="order-number" name="order_number" type="text" autocomplete="off" class="mt-2 block min-h-12 w-full rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 text-sm text-[#2F2A28] outline-none transition placeholder:text-[#9C8E88] focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]" placeholder="<?php esc_attr_e('Optional', 'dawp'); ?>">
+                            <label for="order-number" class="block text-sm font-extrabold text-[#10151C]"><?php esc_html_e('Order number', 'dawp'); ?></label>
+                            <input id="order-number" name="order_number" type="text" autocomplete="off" class="mt-2 block min-h-12 w-full rounded-md border border-[#E2E8F0] bg-[#FFFFFF] px-4 text-sm text-[#10151C] outline-none transition placeholder:text-[#64748B] focus:border-[#1F4E79] focus:ring-4 focus:ring-[#E6EDF5]" placeholder="<?php esc_attr_e('Optional', 'dawp'); ?>">
                         </div>
                     </div>
 
                     <div>
-                        <label for="contact-message" class="block text-sm font-extrabold text-[#2F2A28]"><?php esc_html_e('Message', 'dawp'); ?> <span class="text-[#A96870]">*</span></label>
-                        <textarea id="contact-message" name="contact_message" rows="7" required class="mt-2 block w-full resize-y rounded-md border border-[#E8DAD4] bg-[#FFFDFC] px-4 py-3 text-sm leading-7 text-[#2F2A28] outline-none transition placeholder:text-[#9C8E88] focus:border-[#C87F86] focus:ring-4 focus:ring-[#FBEDEA]" placeholder="<?php esc_attr_e('Tell us how we can help.', 'dawp'); ?>"></textarea>
+                        <label for="contact-message" class="block text-sm font-extrabold text-[#10151C]"><?php esc_html_e('Message', 'dawp'); ?> <span class="text-[#5B7A99]">*</span></label>
+                        <textarea id="contact-message" name="contact_message" rows="7" required class="mt-2 block w-full resize-y rounded-md border border-[#E2E8F0] bg-[#FFFFFF] px-4 py-3 text-sm leading-7 text-[#10151C] outline-none transition placeholder:text-[#64748B] focus:border-[#1F4E79] focus:ring-4 focus:ring-[#E6EDF5]" placeholder="<?php esc_attr_e('Tell us how we can help.', 'dawp'); ?>"></textarea>
                     </div>
 
-                    <div class="rounded-md bg-[#F8F2EE] p-4 text-sm leading-6 text-[#6F625D]">
+                    <div class="rounded-md bg-[#EEF2F6] p-4 text-sm leading-6 text-[#64748B]">
                         <?php
                         echo wp_kses(
                             sprintf(
                                 /* translators: privacy policy link */
-                                __('By submitting this form, you agree that LBQ Shop may use your details to respond to your request. Review our %s for more information.', 'dawp'),
-                                '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="' . esc_url($privacy_url) . '">' . esc_html__('Privacy Policy', 'dawp') . '</a>'
+                                __('By submitting this form, you agree that US Watch Store may use your details to respond to your request. Review our %s for more information.', 'dawp'),
+                                '<a class="font-bold text-[#14324D] underline decoration-[#1F4E79]/40 underline-offset-4 transition hover:text-[#10151C]" href="' . esc_url($privacy_url) . '">' . esc_html__('Privacy Policy', 'dawp') . '</a>'
                             ),
                             [
                                 'a' => [
@@ -267,7 +267,7 @@ $render_icon = static function ($icon) {
                         ?>
                     </div>
 
-                    <button type="submit" class="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28] sm:w-auto">
+                    <button type="submit" class="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#1F4E79] px-6 text-sm font-bold text-white transition hover:bg-[#10151C] sm:w-auto">
                         <?php esc_html_e('Send Message', 'dawp'); ?>
                     </button>
                 </form>
@@ -275,29 +275,29 @@ $render_icon = static function ($icon) {
         </div>
     </section>
 
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="contact-help-title">
+    <section class="bg-[#EEF2F6] py-14 sm:py-20" aria-labelledby="contact-help-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
                 <div class="max-w-3xl">
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Helpful Links', 'dawp'); ?></p>
-                    <h2 id="contact-help-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
+                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('Helpful Links', 'dawp'); ?></p>
+                    <h2 id="contact-help-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#10151C] sm:text-4xl">
                         <?php esc_html_e('Find the right support information faster.', 'dawp'); ?>
                     </h2>
-                    <p class="mt-4 text-base leading-7 text-[#6F625D]">
+                    <p class="mt-4 text-base leading-7 text-[#64748B]">
                         <?php esc_html_e('Review the policy pages for complete details about shipping, returns, privacy, and store terms before submitting a request.', 'dawp'); ?>
                     </p>
                 </div>
-                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#1F4E79] bg-white px-6 text-sm font-bold text-[#14324D] transition hover:bg-[#E6EDF5]">
                     <?php esc_html_e('Shop Products', 'dawp'); ?>
                 </a>
             </div>
 
             <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
                 <?php foreach ($help_topics as $topic) : ?>
-                    <a href="<?php echo esc_url($topic['url']); ?>" class="group rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#C87F86] hover:shadow-xl hover:shadow-[#8A4F56]/10">
-                        <h3 class="font-heading text-lg font-extrabold text-[#2F2A28] transition group-hover:text-[#8A4F56]"><?php echo esc_html($topic['title']); ?></h3>
-                        <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($topic['copy']); ?></p>
-                        <span class="mt-5 inline-flex text-sm font-bold text-[#A96870]">
+                    <a href="<?php echo esc_url($topic['url']); ?>" class="group rounded-md border border-[#E2E8F0] bg-white p-6 shadow-sm transition hover:border-[#1F4E79] hover:shadow-sm">
+                        <h3 class="font-heading text-lg font-extrabold text-[#10151C] transition group-hover:text-[#14324D]"><?php echo esc_html($topic['title']); ?></h3>
+                        <p class="mt-3 text-sm leading-6 text-[#64748B]"><?php echo esc_html($topic['copy']); ?></p>
+                        <span class="mt-5 inline-flex text-sm font-bold text-[#5B7A99]">
                             <?php esc_html_e('View details', 'dawp'); ?>
                             <span class="ml-2" aria-hidden="true">-&gt;</span>
                         </span>
@@ -309,20 +309,20 @@ $render_icon = static function ($icon) {
 
     <section class="bg-white py-14 sm:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-6 sm:p-8">
+            <div class="rounded-md border border-[#E2E8F0] bg-[#FFFFFF] p-6 sm:p-8">
                 <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Store Policies', 'dawp'); ?></p>
-                        <h2 class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Transparent customer care for LBQ Shop orders.', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-[#6F625D]">
-                            <?php esc_html_e('LBQ Shop keeps support, shipping, return, privacy, and terms information visible so customers can shop beauty and fashion accessories with clear expectations.', 'dawp'); ?>
+                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('Store Policies', 'dawp'); ?></p>
+                        <h2 class="mt-3 font-heading text-2xl font-extrabold text-[#10151C]"><?php esc_html_e('Transparent customer care for US Watch Store orders.', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-[#64748B]">
+                            <?php esc_html_e('US Watch Store keeps support, shipping, return, privacy, and terms information visible so customers can shop quartz, mechanical, smart, and digital watches with clear expectations.', 'dawp'); ?>
                         </p>
                     </div>
                     <div class="flex flex-col gap-3 sm:flex-row">
-                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
+                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#10151C] px-6 text-sm font-bold text-white transition hover:bg-[#14324D]">
                             <?php esc_html_e('Shipping & Returns', 'dawp'); ?>
                         </a>
-                        <a href="<?php echo esc_url($terms_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
+                        <a href="<?php echo esc_url($terms_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#1F4E79] bg-white px-6 text-sm font-bold text-[#14324D] transition hover:bg-[#E6EDF5]">
                             <?php esc_html_e('Terms & Conditions', 'dawp'); ?>
                         </a>
                     </div>

@@ -1,4 +1,25 @@
 <?php
+add_action('template_redirect', 'dawp_handle_virtual_page_redirects', 5);
+function dawp_handle_virtual_page_redirects() {
+    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    $redirects   = dawp_virtual_page_redirect_map();
+
+    if (!isset($redirects[$request_uri])) {
+        return;
+    }
+
+    wp_safe_redirect(home_url('/' . $redirects[$request_uri] . '/'), 301);
+    exit;
+}
+
+function dawp_virtual_page_redirect_map() {
+    return [
+        // Old combined pages, split into dedicated policy pages.
+        'shipping-returns' => 'shipping-policy',
+        'terms-conditions' => 'terms-of-service',
+    ];
+}
+
 add_action('template_redirect', 'dawp_handle_virtual_pages');
 function dawp_handle_virtual_pages() {
     $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
@@ -27,13 +48,15 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'         => ['slug' => 'about',            'title' => 'About Us', 'css' => 'tw-about.css'],
-        'faq'              => ['slug' => 'faq',              'title' => 'FAQ', 'css' => 'tw-faq.css'],
-        'contact-us'       => ['slug' => 'contact',          'title' => 'Contact Us', 'css' => 'tw-contact.css'],
-        'shipping-returns' => ['slug' => 'shipping-returns', 'title' => 'Shipping & Returns', 'css' => 'tw-ship.css'],
-        'terms-conditions' => ['slug' => 'terms-conditions', 'title' => 'Terms & Conditions', 'css' => 'tw-terms.css'],
-        'privacy-policy'   => ['slug' => 'privacy',          'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
-        'track-order'   => ['slug' => 'track-order',          'title' => 'Track Order', 'css' => 'track-order.css'],
+        'about-us'              => ['slug' => 'about',                'title' => 'About Us', 'css' => 'tw-about.css'],
+        'faq'                   => ['slug' => 'faq',                  'title' => 'FAQ', 'css' => 'tw-faq.css'],
+        'contact-us'            => ['slug' => 'contact',              'title' => 'Contact Us', 'css' => 'tw-contact.css'],
+        'shipping-policy'       => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'css' => 'tw-shipping-policy.css'],
+        'return-refund-policy'  => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'css' => 'tw-return-refund-policy.css'],
+        'billing-terms'         => ['slug' => 'billing-terms',        'title' => 'Billing Terms & Conditions', 'css' => 'tw-billing-terms.css'],
+        'terms-of-service'      => ['slug' => 'terms-of-service',     'title' => 'Terms of Service', 'css' => 'tw-terms-of-service.css'],
+        'privacy-policy'        => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'css' => 'tw-privacy.css'],
+        'track-order'           => ['slug' => 'track-order',          'title' => 'Track Order', 'css' => 'track-order.css'],
     ];
 }
 

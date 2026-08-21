@@ -2,6 +2,10 @@
 /**
  * About page for US Watch Store.
  *
+ * Hallmark · genre: modern-minimal · macrostructure: Long Document (continuous
+ * narrative core, restrained supporting sections, no repeated eyebrow tics)
+ * nav: N12 · footer: Ft1 · design-system: .plans/design_system.md (locked)
+ *
  * @package dawp
  */
 
@@ -15,6 +19,7 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
+$theme_img_uri  = get_template_directory_uri() . '/assets/img';
 $support_email  = 'support@uswatchstore.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 
@@ -36,13 +41,13 @@ $lbq_category_url = static function ($slug) {
 
 $brand_pillars = [
     [
-        'title' => __('Authenticity, Verified', 'dawp'),
-        'copy'  => __('Every watch is inspected for authenticity and proper function before it ships — not just listed and shipped.', 'dawp'),
+        'title' => __('Quality Assured', 'dawp'),
+        'copy'  => __('Every watch is inspected for quality and proper function before it ships - not just listed and shipped.', 'dawp'),
         'icon'  => 'shield',
     ],
     [
         'title' => __('All Four Watch Types', 'dawp'),
-        'copy'  => __('Quartz, mechanical, smart, and digital — one curated store instead of a narrow niche, so you can compare and choose with confidence.', 'dawp'),
+        'copy'  => __('Quartz, mechanical, smart, and digital - one curated store instead of a narrow niche, so you can compare and choose with confidence.', 'dawp'),
         'icon'  => 'watch',
     ],
     [
@@ -76,8 +81,8 @@ $category_links = [
 ];
 
 $standards = [
-    __('Every watch is inspected for authenticity and proper function before it ships.', 'dawp'),
-    __('Our collection stays focused on quartz, mechanical, smart, and digital watches — no unrelated categories.', 'dawp'),
+    __('Every watch is inspected for quality and proper function before it ships.', 'dawp'),
+    __('Our collection stays focused on quartz, mechanical, smart, and digital watches - no unrelated categories.', 'dawp'),
     __('We stand behind every watch with a 2-year warranty against manufacturing and movement defects.', 'dawp'),
     __('Listings state movement type, water resistance, and materials clearly, so you know exactly what you are buying.', 'dawp'),
 ];
@@ -94,7 +99,7 @@ $care_cards = [
     ],
     [
         'title' => __('Fast US Shipping', 'dawp'),
-        'copy'  => __('Orders are processed within 1-3 business days. Standard US shipping typically takes 3-7 business days after dispatch — free on orders over $75.', 'dawp'),
+        'copy'  => __('Orders are processed within 1-3 business days. Standard US shipping typically takes 3-7 business days after dispatch - free on all orders.', 'dawp'),
         'icon'  => 'truck',
     ],
     [
@@ -121,147 +126,131 @@ $render_icon = static function ($icon) {
 };
 
 /**
- * Decorative gradient panel used in place of missing product photography.
- * See .plans/site.md §6 Imagery Policy.
+ * Product photo panel for supporting imagery sections.
  */
-$render_visual = static function ($icon, $classes, $icon_size = '42%') use ($render_icon) {
+$render_visual = static function ($image_file, $classes, $alt) use ($theme_img_uri) {
     printf(
-        '<div class="%1$s flex items-center justify-center shadow-sm" style="background: linear-gradient(135deg, var(--color-accent, #1F4E79), var(--color-accent-hover, #14324D));" aria-hidden="true"><svg viewBox="0 0 24 24" width="%2$s" height="%2$s" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="max-width:9rem;max-height:9rem;">%3$s</svg></div>',
+        '<div class="%1$s overflow-hidden rounded-md bg-surface shadow-card"><img src="%2$s" alt="%3$s" class="h-full w-full object-contain" loading="lazy"></div>',
         esc_attr($classes),
-        esc_attr($icon_size),
-        $render_icon($icon) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+        esc_url($theme_img_uri . '/' . $image_file),
+        esc_attr($alt)
     );
 };
 ?>
 
-<div class="bg-white text-[#10151C]">
-    <section class="relative isolate overflow-hidden border-b border-[#E2E8F0] bg-[#FFFFFF] py-12 sm:py-16 lg:py-20" aria-labelledby="about-hero-title">
-        <div class="absolute inset-x-0 top-0 -z-10 h-40 bg-[#EEF2F6]" aria-hidden="true"></div>
+<div class="bg-background text-foreground">
+    <section class="relative isolate overflow-hidden border-b border-border bg-background py-14 sm:py-20" aria-labelledby="about-hero-title">
+        <div class="absolute inset-x-0 top-0 -z-10 h-40 bg-surface" aria-hidden="true"></div>
 
         <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12 lg:px-8">
             <div class="max-w-2xl">
-                <p class="inline-flex rounded-md border border-[#E2E8F0] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#5B7A99] shadow-sm">
+                <p class="inline-flex rounded-sm border border-border bg-surface px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-accent-blush">
                     <?php esc_html_e('About US Watch Store', 'dawp'); ?>
                 </p>
-                <h1 id="about-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight text-[#10151C] sm:text-5xl lg:text-6xl">
-                    <?php esc_html_e('Precision timepieces, chosen with the same care you\'d want if it were on your own wrist.', 'dawp'); ?>
+                <h1 id="about-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight text-foreground sm:text-5xl lg:text-6xl">
+                    <?php esc_html_e('Precision timepieces, chosen with the same care you’d want if it were on your own wrist.', 'dawp'); ?>
                 </h1>
-                <p class="mt-5 max-w-xl text-base leading-8 text-[#64748B] sm:text-lg">
-                    <?php esc_html_e('US Watch Store curates quartz, mechanical, smart, and digital watches for everyday wear, gifting, and collecting. Every watch is inspected for authenticity and backed by a real warranty — no guesswork, no inflated markups.', 'dawp'); ?>
+                <p class="mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg">
+                    <?php esc_html_e('US Watch Store curates quartz, mechanical, smart, and digital watches for everyday wear, gifting, and collecting. Every watch is inspected for quality and backed by a real warranty - no guesswork, no inflated markups.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
-                    <div class="flex items-start gap-3 rounded-md border border-[#E2E8F0] bg-white p-4 shadow-sm">
-                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#1F4E79]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#10151C]"><?php esc_html_e('Every watch inspected before it ships', 'dawp'); ?></span>
+                    <div class="flex items-start gap-3 rounded-sm border border-border bg-surface p-4">
+                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('Every watch inspected before it ships', 'dawp'); ?></span>
                     </div>
-                    <div class="flex items-start gap-3 rounded-md border border-[#E2E8F0] bg-white p-4 shadow-sm">
-                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#1F4E79]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#10151C]"><?php esc_html_e('All four watch types, one trusted store', 'dawp'); ?></span>
+                    <div class="flex items-start gap-3 rounded-sm border border-border bg-surface p-4">
+                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('All four watch types, one trusted store', 'dawp'); ?></span>
                     </div>
-                    <div class="flex items-start gap-3 rounded-md border border-[#E2E8F0] bg-white p-4 shadow-sm">
-                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#1F4E79]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#10151C]"><?php esc_html_e('2-year warranty, 30-day returns', 'dawp'); ?></span>
+                    <div class="flex items-start gap-3 rounded-sm border border-border bg-surface p-4">
+                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
+                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('2-year warranty, 30-day returns', 'dawp'); ?></span>
                     </div>
                 </div>
 
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#1F4E79] px-6 text-sm font-bold text-white transition hover:bg-[#10151C]">
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                         <?php esc_html_e('Shop Watches', 'dawp'); ?>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#1F4E79] bg-white px-6 text-sm font-bold text-[#14324D] transition hover:bg-[#E6EDF5]">
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm border border-accent bg-background px-6 text-sm font-bold text-accent-hover transition hover:bg-surface-alt">
                         <?php esc_html_e('Contact Support', 'dawp'); ?>
                     </a>
                 </div>
             </div>
 
             <figure class="relative">
-                <?php $render_visual('watch', 'aspect-[5/4] w-full rounded-md lg:aspect-[4/5]'); ?>
-                <figcaption class="mt-4 rounded-md border border-[#E2E8F0] bg-white p-4 text-sm font-bold leading-6 text-[#10151C] shadow-sm">
-                    <?php esc_html_e('Built for people who want a timepiece they can trust — not just a listing that looks good in a photo.', 'dawp'); ?>
+                <?php $render_visual('about_1.webp', 'aspect-[5/4] w-full rounded-md lg:aspect-[4/5]', __('A US Watch Store timepiece', 'dawp')); ?>
+                <figcaption class="mt-4 rounded-sm border border-border bg-surface p-4 text-sm font-bold leading-6 text-foreground">
+                    <?php esc_html_e('Built for people who want a timepiece they can trust - not just a listing that looks good in a photo.', 'dawp'); ?>
                 </figcaption>
             </figure>
         </div>
     </section>
 
-    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="about-story-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
-            <div class="grid gap-4 sm:grid-cols-5">
-                <?php $render_visual('gear', 'aspect-[4/5] w-full rounded-md sm:col-span-3'); ?>
-                <div class="grid gap-4 sm:col-span-2">
-                    <?php $render_visual('smartwatch', 'aspect-square w-full rounded-md', '38%'); ?>
-                    <?php $render_visual('strap', 'aspect-square w-full rounded-md', '38%'); ?>
-                </div>
-            </div>
-
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('Our Story', 'dawp'); ?></p>
-                <h2 id="about-story-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#10151C] sm:text-4xl">
-                    <?php esc_html_e('We built the store we wished existed when shopping for a watch online.', 'dawp'); ?>
-                </h2>
-                <div class="mt-5 space-y-4 text-base leading-8 text-[#64748B]">
-                    <p>
-                        <?php esc_html_e('US Watch Store started with a simple frustration: department-store watch counters mark up prices with no explanation, and most online sellers won\'t tell you where a watch actually comes from or whether it has been checked for quality. We wanted a place where you could buy a quartz, mechanical, smart, or digital watch and know exactly what you were getting.', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <?php esc_html_e('So we built exactly that — a curated selection across all four watch types, every piece inspected for authenticity and function before it ships, backed by a 2-year warranty and real US-based support. No inflated markups, no guesswork.', 'dawp'); ?>
-                    </p>
-                </div>
+    <!-- Our story - continuous prose, Long Document core -->
+    <section class="bg-background py-16 sm:py-24" aria-labelledby="about-story-title">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <h2 id="about-story-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
+                <?php esc_html_e('We built the store we wished existed when shopping for a watch online.', 'dawp'); ?>
+            </h2>
+            <div class="mt-6 space-y-5 text-lg leading-8 text-foreground-muted">
+                <p>
+                    <?php esc_html_e('US Watch Store started with a simple frustration: department-store watch counters mark up prices with no explanation, and most online sellers won’t tell you where a watch actually comes from or whether it has been checked for quality. We wanted a place where you could buy a quartz, mechanical, smart, or digital watch and know exactly what you were getting.', 'dawp'); ?>
+                </p>
+                <p>
+                    <?php esc_html_e('So we built exactly that - a curated selection across all four watch types, every piece inspected for quality and function before it ships, backed by a 2-year warranty and real US-based support. No inflated markups, no guesswork.', 'dawp'); ?>
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#EEF2F6] py-14 sm:py-20" aria-labelledby="about-pillars-title">
+    <!-- What we stand for - divided list, not a 3-col card grid -->
+    <section class="bg-surface py-14 sm:py-20" aria-labelledby="about-pillars-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('What We Stand For', 'dawp'); ?></p>
-                <h2 id="about-pillars-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#10151C] sm:text-4xl">
+            <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-start lg:gap-14">
+                <h2 id="about-pillars-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
                     <?php esc_html_e('A curated watch store, not a warehouse of random listings.', 'dawp'); ?>
                 </h2>
-                <p class="mt-4 text-base leading-7 text-[#64748B]">
-                    <?php esc_html_e('Every watch we sell is chosen and checked against the same standard, across every category.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="mt-10 grid gap-5 md:grid-cols-3">
-                <?php foreach ($brand_pillars as $pillar) : ?>
-                    <article class="rounded-md border border-[#E2E8F0] bg-white p-6 shadow-sm transition hover:border-[#1F4E79] hover:shadow-sm">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#E6EDF5] text-[#5B7A99]">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon($pillar['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                            </svg>
+                <div class="grid divide-y divide-border border-t border-border sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:border-b">
+                    <?php foreach ($brand_pillars as $pillar) : ?>
+                        <div class="flex flex-col gap-3 py-6 sm:px-6 sm:py-0 sm:first:pl-0 sm:last:pr-0">
+                            <div class="flex h-11 w-11 items-center justify-center rounded-sm bg-accent-soft text-accent">
+                                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <?php echo $render_icon($pillar['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                </svg>
+                            </div>
+                            <h3 class="font-heading text-lg font-extrabold text-foreground"><?php echo esc_html($pillar['title']); ?></h3>
+                            <p class="text-sm leading-6 text-foreground-muted"><?php echo esc_html($pillar['copy']); ?></p>
                         </div>
-                        <h3 class="mt-5 font-heading text-xl font-extrabold text-[#10151C]"><?php echo esc_html($pillar['title']); ?></h3>
-                        <p class="mt-3 text-sm leading-6 text-[#64748B]"><?php echo esc_html($pillar['copy']); ?></p>
-                    </article>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-14 sm:py-20" aria-labelledby="about-categories-title">
+    <section class="bg-background py-14 sm:py-20" aria-labelledby="about-categories-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('Our Product Focus', 'dawp'); ?></p>
-                <h2 id="about-categories-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#10151C] sm:text-4xl">
+                <h2 id="about-categories-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
                     <?php esc_html_e('A focused watch store, not a random marketplace.', 'dawp'); ?>
                 </h2>
-                <p class="mt-5 text-base leading-8 text-[#64748B]">
+                <p class="mt-5 text-base leading-8 text-foreground-muted">
                     <?php esc_html_e('US Watch Store keeps the shopping experience focused on one thing: watches worth wearing. Our four categories cover everyday quartz reliability, mechanical craftsmanship, connected smartwatches, and rugged digital durability.', 'dawp'); ?>
                 </p>
-                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#10151C] px-6 text-sm font-bold text-white transition hover:bg-[#14324D]">
+                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-foreground px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                     <?php esc_html_e('Browse All Watches', 'dawp'); ?>
                 </a>
             </div>
 
             <div class="grid gap-4 sm:grid-cols-2">
                 <?php foreach ($category_links as $category) : ?>
-                    <a href="<?php echo esc_url($category['url']); ?>" class="group rounded-md border border-[#E2E8F0] bg-[#FFFFFF] p-5 transition hover:border-[#1F4E79] hover:bg-[#E6EDF5] hover:shadow-sm">
-                        <span class="block font-heading text-lg font-extrabold text-[#10151C] transition group-hover:text-[#14324D]"><?php echo esc_html($category['name']); ?></span>
-                        <span class="mt-3 block text-sm leading-6 text-[#64748B]"><?php echo esc_html($category['copy']); ?></span>
-                        <span class="mt-5 inline-flex text-sm font-bold text-[#5B7A99]">
+                    <a href="<?php echo esc_url($category['url']); ?>" class="group rounded-md border border-border bg-background p-5 transition hover:border-accent hover:bg-surface-alt hover:shadow-card">
+                        <span class="block font-heading text-lg font-extrabold text-foreground transition group-hover:text-accent-hover"><?php echo esc_html($category['name']); ?></span>
+                        <span class="mt-3 block text-sm leading-6 text-foreground-muted"><?php echo esc_html($category['copy']); ?></span>
+                        <span class="mt-5 inline-flex text-sm font-bold text-accent-blush">
                             <?php esc_html_e('Shop category', 'dawp'); ?>
-                            <span class="ml-2" aria-hidden="true">-&gt;</span>
+                            <span class="ml-2" aria-hidden="true">→</span>
                         </span>
                     </a>
                 <?php endforeach; ?>
@@ -269,75 +258,70 @@ $render_visual = static function ($icon, $classes, $icon_size = '42%') use ($ren
         </div>
     </section>
 
-    <section class="bg-[#EEF2F6] py-14 sm:py-20" aria-labelledby="about-standards-title">
+    <section class="bg-surface py-14 sm:py-20" aria-labelledby="about-standards-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('How We Choose', 'dawp'); ?></p>
-                <h2 id="about-standards-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#10151C] sm:text-4xl">
+                <h2 id="about-standards-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
                     <?php esc_html_e('A practical standard for every watch we sell.', 'dawp'); ?>
                 </h2>
-                <p class="mt-5 text-base leading-8 text-[#64748B]">
+                <p class="mt-5 text-base leading-8 text-foreground-muted">
                     <?php esc_html_e('Our selection process is intentionally strict: real inspection, clear specs, and no exaggerated claims. That is what lets you buy with confidence.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid gap-3">
                     <?php foreach ($standards as $standard) : ?>
-                        <div class="flex gap-3 rounded-md border border-[#E2E8F0] bg-white px-4 py-4 text-sm font-bold leading-6 text-[#10151C]">
-                            <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#1F4E79]" aria-hidden="true"></span>
+                        <div class="flex gap-3 rounded-sm border border-border bg-background px-4 py-4 text-sm font-bold leading-6 text-foreground">
+                            <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                             <span><?php echo esc_html($standard); ?></span>
                         </div>
                     <?php endforeach; ?>
                 </div>
             </div>
 
-            <?php $render_visual('magnifier', 'aspect-[4/5] w-full rounded-md'); ?>
+            <?php $render_visual('about_2.webp', 'aspect-[4/5] w-full rounded-md', __('A closely inspected watch, ready to ship', 'dawp')); ?>
         </div>
     </section>
 
-    <section class="border-y border-[#E2E8F0] bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="about-care-title">
+    <!-- Customer care - asymmetric: one wide card + two stacked -->
+    <section class="border-y border-border bg-background py-14 sm:py-20" aria-labelledby="about-care-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
-                    <h2 id="about-care-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#10151C] sm:text-4xl">
-                        <?php esc_html_e('Clear support before and after you buy.', 'dawp'); ?>
-                    </h2>
-                    <p class="mt-5 text-base leading-8 text-[#64748B]">
-                        <?php esc_html_e('We want you to know exactly what to expect — sizing, water resistance, warranty coverage, shipping — before you check out and after your watch arrives.', 'dawp'); ?>
-                    </p>
-                    <p class="mt-5 text-sm leading-7 text-[#64748B]">
-                        <?php
-                        echo wp_kses(
-                            sprintf(
-                                /* translators: 1: support email link, 2: business hours */
-                                __('Need help? Email %1$s. Business hours: %2$s.', 'dawp'),
-                                '<a class="font-bold text-[#14324D] underline decoration-[#1F4E79]/40 underline-offset-4 transition hover:text-[#10151C]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
-                                esc_html($business_hours)
-                            ),
-                            [
-                                'a' => [
-                                    'class' => [],
-                                    'href'  => [],
-                                ],
-                            ]
-                        );
-                        ?>
-                    </p>
-                </div>
+            <h2 id="about-care-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
+                <?php esc_html_e('Clear support before and after you buy.', 'dawp'); ?>
+            </h2>
+            <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted">
+                <?php esc_html_e('We want you to know exactly what to expect - sizing, water resistance, warranty coverage, shipping - before you check out and after your watch arrives.', 'dawp'); ?>
+            </p>
+            <p class="mt-5 max-w-2xl text-sm leading-7 text-foreground-muted">
+                <?php
+                echo wp_kses(
+                    sprintf(
+                        /* translators: 1: support email link, 2: business hours */
+                        __('Need help? Email %1$s. Business hours: %2$s.', 'dawp'),
+                        '<a class="font-bold text-accent-hover underline decoration-accent/40 underline-offset-4 transition hover:text-foreground" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
+                        esc_html($business_hours)
+                    ),
+                    [
+                        'a' => [
+                            'class' => [],
+                            'href'  => [],
+                        ],
+                    ]
+                );
+                ?>
+            </p>
 
-                <div class="grid gap-4 md:grid-cols-3">
-                    <?php foreach ($care_cards as $card) : ?>
-                        <article class="rounded-md border border-[#E2E8F0] bg-white p-6 shadow-sm">
-                            <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#E6EDF5] text-[#5B7A99]">
-                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                </svg>
-                            </div>
-                            <h3 class="mt-5 font-heading text-lg font-extrabold text-[#10151C]"><?php echo esc_html($card['title']); ?></h3>
-                            <p class="mt-3 text-sm leading-6 text-[#64748B]"><?php echo esc_html($card['copy']); ?></p>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
+            <div class="mt-10 grid gap-4 lg:grid-cols-3">
+                <?php foreach ($care_cards as $i => $card) : ?>
+                    <article class="rounded-md border border-border bg-surface p-6 <?php echo 0 === $i ? 'lg:col-span-2' : ''; ?>">
+                        <div class="flex h-12 w-12 items-center justify-center rounded-sm bg-accent-soft text-accent-blush">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                            </svg>
+                        </div>
+                        <h3 class="mt-5 font-heading text-lg font-extrabold text-foreground"><?php echo esc_html($card['title']); ?></h3>
+                        <p class="mt-3 max-w-md text-sm leading-6 text-foreground-muted"><?php echo esc_html($card['copy']); ?></p>
+                    </article>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

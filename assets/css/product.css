@@ -1,48 +1,41 @@
-/* ============================================================
-   Product Page - Vivisshop
-   Soft everyday fashion store: warm, polished, conversion-focused
-   ============================================================ */
+/* Hallmark · genre: modern-minimal · macrostructure: standard PDP convention
+ * (gallery + buy box + tabs + reviews + related) - not one of the 21 landing
+ * macrostructures; Hallmark's catalog is landing-page shaped, transactional
+ * product pages follow e-commerce UX convention instead.
+ * design-system: .plans/design_system.md (locked) - pure CSS, WooCommerce
+ * classes first. Internal aliases below resolve to the real design tokens
+ * (declared globally in tailwind-input.css / main.css) so every colour,
+ * radius, and shadow in this file traces back to one source of truth.
+ * ============================================================ */
 
-/* CSS Variables */
 :root {
-  --color-bg:             #FFFFFF;
-  --color-bg-subtle:      #E6EDF5;
-  --color-bg-muted:       #EEF2F6;
-  --color-text-primary:   #10151C;
-  --color-text-secondary: #10151C;
-  --color-text-muted:     #64748B;
-  --color-text-soft:      #64748B;
-  --color-border:         #E2E8F0;
-  --color-accent:         #1F4E79;
-  --color-accent-hover:   #10151C;
-  --color-button-bg:      var(--color-accent-hover);
-  --color-button-hover:   var(--color-accent);
-  --color-button-text:    var(--color-bg);
-  --color-sale:           #C0392B;
-  --color-blush:          #5B7A99;
-  --color-navy:           #10151C;
-  --color-navy-light:     #64748B;
-  --color-ring:           rgba(31, 78, 121, 0.18);
-  --color-background:     var(--color-bg);
-  --color-foreground:     var(--color-text-primary);
-  --color-foreground-muted: var(--color-text-muted);
-  --color-muted:          var(--color-text-soft);
-  --color-success:        var(--color-accent);
-  --color-alert:          var(--color-sale);
-  --font-primary:         'Inter', system-ui, -apple-system, sans-serif;
-  --font-sans:            var(--font-primary);
-  --radius-md:            8px;
-  --radius-lg:            16px;
-  --radius-xl:            24px;
-  --shadow-card:          0 1px 4px rgba(16, 21, 28, 0.06);
-  --shadow-card-hover:    0 14px 34px rgba(16, 21, 28, 0.12);
+  --color-bg:             var(--color-surface);
+  --color-bg-subtle:      var(--color-accent-soft);
+  --color-bg-muted:       var(--color-surface-alt);
+  --color-text-primary:   var(--color-foreground);
+  --color-text-secondary: var(--color-foreground);
+  --color-text-muted:     var(--color-muted);
+  --color-text-soft:      var(--color-muted);
+  --color-accent-hover:   var(--color-accent-hover, #14324D);
+  --color-button-bg:      var(--color-accent);
+  --color-button-hover:   var(--color-accent-hover);
+  --color-button-text:    #fff;
+  --color-sale:           var(--color-alert);
+  --color-blush:          var(--color-accent-blush);
+  --color-navy:           var(--color-foreground);
+  --color-navy-light:     var(--color-muted);
+  --color-ring:           color-mix(in srgb, var(--color-accent) 18%, transparent);
+  --font-primary:         var(--font-sans);
+  --radius-md:            var(--radius-md, 4px);
+  --radius-lg:            var(--radius-lg, 6px);
+  --radius-xl:            var(--radius-lg, 6px);
 }
 
 /* === 1. PAGE LAYOUT === */
 body.single-product {
   overflow-x: hidden;
   font-family: var(--font-primary);
-  background-color: var(--color-bg-subtle);
+  background-color: var(--color-background);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
 }
@@ -50,9 +43,7 @@ body.single-product {
 .woo-page {
   display: flex;
   justify-content: center;
-  background:
-    linear-gradient(180deg, var(--color-bg-subtle) 0, var(--color-bg) 300px),
-    var(--color-bg);
+  background: var(--color-background);
 }
 
 .single-product div.product {
@@ -313,12 +304,11 @@ body.single-product {
 }
 
 .product_title.entry-title {
-  font-family: var(--font-primary);
+  font-family: var(--font-heading, var(--font-primary));
   font-size: 1.5rem;
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.15;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
   color: var(--color-text-primary);
   margin: 0;
 }
@@ -414,7 +404,7 @@ body.single-product {
   font-weight: 600;
   color: var(--color-text-primary);
   background-color: var(--color-bg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233B1748' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2310151C' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   border: 1.5px solid var(--color-border);
@@ -741,7 +731,7 @@ form.cart:not(.variations_form) {
   margin: 0;
 }
 
-/* Description table — responsive */
+/* Description table - responsive */
 .woocommerce-Tabs-panel--description table {
   width: 100% !important;
   max-width: 100%;
@@ -1219,9 +1209,9 @@ form.cart:not(.variations_form) {
   left: 8px;
   right: 8px;
   background-color: var(--color-navy);
-  color: #FFFFFF;
+  color: #fff;
   padding: 10px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1364,7 +1354,7 @@ form.cart:not(.variations_form) {
   transform: scale(0.97);
 }
 /* ==========================================================================
-   Size Chart Styles — mobile-first, responsive
+   Size Chart Styles - mobile-first, responsive
    ========================================================================== */
 
 .size-chart-wrap {
@@ -1515,7 +1505,7 @@ form.cart:not(.variations_form) {
   }
 }
 /* =========================================================
-   DESC2 — CSS OVERRIDE (chỉ đè style, không sửa HTML)
+   DESC2 - CSS OVERRIDE (chỉ đè style, không sửa HTML)
    Dùng !important để thắng inline-style + CSS theme có sẵn
    ========================================================= */
 

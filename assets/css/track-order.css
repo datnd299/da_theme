@@ -1,21 +1,22 @@
-/* =============================================================
-   TRACK ORDER PAGE - US Watch Store
-   ============================================================= */
+/* Hallmark · genre: modern-minimal · macrostructure: standard lookup
+ * convention (C2 inline-form-as-cta) · design-system: .plans/design_system.md
+ * (locked) - internal aliases resolve to the real design tokens.
+ * ============================================================= */
 
 .track-order-page {
-  --track-ink: #10151C;
-  --track-soft-ink: #10151C;
-  --track-muted: #64748B;
-  --track-rose: #1F4E79;
-  --track-rose-dark: #14324D;
-  --track-rose-muted: #5B7A99;
-  --track-blush: #E6EDF5;
-  --track-cream: #EEF2F6;
-  --track-paper: #FFFFFF;
-  --track-border: #E2E8F0;
-  --track-white: #FFFFFF;
-  --track-danger: #C0392B;
-  --track-success: #315B3D;
+  --track-ink: var(--color-foreground);
+  --track-soft-ink: var(--color-foreground);
+  --track-muted: var(--color-muted);
+  --track-rose: var(--color-accent);
+  --track-rose-dark: var(--color-accent-hover);
+  --track-rose-muted: var(--color-accent-blush);
+  --track-blush: var(--color-accent-soft);
+  --track-cream: var(--color-surface-alt);
+  --track-paper: var(--color-surface);
+  --track-border: var(--color-border);
+  --track-white: var(--color-surface);
+  --track-danger: var(--color-alert);
+  --track-success: var(--color-success);
   --track-shadow: var(--shadow-card);
 
   background: var(--track-paper);
@@ -45,7 +46,7 @@
 .track-hero {
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(16, 21, 28, 0.88), rgba(20, 50, 77, 0.78)),
+    linear-gradient(135deg, color-mix(in srgb, var(--color-foreground) 88%, transparent), color-mix(in srgb, var(--color-accent-hover) 78%, transparent)),
     linear-gradient(90deg, var(--track-cream), var(--track-blush));
   color: var(--track-white);
   padding: 4rem 1rem;
@@ -59,7 +60,7 @@
 }
 
 .track-hero .track-eyebrow {
-  color: #9FC1E0;
+  color: var(--color-accent-blush);
 }
 
 .track-hero__title {
@@ -76,7 +77,7 @@
 .track-hero__desc {
   max-width: 41rem;
   margin: 1.25rem 0 0;
-  color: rgba(255, 255, 255, 0.88);
+  color: color-mix(in srgb, var(--color-surface) 88%, transparent);
   font-size: 1rem;
   line-height: 1.8;
 }
@@ -117,8 +118,8 @@
 }
 
 .track-button--ghost {
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid color-mix(in srgb, var(--color-surface) 72%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 10%, transparent);
   color: var(--track-white);
 }
 
@@ -129,9 +130,9 @@
 
 .track-hero__panel {
   align-self: stretch;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid color-mix(in srgb, var(--color-surface) 22%, transparent);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.12);
+  background: color-mix(in srgb, var(--color-surface) 12%, transparent);
   padding: 1.25rem;
   box-shadow: var(--shadow-card-hover);
   backdrop-filter: blur(10px);
@@ -147,7 +148,7 @@
   grid-template-columns: auto 1fr;
   gap: 1rem;
   align-items: flex-start;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid color-mix(in srgb, var(--color-surface) 18%, transparent);
   padding-bottom: 1rem;
 }
 
@@ -163,7 +164,7 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
-  background: #9FC1E0;
+  background: color-mix(in srgb, var(--color-accent-blush) 55%, var(--color-surface) 45%);
   color: var(--track-rose-dark);
   font-weight: 900;
 }
@@ -178,7 +179,7 @@
 
 .track-timeline p {
   margin: 0.35rem 0 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: color-mix(in srgb, var(--color-surface) 78%, transparent);
   font-size: 0.875rem;
   line-height: 1.6;
 }
@@ -298,7 +299,7 @@
   color: var(--track-rose-dark);
   font-weight: 800;
   text-decoration: underline;
-  text-decoration-color: rgba(31, 78, 121, 0.4);
+  text-decoration-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
   text-underline-offset: 0.25rem;
 }
 
@@ -409,7 +410,7 @@
   justify-content: space-between;
   padding: 1.25rem;
   background:
-    linear-gradient(180deg, rgba(230, 237, 245, 0.52), rgba(255, 255, 255, 0) 54%),
+    linear-gradient(180deg, color-mix(in srgb, var(--color-accent-soft) 52%, transparent), transparent 54%),
     var(--track-white);
 }
 
@@ -427,7 +428,7 @@
 }
 
 .track-category-card__cta::after {
-  content: "->";
+  content: "\2192";
   margin-left: 0.45rem;
 }
 
@@ -493,7 +494,7 @@
 }
 
 .track-order-page .form-row input.input-text::placeholder {
-  color: #64748B !important;
+  color: var(--color-muted) !important;
   opacity: 1 !important;
 }
 
@@ -501,7 +502,7 @@
 .track-order-page .woocommerce-form-row input.input-text:focus {
   border-color: var(--track-rose) !important;
   background: var(--track-white) !important;
-  box-shadow: 0 0 0 4px rgba(230, 237, 245, 0.9) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent-soft) 90%, transparent) !important;
 }
 
 .track-order-page .form-row button.button,
@@ -548,16 +549,16 @@
 }
 
 .track-order-page .woocommerce-error {
-  border: 1px solid rgba(154, 42, 33, 0.28) !important;
-  background: #E6EDF5 !important;
+  border: 1px solid color-mix(in srgb, var(--track-danger) 28%, transparent) !important;
+  background: color-mix(in srgb, var(--track-danger) 10%, transparent) !important;
   color: var(--track-danger) !important;
   list-style: none !important;
 }
 
 .track-order-page .woocommerce-message,
 .track-order-page .woocommerce-info {
-  border: 1px solid rgba(49, 91, 61, 0.22) !important;
-  background: #E3F1E9 !important;
+  border: 1px solid color-mix(in srgb, var(--track-success) 22%, transparent) !important;
+  background: color-mix(in srgb, var(--track-success) 12%, transparent) !important;
   color: var(--track-success) !important;
 }
 

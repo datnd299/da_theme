@@ -1,13 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('site-header');
-    const toggle = document.querySelector('.menu-toggle');
-    const nav    = document.querySelector('.main-navigation');
+    const header  = document.getElementById('site-header');
+    const banner  = document.getElementById('site-banner');
+    const bar     = document.getElementById('site-bar');
+    const dismiss = document.getElementById('site-banner-dismiss');
+    const toggle  = document.querySelector('.menu-toggle');
+    const nav     = document.querySelector('.main-navigation');
 
-    // Scroll shadow
-    if (header) {
-        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+    // N12 announcement banner: retracts on scroll-down past a small threshold,
+    // returns on scroll-up, docks the bar with a frosted background once scrolled.
+    if (header && banner && bar) {
+        const root = document.documentElement;
+        let lastY = window.scrollY;
+        let dismissed = false;
+
+        const setBannerHeight = (px) => root.style.setProperty('--header-banner-h', px + 'px');
+        setBannerHeight(banner.offsetHeight);
+
+        const onScroll = () => {
+            const y = window.scrollY;
+            bar.classList.toggle('bg-surface/90', y > 8);
+            bar.classList.toggle('backdrop-blur', y > 8);
+            bar.classList.toggle('border-border', y > 8);
+            bar.classList.toggle('shadow-card', y > 8);
+
+            if (!dismissed) {
+                const scrollingDown = y > lastY;
+                if (scrollingDown && y > 48) {
+                    header.classList.add('is-compact');
+                    setBannerHeight(0);
+                } else if (!scrollingDown || y <= 48) {
+                    header.classList.remove('is-compact');
+                    setBannerHeight(banner.offsetHeight);
+                }
+            }
+            lastY = y;
+        };
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
+
+        if (dismiss) {
+            dismiss.addEventListener('click', () => {
+                dismissed = true;
+                header.classList.add('is-dismissed');
+                setBannerHeight(0);
+            });
+        }
     }
 
     // Mobile menu toggle
@@ -15,14 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
         toggle.addEventListener('click', () => {
             const expanded = toggle.getAttribute('aria-expanded') === 'true';
             toggle.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('is-open');
+            nav.classList.toggle('hidden');
         });
 
-        // Đóng menu khi click bên ngoài
+        // Close the menu on outside click
         document.addEventListener('click', (e) => {
             if (!header.contains(e.target) && !toggle.contains(e.target)) {
                 toggle.setAttribute('aria-expanded', 'false');
-                nav.classList.remove('is-open');
+                nav.classList.add('hidden');
             }
         });
     }

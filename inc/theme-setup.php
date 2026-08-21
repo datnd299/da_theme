@@ -16,7 +16,7 @@ function fake_sales_report_data( $report_data ) {
     $total_sales       = 583749.25; // Tổng doanh thu trong khoảng thời gian (có thể đổi)
     $average_sales     = 67.7;
     $total_orders      = (int) round( $total_sales / $average_sales ); // 7353
-    $items_per_order   = 1.47;  // tỉ lệ items / order — có thể đổi
+    $items_per_order   = 1.47;  // tỉ lệ items / order - có thể đổi
     $total_items       = (int) round( $total_orders * $items_per_order );
 
     // Refund config
@@ -484,7 +484,12 @@ function dawp_scripts() {
 
     if ( is_front_page() ) {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
+        wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.2');
         dawp_remove_styles();
+    }
+
+    if ( is_404() ) {
+        wp_enqueue_style('dawp-tw-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', [], '1.0.2');
     }
     
     if ( class_exists( 'WooCommerce' ) ) {
@@ -554,3 +559,85 @@ function dawp_remove_styles() {
         }
     }
 }
+
+add_action('wp_head', 'dawp_product_json_ld_schema');
+function dawp_product_json_ld_schema() {
+    if (!function_exists('is_product') || !is_product()) {
+        return;
+    }
+
+    global $product;
+    if (!($product instanceof WC_Product)) {
+        $product = wc_get_product(get_the_ID());
+    }
+
+    if (!$product) {
+        return;
+    }
+
+    $image_id  = $product->get_image_id();
+    $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'full') : '';
+
+    $schema = [
+        '@context'    => 'https://schema.org',
+        '@type'       => 'Product',
+        'name'        => $product->get_name(),
+        'image'       => $image_url ? [$image_url] : [],
+        'description' => wp_strip_all_tags($product->get_short_description() ?: $product->get_description()),
+        'sku'         => $product->get_sku() ?: 'USWS-' . $product->get_id(),
+        'brand'       => [
+            '@type' => 'Brand',
+            'name'  => 'US Watch Store',
+        ],
+        'offers'      => [
+            '@type'           => 'Offer',
+            'url'             => get_permalink($product->get_id()),
+            'priceCurrency'   => 'USD',
+            'price'           => wc_format_decimal($product->get_price(), 2),
+            'availability'    => $product->is_in_stock() ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+            'itemCondition'   => 'https://schema.org/NewCondition',
+            'priceValidUntil' => gmdate('Y-12-31', strtotime('+1 year')),
+            'shippingDetails' => [
+                '@type' => 'OfferShippingDetails',
+                'shippingRate' => [
+                    '@type'    => 'MonetaryAmount',
+                    'value'    => '0.00',
+                    'currency' => 'USD',
+                ],
+                'shippingDestination' => [
+                    '@type'          => 'DefinedRegion',
+                    'addressCountry' => 'US',
+                ],
+                'deliveryTime' => [
+                    '@type' => 'ShippingDeliveryTime',
+                    'handlingTime' => [
+                        '@type'    => 'QuantitativeValue',
+                        'minValue' => 1,
+                        'maxValue' => 3,
+                        'unitCode' => 'd',
+                    ],
+                    'transitTime' => [
+                        '@type'    => 'QuantitativeValue',
+                        'minValue' => 3,
+                        'maxValue' => 7,
+                        'unitCode' => 'd',
+                    ],
+                ],
+            ],
+            'hasMerchantReturnPolicy' => [
+                '@type' => 'MerchantReturnPolicy',
+                'applicableCountry' => 'US',
+                'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+                'merchantReturnDays' => 30,
+                'returnMethod' => 'https://schema.org/ReturnByMail',
+                'returnFees' => 'https://schema.org/FreeReturn',
+                'merchantReturnLink' => home_url('/return-refund-policy/'),
+            ],
+        ],
+    ];
+
+    echo '<script type="application/ld+json">' . "\n";
+    echo wp_json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) . "\n";
+    echo '</script>' . "\n";
+}
+

@@ -1,6 +1,6 @@
 <?php
 /**
- * Lightweight built-in side cart (drawer) — replaces the "Side Cart WooCommerce"
+ * Lightweight built-in side cart (drawer) - replaces the "Side Cart WooCommerce"
  * plugin. Uses WooCommerce's own wc-ajax=add_to_cart / wc-ajax=remove_from_cart
  * endpoints for add/remove, plus a small custom AJAX action for quantity changes.
  * All three flow through the same woocommerce_add_to_cart_fragments filter so the
@@ -157,7 +157,7 @@ function dawp_side_cart_markup() {
 
 /**
  * Fragments consumed by wc-ajax=add_to_cart, wc-ajax=remove_from_cart and our
- * own dawp_side_cart_update_qty action — keeps the drawer, subtotal and
+ * own dawp_side_cart_update_qty action - keeps the drawer, subtotal and
  * header badge in sync after every cart change without a page reload.
  */
 add_filter('woocommerce_add_to_cart_fragments', 'dawp_side_cart_fragments');
@@ -178,7 +178,7 @@ function dawp_side_cart_fragments($fragments) {
 }
 
 /**
- * Quantity stepper in the drawer — WooCommerce core has no AJAX endpoint for
+ * Quantity stepper in the drawer - WooCommerce core has no AJAX endpoint for
  * this, so it's the one custom action here; add/remove reuse WC's own
  * wc-ajax handlers directly from the front end (see main.js).
  */

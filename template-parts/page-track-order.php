@@ -2,6 +2,11 @@
 /**
  * Track order page for US Watch Store.
  *
+ * Hallmark · genre: modern-minimal · macrostructure: standard lookup
+ * convention (C2 inline-form-as-cta lookup + real WooCommerce order
+ * tracking shortcode - not a landing-page shape)
+ * nav: N12 · footer: Ft1 · design-system: .plans/design_system.md (locked)
+ *
  * @package dawp
  */
 
@@ -13,8 +18,8 @@ $support_email  = 'support@uswatchstore.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
-$shipping_url   = home_url('/shipping-returns/');
-$terms_url      = home_url('/terms-conditions/');
+$shipping_url   = home_url('/shipping-policy/');
+$terms_url      = home_url('/terms-of-service/');
 $privacy_url    = home_url('/privacy-policy/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
@@ -137,7 +142,6 @@ $policy_links = [
     <section id="track-order-form" class="track-form-section" aria-labelledby="track-form-title">
         <div class="track-form-section__inner">
             <div class="track-section-heading">
-                <p class="track-eyebrow"><?php esc_html_e('Lookup', 'dawp'); ?></p>
                 <h2 id="track-form-title"><?php esc_html_e('Find your order details.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Use the order ID from your confirmation email and the billing email used at checkout.', 'dawp'); ?></p>
             </div>
@@ -203,7 +207,6 @@ $policy_links = [
     <section class="track-more-section" aria-labelledby="track-helpful-title">
         <div class="track-more-section__inner">
             <div class="track-section-heading track-section-heading--center">
-                <p class="track-eyebrow"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
                 <h2 id="track-helpful-title"><?php esc_html_e('Helpful links for your order.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Review the same store support pages used across US Watch Store.', 'dawp'); ?></p>
             </div>
@@ -222,7 +225,6 @@ $policy_links = [
     <section class="track-category-section" aria-labelledby="track-category-title">
         <div class="track-category-section__inner">
             <div class="track-category-section__header">
-                <p class="track-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
                 <h2 id="track-category-title"><?php esc_html_e('Watch categories from US Watch Store.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Explore quartz, mechanical, smart, and digital watches from the current store lineup.', 'dawp'); ?></p>
             </div>

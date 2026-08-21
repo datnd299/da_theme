@@ -66,47 +66,48 @@ $support_links = [
 ];
 ?>
 
-<main id="primary" class="site-main bg-white text-[#10151C]">
-    <section class="relative isolate overflow-hidden border-b border-[#E2E8F0] bg-[#EEF2F6] py-14 sm:py-20 lg:py-24" aria-labelledby="error-title">
-        <div class="absolute inset-x-0 top-0 -z-10 h-40 bg-[#FFFFFF]" aria-hidden="true"></div>
+<!-- Hallmark · genre: modern-minimal · macrostructure: lightweight single-column (error state, no macrostructure family) · nav: N12 · footer: Ft1 · design-system: .plans/design_system.md (locked) -->
+<main id="primary" class="site-main bg-background text-foreground">
+    <section class="relative isolate overflow-hidden border-b border-border bg-surface py-14 sm:py-20 lg:py-24" aria-labelledby="error-title">
+        <div class="absolute inset-x-0 top-0 -z-10 h-40 bg-background" aria-hidden="true"></div>
 
         <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
             <div class="max-w-2xl">
-                <p class="inline-flex rounded-md border border-[#E2E8F0] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#5B7A99] shadow-sm">
+                <p class="inline-flex rounded-sm border border-border bg-background px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-accent-blush">
                     <?php esc_html_e('Page Not Found', 'dawp'); ?>
                 </p>
-                <p class="mt-5 select-none font-heading text-[7rem] font-extrabold leading-none text-[#9FC1E0] sm:text-[9rem] lg:text-[11rem]" aria-hidden="true">
+                <p class="mt-5 select-none font-heading text-[7rem] font-extrabold leading-none text-accent-soft sm:text-[9rem] lg:text-[11rem]" aria-hidden="true">
                     404
                 </p>
-                <h1 id="error-title" class="-mt-4 font-heading text-4xl font-extrabold leading-tight text-[#10151C] sm:text-5xl lg:text-6xl">
+                <h1 id="error-title" class="-mt-4 font-heading text-4xl font-extrabold leading-tight text-foreground sm:text-5xl lg:text-6xl">
                     <?php esc_html_e('This page is not available.', 'dawp'); ?>
                 </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#64748B] sm:text-lg">
+                <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted sm:text-lg">
                     <?php esc_html_e('The link may have changed, but you can continue shopping US Watch Store for quartz, mechanical, smart, and digital watches.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#1F4E79] px-6 text-sm font-bold text-white shadow-lg shadow-[#14324D]/15 transition hover:bg-[#10151C]">
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                         <?php esc_html_e('Shop Products', 'dawp'); ?>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#1F4E79] bg-white px-6 text-sm font-bold text-[#14324D] transition hover:bg-[#E6EDF5]">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm border border-accent bg-background px-6 text-sm font-bold text-accent-hover transition hover:bg-surface-alt">
                         <?php esc_html_e('Back To Home', 'dawp'); ?>
                     </a>
                 </div>
             </div>
 
             <div>
-                <div class="rounded-md border border-[#E2E8F0] bg-white p-5 shadow-xl shadow-[#14324D]/15 sm:p-6 lg:p-8">
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#5B7A99]"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
+                <div class="rounded-md border border-border bg-background p-5 shadow-card-hover sm:p-6 lg:p-8">
+                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-accent-blush"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
                     <div class="mt-6 grid gap-3">
                         <?php foreach ($quick_links as $slug => $link) : ?>
-                            <a href="<?php echo esc_url($category_url($slug)); ?>" class="group flex gap-4 rounded-md border border-[#E2E8F0] bg-[#FFFFFF] p-4 transition hover:-translate-y-0.5 hover:border-[#1F4E79] hover:bg-[#E6EDF5]">
-                                <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#1F4E79]" aria-hidden="true"></span>
+                            <a href="<?php echo esc_url($category_url($slug)); ?>" class="group flex gap-4 rounded-md border border-border bg-background p-4 transition hover:-translate-y-0.5 hover:border-accent hover:bg-surface-alt">
+                                <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
                                 <span>
-                                    <span class="block font-heading text-base font-extrabold text-[#10151C] transition group-hover:text-[#14324D]"><?php echo esc_html($link['name']); ?></span>
-                                    <span class="mt-1 block text-sm leading-6 text-[#64748B]"><?php echo esc_html($link['short'] ?? $link['description'] ?? ''); ?></span>
-                                    <span class="mt-3 inline-flex text-sm font-bold text-[#5B7A99]">
+                                    <span class="block font-heading text-base font-extrabold text-foreground transition group-hover:text-accent-hover"><?php echo esc_html($link['name']); ?></span>
+                                    <span class="mt-1 block text-sm leading-6 text-foreground-muted"><?php echo esc_html($link['short'] ?? $link['description'] ?? ''); ?></span>
+                                    <span class="mt-3 inline-flex text-sm font-bold text-accent-blush">
                                         <?php esc_html_e('Shop category', 'dawp'); ?>
-                                        <span class="ml-2" aria-hidden="true">-&gt;</span>
+                                        <span class="ml-2" aria-hidden="true">→</span>
                                     </span>
                                 </span>
                             </a>
@@ -116,7 +117,7 @@ $support_links = [
 
                 <nav class="mt-5 grid gap-3 sm:grid-cols-3" aria-label="<?php esc_attr_e('Helpful links', 'dawp'); ?>">
                     <?php foreach ($support_links as $link) : ?>
-                        <a href="<?php echo esc_url($link['url']); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E2E8F0] bg-white px-4 text-sm font-bold text-[#14324D] transition hover:border-[#1F4E79] hover:bg-[#E6EDF5] hover:text-[#10151C]">
+                        <a href="<?php echo esc_url($link['url']); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm border border-border bg-background px-4 text-sm font-bold text-accent-hover transition hover:border-accent hover:bg-surface-alt">
                             <?php echo esc_html($link['title']); ?>
                         </a>
                     <?php endforeach; ?>

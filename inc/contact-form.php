@@ -53,7 +53,7 @@ function dawp_contact_meta_box_cb($post) {
     echo '<table class="form-table"><tbody>';
     foreach ($fields as $i => $key) {
         $value = get_post_meta($post->ID, $key, true);
-        echo '<tr><th>' . esc_html($labels[$i]) . '</th><td>' . esc_html($value ?: '—') . '</td></tr>';
+        echo '<tr><th>' . esc_html($labels[$i]) . '</th><td>' . esc_html($value ?: '-') . '</td></tr>';
     }
     echo '</tbody></table>';
 }

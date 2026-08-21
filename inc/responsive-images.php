@@ -9,11 +9,42 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+if (!function_exists('dawp_is_local_env')) {
+    /**
+     * i0.wp.com can only fetch publicly reachable URLs, so on a local/dev
+     * install (e.g. http://localhost:8080) the proxy would just fail to
+     * load the image. Detect that case and let callers skip the CDN.
+     */
+    function dawp_is_local_env() {
+        static $is_local = null;
+
+        if ($is_local !== null) {
+            return $is_local;
+        }
+
+        if (function_exists('wp_get_environment_type') && wp_get_environment_type() === 'local') {
+            return $is_local = true;
+        }
+
+        $host = wp_parse_url(home_url(), PHP_URL_HOST);
+
+        if (empty($host)) {
+            return $is_local = false;
+        }
+
+        if ($host === 'localhost' || $host === '127.0.0.1' || $host === '::1') {
+            return $is_local = true;
+        }
+
+        return $is_local = (bool) preg_match('/\.(local|test|localhost)$/i', $host);
+    }
+}
+
 if (!function_exists('dawp_i0_image_url')) {
     function dawp_i0_image_url($url, $width = 0, $height = 0, $mode = 'resize') {
         $url = trim((string) $url);
 
-        if ($url === '' || strpos($url, 'data:') === 0) {
+        if ($url === '' || strpos($url, 'data:') === 0 || dawp_is_local_env()) {
             return $url;
         }
 

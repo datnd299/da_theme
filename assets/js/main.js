@@ -133,4 +133,177 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Side cart (drawer): replaces the "Side Cart WooCommerce" plugin.
+    // Opens on .xoo-wsc-cart-trigger clicks (header cart icon) and on
+    // successful add-to-cart; updates itself via WooCommerce's own
+    // wc-ajax=add_to_cart / remove_from_cart endpoints plus the
+    // dawp_side_cart_update_qty action for the quantity stepper (see
+    // inc/side-cart.php). All three share the woocommerce_add_to_cart_fragments
+    // filter, so the drawer body, subtotal and header badge stay in sync.
+    const sideCart = document.getElementById('side-cart');
+
+    if (sideCart) {
+        const ajaxUrl    = sideCart.dataset.ajaxUrl;
+        const wcAjaxBase = sideCart.dataset.wcAjaxBase;
+        const nonce      = sideCart.dataset.nonce;
+        let lastFocused  = null;
+
+        const wcAjaxUrl = (action) => {
+            const sep = wcAjaxBase.indexOf('?') === -1 ? '?' : '&';
+            return `${wcAjaxBase}${sep}wc-ajax=${action}`;
+        };
+
+        const openSideCart = (trigger) => {
+            lastFocused = trigger || document.activeElement;
+            sideCart.classList.add('is-open');
+            sideCart.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('side-cart-open');
+            const closeBtn = sideCart.querySelector('.side-cart__close');
+            if (closeBtn) closeBtn.focus();
+        };
+
+        const closeSideCart = () => {
+            sideCart.classList.remove('is-open');
+            sideCart.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('side-cart-open');
+            if (lastFocused && typeof lastFocused.focus === 'function') {
+                lastFocused.focus();
+            }
+        };
+
+        const applySideCartFragments = (fragments) => {
+            if (!fragments) return;
+            Object.keys(fragments).forEach((selector) => {
+                document.querySelectorAll(selector).forEach((el) => {
+                    el.outerHTML = fragments[selector];
+                });
+            });
+        };
+
+        const updateSideCartQty = (key, qty) => {
+            const body = new URLSearchParams({
+                action: 'dawp_side_cart_update_qty',
+                nonce,
+                cart_item_key: key,
+                quantity: qty,
+            });
+            fetch(ajaxUrl, { method: 'POST', body })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data && data.success) {
+                        applySideCartFragments(data.data.fragments);
+                    }
+                })
+                .catch(() => {});
+        };
+
+        const removeSideCartItem = (key) => {
+            const body = new URLSearchParams({ cart_item_key: key });
+            fetch(wcAjaxUrl('remove_from_cart'), { method: 'POST', body })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data && !data.error) {
+                        applySideCartFragments(data.fragments);
+                    }
+                })
+                .catch(() => {});
+        };
+
+        document.addEventListener('click', (e) => {
+            const trigger = e.target.closest('.xoo-wsc-cart-trigger');
+            if (trigger) {
+                e.preventDefault();
+                openSideCart(trigger);
+                return;
+            }
+
+            if (e.target.closest('[data-side-cart-close]')) {
+                e.preventDefault();
+                closeSideCart();
+                return;
+            }
+
+            const removeBtn = e.target.closest('.side-cart-item__remove');
+            if (removeBtn) {
+                const row = removeBtn.closest('[data-cart-item-key]');
+                if (row) removeSideCartItem(row.dataset.cartItemKey);
+                return;
+            }
+
+            const qtyBtn = e.target.closest('.side-cart-item__qty-btn');
+            if (qtyBtn) {
+                const row   = qtyBtn.closest('[data-cart-item-key]');
+                const input = row && row.querySelector('.side-cart-item__qty-input');
+                if (!input) return;
+
+                const max = input.getAttribute('max');
+                let value = (parseInt(input.value, 10) || 1) + (qtyBtn.dataset.qtyAction === 'increase' ? 1 : -1);
+                value = Math.max(1, value);
+                if (max) value = Math.min(value, parseInt(max, 10));
+
+                input.value = value;
+                updateSideCartQty(row.dataset.cartItemKey, value);
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sideCart.classList.contains('is-open')) {
+                closeSideCart();
+            }
+        });
+
+        document.addEventListener('change', (e) => {
+            if (!e.target.classList || !e.target.classList.contains('side-cart-item__qty-input')) return;
+
+            const row = e.target.closest('[data-cart-item-key]');
+            if (!row) return;
+
+            const max = e.target.getAttribute('max');
+            let value = Math.max(1, parseInt(e.target.value, 10) || 1);
+            if (max) value = Math.min(value, parseInt(max, 10));
+
+            e.target.value = value;
+            updateSideCartQty(row.dataset.cartItemKey, value);
+        });
+
+        // Intercept WooCommerce's add-to-cart form (single product page) so
+        // it adds over AJAX and opens the drawer instead of reloading.
+        document.addEventListener('submit', (e) => {
+            const form = e.target;
+            if (!(form instanceof HTMLFormElement) || !form.matches('form.cart')) return;
+
+            const submitter   = e.submitter;
+            const formData    = new FormData(form);
+            const variationId = parseInt(formData.get('variation_id'), 10) || 0;
+            const productId   = variationId
+                || parseInt((submitter && submitter.name === 'add-to-cart' ? submitter.value : formData.get('add-to-cart')), 10)
+                || 0;
+
+            if (!productId) return;
+
+            e.preventDefault();
+            formData.set('product_id', productId);
+            if (!formData.get('quantity')) formData.set('quantity', 1);
+
+            if (submitter) submitter.disabled = true;
+
+            fetch(wcAjaxUrl('add_to_cart'), { method: 'POST', body: formData })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data && data.error) {
+                        window.location.href = data.product_url || window.location.href;
+                        return;
+                    }
+                    applySideCartFragments(data.fragments);
+                    openSideCart(submitter);
+                })
+                .catch(() => {
+                    form.submit();
+                })
+                .finally(() => {
+                    if (submitter) submitter.disabled = false;
+                });
+        });
+    }
+
 });

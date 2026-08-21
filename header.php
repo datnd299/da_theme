@@ -130,17 +130,13 @@ $nav_items = [
                     </svg>
                 </a>
 
-                <a href="<?php echo esc_url($cart_url); ?>" class="relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-[#C87F86] text-white transition hover:bg-[#2F2A28]" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
+                <a href="<?php echo esc_url($cart_url); ?>" class="xoo-wsc-cart-trigger relative inline-flex h-11 w-11 items-center justify-center rounded-md bg-[#C87F86] text-white transition hover:bg-[#2F2A28]" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
                     <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 6H6"></path>
                     </svg>
-                    <?php if ($cart_count > 0) : ?>
-                        <span class="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#2F2A28] px-1 text-[11px] font-extrabold text-white">
-                            <?php echo esc_html($cart_count); ?>
-                        </span>
-                    <?php endif; ?>
+                    <?php echo function_exists('dawp_cart_count_badge_html') ? dawp_cart_count_badge_html($cart_count) : ''; ?>
                 </a>
 
                 <button type="button" class="menu-toggle inline-flex h-11 w-11 items-center justify-center rounded-md border border-[#E8DAD4] text-[#8A4F56] transition hover:bg-[#FBEDEA] hover:text-[#2F2A28] xl:hidden" aria-expanded="false" aria-label="<?php esc_attr_e('Open store menu', 'dawp'); ?>" aria-controls="mobile-store-menu" onclick="const menu=document.getElementById('mobile-store-menu'); const expanded=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!expanded)); menu.classList.toggle('hidden');">
@@ -183,7 +179,7 @@ $nav_items = [
                 <a href="<?php echo esc_url($account_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] px-5 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
                     <?php esc_html_e('My Account', 'dawp'); ?>
                 </a>
-                <a href="<?php echo esc_url($cart_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-5 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
+                <a href="<?php echo esc_url($cart_url); ?>" class="xoo-wsc-cart-trigger inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-5 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
                     <?php esc_html_e('Cart', 'dawp'); ?>
                 </a>
             </div>

@@ -14,6 +14,7 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email = 'support@uswatchstore.com';
+$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $last_updated  = __('August 21, 2026', 'dawp');
 $shipping_url  = home_url('/shipping-policy/');
 $returns_url   = home_url('/return-refund-policy/');
@@ -154,7 +155,9 @@ $sections = [
     [
         'title' => __('18. Contact', 'dawp'),
         'copy'  => [
-            __('Questions about these Terms, an order, or store policies can be sent to support@uswatchstore.com or by mail to US Watch Store, 1420 Kettner Blvd, San Diego, CA 92101, United States.', 'dawp'),
+            $store_address
+                ? sprintf(__('Questions about these Terms, an order, or store policies can be sent to support@uswatchstore.com or by mail to US Watch Store, %s.', 'dawp'), $store_address)
+                : __('Questions about these Terms, an order, or store policies can be sent to support@uswatchstore.com.', 'dawp'),
         ],
     ],
 ];

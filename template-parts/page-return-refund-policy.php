@@ -16,6 +16,7 @@ if (!defined('ABSPATH')) {
 
 $support_email  = 'support@uswatchstore.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $last_updated   = __('August 21, 2026', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $faq_url        = home_url('/faq/');
@@ -80,7 +81,9 @@ $sections = [
         'title' => __('5. How to Start a Return', 'dawp'),
         'copy'  => [
             __('Email support@uswatchstore.com with your order number, the watch you would like to return, and the reason for the request. Wait for return instructions and authorization before sending anything back so the return can be matched to your order and processed without delay.', 'dawp'),
-            __('Authorized returns are shipped to our store facility: US Watch Store Returns, 1420 Kettner Blvd, San Diego, CA 92101, United States.', 'dawp'),
+            $store_address
+                ? sprintf(__('Authorized returns are shipped to our store facility: US Watch Store Returns, %s.', 'dawp'), $store_address)
+                : __('Authorized returns are shipped to our return facility specified in your return authorization instructions.', 'dawp'),
         ],
     ],
     [

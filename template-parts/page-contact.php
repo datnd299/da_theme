@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@uswatchstore.com';
-$store_address  = __('1420 Kettner Blvd, San Diego, CA 92101, United States', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $track_url      = home_url('/track-order/');
 $faq_url        = home_url('/faq/');
@@ -47,18 +47,22 @@ $support_cards = [
         'meta'  => $business_hours,
         'icon'  => 'clock',
     ],
-    [
+];
+
+if (!empty($store_address)) {
+    $support_cards[] = [
         'title' => __('Store Location', 'dawp'),
         'copy'  => __('Our business location and fulfillment center for US Watch Store orders.', 'dawp'),
         'meta'  => $store_address,
         'icon'  => 'map-pin',
-    ],
-    [
-        'title' => __('Order Help', 'dawp'),
-        'copy'  => __('Include your order number when asking about tracking, address changes, returns, or delivery updates.', 'dawp'),
-        'meta'  => __('Order number helps us respond faster', 'dawp'),
-        'icon'  => 'package',
-    ],
+    ];
+}
+
+$support_cards[] = [
+    'title' => __('Order Help', 'dawp'),
+    'copy'  => __('Include your order number when asking about tracking, address changes, returns, or delivery updates.', 'dawp'),
+    'meta'  => __('Order number helps us respond faster', 'dawp'),
+    'icon'  => 'package',
 ];
 
 $help_topics = [

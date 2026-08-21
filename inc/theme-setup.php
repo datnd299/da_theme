@@ -641,3 +641,30 @@ function dawp_product_json_ld_schema() {
     echo '</script>' . "\n";
 }
 
+/**
+ * Retrieve formatted store address from WooCommerce options.
+ *
+ * @return string Formatted address string or empty string if not configured.
+ */
+function dawp_get_store_address() {
+    $store_address = '';
+
+    if (function_exists('WC') && WC()->countries) {
+        $store_address_parts = [
+            'address_1' => get_option('woocommerce_store_address'),
+            'address_2' => get_option('woocommerce_store_address_2'),
+            'city'      => get_option('woocommerce_store_city'),
+            'postcode'  => get_option('woocommerce_store_postcode'),
+        ];
+
+        $default_country                = explode(':', (string) get_option('woocommerce_default_country'));
+        $store_address_parts['country'] = $default_country[0] ?? '';
+        $store_address_parts['state']   = $default_country[1] ?? '';
+
+        $store_address = WC()->countries->get_formatted_address($store_address_parts, ', ');
+    }
+
+    return $store_address;
+}
+
+

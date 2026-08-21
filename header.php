@@ -55,6 +55,7 @@ $shop_categories = [
 
 $nav_links = [
     ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
+    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
     ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
     ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
 ];
@@ -67,14 +68,6 @@ $store_schema = [
     'logo'     => $theme_img_uri . '/logo.png',
     'description' => __('An American watch shop offering quartz, mechanical, smart, and digital watches curated for quality with free US shipping.', 'dawp'),
     'email'       => $support_email,
-    'address'     => [
-        '@type'           => 'PostalAddress',
-        'streetAddress'   => '1420 Kettner Blvd',
-        'addressLocality' => 'San Diego',
-        'addressRegion'   => 'CA',
-        'postalCode'      => '92101',
-        'addressCountry'  => 'US',
-    ],
     'priceRange'  => '$$',
     'hasMerchantReturnPolicy' => [
         '@type' => 'MerchantReturnPolicy',
@@ -86,6 +79,24 @@ $store_schema = [
         'merchantReturnLink' => home_url('/return-refund-policy/'),
     ],
 ];
+
+$wc_address_1 = get_option('woocommerce_store_address');
+if (!empty($wc_address_1)) {
+    $wc_city        = get_option('woocommerce_store_city');
+    $wc_postcode    = get_option('woocommerce_store_postcode');
+    $default_country = explode(':', (string) get_option('woocommerce_default_country'));
+    $wc_country     = $default_country[0] ?? '';
+    $wc_state       = $default_country[1] ?? '';
+
+    $store_schema['address'] = [
+        '@type'           => 'PostalAddress',
+        'streetAddress'   => $wc_address_1,
+        'addressLocality' => $wc_city,
+        'addressRegion'   => $wc_state,
+        'postalCode'      => $wc_postcode,
+        'addressCountry'  => $wc_country,
+    ];
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -264,4 +275,4 @@ $store_schema = [
     </div>
 </header>
 
-<div id="content" class="site-content" style="padding-top: calc(var(--header-banner-h, 2.5rem) + var(--header-bar-h, 4.25rem));">
+<div id="content" class="site-content" style="padding-top: calc(var(--header-banner-h, 2.5rem) + var(--header-bar-h, 2.25rem));">

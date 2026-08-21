@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 
 $support_email  = 'support@uswatchstore.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
-$store_address  = __('1420 Kettner Blvd, San Diego, CA 92101, United States', 'dawp');
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $last_updated   = __('August 21, 2026', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $terms_url      = home_url('/terms-of-service/');
@@ -148,7 +148,9 @@ $sections = [
     [
         'title' => __('15. Contact Us', 'dawp'),
         'copy'  => [
-            __('Questions, requests, or concerns about this Privacy Policy or your personal information can be sent to support@uswatchstore.com or by mail to US Watch Store, 1420 Kettner Blvd, San Diego, CA 92101, United States.', 'dawp'),
+            $store_address
+                ? sprintf(__('Questions, requests, or concerns about this Privacy Policy or your personal information can be sent to support@uswatchstore.com or by mail to US Watch Store, %s.', 'dawp'), $store_address)
+                : __('Questions, requests, or concerns about this Privacy Policy or your personal information can be sent to support@uswatchstore.com.', 'dawp'),
         ],
     ],
 ];

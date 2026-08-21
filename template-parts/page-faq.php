@@ -102,10 +102,6 @@ $faq_groups = [
                 'answer'   => __('Every watch we sell is inspected for quality and proper function before it ships. Each listing states the movement type, materials, and specs clearly, and relevant model information is included with your order.', 'dawp'),
             ],
             [
-                'question' => __('Do you sell replica or counterfeit watches?', 'dawp'),
-                'answer'   => __('No. US Watch Store does not sell counterfeit, replica, or unauthorized branded watches.', 'dawp'),
-            ],
-            [
                 'question' => __('Is checkout secure?', 'dawp'),
                 'answer'   => __('Payments are processed through third-party payment providers. US Watch Store does not store full payment card numbers on its own systems.', 'dawp'),
             ],

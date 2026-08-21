@@ -9,26 +9,26 @@
  * ============================================================ */
 
 :root {
-  --color-bg:             var(--color-surface);
-  --color-bg-subtle:      var(--color-accent-soft);
-  --color-bg-muted:       var(--color-surface-alt);
-  --color-text-primary:   var(--color-foreground);
-  --color-text-secondary: var(--color-foreground);
-  --color-text-muted:     var(--color-muted);
-  --color-text-soft:      var(--color-muted);
-  --color-accent-hover:   var(--color-accent-hover, #14324D);
-  --color-button-bg:      var(--color-accent);
-  --color-button-hover:   var(--color-accent-hover);
-  --color-button-text:    #fff;
-  --color-sale:           var(--color-alert);
-  --color-blush:          var(--color-accent-blush);
-  --color-navy:           var(--color-foreground);
-  --color-navy-light:     var(--color-muted);
-  --color-ring:           color-mix(in srgb, var(--color-accent) 18%, transparent);
-  --font-primary:         var(--font-sans);
-  --radius-md:            var(--radius-md, 4px);
-  --radius-lg:            var(--radius-lg, 6px);
-  --radius-xl:            var(--radius-lg, 6px);
+  --color-bg:             var(--color-surface, #FFFFFF);
+  --color-bg-subtle:      var(--color-accent-soft, #E6EDF5);
+  --color-bg-muted:       var(--color-surface-alt, #EEF2F6);
+  --color-text-primary:   var(--color-foreground, #10151C);
+  --color-text-secondary: var(--color-foreground, #10151C);
+  --color-text-muted:     var(--color-muted, #64748B);
+  --color-text-soft:      var(--color-muted, #64748B);
+  --color-accent-hover:   #14324D;
+  --color-button-bg:      var(--color-accent, #1F4E79);
+  --color-button-hover:   #14324D;
+  --color-button-text:    #ffffff;
+  --color-sale:           var(--color-alert, #C0392B);
+  --color-blush:          var(--color-accent-blush, #5B7A99);
+  --color-navy:           var(--color-foreground, #10151C);
+  --color-navy-light:     var(--color-muted, #64748B);
+  --color-ring:           color-mix(in srgb, var(--color-accent, #1F4E79) 18%, transparent);
+  --font-primary:         var(--font-sans, system-ui, sans-serif);
+  --radius-md:            4px;
+  --radius-lg:            6px;
+  --radius-xl:            6px;
 }
 
 /* === 1. PAGE LAYOUT === */
@@ -491,7 +491,10 @@ form.cart:not(.variations_form) {
 .single-product div.product form.cart .buy_now_button,
 .single-product div.product form.cart .buy-now-button,
 .single-product div.product form.cart .single_buy_now_button,
-.single-product div.product form.cart .wc-buy-now-btn {
+.single-product div.product form.cart .wc-buy-now-btn,
+.single-product .single_add_to_cart_button,
+.single_add_to_cart_button,
+.single_add_to_cart_button.button {
   flex: 1;
   min-height: 48px;
   padding: 12px 28px;
@@ -500,23 +503,26 @@ form.cart:not(.variations_form) {
   font-weight: 900;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-button-text);
-  background: var(--color-button-bg);
-  background-color: var(--color-button-bg);
+  color: #ffffff;
+  background: var(--color-accent, #1F4E79);
+  background-color: var(--color-accent, #1F4E79);
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md, 4px);
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition: background 0.15s, background-color 0.15s, color 0.15s, transform 0.1s;
 }
 
 .single-product div.product form.cart .single_add_to_cart_button.button:hover,
 .single-product div.product form.cart .buy_now_button:hover,
 .single-product div.product form.cart .buy-now-button:hover,
 .single-product div.product form.cart .single_buy_now_button:hover,
-.single-product div.product form.cart .wc-buy-now-btn:hover {
-  background: var(--color-button-hover);
-  background-color: var(--color-button-hover);
-  color: var(--color-button-text);
+.single-product div.product form.cart .wc-buy-now-btn:hover,
+.single-product .single_add_to_cart_button:hover,
+.single_add_to_cart_button:hover,
+.single_add_to_cart_button.button:hover {
+  background: var(--color-button-hover, #14324D);
+  background-color: var(--color-button-hover, #14324D);
+  color: #ffffff;
 }
 
 .single-product div.product form.cart .single_add_to_cart_button.button:active,
@@ -1097,25 +1103,26 @@ form.cart:not(.variations_form) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-button-bg);
-  background-color: var(--color-button-bg);
-  color: var(--color-button-text);
+  background: var(--color-button-bg, #1F4E79);
+  background-color: var(--color-button-bg, #1F4E79);
+  color: #ffffff;
   font-family: var(--font-primary);
   font-size: 0.875rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md, 4px);
   padding: 12px 28px;
   min-height: 48px;
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  transition: background 0.15s, background-color 0.15s, color 0.15s, transform 0.1s;
 }
 
 .form-submit .submit:hover {
-  background: var(--color-button-hover);
-  background-color: var(--color-button-hover);
+  background: var(--color-button-hover, #14324D);
+  background-color: var(--color-button-hover, #14324D);
+  color: #ffffff;
 }
 
 .form-submit .submit:active {
@@ -1326,28 +1333,28 @@ form.cart:not(.variations_form) {
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: var(--color-button-bg);
-  background-color: var(--color-button-bg);
-  color: var(--color-button-text);
+  background: var(--color-button-bg, #1F4E79);
+  background-color: var(--color-button-bg, #1F4E79);
+  color: #ffffff;
   font-family: var(--font-primary);
   font-size: 0.75rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   border: none;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md, 4px);
   padding: 10px 16px;
   min-height: 44px;
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.15s, transform 0.1s;
+  transition: background 0.15s, background-color 0.15s, color 0.15s, transform 0.1s;
   margin-top: 8px;
 }
 
 .related.products .button:hover {
-  background: var(--color-button-hover);
-  background-color: var(--color-button-hover);
-  color: var(--color-button-text);
+  background: var(--color-button-hover, #14324D);
+  background-color: var(--color-button-hover, #14324D);
+  color: #ffffff;
 }
 
 .related.products .button:active {

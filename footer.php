@@ -19,27 +19,7 @@ $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $theme_img_uri  = get_template_directory_uri() . '/assets/img';
 
 // Pulled from WooCommerce > Settings > General > Store Address.
-$store_address = '';
-
-if (function_exists('WC') && WC()->countries) {
-    $store_address_parts = [
-        'address_1' => get_option('woocommerce_store_address'),
-        'address_2' => get_option('woocommerce_store_address_2'),
-        'city'      => get_option('woocommerce_store_city'),
-        'postcode'  => get_option('woocommerce_store_postcode'),
-    ];
-
-    $default_country                = explode(':', (string) get_option('woocommerce_default_country'));
-    $store_address_parts['country'] = $default_country[0] ?? '';
-    $store_address_parts['state']   = $default_country[1] ?? '';
-
-    // get_formatted_address() already runs each part through esc_html().
-    $store_address = WC()->countries->get_formatted_address($store_address_parts, ', ');
-}
-
-if (empty($store_address)) {
-    $store_address = __('1420 Kettner Blvd, San Diego, CA 92101, United States', 'dawp');
-}
+$store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 
 $footer_category_url = static function ($slug) {
     if (function_exists('get_term_by')) {

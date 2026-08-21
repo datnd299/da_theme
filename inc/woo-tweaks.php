@@ -139,7 +139,7 @@ function dawp_single_product_atelier_banner() {
     ?>
     <section class="dawp-atelier-banner" aria-label="<?php esc_attr_e('About the atelier', 'dawp'); ?>">
         <div class="dawp-atelier-banner__figure" aria-hidden="true">
-            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.svg')); ?>" alt="" width="480" height="480" loading="lazy" decoding="async">
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.jpeg')); ?>" alt="" width="1024" height="1024" loading="lazy" decoding="async">
         </div>
         <div class="dawp-atelier-banner__content">
             <p class="dawp-atelier-banner__eyebrow"><?php esc_html_e('Calibre CH-01', 'dawp'); ?></p>

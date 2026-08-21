@@ -25,7 +25,7 @@ $dawp_support_email  = dawp_brand('support_email');
                 <input id="footer-newsletter-email" class="c-field flex-1" type="email" name="email" required autocomplete="email" placeholder="<?php esc_attr_e('you@example.com', 'dawp'); ?>">
                 <button class="c-btn shrink-0" type="submit"><?php esc_html_e('Register', 'dawp'); ?></button>
             </div>
-            <p id="footer-newsletter-msg" class="mt-3 hidden text-caption" role="status" aria-live="polite"></p>
+            <p id="footer-newsletter-msg" class="c-form-msg mt-3 text-caption" role="status" aria-live="polite"></p>
             <p class="mt-3 text-caption text-muted"><?php esc_html_e('We never share your address. Unsubscribe at any time.', 'dawp'); ?></p>
         </form>
     </div>
@@ -38,7 +38,7 @@ $dawp_support_email  = dawp_brand('support_email');
 
             <div>
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'CHRONEL'); ?>">
-                    <img src="<?php echo esc_url(dawp_asset_uri('assets/img/logo-chronel-light.svg')); ?>" alt="<?php esc_attr_e('CHRONEL', 'dawp'); ?>" width="280" height="52" class="h-11 w-auto" loading="lazy" decoding="async">
+                    <img src="<?php echo esc_url(dawp_asset_uri('assets/img/chrone_logo_white.png')); ?>" alt="<?php esc_attr_e('CHRONEL', 'dawp'); ?>" width="525" height="164" class="h-11 w-auto" loading="lazy" decoding="async">
                 </a>
                 <p class="mt-6 max-w-xs text-body-sm text-on-ink-muted"><?php esc_html_e('An independent atelier. Every watch assembled and regulated by hand, powered by a Japanese automatic movement.', 'dawp'); ?></p>
 

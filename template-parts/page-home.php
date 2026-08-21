@@ -71,9 +71,9 @@ if (class_exists('WooCommerce')) {
         </div>
 
         <div class="order-1 lg:order-2">
-            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/hero/hero-watch.svg')); ?>"
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/hero/hero-watch.png')); ?>"
                  alt="<?php esc_attr_e('A CHRONEL automatic watch on a steel bracelet', 'dawp'); ?>"
-                 width="320" height="460" fetchpriority="high" decoding="async"
+                 width="896" height="1200" fetchpriority="high" decoding="async"
                  class="mx-auto h-[340px] w-auto sm:h-[440px] lg:h-[600px]">
         </div>
     </div>
@@ -88,22 +88,22 @@ if (class_exists('WooCommerce')) {
             <h2 id="collections-title" class="c-title"><?php esc_html_e('Each one built for a different life.', 'dawp'); ?></h2>
         </div>
 
-        <ul class="m-0 grid list-none grid-cols-1 gap-px border border-border bg-border p-0 sm:grid-cols-2 lg:grid-cols-4">
+        <ul class="m-0 grid list-none grid-cols-2 gap-px border border-border bg-border p-0 lg:grid-cols-4">
             <?php foreach ($dawp_collections as $collection) : ?>
                 <li class="bg-background">
                     <a class="group flex h-full flex-col" href="<?php echo esc_url(dawp_product_category_url($collection['slug'])); ?>">
-                        <span class="block overflow-hidden bg-surface-alt py-10">
+                        <span class="block overflow-hidden bg-surface-alt">
                             <img src="<?php echo esc_url(dawp_asset_uri($collection['image'])); ?>"
                                  alt="<?php echo esc_attr(sprintf(__('%s watch', 'dawp'), $collection['name'])); ?>"
-                                 width="320" height="460" loading="lazy" decoding="async"
-                                 class="mx-auto h-56 w-auto transition-transform duration-700 ease-fluid group-hover:scale-105">
+                                 width="896" height="1200" loading="lazy" decoding="async"
+                                 class="h-48 w-full object-cover transition-transform duration-700 ease-fluid group-hover:scale-105 sm:h-80">
                         </span>
-                        <span class="flex flex-1 flex-col p-8">
+                        <span class="flex flex-1 flex-col p-5 sm:p-8">
                             <span class="text-eyebrow uppercase tracking-wide text-muted"><?php echo esc_html($collection['kicker']); ?></span>
                             <span class="mt-3 block font-heading text-h3 leading-none text-foreground"><?php echo esc_html($collection['name']); ?></span>
                             <span class="mt-2 block text-caption text-accent-deep"><?php echo esc_html($collection['tagline']); ?></span>
-                            <span class="mt-4 block text-body-sm text-foreground-muted"><?php echo esc_html($collection['summary']); ?></span>
-                            <span class="mt-6 block text-eyebrow uppercase tracking-wide text-foreground">
+                            <span class="mt-4 hidden text-body-sm text-foreground-muted sm:block"><?php echo esc_html($collection['summary']); ?></span>
+                            <span class="mt-4 block text-eyebrow uppercase tracking-wide text-foreground sm:mt-6">
                                 <?php esc_html_e('Discover', 'dawp'); ?>
                                 <span class="ml-2 inline-block transition-transform duration-400 ease-fluid group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
                             </span>
@@ -137,7 +137,7 @@ if (class_exists('WooCommerce')) {
                 ?>
                 <li>
                     <a class="group flex h-full flex-col border border-border bg-background transition-colors duration-400 ease-fluid hover:border-accent" href="<?php echo esc_url(get_permalink($dawp_post->ID)); ?>">
-                        <span class="block overflow-hidden bg-surface-alt p-6">
+                        <span class="block overflow-hidden bg-surface-alt">
                             <span class="block transition-transform duration-700 ease-fluid group-hover:scale-105">
                                 <?php echo dawp_product_responsive_image($product, 'mx-auto h-auto w-full', '(max-width: 767px) calc((100vw - 56px) / 2), 300px'); ?>
                             </span>
@@ -184,9 +184,9 @@ if (class_exists('WooCommerce')) {
 
         <div class="order-1 lg:order-2">
             <div class="border border-border bg-surface-alt">
-                <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.svg')); ?>"
+                <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.jpeg')); ?>"
                      alt="<?php esc_attr_e('A watchmaker\'s bench with a loupe, tweezers, and a movement in its holder', 'dawp'); ?>"
-                     width="640" height="480" loading="lazy" decoding="async" class="w-full">
+                     width="1200" height="896" loading="lazy" decoding="async" class="w-full">
             </div>
         </div>
     </div>
@@ -196,9 +196,9 @@ if (class_exists('WooCommerce')) {
 <section id="movement" class="bg-ink text-on-ink section-y" aria-labelledby="movement-title">
     <div class="container grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
         <div>
-            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.svg')); ?>"
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.jpeg')); ?>"
                  alt="<?php esc_attr_e('The calibre CH-01 Japanese automatic movement', 'dawp'); ?>"
-                 width="480" height="480" loading="lazy" decoding="async"
+                 width="1024" height="1024" loading="lazy" decoding="async"
                  class="mx-auto w-full max-w-[420px]">
         </div>
 

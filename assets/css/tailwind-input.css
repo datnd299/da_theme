@@ -31,7 +31,9 @@
   --color-border-strong: #C9C0B1;
   --color-border-ink:    #2C2C25;
   --color-alert:         #A33A2A;
+  --color-alert-soft:    #E39A8A;  /* alert text on deep sections */
   --color-success:       #4A6B4F;
+  --color-success-soft:  #9CC7A4;  /* success text on deep sections */
 
   /* === TYPOGRAPHY === */
   --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;

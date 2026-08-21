@@ -31,9 +31,9 @@ $dawp_collections = dawp_collections();
         </div>
 
         <div class="border border-border bg-surface-alt">
-            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.svg')); ?>"
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.jpeg')); ?>"
                  alt="<?php esc_attr_e('A watchmaker\'s bench with a loupe over a movement in its holder', 'dawp'); ?>"
-                 width="640" height="480" fetchpriority="high" decoding="async" class="w-full">
+                 width="1200" height="896" fetchpriority="high" decoding="async" class="w-full">
         </div>
     </div>
 </section>
@@ -184,7 +184,7 @@ $dawp_collections = dawp_collections();
             </div>
 
             <button class="c-btn c-btn--on-ink mt-8 w-full sm:w-auto" type="submit"><?php esc_html_e('Send enquiry', 'dawp'); ?></button>
-            <p id="contact-msg" class="mt-4 hidden text-caption" role="status" aria-live="polite"></p>
+            <p id="contact-msg" class="c-form-msg c-form-msg--on-ink mt-4 text-caption" role="status" aria-live="polite"></p>
             <p class="mt-4 text-caption text-on-ink-muted"><?php esc_html_e('We use your details to answer this enquiry only. See our Privacy Policy.', 'dawp'); ?></p>
         </form>
     </div>

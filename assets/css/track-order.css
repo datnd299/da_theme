@@ -1,708 +1,198 @@
-/* Track Order page */
-.track-order-page {
-    --track-navy: #0B1F3A;
-    --track-navy-dark: #07172B;
-    --track-red: #B31942;
-    --track-red-dark: #921233;
-    --track-gold: #C6A15B;
-    --track-ink: #111827;
-    --track-muted: #64748B;
-    --track-line: #D8DEE8;
-    --track-soft: #F5F7FA;
-    --track-warm: #F7F2E8;
-    background: #F5F7FA;
-    color: var(--track-ink);
-}
+/* =============================================================
+   track-order.css — CHRONEL order tracking
+   Styles the [woocommerce_order_tracking] form and its result.
+   Page chrome is Tailwind (template-parts/page-track-order.php).
+   Pure CSS. Tokens from main.css.
+   ============================================================= */
 
-.track-hero {
-    position: relative;
-    overflow: hidden;
-    background:
-        linear-gradient(135deg, rgba(11, 31, 58, 0.98), rgba(7, 23, 43, 0.96)),
-        linear-gradient(45deg, rgba(198, 161, 91, 0.18), transparent 42%);
-    border-bottom: 4px solid var(--track-gold);
-    padding: 4.5rem 1rem 5rem;
-}
-
-.track-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.24;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-    background-size: 44px 44px;
-    pointer-events: none;
-}
-
-.track-hero__inner {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    gap: 2rem;
-    max-width: 1120px;
-    margin: 0 auto;
-}
-
-.track-hero__content {
-    max-width: 640px;
-}
-
-.track-hero__label,
-.track-form-card__header span {
-    display: inline-flex;
-    align-items: center;
-    min-height: 32px;
-    padding: 0 0.85rem;
-    border: 1px solid rgba(198, 161, 91, 0.5);
-    border-radius: 8px;
-    background: rgba(198, 161, 91, 0.12);
-    color: var(--track-gold);
-    font-size: 0.75rem;
-    font-weight: 900;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-}
-
-.track-hero__title {
-    margin: 1.1rem 0 1rem;
-    color: #FFFFFF;
-    font-family: var(--font-heading, Georgia, serif);
-    font-size: clamp(2.45rem, 7vw, 5rem);
-    font-weight: 800;
-    letter-spacing: 0;
-    line-height: 0.98;
-}
-
-.track-hero__desc {
-    max-width: 560px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 1.0625rem;
-    line-height: 1.75;
-}
-
-.track-hero__panel {
-    display: grid;
-    gap: 0;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(10px);
-}
-
-.track-step {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 1rem;
-    padding: 1.1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
-}
-
-.track-step:last-child {
-    border-bottom: 0;
-}
-
-.track-step__number {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 8px;
-    background: var(--track-red);
-    color: #FFFFFF;
-    font-size: 0.78rem;
-    font-weight: 900;
-}
-
-.track-step h2 {
-    margin: 0 0 0.35rem;
-    color: #FFFFFF;
-    font-size: 0.98rem;
-    font-weight: 900;
-}
-
-.track-step p {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.875rem;
-    line-height: 1.6;
-}
-
-.track-form-section {
-    padding: 4rem 1rem 5rem;
-}
-
-.track-form-section__inner {
-    max-width: 1120px;
-    margin: 0 auto;
-}
-
-.track-content-grid {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.track-form-card,
-.track-help-box,
-.track-badges {
-    border: 1px solid var(--track-line);
-    border-radius: 8px;
-    background: #FFFFFF;
-    box-shadow: 0 18px 45px rgba(11, 31, 58, 0.1);
-}
-
-.track-form-card {
-    overflow: hidden;
-}
-
-.track-form-card__header {
-    padding: 1.4rem 1.25rem 0;
-}
-
-.track-form-card__header span {
-    border-color: rgba(179, 25, 66, 0.22);
-    background: rgba(179, 25, 66, 0.08);
-    color: var(--track-red);
-}
-
-.track-form-card__header h2 {
-    margin: 0.9rem 0 0;
-    color: var(--track-navy);
-    font-family: var(--font-heading, Georgia, serif);
-    font-size: 1.65rem;
-    line-height: 1.15;
-}
-
-.track-form-card__body {
-    padding: 1.25rem;
-}
-
-.track-side {
-    display: grid;
-    gap: 1rem;
-    align-content: start;
-}
-
-.track-help-box {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 1rem;
-    padding: 1.25rem;
-}
-
-.track-help-box__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.75rem;
-    height: 2.75rem;
-    border-radius: 8px;
-    background: var(--track-navy);
-    color: var(--track-gold);
-}
-
-.track-help-box__title {
-    margin: 0 0 0.45rem;
-    color: var(--track-navy);
-    font-size: 1rem;
-    font-weight: 900;
-}
-
-.track-help-box__text {
-    margin: 0;
-    color: var(--track-muted);
-    font-size: 0.925rem;
-    line-height: 1.7;
-}
-
-.track-help-box__text a {
-    color: var(--track-red);
-    font-weight: 800;
-    text-decoration: none;
-}
-
-.track-help-box__text a:hover {
-    text-decoration: underline;
-}
-
-.track-badges {
-    display: grid;
-    gap: 0;
-    padding: 0.5rem;
-}
-
-.track-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    min-height: 50px;
-    padding: 0.65rem 0.75rem;
-    border-bottom: 1px solid var(--track-line);
-    color: var(--track-navy);
-    font-size: 0.875rem;
-    font-weight: 850;
-}
-
-.track-badge:last-child {
-    border-bottom: 0;
-}
-
-.track-badge svg {
-    flex-shrink: 0;
-    color: var(--track-red);
+.track-order-panel {
+  padding: var(--space-xl);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
 }
 
 @media (min-width: 768px) {
-    .track-hero {
-        padding: 6rem 1.5rem;
-    }
-
-    .track-hero__inner {
-        grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-        align-items: center;
-    }
-
-    .track-form-section {
-        padding: 5rem 1.5rem 6rem;
-    }
-
-    .track-content-grid {
-        grid-template-columns: minmax(0, 1fr) 360px;
-        align-items: start;
-    }
-
-    .track-form-card__header {
-        padding: 2rem 2rem 0;
-    }
-
-    .track-form-card__body {
-        padding: 1.6rem 2rem 2rem;
-    }
+  .track-order-panel {
+    padding: var(--space-2xl);
+  }
 }
 
-/* WooCommerce tracking form */
-.woocommerce-form-track-order {
-    display: grid !important;
-    gap: 1rem !important;
+.track-order-form {
+  margin-top: var(--space-xl);
 }
 
-.woocommerce-form-track-order > p:not(.form-row) {
-    margin: 0 0 0.25rem !important;
-    padding: 1rem 1.1rem !important;
-    border-left: 4px solid var(--track-gold) !important;
-    background: var(--track-warm) !important;
-    color: #475569 !important;
-    font-size: 0.94rem !important;
-    line-height: 1.65 !important;
+/* =============================================================
+   THE FORM
+   ============================================================= */
+
+form.track_order {
+  display: grid;
+  gap: var(--space-lg);
+  margin: 0;
 }
 
-.form-row,
-.woocommerce-form-row {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.5rem !important;
-    float: none !important;
-    clear: none !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
+form.track_order .form-row {
+  margin: 0;
+  padding: 0;
 }
 
-.form-row.form-row-first,
-.form-row.form-row-last {
-    float: none !important;
-    width: 100% !important;
+form.track_order label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-foreground-muted);
 }
 
-.clear {
-    display: none !important;
+form.track_order .required {
+  color: var(--color-accent-deep);
+  text-decoration: none;
 }
 
-.form-row label,
-.woocommerce-form-row label {
-    display: block !important;
-    margin: 0 !important;
-    color: var(--track-navy) !important;
-    font-family: var(--font-sans, Arial, sans-serif) !important;
-    font-size: 0.84rem !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.04em !important;
-    text-transform: uppercase !important;
+form.track_order input.input-text {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px var(--space-md);
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-foreground);
+  transition:
+    border-color var(--duration-fast) var(--ease-fluid),
+    box-shadow var(--duration-fast) var(--ease-fluid);
 }
 
-.form-row input.input-text,
-.woocommerce-form-row input.input-text {
-    width: 100% !important;
-    min-height: 52px !important;
-    padding: 0 1rem !important;
-    border: 1px solid #CBD5E1 !important;
-    border-radius: 8px !important;
-    background: #FFFFFF !important;
-    color: var(--track-ink) !important;
-    font-family: var(--font-sans, Arial, sans-serif) !important;
-    font-size: 1rem !important;
-    outline: none !important;
-    transition: border-color 180ms ease, box-shadow 180ms ease !important;
-    box-sizing: border-box !important;
+form.track_order input.input-text::placeholder {
+  color: var(--color-muted);
 }
 
-.form-row input.input-text::placeholder,
-.woocommerce-form-row input.input-text::placeholder {
-    color: #94A3B8 !important;
+form.track_order input.input-text:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
 }
 
-.form-row input.input-text:focus,
-.woocommerce-form-row input.input-text:focus {
-    border-color: var(--track-red) !important;
-    box-shadow: 0 0 0 3px rgba(179, 25, 66, 0.14) !important;
+form.track_order button.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 var(--space-xl);
+  background: var(--color-ink);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-on-ink);
+  cursor: pointer;
+  transition: background-color var(--duration-normal) var(--ease-fluid),
+    border-color var(--duration-normal) var(--ease-fluid);
 }
 
-.sgs-to-formwrap button.button,
-.sgs-to-formwrap input.button,
-.sgs-to-formwrap input[type="submit"],
-.form-row button.button,
-.form-row input.button,
-.form-row input[type="submit"],
-.woocommerce-form-row button.button,
-.woocommerce-form-row input.button,
-.woocommerce-form-row input[type="submit"] {
-    display: inline-flex !important;
-    width: 100% !important;
-    min-height: 54px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin-top: 0.35rem !important;
-    padding: 0 1.4rem !important;
-    border: 1px solid var(--track-red) !important;
-    border-radius: 8px !important;
-    background: var(--track-red) !important;
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
-    box-shadow: 0 14px 28px rgba(179, 25, 66, 0.22) !important;
-    appearance: none !important;
-    cursor: pointer !important;
-    font-family: var(--font-sans, Arial, sans-serif) !important;
-    font-size: 0.92rem !important;
-    font-weight: 950 !important;
-    letter-spacing: 0.08em !important;
-    line-height: 1.1 !important;
-    text-align: center !important;
-    text-transform: uppercase !important;
-    transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease !important;
+form.track_order button.button:hover {
+  background: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
 }
 
-.sgs-to-formwrap button.button:hover,
-.sgs-to-formwrap input.button:hover,
-.sgs-to-formwrap input[type="submit"]:hover,
-.form-row button.button:hover,
-.form-row input.button:hover,
-.form-row input[type="submit"]:hover,
-.woocommerce-form-row button.button:hover,
-.woocommerce-form-row input.button:hover,
-.woocommerce-form-row input[type="submit"]:hover {
-    background: var(--track-navy) !important;
-    border-color: var(--track-navy) !important;
-    box-shadow: 0 18px 34px rgba(11, 31, 58, 0.2) !important;
-    transform: translateY(-1px) !important;
+@media (min-width: 560px) {
+  form.track_order button.button {
+    width: auto;
+    justify-self: start;
+    min-width: 220px;
+  }
 }
 
-.sgs-to-formwrap button.button:active,
-.sgs-to-formwrap input.button:active,
-.sgs-to-formwrap input[type="submit"]:active,
-.form-row button.button:active,
-.form-row input.button:active,
-.form-row input[type="submit"]:active,
-.woocommerce-form-row button.button:active,
-.woocommerce-form-row input.button:active,
-.woocommerce-form-row input[type="submit"]:active {
-    transform: translateY(0) !important;
+/* =============================================================
+   THE RESULT
+   ============================================================= */
+
+.woocommerce-order-details,
+.woocommerce-order-overview {
+  margin-top: var(--space-xl);
 }
 
-/* WooCommerce notices and tracking result */
-.woocommerce-error,
-.woocommerce-message {
-    margin: 0 0 1.2rem !important;
-    padding: 1rem 1.1rem !important;
-    border-radius: 8px !important;
-    list-style: none !important;
-    font-size: 0.9rem !important;
-    line-height: 1.55 !important;
-}
-
-.woocommerce-error {
-    border: 1px solid #F3A6B8 !important;
-    background: #FFF1F4 !important;
-    color: #8F1231 !important;
-}
-
-.woocommerce-message {
-    border: 1px solid #86D7A5 !important;
-    background: #EFFBF3 !important;
-    color: #166534 !important;
-}
-
-.order-info {
-    margin: 0 0 1.5rem;
-    padding: 1rem 1.1rem;
-    border: 1px solid rgba(198, 161, 91, 0.45);
-    border-left: 4px solid var(--track-gold);
-    border-radius: 8px;
-    background: var(--track-warm);
-    color: #475569;
-    font-size: 0.94rem;
-    line-height: 1.7;
-}
-
-.order-info mark {
-    background: transparent;
-    color: var(--track-navy);
-    font-weight: 900;
-}
-
-.order-info mark.order-status {
-    display: inline-flex;
-    align-items: center;
-    min-height: 26px;
-    padding: 0 0.55rem;
-    border-radius: 6px;
-    background: var(--track-red);
-    color: #FFFFFF;
-    font-size: 0.78rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.woocommerce-order-details {
-    margin: 0;
-}
-
-.woocommerce-order-details__title {
-    display: inline-block;
-    margin: 0 0 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid var(--track-red);
-    color: var(--track-navy);
-    font-family: var(--font-heading, Georgia, serif);
-    font-size: 1.3rem;
-    font-weight: 800;
-}
-
-.woocommerce-table--order-details {
-    width: 100%;
-    border-collapse: collapse;
-    overflow: hidden;
-    border: 1px solid var(--track-line);
-    border-radius: 8px;
-    font-size: 0.93rem;
-}
-
-.woocommerce-table--order-details thead th {
-    padding: 0.8rem;
-    background: var(--track-navy);
-    color: #FFFFFF;
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-align: left;
-    text-transform: uppercase;
-}
-
-.woocommerce-table--order-details thead th.product-total,
-.woocommerce-table__product-total,
-.woocommerce-table--order-details tfoot tr td {
-    text-align: right;
-}
-
-.woocommerce-table--order-details tbody td,
-.woocommerce-table--order-details tfoot tr th,
-.woocommerce-table--order-details tfoot tr td {
-    padding: 0.8rem;
-    border-top: 1px solid var(--track-line);
-}
-
-.woocommerce-table__product-name a {
-    color: var(--track-navy);
-    font-weight: 800;
-    line-height: 1.45;
-    text-decoration: none;
-}
-
-.woocommerce-table__product-name a:hover {
-    color: var(--track-red);
-}
-
-.product-quantity,
-.shipped_via,
-.woocommerce-table--order-details tfoot tr th {
-    color: var(--track-muted);
-}
-
-.woocommerce-table__product-total,
-.woocommerce-table--order-details tfoot tr td {
-    color: var(--track-ink);
-    font-weight: 850;
-    white-space: nowrap;
-}
-
-.woocommerce-table--order-details tfoot tr:nth-last-child(2) th,
-.woocommerce-table--order-details tfoot tr:nth-last-child(2) td {
-    background: #F8FAFC;
-    color: var(--track-navy);
-    font-size: 1rem;
-    font-weight: 950;
-}
-
-.woocommerce-table--order-details tfoot tr:nth-last-child(2) td {
-    color: var(--track-red);
-}
-
-.woocommerce-Price-amount {
-    font-variant-numeric: tabular-nums;
-}
-
-.track-more-section {
-    padding: 4rem 1rem 5rem;
-    border-top: 1px solid var(--track-line);
-    background: #FFFFFF;
-}
-
-.track-more-section__inner {
-    max-width: 1120px;
-    margin: 0 auto;
-}
-
-.track-more-section__header {
-    max-width: 620px;
-    margin: 0 0 1.5rem;
-}
-
-.track-more-section__header span {
-    display: inline-flex;
-    align-items: center;
-    min-height: 30px;
-    padding: 0 0.75rem;
-    border-radius: 8px;
-    background: rgba(11, 31, 58, 0.08);
-    color: var(--track-navy);
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-}
-
-.track-more-section__title {
-    margin: 0.9rem 0 0.55rem;
-    color: var(--track-navy);
-    font-family: var(--font-heading, Georgia, serif);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-    line-height: 1.1;
-}
-
-.track-more-section__subtitle {
-    margin: 0;
-    color: var(--track-muted);
-    font-size: 1rem;
-    line-height: 1.65;
-}
-
-.track-more-grid {
-    display: grid;
-    gap: 1rem;
-}
-
-.track-more-card {
-    display: block;
-    min-height: 100%;
-    padding: 1.25rem;
-    border: 1px solid var(--track-line);
-    border-radius: 8px;
-    background: #FFFFFF;
-    color: inherit;
-    text-decoration: none;
-    box-shadow: 0 10px 28px rgba(11, 31, 58, 0.07);
-    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-}
-
-.track-more-card:hover {
-    border-color: rgba(179, 25, 66, 0.45);
-    box-shadow: 0 18px 36px rgba(11, 31, 58, 0.12);
-    transform: translateY(-2px);
-}
-
-.track-more-card__title {
-    margin: 0 0 0.5rem;
-    color: var(--track-navy);
-    font-size: 1rem;
-    font-weight: 950;
-}
-
-.track-more-card__desc {
-    margin: 0;
-    color: var(--track-muted);
-    font-size: 0.9rem;
-    line-height: 1.65;
+ul.woocommerce-order-overview.order_details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  list-style: none;
+  margin: 0 0 var(--space-xl);
+  padding: 0;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
 }
 
 @media (min-width: 768px) {
-    .track-more-section {
-        padding: 5rem 1.5rem 6rem;
-    }
-
-    .track-more-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+  ul.woocommerce-order-overview.order_details {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-@media (max-width: 560px) {
-    .track-hero {
-        padding-top: 3.5rem;
-    }
+ul.woocommerce-order-overview.order_details li {
+  padding: var(--space-lg);
+  background: var(--color-background);
+  border: 0;
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
 
-    .track-more-section {
-        overflow: hidden;
-    }
+ul.woocommerce-order-overview.order_details li strong {
+  display: block;
+  margin-top: var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 300;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-foreground);
+}
 
-    .track-more-section__inner {
-        max-width: none;
-    }
+.track-order-panel table.shop_table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-lg);
+}
 
-    .track-more-section__header {
-        max-width: 100%;
-        padding: 0 1rem;
-    }
+.track-order-panel table.shop_table th,
+.track-order-panel table.shop_table td {
+  padding: var(--space-md) 0;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-body-sm);
+  color: var(--color-foreground-muted);
+}
 
-    .track-more-grid {
-        display: flex;
-        gap: 0.875rem;
-        margin: 0 -1rem;
-        padding: 0 1rem 0.75rem;
-        overflow-x: auto;
-        overscroll-behavior-x: contain;
-        scroll-padding-left: 1rem;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-    }
+.track-order-panel table.shop_table th {
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
 
-    .track-more-grid::-webkit-scrollbar {
-        display: none;
-    }
+.track-order-panel table.shop_table td:last-child,
+.track-order-panel table.shop_table th:last-child {
+  text-align: right;
+}
 
-    .track-more-card {
-        flex: 0 0 min(82vw, 320px);
-        scroll-snap-align: start;
-    }
-
-    .track-help-box {
-        grid-template-columns: 1fr;
-    }
-
-    .woocommerce-table--order-details {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
+.track-order-panel address {
+  padding: var(--space-lg);
+  margin-top: var(--space-md);
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  font-style: normal;
+  font-size: var(--text-body-sm);
+  color: var(--color-foreground-muted);
 }

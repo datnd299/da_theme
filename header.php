@@ -31,8 +31,10 @@ $dawp_cart_count  = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->
     <div class="container flex items-center justify-center gap-6 py-2.5 text-center">
         <p class="m-0 text-eyebrow font-medium uppercase tracking-wide">
             <?php esc_html_e('Complimentary insured shipping', 'dawp'); ?>
-            <span class="mx-3 text-accent" aria-hidden="true">&middot;</span>
-            <?php esc_html_e('Five-year movement warranty', 'dawp'); ?>
+            <span class="hidden sm:inline">
+                <span class="mx-3 text-accent" aria-hidden="true">&middot;</span>
+                <?php esc_html_e('Five-year movement warranty', 'dawp'); ?>
+            </span>
         </p>
     </div>
 </div>
@@ -53,16 +55,16 @@ $dawp_cart_count  = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->
             </div>
 
             <a href="<?php echo esc_url(home_url('/')); ?>" class="justify-self-center" aria-label="<?php echo esc_attr(get_bloginfo('name') ?: 'CHRONEL'); ?>">
-                <img src="<?php echo esc_url(dawp_asset_uri('assets/img/logo-chronel.svg')); ?>" alt="<?php esc_attr_e('CHRONEL', 'dawp'); ?>" width="280" height="52" class="h-9 w-auto lg:h-12" fetchpriority="high" decoding="async">
+                <img src="<?php echo esc_url(dawp_asset_uri('assets/img/chronel_logo_black.png')); ?>" alt="<?php esc_attr_e('CHRONEL', 'dawp'); ?>" width="536" height="166" class="c-logo" fetchpriority="high" decoding="async">
             </a>
 
             <div class="flex items-center justify-self-end">
                 <a href="<?php echo esc_url($dawp_account_url); ?>" class="hidden h-11 w-11 items-center justify-center text-foreground transition-colors duration-400 ease-fluid hover:text-accent-deep sm:inline-flex" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
                     <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
                 </a>
-                <a href="<?php echo esc_url($dawp_cart_url); ?>" class="relative -mr-3 inline-flex h-11 w-11 items-center justify-center text-foreground transition-colors duration-400 ease-fluid hover:text-accent-deep" aria-label="<?php esc_attr_e('Cart', 'dawp'); ?>">
+                <a href="<?php echo esc_url($dawp_cart_url); ?>" class="relative -mr-3 inline-flex h-11 w-11 items-center justify-center text-foreground transition-colors duration-400 ease-fluid hover:text-accent-deep" aria-label="<?php esc_attr_e('Cart', 'dawp'); ?>" aria-controls="c-cart-drawer" aria-expanded="false" data-cart-toggle>
                     <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 7h12l-1.2 12.2a2 2 0 0 1-2 1.8H9.2a2 2 0 0 1-2-1.8z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
-                    <span class="absolute right-1 top-1.5 min-w-[17px] rounded-pill bg-accent px-1 text-center text-[10px] font-medium leading-[17px] text-background" data-cart-count><?php echo esc_html($dawp_cart_count); ?></span>
+                    <span class="absolute right-1 top-1.5 min-w-[17px] rounded-pill bg-accent px-1 text-center text-[10px] font-medium leading-[17px] text-background" data-cart-count <?php echo $dawp_cart_count > 0 ? '' : 'hidden'; ?>><?php echo esc_html($dawp_cart_count); ?></span>
                 </a>
             </div>
         </div>
@@ -94,7 +96,7 @@ $dawp_cart_count  = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->
                                                 <li>
                                                     <a class="group/card block" href="<?php echo esc_url($link['url']); ?>">
                                                         <span class="mb-4 block overflow-hidden border border-border bg-surface-alt">
-                                                            <img src="<?php echo esc_url(dawp_asset_uri($link['image'])); ?>" alt="" width="320" height="460" loading="lazy" decoding="async" class="mx-auto h-40 w-auto transition-transform duration-700 ease-fluid group-hover/card:scale-105">
+                                                            <img src="<?php echo esc_url(dawp_asset_uri($link['image'])); ?>" alt="" width="896" height="1200" loading="lazy" decoding="async" class="h-48 w-full object-cover transition-transform duration-700 ease-fluid group-hover/card:scale-105">
                                                         </span>
                                                         <span class="block font-heading text-h3 leading-none text-foreground"><?php echo esc_html($link['title']); ?></span>
                                                         <span class="mt-2 block text-caption text-foreground-muted"><?php echo esc_html($link['description']); ?></span>
@@ -157,9 +159,9 @@ $dawp_cart_count  = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->
             <ul class="m-0 grid list-none grid-cols-2 gap-4 p-0">
                 <?php foreach ($dawp_collections as $collection) : ?>
                     <li>
-                        <a class="block border border-border bg-surface-alt p-3 text-center" href="<?php echo esc_url(dawp_product_category_url($collection['slug'])); ?>">
-                            <img src="<?php echo esc_url(dawp_asset_uri($collection['image'])); ?>" alt="" width="320" height="460" loading="lazy" decoding="async" class="mx-auto h-28 w-auto">
-                            <span class="mt-2 block font-heading text-h3 leading-none text-foreground"><?php echo esc_html($collection['name']); ?></span>
+                        <a class="block overflow-hidden border border-border bg-surface-alt pb-3 text-center" href="<?php echo esc_url(dawp_product_category_url($collection['slug'])); ?>">
+                            <img src="<?php echo esc_url(dawp_asset_uri($collection['image'])); ?>" alt="" width="896" height="1200" loading="lazy" decoding="async" class="h-32 w-full object-cover">
+                            <span class="mt-3 block font-heading text-h3 leading-none text-foreground"><?php echo esc_html($collection['name']); ?></span>
                         </a>
                     </li>
                 <?php endforeach; ?>
@@ -173,5 +175,48 @@ $dawp_cart_count  = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->
         </nav>
     </div>
 </header>
+
+<!-- Side cart — the mini-cart markup inside .widget_shopping_cart_content is
+     replaced wholesale by WooCommerce fragments, so it carries no classes of
+     its own; it is styled through .side-cart in assets/css/main.css. -->
+<div id="c-cart-drawer" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true" aria-labelledby="c-cart-drawer-title">
+
+    <div class="absolute inset-0 bg-ink/50 opacity-0 transition-opacity duration-400 ease-fluid" data-cart-overlay></div>
+
+    <div class="absolute inset-y-0 right-0 flex w-full max-w-[26rem] translate-x-full flex-col bg-background shadow-ink transition-transform duration-400 ease-fluid" data-cart-panel>
+
+        <div class="flex items-center justify-between gap-4 border-b border-border px-5 py-3 lg:px-6">
+            <p id="c-cart-drawer-title" class="c-eyebrow m-0"><?php esc_html_e('Your selection', 'dawp'); ?></p>
+            <button type="button" class="-mr-3 inline-flex h-11 w-11 items-center justify-center text-foreground transition-colors duration-400 ease-fluid hover:text-accent-deep" aria-label="<?php esc_attr_e('Close cart', 'dawp'); ?>" data-cart-close>
+                <svg class="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+        </div>
+
+        <p class="side-cart__notice" data-cart-notice hidden></p>
+
+        <div class="side-cart flex min-h-0 flex-1 flex-col px-5 lg:px-6">
+
+            <div class="widget_shopping_cart_content" <?php echo $dawp_cart_count > 0 ? '' : 'hidden'; ?>>
+                <?php if (function_exists('woocommerce_mini_cart')) { woocommerce_mini_cart(); } ?>
+            </div>
+
+            <div class="side-cart__empty" data-cart-empty <?php echo $dawp_cart_count > 0 ? 'hidden' : ''; ?>>
+                <span class="c-rule c-rule--center" aria-hidden="true"></span>
+                <p class="c-eyebrow"><?php esc_html_e('Nothing selected', 'dawp'); ?></p>
+                <h2><?php esc_html_e('Your cart is empty.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Four collections, each built on the same Japanese automatic calibre. Take your time.', 'dawp'); ?></p>
+                <a class="c-btn" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('The collections', 'dawp'); ?></a>
+                <a class="c-btn-ghost" href="<?php echo esc_url(home_url('/shop/')); ?>"><?php esc_html_e('All watches', 'dawp'); ?></a>
+            </div>
+
+        </div>
+
+        <p class="m-0 border-t border-border bg-surface-alt px-5 py-3 text-center text-caption text-foreground-muted lg:px-6">
+            <?php esc_html_e('Complimentary insured shipping', 'dawp'); ?>
+            <span class="mx-2 text-accent" aria-hidden="true">&middot;</span><?php esc_html_e('30-day returns', 'dawp'); ?>
+        </p>
+
+    </div>
+</div>
 
 <div id="content">

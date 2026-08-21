@@ -1,23 +1,15 @@
 import { execSync } from 'child_process';
 
-const builds = [
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-ship.css', content: './template-parts/page-shipping-policy.php,./template-parts/page-refund-return-policy.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-home.css', content: './template-parts/page-home.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-shop-by-categories.css', content: './template-parts/page-shop-by-categories.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-terms.css', content: './template-parts/page-terms-conditions.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-about.css', content: './template-parts/page-about.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-404.css', content: './404.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-main.css', content: './header.php,./footer.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-privacy.css', content: './template-parts/page-privacy.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-faq.css', content: './template-parts/page-faq.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-contact.css', content: './template-parts/page-contact.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-track.css', content: './template-parts/page-track-order.php' },
-];
+/**
+ * Tailwind v4 has no `--content` flag — it auto-detects sources from the working
+ * directory, honouring .gitignore. Per-page builds therefore produced ten
+ * byte-identical files, so the theme ships a single bundle instead.
+ *
+ * Add new directories to ignore via .gitignore, not here.
+ */
+const input = './assets/css/tailwind-input.css';
+const output = './assets/css/tw/tw-main.css';
 
-for (const { input, output, content } of builds) {
-  const cmd = `npx @tailwindcss/cli -i ${input} -o ${output} --content "${content}" --minify`;
-  console.log(`Building ${output}...`);
-  execSync(cmd, { stdio: 'inherit' });
-}
-
-console.log('All builds completed.');
+console.log(`Building ${output}...`);
+execSync(`npx @tailwindcss/cli -i ${input} -o ${output} --minify`, { stdio: 'inherit' });
+console.log('Build completed.');

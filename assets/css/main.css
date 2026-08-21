@@ -31,7 +31,9 @@
   --color-border-strong: #C9C0B1;
   --color-border-ink: #2C2C25;
   --color-alert: #A33A2A;
+  --color-alert-soft: #E39A8A;
   --color-success: #4A6B4F;
+  --color-success-soft: #9CC7A4;
 
   /* === TYPOGRAPHY === */
   --font-heading: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
@@ -177,6 +179,23 @@ a {
 
 .section-y {
   padding-block: var(--section-y);
+}
+
+/* Header gains a hairline shadow once the page moves. */
+#masthead.is-scrolled {
+  box-shadow: 0 1px 0 var(--color-border), 0 8px 24px rgba(26, 26, 24, 0.05);
+}
+
+/* Header wordmark — single place to tune the logo height. */
+.c-logo {
+  height: 1.75rem;
+  width: auto;
+}
+
+@media (min-width: 1024px) {
+  .c-logo {
+    height: 2.25rem;
+  }
 }
 
 /* =============================================================
@@ -363,6 +382,87 @@ a {
   transform: scaleX(1);
 }
 
+/* --- Async form feedback (newsletter, contact, bespoke) --- */
+.c-form-msg {
+  display: none;
+}
+
+.c-form-msg.is-visible {
+  display: block;
+}
+
+.c-form-msg.is-ok {
+  color: var(--color-success);
+}
+
+.c-form-msg.is-error {
+  color: var(--color-alert);
+}
+
+.c-form-msg--on-ink.is-ok {
+  color: var(--color-success-soft);
+}
+
+.c-form-msg--on-ink.is-error {
+  color: var(--color-alert-soft);
+}
+
+/* --- Accordion (FAQ, policy asides) --- */
+.c-accordion {
+  border-top: 1px solid var(--color-border);
+}
+
+.c-accordion:last-of-type {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.c-accordion > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  min-height: 56px;
+  padding-block: var(--space-lg);
+  list-style: none;
+  cursor: pointer;
+  font-size: var(--text-body);
+  color: var(--color-foreground);
+  transition: color var(--duration-fast) var(--ease-fluid);
+}
+
+.c-accordion > summary::-webkit-details-marker {
+  display: none;
+}
+
+.c-accordion > summary:hover {
+  color: var(--color-accent-deep);
+}
+
+.c-accordion__icon {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  color: var(--color-accent);
+  transition: transform var(--duration-normal) var(--ease-fluid);
+}
+
+.c-accordion[open] .c-accordion__icon {
+  transform: rotate(45deg);
+}
+
+.c-accordion__panel {
+  /* max-width: 70ch; */
+  padding-bottom: var(--space-lg);
+  color: var(--color-foreground-muted);
+  font-size: var(--text-body-sm);
+}
+
+.c-accordion__panel a {
+  color: var(--color-accent-deep);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
 /* --- Form controls --- */
 .c-field {
   display: block;
@@ -399,6 +499,122 @@ a {
   text-transform: uppercase;
   color: var(--color-foreground-muted);
   margin-bottom: var(--space-sm);
+}
+
+/* =============================================================
+   PRODUCT CARD
+   Shared by the shop loop, related products, and cross-sells.
+   Markup: woocommerce/content-product.php
+   ============================================================= */
+
+.product-card {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  transition: border-color var(--duration-normal) var(--ease-fluid);
+}
+
+.product-card:hover {
+  border-color: var(--color-accent);
+}
+
+.product-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card__media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--color-surface-alt);
+  /* padding: var(--space-lg); */
+  aspect-ratio: 1 / 1;
+}
+
+.product-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform var(--duration-slow) var(--ease-fluid);
+}
+
+.product-card:hover .product-card__img {
+  transform: scale(1.05);
+}
+
+.product-card__badge {
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  z-index: 2;
+  padding: 4px 10px;
+  background: var(--color-background);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent-deep);
+}
+
+.product-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: var(--space-lg);
+}
+
+.product-card__collection {
+  display: block;
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.product-card__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-top: var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-foreground);
+}
+
+.product-card__price {
+  display: block;
+  margin-top: auto;
+  padding-top: var(--space-md);
+  font-size: var(--text-body-sm);
+  color: var(--color-accent-deep);
+}
+
+.product-card__price del {
+  margin-right: 6px;
+  color: var(--color-muted);
+  font-size: var(--text-caption);
+}
+
+.product-card__price ins {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .product-card__body {
+    padding: var(--space-xl) var(--space-lg);
+  }
 }
 
 /* =============================================================
@@ -533,6 +749,61 @@ body textarea {
 }
 
 /* =============================================================
+   WOOCOMMERCE PAGE SHELL
+   Cover + body wrapper used by woocommerce.php and index.php.
+   ============================================================= */
+
+.woo-page {
+  background: var(--color-background);
+}
+
+.woo-cover {
+  padding-block: clamp(40px, 6vw, 80px);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-alt);
+}
+
+.woo-cover__breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+}
+
+.woo-cover__breadcrumb a {
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-fluid);
+}
+
+.woo-cover__breadcrumb a:hover {
+  color: var(--color-accent-deep);
+}
+
+.woo-cover h1 {
+  font-size: var(--text-h1);
+  color: var(--color-foreground);
+}
+
+.woo-cover__copy {
+  max-width: 56ch;
+  margin: var(--space-lg) 0 0;
+  color: var(--color-foreground-muted);
+}
+
+.woo-page__body {
+  padding-block: clamp(40px, 6vw, 80px);
+  min-height: 50vh;
+}
+
+.single-product-page .woo-page__body {
+  padding-block: var(--space-lg) var(--space-2xl);
+}
+
+/* =============================================================
    WOOCOMMERCE NOTICES
    ============================================================= */
 
@@ -636,6 +907,299 @@ body textarea {
   height: 16px;
   flex-shrink: 0;
   margin-top: 1px;
+}
+
+/* =============================================================
+   SIDE CART (mini-cart drawer)
+   Shell markup: header.php — behaviour: assets/js/main.js
+   The .widget_shopping_cart_content wrapper is swapped out by
+   WooCommerce fragments, so everything below targets the
+   WooCommerce mini-cart classes rather than theme classes.
+   ============================================================= */
+
+.side-cart {
+  transition: opacity var(--duration-fast) var(--ease-fluid);
+}
+
+.side-cart > .widget_shopping_cart_content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* The drawer swaps its two panes with the hidden attribute, which the
+   display rules above would otherwise win against. */
+.side-cart > [hidden] {
+  display: none;
+}
+
+/* Item list — the only scrolling region; total and buttons stay put. */
+.side-cart .woocommerce-mini-cart {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.side-cart .woocommerce-mini-cart-item {
+  position: relative;
+  padding: var(--space-lg) var(--space-xl) var(--space-lg) 92px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Thumbnail sits outside the text flow so the name and quantity
+   both align to the same left edge. */
+.side-cart .woocommerce-mini-cart-item img {
+  position: absolute;
+  left: 0;
+  top: var(--space-lg);
+  width: 76px;
+  height: 96px;
+  object-fit: cover;
+  background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+}
+
+.side-cart .woocommerce-mini-cart-item a {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-foreground);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-fluid);
+}
+
+.side-cart .woocommerce-mini-cart-item a:hover {
+  color: var(--color-accent-deep);
+}
+
+.side-cart .woocommerce-mini-cart-item .quantity {
+  display: block;
+  margin-top: var(--space-sm);
+  font-size: var(--text-caption);
+  color: var(--color-foreground-muted);
+}
+
+/* --- Quantity stepper (inc/cart-enhancements.php) --- */
+.side-cart-qty {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.side-cart-qty__control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+}
+
+.side-cart-qty__btn {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: var(--text-body-sm);
+  line-height: 1;
+  color: var(--color-foreground);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-fluid);
+}
+
+.side-cart-qty__btn:hover:not(:disabled) {
+  color: var(--color-accent-deep);
+}
+
+.side-cart-qty__btn:disabled {
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+.side-cart-qty__input {
+  width: 40px;
+  height: 34px;
+  padding: 0;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  color: var(--color-foreground);
+  background: transparent;
+  border: 0;
+  border-inline: 1px solid var(--color-border);
+  appearance: textfield;
+}
+
+.side-cart-qty__input::-webkit-outer-spin-button,
+.side-cart-qty__input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.side-cart-qty__price {
+  font-size: var(--text-body-sm);
+  color: var(--color-accent-deep);
+}
+
+/* Cart updates keep the panel readable but non-interactive. */
+.side-cart.is-busy {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.side-cart__notice[hidden] {
+  display: none;
+}
+
+.side-cart__notice {
+  margin: 0;
+  padding: var(--space-sm) var(--container-pad-mobile);
+  font-size: var(--text-caption);
+  color: var(--color-alert);
+  background: var(--color-surface-alt);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.side-cart .woocommerce-mini-cart-item .variation {
+  margin: var(--space-xs) 0 0;
+  font-size: var(--text-caption);
+  color: var(--color-muted);
+}
+
+.side-cart .woocommerce-mini-cart-item .remove {
+  position: absolute;
+  right: 0;
+  top: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.side-cart .woocommerce-mini-cart-item .remove:hover {
+  color: var(--color-alert);
+}
+
+/* Subtotal */
+.side-cart .woocommerce-mini-cart__total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin: 0;
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-body-sm);
+  color: var(--color-accent-deep);
+}
+
+.side-cart .woocommerce-mini-cart__total strong {
+  font-weight: 500;
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-foreground-muted);
+}
+
+/* Checkout is the primary action, so it is pulled above "View cart". */
+.side-cart .woocommerce-mini-cart__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin: 0;
+  padding-bottom: var(--space-lg);
+}
+
+.side-cart .woocommerce-mini-cart__buttons .checkout {
+  order: -1;
+}
+
+.side-cart .woocommerce-mini-cart__buttons .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 var(--space-lg);
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--color-foreground);
+  border-radius: var(--radius-sm);
+  color: var(--color-foreground);
+  transition:
+    background-color var(--duration-normal) var(--ease-fluid),
+    border-color var(--duration-normal) var(--ease-fluid),
+    color var(--duration-normal) var(--ease-fluid);
+}
+
+.side-cart .woocommerce-mini-cart__buttons .button:hover {
+  background: var(--color-foreground);
+  color: var(--color-on-ink);
+}
+
+.side-cart .woocommerce-mini-cart__buttons .checkout {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-on-ink);
+}
+
+.side-cart .woocommerce-mini-cart__buttons .checkout:hover {
+  background: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+}
+
+/* The drawer shows its own empty state (.side-cart__empty). */
+.side-cart .woocommerce-mini-cart__empty-message {
+  display: none;
+}
+
+.side-cart__empty {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--space-xl);
+  text-align: center;
+}
+
+.side-cart__empty h2 {
+  font-size: var(--text-h2);
+  margin-bottom: var(--space-md);
+}
+
+.side-cart__empty p:last-of-type {
+  margin: 0 0 var(--space-xl);
+  font-size: var(--text-body-sm);
+  color: var(--color-foreground-muted);
+}
+
+.side-cart__empty .c-btn,
+.side-cart__empty .c-btn-ghost {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.side-cart__empty .c-btn-ghost {
+  margin-top: var(--space-sm);
 }
 
 /* =============================================================

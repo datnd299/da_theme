@@ -62,92 +62,82 @@ function dawp_virtual_page_map() {
         'home' => [
             'slug'        => 'home',
             'title'       => 'Home',
-            'css'         => 'tw/tw-home.css',
             'seo_title'   => 'CHRONEL | Handcrafted Luxury Watches, Made in America',
             'description' => 'CHRONEL builds luxury watches by hand in the United States, powered by Japanese automatic movements. Four collections, a five-year movement warranty, and lifetime service.',
-            'image'       => 'assets/img/hero/hero-watch.svg',
+            'image'       => 'assets/img/hero/hero-watch.png',
             'canonical'   => home_url('/'),
             'schema_type' => 'CollectionPage',
         ],
         'collections' => [
             'slug'        => 'collections',
             'title'       => 'Collections',
-            'css'         => 'tw/tw-collections.css',
             'seo_title'   => 'Collections | CHRONEL Handcrafted Watches',
             'description' => 'Four CHRONEL collections: The Meridian dress watch, The Abyss diver, The Sovereign day-date, and The Aviator with a second time zone.',
-            'image'       => 'assets/img/watches/meridian.svg',
+            'image'       => 'assets/img/watches/meridian.jpeg',
             'schema_type' => 'CollectionPage',
         ],
         'custom' => [
             'slug'        => 'custom',
             'title'       => 'Bespoke',
-            'css'         => 'tw/tw-custom.css',
             'seo_title'   => 'Bespoke Commission | CHRONEL Custom Watches',
             'description' => 'Commission a CHRONEL watch built to your specification. Case, dial, hands, and engraving decided with our atelier, then assembled by hand over twelve weeks.',
-            'image'       => 'assets/img/atelier/workbench.svg',
+            'image'       => 'assets/img/atelier/workbench.jpeg',
             'schema_type' => 'Service',
         ],
         'about-us' => [
             'slug'        => 'about',
             'title'       => 'The Atelier',
-            'css'         => 'tw/tw-about.css',
             'seo_title'   => 'The Atelier | How a CHRONEL Watch Is Made',
             'description' => 'Inside the CHRONEL atelier: 316L steel cases finished by hand, sapphire crystals, and Japanese automatic movements regulated in five positions before delivery.',
-            'image'       => 'assets/img/atelier/movement.svg',
+            'image'       => 'assets/img/atelier/movement.jpeg',
             'schema_type' => 'AboutPage',
         ],
         'contact-us' => [
             'slug'        => 'contact',
             'title'       => 'Contact',
-            'css'         => 'tw/tw-contact.css',
             'seo_title'   => 'Contact CHRONEL | Client Care',
             'description' => 'Reach CHRONEL client care for orders, servicing, warranty claims, bespoke commissions, and delivery questions. Monday to Friday, 9:00 AM to 6:00 PM PST.',
-            'image'       => 'assets/img/logo-chronel.svg',
+            'image'       => 'assets/img/chronel_logo_black.png',
             'schema_type' => 'ContactPage',
         ],
         'faq' => [
             'slug'        => 'faq',
             'title'       => 'FAQ',
-            'css'         => 'tw/tw-faq.css',
             'seo_title'   => 'Frequently Asked Questions | CHRONEL',
             'description' => 'Answers on CHRONEL movements, water resistance, sizing, servicing intervals, the five-year warranty, insured shipping, returns, and bespoke commissions.',
-            'image'       => 'assets/img/watches/meridian.svg',
+            'image'       => 'assets/img/watches/meridian.jpeg',
             'schema_type' => 'FAQPage',
         ],
         'service-warranty' => [
             'slug'        => 'shipping-policy',
             'title'       => 'Service & Warranty',
-            'css'         => 'tw/tw-legal.css',
             'seo_title'   => 'Shipping, Service & Warranty | CHRONEL',
             'description' => 'CHRONEL ships insured and signature-required across the United States, and covers every movement for five years with a lifetime service programme.',
-            'image'       => 'assets/img/atelier/workbench.svg',
+            'image'       => 'assets/img/atelier/workbench.jpeg',
             'schema_type' => 'WebPage',
         ],
         'returns' => [
             'slug'        => 'refund-return-policy',
             'title'       => 'Returns',
-            'css'         => 'tw/tw-legal.css',
             'seo_title'   => 'Returns & Refunds | CHRONEL',
             'description' => 'Return an unworn CHRONEL watch within 30 days in its original condition, with box, papers, and links. Refunds are issued to the original payment method.',
-            'image'       => 'assets/img/watches/abyss.svg',
+            'image'       => 'assets/img/watches/abyss.jpeg',
             'schema_type' => 'WebPage',
         ],
         'terms-conditions' => [
             'slug'        => 'terms-conditions',
             'title'       => 'Terms & Conditions',
-            'css'         => 'tw/tw-legal.css',
             'seo_title'   => 'Terms & Conditions | CHRONEL',
             'description' => 'The terms governing use of the CHRONEL website, orders, pricing, bespoke commissions, warranty coverage, and limitation of liability.',
-            'image'       => 'assets/img/logo-chronel.svg',
+            'image'       => 'assets/img/chronel_logo_black.png',
             'schema_type' => 'WebPage',
         ],
         'privacy-policy' => [
             'slug'        => 'privacy',
             'title'       => 'Privacy Policy',
-            'css'         => 'tw/tw-legal.css',
             'seo_title'   => 'Privacy Policy | CHRONEL',
             'description' => 'How CHRONEL collects, uses, and protects personal information for orders, payment, delivery, servicing records, and client care.',
-            'image'       => 'assets/img/logo-chronel.svg',
+            'image'       => 'assets/img/chronel_logo_black.png',
             'schema_type' => 'PrivacyPolicy',
         ],
         'track-order' => [
@@ -156,7 +146,7 @@ function dawp_virtual_page_map() {
             'css'         => 'track-order.css',
             'seo_title'   => 'Track Your Order | CHRONEL',
             'description' => 'Follow a CHRONEL order from the atelier to your door with your order number and the email used at checkout.',
-            'image'       => 'assets/img/watches/aviator.svg',
+            'image'       => 'assets/img/watches/aviator.jpeg',
             'schema_type' => 'WebPage',
         ],
     ];
@@ -250,14 +240,16 @@ function dawp_virtual_page_assets() {
         return;
     }
 
-    $css_file_name = ltrim($pages[$request_uri]['css'], '/');
-    $css_file_path = get_template_directory() . '/assets/css/' . $css_file_name;
-    $css_file_url  = get_template_directory_uri() . '/assets/css/' . $css_file_name;
+    foreach ((array) $pages[$request_uri]['css'] as $index => $css) {
+        $css_file_name = ltrim($css, '/');
+        $css_file_path = get_template_directory() . '/assets/css/' . $css_file_name;
+        $css_file_url  = get_template_directory_uri() . '/assets/css/' . $css_file_name;
 
-    wp_enqueue_style(
-        'dawp-virtual-page-' . sanitize_title($request_uri),
-        $css_file_url,
-        ['dawp-main'],
-        file_exists($css_file_path) ? filemtime($css_file_path) : '1.0.0'
-    );
+        wp_enqueue_style(
+            'dawp-virtual-page-' . sanitize_title($request_uri) . ($index ? '-' . $index : ''),
+            $css_file_url,
+            ['dawp-main'],
+            file_exists($css_file_path) ? filemtime($css_file_path) : '1.0.0'
+        );
+    }
 }

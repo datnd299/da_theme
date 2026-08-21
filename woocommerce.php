@@ -2,63 +2,85 @@
 /**
  * WooCommerce master wrapper.
  *
- * WP uses this file for ALL Woo URLs. We route shop archives to
- * woocommerce/archive-product.php ourselves so that file's customisations apply.
- * Cart / Checkout / My Account fall through to woocommerce_content().
+ * WordPress routes every Woo URL through this file. Shop archives are delegated to
+ * woocommerce/archive-product.php so that template's customisations apply.
+ * Cart, checkout, account, and single product fall through to woocommerce_content().
  */
+
+defined('ABSPATH') || exit;
+
 if (is_shop() || is_product_category() || is_product_tag()) {
-    // Delegate to our custom archive override
-    include(locate_template('woocommerce/archive-product.php'));
+    include locate_template('woocommerce/archive-product.php');
     return;
 }
 
 get_header();
-$is_account_page = function_exists('is_account_page') && is_account_page();
-$is_product_page = function_exists('is_product') && is_product();
-$is_cart_page = function_exists('is_cart') && is_cart();
-$container_style = $is_product_page
-    ? ' style="padding-top:1.5rem; padding-bottom:4rem; min-height:60vh;"'
-    : ' style="padding-top:6rem; padding-bottom:6rem; min-height:60vh;"';
-$main_class = $is_account_page ? 'account-page' : 'woo-page';
 
-if ($is_cart_page) {
+$is_account  = function_exists('is_account_page') && is_account_page();
+$is_product  = function_exists('is_product') && is_product();
+$is_cart     = function_exists('is_cart') && is_cart();
+$is_checkout = function_exists('is_checkout') && is_checkout();
+
+$main_class = 'woo-page';
+
+if ($is_account) {
+    $main_class .= ' account-page';
+} elseif ($is_cart) {
     $main_class .= ' cart-page';
+} elseif ($is_checkout) {
+    $main_class .= ' checkout-page';
+} elseif ($is_product) {
+    $main_class .= ' single-product-page';
+}
+
+/**
+ * Cart, checkout, and account get a plain brand cover. The single product page
+ * opens straight into the gallery, so it gets none.
+ */
+$cover = null;
+
+if ($is_cart) {
+    $cover = [
+        'crumb'   => __('Cart', 'dawp'),
+        'eyebrow' => __('Your selection', 'dawp'),
+        'title'   => __('Cart', 'dawp'),
+        'copy'    => __('Review your selection before checkout. Shipping is complimentary and insured on every order.', 'dawp'),
+    ];
+} elseif ($is_checkout) {
+    $cover = [
+        'crumb'   => __('Checkout', 'dawp'),
+        'eyebrow' => __('Secure checkout', 'dawp'),
+        'title'   => __('Checkout', 'dawp'),
+        'copy'    => __('Payment is processed by our provider over an encrypted connection. We never see your card number.', 'dawp'),
+    ];
+} elseif ($is_account) {
+    $cover = [
+        'crumb'   => __('My Account', 'dawp'),
+        'eyebrow' => __('Client area', 'dawp'),
+        'title'   => __('My Account', 'dawp'),
+        'copy'    => __('Your orders, addresses, and the service record for every watch you own.', 'dawp'),
+    ];
 }
 ?>
 <main class="<?php echo esc_attr($main_class); ?>">
-    <?php if ($is_cart_page) : ?>
-        <section class="cart-cover" style="--cart-cover-bg:url('<?php echo esc_url(trailingslashit(get_template_directory_uri()) . 'assets/img/hero/shop-theme-hero-background.png'); ?>')" aria-label="<?php esc_attr_e('Cart summary introduction', 'dawp'); ?>">
-            <div class="cart-cover__inner">
-                <nav class="cart-cover__breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
+
+    <?php if ($cover) : ?>
+        <section class="woo-cover" aria-label="<?php echo esc_attr($cover['title']); ?>">
+            <div class="container">
+                <nav class="woo-cover__breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
                     <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>
                     <span aria-hidden="true">/</span>
-                    <span><?php esc_html_e('Cart', 'dawp'); ?></span>
+                    <span><?php echo esc_html($cover['crumb']); ?></span>
                 </nav>
-                <p class="cart-cover__eyebrow"><?php esc_html_e('Secure checkout starts here', 'dawp'); ?></p>
-                <h1><?php esc_html_e('Shopping Cart', 'dawp'); ?></h1>
-                <p class="cart-cover__copy"><?php esc_html_e('Review your selected pieces, adjust quantities, and move to checkout when everything looks right.', 'dawp'); ?></p>
-                <div class="cart-cover__notes" aria-label="<?php esc_attr_e('Shopping promises', 'dawp'); ?>">
-                    <span><?php esc_html_e('Secure payment', 'dawp'); ?></span>
-                    <span><?php esc_html_e('Easy order updates', 'dawp'); ?></span>
-                    <span><?php esc_html_e('Support ready to help', 'dawp'); ?></span>
-                </div>
-            </div>
-        </section>
-    <?php elseif ($is_account_page) : ?>
-        <section class="account-cover" style="--account-cover-bg:url('<?php echo esc_url(trailingslashit(get_template_directory_uri()) . 'assets/img/hero/support-hero-background.png'); ?>')" aria-label="<?php esc_attr_e('Account introduction', 'dawp'); ?>">
-            <div class="account-cover__inner">
-                <nav class="account-cover__breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
-                    <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>
-                    <span aria-hidden="true">/</span>
-                    <span><?php esc_html_e('My Account', 'dawp'); ?></span>
-                </nav>
-                <p class="account-cover__eyebrow"><?php esc_html_e('Customer area', 'dawp'); ?></p>
-                <h1><?php esc_html_e('My Account', 'dawp'); ?></h1>
-                <p class="account-cover__copy"><?php esc_html_e('Manage orders, saved addresses, and account details in one secure place.', 'dawp'); ?></p>
+                <span class="c-rule" aria-hidden="true"></span>
+                <p class="c-eyebrow"><?php echo esc_html($cover['eyebrow']); ?></p>
+                <h1><?php echo esc_html($cover['title']); ?></h1>
+                <p class="woo-cover__copy"><?php echo esc_html($cover['copy']); ?></p>
             </div>
         </section>
     <?php endif; ?>
-    <div class="<?php echo $is_account_page ? 'account-page__container' : 'container'; ?>"<?php echo $is_account_page ? '' : $container_style; ?>>
+
+    <div class="container woo-page__body">
         <?php woocommerce_content(); ?>
     </div>
 </main>

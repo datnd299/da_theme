@@ -69,9 +69,9 @@ defined('ABSPATH') || exit;
 
         <div class="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <div class="border border-border bg-background">
-                <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.svg')); ?>"
+                <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/workbench.jpeg')); ?>"
                      alt="<?php esc_attr_e('A watchmaker\'s bench with a loupe, tweezers, and a movement in its holder', 'dawp'); ?>"
-                     width="640" height="480" loading="lazy" decoding="async" class="w-full">
+                     width="1200" height="896" loading="lazy" decoding="async" class="w-full">
             </div>
 
             <ol class="m-0 list-none p-0">
@@ -132,9 +132,9 @@ defined('ABSPATH') || exit;
         </div>
 
         <div>
-            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.svg')); ?>"
+            <img src="<?php echo esc_url(dawp_asset_uri('assets/img/atelier/movement.jpeg')); ?>"
                  alt="<?php esc_attr_e('The calibre CH-01 Japanese automatic movement', 'dawp'); ?>"
-                 width="480" height="480" loading="lazy" decoding="async"
+                 width="1024" height="1024" loading="lazy" decoding="async"
                  class="mx-auto w-full max-w-[420px]">
         </div>
     </div>

@@ -75,16 +75,13 @@ function dawp_scripts() {
         null
     );
 
+    // main.css holds the tokens and shared components; tw-main.css is the single
+    // Tailwind bundle for every page (see scripts/build-tw.js for why it is one file).
     wp_enqueue_style('dawp-main', dawp_asset_uri('assets/css/main.css'), ['dawp-fonts'], dawp_asset_version('assets/css/main.css'));
     wp_enqueue_style('dawp-tw-main', dawp_asset_uri('assets/css/tw/tw-main.css'), ['dawp-main'], dawp_asset_version('assets/css/tw/tw-main.css'));
 
-    if (is_404()) {
-        wp_enqueue_style('dawp-404', dawp_asset_uri('assets/css/tw/tw-404.css'), ['dawp-tw-main'], dawp_asset_version('assets/css/tw/tw-404.css'));
-    }
-
     if (is_front_page()) {
-        wp_enqueue_style('dawp-tw-home', dawp_asset_uri('assets/css/tw/tw-home.css'), ['dawp-tw-main'], dawp_asset_version('assets/css/tw/tw-home.css'));
-        wp_enqueue_style('dawp-home', dawp_asset_uri('assets/css/home.css'), ['dawp-tw-home'], dawp_asset_version('assets/css/home.css'));
+        wp_enqueue_style('dawp-home', dawp_asset_uri('assets/css/home.css'), ['dawp-tw-main'], dawp_asset_version('assets/css/home.css'));
         dawp_remove_block_styles();
     }
 
@@ -122,6 +119,9 @@ function dawp_scripts() {
         'url'          => admin_url('admin-ajax.php'),
         'nonce'        => wp_create_nonce('dawp_newsletter_nonce'),
         'contactNonce' => wp_create_nonce('dawp_contact_nonce'),
+        // Side cart — wc-ajax endpoints run on the front end, where the cart exists.
+        'wcAjaxUrl'    => class_exists('WC_AJAX') ? WC_AJAX::get_endpoint('%%endpoint%%') : '',
+        'cartNonce'    => wp_create_nonce('dawp_cart_nonce'),
     ]);
 }
 

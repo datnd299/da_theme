@@ -1,492 +1,637 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('masthead') || document.getElementById('site-header');
-    const toggle = document.querySelector('.menu-toggle');
-    const nav    = document.querySelector('.main-navigation');
-    const mobileMenuToggle = document.getElementById('sgs-mobile-toggle');
-    const mobileMenu = document.getElementById('sgs-mobile-menu');
-    const mobileSearchToggle = document.getElementById('sgs-mobile-search-toggle');
-    const mobileSearch = document.getElementById('sgs-mobile-search');
-    const mobileSearchInput = document.getElementById('sgs-mobile-search-input');
+/* =============================================================
+   main.js — CHRONEL
+   Header panels, shop filter drawer, product gallery, async forms.
+   Pure JS, no dependencies.
+   ============================================================= */
 
-    // Scroll shadow
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* ---------------------------------------------------------
+       Header — scroll state, mobile menu, search panel
+       --------------------------------------------------------- */
+
+    const header = document.getElementById('masthead');
+
     if (header) {
-        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
+        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
-    }
 
-    // Mobile menu toggle
-    if (toggle && nav && header) {
-        toggle.addEventListener('click', () => {
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('is-open');
+        const panels = [
+            [document.getElementById('c-mobile-toggle'), document.getElementById('c-mobile-menu')],
+            [document.getElementById('c-search-toggle'), document.getElementById('c-search-panel')],
+        ].filter(([button, panel]) => button && panel);
+
+        const searchInput = document.getElementById('c-search-input');
+
+        const setPanel = (button, panel, open) => {
+            button.setAttribute('aria-expanded', String(open));
+            panel.classList.toggle('hidden', !open);
+        };
+
+        const closeAll = (except = null) => {
+            panels.forEach(([button, panel]) => {
+                if (panel !== except) setPanel(button, panel, false);
+            });
+        };
+
+        panels.forEach(([button, panel]) => {
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const open = button.getAttribute('aria-expanded') !== 'true';
+                closeAll(open ? panel : null);
+                setPanel(button, panel, open);
+
+                if (open && panel.contains(searchInput)) {
+                    window.setTimeout(() => searchInput.focus(), 30);
+                }
+            });
         });
 
-        // Đóng menu khi click bên ngoài
-        document.addEventListener('click', (e) => {
-            if (!header.contains(e.target) && !toggle.contains(e.target)) {
-                toggle.setAttribute('aria-expanded', 'false');
-                nav.classList.remove('is-open');
+        document.addEventListener('click', (event) => {
+            if (!header.contains(event.target)) closeAll();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeAll();
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.matchMedia('(min-width: 1024px)').matches) closeAll();
+        }, { passive: true });
+    }
+
+    /* ---------------------------------------------------------
+       Shop — collections drawer on mobile
+       --------------------------------------------------------- */
+
+    const shopSidebar = document.getElementById('shop-sidebar');
+    const shopOverlay = document.querySelector('.shop-sidebar-overlay');
+    const shopOpenBtn = document.querySelector('[data-shop-filter-open]');
+
+    if (shopSidebar && shopOpenBtn) {
+        const setDrawer = (open) => {
+            shopSidebar.classList.toggle('is-open', open);
+            shopOpenBtn.setAttribute('aria-expanded', String(open));
+            document.body.style.overflow = open ? 'hidden' : '';
+
+            if (shopOverlay) {
+                shopOverlay.classList.toggle('is-open', open);
+                shopOverlay.hidden = !open;
             }
+        };
+
+        shopOpenBtn.addEventListener('click', () => setDrawer(true));
+
+        document.querySelectorAll('[data-shop-filter-close]').forEach((el) => {
+            el.addEventListener('click', () => setDrawer(false));
         });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && shopSidebar.classList.contains('is-open')) setDrawer(false);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.matchMedia('(min-width: 1024px)').matches && shopSidebar.classList.contains('is-open')) {
+                setDrawer(false);
+            }
+        }, { passive: true });
     }
 
-    // Product Gallery Thumbnails Scroll
-    const initGalleryThumbsScroll = () => {
-        const thumbsList = document.querySelector('.flex-control-thumbs');
-        if (!thumbsList || thumbsList.classList.contains('has-scroll-arrows')) return !!thumbsList;
-        
-        // Ensure there are enough thumbnails to warrant scrolling
-        if (thumbsList.scrollWidth <= thumbsList.clientWidth) return true;
+    /* ---------------------------------------------------------
+       Product gallery — thumbnail arrows
+       WooCommerce builds the gallery asynchronously, so both
+       initialisers are retried until they find their markup.
+       --------------------------------------------------------- */
 
-        thumbsList.classList.add('has-scroll-arrows');
-        
+    const initGalleryThumbs = () => {
+        const thumbs = document.querySelector('.flex-control-thumbs');
+        if (!thumbs) return false;
+        if (thumbs.classList.contains('has-scroll-arrows')) return true;
+        if (thumbs.scrollWidth <= thumbs.clientWidth) return true;
+
+        thumbs.classList.add('has-scroll-arrows');
+
         const wrapper = document.createElement('div');
         wrapper.className = 'gallery-thumbs-wrapper';
-        
-        thumbsList.parentNode.insertBefore(wrapper, thumbsList);
-        wrapper.appendChild(thumbsList);
-        
-        const prevBtn = document.createElement('button');
-        prevBtn.className = 'gallery-thumbs-btn prev';
-        prevBtn.type = 'button';
-        prevBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
-        prevBtn.setAttribute('aria-label', 'Previous product image thumbnails');
-        
-        const nextBtn = document.createElement('button');
-        nextBtn.className = 'gallery-thumbs-btn next';
-        nextBtn.type = 'button';
-        nextBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
-        nextBtn.setAttribute('aria-label', 'Next product image thumbnails');
-        
-        wrapper.appendChild(prevBtn);
-        wrapper.appendChild(nextBtn);
-        
-        prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const scrollAmount = thumbsList.clientWidth * 0.75;
-            thumbsList.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        });
-        
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const scrollAmount = thumbsList.clientWidth * 0.75;
-            thumbsList.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        });
-        
-        const updateButtons = () => {
-            const canScroll = thumbsList.scrollWidth > thumbsList.clientWidth + 5;
-            const atStart = thumbsList.scrollLeft <= 5;
-            const atEnd = Math.ceil(thumbsList.scrollLeft + thumbsList.clientWidth) >= thumbsList.scrollWidth - 5;
+        thumbs.parentNode.insertBefore(wrapper, thumbs);
+        wrapper.appendChild(thumbs);
 
-            prevBtn.hidden = !canScroll || atStart;
-            nextBtn.hidden = !canScroll || atEnd;
-            prevBtn.disabled = !canScroll || atStart;
-            nextBtn.disabled = !canScroll || atEnd;
+        const makeButton = (direction, label, path) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = `gallery-thumbs-btn ${direction}`;
+            button.setAttribute('aria-label', label);
+            button.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${path}"/></svg>`;
+            button.addEventListener('click', () => {
+                thumbs.scrollBy({ left: (direction === 'prev' ? -1 : 1) * thumbs.clientWidth * 0.75, behavior: 'smooth' });
+            });
+            wrapper.appendChild(button);
+            return button;
         };
-        
-        thumbsList.addEventListener('scroll', updateButtons, { passive: true });
-        window.addEventListener('resize', updateButtons, { passive: true });
-        updateButtons();
-        
-        setTimeout(updateButtons, 500); // Check again after images might have loaded
+
+        const prev = makeButton('prev', 'Previous thumbnails', 'M15 18l-6-6 6-6');
+        const next = makeButton('next', 'Next thumbnails', 'M9 18l6-6-6-6');
+
+        const update = () => {
+            const canScroll = thumbs.scrollWidth > thumbs.clientWidth + 5;
+            const atStart = thumbs.scrollLeft <= 5;
+            const atEnd = Math.ceil(thumbs.scrollLeft + thumbs.clientWidth) >= thumbs.scrollWidth - 5;
+
+            prev.hidden = !canScroll || atStart;
+            next.hidden = !canScroll || atEnd;
+        };
+
+        thumbs.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update, { passive: true });
+        update();
+        window.setTimeout(update, 500);
+
         return true;
     };
 
-    const initProductGallerySwipe = () => {
+    /* ---------------------------------------------------------
+       Product gallery — swipe the main image on touch devices
+       --------------------------------------------------------- */
+
+    const initGallerySwipe = () => {
         const gallery = document.querySelector('.woocommerce-product-gallery');
-        const viewport = gallery?.querySelector('.flex-viewport');
-        const thumbsList = gallery?.querySelector('.flex-control-thumbs');
+        const viewport = gallery && gallery.querySelector('.flex-viewport');
 
-        if (!gallery || !viewport || gallery.classList.contains('has-main-image-swipe')) {
-            return !!viewport;
-        }
+        if (!gallery || !viewport) return false;
+        if (gallery.classList.contains('has-swipe')) return true;
 
-        gallery.classList.add('has-main-image-swipe');
+        gallery.classList.add('has-swipe');
 
         let startX = 0;
         let startY = 0;
         let tracking = false;
 
-        const getFlexslider = () => {
-            if (!window.jQuery) return null;
-            const data = window.jQuery(gallery).data('flexslider');
-            return data && typeof data.flexAnimate === 'function' ? data : null;
-        };
+        const move = (direction) => {
+            const flex = window.jQuery && window.jQuery(gallery).data('flexslider');
 
-        const getActiveThumbIndex = () => {
-            const thumbs = Array.from(thumbsList?.querySelectorAll('img') || []);
-            const activeIndex = thumbs.findIndex((thumb) => thumb.classList.contains('flex-active'));
-            return { thumbs, activeIndex: activeIndex === -1 ? 0 : activeIndex };
-        };
+            if (flex && typeof flex.flexAnimate === 'function') {
+                const count = flex.count || gallery.querySelectorAll('.woocommerce-product-gallery__image').length;
+                if (count <= 1) return;
 
-        const moveGallery = (direction) => {
-            const flexslider = getFlexslider();
-
-            if (flexslider) {
-                const slideCount = flexslider.count || gallery.querySelectorAll('.woocommerce-product-gallery__image').length;
-                if (slideCount <= 1) return;
-
-                const current = flexslider.currentSlide || 0;
+                const current = flex.currentSlide || 0;
                 const target = direction === 'next'
-                    ? Math.min(current + 1, slideCount - 1)
+                    ? Math.min(current + 1, count - 1)
                     : Math.max(current - 1, 0);
 
-                if (target !== current) {
-                    flexslider.flexAnimate(target);
-                }
+                if (target !== current) flex.flexAnimate(target);
                 return;
             }
 
-            const { thumbs, activeIndex } = getActiveThumbIndex();
-            const targetIndex = direction === 'next' ? activeIndex + 1 : activeIndex - 1;
-            thumbs[targetIndex]?.click();
+            const images = Array.from(gallery.querySelectorAll('.flex-control-thumbs img'));
+            const active = images.findIndex((img) => img.classList.contains('flex-active'));
+            const target = (active === -1 ? 0 : active) + (direction === 'next' ? 1 : -1);
+            if (images[target]) images[target].click();
         };
 
-        const startSwipe = (clientX, clientY) => {
-            startX = clientX;
-            startY = clientY;
-            tracking = true;
-        };
-
-        const endSwipe = (clientX, clientY) => {
+        const end = (x, y) => {
             if (!tracking) return;
             tracking = false;
 
-            const deltaX = clientX - startX;
-            const deltaY = clientY - startY;
-            const isHorizontalSwipe = Math.abs(deltaX) > 48 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4;
+            const dx = x - startX;
+            const dy = y - startY;
 
-            if (!isHorizontalSwipe) return;
-            moveGallery(deltaX < 0 ? 'next' : 'prev');
+            if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+                move(dx < 0 ? 'next' : 'prev');
+            }
         };
 
         if (window.PointerEvent) {
             viewport.addEventListener('pointerdown', (event) => {
                 if (event.pointerType === 'mouse' && event.button !== 0) return;
-                startSwipe(event.clientX, event.clientY);
+                startX = event.clientX;
+                startY = event.clientY;
+                tracking = true;
             });
-
-            viewport.addEventListener('pointerup', (event) => {
-                endSwipe(event.clientX, event.clientY);
-            });
-
-            viewport.addEventListener('pointercancel', () => {
-                tracking = false;
-            });
+            viewport.addEventListener('pointerup', (event) => end(event.clientX, event.clientY));
+            viewport.addEventListener('pointercancel', () => { tracking = false; });
         } else {
             viewport.addEventListener('touchstart', (event) => {
                 const touch = event.changedTouches[0];
-                if (touch) startSwipe(touch.clientX, touch.clientY);
+                if (!touch) return;
+                startX = touch.clientX;
+                startY = touch.clientY;
+                tracking = true;
             }, { passive: true });
-
             viewport.addEventListener('touchend', (event) => {
                 const touch = event.changedTouches[0];
-                if (touch) endSwipe(touch.clientX, touch.clientY);
+                if (touch) end(touch.clientX, touch.clientY);
             }, { passive: true });
         }
 
         return true;
     };
 
-    // Retry finding the gallery as WooCommerce initializes it asynchronously
-    if (!initGalleryThumbsScroll() || !initProductGallerySwipe()) {
-        let checkCount = 0;
-        const interval = setInterval(() => {
-            const thumbsReady = initGalleryThumbsScroll();
-            const swipeReady = initProductGallerySwipe();
-            if ((thumbsReady && swipeReady) || checkCount++ > 15) clearInterval(interval);
+    if (document.querySelector('.woocommerce-product-gallery')) {
+        let attempts = 0;
+        const timer = window.setInterval(() => {
+            const done = initGalleryThumbs() && initGallerySwipe();
+            if (done || ++attempts > 15) window.clearInterval(timer);
         }, 300);
     }
 
-    function initMobileSnapSlider(config) {
-        document.querySelectorAll(config.slider).forEach((slider) => {
-            const track = slider.querySelector(config.track);
-            const slides = Array.from(slider.querySelectorAll(config.slide));
-            const dots = Array.from(slider.querySelectorAll(config.dot));
-            const prevBtn = slider.querySelector(config.prev);
-            const nextBtn = slider.querySelector(config.next);
+    /* ---------------------------------------------------------
+       Async forms — newsletter and contact / bespoke enquiry
+       --------------------------------------------------------- */
 
-            if (!track || slides.length === 0) return;
+    const showMessage = (element, text, ok) => {
+        element.textContent = text;
+        element.classList.remove('is-ok', 'is-error');
+        element.classList.add('is-visible', ok ? 'is-ok' : 'is-error');
+    };
 
-            const isMobileSlider = () => window.matchMedia('(max-width: 767px)').matches;
+    const submitForm = async ({ form, message, action, nonce, body, button, pendingLabel }) => {
+        const original = button ? button.textContent : '';
 
-            const scrollToSlide = (index) => {
-                const slide = slides[Math.max(0, Math.min(index, slides.length - 1))];
-                if (!slide) return;
-                track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' });
-            };
+        if (button) {
+            button.disabled = true;
+            button.textContent = pendingLabel;
+        }
+        message.classList.remove('is-visible');
 
-            const getActiveIndex = () => {
-                const trackLeft = track.scrollLeft + track.offsetLeft;
-                return slides.reduce((closestIndex, slide, index) => {
-                    const currentDistance = Math.abs(slide.offsetLeft - trackLeft);
-                    const closestDistance = Math.abs(slides[closestIndex].offsetLeft - trackLeft);
-                    return currentDistance < closestDistance ? index : closestIndex;
-                }, 0);
-            };
+        body.append('action', action);
+        body.append('nonce', nonce);
 
-            const updateSlider = () => {
-                if (!isMobileSlider()) {
-                    dots.forEach((dot) => dot.dataset.active = 'false');
-                    if (prevBtn) prevBtn.disabled = true;
-                    if (nextBtn) nextBtn.disabled = true;
-                    return;
-                }
+        try {
+            const response = await fetch(window.dawpAjax.url, { method: 'POST', body });
+            const data = await response.json();
 
-                const activeIndex = getActiveIndex();
-                dots.forEach((dot, index) => dot.dataset.active = String(index === activeIndex));
-                if (prevBtn) prevBtn.disabled = activeIndex === 0;
-                if (nextBtn) nextBtn.disabled = activeIndex === slides.length - 1;
-            };
+            showMessage(
+                message,
+                (data.data && data.data.message) || (data.success ? 'Thank you.' : 'Something went wrong.'),
+                Boolean(data.success)
+            );
 
-            let ticking = false;
-            track.addEventListener('scroll', () => {
-                if (ticking) return;
-                ticking = true;
-                window.requestAnimationFrame(() => {
-                    updateSlider();
-                    ticking = false;
-                });
-            }, { passive: true });
-
-            prevBtn?.addEventListener('click', () => scrollToSlide(getActiveIndex() - 1));
-            nextBtn?.addEventListener('click', () => scrollToSlide(getActiveIndex() + 1));
-            dots.forEach((dot, index) => dot.addEventListener('click', () => scrollToSlide(index)));
-            window.addEventListener('resize', updateSlider, { passive: true });
-            updateSlider();
-        });
-    }
-
-    // Mobile homepage sliders
-    initMobileSnapSlider({
-        slider: '[data-collection-slider]',
-        track: '[data-collection-track]',
-        slide: '[data-collection-slide]',
-        dot: '[data-collection-dot]',
-        prev: '[data-collection-prev]',
-        next: '[data-collection-next]',
-    });
-
-    initMobileSnapSlider({
-        slider: '[data-branch-slider]',
-        track: '[data-branch-track]',
-        slide: '[data-branch-slide]',
-        dot: '[data-branch-dot]',
-        prev: '[data-branch-prev]',
-        next: '[data-branch-next]',
-    });
-
-    initMobileSnapSlider({
-        slider: '[data-occasion-slider]',
-        track: '[data-occasion-track]',
-        slide: '[data-occasion-slide]',
-        dot: '[data-occasion-dot]',
-        prev: '[data-occasion-prev]',
-        next: '[data-occasion-next]',
-    });
-
-    initMobileSnapSlider({
-        slider: '[data-trust-slider]',
-        track: '[data-trust-track]',
-        slide: '[data-trust-slide]',
-        dot: '[data-trust-dot]',
-        prev: '[data-trust-prev]',
-        next: '[data-trust-next]',
-    });
-
-    initMobileSnapSlider({
-        slider: '[data-shipping-slider]',
-        track: '[data-shipping-track]',
-        slide: '[data-shipping-slide]',
-        dot: '[data-shipping-dot]',
-        prev: '[data-shipping-prev]',
-        next: '[data-shipping-next]',
-    });
-
-    initMobileSnapSlider({
-        slider: '[data-track-steps-slider]',
-        track: '[data-track-steps-track]',
-        slide: '[data-track-steps-slide]',
-        dot: '[data-track-steps-dot]',
-        prev: '[data-track-steps-prev]',
-        next: '[data-track-steps-next]',
-    });
-
-    document.querySelectorAll('[data-review-slider]').forEach((slider) => {
-        const track = slider.querySelector('[data-review-track]');
-        const slides = Array.from(slider.querySelectorAll('[data-review-slide]'));
-        const dots = Array.from(slider.querySelectorAll('[data-review-dot]'));
-        const prevBtn = slider.querySelector('[data-review-prev]');
-        const nextBtn = slider.querySelector('[data-review-next]');
-
-        if (!track || slides.length === 0) return;
-
-        const getActiveIndex = () => {
-            const left = track.scrollLeft;
-            return slides.reduce((closestIndex, slide, index) => {
-                const currentDistance = Math.abs(slide.offsetLeft - track.offsetLeft - left);
-                const closestDistance = Math.abs(slides[closestIndex].offsetLeft - track.offsetLeft - left);
-                return currentDistance < closestDistance ? index : closestIndex;
-            }, 0);
-        };
-
-        const scrollToSlide = (index) => {
-            const slide = slides[Math.max(0, Math.min(index, slides.length - 1))];
-            if (!slide) return;
-            track.scrollTo({ left: slide.offsetLeft - track.offsetLeft, behavior: 'smooth' });
-        };
-
-        const updateSlider = () => {
-            const activeIndex = getActiveIndex();
-            const atEnd = Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth - 2;
-
-            dots.forEach((dot, index) => dot.dataset.active = String(index === activeIndex));
-            if (prevBtn) prevBtn.disabled = track.scrollLeft <= 2;
-            if (nextBtn) nextBtn.disabled = atEnd;
-        };
-
-        let ticking = false;
-        track.addEventListener('scroll', () => {
-            if (ticking) return;
-            ticking = true;
-            window.requestAnimationFrame(() => {
-                updateSlider();
-                ticking = false;
-            });
-        }, { passive: true });
-
-        prevBtn?.addEventListener('click', () => scrollToSlide(getActiveIndex() - 1));
-        nextBtn?.addEventListener('click', () => scrollToSlide(getActiveIndex() + 1));
-        dots.forEach((dot, index) => dot.addEventListener('click', () => scrollToSlide(index)));
-        window.addEventListener('resize', updateSlider, { passive: true });
-        updateSlider();
-    });
-
-    // Newsletter signup (shared handler)
-    function initNewsletterForm(formId, msgId, successColor, errorColor) {
-        const form = document.getElementById(formId);
-        const msg  = document.getElementById(msgId);
-        if (!form || !msg || !window.dawpAjax) return;
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const emailInput = form.querySelector('input[type="email"]');
-            const submitBtn  = form.querySelector('button[type="submit"]');
-            const origText   = submitBtn.textContent;
-
-            submitBtn.disabled    = true;
-            submitBtn.textContent = 'Sending...';
-            msg.style.display     = 'none';
-
-            const body = new FormData();
-            body.append('action', 'dawp_newsletter');
-            body.append('nonce', window.dawpAjax.nonce);
-            body.append('email', emailInput.value.trim());
-
-            try {
-                const res  = await fetch(window.dawpAjax.url, { method: 'POST', body });
-                const data = await res.json();
-                msg.textContent   = data.data?.message ?? (data.success ? 'Thank you!' : 'Something went wrong.');
-                msg.style.color   = data.success ? successColor : errorColor;
-                msg.style.display = 'block';
-                if (data.success) form.reset();
-            } catch {
-                msg.textContent   = 'Something went wrong. Please try again.';
-                msg.style.color   = errorColor;
-                msg.style.display = 'block';
-            } finally {
-                submitBtn.disabled    = false;
-                submitBtn.textContent = origText;
+            if (data.success) form.reset();
+        } catch {
+            showMessage(message, 'Something went wrong. Please try again.', false);
+        } finally {
+            if (button) {
+                button.disabled = false;
+                button.textContent = original;
             }
+        }
+    };
+
+    const newsletterForm = document.getElementById('footer-newsletter-form');
+    const newsletterMsg = document.getElementById('footer-newsletter-msg');
+
+    if (newsletterForm && newsletterMsg && window.dawpAjax) {
+        newsletterForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const email = newsletterForm.querySelector('input[type="email"]');
+            const body = new FormData();
+            body.append('email', email ? email.value.trim() : '');
+
+            submitForm({
+                form: newsletterForm,
+                message: newsletterMsg,
+                action: 'dawp_newsletter',
+                nonce: window.dawpAjax.nonce,
+                body,
+                button: newsletterForm.querySelector('button[type="submit"]'),
+                pendingLabel: 'Sending',
+            });
         });
     }
 
-    // Contact form handler
-    function initContactForm() {
-        const form = document.getElementById('contact-form');
-        const msg  = document.getElementById('contact-msg');
-        if (!form || !msg || !window.dawpAjax) return;
+    const contactForm = document.getElementById('contact-form');
+    const contactMsg = document.getElementById('contact-msg');
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            if (!form.checkValidity()) {
-                form.reportValidity();
+    if (contactForm && contactMsg && window.dawpAjax) {
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
                 return;
             }
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const origText  = submitBtn.innerHTML;
 
-            submitBtn.disabled    = true;
-            submitBtn.innerHTML   = '<span>Sending...</span>';
-            msg.style.display     = 'none';
-
-            const body = new FormData(form);
-            body.append('action', 'dawp_contact');
-            body.append('nonce', window.dawpAjax.contactNonce);
-
-            try {
-                const res  = await fetch(window.dawpAjax.url, { method: 'POST', body });
-                const data = await res.json();
-                msg.textContent   = data.data?.message ?? (data.success ? 'Message sent!' : 'Something went wrong.');
-                msg.style.color   = data.success ? '#2e7d5e' : '#c0392b';
-                msg.style.display = 'block';
-                if (data.success) form.reset();
-            } catch {
-                msg.textContent   = 'Something went wrong. Please try again.';
-                msg.style.color   = '#c0392b';
-                msg.style.display = 'block';
-            } finally {
-                submitBtn.disabled    = false;
-                submitBtn.innerHTML   = origText;
-            }
+            submitForm({
+                form: contactForm,
+                message: contactMsg,
+                action: 'dawp_contact',
+                nonce: window.dawpAjax.contactNonce,
+                body: new FormData(contactForm),
+                button: contactForm.querySelector('button[type="submit"]'),
+                pendingLabel: 'Sending',
+            });
         });
     }
 
-    if (header) {
-        const setExpanded = (button, panel, expanded) => {
-            if (!button || !panel) return;
-            button.setAttribute('aria-expanded', String(expanded));
-            panel.classList.toggle('hidden', !expanded);
-        };
+    /* ---------------------------------------------------------
+       Side cart — drawer holding the WooCommerce mini-cart.
+       WooCommerce replaces div.widget_shopping_cart_content
+       wholesale, so it is re-queried on every sync.
+       --------------------------------------------------------- */
 
-        const closeMobilePanels = (exceptPanel = null) => {
-            if (exceptPanel !== mobileMenu) setExpanded(mobileMenuToggle, mobileMenu, false);
-            if (exceptPanel !== mobileSearch) setExpanded(mobileSearchToggle, mobileSearch, false);
-        };
+    const cartDrawer = document.getElementById('c-cart-drawer');
 
-        mobileMenuToggle?.addEventListener('click', (event) => {
-            event.stopPropagation();
-            const expanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
-            closeMobilePanels(expanded ? null : mobileMenu);
-            setExpanded(mobileMenuToggle, mobileMenu, !expanded);
-        });
+    if (cartDrawer) {
+        const overlay = cartDrawer.querySelector('[data-cart-overlay]');
+        const panel = cartDrawer.querySelector('[data-cart-panel]');
+        const emptyState = cartDrawer.querySelector('[data-cart-empty]');
+        const badge = document.querySelector('[data-cart-count]');
+        const toggles = document.querySelectorAll('[data-cart-toggle]');
+        let lastFocused = null;
+        let closeTimer = null;
 
-        mobileSearchToggle?.addEventListener('click', (event) => {
-            event.stopPropagation();
-            const expanded = mobileSearchToggle.getAttribute('aria-expanded') === 'true';
-            closeMobilePanels(expanded ? null : mobileSearch);
-            setExpanded(mobileSearchToggle, mobileSearch, !expanded);
-            if (!expanded) {
-                window.setTimeout(() => mobileSearchInput?.focus(), 30);
+        // The panel's own transform is the source of truth: the root keeps the
+        // `hidden` class through the slide-out so the animation stays visible.
+        const isOpen = () => !panel.classList.contains('translate-x-full');
+
+        const setCart = (open) => {
+            if (open === isOpen()) return;
+
+            toggles.forEach((el) => el.setAttribute('aria-expanded', String(open)));
+            document.body.style.overflow = open ? 'hidden' : '';
+
+            if (open) {
+                lastFocused = document.activeElement;
+                cartDrawer.classList.remove('hidden');
+
+                // Let the panel paint off-screen before it slides in.
+                window.requestAnimationFrame(() => {
+                    panel.classList.remove('translate-x-full');
+                    if (overlay) overlay.classList.remove('opacity-0');
+                });
+
+                const close = cartDrawer.querySelector('[data-cart-close]');
+                if (close) window.setTimeout(() => close.focus(), 30);
+                return;
             }
+
+            panel.classList.add('translate-x-full');
+            if (overlay) overlay.classList.add('opacity-0');
+
+            // A reopen during the slide-out wins over this pending close.
+            // The panel only ever transitions its slide, so no property check:
+            // Tailwind animates `translate`, not `transform`.
+            const finishClose = () => {
+                window.clearTimeout(closeTimer);
+                panel.removeEventListener('transitionend', onSlideEnd);
+                if (!isOpen()) cartDrawer.classList.add('hidden');
+            };
+
+            const onSlideEnd = (event) => {
+                if (event.target === panel) finishClose();
+            };
+
+            panel.addEventListener('transitionend', onSlideEnd);
+            // Fallback: transitionend never fires if the panel is off-screen.
+            closeTimer = window.setTimeout(finishClose, 500);
+
+            if (lastFocused) lastFocused.focus();
+        };
+
+        // Item count and empty state both come from the current fragment.
+        const syncCart = () => {
+            const content = cartDrawer.querySelector('.widget_shopping_cart_content');
+            if (!content) return;
+
+            // The steppers replace the mini-cart's "2 × $120" line; the text
+            // reading is the fallback for when that filter is not in play.
+            const inputs = content.querySelectorAll('[data-cart-qty-input]');
+            const fallback = content.querySelectorAll('.woocommerce-mini-cart-item .quantity');
+            let count = 0;
+
+            if (inputs.length) {
+                inputs.forEach((el) => { count += parseInt(el.value, 10) || 0; });
+            } else {
+                fallback.forEach((el) => { count += parseInt(el.textContent, 10) || 0; });
+            }
+
+            content.hidden = count === 0;
+            if (emptyState) emptyState.hidden = count > 0;
+
+            if (badge) {
+                badge.textContent = String(count);
+                badge.hidden = count === 0;
+            }
+        };
+
+        toggles.forEach((el) => {
+            el.addEventListener('click', (event) => {
+                event.preventDefault();
+                setCart(!isOpen());
+            });
         });
 
-        document.addEventListener('click', (event) => {
-            if (!header.contains(event.target)) closeMobilePanels();
+        cartDrawer.querySelectorAll('[data-cart-close]').forEach((el) => {
+            el.addEventListener('click', () => setCart(false));
         });
+
+        if (overlay) overlay.addEventListener('click', () => setCart(false));
 
         document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') closeMobilePanels();
+            if (!isOpen()) return;
+
+            if (event.key === 'Escape') {
+                setCart(false);
+                return;
+            }
+
+            if (event.key !== 'Tab') return;
+
+            const focusable = panel.querySelectorAll('a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])');
+            const items = Array.from(focusable).filter((el) => el.offsetParent !== null);
+            if (!items.length) return;
+
+            const first = items[0];
+            const last = items[items.length - 1];
+
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
         });
 
-        window.addEventListener('resize', () => {
-            if (window.matchMedia('(min-width: 1024px)').matches) closeMobilePanels();
-        }, { passive: true });
-    }
+        if (window.jQuery) {
+            const $body = window.jQuery(document.body);
 
-    initNewsletterForm('newsletter-form', 'newsletter-msg', '#a8f0c8', '#f9a8a8');
-    initNewsletterForm('footer-newsletter-form', 'footer-newsletter-msg', '#a8f0c8', '#f9a8a8');
-    initContactForm();
+            $body.on('added_to_cart removed_from_cart wc_fragments_loaded wc_fragments_refreshed', syncCart);
+            $body.on('added_to_cart', () => setCart(true));
+        }
+
+        syncCart();
+
+        /* -----------------------------------------------------
+           Side cart — quantity steppers and add-to-cart
+           ----------------------------------------------------- */
+
+        const ajax = window.dawpAjax;
+        const cartBody = cartDrawer.querySelector('.side-cart');
+        const notice = cartDrawer.querySelector('[data-cart-notice]');
+        const endpoint = (action) => (ajax && ajax.wcAjaxUrl ? ajax.wcAjaxUrl.replace('%%endpoint%%', action) : '');
+
+        let noticeTimer = null;
+
+        const showNotice = (text) => {
+            if (!notice) return;
+
+            notice.textContent = text || '';
+            notice.hidden = !text;
+            window.clearTimeout(noticeTimer);
+
+            if (text) noticeTimer = window.setTimeout(() => { notice.hidden = true; }, 5000);
+        };
+
+        const applyFragments = (fragments) => {
+            Object.keys(fragments).forEach((selector) => {
+                document.querySelectorAll(selector).forEach((el) => { el.outerHTML = fragments[selector]; });
+            });
+
+            syncCart();
+        };
+
+        const requestCart = (action, body) => {
+            const url = endpoint(action);
+            if (!url) return Promise.reject(new Error('no endpoint'));
+
+            if (cartBody) cartBody.classList.add('is-busy');
+
+            return fetch(url, { method: 'POST', body, credentials: 'same-origin' })
+                .then((response) => response.json())
+                .then((data) => {
+                    if (!data) throw new Error('empty response');
+
+                    // WooCommerce answers a failed add with { error, product_url }.
+                    if (!data.fragments) {
+                        if (!data.error) throw new Error('no fragments');
+                        return data;
+                    }
+
+                    applyFragments(data.fragments);
+                    if (window.jQuery) window.jQuery(document.body).trigger('wc_fragments_refreshed');
+
+                    return data;
+                })
+                .finally(() => {
+                    if (cartBody) cartBody.classList.remove('is-busy');
+                });
+        };
+
+        // One request at a time: each response carries the whole cart, so
+        // overlapping updates would race to overwrite each other.
+        const queued = new Map();
+        let queueTimer = null;
+        let inFlight = false;
+
+        const flushQueue = () => {
+            if (inFlight || !queued.size) return;
+
+            const [key, quantity] = queued.entries().next().value;
+            queued.delete(key);
+            inFlight = true;
+
+            const body = new FormData();
+            body.append('cart_item_key', key);
+            body.append('quantity', String(quantity));
+            body.append('nonce', ajax && ajax.cartNonce ? ajax.cartNonce : '');
+
+            requestCart('dawp_cart_quantity', body)
+                .then((data) => showNotice(data.notice))
+                .catch(() => showNotice('Could not update the cart. Please try again.'))
+                .finally(() => { inFlight = false; flushQueue(); });
+        };
+
+        const queueQuantity = (key, quantity) => {
+            queued.set(key, quantity);
+            window.clearTimeout(queueTimer);
+            queueTimer = window.setTimeout(flushQueue, 350);
+        };
+
+        const clampQuantity = (input, value) => {
+            const min = parseInt(input.min, 10) || 1;
+            const max = parseInt(input.max, 10);
+            let next = Math.max(min, value);
+
+            if (!Number.isNaN(max) && max > 0) next = Math.min(max, next);
+
+            return next;
+        };
+
+        // Delegated: the stepper markup lives inside the replaced fragment.
+        cartDrawer.addEventListener('click', (event) => {
+            const step = event.target.closest('[data-cart-qty-step]');
+            if (!step) return;
+
+            const item = step.closest('[data-cart-item]');
+            const input = item && item.querySelector('[data-cart-qty-input]');
+            if (!input) return;
+
+            const next = clampQuantity(input, (parseInt(input.value, 10) || 0) + (parseInt(step.dataset.cartQtyStep, 10) || 0));
+            if (String(next) === input.value) return;
+
+            input.value = String(next);
+            queueQuantity(item.dataset.cartItem, next);
+        });
+
+        cartDrawer.addEventListener('change', (event) => {
+            const input = event.target.closest('[data-cart-qty-input]');
+            if (!input) return;
+
+            const item = input.closest('[data-cart-item]');
+            if (!item) return;
+
+            const next = clampQuantity(input, parseInt(input.value, 10) || 0);
+            input.value = String(next);
+            queueQuantity(item.dataset.cartItem, next);
+        });
+
+        /* -----------------------------------------------------
+           Product page — add to cart into the drawer
+           ----------------------------------------------------- */
+
+        const addForm = document.querySelector('form.cart:not(.grouped_form)');
+
+        if (addForm && endpoint('add_to_cart')) {
+            addForm.addEventListener('submit', (event) => {
+                const variation = addForm.querySelector('input[name="variation_id"]');
+                const field = addForm.querySelector('[name="add-to-cart"]');
+                const productId = (variation && parseInt(variation.value, 10))
+                    || (field && parseInt(field.value, 10))
+                    || 0;
+
+                // Nothing to post — external and grouped products submit normally.
+                if (!productId) return;
+
+                event.preventDefault();
+
+                const button = addForm.querySelector('.single_add_to_cart_button');
+                const quantity = addForm.querySelector('input[name="quantity"]');
+                const body = new FormData();
+
+                body.append('product_id', String(productId));
+                body.append('quantity', quantity ? quantity.value : '1');
+
+                if (button) button.classList.add('loading');
+
+                requestCart('add_to_cart', body)
+                    .then((data) => {
+                        if (data.error && data.product_url) {
+                            window.location = data.product_url;
+                            return;
+                        }
+
+                        showNotice('');
+                        setCart(true);
+                        if (window.jQuery) window.jQuery(document.body).trigger('added_to_cart', [data.fragments, data.cart_hash]);
+                    })
+                    .catch(() => addForm.submit())
+                    .finally(() => {
+                        if (button) button.classList.remove('loading');
+                    });
+            });
+        }
+    }
 });

@@ -39,11 +39,11 @@ $dawp_collections = dawp_collections();
         <div class="container grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
 
             <div class="<?php echo $is_even ? 'lg:order-2' : ''; ?>">
-                <a class="group block border border-border bg-background" href="<?php echo esc_url($cat_url); ?>">
+                <a class="group block overflow-hidden border border-border bg-background" href="<?php echo esc_url($cat_url); ?>">
                     <img src="<?php echo esc_url(dawp_asset_uri($collection['image'])); ?>"
                          alt="<?php echo esc_attr(sprintf(__('%s watch', 'dawp'), $collection['name'])); ?>"
-                         width="320" height="460" loading="lazy" decoding="async"
-                         class="mx-auto h-[380px] w-auto py-12 transition-transform duration-700 ease-fluid group-hover:scale-105 lg:h-[520px]">
+                         width="896" height="1200" loading="lazy" decoding="async"
+                         class="h-105 w-full object-cover transition-transform duration-700 ease-fluid group-hover:scale-105 lg:h-140">
                 </a>
             </div>
 

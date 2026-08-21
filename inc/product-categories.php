@@ -43,7 +43,7 @@ function dawp_collections() {
             'kicker'    => __('Collection 01', 'dawp'),
             'tagline'   => __('The everyday dress watch', 'dawp'),
             'summary'   => __('A fluted bezel, a sunburst dial, and a date at three. Restrained enough for a cuff, precise enough to live by.', 'dawp'),
-            'image'     => 'assets/img/watches/meridian.svg',
+            'image'     => 'assets/img/watches/meridian.jpeg',
             'specs'     => [
                 __('39mm 316L steel case', 'dawp'),
                 __('Sunburst silver dial', 'dawp'),
@@ -56,7 +56,7 @@ function dawp_collections() {
             'kicker'    => __('Collection 02', 'dawp'),
             'tagline'   => __('The dive watch', 'dawp'),
             'summary'   => __('A 60-minute rotating bezel and luminous markers that hold their glow through a long night dive.', 'dawp'),
-            'image'     => 'assets/img/watches/abyss.svg',
+            'image'     => 'assets/img/watches/abyss.jpeg',
             'specs'     => [
                 __('41mm 316L steel case', 'dawp'),
                 __('Unidirectional dive bezel', 'dawp'),
@@ -69,7 +69,7 @@ function dawp_collections() {
             'kicker'    => __('Collection 03', 'dawp'),
             'tagline'   => __('The statement piece', 'dawp'),
             'summary'   => __('Day and date, a champagne dial, and a five-link bracelet that closes without a sound.', 'dawp'),
-            'image'     => 'assets/img/watches/sovereign.svg',
+            'image'     => 'assets/img/watches/sovereign.jpeg',
             'specs'     => [
                 __('40mm gold-finished case', 'dawp'),
                 __('Day and date display', 'dawp'),
@@ -82,7 +82,7 @@ function dawp_collections() {
             'kicker'    => __('Collection 04', 'dawp'),
             'tagline'   => __('The pilot\'s watch', 'dawp'),
             'summary'   => __('A 24-hour scale and an independent second time zone hand, for those who keep two clocks.', 'dawp'),
-            'image'     => 'assets/img/watches/aviator.svg',
+            'image'     => 'assets/img/watches/aviator.jpeg',
             'specs'     => [
                 __('42mm 316L steel case', 'dawp'),
                 __('Second time zone hand', 'dawp'),

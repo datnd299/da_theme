@@ -1,26 +1,24 @@
 /* =============================================================
-   TRACK ORDER PAGE - Topgoodmart
+   TRACK ORDER PAGE
    ============================================================= */
 
 .track-order-page {
-  --track-ink: #2B2B2B;
-  --track-soft-ink: #554E49;
-  --track-muted: #746B64;
-  --track-rose: #A45A3F;
-  --track-rose-dark: #7F422F;
-  --track-rose-muted: #A45A3F;
-  --track-yellow: #D8C7BE;
-  --track-blush: #F2E9E2;
-  --track-cream: #F8F5F0;
-  --track-paper: #FFFFFF;
-  --track-border: #E8E5DF;
-  --track-white: #FFFFFF;
+  --track-ink: #1A1A1A;
+  --track-heading: #0B0B0B;
+  --track-muted: #555555;
+  --track-blue: #B89B5E;
+  --track-blue-dark: #0B0B0B;
+  --track-accent-soft: #F7F5F0;
+  --track-soft: #FBFAF7;
+  --track-paper: #ffffff;
+  --track-border: #E5E2DC;
+  --track-success: #6F844D;
   --track-danger: #8A332B;
-  --track-success: #315B3D;
-  --track-shadow: 0 18px 38px rgba(43, 43, 43, 0.10);
+  --track-shadow: 0 14px 34px rgba(43, 43, 43, 0.07);
 
   background: var(--track-paper);
   color: var(--track-ink);
+  font-family: var(--font-sans, Arial, "Helvetica Neue", Helvetica, sans-serif);
 }
 
 .track-order-page *,
@@ -35,9 +33,9 @@
 
 .track-eyebrow {
   margin: 0;
-  color: var(--track-rose-muted);
-  font-size: 0.8125rem;
-  font-weight: 800;
+  color: var(--track-blue);
+  font-size: 0.78rem;
+  font-weight: 900;
   letter-spacing: 0.08em;
   line-height: 1.4;
   text-transform: uppercase;
@@ -45,240 +43,87 @@
 
 .track-hero {
   overflow: hidden;
-  background:
-    linear-gradient(90deg, rgba(216, 199, 190, 0.34), rgba(255, 255, 255, 0) 38%),
-    #F8F5F0;
   border-bottom: 1px solid var(--track-border);
-  color: var(--track-ink);
-  padding: 3rem 1rem;
+  background:
+    linear-gradient(110deg, rgba(247, 245, 240, 0.96), rgba(247, 245, 240, 0) 38%),
+    linear-gradient(145deg, #ffffff 0%, #F7F5F0 100%);
+  padding: 2rem 1rem 2.4rem;
+}
+
+.track-hero__inner,
+.track-form-section__inner {
+  width: min(100% - 0px, 80rem);
+  margin-inline: auto;
 }
 
 .track-hero__inner {
   display: grid;
-  gap: 2rem;
-  max-width: 80rem;
-  margin: 0 auto;
+  gap: 1.4rem;
 }
 
-.track-hero .track-eyebrow {
-  color: var(--track-rose);
+.track-hero__copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .track-hero__title {
-  max-width: 46rem;
-  margin: 1rem 0 0;
-  color: var(--track-ink);
-  font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif);
-  font-size: clamp(2.4rem, 6vw, 4.85rem);
+  max-width: 42rem;
+  margin: 0.75rem 0 0;
+  color: var(--track-heading);
+  font-size: clamp(2.1rem, 5vw, 3.65rem);
   font-weight: 900;
   letter-spacing: 0;
-  line-height: 1.04;
+  line-height: 1.08;
 }
 
 .track-hero__desc {
-  max-width: 41rem;
-  margin: 1.25rem 0 0;
-  color: var(--track-soft-ink);
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.track-hero__actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 2rem;
-}
-
-.track-button {
-  display: inline-flex;
-  min-height: 3rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.375rem;
-  padding: 0.875rem 1.5rem;
-  font-size: 0.875rem;
-  font-weight: 800;
-  line-height: 1.2;
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.track-order-page .track-button,
-.track-order-page .track-button:visited,
-.track-order-page .track-button:focus,
-.track-order-page .track-button:hover,
-.track-order-page .track-button:active {
-  text-decoration: none;
-}
-
-.track-button:hover {
-  transform: translateY(-1px);
-}
-
-.track-button--primary {
-  background: var(--track-rose);
-  color: var(--track-white);
-  box-shadow: 0 12px 24px rgba(164, 90, 63, 0.20);
-}
-
-.track-order-page .track-button--primary,
-.track-order-page .track-button--primary:visited,
-.track-order-page .track-button--primary:focus,
-.track-order-page .track-button--primary:hover,
-.track-order-page .track-button--primary:active {
-  color: var(--track-white);
-}
-
-.track-button--primary:hover {
-  background: var(--track-rose-dark);
-}
-
-.track-button--ghost {
-  border: 1px solid var(--track-rose);
-  background: var(--track-white);
-  color: var(--track-rose);
-}
-
-.track-order-page .track-button--ghost,
-.track-order-page .track-button--ghost:visited,
-.track-order-page .track-button--ghost:focus,
-.track-order-page .track-button--ghost:hover,
-.track-order-page .track-button--ghost:active {
-  color: var(--track-rose);
-}
-
-.track-button--ghost:hover {
-  border-color: var(--track-rose-dark);
-  background: var(--track-cream);
-  color: var(--track-rose-dark);
-}
-
-.track-hero__panel {
-  align-self: stretch;
-  border: 1px solid var(--track-border);
-  border-radius: 0.5rem;
-  background: var(--track-white);
-  padding: 1.25rem;
-  box-shadow: var(--track-shadow);
-}
-
-.track-timeline {
-  display: grid;
-  gap: 1rem;
-}
-
-.track-timeline__item {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: flex-start;
-  border-bottom: 1px solid var(--track-border);
-  padding-bottom: 1rem;
-}
-
-.track-timeline__item:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.track-timeline__icon {
-  display: inline-flex;
-  width: 2.25rem;
-  height: 2.25rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.375rem;
-  background: var(--track-blush);
-  color: var(--track-rose);
-  font-weight: 900;
-}
-
-.track-timeline h2 {
-  margin: 0;
-  color: var(--track-ink);
-  font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif);
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.track-timeline p {
-  margin: 0.35rem 0 0;
-  color: var(--track-muted);
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-
-.track-form-section,
-.track-more-section,
-.track-category-section {
-  padding: 3.5rem 1rem;
-}
-
-.track-form-section {
-  background: var(--track-paper);
-}
-
-.track-more-section {
-  border-block: 1px solid var(--track-border);
-  background: var(--track-cream);
-}
-
-.track-category-section {
-  background: var(--track-white);
-}
-
-.track-form-section__inner,
-.track-more-section__inner,
-.track-category-section__inner {
-  max-width: 80rem;
-  margin: 0 auto;
-}
-
-.track-section-heading,
-.track-category-section__header {
-  max-width: 42rem;
-}
-
-.track-section-heading--center {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.track-section-heading h2,
-.track-category-section__header h2 {
-  margin: 0.8rem 0 0;
-  color: var(--track-ink);
-  font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.15;
-}
-
-.track-section-heading p:not(.track-eyebrow),
-.track-category-section__header p:not(.track-eyebrow) {
+  max-width: 38rem;
   margin: 1rem 0 0;
-  color: var(--track-muted);
-  font-size: 1rem;
-  line-height: 1.75;
+  color: #555555;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  font-weight: 500;
+  line-height: 1.7;
 }
 
-.track-form-layout {
-  display: grid;
-  gap: 1.25rem;
-  margin-top: 2rem;
+.track-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.35rem;
+}
+
+.track-hero__meta span,
+.track-badge {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--track-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #1A1A1A;
+  padding: 0.62rem 0.85rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.track-hero__meta span::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--track-blue);
+  box-shadow: 0 0 0 3px rgba(184, 155, 94, 0.2);
 }
 
 .track-form-card,
 .track-support-card,
-.track-more-card,
-.track-category-card {
+.track-step {
   border: 1px solid var(--track-border);
-  border-radius: 0.5rem;
-  background: var(--track-white);
-  box-shadow: 0 1px 3px rgba(47, 42, 40, 0.04);
+  border-radius: 8px;
+  background: var(--track-paper);
 }
 
 .track-form-card {
@@ -286,176 +131,164 @@
   box-shadow: var(--track-shadow);
 }
 
+.track-form-card__head {
+  border-bottom: 1px solid var(--track-border);
+  background: #FBFAF7;
+  padding: 1.25rem;
+}
+
+.track-form-card__head h2 {
+  margin: 0.45rem 0 0;
+  color: var(--track-heading);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.18;
+}
+
+.track-form-card__head p:not(.track-eyebrow) {
+  margin: 0.6rem 0 0;
+  color: var(--track-muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
 .track-form-card__body {
-  padding: 1.5rem;
+  padding: 1.25rem;
+}
+
+.track-form-section {
+  background: var(--track-paper);
+  padding: 2rem 1rem 2.75rem;
+}
+
+.track-form-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.track-steps {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.track-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.track-step:hover {
+  border-color: var(--track-blue);
+  box-shadow: 0 12px 28px rgba(184, 155, 94, 0.16);
+  transform: translateY(-2px);
+}
+
+.track-step__number {
+  display: inline-flex;
+  width: 2.45rem;
+  height: 2.45rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--track-accent-soft);
+  color: var(--track-blue-dark);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.track-step h2,
+.track-support-card h2 {
+  margin: 0;
+  color: var(--track-heading);
+  font-size: 1.02rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+
+.track-step p,
+.track-support-card p {
+  margin: 0.45rem 0 0;
+  color: var(--track-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
 }
 
 .track-support-card {
   align-self: start;
-  padding: 1.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(17, 24, 39, 0.06);
 }
 
 .track-support-card__icon {
   display: inline-flex;
-  width: 3rem;
-  height: 3rem;
+  width: 2.6rem;
+  height: 2.6rem;
   align-items: center;
   justify-content: center;
-  border-radius: 0.375rem;
-  background: var(--track-blush);
-  color: var(--track-rose-dark);
-}
-
-.track-support-card h2 {
-  margin: 1.25rem 0 0;
-  color: var(--track-ink);
-  font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif);
-  font-size: 1.35rem;
-  font-weight: 800;
-}
-
-.track-support-card p {
-  margin: 0.75rem 0 0;
-  color: var(--track-muted);
-  font-size: 0.9375rem;
-  line-height: 1.75;
+  border-radius: 8px;
+  background: var(--track-accent-soft);
+  color: var(--track-blue);
+  margin-bottom: 0.9rem;
 }
 
 .track-support-card a {
-  color: var(--track-rose-dark);
-  font-weight: 800;
+  color: var(--track-blue);
+  font-weight: 900;
   text-decoration: underline;
-  text-decoration-color: rgba(164, 90, 63, 0.35);
-  text-underline-offset: 0.25rem;
+  text-decoration-color: rgba(184, 155, 94, 0.38);
+  text-underline-offset: 0.22rem;
 }
 
 .track-support-card a:hover {
-  color: var(--track-ink);
+  color: var(--track-blue-dark);
 }
 
 .track-policy-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
 }
 
 .track-policy-links a {
   display: inline-flex;
-  min-height: 2.5rem;
+  min-height: 2.35rem;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--track-border);
-  border-radius: 0.375rem;
-  padding: 0.55rem 0.85rem;
-  background: var(--track-paper);
-  color: var(--track-rose-dark);
-  font-size: 0.8125rem;
-  font-weight: 800;
+  border-radius: 7px;
+  background: var(--track-soft);
+  color: var(--track-blue);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 900;
   text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
 }
 
 .track-policy-links a:hover {
-  border-color: var(--track-rose);
-  background: var(--track-blush);
+  border-color: var(--track-blue);
+  background: var(--track-accent-soft);
 }
 
 .track-badges {
   display: grid;
   gap: 0.75rem;
-  margin-top: 1.25rem;
+  margin-top: 1rem;
 }
 
 .track-badge {
-  display: flex;
-  min-height: 3rem;
-  align-items: center;
-  gap: 0.65rem;
-  border: 1px solid var(--track-border);
-  border-radius: 0.375rem;
-  background: var(--track-white);
-  padding: 0.8rem 1rem;
-  color: var(--track-soft-ink);
-  font-size: 0.875rem;
-  font-weight: 800;
+  width: 100%;
+  background: #ffffff;
 }
 
 .track-badge svg {
-  color: var(--track-rose-dark);
   flex: 0 0 auto;
-}
-
-.track-more-grid,
-.track-category-grid {
-  display: grid;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.track-more-card,
-.track-category-card {
-  color: var(--track-ink);
-  text-decoration: none;
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-}
-
-.track-more-card {
-  display: grid;
-  gap: 0.7rem;
-  padding: 1.35rem;
-}
-
-.track-more-card:hover,
-.track-category-card:hover {
-  border-color: var(--track-rose);
-  box-shadow: 0 14px 30px rgba(164, 90, 63, 0.14);
-  transform: translateY(-2px);
-}
-
-.track-more-card__title,
-.track-category-card__name {
-  color: var(--track-ink);
-  font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif);
-  font-size: 1.05rem;
-  font-weight: 800;
-  line-height: 1.35;
-}
-
-.track-more-card__desc,
-.track-category-card__copy {
-  color: var(--track-muted);
-  font-size: 0.875rem;
-  line-height: 1.65;
-}
-
-.track-category-card {
-  display: flex;
-  min-height: 13rem;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.25rem;
-  background:
-    linear-gradient(180deg, rgba(248, 245, 240, 0.86), rgba(255, 255, 255, 0) 58%),
-    var(--track-white);
-}
-
-.track-category-card__copy {
-  display: block;
-  margin-top: 0.7rem;
-}
-
-.track-category-card__cta {
-  display: inline-flex;
-  margin-top: 1.1rem;
-  color: var(--track-rose-dark);
-  font-size: 0.875rem;
-  font-weight: 800;
-}
-
-.track-category-card__cta::after {
-  content: "->";
-  margin-left: 0.45rem;
+  color: var(--track-blue);
 }
 
 .track-order-page .woocommerce-form-track-order {
@@ -466,10 +299,10 @@
 }
 
 .track-order-page .woocommerce-form-track-order > p:not(.form-row) {
-  margin: 0 0 1.5rem !important;
+  margin: 0 0 1.15rem !important;
   color: var(--track-muted) !important;
-  font-size: 0.9375rem !important;
-  line-height: 1.75 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.65 !important;
 }
 
 .track-order-page .form-row,
@@ -477,10 +310,10 @@
   display: flex !important;
   width: 100% !important;
   flex-direction: column !important;
-  gap: 0.5rem !important;
+  gap: 0.45rem !important;
   clear: none !important;
   float: none !important;
-  margin: 0 0 1.2rem !important;
+  margin: 0 0 0.95rem !important;
   padding: 0 !important;
 }
 
@@ -498,37 +331,35 @@
 .track-order-page .woocommerce-form-row label {
   display: block !important;
   margin: 0 !important;
-  color: var(--track-ink) !important;
-  font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif) !important;
-  font-size: 0.875rem !important;
-  font-weight: 800 !important;
+  color: var(--track-heading) !important;
+  font-size: 0.86rem !important;
+  font-weight: 900 !important;
 }
 
 .track-order-page .form-row input.input-text,
 .track-order-page .woocommerce-form-row input.input-text {
   width: 100% !important;
-  min-height: 3.25rem !important;
+  min-height: 3.15rem !important;
   border: 1px solid var(--track-border) !important;
-  border-radius: 0.375rem !important;
+  border-radius: 8px !important;
   outline: none !important;
-  background: var(--track-paper) !important;
-  color: var(--track-ink) !important;
-  padding: 0.875rem 1rem !important;
-  font-family: inherit !important;
-  font-size: 0.9375rem !important;
-  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+  background: #ffffff !important;
+  color: var(--track-heading) !important;
+  padding: 0.82rem 0.95rem !important;
+  font: inherit !important;
+  font-size: 0.94rem !important;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease !important;
 }
 
 .track-order-page .form-row input.input-text::placeholder {
-  color: #9C8E88 !important;
+  color: #858585 !important;
   opacity: 1 !important;
 }
 
 .track-order-page .form-row input.input-text:focus,
 .track-order-page .woocommerce-form-row input.input-text:focus {
-  border-color: var(--track-rose) !important;
-  background: var(--track-white) !important;
-  box-shadow: 0 0 0 4px rgba(164, 90, 63, 0.14) !important;
+  border-color: var(--track-blue) !important;
+  box-shadow: 0 0 0 4px rgba(184, 155, 94, 0.22) !important;
 }
 
 .track-order-page .form-row button.button,
@@ -536,46 +367,47 @@
 .track-order-page button.button {
   display: inline-flex !important;
   width: 100% !important;
-  min-height: 3.25rem !important;
+  min-height: 3.15rem !important;
   align-items: center !important;
   justify-content: center !important;
   border: 0 !important;
-  border-radius: 0.375rem !important;
-  background: var(--track-rose) !important;
-  color: var(--track-white) !important;
-  box-shadow: 0 14px 28px rgba(164, 90, 63, 0.18) !important;
+  border-radius: 8px !important;
+  background: var(--track-heading) !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 28px rgba(11, 11, 11, 0.14) !important;
   cursor: pointer !important;
-  font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif) !important;
-  font-size: 0.875rem !important;
-  font-weight: 800 !important;
+  font-size: 0.9rem !important;
+  font-weight: 900 !important;
   letter-spacing: 0 !important;
   line-height: 1.2 !important;
-  margin-top: 0.35rem !important;
-  padding: 0.9rem 1.5rem !important;
+  margin-top: 0.15rem !important;
+  padding: 0.9rem 1.25rem !important;
   text-transform: none !important;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease !important;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease !important;
 }
 
 .track-order-page .form-row button.button:hover,
 .track-order-page .woocommerce-form-row button.button:hover,
 .track-order-page button.button:hover {
-  background: var(--track-rose-dark) !important;
-  box-shadow: 0 16px 32px rgba(164, 90, 63, 0.22) !important;
+  background: var(--track-blue) !important;
+  color: var(--track-heading) !important;
+  box-shadow: 0 16px 32px rgba(184, 155, 94, 0.24) !important;
   transform: translateY(-1px) !important;
 }
 
 .track-order-page .woocommerce-error,
 .track-order-page .woocommerce-message,
-.track-order-page .woocommerce-info {
-  border-radius: 0.375rem !important;
-  margin: 0 0 1.5rem !important;
-  padding: 1rem 1.1rem !important;
-  font-size: 0.875rem !important;
+.track-order-page .woocommerce-info,
+.track-order-page .order-info {
+  border-radius: 8px !important;
+  margin: 0 0 1rem !important;
+  padding: 0.9rem 1rem !important;
+  font-size: 0.88rem !important;
   line-height: 1.6 !important;
 }
 
 .track-order-page .woocommerce-error {
-  border: 1px solid rgba(138, 51, 43, 0.28) !important;
+  border: 1px solid rgba(138, 51, 43, 0.24) !important;
   background: #FFF3F1 !important;
   color: var(--track-danger) !important;
   list-style: none !important;
@@ -583,64 +415,59 @@
 
 .track-order-page .woocommerce-message,
 .track-order-page .woocommerce-info {
-  border: 1px solid rgba(49, 91, 61, 0.22) !important;
-  background: #F0FAF3 !important;
+  border: 1px solid rgba(111, 132, 77, 0.24) !important;
+  background: #F3F7ED !important;
   color: var(--track-success) !important;
 }
 
 .track-order-page .order-info {
-  margin: 0 0 1.5rem;
   border: 1px solid var(--track-border);
-  border-radius: 0.5rem;
-  background: var(--track-cream);
+  background: #FBFAF7;
   color: var(--track-muted);
-  padding: 1rem 1.1rem;
-  font-size: 0.9375rem;
-  line-height: 1.75;
 }
 
 .track-order-page .order-info mark {
   background: transparent;
-  color: var(--track-ink);
+  color: var(--track-heading);
   font-weight: 900;
 }
 
 .track-order-page .woocommerce-order-details,
 .track-order-page .woocommerce-customer-details {
-  margin: 1.5rem 0 0;
+  margin: 1.35rem 0 0;
 }
 
 .track-order-page .woocommerce-order-details__title,
 .track-order-page .woocommerce-column__title {
-  margin: 0 0 1rem;
-  color: var(--track-ink);
-  font-family: var(--font-heading, Arial, "Helvetica Neue", Helvetica, sans-serif);
-  font-size: 1.25rem;
-  font-weight: 800;
+  margin: 0 0 0.9rem;
+  color: var(--track-heading);
+  font-size: 1.18rem;
+  font-weight: 900;
   line-height: 1.3;
 }
 
 .track-order-page .woocommerce-table--order-details {
   width: 100%;
-  border-collapse: collapse;
   overflow: hidden;
   border: 1px solid var(--track-border);
-  border-radius: 0.5rem;
-  color: var(--track-ink);
-  font-size: 0.9375rem;
+  border-radius: 8px;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: var(--track-heading);
+  font-size: 0.92rem;
 }
 
 .track-order-page .woocommerce-table--order-details th,
 .track-order-page .woocommerce-table--order-details td {
   border-bottom: 1px solid var(--track-border);
-  padding: 0.85rem;
+  padding: 0.82rem;
   vertical-align: top;
 }
 
 .track-order-page .woocommerce-table--order-details thead th {
-  background: var(--track-cream);
-  color: var(--track-rose-dark);
-  font-size: 0.75rem;
+  background: #FBFAF7;
+  color: var(--track-blue);
+  font-size: 0.74rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-align: left;
@@ -654,19 +481,19 @@
 }
 
 .track-order-page .woocommerce-table__product-name a {
-  color: var(--track-ink);
-  font-weight: 800;
+  color: var(--track-heading);
+  font-weight: 900;
   text-decoration: none;
 }
 
 .track-order-page .woocommerce-table__product-name a:hover {
-  color: var(--track-rose-dark);
+  color: var(--track-blue);
 }
 
 .track-order-page .product-quantity,
 .track-order-page .shipped_via {
   color: var(--track-muted);
-  font-size: 0.875rem;
+  font-size: 0.86rem;
 }
 
 .track-order-page .woocommerce-table--order-details tfoot tr:last-child th,
@@ -677,8 +504,8 @@
 
 .track-order-page .woocommerce-customer-details address {
   border: 1px solid var(--track-border);
-  border-radius: 0.5rem;
-  background: var(--track-paper);
+  border-radius: 8px;
+  background: #ffffff;
   color: var(--track-muted);
   font-style: normal;
   line-height: 1.7;
@@ -690,12 +517,14 @@
 }
 
 @media (min-width: 640px) {
-  .track-hero__actions {
-    flex-direction: row;
+  .track-hero {
+    padding: 2.7rem 1.5rem 3rem;
   }
 
-  .track-button {
-    width: auto;
+  .track-form-card__head,
+  .track-form-card__body,
+  .track-support-card {
+    padding: 1.5rem;
   }
 
   .track-badges {
@@ -703,55 +532,40 @@
   }
 }
 
-@media (min-width: 768px) {
-  .track-hero,
-  .track-form-section,
-  .track-more-section,
-  .track-category-section {
-    padding-inline: 1.5rem;
-  }
-
-  .track-form-section,
-  .track-more-section,
-  .track-category-section {
-    padding-block: 5rem;
-  }
-
-  .track-form-card__body,
-  .track-support-card {
-    padding: 2rem;
-  }
-
-  .track-more-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .track-category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (min-width: 1024px) {
   .track-hero {
-    padding-block: 5.5rem;
+    padding-block: 3.8rem;
   }
 
   .track-hero__inner {
-    grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.65fr);
+    grid-template-columns: minmax(0, 1fr) minmax(24rem, 29.5rem);
     align-items: center;
+    gap: 3rem;
+  }
+
+  .track-form-section {
+    padding: 2.5rem 1.5rem 3.6rem;
   }
 
   .track-form-layout {
-    grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.58fr);
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
     align-items: start;
   }
 
-  .track-category-grid {
-    grid-template-columns: repeat(5, 1fr);
+  .track-steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .track-step {
+    min-height: 100%;
   }
 }
 
 @media (max-width: 520px) {
+  .track-hero__meta {
+    display: grid;
+  }
+
   .track-order-page .woocommerce-table--order-details,
   .track-order-page .woocommerce-table--order-details thead,
   .track-order-page .woocommerce-table--order-details tbody,

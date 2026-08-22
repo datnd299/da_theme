@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Contact form handling for MegaMallDepot.
+ * Contact form handling for Chronel Shop.
  *
  * @package dawp
  */
@@ -53,7 +53,7 @@ function dawp_contact_meta_box_cb($post) {
     echo '<table class="form-table"><tbody>';
     foreach ($fields as $i => $key) {
         $value = get_post_meta($post->ID, $key, true);
-        echo '<tr><th>' . esc_html($labels[$i]) . '</th><td>' . esc_html($value ?: '—') . '</td></tr>';
+        echo '<tr><th>' . esc_html($labels[$i]) . '</th><td>' . esc_html($value ?: 'â€”') . '</td></tr>';
     }
     echo '</tbody></table>';
 }
@@ -122,8 +122,8 @@ function dawp_handle_contact_form() {
         update_post_meta($post_id, '_contact_ip', sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')));
     }
 
-    $support_email = 'support@megamalldepot.com';
-    $subject       = sprintf('[MegaMallDepot] %s', $topic_label);
+    $support_email = 'support@chronelshop.com';
+    $subject       = sprintf('[Chronel Shop] %s', $topic_label);
     $body          = sprintf(
         "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
         $name,

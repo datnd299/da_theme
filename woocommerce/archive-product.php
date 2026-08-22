@@ -1,6 +1,6 @@
 <?php
 /**
- * luxurytheme.com - Shop / Archive Product Template
+ * chronelshop.com - Shop / Archive Product Template
  * Design System: Modern Quiet Luxury
  */
 defined('ABSPATH') || exit;
@@ -11,106 +11,86 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Watches', 'dawp');
-$archive_description = __('Explore refined mechanical timepieces selected for proportion, finishing and confident everyday wear.', 'dawp');
+$archive_description = __('Browse the collection with a clean product-first view.', 'dawp');
 $archive_eyebrow = __('Fine Timepieces', 'dawp');
 $archive_slug = 'shop';
-$home_image = static function ($filename) {
-    return get_theme_file_uri('assets/img/home/' . $filename);
-};
-$gallery_image = static function ($filename) {
-    return get_theme_file_uri('assets/img/gallery/' . $filename);
-};
-
-$shop_cover_images = [
-    'shop' => [
-        'url' => 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1400&q=82',
-        'alt' => __('Close-up of a refined luxury watch on the wrist', 'dawp'),
+$listing_count = isset($GLOBALS['wp_query']) ? (int) $GLOBALS['wp_query']->found_posts : 0;
+$iced_out_url = get_term_link('iced-out-watches', 'product_tag');
+$new_arrivals_url = function_exists('dawp_new_arrivals_url') ? dawp_new_arrivals_url() : home_url('/product-category/new-arrivals/');
+$shop_sidebar_links = [
+    [
+        'title' => __('All Watches', 'dawp'),
+        'url' => $shop_url,
+        'current' => is_shop(),
     ],
-    'home' => [
-        'url' => 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1400&q=82',
-        'alt' => __('Refined luxury watch collection arranged on dark fabric', 'dawp'),
+    [
+        'title' => __('New Arrivals', 'dawp'),
+        'url' => $new_arrivals_url,
+        'current' => function_exists('dawp_is_new_arrivals_category_archive') && dawp_is_new_arrivals_category_archive(),
     ],
-    'garden-tools' => [
-        'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
-        'alt' => __('Garden lounge area with outdoor tools and patio essentials', 'dawp'),
+    [
+        'title' => __('Best Sellers', 'dawp'),
+        'url' => add_query_arg('orderby', 'popularity', $shop_url),
+        'current' => isset($_GET['orderby']) && 'popularity' === sanitize_text_field(wp_unslash($_GET['orderby'])),
     ],
-    'electronics' => [
-        'url' => $home_image('Living_Room.jpeg'),
-        'alt' => __('Modern living room ready for entertainment and connected devices', 'dawp'),
-    ],
-    'sports-outdoors' => [
-        'url' => $gallery_image('Home_gym_setup_cork_mat_202607241524.jpeg'),
-        'alt' => __('Home gym setup with fitness and outdoor activity gear', 'dawp'),
-    ],
-    'toys-outdoor-play' => [
-        'url' => $gallery_image('Children_playing_tumble_tower_game_202607241524.jpeg'),
-        'alt' => __('Children playing an outdoor tumble tower game', 'dawp'),
-    ],
-    'beauty-personal-care' => [
-        'url' => $gallery_image('Skincare_bottles_on_marble_vanity_202607241524.jpeg'),
-        'alt' => __('Skincare and personal care bottles arranged on a marble vanity', 'dawp'),
-    ],
-    'pets' => [
-        'url' => $gallery_image('Pet_bed_with_cat_202607241524.jpeg'),
-        'alt' => __('Comfortable pet bed styled for everyday pet care', 'dawp'),
-    ],
-    'school-office-art-supplies' => [
-        'url' => $gallery_image('Minimalist_home_office_desk_setup_202607241524.jpeg'),
-        'alt' => __('Minimalist desk setup with office and school supplies', 'dawp'),
+    [
+        'title' => __('Iced Out Watches', 'dawp'),
+        'url' => $iced_out_url,
+        'current' => is_product_tag('iced-out-watches'),
     ],
 ];
+$product_categories = [];
+
+if (taxonomy_exists('product_cat')) {
+    $product_categories = get_terms([
+        'taxonomy' => 'product_cat',
+        'hide_empty' => true,
+        'orderby' => 'count',
+        'order' => 'DESC',
+        'number' => 8,
+        'exclude' => array_filter([(int) get_option('default_product_cat')]),
+    ]);
+
+    if (is_wp_error($product_categories)) {
+        $product_categories = [];
+    }
+}
+
+if (is_wp_error($shop_sidebar_links[3]['url'])) {
+    $shop_sidebar_links[3]['url'] = add_query_arg([
+        's'         => 'Iced Out Watches',
+        'post_type' => 'product',
+    ], home_url('/'));
+}
+
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;
     $archive_slug = $archive_term->slug;
     $term_description = term_description($archive_term->term_id, $archive_term->taxonomy);
-    $archive_description = $term_description ? wp_strip_all_tags($term_description) : $archive_description;
+    $archive_description = $term_description ? wp_strip_all_tags($term_description) : __('Products in this category, arranged for quick browsing.', 'dawp');
     $archive_eyebrow = is_product_tag() ? __('Reference Edit', 'dawp') : __('Collection', 'dawp');
 }
 
-$archive_cover = $shop_cover_images[$archive_slug] ?? $shop_cover_images['shop'];
-
-if ($archive_term && !is_wp_error($archive_term) && is_product_category() && !isset($shop_cover_images[$archive_slug])) {
-    $thumbnail_id = (int) get_term_meta($archive_term->term_id, 'thumbnail_id', true);
-
-    if ($thumbnail_id) {
-        $thumbnail_url = wp_get_attachment_image_url($thumbnail_id, 'full');
-
-        if ($thumbnail_url) {
-            $archive_cover = [
-                'url' => $thumbnail_url,
-                'alt' => sprintf(
-                    /* translators: %s: product category name */
-                    __('%s collection cover image', 'dawp'),
-                    $archive_title
-                ),
-            ];
-        }
-    }
-}
-
-global $wp_query;
-$archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
-$categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
 ?>
 
 <div class="shop-page">
 <div class="shop-container">
 
     <?php
-    // ── Breadcrumb ─────────────────────────────────────────
+    // Breadcrumb
     ?>
     <nav class="shop-breadcrumb" aria-label="Breadcrumb">
         <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
-        <span aria-hidden="true">›</span>
+        <span aria-hidden="true">&gt;</span>
         <?php if ( is_product_category() ) :
             $cat = get_queried_object(); ?>
             <a href="<?php echo esc_url( $shop_url ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
+            <span aria-hidden="true">&gt;</span>
             <span><?php echo esc_html( $cat->name ); ?></span>
         <?php elseif ( is_product_tag() ) :
             $tag = get_queried_object(); ?>
             <a href="<?php echo esc_url( $shop_url ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
+            <span aria-hidden="true">&gt;</span>
             <span><?php echo esc_html( $tag->name ); ?></span>
         <?php else : ?>
             <span>Shop</span>
@@ -118,7 +98,7 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
     </nav>
 
     <?php
-    // ── Page heading ───────────────────────────────────────
+    // Page heading
     ?>
     <div class="shop-header">
         <div class="shop-header__content">
@@ -127,39 +107,18 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
             <?php if ($archive_description) : ?>
                 <p class="shop-header__description"><?php echo esc_html($archive_description); ?></p>
             <?php endif; ?>
-            <div class="shop-header__meta">
-                <span>
-                    <?php
-                    printf(
-                        esc_html(_n('%d product', '%d products', $archive_total, 'dawp')),
-                        $archive_total
-                    );
-                    ?>
-                </span>
-                <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all products', 'dawp'); ?></a>
-            </div>
-        </div>
-        <div class="shop-header__media">
-            <?php echo dawp_get_responsive_image($archive_cover['url'], $archive_cover['alt'], '', 640, 520, 'eager', '(max-width: 900px) 100vw, 42vw', 'high'); ?>
         </div>
     </div>
 
     <?php
-    // ── Toolbar: count + filter toggle + sort ──────────────
+    // Toolbar: filter toggle + sort
     ?>
     <div class="shop-toolbar">
         <div class="shop-toolbar__left">
-            <span class="shop-toolbar__count">
-                <?php
-                global $wp_query;
-                $total = $wp_query->found_posts;
-                printf(
-                    '%d %s',
-                    $total,
-                    $total === 1 ? 'product' : 'products'
-                );
-                ?>
-            </span>
+            <p class="shop-toolbar__count" aria-live="polite">
+                <strong><?php echo esc_html(number_format_i18n($listing_count)); ?> <?php echo esc_html(_n('listing', 'listings', $listing_count, 'dawp')); ?></strong>
+                <span><?php esc_html_e('including promoted listings', 'dawp'); ?></span>
+            </p>
             <button
                 class="shop-filter-btn"
                 id="shopFilterBtn"
@@ -179,16 +138,16 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
     </div>
 
     <?php
-    // ── Sidebar overlay (mobile bottom sheet backdrop) ─────
+    // Sidebar overlay (mobile bottom sheet backdrop)
     ?>
     <div class="shop-sidebar-overlay" id="shopSidebarOverlay" aria-hidden="true"></div>
 
     <?php
-    // ── Layout ─────────────────────────────────────────────
+    // Layout
     ?>
     <div class="shop-layout">
 
-        <?php // ── Sidebar ────────────────────────────────── ?>
+        <?php // Sidebar ?>
         <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
             <div class="shop-sidebar__header">
                 <h2 class="shop-sidebar__mobile-title">Filter Products</h2>
@@ -204,34 +163,39 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 </button>
             </div>
 
-            <?php
-            // Categories widget
-            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
             <div class="shop-sidebar__widget">
-                <h3 class="shop-sidebar__title">Categories</h3>
+                <h3 class="shop-sidebar__title"><?php esc_html_e('Watches', 'dawp'); ?></h3>
                 <ul class="shop-sidebar__categories">
-                    <li>
-                        <a
-                            href="<?php echo esc_url( $shop_url ); ?>"
-                            <?php if ( is_shop() ) echo 'aria-current="page"'; ?>
-                        >
-                            All Products
-                        </a>
-                    </li>
-                    <?php foreach ( $categories as $cat ) :
-                        $is_current = ( is_product_category( $cat->slug ) ); ?>
+                    <?php foreach ($shop_sidebar_links as $link) : ?>
                         <li>
                             <a
-                                href="<?php echo esc_url( get_term_link( $cat ) ); ?>"
-                                <?php if ( $is_current ) echo 'aria-current="page"'; ?>
+                                href="<?php echo esc_url($link['url']); ?>"
+                                <?php if (!empty($link['current'])) echo 'aria-current="page"'; ?>
                             >
-                                <?php echo esc_html( $cat->name ); ?>
-                                <span class="count">(<?php echo (int) $cat->count; ?>)</span>
+                                <?php echo esc_html($link['title']); ?>
                             </a>
                         </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
+
+            <?php if (!empty($product_categories)) : ?>
+                <div class="shop-sidebar__widget">
+                    <h3 class="shop-sidebar__title"><?php esc_html_e('Popular Categories', 'dawp'); ?></h3>
+                    <ul class="shop-sidebar__categories">
+                        <?php foreach ($product_categories as $cat) : ?>
+                            <li>
+                                <a
+                                    href="<?php echo esc_url(get_term_link($cat)); ?>"
+                                    <?php if (is_product_category($cat->slug)) echo 'aria-current="page"'; ?>
+                                >
+                                    <span><?php echo esc_html($cat->name); ?></span>
+                                    <span class="count"><?php echo (int) $cat->count; ?></span>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             <?php endif; ?>
 
             <?php
@@ -242,7 +206,7 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
             ?>
         </aside>
 
-        <?php // ── Main Product Area ────────────────────────── ?>
+        <?php // Main Product Area ?>
         <main class="shop-main" id="main-content">
 
             <?php if ( woocommerce_product_loop() ) : ?>
@@ -264,7 +228,7 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 <div class="shop-empty">
                     <p>No products found in this collection.</p>
                     <a href="<?php echo esc_url( $shop_url ); ?>">
-                        Browse all products →
+                        Browse all products -&gt;
                     </a>
                 </div>
             <?php endif; ?>

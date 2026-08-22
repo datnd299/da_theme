@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * Privacy policy page for luxurytheme.com.
+ * Privacy policy page for chronelshop.com.
  *
  * @package dawp
  */
@@ -9,17 +9,17 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'luxurytheme.com';
-$site_domain    = 'luxurytheme.com';
-$support_email  = 'concierge@luxurytheme.com';
+$store_name     = 'chronelshop.com';
+$site_domain    = 'chronelshop.com';
+$support_email  = 'support@chronelshop.com';
 $support_phone  = '757-804-6538';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
 
 $policy_intro = [
-    __('At luxurytheme.com, accessible via luxurytheme.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase luxury watches, fine timepieces and premium accessories from our online store.', 'dawp'),
+    __('At chronelshop.com, accessible via chronelshop.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase luxury watches, fine timepieces and premium accessories from our online store.', 'dawp'),
     __('By accessing our Site or placing an order, you acknowledge and agree to the data management practices described in this policy.', 'dawp'),
 ];
 
@@ -30,7 +30,7 @@ $information_collected = [
     ],
     [
         'title' => __('Information Collected Automatically', 'dawp'),
-        'copy'  => __('Whenever you navigate through luxurytheme.com, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
+        'copy'  => __('Whenever you navigate through chronelshop.com, our servers log technical session details. This tracking includes your IP address, web browser type, referring/exit pages, approximate geographic location derived from network signals, and specific data captured via cookies or similar device identifiers.', 'dawp'),
     ],
 ];
 
@@ -54,7 +54,7 @@ $sharing_partners = [
     ],
     [
         'title' => __('Regulatory Demands', 'dawp'),
-        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of luxurytheme.com and our consumers.', 'dawp'),
+        'copy'  => __('We may disclose your data if strictly required to comply with applicable federal laws, tax audits, court subpoenas, or to defend the safety and property rights of chronelshop.com and our consumers.', 'dawp'),
     ],
 ];
 
@@ -112,7 +112,7 @@ $sections = [
     [
         'title' => __('3. Cookies and Tracking Technologies', 'dawp'),
         'copy'  => [
-            __('luxurytheme.com utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
+            __('chronelshop.com utilizes functional and analytical cookies, which are small data files stored on your local device, to maintain essential online store capabilities. Cookies help our system remember your shopping cart contents across sessions, preserve secure account logins, and provide aggregated traffic insights via tools like Google Analytics.', 'dawp'),
             __('You can adjust your cookie preferences through your individual browser settings; however, disabling all cookies may break core shopping features, such as the checkout and payment process.', 'dawp'),
         ],
     ],
@@ -126,7 +126,7 @@ $sections = [
     [
         'title' => __('5. Secure Payments & Data Encryption', 'dawp'),
         'copy'  => [
-            __('Your financial safety is our highest priority. luxurytheme.com does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+            __('Your financial safety is our highest priority. chronelshop.com does not store, view, or retain your raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             __('All checkout transactions are executed over a fully secure, encrypted SSL (Secure Sockets Layer) connection. Financial data processing is handled entirely by certified third-party payment gateways that comply strictly with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
         ],
     ],
@@ -152,18 +152,18 @@ $sections = [
     [
         'title' => __('8. Children\'s Privacy', 'dawp'),
         'copy'  => [
-            __('luxurytheme.com is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
+            __('chronelshop.com is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If we discover that a minor under 13 has provided data, it will be immediately purged from our servers.', 'dawp'),
         ],
     ],
 ];
 
 $privacy_faqs = [
     [
-        'question' => __('Does luxurytheme.com sell my personal information?', 'dawp'),
-        'answer'   => __('No. luxurytheme.com does not sell, rent, trade, or monetize personal information to third parties as a business practice.', 'dawp'),
+        'question' => __('Does chronelshop.com sell my personal information?', 'dawp'),
+        'answer'   => __('No. chronelshop.com does not sell, rent, trade, or monetize personal information to third parties as a business practice.', 'dawp'),
     ],
     [
-        'question' => __('Does luxurytheme.com store my full credit card number?', 'dawp'),
+        'question' => __('Does chronelshop.com store my full credit card number?', 'dawp'),
         'answer'   => __('No. We do not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
     ],
     [
@@ -183,7 +183,7 @@ $privacy_faqs = [
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
                 <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('How luxurytheme.com protects customer information.', 'dawp'); ?>
+                    <?php esc_html_e('How chronelshop.com protects customer information.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php

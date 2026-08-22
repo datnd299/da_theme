@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for MegaMallDepot.
+ * Product category defaults for Chronel Shop.
  *
  * @package dawp
  */
@@ -10,57 +10,123 @@ if (!defined('ABSPATH')) {
 }
 
 function dawp_lbq_product_categories() {
+    return [];
+}
+
+function dawp_new_arrivals_category_slug() {
+    return 'new-arrivals';
+}
+
+function dawp_new_arrivals_category_args() {
     return [
-        'home' => [
-            'name'        => __('Home', 'dawp'),
-            'description' => __('Home essentials, furniture, kitchen favorites and practical pieces for everyday living.', 'dawp'),
-            'short'       => __('Everyday essentials and home comfort picks.', 'dawp'),
-        ],
-        'garden-tools' => [
-            'name'        => __('Garden & Tools', 'dawp'),
-            'description' => __('Garden, patio, outdoor care and handy tools for home projects.', 'dawp'),
-            'short'       => __('Garden gear, patio picks and useful tools.', 'dawp'),
-        ],
-        'electronics' => [
-            'name'        => __('Electronics', 'dawp'),
-            'description' => __('TVs, audio, computer accessories, connected devices and practical home entertainment products.', 'dawp'),
-            'short'       => __('Audio, entertainment and connected tech essentials.', 'dawp'),
-        ],
-        'sports-outdoors' => [
-            'name'        => __('Sports & Outdoors', 'dawp'),
-            'description' => __('Sports, fitness, recreation and outdoor activity products.', 'dawp'),
-            'short'       => __('Fitness, recreation and outdoor activity gear.', 'dawp'),
-        ],
-        'toys-outdoor-play' => [
-            'name'        => __('Toys & Outdoor Play', 'dawp'),
-            'description' => __('Toys, games and outdoor play products for kids and families.', 'dawp'),
-            'short'       => __('Toys, games and outdoor play favorites.', 'dawp'),
-        ],
-        'beauty-personal-care' => [
-            'name'        => __('Beauty & Personal Care', 'dawp'),
-            'description' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'),
-            'short'       => __('Beauty, grooming and personal care essentials.', 'dawp'),
-        ],
-        'pets' => [
-            'name'        => __('Pets', 'dawp'),
-            'description' => __('Pet food, care, toys, beds and everyday supplies for animal companions.', 'dawp'),
-            'short'       => __('Care, comfort and everyday pet supplies.', 'dawp'),
-        ],
-        'school-office-art-supplies' => [
-            'name'        => __('School, Office & Art Supplies', 'dawp'),
-            'description' => __('School supplies, office essentials, stationery and art materials.', 'dawp'),
-            'short'       => __('School, office, stationery and art supplies.', 'dawp'),
-        ],
+        'name'        => __('New Arrivals', 'dawp'),
+        'slug'        => dawp_new_arrivals_category_slug(),
+        'description' => __('The latest watches added to the catalog, refreshed automatically from current products.', 'dawp'),
     ];
+}
+
+add_action('init', 'dawp_ensure_new_arrivals_category', 20);
+function dawp_ensure_new_arrivals_category() {
+    if (!taxonomy_exists('product_cat')) {
+        return;
+    }
+
+    $args = dawp_new_arrivals_category_args();
+    $term = get_term_by('slug', $args['slug'], 'product_cat');
+
+    if ($term && !is_wp_error($term)) {
+        if ($term->name !== $args['name'] || trim((string) $term->description) === '') {
+            wp_update_term((int) $term->term_id, 'product_cat', [
+                'name'        => $args['name'],
+                'description' => $args['description'],
+            ]);
+        }
+
+        return;
+    }
+
+    wp_insert_term($args['name'], 'product_cat', [
+        'slug'        => $args['slug'],
+        'description' => $args['description'],
+    ]);
+}
+
+function dawp_is_new_arrivals_category_archive() {
+    return function_exists('is_product_category') && is_product_category(dawp_new_arrivals_category_slug());
+}
+
+add_action('pre_get_posts', 'dawp_new_arrivals_archive_query', 99);
+function dawp_new_arrivals_archive_query($query) {
+    if (is_admin() || !$query->is_main_query() || !dawp_is_new_arrivals_category_archive()) {
+        return;
+    }
+
+    $query->set('post_type', 'product');
+    $query->set('posts_per_page', 30);
+    $query->set('orderby', 'date');
+    $query->set('order', 'DESC');
+    $query->set('ignore_sticky_posts', true);
+    $query->set('product_cat', '');
+    $query->set('tax_query', dawp_new_arrivals_without_category_tax_query((array) $query->get('tax_query')));
+}
+
+add_filter('post_limits', 'dawp_new_arrivals_archive_limit', 10, 2);
+function dawp_new_arrivals_archive_limit($limits, $query) {
+    if (is_admin() || !$query->is_main_query() || !dawp_is_new_arrivals_category_archive()) {
+        return $limits;
+    }
+
+    return 'LIMIT 0, 30';
+}
+
+add_filter('found_posts', 'dawp_new_arrivals_archive_found_posts', 10, 2);
+function dawp_new_arrivals_archive_found_posts($found_posts, $query) {
+    if (is_admin() || !$query->is_main_query() || !dawp_is_new_arrivals_category_archive()) {
+        return $found_posts;
+    }
+
+    return min(30, (int) $found_posts);
+}
+
+function dawp_new_arrivals_without_category_tax_query($tax_query) {
+    $filtered = [];
+
+    foreach ($tax_query as $key => $clause) {
+        if ('relation' === $key) {
+            $filtered[$key] = $clause;
+            continue;
+        }
+
+        if (is_array($clause) && isset($clause['taxonomy']) && 'product_cat' === $clause['taxonomy']) {
+            continue;
+        }
+
+        $filtered[$key] = $clause;
+    }
+
+    return $filtered;
 }
 
 function dawp_lbq_retired_product_category_slugs() {
     return [
+        'home',
+        'garden-tools',
+        'electronics',
+        'sports-outdoors',
+        'toys-outdoor-play',
+        'beauty-personal-care',
+        'pets',
+        'school-office-art-supplies',
         'home-essentials',
         'furniture',
         'smart-home',
         'kitchen-dining',
         'outdoor-garden',
+        'classic',
+        'sport',
+        'heritage',
+        'signature',
+        'limited-editions',
     ];
 }
 
@@ -90,71 +156,37 @@ function dawp_lbq_product_category_terms() {
     return $terms;
 }
 
-add_action('init', 'dawp_ensure_lbq_product_categories', 30);
-function dawp_ensure_lbq_product_categories() {
+add_action('init', 'dawp_remove_retired_product_categories_once', 30);
+function dawp_remove_retired_product_categories_once() {
     if (!taxonomy_exists('product_cat')) {
         return;
     }
 
-    foreach (dawp_lbq_product_categories() as $slug => $category) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-
-        if (!$term || is_wp_error($term)) {
-            $created = wp_insert_term(
-                $category['name'],
-                'product_cat',
-                [
-                    'slug'        => $slug,
-                    'description' => $category['description'],
-                ]
-            );
-
-            if (is_wp_error($created) || empty($created['term_id'])) {
-                continue;
-            }
-
-            update_term_meta((int) $created['term_id'], 'dawp_category_card_copy', $category['short']);
-            continue;
-        }
-
-        if (empty($term->description)) {
-            wp_update_term(
-                (int) $term->term_id,
-                'product_cat',
-                [
-                    'description' => $category['description'],
-                ]
-            );
-        }
-
-        update_term_meta((int) $term->term_id, 'dawp_category_card_copy', $category['short']);
-    }
-
-    $home_term = get_term_by('slug', 'home', 'product_cat');
-    if ($home_term && !is_wp_error($home_term)) {
-        update_option('default_product_cat', (int) $home_term->term_id);
-    }
-
-    dawp_remove_non_lbq_product_categories();
-}
-
-function dawp_remove_non_lbq_product_categories() {
-    $allowed_slugs = dawp_lbq_product_category_slugs();
-    $terms = get_terms([
-        'taxonomy'   => 'product_cat',
-        'hide_empty' => false,
-        'fields'     => 'all',
-    ]);
-
-    if (is_wp_error($terms) || empty($terms)) {
+    if (get_option('dawp_retired_product_categories_removed_v2')) {
         return;
     }
 
-    foreach ($terms as $term) {
-        if (in_array($term->slug, $allowed_slugs, true)) {
-            continue;
-        }
+    foreach (dawp_lbq_retired_product_category_slugs() as $slug) {
+        $term = get_term_by('slug', $slug, 'product_cat');
 
-        wp_delete_term((int) $term->term_id, 'product_cat');
+        if ($term && !is_wp_error($term)) {
+            wp_delete_term((int) $term->term_id, 'product_cat');
+        }
     }
+
+    if (taxonomy_exists('product_tag')) {
+        foreach (['limited-editions'] as $slug) {
+            $term = get_term_by('slug', $slug, 'product_tag');
+
+            if ($term && !is_wp_error($term)) {
+                wp_delete_term((int) $term->term_id, 'product_tag');
+            }
+        }
+    }
+
+    update_option('dawp_retired_product_categories_removed_v2', 1, false);
+}
+
+function dawp_remove_non_lbq_product_categories() {
+    return;
 }

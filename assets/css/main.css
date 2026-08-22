@@ -15,11 +15,11 @@
 
   /* === TEXT === */
   --color-foreground: #1F2937;
-  /* Primary text — headings, product names */
+  /* Primary text - headings, product names */
   --color-foreground-muted: #6B7280;
-  /* Secondary text — descriptions, meta */
+  /* Secondary text - descriptions, meta */
   --color-muted: #6B7280;
-  /* Light text — captions, breadcrumbs */
+  /* Light text - captions, breadcrumbs */
 
   /* === BRAND === */
   --color-accent: #0046BE;
@@ -33,7 +33,7 @@
 
   /* === UI === */
   --color-border: #E5E7EB;
-  /* Border — cards, dividers */
+  /* Border - cards, dividers */
   --color-alert: #8A332B;
   /* Error / alert */
   --color-success: #A8B99A;
@@ -75,7 +75,7 @@
 }
 
 /* =============================================================
-   luxurytheme.com Quiet Luxury Overrides
+   chronelshop.com Quiet Luxury Overrides
    ============================================================= */
 
 :root {
@@ -205,7 +205,7 @@ body,
   border-left: 3px solid var(--color-accent);
 }
 
-/* Error là <ul> */
+/* Error list */
 .woocommerce-error {
   list-style: none;
   padding: 14px var(--space-md);
@@ -223,12 +223,13 @@ body,
   padding: 2px 0;
 }
 
-/* Button trong notice (View cart, Continue shopping…) */
+/* Buttons in notices */
 .woocommerce-message .button,
 .woocommerce-error .button,
 .woocommerce-info .button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   padding: var(--space-sm) var(--space-lg);
   min-height: 40px;
@@ -237,11 +238,13 @@ body,
   font-weight: 600;
   color: var(--color-background);
   background: var(--color-accent);
-  border: none;
+  border: 1px solid var(--color-accent);
   border-radius: var(--radius-pill);
   text-decoration: none;
   white-space: nowrap;
   transition: background var(--duration-normal) var(--ease-fluid),
+    border-color var(--duration-normal) var(--ease-fluid),
+    color var(--duration-normal) var(--ease-fluid),
     opacity var(--duration-normal) var(--ease-fluid);
   cursor: pointer;
 }
@@ -250,6 +253,8 @@ body,
 .woocommerce-error .button:hover,
 .woocommerce-info .button:hover {
   background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: var(--color-background);
   opacity: 1;
 }
 
@@ -280,7 +285,7 @@ body,
 }
 
 /* =============================================================
-   CONTACT FORM 7 — #contact-form-1
+   CONTACT FORM 7 - #contact-form-1
    ============================================================= */
 
 #contact-form-1 {
@@ -454,7 +459,7 @@ body.woocommerce-account {
   min-height: 128px;
   background:
     linear-gradient(135deg, rgba(43, 43, 43, 0.82), rgba(164, 90, 63, 0.72)),
-    url("../img/home/Home_essentials_on_shelf_202607171221.jpeg") center/cover;
+    url("../img/home/4f4052da-979c-4247-8cf0-dd25f7fb048e.jpg") center/cover;
   background-blend-mode: multiply;
 }
 
@@ -1053,6 +1058,28 @@ body.woocommerce-account {
 
 .lux-policy a[class*="border"] {
   border-color: var(--lux-policy-black);
+}
+
+.lux-policy .faq-helpful-link,
+.lux-policy .faq-helpful-link[class*="bg-"] {
+  border-color: var(--lux-policy-line);
+  background: var(--lux-policy-white);
+  color: var(--lux-policy-black);
+}
+
+.lux-policy .faq-helpful-link:hover,
+.lux-policy .faq-helpful-link[class*="bg-"]:hover {
+  border-color: var(--lux-policy-gold);
+  background: var(--lux-policy-ivory);
+  color: var(--lux-policy-black);
+}
+
+.lux-policy .faq-helpful-link span:first-child {
+  color: var(--lux-policy-black);
+}
+
+.lux-policy .faq-helpful-link span:last-child {
+  color: var(--lux-policy-gray);
 }
 
 .mmd-about,

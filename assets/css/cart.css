@@ -1,4 +1,4 @@
-/* ===================================================
+﻿/* ===================================================
    Cart page - WooCommerce Block Cart
    Topgoodmart brand palette
    =================================================== */
@@ -646,7 +646,7 @@ body.woocommerce-cart {
   margin: 0 0 20px;
 }
 
-/* Product grid — 2 cols mobile, 4 cols desktop */
+/* Product grid â€” 2 cols mobile, 4 cols desktop */
 .wc-block-grid__products {
   list-style: none;
   padding: 0;
@@ -762,7 +762,7 @@ body.woocommerce-cart {
 }
 
 /* ===================================================
-   luxurytheme.com Quiet Luxury Cart Overrides
+   chronelshop.com Quiet Luxury Cart Overrides
    =================================================== */
 
 body.woocommerce-cart {

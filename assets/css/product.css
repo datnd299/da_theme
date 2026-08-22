@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    Product Page - Topgoodmart
    Topgoodmart store: clean, modern, conversion-focused
    ============================================================ */
@@ -823,7 +823,7 @@ form.cart:not(.variations_form) {
   margin: 0;
 }
 
-/* Description table — responsive */
+/* Description table â€” responsive */
 .woocommerce-Tabs-panel--description table {
   width: 100% !important;
   max-width: 100%;
@@ -934,7 +934,7 @@ form.cart:not(.variations_form) {
 }
 
 .stars a::before {
-  content: "★";
+  content: "â˜…";
   font-size: 26px;
 }
 
@@ -1123,7 +1123,7 @@ form.cart:not(.variations_form) {
 }
 
 .comment-form-rating p.stars a::before {
-  content: "★";
+  content: "â˜…";
   font-size: 1.375rem;
   color: var(--color-border);
   transition: color 0.1s;
@@ -1429,7 +1429,7 @@ form.cart:not(.variations_form) {
 }
 
 /* ============================================================
-   luxurytheme.com Quiet Luxury Product Overrides
+   chronelshop.com Quiet Luxury Product Overrides
    ============================================================ */
 
 body.single-product {
@@ -1473,8 +1473,9 @@ body.single-product {
 
 .product_title.entry-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 3.2vw, 3rem);
   font-weight: 400;
+  line-height: 1.08;
   letter-spacing: 0;
   text-transform: none;
 }

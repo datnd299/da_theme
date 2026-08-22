@@ -11,11 +11,11 @@ if (!defined('ABSPATH')) {
 
 $theme_uri      = get_template_directory_uri();
 $theme_dir      = get_template_directory();
-$store_name     = 'luxurytheme.com';
-$support_email  = 'concierge@luxurytheme.com';
+$store_name     = 'chronelshop.com';
+$support_email  = 'support@chronelshop.com';
 $support_phone  = '757-804-6538';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $track_url      = home_url('/track-order/');
 $shipping_url   = home_url('/shipping-policy/');
@@ -62,6 +62,28 @@ $mmd_contact_img = static function ($file, $alt, $class = '', $width = 900, $hei
         esc_attr($loading)
     );
 };
+
+$mmd_contact_remote_img = static function ($url, $alt, $class = '', $width = 900, $height = 700, $loading = 'lazy', $sizes = '', $fetchpriority = '') {
+    if (function_exists('dawp_get_responsive_image')) {
+        return dawp_get_responsive_image($url, $alt, $class, $width, $height, $loading, $sizes, $fetchpriority);
+    }
+
+    return sprintf(
+        '<img src="%s" alt="%s" class="%s" width="%d" height="%d" loading="%s" decoding="async">',
+        esc_url($url),
+        esc_attr($alt),
+        esc_attr($class),
+        (int) $width,
+        (int) $height,
+        esc_attr($loading)
+    );
+};
+
+$contact_images = [
+    'hero'    => 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1400&q=84',
+    'detail'  => 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=900&q=84',
+    'atelier' => 'https://cdn.shopify.com/s/files/1/0266/7141/5373/files/store-wa_893407f6-a744-4df8-b7a4-2baf29ec209e.jpg?v=1580744810',
+];
 
 $contact_methods = [
     [
@@ -137,29 +159,30 @@ $contact_faqs = [
 ?>
 
 <style>
-    .mmd-contact { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
+    .mmd-contact { --mmd-ink:#0B0B0B; --mmd-charcoal:#1A1A1A; --mmd-text:#555555; --mmd-muted:#858585; --mmd-ivory:#F7F5F0; --mmd-line:#E5E2DC; --mmd-accent:#B89B5E; --mmd-accent-light:#D1BD8A; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
     .mmd-contact * { box-sizing:border-box; }
     .mmd-contact p { margin:0; }
-    .mmd-contact h1, .mmd-contact h2, .mmd-contact h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
+    .mmd-contact h1, .mmd-contact h2, .mmd-contact h3 { margin:0; color:var(--mmd-ink); font-family:Inter, "Avenir Next", Arial, sans-serif; font-weight:800; line-height:1.05; letter-spacing:0; }
     .mmd-contact-container { width:min(100% - 48px, 1280px); margin-inline:auto; }
     .mmd-contact-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
     .mmd-contact-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
     .mmd-contact-btn:hover { transform:translateY(-1px); }
     .mmd-contact-btn--primary { background:var(--mmd-ink); color:#fff; }
-    .mmd-contact-btn--primary:hover { background:var(--mmd-accent); border-color:var(--mmd-accent); color:#fff; }
+    .mmd-contact-btn--primary:hover { background:var(--mmd-accent); border-color:var(--mmd-accent); color:var(--mmd-ink); }
     .mmd-contact-btn--secondary { background:transparent; color:var(--mmd-ink); }
     .mmd-contact-btn--secondary:hover { background:var(--mmd-ink); color:#fff; }
     .mmd-contact-link { color:var(--mmd-accent); font-weight:800; text-decoration:none; overflow-wrap:anywhere; }
-    .mmd-contact-link:hover { color:var(--mmd-accent-dark); text-decoration:underline; text-underline-offset:4px; }
-    .mmd-contact-hero { background:var(--mmd-ivory); border-bottom:1px solid var(--mmd-line); }
-    .mmd-contact-hero__grid { display:grid; gap:30px; min-height:560px; padding:42px 0; }
+    .mmd-contact-link:hover { color:var(--mmd-ink); text-decoration:underline; text-underline-offset:4px; }
+    .mmd-contact-hero { background:linear-gradient(90deg, rgba(184,155,94,.16), rgba(255,255,255,0) 42%), var(--mmd-ivory); border-bottom:1px solid var(--mmd-line); }
+    .mmd-contact-hero__grid { display:grid; gap:30px; min-height:500px; padding:42px 0; }
     .mmd-contact-hero__content { display:flex; flex-direction:column; justify-content:center; max-width:640px; }
-    .mmd-contact-hero h1 { font-size:clamp(2.35rem, 5vw, 4.25rem); line-height:1.08; }
-    .mmd-contact-hero__copy { max-width:590px; margin-top:18px; color:#554E49; font-size:clamp(.96rem, 1.2vw, 1.05rem); line-height:1.7; }
+    .mmd-contact-hero h1 { font-size:clamp(2.05rem, 3.6vw, 3.35rem); line-height:1.1; }
+    .mmd-contact-hero__copy { max-width:590px; margin-top:18px; color:var(--mmd-charcoal); font-size:clamp(.96rem, 1.2vw, 1.05rem); line-height:1.7; }
     .mmd-contact-hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
-    .mmd-contact-hero__media { min-height:360px; position:relative; overflow:hidden; }
-    .mmd-contact-hero__media img { width:100%; height:100%; min-height:360px; object-fit:cover; }
-    .mmd-contact-hero__note { position:absolute; right:18px; bottom:18px; max-width:290px; background:rgba(255,255,255,.94); border:1px solid var(--mmd-line); padding:16px; color:var(--mmd-ink); font-size:.84rem; line-height:1.5; }
+    .mmd-contact-hero__media { align-self:center; height:clamp(300px, 34vw, 430px); position:relative; overflow:hidden; background:var(--mmd-ink); box-shadow:0 28px 70px rgba(11,11,11,.18); }
+    .mmd-contact-hero__media:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,11,11,0), rgba(11,11,11,.46)); pointer-events:none; }
+    .mmd-contact-hero__media img { width:100%; height:100%; object-fit:cover; object-position:center; }
+    .mmd-contact-hero__note { position:absolute; right:18px; bottom:18px; z-index:1; max-width:290px; background:rgba(247,245,240,.94); border:1px solid rgba(209,189,138,.72); padding:16px; color:var(--mmd-ink); font-size:.84rem; font-weight:700; line-height:1.5; backdrop-filter:blur(10px); }
     .mmd-contact-section { padding:68px 0; }
     .mmd-contact-section--soft { background:var(--mmd-ivory); }
     .mmd-contact-section__head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
@@ -168,26 +191,28 @@ $contact_faqs = [
     .mmd-contact-methods, .mmd-contact-help, .mmd-contact-steps, .mmd-contact-faq-grid { display:grid; gap:18px; }
     .mmd-contact-card, .mmd-contact-step, .mmd-contact-help-card, .mmd-contact-form-card, .mmd-contact-sidebar, .mmd-contact-faq { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
     .mmd-contact-card, .mmd-contact-step, .mmd-contact-help-card, .mmd-contact-faq { padding:24px; }
-    .mmd-contact-card:hover, .mmd-contact-help-card:hover, .mmd-contact-faq:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
+    .mmd-contact-card:hover, .mmd-contact-help-card:hover, .mmd-contact-faq:hover { border-color:var(--mmd-accent); box-shadow:0 18px 34px rgba(11,11,11,.09); transform:translateY(-3px); }
     .mmd-contact-card svg { width:32px; height:32px; margin-bottom:15px; color:var(--mmd-accent); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
     .mmd-contact-card h3, .mmd-contact-step h3, .mmd-contact-help-card h3, .mmd-contact-faq summary { font-family:Inter, Arial, sans-serif; font-size:.95rem; font-weight:800; line-height:1.34; }
     .mmd-contact-card p, .mmd-contact-step p, .mmd-contact-help-card p, .mmd-contact-faq p { margin-top:10px; font-size:.92rem; line-height:1.6; }
     .mmd-contact-card a, .mmd-contact-help-card a { display:inline-flex; margin-top:16px; color:var(--mmd-accent); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
     .mmd-contact-main { display:grid; gap:28px; align-items:start; }
     .mmd-contact-form-card, .mmd-contact-sidebar { padding:26px; }
+    .mmd-contact-form-card__image { margin-top:22px; overflow:hidden; border:1px solid var(--mmd-line); background:var(--mmd-ink); }
+    .mmd-contact-form-card__image img { width:100%; aspect-ratio:16/7; height:auto; object-fit:cover; }
     .mmd-contact-form-card p, .mmd-contact-sidebar p { margin-top:12px; line-height:1.65; font-size:.95rem; }
     .mmd-contact-form { display:grid; gap:14px; margin-top:24px; }
     .mmd-contact-field { display:grid; gap:8px; }
     .mmd-contact-field label { color:var(--mmd-ink); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
     .mmd-contact-field input, .mmd-contact-field select, .mmd-contact-field textarea { width:100%; border:1px solid var(--mmd-line); border-radius:2px; background:#fff; color:var(--mmd-ink); font:inherit; min-height:48px; padding:0 14px; transition:border-color .18s ease, box-shadow .18s ease; }
     .mmd-contact-field textarea { min-height:150px; padding:14px; resize:vertical; }
-    .mmd-contact-field input:focus, .mmd-contact-field select:focus, .mmd-contact-field textarea:focus { border-color:var(--mmd-accent); box-shadow:0 0 0 3px rgba(164,90,63,.12); outline:0; }
+    .mmd-contact-field input:focus, .mmd-contact-field select:focus, .mmd-contact-field textarea:focus { border-color:var(--mmd-accent); box-shadow:0 0 0 3px rgba(184,155,94,.18); outline:0; }
     .mmd-contact-form__row { display:grid; gap:14px; }
     .mmd-contact-honeypot { clip:rect(0 0 0 0); clip-path:inset(50%); height:1px; margin:-1px; overflow:hidden; position:absolute; white-space:nowrap; width:1px; }
     .mmd-contact-notice { border-radius:3px; padding:13px 14px; font-size:.9rem; font-weight:800; line-height:1.5; }
     .mmd-contact-notice--success { border:1px solid #B9D8C6; background:#F0FAF3; color:#286642; }
     .mmd-contact-notice--error { border:1px solid #E3B5AA; background:#FFF2EF; color:#8A3327; }
-    .mmd-contact-form__note { color:#70665F; font-size:.86rem; line-height:1.55; }
+    .mmd-contact-form__note { color:var(--mmd-muted); font-size:.86rem; line-height:1.55; }
     .mmd-contact-form button { cursor:pointer; }
     .mmd-contact-sidebar dl { display:grid; gap:16px; margin:22px 0 0; }
     .mmd-contact-sidebar div { border-top:1px solid var(--mmd-line); padding-top:16px; }
@@ -195,7 +220,9 @@ $contact_faqs = [
     .mmd-contact-sidebar dd { margin:7px 0 0; font-size:.94rem; line-height:1.55; }
     .mmd-contact-steps { counter-reset:contact-step; }
     .mmd-contact-step { position:relative; padding-left:70px; }
-    .mmd-contact-step:before { counter-increment:contact-step; content:counter(contact-step, decimal-leading-zero); position:absolute; left:22px; top:22px; display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid #D8C7BE; color:var(--mmd-accent); font-weight:800; }
+    .mmd-contact-step:before { counter-increment:contact-step; content:counter(contact-step, decimal-leading-zero); position:absolute; left:22px; top:22px; display:flex; align-items:center; justify-content:center; width:34px; height:34px; border:1px solid var(--mmd-accent-light); background:var(--mmd-ivory); color:var(--mmd-ink); font-weight:800; }
+    .mmd-contact-sidebar__image { margin-top:22px; overflow:hidden; border:1px solid var(--mmd-line); background:var(--mmd-ink); }
+    .mmd-contact-sidebar__image img { width:100%; aspect-ratio:4/3; height:auto; object-fit:cover; }
     .mmd-contact-help-card { display:block; color:inherit; text-decoration:none; }
     .mmd-contact-faq summary { cursor:pointer; list-style:none; color:var(--mmd-ink); }
     .mmd-contact-faq summary::-webkit-details-marker { display:none; }
@@ -204,7 +231,7 @@ $contact_faqs = [
     .mmd-contact-cta__inner { display:grid; gap:22px; align-items:center; }
     .mmd-contact-cta h2 { color:#fff; }
     .mmd-contact-cta p { max-width:640px; margin-top:12px; color:rgba(255,255,255,.76); line-height:1.65; }
-    .mmd-contact-cta .mmd-contact-eyebrow { color:#D8B19F; }
+    .mmd-contact-cta .mmd-contact-eyebrow { color:var(--mmd-accent-light); }
     .mmd-contact-cta__actions { display:flex; flex-wrap:wrap; gap:12px; }
     .mmd-contact-cta .mmd-contact-btn--primary { border-color:#fff; background:#fff; color:var(--mmd-ink); }
     .mmd-contact-cta .mmd-contact-btn--primary:hover { border-color:var(--mmd-accent); background:var(--mmd-accent); color:#fff; }
@@ -212,14 +239,14 @@ $contact_faqs = [
     .mmd-contact-cta .mmd-contact-btn--secondary:hover { border-color:#fff; background:#fff; color:var(--mmd-ink); }
     @media (min-width:700px) { .mmd-contact-methods, .mmd-contact-help, .mmd-contact-steps, .mmd-contact-faq-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-contact-form__row { grid-template-columns:repeat(2, minmax(0, 1fr)); } }
     @media (min-width:900px) { .mmd-contact-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-contact-main { grid-template-columns:minmax(0, 1.1fr) minmax(320px, .72fr); } .mmd-contact-cta__inner { grid-template-columns:1fr auto; } .mmd-contact-cta__actions { justify-content:flex-end; } }
-    @media (max-width:699px) { .mmd-contact-container { width:min(100% - 40px, 1280px); } .mmd-contact-section { padding:50px 0; } .mmd-contact-section__head { align-items:start; flex-direction:column; } .mmd-contact-methods, .mmd-contact-help, .mmd-contact-steps, .mmd-contact-faq-grid { display:flex; gap:14px; margin-inline:0; overflow-x:auto; padding-inline:0; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-contact-methods::-webkit-scrollbar, .mmd-contact-help::-webkit-scrollbar, .mmd-contact-steps::-webkit-scrollbar, .mmd-contact-faq-grid::-webkit-scrollbar { display:none; } .mmd-contact-card, .mmd-contact-help-card, .mmd-contact-step, .mmd-contact-faq { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-contact-hero__note { left:14px; right:14px; } .mmd-contact-cta__actions .mmd-contact-btn, .mmd-contact-form button { width:100%; } }
+    @media (max-width:699px) { .mmd-contact-container { width:min(100% - 40px, 1280px); } .mmd-contact-hero__grid { min-height:0; } .mmd-contact-hero__media { height:300px; } .mmd-contact-section { padding:50px 0; } .mmd-contact-section__head { align-items:start; flex-direction:column; } .mmd-contact-methods, .mmd-contact-help, .mmd-contact-steps, .mmd-contact-faq-grid { display:flex; gap:14px; margin-inline:0; overflow-x:auto; padding-inline:0; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-contact-methods::-webkit-scrollbar, .mmd-contact-help::-webkit-scrollbar, .mmd-contact-steps::-webkit-scrollbar, .mmd-contact-faq-grid::-webkit-scrollbar { display:none; } .mmd-contact-card, .mmd-contact-help-card, .mmd-contact-step, .mmd-contact-faq { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-contact-hero__note { left:14px; right:14px; } .mmd-contact-cta__actions .mmd-contact-btn, .mmd-contact-form button { width:100%; } }
 </style>
 
 <div class="mmd-contact">
     <section class="mmd-contact-hero" aria-labelledby="mmd-contact-title">
         <div class="mmd-contact-container mmd-contact-hero__grid">
             <div class="mmd-contact-hero__content">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact luxurytheme.com', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact chronelshop.com', 'dawp'); ?></p>
                 <h1 id="mmd-contact-title"><?php esc_html_e('Concierge support for confident watch ownership.', 'dawp'); ?></h1>
                 <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about a reference, sizing, delivery, authentication or a return? Our customer care team is here to help from discovery to ownership.', 'dawp'); ?></p>
                 <div class="mmd-contact-hero__actions">
@@ -228,7 +255,7 @@ $contact_faqs = [
                 </div>
             </div>
             <div class="mmd-contact-hero__media">
-                <?php echo $mmd_contact_img('Customer_support_scene_in_office_202607161445.jpeg', __('Concierge desk for luxury watch assistance', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
+                <?php echo $mmd_contact_remote_img($contact_images['hero'], __('Close-up of a refined luxury watch on the wrist', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw', 'high'); ?>
                 <div class="mmd-contact-hero__note"><?php esc_html_e('For the fastest help, include your order number and the email used at checkout.', 'dawp'); ?></div>
             </div>
         </div>
@@ -262,6 +289,9 @@ $contact_faqs = [
                 <p class="mmd-contact-eyebrow"><?php esc_html_e('Send A Message', 'dawp'); ?></p>
                 <h2 id="mmd-contact-form-title"><?php esc_html_e('Tell us how we can help.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Use the secure form below to reach our support team. Add as much detail as possible so we can respond with useful next steps.', 'dawp'); ?></p>
+                <div class="mmd-contact-form-card__image">
+                    <?php echo $mmd_contact_remote_img($contact_images['detail'], __('Refined luxury watch collection arranged on dark fabric', 'dawp'), '', 920, 402, 'lazy', '(min-width: 900px) 55vw, 100vw'); ?>
+                </div>
                 <form class="mmd-contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
                     <?php wp_nonce_field('lbq_contact_form', 'lbq_contact_nonce'); ?>
                     <input type="hidden" name="action" value="lbq_contact_form">
@@ -312,6 +342,9 @@ $contact_faqs = [
                 <p class="mmd-contact-eyebrow"><?php esc_html_e('Customer Care Details', 'dawp'); ?></p>
                 <h2 id="mmd-contact-details-title"><?php esc_html_e('Support information at a glance.', 'dawp'); ?></h2>
                 <p><?php esc_html_e('Our team supports shoppers across the United States with clear, policy-aligned guidance.', 'dawp'); ?></p>
+                <div class="mmd-contact-sidebar__image">
+                    <?php echo $mmd_contact_remote_img($contact_images['atelier'], __('Luxury watch showroom prepared for private client guidance', 'dawp'), '', 640, 480, 'lazy', '(min-width: 900px) 32vw, 100vw'); ?>
+                </div>
                 <dl>
                     <div>
                         <dt><?php esc_html_e('Store', 'dawp'); ?></dt>

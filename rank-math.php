@@ -105,7 +105,12 @@ add_filter('rank_math/opengraph/facebook/image_alt', $dawp_rm_social_image_alt);
 add_filter('rank_math/opengraph/twitter/image_alt', $dawp_rm_social_image_alt);
 
 add_filter('rank_math/opengraph/type', function($type) {
-    return dawp_rm_current_page() ? 'website' : $type;
+    $page = dawp_rm_current_page();
+    if (!$page) {
+        return $type;
+    }
+
+    return 'Article' === ($page['schema_type'] ?? '') ? 'article' : 'website';
 });
 
 add_filter('rank_math/opengraph/twitter/card_type', function($type) {
@@ -133,6 +138,9 @@ add_filter('rank_math/json_ld', function($data) {
 
     if (function_exists('dawp_rank_math_organization_schema')) {
         $data['dawp_organization'] = dawp_rank_math_organization_schema();
+        if (function_exists('dawp_rank_math_contact_points')) {
+            $data['dawp_organization']['contactPoint'] = dawp_rank_math_contact_points();
+        }
     }
 
     if (function_exists('dawp_rank_math_website_schema')) {
@@ -147,6 +155,10 @@ add_filter('rank_math/json_ld', function($data) {
         return $data;
     }
 
+    if (function_exists('dawp_rank_math_breadcrumb_schema')) {
+        $data['dawp_breadcrumb'] = dawp_rank_math_breadcrumb_schema($page);
+    }
+
     $data['dawp_webpage'] = [
         '@type'       => $schema_type,
         '@id'         => $page_url . '#webpage',
@@ -159,10 +171,47 @@ add_filter('rank_math/json_ld', function($data) {
         'inLanguage'  => get_bloginfo('language'),
     ];
 
+    if (isset($data['dawp_breadcrumb'])) {
+        $data['dawp_webpage']['breadcrumb'] = ['@id' => $page_url . '#breadcrumb'];
+    }
+
     if ($image) {
         $data['dawp_webpage']['primaryImageOfPage'] = [
             '@type' => 'ImageObject',
             'url'   => $image,
+        ];
+    }
+
+    if ('Article' === $schema_type) {
+        $data['dawp_webpage']['@type'] = 'BlogPosting';
+        $data['dawp_webpage']['mainEntityOfPage'] = ['@id' => $page_url . '#webpage'];
+        $data['dawp_webpage']['datePublished'] = $page['date_published'] ?? '';
+        $data['dawp_webpage']['dateModified'] = $page['date_modified'] ?? ($page['date_published'] ?? '');
+        $data['dawp_webpage']['author'] = [
+            '@type' => 'Organization',
+            'name'  => $page['author'] ?? get_bloginfo('name'),
+            '@id'   => home_url('/#organization'),
+        ];
+
+        if (!empty($page['category'])) {
+            $data['dawp_webpage']['articleSection'] = $page['category'];
+        }
+
+        if ($image) {
+            $data['dawp_webpage']['image'] = [
+                '@type' => 'ImageObject',
+                'url'   => $image,
+            ];
+        }
+    }
+
+    if ('ContactPage' === $schema_type && function_exists('dawp_rank_math_contact_points')) {
+        $data['dawp_webpage']['about'] = [
+            '@type'        => 'Organization',
+            '@id'          => home_url('/#organization'),
+            'name'         => get_bloginfo('name'),
+            'url'          => home_url('/'),
+            'contactPoint' => dawp_rank_math_contact_points(),
         ];
     }
 

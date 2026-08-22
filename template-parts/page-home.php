@@ -31,21 +31,21 @@ $craft_notes = [
     [
         'title' => __('Caliber', 'dawp'),
         'copy' => __('Automatic movements regulated for dependable daily accuracy and tactile winding.', 'dawp'),
-        'image' => $remote_image('https://images.unsplash.com/photo-1619946794135-5bc917a27793'),
+        'image' => get_template_directory_uri() . '/assets/img/precision/Caliber.jpg',
         'alt' => __('Macro detail of a luxury watch movement and caliber', 'dawp'),
         'position' => '50% 58%',
     ],
     [
         'title' => __('Casework', 'dawp'),
         'copy' => __('Alternating polished and brushed planes create quiet contrast around the wrist.', 'dawp'),
-        'image' => $remote_image('https://images.unsplash.com/photo-1614164185128-e4ec99c436d7'),
+        'image' => get_template_directory_uri() . '/assets/img/precision/Casework.jpg',
         'alt' => __('Polished luxury watch case and bracelet detail', 'dawp'),
         'position' => '50% 54%',
     ],
     [
         'title' => __('Dial', 'dawp'),
         'copy' => __('Layered indexes, balanced negative space and sapphire clarity keep time legible.', 'dawp'),
-        'image' => $remote_image('https://images.unsplash.com/photo-1617043983671-adaadcaa2460'),
+        'image' => get_template_directory_uri() . '/assets/img/precision/Dial.jpg',
         'alt' => __('Close view of a refined luxury watch dial', 'dawp'),
         'position' => '50% 56%',
     ],
@@ -84,6 +84,62 @@ $fallback_products = [
         'url' => $shop_url,
         'image' => $remote_image('https://images.unsplash.com/photo-1533139502658-0198f920d8e8'),
     ],
+    [
+        'name' => __('Vantage Diver 44', 'dawp'),
+        'collection' => __('Sport Collection', 'dawp'),
+        'price' => '$7,300',
+        'status' => __('Available', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1548169874-53e85f753f1e'),
+    ],
+    [
+        'name' => __('Elan Skeleton 40', 'dawp'),
+        'collection' => __('Heritage Collection', 'dawp'),
+        'price' => '$16,850',
+        'status' => __('Limited', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1524805444758-089113d48a6d'),
+    ],
+    [
+        'name' => __('Solstice GMT 41', 'dawp'),
+        'collection' => __('Classic Collection', 'dawp'),
+        'price' => '$9,600',
+        'status' => __('Available', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1508057198894-247b23fe5ade'),
+    ],
+    [
+        'name' => __('Regent Perpetual 39', 'dawp'),
+        'collection' => __('Signature Collection', 'dawp'),
+        'price' => '$21,400',
+        'status' => __('Exclusive', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1546868871-7041f2a55e12'),
+    ],
+    [
+        'name' => __('Cascade Chrono 42', 'dawp'),
+        'collection' => __('Sport Collection', 'dawp'),
+        'price' => '$8,150',
+        'status' => __('In stock', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1614703484239-14e6d0d68c3b'),
+    ],
+    [
+        'name' => __('Meridian Reserve 40', 'dawp'),
+        'collection' => __('Heritage Collection', 'dawp'),
+        'price' => '$13,050',
+        'status' => __('New', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e'),
+    ],
+    [
+        'name' => __('Vesper Tourbillon 38', 'dawp'),
+        'collection' => __('Classic Collection', 'dawp'),
+        'price' => '$27,900',
+        'status' => __('Limited', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1533139143976-30918502365b'),
+    ],
 ];
 
 $products = [];
@@ -91,7 +147,7 @@ $default_product_image = $remote_image('https://images.unsplash.com/photo-152317
 if (function_exists('wc_get_products')) {
     $wc_products = wc_get_products([
         'status' => 'publish',
-        'limit' => 4,
+        'limit' => 12,
         'orderby' => 'date',
         'order' => 'DESC',
     ]);
@@ -118,23 +174,7 @@ if (empty($products)) {
     $products = $fallback_products;
 }
 
-$collections = [
-    [
-        'name' => __('Classic', 'dawp'),
-        'copy' => __('Slim profiles, restrained dials and enduring proportions for formal and everyday wear.', 'dawp'),
-        'image' => $remote_image('https://images.unsplash.com/photo-1594534475808-b18fc33b045e'),
-    ],
-    [
-        'name' => __('Sport', 'dawp'),
-        'copy' => __('Robust automatic watches shaped for travel, water, movement and modern pace.', 'dawp'),
-        'image' => $remote_image('https://images.unsplash.com/photo-1508057198894-247b23fe5ade'),
-    ],
-    [
-        'name' => __('Heritage', 'dawp'),
-        'copy' => __('Vintage codes refined with contemporary finishing, sapphire clarity and precise calibers.', 'dawp'),
-        'image' => $remote_image('https://images.unsplash.com/photo-1509048191080-d2984bad6ae5'),
-    ],
-];
+$brand_categories = function_exists('dawp_megamenu_brands') ? dawp_megamenu_brands() : [];
 ?>
 
 <style>
@@ -161,30 +201,43 @@ $collections = [
     .lux-hero h1 { font-size:clamp(46px,7vw,82px); }
     .lux-hero .lux-copy { color:#E9E3D7; font-size:18px; }
     .lux-hero__meta { display:flex; flex-wrap:wrap; gap:18px 34px; margin-top:34px; padding-top:26px; border-top:1px solid rgba(247,245,240,.28); color:#D8D0C2; font-size:13px; }
+    .lux-hero__categories { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
+    .lux-hero__categories a { padding:9px 18px; border:1px solid rgba(247,245,240,.4); border-radius:999px; color:var(--ivory); font-size:12px; font-weight:600; letter-spacing:.04em; text-decoration:none; text-transform:uppercase; transition:background .25s cubic-bezier(.22,1,.36,1), border-color .25s cubic-bezier(.22,1,.36,1), color .25s cubic-bezier(.22,1,.36,1); }
+    .lux-hero__categories a:hover, .lux-hero__categories a:focus-visible { background:var(--gold); border-color:var(--gold); color:var(--black); }
     .lux-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.88fr); gap:72px; align-items:center; }
     .lux-split--reverse { grid-template-columns:minmax(0,.88fr) minmax(0,1fr); }
     .lux-split--reverse .lux-split__media { order:2; }
-    .lux-split__media { aspect-ratio:4/5; overflow:hidden; background:#ddd; }
+    .lux-split__media { aspect-ratio:4/3; overflow:hidden;}
     .lux-split__media img { transition:transform .7s cubic-bezier(.22,1,.36,1); }
     .lux-split__media:hover img { transform:scale(1.025); }
     .lux-split h2, .lux-section__head h2, .lux-newsletter h2 { font-size:clamp(34px,4vw,52px); }
     .lux-section__head { display:flex; justify-content:space-between; align-items:end; gap:32px; margin-bottom:42px; }
     .lux-section__head p { margin:12px 0 0; max-width:520px; color:var(--gray-700); line-height:1.7; }
-    .lux-products { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; }
-    .lux-product { position:relative; min-width:0; color:inherit; text-decoration:none; }
-    .lux-product__image { aspect-ratio:4/5; overflow:hidden; background:#F1EFE9; }
-    .lux-product__image img { object-fit:cover; transition:transform .55s cubic-bezier(.22,1,.36,1); }
+    .lux-products { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); column-gap:20px; row-gap:48px; }
+    .lux-product { position:relative; display:flex; flex-direction:column; min-width:0; color:inherit; text-decoration:none; }
+    .lux-product__image { aspect-ratio:1/1; overflow:hidden; background:#F1EFE9; }
+    .lux-product__image img { object-fit:contain; object-position:center; transition:transform .55s cubic-bezier(.22,1,.36,1); }
     .lux-product:hover .lux-product__image img { transform:scale(1.035); }
     .lux-product__status { position:absolute; top:14px; left:14px; z-index:1; padding:6px 9px; background:rgba(247,245,240,.94); color:var(--black); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-    .lux-product__body { padding:18px 0 0; }
-    .lux-product__body h3 { margin:0; color:var(--black); font-size:18px; font-weight:600; line-height:1.35; }
-    .lux-product__body p { margin:7px 0 0; color:var(--gray-500); font-size:14px; }
-    .lux-product__price { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; margin-top:12px; color:var(--black); font-size:15px; font-weight:700; line-height:1.45; }
+    .lux-product__body { display:flex; flex-direction:column; flex:1; padding:18px 0 0; }
+    .lux-product__body h3 { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; line-clamp:2; overflow:hidden; min-height:2.7em; margin:0; color:var(--black); font-size:15px; font-weight:600; line-height:1.35; }
+    .lux-product__body p { display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:1; line-clamp:1; overflow:hidden; margin:7px 0 0; color:var(--gray-500); font-size:13px; }
+    .lux-product__price { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; margin-top:auto; padding-top:12px; min-height:1.45em; color:var(--black); font-size:15px; font-weight:700; line-height:1.45; }
     .lux-product__price del { color:var(--gray-500); font-weight:600; text-decoration-thickness:1px; }
     .lux-product__price ins { color:var(--black); font-weight:800; text-decoration:none; }
     .lux-product__price .screen-reader-text { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .lux-popular { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
+    .lux-popular__card { display:block; min-width:0; color:inherit; text-decoration:none; border-radius:3px; overflow:hidden; background:var(--gray-200); transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s cubic-bezier(.22,1,.36,1); }
+    .lux-popular__card:hover, .lux-popular__card:focus-visible { transform:translateY(-4px); box-shadow:0 18px 32px -18px rgba(11,11,11,.28); }
+    .lux-popular__card:focus-visible { outline:2px solid var(--gold-light); outline-offset:3px; }
+    .lux-popular__image { display:block; position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--gray-200); }
+    .lux-popular__image img { object-fit:contain; object-position:center; transition:transform .5s cubic-bezier(.22,1,.36,1); }
+    .lux-popular__card:hover .lux-popular__image img { transform:scale(1.05); }
+    .lux-popular__body { display:block; padding:16px 18px 20px; background:var(--white); }
+    .lux-popular__brand { display:block; margin:0; color:var(--gold); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .lux-popular__name { display:block; margin:5px 0 0; color:var(--black); font-size:16px; font-weight:600; line-height:1.3; }
     .lux-story { display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center; }
-    .lux-story__media { min-height:560px; overflow:hidden; }
+    .lux-story__media { min-height:420px; overflow:hidden; }
     .lux-story .lux-copy { color:#C9C3B8; }
     .lux-craft-grid { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr); gap:28px; align-items:stretch; }
     .lux-craft-main { aspect-ratio:100/91; min-height:0; overflow:hidden; background:#E8E3D9; position:relative; }
@@ -205,43 +258,28 @@ $collections = [
     .lux-banner:after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg, rgba(11,11,11,.88), rgba(11,11,11,.12)); }
     .lux-banner__content { max-width:620px; padding:80px 0; }
     .lux-banner h2 { font-size:clamp(40px,5.2vw,70px); }
-    .lux-collections { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
-    .lux-collection { min-height:440px; display:grid; align-items:end; position:relative; isolation:isolate; overflow:hidden; color:var(--ivory); text-decoration:none; }
-    .lux-collection img { position:absolute; inset:0; z-index:-2; transition:transform .55s cubic-bezier(.22,1,.36,1); }
-    .lux-collection:after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg, rgba(11,11,11,.78), rgba(11,11,11,.05) 58%); }
-    .lux-collection:hover img { transform:scale(1.025); }
-    .lux-collection span { padding:28px; }
-    .lux-collection strong { display:block; font-family:"Cormorant Garamond", Georgia, serif; font-size:36px; font-weight:400; line-height:1; }
-    .lux-collection em { display:block; margin-top:12px; color:#D8D0C2; font-style:normal; line-height:1.55; }
     .lux-services { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
     .lux-service { padding-top:24px; border-top:1px solid rgba(184,155,94,.55); }
     .lux-service svg { width:28px; height:28px; margin-bottom:18px; color:var(--gold); fill:none; stroke:currentColor; stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round; }
     .lux-service h3 { margin:0; color:inherit; font-size:17px; font-weight:700; }
     .lux-service p { margin:10px 0 0; color:#BDB6AA; line-height:1.65; }
-    .lux-journal { display:grid; grid-template-columns:1.15fr .85fr; gap:28px; }
-    .lux-article { color:inherit; text-decoration:none; border-top:1px solid var(--gray-200); padding-top:20px; }
-    .lux-article__image { aspect-ratio:16/10; margin-bottom:20px; overflow:hidden; background:#eee; }
-    .lux-article--small { display:grid; grid-template-columns:180px 1fr; gap:20px; align-items:start; }
-    .lux-article--small .lux-article__image { aspect-ratio:4/5; margin:0; }
-    .lux-article strong { display:block; color:var(--black); font-family:"Cormorant Garamond", Georgia, serif; font-size:32px; font-weight:400; line-height:1.1; }
-    .lux-article--small strong { font-size:25px; }
-    .lux-article span { display:block; margin:0 0 9px; color:var(--gold); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-    .lux-article p { margin:12px 0 0; color:var(--gray-700); line-height:1.65; }
     .lux-newsletter { background:var(--black); color:var(--ivory); padding:84px 0; }
     .lux-newsletter__inner { display:grid; grid-template-columns:1fr minmax(320px,520px); gap:48px; align-items:center; }
     .lux-newsletter p { color:#C9C3B8; }
     .lux-form { display:grid; grid-template-columns:1fr auto; gap:12px; }
     .lux-form label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
     .lux-form input { min-height:52px; border:1px solid rgba(247,245,240,.42); border-radius:2px; background:transparent; color:var(--ivory); padding:0 16px; }
-    .lux-form input:focus, .lux-btn:focus, .lux-link:focus, .lux-product:focus, .lux-collection:focus, .lux-article:focus { outline:2px solid var(--gold-light); outline-offset:3px; }
+    .lux-form input:focus, .lux-btn:focus, .lux-link:focus, .lux-product:focus { outline:2px solid var(--gold-light); outline-offset:3px; }
     @keyframes luxSlowZoom { from { transform:scale(1.03); } to { transform:scale(1); } }
     @media (prefers-reduced-motion: reduce) { .lux-home *, .lux-hero__media img { animation:none !important; transition:none !important; } }
     @media (max-width: 980px) {
         .lux-section { padding:72px 0; }
-        .lux-split, .lux-split--reverse, .lux-story, .lux-craft-grid, .lux-journal, .lux-newsletter__inner { grid-template-columns:1fr; gap:36px; }
+        .lux-split, .lux-split--reverse, .lux-story, .lux-craft-grid, .lux-newsletter__inner { grid-template-columns:1fr; gap:36px; }
         .lux-split--reverse .lux-split__media { order:0; }
-        .lux-products, .lux-collections, .lux-services { grid-template-columns:repeat(2,minmax(0,1fr)); }
-        .lux-story__media { min-height:420px; }
+        .lux-products { grid-template-columns:repeat(3,minmax(0,1fr)); }
+        .lux-services { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        .lux-popular { grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+        .lux-story__media { min-height:320px; }
         .lux-craft-main { aspect-ratio:4/5; }
         .lux-craft-panel { padding-left:0; }
     }
@@ -251,12 +289,12 @@ $collections = [
         .lux-hero__content { padding:72px 0 46px; }
         .lux-section__head { display:block; margin-bottom:30px; }
         .lux-section__head .lux-link { margin-top:18px; }
-        .lux-products { display:flex; gap:16px; overflow-x:auto; margin-inline:-16px; padding-inline:16px; padding-bottom:8px; scroll-snap-type:x mandatory; scrollbar-width:none; }
-        .lux-products::-webkit-scrollbar { display:none; }
-        .lux-product { flex:0 0 74%; scroll-snap-align:start; }
-        .lux-collections, .lux-services { grid-template-columns:1fr; }
-        .lux-collection { min-height:360px; }
-        .lux-article--small { grid-template-columns:1fr; }
+        .lux-products { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+        .lux-popular { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+        .lux-popular__body { padding:12px 12px 16px; }
+        .lux-popular__name { font-size:14px; }
+        .lux-popular__brand { font-size:10px; }
+        .lux-services { grid-template-columns:1fr; }
         .lux-form { grid-template-columns:1fr; }
         .lux-form .lux-btn { width:100%; }
     }
@@ -265,14 +303,21 @@ $collections = [
 <div class="lux-home">
     <section class="lux-hero" aria-label="<?php esc_attr_e('Luxury watch hero', 'dawp'); ?>">
         <div class="lux-hero__media">
-            <?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3'), __('Close-up of a luxury watch on the wrist', 'dawp'), '', 'eager', '100vw'); ?>
+            <?php echo $image_tag(get_template_directory_uri() . '/assets/img/banner/hero.jpg', __('Close-up of a luxury watch on the wrist', 'dawp'), '', 'eager', '100vw'); ?>
         </div>
         <div class="lux-wrap">
             <div class="lux-hero__content">
                 <p class="lux-label"><?php esc_html_e('New Collection', 'dawp'); ?></p>
                 <h1 class="lux-title"><?php esc_html_e('The Art of Time', 'dawp'); ?></h1>
                 <p class="lux-copy"><?php esc_html_e('Precision shaped by hand-finished details, restrained design and mechanical character made for a lifetime of wear.', 'dawp'); ?></p>
-                <p style="margin:30px 0 0;"><a class="lux-btn lux-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Discover Watches', 'dawp'); ?></a></p>
+                <p style="margin:30px 0 0;"><a class="lux-btn lux-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('All Watches', 'dawp'); ?></a></p>
+                <?php if (!empty($brand_categories)) : ?>
+                    <nav class="lux-hero__categories" aria-label="<?php esc_attr_e('Shop by category', 'dawp'); ?>">
+                        <?php foreach ($brand_categories as $category) : ?>
+                            <a href="<?php echo esc_url($category['url']); ?>"><?php echo esc_html($category['title']); ?></a>
+                        <?php endforeach; ?>
+                    </nav>
+                <?php endif; ?>
                 <div class="lux-hero__meta" aria-label="<?php esc_attr_e('Brand assurances', 'dawp'); ?>">
                     <span><?php esc_html_e('Swiss automatic movements', 'dawp'); ?></span>
                     <span><?php esc_html_e('Insured global delivery', 'dawp'); ?></span>
@@ -283,15 +328,40 @@ $collections = [
     </section>
 
     <section class="lux-section lux-section--ivory">
-        <div class="lux-wrap lux-split">
-            <div class="lux-split__media">
-                <?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1547996160-81dfa63595aa'), __('Refined luxury watch collection arranged on dark fabric', 'dawp')); ?>
+        <div class="lux-wrap">
+            <div class="lux-section__head">
+                <div>
+                    <p class="lux-label"><?php esc_html_e('Iconic Timepieces', 'dawp'); ?></p>
+                    <h2 class="lux-title"><?php esc_html_e('Our Most Popular Models', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Explore our curated selection of luxury watch collections from the world\'s most prestigious brands.', 'dawp'); ?></p>
+                </div>
+                <a class="lux-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all brands', 'dawp'); ?></a>
             </div>
-            <div>
-                <p class="lux-label"><?php esc_html_e('Featured Collection', 'dawp'); ?></p>
-                <h2 class="lux-title"><?php esc_html_e('Heritage, redrawn for now.', 'dawp'); ?></h2>
-                <p class="lux-copy"><?php esc_html_e('A collection of slim cases, sculpted lugs and textured dials that carry classic watchmaking codes into a quieter modern language.', 'dawp'); ?></p>
-                <p style="margin:30px 0 0;"><a class="lux-btn" href="<?php echo esc_url($collection_url); ?>"><?php esc_html_e('Explore Collection', 'dawp'); ?></a></p>
+
+            <?php
+            $popular_models = [
+                ['slug' => 'rolex-datejust', 'image' => 'rolex-datejust.webp', 'brand' => __('Rolex', 'dawp'), 'name' => __('Datejust', 'dawp')],
+                ['slug' => 'rolex-submariner', 'image' => 'rolex-submariner.webp', 'brand' => __('Rolex', 'dawp'), 'name' => __('Submariner', 'dawp')],
+                ['slug' => 'rolex-daytona', 'image' => 'rolex-daytona.webp', 'brand' => __('Rolex', 'dawp'), 'name' => __('Daytona', 'dawp')],
+                ['slug' => 'omega-speedmaster', 'image' => 'omega-speedmaster.jpg', 'brand' => __('Omega', 'dawp'), 'name' => __('Speedmaster', 'dawp')],
+                ['slug' => 'audemars-piguet-royal-oak', 'image' => 'ap-royal-oak-jumbo.jpg', 'brand' => __('Audemars Piguet', 'dawp'), 'name' => __('Royal Oak', 'dawp')],
+                ['slug' => 'rolex-day-date', 'image' => 'rolex-day-date.webp', 'brand' => __('Rolex', 'dawp'), 'name' => __('Day-Date', 'dawp')],
+                ['slug' => 'rolex-gmt-master', 'image' => 'rolex-gmt-master.jpg', 'brand' => __('Rolex', 'dawp'), 'name' => __('GMT-Master II', 'dawp')],
+                ['slug' => 'patek-philippe-nautilus', 'image' => 'patek-philippe-nautilus.jpg', 'brand' => __('Patek Philippe', 'dawp'), 'name' => __('Nautilus', 'dawp')],
+            ];
+            ?>
+            <div class="lux-popular">
+                <?php foreach ($popular_models as $model) : ?>
+                    <a class="lux-popular__card" href="<?php echo esc_url(home_url('/product-category/' . $model['slug'] . '/')); ?>">
+                        <span class="lux-popular__image">
+                            <?php echo $image_tag(get_theme_file_uri('assets/img/categories/' . $model['image']), $model['brand'] . ' ' . $model['name'], '', 'lazy', '(max-width: 640px) 45vw, (max-width: 980px) 30vw, 22vw'); ?>
+                        </span>
+                        <span class="lux-popular__body">
+                            <span class="lux-popular__brand"><?php echo esc_html($model['brand']); ?></span>
+                            <span class="lux-popular__name"><?php echo esc_html($model['name']); ?></span>
+                        </span>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -328,41 +398,13 @@ $collections = [
     <section class="lux-section lux-section--dark">
         <div class="lux-wrap lux-story">
             <div class="lux-story__media">
-                <?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1623998021450-85c29c644e0d'), __('Watchmaker working on a mechanical movement', 'dawp')); ?>
+                <?php echo $image_tag(get_template_directory_uri() . '/assets/img/products/Spirit-of-Big-Bang-Titanium-Blue-Ceramic-42-mm-soldier-shot-1-700x700.png', __('Watchmaker working on a mechanical movement', 'dawp')); ?>
             </div>
             <div>
                 <p class="lux-label"><?php esc_html_e('Crafted With Purpose', 'dawp'); ?></p>
                 <h2 class="lux-title"><?php esc_html_e('Every surface has a reason.', 'dawp'); ?></h2>
                 <p class="lux-copy"><?php esc_html_e('From the movement within to the final brushing of the case, each watch is built to make precision feel personal, durable and quietly distinctive.', 'dawp'); ?></p>
                 <p style="margin:30px 0 0;"><a class="lux-btn lux-btn--light" href="<?php echo esc_url($discover_url); ?>"><?php esc_html_e('Our Story', 'dawp'); ?></a></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="lux-section lux-section--ivory">
-        <div class="lux-wrap">
-            <div class="lux-section__head">
-                <div>
-                    <p class="lux-label"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
-                    <h2 class="lux-title"><?php esc_html_e('Latest additions', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Fresh references with clean dials, balanced dimensions and refined bracelets.', 'dawp'); ?></p>
-                </div>
-                <a class="lux-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop new arrivals', 'dawp'); ?></a>
-            </div>
-            <div class="lux-products">
-                <?php foreach (array_reverse($products) as $product) : ?>
-                    <a class="lux-product" href="<?php echo esc_url($product['url']); ?>">
-                        <span class="lux-product__status"><?php echo esc_html($product['status']); ?></span>
-                        <span class="lux-product__image">
-                            <?php echo $image_tag($product['image'], $product['name'], '', 'lazy', '(max-width: 640px) 74vw, (max-width: 980px) 45vw, 25vw'); ?>
-                        </span>
-                        <span class="lux-product__body">
-                            <h3><?php echo esc_html($product['name']); ?></h3>
-                            <p><?php echo esc_html($product['collection']); ?></p>
-                            <strong class="lux-product__price"><?php echo wp_kses_post($product['price']); ?></strong>
-                        </span>
-                    </a>
-                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -391,32 +433,13 @@ $collections = [
     </section>
 
     <section class="lux-banner">
-        <?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6'), __('Luxury watch on a dark editorial set', 'dawp')); ?>
+        <?php echo $image_tag(get_template_directory_uri() . '/assets/img/banner/heritage-collection.jpg', __('Luxury watch on a dark editorial set', 'dawp')); ?>
         <div class="lux-wrap">
             <div class="lux-banner__content">
                 <p class="lux-label"><?php esc_html_e('The Heritage Collection', 'dawp'); ?></p>
                 <h2 class="lux-title"><?php esc_html_e('Timeless design. Modern precision.', 'dawp'); ?></h2>
                 <p class="lux-copy" style="color:#E9E3D7;"><?php esc_html_e('A cinematic expression of the codes that define a refined mechanical watch.', 'dawp'); ?></p>
                 <p style="margin:30px 0 0;"><a class="lux-btn lux-btn--light" href="<?php echo esc_url($collection_url); ?>"><?php esc_html_e('Explore Heritage', 'dawp'); ?></a></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="lux-section lux-section--ivory">
-        <div class="lux-wrap">
-            <div class="lux-section__head">
-                <div>
-                    <p class="lux-label"><?php esc_html_e('Collections', 'dawp'); ?></p>
-                    <h2 class="lux-title"><?php esc_html_e('Choose your rhythm', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="lux-collections">
-                <?php foreach ($collections as $collection) : ?>
-                    <a class="lux-collection" href="<?php echo esc_url($collection_url); ?>">
-                        <?php echo $image_tag($collection['image'], $collection['name'], '', 'lazy', '(max-width: 980px) 50vw, 33vw'); ?>
-                        <span><strong><?php echo esc_html($collection['name']); ?></strong><em><?php echo esc_html($collection['copy']); ?></em></span>
-                    </a>
-                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -435,35 +458,6 @@ $collections = [
                 <div class="lux-service"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 4v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V7z"></path><path d="m9 12 2 2 4-5"></path></svg><h3><?php esc_html_e('Authenticity Guarantee', 'dawp'); ?></h3><p><?php esc_html_e('Each watch is inspected, documented and verified.', 'dawp'); ?></p></div>
                 <div class="lux-service"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><h3><?php esc_html_e('International Warranty', 'dawp'); ?></h3><p><?php esc_html_e('Coverage and care guidance for long-term ownership.', 'dawp'); ?></p></div>
                 <div class="lux-service"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg><h3><?php esc_html_e('Personal Consultation', 'dawp'); ?></h3><p><?php esc_html_e('Private guidance for sizing, gifting and collection choice.', 'dawp'); ?></p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="lux-section">
-        <div class="lux-wrap">
-            <div class="lux-section__head">
-                <div>
-                    <p class="lux-label"><?php esc_html_e('Journal', 'dawp'); ?></p>
-                    <h2 class="lux-title"><?php esc_html_e('Stories of time and design', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="lux-journal">
-                <a class="lux-article" href="<?php echo esc_url($discover_url); ?>">
-                    <span class="lux-article__image"><?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1618220179428-22790b461013'), __('Minimal luxury interior with refined materials', 'dawp')); ?></span>
-                    <span><?php esc_html_e('Design', 'dawp'); ?></span>
-                    <strong><?php esc_html_e('Why restraint makes a watch feel expensive.', 'dawp'); ?></strong>
-                    <p><?php esc_html_e('The proportions, contrast and quiet decisions that separate timeless design from decoration.', 'dawp'); ?></p>
-                </a>
-                <div style="display:grid; gap:28px;">
-                    <a class="lux-article lux-article--small" href="<?php echo esc_url($discover_url); ?>">
-                        <span class="lux-article__image"><?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1539874754764-5a96559165b0'), __('Watch components and tools on a workbench', 'dawp')); ?></span>
-                        <span><span><?php esc_html_e('Craft', 'dawp'); ?></span><strong><?php esc_html_e('Inside the finishing process.', 'dawp'); ?></strong><p><?php esc_html_e('A closer look at brushing, polishing and dial texture.', 'dawp'); ?></p></span>
-                    </a>
-                    <a class="lux-article lux-article--small" href="<?php echo esc_url($discover_url); ?>">
-                        <span class="lux-article__image"><?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1524592094714-0f0654e20314'), __('Elegant wrist watch worn with a suit', 'dawp')); ?></span>
-                        <span><span><?php esc_html_e('Guide', 'dawp'); ?></span><strong><?php esc_html_e('Choosing your first mechanical watch.', 'dawp'); ?></strong><p><?php esc_html_e('A calm guide to size, movement and everyday wear.', 'dawp'); ?></p></span>
-                    </a>
-                </div>
             </div>
         </div>
     </section>

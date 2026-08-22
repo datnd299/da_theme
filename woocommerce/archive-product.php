@@ -67,30 +67,70 @@ if ($archive_term && !is_wp_error($archive_term)) {
     $archive_eyebrow = is_product_tag() ? __('Reference Edit', 'dawp') : __('Collection', 'dawp');
 }
 
-$archive_cover = $shop_cover_images[$archive_slug] ?? $shop_cover_images['shop'];
-
-if ($archive_term && !is_wp_error($archive_term) && is_product_category() && !isset($shop_cover_images[$archive_slug])) {
-    $thumbnail_id = (int) get_term_meta($archive_term->term_id, 'thumbnail_id', true);
-
-    if ($thumbnail_id) {
-        $thumbnail_url = wp_get_attachment_image_url($thumbnail_id, 'full');
-
-        if ($thumbnail_url) {
-            $archive_cover = [
-                'url' => $thumbnail_url,
-                'alt' => sprintf(
-                    /* translators: %s: product category name */
-                    __('%s collection cover image', 'dawp'),
-                    $archive_title
-                ),
-            ];
-        }
-    }
-}
-
 global $wp_query;
 $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
 $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
+
+// The shop-header sub-category strip shows either the current category's
+// children, or — on the main shop archive — every top-level category.
+$subcat_terms = [];
+if ($archive_term && !is_wp_error($archive_term) && is_product_category()) {
+    $child_terms = get_terms([
+        'taxonomy'   => 'product_cat',
+        'parent'     => $archive_term->term_id,
+        'hide_empty' => false,
+    ]);
+
+    if (!is_wp_error($child_terms)) {
+        $subcat_terms = $child_terms;
+    }
+} elseif (is_shop()) {
+    $subcat_terms = $categories;
+}
+
+$child_categories = [];
+foreach ($subcat_terms as $subcat_term) {
+    $child_image = '';
+    $thumbnail_id = (int) get_term_meta($subcat_term->term_id, 'thumbnail_id', true);
+
+    if ($thumbnail_id) {
+        $child_image = wp_get_attachment_image_url($thumbnail_id, 'medium');
+    }
+
+    if (!$child_image && function_exists('dawp_get_category_image_url')) {
+        $child_image = dawp_get_category_image_url($subcat_term->term_id);
+    }
+
+    $child_categories[] = [
+        'name'  => $subcat_term->name,
+        'link'  => get_term_link($subcat_term),
+        'image' => $child_image,
+    ];
+}
+
+// A parent category shows its children instead of a cover image; only a
+// leaf category (no children) gets its own image in shop-header__media.
+$archive_cover = $shop_cover_images[$archive_slug] ?? $shop_cover_images['shop'];
+
+if ($archive_term && !is_wp_error($archive_term) && is_product_category() && empty($child_categories) && !isset($shop_cover_images[$archive_slug])) {
+    $thumbnail_id = (int) get_term_meta($archive_term->term_id, 'thumbnail_id', true);
+    $thumbnail_url = $thumbnail_id ? wp_get_attachment_image_url($thumbnail_id, 'full') : '';
+
+    if (!$thumbnail_url && function_exists('dawp_get_category_image_url')) {
+        $thumbnail_url = dawp_get_category_image_url($archive_term->term_id);
+    }
+
+    if ($thumbnail_url) {
+        $archive_cover = [
+            'url' => $thumbnail_url,
+            'alt' => sprintf(
+                /* translators: %s: product category name */
+                __('%s collection cover image', 'dawp'),
+                $archive_title
+            ),
+        ];
+    }
+}
 ?>
 
 <div class="shop-page">
@@ -120,7 +160,7 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
     <?php
     // ── Page heading ───────────────────────────────────────
     ?>
-    <div class="shop-header">
+    <div class="shop-header<?php echo empty($child_categories) ? '' : ' shop-header--stacked'; ?>">
         <div class="shop-header__content">
             <p class="shop-header__eyebrow"><?php echo esc_html($archive_eyebrow); ?></p>
             <h1 class="shop-header__title"><?php echo esc_html($archive_title); ?></h1>
@@ -139,9 +179,33 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all products', 'dawp'); ?></a>
             </div>
         </div>
+
+        <?php if (empty($child_categories)) : ?>
         <div class="shop-header__media">
             <?php echo dawp_get_responsive_image($archive_cover['url'], $archive_cover['alt'], '', 640, 520, 'eager', '(max-width: 900px) 100vw, 42vw', 'high'); ?>
         </div>
+        <?php endif; ?>
+
+        <?php if (!empty($child_categories)) : ?>
+        <div class="shop-subcats" aria-label="<?php esc_attr_e('Categories', 'dawp'); ?>">
+            <ul class="shop-subcats__list">
+                <?php foreach ($child_categories as $child) : ?>
+                <li class="shop-subcats__item">
+                    <a href="<?php echo esc_url($child['link']); ?>" class="shop-subcats__link">
+                        <span class="shop-subcats__thumb">
+                            <?php if ($child['image']) : ?>
+                                <?php echo dawp_get_responsive_image($child['image'], $child['name'], 'shop-subcats__img', 96, 96, 'lazy', '96px'); ?>
+                            <?php else : ?>
+                                <span class="shop-subcats__thumb--fallback"><?php echo esc_html(mb_substr($child['name'], 0, 1)); ?></span>
+                            <?php endif; ?>
+                        </span>
+                        <span class="shop-subcats__name"><?php echo esc_html($child['name']); ?></span>
+                    </a>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <?php endif; ?>
     </div>
 
     <?php

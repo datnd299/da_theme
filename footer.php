@@ -31,26 +31,26 @@ $footer_columns = [
         'links' => [
             ['title' => __('All Watches', 'dawp'), 'url' => $shop_url],
             ['title' => __('New Arrivals', 'dawp'), 'url' => add_query_arg('orderby', 'date', $shop_url)],
-            ['title' => __('Best Sellers', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Limited Editions', 'dawp'), 'url' => $shop_url],
+            ['title' => __('Best Sellers', 'dawp'), 'url' => add_query_arg('orderby', 'popularity', $shop_url)],
+            ['title' => __('Iced Out Watches', 'dawp'), 'url' => dawp_product_category_url('iced-out-watches')],
         ],
     ],
     [
-        'title' => __('Collections', 'dawp'),
+        'title' => __('Popular Brands', 'dawp'),
         'links' => [
-            ['title' => __('Classic', 'dawp'), 'url' => home_url('/collections/classic/')],
-            ['title' => __('Sport', 'dawp'), 'url' => home_url('/collections/sport/')],
-            ['title' => __('Heritage', 'dawp'), 'url' => home_url('/collections/heritage/')],
-            ['title' => __('Signature', 'dawp'), 'url' => home_url('/collections/signature/')],
+            ['title' => __('Rolex', 'dawp'), 'url' => dawp_product_category_url('rolex-watches')],
+            ['title' => __('Patek Philippe', 'dawp'), 'url' => dawp_product_category_url('patek-philippe')],
+            ['title' => __('Audemars Piguet', 'dawp'), 'url' => dawp_product_category_url('audemars-piguet')],
+            ['title' => __('Omega', 'dawp'), 'url' => dawp_product_category_url('omega-watches')],
         ],
     ],
     [
-        'title' => __('Services', 'dawp'),
+        'title' => __('More Brands', 'dawp'),
         'links' => [
-            ['title' => __('Personal Consultation', 'dawp'), 'url' => home_url('/contact-us/')],
-            ['title' => __('Authentication', 'dawp'), 'url' => home_url('/services/authentication/')],
-            ['title' => __('Warranty', 'dawp'), 'url' => home_url('/services/warranty/')],
-            ['title' => __('Watch Care', 'dawp'), 'url' => home_url('/services/watch-care/')],
+            ['title' => __('Richard Mille', 'dawp'), 'url' => dawp_product_category_url('richard-mille')],
+            ['title' => __('Breitling', 'dawp'), 'url' => dawp_product_category_url('breitling')],
+            ['title' => __('Hublot', 'dawp'), 'url' => dawp_product_category_url('hublot')],
+            ['title' => __('Tag Heuer', 'dawp'), 'url' => dawp_product_category_url('tag-heuer')],
         ],
     ],
     [
@@ -128,7 +128,7 @@ $payment_methods = [
                     <strong><?php esc_html_e('luxurytheme.com', 'dawp'); ?></strong>
                     <span><?php esc_html_e('Fine Timepieces', 'dawp'); ?></span>
                 </a>
-                <p class="lux-footer__intro"><?php esc_html_e('A contemporary watch boutique for refined mechanical timepieces, crafted details and confident ownership.', 'dawp'); ?></p>
+                <p class="lux-footer__intro"><?php esc_html_e('Rolex, Patek Philippe, Audemars Piguet, Omega and other Swiss houses, each piece inspected before it reaches you.', 'dawp'); ?></p>
                 <dl class="lux-footer__contact">
                     <div>
                         <dt><?php esc_html_e('Concierge:', 'dawp'); ?></dt>
@@ -166,7 +166,7 @@ $payment_methods = [
         <div class="lux-footer__assurance" aria-label="<?php esc_attr_e('Purchase assurances', 'dawp'); ?>">
             <div><span><?php esc_html_e('Authenticated', 'dawp'); ?></span><small><?php esc_html_e('Verified references and documented inspection.', 'dawp'); ?></small></div>
             <div><span><?php esc_html_e('Insured Delivery', 'dawp'); ?></span><small><?php esc_html_e('Protected shipping with signature confirmation.', 'dawp'); ?></small></div>
-            <div><span><?php esc_html_e('Warranty', 'dawp'); ?></span><small><?php esc_html_e('Ownership support and service guidance.', 'dawp'); ?></small></div>
+            <div><span><?php esc_html_e('Warranty', 'dawp'); ?></span><small><?php esc_html_e('Coverage and service support after purchase.', 'dawp'); ?></small></div>
             <div><span><?php esc_html_e('Consultation', 'dawp'); ?></span><small><?php esc_html_e('Private advice for fit, gifting and selection.', 'dawp'); ?></small></div>
         </div>
 

@@ -59,29 +59,29 @@ $mmd_about_img = static function ($file, $alt, $class = '', $width = 900, $heigh
 
 $principles = [
     [
-        'title' => __('Lifestyle-first selection', 'dawp'),
-        'copy'  => __('We look for pieces that help a room feel more complete, useful and welcoming, from quiet storage to dinner-ready table details.', 'dawp'),
+        'title' => __('Timepiece-first selection', 'dawp'),
+        'copy'  => __('We curate watches for proportion, finishing, movement character and the quiet confidence they bring to daily wear.', 'dawp'),
     ],
     [
-        'title' => __('Modern American comfort', 'dawp'),
-        'copy'  => __('Our catalog is shaped around real homes, busy kitchens, shared living rooms, restful bedrooms and outdoor spaces made for gathering.', 'dawp'),
+        'title' => __('Modern collecting', 'dawp'),
+        'copy'  => __('Our catalog is shaped for enthusiasts, first-time luxury buyers and gift clients who want clear guidance without noise.', 'dawp'),
     ],
     [
         'title' => __('Quality without the noise', 'dawp'),
-        'copy'  => __('MegaMallDepot avoids cluttered marketplace browsing and focuses on curated home essentials with clear, helpful product presentation.', 'dawp'),
+        'copy'  => __('luxurytheme.com avoids cluttered marketplace browsing and focuses on curated watches with clear reference details and calm presentation.', 'dawp'),
     ],
 ];
 
 $values = [
-    __('Warm editorial inspiration', 'dawp'),
-    __('Furniture, decor and daily essentials', 'dawp'),
-    __('Transparent shipping and returns', 'dawp'),
-    __('Helpful support after purchase', 'dawp'),
+    __('Editorial watch storytelling', 'dawp'),
+    __('Mechanical references and limited editions', 'dawp'),
+    __('Insured shipping and clear returns', 'dawp'),
+    __('Concierge support after purchase', 'dawp'),
 ];
 
 $trust_items = [
     [__('Secure Checkout', 'dawp'), __('Encrypted checkout helps protect your payment details from cart to confirmation.', 'dawp')],
-    [__('Fast Shipping', 'dawp'), __('Orders are handled in 1-2 business days, with estimated delivery usually in 4-7 business days.', 'dawp')],
+    [__('Insured Shipping', 'dawp'), __('Orders are handled in 1-2 business days, with estimated delivery usually in 4-7 business days.', 'dawp')],
     [__('Easy Returns', 'dawp'), __('Eligible unused items can be returned within 30 days after delivery.', 'dawp')],
     [__('Order Tracking', 'dawp'), __('Tracking details are provided once your order ships so you can follow each step.', 'dawp')],
 ];
@@ -166,17 +166,17 @@ $trust_items = [
     <section class="mmd-about-hero" aria-labelledby="mmd-about-title">
         <div class="mmd-about-container mmd-about-hero__grid">
             <div class="mmd-about-hero__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('About MegaMallDepot', 'dawp'); ?></p>
-                <h1 id="mmd-about-title"><?php esc_html_e('A modern home destination for beautiful everyday living.', 'dawp'); ?></h1>
-                <p class="mmd-about-hero__copy"><?php esc_html_e('MegaMallDepot helps American families create warm, comfortable spaces through thoughtfully selected furniture, decor, kitchen, bedding, bath, storage and outdoor essentials.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('About luxurytheme.com', 'dawp'); ?></p>
+                <h1 id="mmd-about-title"><?php esc_html_e('A modern boutique for refined mechanical timepieces.', 'dawp'); ?></h1>
+                <p class="mmd-about-hero__copy"><?php esc_html_e('luxurytheme.com presents luxury watches through restrained design, clear reference information and personal support for confident ownership.', 'dawp'); ?></p>
                 <div class="mmd-about-hero__actions">
                     <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
                     <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
                 </div>
             </div>
             <div class="mmd-about-hero__media">
-                <?php echo $mmd_about_img('Living_Room.jpeg', __('Bright living room styled with refined furniture and decor', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: home should feel considered, calm and ready for real life.', 'dawp'); ?></div>
+                <?php echo $mmd_about_img('Modern_living_room_smart_electro…_202607161235.jpeg', __('Refined interior setting for a luxury watch consultation', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
+                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: every watch should feel considered, precise and personal.', 'dawp'); ?></div>
             </div>
         </div>
     </section>
@@ -184,14 +184,14 @@ $trust_items = [
     <section class="mmd-about-section" aria-labelledby="mmd-about-story-title">
         <div class="mmd-about-container mmd-about-story">
             <div class="mmd-about-story__media">
-                <?php echo $mmd_about_img('Dining.jpeg', __('Elegant dining room with natural light', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
-                <?php echo $mmd_about_img('Home_essentials_on_shelf_202607171221.jpeg', __('Curated home essentials arranged on a shelf', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
+                <?php echo $mmd_about_img('Stainless_steel_kitchen_range_counter_202607161438.jpeg', __('Polished materials and precise finishing details', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
+                <?php echo $mmd_about_img('Minimalist_home_office_desk_setup_202607241524.jpeg', __('Minimal desk setting for a watch collector', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
             </div>
             <div class="mmd-about-story__content">
                 <p class="mmd-about-eyebrow"><?php esc_html_e('Our Story', 'dawp'); ?></p>
-                <h2 id="mmd-about-story-title"><?php esc_html_e('Curated for rooms that feel lived in, polished and personal.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('We built MegaMallDepot for shoppers who want a clearer, more inspiring way to find home products. Instead of overwhelming customers with unrelated items, we focus on the pieces that support everyday rituals: cooking, hosting, resting, organizing and relaxing outside.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Every collection is guided by usefulness, inviting materials and timeless styling, so it is easier to refresh a room without losing the warmth of home.', 'dawp'); ?></p>
+                <h2 id="mmd-about-story-title"><?php esc_html_e('Curated for collectors who value proportion, craft and restraint.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('We built luxurytheme.com for shoppers who want a clearer, more inspiring way to discover fine timepieces. Instead of overwhelming customers with unrelated products, we focus on watches with balanced design, meaningful specifications and long-term wearability.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Every collection is guided by materials, movement quality, case finishing and timeless styling, so choosing a watch feels calm rather than complicated.', 'dawp'); ?></p>
                 <div class="mmd-about-values">
                     <?php foreach ($values as $value) : ?>
                         <span><?php echo esc_html($value); ?></span>
@@ -208,7 +208,7 @@ $trust_items = [
                 <div>
                     <p class="mmd-about-eyebrow"><?php esc_html_e('What Guides Us', 'dawp'); ?></p>
                     <h2 id="mmd-about-principles-title"><?php esc_html_e('A refined shopping experience, from inspiration to checkout.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Our store is designed to feel organized, warm and helpful, closer to browsing a home magazine than searching through a crowded marketplace.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Our store is designed to feel organized, refined and helpful, closer to a private watch salon than a crowded marketplace.', 'dawp'); ?></p>
                 </div>
             </div>
             <div class="mmd-about-principles">
@@ -225,13 +225,13 @@ $trust_items = [
     <section class="mmd-about-section" aria-labelledby="mmd-about-curation-title">
         <div class="mmd-about-container mmd-about-feature">
             <div class="mmd-about-feature__media">
-                <?php echo $mmd_about_img('Kitchen_essentials_tools_cookware_202607171159.jpeg', __('Kitchen tools and cookware arranged for daily cooking', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
+                <?php echo $mmd_about_img('Stainless_steel_kitchen_range_co…_202607161438.jpeg', __('Precise polished metal detail evoking watch case finishing', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
             </div>
             <div class="mmd-about-feature__content">
                 <p class="mmd-about-eyebrow"><?php esc_html_e('Our Curation', 'dawp'); ?></p>
-                <h2 id="mmd-about-curation-title"><?php esc_html_e('Home essentials chosen for beauty, comfort and daily function.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('From kitchen and dining to furniture, decor, bedding, bath, storage and outdoor living, each category is shaped around how people actually use their homes. Product pages emphasize lifestyle benefits, materials, care and practical details so customers can shop with confidence.', 'dawp'); ?></p>
-                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse The Shop', 'dawp'); ?></a>
+                <h2 id="mmd-about-curation-title"><?php esc_html_e('Fine watches chosen for design, movement and daily presence.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('From classic dress watches to sport references, heritage silhouettes and limited editions, each category is shaped around how collectors actually choose and wear timepieces. Product pages emphasize reference details, materials, movement notes, sizing and ownership support.', 'dawp'); ?></p>
+                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse Watches', 'dawp'); ?></a>
             </div>
         </div>
     </section>
@@ -240,7 +240,7 @@ $trust_items = [
         <div class="mmd-about-container">
             <div class="mmd-about-section__head">
                 <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Reliable Shopping', 'dawp'); ?></p>
+                    <p class="mmd-about-eyebrow"><?php esc_html_e('Ownership Confidence', 'dawp'); ?></p>
                     <h2 id="mmd-about-trust-title"><?php esc_html_e('Trust built into each step of the experience.', 'dawp'); ?></h2>
                 </div>
             </div>
@@ -272,7 +272,7 @@ $trust_items = [
                 </a>
                 <a class="mmd-about-policy-card" href="<?php echo esc_url($returns_url); ?>">
                     <h3><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Learn how eligible unused items can be returned within 30 days after delivery.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Learn how eligible unworn watches can be returned within 30 days after delivery.', 'dawp'); ?></p>
                 </a>
                 <a class="mmd-about-policy-card" href="<?php echo esc_url(home_url('/track-order/')); ?>">
                     <h3><?php esc_html_e('Track Order', 'dawp'); ?></h3>
@@ -287,14 +287,14 @@ $trust_items = [
             <div class="mmd-about-section__head">
                 <div>
                     <p class="mmd-about-eyebrow"><?php esc_html_e('Our World', 'dawp'); ?></p>
-                    <h2 id="mmd-about-gallery-title"><?php esc_html_e('Spaces that inspire the way we curate.', 'dawp'); ?></h2>
+                    <h2 id="mmd-about-gallery-title"><?php esc_html_e('Materials, precision and atmosphere guide the way we curate.', 'dawp'); ?></h2>
                 </div>
             </div>
             <div class="mmd-about-gallery">
-                <?php echo $mmd_about_img('Bedroom.jpeg', __('Layered bedroom with soft textiles', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Outdoor.jpeg', __('Outdoor living space for relaxed entertaining', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Elegant_Dining_Evenings.jpeg', __('Elegant dining table prepared for evening hosting', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('Fresh_Utility_Spaces.jpeg', __('Fresh utility space with organized home essentials', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('Minimalist_home_office_desk_setup_202607241524.jpeg', __('Minimal collector desk with refined materials', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('Stainless_steel_kitchen_range_counter_202607161438.jpeg', __('Brushed metal surface detail', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('Modern_living_room_smart_electro…_202607161235.jpeg', __('Quiet modern interior for luxury consultation', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
+                <?php echo $mmd_about_img('Customer_support_scene_in_office_202607161445.jpeg', __('Concierge desk for watch ownership support', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
             </div>
         </div>
     </section>
@@ -302,9 +302,9 @@ $trust_items = [
     <section class="mmd-about-cta" aria-labelledby="mmd-about-cta-title">
         <div class="mmd-about-container mmd-about-cta__inner">
             <div>
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></p>
-                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find thoughtful pieces for the rooms you use every day.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover furniture, decor and essentials selected to make modern American living feel more comfortable, organized and beautiful.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('Begin With The Right Reference', 'dawp'); ?></p>
+                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find a watch that feels precise, personal and enduring.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Discover classic, sport, heritage and limited timepieces selected for modern collectors and confident first-time buyers.', 'dawp'); ?></p>
             </div>
             <div class="mmd-about-cta__actions">
                 <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
@@ -313,3 +313,5 @@ $trust_items = [
         </div>
     </section>
 </div>
+
+

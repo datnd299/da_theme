@@ -11,8 +11,8 @@ if (!defined('ABSPATH')) {
 
 $theme_uri      = get_template_directory_uri();
 $theme_dir      = get_template_directory();
-$store_name     = 'MegaMallDepot';
-$support_email  = 'support@megamalldepot.com';
+$store_name     = 'luxurytheme.com';
+$support_email  = 'concierge@luxurytheme.com';
 $support_phone  = '757-804-6538';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
@@ -219,16 +219,16 @@ $contact_faqs = [
     <section class="mmd-contact-hero" aria-labelledby="mmd-contact-title">
         <div class="mmd-contact-container mmd-contact-hero__grid">
             <div class="mmd-contact-hero__content">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact MegaMallDepot', 'dawp'); ?></p>
-                <h1 id="mmd-contact-title"><?php esc_html_e('Helpful support for a calmer home shopping experience.', 'dawp'); ?></h1>
-                <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about an order, delivery, product details or a return? Our customer care team is here to help you shop with confidence from inspiration to arrival.', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact luxurytheme.com', 'dawp'); ?></p>
+                <h1 id="mmd-contact-title"><?php esc_html_e('Concierge support for confident watch ownership.', 'dawp'); ?></h1>
+                <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about a reference, sizing, delivery, authentication or a return? Our customer care team is here to help from discovery to ownership.', 'dawp'); ?></p>
                 <div class="mmd-contact-hero__actions">
                     <a class="mmd-contact-btn mmd-contact-btn--primary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
                     <a class="mmd-contact-btn mmd-contact-btn--secondary" href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
                 </div>
             </div>
             <div class="mmd-contact-hero__media">
-                <?php echo $mmd_contact_img('Customer_support_scene_in_office_202607161445.jpeg', __('Customer support desk for home shopping assistance', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
+                <?php echo $mmd_contact_img('Customer_support_scene_in_office_202607161445.jpeg', __('Concierge desk for luxury watch assistance', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
                 <div class="mmd-contact-hero__note"><?php esc_html_e('For the fastest help, include your order number and the email used at checkout.', 'dawp'); ?></div>
             </div>
         </div>
@@ -405,14 +405,16 @@ $contact_faqs = [
     <section class="mmd-contact-cta" aria-labelledby="mmd-contact-cta-title">
         <div class="mmd-contact-container mmd-contact-cta__inner">
             <div>
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></p>
-                <h2 id="mmd-contact-cta-title"><?php esc_html_e('Still browsing? Explore thoughtful pieces for every room.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover furniture, decor, kitchen, bedding, bath, storage and outdoor essentials selected for modern American living.', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Private Guidance', 'dawp'); ?></p>
+                <h2 id="mmd-contact-cta-title"><?php esc_html_e('Still browsing? Explore references selected for lasting wear.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Discover classic, sport, heritage and limited watches selected for proportion, movement quality and quiet presence.', 'dawp'); ?></p>
             </div>
             <div class="mmd-contact-cta__actions">
-                <a class="mmd-contact-btn mmd-contact-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
+                <a class="mmd-contact-btn mmd-contact-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
                 <a class="mmd-contact-btn mmd-contact-btn--secondary" href="<?php echo esc_url($faq_url); ?>"><?php esc_html_e('View FAQs', 'dawp'); ?></a>
             </div>
         </div>
     </section>
 </div>
+
+

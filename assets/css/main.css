@@ -75,6 +75,68 @@
 }
 
 /* =============================================================
+   luxurytheme.com Quiet Luxury Overrides
+   ============================================================= */
+
+:root {
+  --color-background: #FFFFFF;
+  --color-surface: #F7F5F0;
+  --color-surface-alt: #FBFAF7;
+  --color-foreground: #1A1A1A;
+  --color-foreground-muted: #555555;
+  --color-muted: #858585;
+  --color-accent: #B89B5E;
+  --color-accent-hover: #0B0B0B;
+  --color-accent-soft: #F7F5F0;
+  --color-accent-blush: #D1BD8A;
+  --color-border: #E5E2DC;
+  --color-alert: #8A332B;
+  --color-success: #B89B5E;
+  --font-sans: Inter, 'Avenir Next', Avenir, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --shadow-card: none;
+  --shadow-card-hover: none;
+}
+
+body,
+#content {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+  border-radius: 2px;
+  border-left-color: var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-foreground-muted);
+}
+
+.woocommerce-message .button,
+.woocommerce-error .button,
+.woocommerce-info .button {
+  border: 1px solid #0B0B0B;
+  border-radius: 2px;
+  background: #0B0B0B;
+  color: #FFFFFF;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.woocommerce-message .button:hover,
+.woocommerce-error .button:hover,
+.woocommerce-info .button:hover {
+  background: transparent;
+  color: #0B0B0B;
+}
+
+/* =============================================================
    BASE
    ============================================================= */
 
@@ -790,4 +852,215 @@ body.woocommerce-account {
   .woocommerce-account .woocommerce table.shop_table td:last-child {
     border-bottom: 0;
   }
+}
+
+/* Final global luxury overrides: keep non-Woo pages aligned with the homepage. */
+:root {
+  --color-background: #FFFFFF;
+  --color-surface: #F7F5F0;
+  --color-surface-alt: #FBFAF7;
+  --color-foreground: #1A1A1A;
+  --color-foreground-muted: #555555;
+  --color-muted: #858585;
+  --color-accent: #B89B5E;
+  --color-accent-hover: #0B0B0B;
+  --color-accent-soft: #F7F5F0;
+  --color-border: #E5E2DC;
+  --font-sans: Inter, 'Avenir Next', Avenir, Arial, sans-serif;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+}
+
+#content,
+.site-content {
+  background: #FFFFFF;
+  color: #1A1A1A;
+}
+
+#contact-form-1 label,
+.woocommerce-account .woocommerce form .form-row label,
+.woocommerce-account .woocommerce table.shop_table th {
+  color: #1A1A1A;
+}
+
+#contact-form-1 input[type="text"],
+#contact-form-1 input[type="email"],
+#contact-form-1 textarea,
+.woocommerce-account .woocommerce input.input-text,
+.woocommerce-account .woocommerce textarea,
+.woocommerce-account .woocommerce select,
+.woocommerce-account .woocommerce-MyAccount-navigation ul,
+.woocommerce-account .woocommerce-MyAccount-content,
+.woocommerce-account .woocommerce table.shop_table,
+.woocommerce-account .woocommerce .woocommerce-Address,
+.woocommerce-account:not(.logged-in) .site-content .woocommerce {
+  border-color: #E5E2DC;
+  border-radius: 2px;
+  background: #FFFFFF;
+  box-shadow: none;
+}
+
+#contact-form-1 input[type="text"]:focus,
+#contact-form-1 input[type="email"]:focus,
+#contact-form-1 textarea:focus,
+.woocommerce-account .woocommerce input.input-text:focus,
+.woocommerce-account .woocommerce textarea:focus,
+.woocommerce-account .woocommerce select:focus {
+  border-color: #B89B5E;
+  box-shadow: 0 0 0 3px rgba(184, 155, 94, 0.22);
+}
+
+#contact-form-1 input[type="submit"],
+.woocommerce-account .woocommerce .button,
+.woocommerce-account .woocommerce button.button,
+.woocommerce-account .woocommerce a.button {
+  border: 1px solid #0B0B0B;
+  border-radius: 2px;
+  background: #0B0B0B;
+  color: #FFFFFF;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+#contact-form-1 input[type="submit"]:hover,
+.woocommerce-account .woocommerce .button:hover,
+.woocommerce-account .woocommerce button.button:hover,
+.woocommerce-account .woocommerce a.button:hover {
+  background: transparent;
+  color: #0B0B0B;
+}
+
+.woocommerce-account {
+  --account-primary: #B89B5E;
+  --account-primary-hover: #0B0B0B;
+  --account-cta: #0B0B0B;
+  --account-cta-hover: #B89B5E;
+  --account-soft: #F7F5F0;
+  --account-warm: #F1EFE9;
+  --account-background: #FFFFFF;
+  --account-surface: #FFFFFF;
+  --account-text: #0B0B0B;
+  --account-muted: #555555;
+  --account-border: #E5E2DC;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content h2,
+.woocommerce-account .woocommerce-MyAccount-content h3,
+.woocommerce-account .woocommerce-Address-title h3,
+.woocommerce-account .woocommerce-order-details__title,
+.woocommerce-account .woocommerce-column__title,
+.woocommerce-account:not(.logged-in) .woocommerce h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/* Policy, FAQ, and legal content pages */
+.lux-policy {
+  --lux-policy-black: #0B0B0B;
+  --lux-policy-charcoal: #1A1A1A;
+  --lux-policy-ivory: #F7F5F0;
+  --lux-policy-white: #FFFFFF;
+  --lux-policy-gold: #B89B5E;
+  --lux-policy-gold-light: #D1BD8A;
+  --lux-policy-gray: #555555;
+  --lux-policy-line: #E5E2DC;
+  background: var(--lux-policy-white);
+  color: var(--lux-policy-charcoal);
+  font-family: Inter, 'Avenir Next', Arial, sans-serif;
+}
+
+.lux-policy .bg-\[\#F8F5F0\],
+.lux-policy .bg-\[\#F5F6F8\],
+.lux-policy .bg-\[\#EEF5FF\] {
+  background-color: var(--lux-policy-ivory);
+}
+
+.lux-policy .bg-\[\#A45A3F\],
+.lux-policy .bg-\[\#0046BE\],
+.lux-policy .bg-\[\#FFE000\],
+.lux-policy .bg-\[\#2B2B2B\] {
+  background-color: var(--lux-policy-black);
+}
+
+.lux-policy .text-\[\#A45A3F\],
+.lux-policy .text-\[\#0046BE\],
+.lux-policy .text-\[\#7F422F\] {
+  color: var(--lux-policy-gold);
+}
+
+.lux-policy .text-\[\#2B2B2B\],
+.lux-policy .text-\[\#1F2937\],
+.lux-policy .text-\[\#111827\],
+.lux-policy .text-\[\#050505\] {
+  color: var(--lux-policy-black);
+}
+
+.lux-policy .text-\[\#4A4A4A\],
+.lux-policy .text-\[\#4B5563\],
+.lux-policy .text-\[\#6B7280\],
+.lux-policy .text-\[\#554E49\] {
+  color: var(--lux-policy-gray);
+}
+
+.lux-policy .border-\[\#A45A3F\],
+.lux-policy .border-\[\#D8C7BE\],
+.lux-policy .border-\[\#D0B8AE\],
+.lux-policy .border-\[\#E8E5DF\],
+.lux-policy .border-\[\#E5E7EB\] {
+  border-color: var(--lux-policy-line);
+}
+
+.lux-policy .decoration-\[\#A45A3F\]\/40 {
+  text-decoration-color: rgba(184, 155, 94, 0.45);
+}
+
+.lux-policy .font-heading,
+.lux-policy h1,
+.lux-policy h2,
+.lux-policy h3,
+.lux-policy summary {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.lux-policy .rounded-md,
+.lux-policy .rounded-full,
+.lux-policy [class*="rounded"] {
+  border-radius: 2px;
+}
+
+.lux-policy .shadow,
+.lux-policy .shadow-sm,
+.lux-policy .shadow-lg,
+.lux-policy .shadow-xl {
+  box-shadow: none;
+}
+
+.lux-policy a[class*="bg-"],
+.lux-policy button[class*="bg-"] {
+  border: 1px solid var(--lux-policy-black);
+  background: var(--lux-policy-black);
+  color: var(--lux-policy-white);
+}
+
+.lux-policy a[class*="bg-"]:hover,
+.lux-policy button[class*="bg-"]:hover {
+  background: transparent;
+  color: var(--lux-policy-black);
+}
+
+.lux-policy a[class*="border"] {
+  border-color: var(--lux-policy-black);
+}
+
+.mmd-about,
+.mmd-contact {
+  --mmd-ink: #0B0B0B;
+  --mmd-text: #555555;
+  --mmd-ivory: #F7F5F0;
+  --mmd-line: #E5E2DC;
+  --mmd-accent: #B89B5E;
+  --mmd-accent-dark: #0B0B0B;
 }

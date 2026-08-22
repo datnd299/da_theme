@@ -1,6 +1,6 @@
 <?php
 /**
- * Premium home page template part.
+ * Luxury watch homepage.
  *
  * @package dawp
  */
@@ -9,458 +9,478 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$theme_uri = get_template_directory_uri();
-$theme_dir = get_template_directory();
-$shop_url  = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$mmd_asset = static function ($file) use ($theme_uri, $theme_dir) {
-    $relative = 'assets/img/gallery/' . $file;
-    $path     = $theme_dir . '/' . $relative;
+$collection_url = home_url('/collections/');
+$discover_url   = home_url('/discover/');
+$services_url   = home_url('/services/');
+$contact_url    = home_url('/contact-us/');
 
-    if (!file_exists($path)) {
-        $relative = 'assets/img/home/' . $file;
-        $path     = $theme_dir . '/' . $relative;
-    }
-
-    $url = $theme_uri . '/' . $relative;
-
-    if (file_exists($path)) {
-        return add_query_arg('ver', filemtime($path), $url);
-    }
-
-    return $url;
+$remote_image = static function ($url) {
+    return esc_url($url . (false !== strpos($url, '?') ? '&' : '?') . 'auto=format&fit=crop&w=1600&q=82');
 };
 
-$mmd_cat_url = static function ($slug) {
-    return function_exists('dawp_product_category_url')
-        ? dawp_product_category_url($slug)
-        : home_url('/product-category/' . trim($slug, '/') . '/');
+$image_tag = static function ($src, $alt, $class = '', $loading = 'lazy', $sizes = '100vw') {
+    return '<img src="' . esc_url($src) . '" alt="' . esc_attr($alt) . '" class="' . esc_attr($class) . '" loading="' . esc_attr($loading) . '" decoding="async" sizes="' . esc_attr($sizes) . '">';
 };
 
-$mmd_img = static function ($file, $alt, $class = '', $width = 900, $height = 700, $loading = 'lazy', $sizes = '') use ($mmd_asset) {
-    $url = $mmd_asset($file);
-
-    if (function_exists('dawp_get_responsive_image')) {
-        return dawp_get_responsive_image($url, $alt, $class, $width, $height, $loading, $sizes);
-    }
-
-    return sprintf(
-        '<img src="%s" alt="%s" class="%s" width="%d" height="%d" loading="%s" decoding="async">',
-        esc_url($url),
-        esc_attr($alt),
-        esc_attr($class),
-        (int) $width,
-        (int) $height,
-        esc_attr($loading)
-    );
-};
-
-$mmd_category_media = static function ($card) use ($mmd_img) {
-    if (!empty($card['image'])) {
-        echo $mmd_img($card['image'], $card['title'], '', 560, 420, 'lazy', '(max-width: 699px) 82vw, (max-width: 899px) 33vw, 25vw');
-        return;
-    }
-
-    printf(
-        '<span class="mmd-room-card__missing-image">%s<br><strong>%s</strong></span>',
-        esc_html__('Add image in assets/img/gallery/', 'dawp'),
-        esc_html($card['image_hint'])
-    );
-};
-
-$mmd_product_card = static function ($product_id) {
-    if (!function_exists('wc_get_product')) {
-        return;
-    }
-
-    $product = wc_get_product($product_id);
-    if (!$product || !$product->is_visible()) {
-        return;
-    }
-
-    $terms      = get_the_terms($product_id, 'product_cat');
-    $collection = __('Home Collection', 'dawp');
-    if (!is_wp_error($terms) && !empty($terms)) {
-        $collection = $terms[0]->name;
-    }
-
-    $rating = (float) $product->get_average_rating();
-    $count  = (int) $product->get_rating_count();
-    ?>
-    <article class="mmd-product-card">
-        <a class="mmd-product-card__media" href="<?php echo esc_url(get_permalink($product_id)); ?>">
-            <?php
-            echo function_exists('dawp_get_product_responsive_image')
-                ? dawp_get_product_responsive_image($product, 'mmd-product-card__img', 420, 420, '(max-width: 699px) 82vw, (max-width: 899px) 50vw, 25vw')
-                : $product->get_image('woocommerce_single', ['class' => 'mmd-product-card__img', 'loading' => 'lazy']);
-            ?>
-            <span><?php esc_html_e('Quick View', 'dawp'); ?></span>
-        </a>
-        <div class="mmd-product-card__body">
-            <p><?php echo esc_html($collection); ?></p>
-            <h3><a href="<?php echo esc_url(get_permalink($product_id)); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
-            <div class="mmd-product-card__rating" aria-label="<?php echo esc_attr(sprintf(__('Rated %s out of 5', 'dawp'), $rating ?: '4.8')); ?>">
-                <span aria-hidden="true"><?php echo esc_html($rating ? str_repeat('*', max(1, min(5, (int) round($rating)))) : '*****'); ?></span>
-                <em><?php echo esc_html($count ? sprintf(_n('%d review', '%d reviews', $count, 'dawp'), $count) : __('Customer favorite', 'dawp')); ?></em>
-            </div>
-            <div class="mmd-product-card__price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
-            <a class="mmd-product-card__add" href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-quantity="1" data-product_id="<?php echo esc_attr($product_id); ?>" rel="nofollow">
-                <?php esc_html_e('Add to Cart', 'dawp'); ?>
-            </a>
-        </div>
-    </article>
-    <?php
-};
-
-$room_cards = [
-    ['title' => __('Home', 'dawp'), 'copy' => __('Home essentials, furniture, kitchen favorites and practical everyday pieces.', 'dawp'), 'image' => 'Living_room_furniture_set_neutra…_202607161252.jpeg', 'image_hint' => 'home.jpeg', 'slug' => 'home'],
-    ['title' => __('Garden & Tools', 'dawp'), 'copy' => __('Garden, patio and useful tools for home projects and outdoor care.', 'dawp'), 'image' => 'Garden_lounge_area_with_hanging_202607161300.jpeg', 'image_hint' => 'garden-tools.jpeg', 'slug' => 'garden-tools'],
-    ['title' => __('Electronics', 'dawp'), 'copy' => __('Entertainment, connected tech and useful electronic essentials.', 'dawp'), 'image' => 'Modern_living_room_smart_electro…_202607161235.jpeg', 'image_hint' => 'electronics.jpeg', 'slug' => 'electronics'],
-    ['title' => __('Sports & Outdoors', 'dawp'), 'copy' => __('Fitness, recreation and outdoor activity gear for active days.', 'dawp'), 'image' => 'Home_gym_setup_cork_mat_202607241524.jpeg', 'image_hint' => 'sports-outdoors.jpeg', 'slug' => 'sports-outdoors'],
-    ['title' => __('Toys & Outdoor Play', 'dawp'), 'copy' => __('Toys, games and outdoor play favorites for kids and family time.', 'dawp'), 'image' => 'Children_playing_tumble_tower_game_202607241524.jpeg', 'image_hint' => 'toys-outdoor-play.jpeg', 'slug' => 'toys-outdoor-play'],
-    ['title' => __('Beauty & Personal Care', 'dawp'), 'copy' => __('Beauty, grooming, wellness and personal care products for daily routines.', 'dawp'), 'image' => 'Skincare_bottles_on_marble_vanity_202607241524.jpeg', 'image_hint' => 'beauty-personal-care.jpeg', 'slug' => 'beauty-personal-care'],
-    ['title' => __('Pets', 'dawp'), 'copy' => __('Pet care, comfort, toys and everyday supplies for home companions.', 'dawp'), 'image' => 'Pet_bed_with_cat_202607241524.jpeg', 'image_hint' => 'pets.jpeg', 'slug' => 'pets'],
-    ['title' => __('School, Office & Art Supplies', 'dawp'), 'copy' => __('School supplies, office essentials, stationery and art materials.', 'dawp'), 'image' => 'Minimalist_home_office_desk_setup_202607241524.jpeg', 'image_hint' => 'school-office-art-supplies.jpeg', 'slug' => 'school-office-art-supplies'],
+$craft_notes = [
+    [
+        'title' => __('Caliber', 'dawp'),
+        'copy' => __('Automatic movements regulated for dependable daily accuracy and tactile winding.', 'dawp'),
+        'image' => $remote_image('https://images.unsplash.com/photo-1619946794135-5bc917a27793'),
+        'alt' => __('Macro detail of a luxury watch movement and caliber', 'dawp'),
+        'position' => '50% 58%',
+    ],
+    [
+        'title' => __('Casework', 'dawp'),
+        'copy' => __('Alternating polished and brushed planes create quiet contrast around the wrist.', 'dawp'),
+        'image' => $remote_image('https://images.unsplash.com/photo-1614164185128-e4ec99c436d7'),
+        'alt' => __('Polished luxury watch case and bracelet detail', 'dawp'),
+        'position' => '50% 54%',
+    ],
+    [
+        'title' => __('Dial', 'dawp'),
+        'copy' => __('Layered indexes, balanced negative space and sapphire clarity keep time legible.', 'dawp'),
+        'image' => $remote_image('https://images.unsplash.com/photo-1617043983671-adaadcaa2460'),
+        'alt' => __('Close view of a refined luxury watch dial', 'dawp'),
+        'position' => '50% 56%',
+    ],
 ];
+
+$fallback_products = [
+    [
+        'name' => __('Aurum Chronograph 41', 'dawp'),
+        'collection' => __('Heritage Collection', 'dawp'),
+        'price' => '$8,900',
+        'status' => __('New', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1523170335258-f5ed11844a49'),
+    ],
+    [
+        'name' => __('Nocturne Moonphase 39', 'dawp'),
+        'collection' => __('Classic Collection', 'dawp'),
+        'price' => '$11,400',
+        'status' => __('Limited', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1548171915-e79a380a2a4b'),
+    ],
+    [
+        'name' => __('Atlas Automatic 40', 'dawp'),
+        'collection' => __('Sport Collection', 'dawp'),
+        'price' => '$6,750',
+        'status' => __('In stock', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1612817159949-195b6eb9e31a'),
+    ],
+    [
+        'name' => __('Maison Reserve 38', 'dawp'),
+        'collection' => __('Signature Collection', 'dawp'),
+        'price' => '$14,200',
+        'status' => __('Exclusive', 'dawp'),
+        'url' => $shop_url,
+        'image' => $remote_image('https://images.unsplash.com/photo-1533139502658-0198f920d8e8'),
+    ],
+];
+
+$products = [];
+$default_product_image = $remote_image('https://images.unsplash.com/photo-1523170335258-f5ed11844a49');
+if (function_exists('wc_get_products')) {
+    $wc_products = wc_get_products([
+        'status' => 'publish',
+        'limit' => 4,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    ]);
+
+    foreach ($wc_products as $product) {
+        if (!$product) {
+            continue;
+        }
+
+        $image_id = $product->get_image_id();
+        $terms = get_the_terms($product->get_id(), 'product_cat');
+        $products[] = [
+            'name' => $product->get_name(),
+            'collection' => (!empty($terms) && !is_wp_error($terms)) ? $terms[0]->name : __('Luxury Timepiece', 'dawp'),
+            'price' => $product->get_price_html(),
+            'status' => $product->is_in_stock() ? __('Available', 'dawp') : __('Inquiry', 'dawp'),
+            'url' => get_permalink($product->get_id()),
+            'image' => $image_id ? wp_get_attachment_image_url($image_id, 'large') : $default_product_image,
+        ];
+    }
+}
+
+if (empty($products)) {
+    $products = $fallback_products;
+}
 
 $collections = [
-    ['title' => __('Kitchen Essentials', 'dawp'), 'copy' => __('Tools and cookware selected for weeknight rhythm and weekend hosting.', 'dawp'), 'image' => 'Kitchen_essentials_tools_cookware_202607171159.jpeg', 'slug' => 'home'],
-    ['title' => __('Modern Furniture', 'dawp'), 'copy' => __('Clean-lined pieces that anchor the room without overwhelming it.', 'dawp'), 'image' => 'Modern_furniture_clean-lined_pieces_202607171201.jpeg', 'slug' => 'home'],
-    ['title' => __('Outdoor Living', 'dawp'), 'copy' => __('Relaxed materials and garden-ready details for fresh-air entertaining.', 'dawp'), 'image' => 'Outdoor_living_fresh_air_enterta…_202607171203.jpeg', 'slug' => 'garden-tools'],
+    [
+        'name' => __('Classic', 'dawp'),
+        'copy' => __('Slim profiles, restrained dials and enduring proportions for formal and everyday wear.', 'dawp'),
+        'image' => $remote_image('https://images.unsplash.com/photo-1594534475808-b18fc33b045e'),
+    ],
+    [
+        'name' => __('Sport', 'dawp'),
+        'copy' => __('Robust automatic watches shaped for travel, water, movement and modern pace.', 'dawp'),
+        'image' => $remote_image('https://images.unsplash.com/photo-1508057198894-247b23fe5ade'),
+    ],
+    [
+        'name' => __('Heritage', 'dawp'),
+        'copy' => __('Vintage codes refined with contemporary finishing, sapphire clarity and precise calibers.', 'dawp'),
+        'image' => $remote_image('https://images.unsplash.com/photo-1509048191080-d2984bad6ae5'),
+    ],
 ];
-
-$seasonal = [
-    ['title' => __('Summer Patio Edit', 'dawp'), 'image' => 'Summer_Patio_Edit.jpeg'],
-    ['title' => __('Cozy Bedroom Layers', 'dawp'), 'image' => 'Cozy_Bedroom_Layers.jpeg'],
-    ['title' => __('Elegant Dining Evenings', 'dawp'), 'image' => 'Elegant_Dining_Evenings.jpeg'],
-    ['title' => __('Fresh Utility Spaces', 'dawp'), 'image' => 'Fresh_Utility_Spaces.jpeg'],
-];
-
-$best_sellers = [];
-$new_arrivals = [];
-
-if (function_exists('wc_get_products')) {
-    $best_sellers = wc_get_products([
-        'status'   => 'publish',
-        'limit'    => 8,
-        'orderby'  => 'popularity',
-        'return'   => 'ids',
-        'featured' => false,
-    ]);
-
-    $new_arrivals = wc_get_products([
-        'status'  => 'publish',
-        'limit'   => 8,
-        'orderby' => 'date',
-        'order'   => 'DESC',
-        'return'  => 'ids',
-    ]);
-}
 ?>
 
 <style>
-    .mmd-home { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
-    .mmd-home * { box-sizing:border-box; }
-    .mmd-container { width:min(100% - 32px, 1280px); margin-inline:auto; }
-    .mmd-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .mmd-home h1, .mmd-home h2, .mmd-home h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
-    .mmd-home p { margin:0; }
-    .mmd-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
-    .mmd-btn:hover { transform:translateY(-1px); }
-    .mmd-btn--primary { background:var(--mmd-ink); color:#fff; }
-    .mmd-btn--primary:hover { background:var(--mmd-accent); border-color:var(--mmd-accent); color:#fff; }
-    .mmd-btn--secondary { background:transparent; color:var(--mmd-ink); }
-    .mmd-btn--secondary:hover { background:var(--mmd-ink); color:#fff; }
-    .mmd-hero { background:var(--mmd-ivory); border-bottom:1px solid var(--mmd-line); }
-    .mmd-hero__grid { display:grid; gap:28px; min-height:580px; padding:42px 0; }
-    .mmd-hero__content { display:flex; flex-direction:column; justify-content:center; max-width:610px; }
-    .mmd-hero h1 { font-size:clamp(2.35rem, 5.2vw, 4.35rem); line-height:1.08; }
-    .mmd-hero__copy { max-width:560px; margin-top:18px; color:#554E49; font-size:clamp(.94rem, 1.2vw, 1.03rem); line-height:1.68; }
-    .mmd-hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
-    .mmd-hero__media { min-height:360px; overflow:hidden; position:relative; }
-    .mmd-hero__media img { width:100%; height:100%; min-height:360px; object-fit:cover; }
-    .mmd-hero__note { position:absolute; right:18px; bottom:18px; max-width:260px; background:rgba(255,255,255,.94); border:1px solid var(--mmd-line); padding:16px; color:var(--mmd-ink); font-size:.84rem; line-height:1.5; }
-    .mmd-section { padding:68px 0; }
-    .mmd-section--soft { background:var(--mmd-ivory); }
-    .mmd-section__head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
-    .mmd-section__head h2, .mmd-newsletter h2 { font-size:clamp(1.7rem, 2.8vw, 2.55rem); line-height:1.12; }
-    .mmd-section__head p:not(.mmd-eyebrow) { max-width:590px; margin-top:10px; font-size:.95rem; line-height:1.62; }
-    .mmd-text-link { color:var(--mmd-accent); font-weight:800; text-decoration:none; }
-    .mmd-text-link:hover { color:var(--mmd-accent-dark); text-decoration:underline; text-underline-offset:4px; }
-    .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-trust-grid, .mmd-gallery-grid { display:grid; gap:18px; }
-    .mmd-room-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-room-card, .mmd-collection-card, .mmd-product-card, .mmd-trust-card { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; overflow:hidden; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
-    .mmd-room-card { color:inherit; display:flex; flex-direction:column; min-height:100%; text-decoration:none; }
-    .mmd-room-card img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform .35s ease; }
-    .mmd-room-card__missing-image { aspect-ratio:4/3; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#F5F6F8; color:#6B7280; padding:18px; text-align:center; font-size:.84rem; line-height:1.45; }
-    .mmd-room-card__missing-image strong { margin-top:6px; color:var(--mmd-ink); font-size:.9rem; word-break:break-word; }
-    .mmd-room-card__body { display:flex; flex:1; flex-direction:column; padding:18px; }
-    .mmd-room-card h3 { font-size:1.28rem; line-height:1.14; }
-    .mmd-room-card p { margin-top:9px; font-size:.92rem; line-height:1.56; }
-    .mmd-room-card__cta { margin-top:auto; padding-top:16px; color:var(--mmd-accent); font-size:.76rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-    .mmd-room-card:hover, .mmd-product-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
-    .mmd-room-card:hover img, .mmd-collection-card:hover img { transform:scale(1.04); }
-    .mmd-collection-grid { display:grid; gap:18px; }
-    .mmd-collection-card { display:grid; min-height:330px; color:#fff; text-decoration:none; }
-    .mmd-collection-card img, .mmd-collection-card__content { grid-area:1/1; }
-    .mmd-collection-card img { width:100%; height:100%; object-fit:cover; transition:transform .35s ease; }
-    .mmd-collection-card:after { content:""; grid-area:1/1; background:linear-gradient(180deg, rgba(0,0,0,.03), rgba(43,43,43,.58)); z-index:1; }
-    .mmd-collection-card__content { align-self:end; display:grid; gap:8px; padding:26px; position:relative; z-index:2; }
-    .mmd-collection-card h3 { color:#fff; font-size:1.5rem; line-height:1.14; }
-    .mmd-collection-card p { max-width:430px; color:rgba(255,255,255,.9); font-size:.92rem; line-height:1.56; }
-    .mmd-story { display:grid; gap:30px; align-items:center; }
-    .mmd-story__media { display:grid; grid-template-columns:1fr .74fr; gap:14px; align-items:end; }
-    .mmd-story__media img { width:100%; object-fit:cover; }
-    .mmd-story__media img:first-child { aspect-ratio:4/5; }
-    .mmd-story__media img:last-child { aspect-ratio:4/3; margin-bottom:34px; }
-    .mmd-story__content h2 { font-size:clamp(1.75rem, 3vw, 2.65rem); line-height:1.12; }
-    .mmd-story__content p { margin-top:16px; line-height:1.68; font-size:.96rem; }
-    .mmd-story__content .mmd-btn { margin-top:28px; }
-    .mmd-product-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-product-card { display:flex; flex-direction:column; }
-    .mmd-product-card__media { display:block; position:relative; overflow:hidden; background:#F6F3EE; text-decoration:none; }
-    .mmd-product-card__img { width:100%; aspect-ratio:1; object-fit:contain; padding:18px; transition:transform .25s ease; }
-    .mmd-product-card__media span { position:absolute; inset:auto 12px 12px; display:flex; align-items:center; justify-content:center; min-height:38px; background:rgba(255,255,255,.94); color:var(--mmd-ink); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; opacity:0; transform:translateY(8px); transition:opacity .2s ease, transform .2s ease; }
-    .mmd-product-card:hover .mmd-product-card__img { transform:scale(1.035); }
-    .mmd-product-card:hover .mmd-product-card__media span { opacity:1; transform:translateY(0); }
-    .mmd-product-card__body { display:flex; flex:1; flex-direction:column; padding:16px; }
-    .mmd-product-card__body p { color:var(--mmd-accent); font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-    .mmd-product-card h3 { margin-top:7px; min-height:2.5em; font-family:Inter, Arial, sans-serif; font-size:.92rem; font-weight:700; line-height:1.34; }
-    .mmd-product-card h3 a { color:inherit; text-decoration:none; }
-    .mmd-product-card__rating { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; color:#B98235; font-size:.8rem; font-style:normal; }
-    .mmd-product-card__rating em { color:#77706A; font-style:normal; }
-    .mmd-product-card__price { margin-top:8px; color:var(--mmd-ink); font-weight:800; }
-    .mmd-product-card__add { display:flex; align-items:center; justify-content:center; min-height:42px; margin-top:auto; border:1px solid var(--mmd-ink); color:var(--mmd-ink); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-decoration:none; text-transform:uppercase; }
-    .mmd-product-card__add:hover { background:var(--mmd-ink); color:#fff; }
-    .mmd-empty-products { grid-column:1/-1; border:1px solid var(--mmd-line); background:#fff; padding:28px; text-align:center; }
-    .mmd-season-grid { grid-template-columns:1fr; }
-    .mmd-season-card { display:grid; min-height:240px; overflow:hidden; color:#fff; text-decoration:none; }
-    .mmd-season-card img, .mmd-season-card span { grid-area:1/1; }
-    .mmd-season-card img { width:100%; height:100%; object-fit:cover; }
-    .mmd-season-card:after { content:""; grid-area:1/1; background:linear-gradient(180deg, rgba(0,0,0,0), rgba(43,43,43,.55)); z-index:1; }
-    .mmd-season-card span { align-self:end; padding:20px; position:relative; z-index:2; font-family:"Cormorant Garamond", Georgia, serif; font-size:1.35rem; line-height:1.12; }
-    .mmd-trust-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-trust-card { padding:22px; }
-    .mmd-trust-card svg { width:30px; height:30px; margin-bottom:14px; color:var(--mmd-accent); fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-    .mmd-trust-card h3 { font-family:Inter, Arial, sans-serif; font-size:.92rem; font-weight:800; }
-    .mmd-trust-card p { margin-top:8px; font-size:.9rem; line-height:1.56; }
-    .mmd-gallery-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-gallery-grid img { width:100%; aspect-ratio:1; object-fit:cover; }
-    .mmd-newsletter { padding:62px 0; background:var(--mmd-ink); color:#fff; }
-    .mmd-newsletter h2 { color:#fff; }
-    .mmd-newsletter__inner { display:grid; gap:24px; align-items:center; }
-    .mmd-newsletter p:not(.mmd-eyebrow) { max-width:560px; margin-top:10px; color:rgba(255,255,255,.76); font-size:.95rem; line-height:1.62; }
-    .mmd-newsletter form { display:grid; gap:10px; width:100%; max-width:540px; }
-    .mmd-newsletter input { min-height:48px; border:1px solid rgba(255,255,255,.28); background:#fff; padding:0 14px; color:var(--mmd-ink); }
-    .mmd-newsletter button { min-height:48px; border:1px solid var(--mmd-accent); background:var(--mmd-accent); color:#fff; cursor:pointer; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
-    @media (min-width:700px) { .mmd-room-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-collection-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-season-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-gallery-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-newsletter form { grid-template-columns:1fr auto; justify-self:end; } }
-    @media (min-width:900px) { .mmd-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-story { grid-template-columns:1.06fr .94fr; } .mmd-product-grid { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-trust-grid { grid-template-columns:repeat(5, minmax(0, 1fr)); } .mmd-newsletter__inner { grid-template-columns:1fr minmax(380px, 540px); } }
-    @media (max-width:699px) { .mmd-section { padding:50px 0; } .mmd-section__head { align-items:start; flex-direction:column; } .mmd-room-grid, .mmd-product-grid, .mmd-season-grid, .mmd-trust-grid { display:flex; gap:14px; margin-inline:-16px; overflow-x:auto; padding-inline:16px; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-room-grid::-webkit-scrollbar, .mmd-product-grid::-webkit-scrollbar, .mmd-season-grid::-webkit-scrollbar, .mmd-trust-grid::-webkit-scrollbar { display:none; } .mmd-room-card, .mmd-product-card, .mmd-season-card, .mmd-trust-card { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-gallery-grid { gap:10px; } .mmd-hero__note { left:14px; right:14px; } }
+    .lux-home { --black:#0B0B0B; --charcoal:#1A1A1A; --ivory:#F7F5F0; --white:#FFFFFF; --gold:#B89B5E; --gold-light:#D1BD8A; --gray-700:#555555; --gray-500:#858585; --gray-300:#CCCCCC; --gray-200:#E5E2DC; color:var(--charcoal); background:var(--white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
+    .lux-home * { box-sizing:border-box; }
+    .lux-home img { display:block; width:100%; height:100%; object-fit:cover; }
+    .lux-wrap { width:min(100% - 40px,1280px); margin-inline:auto; }
+    .lux-label { margin:0 0 14px; color:var(--gold); font-size:12px; font-weight:700; line-height:1.3; letter-spacing:.1em; text-transform:uppercase; }
+    .lux-title { margin:0; font-family:"Cormorant Garamond", Georgia, serif; font-weight:400; letter-spacing:0; line-height:.98; color:inherit; }
+    .lux-copy { margin:22px 0 0; max-width:620px; color:var(--gray-700); font-size:17px; line-height:1.75; }
+    .lux-btn { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:0 28px; border:1px solid var(--black); border-radius:2px; background:var(--black); color:var(--white); font-size:12px; font-weight:800; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; transition:background .3s cubic-bezier(.22,1,.36,1), color .3s cubic-bezier(.22,1,.36,1), border-color .3s cubic-bezier(.22,1,.36,1), transform .3s cubic-bezier(.22,1,.36,1); }
+    .lux-btn:hover { transform:translateY(-2px); background:transparent; color:var(--black); }
+    .lux-btn--light { border-color:var(--ivory); background:var(--ivory); color:var(--black); }
+    .lux-btn--light:hover { background:transparent; color:var(--ivory); }
+    .lux-link { display:inline-flex; width:max-content; color:inherit; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:1px; }
+    .lux-section { padding:104px 0; }
+    .lux-section--ivory { background:var(--ivory); }
+    .lux-section--dark { background:var(--black); color:var(--ivory); }
+    .lux-hero { min-height:calc(100vh - 112px); display:grid; align-items:end; position:relative; isolation:isolate; overflow:hidden; color:var(--ivory); background:var(--black); }
+    .lux-hero__media { position:absolute; inset:0; z-index:-2; }
+    .lux-hero__media img { opacity:.72; transform:scale(1.03); animation:luxSlowZoom 14s cubic-bezier(.22,1,.36,1) forwards; }
+    .lux-hero:after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, rgba(11,11,11,.82) 0%, rgba(11,11,11,.42) 43%, rgba(11,11,11,.08) 100%), linear-gradient(0deg, rgba(11,11,11,.8), rgba(11,11,11,0) 48%); }
+    .lux-hero__content { padding:96px 0 76px; max-width:690px; }
+    .lux-hero h1 { font-size:clamp(46px,7vw,82px); }
+    .lux-hero .lux-copy { color:#E9E3D7; font-size:18px; }
+    .lux-hero__meta { display:flex; flex-wrap:wrap; gap:18px 34px; margin-top:34px; padding-top:26px; border-top:1px solid rgba(247,245,240,.28); color:#D8D0C2; font-size:13px; }
+    .lux-split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.88fr); gap:72px; align-items:center; }
+    .lux-split--reverse { grid-template-columns:minmax(0,.88fr) minmax(0,1fr); }
+    .lux-split--reverse .lux-split__media { order:2; }
+    .lux-split__media { aspect-ratio:4/5; overflow:hidden; background:#ddd; }
+    .lux-split__media img { transition:transform .7s cubic-bezier(.22,1,.36,1); }
+    .lux-split__media:hover img { transform:scale(1.025); }
+    .lux-split h2, .lux-section__head h2, .lux-newsletter h2 { font-size:clamp(34px,4vw,52px); }
+    .lux-section__head { display:flex; justify-content:space-between; align-items:end; gap:32px; margin-bottom:42px; }
+    .lux-section__head p { margin:12px 0 0; max-width:520px; color:var(--gray-700); line-height:1.7; }
+    .lux-products { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:28px; }
+    .lux-product { position:relative; min-width:0; color:inherit; text-decoration:none; }
+    .lux-product__image { aspect-ratio:4/5; overflow:hidden; background:#F1EFE9; }
+    .lux-product__image img { object-fit:cover; transition:transform .55s cubic-bezier(.22,1,.36,1); }
+    .lux-product:hover .lux-product__image img { transform:scale(1.035); }
+    .lux-product__status { position:absolute; top:14px; left:14px; z-index:1; padding:6px 9px; background:rgba(247,245,240,.94); color:var(--black); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .lux-product__body { padding:18px 0 0; }
+    .lux-product__body h3 { margin:0; color:var(--black); font-size:18px; font-weight:600; line-height:1.35; }
+    .lux-product__body p { margin:7px 0 0; color:var(--gray-500); font-size:14px; }
+    .lux-product__price { display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; margin-top:12px; color:var(--black); font-size:15px; font-weight:700; line-height:1.45; }
+    .lux-product__price del { color:var(--gray-500); font-weight:600; text-decoration-thickness:1px; }
+    .lux-product__price ins { color:var(--black); font-weight:800; text-decoration:none; }
+    .lux-product__price .screen-reader-text { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .lux-story { display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center; }
+    .lux-story__media { min-height:560px; overflow:hidden; }
+    .lux-story .lux-copy { color:#C9C3B8; }
+    .lux-craft-grid { display:grid; grid-template-columns:minmax(0,1.12fr) minmax(360px,.88fr); gap:28px; align-items:stretch; }
+    .lux-craft-main { aspect-ratio:100/91; min-height:0; overflow:hidden; background:#E8E3D9; position:relative; }
+    .lux-craft-main img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 58%; transition:opacity .28s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); }
+    .lux-craft-main.is-changing img { opacity:.2; transform:scale(1.018); }
+    .lux-craft-panel { align-self:center; padding:12px 0 12px 14px; }
+    .lux-craft-panel .lux-title { padding-bottom:16px; border-bottom:1px solid var(--gray-200); font-size:clamp(34px,3.2vw,48px); }
+    .lux-craft-notes { display:grid; gap:12px; margin-top:22px; }
+    .lux-note { width:100%; display:grid; grid-template-columns:42px 1fr; gap:18px; padding:20px 18px; border:1px solid transparent; border-bottom-color:var(--gray-200); border-radius:2px; background:transparent; color:inherit; text-align:left; cursor:pointer; transition:background .28s cubic-bezier(.22,1,.36,1), border-color .28s cubic-bezier(.22,1,.36,1), transform .28s cubic-bezier(.22,1,.36,1); }
+    .lux-note:hover, .lux-note:focus-visible, .lux-note.is-active { background:#FBFAF7; border-color:rgba(184,155,94,.42); transform:translateX(6px); }
+    .lux-note:focus-visible { outline:2px solid var(--gold-light); outline-offset:4px; }
+    .lux-note__index { color:var(--gold); font-size:12px; font-weight:800; letter-spacing:.08em; line-height:2.55; }
+    .lux-note strong { display:block; color:var(--black); font-family:"Cormorant Garamond", Georgia, serif; font-size:31px; font-weight:400; line-height:1.05; }
+    .lux-note span:not(.lux-note__index) { display:block; margin-top:9px; color:var(--gray-700); line-height:1.6; }
+    .lux-note.is-active strong { color:#7A6439; }
+    .lux-banner { min-height:78vh; display:grid; align-items:end; position:relative; isolation:isolate; overflow:hidden; color:var(--ivory); background:var(--black); }
+    .lux-banner img { position:absolute; inset:0; z-index:-2; opacity:.68; }
+    .lux-banner:after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg, rgba(11,11,11,.88), rgba(11,11,11,.12)); }
+    .lux-banner__content { max-width:620px; padding:80px 0; }
+    .lux-banner h2 { font-size:clamp(40px,5.2vw,70px); }
+    .lux-collections { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+    .lux-collection { min-height:440px; display:grid; align-items:end; position:relative; isolation:isolate; overflow:hidden; color:var(--ivory); text-decoration:none; }
+    .lux-collection img { position:absolute; inset:0; z-index:-2; transition:transform .55s cubic-bezier(.22,1,.36,1); }
+    .lux-collection:after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(0deg, rgba(11,11,11,.78), rgba(11,11,11,.05) 58%); }
+    .lux-collection:hover img { transform:scale(1.025); }
+    .lux-collection span { padding:28px; }
+    .lux-collection strong { display:block; font-family:"Cormorant Garamond", Georgia, serif; font-size:36px; font-weight:400; line-height:1; }
+    .lux-collection em { display:block; margin-top:12px; color:#D8D0C2; font-style:normal; line-height:1.55; }
+    .lux-services { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
+    .lux-service { padding-top:24px; border-top:1px solid rgba(184,155,94,.55); }
+    .lux-service svg { width:28px; height:28px; margin-bottom:18px; color:var(--gold); fill:none; stroke:currentColor; stroke-width:1.55; stroke-linecap:round; stroke-linejoin:round; }
+    .lux-service h3 { margin:0; color:inherit; font-size:17px; font-weight:700; }
+    .lux-service p { margin:10px 0 0; color:#BDB6AA; line-height:1.65; }
+    .lux-journal { display:grid; grid-template-columns:1.15fr .85fr; gap:28px; }
+    .lux-article { color:inherit; text-decoration:none; border-top:1px solid var(--gray-200); padding-top:20px; }
+    .lux-article__image { aspect-ratio:16/10; margin-bottom:20px; overflow:hidden; background:#eee; }
+    .lux-article--small { display:grid; grid-template-columns:180px 1fr; gap:20px; align-items:start; }
+    .lux-article--small .lux-article__image { aspect-ratio:4/5; margin:0; }
+    .lux-article strong { display:block; color:var(--black); font-family:"Cormorant Garamond", Georgia, serif; font-size:32px; font-weight:400; line-height:1.1; }
+    .lux-article--small strong { font-size:25px; }
+    .lux-article span { display:block; margin:0 0 9px; color:var(--gold); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .lux-article p { margin:12px 0 0; color:var(--gray-700); line-height:1.65; }
+    .lux-newsletter { background:var(--black); color:var(--ivory); padding:84px 0; }
+    .lux-newsletter__inner { display:grid; grid-template-columns:1fr minmax(320px,520px); gap:48px; align-items:center; }
+    .lux-newsletter p { color:#C9C3B8; }
+    .lux-form { display:grid; grid-template-columns:1fr auto; gap:12px; }
+    .lux-form label { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+    .lux-form input { min-height:52px; border:1px solid rgba(247,245,240,.42); border-radius:2px; background:transparent; color:var(--ivory); padding:0 16px; }
+    .lux-form input:focus, .lux-btn:focus, .lux-link:focus, .lux-product:focus, .lux-collection:focus, .lux-article:focus { outline:2px solid var(--gold-light); outline-offset:3px; }
+    @keyframes luxSlowZoom { from { transform:scale(1.03); } to { transform:scale(1); } }
+    @media (prefers-reduced-motion: reduce) { .lux-home *, .lux-hero__media img { animation:none !important; transition:none !important; } }
+    @media (max-width: 980px) {
+        .lux-section { padding:72px 0; }
+        .lux-split, .lux-split--reverse, .lux-story, .lux-craft-grid, .lux-journal, .lux-newsletter__inner { grid-template-columns:1fr; gap:36px; }
+        .lux-split--reverse .lux-split__media { order:0; }
+        .lux-products, .lux-collections, .lux-services { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        .lux-story__media { min-height:420px; }
+        .lux-craft-main { aspect-ratio:4/5; }
+        .lux-craft-panel { padding-left:0; }
+    }
+    @media (max-width: 640px) {
+        .lux-wrap { width:min(100% - 32px,1280px); }
+        .lux-hero { min-height:82vh; }
+        .lux-hero__content { padding:72px 0 46px; }
+        .lux-section__head { display:block; margin-bottom:30px; }
+        .lux-section__head .lux-link { margin-top:18px; }
+        .lux-products { display:flex; gap:16px; overflow-x:auto; margin-inline:-16px; padding-inline:16px; padding-bottom:8px; scroll-snap-type:x mandatory; scrollbar-width:none; }
+        .lux-products::-webkit-scrollbar { display:none; }
+        .lux-product { flex:0 0 74%; scroll-snap-align:start; }
+        .lux-collections, .lux-services { grid-template-columns:1fr; }
+        .lux-collection { min-height:360px; }
+        .lux-article--small { grid-template-columns:1fr; }
+        .lux-form { grid-template-columns:1fr; }
+        .lux-form .lux-btn { width:100%; }
+    }
 </style>
 
-<div class="mmd-home">
-    <section class="mmd-hero" aria-labelledby="mmd-hero-title">
-        <div class="mmd-container mmd-hero__grid">
-            <div class="mmd-hero__content">
-                <p class="mmd-eyebrow"><?php esc_html_e('MegaMallDepot Home & Lifestyle', 'dawp'); ?></p>
-                <h1 id="mmd-hero-title"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></h1>
-                <p class="mmd-hero__copy"><?php esc_html_e('Discover thoughtfully selected furniture, decor and home essentials designed for modern American living.', 'dawp'); ?></p>
-                <div class="mmd-hero__actions">
-                    <a class="mmd-btn mmd-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
-                    <a class="mmd-btn mmd-btn--secondary" href="#new-arrivals"><?php esc_html_e('Explore New Arrivals', 'dawp'); ?></a>
+<div class="lux-home">
+    <section class="lux-hero" aria-label="<?php esc_attr_e('Luxury watch hero', 'dawp'); ?>">
+        <div class="lux-hero__media">
+            <?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3'), __('Close-up of a luxury watch on the wrist', 'dawp'), '', 'eager', '100vw'); ?>
+        </div>
+        <div class="lux-wrap">
+            <div class="lux-hero__content">
+                <p class="lux-label"><?php esc_html_e('New Collection', 'dawp'); ?></p>
+                <h1 class="lux-title"><?php esc_html_e('The Art of Time', 'dawp'); ?></h1>
+                <p class="lux-copy"><?php esc_html_e('Precision shaped by hand-finished details, restrained design and mechanical character made for a lifetime of wear.', 'dawp'); ?></p>
+                <p style="margin:30px 0 0;"><a class="lux-btn lux-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Discover Watches', 'dawp'); ?></a></p>
+                <div class="lux-hero__meta" aria-label="<?php esc_attr_e('Brand assurances', 'dawp'); ?>">
+                    <span><?php esc_html_e('Swiss automatic movements', 'dawp'); ?></span>
+                    <span><?php esc_html_e('Insured global delivery', 'dawp'); ?></span>
+                    <span><?php esc_html_e('Concierge consultation', 'dawp'); ?></span>
                 </div>
             </div>
-            <div class="mmd-hero__media">
-                <?php echo $mmd_img('Living_ecosystem_with_smart_tech_202607161304.jpeg', __('Warm modern living room with layered home furnishings', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-hero__note"><?php esc_html_e('Curated pieces, natural textures and everyday comfort for rooms that feel quietly finished.', 'dawp'); ?></div>
-            </div>
         </div>
     </section>
 
-    <section class="mmd-section" aria-labelledby="mmd-room-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Shop By Category', 'dawp'); ?></p>
-                    <h2 id="mmd-room-title"><?php esc_html_e('Browse the departments you need most.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Shop practical everyday categories across home, tech, outdoors, play, beauty, pets and supplies.', 'dawp'); ?></p>
-                </div>
-                <a class="mmd-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all categories', 'dawp'); ?></a>
+    <section class="lux-section lux-section--ivory">
+        <div class="lux-wrap lux-split">
+            <div class="lux-split__media">
+                <?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1547996160-81dfa63595aa'), __('Refined luxury watch collection arranged on dark fabric', 'dawp')); ?>
             </div>
-            <div class="mmd-room-grid">
-                <?php foreach ($room_cards as $card) : ?>
-                    <a class="mmd-room-card" href="<?php echo esc_url($mmd_cat_url($card['slug'])); ?>">
-                        <?php $mmd_category_media($card); ?>
-                        <span class="mmd-room-card__body">
-                            <h3><?php echo esc_html($card['title']); ?></h3>
-                            <p><?php echo esc_html($card['copy']); ?></p>
-                            <span class="mmd-room-card__cta"><?php esc_html_e('Explore', 'dawp'); ?></span>
-                        </span>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section mmd-section--soft" aria-labelledby="mmd-collections-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Featured Collections', 'dawp'); ?></p>
-                    <h2 id="mmd-collections-title"><?php esc_html_e('Thoughtful edits for the way you live.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-collection-grid">
-                <?php foreach ($collections as $collection) : ?>
-                    <a class="mmd-collection-card" href="<?php echo esc_url($mmd_cat_url($collection['slug'])); ?>">
-                        <?php echo $mmd_img($collection['image'], $collection['title'], '', 680, 520, 'lazy', '(max-width: 699px) 100vw, 33vw'); ?>
-                        <span class="mmd-collection-card__content">
-                            <h3><?php echo esc_html($collection['title']); ?></h3>
-                            <p><?php echo esc_html($collection['copy']); ?></p>
-                        </span>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section" aria-labelledby="mmd-story-title">
-        <div class="mmd-container mmd-story">
-            <div class="mmd-story__media">
-                <?php echo $mmd_img('Home_essentials_on_shelf_202607171221.jpeg', __('Home essentials arranged on a shelf', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
-                <?php echo $mmd_img('Minimalist_living_room_with_ligh…_202607171221.jpeg', __('Minimalist living room with light neutral decor', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
-            </div>
-            <div class="mmd-story__content">
-                <p class="mmd-eyebrow"><?php esc_html_e('Our Point Of View', 'dawp'); ?></p>
-                <h2 id="mmd-story-title"><?php esc_html_e('A calmer way to furnish, refresh and enjoy home.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('MegaMallDepot brings together practical essentials and design-led accents so your home feels collected, not crowded. Each edit is chosen for everyday usefulness, inviting materials and timeless appeal.', 'dawp'); ?></p>
-                <a class="mmd-btn mmd-btn--secondary" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('Discover Our Story', 'dawp'); ?></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section mmd-section--soft" aria-labelledby="mmd-best-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Best Sellers', 'dawp'); ?></p>
-                    <h2 id="mmd-best-title"><?php esc_html_e('Pieces customers return to again and again.', 'dawp'); ?></h2>
-                </div>
-                <a class="mmd-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all products', 'dawp'); ?></a>
-            </div>
-            <div class="mmd-product-grid">
-                <?php if (!empty($best_sellers)) : ?>
-                    <?php foreach ($best_sellers as $product_id) : ?>
-                        <?php $mmd_product_card($product_id); ?>
-                    <?php endforeach; ?>
-                <?php else : ?>
-                    <div class="mmd-empty-products"><?php esc_html_e('Add WooCommerce products to feature best sellers in this editorial grid.', 'dawp'); ?></div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section" aria-labelledby="mmd-season-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Seasonal Inspiration', 'dawp'); ?></p>
-                    <h2 id="mmd-season-title"><?php esc_html_e('Fresh ideas for the months ahead.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-season-grid">
-                <?php foreach ($seasonal as $edit) : ?>
-                    <a class="mmd-season-card" href="<?php echo esc_url($shop_url); ?>">
-                        <?php echo $mmd_img($edit['image'], $edit['title'], '', 520, 420, 'lazy', '(max-width: 699px) 82vw, 25vw'); ?>
-                        <span><?php echo esc_html($edit['title']); ?></span>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section id="new-arrivals" class="mmd-section mmd-section--soft" aria-labelledby="mmd-new-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
-                    <h2 id="mmd-new-title"><?php esc_html_e('Just added to the home edit.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-product-grid">
-                <?php if (!empty($new_arrivals)) : ?>
-                    <?php foreach ($new_arrivals as $product_id) : ?>
-                        <?php $mmd_product_card($product_id); ?>
-                    <?php endforeach; ?>
-                <?php else : ?>
-                    <div class="mmd-empty-products"><?php esc_html_e('New arrivals will appear here as soon as products are published.', 'dawp'); ?></div>
-                <?php endif; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section" aria-labelledby="mmd-trust-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Why Shop MegaMallDepot', 'dawp'); ?></p>
-                    <h2 id="mmd-trust-title"><?php esc_html_e('A reliable path from inspiration to delivery.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-trust-grid">
-                <?php
-                $trust_items = [
-                    [__('Fast Shipping', 'dawp'), __('Orders ship after 1-2 business days and usually arrive in 4-7 business days.', 'dawp'), '<path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle>'],
-                    [__('Easy Returns', 'dawp'), __('Return eligible unused items within 30 days of delivery.', 'dawp'), '<path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-15-6.7L3 13"></path>'],
-                    [__('Secure Checkout', 'dawp'), __('Payment details are protected through encrypted checkout.', 'dawp'), '<rect x="4" y="10" width="16" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path>'],
-                    [__('Order Tracking', 'dawp'), __('Tracking is provided once your order ships.', 'dawp'), '<path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2"></circle>'],
-                    [__('Customer Support', 'dawp'), __('A dedicated care team is available Monday through Friday.', 'dawp'), '<path d="M4 12a8 8 0 0 1 16 0"></path><path d="M4 12v4a2 2 0 0 0 2 2h2v-8H6a2 2 0 0 0-2 2z"></path><path d="M20 12v4a2 2 0 0 1-2 2h-2v-8h2a2 2 0 0 1 2 2z"></path>'],
-                ];
-                ?>
-                <?php foreach ($trust_items as $item) : ?>
-                    <article class="mmd-trust-card">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><?php echo $item[2]; ?></svg>
-                        <h3><?php echo esc_html($item[0]); ?></h3>
-                        <p><?php echo esc_html($item[1]); ?></p>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-section" aria-labelledby="mmd-gallery-title">
-        <div class="mmd-container">
-            <div class="mmd-section__head">
-                <div>
-                    <p class="mmd-eyebrow"><?php esc_html_e('Lifestyle Gallery', 'dawp'); ?></p>
-                    <h2 id="mmd-gallery-title"><?php esc_html_e('Inspiration in every corner.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-gallery-grid">
-                <?php echo $mmd_img('Cookware_on_induction_cooktop_202607161259.jpeg', __('Cookware on a bright kitchen cooktop', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Living_room_furniture_set_neutra…_202607161252.jpeg', __('Neutral living room furniture set', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Garden_lounge_area_with_hanging_202607161300.jpeg', __('Garden lounge area with relaxed outdoor seating', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_img('Dining_area_with_kitchen_favorites_202607161311.jpeg', __('Dining area styled with kitchen favorites', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-newsletter" aria-labelledby="mmd-newsletter-title">
-        <div class="mmd-container mmd-newsletter__inner">
             <div>
-                <p class="mmd-eyebrow"><?php esc_html_e('Bring Inspiration Home', 'dawp'); ?></p>
-                <h2 id="mmd-newsletter-title"><?php esc_html_e('Receive new edits, room ideas and thoughtful finds.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Sign up for a calmer inbox with seasonal home inspiration and product discoveries from MegaMallDepot.', 'dawp'); ?></p>
+                <p class="lux-label"><?php esc_html_e('Featured Collection', 'dawp'); ?></p>
+                <h2 class="lux-title"><?php esc_html_e('Heritage, redrawn for now.', 'dawp'); ?></h2>
+                <p class="lux-copy"><?php esc_html_e('A collection of slim cases, sculpted lugs and textured dials that carry classic watchmaking codes into a quieter modern language.', 'dawp'); ?></p>
+                <p style="margin:30px 0 0;"><a class="lux-btn" href="<?php echo esc_url($collection_url); ?>"><?php esc_html_e('Explore Collection', 'dawp'); ?></a></p>
             </div>
-            <form action="<?php echo esc_url(home_url('/')); ?>" method="post">
-                <label class="screen-reader-text" for="mmd-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-                <input id="mmd-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>" required>
-                <button type="submit"><?php esc_html_e('Sign Up', 'dawp'); ?></button>
+        </div>
+    </section>
+
+    <section class="lux-section">
+        <div class="lux-wrap">
+            <div class="lux-section__head">
+                <div>
+                    <p class="lux-label"><?php esc_html_e('Featured Timepieces', 'dawp'); ?></p>
+                    <h2 class="lux-title"><?php esc_html_e('Signature watches', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('A curated edit of mechanical watches selected for proportion, finishing and everyday confidence.', 'dawp'); ?></p>
+                </div>
+                <a class="lux-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all watches', 'dawp'); ?></a>
+            </div>
+
+            <div class="lux-products">
+                <?php foreach ($products as $product) : ?>
+                    <a class="lux-product" href="<?php echo esc_url($product['url']); ?>">
+                        <span class="lux-product__status"><?php echo esc_html($product['status']); ?></span>
+                        <span class="lux-product__image">
+                            <?php echo $image_tag($product['image'], $product['name'], '', 'lazy', '(max-width: 640px) 74vw, (max-width: 980px) 45vw, 25vw'); ?>
+                        </span>
+                        <span class="lux-product__body">
+                            <h3><?php echo esc_html($product['name']); ?></h3>
+                            <p><?php echo esc_html($product['collection']); ?></p>
+                            <strong class="lux-product__price"><?php echo wp_kses_post($product['price']); ?></strong>
+                        </span>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-section lux-section--dark">
+        <div class="lux-wrap lux-story">
+            <div class="lux-story__media">
+                <?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1623998021450-85c29c644e0d'), __('Watchmaker working on a mechanical movement', 'dawp')); ?>
+            </div>
+            <div>
+                <p class="lux-label"><?php esc_html_e('Crafted With Purpose', 'dawp'); ?></p>
+                <h2 class="lux-title"><?php esc_html_e('Every surface has a reason.', 'dawp'); ?></h2>
+                <p class="lux-copy"><?php esc_html_e('From the movement within to the final brushing of the case, each watch is built to make precision feel personal, durable and quietly distinctive.', 'dawp'); ?></p>
+                <p style="margin:30px 0 0;"><a class="lux-btn lux-btn--light" href="<?php echo esc_url($discover_url); ?>"><?php esc_html_e('Our Story', 'dawp'); ?></a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-section lux-section--ivory">
+        <div class="lux-wrap">
+            <div class="lux-section__head">
+                <div>
+                    <p class="lux-label"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
+                    <h2 class="lux-title"><?php esc_html_e('Latest additions', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Fresh references with clean dials, balanced dimensions and refined bracelets.', 'dawp'); ?></p>
+                </div>
+                <a class="lux-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop new arrivals', 'dawp'); ?></a>
+            </div>
+            <div class="lux-products">
+                <?php foreach (array_reverse($products) as $product) : ?>
+                    <a class="lux-product" href="<?php echo esc_url($product['url']); ?>">
+                        <span class="lux-product__status"><?php echo esc_html($product['status']); ?></span>
+                        <span class="lux-product__image">
+                            <?php echo $image_tag($product['image'], $product['name'], '', 'lazy', '(max-width: 640px) 74vw, (max-width: 980px) 45vw, 25vw'); ?>
+                        </span>
+                        <span class="lux-product__body">
+                            <h3><?php echo esc_html($product['name']); ?></h3>
+                            <p><?php echo esc_html($product['collection']); ?></p>
+                            <strong class="lux-product__price"><?php echo wp_kses_post($product['price']); ?></strong>
+                        </span>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-section">
+        <div class="lux-wrap lux-craft-grid">
+            <div class="lux-craft-main" data-craft-image-frame>
+                <?php echo $image_tag($craft_notes[0]['image'], $craft_notes[0]['alt'], '', 'lazy', '(max-width: 980px) 100vw, 54vw'); ?>
+            </div>
+            <div class="lux-craft-panel">
+                <p class="lux-label"><?php esc_html_e('Watchmaking', 'dawp'); ?></p>
+                <h2 class="lux-title"><?php esc_html_e('Precision is measured in fractions.', 'dawp'); ?></h2>
+                <div class="lux-craft-notes">
+                    <?php foreach ($craft_notes as $index => $note) : ?>
+                        <button class="lux-note<?php echo 0 === $index ? ' is-active' : ''; ?>" type="button" data-craft-image="<?php echo esc_url($note['image']); ?>" data-craft-alt="<?php echo esc_attr($note['alt']); ?>" data-craft-position="<?php echo esc_attr($note['position']); ?>" aria-pressed="<?php echo 0 === $index ? 'true' : 'false'; ?>">
+                            <span class="lux-note__index"><?php echo esc_html(sprintf('%02d', $index + 1)); ?></span>
+                            <span>
+                                <strong><?php echo esc_html($note['title']); ?></strong>
+                                <span><?php echo esc_html($note['copy']); ?></span>
+                            </span>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-banner">
+        <?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6'), __('Luxury watch on a dark editorial set', 'dawp')); ?>
+        <div class="lux-wrap">
+            <div class="lux-banner__content">
+                <p class="lux-label"><?php esc_html_e('The Heritage Collection', 'dawp'); ?></p>
+                <h2 class="lux-title"><?php esc_html_e('Timeless design. Modern precision.', 'dawp'); ?></h2>
+                <p class="lux-copy" style="color:#E9E3D7;"><?php esc_html_e('A cinematic expression of the codes that define a refined mechanical watch.', 'dawp'); ?></p>
+                <p style="margin:30px 0 0;"><a class="lux-btn lux-btn--light" href="<?php echo esc_url($collection_url); ?>"><?php esc_html_e('Explore Heritage', 'dawp'); ?></a></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-section lux-section--ivory">
+        <div class="lux-wrap">
+            <div class="lux-section__head">
+                <div>
+                    <p class="lux-label"><?php esc_html_e('Collections', 'dawp'); ?></p>
+                    <h2 class="lux-title"><?php esc_html_e('Choose your rhythm', 'dawp'); ?></h2>
+                </div>
+            </div>
+            <div class="lux-collections">
+                <?php foreach ($collections as $collection) : ?>
+                    <a class="lux-collection" href="<?php echo esc_url($collection_url); ?>">
+                        <?php echo $image_tag($collection['image'], $collection['name'], '', 'lazy', '(max-width: 980px) 50vw, 33vw'); ?>
+                        <span><strong><?php echo esc_html($collection['name']); ?></strong><em><?php echo esc_html($collection['copy']); ?></em></span>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-section lux-section--dark">
+        <div class="lux-wrap">
+            <div class="lux-section__head">
+                <div>
+                    <p class="lux-label"><?php esc_html_e('Services', 'dawp'); ?></p>
+                    <h2 class="lux-title"><?php esc_html_e('Confidence after purchase', 'dawp'); ?></h2>
+                </div>
+                <a class="lux-link" href="<?php echo esc_url($services_url); ?>"><?php esc_html_e('View services', 'dawp'); ?></a>
+            </div>
+            <div class="lux-services">
+                <div class="lux-service"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3z"></path><path d="M14 10h4l3 3v4h-7z"></path><circle cx="7" cy="19" r="2"></circle><circle cx="18" cy="19" r="2"></circle></svg><h3><?php esc_html_e('Insured Shipping', 'dawp'); ?></h3><p><?php esc_html_e('Secure delivery with tracking and signature confirmation.', 'dawp'); ?></p></div>
+                <div class="lux-service"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 4v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V7z"></path><path d="m9 12 2 2 4-5"></path></svg><h3><?php esc_html_e('Authenticity Guarantee', 'dawp'); ?></h3><p><?php esc_html_e('Each watch is inspected, documented and verified.', 'dawp'); ?></p></div>
+                <div class="lux-service"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v4l3 2"></path></svg><h3><?php esc_html_e('International Warranty', 'dawp'); ?></h3><p><?php esc_html_e('Coverage and care guidance for long-term ownership.', 'dawp'); ?></p></div>
+                <div class="lux-service"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg><h3><?php esc_html_e('Personal Consultation', 'dawp'); ?></h3><p><?php esc_html_e('Private guidance for sizing, gifting and collection choice.', 'dawp'); ?></p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-section">
+        <div class="lux-wrap">
+            <div class="lux-section__head">
+                <div>
+                    <p class="lux-label"><?php esc_html_e('Journal', 'dawp'); ?></p>
+                    <h2 class="lux-title"><?php esc_html_e('Stories of time and design', 'dawp'); ?></h2>
+                </div>
+            </div>
+            <div class="lux-journal">
+                <a class="lux-article" href="<?php echo esc_url($discover_url); ?>">
+                    <span class="lux-article__image"><?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1618220179428-22790b461013'), __('Minimal luxury interior with refined materials', 'dawp')); ?></span>
+                    <span><?php esc_html_e('Design', 'dawp'); ?></span>
+                    <strong><?php esc_html_e('Why restraint makes a watch feel expensive.', 'dawp'); ?></strong>
+                    <p><?php esc_html_e('The proportions, contrast and quiet decisions that separate timeless design from decoration.', 'dawp'); ?></p>
+                </a>
+                <div style="display:grid; gap:28px;">
+                    <a class="lux-article lux-article--small" href="<?php echo esc_url($discover_url); ?>">
+                        <span class="lux-article__image"><?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1539874754764-5a96559165b0'), __('Watch components and tools on a workbench', 'dawp')); ?></span>
+                        <span><span><?php esc_html_e('Craft', 'dawp'); ?></span><strong><?php esc_html_e('Inside the finishing process.', 'dawp'); ?></strong><p><?php esc_html_e('A closer look at brushing, polishing and dial texture.', 'dawp'); ?></p></span>
+                    </a>
+                    <a class="lux-article lux-article--small" href="<?php echo esc_url($discover_url); ?>">
+                        <span class="lux-article__image"><?php echo $image_tag($remote_image('https://images.unsplash.com/photo-1524592094714-0f0654e20314'), __('Elegant wrist watch worn with a suit', 'dawp')); ?></span>
+                        <span><span><?php esc_html_e('Guide', 'dawp'); ?></span><strong><?php esc_html_e('Choosing your first mechanical watch.', 'dawp'); ?></strong><p><?php esc_html_e('A calm guide to size, movement and everyday wear.', 'dawp'); ?></p></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-newsletter">
+        <div class="lux-wrap lux-newsletter__inner">
+            <div>
+                <p class="lux-label"><?php esc_html_e('Private Access', 'dawp'); ?></p>
+                <h2 class="lux-title"><?php esc_html_e('New releases, quietly delivered.', 'dawp'); ?></h2>
+                <p class="lux-copy"><?php esc_html_e('Receive collection notes, appointment availability and occasional editorial stories from the atelier.', 'dawp'); ?></p>
+            </div>
+            <form class="lux-form" action="<?php echo esc_url($contact_url); ?>" method="get">
+                <label for="lux-home-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
+                <input id="lux-home-email" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>" autocomplete="email">
+                <button class="lux-btn lux-btn--light" type="submit"><?php esc_html_e('Subscribe', 'dawp'); ?></button>
             </form>
         </div>
     </section>
 </div>
+

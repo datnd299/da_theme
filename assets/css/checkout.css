@@ -775,3 +775,94 @@ body.woocommerce-checkout .woo-page *::after,
         grid-template-columns: minmax(0, 1fr);
     }
 }
+
+/* ============================================================
+   luxurytheme.com Quiet Luxury Checkout Overrides
+   ============================================================ */
+
+body.woocommerce-checkout,
+body.woocommerce-order-received {
+    --checkout-primary: #0B0B0B;
+    --checkout-primary-dark: #B89B5E;
+    --checkout-accent: #B89B5E;
+    --checkout-bg: #F7F5F0;
+    --checkout-surface: #FFFFFF;
+    --checkout-text: #0B0B0B;
+    --checkout-muted: #555555;
+    --checkout-border: #E5E2DC;
+    --checkout-border-strong: #CCCCCC;
+    --checkout-radius: 2px;
+    --checkout-shadow: none;
+    background: linear-gradient(180deg, #F7F5F0 0, #FFFFFF 420px);
+}
+
+.woocommerce-checkout .woocommerce-billing-fields,
+.woocommerce-checkout .woocommerce-shipping-fields,
+.woocommerce-checkout .woocommerce-additional-fields,
+.woocommerce-checkout .woocommerce-checkout-review-order,
+.woocommerce-checkout [id="order_review"],
+.woocommerce-checkout .woocommerce-order,
+.woocommerce-order-received .woocommerce-order,
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step,
+.wp-block-woocommerce-checkout .wp-block-woocommerce-checkout-order-summary-block,
+.woocommerce-order-received .woocommerce-order-overview,
+.woocommerce-order-received address {
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+.woocommerce-checkout .woocommerce-billing-fields h3,
+.woocommerce-checkout .woocommerce-shipping-fields h3,
+.woocommerce-checkout .woocommerce-additional-fields h3,
+.woocommerce-checkout .woocommerce-checkout-review-order-heading,
+.woocommerce-checkout [id="order_review_heading"],
+.woocommerce-checkout h3,
+.woocommerce-order-received h2,
+.woocommerce-order-received h3,
+.wp-block-woocommerce-checkout .wc-block-components-checkout-step__title,
+.wp-block-woocommerce-checkout .wc-block-components-checkout-order-summary__title-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.55rem, 2.4vw, 2rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.woocommerce-checkout input.input-text,
+.woocommerce-checkout textarea,
+.woocommerce-checkout select,
+.woocommerce-checkout .select2-container--default .select2-selection--single,
+.wp-block-woocommerce-checkout .wc-block-components-text-input input,
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select,
+.woocommerce-checkout .wc_payment_method,
+.woocommerce-checkout .payment_box,
+.wp-block-woocommerce-checkout .wc-block-components-radio-control__option {
+    border-radius: 2px;
+}
+
+.woocommerce-checkout button.button,
+.woocommerce-checkout a.button,
+.woocommerce-checkout .button.alt,
+.wp-block-woocommerce-checkout .wc-block-components-button {
+    border: 1px solid #0B0B0B;
+    border-radius: 2px;
+    background: #0B0B0B;
+    color: #FFFFFF;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.woocommerce-checkout button.button:hover,
+.woocommerce-checkout a.button:hover,
+.woocommerce-checkout .button.alt:hover,
+.wp-block-woocommerce-checkout .wc-block-components-button:hover {
+    background: transparent;
+    color: #0B0B0B;
+}
+
+.woocommerce-checkout table.shop_table tfoot tr.order-total .amount,
+.woocommerce-order-received table.shop_table tfoot tr:last-child .amount,
+.wp-block-woocommerce-checkout .wc-block-components-totals-footer-item .wc-block-formatted-money-amount {
+    color: #B89B5E;
+}

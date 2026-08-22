@@ -22,6 +22,175 @@
   --shop-pad: 16px;
 }
 
+/* ============================================================
+   luxurytheme.com Quiet Luxury Shop Overrides
+   ============================================================ */
+
+.shop-page {
+  --shop-bg: #F7F5F0;
+  --shop-surface: #FFFFFF;
+  --shop-surface-soft: #FBFAF7;
+  --shop-surface-muted: #F1EFE9;
+  --shop-text: #555555;
+  --shop-heading: #0B0B0B;
+  --shop-muted: #555555;
+  --shop-soft-text: #858585;
+  --shop-border: #E5E2DC;
+  --shop-accent: #B89B5E;
+  --shop-accent-dark: #0B0B0B;
+  --shop-yellow: #D1BD8A;
+  --shop-sale: #B89B5E;
+  --shop-font: Inter, 'Avenir Next', Arial, sans-serif;
+  --shop-heading-font: 'Cormorant Garamond', Georgia, serif;
+  background: linear-gradient(180deg, #F7F5F0 0, #FFFFFF 360px);
+}
+
+.shop-page .shop-container {
+  width: min(100% - 40px, 1280px);
+  padding: 24px 0 96px;
+}
+
+.shop-page .shop-header {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 28px 0 40px;
+  margin-bottom: 10px;
+}
+
+.shop-page .shop-header::after {
+  display: none;
+}
+
+.shop-page .shop-header__content {
+  padding: 0;
+}
+
+.shop-page .shop-header__eyebrow,
+.shop-page .shop-sidebar__title,
+.shop-page .shop-sidebar .widgettitle {
+  color: var(--shop-accent);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.shop-page .shop-header__title {
+  font-weight: 400;
+  line-height: 0.98;
+}
+
+.shop-page .shop-header__description {
+  color: var(--shop-muted);
+  font-weight: 400;
+}
+
+.shop-page .shop-header__meta span,
+.shop-page .shop-header__meta a,
+.shop-page .shop-toolbar__count,
+.shop-page .shop-filter-btn,
+.shop-page .woocommerce-ordering select {
+  border-radius: 2px;
+}
+
+.shop-page .shop-header__meta a,
+.shop-page .shop-filter-btn:hover,
+.shop-page .widget_price_filter .button,
+.shop-page .shop-sidebar .button,
+.shop-page .shop-empty a {
+  border: 1px solid #0B0B0B;
+  background: #0B0B0B;
+  color: #FFFFFF;
+}
+
+.shop-page .shop-header__meta a:hover,
+.shop-page .widget_price_filter .button:hover,
+.shop-page .shop-sidebar .button:hover,
+.shop-page .shop-empty a:hover {
+  background: transparent;
+  color: #0B0B0B;
+}
+
+.shop-page .shop-header__media {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.shop-page .shop-toolbar,
+.shop-page .shop-sidebar,
+.shop-page .shop-empty {
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.shop-page .product-card {
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.shop-page .product-card:hover {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.shop-page .product-card__shell {
+  background: #F1EFE9;
+}
+
+.shop-page .product-card__meta {
+  padding: 18px 0 0;
+  border-top: 0;
+}
+
+.shop-page .product-card__title {
+  color: #0B0B0B;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.shop-page .product-card__cat {
+  color: #858585;
+}
+
+.shop-page .product-card__price {
+  color: #0B0B0B;
+  font-weight: 800;
+}
+
+.shop-page .product-card__badge,
+.shop-page .onsale {
+  border-radius: 2px;
+  background: rgba(247, 245, 240, 0.94);
+  color: #0B0B0B;
+  box-shadow: none;
+}
+
+.shop-page .product-card__cta {
+  border-radius: 2px;
+  background: rgba(11, 11, 11, 0.92);
+  color: #FFFFFF;
+}
+
+.shop-page .woocommerce-pagination .page-numbers li a,
+.shop-page .woocommerce-pagination .page-numbers li span {
+  border-radius: 2px;
+}
+
+.shop-page .woocommerce-pagination .page-numbers li span.current {
+  border-color: #0B0B0B;
+  background: #0B0B0B;
+}
+
+@media (max-width: 640px) {
+  .shop-page .shop-container {
+    width: min(100% - 32px, 1280px);
+    padding-bottom: 64px;
+  }
+}
+
 .shop-page {
   min-height: 100vh;
   background:

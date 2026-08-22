@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms and conditions page for MegaMallDepot.
+ * Terms and conditions page for luxurytheme.com.
  *
  * @package dawp
  */
@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'MegaMallDepot';
-$site_domain    = 'megamalldepot.com';
-$support_email  = 'support@megamalldepot.com';
+$store_name     = 'luxurytheme.com';
+$site_domain    = 'luxurytheme.com';
+$support_email  = 'concierge@luxurytheme.com';
 $support_phone  = '757-804-6538';
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
@@ -22,14 +22,14 @@ $privacy_url    = home_url('/privacy-policy/');
 $contact_url    = home_url('/contact-us/');
 
 $intro_paragraphs = [
-    __('Welcome to MegaMallDepot! These Terms & Conditions ("Terms") govern your access to and use of our website megamalldepot.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
-    __('The Site is operated by MegaMallDepot. Throughout the Site, the terms "we", "us" and "our" refer to MegaMallDepot. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
+    __('Welcome to luxurytheme.com! These Terms & Conditions ("Terms") govern your access to and use of our website luxurytheme.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
+    __('The Site is operated by luxurytheme.com. Throughout the Site, the terms "we", "us" and "our" refer to luxurytheme.com. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
 ];
 
 $terms_highlights = [
     [
         'title' => __('Store Scope', 'dawp'),
-        'copy'  => __('MegaMallDepot focuses on home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+        'copy'  => __('luxurytheme.com focuses on luxury watches, fine timepieces, limited editions, mechanical references and premium accessories.', 'dawp'),
     ],
     [
         'title' => __('Secure Checkout', 'dawp'),
@@ -42,7 +42,7 @@ $terms_highlights = [
 ];
 
 $shipping_parameters = [
-    __('Shipping Locations: MegaMallDepot currently ships exclusively within the United States domestic market.', 'dawp'),
+    __('Shipping Locations: luxurytheme.com currently ships exclusively within the United States domestic market.', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
     __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
     __('Handling Time: Current order handling and packaging time is 1-2 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
@@ -53,7 +53,7 @@ $shipping_parameters = [
 $return_terms = [
     __('Return Window: Customers may request returns within 30 days of documented delivery. Returns are accepted for eligible products in new condition.', 'dawp'),
     __('Product Condition: Eligible products must be entirely unused, in their original pristine condition (New only), and returned with original packaging, tags, labels, accessories, and included parts intact.', 'dawp'),
-    __('Fees & Shipping Costs: There is no restocking fee ($0.00). The customer is responsible for all return shipping costs for both defective/damaged items and change-of-mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
+    __('Fees & Shipping Costs: There is no restocking fee ($0.00). For eligible returns approved within the stated return window, we provide return instructions and, when applicable, a prepaid return label.', 'dawp'),
     __('Refund Timelines: Approved refunds are processed back to the original payment method within up to 7 business days.', 'dawp'),
 ];
 
@@ -91,9 +91,9 @@ $sections = [
     [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
-            __('MegaMallDepot is an e-commerce store focused on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
-            __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
-            __('MegaMallDepot strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+            __('luxurytheme.com is a luxury watch e-commerce store focused on fine timepieces, limited editions, mechanical references and premium accessories.', 'dawp'),
+            __('We work to present product descriptions, images, prices, reference details, case materials, dimensions, movement information, strap details and availability as accurately as reasonably possible. Small variations in color, finishing or physical appearance may occur due to individual screen settings, photography lighting or periodic product updates.', 'dawp'),
+            __('luxurytheme.com strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],
     ],
     [
@@ -133,7 +133,7 @@ $sections = [
     [
         'title' => __('6. Returns, Refunds, and Consumer Rights', 'dawp'),
         'copy'  => [
-            __('We provide a transparent and risk-free return window for our home, electronics and lifestyle products:', 'dawp'),
+            __('We provide a transparent and risk-free return window for our luxury watches, fine timepieces and premium accessories:', 'dawp'),
         ],
         'list'  => $return_terms,
         'after' => [
@@ -157,8 +157,8 @@ $sections = [
     [
         'title' => __('8. Intellectual Property & Liability Limitations', 'dawp'),
         'copy'  => [
-            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to MegaMallDepot and are protected by copyright laws.', 'dawp'),
-            __('To the fullest extent permitted by applicable law, MegaMallDepot shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
+            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to luxurytheme.com and are protected by copyright laws.', 'dawp'),
+            __('To the fullest extent permitted by applicable law, luxurytheme.com shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product ownership.', 'dawp'),
         ],
     ],
     [
@@ -172,7 +172,7 @@ $sections = [
 $terms_faqs = [
     [
         'question' => __('What do these Terms cover?', 'dawp'),
-        'answer'   => __('These Terms govern access to MegaMallDepot, browsing the catalog, creating an account, contacting support, and purchasing products through megamalldepot.com.', 'dawp'),
+        'answer'   => __('These Terms govern access to luxurytheme.com, browsing the catalog, creating an account, contacting support, and purchasing products through luxurytheme.com.', 'dawp'),
     ],
     [
         'question' => __('When is an order accepted?', 'dawp'),
@@ -193,13 +193,13 @@ $terms_faqs = [
 ];
 ?>
 
-<div class="bg-white text-[#2B2B2B]">
+<div class="lux-policy bg-white text-[#2B2B2B]">
     <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="terms-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
                 <h1 id="terms-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('Terms for using and shopping with MegaMallDepot.', 'dawp'); ?>
+                    <?php esc_html_e('Terms for using and shopping with luxurytheme.com.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php
@@ -328,3 +328,5 @@ $terms_faqs = [
         </div>
     </section>
 </div>
+
+

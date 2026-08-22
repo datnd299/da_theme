@@ -1,305 +1,522 @@
-# MegaMallDepot — Design System
+# luxurytheme.com — DESIGN SYSTEM
 
-## Design Direction
+## 1. Design Direction
 
-Inspired by premium home retailers like Williams Sonoma.
-
-Website should feel:
-
-* Warm
-* Elegant
-* Editorial
-* Spacious
-* Premium
-* Lifestyle-first
-
-Customers should feel they are browsing a modern home magazine rather than a discount ecommerce website.
+**Style:** Modern Quiet Luxury
+**Mood:** Elegant, refined, timeless, premium
+**Principle:** Product first. Luxury through simplicity.
 
 Avoid:
 
-* Marketplace appearance
-* Heavy promotional banners
-* Flash sale styling
-* Overstock product grids
-* Technology-first layouts
+* Too much gold
+* Heavy gradients
+* Large shadows
+* Excessive rounded cards
+* Loud animation
+* Crowded layouts
 
 ---
 
-# Color System
+## 2. Color System
 
-## Primary
+```css
+--black: #0B0B0B;
+--charcoal: #1A1A1A;
+--ivory: #F7F5F0;
+--white: #FFFFFF;
 
-```txt
-Charcoal
-#2B2B2B
+--gold: #B89B5E;
+--gold-light: #D1BD8A;
+
+--gray-700: #555555;
+--gray-500: #858585;
+--gray-300: #CCCCCC;
+--gray-200: #E5E2DC;
 ```
-
-Used for:
-
-* Logo
-* Navigation
-* Headlines
-
----
-
-## Secondary
-
-```txt
-Warm Ivory
-#F8F5F0
-```
-
-Used for:
-
-* Section backgrounds
-* Hero
-* Editorial blocks
-
----
-
-## Accent
-
-```txt
-Terracotta
-#A45A3F
-```
-
-Used for:
-
-* Buttons
-* Small highlights
-* Links
-
----
-
-## Neutral
-
-```txt
-White
-#FFFFFF
-
-Border
-#E8E5DF
-
-Text
-#4A4A4A
-```
-
----
-
-# Typography
-
-Headings
-
-```txt
-Cormorant Garamond
-```
-
-Body
-
-```txt
-Inter
-```
-
-Style:
-
-* Large elegant headings
-* Small readable body text
-* Editorial spacing
-
-Avoid:
-
-* Bold oversized typography
-* Tech fonts
-* Decorative scripts
-
----
-
-# Layout System
-
-Container
-
-```txt
-max-w-7xl mx-auto
-```
-
-Spacing
-
-```txt
-py-16 md:py-24
-```
-
-Grid
-
-```txt
-2–4 columns
-```
-
-Lots of whitespace.
-
-Content should breathe.
-
----
-
-# Header
-
-Structure
-
-```txt
-Announcement Bar
-
-Logo
-
-Search
-
-Account
-
-Wishlist
-
-Cart
-
-Category Navigation
-```
-
-Header should feel minimal and premium.
-
----
-
-# Hero Section
-
-Use large editorial photography.
-
-Layout:
-
-50% imagery
-
-50% content
-
-Content includes:
-
-* Small eyebrow
-* Elegant headline
-* Short description
-* One primary CTA
-
-Avoid crowded hero content.
-
----
-
-# Homepage Components
 
 Use:
 
-* Lifestyle Hero
-* Shop By Collection
-* Editorial Promotion
-* Featured Products
-* Seasonal Collections
-* Brand Story
-* Customer Reviews
-
-Do not place large product grids immediately after the hero.
+* Ivory / white for main backgrounds
+* Black for text and premium dark sections
+* Gold only as a subtle accent
 
 ---
 
-# Product Cards
+## 3. Typography
 
-Display:
+### Display Font
 
-* Large image
-* Product name
-* Price
-* Rating
-* Quick View
+**Cormorant Garamond**
+
+Use for:
+
+* Hero titles
+* Collection titles
+* Editorial headings
+
+### UI Font
+
+**Inter**
+
+Use for:
+
+* Navigation
+* Body text
+* Buttons
+* Prices
+* Forms
+* Product details
+
+---
+
+## 4. Type Scale
+
+```text
+Display: 72px
+H1: 52px
+H2: 40px
+H3: 30px
+H4: 24px
+Body Large: 18px
+Body: 16px
+Small: 14px
+Label: 12px
+```
+
+Mobile:
+
+```text
+Display: 46px
+H1: 38px
+H2: 32px
+H3: 26px
+Body: 15px
+```
+
+Keep typography light and editorial.
+
+---
+
+## 5. Spacing
+
+Base spacing:
+
+```text
+4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96 / 120px
+```
+
+Section spacing:
+
+```text
+Desktop: 96–120px
+Mobile: 56–72px
+```
+
+Generous whitespace is part of the luxury look.
+
+---
+
+## 6. Layout
+
+```text
+Max width: 1440px
+Content width: 1280px
+Reading width: 720px
+```
+
+Page padding:
+
+```text
+Desktop: 48–64px
+Tablet: 32px
+Mobile: 20px
+```
+
+Grid:
+
+```text
+Desktop: 12 columns
+Tablet: 8 columns
+Mobile: 4 columns
+```
+
+---
+
+## 7. Breakpoints
+
+```css
+--sm: 480px;
+--md: 768px;
+--lg: 1024px;
+--xl: 1280px;
+--2xl: 1536px;
+```
+
+Layouts should remain fluid between breakpoints.
+
+---
+
+## 8. Border & Radius
+
+```css
+--radius-sm: 2px;
+--radius-md: 4px;
+--radius-lg: 8px;
+```
+
+Default border:
+
+```css
+1px solid #E5E2DC;
+```
+
+Use borders more often than shadows.
+
+---
+
+## 9. Buttons
+
+### Primary
+
+```text
+Background: Black
+Text: White
+Height: 50px
+Radius: 2px
+Padding: 0 28px
+```
+
+### Secondary
+
+```text
+Background: Transparent
+Border: Black
+Text: Black
+```
 
 Hover:
 
-* Soft image zoom
-* Fade transition
+```text
+Black background
+White text
+```
 
-No aggressive sale badges.
+Buttons should feel clean and confident.
 
 ---
 
-# Image Direction
+## 10. Header
+
+```text
+Desktop height: 80px
+Mobile height: 64px
+```
+
+Main navigation:
+
+```text
+Watches
+Collections
+New Arrivals
+Discover
+Services
+```
+
+Utilities:
+
+```text
+Search
+Account
+Wishlist
+Cart
+```
+
+Header may start transparent over hero and become solid on scroll.
+
+---
+
+## 11. Product Cards
+
+Structure:
+
+```text
+Image
+Status
+Product Name
+Collection
+Price
+Wishlist
+```
+
+Recommended image ratio:
+
+```text
+4:5
+```
+
+Rules:
+
+* Minimal card styling
+* No permanent shadow
+* No strong border
+* Large product image
+* Clean typography
+
+Desktop hover:
+
+* Small image zoom
+* Optional secondary image
+* Subtle wishlist reveal
+
+---
+
+## 12. Product Grid
+
+```text
+Desktop: 4 columns
+Tablet: 2–3 columns
+Mobile: 2 columns
+Featured mobile: 1 column
+```
+
+Keep generous gaps between products.
+
+---
+
+## 13. Hero
+
+Hero style:
+
+* Full-width photography
+* Campaign video
+* Split layout
+* Large editorial text
+
+Recommended height:
+
+```text
+Desktop: 80–100vh
+Mobile: 70–90vh
+```
+
+Hero copy should remain short.
+
+---
+
+## 14. Photography
+
+Preferred ratios:
+
+```text
+Hero: 16:9
+Product: 4:5
+Editorial: 3:4
+Landscape: 3:2
+```
+
+Photography should feel:
+
+* Cinematic
+* Premium
+* Detailed
+* Minimal
+* Product-focused
+
+---
+
+## 15. Forms
+
+```text
+Input height: 52px
+Radius: 2px
+Border: 1px solid gray
+```
 
 Use:
 
-* Bright kitchens
-* Modern dining rooms
-* Elegant living spaces
-* Natural lighting
-* Premium home styling
-* Lifestyle photography
+* Clear labels
+* Minimal styling
+* Strong focus states
+* Comfortable mobile sizing
 
-Products should appear inside beautiful homes.
+---
+
+## 16. Icons
+
+Use thin-line icons.
+
+Recommended stroke:
+
+```text
+1.5–1.75px
+```
+
+Avoid cartoon or filled-style icon sets.
+
+---
+
+## 17. Motion
+
+```css
+--fast: 180ms;
+--base: 300ms;
+--slow: 500ms;
+```
+
+Recommended easing:
+
+```css
+cubic-bezier(0.22, 1, 0.36, 1);
+```
+
+Allowed:
+
+* Fade
+* Small slide-up
+* Image reveal
+* Slow zoom
+* Product hover
 
 Avoid:
 
-* White cutout backgrounds only
-* Dark scenes
-* Heavy graphics
-* Busy compositions
+* Bounce
+* Fast movement
+* Excessive parallax
 
 ---
 
-# Buttons
+## 18. Dark Sections
 
-Primary
-
-```txt
-Background
-#2B2B2B
-
-Text
-White
+```text
+Background: #0B0B0B
+Primary text: #F7F5F0
+Secondary text: #A8A8A8
+Accent: #B89B5E
 ```
 
-Secondary
+Use dark sections to create cinematic contrast.
 
-```txt
-Border
-#2B2B2B
+Do not make every page fully dark.
 
-Background
-Transparent
+---
+
+## 19. Responsive Rules
+
+Mobile should prioritize:
+
+* Large imagery
+* Simple navigation
+* Swipe galleries
+* Filter drawer
+* Sticky purchase CTA
+* Large tap targets
+* Reduced animation
+
+Do not simply shrink desktop layouts.
+
+---
+
+## 20. Accessibility
+
+Minimum requirements:
+
+* WCAG 2.2 AA target
+* Visible focus state
+* Semantic HTML
+* Keyboard navigation
+* Proper form labels
+* Alt text
+* Good contrast
+* Reduced motion support
+
+---
+
+## 21. Core Components
+
+```text
+Header
+MegaMenu
+MobileMenu
+Hero
+Button
+ProductCard
+ProductGrid
+CollectionCard
+ImageText
+EditorialSection
+VideoSection
+Accordion
+Tabs
+FilterDrawer
+SearchOverlay
+Gallery
+Newsletter
+Footer
 ```
 
-Buttons should feel refined rather than promotional.
+Prefer reusable variants over duplicated components.
 
 ---
 
-# Motion
+## 22. UX Rules
 
-Use:
+Every page must be:
 
-* Fade In
-* Soft hover
-* Image zoom
-* Gentle transitions
+* Easy to understand
+* Easy to navigate
+* Product-focused
+* Visually calm
+* Responsive
+* Fast
 
-Avoid:
+Users should always understand:
 
-* Fast sliders
-* Flashing banners
-* Large animations
-
----
-
-# Visual Style
-
-Every section should alternate between:
-
-* Editorial storytelling
-* Lifestyle imagery
-* Product collections
-
-The homepage should read like a premium home inspiration magazine instead of a traditional ecommerce catalog.
+```text
+Where am I?
+What can I do?
+What happens next?
+```
 
 ---
 
-# Final Feeling
+## 23. Luxury Rules
 
-MegaMallDepot should feel like:
+DO:
 
-"A thoughtfully curated home destination where customers discover beautiful products through inspiring spaces, timeless design and a calm shopping experience."
+* Use whitespace
+* Use strong photography
+* Use restrained typography
+* Use subtle motion
+* Keep layouts clean
+* Let products dominate
+
+DON'T:
+
+* Overuse gold
+* Add too many effects
+* Use aggressive promotions
+* Over-round components
+* Fill every empty space
+
+---
+
+## 24. Final Visual Identity
+
+```text
+Palette:
+Warm Ivory + Deep Black + Champagne Gold
+
+Typography:
+Elegant Serif + Modern Sans Serif
+
+Layout:
+Spacious + Editorial + Precise
+
+Motion:
+Smooth + Subtle + Controlled
+
+Overall:
+Modern Quiet Luxury
+```
+
+> Quiet luxury should feel expensive because of restraint, not decoration.

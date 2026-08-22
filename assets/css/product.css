@@ -1427,3 +1427,118 @@ form.cart:not(.variations_form) {
 .related.products .button:active {
   transform: scale(0.97);
 }
+
+/* ============================================================
+   luxurytheme.com Quiet Luxury Product Overrides
+   ============================================================ */
+
+body.single-product {
+  --color-bg: #FFFFFF;
+  --color-bg-subtle: #F7F5F0;
+  --color-bg-muted: #F1EFE9;
+  --color-text-primary: #0B0B0B;
+  --color-text-secondary: #1A1A1A;
+  --color-text-muted: #555555;
+  --color-text-soft: #858585;
+  --color-border: #E5E2DC;
+  --color-accent: #B89B5E;
+  --color-accent-hover: #0B0B0B;
+  --color-accent-warm: #D1BD8A;
+  --color-button-bg: #0B0B0B;
+  --color-button-hover: transparent;
+  --color-button-text: #FFFFFF;
+  --color-sale: #B89B5E;
+  --color-ring: rgba(184, 155, 94, 0.25);
+  --font-primary: Inter, 'Avenir Next', Arial, sans-serif;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --radius-md: 2px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+  --shadow-card: none;
+  --shadow-card-hover: none;
+}
+
+.single-product div.product {
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.woocommerce-product-gallery,
+.woocommerce-tabs,
+.related.products .product-card,
+.tgm-product-benefit,
+.comment_container {
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.product_title.entry-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.product_meta_top,
+.related.products > h2,
+.woocommerce-Tabs-panel h2,
+.woocommerce-Reviews-title,
+.comment-reply-title {
+  color: var(--color-accent);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.summary .price {
+  font-weight: 800;
+}
+
+.single-product div.product form.cart .single_add_to_cart_button.button,
+.single-product div.product form.cart .buy_now_button,
+.single-product div.product form.cart .buy-now-button,
+.single-product div.product form.cart .single_buy_now_button,
+.single-product div.product form.cart .wc-buy-now-btn,
+.form-submit .submit,
+.related.products .button {
+  border: 1px solid #0B0B0B;
+  border-radius: 2px;
+  background: #0B0B0B;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+.single-product div.product form.cart .single_add_to_cart_button.button:hover,
+.single-product div.product form.cart .buy_now_button:hover,
+.single-product div.product form.cart .buy-now-button:hover,
+.single-product div.product form.cart .single_buy_now_button:hover,
+.single-product div.product form.cart .wc-buy-now-btn:hover,
+.form-submit .submit:hover,
+.related.products .button:hover {
+  background: transparent;
+  color: #0B0B0B;
+  box-shadow: none;
+}
+
+.single-product div.product form.cart .quantity .qty,
+.variations_form .value select,
+.comment-form input[type="text"],
+.comment-form input[type="email"],
+.comment-form textarea,
+.comment-form-comment textarea {
+  border-radius: 2px;
+}
+
+.tgm-product-benefit__icon,
+.single-product .stock {
+  border-radius: 2px;
+  background: #F7F5F0;
+  color: #B89B5E;
+}
+
+.related.products .product-card__shell {
+  aspect-ratio: 4 / 5;
+}
+
+.related.products .product-card__meta {
+  padding: 16px 0 0;
+}

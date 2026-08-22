@@ -760,3 +760,82 @@ body.woocommerce-cart {
 .wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
   background: var(--cart-blue-hover);
 }
+
+/* ===================================================
+   luxurytheme.com Quiet Luxury Cart Overrides
+   =================================================== */
+
+body.woocommerce-cart {
+  --cart-bg: #FFFFFF;
+  --cart-surface: #FFFFFF;
+  --cart-surface-soft: #F7F5F0;
+  --cart-blue-soft: #FBFAF7;
+  --cart-ink: #0B0B0B;
+  --cart-muted: #555555;
+  --cart-border: #E5E2DC;
+  --cart-blue: #0B0B0B;
+  --cart-blue-hover: #B89B5E;
+  --cart-yellow: #B89B5E;
+  --cart-alert: #8A332B;
+  --cart-shadow: none;
+  --cart-focus: 0 0 0 3px rgba(184, 155, 94, 0.22);
+}
+
+.wc-block-cart {
+  background: linear-gradient(180deg, #F7F5F0 0, #FFFFFF 360px);
+  font-family: Inter, 'Avenir Next', Arial, sans-serif;
+}
+
+.wc-block-cart__sidebar,
+.wc-block-components-quantity-selector,
+.wc-block-components-text-input input,
+.wc-block-components-totals-coupon__button,
+.wc-block-cart__submit-button,
+.wc-block-cart__submit .wc-block-components-button,
+.wc-block-cart__submit-container .wc-block-components-button,
+.wc-block-grid__product,
+.wc-block-grid__product-add-to-cart .wp-block-button__link,
+.wc-block-cart-item__image img {
+  border-radius: 2px;
+}
+
+.wc-block-cart__sidebar,
+.wc-block-grid__product {
+  box-shadow: none;
+}
+
+.wc-block-cart__totals-title,
+.wp-block-woocommerce-empty-cart-block .wp-block-heading:not(.wc-block-cart__empty-cart__title),
+.wc-block-cart__empty-cart__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.wc-block-cart__totals-title {
+  font-size: clamp(1.7rem, 2.8vw, 2.25rem);
+  border-bottom: 1px solid var(--cart-border);
+}
+
+.wc-block-cart__submit-button,
+.wc-block-cart__submit .wc-block-components-button,
+.wc-block-cart__submit-container .wc-block-components-button,
+.wc-block-grid__product-add-to-cart .wp-block-button__link {
+  border: 1px solid #0B0B0B !important;
+  background: #0B0B0B !important;
+  color: #FFFFFF !important;
+}
+
+.wc-block-cart__submit-button:hover,
+.wc-block-cart__submit .wc-block-components-button:hover,
+.wc-block-cart__submit-container .wc-block-components-button:hover,
+.wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
+  background: transparent !important;
+  color: #0B0B0B !important;
+}
+
+.wc-block-components-totals-footer-item .wc-block-formatted-money-amount,
+.wc-block-grid__product-price {
+  color: #B89B5E;
+}

@@ -1,8 +1,7 @@
 <?php
 /**
- * MegaMallDepot - Shop / Archive Product Template
- * Design System: Modern general merchandise, conversion-first
- * Section 10: Category / Shop Page rules
+ * luxurytheme.com - Shop / Archive Product Template
+ * Design System: Modern Quiet Luxury
  */
 defined('ABSPATH') || exit;
 
@@ -11,9 +10,9 @@ get_header();
 $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
-$archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from MegaMallDepot.', 'dawp');
-$archive_eyebrow = __('MegaMallDepot Collection', 'dawp');
+$archive_title = __('All Watches', 'dawp');
+$archive_description = __('Explore refined mechanical timepieces selected for proportion, finishing and confident everyday wear.', 'dawp');
+$archive_eyebrow = __('Fine Timepieces', 'dawp');
 $archive_slug = 'shop';
 $home_image = static function ($filename) {
     return get_theme_file_uri('assets/img/home/' . $filename);
@@ -24,12 +23,12 @@ $gallery_image = static function ($filename) {
 
 $shop_cover_images = [
     'shop' => [
-        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
-        'alt' => __('Curated home essentials arranged on a warm modern shelf', 'dawp'),
+        'url' => 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1400&q=82',
+        'alt' => __('Close-up of a refined luxury watch on the wrist', 'dawp'),
     ],
     'home' => [
-        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
-        'alt' => __('Bright modern shelves styled with everyday home essentials', 'dawp'),
+        'url' => 'https://images.unsplash.com/photo-1547996160-81dfa63595aa?auto=format&fit=crop&w=1400&q=82',
+        'alt' => __('Refined luxury watch collection arranged on dark fabric', 'dawp'),
     ],
     'garden-tools' => [
         'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
@@ -65,7 +64,7 @@ if ($archive_term && !is_wp_error($archive_term)) {
     $archive_slug = $archive_term->slug;
     $term_description = term_description($archive_term->term_id, $archive_term->taxonomy);
     $archive_description = $term_description ? wp_strip_all_tags($term_description) : $archive_description;
-    $archive_eyebrow = is_product_tag() ? __('Shop By Tag', 'dawp') : __('Shop By Category', 'dawp');
+    $archive_eyebrow = is_product_tag() ? __('Reference Edit', 'dawp') : __('Collection', 'dawp');
 }
 
 $archive_cover = $shop_cover_images[$archive_slug] ?? $shop_cover_images['shop'];
@@ -338,8 +337,8 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 loadMoreBtn.style.minHeight = '3rem';
                 loadMoreBtn.style.paddingLeft = '2rem';
                 loadMoreBtn.style.paddingRight = '2rem';
-                loadMoreBtn.style.borderRadius = '0.375rem';
-                loadMoreBtn.style.backgroundColor = '#A45A3F';
+                loadMoreBtn.style.borderRadius = '2px';
+                loadMoreBtn.style.backgroundColor = '#0B0B0B';
                 loadMoreBtn.style.color = '#ffffff';
                 loadMoreBtn.style.fontWeight = '700';
                 loadMoreBtn.style.fontSize = '0.875rem';
@@ -347,8 +346,8 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
                 loadMoreBtn.style.cursor = 'pointer';
                 loadMoreBtn.style.transition = 'background-color 0.2s';
                 
-                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#7F422F'; };
-                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#A45A3F'; };
+                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#B89B5E'; };
+                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#0B0B0B'; };
 
                 loadMoreBtn.innerHTML = 'Load More Product';
                 

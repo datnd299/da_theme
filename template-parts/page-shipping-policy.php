@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping policy page for MegaMallDepot.
+ * Shipping policy page for luxurytheme.com.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@megamalldepot.com';
+$support_email = 'concierge@luxurytheme.com';
 $support_phone = '757-804-6538';
 $store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
 $track_url     = home_url('/track-order/');
@@ -54,16 +54,16 @@ $carriers = [
 ];
 
 $issue_requirements = [
-    __('Your exact Order Number, such as #MMD1001.', 'dawp'),
+    __('Your exact Order Number, such as #LUX1001.', 'dawp'),
     __('The specific Email Address utilized during checkout.', 'dawp'),
     __('The full and complete Delivery Address.', 'dawp'),
-    __('Clear, well-lit photos if the package container or home, electronics or lifestyle item arrived damaged.', 'dawp'),
+    __('Clear, well-lit photos if the package container or timepiece or accessory arrived damaged.', 'dawp'),
 ];
 
 $contact_details = [
     [
         'label' => __('Store Name', 'dawp'),
-        'value' => __('MegaMallDepot', 'dawp'),
+        'value' => __('luxurytheme.com', 'dawp'),
     ],
     [
         'label' => __('Customer Support Email', 'dawp'),
@@ -85,8 +85,8 @@ $contact_details = [
 
 $shipping_faqs = [
     [
-        'question' => __('Where does MegaMallDepot ship?', 'dawp'),
-        'answer'   => __('MegaMallDepot currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+        'question' => __('Where does luxurytheme.com ship?', 'dawp'),
+        'answer'   => __('luxurytheme.com currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
     ],
     [
         'question' => __('How much does standard shipping cost?', 'dawp'),
@@ -103,7 +103,7 @@ $shipping_faqs = [
 ];
 ?>
 
-<div class="bg-white text-[#2B2B2B]">
+<div class="lux-policy bg-white text-[#2B2B2B]">
     <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="shipping-policy-title">
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
@@ -141,10 +141,10 @@ $shipping_faqs = [
                 <?php esc_html_e('Shipping Locations & Market', 'dawp'); ?>
             </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <p><?php esc_html_e('We currently ship exclusively within the United States. MegaMallDepot serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+                <p><?php esc_html_e('We currently ship exclusively within the United States. luxurytheme.com serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                 <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
                 <div class="border-l-4 border-[#D8C7BE] bg-[#F8F5F0] p-5 text-[#4A4A4A]">
-                    <p><?php esc_html_e('Some home, electronics and lifestyle orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Some timepiece orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
                 </div>
             </div>
         </section>
@@ -191,8 +191,8 @@ $shipping_faqs = [
                 <?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?>
             </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <p><?php esc_html_e('If your purchase includes multiple home, electronics or lifestyle products, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
-                <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand home, electronics and lifestyle products may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
+                <p><?php esc_html_e('If your purchase includes multiple luxury watches, fine timepieces or premium accessories, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
+                <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand luxury watches, fine timepieces and premium accessories may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
             </div>
         </section>
 
@@ -201,7 +201,7 @@ $shipping_faqs = [
                 <?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <?php esc_html_e('To guarantee safe and efficient delivery, MegaMallDepot partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?>
+                <?php esc_html_e('To guarantee safe and efficient delivery, luxurytheme.com partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?>
             </p>
             <div class="mt-5 flex flex-wrap gap-3">
                 <?php foreach ($carriers as $carrier) : ?>
@@ -288,3 +288,5 @@ $shipping_faqs = [
         </div>
     </section>
 </div>
+
+

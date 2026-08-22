@@ -89,6 +89,50 @@ document.addEventListener('DOMContentLoaded', () => {
         setActiveDot(0);
     });
 
+    // Watchmaking craft image switcher
+    document.querySelectorAll('[data-craft-image-frame]').forEach((frame) => {
+        const image = frame.querySelector('img');
+        const section = frame.closest('.lux-craft-grid');
+        const notes = section ? Array.from(section.querySelectorAll('[data-craft-image]')) : [];
+        if (!image || !notes.length) return;
+
+        notes.forEach((note) => {
+            const preload = new Image();
+            preload.src = note.dataset.craftImage;
+        });
+
+        const setCraftImage = (activeNote) => {
+            const nextSrc = activeNote.dataset.craftImage;
+            const nextAlt = activeNote.dataset.craftAlt || '';
+            const nextPosition = activeNote.dataset.craftPosition || '50% 50%';
+            const currentSrc = image.getAttribute('src') || '';
+            if (!nextSrc || currentSrc === nextSrc) return;
+
+            notes.forEach((note) => {
+                const isActive = note === activeNote;
+                note.classList.toggle('is-active', isActive);
+                note.setAttribute('aria-pressed', String(isActive));
+            });
+
+            frame.classList.add('is-changing');
+            window.setTimeout(() => {
+                image.src = nextSrc;
+                image.alt = nextAlt;
+                image.style.objectPosition = nextPosition;
+            }, 120);
+        };
+
+        image.addEventListener('load', () => {
+            frame.classList.remove('is-changing');
+        });
+
+        notes.forEach((note) => {
+            note.addEventListener('click', () => setCraftImage(note));
+            note.addEventListener('mouseenter', () => setCraftImage(note));
+            note.addEventListener('focus', () => setCraftImage(note));
+        });
+    });
+
     // Product Gallery Thumbnails Scroll
     const initGalleryThumbsScroll = () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');

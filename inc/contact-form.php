@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form handling for MegaMallDepot.
+ * Contact form handling for luxurytheme.
  *
  * @package dawp
  */
@@ -122,8 +122,8 @@ function dawp_handle_contact_form() {
         update_post_meta($post_id, '_contact_ip', sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')));
     }
 
-    $support_email = 'support@megamalldepot.com';
-    $subject       = sprintf('[MegaMallDepot] %s', $topic_label);
+    $support_email = 'support@luxurytheme.com';
+    $subject       = sprintf('[luxurytheme] %s', $topic_label);
     $body          = sprintf(
         "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
         $name,

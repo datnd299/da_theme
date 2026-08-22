@@ -90,7 +90,7 @@ $support_links = [
                     <?php esc_html_e('This page is not available.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#554E49] sm:text-lg">
-                    <?php esc_html_e('The link may have changed, but you can continue shopping MegaMallDepot for home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products.', 'dawp'); ?>
+                    <?php esc_html_e('The link may have changed, but you can continue shopping luxurytheme for home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2B2B2B] px-6 text-sm font-bold text-white shadow-lg transition hover:bg-[#A45A3F]">

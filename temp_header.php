@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@megamalldepot.com';
+$support_email  = 'support@luxurytheme.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $home_url       = home_url('/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -79,11 +79,11 @@ $nav_items = [
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex min-h-20 items-center justify-between gap-4">
-            <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('MegaMallDepot home', 'dawp'); ?>">
+            <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('luxurytheme home', 'dawp'); ?>">
                 <?php
                 echo function_exists('dawp_get_responsive_image')
-                    ? dawp_get_responsive_image($logo_url, __('MegaMallDepot', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high')
-                    : '<img class="site-logo-img" src="' . esc_url($logo_url) . '" width="1290" height="1290" alt="' . esc_attr__('MegaMallDepot', 'dawp') . '" decoding="async" fetchpriority="high">';
+                    ? dawp_get_responsive_image($logo_url, __('luxurytheme', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high')
+                    : '<img class="site-logo-img" src="' . esc_url($logo_url) . '" width="1290" height="1290" alt="' . esc_attr__('luxurytheme', 'dawp') . '" decoding="async" fetchpriority="high">';
                 ?>
             </a>
 

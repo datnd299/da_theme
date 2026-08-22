@@ -1,5 +1,5 @@
 /* ============================================================
-   MegaMallDepot Shop / Product Archive
+   luxurytheme Shop / Product Archive
    ============================================================ */
 
 :root {
@@ -673,6 +673,7 @@
 }
 
 @media (min-width: 700px) {
+
   .shop-main ul.products,
   .woocommerce ul.products {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -681,6 +682,7 @@
 }
 
 @media (min-width: 1180px) {
+
   .shop-main ul.products,
   .woocommerce ul.products {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1413,6 +1415,7 @@ ul.products li.product,
 }
 
 @media (min-width: 760px) {
+
   .shop-page .shop-main ul.products,
   .shop-page.woocommerce ul.products,
   .shop-page .woocommerce ul.products {
@@ -1421,6 +1424,7 @@ ul.products li.product,
 }
 
 @media (min-width: 1180px) {
+
   .shop-page .shop-main ul.products,
   .shop-page.woocommerce ul.products,
   .shop-page .woocommerce ul.products {
@@ -1516,6 +1520,7 @@ ul.products li.product,
 }
 
 @media (max-width: 520px) {
+
   .shop-page .shop-main ul.products,
   .shop-page.woocommerce ul.products,
   .shop-page .woocommerce ul.products {

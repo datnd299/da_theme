@@ -50,7 +50,6 @@ function dawp_shop_category_items() {
     return $items;
 }
 
-<<<<<<< HEAD
 function dawp_watch_mega_menu_groups() {
     return [
         [
@@ -147,36 +146,6 @@ function dawp_watch_category_url($label) {
     $slug = function_exists('sanitize_title') ? sanitize_title($label) : strtolower(trim(preg_replace('/[^A-Za-z0-9]+/', '-', $label), '-'));
 
     return dawp_product_category_url($slug);
-=======
-/**
- * Brand columns for the header mega menu and the homepage brand showcase.
- * Each item includes its sub-collections (child categories), if any.
- */
-function dawp_megamenu_brands() {
-    $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [];
-    $items = [];
-
-    foreach ($categories as $slug => $category) {
-        $children = [];
-
-        foreach ($category['children'] ?? [] as $child_slug => $child_data) {
-            $child_name = is_array($child_data) ? $child_data['name'] : $child_data;
-
-            $children[] = [
-                'title' => $child_name,
-                'url'   => dawp_product_category_url($child_slug),
-            ];
-        }
-
-        $items[] = [
-            'title'    => $category['name'],
-            'url'      => dawp_product_category_url($slug),
-            'children' => $children,
-        ];
-    }
-
-    return $items;
->>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
 }
 
 function dawp_main_menu_items() {

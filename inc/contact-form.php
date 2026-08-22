@@ -1,10 +1,6 @@
-﻿<?php
+<?php
 /**
-<<<<<<< HEAD
  * Contact form handling for Chronel Shop.
-=======
- * Contact form handling for luxurytheme.
->>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
  *
  * @package dawp
  */
@@ -57,7 +53,7 @@ function dawp_contact_meta_box_cb($post) {
     echo '<table class="form-table"><tbody>';
     foreach ($fields as $i => $key) {
         $value = get_post_meta($post->ID, $key, true);
-        echo '<tr><th>' . esc_html($labels[$i]) . '</th><td>' . esc_html($value ?: 'â€”') . '</td></tr>';
+        echo '<tr><th>' . esc_html($labels[$i]) . '</th><td>' . esc_html($value ?: '—') . '</td></tr>';
     }
     echo '</tbody></table>';
 }
@@ -126,13 +122,8 @@ function dawp_handle_contact_form() {
         update_post_meta($post_id, '_contact_ip', sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')));
     }
 
-<<<<<<< HEAD
     $support_email = 'support@chronelshop.com';
     $subject       = sprintf('[Chronel Shop] %s', $topic_label);
-=======
-    $support_email = 'support@luxurytheme.com';
-    $subject       = sprintf('[luxurytheme] %s', $topic_label);
->>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
     $body          = sprintf(
         "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
         $name,

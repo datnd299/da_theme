@@ -42,7 +42,6 @@ $support_links = [
                 <?php esc_html_e('The page may have moved. Return to the collection or search for the piece you had in mind.', 'dawp'); ?>
             </p>
 
-<<<<<<< HEAD
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mx-auto mt-9 flex max-w-xl flex-col gap-3 border border-[#D8D0C3] bg-white p-2 shadow-[0_18px_50px_rgba(23,23,23,0.08)] sm:flex-row">
                 <label class="sr-only" for="error-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
                 <input id="error-search" type="search" name="s" placeholder="<?php esc_attr_e('Search the store', 'dawp'); ?>" class="min-h-12 flex-1 border-0 bg-transparent px-4 text-sm text-[#171717] outline-none placeholder:text-[#9A948B]">
@@ -59,30 +58,6 @@ $support_links = [
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 w-full items-center justify-center border border-[#CFC6B8] bg-transparent px-7 text-sm font-semibold text-[#171717] transition hover:border-[#9B7A43] hover:text-[#9B7A43] sm:w-auto">
                     <?php esc_html_e('Back home', 'dawp'); ?>
                 </a>
-=======
-        <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-            <div class="max-w-2xl">
-                <p class="inline-flex rounded-md border border-[#E8E5DF] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#A45A3F] shadow-sm">
-                    <?php esc_html_e('Page Not Found', 'dawp'); ?>
-                </p>
-                <p class="mt-5 select-none font-heading text-[7rem] font-extrabold leading-none text-[#D8C7BE] sm:text-[9rem] lg:text-[11rem]" aria-hidden="true">
-                    404
-                </p>
-                <h1 id="error-title" class="-mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl lg:text-6xl">
-                    <?php esc_html_e('This page is not available.', 'dawp'); ?>
-                </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#554E49] sm:text-lg">
-                    <?php esc_html_e('The link may have changed, but you can continue shopping luxurytheme for home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products.', 'dawp'); ?>
-                </p>
-                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2B2B2B] px-6 text-sm font-bold text-white shadow-lg transition hover:bg-[#A45A3F]">
-                        <?php esc_html_e('Shop Products', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#2B2B2B] bg-white px-6 text-sm font-bold text-[#2B2B2B] transition hover:border-[#A45A3F] hover:bg-[#F8F5F0] hover:text-[#A45A3F]">
-                        <?php esc_html_e('Back To Home', 'dawp'); ?>
-                    </a>
-                </div>
->>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
             </div>
 
             <nav class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm font-medium text-[#625D55]" aria-label="<?php esc_attr_e('Helpful links', 'dawp'); ?>">

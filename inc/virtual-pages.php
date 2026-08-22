@@ -26,6 +26,7 @@ function dawp_handle_virtual_pages() {
 }
 
 function dawp_virtual_page_map() {
+<<<<<<< HEAD
     $pages = [
         'about-us'             => ['slug' => 'about',                'title' => 'About Chronel Shop', 'desc' => 'Learn about Chronel Shop, a modern luxury watch boutique for mechanical timepieces, refined accessories and confident ownership support.', 'keywords' => 'Chronel Shop, about Chronel Shop, luxury watch boutique, mechanical watches, fine timepieces', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86'],
         'journal'              => ['slug' => 'journal',              'title' => 'Chronel Shop Journal', 'desc' => 'Read Chronel Shop stories about luxury watch design, finishing, mechanical movements and collection guidance.', 'keywords' => 'Chronel Shop journal, watch design, mechanical watch guide, watchmaking craft, luxury watches', 'css' => 'tw-journal.css', 'canonical_path' => 'journal', 'schema_type' => 'CollectionPage', 'image' => get_template_directory_uri() . '/assets/img/home/4f4052da-979c-4247-8cf0-dd25f7fb048e.jpg'],
@@ -37,6 +38,18 @@ function dawp_virtual_page_map() {
         'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read Chronel Shop terms and conditions for website use, luxury watch orders, payments, shipping, returns, privacy and support.', 'keywords' => 'Chronel Shop terms, terms and conditions, store policies, website terms, luxury watch orders', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
         'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Chronel Shop collects, uses, protects and manages customer information, cookies, payment security and privacy requests.', 'keywords' => 'Chronel Shop privacy policy, customer data, cookies, payment security, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
         'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your Chronel Shop Order', 'desc' => 'Track your Chronel Shop order online using your order ID and billing email, or contact support for shipment status help.', 'keywords' => 'track Chronel Shop order, order tracking, shipment status, order status, tracking help', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
+=======
+    return [
+        'about-us'             => ['slug' => 'about',                'title' => 'About luxurytheme', 'desc' => 'Learn more about luxurytheme, a modern online store for practical home, technology and everyday lifestyle products.', 'keywords' => 'luxurytheme, about luxurytheme, home essentials store, online lifestyle store', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => 'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=86'],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'luxurytheme FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at luxurytheme.', 'keywords' => 'luxurytheme FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
+        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact luxurytheme', 'desc' => 'Contact luxurytheme support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact luxurytheme, luxurytheme support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => get_template_directory_uri() . '/assets/img/gallery/Customer_support_scene_in_office_202607161445.jpeg'],
+        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review luxurytheme shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'luxurytheme shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review luxurytheme shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'luxurytheme shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the luxurytheme return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'luxurytheme return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
+        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the luxurytheme terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'luxurytheme terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
+        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how luxurytheme collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'luxurytheme privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
+        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your luxurytheme Order', 'desc' => 'Track your luxurytheme order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track luxurytheme order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
     ];
 
     foreach (dawp_journal_posts() as $post) {
@@ -142,9 +155,15 @@ function dawp_current_journal_post() {
 function dawp_home_page_seo_data() {
     return [
         'slug'           => 'home',
+<<<<<<< HEAD
         'title'          => 'Chronel Shop - Luxury Watches & Fine Timepieces',
         'desc'           => 'Shop Chronel Shop for luxury watches, fine mechanical timepieces, refined accessories, editorial guidance and confident after-purchase support.',
         'keywords'       => 'Chronel Shop, luxury watches, fine timepieces, mechanical watches, watch boutique, premium accessories',
+=======
+        'title'          => 'luxurytheme - Home, Electronics & Everyday Essentials',
+        'desc'           => 'Shop luxurytheme for practical home essentials, furniture, electronics, smart home products, kitchen favorites and outdoor living picks.',
+        'keywords'       => 'luxurytheme, home essentials, furniture, electronics, kitchen products, outdoor living',
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
         'canonical_path' => '',
         'schema_type'    => 'WebSite',
         'image'          => get_template_directory_uri() . '/assets/img/home/4f4052da-979c-4247-8cf0-dd25f7fb048e.jpg',
@@ -260,10 +279,17 @@ function dawp_rank_math_organization_schema() {
         '@id'   => home_url('/#organization'),
         'name'  => get_bloginfo('name'),
         'url'   => home_url('/'),
+<<<<<<< HEAD
         'email' => 'support@chronelshop.com',
         'logo'  => [
             '@type' => 'ImageObject',
             'url'   => get_template_directory_uri() . '/assets/img/logo/chronelshop-logo.svg',
+=======
+        'email' => 'support@luxurytheme.com',
+        'logo'  => [
+            '@type' => 'ImageObject',
+            'url'   => get_template_directory_uri() . '/assets/img/home/luxurytheme-logo.png',
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
         ],
     ];
 }
@@ -289,12 +315,29 @@ function dawp_rank_math_contact_points() {
 
     return [
         [
+<<<<<<< HEAD
             '@type'       => 'ContactPoint',
             'telephone'   => '+1' . preg_replace('/[^0-9]/', '', $phone),
             'contactType' => 'customer support',
             'email'       => 'support@chronelshop.com',
             'areaServed'  => 'US',
             'availableLanguage' => ['en-US'],
+=======
+            'question' => 'Where does luxurytheme ship?',
+            'answer'   => 'luxurytheme currently ships exclusively within the United States domestic market.',
+        ],
+        [
+            'question' => 'How much does shipping cost?',
+            'answer'   => 'Shipping cost is shown during checkout before payment is processed.',
+        ],
+        [
+            'question' => 'What is the return window?',
+            'answer'   => 'Eligible products can be returned within 30 days after delivery.',
+        ],
+        [
+            'question' => 'How do I contact luxurytheme?',
+            'answer'   => 'Customers can contact luxurytheme support by email at support@luxurytheme.com or through the Contact Us page.',
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
         ],
     ];
 }

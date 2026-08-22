@@ -1,25 +1,6 @@
 <?php
 function dawp_product_category_slug($slug) {
-    $map = [
-        'essentials' => 'home',
-        'home'       => 'home',
-        'furniture'  => 'home',
-        'electronics'=> 'electronics',
-        'smart'      => 'electronics',
-        'kitchen'    => 'home',
-        'outdoor'    => 'sports-outdoors',
-        'garden'     => 'garden-tools',
-        'tools'      => 'garden-tools',
-        'sports'     => 'sports-outdoors',
-        'toys'       => 'toys-outdoor-play',
-        'beauty'     => 'beauty-personal-care',
-        'pets'       => 'pets',
-        'school'     => 'school-office-art-supplies',
-        'office'     => 'school-office-art-supplies',
-        'art'        => 'school-office-art-supplies',
-    ];
-
-    return $map[$slug] ?? $slug;
+    return $slug;
 }
 
 function dawp_product_category_url($slug) {
@@ -46,14 +27,15 @@ function dawp_new_arrivals_url() {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'home'                       => ['name' => __('Home', 'dawp')],
-        'garden-tools'               => ['name' => __('Garden & Tools', 'dawp')],
-        'electronics'                => ['name' => __('Electronics', 'dawp')],
-        'sports-outdoors'            => ['name' => __('Sports & Outdoors', 'dawp')],
-        'toys-outdoor-play'          => ['name' => __('Toys & Outdoor Play', 'dawp')],
-        'beauty-personal-care'       => ['name' => __('Beauty & Personal Care', 'dawp')],
-        'pets'                       => ['name' => __('Pets', 'dawp')],
-        'school-office-art-supplies' => ['name' => __('School, Office & Art Supplies', 'dawp')],
+        'rolex-watches'    => ['name' => __('Rolex Watches', 'dawp')],
+        'patek-philippe'   => ['name' => __('Patek Philippe', 'dawp')],
+        'audemars-piguet'  => ['name' => __('Audemars Piguet', 'dawp')],
+        'omega-watches'    => ['name' => __('Omega Watches', 'dawp')],
+        'richard-mille'    => ['name' => __('Richard Mille', 'dawp')],
+        'breitling'        => ['name' => __('Breitling', 'dawp')],
+        'hublot'           => ['name' => __('Hublot', 'dawp')],
+        'tag-heuer'        => ['name' => __('Tag Heuer', 'dawp')],
+        'iced-out-watches' => ['name' => __('Iced Out Watches', 'dawp')],
     ];
 
     $items = [];
@@ -68,6 +50,7 @@ function dawp_shop_category_items() {
     return $items;
 }
 
+<<<<<<< HEAD
 function dawp_watch_mega_menu_groups() {
     return [
         [
@@ -164,6 +147,36 @@ function dawp_watch_category_url($label) {
     $slug = function_exists('sanitize_title') ? sanitize_title($label) : strtolower(trim(preg_replace('/[^A-Za-z0-9]+/', '-', $label), '-'));
 
     return dawp_product_category_url($slug);
+=======
+/**
+ * Brand columns for the header mega menu and the homepage brand showcase.
+ * Each item includes its sub-collections (child categories), if any.
+ */
+function dawp_megamenu_brands() {
+    $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [];
+    $items = [];
+
+    foreach ($categories as $slug => $category) {
+        $children = [];
+
+        foreach ($category['children'] ?? [] as $child_slug => $child_data) {
+            $child_name = is_array($child_data) ? $child_data['name'] : $child_data;
+
+            $children[] = [
+                'title' => $child_name,
+                'url'   => dawp_product_category_url($child_slug),
+            ];
+        }
+
+        $items[] = [
+            'title'    => $category['name'],
+            'url'      => dawp_product_category_url($slug),
+            'children' => $children,
+        ];
+    }
+
+    return $items;
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
 }
 
 function dawp_main_menu_items() {

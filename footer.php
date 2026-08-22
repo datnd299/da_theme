@@ -52,19 +52,49 @@ $footer_columns = [
         'title' => __('Watches', 'dawp'),
         'links' => [
             ['title' => __('All Watches', 'dawp'), 'url' => $shop_url],
+<<<<<<< HEAD
             ['title' => __('New Arrivals', 'dawp'), 'url' => $new_arrivals_url],
             ['title' => __('Best Sellers', 'dawp'), 'url' => add_query_arg('orderby', 'popularity', $shop_url)],
             ['title' => __('Iced Out Watches', 'dawp'), 'url' => $iced_out_url],
+=======
+            ['title' => __('New Arrivals', 'dawp'), 'url' => add_query_arg('orderby', 'date', $shop_url)],
+            ['title' => __('Best Sellers', 'dawp'), 'url' => add_query_arg('orderby', 'popularity', $shop_url)],
+            ['title' => __('Iced Out Watches', 'dawp'), 'url' => dawp_product_category_url('iced-out-watches')],
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
         ],
     ],
     [
         'title' => __('Popular Brands', 'dawp'),
+<<<<<<< HEAD
         'links' => $brand_links,
     ],
     [
         'title' => __('Store Policy', 'dawp'),
         'links' => [
             ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
+=======
+        'links' => [
+            ['title' => __('Rolex', 'dawp'), 'url' => dawp_product_category_url('rolex-watches')],
+            ['title' => __('Patek Philippe', 'dawp'), 'url' => dawp_product_category_url('patek-philippe')],
+            ['title' => __('Audemars Piguet', 'dawp'), 'url' => dawp_product_category_url('audemars-piguet')],
+            ['title' => __('Omega', 'dawp'), 'url' => dawp_product_category_url('omega-watches')],
+        ],
+    ],
+    [
+        'title' => __('More Brands', 'dawp'),
+        'links' => [
+            ['title' => __('Richard Mille', 'dawp'), 'url' => dawp_product_category_url('richard-mille')],
+            ['title' => __('Breitling', 'dawp'), 'url' => dawp_product_category_url('breitling')],
+            ['title' => __('Hublot', 'dawp'), 'url' => dawp_product_category_url('hublot')],
+            ['title' => __('Tag Heuer', 'dawp'), 'url' => dawp_product_category_url('tag-heuer')],
+        ],
+    ],
+    [
+        'title' => __('Customer Care', 'dawp'),
+        'links' => [
+            ['title' => __('My Account', 'dawp'), 'url' => $account_url],
+            ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
             ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
             ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
             ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
@@ -142,7 +172,7 @@ $payment_methods = [
                         : '<img class="lux-footer__logo" src="' . esc_url($logo_url) . '" width="180" height="54" alt="' . esc_attr__('Chronel Shop', 'dawp') . '" decoding="async" loading="lazy">';
                     ?>
                 </a>
-                <p class="lux-footer__intro"><?php esc_html_e('A contemporary watch boutique for refined mechanical timepieces, crafted details and confident ownership.', 'dawp'); ?></p>
+                <p class="lux-footer__intro"><?php esc_html_e('Rolex, Patek Philippe, Audemars Piguet, Omega and other Swiss houses, each piece inspected before it reaches you.', 'dawp'); ?></p>
                 <dl class="lux-footer__contact">
                     <div>
                         <dt><?php esc_html_e('Mail:', 'dawp'); ?></dt>
@@ -177,7 +207,16 @@ $payment_methods = [
             </div>
         </div>
 
+<<<<<<< HEAD
         <div class="lux-footer__divider" aria-hidden="true"></div>
+=======
+        <div class="lux-footer__assurance" aria-label="<?php esc_attr_e('Purchase assurances', 'dawp'); ?>">
+            <div><span><?php esc_html_e('Authenticated', 'dawp'); ?></span><small><?php esc_html_e('Verified references and documented inspection.', 'dawp'); ?></small></div>
+            <div><span><?php esc_html_e('Insured Delivery', 'dawp'); ?></span><small><?php esc_html_e('Protected shipping with signature confirmation.', 'dawp'); ?></small></div>
+            <div><span><?php esc_html_e('Warranty', 'dawp'); ?></span><small><?php esc_html_e('Coverage and service support after purchase.', 'dawp'); ?></small></div>
+            <div><span><?php esc_html_e('Consultation', 'dawp'); ?></span><small><?php esc_html_e('Private advice for fit, gifting and selection.', 'dawp'); ?></small></div>
+        </div>
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
 
         <div class="lux-footer__bottom">
             <p>&copy; <?php echo esc_html(gmdate('Y')); ?> chronelshop.com. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>

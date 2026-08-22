@@ -1,6 +1,10 @@
 ﻿<?php
 /**
+<<<<<<< HEAD
  * Contact form handling for Chronel Shop.
+=======
+ * Contact form handling for luxurytheme.
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
  *
  * @package dawp
  */
@@ -122,8 +126,13 @@ function dawp_handle_contact_form() {
         update_post_meta($post_id, '_contact_ip', sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')));
     }
 
+<<<<<<< HEAD
     $support_email = 'support@chronelshop.com';
     $subject       = sprintf('[Chronel Shop] %s', $topic_label);
+=======
+    $support_email = 'support@luxurytheme.com';
+    $subject       = sprintf('[luxurytheme] %s', $topic_label);
+>>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
     $body          = sprintf(
         "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
         $name,

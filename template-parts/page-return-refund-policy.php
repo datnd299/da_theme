@@ -1,6 +1,6 @@
 <?php
 /**
- * Return and refund policy page for luxurytheme.com.
+ * Return and refund policy page for Chronel.
  *
  * @package dawp
  */
@@ -9,8 +9,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'luxurytheme.com';
-$support_email  = 'concierge@luxurytheme.com';
+$store_name     = 'Chronel';
+$support_email  = 'concierge@chronelshop.com';
 $support_phone  = '757-804-6538';
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
@@ -28,11 +28,11 @@ $return_eligibility = [
 $return_shipping_fees = [
     [
         'title' => __('Defective, Damaged, or Incorrect Products:', 'dawp'),
-        'copy'  => __('luxurytheme.com covers the return shipping cost. Once your return is approved, we will email you a prepaid shipping label so you can send the item back to us at no cost to you.', 'dawp'),
+        'copy'  => __('Chronel covers the return shipping cost. Once your return is approved, we will email you a prepaid shipping label so you can send the item back to us at no cost to you.', 'dawp'),
     ],
     [
         'title' => __('Customer Remorse / Change of Mind:', 'dawp'),
-        'copy'  => __('Free returns within 30 days of delivery, no questions asked. luxurytheme.com covers the return shipping cost and emails you a prepaid shipping label.', 'dawp'),
+        'copy'  => __('Free returns within 30 days of delivery, no questions asked. Chronel covers the return shipping cost and emails you a prepaid shipping label.', 'dawp'),
     ],
 ];
 
@@ -122,11 +122,11 @@ $return_faqs = [
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('luxurytheme.com covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
+        'answer'   => __('Chronel covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),
-        'answer'   => __('No. luxurytheme.com does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
+        'answer'   => __('No. Chronel does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
     ],
     [
         'question' => __('When will I receive my refund?', 'dawp'),

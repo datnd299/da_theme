@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQs page for luxurytheme.com.
+ * FAQs page for Chronel.
  *
  * @package dawp
  */
@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'luxurytheme.com';
-$site_domain    = 'luxurytheme.com';
-$support_email  = 'concierge@luxurytheme.com';
+$store_name     = 'Chronel';
+$site_domain    = 'Chronel';
+$support_email  = 'concierge@chronelshop.com';
 $support_phone  = '757-804-6538';
 $store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
@@ -49,8 +49,8 @@ $faq_groups = [
         'label' => __('Orders & Shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('Where does luxurytheme.com ship?', 'dawp'),
-                'answer'   => __('luxurytheme.com currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+                'question' => __('Where does Chronel ship?', 'dawp'),
+                'answer'   => __('Chronel currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
             ],
             [
                 'question' => __('How much does shipping cost?', 'dawp'),
@@ -62,7 +62,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('How long does order handling and delivery take?', 'dawp'),
-                'answer'   => __('Order handling takes 1-2 business days (Monday to Friday), excluding standard U.S. public holidays. Standard transit takes 3-5 business days (Monday to Friday), so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+                'answer'   => __('Order handling takes 3-5 business days (Monday to Friday), excluding standard U.S. public holidays. Standard transit takes 10-15 business days (Monday to Friday), so estimated delivery is 13-20 business days total from the date of purchase.', 'dawp'),
             ],
             [
                 'question' => __('Which carriers do you use?', 'dawp'),
@@ -99,11 +99,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('luxurytheme.com covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
+                'answer'   => __('Chronel covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
-                'answer'   => __('No. luxurytheme.com does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
+                'answer'   => __('No. Chronel does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('Do you offer exchanges?', 'dawp'),
@@ -127,8 +127,8 @@ $faq_groups = [
         'label' => __('Products & Store', 'dawp'),
         'items' => [
             [
-                'question' => __('What does luxurytheme.com sell?', 'dawp'),
-                'answer'   => __('luxurytheme.com focuses on luxury watches, fine timepieces, limited editions, mechanical references and premium accessories.', 'dawp'),
+                'question' => __('What does Chronel sell?', 'dawp'),
+                'answer'   => __('Chronel focuses on luxury watches, fine timepieces, limited editions, mechanical references and premium accessories.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
@@ -136,7 +136,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
-                'answer'   => __('No. luxurytheme.com does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+                'answer'   => __('No. Chronel does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),
@@ -156,8 +156,8 @@ $faq_groups = [
                 'answer'   => __('Yes. Checkout transactions are executed over an encrypted SSL connection and payment processing is handled by certified third-party payment gateways that follow PCI-DSS standards.', 'dawp'),
             ],
             [
-                'question' => __('Does luxurytheme.com store my full credit card number?', 'dawp'),
-                'answer'   => __('No. luxurytheme.com does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+                'question' => __('Does Chronel store my full credit card number?', 'dawp'),
+                'answer'   => __('No. Chronel does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             ],
             [
                 'question' => __('How is my information used?', 'dawp'),
@@ -168,7 +168,7 @@ $faq_groups = [
                 'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain. Submit privacy requests through support.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact luxurytheme.com?', 'dawp'),
+                'question' => __('How do I contact Chronel?', 'dawp'),
                 'answer'   => sprintf(
                     /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
                     __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
@@ -216,7 +216,7 @@ $quick_links = [
         <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
             <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
             <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                <?php esc_html_e('Quick answers for shopping with luxurytheme.com.', 'dawp'); ?>
+                <?php esc_html_e('Quick answers for shopping with Chronel.', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#4A4A4A]">
                 <?php

@@ -1,6 +1,6 @@
 <?php
 /**
- * luxurytheme.com - Shop / Archive Product Template
+ * Chronel - Shop / Archive Product Template
  * Design System: Modern Quiet Luxury
  */
 defined('ABSPATH') || exit;

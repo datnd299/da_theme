@@ -67,6 +67,7 @@ function dawp_megamenu_brands() {
         $items[] = [
             'title'    => $category['name'],
             'url'      => dawp_product_category_url($slug),
+            'image'    => !empty($category['image']) ? get_theme_file_uri('assets/img/categories/' . $category['image']) : '',
             'children' => $children,
         ];
     }

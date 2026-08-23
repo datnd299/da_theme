@@ -18,24 +18,25 @@ function dawp_single_product_benefits() {
 
     $benefits = [
         [
-            'title' => __('Fast Shipping', 'dawp'),
-            'copy'  => __('Reliable delivery across the United States.', 'dawp'),
+            'title' => __('Preparing Watches', 'dawp'),
+            'copy'  => __('3-5 Day', 'dawp'),
+            'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
+        ],
+        [
+            'title' => __('Express Delivery', 'dawp'),
+            'copy'  => __('10-15 Business Days', 'dawp'),
             'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M18 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg>',
         ],
         [
-            'title' => __('Secure Checkout', 'dawp'),
-            'copy'  => __('Protected payment experience from cart to confirmation.', 'dawp'),
+            'title' => __('Warranty', 'dawp'),
+            'copy'  => __('2 Years', 'dawp'),
             'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.6-2.9 8-7 10-4.1-2-7-5.4-7-10V6z"/><path d="M9 12l2 2 4-5"/></svg>',
         ],
         [
-            'title' => __('Easy Returns', 'dawp'),
-            'copy'  => __('Simple 30-day return process after delivery.', 'dawp'),
-            'icon'  => '<span aria-hidden="true">30</span>',
-        ],
-        [
-            'title' => __('Friendly Support', 'dawp'),
-            'copy'  => __('Helpful service whenever you need order guidance.', 'dawp'),
-            'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0v4a3 3 0 0 1-3 3h-2"/><path d="M4 13h3v5H4z"/><path d="M17 13h3v5h-3z"/><path d="M10 19h5"/></svg>',
+            'title' => __('Free 30-Days Returns', 'dawp'),
+            'copy'  => __('More Details', 'dawp'),
+            'link'  => home_url('/return-refund-policy/'),
+            'icon'  => '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M5 15a8 8 0 0 0 14.5 3.5M19 9A8 8 0 0 0 4.5 5.5"/></svg>',
         ],
     ];
     ?>
@@ -45,7 +46,11 @@ function dawp_single_product_benefits() {
                 <div class="tgm-product-benefit__icon"><?php echo $benefit['icon']; ?></div>
                 <div class="tgm-product-benefit__content">
                     <h2><?php echo esc_html($benefit['title']); ?></h2>
-                    <p><?php echo esc_html($benefit['copy']); ?></p>
+                    <?php if (!empty($benefit['link'])) : ?>
+                        <p><a href="<?php echo esc_url($benefit['link']); ?>"><?php echo esc_html($benefit['copy']); ?></a></p>
+                    <?php else : ?>
+                        <p><?php echo esc_html($benefit['copy']); ?></p>
+                    <?php endif; ?>
                 </div>
             </article>
         <?php endforeach; ?>

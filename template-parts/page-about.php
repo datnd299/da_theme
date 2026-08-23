@@ -68,7 +68,7 @@ $principles = [
     ],
     [
         'title' => __('Quality without the noise', 'dawp'),
-        'copy'  => __('luxurytheme.com avoids cluttered marketplace browsing and focuses on curated watches with clear reference details and calm presentation.', 'dawp'),
+        'copy'  => __('Chronel avoids cluttered marketplace browsing and focuses on curated watches with clear reference details and calm presentation.', 'dawp'),
     ],
 ];
 
@@ -81,7 +81,7 @@ $values = [
 
 $trust_items = [
     [__('Secure Checkout', 'dawp'), __('Encrypted checkout helps protect your payment details from cart to confirmation.', 'dawp')],
-    [__('Insured Shipping', 'dawp'), __('Orders are handled in 1-2 business days, with estimated delivery usually in 4-7 business days.', 'dawp')],
+    [__('Insured Shipping', 'dawp'), __('Orders are handled in 3-5 business days, with estimated delivery usually in 13-20 business days.', 'dawp')],
     [__('Easy Returns', 'dawp'), __('Eligible unused items can be returned within 30 days after delivery.', 'dawp')],
     [__('Order Tracking', 'dawp'), __('Tracking details are provided once your order ships so you can follow each step.', 'dawp')],
 ];
@@ -166,9 +166,9 @@ $trust_items = [
     <section class="mmd-about-hero" aria-labelledby="mmd-about-title">
         <div class="mmd-about-container mmd-about-hero__grid">
             <div class="mmd-about-hero__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('About luxurytheme.com', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('About Chronel', 'dawp'); ?></p>
                 <h1 id="mmd-about-title"><?php esc_html_e('A modern boutique for refined mechanical timepieces.', 'dawp'); ?></h1>
-                <p class="mmd-about-hero__copy"><?php esc_html_e('luxurytheme.com presents luxury watches through restrained design, clear reference information and personal support for confident ownership.', 'dawp'); ?></p>
+                <p class="mmd-about-hero__copy"><?php esc_html_e('Chronel presents luxury watches through restrained design, clear reference information and personal support for confident ownership.', 'dawp'); ?></p>
                 <div class="mmd-about-hero__actions">
                     <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
                     <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
@@ -190,7 +190,7 @@ $trust_items = [
             <div class="mmd-about-story__content">
                 <p class="mmd-about-eyebrow"><?php esc_html_e('Our Story', 'dawp'); ?></p>
                 <h2 id="mmd-about-story-title"><?php esc_html_e('Curated for collectors who value proportion, craft and restraint.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('We built luxurytheme.com for shoppers who want a clearer, more inspiring way to discover fine timepieces. Instead of overwhelming customers with unrelated products, we focus on watches with balanced design, meaningful specifications and long-term wearability.', 'dawp'); ?></p>
+                <p><?php esc_html_e('We built Chronel for shoppers who want a clearer, more inspiring way to discover fine timepieces. Instead of overwhelming customers with unrelated products, we focus on watches with balanced design, meaningful specifications and long-term wearability.', 'dawp'); ?></p>
                 <p><?php esc_html_e('Every collection is guided by materials, movement quality, case finishing and timeless styling, so choosing a watch feels calm rather than complicated.', 'dawp'); ?></p>
                 <div class="mmd-about-values">
                     <?php foreach ($values as $value) : ?>

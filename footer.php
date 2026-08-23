@@ -20,7 +20,7 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$support_email  = 'concierge@luxurytheme.com';
+$support_email  = 'concierge@chronelshop.com';
 $support_phone  = '+1 757 804 6538';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : __('Private showroom appointments available by request.', 'dawp');
@@ -58,9 +58,18 @@ $footer_columns = [
         'links' => [
             ['title' => __('My Account', 'dawp'), 'url' => $account_url],
             ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
-            ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
-            ['title' => __('Returns', 'dawp'), 'url' => home_url('/return-refund-policy/')],
             ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
+            ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+        ],
+    ],
+    [
+        'title' => __('Policies', 'dawp'),
+        'links' => [
+            ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
+            ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+            ['title' => __('Billing Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+            ['title' => __('Terms of Service', 'dawp'), 'url' => home_url('/terms-conditions/')],
+            ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
         ],
     ],
 ];
@@ -86,9 +95,9 @@ $payment_methods = [
         .lux-footer { background:#0B0B0B; color:#F7F5F0; font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
         .lux-footer * { box-sizing:border-box; }
         .lux-footer__inner { width:min(100% - 40px,1280px); margin-inline:auto; }
-        .lux-footer__top { display:grid; grid-template-columns:minmax(280px,1.1fr) 2fr; gap:70px; padding:78px 0 58px; border-top:1px solid rgba(184,155,94,.34); }
-        .lux-footer__brand { color:#F7F5F0; text-decoration:none; }
-        .lux-footer__brand strong { display:block; font-family:"Cormorant Garamond", Georgia, serif; font-size:42px; font-weight:400; line-height:.95; letter-spacing:0; }
+        .lux-footer__top { display:grid; grid-template-columns:minmax(260px,1fr) 2.6fr; gap:50px; padding:78px 0 58px; border-top:1px solid rgba(184,155,94,.34); }
+        .lux-footer__brand { display:inline-block; color:#F7F5F0; text-decoration:none; }
+        .lux-footer__logo { display:block; width:180px; height:auto; max-height:56px; }
         .lux-footer__brand span { display:block; margin-top:11px; color:#B89B5E; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
         .lux-footer__intro { max-width:440px; margin:28px 0 0; color:#C9C3B8; font-size:15px; line-height:1.75; }
         .lux-footer__contact { display:grid; gap:11px; margin:30px 0 0; color:#C9C3B8; font-size:14px; line-height:1.55; }
@@ -97,7 +106,7 @@ $payment_methods = [
         .lux-footer__contact dd { display:inline; margin:0; }
         .lux-footer a { color:inherit; text-decoration:none; }
         .lux-footer a:hover { color:#D1BD8A; text-decoration:underline; text-underline-offset:5px; }
-        .lux-footer__columns { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:34px; }
+        .lux-footer__columns { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:26px; }
         .lux-footer__columns h2 { margin:0 0 18px; color:#B89B5E; font-size:12px; font-weight:800; letter-spacing:.1em; line-height:1.35; text-transform:uppercase; }
         .lux-footer__columns ul { display:grid; gap:12px; margin:0; padding:0; list-style:none; color:#D8D0C2; font-size:14px; line-height:1.45; }
         .lux-footer__assurance { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; padding:28px 0; border-top:1px solid rgba(247,245,240,.12); border-bottom:1px solid rgba(247,245,240,.12); }
@@ -111,11 +120,12 @@ $payment_methods = [
         .lux-footer__payment img { display:block; max-width:100%; max-height:100%; object-fit:contain; }
         @media (max-width: 980px) {
             .lux-footer__top { grid-template-columns:1fr; gap:42px; padding:64px 0 48px; }
-            .lux-footer__columns, .lux-footer__assurance { grid-template-columns:repeat(2,minmax(0,1fr)); }
+            .lux-footer__columns { grid-template-columns:repeat(3,minmax(0,1fr)); }
+            .lux-footer__assurance { grid-template-columns:repeat(2,minmax(0,1fr)); }
         }
         @media (max-width: 620px) {
             .lux-footer__inner { width:min(100% - 32px,1280px); }
-            .lux-footer__brand strong { font-size:34px; }
+            .lux-footer__logo { width:150px; max-height:46px; }
             .lux-footer__columns, .lux-footer__assurance { grid-template-columns:1fr; }
             .lux-footer__bottom { display:grid; }
         }
@@ -124,8 +134,8 @@ $payment_methods = [
     <div class="lux-footer__inner">
         <div class="lux-footer__top">
             <section aria-label="<?php esc_attr_e('Brand and contact information', 'dawp'); ?>">
-                <a class="lux-footer__brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('luxurytheme.com home', 'dawp'); ?>">
-                    <strong><?php esc_html_e('luxurytheme.com', 'dawp'); ?></strong>
+                <a class="lux-footer__brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
+                    <img class="lux-footer__logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo/chronel-logo-white.png'); ?>" width="180" height="56" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>" loading="lazy">
                     <span><?php esc_html_e('Fine Timepieces', 'dawp'); ?></span>
                 </a>
                 <p class="lux-footer__intro"><?php esc_html_e('Rolex, Patek Philippe, Audemars Piguet, Omega and other Swiss houses, each piece inspected before it reaches you.', 'dawp'); ?></p>
@@ -171,7 +181,7 @@ $payment_methods = [
         </div>
 
         <div class="lux-footer__bottom">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> luxurytheme.com. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Chronel. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <nav class="lux-footer__legal" aria-label="<?php esc_attr_e('Legal links', 'dawp'); ?>">
                 <?php foreach ($legal_links as $link) : ?>
                     <a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a>
@@ -201,6 +211,9 @@ $payment_methods = [
         </div>
     </div>
 </footer>
+
+<?php if (function_exists('dawp_cart_fab_markup')) : dawp_cart_fab_markup(); endif; ?>
+<?php if (function_exists('dawp_cart_drawer_markup')) : dawp_cart_drawer_markup(); endif; ?>
 
 <?php wp_footer(); ?>
 </body>

@@ -18,7 +18,7 @@ $shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalin
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url      = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count    = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_url      = get_template_directory_uri() . '/assets/img/logo/luxurytheme-logo.svg';
+$logo_url      = get_template_directory_uri() . '/assets/img/logo/chronel-logo-black.png';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -34,17 +34,14 @@ $is_shop_area = (function_exists('is_shop') && is_shop()) || (function_exists('i
 $megamenu_brands = function_exists('dawp_megamenu_brands') ? dawp_megamenu_brands() : [];
 
 $nav_items = [
+    ['title' => __('Home', 'dawp'), 'url' => $home_url, 'active' => '' === $current_path],
     ['title' => __('Watches', 'dawp'), 'url' => $shop_url, 'active' => $is_shop_area, 'megamenu' => true],
-    ['title' => __('Collections', 'dawp'), 'url' => home_url('/collections/'), 'active' => 'collections' === $current_path],
-    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/'), 'active' => 'about-us' === $current_path],
-    ['title' => __('Discover', 'dawp'), 'url' => home_url('/discover/'), 'active' => 'discover' === $current_path],
-    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/'), 'active' => in_array($current_path, ['contact-us'], true)],
+    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/'), 'active' => 'contact-us' === $current_path],
+    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/'), 'active' => 'track-order' === $current_path],
 ];
 
 $mobile_extra_items = [
     ['title' => __('Account', 'dawp'), 'url' => $account_url],
-    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
-    ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
 ];
 ?>
 <!DOCTYPE html>
@@ -80,16 +77,26 @@ $mobile_extra_items = [
         .lux-megamenu { position:absolute; top:100%; left:0; right:0; z-index:70; opacity:0; visibility:hidden; transform:translateY(-8px); border-top:1px solid var(--lux-line); background:var(--lux-ivory); box-shadow:0 24px 48px -24px rgba(11,11,11,.28); transition:opacity .22s cubic-bezier(.22,1,.36,1), transform .22s cubic-bezier(.22,1,.36,1), visibility .22s; }
         .lux-nav-item:hover .lux-megamenu, .lux-nav-item:focus-within .lux-megamenu { opacity:1; visibility:visible; transform:translateY(0); }
         .lux-megamenu__inner { padding:36px 0 40px; }
+        .lux-megamenu__eyebrow { margin:0 0 20px; color:var(--lux-gold); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+        .lux-megamenu__layout { display:grid; grid-template-columns:1fr 280px; gap:44px; align-items:start; }
         .lux-megamenu__grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:28px 24px; }
         .lux-megamenu__col { min-width:0; }
-        .lux-megamenu__brand { display:block; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--lux-line); color:var(--lux-black); font-size:12px; font-weight:800; letter-spacing:.06em; text-decoration:none; text-transform:uppercase; }
-        .lux-megamenu__brand:hover { color:var(--lux-gold); }
+        .lux-megamenu__brand { display:flex; align-items:center; gap:10px; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--lux-line); color:var(--lux-black); text-decoration:none; transition:border-color .25s cubic-bezier(.22,1,.36,1); }
+        .lux-megamenu__brand span { font-size:12px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; }
+        .lux-megamenu__brand:hover { border-color:var(--lux-gold); }
+        .lux-megamenu__brand:hover span { color:var(--lux-gold); }
+        .lux-megamenu__brand-thumb { flex:none; width:30px; height:30px; border-radius:999px; object-fit:cover; box-shadow:0 0 0 1px var(--lux-line); }
         .lux-megamenu__col ul { display:grid; gap:9px; margin:0; padding:0; list-style:none; }
         .lux-megamenu__col a { color:var(--lux-gray); font-size:13px; font-weight:500; letter-spacing:0; text-decoration:none; text-transform:none; }
         .lux-megamenu__col a:hover { color:var(--lux-gold); }
-        .lux-megamenu__footer { display:flex; justify-content:flex-end; margin-top:30px; padding-top:22px; border-top:1px solid var(--lux-line); }
-        .lux-megamenu__all { color:var(--lux-black); font-size:12px; font-weight:800; letter-spacing:.08em; text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:1px; text-transform:uppercase; }
-        .lux-megamenu__all:hover { color:var(--lux-gold); }
+        .lux-megamenu__feature { position:relative; display:block; min-height:100%; border-radius:4px; overflow:hidden; text-decoration:none; }
+        .lux-megamenu__feature img { display:block; width:100%; height:100%; min-height:280px; object-fit:cover; transition:transform .5s cubic-bezier(.22,1,.36,1); }
+        .lux-megamenu__feature:hover img { transform:scale(1.05); }
+        .lux-megamenu__feature::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,11,11,0) 40%, rgba(11,11,11,.82) 100%); }
+        .lux-megamenu__feature-copy { position:absolute; left:20px; right:20px; bottom:18px; z-index:1; display:grid; gap:6px; color:var(--lux-ivory); }
+        .lux-megamenu__feature-eyebrow { color:var(--lux-gold-light); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+        .lux-megamenu__feature-title { font-family:"Cormorant Garamond", Georgia, serif; font-size:20px; font-weight:600; line-height:1.2; }
+        .lux-megamenu__feature-cta { display:inline-flex; align-items:center; gap:4px; margin-top:4px; font-size:11px; font-weight:800; letter-spacing:.08em; text-decoration:underline; text-underline-offset:4px; text-transform:uppercase; }
         .lux-mobile-nav__item { border-bottom:1px solid var(--lux-line); }
         .lux-mobile-nav__toggle { display:flex; align-items:center; justify-content:space-between; width:100%; min-height:48px; border:0; background:transparent; padding:0; color:inherit; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; cursor:pointer; }
         .lux-mobile-nav__toggle[aria-expanded="true"] .lux-nav-caret { transform:rotate(180deg); }
@@ -121,6 +128,8 @@ $mobile_extra_items = [
         .lux-mobile-search { width:100%; }
         .lux-icon-link:focus, .lux-icon-button:focus, .lux-primary-nav a:focus, .lux-mobile-nav a:focus, .lux-search input:focus, .lux-search button:focus, .lux-brand:focus { outline:2px solid var(--lux-gold-light); outline-offset:3px; }
         @media (max-width: 1240px) {
+            .lux-megamenu__layout { grid-template-columns:1fr; }
+            .lux-megamenu__feature { display:none; }
             .lux-megamenu__grid { grid-template-columns:repeat(4,minmax(0,1fr)); }
         }
         @media (max-width: 1080px) {
@@ -173,8 +182,8 @@ $mobile_extra_items = [
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
         </button>
 
-        <a href="<?php echo esc_url($home_url); ?>" class="lux-brand" aria-label="<?php esc_attr_e('luxurytheme.com home', 'dawp'); ?>">
-            <img class="lux-brand__logo" src="<?php echo esc_url($logo_url); ?>" width="180" height="54" alt="<?php esc_attr_e('luxurytheme.com', 'dawp'); ?>">
+        <a href="<?php echo esc_url($home_url); ?>" class="lux-brand" aria-label="<?php esc_attr_e('Chronel home', 'dawp'); ?>">
+            <img class="lux-brand__logo" src="<?php echo esc_url($logo_url); ?>" width="180" height="54" alt="<?php esc_attr_e('Chronel', 'dawp'); ?>">
         </a>
 
         <nav class="lux-primary-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
@@ -187,22 +196,35 @@ $mobile_extra_items = [
                         </a>
                         <div class="lux-megamenu">
                             <div class="lux-head-wrap lux-megamenu__inner">
-                                <div class="lux-megamenu__grid">
-                                    <?php foreach ($megamenu_brands as $brand) : ?>
-                                        <div class="lux-megamenu__col">
-                                            <a class="lux-megamenu__brand" href="<?php echo esc_url($brand['url']); ?>"><?php echo esc_html($brand['title']); ?></a>
-                                            <?php if (!empty($brand['children'])) : ?>
-                                                <ul>
-                                                    <?php foreach ($brand['children'] as $child) : ?>
-                                                        <li><a href="<?php echo esc_url($child['url']); ?>"><?php echo esc_html($child['title']); ?></a></li>
-                                                    <?php endforeach; ?>
-                                                </ul>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                                <div class="lux-megamenu__footer">
-                                    <a class="lux-megamenu__all" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop All Watches', 'dawp'); ?> &rarr;</a>
+                                <p class="lux-megamenu__eyebrow"><?php esc_html_e('Shop by Brand', 'dawp'); ?></p>
+                                <div class="lux-megamenu__layout">
+                                    <div class="lux-megamenu__grid">
+                                        <?php foreach ($megamenu_brands as $brand) : ?>
+                                            <div class="lux-megamenu__col">
+                                                <a class="lux-megamenu__brand" href="<?php echo esc_url($brand['url']); ?>">
+                                                    <?php if (!empty($brand['image'])) : ?>
+                                                        <img class="lux-megamenu__brand-thumb" src="<?php echo esc_url($brand['image']); ?>" alt="" loading="lazy">
+                                                    <?php endif; ?>
+                                                    <span><?php echo esc_html($brand['title']); ?></span>
+                                                </a>
+                                                <?php if (!empty($brand['children'])) : ?>
+                                                    <ul>
+                                                        <?php foreach ($brand['children'] as $child) : ?>
+                                                            <li><a href="<?php echo esc_url($child['url']); ?>"><?php echo esc_html($child['title']); ?></a></li>
+                                                        <?php endforeach; ?>
+                                                    </ul>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <a class="lux-megamenu__feature" href="<?php echo esc_url($shop_url); ?>">
+                                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/banner/heritage-collection.jpg'); ?>" alt="" loading="lazy">
+                                        <span class="lux-megamenu__feature-copy">
+                                            <span class="lux-megamenu__feature-eyebrow"><?php esc_html_e('The Heritage Edit', 'dawp'); ?></span>
+                                            <span class="lux-megamenu__feature-title"><?php esc_html_e('Timeless References, Newly Arrived', 'dawp'); ?></span>
+                                            <span class="lux-megamenu__feature-cta"><?php esc_html_e('Shop All Watches', 'dawp'); ?> &rarr;</span>
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -228,9 +250,9 @@ $mobile_extra_items = [
             <a href="<?php echo esc_url(home_url('/wishlist/')); ?>" class="lux-icon-link" aria-label="<?php esc_attr_e('Wishlist', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"></path></svg>
             </a>
-            <a href="<?php echo esc_url($cart_url); ?>" class="lux-icon-link lux-icon-link--cart" aria-label="<?php esc_attr_e('Shopping bag', 'dawp'); ?>">
+            <a href="<?php echo esc_url($cart_url); ?>" class="lux-icon-link lux-icon-link--cart" id="dawp-cart-toggle" aria-label="<?php esc_attr_e('Shopping bag', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
-                <?php if ($cart_count > 0) : ?><span class="lux-cart-count"><?php echo esc_html($cart_count); ?></span><?php endif; ?>
+                <span class="lux-cart-count<?php echo $cart_count > 0 ? '' : ' hidden'; ?>"><?php echo esc_html($cart_count); ?></span>
             </a>
         </div>
     </div>

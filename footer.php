@@ -99,7 +99,7 @@ $payment_methods = [
         .lux-footer__inner { width:min(100% - 40px,1280px); margin-inline:auto; }
         .lux-footer__top { display:grid; grid-template-columns:minmax(280px,1.1fr) 2fr; gap:70px; padding:78px 0 58px; border-top:1px solid rgba(184,155,94,.34); }
         .lux-footer__brand { color:#F7F5F0; text-decoration:none; }
-        .lux-footer__logo { display:block; width:180px; height:auto; max-height:54px; object-fit:contain; }
+        .lux-footer__logo { display:block; width:180px; height:auto; max-height:75px; object-fit:contain; }
         .lux-footer__brand strong { display:block; font-family:"Cormorant Garamond", Georgia, serif; font-size:42px; font-weight:400; line-height:.95; letter-spacing:0; }
         .lux-footer__brand span { display:block; margin-top:11px; color:#B89B5E; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
         .lux-footer__intro { max-width:440px; margin:28px 0 0; color:#C9C3B8; font-size:15px; line-height:1.75; }
@@ -116,7 +116,8 @@ $payment_methods = [
         .lux-footer__bottom { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:18px 28px; padding:22px 0 28px; color:#A8A8A8; font-size:13px; }
         .lux-footer__bottom p { margin:0; }
         .lux-footer__payments { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
-        .lux-footer__payment { display:inline-flex; align-items:center; justify-content:center; width:52px; height:32px; padding:5px 7px; border:1px solid rgba(247,245,240,.16); border-radius:4px; background:#F7F5F0; }
+        .lux-footer__payments--mobile { display:none; }
+        .lux-footer__payment { flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; width:52px; height:32px; padding:5px 7px; border:1px solid rgba(247,245,240,.16); border-radius:4px; background:#F7F5F0; }
         .lux-footer__payment img { display:block; max-width:100%; max-height:100%; object-fit:contain; }
         @media (max-width: 980px) {
             .lux-footer__top { grid-template-columns:1fr; gap:42px; padding:64px 0 48px; }
@@ -126,9 +127,11 @@ $payment_methods = [
             .lux-footer__inner { width:min(100% - 32px,1280px); }
             .lux-footer__brand strong { font-size:34px; }
             .lux-footer__columns { grid-template-columns:1fr; }
-            .lux-footer__bottom { display:grid; grid-template-columns:1fr; justify-items:start; }
-            .lux-footer__payments { width:100%; }
-            .lux-footer__payments { justify-content:flex-start; }
+            .lux-footer__bottom { display:grid; grid-template-columns:1fr; justify-items:start; gap:14px; padding:18px 0 calc(34px + env(safe-area-inset-bottom)); }
+            .lux-footer__payments { display:flex; width:100%; justify-content:flex-start; }
+            .lux-footer__bottom .lux-footer__payments { display:none; }
+            .lux-footer__payments--mobile { display:flex; padding:0 0 34px; }
+            .lux-footer__payment { display:inline-flex; }
         }
     </style>
 
@@ -137,9 +140,7 @@ $payment_methods = [
             <section aria-label="<?php esc_attr_e('Brand and contact information', 'dawp'); ?>">
                 <a class="lux-footer__brand" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('chronelshop.com home', 'dawp'); ?>">
                     <?php
-                    echo function_exists('dawp_get_responsive_image')
-                        ? dawp_get_responsive_image($logo_url, __('Chronel Shop', 'dawp'), 'lux-footer__logo', 180, 54, 'lazy', '(max-width: 620px) 160px, 180px')
-                        : '<img class="lux-footer__logo" src="' . esc_url($logo_url) . '" width="180" height="54" alt="' . esc_attr__('Chronel Shop', 'dawp') . '" decoding="async" loading="lazy">';
+                    echo '<img class="lux-footer__logo" src="' . esc_url($logo_url) . '" width="180" height="75" alt="' . esc_attr__('Chronel Shop', 'dawp') . '" decoding="async" loading="lazy">';
                     ?>
                 </a>
                 <p class="lux-footer__intro"><?php esc_html_e('Rolex, Patek Philippe, Audemars Piguet, Omega and other Swiss houses, each piece inspected before it reaches you.', 'dawp'); ?></p>
@@ -175,6 +176,28 @@ $payment_methods = [
                     </nav>
                 <?php endforeach; ?>
             </div>
+        </div>
+
+        <div class="lux-footer__payments lux-footer__payments--mobile" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
+            <?php foreach ($payment_methods as $method) : ?>
+                <?php
+                $payment_path = get_template_directory() . '/assets/img/payment/' . $method['file'];
+                $payment_url  = get_template_directory_uri() . '/assets/img/payment/' . $method['file'];
+
+                if (!file_exists($payment_path)) {
+                    continue;
+                }
+
+                $payment_url = add_query_arg('ver', filemtime($payment_path), $payment_url);
+                ?>
+                <span class="lux-footer__payment">
+                    <?php
+                    echo function_exists('dawp_get_responsive_image')
+                        ? dawp_get_responsive_image($payment_url, $method['name'], '', 52, 32, 'lazy', '52px')
+                        : '<img src="' . esc_url($payment_url) . '" width="52" height="32" alt="' . esc_attr($method['name']) . '" decoding="async" loading="lazy">';
+                    ?>
+                </span>
+            <?php endforeach; ?>
         </div>
 
         <div class="lux-footer__divider" aria-hidden="true"></div>

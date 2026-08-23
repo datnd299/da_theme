@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 ﻿/* ============================================================
-   Chronel Shop Shop / Product Archive
-=======
-/* ============================================================
-   luxurytheme Shop / Product Archive
->>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1
+   Chronel Shop / Product Archive
    ============================================================ */
 
 :root {
@@ -1588,7 +1583,6 @@ ul.products li.product,
   .shop-page .product-card__price {
     font-size: 0.92rem;
   }
-<<<<<<< HEAD
 }
 
 /* Minimal product-first archive redesign */
@@ -1838,6 +1832,3 @@ ul.products li.product,
     align-items: center;
   }
 }
-=======
-}
->>>>>>> dcfaa17ffbda8ec1285a68abf9ec66d4f3f93fe1

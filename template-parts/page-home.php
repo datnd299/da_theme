@@ -205,14 +205,19 @@ $popular_brands = [
     ],
 ];
 
+$brand_categories = function_exists('dawp_megamenu_brands') ? dawp_megamenu_brands() : [];
 $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : [];
+
+$hero_image = $remote_image('https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=2200&q=86');
+$atelier_image = $remote_image('https://images.unsplash.com/photo-1612817159949-195b6eb9e31a?auto=format&fit=crop&w=1600&q=84');
+$collector_image = $remote_image('https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1800&q=84');
 ?>
 
 <style>
     .lux-home { --black:#0B0B0B; --charcoal:#1A1A1A; --ivory:#F7F5F0; --white:#FFFFFF; --gold:#B89B5E; --gold-light:#D1BD8A; --gray-700:#555555; --gray-500:#858585; --gray-300:#CCCCCC; --gray-200:#E5E2DC; color:var(--charcoal); background:var(--white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; overflow:hidden; }
     .lux-home * { box-sizing:border-box; }
     .lux-home img { display:block; width:100%; height:100%; object-fit:cover; }
-    .lux-wrap { width:min(100% - 40px,1280px); min-width:0; margin-inline:auto; }
+    .lux-wrap { width:min(100% - 40px,1320px); min-width:0; margin-inline:auto; }
     .lux-label { margin:0 0 14px; color:var(--gold); font-size:12px; font-weight:700; line-height:1.3; letter-spacing:.1em; text-transform:uppercase; }
     .lux-title { margin:0; font-family:"Cormorant Garamond", Georgia, serif; font-weight:400; letter-spacing:0; line-height:.98; color:inherit; }
     .lux-copy { margin:22px 0 0; max-width:620px; color:var(--gray-700); font-size:17px; line-height:1.75; }
@@ -221,17 +226,22 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
     .lux-btn--light { border-color:var(--ivory); background:var(--ivory); color:var(--black); }
     .lux-btn--light:hover { background:transparent; color:var(--ivory); }
     .lux-link { display:inline-flex; width:max-content; color:inherit; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:1px; }
-    .lux-section { padding:104px 0; }
+    .lux-section { padding:110px 0; }
     .lux-section--ivory { background:var(--ivory); }
     .lux-section--dark { background:var(--black); color:var(--ivory); }
-    .lux-hero { min-height:calc(92vh - 112px); display:grid; align-items:end; position:relative; isolation:isolate; overflow:hidden; color:var(--ivory); background:var(--black); }
+    .lux-hero { min-height:calc(94vh - 112px); display:grid; align-items:end; position:relative; isolation:isolate; overflow:hidden; color:var(--ivory); background:var(--black); }
     .lux-hero__media { position:absolute; inset:0; z-index:-2; }
     .lux-hero__media img { opacity:.92; transform:scale(1.03); animation:luxSlowZoom 14s cubic-bezier(.22,1,.36,1) forwards; }
-    .lux-hero:after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, rgba(11,11,11,.58) 0%, rgba(11,11,11,.28) 43%, rgba(11,11,11,.04) 100%), linear-gradient(0deg, rgba(11,11,11,.58), rgba(11,11,11,0) 48%); }
-    .lux-hero__content { padding:82px 0 60px; max-width:690px; }
-    .lux-hero h1 { font-size:clamp(46px,7vw,82px); }
+    .lux-hero:after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg, rgba(11,11,11,.72) 0%, rgba(11,11,11,.36) 45%, rgba(11,11,11,.08) 100%), linear-gradient(0deg, rgba(11,11,11,.68), rgba(11,11,11,0) 52%); }
+    .lux-hero__content { padding:92px 0 64px; max-width:760px; }
+    .lux-hero h1 { font-size:clamp(54px,8vw,106px); max-width:720px; }
     .lux-hero .lux-copy { color:#E9E3D7; font-size:18px; }
-    .lux-hero__meta { display:flex; flex-wrap:wrap; gap:18px 34px; margin-top:34px; padding-top:26px; border-top:1px solid rgba(247,245,240,.28); color:#D8D0C2; font-size:13px; }
+    .lux-hero__actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; align-items:center; }
+    .lux-hero__meta { display:flex; flex-wrap:wrap; gap:18px 34px; margin-top:40px; padding-top:26px; border-top:1px solid rgba(247,245,240,.28); color:#D8D0C2; font-size:13px; }
+    .lux-stat-strip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; background:rgba(247,245,240,.18); color:var(--ivory); }
+    .lux-stat { min-width:0; padding:26px 30px; background:rgba(11,11,11,.72); backdrop-filter:blur(8px); }
+    .lux-stat strong { display:block; font-family:"Cormorant Garamond", Georgia, serif; font-size:34px; font-weight:400; line-height:1; }
+    .lux-stat span { display:block; margin-top:8px; color:#CFC6B8; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
     .lux-hero__categories { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px; }
     .lux-hero__categories a { padding:9px 18px; border:1px solid rgba(247,245,240,.4); border-radius:999px; color:var(--ivory); font-size:12px; font-weight:600; letter-spacing:.04em; text-decoration:none; text-transform:uppercase; transition:background .25s cubic-bezier(.22,1,.36,1), border-color .25s cubic-bezier(.22,1,.36,1), color .25s cubic-bezier(.22,1,.36,1); }
     .lux-hero__categories a:hover, .lux-hero__categories a:focus-visible { background:var(--gold); border-color:var(--gold); color:var(--black); }
@@ -257,16 +267,20 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
     .lux-product__price del { color:var(--gray-500); font-weight:600; text-decoration-thickness:1px; }
     .lux-product__price ins { color:var(--black); font-weight:800; text-decoration:none; }
     .lux-product__price .screen-reader-text { position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-    .lux-popular { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
-    .lux-popular__card { display:block; min-width:0; color:inherit; text-decoration:none; border-radius:3px; overflow:hidden; background:var(--gray-200); transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s cubic-bezier(.22,1,.36,1); }
+    .lux-popular { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; }
+    .lux-popular__card { display:grid; min-width:0; min-height:430px; align-items:end; position:relative; isolation:isolate; color:var(--ivory); text-decoration:none; border-radius:3px; overflow:hidden; background:var(--black); transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s cubic-bezier(.22,1,.36,1); }
     .lux-popular__card:hover, .lux-popular__card:focus-visible { transform:translateY(-4px); box-shadow:0 18px 32px -18px rgba(11,11,11,.28); }
     .lux-popular__card:focus-visible { outline:2px solid var(--gold-light); outline-offset:3px; }
-    .lux-popular__image { display:block; position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--gray-200); }
-    .lux-popular__image img { object-fit:contain; object-position:center; transition:transform .5s cubic-bezier(.22,1,.36,1); }
+    .lux-popular__image { display:block; position:absolute; inset:0; z-index:-2; overflow:hidden; background:var(--gray-200); }
+    .lux-popular__image:after { content:""; position:absolute; inset:0; background:linear-gradient(0deg, rgba(11,11,11,.78), rgba(11,11,11,.08) 58%); }
+    .lux-popular__image img { object-fit:cover; object-position:center; transition:transform .5s cubic-bezier(.22,1,.36,1); }
     .lux-popular__card:hover .lux-popular__image img { transform:scale(1.05); }
-    .lux-popular__body { display:block; padding:16px 18px 20px; background:var(--white); }
+    .lux-popular__body { display:block; padding:28px; }
     .lux-popular__brand { display:block; margin:0; color:var(--gold); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-    .lux-popular__name { display:block; margin:5px 0 0; color:var(--black); font-size:16px; font-weight:600; line-height:1.3; }
+    .lux-popular__name { display:block; margin:5px 0 0; color:var(--ivory); font-family:"Cormorant Garamond", Georgia, serif; font-size:32px; font-weight:400; line-height:1; }
+    .lux-featured-collection { display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:54px; align-items:center; margin-top:66px; padding-top:62px; border-top:1px solid var(--gray-200); }
+    .lux-featured-collection__media { aspect-ratio:16/10; overflow:hidden; background:#E8E3D9; }
+    .lux-featured-collection h3 { font-size:clamp(32px,3.6vw,46px); }
     .lux-story { display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:center; }
     .lux-story__media { min-height:560px; overflow:hidden; position:relative; }
     .lux-story__media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
@@ -298,6 +312,53 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
     .lux-collection span { padding:28px; }
     .lux-collection strong { display:block; font-family:"Cormorant Garamond", Georgia, serif; font-size:36px; font-weight:400; line-height:1; }
     .lux-collection em { display:block; margin-top:12px; color:#D8D0C2; font-style:normal; line-height:1.55; }
+    .lux-services { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:20px; }
+    .lux-service { min-width:0; padding:30px 24px 28px; border:1px solid rgba(247,245,240,.18); background:rgba(247,245,240,.04); color:var(--ivory); }
+    .lux-service svg { width:34px; height:34px; margin-bottom:28px; fill:none; stroke:var(--gold-light); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+    .lux-service h3 { margin:0; color:var(--ivory); font-size:18px; font-weight:650; line-height:1.3; }
+    .lux-service p { margin:12px 0 0; color:#C9C3B8; font-size:14px; line-height:1.7; }
+    .lux-journal { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:28px; align-items:stretch; }
+    .lux-article { display:grid; min-width:0; color:inherit; text-decoration:none; }
+    .lux-article__image { display:block; aspect-ratio:16/10; overflow:hidden; margin-bottom:18px; background:var(--gray-200); }
+    .lux-article__image img { transition:transform .55s cubic-bezier(.22,1,.36,1); }
+    .lux-article:hover .lux-article__image img { transform:scale(1.035); }
+    .lux-article span:not(.lux-article__image) { color:var(--gold); font-size:11px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .lux-article strong { display:block; margin-top:8px; color:var(--black); font-family:"Cormorant Garamond", Georgia, serif; font-size:34px; font-weight:400; line-height:1.06; }
+    .lux-article p { margin:12px 0 0; color:var(--gray-700); line-height:1.65; }
+    .lux-journal__side { display:grid; gap:20px; }
+    .lux-article--feature { padding:18px; border:1px solid var(--gray-200); background:#FBFAF7; }
+    .lux-article--small { grid-template-columns:190px 1fr; gap:20px; align-items:center; padding:16px; border:1px solid var(--gray-200); background:var(--white); }
+    .lux-article--small .lux-article__image { aspect-ratio:1/1; margin:0; }
+    .lux-article--small strong { font-size:24px; }
+    .lux-newsletter { padding:88px 0; background:var(--black); color:var(--ivory); }
+    .lux-newsletter__inner { display:grid; grid-template-columns:minmax(0,1fr) minmax(360px,.7fr); gap:48px; align-items:end; }
+    .lux-newsletter .lux-copy { color:#C9C3B8; }
+    .lux-form { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; align-items:end; }
+    .lux-form label { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .lux-form input { width:100%; min-height:50px; padding:0 16px; border:1px solid rgba(247,245,240,.35); border-radius:2px; background:rgba(247,245,240,.08); color:var(--ivory); font:inherit; }
+    .lux-form input::placeholder { color:#B8B0A3; }
+    .lux-form input:focus { outline:2px solid var(--gold-light); outline-offset:2px; border-color:var(--gold-light); }
+    @keyframes luxSlowZoom { from { transform:scale(1.03); } to { transform:scale(1.08); } }
+    @media (max-width: 1100px) {
+        .lux-products, .lux-popular, .lux-collections, .lux-services { grid-template-columns:repeat(2,minmax(0,1fr)); }
+        .lux-story, .lux-journal, .lux-newsletter__inner, .lux-featured-collection, .lux-craft-grid { grid-template-columns:1fr; }
+        .lux-story__media { min-height:420px; }
+    }
+    @media (max-width: 760px) {
+        .lux-wrap { width:min(100% - 28px,1280px); }
+        .lux-section { padding:68px 0; }
+        .lux-hero { min-height:calc(88vh - 82px); }
+        .lux-hero__content { padding:64px 0 42px; }
+        .lux-section__head { display:grid; gap:18px; align-items:start; }
+        .lux-products { grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+        .lux-product__body h3 { font-size:15px; }
+        .lux-popular, .lux-collections, .lux-stat-strip { grid-template-columns:1fr; }
+        .lux-popular__card { min-height:360px; }
+        .lux-services { display:flex; gap:16px; max-width:100%; overflow-x:auto; overflow-y:hidden; padding:0 18px 18px 0; scroll-snap-type:x mandatory; scrollbar-width:none; }
+        .lux-services::-webkit-scrollbar { display:none; }
+        .lux-service { flex:0 0 82%; min-height:190px; padding:24px 18px 20px; scroll-snap-align:start; }
+        .lux-collection { min-height:360px; }
+        .lux-article--small { grid-template-columns:1fr; }
         .lux-form { grid-template-columns:1fr; }
         .lux-form .lux-btn { width:100%; }
     }
@@ -306,14 +367,17 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
 <div class="lux-home">
     <section class="lux-hero" aria-label="<?php esc_attr_e('Luxury watch hero', 'dawp'); ?>">
         <div class="lux-hero__media">
-            <?php echo $image_tag(get_template_directory_uri() . '/assets/img/banner/hero.jpg', __('Close-up of a luxury watch on the wrist', 'dawp'), '', 'eager', '100vw'); ?>
+            <?php echo $image_tag($hero_image, __('Close-up of a luxury watch with refined steel finishing', 'dawp'), '', 'eager', '100vw'); ?>
         </div>
         <div class="lux-wrap">
             <div class="lux-hero__content">
-                <p class="lux-label"><?php esc_html_e('New Collection', 'dawp'); ?></p>
-                <h1 class="lux-title"><?php esc_html_e('The Art of Time', 'dawp'); ?></h1>
-                <p class="lux-copy"><?php esc_html_e('Precision shaped by hand-finished details, restrained design and mechanical character made for a lifetime of wear.', 'dawp'); ?></p>
-                <p style="margin:30px 0 0;"><a class="lux-btn lux-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('All Watches', 'dawp'); ?></a></p>
+                <p class="lux-label"><?php esc_html_e('Curated Luxury Watches', 'dawp'); ?></p>
+                <h1 class="lux-title"><?php esc_html_e('Timepieces with presence.', 'dawp'); ?></h1>
+                <p class="lux-copy"><?php esc_html_e('A considered edit of collectible watches chosen for proportion, provenance and the quiet confidence they bring to every wrist.', 'dawp'); ?></p>
+                <div class="lux-hero__actions">
+                    <a class="lux-btn lux-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
+                    <a class="lux-link" href="<?php echo esc_url($services_url); ?>"><?php esc_html_e('Book consultation', 'dawp'); ?></a>
+                </div>
                 <?php if (!empty($brand_categories)) : ?>
                     <nav class="lux-hero__categories" aria-label="<?php esc_attr_e('Shop by category', 'dawp'); ?>">
                         <?php foreach ($brand_categories as $category) : ?>
@@ -326,6 +390,11 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
                     <span><?php esc_html_e('Insured global delivery', 'dawp'); ?></span>
                     <span><?php esc_html_e('Concierge consultation', 'dawp'); ?></span>
                 </div>
+            </div>
+            <div class="lux-stat-strip" aria-label="<?php esc_attr_e('Store highlights', 'dawp'); ?>">
+                <div class="lux-stat"><strong>12+</strong><span><?php esc_html_e('Prestige maisons', 'dawp'); ?></span></div>
+                <div class="lux-stat"><strong>24h</strong><span><?php esc_html_e('Private sourcing reply', 'dawp'); ?></span></div>
+                <div class="lux-stat"><strong>100%</strong><span><?php esc_html_e('Authenticated pieces', 'dawp'); ?></span></div>
             </div>
         </div>
     </section>
@@ -340,11 +409,29 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
                 </div>
                 <a class="lux-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all brands', 'dawp'); ?></a>
             </div>
-            <div>
-                <p class="lux-label"><?php esc_html_e('Featured Collection', 'dawp'); ?></p>
-                <h2 class="lux-title"><?php esc_html_e('Heritage, redrawn for now.', 'dawp'); ?></h2>
-                <p class="lux-copy"><?php esc_html_e('A collection of slim cases, sculpted lugs and textured dials that carry classic watchmaking codes into a quieter modern language.', 'dawp'); ?></p>
-                <p style="margin:30px 0 0;"><a class="lux-btn" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Explore Watches', 'dawp'); ?></a></p>
+            <div class="lux-popular">
+                <?php foreach ($popular_brands as $brand) : ?>
+                    <a class="lux-popular__card" href="<?php echo esc_url($brand['url']); ?>">
+                        <span class="lux-popular__image">
+                            <?php echo $image_tag($brand['image'], $brand['name'], '', 'lazy', '(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 25vw', 520, 520); ?>
+                        </span>
+                        <span class="lux-popular__body">
+                            <span class="lux-popular__brand"><?php esc_html_e('Popular Model', 'dawp'); ?></span>
+                            <span class="lux-popular__name"><?php echo esc_html($brand['name']); ?></span>
+                        </span>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+            <div class="lux-featured-collection">
+                <div>
+                    <p class="lux-label"><?php esc_html_e('Featured Collection', 'dawp'); ?></p>
+                    <h3 class="lux-title"><?php esc_html_e('Heritage, redrawn for now.', 'dawp'); ?></h3>
+                    <p class="lux-copy"><?php esc_html_e('Slim cases, sculpted bracelets and textured dials that carry classic watchmaking codes into a quieter modern language.', 'dawp'); ?></p>
+                    <p style="margin:30px 0 0;"><a class="lux-btn" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Explore Watches', 'dawp'); ?></a></p>
+                </div>
+                <div class="lux-featured-collection__media">
+                    <?php echo $image_tag($collector_image, __('Luxury watch displayed in warm editorial light', 'dawp'), '', 'lazy', '(max-width: 1100px) 100vw, 58vw', 1200, 750); ?>
+                </div>
             </div>
         </div>
     </section>
@@ -381,7 +468,7 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
     <section class="lux-section lux-section--dark">
         <div class="lux-wrap lux-story">
             <div class="lux-story__media">
-                <?php echo $image_tag(get_template_directory_uri() . '/assets/img/products/Spirit-of-Big-Bang-Titanium-Blue-Ceramic-42-mm-soldier-shot-1-700x700.png', __('Watchmaker working on a mechanical movement', 'dawp')); ?>
+                <?php echo $image_tag($atelier_image, __('Luxury watch close-up showing bracelet and dial finishing', 'dawp')); ?>
             </div>
             <div>
                 <p class="lux-label"><?php esc_html_e('Crafted With Purpose', 'dawp'); ?></p>
@@ -394,6 +481,28 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
 
     <section class="lux-section lux-section--ivory">
         <div class="lux-wrap">
+            <div class="lux-craft-grid">
+                <div class="lux-craft-main" data-craft-image-frame>
+                    <?php echo $image_tag($craft_notes[0]['image'], $craft_notes[0]['alt'], '', 'lazy', '(max-width: 1100px) 100vw, 56vw', 1000, 910); ?>
+                </div>
+                <div class="lux-craft-panel">
+                    <p class="lux-label"><?php esc_html_e('Craft Notes', 'dawp'); ?></p>
+                    <h2 class="lux-title"><?php esc_html_e('Details that make a watch feel considered.', 'dawp'); ?></h2>
+                    <div class="lux-craft-notes">
+                        <?php foreach ($craft_notes as $index => $note) : ?>
+                            <button class="lux-note<?php echo 0 === $index ? ' is-active' : ''; ?>" type="button" data-craft-image="<?php echo esc_url($note['image']); ?>" data-craft-alt="<?php echo esc_attr($note['alt']); ?>" data-craft-position="<?php echo esc_attr($note['position']); ?>" aria-pressed="<?php echo 0 === $index ? 'true' : 'false'; ?>">
+                                <span class="lux-note__index"><?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
+                                <span><strong><?php echo esc_html($note['title']); ?></strong><span><?php echo esc_html($note['copy']); ?></span></span>
+                            </button>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lux-section">
+        <div class="lux-wrap">
             <div class="lux-section__head">
                 <div>
                     <p class="lux-label"><?php esc_html_e('New Arrivals', 'dawp'); ?></p>
@@ -403,7 +512,7 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
                 <a class="lux-link" href="<?php echo esc_url($new_arrivals_url); ?>"><?php esc_html_e('Shop new arrivals', 'dawp'); ?></a>
             </div>
             <div class="lux-products">
-                <?php foreach (array_reverse($products) as $product) : ?>
+                <?php foreach (array_slice(array_reverse($products), 0, 4) as $product) : ?>
                     <a class="lux-product" href="<?php echo esc_url($product['url']); ?>">
                         <span class="lux-product__status"><?php echo esc_html($product['status']); ?></span>
                         <span class="lux-product__image">
@@ -449,14 +558,14 @@ $journal_posts = function_exists('dawp_journal_posts') ? dawp_journal_posts() : 
             </div>
             <div class="lux-journal">
                 <?php if (!empty($journal_posts)) : ?>
-                <a class="lux-article" href="<?php echo esc_url(home_url('/journal/' . $journal_posts[0]['slug'] . '/')); ?>">
+                <a class="lux-article lux-article--feature" href="<?php echo esc_url(home_url('/journal/' . $journal_posts[0]['slug'] . '/')); ?>">
                     <span class="lux-article__image"><?php echo $image_tag($journal_posts[0]['image'], $journal_posts[0]['alt']); ?></span>
                     <span><?php echo esc_html($journal_posts[0]['category']); ?></span>
                     <strong><?php echo esc_html($journal_posts[0]['title']); ?></strong>
                     <p><?php echo esc_html($journal_posts[0]['excerpt']); ?></p>
                 </a>
-                <div style="display:grid; gap:28px;">
-                    <?php foreach (array_slice($journal_posts, 1) as $post) : ?>
+                <div class="lux-journal__side">
+                    <?php foreach (array_slice($journal_posts, 1, 2) as $post) : ?>
                     <a class="lux-article lux-article--small" href="<?php echo esc_url(home_url('/journal/' . $post['slug'] . '/')); ?>">
                         <span class="lux-article__image"><?php echo $image_tag($post['image'], $post['alt']); ?></span>
                         <span><span><?php echo esc_html($post['category']); ?></span><strong><?php echo esc_html($post['title']); ?></strong><p><?php echo esc_html($post['excerpt']); ?></p></span>

@@ -10,6 +10,10 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email = 'support@chronelshop.com';
+$support_phone = '+1 757 804 6538';
+$whatsapp_number = preg_replace('/[^0-9]/', '', $support_phone);
+$rating_text = __('Trusted luxury watch support', 'dawp');
+$shipping_badge = __('Insured U.S. shipping', 'dawp');
 $home_url      = home_url('/');
 $shop_url      = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
@@ -67,8 +71,8 @@ $mobile_extra_items = [
         body { margin:0; color:var(--lux-charcoal); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; text-rendering:optimizeLegibility; }
         .lux-skip { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
         .lux-skip:focus { position:fixed; left:16px; top:16px; z-index:1000; width:auto; height:auto; padding:12px 16px; border:1px solid var(--lux-gold); border-radius:2px; background:var(--lux-ivory); color:var(--lux-black); font-weight:800; }
-        .lux-site-header { position:sticky; top:0; z-index:1000; border-bottom:1px solid rgba(229,226,220,.82); background:rgba(247,245,240,.94); color:var(--lux-black); backdrop-filter:saturate(150%) blur(14px); }
-        .lux-head-wrap { width:min(100% - 40px,1280px); margin-inline:auto; }
+        .lux-site-header { position:sticky; top:0; z-index:1000; border-bottom:1px solid rgba(229,226,220,.82); background:rgba(247,245,240,.97); color:var(--lux-black); box-shadow:0 10px 30px rgba(11,11,11,.06); backdrop-filter:saturate(150%) blur(14px); }
+        .lux-head-wrap { width:min(100% - 48px,1280px); margin-inline:auto; }
         .lux-service-bar { border-bottom:1px solid rgba(229,226,220,.35); background:var(--lux-black); color:var(--lux-ivory); }
         .lux-service-bar__row { display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:20px; min-height:34px; font-size:12px; line-height:1.35; }
         .lux-service-bar__item { display:inline-flex; align-items:center; gap:6px; }
@@ -77,17 +81,17 @@ $mobile_extra_items = [
         .lux-service-bar__right { justify-self:end; }
         .lux-service-bar a { color:var(--lux-gold-light); text-decoration:none; }
         .lux-service-bar a:hover { text-decoration:underline; text-underline-offset:4px; }
-        .lux-header-main { display:grid; grid-template-columns:minmax(220px,1fr) auto minmax(220px,1fr); align-items:center; gap:28px; min-height:78px; }
-        .lux-brand { display:inline-flex; align-items:center; justify-content:center; color:var(--lux-black); line-height:1; text-decoration:none; }
-        .lux-brand__logo { display:block; width:126px; height:auto; object-fit:contain; }
-        .lux-primary-nav { display:flex; align-items:center; gap:28px; min-width:0; }
-        .lux-nav-item { display:flex; align-items:center; min-height:78px; }
+        .lux-header-main { display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:34px; min-height:76px; }
+        .lux-brand { display:inline-flex; grid-column:2; grid-row:1; align-items:center; justify-content:center; justify-self:center; color:var(--lux-black); line-height:1; text-decoration:none; }
+        .lux-brand__logo { display:block; width:136px; height:auto; object-fit:contain; }
+        .lux-primary-nav { display:flex; grid-column:1; grid-row:1; align-items:center; justify-content:flex-start; gap:32px; min-width:0; }
+        .lux-nav-item { display:flex; align-items:center; min-height:76px; }
         .lux-primary-nav a, .lux-mega-trigger, .lux-mobile-nav a, .lux-mobile-mega summary { color:inherit; font-size:12px; font-weight:800; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; transition:color .25s cubic-bezier(.22,1,.36,1); }
         .lux-mega-trigger { display:inline-flex; align-items:center; gap:6px; min-height:38px; border:0; background:transparent; cursor:pointer; font-family:inherit; padding:0; }
         .lux-mega-trigger svg { width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s cubic-bezier(.22,1,.36,1); }
         .lux-primary-nav a:hover, .lux-primary-nav a.is-current, .lux-mega-trigger:hover, .lux-mega-trigger.is-current, .lux-nav-item:focus-within .lux-mega-trigger, .lux-nav-item:hover .lux-mega-trigger { color:var(--lux-gold); }
         .lux-nav-item:hover .lux-mega-trigger svg, .lux-nav-item:focus-within .lux-mega-trigger svg { transform:rotate(180deg); }
-        .lux-mega-panel { position:absolute; left:0; right:0; top:100%; z-index:1001; visibility:hidden; opacity:0; transform:translateY(10px); border-top:1px solid rgba(209,189,138,.34); border-bottom:1px solid rgba(11,11,11,.92); background:#0B0B0B; background-image:linear-gradient(90deg, #0B0B0B 0%, #0B0B0B 58%, rgba(11,11,11,.98) 76%, rgba(11,11,11,.96) 100%), linear-gradient(180deg, rgba(11,11,11,.96), rgba(11,11,11,.98)), url('<?php echo esc_url($mega_bg_url); ?>'); background-position:0 0, 0 0, right center; background-size:auto, auto, cover; background-repeat:no-repeat; box-shadow:0 28px 70px rgba(11,11,11,.34); isolation:isolate; transition:opacity .18s cubic-bezier(.22,1,.36,1), transform .18s cubic-bezier(.22,1,.36,1), visibility .18s; }
+        .lux-mega-panel { position:absolute; left:0; right:0; top:100%; z-index:1001; visibility:hidden; opacity:0; transform:translateY(10px); border-top:1px solid rgba(209,189,138,.34); border-bottom:1px solid rgba(11,11,11,.92); background:#0B0B0B; background-image:linear-gradient(90deg, #0B0B0B 0%, rgba(11,11,11,.98) 50%, rgba(11,11,11,.72) 68%, rgba(11,11,11,.28) 100%), linear-gradient(180deg, rgba(11,11,11,.34), rgba(11,11,11,.66)), url('<?php echo esc_url($mega_bg_url); ?>'); background-position:0 0, 0 0, right center; background-size:auto, auto, min(48vw, 720px) auto; background-repeat:no-repeat; box-shadow:0 28px 70px rgba(11,11,11,.34); isolation:isolate; transition:opacity .18s cubic-bezier(.22,1,.36,1), transform .18s cubic-bezier(.22,1,.36,1), visibility .18s; }
         .lux-nav-item:hover .lux-mega-panel, .lux-nav-item:focus-within .lux-mega-panel { visibility:visible; opacity:1; transform:translateY(0); }
         .lux-mega-inner { width:min(100% - 56px,1280px); margin-inline:auto; padding:44px 0 36px; }
         .lux-mega-grid { display:grid; grid-template-columns:1.35fr repeat(4, minmax(150px, 1fr)); gap:36px 58px; align-items:start; max-width:1120px; padding:30px 34px; border:1px solid rgba(209,189,138,.18); background:#0B0B0B; }
@@ -104,7 +108,7 @@ $mobile_extra_items = [
         .lux-mega-footer { display:flex; justify-content:flex-start; max-width:1120px; margin-top:0; padding:22px 34px 0; border-top:1px solid rgba(209,189,138,.28); }
         .lux-mega-all { display:inline-flex; align-items:center; gap:8px; color:var(--lux-ivory); font-size:12px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; }
         .lux-mega-all:hover { color:var(--lux-gold-light); }
-        .lux-actions { display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+        .lux-actions { display:flex; grid-column:3; grid-row:1; align-items:center; justify-content:flex-end; gap:10px; min-width:0; }
         .lux-icon-link, .lux-icon-button { position:relative; display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border:1px solid transparent; border-radius:2px; background:transparent; color:var(--lux-black); text-decoration:none; cursor:pointer; transition:border-color .25s cubic-bezier(.22,1,.36,1), color .25s cubic-bezier(.22,1,.36,1), background .25s cubic-bezier(.22,1,.36,1); }
         .lux-icon-link:hover, .lux-icon-button:hover { border-color:var(--lux-line); background:var(--lux-white); color:var(--lux-gold); }
         .lux-icon-link svg, .lux-icon-button svg { width:21px; height:21px; fill:none; stroke:currentColor; stroke-width:1.65; stroke-linecap:round; stroke-linejoin:round; }
@@ -112,10 +116,10 @@ $mobile_extra_items = [
         .lux-icon-link--cart:hover { border-color:var(--lux-black); background:var(--lux-charcoal); color:var(--lux-gold-light); }
         .lux-icon-link--cart svg { width:18px; height:18px; }
         .lux-cart-count { position:absolute; top:-4px; right:-4px; display:flex; align-items:center; justify-content:center; min-width:18px; height:18px; padding:0 5px; border:1px solid var(--lux-ivory); border-radius:999px; background:var(--lux-gold); color:var(--lux-black); font-size:10px; font-weight:900; }
-        .lux-search { display:flex; align-items:center; width:260px; min-width:0; border:1px solid var(--lux-line); border-radius:999px; background:var(--lux-white); overflow:hidden; }
-        .lux-search input { width:100%; min-height:40px; border:0; background:transparent; color:var(--lux-black); outline:0; padding:0 4px 0 18px; font-size:13px; }
+        .lux-search { display:flex; align-items:center; width:clamp(220px, 20vw, 300px); min-width:0; border:1px solid var(--lux-line); border-radius:2px; background:var(--lux-white); overflow:hidden; box-shadow:inset 0 1px 0 rgba(255,255,255,.72); }
+        .lux-search input { width:100%; min-height:40px; border:0; background:transparent; color:var(--lux-black); outline:0; padding:0 8px 0 14px; font-size:13px; }
         .lux-search input::placeholder { color:#69645D; }
-        .lux-search button { display:inline-flex; flex:none; align-items:center; justify-content:center; width:38px; height:38px; margin:1px; border:0; border-radius:999px; background:var(--lux-gold); color:var(--lux-black); cursor:pointer; transition:background .25s cubic-bezier(.22,1,.36,1); }
+        .lux-search button { display:inline-flex; flex:none; align-items:center; justify-content:center; width:40px; height:40px; margin:0; border:0; border-left:1px solid rgba(11,11,11,.08); border-radius:0; background:var(--lux-gold); color:var(--lux-black); cursor:pointer; transition:background .25s cubic-bezier(.22,1,.36,1); }
         .lux-search button:hover { background:var(--lux-gold-light); }
         .lux-search button svg { width:17px; height:17px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
         .lux-menu-button { display:none; }
@@ -149,10 +153,15 @@ $mobile_extra_items = [
             .lux-service-bar__right { display:none; }
             .lux-header-main { grid-template-columns:auto 1fr auto; min-height:70px; }
             .lux-primary-nav, .lux-desktop-search, .lux-account-link { display:none; }
-            .lux-brand { justify-self:center; }
+            .lux-brand { grid-column:2; justify-self:center; }
             .lux-brand__logo { width:111px; }
-            .lux-menu-button { display:inline-flex; justify-self:start; }
-            .lux-actions { gap:6px; }
+            .lux-menu-button { display:inline-flex; grid-column:1; grid-row:1; justify-self:start; }
+            .lux-actions { grid-column:3; gap:6px; }
+        }
+        @media (min-width: 1081px) and (max-width: 1220px) {
+            .lux-header-main { gap:22px; }
+            .lux-primary-nav { gap:22px; }
+            .lux-search { width:220px; }
         }
         @media (max-width: 560px) {
             .lux-head-wrap { width:min(100% - 28px,1280px); }
@@ -196,6 +205,14 @@ $mobile_extra_items = [
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
         </button>
 
+        <a href="<?php echo esc_url($home_url); ?>" class="lux-brand" aria-label="<?php esc_attr_e('Chronel Shop home', 'dawp'); ?>">
+            <?php
+            echo function_exists('dawp_get_responsive_image')
+                ? dawp_get_responsive_image($logo_url, __('Chronel Shop', 'dawp'), 'lux-brand__logo', 126, 50, 'eager', '(max-width: 560px) 99px, (max-width: 1080px) 111px, 126px', 'high')
+                : '<img class="lux-brand__logo" src="' . esc_url($logo_url) . '" width="500" height="200" alt="' . esc_attr__('Chronel Shop', 'dawp') . '">';
+            ?>
+        </a>
+
         <nav class="lux-primary-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
             <?php foreach ($nav_items as $item) : ?>
                 <?php if ('watches' === $item['key'] && !empty($watch_mega_groups)) : ?>
@@ -225,50 +242,6 @@ $mobile_extra_items = [
                                 </div>
                                 <div class="lux-mega-footer">
                                     <a class="lux-mega-all" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all watches', 'dawp'); ?> <span aria-hidden="true">&rarr;</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php else : ?>
-                    <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?>><?php echo esc_html($item['title']); ?></a>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </nav>
-
-        <a href="<?php echo esc_url($home_url); ?>" class="lux-brand" aria-label="<?php esc_attr_e('Chronel Shop home', 'dawp'); ?>">
-            <?php
-            echo function_exists('dawp_get_responsive_image')
-                ? dawp_get_responsive_image($logo_url, __('Chronel Shop', 'dawp'), 'lux-brand__logo', 126, 50, 'eager', '(max-width: 560px) 99px, (max-width: 1080px) 111px, 126px', 'high')
-                : '<img class="lux-brand__logo" src="' . esc_url($logo_url) . '" width="500" height="200" alt="' . esc_attr__('Chronel Shop', 'dawp') . '">';
-            ?>
-        </a>
-
-        <nav class="lux-primary-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
-            <?php foreach ($nav_items as $item) : ?>
-                <?php if (!empty($item['megamenu']) && !empty($megamenu_brands)) : ?>
-                    <div class="lux-nav-item lux-has-megamenu">
-                        <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"<?php echo $item['active'] ? ' aria-current="page"' : ''; ?> aria-haspopup="true">
-                            <?php echo esc_html($item['title']); ?>
-                            <svg class="lux-nav-caret" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
-                        </a>
-                        <div class="lux-megamenu">
-                            <div class="lux-head-wrap lux-megamenu__inner">
-                                <div class="lux-megamenu__grid">
-                                    <?php foreach ($megamenu_brands as $brand) : ?>
-                                        <div class="lux-megamenu__col">
-                                            <a class="lux-megamenu__brand" href="<?php echo esc_url($brand['url']); ?>"><?php echo esc_html($brand['title']); ?></a>
-                                            <?php if (!empty($brand['children'])) : ?>
-                                                <ul>
-                                                    <?php foreach ($brand['children'] as $child) : ?>
-                                                        <li><a href="<?php echo esc_url($child['url']); ?>"><?php echo esc_html($child['title']); ?></a></li>
-                                                    <?php endforeach; ?>
-                                                </ul>
-                                            <?php endif; ?>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                                <div class="lux-megamenu__footer">
-                                    <a class="lux-megamenu__all" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop All Watches', 'dawp'); ?> &rarr;</a>
                                 </div>
                             </div>
                         </div>

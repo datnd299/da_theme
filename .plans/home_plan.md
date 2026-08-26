@@ -1,363 +1,289 @@
-# MegaMallDepot — Homepage Plan
+# HOMEPLAN.MD
 
-## Overview
+## 1. Homepage Goal
 
-MegaMallDepot is a premium American home & lifestyle retailer. The homepage should feel warm, elegant, editorial and trustworthy, inspiring customers before presenting products.
+Build a modern collectible ecommerce homepage.
+
+Style:
+
+**Modern × Playful × Editorial × Collectible**
+
+Core message:
+
+**BUILD. COLLECT. DISPLAY.**
+
+Keep all demo content brand-neutral.
+Do not use third-party logos, trademarks, franchises, or recognizable characters.
 
 ---
 
-## Homepage Goals
-
-- Inspire through lifestyle imagery
-- Showcase curated collections
-- Build trust
-- Make shopping effortless
-- Guide visitors from inspiration to purchase
-
----
-
-# Homepage Structure
+## 2. Homepage Structure
 
 1. Announcement Bar
-2. Premium Header
-3. Editorial Hero
-4. Shop By Room
-5. Featured Collections
-6. Editorial Story
-7. Best Sellers
-8. Seasonal Inspiration
-9. New Arrivals
-10. Why Shop MegaMallDepot
-11. Customer Reviews
-12. Lifestyle Gallery
-13. Newsletter
-14. Premium Footer
+2. Header
+3. Hero
+4. Shop by Category
+5. New Drops
+6. Editorial Feature
+7. Trending Products
+8. Collections
+9. Upcoming Drop
+10. Collector's Picks
+11. Stories
+12. Newsletter
+13. Footer
+
+Alternate between product and editorial sections to avoid repetitive grids.
 
 ---
 
-# Section Guidelines
+## 3. Header
 
-## Announcement Bar
+Sticky minimal header.
 
-Display one simple trust message:
+**Left:** Logo
 
-- Free Shipping
-- Easy Returns
-- Secure Checkout
+**Center:**
+Shop / New Drops / Collections / Discover / Stories
 
-Minimal, elegant and non-promotional.
+**Right:**
+Search / Account / Wishlist / Bag
 
----
-
-## Premium Header
-
-Include:
-
-- Logo
-- Search
-- Account
-- Wishlist
-- Cart
-- Category Navigation
-
-Header should be sticky, clean and spacious.
+Shop opens a clean mega menu with categories, collections, and one featured visual.
 
 ---
 
-## Editorial Hero
+## 4. Hero
+
+Large editorial hero occupying around 80–90vh.
+
+Use an original collectible product composition with a clean studio-style background.
+
+**Headline:**
+
+# BUILT TO COLLECT.
+
+Creative objects for building, collecting, and displaying.
+
+**CTA:** SHOP NEW DROPS →
+
+Secondary CTA: EXPLORE COLLECTIONS →
+
+Keep the hero bold and minimal.
+
+---
+
+## 5. Shop by Category
 
 Headline:
 
-> Beautiful Spaces Begin At Home
+# FIND YOUR THING.
 
-Supporting copy:
+Four large visual cards:
 
-> Discover thoughtfully selected furniture, décor and home essentials designed for modern American living.
+**BUILD**
+Building Sets
+
+**COLLECT**
+Art Figures
+
+**DISCOVER**
+Designer Toys
+
+**UNBOX**
+Blind Boxes
+
+Desktop: editorial grid.
+
+Mobile: swipeable cards.
+
+---
+
+## 6. New Drops
+
+Headline:
+
+# JUST DROPPED.
+
+Show 4–6 new products.
+
+Product cards contain:
+
+Image
+Category
+Name
+Price
+Wishlist
+Optional badge
+
+Use large product imagery and minimal UI.
+
+---
+
+## 7. Editorial Feature
+
+Large image + text section.
+
+Headline:
+
+# MORE THAN A TOY.
+
+Show collectibles inside a modern desk, shelf, or interior environment.
 
 CTA:
 
-- Shop Collection
-- Explore New Arrivals
+EXPLORE THE COLLECTION →
 
-Use bright luxury interiors with natural lighting.
-
----
-
-## Shop By Room
-
-Feature six lifestyle categories:
-
-- Living Room
-- Bedroom
-- Kitchen
-- Dining
-- Bathroom
-- Outdoor
-
-Large editorial cards with soft hover effects.
+Use one strong accent color.
 
 ---
 
-## Featured Collections
+## 8. Trending Products
 
-Highlight curated collections such as:
+Headline:
 
-- Kitchen Essentials
-- Elegant Dining
-- Modern Furniture
-- Timeless Decor
-- Outdoor Living
+# TRENDING NOW.
 
-Prioritize storytelling over promotions.
+Display a clean 4-column desktop product grid.
 
----
+Show a mix of collectible categories.
 
-## Editorial Story
-
-Explain the MegaMallDepot brand through lifestyle imagery and short editorial copy.
-
-CTA:
-
-Discover Our Story
+Keep product photography as the main focus.
 
 ---
 
-## Best Sellers
+## 9. Collections
 
-Display up to 8 products.
+Headline:
 
-Each product card includes:
+# COLLECTIONS WORTH EXPLORING.
 
-- Image
-- Name
-- Collection
-- Price
-- Rating
-- Quick View
-- Add to Cart
-
-Lifestyle imagery should be prioritized.
-
----
-
-## Seasonal Inspiration
-
-Present seasonal edits using magazine-style layouts.
+Use large asymmetric visual cards.
 
 Examples:
 
-- Summer Patio
-- Cozy Bedroom
-- Outdoor Dining
-- Holiday Living
+FOR YOUR DESK
+SHELF ICONS
+BIG BUILDS
+SMALL OBSESSIONS
+UNDER $50
+DISPLAY WORTHY
+
+Each card links to a collection page.
 
 ---
 
-## New Arrivals
+## 10. Upcoming Drop
 
-Display the latest curated products with a clean product grid.
+Create one bold campaign section.
 
-Maximum:
+Content:
 
-8 products.
+**NEXT DROP**
 
----
+# DROP 024
 
-## Why Shop MegaMallDepot
+Product visual
+Release date
+Countdown
+REMIND ME →
+VIEW DROP →
 
-Highlight:
-
-- Fast Shipping
-- Easy Returns
-- Secure Checkout
-- Order Tracking
-- Customer Support
-
-Use simple icons and clean layouts.
+Use a strong accent background and large typography.
 
 ---
 
-## Customer Reviews
-
-Display authentic reviews with:
-
-- Rating
-- Customer name
-- Location
-- Verified Purchase
-
-Avoid fake testimonials.
-
----
-
-## Lifestyle Gallery
-
-Show beautiful home photography featuring:
-
-- Kitchens
-- Living Rooms
-- Bedrooms
-- Outdoor Spaces
-
-Focus on inspiration rather than products.
-
----
-
-## Newsletter
+## 11. Collector's Picks
 
 Headline:
 
-Bring Inspiration Home
+# COLLECTOR'S PICKS.
 
-Collect email subscriptions using a simple centered form.
+Show 4–6 curated products using larger, premium-looking cards.
 
----
-
-## Premium Footer
-
-Include:
-
-### Shop
-
-- Kitchen
-- Furniture
-- Decor
-- Bedding
-- Outdoor
-
-### Customer Care
-
-- Contact
-- Shipping
-- Returns
-- Track Order
-- FAQ
-
-### About
-
-- Our Story
-- Privacy Policy
-- Terms
+This section should feel editorial rather than promotional.
 
 ---
 
-# Product Card Rules
+## 12. Stories
 
-Every card should include:
+Headline:
 
-- Large product image
-- Product name
-- Price
-- Rating
-- Quick View
-- Add to Cart
+# STORIES FOR COLLECTORS.
 
-Use soft hover animations only.
+Show 3 editorial articles about:
 
----
+Collecting
+Displaying
+Building
+Creative culture
 
-# Content Guidelines
+Each card:
 
-Content should be:
-
-- Warm
-- Elegant
-- Helpful
-- Lifestyle-focused
-- Original
-- Benefit-driven
-
-Avoid:
-
-- Keyword stuffing
-- Flash-sale language
-- Fake urgency
-- Marketplace style
+Image / Category / Title / Read Story →
 
 ---
 
-# Image Direction
+## 13. Newsletter
 
-Use:
+Dark full-width section.
 
-- Bright interiors
-- Natural lighting
-- Editorial photography
-- Premium home styling
+# GET THE DROP.
 
-Avoid:
+New releases, collector stories, and pieces worth discovering.
 
-- White cutout product images
-- Busy graphics
-- Dark themes
+Email Input + JOIN →
 
 ---
 
-# Mobile Experience
+## 14. Footer
 
-- Responsive hero
-- Two-column product grids
-- Large touch targets
-- Simple navigation
-- Fast loading
+Columns:
 
----
+**Shop**
+**Discover**
+**Help**
+**About**
 
-# SEO & GMC
+Include social links, policies, copyright, and country/currency selector.
 
-Homepage should demonstrate:
-
-- Clear home & lifestyle niche
-- Original content
-- Transparent policies
-- Strong branding
-- Mobile-friendly design
-- Trustworthy shopping experience
+Keep the footer spacious and minimal.
 
 ---
 
-# Homepage Journey
+## 15. Mobile
 
-Brand Inspiration
+Prioritize:
 
-↓
+* Strong hero
+* 2-column product grid
+* Swipeable categories
+* Swipeable product sections
+* Full-screen menu
+* Large touch targets
+* Fast product discovery
 
-Shop By Room
-
-↓
-
-Collections
-
-↓
-
-Brand Story
-
-↓
-
-Best Sellers
-
-↓
-
-Seasonal Inspiration
-
-↓
-
-Trust
-
-↓
-
-Reviews
-
-↓
-
-Newsletter
-
-↓
-
-Purchase
+Do not simply shrink the desktop layout.
 
 ---
 
-## Final Goal
+## 16. Final Direction
 
-Create a calm, premium shopping experience that feels like a modern home magazine while making product discovery effortless.
+Homepage rhythm:
+
+**HERO**
+→ **DISCOVER**
+→ **PRODUCTS**
+→ **EDITORIAL**
+→ **PRODUCTS**
+→ **COLLECTIONS**
+→ **DROP**
+→ **CULTURE**
+
+Products provide the color.
+
+UI stays clean and neutral.
+
+Final feeling:
+
+**CLEAN. BOLD. PLAYFUL. COLLECTIBLE.**

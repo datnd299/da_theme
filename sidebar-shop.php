@@ -17,7 +17,6 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
             <li>
                 <a href="<?php echo esc_url(get_term_link($cat)); ?>">
                     <?php echo esc_html($cat->name); ?>
-                    <span class="shop-sidebar__count">(<?php echo (int) $cat->count; ?>)</span>
                 </a>
             </li>
         <?php endforeach; ?>

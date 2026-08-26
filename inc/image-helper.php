@@ -94,6 +94,104 @@ if (!function_exists('dawp_get_responsive_image')) {
     }
 }
 
+if (!function_exists('dawp_home_image_assets')) {
+    function dawp_home_image_assets() {
+        return [
+            '1.png',
+            '2.png',
+            '3.png',
+            '4.png',
+            '5.png',
+            '6.png',
+            '7.png',
+            '8.png',
+            '9.png',
+            '10.png',
+            '11.png',
+            '12.png',
+            '13.png',
+            '14.png',
+            '15.png',
+            '16.png',
+            '17.png',
+            '18.png',
+            '19.png',
+            '20.png',
+        ];
+    }
+}
+
+if (!function_exists('dawp_normalize_home_image_file')) {
+    function dawp_normalize_home_image_file($file) {
+        $file = basename(ltrim((string) $file, '/'));
+        $legacy_map = [
+            'collectible-building-blocks.jpg' => '1.png',
+            'wooden-toy-collection.jpg'      => '15.png',
+            'wooden-shape-blocks.jpg'        => '10.png',
+            'collectible-desk-figures.png'   => '17.png',
+            'modular-display-build.png'      => '13.png',
+            'mystery-box-display.png'        => '20.png',
+            'collector-shelf-display.png'    => '16.png',
+        ];
+
+        return $legacy_map[$file] ?? $file;
+    }
+}
+
+if (!function_exists('dawp_home_image_url')) {
+    function dawp_home_image_url($file) {
+        $file = dawp_normalize_home_image_file($file);
+        if (!$file) {
+            $file = dawp_home_image_assets()[0];
+        }
+
+        $path = get_template_directory() . '/assets/img/homepage/brickgo/' . $file;
+        $url  = get_template_directory_uri() . '/assets/img/homepage/brickgo/' . $file;
+
+        if (file_exists($path)) {
+            $url = add_query_arg('ver', filemtime($path), $url);
+        }
+
+        return $url;
+    }
+}
+
+if (!function_exists('dawp_home_image_file')) {
+    function dawp_home_image_file($index = 0, $avoid = []) {
+        $assets = dawp_home_image_assets();
+        $avoid = array_filter(array_map(static function($file) {
+            return basename((string) $file);
+        }, (array) $avoid));
+        $avoid = array_map('dawp_normalize_home_image_file', $avoid);
+
+        if ($avoid) {
+            $available = array_values(array_diff($assets, $avoid));
+            if ($available) {
+                $assets = $available;
+            }
+        }
+
+        return $assets[(int) $index % count($assets)];
+    }
+}
+
+if (!function_exists('dawp_get_home_responsive_image')) {
+    function dawp_get_home_responsive_image($file, $alt, $class = '', $loading = 'lazy', $sizes = '100vw', $width = 1200, $height = 900) {
+        $url = dawp_home_image_url($file);
+
+        return dawp_get_responsive_image(
+            $url,
+            $alt,
+            $class,
+            $width,
+            $height,
+            $loading,
+            $sizes,
+            'eager' === $loading ? 'high' : 'auto'
+        );
+    }
+}
+
 if (!function_exists('dawp_get_product_responsive_image')) {
     function dawp_get_product_responsive_image($product, $class = '', $width = 360, $height = 360, $sizes = '(max-width: 699px) 82vw, (max-width: 899px) 50vw, 25vw') {
         if (!$product || !is_a($product, 'WC_Product')) {

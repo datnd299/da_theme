@@ -1,8 +1,6 @@
 <?php
 /**
- * MegaMallDepot - Shop / Archive Product Template
- * Design System: Modern general merchandise, conversion-first
- * Section 10: Category / Shop Page rules
+ * Shop and product taxonomy archives.
  */
 defined('ABSPATH') || exit;
 
@@ -10,393 +8,150 @@ get_header();
 
 $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
-$archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
-$archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical home essentials, furniture, electronics, smart home products, kitchen favorites, and outdoor living products from MegaMallDepot.', 'dawp');
-$archive_eyebrow = __('MegaMallDepot Collection', 'dawp');
-$archive_slug = 'shop';
-$home_image = static function ($filename) {
-    return get_theme_file_uri('assets/img/home/' . $filename);
-};
-$gallery_image = static function ($filename) {
-    return get_theme_file_uri('assets/img/gallery/' . $filename);
-};
+$term         = is_product_category() || is_product_tag() ? get_queried_object() : null;
+$title        = woocommerce_page_title(false);
+$description  = '';
 
-$shop_cover_images = [
-    'shop' => [
-        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
-        'alt' => __('Curated home essentials arranged on a warm modern shelf', 'dawp'),
-    ],
-    'home' => [
-        'url' => $home_image('Home_essentials_on_shelf_202607171221.jpeg'),
-        'alt' => __('Bright modern shelves styled with everyday home essentials', 'dawp'),
-    ],
-    'garden-tools' => [
-        'url' => $gallery_image('Garden_lounge_area_with_hanging_202607161300.jpeg'),
-        'alt' => __('Garden lounge area with outdoor tools and patio essentials', 'dawp'),
-    ],
-    'electronics' => [
-        'url' => $home_image('Living_Room.jpeg'),
-        'alt' => __('Modern living room ready for entertainment and connected devices', 'dawp'),
-    ],
-    'sports-outdoors' => [
-        'url' => $gallery_image('Home_gym_setup_cork_mat_202607241524.jpeg'),
-        'alt' => __('Home gym setup with fitness and outdoor activity gear', 'dawp'),
-    ],
-    'toys-outdoor-play' => [
-        'url' => $gallery_image('Children_playing_tumble_tower_game_202607241524.jpeg'),
-        'alt' => __('Children playing an outdoor tumble tower game', 'dawp'),
-    ],
-    'beauty-personal-care' => [
-        'url' => $gallery_image('Skincare_bottles_on_marble_vanity_202607241524.jpeg'),
-        'alt' => __('Skincare and personal care bottles arranged on a marble vanity', 'dawp'),
-    ],
-    'pets' => [
-        'url' => $gallery_image('Pet_bed_with_cat_202607241524.jpeg'),
-        'alt' => __('Comfortable pet bed styled for everyday pet care', 'dawp'),
-    ],
-    'school-office-art-supplies' => [
-        'url' => $gallery_image('Minimalist_home_office_desk_setup_202607241524.jpeg'),
-        'alt' => __('Minimalist desk setup with office and school supplies', 'dawp'),
-    ],
-];
-if ($archive_term && !is_wp_error($archive_term)) {
-    $archive_title = $archive_term->name;
-    $archive_slug = $archive_term->slug;
-    $term_description = term_description($archive_term->term_id, $archive_term->taxonomy);
-    $archive_description = $term_description ? wp_strip_all_tags($term_description) : $archive_description;
-    $archive_eyebrow = is_product_tag() ? __('Shop By Tag', 'dawp') : __('Shop By Category', 'dawp');
+if ($term && !is_wp_error($term)) {
+    $description = term_description($term->term_id, $term->taxonomy);
+} elseif ($shop_page_id > 0) {
+    $shop_page = get_post($shop_page_id);
+    $description = $shop_page ? apply_filters('the_content', $shop_page->post_excerpt ?: $shop_page->post_content) : '';
 }
 
-$archive_cover = $shop_cover_images[$archive_slug] ?? $shop_cover_images['shop'];
-
-if ($archive_term && !is_wp_error($archive_term) && is_product_category() && !isset($shop_cover_images[$archive_slug])) {
-    $thumbnail_id = (int) get_term_meta($archive_term->term_id, 'thumbnail_id', true);
-
-    if ($thumbnail_id) {
-        $thumbnail_url = wp_get_attachment_image_url($thumbnail_id, 'full');
-
-        if ($thumbnail_url) {
-            $archive_cover = [
-                'url' => $thumbnail_url,
-                'alt' => sprintf(
-                    /* translators: %s: product category name */
-                    __('%s collection cover image', 'dawp'),
-                    $archive_title
-                ),
-            ];
-        }
-    }
-}
-
-global $wp_query;
-$archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 0;
-$categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
+$description = wp_trim_words(wp_strip_all_tags($description), 28, '...');
+$categories  = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_product_category_terms() : [];
 ?>
 
-<div class="shop-page">
-<div class="shop-container">
-
-    <?php
-    // ── Breadcrumb ─────────────────────────────────────────
-    ?>
-    <nav class="shop-breadcrumb" aria-label="Breadcrumb">
-        <a href="<?php echo esc_url( home_url('/') ); ?>">Home</a>
-        <span aria-hidden="true">›</span>
-        <?php if ( is_product_category() ) :
-            $cat = get_queried_object(); ?>
-            <a href="<?php echo esc_url( $shop_url ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
-            <span><?php echo esc_html( $cat->name ); ?></span>
-        <?php elseif ( is_product_tag() ) :
-            $tag = get_queried_object(); ?>
-            <a href="<?php echo esc_url( $shop_url ); ?>">Shop</a>
-            <span aria-hidden="true">›</span>
-            <span><?php echo esc_html( $tag->name ); ?></span>
-        <?php else : ?>
-            <span>Shop</span>
-        <?php endif; ?>
-    </nav>
-
-    <?php
-    // ── Page heading ───────────────────────────────────────
-    ?>
-    <div class="shop-header">
-        <div class="shop-header__content">
-            <p class="shop-header__eyebrow"><?php echo esc_html($archive_eyebrow); ?></p>
-            <h1 class="shop-header__title"><?php echo esc_html($archive_title); ?></h1>
-            <?php if ($archive_description) : ?>
-                <p class="shop-header__description"><?php echo esc_html($archive_description); ?></p>
-            <?php endif; ?>
-            <div class="shop-header__meta">
-                <span>
-                    <?php
-                    printf(
-                        esc_html(_n('%d product', '%d products', $archive_total, 'dawp')),
-                        $archive_total
-                    );
-                    ?>
-                </span>
-                <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop all products', 'dawp'); ?></a>
-            </div>
-        </div>
-        <div class="shop-header__media">
-            <?php echo dawp_get_responsive_image($archive_cover['url'], $archive_cover['alt'], '', 640, 520, 'eager', '(max-width: 900px) 100vw, 42vw', 'high'); ?>
-        </div>
-    </div>
-
-    <?php
-    // ── Toolbar: count + filter toggle + sort ──────────────
-    ?>
-    <div class="shop-toolbar">
-        <div class="shop-toolbar__left">
-            <span class="shop-toolbar__count">
-                <?php
-                global $wp_query;
-                $total = $wp_query->found_posts;
-                printf(
-                    '%d %s',
-                    $total,
-                    $total === 1 ? 'product' : 'products'
-                );
-                ?>
-            </span>
-            <button
-                class="shop-filter-btn"
-                id="shopFilterBtn"
-                aria-expanded="false"
-                aria-controls="shopSidebar"
-            >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <line x1="4" y1="6" x2="20" y2="6"/>
-                    <line x1="8" y1="12" x2="20" y2="12"/>
-                    <line x1="12" y1="18" x2="20" y2="18"/>
-                </svg>
-                Filter
-            </button>
-        </div>
-
-        <?php woocommerce_catalog_ordering(); ?>
-    </div>
-
-    <?php
-    // ── Sidebar overlay (mobile bottom sheet backdrop) ─────
-    ?>
-    <div class="shop-sidebar-overlay" id="shopSidebarOverlay" aria-hidden="true"></div>
-
-    <?php
-    // ── Layout ─────────────────────────────────────────────
-    ?>
-    <div class="shop-layout">
-
-        <?php // ── Sidebar ────────────────────────────────── ?>
-        <aside class="shop-sidebar" id="shopSidebar" aria-label="Product filters">
-            <div class="shop-sidebar__header">
-                <h2 class="shop-sidebar__mobile-title">Filter Products</h2>
-                <button
-                    class="shop-sidebar__close"
-                    id="shopSidebarClose"
-                    aria-label="Close filters"
-                >
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-
-            <?php
-            // Categories widget
-            if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
-            <div class="shop-sidebar__widget">
-                <h3 class="shop-sidebar__title">Categories</h3>
-                <ul class="shop-sidebar__categories">
-                    <li>
-                        <a
-                            href="<?php echo esc_url( $shop_url ); ?>"
-                            <?php if ( is_shop() ) echo 'aria-current="page"'; ?>
-                        >
-                            All Products
-                        </a>
-                    </li>
-                    <?php foreach ( $categories as $cat ) :
-                        $is_current = ( is_product_category( $cat->slug ) ); ?>
-                        <li>
-                            <a
-                                href="<?php echo esc_url( get_term_link( $cat ) ); ?>"
-                                <?php if ( $is_current ) echo 'aria-current="page"'; ?>
-                            >
-                                <?php echo esc_html( $cat->name ); ?>
-                                <span class="count">(<?php echo (int) $cat->count; ?>)</span>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-            <?php endif; ?>
-
-            <?php
-            // Price filter / other widgets
-            if ( is_active_sidebar('shop-sidebar') ) {
-                dynamic_sidebar('shop-sidebar');
-            }
-            ?>
-        </aside>
-
-        <?php // ── Main Product Area ────────────────────────── ?>
-        <main class="shop-main" id="main-content">
-
-            <?php if ( woocommerce_product_loop() ) : ?>
-
-                <?php woocommerce_product_loop_start(); ?>
-
-                    <?php while ( have_posts() ) : the_post(); ?>
-                        <?php wc_get_template_part('content', 'product'); ?>
-                    <?php endwhile; ?>
-
-                <?php woocommerce_product_loop_end(); ?>
-
-                <?php // Pagination ?>
-                <div class="shop-pagination">
-                    <?php do_action('woocommerce_after_shop_loop'); ?>
-                </div>
-
+<main class="shop-page" id="main-content">
+    <div class="shop-shell">
+        <nav class="shop-breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
+            <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>
+            <span aria-hidden="true">/</span>
+            <?php if (is_product_category() || is_product_tag()) : ?>
+                <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop', 'dawp'); ?></a>
+                <span aria-hidden="true">/</span>
+                <span><?php echo esc_html($title); ?></span>
             <?php else : ?>
-                <div class="shop-empty">
-                    <p>No products found in this collection.</p>
-                    <a href="<?php echo esc_url( $shop_url ); ?>">
-                        Browse all products →
-                    </a>
-                </div>
+                <span><?php esc_html_e('Shop', 'dawp'); ?></span>
             <?php endif; ?>
+        </nav>
 
-        </main><!-- .shop-main -->
-    </div><!-- .shop-layout -->
+        <header class="shop-heading">
+            <div>
+                <h1><?php echo esc_html($title); ?></h1>
+                <?php if ($description) : ?>
+                    <p><?php echo esc_html($description); ?></p>
+                <?php endif; ?>
+            </div>
+        </header>
 
-</div><!-- .shop-container -->
-</div><!-- .shop-page -->
+        <div class="shop-controls" aria-label="<?php esc_attr_e('Catalog controls', 'dawp'); ?>">
+            <div class="shop-controls__left">
+                <button class="shop-filter-toggle" type="button" aria-expanded="false" aria-controls="shopFilters">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 6h16M7 12h10M10 18h4"/>
+                    </svg>
+                    <span><?php esc_html_e('Filters', 'dawp'); ?></span>
+                </button>
+                <?php woocommerce_result_count(); ?>
+            </div>
+            <?php woocommerce_catalog_ordering(); ?>
+        </div>
+
+        <div class="shop-filter-overlay" data-shop-filter-overlay hidden></div>
+
+        <div class="shop-layout">
+            <aside class="shop-filters" id="shopFilters" aria-label="<?php esc_attr_e('Product filters', 'dawp'); ?>">
+                <div class="shop-filters__head">
+                    <strong><?php esc_html_e('Filters', 'dawp'); ?></strong>
+                    <button class="shop-filter-close" type="button" aria-label="<?php esc_attr_e('Close filters', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18 6 6 18M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <?php if (!empty($categories) && !is_wp_error($categories)) : ?>
+                    <section class="shop-filter-group">
+                        <h2><?php esc_html_e('Category', 'dawp'); ?></h2>
+                        <ul class="shop-category-list">
+                            <li>
+                                <a href="<?php echo esc_url($shop_url); ?>" <?php echo is_shop() ? 'aria-current="page"' : ''; ?>>
+                                    <span><?php esc_html_e('All Products', 'dawp'); ?></span>
+                                </a>
+                            </li>
+                            <?php foreach ($categories as $category) : ?>
+                                <li>
+                                    <a href="<?php echo esc_url(get_term_link($category)); ?>" <?php echo is_product_category($category->slug) ? 'aria-current="page"' : ''; ?>>
+                                        <span><?php echo esc_html($category->name); ?></span>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </section>
+                <?php endif; ?>
+
+                <?php if (is_active_sidebar('shop-sidebar')) : ?>
+                    <?php dynamic_sidebar('shop-sidebar'); ?>
+                <?php endif; ?>
+            </aside>
+
+            <section class="shop-products" aria-label="<?php esc_attr_e('Products', 'dawp'); ?>">
+                <?php if (woocommerce_product_loop()) : ?>
+                    <?php do_action('woocommerce_before_shop_loop'); ?>
+                    <?php woocommerce_product_loop_start(); ?>
+                        <?php while (have_posts()) : ?>
+                            <?php the_post(); ?>
+                            <?php wc_get_template_part('content', 'product'); ?>
+                        <?php endwhile; ?>
+                    <?php woocommerce_product_loop_end(); ?>
+                    <?php do_action('woocommerce_after_shop_loop'); ?>
+                <?php else : ?>
+                    <?php do_action('woocommerce_no_products_found'); ?>
+                <?php endif; ?>
+            </section>
+        </div>
+    </div>
+</main>
 
 <script>
 (function () {
-    var filterBtn   = document.getElementById('shopFilterBtn');
-    var sidebar     = document.getElementById('shopSidebar');
-    var overlay     = document.getElementById('shopSidebarOverlay');
-    var closeBtn    = document.getElementById('shopSidebarClose');
+    var toggle = document.querySelector('.shop-filter-toggle');
+    var panel = document.getElementById('shopFilters');
+    var close = document.querySelector('.shop-filter-close');
+    var overlay = document.querySelector('[data-shop-filter-overlay]');
 
-    function openSidebar() {
-        sidebar.classList.add('is-open');
-        overlay.classList.add('is-open');
-        overlay.removeAttribute('aria-hidden');
-        filterBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+    if (!toggle || !panel || !overlay) {
+        return;
     }
 
-    function closeSidebar() {
-        sidebar.classList.remove('is-open');
-        overlay.classList.remove('is-open');
-        overlay.setAttribute('aria-hidden', 'true');
-        filterBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+    function setOpen(isOpen) {
+        panel.classList.toggle('is-open', isOpen);
+        overlay.hidden = !isOpen;
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.documentElement.classList.toggle('shop-filter-is-open', isOpen);
     }
 
-    if (filterBtn && sidebar) {
-        filterBtn.addEventListener('click', openSidebar);
-    }
-    if (overlay) {
-        overlay.addEventListener('click', closeSidebar);
-    }
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeSidebar);
-    }
-    // Close on Escape
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && sidebar.classList.contains('is-open')) {
-            closeSidebar();
-        }
+    toggle.addEventListener('click', function () {
+        setOpen(true);
     });
 
-    // --- Load More Products logic ---
-    var paginationContainer = document.querySelector('.shop-pagination');
-    if (paginationContainer) {
-        var wooPagination = paginationContainer.querySelector('.woocommerce-pagination');
-        if (wooPagination) {
-            var nextLink = wooPagination.querySelector('.next');
-            wooPagination.style.display = 'none';
-
-            if (nextLink) {
-                var loadMoreContainer = document.createElement('div');
-                loadMoreContainer.className = 'flex justify-center mt-10 mb-10 w-full';
-                loadMoreContainer.style.display = 'flex';
-                loadMoreContainer.style.justifyContent = 'center';
-                loadMoreContainer.style.marginTop = '2.5rem';
-                loadMoreContainer.style.marginBottom = '2.5rem';
-                loadMoreContainer.style.width = '100%';
-                
-                var loadMoreBtn = document.createElement('button');
-                // Use exact classes from header to ensure they exist, plus inline styles for safety
-                loadMoreBtn.className = 'inline-flex min-h-12 items-center justify-center rounded-md px-8 text-sm font-bold text-white transition cursor-pointer';
-                loadMoreBtn.style.minHeight = '3rem';
-                loadMoreBtn.style.paddingLeft = '2rem';
-                loadMoreBtn.style.paddingRight = '2rem';
-                loadMoreBtn.style.borderRadius = '0.375rem';
-                loadMoreBtn.style.backgroundColor = '#A45A3F';
-                loadMoreBtn.style.color = '#ffffff';
-                loadMoreBtn.style.fontWeight = '700';
-                loadMoreBtn.style.fontSize = '0.875rem';
-                loadMoreBtn.style.border = 'none';
-                loadMoreBtn.style.cursor = 'pointer';
-                loadMoreBtn.style.transition = 'background-color 0.2s';
-                
-                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#7F422F'; };
-                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#A45A3F'; };
-
-                loadMoreBtn.innerHTML = 'Load More Product';
-                
-                loadMoreContainer.appendChild(loadMoreBtn);
-                paginationContainer.parentNode.insertBefore(loadMoreContainer, paginationContainer.nextSibling);
-                
-                loadMoreBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var originalText = loadMoreBtn.innerHTML;
-                    loadMoreBtn.innerHTML = 'Loading...';
-                    loadMoreBtn.style.opacity = '0.7';
-                    loadMoreBtn.style.pointerEvents = 'none';
-                    
-                    fetch(nextLink.href)
-                        .then(function(response) { return response.text(); })
-                        .then(function(html) {
-                            var parser = new DOMParser();
-                            var doc = parser.parseFromString(html, 'text/html');
-                            
-                            var newProducts = doc.querySelectorAll('ul.products li.product, li.product-card');
-                            var productContainer = document.querySelector('ul.products');
-                            
-                            if (newProducts.length > 0 && productContainer) {
-                                newProducts.forEach(function(product) {
-                                    productContainer.appendChild(product);
-                                });
-                            }
-                            
-                            var newNextLink = doc.querySelector('.woocommerce-pagination .next');
-                            if (newNextLink) {
-                                nextLink.href = newNextLink.href;
-                                loadMoreBtn.innerHTML = originalText;
-                                loadMoreBtn.style.opacity = '1';
-                                loadMoreBtn.style.pointerEvents = 'auto';
-                            } else {
-                                loadMoreContainer.remove();
-                            }
-                        })
-                        .catch(function(error) {
-                            console.error('Error loading more products:', error);
-                            loadMoreBtn.innerHTML = 'Error. Try Again';
-                            loadMoreBtn.style.opacity = '1';
-                            loadMoreBtn.style.pointerEvents = 'auto';
-                        });
-                });
-            }
-        }
+    if (close) {
+        close.addEventListener('click', function () {
+            setOpen(false);
+        });
     }
+
+    overlay.addEventListener('click', function () {
+        setOpen(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            setOpen(false);
+        }
+    });
 })();
 </script>
 

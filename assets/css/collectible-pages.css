@@ -1,0 +1,217 @@
+/* Shared editorial page layer for footer-linked pages. */
+:root {
+  --collect-bg: #f5f3ee;
+  --collect-surface: #ffffff;
+  --collect-ink: #111111;
+  --collect-muted: #686868;
+  --collect-border: #deddd8;
+  --collect-blue: #3c6eff;
+  --collect-yellow: #ffd83d;
+  --collect-red: #ff4b3e;
+  --collect-green: #47c878;
+}
+
+.virtual-page:not(.virtual-page--culture-notes):not(.virtual-page--culture-note),
+body.woocommerce-cart,
+body.woocommerce-checkout,
+body.woocommerce-account {
+  background: var(--collect-bg);
+  color: var(--collect-ink);
+  font-family: var(--font-sans);
+}
+
+.virtual-page:not(.virtual-page--culture-notes):not(.virtual-page--culture-note) :is(h1, h2, h3),
+body.woocommerce-cart :is(h1, h2, h3),
+body.woocommerce-checkout :is(h1, h2, h3),
+body.woocommerce-account :is(h1, h2, h3) {
+  color: var(--collect-ink);
+  font-family: var(--font-heading);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.virtual-page :is(.bg-white, .bg-\[\#FFFFFF\]) {
+  background: var(--collect-bg);
+}
+
+.virtual-page :is(.bg-\[\#F8F5F0\], .bg-\[\#F5F6F8\]) {
+  background: var(--collect-bg);
+}
+
+.virtual-page :is(.text-\[\#2B2B2B\], .text-\[\#1F2937\]) {
+  color: var(--collect-ink);
+}
+
+.virtual-page :is(.text-\[\#4A4A4A\], .text-\[\#554E49\], .text-\[\#6B7280\]) {
+  color: var(--collect-muted);
+}
+
+.virtual-page :is(.text-\[\#A45A3F\], .text-\[\#0046BE\]) {
+  color: var(--collect-blue);
+}
+
+.virtual-page :is(.border-\[\#E8E5DF\], .border-\[\#D8C7BE\], .border-\[\#E5E7EB\]) {
+  border-color: var(--collect-border);
+}
+
+.virtual-page :is(.rounded-md, .rounded-full) {
+  border-radius: 8px;
+}
+
+.virtual-page :is(.shadow-sm, .shadow, .shadow-lg, .shadow-xl) {
+  box-shadow: none;
+}
+
+.virtual-page article,
+.virtual-page aside > div,
+.virtual-page details,
+.virtual-page .mmd-contact-form-card,
+.virtual-page .mmd-contact-sidebar,
+.track-hero__panel,
+.track-form-card,
+.track-support-card {
+  border-color: var(--collect-border);
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.virtual-page a:is([class*="bg-[#A45A3F]"], [class*="bg-[#0046BE]"]),
+.virtual-page button:is([class*="bg-[#A45A3F]"], [class*="bg-[#0046BE]"]),
+.mmd-about-btn--primary,
+.mmd-contact-btn--primary,
+.track-button--primary,
+.woocommerce-account .woocommerce-button,
+.woocommerce-account .button {
+  background: var(--collect-ink);
+  border-color: var(--collect-ink);
+  color: #ffffff;
+}
+
+.virtual-page a:is([class*="border-[#A45A3F]"], [class*="border-[#2B2B2B]"]),
+.mmd-about-btn--secondary,
+.mmd-contact-btn--secondary,
+.track-button--ghost {
+  background: transparent;
+  border-color: var(--collect-ink);
+  color: var(--collect-ink);
+}
+
+.virtual-page a:hover,
+.virtual-page summary:hover {
+  color: var(--collect-blue);
+}
+
+.mmd-about,
+.mmd-contact,
+.track-order-page {
+  --mmd-ink: var(--collect-ink);
+  --mmd-text: var(--collect-muted);
+  --mmd-ivory: var(--collect-bg);
+  --mmd-line: var(--collect-border);
+  --mmd-accent: var(--collect-blue);
+  --mmd-accent-dark: var(--collect-ink);
+  --track-ink: var(--collect-ink);
+  --track-soft-ink: var(--collect-muted);
+  --track-muted: var(--collect-muted);
+  --track-rose: var(--collect-blue);
+  --track-rose-dark: var(--collect-ink);
+  --track-rose-muted: var(--collect-blue);
+  --track-yellow: var(--collect-yellow);
+  --track-blush: #eef1ff;
+  --track-cream: var(--collect-bg);
+  --track-paper: var(--collect-bg);
+  --track-border: var(--collect-border);
+}
+
+.mmd-about h1,
+.mmd-about h2,
+.mmd-about h3,
+.mmd-contact h1,
+.mmd-contact h2,
+.mmd-contact h3 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+}
+
+.virtual-page .mmd-contact-cta h2 {
+  color: #ffffff;
+}
+
+.virtual-page .mmd-contact-cta p:not(.mmd-contact-eyebrow) {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.virtual-page .mmd-contact-cta .mmd-contact-eyebrow {
+  color: #d8b19f;
+}
+
+.woocommerce-account .woo-page > .container,
+.woocommerce-account .woocommerce {
+  width: min(100% - 32px, 1280px);
+  margin-inline: auto;
+}
+
+.woocommerce-account .woocommerce {
+  display: grid;
+  gap: 24px;
+  padding: 48px 0 72px;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: clamp(12px, 2vw, 16px);
+  list-style: none;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--collect-border);
+  border-radius: 8px;
+  background: var(--collect-surface);
+  color: var(--collect-ink);
+  font-size: 0.84rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation .is-active a {
+  border-color: var(--collect-ink);
+  background: var(--collect-ink);
+  color: #fff;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content,
+.woocommerce-account form.login,
+.woocommerce-account form.register {
+  padding: clamp(20px, 4vw, 36px);
+  border: 1px solid var(--collect-border);
+  border-radius: 10px;
+  background: var(--collect-surface);
+}
+
+.woocommerce-account input.input-text,
+.woocommerce-account textarea,
+.woocommerce-account select {
+  min-height: 48px;
+  border: 1px solid var(--collect-border);
+  border-radius: 8px;
+  padding: 0 14px;
+}
+
+@media (min-width: 900px) {
+  .woocommerce-account .woocommerce {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+
+  .woocommerce-account .woocommerce-MyAccount-navigation ul {
+    display: grid;
+  }
+}

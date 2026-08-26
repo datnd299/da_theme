@@ -1,6 +1,6 @@
 <?php
 /**
- * Return and refund policy page for MegaMallDepot.
+ * Return and refund policy page for Brickgo.com.
  *
  * @package dawp
  */
@@ -9,41 +9,40 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'MegaMallDepot';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '757-804-6538';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
+$support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
+$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
 
 $return_eligibility = [
     __('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'),
-    __('Product Condition: Items must be unused, undamaged, in their original, unaltered condition, and suitable for resale (New only).', 'dawp'),
-    __('Packaging: Items must be returned with all original packaging, manuals, labels, parts, accessories, boxes, and included components.', 'dawp'),
-    __('Return Method: By Mail only.', 'dawp'),
-    __('Restocking Fee: $0.00 / Free. We do not charge any restocking fees for eligible returns.', 'dawp'),
+    __('Condition: Items must be unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'),
+    __('Packaging: Items must be returned with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and any included accessories.', 'dawp'),
+    __('Restocking Fee: Free. We do not charge any restocking fees for eligible returns.', 'dawp'),
 ];
 
 $return_shipping_fees = [
     [
-        'title' => __('Defective, Damaged, or Incorrect Products:', 'dawp'),
-        'copy'  => __('MegaMallDepot covers the return shipping cost. Once your return is approved, we will email you a prepaid shipping label so you can send the item back to us at no cost to you.', 'dawp'),
+        'title' => __('Defective, Damaged, or Incorrect Products (Wrong item, carrier damage, or defective):', 'dawp'),
+        'copy'  => __('No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.', 'dawp'),
     ],
     [
-        'title' => __('Customer Remorse / Change of Mind:', 'dawp'),
-        'copy'  => __('Free returns within 30 days of delivery, no questions asked. MegaMallDepot covers the return shipping cost and emails you a prepaid shipping label.', 'dawp'),
+        'title' => __("Customer Remorse (Ordered wrong item/size/color, changed mind, or doesn't fit):", 'dawp'),
+        'copy'  => __('The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.', 'dawp'),
     ],
 ];
 
 $delivery_issues = [
     [
         'title' => __('Damaged on Arrival', 'dawp'),
-        'copy'  => __('If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will assist you with the return process.', 'dawp'),
+        'copy'  => __('If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will arrange a replacement or full refund at no cost to you.', 'dawp'),
     ],
     [
         'title' => __('Lost Packages / Never Arrived', 'dawp'),
-        'copy'  => __('If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier.', 'dawp'),
+        'copy'  => __('If your tracking status shows no updates for an extended period, or is marked "Delivered" but you did not receive it, please contact us within 30 days of the recorded delivery date. We will investigate with the carrier and arrange a replacement or refund if the package is confirmed lost.', 'dawp'),
     ],
 ];
 
@@ -55,20 +54,20 @@ $return_steps = [
     [
         'title' => __('Receive Approval & Pack Your Item', 'dawp'),
         'copy'  => [
-            __('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number and the Return Address details.', 'dawp'),
-            __('Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box. Write the RMA number clearly on the outside of the box.', 'dawp'),
+            __('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number along with a prepaid shipping label.', 'dawp'),
+            __('Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box.', 'dawp'),
         ],
     ],
     [
         'title' => __('Ship It Back to Our Returns Center', 'dawp'),
-        'copy'  => __('Purchase a shipping label from your preferred carrier (e.g., USPS, UPS, FedEx, or DHL), attach it to the outside of your shipping box, and drop it off at the designated carrier location. The customer is responsible for all shipping costs. We recommend using a trackable shipping service.', 'dawp'),
+        'copy'  => __('Print the prepaid shipping label, attach it to the outside of your shipping box, and drop it off at the designated carrier location.', 'dawp'),
     ],
 ];
 
 $refund_process = [
     __('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'),
     __('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'),
-    __('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns. Please note that original shipping costs (if any) are non-refundable.', 'dawp'),
+    __('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns.', 'dawp'),
     __('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'),
     __('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'),
 ];
@@ -76,9 +75,9 @@ $refund_process = [
 $non_returnable_items = [
     __('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'),
     __('Gift cards or digital products/downloads.', 'dawp'),
-    __('Personalized, engraved, configured, assembled, or custom-made items.', 'dawp'),
-    __('Hygiene-sensitive, sealed, or consumable items where the product seal has been broken.', 'dawp'),
-    __('Items that have been used, installed, altered, or damaged after delivery.', 'dawp'),
+    __('Personalized, engraved, resized, or custom-made items.', 'dawp'),
+    __('Intimate apparel, swimwear, or hygiene-sensitive items such as earrings where the product seal has been broken.', 'dawp'),
+    __('Items that have been worn, washed, altered, or damaged after delivery.', 'dawp'),
 ];
 
 $contact_cards = [
@@ -94,11 +93,6 @@ $contact_cards = [
         'label' => __('Email', 'dawp'),
         'value' => $support_email,
         'url'   => 'mailto:' . $support_email,
-    ],
-    [
-        'label' => __('Phone', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
     ],
     [
         'label' => __('Contact Support', 'dawp'),
@@ -118,15 +112,15 @@ $contact_cards = [
 $return_faqs = [
     [
         'question' => __('What is the return window?', 'dawp'),
-        'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible defective and non-defective products in new condition.', 'dawp'),
+        'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible items that are unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'),
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('MegaMallDepot covers return shipping for all eligible returns, including change of mind, within 30 days of delivery. We email you a prepaid shipping label at no cost to you.', 'dawp'),
+        'answer'   => __('For defective, damaged, or incorrect products, Brickgo.com covers 100% of return shipping. For customer remorse, the prepaid label cost is deducted from your final refund amount.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),
-        'answer'   => __('No. MegaMallDepot does not charge restocking fees ($0.00) for eligible returns.', 'dawp'),
+        'answer'   => __('No. Brickgo.com does not charge restocking fees for eligible returns.', 'dawp'),
     ],
     [
         'question' => __('When will I receive my refund?', 'dawp'),
@@ -166,10 +160,10 @@ $return_faqs = [
         </div>
     </section>
 
-    <section class="bg-[#FFFFFF] py-14 sm:py-20">
-        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:px-8">
-            <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('Return Eligibility', 'dawp'); ?></h2>
+    <section class="bg-[#FFFFFF] py-12 sm:py-16">
+        <div class="mx-auto grid max-w-5xl gap-4 px-4 sm:px-6 lg:px-8">
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Return Eligibility', 'dawp'); ?></h2>
                 <p class="mt-5 text-sm leading-7 text-[#4A4A4A]"><?php esc_html_e('To be eligible for a return, your item must meet the following criteria:', 'dawp'); ?></p>
                 <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#4A4A4A]">
                     <?php foreach ($return_eligibility as $item) : ?>
@@ -181,8 +175,8 @@ $return_faqs = [
                 </ul>
             </article>
 
-            <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('Return Shipping Fees', 'dawp'); ?></h2>
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Return Shipping Fees', 'dawp'); ?></h2>
                 <div class="mt-6 grid gap-4 lg:grid-cols-2">
                     <?php foreach ($return_shipping_fees as $fee) : ?>
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
@@ -193,8 +187,8 @@ $return_faqs = [
                 </div>
             </article>
 
-            <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('Common Delivery Issues', 'dawp'); ?></h2>
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Common Delivery Issues', 'dawp'); ?></h2>
                 <div class="mt-6 grid gap-6">
                     <?php foreach ($delivery_issues as $issue) : ?>
                         <section>
@@ -205,8 +199,8 @@ $return_faqs = [
                 </div>
             </article>
 
-            <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('How to Return an Item', 'dawp'); ?></h2>
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('How to Return an Item', 'dawp'); ?></h2>
                 <p class="mt-5 text-sm leading-7 text-[#4A4A4A]"><?php esc_html_e('Please follow our official 3-step process. Do not ship any item back without prior authorization, as unauthorized returns cannot be tracked or processed at our warehouse.', 'dawp'); ?></p>
 
                 <div class="mt-6 grid gap-4">
@@ -242,13 +236,13 @@ $return_faqs = [
                 </div>
             </article>
 
-            <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
                 <p class="mt-5 text-sm leading-7 text-[#4A4A4A]"><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different size, color, or model, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
             </article>
 
-            <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('Refund Process & Timing', 'dawp'); ?></h2>
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Refund Process & Timing', 'dawp'); ?></h2>
                 <ul class="mt-6 grid gap-3 text-sm leading-7 text-[#4A4A4A]">
                     <?php foreach ($refund_process as $item) : ?>
                         <li class="flex gap-3">
@@ -262,8 +256,8 @@ $return_faqs = [
                 </a>
             </article>
 
-            <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('Non-Returnable Items', 'dawp'); ?></h2>
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Non-Returnable Items', 'dawp'); ?></h2>
                 <p class="mt-5 text-sm leading-7 text-[#4A4A4A]"><?php esc_html_e('The following items are strictly non-returnable and final sale:', 'dawp'); ?></p>
                 <ul class="mt-5 grid gap-3 text-sm leading-7 text-[#4A4A4A]">
                     <?php foreach ($non_returnable_items as $item) : ?>
@@ -275,8 +269,8 @@ $return_faqs = [
                 </ul>
             </article>
 
-            <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('Contact Information', 'dawp'); ?></h2>
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Contact Information', 'dawp'); ?></h2>
                 <div class="mt-6 rounded-md border border-[#E8E5DF] bg-white p-4 sm:p-5">
                     <dl class="grid gap-4 lg:grid-cols-2">
                         <?php foreach ($contact_cards as $card) : ?>
@@ -295,8 +289,8 @@ $return_faqs = [
                 </div>
             </article>
 
-            <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8">
-                <h2 class="font-heading text-3xl font-extrabold text-[#2B2B2B] sm:text-4xl"><?php esc_html_e('Return & Refund FAQs', 'dawp'); ?></h2>
+            <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
+                <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Return & Refund FAQs', 'dawp'); ?></h2>
                 <div class="mt-6 divide-y divide-[#E8E5DF]">
                     <?php foreach ($return_faqs as $item) : ?>
                         <details class="group py-5 first:pt-0 last:pb-0">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page for MegaMallDepot.
+ * Track order page for Brickgo.com.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@megamalldepot.com';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $returns_url    = home_url('/return-refund-policy/');
 $terms_url      = home_url('/terms-conditions/');
@@ -40,7 +40,7 @@ $policy_links = [
                 <p class="track-eyebrow"><?php esc_html_e('Order Tracking', 'dawp'); ?></p>
                 <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Enter your order ID and billing email to check the latest status for your MegaMallDepot purchase.', 'dawp'); ?>
+                    <?php esc_html_e('Enter your order ID and billing email to check the latest status for your Brickgo.com purchase.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a href="#track-order-form" class="track-button track-button--primary"><?php esc_html_e('Check Order Status', 'dawp'); ?></a>
@@ -61,7 +61,7 @@ $policy_links = [
                         <span class="track-timeline__icon" aria-hidden="true">→</span>
                         <div>
                             <h2><?php esc_html_e('Tracking updates', 'dawp'); ?></h2>
-                            <p><?php esc_html_e('Shipment details appear after your order has been processed and dispatched.', 'dawp'); ?></p>
+                            <p><?php esc_html_e('Shipment details appear after your order has been processed and dispatched, typically after 1-3 business days of handling.', 'dawp'); ?></p>
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('1-3 Day Handling', 'dawp'); ?>
+                    <?php esc_html_e('Careful Packing', 'dawp'); ?>
                 </div>
             </div>
         </div>

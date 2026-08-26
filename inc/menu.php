@@ -1,22 +1,27 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'essentials' => 'home',
-        'home'       => 'home',
-        'furniture'  => 'home',
-        'electronics'=> 'electronics',
-        'smart'      => 'electronics',
-        'kitchen'    => 'home',
-        'outdoor'    => 'sports-outdoors',
-        'garden'     => 'garden-tools',
-        'tools'      => 'garden-tools',
-        'sports'     => 'sports-outdoors',
-        'toys'       => 'toys-outdoor-play',
-        'beauty'     => 'beauty-personal-care',
-        'pets'       => 'pets',
-        'school'     => 'school-office-art-supplies',
-        'office'     => 'school-office-art-supplies',
-        'art'        => 'school-office-art-supplies',
+        'essentials'                 => 'building-sets',
+        'home'                       => 'building-sets',
+        'furniture'                  => 'building-sets',
+        'electronics'                => 'designer-toys',
+        'smart'                      => 'designer-toys',
+        'kitchen'                    => 'building-sets',
+        'outdoor'                    => 'blind-boxes',
+        'garden'                     => 'art-figures',
+        'tools'                      => 'art-figures',
+        'sports'                     => 'blind-boxes',
+        'toys'                       => 'designer-toys',
+        'beauty'                     => 'display-collectibles',
+        'pets'                       => 'accessories',
+        'school'                     => 'gift-ideas',
+        'office'                     => 'gift-ideas',
+        'art'                        => 'art-figures',
+        'garden-tools'               => 'art-figures',
+        'sports-outdoors'            => 'blind-boxes',
+        'toys-outdoor-play'          => 'mini-figures',
+        'beauty-personal-care'       => 'display-collectibles',
+        'school-office-art-supplies' => 'gift-ideas',
     ];
 
     return $map[$slug] ?? $slug;
@@ -40,14 +45,14 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'home'                       => ['name' => __('Home', 'dawp')],
-        'garden-tools'               => ['name' => __('Garden & Tools', 'dawp')],
-        'electronics'                => ['name' => __('Electronics', 'dawp')],
-        'sports-outdoors'            => ['name' => __('Sports & Outdoors', 'dawp')],
-        'toys-outdoor-play'          => ['name' => __('Toys & Outdoor Play', 'dawp')],
-        'beauty-personal-care'       => ['name' => __('Beauty & Personal Care', 'dawp')],
-        'pets'                       => ['name' => __('Pets', 'dawp')],
-        'school-office-art-supplies' => ['name' => __('School, Office & Art Supplies', 'dawp')],
+        'building-sets'        => ['name' => __('Building Sets', 'dawp')],
+        'art-figures'          => ['name' => __('Art Figures', 'dawp')],
+        'designer-toys'        => ['name' => __('Designer Toys', 'dawp')],
+        'blind-boxes'          => ['name' => __('Blind Boxes', 'dawp')],
+        'mini-figures'         => ['name' => __('Mini Figures', 'dawp')],
+        'display-collectibles' => ['name' => __('Display Collectibles', 'dawp')],
+        'accessories'          => ['name' => __('Accessories', 'dawp')],
+        'gift-ideas'           => ['name' => __('Gift Ideas', 'dawp')],
     ];
 
     $items = [];
@@ -80,19 +85,20 @@ function dawp_is_current_url($url) {
 function dawp_footer_columns() {
     return [
         [
-            'title' => __('Shop', 'dawp'),
-            'links' => array_merge([
-                ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-            ], dawp_shop_category_items()),
+            'title' => __('Collections', 'dawp'),
+            'links' => [
+                ['title' => __('Desk Collectibles', 'dawp'), 'url' => home_url('/collections/')],
+                ['title' => __('Shelf Icons', 'dawp'), 'url' => home_url('/collections/')],
+                ['title' => __('Big Builds', 'dawp'), 'url' => home_url('/collections/')],
+                ['title' => __('Gift Ideas', 'dawp'), 'url' => home_url('/collections/')],
+            ],
         ],
         [
-            'title' => __('Store Policy', 'dawp'),
+            'title' => __('Discover', 'dawp'),
             'links' => [
-                ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
-                ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
-                ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
-                ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-                ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+                ['title' => __('Culture Notes', 'dawp'), 'url' => home_url('/culture-notes/')],
+                ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
+                ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
             ],
         ],
         [
@@ -102,6 +108,16 @@ function dawp_footer_columns() {
                 ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
                 ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
                 ['title' => __('My Account', 'dawp'), 'url' => function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/')],
+            ],
+        ],
+        [
+            'title' => __('Policy', 'dawp'),
+            'links' => [
+                ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
+                ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+                ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
+                ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
+                ['title' => __('Terms & Condition', 'dawp'), 'url' => home_url('/terms-conditions/')],
             ],
         ],
     ];

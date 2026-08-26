@@ -1,15 +1,15 @@
 /* Checkout and thank-you pages */
 
 :root {
-    --checkout-primary: #A45A3F;
-    --checkout-primary-dark: #7F422F;
-    --checkout-accent: #D8B26E;
-    --checkout-bg: #F8F5F0;
+    --checkout-primary: #3c6eff;
+    --checkout-primary-dark: #111111;
+    --checkout-accent: #ffd83d;
+    --checkout-bg: #f5f3ee;
     --checkout-surface: #FFFFFF;
-    --checkout-text: #2B2B2B;
-    --checkout-muted: #746B64;
-    --checkout-border: #E8E5DF;
-    --checkout-border-strong: #D8C7BE;
+    --checkout-text: #111111;
+    --checkout-muted: #686868;
+    --checkout-border: #deddd8;
+    --checkout-border-strong: #deddd8;
     --checkout-radius: 8px;
     --checkout-shadow: 0 14px 34px rgba(43, 43, 43, 0.07);
 }

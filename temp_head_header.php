@@ -9,15 +9,15 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@megamalldepot.com';
+$support_email  = 'support@brickgo.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $home_url       = home_url('/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url       = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $cart_count     = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
-$logo_path      = get_template_directory() . '/assets/img/gallery/logo.png';
-$logo_url       = get_template_directory_uri() . '/assets/img/gallery/logo.png';
+$logo_path      = get_template_directory() . '/assets/img/about/Logosite (1).png';
+$logo_url       = get_template_directory_uri() . '/assets/img/about/Logosite (1).png';
 
 if (file_exists($logo_path)) {
     $logo_url = add_query_arg('ver', filemtime($logo_path), $logo_url);
@@ -84,11 +84,11 @@ $nav_items = [
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex min-h-20 items-center justify-between gap-4">
-            <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('MegaMallDepot home', 'dawp'); ?>">
+            <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('Brickgo.com home', 'dawp'); ?>">
                 <?php
                 echo function_exists('dawp_get_responsive_image')
-                    ? dawp_get_responsive_image($logo_url, __('MegaMallDepot', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high')
-                    : '<img class="site-logo-img" src="' . esc_url($logo_url) . '" width="1290" height="1290" alt="' . esc_attr__('MegaMallDepot', 'dawp') . '" decoding="async" fetchpriority="high">';
+                    ? dawp_get_responsive_image($logo_url, __('Brickgo.com', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high')
+                    : '<img class="site-logo-img" src="' . esc_url($logo_url) . '" width="1290" height="1290" alt="' . esc_attr__('Brickgo.com', 'dawp') . '" decoding="async" fetchpriority="high">';
                 ?>
             </a>
 

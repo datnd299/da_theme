@@ -10,7 +10,104 @@ add_filter('loop_shop_per_page', function() { return 12; });
 // Disable all default WooCommerce CSS
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
-add_action('woocommerce_single_product_summary', 'dawp_single_product_benefits', 45);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
+add_action('woocommerce_single_product_summary', 'dawp_single_product_category_label', 4);
+add_action('woocommerce_after_add_to_cart_button', 'dawp_single_product_wishlist_button', 20);
+add_action('woocommerce_single_product_summary', 'dawp_single_product_benefits', 31);
+add_filter('woocommerce_product_tabs', 'dawp_single_product_policy_tabs', 30);
+
+function dawp_single_product_category_label() {
+    global $product;
+
+    if (!$product instanceof WC_Product) {
+        return;
+    }
+
+    $terms = get_the_terms($product->get_id(), 'product_cat');
+
+    if (empty($terms) || is_wp_error($terms)) {
+        return;
+    }
+
+    $term = reset($terms);
+    ?>
+    <a class="product_meta_top" href="<?php echo esc_url(get_term_link($term)); ?>">
+        <?php echo esc_html($term->name); ?>
+    </a>
+    <?php
+}
+
+function dawp_single_product_wishlist_button() {
+    global $product;
+
+    if (!$product instanceof WC_Product) {
+        return;
+    }
+
+    echo '<div class="dawp-product-wishlist">';
+
+    if (shortcode_exists('yith_wcwl_add_to_wishlist')) {
+        echo do_shortcode('[yith_wcwl_add_to_wishlist product_id="' . absint($product->get_id()) . '"]');
+    } elseif (shortcode_exists('ti_wishlists_addtowishlist')) {
+        echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . absint($product->get_id()) . '"]');
+    } else {
+        echo '<button type="button" class="dawp-wishlist-button" aria-label="' . esc_attr__('Save this product to wishlist', 'dawp') . '">';
+        echo '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>';
+        echo '<span>' . esc_html__('Save to Wishlist', 'dawp') . '</span>';
+        echo '</button>';
+    }
+
+    echo '</div>';
+}
+
+function dawp_single_product_policy_tabs($tabs) {
+    $policy_pages = [
+        'dawp_shipping' => [
+            'title'    => __('Shipping', 'dawp'),
+            'priority' => 42,
+            'slug'     => 'shipping-policy',
+        ],
+        'dawp_returns' => [
+            'title'    => __('Returns', 'dawp'),
+            'priority' => 44,
+            'slug'     => 'return-refund-policy',
+        ],
+    ];
+
+    foreach ($policy_pages as $key => $tab) {
+        $page = get_page_by_path($tab['slug']);
+
+        if (!$page instanceof WP_Post || trim(wp_strip_all_tags($page->post_content)) === '') {
+            continue;
+        }
+
+        $tabs[$key] = [
+            'title'    => $tab['title'],
+            'priority' => $tab['priority'],
+            'callback' => 'dawp_single_product_policy_tab_content',
+            'page_id'  => $page->ID,
+        ];
+    }
+
+    return $tabs;
+}
+
+function dawp_single_product_policy_tab_content($key, $tab) {
+    if (empty($tab['page_id'])) {
+        return;
+    }
+
+    $page = get_post((int) $tab['page_id']);
+
+    if (!$page instanceof WP_Post) {
+        return;
+    }
+
+    echo '<div class="dawp-policy-tab">';
+    echo apply_filters('the_content', $page->post_content);
+    echo '</div>';
+}
+
 function dawp_single_product_benefits() {
     if (!is_product()) {
         return;
@@ -106,5 +203,47 @@ function dawp_get_store_address() {
     $parts     = array_filter([$address['address_1'], $address['address_2'], $city_line, $country]);
 
     return implode(', ', $parts);
+}
+
+/**
+ * Get store contact values from WooCommerce/site settings with temporary fallbacks.
+ *
+ * @param string $key Contact field key.
+ * @return string
+ */
+function dawp_get_store_contact($key) {
+    $fallbacks = [
+        'name'    => 'Brickgo.com',
+        'email'   => 'support@brickgo.com',
+        'phone'   => '757-804-6538',
+        'address' => '57 Calvert St, Woodbridge, VA 22191-2840',
+        'domain'  => 'https://brickgo.com',
+    ];
+
+    switch ($key) {
+        case 'name':
+            $value = get_option('woocommerce_email_from_name');
+            $value = $value ?: get_bloginfo('name');
+            break;
+        case 'email':
+            $value = get_option('woocommerce_email_from_address');
+            $value = $value ?: get_option('admin_email');
+            break;
+        case 'phone':
+            $value = get_option('woocommerce_store_phone');
+            $value = $value ?: get_theme_mod('dawp_store_phone');
+            break;
+        case 'address':
+            $value = dawp_get_store_address();
+            break;
+        case 'domain':
+            $value = home_url('/');
+            break;
+        default:
+            $value = '';
+            break;
+    }
+
+    return trim((string) ($value ?: ($fallbacks[$key] ?? '')));
 }
 

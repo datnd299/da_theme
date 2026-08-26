@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms and conditions page for MegaMallDepot.
+ * Terms and conditions page for Brickgo.com.
  *
  * @package dawp
  */
@@ -9,11 +9,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = 'MegaMallDepot';
-$site_domain    = 'megamalldepot.com';
-$support_email  = 'support@megamalldepot.com';
-$support_phone  = '757-804-6538';
-$store_address  = '57 Calvert St, Woodbridge, VA 22191-2840';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
+$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgo.com';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
+$support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
+$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $last_updated   = __('May 29, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
@@ -21,15 +21,10 @@ $returns_url    = home_url('/return-refund-policy/');
 $privacy_url    = home_url('/privacy-policy/');
 $contact_url    = home_url('/contact-us/');
 
-$intro_paragraphs = [
-    __('Welcome to MegaMallDepot! These Terms & Conditions ("Terms") govern your access to and use of our website megamalldepot.com (the "Site"), including browsing our product catalog, creating an account, interacting with our customer support, or purchasing items from our online store.', 'dawp'),
-    __('The Site is operated by MegaMallDepot. Throughout the Site, the terms "we", "us" and "our" refer to MegaMallDepot. By accessing our Site or placing an order, you agree to be bound by these Terms and all operational policies referenced herein. If you do not agree to these terms, please discontinue using the website or placing orders.', 'dawp'),
-];
-
 $terms_highlights = [
     [
         'title' => __('Store Scope', 'dawp'),
-        'copy'  => __('MegaMallDepot focuses on home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
+        'copy'  => __('Brickgo.com is an e-commerce store focused on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
     ],
     [
         'title' => __('Secure Checkout', 'dawp'),
@@ -42,24 +37,26 @@ $terms_highlights = [
 ];
 
 $shipping_parameters = [
-    __('Shipping Locations: MegaMallDepot currently ships exclusively within the United States domestic market.', 'dawp'),
+    __('Shipping Locations: Brickgo.com currently ships exclusively within the United States domestic market (50 States).', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
     __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
-    __('Handling Time: Current order handling and packaging time is 1-2 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
-    __('Transit Time: Standard U.S. transit takes 3-5 business days (Monday to Friday). Estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
-    __('Carriers & Tracking: Orders are shipped using trusted domestic U.S. carriers such as USPS, UPS, FedEx, or DHL. Tracking details are emailed once an order is dispatched.', 'dawp'),
+    __('Handling Time: Order handling, processing, and packaging time is 1-3 business days (Monday to Friday, excluding U.S. federal holidays).', 'dawp'),
+    __('Transit Time: Standard U.S. transit takes 5-7 business days (Monday to Friday). Estimated total delivery time is 6-10 business days from the date of purchase.', 'dawp'),
+    __('Carriers & Tracking: Orders are shipped using trusted domestic U.S. carriers (such as USPS, UPS, FedEx, or DHL). Order tracking details are automatically emailed once an order is dispatched.', 'dawp'),
 ];
 
 $return_terms = [
-    __('Return Window: Customers may request returns within 30 days of documented delivery. Returns are accepted for eligible products in new condition.', 'dawp'),
-    __('Product Condition: Eligible products must be entirely unused, in their original pristine condition (New only), and returned with original packaging, tags, labels, accessories, and included parts intact.', 'dawp'),
-    __('Fees & Shipping Costs: There is no restocking fee ($0.00). The customer is responsible for all return shipping costs for both defective/damaged items and change-of-mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
-    __('Refund Timelines: Approved refunds are processed back to the original payment method within up to 7 business days.', 'dawp'),
+    __('Return Window: Customers may request a return within 30 days of documented product delivery.', 'dawp'),
+    __('Product Condition: Eligible products must be unworn, unused, undamaged, in their original unaltered condition, and returned with original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories intact.', 'dawp'),
+    __('Restocking Fees: We charge $0.00 / No Restocking Fee.', 'dawp'),
+    __('Defective/Damaged/Incorrect Items: Brickgo.com covers 100% of return shipping costs by providing a prepaid shipping label.', 'dawp'),
+    __('Customer Remorse (e.g., changed mind, wrong item selected): The cost of the prepaid return shipping label will be deducted from the final refund amount.', 'dawp'),
+    __('Refund Processing Time: Approved refunds are processed back to the original payment method within up to 7 business days after receiving and inspecting the returned item.', 'dawp'),
 ];
 
 $contact_details = [
     [
-        'label' => __('Store/Brand Name', 'dawp'),
+        'label' => __('Store Name', 'dawp'),
         'value' => $store_name,
     ],
     [
@@ -68,7 +65,7 @@ $contact_details = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Customer Support Phone', 'dawp'),
+        'label' => __('Phone Number', 'dawp'),
         'value' => $support_phone,
         'url'   => 'tel:' . $support_phone,
     ],
@@ -77,13 +74,8 @@ $contact_details = [
         'value' => $store_address,
     ],
     [
-        'label' => __('Customer Service Hours', 'dawp'),
+        'label' => __('Support Hours', 'dawp'),
         'value' => $business_hours,
-    ],
-    [
-        'label' => __('Contact Page', 'dawp'),
-        'value' => __('Contact Us', 'dawp'),
-        'url'   => $contact_url,
     ],
 ];
 
@@ -91,37 +83,37 @@ $sections = [
     [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
-            __('MegaMallDepot is an e-commerce store focused on practical home essentials, furniture, electronics, smart home products, kitchen and dining products, and outdoor living items.', 'dawp'),
-            __('We work to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
-            __('MegaMallDepot strictly adheres to ethical commerce: we do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+            __('Brickgo.com is an e-commerce store focused on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
+            __('We strive to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
+            __('Ethical Commerce Commitment: Brickgo.com strictly adheres to ethical commerce standards. We do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],
     ],
     [
         'title' => __('2. Website Use & Eligibility', 'dawp'),
         'copy'  => [
-            __('By agreeing to these Terms, you represent that you are at least the age of majority in your state or province of residence. You agree to use this website only for lawful purposes and in a manner that does not interfere with store operations, checkout security, customer account databases, or other visitors experience.', 'dawp'),
-            __('You may not misuse the Site, attempt unauthorized system access, transmit destructive codes such as viruses or malware, or deploy automated scraping tools to harvest our data without permission.', 'dawp'),
+            __('By agreeing to these Terms, you represent that you are at least the age of majority in your state or province of residence. You agree to use this website only for lawful purposes and in a manner that does not interfere with store operations, checkout security, customer account databases, or other visitors\' experiences.', 'dawp'),
+            __('You may not misuse the Site, attempt unauthorized system access, transmit destructive codes such as viruses or malware, or deploy automated scraping tools to harvest our data without prior written permission.', 'dawp'),
         ],
     ],
     [
         'title' => __('3. Orders and Order Acceptance', 'dawp'),
         'copy'  => [
-            __('An order confirmation email signifies that we have successfully received your purchase request. We reserve the absolute right to review, decline, cancel, or limit any order when necessary, including instances of suspected transaction fraud, incorrect product pricing, unavailable warehouse inventory, payment processing errors, shipping restrictions, or policy violations.', 'dawp'),
+            __('An order confirmation email signifies that we have successfully received your purchase request. We reserve the absolute right to review, decline, cancel, or limit any order when necessary, including instances of suspected transaction fraud or security flags, incorrect product pricing or typographical errors, unavailable warehouse inventory, payment processing errors or authorization failures, shipping restrictions, or policy violations.', 'dawp'),
             __('If an order is canceled after successful billing, the full amount will be refunded immediately to your original payment method.', 'dawp'),
         ],
     ],
     [
         'title' => __('4. Pricing and Secure Payment Processing', 'dawp'),
         'copy'  => [
-            __('Prices are displayed clearly on the website and are subject to change without notice. Applicable taxes, optional upgraded shipping costs when available, and exact checkout costs are displayed dynamically where required before your order completion.', 'dawp'),
-            __('All financial transactions are executed over an encrypted, secure SSL connection. Payments are handled exclusively by certified third-party payment gateways complying strictly with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
-            __('By submitting payment information, you represent that you are authorized to utilize the selected payment method.', 'dawp'),
+            __('Pricing: All prices are displayed clearly in U.S. Dollars ($ USD) on the website and are subject to change without notice. Applicable taxes, optional upgraded shipping costs (when available), and exact checkout totals are displayed dynamically before order completion.', 'dawp'),
+            __('Payment Security: All financial transactions are executed over an encrypted, secure SSL (Secure Sockets Layer) connection. Payments are handled exclusively by certified third-party payment gateways complying strictly with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
+            __('Authorization: By submitting payment information, you represent that you are authorized to utilize the selected payment method.', 'dawp'),
         ],
     ],
     [
         'title' => __('5. Shipping, Tracking, and Logistics Parameters', 'dawp'),
         'copy'  => [
-            __('Our order processing and delivery schedules are bound by strict timelines:', 'dawp'),
+            __('Our order processing and delivery schedules are bound by strict operational timelines:', 'dawp'),
         ],
         'list'  => $shipping_parameters,
         'after' => [
@@ -133,11 +125,11 @@ $sections = [
     [
         'title' => __('6. Returns, Refunds, and Consumer Rights', 'dawp'),
         'copy'  => [
-            __('We provide a transparent and risk-free return window for our home, electronics and lifestyle products:', 'dawp'),
+            __('We provide a transparent and risk-free return window for our collectible products:', 'dawp'),
         ],
         'list'  => $return_terms,
         'after' => [
-            'text' => __('For step-by-step instructions, please read our Refund & Return Policy.', 'dawp'),
+            'text' => __('For step-by-step return instructions, please read our Refund & Return Policy.', 'dawp'),
             'url'  => $returns_url,
             'link' => __('Refund & Return Policy', 'dawp'),
         ],
@@ -145,11 +137,13 @@ $sections = [
     [
         'title' => __('7. Integrated Store Policies', 'dawp'),
         'copy'  => [
-            __('Your transactions and data security are directly integrated with our core protections. Please review our specific guidelines via the active hyperlinks below:', 'dawp'),
-            __('Data Management: Your submission of personal information through the store checkout is strictly governed by our Privacy Policy.', 'dawp'),
+            __('Your transactions, privacy rights, and data security are directly governed by our integrated policies. Please review our specific guidelines via the active links below:', 'dawp'),
+            __('Privacy Policy: Governs how we handle data collection, payment security, cookies, retention, and CCPA consumer rights.', 'dawp'),
+            __('Shipping Policy: Details timelines, carrier methods, and delivery logistics.', 'dawp'),
+            __('Refund Policy: Outlines step-by-step instructions for returns and exchanges.', 'dawp'),
         ],
         'after' => [
-            'text' => __('Review the full Privacy Policy for details about data collection, payment security, cookies, retention, and privacy requests.', 'dawp'),
+            'text' => __('Read our full Privacy Policy.', 'dawp'),
             'url'  => $privacy_url,
             'link' => __('Privacy Policy', 'dawp'),
         ],
@@ -157,38 +151,15 @@ $sections = [
     [
         'title' => __('8. Intellectual Property & Liability Limitations', 'dawp'),
         'copy'  => [
-            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to MegaMallDepot and are protected by copyright laws.', 'dawp'),
-            __('To the fullest extent permitted by applicable law, MegaMallDepot shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product consumption.', 'dawp'),
+            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to Brickgo.com and are protected by applicable intellectual property and copyright laws.', 'dawp'),
+            __('To the fullest extent permitted by applicable law, Brickgo.com shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product handling.', 'dawp'),
         ],
     ],
     [
         'title' => __('9. Governing Law', 'dawp'),
         'copy'  => [
-            __('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the State of California, United States.', 'dawp'),
+            __('These Terms & Conditions and any separate agreements whereby we provide you services shall be governed by, and construed in accordance with, the laws of the State of California, United States, without regard to its conflict of law principles.', 'dawp'),
         ],
-    ],
-];
-
-$terms_faqs = [
-    [
-        'question' => __('What do these Terms cover?', 'dawp'),
-        'answer'   => __('These Terms govern access to MegaMallDepot, browsing the catalog, creating an account, contacting support, and purchasing products through megamalldepot.com.', 'dawp'),
-    ],
-    [
-        'question' => __('When is an order accepted?', 'dawp'),
-        'answer'   => __('An order confirmation email means we received your purchase request. We may still review, decline, cancel, or limit an order when necessary for fraud, pricing, inventory, payment, shipping, or policy reasons.', 'dawp'),
-    ],
-    [
-        'question' => __('Which policies are part of the customer agreement?', 'dawp'),
-        'answer'   => __('Shipping, returns, refunds, and privacy terms are integrated into the customer agreement through the Shipping Policy, Return & Refund Policy, and Privacy Policy.', 'dawp'),
-    ],
-    [
-        'question' => __('How can I contact support about the Terms?', 'dawp'),
-        'answer'   => sprintf(
-            /* translators: support email */
-            __('Email %s or use the Contact Us page for questions, complaints, or clarification about these Terms & Conditions or an active order.', 'dawp'),
-            $support_email
-        ),
     ],
 ];
 ?>
@@ -199,14 +170,14 @@ $terms_faqs = [
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
                 <h1 id="terms-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('Terms for using and shopping with MegaMallDepot.', 'dawp'); ?>
+                    <?php esc_html_e('Terms for using and shopping with Brickgo.com.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php
                     echo esc_html(
                         sprintf(
                             /* translators: 1: store name, 2: site domain */
-                            __('These Terms govern access to %1$s, browsing our catalog, creating an account, contacting support, and purchasing items through %2$s.', 'dawp'),
+                            __('Welcome to %1$s. These Terms and Conditions ("Terms") govern your use of our website, services, and the purchase of any products from our online store. By accessing or using %2$s, you agree to be bound by these Terms and all integrated store policies.', 'dawp'),
                             $store_name,
                             $site_domain
                         )
@@ -230,33 +201,12 @@ $terms_faqs = [
         </div>
     </section>
 
-    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="terms-content-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
-            <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                    <h2 id="terms-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Terms overview', 'dawp'); ?></h2>
-                    <div class="mt-4 space-y-4 text-sm leading-7 text-[#4A4A4A]">
-                        <?php foreach ($intro_paragraphs as $paragraph) : ?>
-                            <p><?php echo esc_html($paragraph); ?></p>
-                        <?php endforeach; ?>
-                    </div>
-                    <div class="mt-6 grid gap-3">
-                        <a href="<?php echo esc_url($shipping_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-5 text-sm font-bold text-white transition hover:bg-[#7F422F]">
-                            <?php esc_html_e('Shipping Policy', 'dawp'); ?>
-                        </a>
-                        <a href="<?php echo esc_url($returns_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-5 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
-                            <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
-                        </a>
-                        <a href="<?php echo esc_url($privacy_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-5 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
-                            <?php esc_html_e('Privacy Policy', 'dawp'); ?>
-                        </a>
-                    </div>
-                </div>
-            </aside>
-
-            <div class="grid gap-5">
+    <section class="bg-[#FFFFFF] py-12 sm:py-16" aria-labelledby="terms-content-title">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+            <h2 id="terms-content-title" class="sr-only"><?php esc_html_e('Terms Details', 'dawp'); ?></h2>
+            <div class="grid gap-4">
                 <?php foreach ($sections as $section) : ?>
-                    <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                    <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
                         <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($section['title']); ?></h2>
 
                         <?php if (!empty($section['copy'])) : ?>
@@ -289,10 +239,10 @@ $terms_faqs = [
                     </article>
                 <?php endforeach; ?>
 
-                <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm">
+                <article class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-5 shadow-sm sm:p-6">
                     <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('10. Customer Support & Business Identity', 'dawp'); ?></h2>
                     <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
-                        <?php esc_html_e('If you have questions, complaints, or require clarification regarding these Terms & Conditions or an active order, please contact our team via our verified corporate channels:', 'dawp'); ?>
+                        <?php esc_html_e('If you have questions, complaints, or require clarification regarding these Terms & Conditions or an active order, please contact our support team through our verified corporate channels:', 'dawp'); ?>
                     </p>
                     <dl class="mt-5 grid gap-4 md:grid-cols-2">
                         <?php foreach ($contact_details as $detail) : ?>
@@ -308,21 +258,6 @@ $terms_faqs = [
                             </div>
                         <?php endforeach; ?>
                     </dl>
-                </article>
-
-                <article class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                    <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Terms FAQs', 'dawp'); ?></h2>
-                    <div class="mt-6 divide-y divide-[#E8E5DF]">
-                        <?php foreach ($terms_faqs as $item) : ?>
-                            <details class="group py-5 first:pt-0 last:pb-0">
-                                <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#2B2B2B]">
-                                    <span><?php echo esc_html($item['question']); ?></span>
-                                    <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#F8F5F0] text-[#A45A3F] transition group-open:rotate-45" aria-hidden="true">+</span>
-                                </summary>
-                                <p class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($item['answer']); ?></p>
-                            </details>
-                        <?php endforeach; ?>
-                    </div>
                 </article>
             </div>
         </div>

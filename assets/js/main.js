@@ -2,12 +2,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('site-header');
     const toggle = document.querySelector('.menu-toggle');
     const nav    = document.querySelector('.main-navigation');
+    const searchToggle = document.querySelector('[data-search-toggle]');
+    const searchPanel = document.querySelector('[data-search-panel]');
+    const searchInput = document.querySelector('[data-search-input]');
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const mobileMenu = document.querySelector('[data-mobile-menu]');
 
     // Scroll shadow
     if (header) {
         const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 10);
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
+    }
+
+    const setPanelState = (toggleButton, panel, open) => {
+        if (!toggleButton || !panel) return;
+        toggleButton.setAttribute('aria-expanded', String(open));
+        panel.hidden = !open;
+    };
+
+    if (searchToggle && searchPanel) {
+        searchToggle.addEventListener('click', () => {
+            const isOpen = searchToggle.getAttribute('aria-expanded') === 'true';
+            setPanelState(searchToggle, searchPanel, !isOpen);
+            setPanelState(menuToggle, mobileMenu, false);
+            if (!isOpen && searchInput) {
+                window.setTimeout(() => searchInput.focus(), 80);
+            }
+        });
+    }
+
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+            setPanelState(menuToggle, mobileMenu, !isOpen);
+            setPanelState(searchToggle, searchPanel, false);
+        });
+    }
+
+    if (header) {
+        document.addEventListener('click', (event) => {
+            if (header.contains(event.target)) return;
+            setPanelState(searchToggle, searchPanel, false);
+            setPanelState(menuToggle, mobileMenu, false);
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+            setPanelState(searchToggle, searchPanel, false);
+            setPanelState(menuToggle, mobileMenu, false);
+        });
     }
 
     // Mobile menu toggle

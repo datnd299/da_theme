@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping policy page for MegaMallDepot.
+ * Shipping policy page for Brickgo.com.
  *
  * @package dawp
  */
@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@megamalldepot.com';
-$support_phone = '757-804-6538';
-$store_address = '57 Calvert St, Woodbridge, VA 22191-2840';
+$support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
+$support_phone = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
+$store_address = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
 $last_updated  = __('May 29, 2026', 'dawp');
@@ -34,15 +34,15 @@ $delivery_times = [
     ],
     [
         'title' => __('Order Handling Time', 'dawp'),
-        'copy'  => __('1-2 business days (Monday to Friday). Orders placed after cutoff begin processing the following business day.', 'dawp'),
+        'copy'  => __('1-3 business days. Orders placed after cutoff begin processing the following business day.', 'dawp'),
     ],
     [
         'title' => __('Transit Time', 'dawp'),
-        'copy'  => __('3-5 business days (Monday to Friday).', 'dawp'),
+        'copy'  => __('5-7 business days, Monday to Friday.', 'dawp'),
     ],
     [
         'title' => __('Estimated Delivery Time', 'dawp'),
-        'copy'  => __('4-7 business days total from the date of purchase (Monday to Friday).', 'dawp'),
+        'copy'  => __('6-10 business days total from the date of purchase.', 'dawp'),
     ],
 ];
 
@@ -54,16 +54,16 @@ $carriers = [
 ];
 
 $issue_requirements = [
-    __('Your exact Order Number, such as #MMD1001.', 'dawp'),
+    __('Your exact Order Number, such as #QB1001.', 'dawp'),
     __('The specific Email Address utilized during checkout.', 'dawp'),
     __('The full and complete Delivery Address.', 'dawp'),
-    __('Clear, well-lit photos if the package container or home, electronics or lifestyle item arrived damaged.', 'dawp'),
+    __('Clear, well-lit photos if the package container or jewelry item arrived damaged.', 'dawp'),
 ];
 
 $contact_details = [
     [
         'label' => __('Store Name', 'dawp'),
-        'value' => __('MegaMallDepot', 'dawp'),
+        'value' => __('Brickgo.com', 'dawp'),
     ],
     [
         'label' => __('Customer Support Email', 'dawp'),
@@ -85,8 +85,8 @@ $contact_details = [
 
 $shipping_faqs = [
     [
-        'question' => __('Where does MegaMallDepot ship?', 'dawp'),
-        'answer'   => __('MegaMallDepot currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+        'question' => __('Where does Brickgo.com ship?', 'dawp'),
+        'answer'   => __('Brickgo.com currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
     ],
     [
         'question' => __('How much does standard shipping cost?', 'dawp'),
@@ -94,7 +94,7 @@ $shipping_faqs = [
     ],
     [
         'question' => __('How long will my order take to arrive?', 'dawp'),
-        'answer'   => __('Order handling takes 1-2 business days and standard transit takes 3-5 business days, so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+        'answer'   => __('Order handling takes 1-3 business days and standard transit takes 5-7 business days, so estimated delivery is 6-10 business days total from the date of purchase.', 'dawp'),
     ],
     [
         'question' => __('Will I receive tracking information?', 'dawp'),
@@ -135,22 +135,22 @@ $shipping_faqs = [
     </section>
 
     <section class="bg-[#F8F5F0] py-12 sm:py-16">
-        <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:px-8">
-        <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="shipping-locations-title">
-            <h2 id="shipping-locations-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
+        <div class="mx-auto grid max-w-5xl gap-4 px-4 sm:px-6 lg:px-8">
+        <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="shipping-locations-title">
+            <h2 id="shipping-locations-title" class="font-heading text-xl font-extrabold leading-tight text-[#2B2B2B]">
                 <?php esc_html_e('Shipping Locations & Market', 'dawp'); ?>
             </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <p><?php esc_html_e('We currently ship exclusively within the United States. MegaMallDepot serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+                <p><?php esc_html_e('We currently ship exclusively within the United States. Brickgo.com serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                 <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
                 <div class="border-l-4 border-[#D8C7BE] bg-[#F8F5F0] p-5 text-[#4A4A4A]">
-                    <p><?php esc_html_e('Some home, electronics and lifestyle orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Some jewelry orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
                 </div>
             </div>
         </section>
 
-        <section class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="shipping-costs-title">
-            <h2 id="shipping-costs-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B]">
+        <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="shipping-costs-title">
+            <h2 id="shipping-costs-title" class="font-heading text-xl font-extrabold leading-tight text-[#2B2B2B]">
                 <?php esc_html_e('Shipping Fees & Costs', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
@@ -159,15 +159,15 @@ $shipping_faqs = [
             <div class="mt-6 grid gap-4 md:grid-cols-2">
                 <?php foreach ($shipping_costs as $cost) : ?>
                     <article class="rounded-md border border-[#E8E5DF] bg-white p-5">
-                        <h3 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($cost['title']); ?></h3>
+                        <h3 class="font-heading text-lg font-extrabold text-[#2B2B2B]"><?php echo esc_html($cost['title']); ?></h3>
                         <p class="mt-4 text-sm leading-7 text-[#4A4A4A] sm:text-base"><?php echo esc_html($cost['copy']); ?></p>
                     </article>
                 <?php endforeach; ?>
             </div>
         </section>
 
-        <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="delivery-times-title">
-            <h2 id="delivery-times-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B]">
+        <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="delivery-times-title">
+            <h2 id="delivery-times-title" class="font-heading text-xl font-extrabold leading-tight text-[#2B2B2B]">
                 <?php esc_html_e('Order Processing & Delivery Times', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
@@ -186,22 +186,22 @@ $shipping_faqs = [
             </p>
         </section>
 
-        <section class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="multi-item-title">
-            <h2 id="multi-item-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B]">
+        <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="multi-item-title">
+            <h2 id="multi-item-title" class="font-heading text-xl font-extrabold leading-tight text-[#2B2B2B]">
                 <?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?>
             </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <p><?php esc_html_e('If your purchase includes multiple home, electronics or lifestyle products, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
-                <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand home, electronics and lifestyle products may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
+                <p><?php esc_html_e('If your purchase includes multiple bracelets or diverse jewelry items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
+                <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand jewelry items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
             </div>
         </section>
 
-        <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="carrier-title">
-            <h2 id="carrier-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B]">
+        <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="carrier-title">
+            <h2 id="carrier-title" class="font-heading text-xl font-extrabold leading-tight text-[#2B2B2B]">
                 <?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <?php esc_html_e('To guarantee safe and efficient delivery, MegaMallDepot partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?>
+                <?php esc_html_e('To guarantee safe and efficient delivery, Brickgo.com partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?>
             </p>
             <div class="mt-5 flex flex-wrap gap-3">
                 <?php foreach ($carriers as $carrier) : ?>
@@ -218,8 +218,8 @@ $shipping_faqs = [
             </div>
         </section>
 
-        <section class="rounded-md border border-[#E8E5DF] bg-[#F8F5F0] p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="delivery-issues-title">
-            <h2 id="delivery-issues-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B]">
+        <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="delivery-issues-title">
+            <h2 id="delivery-issues-title" class="font-heading text-xl font-extrabold leading-tight text-[#2B2B2B]">
                 <?php esc_html_e('Resolving Delivery Issues & Damaged Shipments', 'dawp'); ?>
             </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
@@ -244,8 +244,8 @@ $shipping_faqs = [
             </div>
         </section>
 
-        <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="support-contact-title">
-            <h2 id="support-contact-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B]">
+        <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="support-contact-title">
+            <h2 id="support-contact-title" class="font-heading text-xl font-extrabold leading-tight text-[#2B2B2B]">
                 <?php esc_html_e('Customer Support Contact Information', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
@@ -269,8 +269,8 @@ $shipping_faqs = [
             </div>
         </section>
 
-        <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="shipping-faq-title">
-            <h2 id="shipping-faq-title" class="font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B]">
+        <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="shipping-faq-title">
+            <h2 id="shipping-faq-title" class="font-heading text-xl font-extrabold leading-tight text-[#2B2B2B]">
                 <?php esc_html_e('Shipping FAQs', 'dawp'); ?>
             </h2>
             <div class="mt-6 divide-y divide-[#E8E5DF]">

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('site-header');
     const toggle = document.querySelector('.menu-toggle');
-    const nav    = document.querySelector('.main-navigation');
+    const nav = document.querySelector('.main-navigation');
 
     // Scroll shadow
     if (header) {
@@ -141,45 +141,45 @@ document.addEventListener('DOMContentLoaded', () => {
             thumbsList.classList.add('has-scroll-arrows');
             return true;
         }
-        
+
         // Ensure there are enough thumbnails to warrant scrolling
         if (thumbsList.scrollWidth <= thumbsList.clientWidth) return true;
 
         thumbsList.classList.add('has-scroll-arrows');
-        
+
         const wrapper = document.createElement('div');
         wrapper.className = 'gallery-thumbs-wrapper';
-        
+
         thumbsList.parentNode.insertBefore(wrapper, thumbsList);
         wrapper.appendChild(thumbsList);
-        
+
         const prevBtn = document.createElement('button');
         prevBtn.type = 'button';
         prevBtn.className = 'gallery-thumbs-btn prev';
         prevBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
         prevBtn.setAttribute('aria-label', 'Scroll Left');
-        
+
         const nextBtn = document.createElement('button');
         nextBtn.type = 'button';
         nextBtn.className = 'gallery-thumbs-btn next';
         nextBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
         nextBtn.setAttribute('aria-label', 'Scroll Right');
-        
+
         wrapper.appendChild(prevBtn);
         wrapper.appendChild(nextBtn);
-        
+
         prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
             const scrollAmount = thumbsList.clientWidth * 0.75;
             thumbsList.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
-        
+
         nextBtn.addEventListener('click', (e) => {
             e.preventDefault();
             const scrollAmount = thumbsList.clientWidth * 0.75;
             thumbsList.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
-        
+
         const updateButtons = () => {
             if (thumbsList.scrollWidth <= thumbsList.clientWidth) {
                 prevBtn.style.display = 'none';
@@ -189,11 +189,11 @@ document.addEventListener('DOMContentLoaded', () => {
             prevBtn.style.display = thumbsList.scrollLeft > 5 ? 'flex' : 'none';
             nextBtn.style.display = Math.ceil(thumbsList.scrollLeft + thumbsList.clientWidth) >= thumbsList.scrollWidth - 5 ? 'none' : 'flex';
         };
-        
+
         thumbsList.addEventListener('scroll', updateButtons, { passive: true });
         window.addEventListener('resize', updateButtons, { passive: true });
         updateButtons();
-        
+
         setTimeout(updateButtons, 500); // Check again after images might have loaded
         return true;
     };
@@ -208,9 +208,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Side cart drawer
     function initCartDrawer() {
-        const drawer  = document.getElementById('dawp-cart-drawer');
-        const toggle  = document.getElementById('dawp-cart-toggle');
-        const fab     = document.getElementById('dawp-cart-fab');
+        const drawer = document.getElementById('dawp-cart-drawer');
+        const toggle = document.getElementById('dawp-cart-toggle');
+        const fab = document.getElementById('dawp-cart-fab');
         if (!drawer || !window.dawpCart) return;
 
         const qtyTimers = {};
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setLoading(true);
             try {
-                const res  = await fetch(window.dawpCart.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' });
+                const res = await fetch(window.dawpCart.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' });
                 const json = await res.json();
                 if (json.success) applyFragments(json.data);
                 return json;
@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const decrease = e.target.closest('[data-qty-decrease]');
             const increase = e.target.closest('[data-qty-increase]');
             if (decrease || increase) {
-                const item  = (decrease || increase).closest('[data-cart-key]');
+                const item = (decrease || increase).closest('[data-cart-key]');
                 const input = item?.querySelector('[data-qty-input]');
                 if (!item || !input) return;
                 const current = parseInt(input.value, 10) || 0;
@@ -348,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setLoading(true);
             try {
-                const res  = await fetch(window.dawpCart.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' });
+                const res = await fetch(window.dawpCart.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' });
                 const json = await res.json();
                 if (json.success) {
                     applyFragments(json.data);
@@ -381,4 +381,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initCartDrawer();
+});
+document.querySelectorAll('img[data-lazy-src]').forEach(img => {
+    const src = img.dataset.lazySrc;
+    const srcset = img.dataset.lazySrcset;
+    const sizes = img.dataset.lazySizes;
+
+    if (src) img.src = src;
+    if (srcset) img.srcset = srcset;
+    if (sizes) img.sizes = sizes;
+
+    img.loading = 'eager';
+    img.removeAttribute('data-lazy-src');
+    img.removeAttribute('data-lazy-srcset');
+    img.removeAttribute('data-lazy-sizes');
 });

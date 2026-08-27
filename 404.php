@@ -35,7 +35,7 @@ $support_links = [
             <p class="text-sm font-extrabold uppercase tracking-[0.12em] text-[#0046BE]">
                 <?php esc_html_e('404 error', 'dawp'); ?>
             </p>
-            <p class="mt-5 select-none font-heading text-7xl font-extrabold leading-none text-[#D4DAE3] sm:text-8xl" aria-hidden="true">
+            <p class="mt-5 select-none font-heading text-5xl font-extrabold leading-none text-[#D4DAE3] sm:text-5xl" aria-hidden="true">
                 404
             </p>
             <h1 id="error-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#050505] sm:text-4xl lg:text-5xl">

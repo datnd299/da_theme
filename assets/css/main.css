@@ -1,42 +1,55 @@
 /* =============================================================
-   main.css - Topgoodmart Design System
+   main.css - Brickgoshop Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
 
 :root {
+  /* === Brickgoshop BRAND TOKENS === */
+  --bgs-cloud-cream: #F7F8F4;
+  --bgs-paper: #FFFFFF;
+  --bgs-ink: #16131F;
+  --bgs-muted: #625E68;
+  --bgs-electric-violet: #5E46E8;
+  --bgs-acid-lime: #D6FF57;
+  --bgs-coral: #FF776D;
+  --bgs-ice-blue: #D8F3FF;
+  --bgs-line: rgba(22, 19, 31, 0.13);
+  --bgs-line-strong: rgba(22, 19, 31, 0.22);
+  --bgs-focus: 0 0 0 3px rgba(94, 70, 232, 0.18);
+
   /* === BACKGROUNDS === */
-  --color-background: #FFFFFF;
+  --color-background: var(--bgs-cloud-cream);
   /* Clean white page background */
-  --color-surface: #F5F6F8;
+  --color-surface: var(--bgs-paper);
   /* Warm section/card background */
-  --color-surface-alt: #FFF3F1;
+  --color-surface-alt: var(--bgs-ice-blue);
   /* Soft blush hover states and alt sections */
 
   /* === TEXT === */
-  --color-foreground: #1F2937;
+  --color-foreground: var(--bgs-ink);
   /* Primary text — headings, product names */
-  --color-foreground-muted: #6B7280;
+  --color-foreground-muted: var(--bgs-muted);
   /* Secondary text — descriptions, meta */
-  --color-muted: #6B7280;
+  --color-muted: var(--bgs-muted);
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #0046BE;
+  --color-accent: var(--bgs-electric-violet);
   /* Dusty rose primary CTA and links */
-  --color-accent-hover: #4B403C;
+  --color-accent-hover: var(--bgs-ink);
   /* Deep warm-brown hover state */
-  --color-accent-soft: #FFF3F1;
+  --color-accent-soft: var(--bgs-ice-blue);
   /* Soft blush subtle highlights and badges */
-  --color-accent-blush: #A8B99A;
+  --color-accent-blush: var(--bgs-coral);
   /* Muted sage secondary accent */
 
   /* === UI === */
-  --color-border: #E5E7EB;
+  --color-border: var(--bgs-line);
   /* Border — cards, dividers */
-  --color-alert: #8A332B;
+  --color-alert: var(--bgs-coral);
   /* Error / alert */
-  --color-success: #A8B99A;
+  --color-success: var(--bgs-acid-lime);
   /* Success / helpful state */
 
   /* === TYPOGRAPHY === */
@@ -64,8 +77,8 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card: 0 1px 4px rgba(22, 19, 31, 0.06);
+  --shadow-card-hover: 0 10px 30px rgba(22, 19, 31, 0.12);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -330,6 +343,10 @@
   text-transform: uppercase;
 }
 
+.tgm-footer__main h2 {
+  color: var(--color-background);
+}
+
 .tgm-mega ul,
 .tgm-footer__main ul {
   display: grid;
@@ -355,6 +372,18 @@
 .tgm-footer__meta a:hover,
 .tgm-footer__social a:hover {
   color: var(--color-accent);
+}
+
+.tgm-footer__main li a,
+.tgm-footer__meta a,
+.tgm-footer__social a {
+  color: rgba(247, 248, 244, 0.64);
+}
+
+.tgm-footer__main li a:hover,
+.tgm-footer__meta a:hover,
+.tgm-footer__social a:hover {
+  color: var(--color-background);
 }
 
 .tgm-mega__feature {
@@ -461,6 +490,18 @@
   border-color: var(--color-accent);
 }
 
+.tgm-footer__newsletter button {
+  border-color: var(--color-success);
+  background: var(--color-success);
+  color: var(--color-foreground);
+}
+
+.tgm-footer__newsletter button:hover {
+  border-color: var(--color-background);
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
 .tgm-mobile-menu__inner {
   display: grid;
   gap: 22px;
@@ -510,28 +551,29 @@
 
 .tgm-footer {
   border-top: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: var(--color-foreground);
+  background: var(--color-foreground);
+  color: var(--color-background);
   font-family: var(--font-sans);
 }
 
 .tgm-footer__top {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
-  gap: clamp(28px, 5vw, 72px);
-  padding-block: clamp(54px, 8vw, 96px) 44px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  align-items: start;
+  gap: clamp(32px, 6vw, 96px);
+  padding-block: clamp(42px, 6vw, 72px) 32px;
 }
 
 .tgm-footer__newsletter {
   display: grid;
   align-content: start;
-  gap: 14px;
+  gap: 16px;
 }
 
 .tgm-footer__newsletter p,
 .tgm-footer__brand p {
   margin: 0;
-  color: var(--color-foreground-muted);
+  color: rgba(247, 248, 244, 0.68);
   font-weight: 700;
 }
 
@@ -544,36 +586,57 @@
 }
 
 .tgm-footer__newsletter h2 {
-  max-width: 720px;
+  max-width: 680px;
   margin: 0;
-  color: var(--color-foreground);
-  font-size: clamp(2.5rem, 7vw, 5.8rem);
+  color: var(--color-success);
+  font-size: clamp(2rem, 4.2vw, 2.5rem);
   font-weight: 900;
-  line-height: 0.92;
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
 .tgm-footer__newsletter form {
   display: grid;
-  grid-template-columns: minmax(0, 420px) auto;
-  gap: 8px;
-  margin-top: 8px;
+  grid-template-columns: minmax(220px, 420px) max-content;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 2px;
+  max-width: 560px;
 }
 
 .tgm-footer__newsletter input {
   min-height: 52px;
+  width: 100%;
   padding: 0 16px;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(247, 248, 244, 0.22);
   border-radius: var(--radius-md);
   background: var(--color-background);
-  color: var(--color-foreground);
+  color: #16131f;
   font: 800 0.98rem/1 var(--font-sans);
+}
+
+.tgm-footer__newsletter input::placeholder {
+  color: #6f6c75;
+  opacity: 1;
+}
+
+.tgm-footer__newsletter input:focus {
+  border-color: var(--color-success);
+  outline: 3px solid rgba(214, 255, 87, 0.24);
+  outline-offset: 2px;
+}
+
+.tgm-footer__newsletter input:-webkit-autofill {
+  -webkit-text-fill-color: #16131f;
+  box-shadow: 0 0 0 1000px var(--color-background) inset;
 }
 
 .tgm-footer__brand {
   display: grid;
   align-content: start;
-  gap: 14px;
+  justify-items: start;
+  gap: 16px;
+  padding-top: 4px;
 }
 
 .tgm-footer__brand img {
@@ -583,25 +646,41 @@
   object-fit: contain;
 }
 
+@media (min-width: 921px) {
+  .tgm-header__bar {
+    grid-template-columns: 260px minmax(0, 1fr) 220px;
+  }
+
+  .tgm-logo img {
+    height: 54px;
+    max-width: min(250px, 34vw);
+  }
+
+  .tgm-footer__brand img {
+    height: 52px;
+    max-width: 230px;
+  }
+}
+
 .tgm-footer__brand address {
   display: grid;
   gap: 8px;
-  color: var(--color-foreground-muted);
+  color: rgba(247, 248, 244, 0.62);
   font-style: normal;
   font-weight: 700;
   line-height: 1.45;
 }
 
 .tgm-footer__brand address a {
-  color: var(--color-foreground);
+  color: var(--color-background);
 }
 
 .tgm-footer__main {
   display: grid;
   grid-template-columns: repeat(4, minmax(150px, 1fr));
   gap: clamp(24px, 4vw, 64px);
-  padding-block: 36px 44px;
-  border-top: 1px solid var(--color-border);
+  padding-block: 28px 34px;
+  border-top: 1px solid rgba(247, 248, 244, 0.12);
 }
 
 .tgm-footer__bottom {
@@ -610,7 +689,7 @@
   justify-content: space-between;
   gap: 24px;
   padding-block: 18px;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid rgba(247, 248, 244, 0.12);
 }
 
 .tgm-footer__meta {
@@ -622,7 +701,7 @@
 
 .tgm-footer__meta p {
   margin: 0;
-  color: var(--color-foreground-muted);
+  color: rgba(247, 248, 244, 0.62);
   font-size: 0.86rem;
   font-weight: 700;
 }
@@ -634,6 +713,10 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 10px 14px;
+}
+
+.tgm-footer__payments::before {
+  display: none;
 }
 
 .tgm-footer__meta a,
@@ -648,7 +731,7 @@
   width: 54px;
   height: 34px;
   padding: 5px 7px;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(247, 248, 244, 0.16);
   border-radius: var(--radius-sm);
   background: var(--color-background);
 }
@@ -738,7 +821,246 @@
   .tgm-footer__bottom {
     display: grid;
     align-items: start;
+    justify-items: start;
+    gap: 18px;
+    padding-top: 22px;
+    padding-bottom: calc(128px + env(safe-area-inset-bottom, 0px));
   }
+
+  .tgm-footer__payments {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .tgm-footer__payments::before {
+    display: block;
+    content: "Payment methods";
+    color: rgba(247, 248, 244, 0.72);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    flex: 0 0 100%;
+  }
+
+  .tgm-footer__payments > .tgm-footer__payment {
+    margin-right: 0;
+  }
+
+  .tgm-footer__payment {
+    flex: 0 0 auto;
+  }
+
+}
+
+/* =============================================================
+   Brickgoshop GLOBAL CONSISTENCY LAYER
+   Keeps legacy utility colors aligned with the homepage palette.
+   ============================================================= */
+
+body {
+  background: var(--bgs-cloud-cream);
+  color: var(--bgs-ink);
+}
+
+:where(a) {
+  text-decoration-color: rgba(94, 70, 232, 0.34);
+  text-underline-offset: 4px;
+}
+
+:where(a:hover, a:focus-visible) {
+  color: var(--bgs-electric-violet);
+}
+
+:where(button, input, select, textarea, a):focus-visible {
+  outline: 2px solid var(--bgs-electric-violet);
+  outline-offset: 3px;
+}
+
+:where(input, select, textarea, .input-text) {
+  border-color: var(--bgs-line);
+  background-color: var(--bgs-paper);
+  color: var(--bgs-ink);
+}
+
+:where(input, select, textarea, .input-text):focus {
+  border-color: var(--bgs-electric-violet);
+  box-shadow: var(--bgs-focus);
+  outline: 0;
+}
+
+.tgm-header {
+  border-bottom-color: var(--bgs-line);
+  background: rgba(247, 248, 244, 0.94);
+  color: var(--bgs-ink);
+}
+
+.tgm-announcement,
+.tgm-footer {
+  background: var(--bgs-ink);
+}
+
+.tgm-primary-nav__item > a:hover,
+.tgm-primary-nav__item > a:focus-visible,
+.tgm-primary-nav__item > a.is-current,
+.tgm-mega a:hover,
+.tgm-mobile-menu a:hover,
+.tgm-footer a:hover {
+  color: var(--bgs-electric-violet);
+}
+
+.tgm-icon-button:hover,
+.tgm-menu-button:hover {
+  border-color: var(--bgs-electric-violet);
+  color: var(--bgs-electric-violet);
+}
+
+.site-main,
+.woo-page,
+.virtual-page,
+.shop-page,
+.bgs-page,
+.bgs-home {
+  background-color: var(--bgs-cloud-cream);
+  color: var(--bgs-ink);
+}
+
+.virtual-page :is(.bg-white, .bg-\[\#FFFFFF\]),
+.site-main :is(.bg-white, .bg-\[\#FFFFFF\]) {
+  background-color: var(--bgs-paper);
+}
+
+.virtual-page :is(.bg-\[\#F8F5F0\], .bg-\[\#F5F6F8\], .bg-\[\#F7F8FA\]),
+.site-main :is(.bg-\[\#F8F5F0\], .bg-\[\#F5F6F8\], .bg-\[\#F7F8FA\]) {
+  background-color: var(--bgs-cloud-cream);
+}
+
+.virtual-page :is(.text-\[\#2B2B2B\], .text-\[\#1F2937\], .text-\[\#050505\], .text-\[\#111827\], .text-\[\#374151\]),
+.site-main :is(.text-\[\#2B2B2B\], .text-\[\#1F2937\], .text-\[\#050505\], .text-\[\#111827\], .text-\[\#374151\]) {
+  color: var(--bgs-ink);
+}
+
+.virtual-page :is(.text-\[\#4A4A4A\], .text-\[\#554E49\], .text-\[\#6B7280\], .text-\[\#4B5563\]),
+.site-main :is(.text-\[\#4A4A4A\], .text-\[\#554E49\], .text-\[\#6B7280\], .text-\[\#4B5563\]) {
+  color: var(--bgs-muted);
+}
+
+.virtual-page :is(.text-\[\#A45A3F\], .text-\[\#0046BE\]),
+.site-main :is(.text-\[\#A45A3F\], .text-\[\#0046BE\]) {
+  color: var(--bgs-electric-violet);
+}
+
+.virtual-page :is(.border-\[\#E8E5DF\], .border-\[\#D8C7BE\], .border-\[\#E5E7EB\], .border-\[\#DDE3EA\], .border-\[\#111827\]),
+.site-main :is(.border-\[\#E8E5DF\], .border-\[\#D8C7BE\], .border-\[\#E5E7EB\], .border-\[\#DDE3EA\], .border-\[\#111827\]) {
+  border-color: var(--bgs-line);
+}
+
+.virtual-page :is(a, button):is([class*="bg-[#A45A3F]"], [class*="bg-[#0046BE]"]),
+.site-main :is(a, button):is([class*="bg-[#A45A3F]"], [class*="bg-[#0046BE]"]) {
+  background-color: var(--bgs-electric-violet);
+  border-color: var(--bgs-electric-violet);
+  color: #fff;
+}
+
+.virtual-page :is(a, button):is([class*="hover:bg-[#003AA6]"]):hover,
+.site-main :is(a, button):is([class*="hover:bg-[#003AA6]"]):hover {
+  background-color: var(--bgs-ink);
+  border-color: var(--bgs-ink);
+}
+
+.button,
+.wp-element-button,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce #respond input#submit,
+.wc-block-components-button,
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button {
+  border: 1px solid var(--bgs-electric-violet);
+  border-radius: var(--radius-pill);
+  background: var(--bgs-electric-violet);
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: background var(--duration-fast) var(--ease-fluid), border-color var(--duration-fast) var(--ease-fluid), color var(--duration-fast) var(--ease-fluid), transform var(--duration-fast) var(--ease-fluid);
+}
+
+.button:hover,
+.wp-element-button:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce #respond input#submit:hover,
+.wc-block-components-button:hover,
+.wc-block-cart__submit-button:hover,
+.wc-block-components-checkout-place-order-button:hover {
+  border-color: var(--bgs-ink);
+  background: var(--bgs-ink);
+  color: #fff;
+}
+
+.bgs-btn--lime,
+.home-btn--red,
+.single_add_to_cart_button,
+.checkout-button,
+.wc-block-cart__submit-button,
+.wc-block-components-checkout-place-order-button {
+  border-color: var(--bgs-ink);
+  background: var(--bgs-acid-lime);
+  color: var(--bgs-ink);
+}
+
+.bgs-btn--lime:hover,
+.home-btn--red:hover,
+.single_add_to_cart_button:hover,
+.checkout-button:hover,
+.wc-block-cart__submit-button:hover,
+.wc-block-components-checkout-place-order-button:hover {
+  border-color: var(--bgs-electric-violet);
+  background: var(--bgs-electric-violet);
+  color: #fff;
+}
+
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error,
+.wc-block-components-notice-banner {
+  border: 1px solid var(--bgs-line);
+  border-left: 4px solid var(--bgs-electric-violet);
+  border-radius: 8px;
+  background: var(--bgs-paper);
+  color: var(--bgs-muted);
+  box-shadow: none;
+}
+
+.woocommerce-error,
+.wc-block-components-notice-banner.is-error {
+  border-left-color: var(--bgs-coral);
+}
+
+.woocommerce-message,
+.wc-block-components-notice-banner.is-success {
+  border-left-color: var(--bgs-acid-lime);
+}
+
+.onsale,
+.bgs-badge,
+.shop-sale-badge,
+.wc-block-components-sale-badge {
+  background: var(--bgs-acid-lime);
+  color: var(--bgs-ink);
+}
+
+mark,
+.highlight,
+.is-style-highlight {
+  background: var(--bgs-acid-lime);
+  color: var(--bgs-ink);
 }
 
 /* =============================================================
@@ -907,7 +1229,7 @@
   font-weight: 900;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #111827;
+  color: var(--bgs-ink);
 }
 
 #contact-form-1 .wpcf7-form-control-wrap {
@@ -923,9 +1245,9 @@
   padding: 12px var(--space-md);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  color: #111827;
-  background: #F5F6F8;
-  border: 1.5px solid #E5E7EB;
+  color: var(--bgs-ink);
+  background: var(--bgs-paper);
+  border: 1.5px solid var(--bgs-line);
   border-radius: var(--radius-md);
   outline: none;
   box-sizing: border-box;
@@ -936,8 +1258,8 @@
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #0046BE;
-  box-shadow: 0 0 0 3px rgba(200, 127, 134, 0.18);
+  border-color: var(--bgs-electric-violet);
+  box-shadow: var(--bgs-focus);
 }
 
 #contact-form-1 input.wpcf7-not-valid,
@@ -971,7 +1293,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
-  background: #0046BE;
+  background: var(--bgs-electric-violet);
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -979,7 +1301,7 @@
 }
 
 #contact-form-1 input[type="submit"]:hover {
-  background: #4B403C;
+  background: var(--bgs-ink);
 }
 
 #contact-form-1 .wpcf7-spinner {
@@ -994,12 +1316,12 @@
   font-family: var(--font-sans);
   font-size: 0.875rem;
   line-height: 1.5;
-  color: #111827;
+  color: var(--bgs-ink);
 }
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
-  background: rgba(200, 127, 134, 0.12);
-  border-left: 3px solid #0046BE;
+  background: var(--bgs-ice-blue);
+  border-left: 3px solid var(--bgs-electric-violet);
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,
@@ -1014,18 +1336,18 @@
    ============================================================= */
 
 body.woocommerce-account {
-  --account-primary: #A45A3F;
-  --account-primary-hover: #7F422F;
-  --account-cta: #2B2B2B;
-  --account-cta-hover: #A45A3F;
-  --account-soft: #F8F5F0;
-  --account-warm: #F2E9E2;
-  --account-background: #FBFAF7;
-  --account-surface: #FFFFFF;
-  --account-text: #2B2B2B;
-  --account-muted: #746B64;
-  --account-border: #E8E5DF;
-  --account-shadow: 0 18px 42px rgba(43, 43, 43, 0.09);
+  --account-primary: var(--bgs-electric-violet);
+  --account-primary-hover: var(--bgs-ink);
+  --account-cta: var(--bgs-electric-violet);
+  --account-cta-hover: var(--bgs-ink);
+  --account-soft: var(--bgs-cloud-cream);
+  --account-warm: var(--bgs-ice-blue);
+  --account-background: var(--bgs-cloud-cream);
+  --account-surface: var(--bgs-paper);
+  --account-text: var(--bgs-ink);
+  --account-muted: var(--bgs-muted);
+  --account-border: var(--bgs-line);
+  --account-shadow: 0 18px 42px rgba(22, 19, 31, 0.09);
   background: var(--account-background);
 }
 
@@ -1059,7 +1381,7 @@ body.woocommerce-account {
   min-height: 128px;
   background:
     linear-gradient(135deg, rgba(43, 43, 43, 0.82), rgba(164, 90, 63, 0.72)),
-    url("../img/homepage/brickgo/16.png") center/cover;
+    url("../img/home/36.png") center/cover;
   background-blend-mode: multiply;
 }
 

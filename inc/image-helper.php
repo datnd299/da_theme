@@ -97,26 +97,22 @@ if (!function_exists('dawp_get_responsive_image')) {
 if (!function_exists('dawp_home_image_assets')) {
     function dawp_home_image_assets() {
         return [
-            '1.png',
-            '2.png',
-            '3.png',
-            '4.png',
-            '5.png',
-            '6.png',
-            '7.png',
-            '8.png',
-            '9.png',
-            '10.png',
-            '11.png',
-            '12.png',
-            '13.png',
-            '14.png',
-            '15.png',
-            '16.png',
-            '17.png',
-            '18.png',
-            '19.png',
-            '20.png',
+            '21.png',
+            '22.png',
+            '23.png',
+            '24.png',
+            '25.png',
+            '26.png',
+            '27.png',
+            '28.png',
+            '29.png',
+            '30.png',
+            '31.png',
+            '32.png',
+            '33.png',
+            '34.png',
+            '35.png',
+            '36.png',
         ];
     }
 }
@@ -125,13 +121,13 @@ if (!function_exists('dawp_normalize_home_image_file')) {
     function dawp_normalize_home_image_file($file) {
         $file = basename(ltrim((string) $file, '/'));
         $legacy_map = [
-            'collectible-building-blocks.jpg' => '1.png',
-            'wooden-toy-collection.jpg'      => '15.png',
-            'wooden-shape-blocks.jpg'        => '10.png',
-            'collectible-desk-figures.png'   => '17.png',
-            'modular-display-build.png'      => '13.png',
-            'mystery-box-display.png'        => '20.png',
-            'collector-shelf-display.png'    => '16.png',
+            'collectible-building-blocks.jpg' => '21.png',
+            'wooden-toy-collection.jpg'      => '35.png',
+            'wooden-shape-blocks.jpg'        => '30.png',
+            'collectible-desk-figures.png'   => '27.png',
+            'modular-display-build.png'      => '33.png',
+            'mystery-box-display.png'        => '36.png',
+            'collector-shelf-display.png'    => '32.png',
         ];
 
         return $legacy_map[$file] ?? $file;
@@ -145,8 +141,8 @@ if (!function_exists('dawp_home_image_url')) {
             $file = dawp_home_image_assets()[0];
         }
 
-        $path = get_template_directory() . '/assets/img/homepage/brickgo/' . $file;
-        $url  = get_template_directory_uri() . '/assets/img/homepage/brickgo/' . $file;
+        $path = get_template_directory() . '/assets/img/home/' . $file;
+        $url  = get_template_directory_uri() . '/assets/img/home/' . $file;
 
         if (file_exists($path)) {
             $url = add_query_arg('ver', filemtime($path), $url);

@@ -1,15 +1,15 @@
 /* Single product: collectible ecommerce detail page */
 :root {
-  --product-bg: #F5F3EE;
-  --product-surface: #FFFFFF;
-  --product-surface-soft: #FAF9F6;
-  --product-text: #111111;
-  --product-muted: #686868;
-  --product-border: #DEDDD8;
-  --product-accent: #FFD83D;
-  --product-sale: #FF4B3E;
-  --product-success: #47C878;
-  --product-ring: rgba(17, 17, 17, 0.14);
+  --product-bg: var(--bgs-cloud-cream, #F7F8F4);
+  --product-surface: var(--bgs-paper, #FFFFFF);
+  --product-surface-soft: var(--bgs-cloud-cream, #F7F8F4);
+  --product-text: var(--bgs-ink, #16131F);
+  --product-muted: var(--bgs-muted, #625E68);
+  --product-border: var(--bgs-line, rgba(22, 19, 31, 0.13));
+  --product-accent: var(--bgs-acid-lime, #D6FF57);
+  --product-sale: var(--bgs-coral, #FF776D);
+  --product-success: var(--bgs-ice-blue, #D8F3FF);
+  --product-ring: rgba(94, 70, 232, 0.18);
   --product-font: Geist, Inter, "Avenir Next", Arial, sans-serif;
   --product-container: 1360px;
 }
@@ -473,49 +473,6 @@ form.cart:not(.variations_form) {
 .single-product div.product form.cart .single_add_to_cart_button.button:disabled {
   cursor: not-allowed;
   opacity: .45;
-}
-
-.dawp-product-wishlist {
-  flex: 0 0 auto;
-}
-
-.dawp-wishlist-button,
-.dawp-product-wishlist a,
-.dawp-product-wishlist button {
-  display: inline-flex;
-  width: auto;
-  min-height: 52px;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--product-muted);
-  cursor: pointer;
-  font: inherit;
-  font-size: .82rem;
-  font-weight: 850;
-  letter-spacing: .02em;
-  text-decoration: none;
-  text-transform: none;
-  padding: 0 8px;
-}
-
-.dawp-wishlist-button:hover,
-.dawp-product-wishlist a:hover,
-.dawp-product-wishlist button:hover {
-  color: var(--product-text);
-  border-color: var(--product-border);
-  background: var(--product-surface-soft);
-}
-
-.dawp-wishlist-button svg {
-  width: 18px;
-  height: 18px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.9;
 }
 
 .product_meta {

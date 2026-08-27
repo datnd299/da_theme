@@ -1,6 +1,6 @@
 <?php
 /**
- * Premium about page template part.
+ * Brickgoshop about page template part.
  *
  * @package dawp
  */
@@ -9,302 +9,147 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$theme_uri   = get_template_directory_uri();
-$theme_dir   = get_template_directory();
 $shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $contact_url = home_url('/contact-us/');
-$returns_url = home_url('/return-refund-policy/');
-$shipping_url = home_url('/shipping-policy/');
-$store_address = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
+$faq_url     = home_url('/faq/');
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$mmd_about_asset = static function ($file) use ($theme_uri, $theme_dir) {
-    $file = function_exists('dawp_normalize_home_image_file') ? dawp_normalize_home_image_file($file) : basename((string) $file);
-    $relative = 'assets/img/homepage/brickgo/' . $file;
-    $path     = $theme_dir . '/' . $relative;
+if (!function_exists('bgs_page_image')) {
+    function bgs_page_image($file, $alt, $class = '', $loading = 'lazy', $sizes = '100vw', $width = 980, $height = 760) {
+        if (function_exists('dawp_get_home_responsive_image')) {
+            return dawp_get_home_responsive_image($file, $alt, $class, $loading, $sizes, $width, $height);
+        }
 
-    $url = $theme_uri . '/' . $relative;
-
-    if (file_exists($path)) {
-        return add_query_arg('ver', filemtime($path), $url);
+        $src = esc_url(get_template_directory_uri() . '/assets/img/home/' . basename($file));
+        return sprintf('<img src="%s" alt="%s" class="%s" loading="%s" width="%d" height="%d" decoding="async">', $src, esc_attr($alt), esc_attr($class), esc_attr($loading), (int) $width, (int) $height);
     }
+}
 
-    return $url;
-};
-
-$mmd_about_img = static function ($file, $alt, $class = '', $width = 900, $height = 700, $loading = 'lazy', $sizes = '') use ($mmd_about_asset) {
-    $url = $mmd_about_asset($file);
-
-    if (function_exists('dawp_get_responsive_image')) {
-        return dawp_get_responsive_image($url, $alt, $class, $width, $height, $loading, $sizes);
-    }
-
-    return sprintf(
-        '<img src="%s" alt="%s" class="%s" width="%d" height="%d" loading="%s" decoding="async">',
-        esc_url($url),
-        esc_attr($alt),
-        esc_attr($class),
-        (int) $width,
-        (int) $height,
-        esc_attr($loading)
-    );
-};
-
-$principles = [
+$philosophy = [
     [
-        'title' => __('Display-first selection', 'dawp'),
-        'copy'  => __('We look for pieces with shelf presence: satisfying builds, expressive figures, small surprises and accessories that make collections easier to enjoy.', 'dawp'),
+        'title' => __('Build', 'dawp'),
+        'copy'  => __('The good kind of slow: hands busy, screen quiet, finished piece ready for the shelf.', 'dawp'),
     ],
     [
-        'title' => __('Collector culture, cleanly edited', 'dawp'),
-        'copy'  => __('Our catalog is shaped around builders, display collectors, gift shoppers and people who like creative objects with personality.', 'dawp'),
+        'title' => __('Collect', 'dawp'),
+        'copy'  => __('Fresh finds, blind-box energy and small objects with enough personality to start a setup.', 'dawp'),
     ],
     [
-        'title' => __('Quality without the noise', 'dawp'),
-        'copy'  => __('Brickgo.com avoids cluttered marketplace browsing and focuses on curated collectibles with clear, helpful product presentation.', 'dawp'),
+        'title' => __('Display', 'dawp'),
+        'copy'  => __('Pieces selected for desks, shelves and rooms where display matters as much as the build.', 'dawp'),
     ],
 ];
 
-$values = [
-    __('Warm editorial inspiration', 'dawp'),
-    __('Building sets, figures and blind boxes', 'dawp'),
-    __('Transparent shipping and returns', 'dawp'),
-    __('Helpful support after purchase', 'dawp'),
-];
-
-$trust_items = [
-    [__('Secure Checkout', 'dawp'), __('Encrypted checkout helps protect your payment details from cart to confirmation.', 'dawp')],
-    [__('Collector-Friendly Shipping', 'dawp'), __('Orders are handled in 1-3 business days, with estimated delivery usually in 6-10 business days.', 'dawp')],
-    [__('Easy Returns', 'dawp'), __('Eligible unused items can be returned within 30 days after delivery.', 'dawp')],
-    [__('Order Tracking', 'dawp'), __('Tracking details are provided once your order ships so you can follow each step.', 'dawp')],
+$reasons = [
+    __('Curated categories without marketplace clutter.', 'dawp'),
+    __('Modern product imagery and clear shopping paths.', 'dawp'),
+    __('Support pages that make shipping, returns and tracking easy to find.', 'dawp'),
+    __('A youthful point of view that stays brand-neutral and collectible-first.', 'dawp'),
 ];
 ?>
 
 <style>
-    .mmd-about { --mmd-ink:#2B2B2B; --mmd-text:#4A4A4A; --mmd-ivory:#F8F5F0; --mmd-line:#E8E5DF; --mmd-accent:#A45A3F; --mmd-accent-dark:#7F422F; --mmd-white:#FFFFFF; color:var(--mmd-text); background:var(--mmd-white); font-family:Inter, "Avenir Next", Arial, sans-serif; letter-spacing:0; }
-    .mmd-about * { box-sizing:border-box; }
-    .mmd-about p { margin:0; }
-    .mmd-about h1, .mmd-about h2, .mmd-about h3 { margin:0; color:var(--mmd-ink); font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; line-height:1.05; letter-spacing:0; }
-    .mmd-about-container { width:min(100% - 48px, 1280px); margin-inline:auto; }
-    .mmd-about-eyebrow { margin:0 0 10px; color:var(--mmd-accent); font-size:.68rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .mmd-about-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--mmd-ink); border-radius:2px; padding:0 22px; font-size:.78rem; font-weight:700; letter-spacing:.035em; text-decoration:none; text-transform:uppercase; transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
-    .mmd-about-btn:hover { transform:translateY(-1px); }
-    .mmd-about-btn--primary { background:var(--mmd-ink); color:#fff; }
-    .mmd-about-btn--primary:hover { background:var(--mmd-accent); border-color:var(--mmd-accent); color:#fff; }
-    .mmd-about-btn--secondary { background:transparent; color:var(--mmd-ink); }
-    .mmd-about-btn--secondary:hover { background:var(--mmd-ink); color:#fff; }
-    .mmd-about-link { color:var(--mmd-accent); font-weight:800; text-decoration:none; }
-    .mmd-about-link:hover { color:var(--mmd-accent-dark); text-decoration:underline; text-underline-offset:4px; }
-    .mmd-about-hero { background:var(--mmd-ivory); border-bottom:1px solid var(--mmd-line); }
-    .mmd-about-hero__grid { display:grid; gap:30px; min-height:560px; padding:42px 0; }
-    .mmd-about-hero__content { display:flex; flex-direction:column; justify-content:center; max-width:640px; }
-    .mmd-about-hero h1 { font-size:clamp(2.15rem, 4.2vw, 3.5rem); line-height:1.12; }
-    .mmd-about-hero__copy { max-width:590px; margin-top:18px; color:#554E49; font-size:clamp(.96rem, 1.2vw, 1.05rem); line-height:1.7; }
-    .mmd-about-hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
-    .mmd-about-hero__media { min-height:360px; position:relative; overflow:hidden; }
-    .mmd-about-hero__media img { width:100%; height:100%; min-height:360px; object-fit:cover; }
-    .mmd-about-hero__note { position:absolute; right:18px; bottom:18px; max-width:280px; background:rgba(255,255,255,.94); border:1px solid var(--mmd-line); padding:16px; color:var(--mmd-ink); font-size:.84rem; line-height:1.5; }
-    .mmd-about-section { padding:68px 0; }
-    .mmd-about-section--soft { background:var(--mmd-ivory); }
-    .mmd-about-section__head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px; }
-    .mmd-about-section__head h2 { font-size:clamp(1.7rem, 2.8vw, 2.55rem); line-height:1.12; }
-    .mmd-about-section__head p:not(.mmd-about-eyebrow) { max-width:600px; margin-top:10px; font-size:.95rem; line-height:1.62; }
-    .mmd-about-story { display:grid; gap:32px; align-items:center; }
-    .mmd-about-story__media { display:grid; grid-template-columns:1fr .76fr; gap:14px; align-items:end; }
-    .mmd-about-story__media img { width:100%; object-fit:cover; }
-    .mmd-about-story__media img:first-child { aspect-ratio:4/5; }
-    .mmd-about-story__media img:last-child { aspect-ratio:4/3; margin-bottom:34px; }
-    .mmd-about-story__content h2 { font-size:clamp(1.75rem, 3vw, 2.65rem); line-height:1.12; }
-    .mmd-about-story__content p { margin-top:16px; line-height:1.68; font-size:.96rem; }
-    .mmd-about-values { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-    .mmd-about-values span { border:1px solid #D8C7BE; background:#fff; color:var(--mmd-ink); padding:9px 12px; font-size:.78rem; font-weight:800; letter-spacing:.03em; text-transform:uppercase; }
-    .mmd-about-address { margin-top:20px; font-size:.92rem; line-height:1.6; color:var(--mmd-text); }
-    .mmd-about-address strong { color:var(--mmd-ink); }
-    .mmd-about-principles, .mmd-about-trust, .mmd-about-policy-grid, .mmd-about-gallery { display:grid; gap:18px; }
-    .mmd-about-principles { grid-template-columns:1fr; }
-    .mmd-about-card, .mmd-about-trust-card, .mmd-about-policy-card { background:#fff; border:1px solid var(--mmd-line); border-radius:4px; transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease; }
-    .mmd-about-card { padding:26px; }
-    .mmd-about-card h3, .mmd-about-trust-card h3, .mmd-about-policy-card h3 { font-family:Inter, Arial, sans-serif; font-size:.94rem; font-weight:800; line-height:1.32; }
-    .mmd-about-card p, .mmd-about-trust-card p, .mmd-about-policy-card p { margin-top:10px; font-size:.92rem; line-height:1.6; }
-    .mmd-about-card:hover, .mmd-about-trust-card:hover, .mmd-about-policy-card:hover { border-color:#D0B8AE; box-shadow:0 18px 34px rgba(43,43,43,.09); transform:translateY(-3px); }
-    .mmd-about-feature { display:grid; gap:28px; align-items:center; }
-    .mmd-about-feature__media { min-height:330px; overflow:hidden; }
-    .mmd-about-feature__media img { width:100%; height:100%; min-height:330px; object-fit:cover; }
-    .mmd-about-feature__content h2 { font-size:clamp(1.75rem, 3vw, 2.65rem); line-height:1.12; }
-    .mmd-about-feature__content p { margin-top:16px; line-height:1.68; font-size:.96rem; }
-    .mmd-about-feature__content .mmd-about-btn { margin-top:28px; }
-    .mmd-about-trust { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-about-trust-card { padding:22px; }
-    .mmd-about-trust-card span { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; margin-bottom:14px; border:1px solid #D8C7BE; color:var(--mmd-accent); font-weight:800; }
-    .mmd-about-policy-grid { grid-template-columns:1fr; }
-    .mmd-about-policy-card { display:block; color:inherit; padding:24px; text-decoration:none; }
-    .mmd-about-gallery { grid-template-columns:repeat(2, minmax(0, 1fr)); }
-    .mmd-about-gallery img { width:100%; aspect-ratio:1; object-fit:cover; }
-    .mmd-about-cta { background:var(--mmd-ink); color:#fff; padding:62px 0; }
-    .mmd-about-cta__inner { display:grid; gap:22px; align-items:center; }
-    .mmd-about-cta #mmd-about-cta-title { color:#fff; font-size:clamp(1.75rem, 3vw, 2.65rem); text-shadow:0 1px 0 rgba(0,0,0,.16); }
-    .mmd-about-cta p { max-width:620px; margin-top:12px; color:rgba(255,255,255,.76); line-height:1.65; }
-    .mmd-about-cta .mmd-about-eyebrow { color:#D8B19F; }
-    .mmd-about-cta__actions { display:flex; flex-wrap:wrap; gap:12px; }
-    .mmd-about-cta .mmd-about-btn--primary { border-color:#fff; background:#fff; color:var(--mmd-ink); }
-    .mmd-about-cta .mmd-about-btn--primary:hover { border-color:var(--mmd-accent); background:var(--mmd-accent); color:#fff; }
-    .mmd-about-cta .mmd-about-btn--secondary { border-color:rgba(255,255,255,.55); color:#fff; }
-    .mmd-about-cta .mmd-about-btn--secondary:hover { border-color:#fff; background:#fff; color:var(--mmd-ink); }
-    @media (min-width:700px) { .mmd-about-principles { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-about-policy-grid { grid-template-columns:repeat(3, minmax(0, 1fr)); } .mmd-about-gallery { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
-    @media (min-width:900px) { .mmd-about-hero__grid { grid-template-columns:.94fr 1.06fr; } .mmd-about-story { grid-template-columns:1.06fr .94fr; } .mmd-about-feature { grid-template-columns:.96fr 1.04fr; } .mmd-about-trust { grid-template-columns:repeat(4, minmax(0, 1fr)); } .mmd-about-cta__inner { grid-template-columns:1fr auto; } .mmd-about-cta__actions { justify-content:flex-end; } }
-    @media (max-width:699px) { .mmd-about-container { width:min(100% - 40px, 1280px); } .mmd-about-section { padding:50px 0; } .mmd-about-section__head { align-items:start; flex-direction:column; } .mmd-about-principles, .mmd-about-trust, .mmd-about-policy-grid { display:flex; gap:14px; margin-inline:0; overflow-x:auto; padding-inline:0; padding-bottom:4px; scroll-snap-type:x mandatory; scrollbar-width:none; } .mmd-about-principles::-webkit-scrollbar, .mmd-about-trust::-webkit-scrollbar, .mmd-about-policy-grid::-webkit-scrollbar { display:none; } .mmd-about-card, .mmd-about-trust-card, .mmd-about-policy-card { flex:0 0 clamp(17rem, 82vw, 21rem); max-width:clamp(17rem, 82vw, 21rem); scroll-snap-align:start; } .mmd-about-gallery { gap:10px; } .mmd-about-hero__note { left:14px; right:14px; } .mmd-about-cta__actions .mmd-about-btn { width:100%; } }
+    .bgs-page{--bgs-bg:#f7f8f4;--bgs-paper:#fff;--bgs-ink:#16131f;--bgs-muted:#625e68;--bgs-violet:#5e46e8;--bgs-lime:#d6ff57;--bgs-coral:#ff776d;--bgs-ice:#d8f3ff;--bgs-line:#16131f21;background:var(--bgs-bg);color:var(--bgs-ink);font-family:"Space Grotesk","Geist",var(--font-sans);letter-spacing:0;overflow:clip}.bgs-page *{box-sizing:border-box}.bgs-page p,.bgs-page h1,.bgs-page h2,.bgs-page h3{margin:0}.bgs-page a{color:inherit}.bgs-page__shell{width:min(100% - 32px,1120px);margin-inline:auto}.bgs-page__kicker{color:var(--bgs-violet);text-transform:uppercase;margin-bottom:12px;font-size:.72rem;font-weight:950;line-height:1.2}.bgs-page h1,.bgs-page h2{color:var(--bgs-ink);text-transform:uppercase;font-weight:920;letter-spacing:0;line-height:1.04}.bgs-page h1{max-width:600px;font-size:clamp(2rem,4vw,3.25rem)}.bgs-page h2{max-width:620px;font-size:clamp(1.45rem,2.8vw,2.35rem)}.bgs-page h3{color:var(--bgs-ink);font-size:clamp(1rem,1.5vw,1.18rem);font-weight:900;line-height:1.18}.bgs-page__lead,.bgs-page__copy{color:var(--bgs-muted);font-size:clamp(.96rem,1.25vw,1.06rem);font-weight:620;line-height:1.62}.bgs-page__lead{max-width:540px;margin-top:18px}.bgs-page__copy{max-width:650px;margin-top:16px}.bgs-page__actions{flex-wrap:wrap;gap:12px;margin-top:24px;display:flex}.bgs-page__btn,.bgs-page__text-link{justify-content:center;align-items:center;text-decoration:none;transition:background .24s,border-color .24s,color .24s,transform .24s;display:inline-flex}.bgs-page__btn{border:1px solid var(--bgs-ink);text-transform:uppercase;border-radius:999px;gap:8px;min-height:42px;padding:0 17px;font-size:.8rem;font-weight:920}.bgs-page .bgs-page__btn--lime{background:var(--bgs-lime);color:var(--bgs-ink)}.bgs-page .bgs-page__btn--ink{background:var(--bgs-violet);border-color:var(--bgs-violet);color:#fff}.bgs-page .bgs-page__btn--ghost{background:transparent;border-color:var(--bgs-line);color:var(--bgs-ink)}.bgs-page__text-link{color:var(--bgs-ink);text-transform:uppercase;gap:8px;min-height:42px;font-size:.82rem;font-weight:920}.bgs-page__hero,.bgs-page__section,.bgs-page__band{position:relative}.bgs-page__hero{padding:clamp(30px,4.5vw,58px) 0 clamp(38px,5.5vw,68px)}.bgs-page__hero-grid,.bgs-page__story-grid,.bgs-page__band-grid,.bgs-page__cta-grid{display:grid;gap:clamp(22px,3.5vw,42px);align-items:center}.bgs-page__hero-media,.bgs-page__story-media,.bgs-page__band-media{position:relative;min-height:300px;border:1px solid var(--bgs-line);border-radius:8px;background:var(--bgs-paper);overflow:hidden}.bgs-page__hero-media:before{content:"";z-index:1;width:22%;height:13%;background:var(--bgs-coral);position:absolute;top:0;right:0}.bgs-page__image{width:100%;height:100%;min-height:inherit;object-fit:cover;display:block;position:relative}.bgs-page__hero-note{z-index:2;background:var(--bgs-paper);border:1px solid var(--bgs-line);border-radius:8px;gap:5px;max-width:calc(100% - 32px);padding:12px 14px;display:grid;position:absolute;bottom:16px;left:16px}.bgs-page__hero-note span,.bgs-page__stat span,.bgs-page__card span{color:var(--bgs-violet);text-transform:uppercase;font-size:.7rem;font-weight:920;line-height:1.25}.bgs-page__hero-note strong{font-size:.94rem;line-height:1.25}.bgs-page__section{padding:clamp(42px,5.5vw,68px) 0}.bgs-page__section--paper{background:var(--bgs-paper)}.bgs-page__section-head{border-top:1px solid var(--bgs-line);margin-bottom:20px;padding-top:16px}.bgs-page__story-grid{align-items:center}.bgs-page__story-media{display:grid;grid-template-columns:1fr .72fr;gap:12px;border:0;background:transparent;border-radius:0;overflow:visible}.bgs-page__story-media img{border:1px solid var(--bgs-line);border-radius:8px;background:var(--bgs-paper);object-fit:cover;width:100%}.bgs-page__story-media img:first-child{aspect-ratio:4/5}.bgs-page__story-media img:last-child{aspect-ratio:1;margin-top:28px}.bgs-page__stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:24px;display:grid}.bgs-page__stat{background:var(--bgs-paper);border:1px solid var(--bgs-line);border-radius:8px;padding:14px}.bgs-page__stat strong{font-size:clamp(1.25rem,2.2vw,1.7rem);font-weight:920;line-height:1}.bgs-page__grid{display:grid;gap:14px}.bgs-page__card{background:var(--bgs-paper);border:1px solid var(--bgs-line);border-radius:8px;padding:20px;transition:border-color .24s,transform .24s}.bgs-page__card p{color:var(--bgs-muted);margin-top:10px;font-size:.94rem;font-weight:620;line-height:1.56}.bgs-page__band{background:var(--bgs-ice);padding:clamp(42px,5.5vw,68px) 0}.bgs-page__band-media img{object-fit:cover}.bgs-page__checklist{display:grid;gap:10px;margin-top:20px}.bgs-page__checklist li{background:var(--bgs-paper);border:1px solid var(--bgs-line);border-radius:8px;padding:13px 15px;font-weight:780;line-height:1.4}.bgs-page__checklist li::before{content:"";display:inline-block;width:8px;height:8px;margin-right:10px;border-radius:999px;background:var(--bgs-lime);box-shadow:0 0 0 1px var(--bgs-ink)}.bgs-page__cta{background:var(--bgs-violet);color:#fff;padding:clamp(40px,5.5vw,62px) 0}.bgs-page__cta-grid{border-top:1px solid #ffffff47;padding-top:clamp(22px,3.5vw,34px)}.bgs-page__cta h2,.bgs-page__cta p,.bgs-page__cta .bgs-page__kicker{color:#fff}.bgs-page__cta .bgs-page__btn--lime{border-color:var(--bgs-ink)}.bgs-page__cta .bgs-page__btn--ghost{border-color:#ffffff70;color:#fff}@media (hover:hover){.bgs-page__btn:hover,.bgs-page__text-link:hover{transform:translateY(-2px)}.bgs-page__card:hover{border-color:var(--bgs-coral);transform:translateY(-3px)}}@media (min-width:700px){.bgs-page__grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media (min-width:900px){.bgs-page__shell{width:min(100% - 48px,1120px)}.bgs-page__hero-grid{grid-template-columns:.86fr 1.14fr}.bgs-page__story-grid,.bgs-page__band-grid,.bgs-page__cta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bgs-page__hero-media,.bgs-page__band-media{min-height:420px}.bgs-page__cta-grid{gap:24px}.bgs-page__cta-actions{justify-self:end}}@media (max-width:699px){.bgs-page__shell{width:min(100% - 24px,1120px)}.bgs-page h1{font-size:clamp(2rem,9vw,2.5rem)}.bgs-page h2{font-size:clamp(1.32rem,6vw,1.9rem)}.bgs-page__actions .bgs-page__btn{width:100%}.bgs-page__stats{grid-template-columns:1fr}.bgs-page__grid{display:flex;gap:14px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory;scrollbar-width:none}.bgs-page__grid::-webkit-scrollbar{display:none}.bgs-page__card{flex:0 0 clamp(17rem,82vw,21rem);scroll-snap-align:start}.bgs-page__story-media{min-height:auto}.bgs-page__hero-note{right:14px;left:14px}}@media (prefers-reduced-motion:reduce){.bgs-page *,.bgs-page :before,.bgs-page :after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+<style>
+    .bgs-page__cta .bgs-page__btn--ghost:hover,
+    .bgs-page__cta .bgs-page__btn--ghost:focus-visible {
+        background: #fff;
+        border-color: #fff;
+        color: var(--bgs-violet);
+    }
 </style>
 
-<div class="mmd-about">
-    <section class="mmd-about-hero" aria-labelledby="mmd-about-title">
-        <div class="mmd-about-container mmd-about-hero__grid">
-            <div class="mmd-about-hero__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('About Brickgo.com', 'dawp'); ?></p>
-                <h1 id="mmd-about-title"><?php esc_html_e('A modern collectible store for pieces worth building and displaying.', 'dawp'); ?></h1>
-                <p class="mmd-about-hero__copy"><?php esc_html_e('Brickgo.com helps American families create warm, comfortable spaces through thoughtfully selected building sets, art figures, blind boxes, display pieces, and collector accessories.', 'dawp'); ?></p>
-                <div class="mmd-about-hero__actions">
-                    <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collectibles', 'dawp'); ?></a>
-                    <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
-                </div>
-            </div>
-            <div class="mmd-about-hero__media">
-                <?php echo $mmd_about_img('2.png', __('Curated collectible builds arranged on a warm studio shelf', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: a collection should feel considered, personal, and ready for the shelf.', 'dawp'); ?></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section" aria-labelledby="mmd-about-story-title">
-        <div class="mmd-about-container mmd-about-story">
-            <div class="mmd-about-story__media">
-                <?php echo $mmd_about_img('18.png', __('Collector desk with display-ready builds and figures', 'dawp'), '', 620, 780, 'lazy', '(max-width: 899px) 58vw, 31vw'); ?>
-                <?php echo $mmd_about_img('12.png', __('Small colorful collectible build arranged for display', 'dawp'), '', 480, 360, 'lazy', '(max-width: 899px) 43vw, 23vw'); ?>
-            </div>
-            <div class="mmd-about-story__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Our Story', 'dawp'); ?></p>
-                <h2 id="mmd-about-story-title"><?php esc_html_e('Curated for shelves that feel curated, playful, and personal.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('We built Brickgo.com for shoppers who want a clearer, more inspiring way to find collectibles. Instead of overwhelming customers with unrelated items, we focus on the pieces that support everyday rituals: building, collecting, gifting, trading, and displaying.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Every collection is guided by usefulness, inviting materials and timeless styling, so it is easier to refresh a room without losing the warmth of home.', 'dawp'); ?></p>
-                <div class="mmd-about-values">
-                    <?php foreach ($values as $value) : ?>
-                        <span><?php echo esc_html($value); ?></span>
-                    <?php endforeach; ?>
-                </div>
-                <p class="mmd-about-address"><strong><?php esc_html_e('Store Address:', 'dawp'); ?></strong> <?php echo esc_html($store_address); ?></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section mmd-about-section--soft" aria-labelledby="mmd-about-principles-title">
-        <div class="mmd-about-container">
-            <div class="mmd-about-section__head">
-                <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('What Guides Us', 'dawp'); ?></p>
-                    <h2 id="mmd-about-principles-title"><?php esc_html_e('A refined shopping experience, from inspiration to checkout.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Our store is designed to feel organized, warm and helpful, closer to browsing a home magazine than searching through a crowded marketplace.', 'dawp'); ?></p>
-                </div>
-            </div>
-            <div class="mmd-about-principles">
-                <?php foreach ($principles as $principle) : ?>
-                    <article class="mmd-about-card">
-                        <h3><?php echo esc_html($principle['title']); ?></h3>
-                        <p><?php echo esc_html($principle['copy']); ?></p>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section" aria-labelledby="mmd-about-curation-title">
-        <div class="mmd-about-container mmd-about-feature">
-            <div class="mmd-about-feature__media">
-                <?php echo $mmd_about_img('11.png', __('Long gallery shelf with collectible architecture builds', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
-            </div>
-            <div class="mmd-about-feature__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Our Curation', 'dawp'); ?></p>
-                <h2 id="mmd-about-curation-title"><?php esc_html_e('Home essentials chosen for beauty, comfort and daily function.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('From building sets and art figures to blind boxes, mini collectibles, display pieces, and accessories, each category is shaped around how people actually use their homes. Product pages emphasize lifestyle benefits, materials, care and practical details so customers can shop with confidence.', 'dawp'); ?></p>
-                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse The Shop', 'dawp'); ?></a>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section mmd-about-section--soft" aria-labelledby="mmd-about-trust-title">
-        <div class="mmd-about-container">
-            <div class="mmd-about-section__head">
-                <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Reliable Shopping', 'dawp'); ?></p>
-                    <h2 id="mmd-about-trust-title"><?php esc_html_e('Trust built into each step of the experience.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-about-trust">
-                <?php foreach ($trust_items as $index => $item) : ?>
-                    <article class="mmd-about-trust-card">
-                        <span><?php echo esc_html(str_pad((string) ($index + 1), 2, '0', STR_PAD_LEFT)); ?></span>
-                        <h3><?php echo esc_html($item[0]); ?></h3>
-                        <p><?php echo esc_html($item[1]); ?></p>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section" aria-labelledby="mmd-about-policies-title">
-        <div class="mmd-about-container">
-            <div class="mmd-about-section__head">
-                <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Helpful Details', 'dawp'); ?></p>
-                    <h2 id="mmd-about-policies-title"><?php esc_html_e('Clear policies for a calmer purchase.', 'dawp'); ?></h2>
-                </div>
-                <a class="mmd-about-link" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Need help?', 'dawp'); ?></a>
-            </div>
-            <div class="mmd-about-policy-grid">
-                <a class="mmd-about-policy-card" href="<?php echo esc_url($shipping_url); ?>">
-                    <h3><?php esc_html_e('Shipping Policy', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Review the 1-3 business day handling time, 5-7 business day transit estimate, and tracking information before you order.', 'dawp'); ?></p>
-                </a>
-                <a class="mmd-about-policy-card" href="<?php echo esc_url($returns_url); ?>">
-                    <h3><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Learn how eligible unworn, unused items can be returned within 30 days after delivery.', 'dawp'); ?></p>
-                </a>
-                <a class="mmd-about-policy-card" href="<?php echo esc_url(home_url('/track-order/')); ?>">
-                    <h3><?php esc_html_e('Track Order', 'dawp'); ?></h3>
-                    <p><?php esc_html_e('Follow your shipment once tracking details have been shared after dispatch.', 'dawp'); ?></p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-section mmd-about-section--soft" aria-labelledby="mmd-about-gallery-title">
-        <div class="mmd-about-container">
-            <div class="mmd-about-section__head">
-                <div>
-                    <p class="mmd-about-eyebrow"><?php esc_html_e('Our World', 'dawp'); ?></p>
-                    <h2 id="mmd-about-gallery-title"><?php esc_html_e('Spaces that inspire the way we curate.', 'dawp'); ?></h2>
-                </div>
-            </div>
-            <div class="mmd-about-gallery">
-                <?php echo $mmd_about_img('3.png', __('Desk-friendly collectible architecture pieces', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('8.png', __('Colorful collectible blocks arranged on shelves', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('15.png', __('Collected miniature figures and builds arranged for display', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-                <?php echo $mmd_about_img('1.png', __('Display-ready colorful building pieces', 'dawp'), '', 420, 420, 'lazy', '(max-width: 699px) 50vw, 25vw'); ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="mmd-about-cta" aria-labelledby="mmd-about-cta-title">
-        <div class="mmd-about-container mmd-about-cta__inner">
+<div class="bgs-page bgs-page--about">
+    <section class="bgs-page__hero" aria-labelledby="bgs-about-title">
+        <div class="bgs-page__shell bgs-page__hero-grid">
             <div>
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Build. Collect. Display.', 'dawp'); ?></p>
-                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find thoughtful pieces for the rooms you use every day.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover collectibles and display-ready pieces selected to make modern collecting feel more comfortable, organized and beautiful.', 'dawp'); ?></p>
+                <p class="bgs-page__kicker"><?php esc_html_e('About Brickgoshop', 'dawp'); ?></p>
+                <h1 id="bgs-about-title"><?php esc_html_e('Collectible culture, edited clean.', 'dawp'); ?></h1>
+                <p class="bgs-page__lead"><?php esc_html_e('Brickgoshop is a youthful collectible store for builders, display collectors and gift hunters who like creative objects with personality.', 'dawp'); ?></p>
+                <div class="bgs-page__actions">
+                    <a class="bgs-page__btn bgs-page__btn--lime" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Drops', 'dawp'); ?><span aria-hidden="true">-&gt;</span></a>
+                    <a class="bgs-page__btn bgs-page__btn--ghost" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+                </div>
             </div>
-            <div class="mmd-about-cta__actions">
-                <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collectibles', 'dawp'); ?></a>
-                <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('View FAQs', 'dawp'); ?></a>
+            <div class="bgs-page__hero-media">
+                <?php echo bgs_page_image('21.png', __('Colorful collectible display pieces in a clean studio scene.', 'dawp'), 'bgs-page__image', 'eager', '(max-width: 899px) 100vw, 58vw', 1320, 1060); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <div class="bgs-page__hero-note">
+                    <span><?php esc_html_e('Point of view', 'dawp'); ?></span>
+                    <strong><?php esc_html_e('Build. Collect. Display.', 'dawp'); ?></strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bgs-page__section bgs-page__section--paper" aria-labelledby="bgs-about-story-title">
+        <div class="bgs-page__shell bgs-page__story-grid">
+            <div class="bgs-page__story-media">
+                <?php echo bgs_page_image('22.png', __('Collector desk with display-ready builds and figures.', 'dawp'), '', 'lazy', '(max-width: 899px) 58vw, 31vw', 620, 780); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                <?php echo bgs_page_image('23.png', __('Small colorful collectible build arranged for display.', 'dawp'), '', 'lazy', '(max-width: 899px) 42vw, 20vw', 480, 480); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            </div>
+            <div>
+                <p class="bgs-page__kicker"><?php esc_html_e('Brand Story', 'dawp'); ?></p>
+                <h2 id="bgs-about-story-title"><?php esc_html_e('Made for the shelf, not the scroll.', 'dawp'); ?></h2>
+                <p class="bgs-page__copy"><?php esc_html_e('We started Brickgoshop around a simple idea: collecting should feel clear, current and fun. The store brings together building sets, art figures, blind boxes and display pieces without the crowded-marketplace noise.', 'dawp'); ?></p>
+                <p class="bgs-page__copy"><?php esc_html_e('Every page is shaped around the same rhythm: find a piece, enjoy the build, and give it a place worth seeing.', 'dawp'); ?></p>
+                <div class="bgs-page__stats" aria-label="<?php esc_attr_e('Brickgoshop focus areas', 'dawp'); ?>">
+                    <div class="bgs-page__stat"><span><?php esc_html_e('01', 'dawp'); ?></span><strong><?php esc_html_e('Build', 'dawp'); ?></strong></div>
+                    <div class="bgs-page__stat"><span><?php esc_html_e('02', 'dawp'); ?></span><strong><?php esc_html_e('Collect', 'dawp'); ?></strong></div>
+                    <div class="bgs-page__stat"><span><?php esc_html_e('03', 'dawp'); ?></span><strong><?php esc_html_e('Display', 'dawp'); ?></strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bgs-page__section" aria-labelledby="bgs-about-philosophy-title">
+        <div class="bgs-page__shell">
+            <div class="bgs-page__section-head">
+                <p class="bgs-page__kicker"><?php esc_html_e('Philosophy', 'dawp'); ?></p>
+                <h2 id="bgs-about-philosophy-title"><?php esc_html_e('Built around modern collecting rituals.', 'dawp'); ?></h2>
+            </div>
+            <div class="bgs-page__grid">
+                <?php foreach ($philosophy as $item) : ?>
+                    <article class="bgs-page__card">
+                        <span><?php echo esc_html($item['title']); ?></span>
+                        <h3><?php echo esc_html($item['title']); ?></h3>
+                        <p><?php echo esc_html($item['copy']); ?></p>
+                    </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="bgs-page__band" aria-labelledby="bgs-about-why-title">
+        <div class="bgs-page__shell bgs-page__band-grid">
+            <div>
+                <p class="bgs-page__kicker"><?php esc_html_e('Why Brickgoshop', 'dawp'); ?></p>
+                <h2 id="bgs-about-why-title"><?php esc_html_e('Focused, visual and collector-friendly.', 'dawp'); ?></h2>
+                <ul class="bgs-page__checklist">
+                    <?php foreach ($reasons as $reason) : ?>
+                        <li><?php echo esc_html($reason); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+            <div class="bgs-page__band-media">
+                <?php echo bgs_page_image('24.png', __('Graphic collectible display with violet lighting and clean negative space.', 'dawp'), 'bgs-page__image', 'lazy', '(max-width: 899px) 100vw, 48vw', 980, 980); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            </div>
+        </div>
+    </section>
+
+    <section class="bgs-page__cta" aria-labelledby="bgs-about-cta-title">
+        <div class="bgs-page__shell bgs-page__cta-grid">
+            <div>
+                <p class="bgs-page__kicker"><?php esc_html_e('Stay Curious', 'dawp'); ?></p>
+                <h2 id="bgs-about-cta-title"><?php esc_html_e('Find your next display piece.', 'dawp'); ?></h2>
+                <p class="bgs-page__copy"><?php esc_html_e('Browse fresh collectibles selected for modern shelves, desks and creative spaces.', 'dawp'); ?></p>
+            </div>
+            <div class="bgs-page__actions bgs-page__cta-actions">
+                <a class="bgs-page__btn bgs-page__btn--lime" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collectibles', 'dawp'); ?><span aria-hidden="true">-&gt;</span></a>
+                <a class="bgs-page__btn bgs-page__btn--ghost" href="<?php echo esc_url($faq_url); ?>"><?php esc_html_e('View FAQs', 'dawp'); ?></a>
             </div>
         </div>
     </section>

@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQs page for Brickgo.com.
+ * FAQs page for Brickgoshop.
  *
  * @package dawp
  */
@@ -9,11 +9,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
-$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'Brickgo.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
+$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgoshop.com';
 $support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
-$support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
-$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
+$support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
+$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
@@ -21,36 +21,16 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$shipping_url = home_url('/shipping-policy/');
-$returns_url  = home_url('/return-refund-policy/');
-$privacy_url  = home_url('/privacy-policy/');
-$terms_url    = home_url('/terms-conditions/');
-$track_url    = home_url('/track-order/');
 $contact_url  = home_url('/contact-us/');
 $last_updated = __('May 29, 2026', 'dawp');
-
-$policy_highlights = [
-    [
-        'title' => __('Free U.S. Shipping', 'dawp'),
-        'copy'  => __('Standard shipping is free nationwide within the United States, with no minimum purchase requirement.', 'dawp'),
-    ],
-    [
-        'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unused items may be returned within 30 days of documented delivery.', 'dawp'),
-    ],
-    [
-        'title' => __('Secure Checkout', 'dawp'),
-        'copy'  => __('Payments are processed through encrypted checkout and certified third-party payment gateways.', 'dawp'),
-    ],
-];
 
 $faq_groups = [
     [
         'label' => __('Orders & Shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('Where does Brickgo.com ship?', 'dawp'),
-                'answer'   => __('Brickgo.com currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+                'question' => __('Where does Brickgoshop ship?', 'dawp'),
+                'answer'   => __('Brickgoshop currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
             ],
             [
                 'question' => __('How much does shipping cost?', 'dawp'),
@@ -99,11 +79,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('Brickgo.com covers return shipping for defective, damaged, or incorrect products. For customer remorse, the actual prepaid label cost is deducted from your final refund amount.', 'dawp'),
+                'answer'   => __('Brickgoshop covers return shipping for defective, damaged, or incorrect products. For customer remorse, the actual prepaid label cost is deducted from your final refund amount.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
-                'answer'   => __('No. Brickgo.com does not charge restocking fees for eligible returns.', 'dawp'),
+                'answer'   => __('No. Brickgoshop does not charge restocking fees for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('Do you offer exchanges?', 'dawp'),
@@ -127,8 +107,8 @@ $faq_groups = [
         'label' => __('Products & Store', 'dawp'),
         'items' => [
             [
-                'question' => __('What does Brickgo.com sell?', 'dawp'),
-                'answer'   => __('Brickgo.com focuses on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
+                'question' => __('What does Brickgoshop sell?', 'dawp'),
+                'answer'   => __('Brickgoshop focuses on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
@@ -136,7 +116,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
-                'answer'   => __('No. Brickgo.com does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+                'answer'   => __('No. Brickgoshop does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),
@@ -156,8 +136,8 @@ $faq_groups = [
                 'answer'   => __('Yes. Checkout transactions are executed over an encrypted SSL connection and payment processing is handled by certified third-party payment gateways that follow PCI-DSS standards.', 'dawp'),
             ],
             [
-                'question' => __('Does Brickgo.com store my full credit card number?', 'dawp'),
-                'answer'   => __('No. Brickgo.com does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+                'question' => __('Does Brickgoshop store my full credit card number?', 'dawp'),
+                'answer'   => __('No. Brickgoshop does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             ],
             [
                 'question' => __('How is my information used?', 'dawp'),
@@ -168,7 +148,7 @@ $faq_groups = [
                 'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain. Submit privacy requests through support.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact Brickgo.com?', 'dawp'),
+                'question' => __('How do I contact Brickgoshop?', 'dawp'),
                 'answer'   => sprintf(
                     /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
                     __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
@@ -182,33 +162,6 @@ $faq_groups = [
     ],
 ];
 
-$quick_links = [
-    [
-        'title' => __('Track Order', 'dawp'),
-        'copy'  => __('Check shipment status after your tracking email arrives.', 'dawp'),
-        'url'   => $track_url,
-    ],
-    [
-        'title' => __('Shipping Policy', 'dawp'),
-        'copy'  => __('Review U.S. shipping scope, free standard shipping, handling, transit, carriers, and tracking.', 'dawp'),
-        'url'   => $shipping_url,
-    ],
-    [
-        'title' => __('Return & Refund Policy', 'dawp'),
-        'copy'  => __('Review eligibility, return shipping fees, RMA steps, refund timing, and non-returnable items.', 'dawp'),
-        'url'   => $returns_url,
-    ],
-    [
-        'title' => __('Privacy Policy', 'dawp'),
-        'copy'  => __('Learn how customer information, cookies, payment security, retention, and privacy requests are handled.', 'dawp'),
-        'url'   => $privacy_url,
-    ],
-    [
-        'title' => __('Terms & Conditions', 'dawp'),
-        'copy'  => __('Read the store terms covering website use, orders, payments, policies, and limitations.', 'dawp'),
-        'url'   => $terms_url,
-    ],
-];
 ?>
 
 <div class="bg-white text-[#2B2B2B]">
@@ -216,15 +169,14 @@ $quick_links = [
         <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
             <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
             <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                <?php esc_html_e('Quick answers for collecting with Brickgo.com.', 'dawp'); ?>
+                <?php esc_html_e('Quick answers for collecting with Brickgoshop.', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#4A4A4A]">
                 <?php
                 echo esc_html(
                     sprintf(
-                        /* translators: 1: store name, 2: site domain */
-                        __('Find policy-aligned answers about orders, shipping, returns, refunds, products, privacy, and support when shopping with %1$s through %2$s.', 'dawp'),
-                        $store_name,
+                        /* translators: 1: site domain */
+                        __('Find policy-aligned answers about orders, shipping, returns, refunds, products, privacy, and support when shopping through %1$s.', 'dawp'),
                         $site_domain
                     )
                 );
@@ -237,29 +189,12 @@ $quick_links = [
         </div>
     </section>
 
-    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-labelledby="faq-content-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
-            <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                    <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
-                        <?php esc_html_e('This FAQ summarizes the current store policies. Review the full policy pages for complete details before placing an order, requesting a return, or submitting a privacy request.', 'dawp'); ?>
-                    </p>
-                    <div class="mt-6 grid gap-3">
-                        <?php foreach ($quick_links as $link) : ?>
-                            <a href="<?php echo esc_url($link['url']); ?>" class="block w-full rounded-md border border-[#E8E5DF] bg-[#FFFFFF] p-4 transition hover:border-[#D0B8AE] hover:bg-[#F8F5F0]">
-                                <span class="block font-heading text-base font-extrabold text-[#2B2B2B]"><?php echo esc_html($link['title']); ?></span>
-                                <span class="mt-2 block text-sm leading-6 text-[#4A4A4A]"><?php echo esc_html($link['copy']); ?></span>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </aside>
-
+    <section class="bg-[#FFFFFF] py-14 sm:py-20" aria-label="<?php esc_attr_e('FAQ topics', 'dawp'); ?>">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-5">
                 <?php foreach ($faq_groups as $group) : ?>
-                    <section class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
-                        <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($group['label']); ?></h2>
+                    <section class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
+                        <h3 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($group['label']); ?></h3>
                         <div class="mt-6 divide-y divide-[#E8E5DF]">
                             <?php foreach ($group['items'] as $item) : ?>
                                 <details class="group py-5 first:pt-0 last:pb-0">

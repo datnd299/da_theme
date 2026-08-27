@@ -2,7 +2,7 @@ import { execSync } from 'child_process';
 
 const builds = [
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-ship.css', content: './template-parts/page-shipping-policy.php,./template-parts/page-return-refund-policy.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-home.css', content: './template-parts/page-home.php,./template-parts/page-collections.php,./template-parts/page-new-drops.php,./template-parts/page-discover.php,./template-parts/page-drops.php' },
+  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-home.css', content: './template-parts/page-home.php,./template-parts/page-discover.php,./template-parts/page-drops.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-terms.css', content: './template-parts/page-terms-conditions.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-about.css', content: './template-parts/page-about.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-404.css', content: './404.php' },
@@ -11,7 +11,6 @@ const builds = [
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-faq.css', content: './template-parts/page-faq.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-contact.css', content: './template-parts/page-contact.php' },
   { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-track.css', content: './template-parts/page-track-order.php' },
-  { input: './assets/css/tailwind-input.css', output: './assets/css/tw/tw-culture-notes.css', content: './template-parts/page-culture-notes.php,./template-parts/page-culture-note.php' },
 ];
 
 for (const { input, output, content } of builds) {

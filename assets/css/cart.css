@@ -9,19 +9,19 @@ body.woocommerce-cart #content {
 }
 
 body.woocommerce-cart {
-  --cart-bg: #FFFFFF;
-  --cart-surface: #FFFFFF;
-  --cart-surface-soft: #f5f3ee;
-  --cart-blue-soft: #ffffff;
-  --cart-ink: #111111;
-  --cart-muted: #686868;
-  --cart-border: #deddd8;
-  --cart-blue: #3c6eff;
-  --cart-blue-hover: #111111;
-  --cart-yellow: #ffd83d;
-  --cart-alert: #ff4b3e;
-  --cart-shadow: 0 12px 28px rgba(43, 43, 43, 0.08);
-  --cart-focus: 0 0 0 3px rgba(164, 90, 63, 0.16);
+  --cart-bg: var(--bgs-cloud-cream, #F7F8F4);
+  --cart-surface: var(--bgs-paper, #FFFFFF);
+  --cart-surface-soft: var(--bgs-cloud-cream, #F7F8F4);
+  --cart-blue-soft: var(--bgs-ice-blue, #D8F3FF);
+  --cart-ink: var(--bgs-ink, #16131F);
+  --cart-muted: var(--bgs-muted, #625E68);
+  --cart-border: var(--bgs-line, rgba(22, 19, 31, 0.13));
+  --cart-blue: var(--bgs-electric-violet, #5E46E8);
+  --cart-blue-hover: var(--bgs-ink, #16131F);
+  --cart-yellow: var(--bgs-acid-lime, #D6FF57);
+  --cart-alert: var(--bgs-coral, #FF776D);
+  --cart-shadow: 0 12px 28px rgba(22, 19, 31, 0.08);
+  --cart-focus: var(--bgs-focus, 0 0 0 3px rgba(94, 70, 232, 0.18));
 }
 
 /* === 1. PAGE WRAPPER === */

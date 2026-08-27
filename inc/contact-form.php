@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form handling for Brickgo.com.
+ * Contact form handling for Brickgoshop.
  *
  * @package dawp
  */
@@ -123,7 +123,7 @@ function dawp_handle_contact_form() {
     }
 
     $support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
-    $subject       = sprintf('[Brickgo.com] %s', $topic_label);
+    $subject       = sprintf('[Brickgoshop] %s', $topic_label);
     $body          = sprintf(
         "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
         $name,

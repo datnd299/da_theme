@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page for Brickgo.com.
+ * Track order page for Brickgoshop.
  *
  * @package dawp
  */
@@ -40,7 +40,7 @@ $policy_links = [
                 <p class="track-eyebrow"><?php esc_html_e('Order Tracking', 'dawp'); ?></p>
                 <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Enter your order ID and billing email to check the latest status for your Brickgo.com purchase.', 'dawp'); ?>
+                    <?php esc_html_e('Enter your order ID and billing email to check the latest status for your Brickgoshop purchase.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a href="#track-order-form" class="track-button track-button--primary"><?php esc_html_e('Check Order Status', 'dawp'); ?></a>

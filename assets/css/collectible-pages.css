@@ -1,17 +1,17 @@
 /* Shared editorial page layer for footer-linked pages. */
 :root {
-  --collect-bg: #f5f3ee;
-  --collect-surface: #ffffff;
-  --collect-ink: #111111;
-  --collect-muted: #686868;
-  --collect-border: #deddd8;
-  --collect-blue: #3c6eff;
-  --collect-yellow: #ffd83d;
-  --collect-red: #ff4b3e;
-  --collect-green: #47c878;
+  --collect-bg: var(--bgs-cloud-cream, #F7F8F4);
+  --collect-surface: var(--bgs-paper, #FFFFFF);
+  --collect-ink: var(--bgs-ink, #16131F);
+  --collect-muted: var(--bgs-muted, #625E68);
+  --collect-border: var(--bgs-line, rgba(22, 19, 31, 0.13));
+  --collect-blue: var(--bgs-electric-violet, #5E46E8);
+  --collect-yellow: var(--bgs-acid-lime, #D6FF57);
+  --collect-red: var(--bgs-coral, #FF776D);
+  --collect-green: var(--bgs-ice-blue, #D8F3FF);
 }
 
-.virtual-page:not(.virtual-page--culture-notes):not(.virtual-page--culture-note),
+.virtual-page,
 body.woocommerce-cart,
 body.woocommerce-checkout,
 body.woocommerce-account {
@@ -20,10 +20,10 @@ body.woocommerce-account {
   font-family: var(--font-sans);
 }
 
-.virtual-page:not(.virtual-page--culture-notes):not(.virtual-page--culture-note) :is(h1, h2, h3),
-body.woocommerce-cart :is(h1, h2, h3),
-body.woocommerce-checkout :is(h1, h2, h3),
-body.woocommerce-account :is(h1, h2, h3) {
+.virtual-page :is(h1, h2, h3),
+body.woocommerce-cart #content :is(h1, h2, h3),
+body.woocommerce-checkout #content :is(h1, h2, h3),
+body.woocommerce-account #content :is(h1, h2, h3) {
   color: var(--collect-ink);
   font-family: var(--font-heading);
   font-weight: 900;
@@ -118,7 +118,7 @@ body.woocommerce-account :is(h1, h2, h3) {
   --track-rose-dark: var(--collect-ink);
   --track-rose-muted: var(--collect-blue);
   --track-yellow: var(--collect-yellow);
-  --track-blush: #eef1ff;
+  --track-blush: var(--bgs-ice-blue, #D8F3FF);
   --track-cream: var(--collect-bg);
   --track-paper: var(--collect-bg);
   --track-border: var(--collect-border);

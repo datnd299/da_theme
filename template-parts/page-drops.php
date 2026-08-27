@@ -3,13 +3,14 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$new_url = home_url('/new-drops/');
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$shop_url = $shop_url ?: home_url('/shop/');
 $drops_image = static function ($file, $alt, $loading = 'lazy', $sizes = '100vw') {
     if (function_exists('dawp_get_home_responsive_image')) {
         return dawp_get_home_responsive_image($file, $alt, '', $loading, $sizes);
     }
 
-    return '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/homepage/brickgo/' . $file) . '" alt="' . esc_attr($alt) . '" loading="' . esc_attr($loading) . '" decoding="async">';
+    return '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/home/' . $file) . '" alt="' . esc_attr($alt) . '" loading="' . esc_attr($loading) . '" decoding="async">';
 };
 $latest_products = new WP_Query([
     'post_type'           => 'product',
@@ -27,12 +28,12 @@ $latest_products = new WP_Query([
             <h2 id="drops-title"><?php esc_html_e('GET THE DROP.', 'dawp'); ?></h2>
             <p><?php esc_html_e('Release energy without the noise. Follow the latest published products and keep an eye on the next collectible edit.', 'dawp'); ?></p>
             <div class="home-actions">
-                <a class="home-btn home-btn--dark" href="<?php echo esc_url($new_url); ?>"><?php esc_html_e('Shop New Drops', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
-                <a class="home-btn home-btn--light" href="<?php echo esc_url(home_url('/collections/')); ?>"><?php esc_html_e('Explore Collections', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
+                <a class="home-btn home-btn--dark" href="<?php echo esc_url(add_query_arg('orderby', 'date', $shop_url)); ?>"><?php esc_html_e('Shop New Arrivals', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
+                <a class="home-btn home-btn--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop All', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
             </div>
         </div>
         <div class="home-drop__media">
-            <?php echo $drops_image('19.png', __('Colorful limited collectible tower staged for an upcoming drop', 'dawp'), 'eager', '(min-width: 900px) 40vw, 100vw'); ?>
+            <?php echo $drops_image('30.png', __('Colorful limited collectible tower staged for an upcoming drop', 'dawp'), 'eager', '(min-width: 900px) 40vw, 100vw'); ?>
         </div>
     </div>
 </section>
@@ -43,7 +44,7 @@ $latest_products = new WP_Query([
                 <p class="home-kicker"><?php esc_html_e('Recently released', 'dawp'); ?></p>
                 <h2 id="drops-latest-title"><?php esc_html_e('LATEST DROPS.', 'dawp'); ?></h2>
             </div>
-            <a class="home-text-link" href="<?php echo esc_url($new_url); ?>"><?php esc_html_e('View all', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
+            <a class="home-text-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View all', 'dawp'); ?><span aria-hidden="true">&rarr;</span></a>
         </div>
         <?php if ($latest_products->have_posts()) : ?>
             <div class="home-product-row">

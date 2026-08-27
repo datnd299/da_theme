@@ -11,7 +11,7 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
     </button>
 </div>
 <div class="shop-sidebar__widget">
-    <h3 class="shop-sidebar__title"><?php esc_html_e('Curated Collections', 'dawp'); ?></h3>
+    <h3 class="shop-sidebar__title"><?php esc_html_e('Shop Categories', 'dawp'); ?></h3>
     <ul class="shop-sidebar__categories">
         <?php foreach ($categories as $cat) : ?>
             <li>

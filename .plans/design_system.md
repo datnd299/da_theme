@@ -1,571 +1,172 @@
-# DESIGN-SYSTEM.MD
+# DESIGN-SYSTEM.MD — BRICKGOSHOP
 
-## 1. Design Direction
+## Direction
 
 Style:
-Modern × Playful × Collectible × Editorial.
 
-Website should feel like a modern collectible culture store,
-not a children's toy shop.
+**Digital Pop × Neo-Collectible × Youth Culture × Minimal**
 
-Core rule:
+Personality:
 
-PRODUCTS PROVIDE THE COLOR.
-UI PROVIDES THE STRUCTURE.
+**Young / Bold / Fresh / Creative / Unconventional**
 
----
+Keep layouts clean and spacious while using color to create personality.
 
-## 2. Visual Personality
-
-Use:
-- Bold typography
-- Large product imagery
-- Spacious layout
-- Clean grid
-- Strong editorial sections
-- Subtle playful interactions
-
-Avoid:
-- Childish design
-- Too many colors
-- Heavy gradients
-- Excessive shadows
-- Over-rounded UI
-- Too much animation
+Avoid childish toy-store styling, rainbow palettes, heavy gradients and clutter.
 
 ---
 
-## 3. Colors
+## Signature Colors
 
-Background:
-#F5F3EE
+**Cloud Cream** — `#F4F1EA`
+Main background.
 
-Surface:
-#FFFFFF
+**Ink** — `#17151C`
+Primary text / dark UI.
 
-Primary text:
-#111111
+**Electric Violet** — `#7357FF`
+Primary brand accent.
 
-Secondary text:
-#686868
+**Acid Lime** — `#C8FF3D`
+High-energy highlight / CTA accent.
 
-Border:
-#DEDDD8
+**Hot Coral** — `#FF6257`
+Drops / promotional moments.
 
-Accent colors:
+**Ice Blue** — `#BDEBFF`
+Soft secondary sections.
 
-Yellow:
-#FFD83D
+Use **Violet as the signature color** and Lime/Coral only as controlled highlights.
 
-Red:
-#FF4B3E
-
-Blue:
-#3C6EFF
-
-Green:
-#47C878
-
-Use only one strong accent per section.
+Never use all accent colors equally in one section.
 
 ---
 
-## 4. Typography
-
-Primary font:
-
-Geist
-
-Alternative:
-
-Space Grotesk
-
-Typography style:
-
-Bold
-Modern
-Direct
-Editorial
-
-Hero:
-64–96px
-
-H1:
-56–64px
-
-H2:
-40–48px
-
-H3:
-28–32px
-
-Body:
-16–18px
-
-Small text:
-12–14px
-
-Use tight line-height for headlines.
-
----
-
-## 5. Layout
-
-Max width:
-
-1360px
-
-Desktop padding:
-
-40–64px
-
-Tablet:
-
-24–32px
-
-Mobile:
-
-16–20px
-
-Desktop grid:
-
-12 columns
-
-Product grid:
-
-Desktop:
-4 columns
-
-Tablet:
-3 columns
-
-Mobile:
-2 columns
-
-Section spacing:
-
-Desktop:
-96–160px
-
-Mobile:
-64–96px
-
----
-
-## 6. Border Radius
-
-Small UI:
-6px
-
-Buttons:
-8px
-
-Cards:
-10–14px
-
-Large editorial blocks:
-16–20px
-
-Avoid excessive pill shapes.
-
----
-
-## 7. Buttons
+## Typography
 
 Primary:
 
-Black background
-White text
-48–56px height
-8px radius
-
-Secondary:
-
-Transparent
-Black border
-
-Hover:
-
-Subtle color transition
-Small arrow movement
-
-Avoid dramatic animation.
-
----
-
-## 8. Header
-
-Height:
-
-72–80px
-
-Use sticky navigation.
-
-Layout:
-
-Logo
-Navigation
-Search
-Account
-Wishlist
-Bag
-
-Keep header minimal.
-
----
-
-## 9. Hero
-
-Hero should use:
-
-Large editorial image
-Bold headline
-Short supporting text
-1 main CTA
-
-Hero height:
-
-75–90vh desktop
-
-65–80vh mobile
-
-Example:
-
-BUILT TO COLLECT.
-
----
-
-## 10. Product Cards
-
-Structure:
-
-Image
-Category
-Product Name
-Price
-Optional badge
-Wishlist
-
-Product image should dominate the card.
-
-Avoid heavy borders and shadows.
-
-Hover:
-
-Small image zoom
-or alternate image.
-
----
-
-## 11. Product Image
-
-Recommended ratio:
-
-1:1
-
-or
-
-4:5
-
-Background:
-
-Soft neutral color.
-
-Product should occupy:
-
-75–90% of image area.
-
----
-
-## 12. Product Badges
-
-Use small badges only when necessary:
-
-NEW
-
-LIMITED
-
-LOW STOCK
-
-COMING SOON
-
-Keep badge style simple.
-
----
-
-## 13. Editorial Sections
-
-Use layouts such as:
-
-Image + Text
-
-Text + Image
-
-Full-width image
-
-Color block
-
-Asymmetric grid
-
-Editorial sections should break the rhythm of product grids.
-
----
-
-## 14. Collection Cards
-
-Use large images.
-
-Keep text short.
-
-Structure:
-
-Label
-Large Title
-CTA
-
-Examples:
-
-FOR YOUR DESK
-
-SHELF ICONS
-
-BIG BUILDS
-
----
-
-## 15. Drop Sections
-
-Drops should feel more energetic.
+**Space Grotesk / Geist**
 
 Use:
 
-Large product image
-Drop number
-Release date
-Countdown
-CTA
+* Oversized bold headlines
+* Clean medium-weight body text
+* Short copy
+* Strong contrast between display and UI text
 
-Example:
-
-DROP 024
-
-04D : 12H : 08M
+Typography should feel youthful and editorial, never cartoonish.
 
 ---
 
-## 16. Product Detail Page
+## Layout
 
-Desktop layout:
-
-60% product gallery
-
-40% product information
-
-Use sticky product information.
-
-Content:
-
-Category
-Name
-Price
-Variant
-Quantity
-Add to Bag
-Wishlist
-Details
-
-Mobile:
-
-Gallery first
-Sticky Add to Bag.
-
----
-
-## 17. Search
-
-Use a large search overlay.
-
-Show:
-
-Products
-Categories
-Collections
-Stories
-
-Search should feel fast and visual.
-
----
-
-## 18. Filters
-
-Desktop:
-
-Left sidebar.
-
-Mobile:
-
-Filter drawer.
-
-Main filters:
-
-Category
-Price
-Availability
-Size
-Color
-Theme
-Edition
-
-Keep controls minimal.
-
----
-
-## 19. Icons
-
-Use simple outline icons.
-
-Recommended style:
-
-Lucide-like.
-
-Icons:
-
-Search
-User
-Heart
-Bag
-Arrow
-Filter
-Plus
-Minus
-Close
-
----
-
-## 20. Motion
-
-Motion should be:
-
-Fast
-Smooth
-Subtle
-
-Default duration:
-
-200–350ms
-
-Allowed:
-
-Image zoom
-Fade
-Arrow movement
-Underline reveal
-
-Avoid:
-
-Heavy parallax
-Large rotations
-Floating objects
-Long transitions
-
----
-
-## 21. Mobile
-
-Mobile-first principles:
-
-2-column product grid
-
-Swipeable carousel
-
-Full-screen navigation
-
-Filter drawer
-
-Sticky Add to Bag
-
-Large touch targets
-
-Do not simply shrink desktop layouts.
-
----
-
-## 22. Photography
+Max width: `1360px`
 
 Use:
 
-Clean product photography
+* Strong grid
+* Generous whitespace
+* Clear hierarchy
+* Occasional asymmetric compositions
+* Large product imagery
 
-Studio compositions
+Product grid:
 
-Desk displays
+Desktop `4 columns`
+Tablet `3 columns`
+Mobile `2 columns`
 
-Shelf displays
-
-Modern interiors
-
-Gallery-inspired setups
-
-Avoid generic stock photography.
-
----
-
-## 23. Copy Style
-
-Copy should be:
-
-Short
-Bold
-Modern
-Playful
-
-Examples:
-
-BUILT TO COLLECT.
-
-JUST DROPPED.
-
-MAKE ROOM.
-
-GET THE DROP.
-
-YOUR SHELF NEEDS THIS.
+**Interesting color, simple layout.**
 
 ---
 
-## 24. Accessibility
+## UI Style
 
-Maintain:
+Cards:
 
-Strong contrast
-44px+ touch targets
-Keyboard navigation
-Focus states
-Alt text
-Reduced-motion support
+* Minimal
+* Soft `8–12px` radius
+* No heavy shadows
+* Large imagery
+* Plenty of breathing room
+
+Buttons:
+
+* Bold and compact
+* Ink or Electric Violet primary
+* Acid Lime for special/high-energy CTA
+* Fast, subtle hover states
+
+Borders:
+Thin and understated.
 
 ---
 
-## 25. Final Rule
+## Visual Identity
 
-The interface should never compete with the product.
+Use unexpected color-block sections to create recognition:
 
-Priority:
+**Cream + Violet**
+**Ink + Acid Lime**
+**Violet + Ice Blue**
+**Coral + Cream**
 
-PRODUCT
-→
-IMAGE
-→
-TYPOGRAPHY
-→
-CTA
-→
-DETAILS
+Do not make every section colorful.
 
-Final style:
+Neutral sections between bold sections create rhythm.
 
-CLEAN
-BOLD
-PLAYFUL
-EDITORIAL
-COLLECTIBLE
+---
+
+## Imagery
+
+Photography should feel:
+
+**Studio / Creative / Youthful / Graphic / Collectible**
+
+Use colorful products against simple environments.
+
+Avoid generic stock photography and childish backgrounds.
+
+---
+
+## Motion
+
+Fast and playful but controlled:
+
+* Image swap
+* Small zoom
+* Text/arrow movement
+* Color transitions
+* Subtle reveal
+
+`200–350ms`
+
+No excessive parallax or gimmicks.
+
+---
+
+## Mobile
+
+Prioritize:
+
+* Clean navigation
+* 2-column products
+* Swipeable collections
+* Large touch targets
+* Strong typography
+* Sticky commerce actions
+
+Keep colorful sections especially controlled on small screens.
+
+---
+
+## Core Rule
+
+**COLOR CREATES ATTITUDE.
+WHITESPACE CREATES QUALITY.
+PRODUCTS REMAIN THE HERO.**
+
+BrickGoShop should feel instantly recognizable:
+
+**YOUNG. DIGITAL. BOLD. CLEAN. UNEXPECTED.**

@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for Brickgo.com.
+ * Product category defaults for Brickgoshop.
  *
  * @package dawp
  */
@@ -30,26 +30,6 @@ function dawp_lbq_product_categories() {
             'name'        => __('Blind Boxes', 'dawp'),
             'description' => __('Mystery collectibles, small series and surprise mini releases.', 'dawp'),
             'short'       => __('Small surprises for repeat discovery.', 'dawp'),
-        ],
-        'mini-figures' => [
-            'name'        => __('Mini Figures', 'dawp'),
-            'description' => __('Small collectible characters, display figures and tiny shelf pieces.', 'dawp'),
-            'short'       => __('Tiny pieces with a lot of personality.', 'dawp'),
-        ],
-        'display-collectibles' => [
-            'name'        => __('Display Collectibles', 'dawp'),
-            'description' => __('Decorative pieces designed for shelves, desks and interior displays.', 'dawp'),
-            'short'       => __('Objects that earn the visible spot.', 'dawp'),
-        ],
-        'accessories' => [
-            'name'        => __('Accessories', 'dawp'),
-            'description' => __('Display cases, stands, storage, lighting and collector-friendly extras.', 'dawp'),
-            'short'       => __('Tools for protecting and showing the collection.', 'dawp'),
-        ],
-        'gift-ideas' => [
-            'name'        => __('Gift Ideas', 'dawp'),
-            'description' => __('Giftable collectibles for new collectors, display lovers and builders.', 'dawp'),
-            'short'       => __('Easy wins for collector gifting.', 'dawp'),
         ],
     ];
 }
@@ -86,10 +66,10 @@ function dawp_lbq_legacy_product_category_slug_map() {
         'garden-tools'               => 'art-figures',
         'electronics'                => 'designer-toys',
         'sports-outdoors'            => 'blind-boxes',
-        'toys-outdoor-play'          => 'mini-figures',
-        'beauty-personal-care'       => 'display-collectibles',
-        'pets'                       => 'accessories',
-        'school-office-art-supplies' => 'gift-ideas',
+        'toys-outdoor-play'          => 'building-sets',
+        'beauty-personal-care'       => 'art-figures',
+        'pets'                       => 'designer-toys',
+        'school-office-art-supplies' => 'blind-boxes',
     ];
 }
 

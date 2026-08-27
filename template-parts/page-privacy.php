@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy policy page for Brickgo.com.
+ * Privacy policy page for Brickgoshop.
  *
  * @package dawp
  */
@@ -9,11 +9,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
-$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgo.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
+$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgoshop.com';
 $support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
-$support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
-$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
+$support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
+$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
@@ -28,7 +28,7 @@ $information_collected = [
     ],
     [
         'title' => __('Information Collected Automatically', 'dawp'),
-        'copy'  => __('Whenever you navigate through Brickgo.com, our servers automatically log technical session details, including:', 'dawp'),
+        'copy'  => __('Whenever you navigate through Brickgoshop, our servers automatically log technical session details, including:', 'dawp'),
         'items' => [
             __('Your IP address, web browser type and version, language preferences, operating system, and referring/exit pages.', 'dawp'),
             __('Approximate geographic location derived from network signals.', 'dawp'),
@@ -57,7 +57,7 @@ $sharing_partners = [
     ],
     [
         'title' => __('Legal & Regulatory Demands', 'dawp'),
-        'copy'  => __('We may disclose your data if required by law to comply with applicable federal/state laws, tax audits, court subpoenas, or to defend the safety, legal rights, and property of Brickgo.com, our staff, and our consumers.', 'dawp'),
+        'copy'  => __('We may disclose your data if required by law to comply with applicable federal/state laws, tax audits, court subpoenas, or to defend the safety, legal rights, and property of Brickgoshop, our staff, and our consumers.', 'dawp'),
     ],
 ];
 
@@ -65,7 +65,7 @@ $privacy_rights = [
     __('Right to Access / Know: Request disclosure of what personal data we have collected, used, or shared about you.', 'dawp'),
     __('Right to Delete: Request the permanent removal of your personal profile and data from our active directories, subject to statutory retention requirements.', 'dawp'),
     __('Right to Correct / Rectify: Request rectification of inaccurate or outdated account records.', 'dawp'),
-    __('Right to Opt-Out: Opt out of the sale or sharing of personal information (Note: Brickgo.com does not sell personal data).', 'dawp'),
+    __('Right to Opt-Out: Opt out of the sale or sharing of personal information (Note: Brickgoshop does not sell personal data).', 'dawp'),
 ];
 
 $contact_details = [
@@ -111,7 +111,7 @@ $sections = [
     [
         'title' => __('3. Cookies, Pixels, and Tracking Technologies', 'dawp'),
         'copy'  => [
-            __('Brickgo.com utilizes functional, analytical, and advertising cookies--small data files stored on your local device--to maintain essential online store capabilities and enhance your experience.', 'dawp'),
+            __('Brickgoshop utilizes functional, analytical, and advertising cookies--small data files stored on your local device--to maintain essential online store capabilities and enhance your experience.', 'dawp'),
             __('Essential Cookies: Maintain core shopping functionality, remember shopping cart contents across sessions, and preserve secure account logins.', 'dawp'),
             __('Analytics Cookies: Gather aggregated, anonymous traffic insights via tools such as Google Analytics to help us understand how visitors interact with the site.', 'dawp'),
             __('Advertising & Marketing Pixels: We may utilize tracking technologies (such as Google Ads Remarketing or Meta Pixels) to serve personalized, relevant advertisements to you on third-party websites based on your prior visits to our site.', 'dawp'),
@@ -128,7 +128,7 @@ $sections = [
     [
         'title' => __('5. Secure Payments & Data Encryption', 'dawp'),
         'copy'  => [
-            __('Your financial safety is our highest priority. Brickgo.com does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+            __('Your financial safety is our highest priority. Brickgoshop does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             __('All checkout transactions are executed over a fully secure, encrypted SSL (Secure Sockets Layer) connection using industry-standard 256-bit encryption.', 'dawp'),
             __('Financial data processing is handled entirely by certified third-party payment gateways (e.g., Stripe, PayPal) that strictly comply with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
         ],
@@ -151,20 +151,20 @@ $sections = [
     [
         'title' => __('8. Children\'s Privacy', 'dawp'),
         'copy'  => [
-            __('Brickgo.com is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority in their jurisdiction. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If you believe that a minor under 13 has provided us with personal data, please contact us immediately, and we will promptly purge such information from our records.', 'dawp'),
+            __('Brickgoshop is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority in their jurisdiction. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If you believe that a minor under 13 has provided us with personal data, please contact us immediately, and we will promptly purge such information from our records.', 'dawp'),
         ],
     ],
 ];
 
 ?>
 
-<div class="bg-white text-[#2B2B2B]">
-    <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="privacy-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
+<div class="bgs-policy bg-white text-[#2B2B2B]">
+    <section class="bgs-policy__hero bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="privacy-title">
+        <div class="bgs-policy__shell mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
+                <p class="bgs-policy-kicker text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
                 <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('How Brickgo.com protects customer information.', 'dawp'); ?>
+                    <?php esc_html_e('How Brickgoshop protects customer information.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php
@@ -180,26 +180,15 @@ $sections = [
                 </p>
             </div>
 
-            <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+            <div class="bgs-policy-meta rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                <p class="bgs-policy-kicker text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
                 <p class="mt-3 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
-                <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
-                    <?php esc_html_e('For privacy questions, account data requests, or data-removal inquiries, contact our support team through our official channels.', 'dawp'); ?>
-                </p>
-                <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-6 text-sm font-bold text-white transition hover:bg-[#7F422F]">
-                        <?php esc_html_e('Contact Us', 'dawp'); ?>
-                    </a>
-                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-6 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
-                        <?php echo esc_html($support_email); ?>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#FFFFFF] py-12 sm:py-16" aria-labelledby="privacy-content-title">
-        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <section class="bgs-policy__content bg-[#FFFFFF] py-12 sm:py-16" aria-labelledby="privacy-content-title">
+        <div class="bgs-policy__shell mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <h2 id="privacy-content-title" class="sr-only"><?php esc_html_e('Privacy Policy Details', 'dawp'); ?></h2>
             <div class="grid gap-4">
                 <?php foreach ($sections as $section) : ?>

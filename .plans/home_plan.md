@@ -1,289 +1,152 @@
-# HOMEPLAN.MD
+# HOMEPLAN.MD — BRICKGOSHOP
 
-## 1. Homepage Goal
+## Goal
 
-Build a modern collectible ecommerce homepage.
+Create a bold, modern and premium homepage for young collectors.
 
 Style:
 
-**Modern × Playful × Editorial × Collectible**
+**Youthful × Clean × Editorial × Collectible**
 
-Core message:
-
-**BUILD. COLLECT. DISPLAY.**
-
-Keep all demo content brand-neutral.
-Do not use third-party logos, trademarks, franchises, or recognizable characters.
+Keep the layout visually exciting but easy to browse.
 
 ---
 
-## 2. Homepage Structure
+## Homepage Structure
 
-1. Announcement Bar
-2. Header
-3. Hero
-4. Shop by Category
-5. New Drops
-6. Editorial Feature
-7. Trending Products
-8. Collections
-9. Upcoming Drop
-10. Collector's Picks
-11. Stories
-12. Newsletter
-13. Footer
+### 1. Header
 
-Alternate between product and editorial sections to avoid repetitive grids.
+Minimal sticky header.
+
+Logo / Shop / New Drops / Collections / Culture Notes / Search / Account / Wishlist / Cart
 
 ---
 
-## 3. Header
+### 2. Hero
 
-Sticky minimal header.
-
-**Left:** Logo
-
-**Center:**
-Shop / New Drops / Collections / Discover / Stories
-
-**Right:**
-Search / Account / Wishlist / Bag
-
-Shop opens a clean mega menu with categories, collections, and one featured visual.
-
----
-
-## 4. Hero
-
-Large editorial hero occupying around 80–90vh.
-
-Use an original collectible product composition with a clean studio-style background.
+Large campaign-style visual with strong product photography.
 
 **Headline:**
 
-# BUILT TO COLLECT.
+# COLLECT DIFFERENT.
 
-Creative objects for building, collecting, and displaying.
-
-**CTA:** SHOP NEW DROPS →
-
-Secondary CTA: EXPLORE COLLECTIONS →
-
-Keep the hero bold and minimal.
-
----
-
-## 5. Shop by Category
-
-Headline:
-
-# FIND YOUR THING.
-
-Four large visual cards:
-
-**BUILD**
-Building Sets
-
-**COLLECT**
-Art Figures
-
-**DISCOVER**
-Designer Toys
-
-**UNBOX**
-Blind Boxes
-
-Desktop: editorial grid.
-
-Mobile: swipeable cards.
-
----
-
-## 6. New Drops
-
-Headline:
-
-# JUST DROPPED.
-
-Show 4–6 new products.
-
-Product cards contain:
-
-Image
-Category
-Name
-Price
-Wishlist
-Optional badge
-
-Use large product imagery and minimal UI.
-
----
-
-## 7. Editorial Feature
-
-Large image + text section.
-
-Headline:
-
-# MORE THAN A TOY.
-
-Show collectibles inside a modern desk, shelf, or interior environment.
+Short supporting copy.
 
 CTA:
+**SHOP NEW DROPS →**
 
-EXPLORE THE COLLECTION →
-
-Use one strong accent color.
+Keep it bold, clean and memorable.
 
 ---
 
-## 8. Trending Products
+### 3. Shop Categories
 
 Headline:
 
-# TRENDING NOW.
+**FIND YOUR STYLE.**
 
-Display a clean 4-column desktop product grid.
+Show main product categories using clean visual cards.
 
-Show a mix of collectible categories.
-
-Keep product photography as the main focus.
+Simple grid, minimal text, fast navigation.
 
 ---
 
-## 9. Collections
+### 4. New Drops
 
 Headline:
 
-# COLLECTIONS WORTH EXPLORING.
+**JUST DROPPED.**
 
-Use large asymmetric visual cards.
+Show 4–8 newest products dynamically from WooCommerce.
 
-Examples:
-
-FOR YOUR DESK
-SHELF ICONS
-BIG BUILDS
-SMALL OBSESSIONS
-UNDER $50
-DISPLAY WORTHY
-
-Each card links to a collection page.
+Clean product cards with strong imagery.
 
 ---
 
-## 10. Upcoming Drop
+### 5. Editorial Feature
 
-Create one bold campaign section.
+Large split-layout campaign.
 
-Content:
+Image + bold typography + short CTA.
 
-**NEXT DROP**
-
-# DROP 024
-
-Product visual
-Release date
-Countdown
-REMIND ME →
-VIEW DROP →
-
-Use a strong accent background and large typography.
+Use one strong accent color to create personality.
 
 ---
 
-## 11. Collector's Picks
+### 6. Trending
 
 Headline:
 
-# COLLECTOR'S PICKS.
+**TRENDING NOW.**
 
-Show 4–6 curated products using larger, premium-looking cards.
+Clean product grid featuring popular products.
 
-This section should feel editorial rather than promotional.
+Keep this section simple and conversion-focused.
 
 ---
 
-## 12. Stories
+### 7. Collections
 
 Headline:
 
-# STORIES FOR COLLECTORS.
+**SHOP YOUR VIBE.**
 
-Show 3 editorial articles about:
+Show curated collections using an asymmetric editorial layout.
 
-Collecting
-Displaying
-Building
-Creative culture
-
-Each card:
-
-Image / Category / Title / Read Story →
+Mix large and small cards without making the page feel crowded.
 
 ---
 
-## 13. Newsletter
+### 8. Featured Drop
 
-Dark full-width section.
+Create one bold full-width release section.
 
-# GET THE DROP.
+Product visual + release info + strong CTA.
 
-New releases, collector stories, and pieces worth discovering.
-
-Email Input + JOIN →
+Make this the most energetic section after the hero.
 
 ---
 
-## 14. Footer
+### 9. Culture Notes
 
-Columns:
+Headline:
 
-**Shop**
-**Discover**
-**Help**
-**About**
+**MORE THAN COLLECTING.**
 
-Include social links, policies, copyright, and country/currency selector.
-
-Keep the footer spacious and minimal.
+Show 3 latest Culture Notes/articles with clean editorial cards.
 
 ---
 
-## 15. Mobile
+### 10. Newsletter
 
-Prioritize:
+Dark minimal section.
 
-* Strong hero
-* 2-column product grid
-* Swipeable categories
-* Swipeable product sections
-* Full-screen menu
-* Large touch targets
-* Fast product discovery
+# STAY IN THE LOOP.
 
-Do not simply shrink the desktop layout.
+New drops. Fresh finds. No noise.
+
+Email + **JOIN →**
 
 ---
 
-## 16. Final Direction
+### 11. Footer
+
+Clean and spacious.
+
+Shop / Discover / Help / Policy / Social
+
+---
+
+## Final Direction
 
 Homepage rhythm:
 
-**HERO**
-→ **DISCOVER**
-→ **PRODUCTS**
-→ **EDITORIAL**
-→ **PRODUCTS**
-→ **COLLECTIONS**
-→ **DROP**
-→ **CULTURE**
+**HERO → DISCOVER → SHOP → EDITORIAL → SHOP → COLLECTIONS → CULTURE**
 
-Products provide the color.
+Use bold typography, strong imagery and generous whitespace.
 
-UI stays clean and neutral.
+Avoid unnecessary sections, excessive text and repetitive product grids.
 
 Final feeling:
 
-**CLEAN. BOLD. PLAYFUL. COLLECTIBLE.**
+**FRESH. BOLD. CLEAN. CULTURED.**

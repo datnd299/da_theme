@@ -1,17 +1,17 @@
 /* Checkout and thank-you pages */
 
 :root {
-    --checkout-primary: #3c6eff;
-    --checkout-primary-dark: #111111;
-    --checkout-accent: #ffd83d;
-    --checkout-bg: #f5f3ee;
-    --checkout-surface: #FFFFFF;
-    --checkout-text: #111111;
-    --checkout-muted: #686868;
-    --checkout-border: #deddd8;
-    --checkout-border-strong: #deddd8;
+    --checkout-primary: var(--bgs-electric-violet, #5E46E8);
+    --checkout-primary-dark: var(--bgs-ink, #16131F);
+    --checkout-accent: var(--bgs-acid-lime, #D6FF57);
+    --checkout-bg: var(--bgs-cloud-cream, #F7F8F4);
+    --checkout-surface: var(--bgs-paper, #FFFFFF);
+    --checkout-text: var(--bgs-ink, #16131F);
+    --checkout-muted: var(--bgs-muted, #625E68);
+    --checkout-border: var(--bgs-line, rgba(22, 19, 31, 0.13));
+    --checkout-border-strong: var(--bgs-line-strong, rgba(22, 19, 31, 0.22));
     --checkout-radius: 8px;
-    --checkout-shadow: 0 14px 34px rgba(43, 43, 43, 0.07);
+    --checkout-shadow: 0 14px 34px rgba(22, 19, 31, 0.07);
 }
 
 body.woocommerce-checkout,
@@ -756,11 +756,51 @@ body.woocommerce-checkout .woo-page *::after,
     .woocommerce-checkout .woocommerce-shipping-fields,
     .woocommerce-checkout .woocommerce-additional-fields,
     .woocommerce-checkout .woocommerce-checkout-review-order,
+    .woocommerce-checkout .woocommerce-checkout-payment,
     .woocommerce-checkout [id="order_review"],
     .woocommerce-order-received .woocommerce-order,
     .wp-block-woocommerce-checkout .wc-block-components-checkout-step,
     .wp-block-woocommerce-checkout .wp-block-woocommerce-checkout-order-summary-block {
         padding: 1rem;
+    }
+
+    .woocommerce-checkout form.checkout .woocommerce-checkout-review-order,
+    .woocommerce-checkout form.checkout [id="order_review"],
+    .wp-block-woocommerce-checkout .wc-block-components-sidebar {
+        position: static;
+        top: auto;
+    }
+
+    .woocommerce-checkout .woocommerce-checkout-payment,
+    .woocommerce-checkout .wc_payment_methods,
+    .woocommerce-checkout .woocommerce-checkout-payment ul.payment_methods,
+    .woocommerce-checkout .place-order,
+    .wp-block-woocommerce-checkout .wc-block-components-radio-control,
+    .wp-block-woocommerce-checkout .wc-block-components-payment-methods,
+    .wp-block-woocommerce-checkout .wc-block-checkout__payment-method,
+    .wp-block-woocommerce-checkout .wc-block-checkout__actions {
+        display: grid;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .woocommerce-checkout .woocommerce-checkout-payment {
+        margin-top: 1rem;
+        border-top: 1px solid var(--checkout-border);
+        background: transparent;
+    }
+
+    .woocommerce-checkout .wc_payment_method,
+    .wp-block-woocommerce-checkout .wc-block-components-radio-control__option {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .woocommerce-checkout .wc_payment_method label,
+    .wp-block-woocommerce-checkout .wc-block-components-radio-control__label,
+    .wp-block-woocommerce-checkout .wc-block-components-radio-control__description {
+        min-width: 0;
+        overflow-wrap: anywhere;
     }
 
     .wp-block-woocommerce-checkout .wc-block-components-order-summary-item {

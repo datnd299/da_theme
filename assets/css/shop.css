@@ -1,11 +1,11 @@
 :root {
-  --shop-bg: #f5f3ee;
-  --shop-surface: #ffffff;
-  --shop-text: #111111;
-  --shop-muted: #686868;
-  --shop-border: #deddd8;
-  --shop-accent: #3c6eff;
-  --shop-sale: #ff4b3e;
+  --shop-bg: var(--bgs-cloud-cream, #F7F8F4);
+  --shop-surface: var(--bgs-paper, #FFFFFF);
+  --shop-text: var(--bgs-ink, #16131F);
+  --shop-muted: var(--bgs-muted, #625E68);
+  --shop-border: var(--bgs-line, rgba(22, 19, 31, 0.13));
+  --shop-accent: var(--bgs-electric-violet, #5E46E8);
+  --shop-sale: var(--bgs-coral, #FF776D);
   --shop-font: "Avenir Next for Best Buy", "Avenir Next", Avenir, Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 

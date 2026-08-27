@@ -12,16 +12,16 @@ function dawp_product_category_slug($slug) {
         'tools'                      => 'art-figures',
         'sports'                     => 'blind-boxes',
         'toys'                       => 'designer-toys',
-        'beauty'                     => 'display-collectibles',
-        'pets'                       => 'accessories',
-        'school'                     => 'gift-ideas',
-        'office'                     => 'gift-ideas',
+        'beauty'                     => 'art-figures',
+        'pets'                       => 'designer-toys',
+        'school'                     => 'blind-boxes',
+        'office'                     => 'blind-boxes',
         'art'                        => 'art-figures',
         'garden-tools'               => 'art-figures',
         'sports-outdoors'            => 'blind-boxes',
-        'toys-outdoor-play'          => 'mini-figures',
-        'beauty-personal-care'       => 'display-collectibles',
-        'school-office-art-supplies' => 'gift-ideas',
+        'toys-outdoor-play'          => 'building-sets',
+        'beauty-personal-care'       => 'art-figures',
+        'school-office-art-supplies' => 'blind-boxes',
     ];
 
     return $map[$slug] ?? $slug;
@@ -49,10 +49,6 @@ function dawp_shop_category_items() {
         'art-figures'          => ['name' => __('Art Figures', 'dawp')],
         'designer-toys'        => ['name' => __('Designer Toys', 'dawp')],
         'blind-boxes'          => ['name' => __('Blind Boxes', 'dawp')],
-        'mini-figures'         => ['name' => __('Mini Figures', 'dawp')],
-        'display-collectibles' => ['name' => __('Display Collectibles', 'dawp')],
-        'accessories'          => ['name' => __('Accessories', 'dawp')],
-        'gift-ideas'           => ['name' => __('Gift Ideas', 'dawp')],
     ];
 
     $items = [];
@@ -85,21 +81,20 @@ function dawp_is_current_url($url) {
 function dawp_footer_columns() {
     return [
         [
-            'title' => __('Collections', 'dawp'),
+            'title' => __('Shop', 'dawp'),
             'links' => [
-                ['title' => __('Desk Collectibles', 'dawp'), 'url' => home_url('/collections/')],
-                ['title' => __('Shelf Icons', 'dawp'), 'url' => home_url('/collections/')],
-                ['title' => __('Big Builds', 'dawp'), 'url' => home_url('/collections/')],
-                ['title' => __('Gift Ideas', 'dawp'), 'url' => home_url('/collections/')],
+                ['title' => __('Desk Collectibles', 'dawp'), 'url' => home_url('/shop/')],
+                ['title' => __('Shelf Icons', 'dawp'), 'url' => home_url('/shop/')],
+                ['title' => __('Big Builds', 'dawp'), 'url' => home_url('/shop/')],
+                ['title' => __('Gift Ideas', 'dawp'), 'url' => home_url('/shop/')],
             ],
         ],
-        [
-            'title' => __('Discover', 'dawp'),
-            'links' => [
-                ['title' => __('Culture Notes', 'dawp'), 'url' => home_url('/culture-notes/')],
-                ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
-                ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
-            ],
+    [
+        'title' => __('Discover', 'dawp'),
+        'links' => [
+            ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
+            ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+        ],
         ],
         [
             'title' => __('Help', 'dawp'),

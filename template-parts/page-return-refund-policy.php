@@ -1,6 +1,6 @@
 <?php
 /**
- * Return and refund policy page for Brickgo.com.
+ * Return and refund policy page for Brickgoshop.
  *
  * @package dawp
  */
@@ -9,10 +9,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
 $support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
-$support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
-$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
+$support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
+$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
 $last_updated   = __('May 29, 2026', 'dawp');
@@ -76,7 +76,7 @@ $non_returnable_items = [
     __('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'),
     __('Gift cards or digital products/downloads.', 'dawp'),
     __('Personalized, engraved, resized, or custom-made items.', 'dawp'),
-    __('Intimate apparel, swimwear, or hygiene-sensitive items such as earrings where the product seal has been broken.', 'dawp'),
+    __('Hygiene-sensitive items or sealed products where the product seal has been broken.', 'dawp'),
     __('Items that have been worn, washed, altered, or damaged after delivery.', 'dawp'),
 ];
 
@@ -116,11 +116,11 @@ $return_faqs = [
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('For defective, damaged, or incorrect products, Brickgo.com covers 100% of return shipping. For customer remorse, the prepaid label cost is deducted from your final refund amount.', 'dawp'),
+        'answer'   => __('For defective, damaged, or incorrect products, Brickgoshop covers 100% of return shipping. For customer remorse, the prepaid label cost is deducted from your final refund amount.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),
-        'answer'   => __('No. Brickgo.com does not charge restocking fees for eligible returns.', 'dawp'),
+        'answer'   => __('No. Brickgoshop does not charge restocking fees for eligible returns.', 'dawp'),
     ],
     [
         'question' => __('When will I receive my refund?', 'dawp'),
@@ -129,11 +129,11 @@ $return_faqs = [
 ];
 ?>
 
-<div class="bg-white text-[#2B2B2B]">
-    <section class="bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="return-refund-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
+<div class="bgs-policy bg-white text-[#2B2B2B]">
+    <section class="bgs-policy__hero bg-[#F8F5F0] py-14 sm:py-20" aria-labelledby="return-refund-title">
+        <div class="bgs-policy__shell mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:px-8">
             <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
+                <p class="bgs-policy-kicker text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
                 <h1 id="return-refund-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
                     <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
                 </h1>
@@ -142,26 +142,15 @@ $return_faqs = [
                 </p>
             </div>
 
-            <div class="rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
+            <div class="bgs-policy-meta rounded-md border border-[#E8E5DF] bg-white p-6 shadow-sm">
+                <p class="bgs-policy-kicker text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Last Updated', 'dawp'); ?></p>
                 <p class="mt-3 font-heading text-2xl font-extrabold text-[#2B2B2B]"><?php echo esc_html($last_updated); ?></p>
-                <p class="mt-4 text-sm leading-7 text-[#4A4A4A]">
-                    <?php esc_html_e('Need help with a return, damaged package, or refund status? Contact our support team through the official channels below.', 'dawp'); ?>
-                </p>
-                <div class="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-6 text-sm font-bold text-white transition hover:bg-[#7F422F]">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
-                    </a>
-                    <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#A45A3F] bg-white px-6 text-sm font-bold text-[#A45A3F] transition hover:bg-[#F8F5F0]">
-                        <?php echo esc_html($support_email); ?>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#FFFFFF] py-12 sm:py-16">
-        <div class="mx-auto grid max-w-5xl gap-4 px-4 sm:px-6 lg:px-8">
+    <section class="bgs-policy__content bg-[#FFFFFF] py-12 sm:py-16">
+        <div class="bgs-policy__shell mx-auto grid max-w-5xl gap-4 px-4 sm:px-6 lg:px-8">
             <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
                 <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Return Eligibility', 'dawp'); ?></h2>
                 <p class="mt-5 text-sm leading-7 text-[#4A4A4A]"><?php esc_html_e('To be eligible for a return, your item must meet the following criteria:', 'dawp'); ?></p>

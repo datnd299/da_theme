@@ -635,3 +635,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+document.querySelectorAll('img[data-lazy-src]').forEach(img => {
+    const src = img.dataset.lazySrc;
+    const srcset = img.dataset.lazySrcset;
+    const sizes = img.dataset.lazySizes;
+
+    if (src) img.src = src;
+    if (srcset) img.srcset = srcset;
+    if (sizes) img.sizes = sizes;
+
+    img.loading = 'eager';
+    img.removeAttribute('data-lazy-src');
+    img.removeAttribute('data-lazy-srcset');
+    img.removeAttribute('data-lazy-sizes');
+});

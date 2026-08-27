@@ -16,8 +16,8 @@ $shipping_url      = home_url('/shipping-policy/');
 $returns_url       = home_url('/return-refund-policy/');
 $privacy_url       = home_url('/privacy-policy/');
 $contact_status    = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
-$support_email     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
-$support_email     = $support_email ?: 'support@brickgo.com';
+$support_email     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
+$support_email     = $support_email ?: 'support@brickgoshop.com';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');

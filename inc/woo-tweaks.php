@@ -190,7 +190,7 @@ function dawp_get_store_address() {
 function dawp_get_store_contact($key) {
     $fallbacks = [
         'name'    => 'Brickgoshop',
-        'email'   => 'support@brickgo.com',
+        'email'   => 'support@brickgoshop.com',
         'phone'   => '',
         'address' => '',
         'domain'  => 'https://brickgoshop.com',
@@ -202,7 +202,7 @@ function dawp_get_store_contact($key) {
             $value = $value ?: get_bloginfo('name');
             break;
         case 'email':
-            $value = get_option('woocommerce_email_from_address');
+            $value = $fallbacks['email'];
             break;
         case 'phone':
             $value = get_option('woocommerce_store_phone');

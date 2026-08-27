@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
+$support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
 $support_phone = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
 $store_address = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $track_url     = home_url('/track-order/');
@@ -70,10 +70,6 @@ $contact_details = [
         'value' => $support_email,
     ],
     [
-        'label' => __('Customer Support Phone', 'dawp'),
-        'value' => $support_phone,
-    ],
-    [
         'label' => __('Address', 'dawp'),
         'value' => $store_address,
     ],
@@ -82,6 +78,13 @@ $contact_details = [
         'value' => __('Within 24 business hours.', 'dawp'),
     ],
 ];
+
+if ($support_phone) {
+    $contact_details[] = [
+        'label' => __('Customer Support Phone', 'dawp'),
+        'value' => $support_phone,
+    ];
+}
 
 $shipping_faqs = [
     [
@@ -227,9 +230,11 @@ $shipping_faqs = [
                 <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2B2B2B] bg-white px-6 text-sm font-extrabold text-[#2B2B2B] transition hover:bg-[#F8F5F0]">
                     <?php echo esc_html($support_email); ?>
                 </a>
-                <a href="tel:<?php echo esc_attr($support_phone); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2B2B2B] bg-white px-6 text-sm font-extrabold text-[#2B2B2B] transition hover:bg-[#F8F5F0]">
-                    <?php echo esc_html($support_phone); ?>
-                </a>
+                <?php if ($support_phone) : ?>
+                    <a href="tel:<?php echo esc_attr($support_phone); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#2B2B2B] bg-white px-6 text-sm font-extrabold text-[#2B2B2B] transition hover:bg-[#F8F5F0]">
+                        <?php echo esc_html($support_phone); ?>
+                    </a>
+                <?php endif; ?>
             </div>
         </section>
 

@@ -167,7 +167,7 @@ function dawp_rank_math_page_image($page) {
 }
 
 function dawp_rank_math_organization_schema() {
-    $support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
+    $support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
 
     return [
         '@type' => 'Organization',
@@ -204,7 +204,7 @@ function dawp_rank_math_faq_schema_entities($slug) {
     }
 
     $store_name    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
-    $support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
+    $support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
     $items = [
         [
             'question' => 'Where does Brickgoshop ship?',

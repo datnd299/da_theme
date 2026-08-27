@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 
 $store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
 $site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgoshop.com';
-$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
 $store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');

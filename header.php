@@ -39,13 +39,54 @@ $nav_items = [
     ['title' => __('Contact', 'dawp'), 'url' => $contact_url, 'active' => 'contact-us' === $current_path],
     ['title' => __('About', 'dawp'), 'url' => $about_url, 'active' => 'about-us' === $current_path],
 ];
+
+/**
+ * Per-page meta description.
+ *
+ * Reuses the same page data already defined in inc/virtual-pages.php so the
+ * static pages (About, FAQ, Contact, Shipping, Returns, Terms, Privacy,
+ * Track Order) and the homepage keep one single source of truth. Shop,
+ * product-category and single-product pages get their own description here.
+ * Only prints when Rank Math isn't active, so we never output a duplicate
+ * <meta name="description"> once the SEO plugin takes over.
+ */
+$dawp_meta_description = '';
+
+if (!defined('RANK_MATH_VERSION')) {
+    if (function_exists('dawp_virtual_page_is_active') && ($dawp_vp_page = dawp_virtual_page_is_active())) {
+        $dawp_meta_description = $dawp_vp_page['desc'] ?? '';
+    } elseif ((is_front_page() || is_home()) && function_exists('dawp_home_page_seo_data')) {
+        $dawp_home_seo = dawp_home_page_seo_data();
+        $dawp_meta_description = $dawp_home_seo['desc'] ?? '';
+    } elseif (function_exists('is_shop') && is_shop()) {
+        $dawp_meta_description = __('Shop MegaMallDepot for everyday essentials across home, electronics, outdoors, toys, beauty, pets and school supplies, with fast US shipping and easy 30-day returns.', 'dawp');
+    } elseif (function_exists('is_product_category') && is_product_category()) {
+        $dawp_term = get_queried_object();
+        if ($dawp_term && !is_wp_error($dawp_term)) {
+            $dawp_cat_desc = trim(wp_strip_all_tags($dawp_term->description ?? ''));
+            $dawp_meta_description = $dawp_cat_desc !== ''
+                ? $dawp_cat_desc
+                : sprintf(__('Shop %s at MegaMallDepot: everyday essentials selected for real households, with fast US shipping and easy returns.', 'dawp'), $dawp_term->name);
+        }
+    } elseif (function_exists('is_product') && is_product()) {
+        $dawp_product = function_exists('wc_get_product') ? wc_get_product(get_the_ID()) : null;
+        if ($dawp_product) {
+            $dawp_excerpt = trim(wp_strip_all_tags($dawp_product->get_short_description() ?: $dawp_product->get_description()));
+            $dawp_meta_description = $dawp_excerpt !== ''
+                ? wp_html_excerpt($dawp_excerpt, 160, '…')
+                : sprintf(__('Buy %s at MegaMallDepot. Fast US shipping, secure checkout and easy 30-day returns.', 'dawp'), $dawp_product->get_name());
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <?php if ($dawp_meta_description) : ?>
+    <meta name="description" content="<?php echo esc_attr($dawp_meta_description); ?>">
+    <?php endif; ?>
 
     <style>
         :root { --tgm-accent:#A45A3F; --tgm-accent-dark:#7F422F; --tgm-ink:#2B2B2B; --tgm-text:#4A4A4A; --tgm-muted:#746B64; --tgm-line:#E8E5DF; --tgm-soft:#F8F5F0; --tgm-white:#FFFFFF; }
@@ -54,10 +95,7 @@ $nav_items = [
         .tgm-skip { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
         .tgm-skip:focus { position:fixed; left:16px; top:16px; z-index:100; width:auto; height:auto; border-radius:4px; background:#fff; padding:12px 16px; color:var(--tgm-accent); font-weight:800; box-shadow:0 12px 32px rgba(43,43,43,.16); }
         .tgm-header { position:sticky; top:0; z-index:50; border-bottom:1px solid var(--tgm-line); background:rgba(255,255,255,.96); box-shadow:0 8px 22px rgba(43,43,43,.06); backdrop-filter:saturate(160%) blur(12px); }
-        .tgm-header__top { background:var(--tgm-ink); color:#fff; }
         .tgm-header__inner { width:min(100% - 32px,1280px); margin-inline:auto; }
-        .tgm-header__top-row { display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:30px; font-size:.76rem; font-weight:600; }
-        .tgm-header__top-links { display:flex; align-items:center; gap:18px; white-space:nowrap; }
         .tgm-header__main { display:grid; grid-template-columns:minmax(230px,340px) minmax(260px,1fr) minmax(230px,340px); grid-template-areas:"search logo actions"; align-items:center; gap:22px; min-height:72px; }
         .tgm-logo { grid-area:logo; display:inline-flex; align-items:center; justify-content:center; justify-self:center; flex:none; color:var(--tgm-ink); line-height:1; text-align:center; text-decoration:none; }
         .tgm-logo img { display:block; width:auto; height:46px; max-width:min(220px, 34vw); object-fit:contain; }
@@ -86,8 +124,7 @@ $nav_items = [
         .tgm-mobile-nav a { border-radius:2px; background:var(--tgm-soft); padding:11px 12px; color:var(--tgm-text); font-size:.92rem; font-weight:600; text-decoration:none; }
         .tgm-mobile-nav a.is-current { background:var(--tgm-ink); color:#fff; }
         @media (max-width: 960px) {
-            .tgm-header__top-row { justify-content:center; text-align:center; }
-            .tgm-header__top-links, .tgm-desktop-nav, .tgm-account-link { display:none; }
+            .tgm-desktop-nav, .tgm-account-link { display:none; }
             .tgm-header__main { display:flex; justify-content:space-between; gap:12px; min-height:64px; }
             .tgm-header-search { display:none; }
             .tgm-logo img { height:40px; max-width:170px; }
@@ -99,7 +136,6 @@ $nav_items = [
         @media (min-width: 961px) { .tgm-menu-toggle { display:none; } }
         @media (max-width: 520px) {
             .tgm-header__inner { width:min(100% - 24px,1280px); }
-            .tgm-header__top-row { min-height:34px; font-size:.76rem; line-height:1.35; }
             .tgm-logo img { height:34px; max-width:142px; }
             .tgm-actions { gap:8px; }
             .tgm-icon-link, .tgm-menu-toggle { width:38px; height:38px; }
@@ -116,15 +152,6 @@ $nav_items = [
 <a href="#content" class="tgm-skip"><?php esc_html_e('Skip to content', 'dawp'); ?></a>
 
 <header id="site-header" class="tgm-header" role="banner">
-    <div class="tgm-header__top">
-        <div class="tgm-header__inner tgm-header__top-row">
-            <p><?php esc_html_e('Free Shipping on Home Essentials & More. Shop Now', 'dawp'); ?></p>
-            <div class="tgm-header__top-links">
-                <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-            </div>
-        </div>
-    </div>
-
     <div class="tgm-header__inner tgm-header__main">
         <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('MegaMallDepot home', 'dawp'); ?>">
             <?php

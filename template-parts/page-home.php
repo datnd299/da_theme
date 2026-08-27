@@ -103,10 +103,12 @@ $mmd_product_card = static function ($product_id) {
         <div class="mmd-product-card__body">
             <p><?php echo esc_html($collection); ?></p>
             <h3><a href="<?php echo esc_url(get_permalink($product_id)); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
-            <div class="mmd-product-card__rating" aria-label="<?php echo esc_attr(sprintf(__('Rated %s out of 5', 'dawp'), $rating ?: '4.8')); ?>">
-                <span aria-hidden="true"><?php echo esc_html($rating ? str_repeat('*', max(1, min(5, (int) round($rating)))) : '*****'); ?></span>
-                <em><?php echo esc_html($count ? sprintf(_n('%d review', '%d reviews', $count, 'dawp'), $count) : __('Customer favorite', 'dawp')); ?></em>
+            <?php if ($count > 0) : ?>
+            <div class="mmd-product-card__rating" aria-label="<?php echo esc_attr(sprintf(__('Rated %s out of 5', 'dawp'), $rating)); ?>">
+                <span aria-hidden="true"><?php echo esc_html(str_repeat('*', max(1, min(5, (int) round($rating))))); ?></span>
+                <em><?php echo esc_html(sprintf(_n('%d review', '%d reviews', $count, 'dawp'), $count)); ?></em>
             </div>
+            <?php endif; ?>
             <div class="mmd-product-card__price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
             <a class="mmd-product-card__add" href="<?php echo esc_url($product->add_to_cart_url()); ?>" data-quantity="1" data-product_id="<?php echo esc_attr($product_id); ?>" rel="nofollow">
                 <?php esc_html_e('Add to Cart', 'dawp'); ?>
@@ -266,9 +268,9 @@ if (function_exists('wc_get_products')) {
     <section class="mmd-hero" aria-labelledby="mmd-hero-title">
         <div class="mmd-container mmd-hero__grid">
             <div class="mmd-hero__content">
-                <p class="mmd-eyebrow"><?php esc_html_e('MegaMallDepot Home & Lifestyle', 'dawp'); ?></p>
-                <h1 id="mmd-hero-title"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></h1>
-                <p class="mmd-hero__copy"><?php esc_html_e('Discover thoughtfully selected furniture, decor and home essentials designed for modern American living.', 'dawp'); ?></p>
+                <p class="mmd-eyebrow"><?php esc_html_e('MegaMallDepot Everyday Essentials', 'dawp'); ?></p>
+                <h1 id="mmd-hero-title"><?php esc_html_e('Everything Your Home and Family Need, In One Place', 'dawp'); ?></h1>
+                <p class="mmd-hero__copy"><?php esc_html_e('From home and kitchen essentials to electronics, outdoor gear, toys, beauty, pet supplies and school essentials, shop thousands of everyday products picked for real households across America.', 'dawp'); ?></p>
                 <div class="mmd-hero__actions">
                     <a class="mmd-btn mmd-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
                     <a class="mmd-btn mmd-btn--secondary" href="#new-arrivals"><?php esc_html_e('Explore New Arrivals', 'dawp'); ?></a>
@@ -276,7 +278,7 @@ if (function_exists('wc_get_products')) {
             </div>
             <div class="mmd-hero__media">
                 <?php echo $mmd_img('Living_ecosystem_with_smart_tech_202607161304.jpeg', __('Warm modern living room with layered home furnishings', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-hero__note"><?php esc_html_e('Curated pieces, natural textures and everyday comfort for rooms that feel quietly finished.', 'dawp'); ?></div>
+                <div class="mmd-hero__note"><?php esc_html_e('Everyday products chosen for real use, honest quality and reliable value.', 'dawp'); ?></div>
             </div>
         </div>
     </section>
@@ -336,8 +338,8 @@ if (function_exists('wc_get_products')) {
             </div>
             <div class="mmd-story__content">
                 <p class="mmd-eyebrow"><?php esc_html_e('Our Point Of View', 'dawp'); ?></p>
-                <h2 id="mmd-story-title"><?php esc_html_e('A calmer way to furnish, refresh and enjoy home.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('MegaMallDepot brings together practical essentials and design-led accents so your home feels collected, not crowded. Each edit is chosen for everyday usefulness, inviting materials and timeless appeal.', 'dawp'); ?></p>
+                <h2 id="mmd-story-title"><?php esc_html_e('A simpler way to shop for everyday life.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('MegaMallDepot brings together practical essentials for home, family and everyday routines, from the kitchen to the backyard, the home office to game night. Each department is organized clearly so shopping stays simple and easy to trust.', 'dawp'); ?></p>
                 <a class="mmd-btn mmd-btn--secondary" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('Discover Our Story', 'dawp'); ?></a>
             </div>
         </div>

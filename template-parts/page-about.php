@@ -59,22 +59,22 @@ $mmd_about_img = static function ($file, $alt, $class = '', $width = 900, $heigh
 
 $principles = [
     [
-        'title' => __('Lifestyle-first selection', 'dawp'),
-        'copy'  => __('We look for pieces that help a room feel more complete, useful and welcoming, from quiet storage to dinner-ready table details.', 'dawp'),
+        'title' => __('Practical, everyday selection', 'dawp'),
+        'copy'  => __('We look for products that genuinely make everyday life easier, from home and kitchen basics to outdoor gear, tech, toys and family essentials.', 'dawp'),
     ],
     [
-        'title' => __('Modern American comfort', 'dawp'),
-        'copy'  => __('Our catalog is shaped around real homes, busy kitchens, shared living rooms, restful bedrooms and outdoor spaces made for gathering.', 'dawp'),
+        'title' => __('Built for real households', 'dawp'),
+        'copy'  => __('Our catalog is shaped around real routines: busy kitchens, home offices, active outdoor time, pet care, school needs and everyday family life.', 'dawp'),
     ],
     [
-        'title' => __('Quality without the noise', 'dawp'),
-        'copy'  => __('MegaMallDepot avoids cluttered marketplace browsing and focuses on curated home essentials with clear, helpful product presentation.', 'dawp'),
+        'title' => __('Clear, organized shopping', 'dawp'),
+        'copy'  => __('With departments spanning home, electronics, outdoors, beauty, pets and school supplies, we keep each category clearly organized with honest product details.', 'dawp'),
     ],
 ];
 
 $values = [
-    __('Warm editorial inspiration', 'dawp'),
-    __('Furniture, decor and daily essentials', 'dawp'),
+    __('Everyday home & kitchen essentials', 'dawp'),
+    __('Electronics, outdoor gear & family supplies', 'dawp'),
     __('Transparent shipping and returns', 'dawp'),
     __('Helpful support after purchase', 'dawp'),
 ];
@@ -167,8 +167,8 @@ $trust_items = [
         <div class="mmd-about-container mmd-about-hero__grid">
             <div class="mmd-about-hero__content">
                 <p class="mmd-about-eyebrow"><?php esc_html_e('About MegaMallDepot', 'dawp'); ?></p>
-                <h1 id="mmd-about-title"><?php esc_html_e('A modern home destination for beautiful everyday living.', 'dawp'); ?></h1>
-                <p class="mmd-about-hero__copy"><?php esc_html_e('MegaMallDepot helps American families create warm, comfortable spaces through thoughtfully selected furniture, decor, kitchen, bedding, bath, storage and outdoor essentials.', 'dawp'); ?></p>
+                <h1 id="mmd-about-title"><?php esc_html_e('An everyday essentials store built for real American households.', 'dawp'); ?></h1>
+                <p class="mmd-about-hero__copy"><?php esc_html_e('MegaMallDepot helps families handle everyday life in one place, from home and kitchen essentials to electronics, outdoor gear, toys, beauty care, pet supplies and school essentials.', 'dawp'); ?></p>
                 <div class="mmd-about-hero__actions">
                     <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>
                     <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
@@ -176,7 +176,7 @@ $trust_items = [
             </div>
             <div class="mmd-about-hero__media">
                 <?php echo $mmd_about_img('Living_Room.jpeg', __('Bright living room styled with refined furniture and decor', 'dawp'), '', 980, 760, 'eager', '(min-width: 900px) 50vw, 100vw'); ?>
-                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: home should feel considered, calm and ready for real life.', 'dawp'); ?></div>
+                <div class="mmd-about-hero__note"><?php esc_html_e('Our point of view is simple: everyday shopping should be easy, honest and organized by what you actually need.', 'dawp'); ?></div>
             </div>
         </div>
     </section>
@@ -189,9 +189,9 @@ $trust_items = [
             </div>
             <div class="mmd-about-story__content">
                 <p class="mmd-about-eyebrow"><?php esc_html_e('Our Story', 'dawp'); ?></p>
-                <h2 id="mmd-about-story-title"><?php esc_html_e('Curated for rooms that feel lived in, polished and personal.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('We built MegaMallDepot for shoppers who want a clearer, more inspiring way to find home products. Instead of overwhelming customers with unrelated items, we focus on the pieces that support everyday rituals: cooking, hosting, resting, organizing and relaxing outside.', 'dawp'); ?></p>
-                <p><?php esc_html_e('Every collection is guided by usefulness, inviting materials and timeless styling, so it is easier to refresh a room without losing the warmth of home.', 'dawp'); ?></p>
+                <h2 id="mmd-about-story-title"><?php esc_html_e('Built for the everyday needs of a busy household.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('We built MegaMallDepot to make everyday shopping simpler for busy households: one place for home essentials, electronics, outdoor gear, toys, beauty care, pet supplies and school essentials, each selected for real, practical use rather than just filling a catalog.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Every department is chosen for usefulness, reliable quality and fair pricing, so it is easier to take care of a home and family without shopping across a dozen different stores.', 'dawp'); ?></p>
                 <div class="mmd-about-values">
                     <?php foreach ($values as $value) : ?>
                         <span><?php echo esc_html($value); ?></span>
@@ -208,7 +208,7 @@ $trust_items = [
                 <div>
                     <p class="mmd-about-eyebrow"><?php esc_html_e('What Guides Us', 'dawp'); ?></p>
                     <h2 id="mmd-about-principles-title"><?php esc_html_e('A refined shopping experience, from inspiration to checkout.', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Our store is designed to feel organized, warm and helpful, closer to browsing a home magazine than searching through a crowded marketplace.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Our store is organized by department, so browsing across home, electronics, outdoors, beauty, pets and school essentials stays easy, warm and helpful.', 'dawp'); ?></p>
                 </div>
             </div>
             <div class="mmd-about-principles">
@@ -228,9 +228,9 @@ $trust_items = [
                 <?php echo $mmd_about_img('Kitchen_essentials_tools_cookware_202607171159.jpeg', __('Kitchen tools and cookware arranged for daily cooking', 'dawp'), '', 780, 620, 'lazy', '(max-width: 899px) 100vw, 46vw'); ?>
             </div>
             <div class="mmd-about-feature__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Our Curation', 'dawp'); ?></p>
-                <h2 id="mmd-about-curation-title"><?php esc_html_e('Home essentials chosen for beauty, comfort and daily function.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('From kitchen and dining to furniture, decor, bedding, bath, storage and outdoor living, each category is shaped around how people actually use their homes. Product pages emphasize lifestyle benefits, materials, care and practical details so customers can shop with confidence.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('What We Carry', 'dawp'); ?></p>
+                <h2 id="mmd-about-curation-title"><?php esc_html_e('A wide range of everyday essentials, organized by department.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('From home, kitchen and outdoor living to electronics, toys, beauty, pet supplies and school & office essentials, each department is organized so it is easy to find what you need. Product pages list clear details on materials, specifications and everyday use, so you can shop with confidence across every category.', 'dawp'); ?></p>
                 <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse The Shop', 'dawp'); ?></a>
             </div>
         </div>
@@ -302,9 +302,9 @@ $trust_items = [
     <section class="mmd-about-cta" aria-labelledby="mmd-about-cta-title">
         <div class="mmd-about-container mmd-about-cta__inner">
             <div>
-                <p class="mmd-about-eyebrow"><?php esc_html_e('Beautiful Spaces Begin At Home', 'dawp'); ?></p>
-                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find thoughtful pieces for the rooms you use every day.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Discover furniture, decor and essentials selected to make modern American living feel more comfortable, organized and beautiful.', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('Everything Your Home and Family Need', 'dawp'); ?></p>
+                <h2 id="mmd-about-cta-title"><?php esc_html_e('Find everyday essentials for every part of your life.', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Discover home, electronics, outdoor, beauty, pet and school essentials selected to make everyday American living more organized, practical and reliable.', 'dawp'); ?></p>
             </div>
             <div class="mmd-about-cta__actions">
                 <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collection', 'dawp'); ?></a>

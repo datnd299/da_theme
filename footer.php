@@ -107,7 +107,11 @@ $footer_columns = [
     <div class="cf-footer__inner cf-footer__main">
         <section class="cf-footer__about" aria-label="<?php esc_attr_e('Reluxwatches information', 'dawp'); ?>">
             <a href="<?php echo esc_url(home_url('/')); ?>" class="cf-footer__brand" aria-label="<?php esc_attr_e('Reluxwatches home', 'dawp'); ?>">
-                <img class="cf-footer__brand-img" src="<?php echo esc_url($footer_logo_url); ?>" alt="<?php esc_attr_e('Reluxwatches', 'dawp'); ?>" width="210" height="54" loading="lazy" decoding="async">
+                <?php
+                echo function_exists('dawp_get_responsive_image')
+                    ? dawp_get_responsive_image($footer_logo_url, __('Reluxwatches', 'dawp'), 'cf-footer__brand-img', 129, 54, 'lazy', '129px')
+                    : '<img class="cf-footer__brand-img" src="' . esc_url($footer_logo_url) . '" alt="' . esc_attr__('Reluxwatches', 'dawp') . '" width="210" height="54" loading="lazy" decoding="async">';
+                ?>
             </a>
             <p class="cf-footer__tagline"><?php esc_html_e('Modern everyday finds, selected for useful living and simple discovery.', 'dawp'); ?></p>
             <dl class="cf-footer__contact">
@@ -167,6 +171,15 @@ $footer_columns = [
         </div>
     </div>
 </footer>
+
+<?php
+if (function_exists('dawp_cart_fab_markup')) {
+    dawp_cart_fab_markup();
+}
+if (function_exists('dawp_cart_drawer_markup')) {
+    dawp_cart_drawer_markup();
+}
+?>
 
 <?php wp_footer(); ?>
 </body>

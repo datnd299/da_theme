@@ -115,7 +115,11 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
 </section>
 
 <section class="editorial">
- <img src="<?php echo esc_url(dawp_imagewatch_url('8.png')); ?>" alt="Modern wristwatch">
+ <?php
+ echo function_exists('dawp_get_responsive_image')
+     ? dawp_get_responsive_image(dawp_imagewatch_url('8.png'), 'Modern wristwatch', '', 1280, 956, 'lazy', '100vw')
+     : '<img src="' . esc_url(dawp_imagewatch_url('8.png')) . '" alt="Modern wristwatch" loading="lazy" decoding="async">';
+ ?>
 </section>
 
 <section class="brand">

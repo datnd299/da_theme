@@ -3,6 +3,25 @@ $imagewatch = static function ($filename) {
     return get_theme_file_uri('assets/img/imagewatch/' . $filename);
 };
 
+// Renders a theme image through the i0.wp.com CDN helper (srcset + sizes),
+// falling back to a plain <img> if the helper is unavailable.
+$imagewatch_img = static function ($filename, $alt, $width, $height, $loading = 'lazy', $sizes = '', $fetchpriority = '') use ($imagewatch) {
+    $url = $imagewatch($filename);
+
+    if (function_exists('dawp_get_responsive_image')) {
+        return dawp_get_responsive_image($url, $alt, '', $width, $height, $loading, $sizes, $fetchpriority);
+    }
+
+    return sprintf(
+        '<img src="%s" alt="%s" width="%d" height="%d" loading="%s" decoding="async">',
+        esc_url($url),
+        esc_attr($alt),
+        (int) $width,
+        (int) $height,
+        esc_attr($loading)
+    );
+};
+
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -71,7 +90,11 @@ $render_home_product_card = static function ($product, $fallback = []) use ($get
 
     ?>
     <article class="product-card">
-      <div class="product-image"><img src="<?php echo esc_url($fallback['image']); ?>" alt="<?php echo esc_attr($fallback['alt']); ?>"></div>
+      <div class="product-image"><?php
+        echo function_exists('dawp_get_responsive_image')
+            ? dawp_get_responsive_image($fallback['image'], $fallback['alt'], '', 560, 700, 'lazy', '(max-width: 767px) 50vw, 25vw')
+            : '<img src="' . esc_url($fallback['image']) . '" alt="' . esc_attr($fallback['alt']) . '" loading="lazy" decoding="async">';
+      ?></div>
       <div class="product-meta"><?php echo esc_html($fallback['category']); ?></div>
       <div class="product-name"><?php echo esc_html($fallback['name']); ?></div>
       <div class="product-price"><?php echo esc_html($fallback['price']); ?></div>
@@ -340,7 +363,7 @@ p{
 /* STYLE LINKS */
 .style-strip{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
+  grid-template-columns:repeat(4,1fr);
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
@@ -486,7 +509,7 @@ p{
 
   <section class="hero">
     <div class="hero-media">
-      <img src="<?php echo esc_url($imagewatch('1.png')); ?>" alt="Modern wristwatch campaign">
+      <?php echo $imagewatch_img('1.png', 'Modern wristwatch campaign', 1280, 956, 'eager', '100vw', 'high'); ?>
     </div>
     <div class="container hero-content">
       <div class="hero-copy">
@@ -510,15 +533,15 @@ p{
 
       <div class="collection-grid">
         <a class="collection-card" href="<?php echo esc_url($home_category_urls['minimal']); ?>">
-          <img src="<?php echo esc_url($imagewatch('2.png')); ?>" alt="Minimal watch collection">
+          <?php echo $imagewatch_img('2.png', 'Minimal watch collection', 760, 568, 'lazy', '(max-width: 700px) 100vw, 50vw'); ?>
           <div class="collection-content"><h3>Minimal</h3><p>Clean lines, easy wear.</p></div>
         </a>
         <a class="collection-card small" href="<?php echo esc_url($home_category_urls['sport']); ?>">
-          <img src="<?php echo esc_url($imagewatch('3.png')); ?>" alt="Sport watch collection">
+          <?php echo $imagewatch_img('3.png', 'Sport watch collection', 480, 358, 'lazy', '(max-width: 700px) 100vw, 25vw'); ?>
           <div class="collection-content"><h3>Sport</h3><p>Sharper energy.</p></div>
         </a>
         <a class="collection-card small" href="<?php echo esc_url($home_category_urls['watches']); ?>">
-          <img src="<?php echo esc_url($imagewatch('4.png')); ?>" alt="Everyday watch collection">
+          <?php echo $imagewatch_img('4.png', 'Everyday watch collection', 480, 358, 'lazy', '(max-width: 700px) 100vw, 25vw'); ?>
           <div class="collection-content"><h3>Everyday</h3><p>Built for daily rotation.</p></div>
         </a>
       </div>
@@ -550,7 +573,7 @@ p{
     <div class="container">
       <div class="split">
         <div class="split-image">
-          <img src="<?php echo esc_url($imagewatch('9.png')); ?>" alt="Watch worn in everyday life">
+          <?php echo $imagewatch_img('9.png', 'Watch worn in everyday life', 720, 538, 'lazy', '(max-width: 900px) 100vw, 50vw'); ?>
         </div>
         <div class="split-copy">
           <div class="eyebrow">Everyday Objects</div>
@@ -582,7 +605,7 @@ p{
   <section class="section">
     <div class="container">
       <div class="campaign">
-        <img src="<?php echo esc_url($imagewatch('10.png')); ?>" alt="Reluxwatches watch editorial campaign">
+        <?php echo $imagewatch_img('10.png', 'Reluxwatches watch editorial campaign', 1280, 956, 'lazy', '100vw'); ?>
         <div class="campaign-content">
           <div class="eyebrow">Reluxwatches Editorial</div>
           <h2>LESS NOISE. MORE TIME.</h2>

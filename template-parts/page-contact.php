@@ -127,7 +127,11 @@ input:focus,select:focus,textarea:focus{border-color:#999}
 </section>
 
 <section class="visual">
- <img src="<?php echo esc_url(dawp_imagewatch_url('9.png')); ?>" alt="Reluxwatches watch detail">
+ <?php
+ echo function_exists('dawp_get_responsive_image')
+     ? dawp_get_responsive_image(dawp_imagewatch_url('9.png'), 'Reluxwatches watch detail', '', 1280, 956, 'lazy', '100vw')
+     : '<img src="' . esc_url(dawp_imagewatch_url('9.png')) . '" alt="Reluxwatches watch detail" loading="lazy" decoding="async">';
+ ?>
 </section>
 
 <section class="contact">

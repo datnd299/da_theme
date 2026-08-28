@@ -64,7 +64,8 @@ $nav_items = [
         .cf-search button, .cf-icon-button, .cf-menu-toggle { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border:0; background:transparent; color:var(--cf-ink); cursor:pointer; text-decoration:none; transition:color .18s ease, background .18s ease; }
         .cf-search button:hover, .cf-icon-button:hover, .cf-menu-toggle:hover { color:var(--cf-accent); background:var(--cf-soft); }
         .cf-cart { position:relative; }
-        .cf-cart-count { position:absolute; right:1px; top:2px; min-width:17px; height:17px; border-radius:999px; background:var(--cf-ink); color:#fff; padding:0 5px; font-size:10px; font-weight:800; line-height:17px; text-align:center; }
+        .cf-cart .dawp-cart-count { position:absolute; right:1px; top:2px; min-width:17px; height:17px; border-radius:999px; background:var(--cf-ink); color:#fff; padding:0 5px; font-size:10px; font-weight:800; line-height:17px; text-align:center; }
+        .cf-cart .dawp-cart-count.hidden { display:none; }
         .cf-menu-toggle { display:none; }
         .cf-mobile-panel { display:none; border-top:1px solid var(--cf-line); background:#fff; }
         .cf-mobile-panel.is-open { display:block; }
@@ -111,7 +112,11 @@ $nav_items = [
 <header id="site-header" class="cf-header" role="banner">
     <div class="cf-header__inner cf-header__bar">
         <a href="<?php echo esc_url($home_url); ?>" class="cf-logo" aria-label="<?php esc_attr_e('Reluxwatches home', 'dawp'); ?>">
-            <img class="cf-logo__img" src="<?php echo esc_url($logo_url); ?>" alt="<?php esc_attr_e('Reluxwatches', 'dawp'); ?>" width="170" height="48" decoding="async" fetchpriority="high">
+            <?php
+            echo function_exists('dawp_get_responsive_image')
+                ? dawp_get_responsive_image($logo_url, __('Reluxwatches', 'dawp'), 'cf-logo__img', 115, 48, 'eager', '115px', 'high')
+                : '<img class="cf-logo__img" src="' . esc_url($logo_url) . '" alt="' . esc_attr__('Reluxwatches', 'dawp') . '" width="170" height="48" decoding="async" fetchpriority="high">';
+            ?>
         </a>
 
         <nav class="cf-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
@@ -135,9 +140,9 @@ $nav_items = [
             <a href="<?php echo esc_url($account_url); ?>" class="cf-icon-button cf-account-link" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </a>
-            <a href="<?php echo esc_url($cart_url); ?>" class="cf-icon-button cf-cart" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
+            <a href="<?php echo esc_url($cart_url); ?>" class="cf-icon-button cf-cart" id="dawp-cart-toggle" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 6H6"></path></svg>
-                <?php if ($cart_count > 0) : ?><span class="cf-cart-count"><?php echo esc_html($cart_count); ?></span><?php endif; ?>
+                <span class="dawp-cart-count<?php echo $cart_count > 0 ? '' : ' hidden'; ?>"><?php echo esc_html($cart_count); ?></span>
             </a>
             <button type="button" class="cf-menu-toggle" aria-expanded="false" aria-label="<?php esc_attr_e('Open store menu', 'dawp'); ?>" aria-controls="mobile-store-menu" data-cf-menu-toggle>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>

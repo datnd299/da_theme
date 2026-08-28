@@ -73,19 +73,35 @@ body.single-product .woo-page__container {
 @media (min-width: 900px) {
   .single-product div.product {
     grid-template-columns: minmax(0, 1.48fr) minmax(350px, .82fr);
+    grid-template-areas:
+      "gallery summary"
+      "tabs summary"
+      "upsells upsells"
+      "related related";
+  }
+
+  .single-product div.product .woocommerce-product-gallery {
+    grid-area: gallery;
   }
 
   .single-product .summary.entry-summary {
+    grid-area: summary;
     position: sticky;
     top: 104px;
     max-width: 500px;
     justify-self: end;
   }
 
-  .single-product .woocommerce-tabs,
-  .single-product .related.products,
+  .single-product .woocommerce-tabs {
+    grid-area: tabs;
+  }
+
   .single-product .up-sells.products {
-    grid-column: 1 / -1;
+    grid-area: upsells;
+  }
+
+  .single-product .related.products {
+    grid-area: related;
   }
 }
 
@@ -550,7 +566,7 @@ form.cart:not(.variations_form) {
 }
 
 .woocommerce-tabs {
-  margin-top: clamp(34px, 5vw, 72px);
+  margin-top: clamp(18px, 3vw, 34px);
   border-top: 1px solid var(--product-border);
 }
 

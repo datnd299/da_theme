@@ -35,11 +35,15 @@ if (file_exists($logo_path)) {
 $footer_columns = [
     [
         'title' => __('Collections', 'dawp'),
-        'links' => [
-            ['title' => __('Desk Collectibles', 'dawp'), 'url' => home_url('/collections/')],
-            ['title' => __('Shelf Icons', 'dawp'), 'url' => home_url('/collections/')],
-            ['title' => __('Big Builds', 'dawp'), 'url' => home_url('/collections/')],
-            ['title' => __('Gift Ideas', 'dawp'), 'url' => home_url('/collections/')],
+        'links' => function_exists('dawp_shop_category_items') ? dawp_shop_category_items() : [
+            ['title' => __('Building Sets', 'dawp'), 'url' => home_url('/product-category/building-sets/')],
+            ['title' => __('Art Figures', 'dawp'), 'url' => home_url('/product-category/art-figures/')],
+            ['title' => __('Designer Toys', 'dawp'), 'url' => home_url('/product-category/designer-toys/')],
+            ['title' => __('Blind Boxes', 'dawp'), 'url' => home_url('/product-category/blind-boxes/')],
+            ['title' => __('Mini Figures', 'dawp'), 'url' => home_url('/product-category/mini-figures/')],
+            ['title' => __('Display Collectibles', 'dawp'), 'url' => home_url('/product-category/display-collectibles/')],
+            ['title' => __('Accessories', 'dawp'), 'url' => home_url('/product-category/accessories/')],
+            ['title' => __('Gift Ideas', 'dawp'), 'url' => home_url('/product-category/gift-ideas/')],
         ],
     ],
     [

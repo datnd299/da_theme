@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * SEO data for Corvelshop virtual pages.
  * Fixes $wp_query state before Rank Math runs and injects title/description via Rank Math filters.
@@ -11,39 +11,39 @@ function dawp_get_virtual_seo() {
 
     $map = [
         'about-us' => [
-            'title'       => "About Us â€“ Corvelshop",
-            'description' => "Corvelshop is a women's watch boutique offering elegant charm, owl, and beaded watches for everyday confidence and thoughtful gifting.",
+            'title'       => "About Us – Corvelshop",
+            'description' => "Corvelshop is a women's bracelet boutique offering elegant charm, owl, and beaded bracelets for everyday confidence and thoughtful gifting.",
         ],
         'faq' => [
-            'title'       => "FAQ â€“ Corvelshop",
-            'description' => "Find answers to common questions about orders, shipping, returns, and watch care at Corvelshop.",
+            'title'       => "FAQ – Corvelshop",
+            'description' => "Find answers to common questions about orders, shipping, returns, and bracelet care at Corvelshop.",
         ],
         'contact-us' => [
-            'title'       => "Contact Us â€“ Corvelshop",
+            'title'       => "Contact Us – Corvelshop",
             'description' => "Contact Corvelshop for help with orders, returns, or product inquiries. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.",
         ],
         'shipping-policy' => [
-            'title'       => "Shipping Policy â€“ Corvelshop",
+            'title'       => "Shipping Policy – Corvelshop",
             'description' => "Review Corvelshop shipping policy, including U.S. shipping locations, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, tracking, and delivery support.",
         ],
         'return-refund-policy' => [
-            'title'       => "Return & Refund Policy â€“ Corvelshop",
+            'title'       => "Return & Refund Policy – Corvelshop",
             'description' => "Review Corvelshop return and refund policy, including the 30-day return window, return by mail, no restocking fee, and refund timing.",
         ],
         'shipping-returns' => [
-            'title'       => "Shipping & Returns â€“ Corvelshop",
+            'title'       => "Shipping & Returns – Corvelshop",
             'description' => "Choose the Corvelshop Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.",
         ],
         'terms-conditions' => [
-            'title'       => "Terms & Conditions â€“ Corvelshop",
+            'title'       => "Terms & Conditions – Corvelshop",
             'description' => "Read the terms and conditions for shopping at Corvelshop, including purchase policies and site use guidelines.",
         ],
         'privacy-policy' => [
-            'title'       => "Privacy Policy â€“ Corvelshop",
+            'title'       => "Privacy Policy – Corvelshop",
             'description' => "Learn how Corvelshop collects, uses, and protects your personal information when you shop with us.",
         ],
         'track-order' => [
-            'title'       => "Track Your Order â€“ Corvelshop",
+            'title'       => "Track Your Order – Corvelshop",
             'description' => "Track your Corvelshop order status. Enter your order number and email to check your delivery progress.",
         ],
     ];

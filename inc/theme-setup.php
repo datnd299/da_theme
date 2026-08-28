@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 add_filter('pre_get_document_title', 'dawp_document_title');
@@ -33,7 +33,7 @@ function dawp_logo_favicon() {
 
 add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
-    // Chá»‰ xá»­ lÃ½ khi lÃ  trang search vÃ  chÆ°a cÃ³ post_type
+    // Chỉ xử lý khi là trang search và chưa có post_type
     if (is_search() && !isset($_GET['post_type'])) {
         wp_safe_redirect(
             add_query_arg('post_type', 'product', $_SERVER['REQUEST_URI'])
@@ -101,7 +101,7 @@ function dawp_remove_styles() {
     wp_dequeue_style( 'wc-blocks-cart-block-style' );
     wp_deregister_style( 'wc-blocks-cart-block-style' );
     
-    // Má»™t sá»‘ version dÃ¹ng handle khÃ¡c:
+    // Một số version dùng handle khác:
     wp_dequeue_style( 'wc-blocks-style-cart' );
     wp_deregister_style( 'wc-blocks-style-cart' );
     global $wp_styles;

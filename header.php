@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Theme header for Corvelshop.
  *
@@ -92,26 +92,15 @@ $nav_items = [
     display: inline-flex;
     align-items: center;
     color: var(--qb-plum);
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(24px, 3vw, 34px);
-    font-weight: 700;
-    letter-spacing: 0;
     line-height: 1;
   }
 
-  .qb-logo__mark {
-    display: inline-flex;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    border-radius: 50%;
-    background: var(--qb-plum);
-    color: #fff;
-    font-family: "DM Sans", "Inter", system-ui, sans-serif;
-    font-size: 13px;
-    font-weight: 900;
+  .qb-logo img {
+    display: block;
+    width: auto;
+    height: 54px;
+    max-width: 190px;
+    object-fit: contain;
   }
 
   .qb-header-nav {
@@ -319,14 +308,9 @@ $nav_items = [
       gap: 14px;
     }
 
-    .qb-logo {
-      font-size: 22px;
-    }
-
-    .qb-logo__mark {
-      width: 36px;
-      height: 36px;
-      font-size: 11px;
+    .qb-logo img {
+      height: 46px;
+      max-width: 150px;
     }
 
     .qb-site-header .qb-cart-link {
@@ -359,13 +343,9 @@ $nav_items = [
       gap: 7px;
     }
 
-    .qb-logo {
-      font-size: 19px;
-    }
-
-    .qb-logo__mark {
-      width: 32px;
-      height: 32px;
+    .qb-logo img {
+      height: 42px;
+      max-width: 124px;
     }
 
     .qb-icon-link,
@@ -383,14 +363,25 @@ $nav_items = [
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Modern watches for everyday confidence, sharp gifts, and reliable style', 'dawp'); ?>
+            <?php esc_html_e('Bracelet styles for everyday confidence, meaningful gifts, and personal expression', 'dawp'); ?>
         </div>
     </div>
 
     <div class="qb-header-wrap qb-header-main">
-        <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Corvelshop home', 'dawp'); ?>">
-            <span class="qb-logo__mark" aria-hidden="true">CV</span>
-            <span>Corvelshop</span>
+        <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Corvelshop home", 'dawp'); ?>">
+            <?php
+            echo qb_responsive_image(
+                get_template_directory_uri() . '/assets/images/home/image.png',
+                get_bloginfo('name'),
+                [
+                    'width'   => 190,
+                    'height'  => 190,
+                    'widths'  => [92, 150, 190, 300],
+                    'sizes'   => '(max-width: 520px) 150px, 190px',
+                    'loading' => 'eager',
+                ]
+            );
+            ?>
         </a>
 
         <nav class="qb-header-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
@@ -401,8 +392,8 @@ $nav_items = [
 
         <div class="qb-header-actions">
             <form class="qb-header-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
-                <label class="qb-sr-only" for="qb-header-search"><?php esc_html_e('Search watches', 'dawp'); ?></label>
-                <input id="qb-header-search" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search watches', 'dawp'); ?>">
+                <label class="qb-sr-only" for="qb-header-search"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
+                <input id="qb-header-search" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search bracelets', 'dawp'); ?>">
                 <input type="hidden" name="post_type" value="product">
             </form>
 
@@ -429,8 +420,8 @@ $nav_items = [
     <div id="qb-mobile-search" class="qb-mobile-panel qb-mobile-search">
         <div class="qb-header-wrap">
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
-                <label class="qb-sr-only" for="qb-mobile-search-field"><?php esc_html_e('Search watches', 'dawp'); ?></label>
-                <input id="qb-mobile-search-field" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search watches...', 'dawp'); ?>">
+                <label class="qb-sr-only" for="qb-mobile-search-field"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
+                <input id="qb-mobile-search-field" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search bracelets...', 'dawp'); ?>">
                 <input type="hidden" name="post_type" value="product">
                 <button type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
             </form>

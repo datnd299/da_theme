@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 /**
- * SEO data for Queen's Bracelet virtual pages.
+ * SEO data for Corvelshop virtual pages.
  * Fixes $wp_query state before Rank Math runs and injects title/description via Rank Math filters.
  *
  * @package dawp
@@ -11,40 +11,40 @@ function dawp_get_virtual_seo() {
 
     $map = [
         'about-us' => [
-            'title'       => "About Us – Queen's Bracelet",
-            'description' => "Queen's Bracelet is a women's bracelet boutique offering elegant charm, owl, and beaded bracelets for everyday confidence and thoughtful gifting.",
+            'title'       => "About Us â€“ Corvelshop",
+            'description' => "Corvelshop is a women's watch boutique offering elegant charm, owl, and beaded watches for everyday confidence and thoughtful gifting.",
         ],
         'faq' => [
-            'title'       => "FAQ – Queen's Bracelet",
-            'description' => "Find answers to common questions about orders, shipping, returns, and bracelet care at Queen's Bracelet.",
+            'title'       => "FAQ â€“ Corvelshop",
+            'description' => "Find answers to common questions about orders, shipping, returns, and watch care at Corvelshop.",
         ],
         'contact-us' => [
-            'title'       => "Contact Us – Queen's Bracelet",
-            'description' => "Contact Queen's Bracelet for help with orders, returns, or product inquiries. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.",
+            'title'       => "Contact Us â€“ Corvelshop",
+            'description' => "Contact Corvelshop for help with orders, returns, or product inquiries. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.",
         ],
         'shipping-policy' => [
-            'title'       => "Shipping Policy – Queen's Bracelet",
-            'description' => "Review Queen's Bracelet shipping policy, including U.S. shipping locations, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, tracking, and delivery support.",
+            'title'       => "Shipping Policy â€“ Corvelshop",
+            'description' => "Review Corvelshop shipping policy, including U.S. shipping locations, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, tracking, and delivery support.",
         ],
         'return-refund-policy' => [
-            'title'       => "Return & Refund Policy – Queen's Bracelet",
-            'description' => "Review Queen's Bracelet return and refund policy, including the 30-day return window, return by mail, no restocking fee, and refund timing.",
+            'title'       => "Return & Refund Policy â€“ Corvelshop",
+            'description' => "Review Corvelshop return and refund policy, including the 30-day return window, return by mail, no restocking fee, and refund timing.",
         ],
         'shipping-returns' => [
-            'title'       => "Shipping & Returns – Queen's Bracelet",
-            'description' => "Choose the Queen's Bracelet Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.",
+            'title'       => "Shipping & Returns â€“ Corvelshop",
+            'description' => "Choose the Corvelshop Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.",
         ],
         'terms-conditions' => [
-            'title'       => "Terms & Conditions – Queen's Bracelet",
-            'description' => "Read the terms and conditions for shopping at Queen's Bracelet, including purchase policies and site use guidelines.",
+            'title'       => "Terms & Conditions â€“ Corvelshop",
+            'description' => "Read the terms and conditions for shopping at Corvelshop, including purchase policies and site use guidelines.",
         ],
         'privacy-policy' => [
-            'title'       => "Privacy Policy – Queen's Bracelet",
-            'description' => "Learn how Queen's Bracelet collects, uses, and protects your personal information when you shop with us.",
+            'title'       => "Privacy Policy â€“ Corvelshop",
+            'description' => "Learn how Corvelshop collects, uses, and protects your personal information when you shop with us.",
         ],
         'track-order' => [
-            'title'       => "Track Your Order – Queen's Bracelet",
-            'description' => "Track your Queen's Bracelet order status. Enter your order number and email to check your delivery progress.",
+            'title'       => "Track Your Order â€“ Corvelshop",
+            'description' => "Track your Corvelshop order status. Enter your order number and email to check your delivery progress.",
         ],
     ];
 

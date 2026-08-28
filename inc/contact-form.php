@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * Contact form handling.
  *
@@ -6,7 +6,7 @@
  */
 
 function dawp_contact_support_email() {
-    return 'support@queens-bracelet.com';
+    return 'support@corvelshop.com';
 }
 
 function dawp_contact_form_redirect($status) {
@@ -55,7 +55,7 @@ function dawp_handle_contact_form() {
 
     $subject = sprintf(
         /* translators: %s: contact form topic. */
-        __('Queen\'s Bracelet contact: %s', 'dawp'),
+        __('Queen\'s Watch contact: %s', 'dawp'),
         $topic
     );
 

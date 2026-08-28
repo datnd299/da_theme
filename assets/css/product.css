@@ -1,6 +1,6 @@
 /* ============================================================
-   Product Page - Crowdfused
-   Crowdfused store: clean, modern, conversion-focused
+   Product Page - Reluxwatches
+   Reluxwatches store: clean, modern, conversion-focused
    ============================================================ */
 
 /* CSS Variables */
@@ -8,22 +8,22 @@
   --color-bg:             #FFFFFF;
   --color-bg-subtle:      #FAFAFA;
   --color-bg-muted:       #FAFAFA;
-  --color-text-primary:   #222222;
-  --color-text-secondary: #666666;
-  --color-text-muted:     #8A8A8A;
-  --color-text-soft:      #8A8A8A;
-  --color-border:         #E9ECEF;
-  --color-accent:         #F58220;
-  --color-accent-hover:   #E96F00;
-  --color-accent-warm:    #F58220;
+  --color-text-primary:   #111111;
+  --color-text-secondary: #777777;
+  --color-text-muted:     #777777;
+  --color-text-soft:      #777777;
+  --color-border:         #E9E9E9;
+  --color-accent:         #405447;
+  --color-accent-hover:   #2F3F35;
+  --color-accent-warm:    #405447;
   --color-button-bg:      var(--color-accent);
   --color-button-hover:   var(--color-accent-hover);
   --color-button-text:    var(--color-bg);
-  --color-sale:           #F58220;
+  --color-sale:           #405447;
   --color-blush:          #FAFAFA;
-  --color-navy:           #222222;
-  --color-navy-light:     #8A8A8A;
-  --color-ring:           rgba(245, 130, 32, 0.18);
+  --color-navy:           #111111;
+  --color-navy-light:     #777777;
+  --color-ring:           rgba(64, 84, 71, 0.18);
   --color-background:     var(--color-bg);
   --color-foreground:     var(--color-text-primary);
   --color-foreground-muted: var(--color-text-muted);

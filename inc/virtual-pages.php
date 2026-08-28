@@ -26,32 +26,32 @@ function dawp_handle_virtual_pages() {
 }
 
 function dawp_virtual_page_map() {
-    $default_image = get_template_directory_uri() . '/assets/img/New_homepage/Innovation_fits_everyday_life_202607281529.jpeg';
+    $default_image = dawp_imagewatch_url('1.png');
     $policy_date = '2026-05-29';
 
     return [
-        'about-us'             => ['slug' => 'about',                'title' => 'About Crowdfused', 'desc' => 'Learn more about Crowdfused, a modern online store for practical home, technology and everyday lifestyle products.', 'keywords' => 'Crowdfused, about Crowdfused, home essentials store, online lifestyle store', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => $default_image, 'image_alt' => 'Crowdfused home, technology and lifestyle products'],
-        'faq'                  => ['slug' => 'faq',                  'title' => 'Crowdfused FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at Crowdfused.', 'keywords' => 'Crowdfused FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage', 'image' => $default_image, 'image_alt' => 'Crowdfused customer help and shopping FAQs'],
-        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Crowdfused', 'desc' => 'Contact Crowdfused support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Crowdfused, Crowdfused support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => $default_image, 'image_alt' => 'Crowdfused customer support'],
-        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Crowdfused shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Crowdfused shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Crowdfused shipping policy', 'date_modified' => $policy_date],
-        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Crowdfused shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Crowdfused shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Crowdfused shipping policy', 'date_modified' => $policy_date],
-        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the Crowdfused return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'Crowdfused return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Crowdfused return and refund policy', 'date_modified' => $policy_date],
-        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the Crowdfused terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'Crowdfused terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Crowdfused terms and conditions', 'date_modified' => $policy_date],
-        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Crowdfused collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'Crowdfused privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy', 'image' => $default_image, 'image_alt' => 'Crowdfused privacy policy', 'date_modified' => $policy_date],
-        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your Crowdfused Order', 'desc' => 'Track your Crowdfused order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track Crowdfused order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Crowdfused order tracking'],
+        'about-us'             => ['slug' => 'about',                'title' => 'About Reluxwatches', 'desc' => 'Learn more about Reluxwatches, a modern ecommerce store for watches and watch accessories.', 'keywords' => 'Reluxwatches, about Reluxwatches, modern watches, watch accessories', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches modern watches and accessories'],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'Reluxwatches FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at Reluxwatches.', 'keywords' => 'Reluxwatches FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer help and shopping FAQs'],
+        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Reluxwatches', 'desc' => 'Contact Reluxwatches support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Reluxwatches, Reluxwatches support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer support'],
+        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Reluxwatches shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Reluxwatches shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches shipping policy', 'date_modified' => $policy_date],
+        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Reluxwatches shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Reluxwatches shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches shipping policy', 'date_modified' => $policy_date],
+        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the Reluxwatches return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'Reluxwatches return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches return and refund policy', 'date_modified' => $policy_date],
+        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the Reluxwatches terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'Reluxwatches terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches terms and conditions', 'date_modified' => $policy_date],
+        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Reluxwatches collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'Reluxwatches privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy', 'image' => $default_image, 'image_alt' => 'Reluxwatches privacy policy', 'date_modified' => $policy_date],
+        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your Reluxwatches Order', 'desc' => 'Track your Reluxwatches order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track Reluxwatches order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches order tracking'],
     ];
 }
 
 function dawp_home_page_seo_data() {
     return [
         'slug'           => 'home',
-        'title'          => 'Crowdfused - Home, Electronics & Everyday Essentials',
-        'desc'           => 'Shop Crowdfused for practical home essentials, furniture, electronics, smart home products, kitchen favorites and outdoor living picks.',
-        'keywords'       => 'Crowdfused, home essentials, furniture, electronics, kitchen products, outdoor living',
+        'title'          => 'Reluxwatches - Modern Watches for Modern Life',
+        'desc'           => 'Shop Reluxwatches for modern everyday watches, statement pieces, minimal styles and watch accessories.',
+        'keywords'       => 'Reluxwatches, modern watches, everyday watches, statement watches, watch accessories',
         'canonical_path' => '',
         'schema_type'    => 'WebSite',
-        'image'          => get_template_directory_uri() . '/assets/img/New_homepage/Innovation_fits_everyday_life_202607281529.jpeg',
-        'image_alt'      => 'Crowdfused home essentials and everyday products',
+        'image'          => dawp_imagewatch_url('2.png'),
+        'image_alt'      => 'Reluxwatches modern wristwatch campaign',
     ];
 }
 
@@ -155,7 +155,11 @@ function dawp_rank_math_page_image($page) {
         return $page['image'];
     }
 
-    return get_template_directory_uri() . '/assets/img/New_homepage/Innovation_fits_everyday_life_202607281529.jpeg';
+    return dawp_imagewatch_url('1.png');
+}
+
+function dawp_imagewatch_url($filename) {
+    return get_theme_file_uri('assets/img/imagewatch/' . ltrim($filename, '/'));
 }
 
 function dawp_rank_math_page_image_alt($page) {
@@ -193,19 +197,15 @@ function dawp_rank_math_organization_schema() {
     $schema = [
         '@type' => 'Organization',
         '@id'   => home_url('/#organization'),
-        'name'  => get_bloginfo('name'),
+        'name'  => 'Reluxwatches',
         'url'   => home_url('/'),
-        'email' => 'support@Crowdfused.com',
+        'email' => 'support@reluxwatches.com',
         'telephone' => '826-207-1399',
-        'logo'  => [
-            '@type' => 'ImageObject',
-            'url'   => get_template_directory_uri() . '/assets/img/logo_file/logo_crowd_cropped.png',
-        ],
         'contactPoint' => [
             [
                 '@type'       => 'ContactPoint',
                 'telephone'   => '826-207-1399',
-                'email'       => 'support@Crowdfused.com',
+                'email'       => 'support@reluxwatches.com',
                 'contactType' => 'customer support',
                 'areaServed'  => 'US',
                 'availableLanguage' => ['en'],
@@ -263,8 +263,8 @@ function dawp_rank_math_faq_schema_entities($slug) {
 function dawp_rank_math_faq_items($slug) {
     $items = [
         [
-            'question' => 'Where does Crowdfused ship?',
-            'answer'   => 'Crowdfused currently ships exclusively within the United States domestic market.',
+            'question' => 'Where does Reluxwatches ship?',
+            'answer'   => 'Reluxwatches currently ships exclusively within the United States domestic market.',
         ],
         [
             'question' => 'How much does shipping cost?',
@@ -275,8 +275,8 @@ function dawp_rank_math_faq_items($slug) {
             'answer'   => 'Eligible products can be returned within 30 days after delivery.',
         ],
         [
-            'question' => 'How do I contact Crowdfused?',
-            'answer'   => 'Customers can contact Crowdfused support by email at support@Crowdfused.com or through the Contact Us page.',
+            'question' => 'How do I contact Reluxwatches?',
+            'answer'   => 'Customers can contact Reluxwatches support by email at support@reluxwatches.com or through the Contact Us page.',
         ],
     ];
 
@@ -300,8 +300,8 @@ function dawp_rank_math_faq_items($slug) {
     if ('shipping-policy' === $slug) {
         return [
             [
-                'question' => 'Where does Crowdfused ship?',
-                'answer'   => 'Crowdfused currently ships exclusively within the United States domestic market.',
+                'question' => 'Where does Reluxwatches ship?',
+                'answer'   => 'Reluxwatches currently ships exclusively within the United States domestic market.',
             ],
             [
                 'question' => 'How long does shipping take?',
@@ -335,7 +335,7 @@ function dawp_rank_math_faq_items($slug) {
         return [
             [
                 'question' => 'What do these Terms cover?',
-                'answer'   => 'These Terms govern access to Crowdfused, browsing the catalog, contacting support, and purchasing products through Crowdfused.com.',
+                'answer'   => 'These Terms govern access to Reluxwatches, browsing the catalog, contacting support, and purchasing products through Reluxwatches.com.',
             ],
             [
                 'question' => 'Are shipping, returns, and privacy terms included?',

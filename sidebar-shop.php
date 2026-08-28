@@ -14,8 +14,16 @@ $categories = function_exists('dawp_lbq_product_category_terms') ? dawp_lbq_prod
     <h3 class="shop-sidebar__title"><?php esc_html_e('Curated Collections', 'dawp'); ?></h3>
     <ul class="shop-sidebar__categories">
         <?php foreach ($categories as $cat) : ?>
+            <?php
+            $cat_link = $cat->slug === 'new-arrivals'
+                ? (function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/'))
+                : get_term_link($cat);
+            if (is_wp_error($cat_link) || !$cat_link) {
+                $cat_link = home_url('/shop/');
+            }
+            ?>
             <li>
-                <a href="<?php echo esc_url(get_term_link($cat)); ?>">
+                <a href="<?php echo esc_url($cat_link); ?>">
                     <?php echo esc_html($cat->name); ?>
                     <span class="shop-sidebar__count">(<?php echo (int) $cat->count; ?>)</span>
                 </a>

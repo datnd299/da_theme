@@ -1,37 +1,37 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'essentials'                  => 'home-improvement-essentials',
-        'home'                        => 'home-furniture-appliances',
-        'furniture'                   => 'home-furniture-appliances',
-        'home-improvement'            => 'home-improvement-essentials',
-        'home-improvement-essentials' => 'home-improvement-essentials',
-        'home-furniture-appliances'   => 'home-furniture-appliances',
-        'kitchen'                     => 'home-furniture-appliances',
-        'electronics'                 => 'electronics',
-        'smart'                       => 'electronics',
-        'smart-home-tech'             => 'electronics',
-        'outdoor'                     => 'sports-outdoors',
-        'outdoor-adventure'           => 'sports-outdoors',
-        'sports'                      => 'sports-outdoors',
-        'garden'                      => 'patio-garden',
-        'tools'                       => 'home-improvement-essentials',
-        'garden-tools'                => 'patio-garden',
-        'home-garden-tools'           => 'patio-garden',
-        'patio-garden'                => 'patio-garden',
-        'seasonal-decor'              => 'seasonal-decor',
-        'toys'                        => 'toys',
-        'toys-outdoor-play'           => 'toys-outdoor-play',
-        'beauty'                      => 'seasonal-decor',
-        'beauty-personal-care'        => 'seasonal-decor',
-        'personal-care'               => 'seasonal-decor',
-        'wellness-self-care'          => 'seasonal-decor',
-        'pets'                        => 'home-furniture-appliances',
-        'school'                      => 'home-improvement-essentials',
-        'office'                      => 'home-improvement-essentials',
-        'school-office-art-supplies'  => 'home-improvement-essentials',
-        'office-and-school-supplies'  => 'home-improvement-essentials',
-        'art'                         => 'seasonal-decor',
+        'essentials'                  => 'accessories',
+        'home'                        => 'watches',
+        'furniture'                   => 'watches',
+        'home-improvement'            => 'accessories',
+        'home-improvement-essentials' => 'accessories',
+        'home-furniture-appliances'   => 'watches',
+        'kitchen'                     => 'watches',
+        'electronics'                 => 'watches',
+        'smart'                       => 'watches',
+        'smart-home-tech'             => 'watches',
+        'outdoor'                     => 'sport',
+        'outdoor-adventure'           => 'sport',
+        'sports'                      => 'sport',
+        'garden'                      => 'accessories',
+        'tools'                       => 'accessories',
+        'garden-tools'                => 'accessories',
+        'home-garden-tools'           => 'accessories',
+        'patio-garden'                => 'sport',
+        'seasonal-decor'              => 'statement',
+        'toys'                        => 'new-arrivals',
+        'toys-outdoor-play'           => 'new-arrivals',
+        'beauty'                      => 'statement',
+        'beauty-personal-care'        => 'statement',
+        'personal-care'               => 'accessories',
+        'wellness-self-care'          => 'accessories',
+        'pets'                        => 'watches',
+        'school'                      => 'accessories',
+        'office'                      => 'accessories',
+        'school-office-art-supplies'  => 'accessories',
+        'office-and-school-supplies'  => 'accessories',
+        'art'                         => 'statement',
     ];
 
     return $map[$slug] ?? $slug;
@@ -39,6 +39,11 @@ function dawp_product_category_slug($slug) {
 
 function dawp_product_category_url($slug) {
     $slug = dawp_product_category_slug($slug);
+
+    if ($slug === 'new-arrivals') {
+        $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+        return $shop_url ?: home_url('/shop/');
+    }
 
     if (function_exists('get_term_by')) {
         $term = get_term_by('slug', $slug, 'product_cat');
@@ -55,15 +60,12 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'auto-tires'                 => ['name' => __('Auto & Tires', 'dawp')],
-        'electronics'                => ['name' => __('Electronics', 'dawp')],
-        'home-improvement-essentials' => ['name' => __('Home Improvement Essentials', 'dawp')],
-        'home-furniture-appliances'  => ['name' => __('Home, Furniture & Appliances', 'dawp')],
-        'patio-garden'               => ['name' => __('Patio & Garden', 'dawp')],
-        'seasonal-decor'             => ['name' => __('Seasonal Decor', 'dawp')],
-        'sports-outdoors'            => ['name' => __('Sports & Outdoors', 'dawp')],
-        'toys-outdoor-play'          => ['name' => __('Toys & Outdoor Play', 'dawp')],
-        'toys'                       => ['name' => __('Toys', 'dawp')],
+        'watches'      => ['name' => __('Watches', 'dawp')],
+        'new-arrivals' => ['name' => __('New Arrivals', 'dawp')],
+        'minimal'      => ['name' => __('Minimal', 'dawp')],
+        'sport'        => ['name' => __('Sport', 'dawp')],
+        'statement'    => ['name' => __('Statement', 'dawp')],
+        'accessories'  => ['name' => __('Accessories', 'dawp')],
     ];
 
     $items = [];
@@ -76,65 +78,6 @@ function dawp_shop_category_items() {
     }
 
     return $items;
-}
-
-function dawp_homepage_mega_menu_items() {
-    return [
-        [
-            'title' => __('Auto & Tires', 'dawp'),
-            'slug'  => 'auto-tires',
-            'copy'  => __('Vehicle accessories, tire care and useful road-ready tools.', 'dawp'),
-            'tag'   => __('Auto', 'dawp'),
-        ],
-        [
-            'title' => __('Electronics', 'dawp'),
-            'slug'  => 'electronics',
-            'copy'  => __('Connected devices, entertainment and practical everyday tech.', 'dawp'),
-            'tag'   => __('Tech', 'dawp'),
-        ],
-        [
-            'title' => __('Home Improvement Essentials', 'dawp'),
-            'slug'  => 'home-improvement-essentials',
-            'copy'  => __('Tools, fixtures and practical upgrades for easier home projects.', 'dawp'),
-            'tag'   => __('Tools', 'dawp'),
-        ],
-        [
-            'title' => __('Home, Furniture & Appliances', 'dawp'),
-            'slug'  => 'home-furniture-appliances',
-            'copy'  => __('Furniture, appliances and useful pieces for comfortable home living.', 'dawp'),
-            'tag'   => __('Home', 'dawp'),
-        ],
-        [
-            'title' => __('Patio & Garden', 'dawp'),
-            'slug'  => 'patio-garden',
-            'copy'  => __('Garden gear, patio accents and outdoor care essentials.', 'dawp'),
-            'tag'   => __('Garden', 'dawp'),
-        ],
-        [
-            'title' => __('Seasonal Decor', 'dawp'),
-            'slug'  => 'seasonal-decor',
-            'copy'  => __('Decor and accents for seasonal home updates.', 'dawp'),
-            'tag'   => __('Decor', 'dawp'),
-        ],
-        [
-            'title' => __('Sports & Outdoors', 'dawp'),
-            'slug'  => 'sports-outdoors',
-            'copy'  => __('Sports gear and outdoor essentials for active days.', 'dawp'),
-            'tag'   => __('Sports', 'dawp'),
-        ],
-        [
-            'title' => __('Toys & Outdoor Play', 'dawp'),
-            'slug'  => 'toys-outdoor-play',
-            'copy'  => __('Toys and outdoor activity picks for playful days.', 'dawp'),
-            'tag'   => __('Play', 'dawp'),
-        ],
-        [
-            'title' => __('Toys', 'dawp'),
-            'slug'  => 'toys',
-            'copy'  => __('Giftable toys and play essentials for everyday fun.', 'dawp'),
-            'tag'   => __('Toys', 'dawp'),
-        ],
-    ];
 }
 
 function dawp_main_menu_items() {
@@ -163,11 +106,11 @@ function dawp_footer_columns() {
         [
             'title' => __('Store Policy', 'dawp'),
             'links' => [
-                ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
                 ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
                 ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
                 ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
                 ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+                ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
             ],
         ],
         [

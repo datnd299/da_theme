@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer — Crowdfused.
+ * Theme footer — Reluxwatches.
  *
  * @package dawp
  */
@@ -9,13 +9,13 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-$account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
-$support_email  = 'support@Crowdfused.com';
+$shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
+$support_email  = 'support@reluxwatches.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$logo_path       = get_template_directory() . '/assets/img/logo_file/logo_crowd_cropped.png';
-$logo_url        = get_template_directory_uri() . '/assets/img/logo_file/logo_crowd_cropped.png';
+$footer_logo_path = get_template_directory() . '/assets/img/imagewatch/logowatch.png';
+$footer_logo_url  = get_template_directory_uri() . '/assets/img/imagewatch/logowatch.png';
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -31,44 +31,29 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-if (file_exists($logo_path)) {
-    $logo_url = add_query_arg('ver', filemtime($logo_path), $logo_url);
+if (file_exists($footer_logo_path)) {
+    $footer_logo_url = add_query_arg('ver', filemtime($footer_logo_path), $footer_logo_url);
 }
-
-$footer_category_url = static function ($slug) {
-    if (function_exists('get_term_by')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-        if ($term && !is_wp_error($term)) {
-            $link = get_term_link($term);
-            if (!is_wp_error($link)) {
-                return $link;
-            }
-        }
-    }
-
-    return home_url('/product-category/' . trim($slug, '/') . '/');
-};
 
 $footer_columns = [
     [
-        'title' => __('Explore', 'dawp'),
+        'title' => __('Shop', 'dawp'),
         'links' => [
-            ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
-            ['title' => __('Shop', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
-            ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
-        ],
-    ],
-    [
-        'title' => __('Customer Care', 'dawp'),
-        'links' => [
+            ['title' => __('All Products', 'dawp'), 'url' => $shop_url],
             ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
             ['title' => __('My Account', 'dawp'), 'url' => $account_url],
             ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
         ],
     ],
     [
-        'title' => __('Policies', 'dawp'),
+        'title' => __('Company', 'dawp'),
+        'links' => [
+            ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
+            ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+        ],
+    ],
+    [
+        'title' => __('Legal', 'dawp'),
         'links' => [
             ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
             ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
@@ -83,76 +68,81 @@ $footer_columns = [
 
 <footer class="cf-footer" role="contentinfo">
     <style>
-        .cf-footer { --cf-orange:#F58220; --cf-orange-dark:#E96F00; --cf-charcoal:#222222; --cf-text:#666666; --cf-light:#8A8A8A; --cf-bg:#FAFAFA; --cf-border:#E9ECEF; --cf-font-heading:'Manrope', 'Inter', Arial, sans-serif; --cf-font-body:'Inter', Arial, sans-serif; }
-        .cf-footer { background:var(--cf-bg); border-top:1px solid var(--cf-border); color:var(--cf-charcoal); font-family:var(--cf-font-body); letter-spacing:0; text-rendering:optimizeLegibility; }
-        .cf-footer__inner { width:min(100% - 40px,1280px); margin-inline:auto; }
-        .cf-footer__main { padding:56px 0 48px; }
-        .cf-footer__columns { display:grid; justify-content:center; gap:34px 58px; }
-        .cf-footer__brand { display:block; width:max-content; max-width:100%; margin:0 0 16px; line-height:1; }
-        .cf-footer__brand img { display:block; width:auto; height:34px; max-width:180px; object-fit:contain; }
-        .cf-footer__columns h2 { margin:0 0 16px; color:var(--cf-charcoal); font-family:var(--cf-font-heading); font-size:13px; font-weight:800; letter-spacing:.06em; line-height:1.25; text-transform:uppercase; }
-        .cf-footer__columns ul { display:grid; gap:12px; margin:0; padding:0; list-style:none; font-size:14px; line-height:1.35; }
-        .cf-footer__columns a { color:var(--cf-text); font-weight:400; text-decoration:none; transition:color 180ms ease; }
-        .cf-footer__columns a:hover { color:var(--cf-orange); text-decoration:underline; text-underline-offset:4px; }
-        .cf-footer__columns > section:first-child { padding-right:24px; }
-        .cf-footer__contact-list { display:grid; gap:13px; margin:0; color:var(--cf-text); font-size:14px; font-weight:400; line-height:1.45; }
-        .cf-footer__contact-list div { display:block; max-width:100%; }
-        .cf-footer__contact-list dt { display:inline; margin:0; color:var(--cf-charcoal); font-size:14px; font-weight:700; }
-        .cf-footer__contact-list dd { display:inline; margin:0; }
-        .cf-footer__contact-list a { color:var(--cf-orange); text-decoration:none; overflow-wrap:anywhere; }
-        .cf-footer__contact-list a:hover { text-decoration:underline; }
-        .cf-footer__bottom { border-top:1px solid var(--cf-border); padding:18px 0; color:var(--cf-light); font-size:13px; font-weight:400; }
-        .cf-footer__bottom-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px 24px; }
-        .cf-footer__bottom p { margin:0; }
+        .cf-footer { --cf-ink:#111111; --cf-text:#bdbdbd; --cf-muted:#858585; --cf-line:#111111; --cf-white:#ffffff; --cf-accent:#405447; --cf-max:1380px; --cf-font:'Inter', 'Manrope', Arial, sans-serif; background:#111; color:#fff; font-family:var(--cf-font); letter-spacing:0; }
+        .cf-footer__inner { width:min(100% - 64px,var(--cf-max)); margin-inline:auto; }
+        .cf-footer__main { display:grid; grid-template-columns:minmax(280px,1.35fr) repeat(3,minmax(140px,.55fr)); gap:44px; padding:64px 0 52px; }
+        .cf-footer__brand { display:inline-flex; width:max-content; max-width:100%; margin-bottom:22px; color:#fff; line-height:1; text-decoration:none; }
+        .cf-footer__brand-img { display:block; width:auto; height:54px; max-width:210px; object-fit:contain; }
+        .cf-footer__tagline { max-width:440px; margin:0 0 24px; color:var(--cf-text); font-size:15px; line-height:1.7; }
+        .cf-footer__contact { display:grid; gap:9px; margin:0; color:var(--cf-text); font-size:13px; line-height:1.55; }
+        .cf-footer__contact div { display:block; }
+        .cf-footer__contact dt { display:inline; margin:0; color:#fff; font-weight:700; }
+        .cf-footer__contact dd { display:inline; margin:0; }
+        .cf-footer__contact a { color:#fff; text-decoration:none; }
+        .cf-footer__contact a:hover { text-decoration:underline; text-underline-offset:4px; }
+        .cf-footer h2 { margin:0 0 18px; color:#fff; font-size:12px; font-weight:800; letter-spacing:.14em; line-height:1.25; text-transform:uppercase; }
+        .cf-footer ul { display:grid; gap:12px; margin:0; padding:0; list-style:none; }
+        .cf-footer li { margin:0; }
+        .cf-footer nav a { color:var(--cf-text); font-size:14px; line-height:1.35; text-decoration:none; transition:color .18s ease; }
+        .cf-footer nav a:hover { color:#fff; }
+        .cf-footer__bottom { border-top:1px solid var(--cf-line); padding:18px 0; }
+        .cf-footer__bottom-row { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px 24px; }
+        .cf-footer__bottom p { margin:0; color:var(--cf-muted); font-size:13px; }
         .cf-footer__payments { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
-        .cf-footer__payment { display:inline-flex; align-items:center; justify-content:center; width:52px; height:32px; padding:5px 7px; border:1px solid var(--cf-border); border-radius:8px; background:#fff; }
+        .cf-footer__payment { display:inline-flex; align-items:center; justify-content:center; width:54px; height:32px; padding:5px 7px; border:1px solid var(--cf-line); background:#fff; }
         .cf-footer__payment img { display:block; max-width:100%; max-height:100%; object-fit:contain; }
-        @media (min-width: 760px) {
-            .cf-footer__columns { grid-template-columns:minmax(300px,400px) repeat(3,minmax(150px,200px)); }
+        @media (max-width: 900px) {
+            .cf-footer__inner { width:min(100% - 36px,var(--cf-max)); }
+            .cf-footer__main { grid-template-columns:1fr 1fr; gap:34px 28px; padding:50px 0 42px; }
+            .cf-footer__about { grid-column:1 / -1; }
+        }
+        @media (max-width: 560px) {
+            .cf-footer__inner { width:min(100% - 28px,var(--cf-max)); }
+            .cf-footer__main { grid-template-columns:1fr; gap:28px; }
+            .cf-footer__brand-img { height:48px; max-width:180px; }
+            .cf-footer__bottom-row { align-items:flex-start; flex-direction:column; }
         }
     </style>
 
     <div class="cf-footer__inner cf-footer__main">
-        <div class="cf-footer__columns">
-            <section aria-label="<?php esc_attr_e('Contact information', 'dawp'); ?>">
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="cf-footer__brand" aria-label="<?php esc_attr_e('Crowdfused home', 'dawp'); ?>">
-                    <?php
-                    echo function_exists('dawp_get_responsive_image')
-                        ? dawp_get_responsive_image($logo_url, __('Crowdfused', 'dawp'), '', 180, 78, 'lazy', '180px')
-                        : '<img src="' . esc_url($logo_url) . '" width="180" height="78" alt="' . esc_attr__('Crowdfused', 'dawp') . '" decoding="async" loading="lazy">';
-                    ?>
-                </a>
-                <dl class="cf-footer__contact-list">
-                    <div>
-                        <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>
-                        <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
-                    </div>
+        <section class="cf-footer__about" aria-label="<?php esc_attr_e('Reluxwatches information', 'dawp'); ?>">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="cf-footer__brand" aria-label="<?php esc_attr_e('Reluxwatches home', 'dawp'); ?>">
+                <img class="cf-footer__brand-img" src="<?php echo esc_url($footer_logo_url); ?>" alt="<?php esc_attr_e('Reluxwatches', 'dawp'); ?>" width="210" height="54" loading="lazy" decoding="async">
+            </a>
+            <p class="cf-footer__tagline"><?php esc_html_e('Modern everyday finds, selected for useful living and simple discovery.', 'dawp'); ?></p>
+            <dl class="cf-footer__contact">
+                <div>
+                    <dt><?php esc_html_e('Email:', 'dawp'); ?></dt>
+                    <dd><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></dd>
+                </div>
+                <?php if ($store_address) : ?>
                     <div>
                         <dt><?php esc_html_e('Address:', 'dawp'); ?></dt>
                         <dd><?php echo esc_html($store_address); ?></dd>
                     </div>
-                    <div>
-                        <dt><?php esc_html_e('Business Hours:', 'dawp'); ?></dt>
-                        <dd><?php echo esc_html($business_hours); ?></dd>
-                    </div>
-                </dl>
-            </section>
-            <?php foreach ($footer_columns as $column) : ?>
-                <nav aria-label="<?php echo esc_attr($column['title']); ?>">
-                    <h2><?php echo esc_html($column['title']); ?></h2>
-                    <ul>
-                        <?php foreach ($column['links'] as $link) : ?>
-                            <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </nav>
-            <?php endforeach; ?>
-        </div>
+                <?php endif; ?>
+                <div>
+                    <dt><?php esc_html_e('Hours:', 'dawp'); ?></dt>
+                    <dd><?php echo esc_html($business_hours); ?></dd>
+                </div>
+            </dl>
+        </section>
+
+        <?php foreach ($footer_columns as $column) : ?>
+            <nav aria-label="<?php echo esc_attr($column['title']); ?>">
+                <h2><?php echo esc_html($column['title']); ?></h2>
+                <ul>
+                    <?php foreach ($column['links'] as $link) : ?>
+                        <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </nav>
+        <?php endforeach; ?>
     </div>
 
     <div class="cf-footer__bottom">
         <div class="cf-footer__inner cf-footer__bottom-row">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Crowdfused. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Reluxwatches. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <div class="cf-footer__payments" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <?php foreach ($payment_methods as $method) : ?>
                     <?php
@@ -166,7 +156,11 @@ $footer_columns = [
                     $payment_url = add_query_arg('ver', filemtime($payment_path), $payment_url);
                     ?>
                     <span class="cf-footer__payment">
-                        <?php echo dawp_get_responsive_image($payment_url, $method['name'], '', 52, 32, 'lazy', '52px'); ?>
+                        <?php
+                        echo function_exists('dawp_get_responsive_image')
+                            ? dawp_get_responsive_image($payment_url, $method['name'], '', 54, 32, 'lazy', '54px')
+                            : '<img src="' . esc_url($payment_url) . '" alt="' . esc_attr($method['name']) . '" loading="lazy" decoding="async">';
+                        ?>
                     </span>
                 <?php endforeach; ?>
             </div>

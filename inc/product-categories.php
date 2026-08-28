@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for Crowdfused.
+ * Product category defaults for Reluxwatches.
  *
  * @package dawp
  */
@@ -10,6 +10,45 @@ if (!defined('ABSPATH')) {
 }
 
 function dawp_lbq_product_categories() {
+    return [
+        'watches' => [
+            'name'        => __('Watches', 'dawp'),
+            'description' => __('Modern everyday watches with clean proportions, versatile finishes, and refined details.', 'dawp'),
+            'short'       => __('Modern timepieces made for daily rotation.', 'dawp'),
+            'image'       => '',
+        ],
+        'new-arrivals' => [
+            'name'        => __('New Arrivals', 'dawp'),
+            'description' => __('The latest Reluxwatches releases across everyday, minimal, sport, and statement styles.', 'dawp'),
+            'short'       => __('Fresh watches and accessories from Reluxwatches.', 'dawp'),
+            'image'       => '',
+        ],
+        'minimal' => [
+            'name'        => __('Minimal', 'dawp'),
+            'description' => __('Clean dials, quiet silhouettes, and refined watches designed with restraint.', 'dawp'),
+            'short'       => __('Clean lines and understated details.', 'dawp'),
+            'image'       => '',
+        ],
+        'sport' => [
+            'name'        => __('Sport', 'dawp'),
+            'description' => __('Sharper watch styles with practical energy for active days and casual wear.', 'dawp'),
+            'short'       => __('Sharper energy for active days.', 'dawp'),
+            'image'       => '',
+        ],
+        'statement' => [
+            'name'        => __('Statement', 'dawp'),
+            'description' => __('Confident modern watches made to stand out without feeling overly formal.', 'dawp'),
+            'short'       => __('Bold details with a modern point of view.', 'dawp'),
+            'image'       => '',
+        ],
+        'accessories' => [
+            'name'        => __('Accessories', 'dawp'),
+            'description' => __('Watch accessories selected to support care, styling, storage, and daily wear.', 'dawp'),
+            'short'       => __('Useful accessories for watch care and style.', 'dawp'),
+            'image'       => '',
+        ],
+    ];
+
     return [
         'auto-tires' => [
             'name'        => __('Auto & Tires', 'dawp'),
@@ -87,6 +126,32 @@ function dawp_lbq_retired_product_category_slugs() {
 }
 
 function dawp_lbq_product_category_slug_aliases() {
+    return [
+        'home'                       => 'watches',
+        'home-essentials'            => 'watches',
+        'furniture'                  => 'watches',
+        'home-improvement'           => 'accessories',
+        'auto-tires'                 => 'accessories',
+        'electronics'                => 'watches',
+        'home-improvement-essentials'=> 'accessories',
+        'home-furniture-appliances'  => 'watches',
+        'patio-garden'               => 'sport',
+        'seasonal-decor'             => 'statement',
+        'sports-outdoors'            => 'sport',
+        'toys-outdoor-play'          => 'new-arrivals',
+        'toys'                       => 'new-arrivals',
+        'smart-home'                 => 'watches',
+        'kitchen-dining'             => 'watches',
+        'outdoor-garden'             => 'sport',
+        'garden-tools'               => 'accessories',
+        'home-garden-tools'          => 'accessories',
+        'beauty-personal-care'       => 'statement',
+        'personal-care'              => 'accessories',
+        'school-office-art-supplies' => 'accessories',
+        'office-and-school-supplies' => 'accessories',
+        'pets'                       => 'watches',
+    ];
+
     return [
         'home'                       => 'home-furniture-appliances',
         'home-essentials'            => 'home-furniture-appliances',
@@ -176,7 +241,7 @@ function dawp_ensure_lbq_product_categories() {
         dawp_update_lbq_product_category_thumbnail($term_id, $category);
     }
 
-    $home_term = get_term_by('slug', 'home-furniture-appliances', 'product_cat');
+    $home_term = get_term_by('slug', 'watches', 'product_cat');
     if ($home_term && !is_wp_error($home_term)) {
         update_option('default_product_cat', (int) $home_term->term_id);
     }

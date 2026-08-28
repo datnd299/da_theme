@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form handling for Crowdfused.
+ * Contact form handling for Reluxwatches.
  *
  * @package dawp
  */
@@ -48,8 +48,8 @@ function dawp_contact_meta_boxes() {
     add_meta_box('lbq_contact_details', 'Submission Details', 'dawp_contact_meta_box_cb', 'lbq_contact', 'normal', 'high');
 }
 function dawp_contact_meta_box_cb($post) {
-    $fields = ['_contact_email', '_contact_topic', '_contact_order', '_contact_ip'];
-    $labels = ['Email', 'Topic', 'Order Number', 'IP Address'];
+    $fields = ['_contact_email', '_contact_topic', '_contact_order', '_contact_source', '_contact_ip'];
+    $labels = ['Email', 'Topic', 'Order Number', 'Source', 'IP Address'];
     echo '<table class="form-table"><tbody>';
     foreach ($fields as $i => $key) {
         $value = get_post_meta($post->ID, $key, true);
@@ -95,6 +95,7 @@ function dawp_handle_contact_form() {
     $topic_key    = isset($_POST['contact_topic']) ? sanitize_key(wp_unslash($_POST['contact_topic'])) : 'other';
     $order_number = isset($_POST['order_number']) ? sanitize_text_field(wp_unslash($_POST['order_number'])) : '';
     $message      = isset($_POST['contact_message']) ? sanitize_textarea_field(wp_unslash($_POST['contact_message'])) : '';
+    $source       = isset($_POST['contact_source']) ? sanitize_key(wp_unslash($_POST['contact_source'])) : 'unknown';
 
     if ($name === '' || !is_email($email) || $message === '') {
         wp_safe_redirect(add_query_arg('contact_status', 'error', $redirect_base));
@@ -119,11 +120,12 @@ function dawp_handle_contact_form() {
         update_post_meta($post_id, '_contact_email', $email);
         update_post_meta($post_id, '_contact_topic', $topic_label);
         update_post_meta($post_id, '_contact_order', $order_number);
+        update_post_meta($post_id, '_contact_source', $source);
         update_post_meta($post_id, '_contact_ip', sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')));
     }
 
-    $support_email = 'support@Crowdfused.com';
-    $subject       = sprintf('[Crowdfused] %s', $topic_label);
+    $support_email = 'support@reluxwatches.com';
+    $subject       = sprintf('[Reluxwatches] %s', $topic_label);
     $body          = sprintf(
         "New contact form submission.\n\nName: %s\nEmail: %s\nTopic: %s\nOrder number: %s\n\nMessage:\n%s",
         $name,

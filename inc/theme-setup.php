@@ -380,7 +380,7 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.3');
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], '1.0.4');
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
@@ -388,13 +388,17 @@ function dawp_scripts() {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], filemtime(get_theme_file_path('/assets/css/tw/tw-home.css')));
         dawp_remove_styles();
     }
+
+    if ( is_404() ) {
+        wp_enqueue_style('dawp-404', get_template_directory_uri() . '/assets/css/tw/tw-404.css', [], filemtime(get_theme_file_path('/assets/css/tw/tw-404.css')));
+    }
     
     if ( class_exists( 'WooCommerce' ) ) {
         if ( is_product() ) {
             wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], filemtime(get_theme_file_path('/assets/css/product.css')));
             dawp_remove_styles();
         } elseif ( is_cart() ) {
-            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.2');
+            wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.3');
             dawp_remove_styles();
         } elseif ( is_checkout() ) {
             wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.9');

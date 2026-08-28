@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@Crowdfused.com';
+$support_email  = 'support@reluxwatches.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
 $home_url       = home_url('/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -68,7 +68,7 @@ $nav_items = [
 <header id="site-header" class="sticky top-0 z-50 border-b border-[#E5E7EB] bg-[#FFFFFF]/95 text-[#1F2937] backdrop-blur" role="banner">
     <div class="hidden border-b border-[#E5E7EB] bg-[#F5F6F8] lg:block">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-8 py-2 text-xs font-semibold text-[#6B7280]">
-            <p><?php esc_html_e('Home, electronics and lifestyle products for modern living.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Modern watches and accessories for everyday style.', 'dawp'); ?></p>
             <div class="flex items-center gap-5">
                 <a class="transition hover:text-[#0046BE]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
                 <span><?php echo esc_html($business_hours); ?></span>
@@ -79,11 +79,11 @@ $nav_items = [
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex min-h-20 items-center justify-between gap-4">
-            <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('Crowdfused home', 'dawp'); ?>">
+            <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('Reluxwatches home', 'dawp'); ?>">
                 <?php
                 echo function_exists('dawp_get_responsive_image')
-                    ? dawp_get_responsive_image($logo_url, __('Crowdfused', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high')
-                    : '<img class="site-logo-img" src="' . esc_url($logo_url) . '" width="1290" height="1290" alt="' . esc_attr__('Crowdfused', 'dawp') . '" decoding="async" fetchpriority="high">';
+                    ? dawp_get_responsive_image($logo_url, __('Reluxwatches', 'dawp'), 'site-logo-img', 128, 128, 'eager', '(max-width: 520px) 104px, 128px', 'high')
+                    : '<img class="site-logo-img" src="' . esc_url($logo_url) . '" width="1290" height="1290" alt="' . esc_attr__('Reluxwatches', 'dawp') . '" decoding="async" fetchpriority="high">';
                 ?>
             </a>
 
@@ -98,7 +98,7 @@ $nav_items = [
             <div class="flex shrink-0 items-center gap-2">
                 <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="hidden items-center rounded-md border border-[#E5E7EB] bg-white px-3 py-2 lg:flex">
                     <label class="sr-only" for="header-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-                    <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search home, electronics, kitchen and more', 'dawp'); ?>" class="w-40 bg-transparent text-sm text-[#1F2937] outline-none placeholder:text-[#8D7D77]">
+                    <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search watches, straps and more', 'dawp'); ?>" class="w-40 bg-transparent text-sm text-[#1F2937] outline-none placeholder:text-[#8D7D77]">
                     <input type="hidden" name="post_type" value="product">
                     <button type="submit" class="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-md text-[#0046BE] transition hover:bg-[#EAF2FF] hover:text-[#1F2937]" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -143,7 +143,7 @@ $nav_items = [
         <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mb-4 flex items-center rounded-md border border-[#E5E7EB] bg-[#F5F6F8] px-4 py-3">
                 <label class="sr-only" for="mobile-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
-                <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search home, electronics, kitchen and more', 'dawp'); ?>" class="w-full bg-transparent text-sm text-[#1F2937] outline-none placeholder:text-[#8D7D77]">
+                <input id="mobile-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search watches, straps and more', 'dawp'); ?>" class="w-full bg-transparent text-sm text-[#1F2937] outline-none placeholder:text-[#8D7D77]">
                 <input type="hidden" name="post_type" value="product">
                 <button type="submit" class="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-md bg-white text-[#0046BE]" aria-label="<?php esc_attr_e('Submit product search', 'dawp'); ?>">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">

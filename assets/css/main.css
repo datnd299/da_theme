@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css - Crowdfused Design System
+   main.css - Reluxwatches Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -14,17 +14,17 @@
   /* Soft hover states and alt sections */
 
   /* === TEXT === */
-  --color-foreground: #222222;
+  --color-foreground: #111111;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #8A8A8A;
+  --color-foreground-muted: #777777;
   /* Secondary text — descriptions, meta */
-  --color-muted: #8A8A8A;
+  --color-muted: #777777;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #F58220;
-  /* Crowdfused orange primary CTA and links */
-  --color-accent-hover: #E96F00;
+  --color-accent: #405447;
+  /* Reluxwatches orange primary CTA and links */
+  --color-accent-hover: #2F3F35;
   /* Deeper orange hover state */
   --color-accent-soft: #FAFAFA;
   /* Subtle highlights and badges */
@@ -32,7 +32,7 @@
   /* Fresh green secondary accent */
 
   /* === UI === */
-  --color-border: #E9ECEF;
+  --color-border: #E9E9E9;
   /* Border — cards, dividers */
   --color-alert: #E64A3B;
   /* Error / alert */
@@ -188,6 +188,7 @@
 .woocommerce-error .button:hover,
 .woocommerce-info .button:hover {
   background: var(--color-accent-hover);
+  color: var(--color-background);
   opacity: 1;
 }
 
@@ -240,7 +241,7 @@
   font-weight: 900;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #222222;
+  color: #111111;
 }
 
 #contact-form-1 .wpcf7-form-control-wrap {
@@ -256,9 +257,9 @@
   padding: 12px var(--space-md);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
-  color: #222222;
+  color: #111111;
   background: #FAFAFA;
-  border: 1.5px solid #E9ECEF;
+  border: 1.5px solid #E9E9E9;
   border-radius: var(--radius-md);
   outline: none;
   box-sizing: border-box;
@@ -269,7 +270,7 @@
 #contact-form-1 input[type="text"]:focus,
 #contact-form-1 input[type="email"]:focus,
 #contact-form-1 textarea:focus {
-  border-color: #F58220;
+  border-color: #405447;
   box-shadow: 0 0 0 3px rgba(200, 127, 134, 0.18);
 }
 
@@ -304,7 +305,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #ffffff;
-  background: #F58220;
+  background: #405447;
   border: none;
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -312,7 +313,8 @@
 }
 
 #contact-form-1 input[type="submit"]:hover {
-  background: #E96F00;
+  background: #2F3F35;
+  color: #FFFFFF;
 }
 
 #contact-form-1 .wpcf7-spinner {
@@ -327,12 +329,12 @@
   font-family: var(--font-sans);
   font-size: 0.875rem;
   line-height: 1.5;
-  color: #222222;
+  color: #111111;
 }
 
 #contact-form-1 .wpcf7-form.sent .wpcf7-response-output {
   background: rgba(200, 127, 134, 0.12);
-  border-left: 3px solid #F58220;
+  border-left: 3px solid #405447;
 }
 
 #contact-form-1 .wpcf7-form.failed .wpcf7-response-output,
@@ -347,17 +349,17 @@
    ============================================================= */
 
 body.woocommerce-account {
-  --account-primary: #F58220;
-  --account-primary-hover: #E96F00;
-  --account-cta: #222222;
-  --account-cta-hover: #F58220;
+  --account-primary: #405447;
+  --account-primary-hover: #2F3F35;
+  --account-cta: #111111;
+  --account-cta-hover: #405447;
   --account-soft: #FAFAFA;
   --account-warm: #FAFAFA;
   --account-background: #FAFAFA;
   --account-surface: #FFFFFF;
-  --account-text: #222222;
-  --account-muted: #8A8A8A;
-  --account-border: #E9ECEF;
+  --account-text: #111111;
+  --account-muted: #777777;
+  --account-border: #E9E9E9;
   --account-shadow: 0 18px 42px rgba(34, 34, 34, 0.09);
   background: var(--account-background);
 }
@@ -391,7 +393,7 @@ body.woocommerce-account {
   display: block;
   min-height: 128px;
   background:
-    linear-gradient(135deg, rgba(34, 34, 34, 0.82), rgba(245, 130, 32, 0.72)),
+    linear-gradient(135deg, rgba(34, 34, 34, 0.82), rgba(64, 84, 71, 0.72)),
     url("../img/home/Home_essentials_on_shelf_202607171221.jpeg") center/cover;
   background-blend-mode: multiply;
 }
@@ -466,7 +468,7 @@ body.woocommerce-account {
 .woocommerce-account .woocommerce select:focus {
   border-color: var(--account-primary);
   background: var(--account-surface);
-  box-shadow: 0 0 0 3px rgba(245, 130, 32, 0.14);
+  box-shadow: 0 0 0 3px rgba(64, 84, 71, 0.14);
 }
 
 .woocommerce-account .woocommerce input:-webkit-autofill {

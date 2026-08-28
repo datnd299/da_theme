@@ -1,15 +1,15 @@
 /* Checkout and thank-you pages */
 
 :root {
-    --checkout-primary: #F58220;
-    --checkout-primary-dark: #E96F00;
-    --checkout-accent: #F58220;
+    --checkout-primary: #405447;
+    --checkout-primary-dark: #2F3F35;
+    --checkout-accent: #405447;
     --checkout-bg: #FAFAFA;
     --checkout-surface: #FFFFFF;
-    --checkout-text: #222222;
-    --checkout-muted: #8A8A8A;
-    --checkout-border: #E9ECEF;
-    --checkout-border-strong: #E9ECEF;
+    --checkout-text: #111111;
+    --checkout-muted: #777777;
+    --checkout-border: #E9E9E9;
+    --checkout-border-strong: #E9E9E9;
     --checkout-radius: 8px;
     --checkout-shadow: 0 14px 34px rgba(34, 34, 34, 0.07);
 }
@@ -239,7 +239,7 @@ body.woocommerce-checkout .woo-page *::after,
 .wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus {
     border-color: var(--checkout-primary);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(245, 130, 32, 0.14);
+    box-shadow: 0 0 0 3px rgba(64, 84, 71, 0.14);
 }
 
 .woocommerce-checkout .select2-container {

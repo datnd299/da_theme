@@ -1,15 +1,15 @@
 /* ─── CSS Variables ─── */
 :root {
-  --black: #222222;
-  --charcoal: #222222;
-  --dark: #222222;
-  --mid: #666666;
-  --smoke: #8A8A8A;
-  --light: #E9ECEF;
+  --black: #111111;
+  --charcoal: #111111;
+  --dark: #111111;
+  --mid: #777777;
+  --smoke: #777777;
+  --light: #E9E9E9;
   --off-white: #FAFAFA;
   --white: #ffffff;
-  --beige: #F58220;
-  --olive: #8A8A8A;
+  --beige: #405447;
+  --olive: #777777;
 
   --font-display: 'Barlow Condensed', sans-serif;
   --font-body: 'DM Sans', sans-serif;
@@ -105,7 +105,7 @@ ul { list-style: none; }
   inset: 0;
   background:
     linear-gradient(160deg, rgba(14,14,14,0.1) 0%, rgba(14,14,14,0.7) 100%),
-    url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1600&q=85&auto=format') center/cover no-repeat;
+    url('../img/imagewatch/10.png') center/cover no-repeat;
   transform: scale(1.04);
   animation: heroZoom 10s var(--ease-out) forwards;
 }

@@ -1,649 +1,625 @@
 <?php
-/**
- * Homepage content — Crowdfused.
- *
- * @package dawp
- */
+$imagewatch = static function ($filename) {
+    return get_theme_file_uri('assets/img/imagewatch/' . $filename);
+};
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
-$theme_uri   = get_template_directory_uri();
-$theme_dir   = get_template_directory();
-$shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-$about_url   = home_url('/about-us/');
-$contact_url = home_url('/contact-us/');
-
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$cf_asset = static function ($file, $folder = 'gallery') use ($theme_uri, $theme_dir) {
-    $relative = 'assets/img/' . $folder . '/' . $file;
-    $path     = $theme_dir . '/' . $relative;
-    $url      = $theme_uri . '/' . $relative;
-
-    if (file_exists($path)) {
-        return add_query_arg('ver', filemtime($path), $url);
+$category_url = static function ($slug) use ($shop_url) {
+    if (function_exists('dawp_product_category_url')) {
+        return dawp_product_category_url($slug);
     }
 
-    return $url;
+    return 'new-arrivals' === $slug ? $shop_url : home_url('/product-category/' . trim($slug, '/') . '/');
 };
 
-$cf_img = static function ($file, $alt, $folder = 'gallery', $class = '', $width = 900, $height = 700, $loading = 'lazy', $sizes = '') use ($cf_asset) {
-    $url = $cf_asset($file, $folder);
+$home_category_urls = [
+    'watches'      => $category_url('watches'),
+    'new-arrivals' => $category_url('new-arrivals'),
+    'minimal'      => $category_url('minimal'),
+    'sport'        => $category_url('sport'),
+    'statement'    => $category_url('statement'),
+    'accessories'  => $category_url('accessories'),
+];
 
-    if (function_exists('dawp_get_responsive_image')) {
-        return dawp_get_responsive_image($url, $alt, $class, $width, $height, $loading, $sizes);
-    }
-
-    return sprintf(
-        '<img src="%s" alt="%s" class="%s" width="%d" height="%d" loading="%s" decoding="async">',
-        esc_url($url),
-        esc_attr($alt),
-        esc_attr($class),
-        (int) $width,
-        (int) $height,
-        esc_attr($loading)
-    );
-};
-
-$cf_category_link = static function ($slug) {
-    if (function_exists('get_term_by')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-        if ($term && !is_wp_error($term)) {
-            $link = get_term_link($term);
-            if (!is_wp_error($link)) {
-                return ['url' => $link, 'count' => (int) $term->count];
-            }
-        }
-    }
-
-    return ['url' => home_url('/product-category/' . trim($slug, '/') . '/'), 'count' => 0];
-};
-
-$cf_rating_html = static function ($rating, $count) {
-    if ($count < 1) {
-        return '<p class="cf-rating cf-rating--empty">' . esc_html__('Be the first to review', 'dawp') . '</p>';
-    }
-
-    return sprintf(
-        '<p class="cf-rating" aria-label="%s"><span class="cf-rating__stars" style="--cf-rating:%s"></span><span class="cf-rating__count">(%d)</span></p>',
-        esc_attr(sprintf(__('Rated %s out of 5', 'dawp'), $rating)),
-        esc_attr($rating),
-        (int) $count
-    );
-};
-
-$cf_product_card = static function ($product, $eager = false) use ($cf_rating_html) {
-    if (!$product || !is_a($product, 'WC_Product') || !$product->is_visible()) {
+$get_product_category_name = static function ($product) {
+    if (!$product || !function_exists('get_the_terms')) {
         return '';
     }
 
-    $benefit = wp_strip_all_tags($product->get_short_description());
-    if (!$benefit) {
-        $benefit = wp_strip_all_tags($product->get_description());
+    $cats = get_the_terms($product->get_id(), 'product_cat');
+
+    if (is_wp_error($cats) || empty($cats)) {
+        return '';
     }
-    $benefit = $benefit ? wp_trim_words($benefit, 14) : __('Thoughtfully designed to make everyday life a little easier.', 'dawp');
 
-    $image = function_exists('dawp_get_product_responsive_image')
-        ? dawp_get_product_responsive_image($product, 'cf-product__img', 480, 480, '(max-width: 699px) 74vw, (max-width: 1023px) 40vw, 22vw')
-        : $product->get_image('woocommerce_single', ['class' => 'cf-product__img', 'loading' => $eager ? 'eager' : 'lazy']);
+    foreach ($cats as $cat) {
+        if (function_exists('dawp_is_lbq_product_category_slug') && !dawp_is_lbq_product_category_slug($cat->slug)) {
+            continue;
+        }
 
-    ob_start();
-    ?>
-    <article class="cf-product">
-        <a class="cf-product__media" href="<?php echo esc_url($product->get_permalink()); ?>" aria-label="<?php echo esc_attr($product->get_name()); ?>">
-            <?php echo $image; ?>
-            <?php if ($product->is_on_sale()) : ?>
-                <span class="cf-product__flag"><?php esc_html_e('New Lower Price', 'dawp'); ?></span>
-            <?php endif; ?>
-        </a>
-        <div class="cf-product__body">
-            <h3 class="cf-product__title"><a href="<?php echo esc_url($product->get_permalink()); ?>"><?php echo esc_html($product->get_name()); ?></a></h3>
-            <p class="cf-product__benefit"><?php echo esc_html($benefit); ?></p>
-            <?php echo $cf_rating_html(number_format((float) $product->get_average_rating(), 1), $product->get_rating_count()); ?>
-            <div class="cf-product__foot">
-                <span class="cf-product__price"><?php echo wp_kses_post($product->get_price_html()); ?></span>
-                <a class="cf-product__cta" href="<?php echo esc_url($product->get_permalink()); ?>"><?php esc_html_e('View Product', 'dawp'); ?></a>
-            </div>
-        </div>
-    </article>
-    <?php
-    return ob_get_clean();
+        return $cat->name;
+    }
+
+    return $cats[0]->name;
 };
 
-$cf_trending  = [];
-
-if (function_exists('wc_get_products')) {
-    $cf_trending = wc_get_products([
-        'status'   => 'publish',
-        'limit'    => 8,
-        'orderby'  => 'date',
-        'order'    => 'DESC',
-        'featured' => true,
-    ]);
-
-    if (count($cf_trending) < 4) {
-        $cf_trending_ids = wp_list_pluck($cf_trending, 'id');
-        $more = wc_get_products([
-            'status'  => 'publish',
-            'limit'   => 8 - count($cf_trending),
-            'orderby' => 'date',
-            'order'   => 'DESC',
-            'exclude' => $cf_trending_ids,
-        ]);
-        $cf_trending = array_merge($cf_trending, $more);
+$render_home_product_card = static function ($product, $fallback = []) use ($get_product_category_name) {
+    if ($product && function_exists('wc_get_product')) {
+        $category = $get_product_category_name($product);
+        ?>
+        <article class="product-card">
+          <a class="product-card-link" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
+            <div class="product-image">
+              <?php
+              echo function_exists('dawp_get_product_responsive_image')
+                  ? dawp_get_product_responsive_image($product, 'home-product-img', 560, 700, '(max-width: 767px) 50vw, 25vw')
+                  : $product->get_image('woocommerce_single', ['class' => 'home-product-img', 'loading' => 'lazy']);
+              ?>
+            </div>
+            <?php if ($category) : ?><div class="product-meta"><?php echo esc_html($category); ?></div><?php endif; ?>
+            <div class="product-name"><?php echo esc_html($product->get_name()); ?></div>
+            <div class="product-price"><?php echo wp_kses_post($product->get_price_html()); ?></div>
+          </a>
+        </article>
+        <?php
+        return;
     }
-}
 
-$cf_categories = [
-    ['slug' => 'auto-tires', 'title' => __('Auto & Tires', 'dawp'), 'copy' => __('Vehicle accessories, tire care and practical tools for everyday drives.', 'dawp'), 'image' => 'car_tire.jpg', 'folder' => 'New_homepage'],
-    ['slug' => 'electronics', 'title' => __('Electronics', 'dawp'), 'copy' => __('Everyday electronics, connected devices and practical tech for modern homes.', 'dawp'), 'image' => 'Smart_home_connected_devices_202607281526.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'home-improvement-essentials', 'title' => __('Home Improvement Essentials', 'dawp'), 'copy' => __('Practical tools, fixtures and upgrades that make home projects simpler.', 'dawp'), 'image' => 'Home_improvement.jpg', 'folder' => 'New_homepage'],
-    ['slug' => 'patio-garden', 'title' => __('Patio & Garden', 'dawp'), 'copy' => __('Garden gear, patio accents and outdoor care essentials for better open-air spaces.', 'dawp'), 'image' => 'Garden_tools_outdoor_care_planting_202608020050.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'sports-outdoors', 'title' => __('Sports & Outdoors', 'dawp'), 'copy' => __('Sports gear and outdoor essentials built for recreation, training and time outside.', 'dawp'), 'image' => 'Outdoor&Adventure.jpeg', 'folder' => 'New_homepage'],
-    ['slug' => 'toys-outdoor-play', 'title' => __('Toys & Outdoor Play', 'dawp'), 'copy' => __('Playtime favorites and outdoor activity picks for kids, families and backyards.', 'dawp'), 'image' => 'Toys_and_outdoor_play_202608031238.jpeg', 'folder' => 'New_homepage'],
+    ?>
+    <article class="product-card">
+      <div class="product-image"><img src="<?php echo esc_url($fallback['image']); ?>" alt="<?php echo esc_attr($fallback['alt']); ?>"></div>
+      <div class="product-meta"><?php echo esc_html($fallback['category']); ?></div>
+      <div class="product-name"><?php echo esc_html($fallback['name']); ?></div>
+      <div class="product-price"><?php echo esc_html($fallback['price']); ?></div>
+    </article>
+    <?php
+};
+
+$render_home_products = static function ($query_args, $fallback_products) use ($render_home_product_card) {
+    $products = [];
+
+    if (class_exists('WooCommerce') && class_exists('WP_Query')) {
+        $product_query = new WP_Query(array_merge([
+            'post_type'              => 'product',
+            'post_status'            => 'publish',
+            'posts_per_page'         => 4,
+            'ignore_sticky_posts'    => true,
+            'no_found_rows'          => true,
+            'update_post_meta_cache' => true,
+            'update_post_term_cache' => true,
+        ], $query_args));
+
+        while ($product_query->have_posts()) {
+            $product_query->the_post();
+            $product = wc_get_product(get_the_ID());
+
+            if ($product && $product->is_visible()) {
+                $products[] = $product;
+            }
+        }
+
+        wp_reset_postdata();
+    }
+
+    if (!empty($products)) {
+        foreach ($products as $product) {
+            $render_home_product_card($product);
+        }
+
+        return;
+    }
+
+    foreach ($fallback_products as $fallback) {
+        $render_home_product_card(null, $fallback);
+    }
+};
+
+$new_in_fallback_products = [
+    ['image' => $imagewatch('5.png'), 'alt' => 'Reluxwatches watch', 'category' => 'Everyday', 'name' => 'Reluxwatches Core 01', 'price' => '$189'],
+    ['image' => $imagewatch('6.png'), 'alt' => 'Reluxwatches watch', 'category' => 'Minimal', 'name' => 'Reluxwatches Form 02', 'price' => '$215'],
+    ['image' => $imagewatch('7.png'), 'alt' => 'Reluxwatches watch', 'category' => 'Sport', 'name' => 'Reluxwatches Motion S1', 'price' => '$249'],
+    ['image' => $imagewatch('8.png'), 'alt' => 'Reluxwatches watch', 'category' => 'Statement', 'name' => 'Reluxwatches Edge 04', 'price' => '$279'],
 ];
 
-$cf_collections = [
-    [
-        'slug'  => 'home-furniture-appliances',
-        'label' => __('Home, Furniture & Appliances', 'dawp'),
-        'title' => __('Comfortable Home Upgrades', 'dawp'),
-        'copy'  => __('Useful furniture, appliances and home pieces for easier everyday living.', 'dawp'),
-        'cta'   => __('Shop Home, Furniture & Appliances', 'dawp'),
-        'image' => 'Living_room_minimalist_design_ph…_202607281539.jpeg',
-        'folder' => 'New_homepage',
-    ],
-    [
-        'slug'   => 'seasonal-decor',
-        'label'  => __('Seasonal Decor', 'dawp'),
-        'title'  => __('Refresh For The Season', 'dawp'),
-        'copy'   => __('Timely decor and accents that bring the right seasonal feel home.', 'dawp'),
-        'cta'    => __('Shop Seasonal Decor', 'dawp'),
-        'image'  => 'Patio_picks_for_outdoor_living_202608020057.jpg',
-        'folder' => 'New_homepage',
-    ],
-];
-
-$cf_problem_solution = [
-    [
-        'problem'  => __('Busy mornings.', 'dawp'),
-        'solution' => __('Smart products that simplify daily routines.', 'dawp'),
-        'icon'     => '<circle cx="12" cy="13" r="7"></circle><path d="M12 9.5v4l2.6 1.6"></path><path d="M5 3.5 3.2 5.3M19 3.5l1.8 1.8"></path>',
-    ],
-    [
-        'problem'  => __('Messy spaces.', 'dawp'),
-        'solution' => __('Innovative organization designed for modern living.', 'dawp'),
-        'icon'     => '<path d="M3.5 7 12 3l8.5 4-8.5 4-8.5-4Z"></path><path d="M3.5 7v10l8.5 4 8.5-4V7"></path><path d="M12 11v10"></path>',
-    ],
-    [
-        'problem'  => __('Travel inconvenience.', 'dawp'),
-        'solution' => __('Compact gear built for every journey.', 'dawp'),
-        'icon'     => '<rect x="3.5" y="7.5" width="17" height="12.5" rx="2.2"></rect><path d="M9 7.5v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M3.5 13h17"></path>',
-    ],
-];
-
-$cf_why_shop = [
-    [
-        'title' => __('Exclusive Deals', 'dawp'),
-        'copy'  => __("Shop unique deals you won't easily find anywhere else.", 'dawp'),
-        'icon'  => '<rect x="3" y="6.5" width="18" height="11" rx="1.6"></rect><path d="M7 6.5V5.2A1.7 1.7 0 0 1 8.7 3.5h6.6A1.7 1.7 0 0 1 17 5.2v1.3"></path><path d="M7 10.5h6M7 13.5h4"></path>',
-    ],
-    [
-        'title' => __('Free Shipping', 'dawp'),
-        'copy'  => __('Enjoy delivery with no extra shipping cost.', 'dawp'),
-        'icon'  => '<path d="M3 7h11v9H3z"></path><path d="M14 10.5h4l3 2.5v3h-7z"></path><circle cx="7.5" cy="18" r="1.8"></circle><circle cx="17.5" cy="18" r="1.8"></circle>',
-    ],
-    [
-        'title' => __('Trusted by Customers', 'dawp'),
-        'copy'  => __('Over 70% of shoppers return for more great deals.', 'dawp'),
-        'icon'  => '<path d="M12 3.2 14.5 9l6.3.6-4.8 4.1 1.5 6.1L12 16.8 6.5 19.8 8 13.7 3.2 9.6 9.5 9z"></path>',
-    ],
-    [
-        'title' => __('30-Day Return Policy', 'dawp'),
-        'copy'  => __('Enjoy easy, hassle-free returns within 30 days for a confident shopping experience.', 'dawp'),
-        'icon'  => '<path d="M5.5 5.5h9a3.5 3.5 0 0 1 0 7H9"></path><path d="m11 9.5-3-3 3-3"></path><path d="M5.5 12v7h13v-7"></path>',
-    ],
-];
-
-$cf_testimonials = [
-    ['name' => __('Amara K.', 'dawp'), 'location' => __('Austin, TX', 'dawp'), 'rating' => '5.0', 'copy' => __('The kitchen tools I ordered are genuinely well made, and checkout was quick. It felt like shopping somewhere that actually curates what it sells.', 'dawp')],
-    ['name' => __('Jordan T.', 'dawp'), 'location' => __('Denver, CO', 'dawp'), 'rating' => '5.0', 'copy' => __('Tracking updates were clear from the moment my order shipped. Everything arrived exactly as described, no surprises.', 'dawp')],
-    ['name' => __('Priya S.', 'dawp'), 'location' => __('Seattle, WA', 'dawp'), 'rating' => '4.8', 'copy' => __('I was hunting for smart home gadgets that did not feel gimmicky. Crowdfused had exactly that balance of useful and well designed.', 'dawp')],
-    ['name' => __('Marcus B.', 'dawp'), 'location' => __('Raleigh, NC', 'dawp'), 'rating' => '5.0', 'copy' => __('Support answered my question about a return within a day and made the whole process painless.', 'dawp')],
-    ['name' => __('Elena R.', 'dawp'), 'location' => __('Phoenix, AZ', 'dawp'), 'rating' => '4.9', 'copy' => __('Our patio finally feels finished. The product pages made it easy to know what I was getting before I bought it.', 'dawp')],
+$popular_fallback_products = [
+    ['image' => $imagewatch('11.png'), 'alt' => 'Reluxwatches bestseller', 'category' => 'Minimal', 'name' => 'Reluxwatches Mono 01', 'price' => '$199'],
+    ['image' => $imagewatch('12.png'), 'alt' => 'Reluxwatches bestseller', 'category' => 'Everyday', 'name' => 'Reluxwatches Day 03', 'price' => '$225'],
+    ['image' => $imagewatch('13.png'), 'alt' => 'Reluxwatches bestseller', 'category' => 'Sport', 'name' => 'Reluxwatches Pace 02', 'price' => '$259'],
+    ['image' => $imagewatch('14.png'), 'alt' => 'Reluxwatches bestseller', 'category' => 'Statement', 'name' => 'Reluxwatches Frame 05', 'price' => '$289'],
 ];
 ?>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reluxwatches — Homepage</title>
 <style>
-    .cf-home { --cf-orange:#F58220; --cf-orange-dark:#E96F00; --cf-white:#FFFFFF; --cf-charcoal:#222222; --cf-text:#666666; --cf-light:#8A8A8A; --cf-bg:#FAFAFA; --cf-border:#E9ECEF; --cf-red:#E64A3B; --cf-green:#43A047; --cf-font-heading:'Manrope', 'Inter', Arial, sans-serif; --cf-font-body:'Inter', Arial, sans-serif; --cf-radius:16px; }
-    .cf-home { background:var(--cf-white); color:var(--cf-text); font-family:var(--cf-font-body); letter-spacing:0; }
-    .cf-home * { box-sizing:border-box; }
-    .cf-home p { margin:0; }
-    .cf-home h1, .cf-home h2, .cf-home h3 { margin:0; color:var(--cf-charcoal); font-family:var(--cf-font-heading); font-weight:800; letter-spacing:-0.01em; line-height:1.15; }
-    .cf-container { width:min(100% - 40px, 1280px); margin-inline:auto; }
-    .cf-eyebrow { margin:0 0 10px; color:var(--cf-orange); font-size:.78rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
-    .cf-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; border-radius:999px; padding:0 26px; font-size:.92rem; font-weight:700; text-decoration:none; transition:background 220ms ease, color 220ms ease, border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease; }
-    .cf-btn--primary { background:var(--cf-orange); color:var(--cf-white); border:1px solid var(--cf-orange); }
-    .cf-btn--primary:hover { background:var(--cf-orange-dark); border-color:var(--cf-orange-dark); transform:translateY(-1px); box-shadow:0 12px 26px rgba(245,130,32,.28); }
-    .cf-btn--secondary { background:transparent; color:var(--cf-orange); border:1px solid var(--cf-orange); }
-    .cf-btn--secondary:hover { background:var(--cf-orange); color:var(--cf-white); transform:translateY(-1px); }
-    .cf-link { color:var(--cf-charcoal); font-weight:700; text-decoration:none; border-bottom:2px solid var(--cf-orange); padding-bottom:2px; }
-    .cf-link:hover { color:var(--cf-orange); }
-    .cf-section { padding:64px 0; }
-    .cf-section--soft { background:var(--cf-bg); }
-    .cf-section__head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:32px; }
-    .cf-section__head h2 { font-size:clamp(1.6rem, 2.6vw, 2.35rem); }
-    .cf-section__head p:not(.cf-eyebrow) { max-width:560px; margin-top:10px; font-size:.96rem; line-height:1.65; }
+:root{
+  --bg:#ffffff;
+  --text:#111111;
+  --muted:#777777;
+  --line:#e9e9e9;
+  --accent:#405447;
+  --max:1380px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Geist,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{text-decoration:none;color:inherit}
+main{overflow:hidden}
+.container{max-width:var(--max);margin:0 auto;padding:0 40px}
+.section{padding:112px 0}
+.section-tight{padding:88px 0}
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:18px;
+  font-weight:600;
+}
+h1,h2,h3,p{margin-top:0}
+h1{
+  font-size:clamp(44px,5vw,58px);
+  line-height:1.02;
+  letter-spacing:-.04em;
+  font-weight:600;
+  max-width:620px;
+  margin-bottom:28px;
+}
+h2{
+  font-size:clamp(30px,3vw,38px);
+  line-height:1.08;
+  letter-spacing:-.03em;
+  font-weight:600;
+  margin-bottom:18px;
+}
+h3{
+  font-size:18px;
+  line-height:1.25;
+  letter-spacing:-.02em;
+  font-weight:600;
+  margin-bottom:8px;
+}
+p{
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.65;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-height:48px;
+  padding:0 20px;
+  border:1px solid var(--text);
+  background:var(--text);
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.02em;
+  transition:.2s ease;
+}
+.btn:hover{
+  background:#2a2a2a;
+  border-color:#2a2a2a;
+  color:#fff;
+}
+.btn-light{
+  background:#fff;
+  color:#111;
+  border-color:#fff;
+}
+.text-link{
+  font-size:13px;
+  font-weight:600;
+  border-bottom:1px solid #bbb;
+  padding-bottom:3px;
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:32px;
+  margin-bottom:44px;
+}
 
-    /* Hero */
-    .cf-hero { background:var(--cf-bg); border-bottom:1px solid var(--cf-border); padding:40px 0 52px; }
-    .cf-hero__grid { display:grid; gap:32px; align-items:center; }
-    .cf-hero__content { max-width:560px; }
-    .cf-hero h1 { font-size:clamp(2rem, 4.4vw, 3.1rem); }
-    .cf-hero__copy { margin-top:18px; font-size:clamp(1rem, 1.6vw, 1.1rem); line-height:1.7; color:var(--cf-text); }
-    .cf-hero__actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
-    .cf-hero__proof { display:flex; flex-wrap:wrap; gap:16px 22px; margin-top:26px; }
-    .cf-hero__proof span { display:inline-flex; align-items:center; gap:8px; color:var(--cf-charcoal); font-size:.84rem; font-weight:700; }
-    .cf-hero__proof svg { flex:none; color:var(--cf-green); }
-    .cf-hero__media { position:relative; overflow:hidden; border-radius:var(--cf-radius); box-shadow:0 24px 48px rgba(34,34,34,.14); }
-    .cf-hero__media img { width:100%; height:100%; min-height:320px; object-fit:cover; display:block; }
+/* HERO */
+.hero{
+  position:relative;
+  min-height:760px;
+  background:#f2f2f2;
+}
+.hero-media{
+  position:absolute;
+  inset:0;
+}
+.hero-media:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.42) 0%,rgba(0,0,0,.16) 38%,rgba(0,0,0,0) 65%);
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  min-height:760px;
+  display:flex;
+  align-items:flex-end;
+  padding-bottom:88px;
+}
+.hero-copy{
+  max-width:560px;
+  color:#fff;
+}
+.hero-copy .eyebrow,.hero-copy p{color:rgba(255,255,255,.8)}
+.hero-copy .eyebrow{margin-bottom:22px}
+.hero-copy h1{margin-bottom:24px}
+.hero-copy p{margin-bottom:32px}
 
-    /* Category grid */
-    .cf-category-grid { display:grid; gap:18px; }
-    .cf-category { position:relative; display:flex; flex-direction:column; min-height:100%; border-radius:var(--cf-radius); overflow:hidden; background:var(--cf-white); border:1px solid var(--cf-border); color:inherit; text-decoration:none; transition:transform 260ms ease, box-shadow 260ms ease; }
-    .cf-category:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(34,34,34,.12); }
-    .cf-category__media { overflow:hidden; }
-    .cf-category__media img { width:100%; aspect-ratio:4/3; object-fit:cover; transition:transform 320ms ease; }
-    .cf-category:hover .cf-category__media img { transform:scale(1.05); }
-    .cf-category__body { padding:20px; }
-    .cf-category__body h3 { font-size:1.05rem; }
-    .cf-category__body p { margin-top:8px; font-size:.88rem; line-height:1.6; color:var(--cf-text); }
-    .cf-category__count { display:inline-block; margin-top:12px; color:var(--cf-orange); font-size:.82rem; font-weight:800; }
+/* COLLECTIONS */
+.collection-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:28px;
+}
+.collection-card{
+  position:relative;
+  min-height:520px;
+  overflow:hidden;
+  background:#f4f4f4;
+}
+.collection-card.small{min-height:520px}
+.collection-card:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.42));
+}
+.collection-content{
+  position:absolute;
+  z-index:2;
+  left:32px;
+  right:32px;
+  bottom:30px;
+  color:#fff;
+}
+.collection-content p{margin:0;color:rgba(255,255,255,.8);font-size:14px}
 
-    /* Featured collections */
-    .cf-collection-grid { display:grid; gap:18px; }
-    .cf-collection { display:flex; flex-direction:column; border-radius:var(--cf-radius); overflow:hidden; background:var(--cf-white); border:1px solid var(--cf-border); color:inherit; text-decoration:none; transition:transform 260ms ease, box-shadow 260ms ease; }
-    .cf-collection:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(34,34,34,.12); }
-    .cf-collection__media { position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--cf-bg); }
-    .cf-collection__media img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 320ms ease; }
-    .cf-collection:hover .cf-collection__media img { transform:scale(1.05); }
-    .cf-collection__media--icon { display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, var(--cf-orange) 0%, var(--cf-orange-dark) 100%); }
-    .cf-collection__media--icon svg { width:56px; height:56px; fill:none; stroke:var(--cf-white); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; opacity:.94; }
-    .cf-collection__body { padding:24px; }
-    .cf-collection__label { color:var(--cf-orange); font-size:.76rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-    .cf-collection__body h3 { margin-top:6px; font-size:1.2rem; }
-    .cf-collection__body p { margin-top:8px; font-size:.9rem; line-height:1.6; color:var(--cf-text); }
-    .cf-collection__cta { display:inline-flex; align-items:center; gap:6px; margin-top:16px; color:var(--cf-charcoal); font-size:.86rem; font-weight:800; }
-    .cf-collection__cta svg { transition:transform 220ms ease; }
-    .cf-collection:hover .cf-collection__cta { color:var(--cf-orange); }
-    .cf-collection:hover .cf-collection__cta svg { transform:translateX(3px); }
+/* PRODUCTS */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:48px 26px;
+}
+.product-card{}
+.product-card-link{
+  display:block;
+}
+.product-image{
+  aspect-ratio:4/5;
+  background:#f4f4f4;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+.product-meta{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--muted);
+  margin-bottom:8px;
+}
+.product-name{
+  font-size:15px;
+  font-weight:600;
+  margin-bottom:8px;
+}
+.product-price{font-size:14px;color:#333}
 
-    /* Product grid + card */
-    .cf-product-grid { display:grid; gap:18px; }
-    .cf-product { display:flex; flex-direction:column; border-radius:var(--cf-radius); overflow:hidden; background:var(--cf-white); border:1px solid var(--cf-border); transition:transform 260ms ease, box-shadow 260ms ease; }
-    .cf-product:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(34,34,34,.12); }
-    .cf-product__media { position:relative; display:block; background:var(--cf-bg); overflow:hidden; }
-    .cf-product__media img { width:100%; aspect-ratio:1; object-fit:contain; padding:18px; transition:transform 260ms ease; }
-    .cf-product:hover .cf-product__media img { transform:scale(1.05); }
-    .cf-product__flag { position:absolute; top:12px; left:12px; background:var(--cf-white); border:1px solid var(--cf-border); border-radius:999px; padding:5px 10px; color:var(--cf-charcoal); font-size:.68rem; font-weight:800; }
-    .cf-product__body { display:flex; flex:1; flex-direction:column; padding:16px; border-top:1px solid var(--cf-border); }
-    .cf-product__title { font-size:.98rem; font-weight:700; line-height:1.35; min-height:2.6em; }
-    .cf-product__title a { color:var(--cf-charcoal); text-decoration:none; }
-    .cf-product__title a:hover { color:var(--cf-orange); }
-    .cf-product__benefit { margin-top:6px; font-size:.84rem; line-height:1.55; color:var(--cf-text); display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
-    .cf-rating { display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:.8rem; font-weight:700; color:var(--cf-light); }
-    .cf-rating--empty { color:var(--cf-light); font-weight:600; }
-    .cf-rating__stars { position:relative; display:inline-block; font-size:.86rem; letter-spacing:1px; color:var(--cf-border); }
-    .cf-rating__stars::before { content:"\2605\2605\2605\2605\2605"; }
-    .cf-rating__stars::after { content:"\2605\2605\2605\2605\2605"; position:absolute; inset:0; overflow:hidden; width:calc(var(--cf-rating) / 5 * 100%); color:var(--cf-orange); }
-    .cf-product__foot { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-top:auto; padding-top:14px; }
-    .cf-product__price { font-family:var(--cf-font-heading); font-size:1.05rem; font-weight:800; color:var(--cf-charcoal); }
-    .cf-product__price del { font-size:.82rem; font-weight:500; color:var(--cf-light); margin-right:4px; }
-    .cf-product__price ins { text-decoration:none; }
-    .cf-product__cta { color:var(--cf-orange); font-size:.82rem; font-weight:800; text-decoration:none; white-space:nowrap; }
-    .cf-product__cta:hover { color:var(--cf-orange-dark); text-decoration:underline; text-underline-offset:3px; }
-    .cf-empty-note { padding:28px; text-align:center; border:1px dashed var(--cf-border); border-radius:var(--cf-radius); color:var(--cf-light); font-size:.92rem; }
+/* EDITORIAL SPLIT */
+.split{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  min-height:620px;
+  background:#f6f6f4;
+}
+.split-image{min-height:620px}
+.split-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:84px;
+}
+.split-copy p{max-width:480px;margin-bottom:30px}
 
-    /* Problem -> Solution */
-    .cf-solution { display:grid; gap:36px; align-items:center; }
-    .cf-solution__media { position:relative; border-radius:var(--cf-radius); overflow:hidden; box-shadow:0 24px 48px rgba(34,34,34,.12); }
-    .cf-solution__media img { width:100%; height:100%; min-height:320px; object-fit:cover; display:block; }
-    .cf-solution__badge { position:absolute; left:16px; bottom:16px; right:16px; display:flex; align-items:center; gap:12px; padding:14px 16px; border-radius:14px; background:rgba(255,255,255,.96); box-shadow:0 16px 32px rgba(34,34,34,.18); backdrop-filter:blur(6px); }
-    .cf-solution__badge-icon { display:inline-flex; align-items:center; justify-content:center; flex:none; width:38px; height:38px; border-radius:999px; background:var(--cf-orange); color:var(--cf-white); }
-    .cf-solution__badge-icon svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .cf-solution__badge-text { display:flex; flex-direction:column; gap:2px; min-width:0; }
-    .cf-solution__badge-text strong { font-family:var(--cf-font-heading); font-size:.9rem; font-weight:800; color:var(--cf-charcoal); line-height:1.3; }
-    .cf-solution__badge-text span { font-size:.78rem; color:var(--cf-text); line-height:1.3; }
-    .cf-solution__intro { margin-top:14px; max-width:480px; font-size:.96rem; line-height:1.65; color:var(--cf-text); }
-    .cf-solution__list { display:grid; gap:14px; margin-top:26px; }
-    .cf-solution__item { display:flex; align-items:flex-start; gap:16px; border:1px solid var(--cf-border); border-radius:var(--cf-radius); padding:18px 20px; background:var(--cf-white); transition:border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease; }
-    .cf-solution__item:hover { border-color:rgba(245,130,32,.45); box-shadow:0 16px 32px rgba(34,34,34,.1); transform:translateY(-2px); }
-    .cf-solution__icon { display:inline-flex; align-items:center; justify-content:center; flex:none; width:44px; height:44px; margin-top:1px; border-radius:999px; background:var(--cf-bg); color:var(--cf-orange); }
-    .cf-solution__icon svg { width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
-    .cf-solution__text { margin:6px 0 0; font-size:.96rem; line-height:1.6; }
-    .cf-solution__problem { color:var(--cf-text); text-decoration:line-through; text-decoration-color:var(--cf-light); text-decoration-thickness:1.5px; text-underline-offset:2px; }
-    .cf-solution__sep { display:inline-block; margin:0 8px; color:var(--cf-orange); font-weight:700; }
-    .cf-solution__answer { font-family:var(--cf-font-heading); font-weight:700; color:var(--cf-charcoal); }
+/* STYLE LINKS */
+.style-strip{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.style-link{
+  padding:24px 16px;
+  text-align:center;
+  border-right:1px solid var(--line);
+  font-size:14px;
+  font-weight:600;
+  transition:.2s ease;
+}
+.style-link:last-child{border-right:0}
+.style-link:hover{
+  color:var(--accent);
+  background:#f7f8f7;
+}
 
-    /* Why Shop / Crowdfused */
-    .cf-whyshop__head { max-width:720px; margin:0 auto 36px; text-align:center; }
-    .cf-whyshop__head h2 { font-size:clamp(1.5rem, 3vw, 2.15rem); text-transform:uppercase; letter-spacing:.02em; }
-    .cf-whyshop__head h2 span { color:var(--cf-orange); }
-    .cf-whyshop__head p { margin-top:14px; font-size:.96rem; line-height:1.7; color:var(--cf-text); }
-    .cf-whyshop-grid { display:grid; gap:18px; }
-    .cf-whyshop-card { border:1px solid var(--cf-border); border-radius:12px; padding:28px 22px; background:var(--cf-white); text-align:center; }
-    .cf-whyshop-card__icon { display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; margin-bottom:16px; border-radius:999px; background:var(--cf-bg); color:var(--cf-orange); }
-    .cf-whyshop-card__icon svg { width:22px; height:22px; }
-    .cf-whyshop-card h3 { font-size:1rem; }
-    .cf-whyshop-card p { margin-top:8px; font-size:.86rem; line-height:1.6; color:var(--cf-text); }
+/* CAMPAIGN */
+.campaign{
+  position:relative;
+  height:420px;
+  overflow:hidden;
+}
+.campaign:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.48),rgba(0,0,0,.08));
+}
+.campaign-content{
+  position:absolute;
+  left:68px;
+  bottom:68px;
+  z-index:2;
+  color:#fff;
+  max-width:480px;
+}
+.campaign-content .eyebrow,.campaign-content p{color:rgba(255,255,255,.8)}
+.campaign-content p{margin-bottom:30px}
 
-    /* Lifestyle story */
-    .cf-story { position:relative; overflow:hidden; border-radius:var(--cf-radius); min-height:420px; display:flex; align-items:flex-end; }
-    .cf-story img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; }
-    .cf-story::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(15,15,15,.82) 0%, rgba(15,15,15,.55) 32%, rgba(15,15,15,.15) 62%, rgba(15,15,15,0) 80%), linear-gradient(0deg, rgba(15,15,15,.55), rgba(15,15,15,0) 65%); z-index:1; }
-    .cf-story__content { position:relative; z-index:2; padding:36px; max-width:560px; color:var(--cf-white); }
-    .cf-story__content h2 { color:var(--cf-white); font-size:clamp(1.6rem, 3vw, 2.35rem); }
-    .cf-story__content p { margin-top:14px; color:rgba(255,255,255,.86); font-size:1rem; line-height:1.65; }
-    .cf-story__content .cf-btn { margin-top:22px; }
+/* NEWSLETTER */
+.newsletter{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+  align-items:center;
+  padding:68px;
+  background:#111;
+  color:#fff;
+}
+.newsletter p{color:#bdbdbd;margin-bottom:0}
+.newsletter-form{
+  display:flex;
+  gap:14px;
+}
+.newsletter input{
+  flex:1;
+  height:48px;
+  background:transparent;
+  border:1px solid #3a3a3a;
+  color:#fff;
+  padding:0 14px;
+  outline:none;
+}
+.newsletter button{
+  height:48px;
+  padding:0 20px;
+  border:1px solid #fff;
+  background:#fff;
+  color:#111;
+  font-weight:600;
+  cursor:pointer;
+}
+.newsletter button:hover{
+  background:#2a2a2a;
+  border-color:#2a2a2a;
+  color:#fff;
+}
 
-    /* Reviews (always a slider, including desktop) */
-    .cf-review-grid { display:flex; gap:16px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scrollbar-width:none; padding-bottom:6px; }
-    .cf-review-grid::-webkit-scrollbar { display:none; }
-    .cf-review { flex:0 0 clamp(16rem, 82vw, 20rem); max-width:clamp(16rem, 82vw, 20rem); scroll-snap-align:start; border:1px solid var(--cf-border); border-radius:var(--cf-radius); padding:22px; background:var(--cf-white); }
-    .cf-slider-nav { display:flex; gap:10px; flex:none; }
-    .cf-slider-nav__btn { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:999px; border:1px solid var(--cf-border); background:var(--cf-white); color:var(--cf-charcoal); cursor:pointer; transition:border-color 200ms ease, color 200ms ease, transform 200ms ease; }
-    .cf-slider-nav__btn:hover { border-color:var(--cf-orange); color:var(--cf-orange); }
-    .cf-slider-nav__btn:disabled { opacity:.4; cursor:default; border-color:var(--cf-border); color:var(--cf-charcoal); }
-    .cf-slider-nav__btn svg { width:18px; height:18px; }
-    .cf-review__head { display:flex; align-items:center; gap:12px; }
-    .cf-review__avatar { display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:999px; background:var(--cf-bg); color:var(--cf-orange); font-family:var(--cf-font-heading); font-weight:800; font-size:.9rem; flex:none; }
-    .cf-review__name { font-weight:800; color:var(--cf-charcoal); font-size:.92rem; }
-    .cf-review__location { display:block; margin-top:2px; color:var(--cf-light); font-size:.78rem; }
-    .cf-review p.cf-review__copy { margin-top:14px; font-size:.9rem; line-height:1.65; color:var(--cf-text); }
+/* subtle product hover */
+.product-image img,.collection-card img{
+  transition:transform .35s ease;
+}
+.product-card:hover .product-image img,
+.collection-card:hover img{
+  transform:scale(1.025);
+}
 
-    /* Newsletter */
-    .cf-newsletter { background:var(--cf-charcoal); padding:52px 0; }
-    .cf-newsletter__inner { display:grid; gap:24px; align-items:center; }
-    .cf-newsletter h2 { color:var(--cf-white); font-size:clamp(1.5rem, 2.6vw, 2.1rem); }
-    .cf-newsletter p:not(.cf-eyebrow) { margin-top:10px; color:rgba(255,255,255,.72); font-size:.94rem; line-height:1.6; max-width:480px; }
-    .cf-newsletter__form { display:flex; flex-wrap:wrap; gap:10px; }
-    .cf-newsletter__form input { flex:1 1 240px; min-height:50px; border-radius:999px; border:1px solid rgba(255,255,255,.24); background:rgba(255,255,255,.06); padding:0 20px; color:var(--cf-white); font-size:.92rem; }
-    .cf-newsletter__form input::placeholder { color:rgba(255,255,255,.5); }
-    .cf-newsletter__form input:focus { outline:2px solid var(--cf-orange); outline-offset:2px; }
-    .cf-newsletter__form button { border:0; cursor:pointer; }
-
-    /* Slider (mobile) */
-    @media (max-width:759px) {
-        .cf-category-grid, .cf-product-grid, .cf-whyshop-grid { display:flex; gap:14px; margin-inline:-20px; overflow-x:auto; overscroll-behavior-x:contain; padding-inline:20px; padding-bottom:6px; scroll-snap-type:x mandatory; scrollbar-width:none; }
-        .cf-category-grid::-webkit-scrollbar, .cf-product-grid::-webkit-scrollbar, .cf-whyshop-grid::-webkit-scrollbar { display:none; }
-        .cf-review-grid { margin-inline:-20px; padding-inline:20px; }
-        .cf-category, .cf-product { flex:0 0 clamp(15.5rem, 70vw, 17.5rem); max-width:clamp(15.5rem, 70vw, 17.5rem); scroll-snap-align:start; }
-        .cf-whyshop-card { flex:0 0 clamp(16rem, 82vw, 20rem); max-width:clamp(16rem, 82vw, 20rem); scroll-snap-align:start; }
-        .cf-section__head { flex-direction:column; align-items:start; }
-        .cf-solution__media { min-height:220px; }
-        .cf-solution__media img { min-height:220px; }
-        .cf-solution__badge { left:12px; right:12px; bottom:12px; padding:12px 14px; }
-        .cf-solution__item { padding:16px; }
-    }
-
-    @media (min-width:640px) { .cf-newsletter__form { flex-wrap:nowrap; } }
-
-    @media (min-width:760px) {
-        .cf-hero__grid { grid-template-columns:0.92fr 1.08fr; min-height:480px; }
-        .cf-hero__media { min-height:420px; }
-        .cf-hero__media img { min-height:420px; }
-        .cf-category-grid { grid-template-columns:repeat(3, minmax(0,1fr)); }
-        .cf-collection-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
-        .cf-product-grid { grid-template-columns:repeat(3, minmax(0,1fr)); }
-        .cf-solution { grid-template-columns:0.9fr 1.1fr; }
-        .cf-whyshop-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
-        .cf-review { flex-basis:calc(50% - 8px); max-width:calc(50% - 8px); }
-        .cf-newsletter__inner { grid-template-columns:1fr auto; }
-    }
-
-    @media (min-width:1024px) {
-        .cf-section { padding:96px 0; }
-        .cf-product-grid { grid-template-columns:repeat(4, minmax(0,1fr)); }
-        .cf-whyshop-grid { grid-template-columns:repeat(4, minmax(0,1fr)); }
-        .cf-review { flex-basis:calc(33.333% - 11px); max-width:calc(33.333% - 11px); }
-    }
+@media(max-width:1024px){
+  .hero,.hero-content{min-height:650px}
+  .collection-grid{grid-template-columns:1fr 1fr}
+  .collection-card:first-child{grid-column:1/-1}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr}
+  .split-image{min-height:520px}
+  .split-copy{padding:56px}
+  .style-strip{grid-template-columns:repeat(3,1fr)}
+  .newsletter{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .container{padding:0 22px}
+  .section{padding:78px 0}
+  .section-tight{padding:64px 0}
+  .hero,.hero-content{min-height:560px}
+  .hero-content{padding-bottom:54px}
+  .hero-media:after{
+    background:linear-gradient(180deg,rgba(0,0,0,.05) 20%,rgba(0,0,0,.55) 100%);
+  }
+  .collection-grid{grid-template-columns:1fr}
+  .collection-card:first-child{grid-column:auto}
+  .collection-card,.collection-card.small{min-height:440px}
+  .product-grid{gap:34px 16px}
+  .split-copy{padding:42px 26px}
+  .style-strip{grid-template-columns:1fr 1fr}
+  .style-link{border-bottom:1px solid var(--line)}
+  .campaign{height:360px}
+  .campaign-content{left:26px;right:26px;bottom:36px}
+  .newsletter{padding:42px 26px}
+  .newsletter-form{flex-direction:column}
+}
 </style>
+</head>
+<body>
+<main>
 
-<div class="cf-home">
+  <section class="hero">
+    <div class="hero-media">
+      <img src="<?php echo esc_url($imagewatch('1.png')); ?>" alt="Modern wristwatch campaign">
+    </div>
+    <div class="container hero-content">
+      <div class="hero-copy">
+        <div class="eyebrow">Reluxwatches / New Season</div>
+        <h1>TIME, YOUR WAY.</h1>
+        <p>Modern watches with a quieter point of view — refined, wearable and made for every day.</p>
+        <a class="btn btn-light" href="<?php echo esc_url($shop_url); ?>">SHOP ALL →</a>
+      </div>
+    </div>
+  </section>
 
-    <section class="cf-hero" id="hero" aria-labelledby="cf-hero-title">
-        <div class="cf-container cf-hero__grid">
-            <div class="cf-hero__content">
-                <p class="cf-eyebrow"><?php esc_html_e('Innovation Made Everyday', 'dawp'); ?></p>
-                <h1 id="cf-hero-title"><?php esc_html_e('Innovation That Fits Into Everyday Life', 'dawp'); ?></h1>
-                <p class="cf-hero__copy"><?php esc_html_e('Discover thoughtfully selected products designed to simplify routines, solve everyday challenges and enhance modern living.', 'dawp'); ?></p>
-                <div class="cf-hero__actions">
-                    <a class="cf-btn cf-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Innovations', 'dawp'); ?></a>
-                    <a class="cf-btn cf-btn--secondary" href="<?php echo esc_url(add_query_arg('orderby', 'popularity', $shop_url)); ?>"><?php esc_html_e('Explore Best Sellers', 'dawp'); ?></a>
-                </div>
-                <div class="cf-hero__proof">
-                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><?php esc_html_e('Free Shipping on Eligible Orders', 'dawp'); ?></span>
-                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><?php esc_html_e('30-Day Easy Returns', 'dawp'); ?></span>
-                    <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg><?php esc_html_e('Secure Checkout', 'dawp'); ?></span>
-                </div>
-            </div>
-            <div class="cf-hero__media">
-                <?php echo $cf_img('Innovation_Made_Everyday.jpeg', __('Innovation that fits into everyday life, shown through modern products in a real home', 'dawp'), 'New_homepage', '', 980, 760, 'eager', '(min-width: 760px) 54vw, 100vw'); ?>
-            </div>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Collections</div>
+          <h2>FIND YOUR STYLE.</h2>
         </div>
-    </section>
+        <a class="text-link" href="<?php echo esc_url($shop_url); ?>">VIEW ALL</a>
+      </div>
 
-    <section class="cf-section" id="categories" aria-labelledby="cf-categories-title">
-        <div class="cf-container">
-            <div class="cf-section__head">
-                <div>
-                    <p class="cf-eyebrow"><?php esc_html_e('Shop By Lifestyle', 'dawp'); ?></p>
-                    <h2 id="cf-categories-title"><?php esc_html_e('Explore By Lifestyle', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Browse the core Crowdfused categories, from road-ready essentials to home, garden, tech and play.', 'dawp'); ?></p>
-                </div>
-                <a class="cf-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All', 'dawp'); ?></a>
-            </div>
-            <div class="cf-category-grid">
-                <?php foreach ($cf_categories as $category) :
-                    $link = $cf_category_link($category['slug']);
-                    ?>
-                    <a class="cf-category" href="<?php echo esc_url($link['url']); ?>">
-                        <div class="cf-category__media">
-                            <?php echo $cf_img($category['image'], $category['title'], $category['folder'] ?? 'gallery', '', 480, 360, 'lazy', '(max-width: 759px) 70vw, (max-width: 1023px) 33vw, 25vw'); ?>
-                        </div>
-                        <div class="cf-category__body">
-                            <h3><?php echo esc_html($category['title']); ?></h3>
-                            <p><?php echo esc_html($category['copy']); ?></p>
-                            <?php if ($link['count'] > 0) : ?>
-                                <span class="cf-category__count"><?php echo esc_html(sprintf(_n('%d product', '%d products', $link['count'], 'dawp'), $link['count'])); ?></span>
-                            <?php endif; ?>
-                        </div>
-                    </a>
-                <?php endforeach; ?>
-            </div>
+      <div class="collection-grid">
+        <a class="collection-card" href="<?php echo esc_url($home_category_urls['minimal']); ?>">
+          <img src="<?php echo esc_url($imagewatch('2.png')); ?>" alt="Minimal watch collection">
+          <div class="collection-content"><h3>Minimal</h3><p>Clean lines, easy wear.</p></div>
+        </a>
+        <a class="collection-card small" href="<?php echo esc_url($home_category_urls['sport']); ?>">
+          <img src="<?php echo esc_url($imagewatch('3.png')); ?>" alt="Sport watch collection">
+          <div class="collection-content"><h3>Sport</h3><p>Sharper energy.</p></div>
+        </a>
+        <a class="collection-card small" href="<?php echo esc_url($home_category_urls['watches']); ?>">
+          <img src="<?php echo esc_url($imagewatch('4.png')); ?>" alt="Everyday watch collection">
+          <div class="collection-content"><h3>Everyday</h3><p>Built for daily rotation.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Latest</div>
+          <h2>NEW IN.</h2>
         </div>
-    </section>
+        <a class="text-link" href="<?php echo esc_url($shop_url); ?>">SHOP ALL</a>
+      </div>
 
-    <section class="cf-section" id="collections" aria-labelledby="cf-collections-title">
-        <div class="cf-container">
-            <div class="cf-section__head">
-                <div>
-                    <p class="cf-eyebrow"><?php esc_html_e('Featured Collections', 'dawp'); ?></p>
-                    <h2 id="cf-collections-title"><?php esc_html_e('Curated Edits Worth Exploring', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Spotlight collections built around the moments and spaces that matter most.', 'dawp'); ?></p>
-                </div>
-            </div>
-            <div class="cf-collection-grid">
-                <?php foreach ($cf_collections as $collection) :
-                    $link = $cf_category_link($collection['slug']);
-                    ?>
-                    <a class="cf-collection" href="<?php echo esc_url($link['url']); ?>">
-                        <div class="cf-collection__media<?php echo empty($collection['image']) ? ' cf-collection__media--icon' : ''; ?>">
-                            <?php if (!empty($collection['image'])) : ?>
-                                <?php echo $cf_img($collection['image'], $collection['title'], $collection['folder'] ?? 'gallery', '', 760, 480, 'lazy', '(max-width: 759px) 100vw, 50vw'); ?>
-                            <?php else : ?>
-                                <svg viewBox="0 0 24 24" aria-hidden="true"><?php echo $collection['icon']; ?></svg>
-                            <?php endif; ?>
-                        </div>
-                        <div class="cf-collection__body">
-                            <p class="cf-collection__label"><?php echo esc_html($collection['label']); ?></p>
-                            <h3><?php echo esc_html($collection['title']); ?></h3>
-                            <p><?php echo esc_html($collection['copy']); ?></p>
-                            <span class="cf-collection__cta">
-                                <?php echo esc_html($collection['cta']); ?>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-                            </span>
-                        </div>
-                    </a>
-                <?php endforeach; ?>
-            </div>
+      <div class="product-grid">
+        <?php
+        $render_home_products([
+            'orderby' => 'date',
+            'order'   => 'DESC',
+        ], $new_in_fallback_products);
+        ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split-image">
+          <img src="<?php echo esc_url($imagewatch('9.png')); ?>" alt="Watch worn in everyday life">
         </div>
-    </section>
-
-    <section class="cf-section cf-section--soft" id="trending" aria-labelledby="cf-trending-title">
-        <div class="cf-container">
-            <div class="cf-section__head">
-                <div>
-                    <p class="cf-eyebrow"><?php esc_html_e('Just Landed', 'dawp'); ?></p>
-                    <h2 id="cf-trending-title"><?php esc_html_e('Trending Right Now', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('The newest additions to our lineup, chosen for how well they solve everyday problems.', 'dawp'); ?></p>
-                </div>
-                <a class="cf-link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('View All', 'dawp'); ?></a>
-            </div>
-            <?php if (!empty($cf_trending)) : ?>
-                <div class="cf-product-grid">
-                    <?php foreach ($cf_trending as $index => $product) : ?>
-                        <?php echo $cf_product_card($product, 0 === $index); ?>
-                    <?php endforeach; ?>
-                </div>
-            <?php else : ?>
-                <p class="cf-empty-note"><?php esc_html_e('New innovations are on their way. Check back soon.', 'dawp'); ?></p>
-            <?php endif; ?>
+        <div class="split-copy">
+          <div class="eyebrow">Everyday Objects</div>
+          <h2>MADE FOR EVERYDAY.</h2>
+          <p>Quiet proportions, versatile materials and a contemporary point of view. Designed to work with what you already wear.</p>
+          <div><a class="btn" href="<?php echo esc_url($home_category_urls['watches']); ?>">DISCOVER RELUX →</a></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="cf-section" aria-labelledby="cf-why-it-matters-title">
-        <div class="cf-container cf-solution">
-            <div class="cf-solution__media">
-                <?php echo $cf_img('Innovation_fits_everyday_life_202607281529.jpeg', __('Organized, fresh home space designed to simplify daily routines', 'dawp'), 'New_homepage', '', 780, 620, 'lazy', '(max-width: 759px) 100vw, 44vw'); ?>
-                <div class="cf-solution__badge">
-                    <span class="cf-solution__badge-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24"><path d="M12 3v3.5M12 17.5V21M3 12h3.5M17.5 12H21"></path><circle cx="12" cy="12" r="5.2"></circle></svg>
-                    </span>
-                    <span class="cf-solution__badge-text">
-                        <strong><?php esc_html_e('3 everyday problems', 'dawp'); ?></strong>
-                        <span><?php esc_html_e('solved by thoughtful design', 'dawp'); ?></span>
-                    </span>
-                </div>
-            </div>
-            <div>
-                <p class="cf-eyebrow"><?php esc_html_e('Why It Matters', 'dawp'); ?></p>
-                <h2 id="cf-why-it-matters-title"><?php esc_html_e('Innovation solves real everyday problems.', 'dawp'); ?></h2>
-                <p class="cf-solution__intro"><?php esc_html_e('Every product we carry starts with a frustration worth fixing. Here are a few that show up in daily life.', 'dawp'); ?></p>
-                <div class="cf-solution__list">
-                    <?php foreach ($cf_problem_solution as $item) : ?>
-                        <div class="cf-solution__item">
-                            <span class="cf-solution__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><?php echo $item['icon']; ?></svg></span>
-                            <p class="cf-solution__text">
-                                <span class="cf-solution__problem"><?php echo esc_html($item['problem']); ?></span>
-                                <span class="cf-solution__sep" aria-hidden="true">&rarr;</span>
-                                <span class="cf-solution__answer"><?php echo esc_html($item['solution']); ?></span>
-                            </p>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Explore</div>
+          <h2>SHOP BY STYLE.</h2>
         </div>
-    </section>
+      </div>
+      <nav class="style-strip">
+        <a class="style-link" href="<?php echo esc_url($home_category_urls['watches']); ?>">Everyday</a>
+        <a class="style-link" href="<?php echo esc_url($home_category_urls['minimal']); ?>">Minimal</a>
+        <a class="style-link" href="<?php echo esc_url($home_category_urls['sport']); ?>">Sport</a>
+        <a class="style-link" href="<?php echo esc_url($home_category_urls['statement']); ?>">Statement</a>
+        <a class="style-link" href="<?php echo esc_url($home_category_urls['accessories']); ?>">Accessories</a>
+      </nav>
+    </div>
+  </section>
 
-    <section class="cf-section cf-section--soft" id="our-story" aria-labelledby="cf-story-title">
-        <div class="cf-container">
-            <div class="cf-story">
-                <?php echo $cf_img('Living_room_minimalist_design_ph…_202607281539.jpeg', __('Calm, minimalist living room reflecting effortless everyday design', 'dawp'), 'New_homepage', '', 1200, 700, 'lazy', '100vw'); ?>
-                <div class="cf-story__content">
-                    <p class="cf-eyebrow" style="color:#FFC98A;"><?php esc_html_e('Our Philosophy', 'dawp'); ?></p>
-                    <h2 id="cf-story-title"><?php esc_html_e('Innovation Should Feel Effortless', 'dawp'); ?></h2>
-                    <p><?php esc_html_e("Crowdfused believes the best products aren't the most complicated. They're the ones that quietly make everyday life easier, more enjoyable and more efficient.", 'dawp'); ?></p>
-                    <a class="cf-btn cf-btn--primary" href="<?php echo esc_url($about_url); ?>"><?php esc_html_e('Discover Our Story', 'dawp'); ?></a>
-                </div>
-            </div>
+  <section class="section">
+    <div class="container">
+      <div class="campaign">
+        <img src="<?php echo esc_url($imagewatch('10.png')); ?>" alt="Reluxwatches watch editorial campaign">
+        <div class="campaign-content">
+          <div class="eyebrow">Reluxwatches Editorial</div>
+          <h2>LESS NOISE. MORE TIME.</h2>
+          <p>A modern approach to watches: fewer distractions, better proportions and pieces made to last in your rotation.</p>
+          <a class="btn btn-light" href="<?php echo esc_url($home_category_urls['statement']); ?>">EXPLORE THE EDIT →</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="cf-section cf-section--soft cf-whyshop" id="why-shop" aria-labelledby="cf-whyshop-title">
-        <div class="cf-container">
-            <div class="cf-whyshop__head">
-                <h2 id="cf-whyshop-title"><?php esc_html_e('Why Shop', 'dawp'); ?> / <span><?php esc_html_e('Crowdfused', 'dawp'); ?></span></h2>
-                <p><?php esc_html_e('Thoughtfully chosen everyday innovations, shipped fast and backed by an easy 30-day return policy.', 'dawp'); ?></p>
-            </div>
-            <div class="cf-whyshop-grid">
-                <?php foreach ($cf_why_shop as $item) : ?>
-                    <div class="cf-whyshop-card">
-                        <span class="cf-whyshop-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><?php echo $item['icon']; ?></svg></span>
-                        <h3><?php echo esc_html($item['title']); ?></h3>
-                        <p><?php echo esc_html($item['copy']); ?></p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Popular</div>
+          <h2>MOST WANTED.</h2>
         </div>
-    </section>
+        <a class="text-link" href="<?php echo esc_url($shop_url); ?>">VIEW ALL</a>
+      </div>
 
-    <section class="cf-section" id="reviews" aria-labelledby="cf-reviews-title">
-        <div class="cf-container">
-            <div class="cf-section__head">
-                <div>
-                    <p class="cf-eyebrow"><?php esc_html_e('Social Proof', 'dawp'); ?></p>
-                    <h2 id="cf-reviews-title"><?php esc_html_e('Trusted By Thousands', 'dawp'); ?></h2>
-                </div>
-                <div class="cf-slider-nav" data-slider-nav="cf-review-track">
-                    <button type="button" class="cf-slider-nav__btn" data-slider-prev aria-label="<?php esc_attr_e('Previous reviews', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
-                    </button>
-                    <button type="button" class="cf-slider-nav__btn" data-slider-next aria-label="<?php esc_attr_e('Next reviews', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
-                    </button>
-                </div>
-            </div>
-            <div class="cf-review-grid" id="cf-review-track">
-                <?php foreach ($cf_testimonials as $review) :
-                    $initials = '';
-                    foreach (explode(' ', $review['name']) as $part) {
-                        $initials .= mb_substr($part, 0, 1);
-                    }
-                    ?>
-                    <div class="cf-review">
-                        <div class="cf-review__head">
-                            <span class="cf-review__avatar" aria-hidden="true"><?php echo esc_html($initials); ?></span>
-                            <div>
-                                <span class="cf-review__name"><?php echo esc_html($review['name']); ?></span>
-                                <span class="cf-review__location"><?php echo esc_html($review['location']); ?></span>
-                            </div>
-                        </div>
-                        <?php echo $cf_rating_html($review['rating'], 1); ?>
-                        <p class="cf-review__copy">&ldquo;<?php echo esc_html($review['copy']); ?>&rdquo;</p>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+      <div class="product-grid">
+        <?php
+        $render_home_products([
+            'meta_key' => 'total_sales',
+            'orderby'  => 'meta_value_num',
+            'order'    => 'DESC',
+        ], $popular_fallback_products);
+        ?>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="newsletter">
+        <div>
+          <div class="eyebrow" style="color:#8f8f8f">Updates</div>
+          <h2>KEEP IN TIME.</h2>
+          <p>New arrivals, product stories and occasional updates.</p>
         </div>
-    </section>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Email address" aria-label="Email address">
+          <button type="submit">JOIN →</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-    <section class="cf-newsletter" id="newsletter" aria-labelledby="cf-newsletter-title">
-        <div class="cf-container cf-newsletter__inner">
-            <div>
-                <p class="cf-eyebrow" style="color:#FFC98A;"><?php esc_html_e('Stay In The Loop', 'dawp'); ?></p>
-                <h2 id="cf-newsletter-title"><?php esc_html_e('Stay Ahead of What&rsquo;s Next', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Receive updates on innovative products, exclusive launches and special offers.', 'dawp'); ?></p>
-            </div>
-            <form class="cf-newsletter__form" method="post" action="<?php echo esc_url(home_url('/')); ?>">
-                <label class="screen-reader-text" for="cf-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-                <input id="cf-newsletter-email" type="email" name="email" required placeholder="<?php esc_attr_e('Enter your email address', 'dawp'); ?>">
-                <button type="submit" class="cf-btn cf-btn--primary"><?php esc_html_e('Subscribe', 'dawp'); ?></button>
-            </form>
-        </div>
-    </section>
-
-</div>
+</main>
+</body>
+</html>

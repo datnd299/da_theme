@@ -1,7 +1,7 @@
 <?php
 /**
- * Crowdfused - Shop / Archive Product Template
- * Design System: Modern general merchandise, conversion-first
+ * Reluxwatches - Shop / Archive Product Template
+ * Design System: Modern watches, conversion-first
  * Section 10: Category / Shop Page rules
  */
 defined('ABSPATH') || exit;
@@ -12,8 +12,8 @@ $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse practical picks across auto, electronics, home, patio, seasonal decor, sports and toys from Crowdfused.', 'dawp');
-$archive_eyebrow = __('Crowdfused Collection', 'dawp');
+$archive_description = __('Browse modern watches, statement pieces, minimal styles, sport watches and accessories from Reluxwatches.', 'dawp');
+$archive_eyebrow = __('Reluxwatches Collection', 'dawp');
 $archive_slug = 'shop';
 $home_image = static function ($filename) {
     return get_theme_file_uri('assets/img/home/' . $filename);
@@ -21,47 +21,38 @@ $home_image = static function ($filename) {
 $new_home_image = static function ($filename) {
     return get_theme_file_uri('assets/img/New_homepage/' . $filename);
 };
+$imagewatch = static function ($filename) {
+    return get_theme_file_uri('assets/img/imagewatch/' . $filename);
+};
 
 $shop_cover_images = [
     'shop' => [
-        'url' => $new_home_image('Innovation_Made_Everyday.jpeg'),
-        'alt' => __('Modern everyday products styled for innovation at home', 'dawp'),
+        'url' => $imagewatch('1.png'),
+        'alt' => __('Modern Reluxwatches collection cover', 'dawp'),
     ],
-    'auto-tires' => [
-        'url' => $new_home_image('car_tire.jpg'),
-        'alt' => __('Auto and tire accessories selected for road-ready care', 'dawp'),
+    'watches' => [
+        'url' => $imagewatch('2.png'),
+        'alt' => __('Modern everyday watches collection', 'dawp'),
     ],
-    'electronics' => [
-        'url' => $new_home_image('Smart_home_connected_devices_202607281526.jpeg'),
-        'alt' => __('Electronics and connected devices in a clean modern home', 'dawp'),
+    'new-arrivals' => [
+        'url' => $imagewatch('3.png'),
+        'alt' => __('New Reluxwatches arrivals', 'dawp'),
     ],
-    'home-improvement-essentials' => [
-        'url' => $new_home_image('Home_improvement.jpg'),
-        'alt' => __('Home improvement essentials for practical everyday projects', 'dawp'),
+    'minimal' => [
+        'url' => $imagewatch('4.png'),
+        'alt' => __('Minimal watch collection', 'dawp'),
     ],
-    'home-furniture-appliances' => [
-        'url' => $new_home_image('Kitchen_with_appliances_clean_lines_202608031552.jpg'),
-        'alt' => __('Home furniture and appliances styled in a comfortable living space', 'dawp'),
+    'sport' => [
+        'url' => $imagewatch('5.png'),
+        'alt' => __('Sport watch collection', 'dawp'),
     ],
-    'patio-garden' => [
-        'url' => $new_home_image('Garden_tools_outdoor_care_planting_202608020050.jpeg'),
-        'alt' => __('Patio and garden essentials for tidy outdoor spaces', 'dawp'),
+    'statement' => [
+        'url' => $imagewatch('6.png'),
+        'alt' => __('Statement watch collection', 'dawp'),
     ],
-    'seasonal-decor' => [
-        'url' => $new_home_image('Patio_picks_for_outdoor_living_202608020057.jpg'),
-        'alt' => __('Seasonal decor and accents arranged for a refreshed home', 'dawp'),
-    ],
-    'sports-outdoors' => [
-        'url' => $new_home_image('Outdoor&Adventure.jpeg'),
-        'alt' => __('Sports and outdoor gear selected for time outside', 'dawp'),
-    ],
-    'toys-outdoor-play' => [
-        'url' => $new_home_image('Toys_and_outdoor_play_202608031238.jpeg'),
-        'alt' => __('Toys and outdoor play essentials for active family days', 'dawp'),
-    ],
-    'toys' => [
-        'url' => $new_home_image('Playroom_scene_with_giftable_toys_202608031619.jpeg'),
-        'alt' => __('Toy and play essentials selected for everyday fun', 'dawp'),
+    'accessories' => [
+        'url' => $imagewatch('7.png'),
+        'alt' => __('Watch accessories and details collection', 'dawp'),
     ],
 ];
 if ($archive_term && !is_wp_error($archive_term)) {
@@ -233,7 +224,7 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
                 loadMoreBtn.style.paddingLeft = '2rem';
                 loadMoreBtn.style.paddingRight = '2rem';
                 loadMoreBtn.style.borderRadius = '999px';
-                loadMoreBtn.style.backgroundColor = '#F58220';
+                loadMoreBtn.style.backgroundColor = '#405447';
                 loadMoreBtn.style.color = '#ffffff';
                 loadMoreBtn.style.fontWeight = '700';
                 loadMoreBtn.style.fontSize = '0.875rem';
@@ -241,8 +232,8 @@ $archive_total = isset($wp_query->found_posts) ? (int) $wp_query->found_posts : 
                 loadMoreBtn.style.cursor = 'pointer';
                 loadMoreBtn.style.transition = 'background-color 0.2s';
                 
-                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#E96F00'; };
-                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#F58220'; };
+                loadMoreBtn.onmouseover = function() { this.style.backgroundColor = '#2F3F35'; };
+                loadMoreBtn.onmouseout = function() { this.style.backgroundColor = '#405447'; };
 
                 loadMoreBtn.innerHTML = 'Load More Products';
                 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Track order page for Crowdfused.
+ * Track order page for Reluxwatches.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@Crowdfused.com';
+$support_email  = 'support@reluxwatches.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $returns_url    = home_url('/return-refund-policy/');
 $terms_url      = home_url('/terms-conditions/');
@@ -40,7 +40,7 @@ $policy_links = [
                 <p class="track-eyebrow"><?php esc_html_e('Order Tracking', 'dawp'); ?></p>
                 <h1 id="track-order-title" class="track-hero__title"><?php esc_html_e('Track Your Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Enter your order ID and billing email to check the latest status for your Crowdfused purchase.', 'dawp'); ?>
+                    <?php esc_html_e('Enter your order ID and billing email to check the latest status for your Reluxwatches purchase.', 'dawp'); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a href="#track-order-form" class="track-button track-button--primary"><?php esc_html_e('Check Order Status', 'dawp'); ?></a>

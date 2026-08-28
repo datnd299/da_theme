@@ -1,36 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS - Crowdfused backgrounds === */
+  /* === COLORS - Reluxwatches backgrounds === */
   --color-background: #FFFFFF;
   --color-surface: #FAFAFA;
   --color-surface-alt: #FFFFFF;
 
-  /* === COLORS - Crowdfused text === */
-  --color-foreground: #222222;
-  --color-foreground-muted: #666666;
-  --color-muted: #666666;
+  /* === COLORS - Reluxwatches text === */
+  --color-foreground: #111111;
+  --color-foreground-muted: #777777;
+  --color-muted: #777777;
 
-  /* === COLORS - Crowdfused brand === */
-  --color-accent: #F58220;
-  --color-accent-hover: #E96F00;
+  /* === COLORS - Reluxwatches brand === */
+  --color-accent: #405447;
+  --color-accent-hover: #2F3F35;
   --color-accent-soft: #FAFAFA;
   --color-accent-blush: #43A047;
   --color-accent-sage: #FFFFFF;
 
   /* === COLORS - UI === */
-  --color-border: #E9ECEF;
+  --color-border: #E9E9E9;
   --color-alert: #E64A3B;
   --color-success: #43A047;
 
   /* === LEGACY COMPATIBILITY TOKENS === */
-  --color-slickBlack: #222222;
+  --color-slickBlack: #111111;
   --color-slickGreen: #43A047;
   --color-slickActive: #43A047;
   --color-slickLime: #43A047;
   --color-slickSoft: #FAFAFA;
-  --color-slickText: #222222;
-  --color-slickMuted: #8A8A8A;
+  --color-slickText: #111111;
+  --color-slickMuted: #777777;
 
   /* === BORDER RADIUS === */
   --radius-sm: 4px;
@@ -40,7 +40,7 @@
 
   /* === SHADOWS === */
   --shadow-card: 0 1px 4px rgba(34, 34, 34, 0.07);
-  --shadow-card-hover: 0 10px 30px rgba(245, 130, 32, 0.16);
+  --shadow-card-hover: 0 10px 30px rgba(64, 84, 71, 0.16);
 
   /* === TYPOGRAPHY === */
   --font-sans: 'Inter', Arial, sans-serif;
@@ -78,7 +78,7 @@
   min-width: 0;
   overflow: hidden;
   scroll-snap-align: start;
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 8px;
   background: #FFFFFF;
   transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
@@ -101,7 +101,7 @@
 }
 
 .home-category-card__title {
-  color: #222222;
+  color: #111111;
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 800;
@@ -114,7 +114,7 @@
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  color: #666666;
+  color: #777777;
   font-size: 0.875rem;
   line-height: 1.55;
 }
@@ -124,7 +124,7 @@
   align-items: center;
   margin-top: auto;
   padding-top: 14px;
-  color: #F58220;
+  color: #405447;
   font-size: 0.875rem;
   font-weight: 700;
 }
@@ -132,7 +132,7 @@
 @media (hover: hover) {
   .home-category-card:hover {
     transform: translateY(-4px);
-    border-color: #F58220;
+    border-color: #405447;
     box-shadow: 0 20px 25px -5px rgb(138 79 86 / 0.1), 0 8px 10px -6px rgb(138 79 86 / 0.1);
   }
 
@@ -253,7 +253,7 @@
   max-width: clamp(16rem, 82vw, 20rem);
   min-height: 228px;
   scroll-snap-align: start;
-  border-color: #E9ECEF;
+  border-color: #E9E9E9;
   box-shadow: 0 10px 26px rgb(17 24 39 / 0.08);
   transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
   overflow: hidden;
@@ -264,7 +264,7 @@
   position: absolute;
   inset: 0 auto 0 0;
   width: 4px;
-  background: #F58220;
+  background: #405447;
 }
 
 .contact-support-card::after {
@@ -272,7 +272,7 @@
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
-  background: linear-gradient(90deg, rgb(0 70 190 / 0.28), rgb(0 70 190 / 0));
+  background: linear-gradient(90deg, rgb(64 84 71 / 0.22), #40544700);
 }
 
 .contact-support-card > * {
@@ -281,9 +281,9 @@
 
 @media (hover: hover) {
   .contact-support-card:hover {
-    border-color: #F58220;
+    border-color: #405447;
     transform: translateY(-3px);
-    box-shadow: 0 18px 34px rgb(0 70 190 / 0.16);
+    box-shadow: 0 18px 34px rgb(64 84 71 / 0.16);
   }
 }
 
@@ -339,7 +339,29 @@
   flex: 0 0 clamp(16rem, 82vw, 22rem);
   width: clamp(16rem, 82vw, 22rem);
   aspect-ratio: 4 / 5;
+  object-fit: cover;
   scroll-snap-align: center;
+}
+
+.about-story-gallery__image--fallback,
+.tgm-about-hero__media--fallback,
+.tgm-about-split__media:empty {
+  background:
+    linear-gradient(135deg, rgba(64, 84, 71, 0.12), rgba(255, 255, 255, 0) 42%),
+    linear-gradient(315deg, rgba(31, 41, 55, 0.10), rgba(255, 255, 255, 0) 50%),
+    #F5F6F8;
+}
+
+.about-story-gallery__image--fallback {
+  align-items: end;
+  border: 1px solid #E9E9E9;
+  border-radius: 8px;
+  color: #405447;
+  display: flex;
+  font-size: 0.9rem;
+  font-weight: 900;
+  min-height: 280px;
+  padding: 18px;
 }
 
 .terms-highlight-card {
@@ -375,10 +397,10 @@
 
 .tgm-about-hero {
   background:
-    linear-gradient(90deg, rgba(255, 224, 0, 0.18), rgba(255, 255, 255, 0) 34%),
+    linear-gradient(90deg, rgba(64, 84, 71, 0.10), rgba(255, 255, 255, 0) 34%),
     #FAFAFA;
-  border-bottom: 1px solid #E9ECEF;
-  color: #222222;
+  border-bottom: 1px solid #E9E9E9;
+  color: #111111;
   font-family: var(--font-sans);
   padding: 34px 0 46px;
 }
@@ -398,7 +420,7 @@
 }
 
 .tgm-about-hero h1 {
-  color: #222222;
+  color: #111111;
   font-size: clamp(2rem, 4.8vw, 3.45rem);
   font-weight: 900;
   letter-spacing: 0;
@@ -410,7 +432,7 @@
 .tgm-about-hero p:not(.tgm-eyebrow),
 .tgm-about-story__copy p,
 .tgm-about-split__content p {
-  color: #666666;
+  color: #777777;
   font-size: clamp(1rem, 2vw, 1.13rem);
   font-weight: 500;
   line-height: 1.72;
@@ -420,11 +442,39 @@
 .tgm-about-hero__media,
 .tgm-about-split__media {
   background: #FFFFFF;
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 8px;
   box-shadow: 0 18px 38px rgba(17, 24, 39, 0.12);
   overflow: hidden;
   position: relative;
+}
+
+.tgm-about-hero__media,
+.tgm-about-split__media {
+  min-height: 320px;
+}
+
+.tgm-about-hero__media--fallback::before,
+.tgm-about-split__media:empty::before {
+  color: #405447;
+  content: "Reluxwatches";
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  left: 24px;
+  line-height: 1;
+  position: absolute;
+  top: 24px;
+}
+
+.tgm-about-split__media:empty::after {
+  bottom: 24px;
+  color: #777777;
+  content: "Modern watches and accessories";
+  font-size: 1rem;
+  font-weight: 800;
+  left: 24px;
+  max-width: calc(100% - 48px);
+  position: absolute;
 }
 
 .tgm-about-hero__media img,
@@ -437,7 +487,7 @@
 
 .tgm-about-hero__badge {
   background: #FFFFFF;
-  border: 2px solid #F58220;
+  border: 2px solid #405447;
   border-radius: 8px;
   bottom: 16px;
   box-shadow: 0 18px 38px rgba(17, 24, 39, 0.18);
@@ -450,19 +500,19 @@
 }
 
 .tgm-about-hero__badge strong {
-  color: #F58220;
+  color: #405447;
   font-size: 1rem;
 }
 
 .tgm-about-hero__badge span {
-  color: #666666;
+  color: #777777;
   font-size: 0.88rem;
 }
 
 .tgm-about-story h2,
 .tgm-about-split h2,
 .tgm-about-policy h2 {
-  color: #222222;
+  color: #111111;
   font-size: clamp(1.75rem, 3vw, 2.55rem);
   font-weight: 900;
   letter-spacing: 0;
@@ -487,7 +537,7 @@
 .tgm-about-card,
 .tgm-about-policy__grid a {
   background: #FFFFFF;
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 8px;
   padding: 20px;
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
@@ -495,7 +545,7 @@
 
 .tgm-about-card h3,
 .tgm-about-policy__grid strong {
-  color: #222222;
+  color: #111111;
   font-size: 1.08rem;
   font-weight: 900;
   line-height: 1.32;
@@ -504,7 +554,7 @@
 
 .tgm-about-card p,
 .tgm-about-policy__grid span {
-  color: #666666;
+  color: #777777;
   display: block;
   line-height: 1.68;
   margin-top: 12px;
@@ -512,8 +562,8 @@
 
 .tgm-about-card:hover,
 .tgm-about-policy__grid a:hover {
-  border-color: #F58220;
-  box-shadow: 0 14px 30px rgba(0, 70, 190, 0.14);
+  border-color: #405447;
+  box-shadow: 0 14px 30px rgba(64, 84, 71, 0.14);
   transform: translateY(-3px);
 }
 
@@ -530,9 +580,9 @@
 
 .tgm-about-tags span {
   background: #FAFAFA;
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 999px;
-  color: #F58220;
+  color: #405447;
   font-size: 0.86rem;
   font-weight: 900;
   padding: 8px 12px;
@@ -584,16 +634,16 @@
 .tgm-hero,
 .tgm-section,
 .tgm-newsletter {
-  color: #222222;
+  color: #111111;
   font-family: var(--font-sans);
   letter-spacing: 0;
 }
 
 .tgm-hero {
   background:
-    linear-gradient(90deg, rgba(255, 224, 0, 0.18), rgba(255, 255, 255, 0) 34%),
+    linear-gradient(90deg, rgba(64, 84, 71, 0.10), rgba(255, 255, 255, 0) 34%),
     #FAFAFA;
-  border-bottom: 1px solid #E9ECEF;
+  border-bottom: 1px solid #E9E9E9;
   padding: 34px 0 46px;
 }
 
@@ -609,7 +659,7 @@
 }
 
 .tgm-eyebrow {
-  color: #F58220;
+  color: #405447;
   font-size: 0.8rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -621,7 +671,7 @@
 .tgm-hero h1,
 .tgm-section h2,
 .tgm-newsletter h2 {
-  color: #222222;
+  color: #111111;
   font-weight: 900;
   letter-spacing: 0;
   line-height: 1.14;
@@ -629,14 +679,14 @@
 }
 
 .tgm-hero h1 {
-  color: #222222;
+  color: #111111;
   font-size: clamp(1.95rem, 4.6vw, 3.35rem);
   line-height: 1.12;
   max-width: 620px;
 }
 
 .tgm-hero__copy {
-  color: #666666;
+  color: #777777;
   font-size: clamp(1rem, 2vw, 1.2rem);
   font-weight: 500;
   line-height: 1.7;
@@ -657,7 +707,7 @@
 }
 
 .tgm-hero__proof {
-  color: #666666;
+  color: #777777;
   font-size: 0.9rem;
   font-weight: 700;
   margin-top: 22px;
@@ -696,26 +746,26 @@
 
 .tgm-btn--primary,
 .tgm-newsletter__form button {
-  background: #F58220;
-  color: #222222;
+  background: #405447;
+  color: #FFFFFF;
   box-shadow: inset 0 -2px 0 rgba(17, 24, 39, 0.12);
 }
 
 .tgm-btn--secondary {
-  background: #F58220;
+  background: #405447;
   color: #FFFFFF;
 }
 
 .tgm-btn:hover,
 .tgm-add:hover,
 .tgm-newsletter__form button:hover {
-  box-shadow: 0 10px 24px rgba(0, 70, 190, 0.18);
+  box-shadow: 0 10px 24px rgba(64, 84, 71, 0.18);
   transform: translateY(-1px);
 }
 
 .tgm-hero__media {
   background: #FFFFFF;
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 8px;
   box-shadow: 0 18px 38px rgba(17, 24, 39, 0.12);
   min-height: 320px;
@@ -732,7 +782,7 @@
 
 .tgm-hero__deal {
   background: #FFFFFF;
-  border: 2px solid #F58220;
+  border: 2px solid #405447;
   border-radius: 8px;
   bottom: 16px;
   box-shadow: 0 18px 38px rgba(17, 24, 39, 0.18);
@@ -745,12 +795,12 @@
 }
 
 .tgm-hero__deal strong {
-  color: #F58220;
+  color: #405447;
   font-size: 1rem;
 }
 
 .tgm-hero__deal span {
-  color: #666666;
+  color: #777777;
   font-size: 0.88rem;
 }
 
@@ -763,7 +813,7 @@
 }
 
 .tgm-section--blue {
-  background: #F58220;
+  background: #405447;
   padding: 28px 0;
 }
 
@@ -777,20 +827,20 @@
 
 .tgm-section__head h2,
 .tgm-newsletter h2 {
-  color: #222222;
+  color: #111111;
   font-size: clamp(1.75rem, 3vw, 2.55rem);
 }
 
 .tgm-section__head p:not(.tgm-eyebrow),
 .tgm-newsletter p:not(.tgm-eyebrow) {
-  color: #666666;
+  color: #777777;
   font-weight: 500;
   line-height: 1.68;
   margin: 12px 0 0;
 }
 
 .tgm-link {
-  color: #F58220;
+  color: #405447;
   flex: 0 0 auto;
   font-weight: 900;
   text-decoration: none;
@@ -819,7 +869,7 @@
 .tgm-product,
 .tgm-review {
   background: #FFFFFF;
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 8px;
   overflow: hidden;
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
@@ -850,7 +900,7 @@
 .tgm-product h3,
 .tgm-collection strong,
 .tgm-trust h3 {
-  color: #222222;
+  color: #111111;
   font-weight: 900;
   line-height: 1.32;
 }
@@ -859,7 +909,7 @@
 .tgm-collection em,
 .tgm-trust p,
 .tgm-review p {
-  color: #666666;
+  color: #777777;
   font-style: normal;
   line-height: 1.66;
 }
@@ -870,7 +920,7 @@
 }
 
 .tgm-category__body em {
-  color: #F58220;
+  color: #405447;
   font-size: 0.9rem;
   font-style: normal;
   font-weight: 900;
@@ -881,8 +931,8 @@
 .tgm-category:hover,
 .tgm-product:hover,
 .tgm-review:hover {
-  border-color: #F58220;
-  box-shadow: 0 14px 30px rgba(0, 70, 190, 0.14);
+  border-color: #405447;
+  box-shadow: 0 14px 30px rgba(64, 84, 71, 0.14);
   transform: translateY(-3px);
 }
 
@@ -914,9 +964,9 @@
 }
 
 .tgm-sale {
-  background: #F58220;
+  background: #405447;
   border-radius: 4px;
-  color: #222222;
+  color: #FFFFFF;
   font-size: 0.72rem;
   font-weight: 900;
   left: 10px;
@@ -926,7 +976,7 @@
 }
 
 .tgm-product__body {
-  border-top: 1px solid #E9ECEF;
+  border-top: 1px solid #E9E9E9;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -934,7 +984,7 @@
 }
 
 .tgm-product__brand {
-  color: #F58220;
+  color: #405447;
   font-size: 0.76rem;
   font-weight: 900;
   margin: 0 0 5px;
@@ -954,7 +1004,7 @@
 }
 
 .tgm-rating {
-  color: #F58220;
+  color: #405447;
   font-size: 0.82rem;
   font-weight: 900;
   letter-spacing: 0;
@@ -962,14 +1012,14 @@
 }
 
 .tgm-rating span {
-  color: #8A8A8A;
+  color: #777777;
   font-weight: 700;
   margin-left: 5px;
 }
 
 .tgm-product__price {
   align-items: baseline;
-  color: #222222;
+  color: #111111;
   display: flex;
   flex-wrap: wrap;
   font-size: 1.15rem;
@@ -979,7 +1029,7 @@
 }
 
 .tgm-product__price del {
-  color: #8A8A8A;
+  color: #777777;
   font-size: 0.9rem;
   font-weight: 700;
 }
@@ -992,14 +1042,14 @@
 }
 
 .tgm-add {
-  background: #F58220;
+  background: #405447;
   color: #FFFFFF;
   margin-top: auto;
   padding: 0 12px;
 }
 
 .tgm-add:hover {
-  background: #E96F00;
+  background: #2F3F35;
 }
 
 .tgm-collection-grid {
@@ -1065,9 +1115,9 @@
 
 .tgm-trust__icon {
   align-items: center;
-  background: #F58220;
+  background: #405447;
   border-radius: 999px;
-  color: #222222;
+  color: #FFFFFF;
   display: inline-flex;
   height: 36px;
   justify-content: center;
@@ -1120,14 +1170,14 @@
 }
 
 .tgm-review span {
-  color: #8A8A8A;
+  color: #777777;
   font-size: 0.9rem;
   margin-top: 2px;
 }
 
 .tgm-newsletter {
   background: #FAFAFA;
-  border-top: 1px solid #E9ECEF;
+  border-top: 1px solid #E9E9E9;
   padding: 42px 0;
 }
 
@@ -1150,7 +1200,7 @@
 
 .tgm-newsletter__form {
   background: #FFFFFF;
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 8px;
   display: grid;
   gap: 10px;
@@ -1160,7 +1210,7 @@
 }
 
 .tgm-newsletter__form input {
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 8px;
   min-height: 46px;
   padding: 0 14px;
@@ -1314,8 +1364,7 @@
   }
 
   .tgm-section--blue .tgm-container,
-  .tgm-section--soft .tgm-container,
-  .tgm-about-policy {
+  .tgm-section--soft .tgm-container {
     overflow: visible;
   }
 

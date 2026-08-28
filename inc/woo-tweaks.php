@@ -76,6 +76,12 @@ function dawp_get_store_address() {
         $address['country'] = $country_state;
     }
 
+    $address = array_map('sanitize_text_field', $address);
+
+    if (!array_filter($address)) {
+        return '';
+    }
+
     $woocommerce = function_exists('WC') ? WC() : null;
 
     if ($woocommerce && !empty($woocommerce->countries) && method_exists($woocommerce->countries, 'get_formatted_address')) {

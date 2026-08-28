@@ -1,5 +1,5 @@
 /* ============================================================
-   Crowdfused Shop / Product Archive
+   Reluxwatches Shop / Product Archive
    ============================================================ */
 
 :root {
@@ -7,16 +7,16 @@
   --shop-surface: #FFFFFF;
   --shop-surface-soft: #FAFAFA;
   --shop-surface-muted: #FAFAFA;
-  --shop-text: #666666;
-  --shop-heading: #222222;
-  --shop-muted: #8A8A8A;
-  --shop-soft-text: #8A8A8A;
-  --shop-border: #E9ECEF;
-  --shop-accent: #F58220;
-  --shop-accent-dark: #E96F00;
-  --shop-cta: #F58220;
+  --shop-text: #777777;
+  --shop-heading: #111111;
+  --shop-muted: #777777;
+  --shop-soft-text: #777777;
+  --shop-border: #E9E9E9;
+  --shop-accent: #405447;
+  --shop-accent-dark: #2F3F35;
+  --shop-cta: #405447;
   --shop-yellow: var(--shop-cta);
-  --shop-sale: #F58220;
+  --shop-sale: #405447;
   --shop-font: Inter, Arial, sans-serif;
   --shop-heading-font: Manrope, Inter, Arial, sans-serif;
   --shop-container: 1280px;
@@ -152,14 +152,14 @@
 }
 
 .shop-header__meta span {
-  border: 1px solid rgba(245, 130, 32, 0.24);
+  border: 1px solid rgba(64, 84, 71, 0.24);
   background: rgba(255, 255, 255, 0.68);
   color: var(--shop-heading);
 }
 
 .shop-header__meta a {
   background: var(--shop-yellow);
-  color: var(--shop-heading);
+  color: #FFFFFF;
   transition: background 180ms ease, transform 120ms ease;
 }
 
@@ -253,7 +253,7 @@
 .woocommerce-ordering select:focus,
 .shop-sort select:focus {
   border-color: var(--shop-accent);
-  box-shadow: 0 0 0 3px rgba(245, 130, 32, 0.16);
+  box-shadow: 0 0 0 3px rgba(64, 84, 71, 0.16);
 }
 
 .shop-layout {
@@ -473,7 +473,7 @@
   border: 0;
   border-radius: 999px;
   background: var(--shop-yellow);
-  color: var(--shop-heading);
+  color: #FFFFFF;
   cursor: pointer;
   font: inherit;
   font-size: 0.84rem;
@@ -540,8 +540,8 @@ ul.products li.product,
 }
 
 .product-card:hover {
-  border-color: rgba(245, 130, 32, 0.55);
-  box-shadow: 0 18px 38px rgba(245, 130, 32, 0.12);
+  border-color: rgba(64, 84, 71, 0.55);
+  box-shadow: 0 18px 38px rgba(64, 84, 71, 0.12);
   transform: translateY(-3px);
 }
 
@@ -598,7 +598,7 @@ ul.products li.product,
   padding: 5px 10px;
   border-radius: 999px;
   background: var(--shop-yellow);
-  color: var(--shop-heading);
+  color: #FFFFFF;
   box-shadow: 0 8px 18px rgba(34, 34, 34, 0.12);
   font-size: 0.7rem;
   font-weight: 900;
@@ -615,7 +615,7 @@ ul.products li.product,
   gap: 6px;
   padding: 8px 11px;
   border-radius: 999px;
-  background: rgba(245, 130, 32, 0.92);
+  background: rgba(64, 84, 71, 0.92);
   color: #FFFFFF;
   font-size: 0.78rem;
   font-weight: 800;
@@ -715,7 +715,7 @@ ul.products li.product,
   border: 0;
   border-radius: 999px;
   background: var(--shop-yellow);
-  color: var(--shop-heading);
+  color: #FFFFFF;
   font: inherit;
   font-size: 0.84rem;
   font-weight: 800;
@@ -728,6 +728,13 @@ ul.products li.product,
 .add_to_cart_button:hover {
   background: var(--shop-accent);
   color: #FFFFFF;
+}
+
+.woocommerce ul.products li.product .button span,
+.add_to_cart_button span,
+.woocommerce ul.products li.product .button:hover span,
+.add_to_cart_button:hover span {
+  color: inherit;
 }
 
 .woocommerce ul.products li.product .button:active,
@@ -850,7 +857,7 @@ ul.products li.product,
   --shop-bg: #FAFAFA;
   --shop-surface-soft: #FFFFFF;
   --shop-surface-muted: #FAFAFA;
-  --shop-ring: rgba(245, 130, 32, 0.16);
+  --shop-ring: rgba(64, 84, 71, 0.16);
   --shop-shadow-sm: 0 10px 28px rgba(34, 34, 34, 0.06);
   --shop-shadow-md: 0 20px 48px rgba(34, 34, 34, 0.09);
   background:
@@ -883,7 +890,7 @@ ul.products li.product,
   min-height: 0;
   margin-bottom: 16px;
   padding: clamp(18px, 3vw, 28px);
-  border-color: rgba(245, 130, 32, 0.18);
+  border-color: rgba(64, 84, 71, 0.18);
   background:
     linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 58%, #FAFAFA 100%);
   box-shadow: var(--shop-shadow-sm);
@@ -906,7 +913,7 @@ ul.products li.product,
 
 .shop-page .shop-header__eyebrow {
   margin-bottom: 10px;
-  color: #F58220;
+  color: #405447;
   font-size: 0.76rem;
   letter-spacing: 0.12em;
 }
@@ -920,7 +927,7 @@ ul.products li.product,
 .shop-page .shop-header__description {
   max-width: 760px;
   margin-top: 16px;
-  color: #666666;
+  color: #777777;
   font-size: clamp(0.98rem, 1.25vw, 1.08rem);
   font-weight: 550;
   line-height: 1.65;
@@ -950,19 +957,19 @@ ul.products li.product,
 }
 
 .shop-page .shop-header__meta span {
-  border: 1px solid rgba(245, 130, 32, 0.24);
+  border: 1px solid rgba(64, 84, 71, 0.24);
   background: rgba(255, 255, 255, 0.72);
   color: var(--shop-heading);
 }
 
 .shop-page .shop-header__meta a {
-  background: #F58220;
-  color: #222222;
-  box-shadow: 0 10px 20px rgba(245, 130, 32, 0.14);
+  background: #405447;
+  color: #FFFFFF;
+  box-shadow: 0 10px 20px rgba(64, 84, 71, 0.14);
 }
 
 .shop-page .shop-header__meta a:hover {
-  background: #F58220;
+  background: #405447;
   color: #FFFFFF;
 }
 
@@ -1015,7 +1022,7 @@ ul.products li.product,
   gap: 14px;
   margin: 0 0 24px;
   padding: 12px;
-  border: 1px solid #E9ECEF;
+  border: 1px solid #E9E9E9;
   border-radius: 8px;
   background: #FFFFFF;
   box-shadow: var(--shop-shadow-md);
@@ -1054,7 +1061,7 @@ ul.products li.product,
 }
 
 .shop-page .woocommerce-ordering select:focus {
-  border-color: #F58220;
+  border-color: #405447;
   box-shadow: 0 0 0 4px var(--shop-ring);
 }
 
@@ -1078,7 +1085,7 @@ ul.products li.product,
   .shop-page .shop-sidebar {
     top: 104px;
     padding: 18px;
-    border-color: #E9ECEF;
+    border-color: #E9E9E9;
     box-shadow: var(--shop-shadow-sm);
   }
 }
@@ -1101,7 +1108,7 @@ ul.products li.product,
 .shop-page .woocommerce-widget-layered-nav-list__item a {
   min-height: 42px;
   padding: 9px 10px;
-  color: #8A8A8A;
+  color: #777777;
   line-height: 1.35;
 }
 
@@ -1111,7 +1118,7 @@ ul.products li.product,
 .shop-page .woocommerce-widget-layered-nav-list__item a:hover,
 .shop-page .woocommerce-widget-layered-nav-list__item--chosen a {
   background: #FAFAFA;
-  color: #F58220;
+  color: #405447;
 }
 
 .shop-page .shop-main ul.products,
@@ -1149,14 +1156,14 @@ ul.products li.product,
 }
 
 .shop-page .product-card {
-  border-color: #E9ECEF;
+  border-color: #E9E9E9;
   background: #FFFFFF;
   box-shadow: var(--shop-shadow-sm);
 }
 
 .shop-page .product-card:hover {
-  border-color: rgba(245, 130, 32, 0.6);
-  box-shadow: 0 22px 46px rgba(245, 130, 32, 0.13);
+  border-color: rgba(64, 84, 71, 0.6);
+  box-shadow: 0 22px 46px rgba(64, 84, 71, 0.13);
 }
 
 .shop-page .product-card__shell {
@@ -1174,7 +1181,7 @@ ul.products li.product,
 .shop-page .product-card__meta {
   gap: 12px;
   padding: 16px;
-  border-top: 1px solid #E9ECEF;
+  border-top: 1px solid #E9E9E9;
 }
 
 .shop-page .product-card__title {
@@ -1255,7 +1262,7 @@ ul.products li.product,
 }
 
 /* ============================================================
-   Crowdfused 2026 archive refresh
+   Reluxwatches 2026 archive refresh
    Matches template-parts/page-home.php palette and product cards.
    ============================================================ */
 
@@ -1264,19 +1271,19 @@ ul.products li.product,
   --shop-surface: #FFFFFF;
   --shop-surface-soft: #FAFAFA;
   --shop-surface-muted: #FAFAFA;
-  --shop-text: #666666;
-  --shop-heading: #222222;
-  --shop-muted: #666666;
-  --shop-soft-text: #8A8A8A;
-  --shop-border: #E9ECEF;
-  --shop-accent: #F58220;
-  --shop-accent-dark: #E96F00;
+  --shop-text: #777777;
+  --shop-heading: #111111;
+  --shop-muted: #777777;
+  --shop-soft-text: #777777;
+  --shop-border: #E9E9E9;
+  --shop-accent: #405447;
+  --shop-accent-dark: #2F3F35;
   --shop-yellow: #FFC98A;
   --shop-sale: #E64A3B;
   --shop-green: #43A047;
   --shop-font: Inter, Arial, sans-serif;
   --shop-heading-font: Manrope, Inter, Arial, sans-serif;
-  --shop-ring: rgba(245, 130, 32, 0.18);
+  --shop-ring: rgba(64, 84, 71, 0.18);
   --shop-shadow-sm: 0 10px 28px rgba(34, 34, 34, 0.06);
   --shop-shadow-md: 0 20px 44px rgba(34, 34, 34, 0.1);
   background:
@@ -1454,7 +1461,7 @@ ul.products li.product,
 }
 
 .shop-page .product-card:hover {
-  border-color: rgba(245, 130, 32, 0.45);
+  border-color: rgba(64, 84, 71, 0.45);
   box-shadow: 0 20px 40px rgba(34, 34, 34, 0.12);
   transform: translateY(-4px);
 }
@@ -1588,7 +1595,7 @@ ul.products li.product,
   background: #FFFFFF;
   box-shadow: var(--shop-shadow-sm);
   scrollbar-width: thin;
-  scrollbar-color: rgba(245, 130, 32, 0.45) transparent;
+  scrollbar-color: rgba(64, 84, 71, 0.45) transparent;
 }
 
 .shop-category-strip__link {
@@ -1613,7 +1620,7 @@ ul.products li.product,
 
 .shop-category-strip__link:hover,
 .shop-category-strip__link.is-active {
-  border-color: rgba(245, 130, 32, 0.34);
+  border-color: rgba(64, 84, 71, 0.34);
   background: var(--shop-accent);
   color: #FFFFFF;
 }

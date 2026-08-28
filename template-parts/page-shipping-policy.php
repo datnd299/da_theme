@@ -218,6 +218,10 @@ $support_portal = home_url('/contact-us/');
               </div>
             <?php endif; ?>
             <div class="qb-contact-item">
+              <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>
+              <span><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></span>
+            </div>
+            <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>
               <span><?php esc_html_e('Within 1 business day.', 'dawp'); ?></span>
             </div>

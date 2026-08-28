@@ -5,8 +5,8 @@
  * @package dawp
  */
 
-$store_name        = "Queen's Bracelet";
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
+$store_name        = "Corvelshop";
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');
@@ -33,7 +33,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Why has my order not shipped yet?', 'dawp'),
-                'a' => __('Orders have a 5:00 PM PST cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some custom, high-demand, or separately packed jewelry items may require additional processing time.', 'dawp'),
+                'a' => __('Orders have a 5:00 PM PST cutoff and a 1-3 business day handling time. Fulfillment takes place Monday-Friday, excluding weekends and official U.S. public holidays. Some intricate, high-demand, or separately packed watch items may require additional processing time.', 'dawp'),
             ],
         ],
     ],
@@ -60,7 +60,7 @@ $faq_sections = [
             ],
             [
                 'q' => __('Do multi-item orders ship together?', 'dawp'),
-                'a' => __('Some multi-item jewelry orders may ship separately when items are prepared from different fulfillment batches or require distinct packing methods. If that happens, you will receive separate tracking numbers at no additional cost.', 'dawp'),
+                'a' => __('Some multi-item watch orders may ship separately when items are prepared from different fulfillment batches or require distinct specialized packing methods. If that happens, you will receive separate tracking numbers at no additional cost.', 'dawp'),
             ],
         ],
     ],
@@ -112,20 +112,20 @@ $faq_sections = [
     ],
     [
         'id' => 'products',
-        'eyebrow' => __('Products & Sizing', 'dawp'),
-        'title' => __('Bracelet Details', 'dawp'),
+        'eyebrow' => __('Products & Fit', 'dawp'),
+        'title' => __('Watch Details', 'dawp'),
         'faqs' => [
             [
-                'q' => __('How should I choose bracelet size?', 'dawp'),
-                'a' => __('Review the bracelet length, adjustable information, clasp type, and product description before checkout. If you are unsure, contact support before placing an order.', 'dawp'),
+                'q' => __('How should I choose watch or strap size?', 'dawp'),
+                'a' => __('Review the case size, strap size, adjustment details, clasp type, and product description before checkout. If you are unsure, contact support before placing an order.', 'dawp'),
             ],
             [
                 'q' => __('Will colors and finishes match the photos exactly?', 'dawp'),
                 'a' => __('We aim to display product colors and finishes clearly, but slight differences may occur due to screen settings, photography lighting, production updates, or inventory changes.', 'dawp'),
             ],
             [
-                'q' => __('Do your bracelets make wellness or third-party brand claims?', 'dawp'),
-                'a' => __('No. Queen\'s Bracelet sells fashion bracelets and giftable jewelry. We avoid unsupported third-party brand, premium-material, medical, wellness, and guaranteed benefit claims.', 'dawp'),
+                'q' => __('Do your watches make unsupported brand or performance claims?', 'dawp'),
+                'a' => __('No. Corvelshop sells watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
             ],
         ],
     ],
@@ -152,29 +152,30 @@ $faq_sections = [
 ?>
 
 <style>
-  .qb-page { --qb-blush:#ffb7c5; --qb-peach:#ffd6a5; --qb-mint:#cff5e7; --qb-gold:#d8a94e; --qb-plum:#2f1f35; --qb-gray:#f7f7fa; --qb-text:#4f4355; --qb-border:#eadfe8; background:#fff; color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F5F2EB; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#B8B8B2; --qb-gray:#F5F2EB; --qb-text:#5E625F; --qb-border:#B8B8B2; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
   .qb-section { padding:68px 0; }
   .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
   .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
+  .qb-updated { margin:16px 0 0; color:var(--qb-plum); font-size:14px; font-weight:800; line-height:1.4; }
   .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
   .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
-  .qb-button--secondary:hover { border-color:var(--qb-plum); background:#fff4f6; color:var(--qb-plum) !important; }
+  .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.36),rgba(255,214,165,.36) 46%,rgba(207,245,231,.42)),#fff; }
+  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(245,242,235,.98),rgba(255,255,255,.94) 50%,rgba(38,60,51,.13)),#F5F2EB; }
   .qb-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.42); filter:blur(8px); }
-  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(216,169,78,.22); border-radius:999px; background:rgba(255,255,255,.2); }
-  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr); gap:44px; align-items:center; padding:78px 0 84px; }
+  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(179,138,82,.22); border-radius:999px; background:rgba(255,255,255,.2); }
+  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0 84px; }
   .qb-hero__content { max-width:720px; }
   .qb-hero .qb-copy { max-width:690px; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(47,31,53,.08); }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(13,15,15,.06); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0 0; padding:0; list-style:none; }
-  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:12px; background:#fff; padding:12px 13px; color:#675a6c; font-size:13px; line-height:1.45; }
+  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:12px; background:#fff; padding:12px 13px; color:#5E625F; font-size:13px; line-height:1.45; }
   .qb-glance-list strong { display:block; margin-bottom:3px; color:var(--qb-plum); font-size:13px; line-height:1.2; }
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:280px minmax(0,1fr); gap:32px; align-items:start; }
@@ -188,11 +189,11 @@ $faq_sections = [
   .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 13px; color:#fff; font-size:13px; font-weight:800; }
   .qb-policy-stack { display:grid; gap:20px; }
   .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
-  .qb-policy-card:nth-child(even) { background:#fffafc; }
+  .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
   .qb-policy-card h2 + .qb-policy-card__intro { margin-top:14px; }
-  .qb-policy-card p, .qb-policy-card li { color:#675a6c; font-size:15px; line-height:1.72; }
+  .qb-policy-card p, .qb-policy-card li { color:#5E625F; font-size:15px; line-height:1.72; }
   .qb-policy-card p { margin:14px 0 0; }
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
@@ -200,16 +201,16 @@ $faq_sections = [
   .qb-accordion { overflow:hidden; margin-top:22px; border:1px solid var(--qb-border); border-radius:18px; background:#fff; }
   .qb-faq-item + .qb-faq-item { border-top:1px solid var(--qb-border); }
   .qb-faq-toggle { display:flex; width:100%; align-items:center; justify-content:space-between; gap:18px; border:0; background:#fff; padding:18px; color:var(--qb-plum); text-align:left; font:inherit; font-weight:800; cursor:pointer; }
-  .qb-faq-toggle:hover { background:#fff8fa; }
+  .qb-faq-toggle:hover { background:var(--qb-ivory); }
   .qb-faq-toggle span:first-child { line-height:1.35; }
   .qb-faq-icon { display:inline-flex; width:34px; height:34px; flex:0 0 34px; align-items:center; justify-content:center; border-radius:999px; background:var(--qb-plum); color:#fff; font-size:18px; font-weight:800; line-height:1; }
   .qb-answer { display:none; padding:0 18px 20px; }
-  .qb-answer p { color:#675a6c; font-size:15px; line-height:1.72; }
+  .qb-answer p { color:#5E625F; font-size:15px; line-height:1.72; }
   .qb-faq-toggle[aria-expanded="true"] .qb-faq-icon { background:var(--qb-gold); color:var(--qb-plum); }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
   .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
-  .qb-contact-item span { display:block; margin-top:7px; color:#675a6c; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+  .qb-contact-item span { display:block; margin-top:7px; color:#5E625F; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
   @media (max-width:920px) { .qb-hero__grid, .qb-content-grid { grid-template-columns:1fr; } .qb-sidebar { position:static; } }
   @media (max-width:680px) {
     .qb-section { padding:44px 0; }
@@ -246,24 +247,12 @@ $faq_sections = [
       <div class="qb-hero__content">
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
-        <p class="qb-copy"><?php esc_html_e('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, bracelet details, checkout, privacy, and customer support at Queen\'s Bracelet.', 'dawp'); ?></p>
+        <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at Corvelshop.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
         </div>
-      </div>
-
-      <div class="qb-hero-panel">
-        <p class="qb-eyebrow"><?php esc_html_e('Quick Answers', 'dawp'); ?></p>
-        <ul class="qb-glance-list">
-          <li><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Standard Time, Monday-Friday', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Refund Timing', 'dawp'); ?></strong><?php esc_html_e('Within 7 business days after approval', 'dawp'); ?></li>
-        </ul>
       </div>
     </div>
   </section>
@@ -276,6 +265,7 @@ $faq_sections = [
           <h2><?php esc_html_e('Find answers faster.', 'dawp'); ?></h2>
           <p><?php esc_html_e('These answers are aligned with our Shipping Policy and Return & Refund Policy pages.', 'dawp'); ?></p>
           <nav class="qb-side-nav" aria-label="<?php esc_attr_e('FAQ categories', 'dawp'); ?>">
+            <a href="#quick-answers"><?php esc_html_e('Quick Answers', 'dawp'); ?></a>
             <?php foreach ($faq_sections as $section) : ?>
               <a href="#<?php echo esc_attr($section['id']); ?>"><?php echo esc_html($section['eyebrow']); ?></a>
             <?php endforeach; ?>
@@ -285,6 +275,20 @@ $faq_sections = [
       </aside>
 
       <div class="qb-policy-stack">
+        <section id="quick-answers" class="qb-policy-card">
+          <p class="qb-eyebrow"><?php esc_html_e('Quick Answers', 'dawp'); ?></p>
+          <h2><?php esc_html_e('The essentials before you order.', 'dawp'); ?></h2>
+          <ul class="qb-glance-list">
+            <li><strong><?php esc_html_e('Ships To', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Standard Shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Order Cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Standard Time, Monday-Friday', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Delivery Time', 'dawp'); ?></strong><?php esc_html_e('6-10 business days', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Return Window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Restocking Fee', 'dawp'); ?></strong><?php esc_html_e('No restocking fee for eligible returns', 'dawp'); ?></li>
+            <li><strong><?php esc_html_e('Refund Timing', 'dawp'); ?></strong><?php esc_html_e('Within 7 business days after approval', 'dawp'); ?></li>
+          </ul>
+        </section>
+
         <?php foreach ($faq_sections as $section) : ?>
           <section id="<?php echo esc_attr($section['id']); ?>" class="qb-policy-card">
             <p class="qb-eyebrow"><?php echo esc_html($section['eyebrow']); ?></p>

@@ -25,7 +25,7 @@ $nav_items = [
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://i0.wp.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <?php wp_head(); ?>
 </head>
 
@@ -34,12 +34,11 @@ $nav_items = [
 
 <style>
   .qb-site-header {
-    --qb-blush: #ffb7c5;
-    --qb-cream: #fff8f4;
-    --qb-gold: #d8a94e;
-    --qb-plum: #2f1f35;
-    --qb-text: #4f4355;
-    --qb-border: #eadfe8;
+    --qb-cream: #F5F2EB;
+    --qb-gold: #B38A52;
+    --qb-plum: #0D0F0F;
+    --qb-text: #171A19;
+    --qb-border: rgba(184,184,178,.55);
     position: sticky;
     top: 0;
     z-index: 50;
@@ -47,7 +46,7 @@ $nav_items = [
     background: rgba(255,255,255,.96);
     color: var(--qb-text);
     font-family: "DM Sans", "Inter", system-ui, sans-serif;
-    box-shadow: 0 10px 28px rgba(47,31,53,.07);
+    box-shadow: none;
     backdrop-filter: blur(14px);
   }
 
@@ -66,11 +65,11 @@ $nav_items = [
   }
 
   .qb-announcement {
-    background: linear-gradient(90deg, rgba(255,183,197,.34), rgba(255,214,165,.42), rgba(216,199,255,.24));
-    color: var(--qb-plum);
+    background: #0D0F0F;
+    color: #F5F2EB;
     font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .12em;
+    font-weight: 700;
+    letter-spacing: .16em;
     line-height: 1.4;
     text-align: center;
     text-transform: uppercase;
@@ -112,7 +111,7 @@ $nav_items = [
   .qb-header-nav a {
     color: var(--qb-text);
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: .04em;
     white-space: nowrap;
     transition: color .2s ease;
@@ -138,7 +137,7 @@ $nav_items = [
     width: 180px;
     min-height: 42px;
     border: 1px solid var(--qb-border);
-    border-radius: 999px;
+    border-radius: 2px;
     background: var(--qb-cream);
     color: var(--qb-plum);
     font: inherit;
@@ -162,7 +161,7 @@ $nav_items = [
     align-items: center;
     justify-content: center;
     border: 1px solid var(--qb-border);
-    border-radius: 999px;
+    border-radius: 2px;
     background: #fff;
     color: var(--qb-plum);
     cursor: pointer;
@@ -183,13 +182,13 @@ $nav_items = [
     align-items: center;
     justify-content: center;
     border: 1px solid var(--qb-plum);
-    border-radius: 999px;
+    border-radius: 2px;
     background: var(--qb-plum);
     color: #fff;
     font-size: 13px;
     font-weight: 800;
     padding: 0 17px;
-    box-shadow: 0 8px 18px rgba(47,31,53,.18);
+    box-shadow: none;
     transition: border-color .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
   }
 
@@ -197,7 +196,7 @@ $nav_items = [
     border-color: var(--qb-gold);
     background: var(--qb-gold);
     color: var(--qb-plum);
-    box-shadow: 0 8px 18px rgba(216,169,78,.24);
+    box-shadow: none;
   }
 
   .qb-search-toggle,
@@ -235,7 +234,7 @@ $nav_items = [
     flex: 1;
     min-height: 44px;
     border: 1px solid var(--qb-border);
-    border-radius: 999px;
+    border-radius: 2px;
     padding: 0 15px;
     font: inherit;
     outline: none;
@@ -243,7 +242,7 @@ $nav_items = [
 
   .qb-mobile-search button {
     border: 0;
-    border-radius: 999px;
+    border-radius: 2px;
     background: var(--qb-plum);
     color: #fff;
     font: inherit;
@@ -363,25 +362,13 @@ $nav_items = [
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Bracelet styles for everyday confidence, meaningful gifts, and personal expression', 'dawp'); ?>
+            <?php esc_html_e('Modern luxury watches built for precision with presence', 'dawp'); ?>
         </div>
     </div>
 
     <div class="qb-header-wrap qb-header-main">
         <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Corvelshop home", 'dawp'); ?>">
-            <?php
-            echo qb_responsive_image(
-                get_template_directory_uri() . '/assets/images/home/image.png',
-                get_bloginfo('name'),
-                [
-                    'width'   => 190,
-                    'height'  => 190,
-                    'widths'  => [92, 150, 190, 300],
-                    'sizes'   => '(max-width: 520px) 150px, 190px',
-                    'loading' => 'eager',
-                ]
-            );
-            ?>
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png'); ?>" alt="<?php esc_attr_e('Corvelshop', 'dawp'); ?>">
         </a>
 
         <nav class="qb-header-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
@@ -392,8 +379,8 @@ $nav_items = [
 
         <div class="qb-header-actions">
             <form class="qb-header-search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
-                <label class="qb-sr-only" for="qb-header-search"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
-                <input id="qb-header-search" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search bracelets', 'dawp'); ?>">
+                <label class="qb-sr-only" for="qb-header-search"><?php esc_html_e('Search watches', 'dawp'); ?></label>
+                <input id="qb-header-search" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search watches', 'dawp'); ?>">
                 <input type="hidden" name="post_type" value="product">
             </form>
 
@@ -420,8 +407,8 @@ $nav_items = [
     <div id="qb-mobile-search" class="qb-mobile-panel qb-mobile-search">
         <div class="qb-header-wrap">
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" autocomplete="off">
-                <label class="qb-sr-only" for="qb-mobile-search-field"><?php esc_html_e('Search bracelets', 'dawp'); ?></label>
-                <input id="qb-mobile-search-field" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search bracelets...', 'dawp'); ?>">
+                <label class="qb-sr-only" for="qb-mobile-search-field"><?php esc_html_e('Search watches', 'dawp'); ?></label>
+                <input id="qb-mobile-search-field" type="search" name="s" value="" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="<?php esc_attr_e('Search watches...', 'dawp'); ?>">
                 <input type="hidden" name="post_type" value="product">
                 <button type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
             </form>

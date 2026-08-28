@@ -8,17 +8,20 @@
 $current_year = date_i18n('Y');
 $account_url  = get_permalink(get_option('woocommerce_myaccount_page_id'));
 $account_url  = $account_url ?: home_url('/my-account/');
-$footer_logo  = get_template_directory_uri() . '/assets/images/home/image.png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 
 $footer_shop_links = [
-    ['title' => __('Shop All Bracelets', 'dawp'), 'url' => home_url('/shop/')],
-    ['title' => __('Charm Bracelets', 'dawp'), 'url' => home_url('/product-category/charm-bracelets/')],
-    ['title' => __('Owl Bracelets', 'dawp'), 'url' => home_url('/product-category/owl-bracelets/')],
-    ['title' => __('Beaded Bracelets', 'dawp'), 'url' => home_url('/product-category/beaded-bracelets/')],
-    ['title' => __('Chain Bracelets', 'dawp'), 'url' => home_url('/product-category/chain-bracelets/')],
-    ['title' => __('Gift Bracelets', 'dawp'), 'url' => home_url('/product-category/gift-bracelets/')],
+    ['title' => __('Shop All Watches', 'dawp'), 'url' => home_url('/shop/')],
+    ['title' => __('New Arrivals', 'dawp'), 'url' => home_url('/shop/?orderby=date')],
 ];
+
+if (function_exists('wc_get_products') && wc_get_products(['limit' => 1, 'status' => 'publish', 'featured' => true])) {
+    $footer_shop_links[] = ['title' => __('Featured Watches', 'dawp'), 'url' => home_url('/shop/?featured=1')];
+}
+
+if (function_exists('wc_get_products') && wc_get_products(['limit' => 1, 'status' => 'publish', 'on_sale' => true])) {
+    $footer_shop_links[] = ['title' => __('Sale Watches', 'dawp'), 'url' => home_url('/shop/?product_visibility=onsale')];
+}
 
 $footer_help_links = [
     ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
@@ -40,17 +43,13 @@ $footer_policy_links = [
 
 <style>
   .qb-site-footer {
-    --qb-blush: #ffb7c5;
-    --qb-peach: #ffd6a5;
-    --qb-cream: #fff8f4;
-    --qb-mint: #cff5e7;
-    --qb-gold: #d8a94e;
-    --qb-plum: #2f1f35;
-    --qb-text: #4f4355;
-    --qb-border: rgba(47,31,53,.12);
-    background:
-      linear-gradient(135deg, rgba(255,183,197,.35), rgba(255,214,165,.38) 48%, rgba(207,245,231,.4)),
-      #fff;
+    --qb-cream: #F5F2EB;
+    --qb-gold: #B38A52;
+    --qb-plum: #0D0F0F;
+    --qb-text: #D8D6CF;
+    --qb-link-hover: #FFFFFF;
+    --qb-border: rgba(184,184,178,.18);
+    background: #0D0F0F;
     color: var(--qb-text);
     font-family: "DM Sans", "Inter", system-ui, sans-serif;
   }
@@ -59,7 +58,8 @@ $footer_policy_links = [
     box-sizing: border-box;
   }
 
-  .qb-site-footer a {
+  .qb-site-footer a,
+  .qb-site-footer a:visited {
     color: inherit;
     text-decoration: none;
   }
@@ -78,7 +78,7 @@ $footer_policy_links = [
 
   .qb-footer-brand strong {
     display: block;
-    color: var(--qb-plum);
+    color: #FFFFFF;
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(32px, 4vw, 48px);
     line-height: 1.05;
@@ -129,8 +129,9 @@ $footer_policy_links = [
     stroke: currentColor;
   }
 
-  .qb-footer-contact a:hover {
-    color: var(--qb-plum);
+  .qb-footer-contact a:hover,
+  .qb-footer-contact a:focus-visible {
+    color: var(--qb-link-hover);
   }
 
   .qb-footer-contact a:last-child {
@@ -162,8 +163,12 @@ $footer_policy_links = [
     transition: color .2s ease;
   }
 
-  .qb-footer-col a:hover {
-    color: var(--qb-plum);
+  .qb-footer-col a:hover,
+  .qb-footer-col a:focus-visible {
+    color: var(--qb-link-hover);
+    text-decoration: underline;
+    text-decoration-color: var(--qb-gold);
+    text-underline-offset: 4px;
   }
 
   .qb-footer-bottom {
@@ -191,8 +196,8 @@ $footer_policy_links = [
   .qb-payment span {
     border: 1px solid var(--qb-border);
     border-radius: 6px;
-    background: rgba(255,255,255,.55);
-    color: var(--qb-plum);
+    background: rgba(255,255,255,.06);
+    color: #F5F2EB;
     font-size: 11px;
     font-weight: 800;
     line-height: 1;
@@ -236,19 +241,8 @@ $footer_policy_links = [
         <div class="qb-footer-wrap qb-footer-main">
             <div class="qb-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Corvelshop home", 'dawp'); ?>">
-                    <?php
-                    echo qb_responsive_image(
-                        $footer_logo,
-                        __("Corvelshop", 'dawp'),
-                        [
-                            'class'  => 'qb-footer-logo',
-                            'width'  => 108,
-                            'height' => 108,
-                            'widths' => [108, 160, 216],
-                            'sizes'  => '108px',
-                        ]
-                    );
-                    ?>
+                    <img class="qb-footer-logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png'); ?>" alt="<?php esc_attr_e('Corvelshop', 'dawp'); ?>">
+                    <span><?php esc_html_e('Precision with Presence', 'dawp'); ?></span>
                 </a>
 
                 <div class="qb-footer-contact">
@@ -272,12 +266,6 @@ $footer_policy_links = [
                             <?php echo esc_html($store_address); ?>
                         </span>
                     <?php endif; ?>
-                    <a href="https://www.facebook.com/queens.bracelet/" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('Facebook', 'dawp'); ?>">
-                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                            <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.25 10.44 22v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22C18.34 21.25 22 17.08 22 12.06Z"/>
-                        </svg>
-                        Facebook
-                    </a>
                 </div>
             </div>
 
@@ -320,7 +308,7 @@ $footer_policy_links = [
                 <span><?php esc_html_e('Discover', 'dawp'); ?></span>
                 <span><?php esc_html_e('PayPal', 'dawp'); ?></span>
             </div>
-            <p><?php esc_html_e('Bracelet-focused fashion jewelry boutique', 'dawp'); ?></p>
+            <p><?php esc_html_e('Modern luxury watch ecommerce', 'dawp'); ?></p>
         </div>
     </div>
 </footer>

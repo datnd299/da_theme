@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css — Shop Kelli Design System
+   main.css — Corvelshop Design System
    Pure CSS only. All values reference CSS variables.
    Mobile legacy overrides are isolated near the bottom.
    ============================================================= */
@@ -7,32 +7,32 @@
 :root {
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
-  /* Warm White — page background */
-  --color-surface: #F7F7FA;
-  /* Soft Cream — section / card background */
-  --color-surface-alt: #F7F7FA;
+  /* White — page background */
+  --color-surface: #F5F2EB;
+  /* Stone — section / card background */
+  --color-surface-alt: #F7F8F5;
   /* Soft Gray — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #2F1F35;
+  --color-foreground: #171A19;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #4F4355;
+  --color-foreground-muted: #5E625F;
   /* Secondary text — descriptions, meta */
-  --color-muted: #65596B;
+  --color-muted: #8B8E89;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #2F1F35;
-  /* Deep Plum — primary CTA, strong text */
-  --color-accent-hover: #D8A94E;
-  /* Champagne Gold — hover state */
-  --color-accent-soft: #FFD6A5;
-  /* Peach Glow — soft highlights */
-  --color-accent-blush: #FFB7C5;
-  /* Fresh Blush — secondary accents */
+  --color-accent: #0D0F0F;
+  /* Near black — primary CTA, strong text */
+  --color-accent-hover: #B38A52;
+  /* Warm brass — hover state */
+  --color-accent-soft: #D7B987;
+  /* Soft brass — highlights */
+  --color-accent-blush: #263C33;
+  /* Deep green — secondary accents */
 
   /* === UI === */
-  --color-border: #EADFE8;
+  --color-border: #D8D6CF;
   /* Border — cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */

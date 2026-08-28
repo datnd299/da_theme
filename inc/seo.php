@@ -12,11 +12,11 @@ function dawp_get_virtual_seo() {
     $map = [
         'about-us' => [
             'title'       => "About Us – Corvelshop",
-            'description' => "Corvelshop is a women's bracelet boutique offering elegant charm, owl, and beaded bracelets for everyday confidence and thoughtful gifting.",
+            'description' => "Corvelshop is a modern watch destination offering refined timepieces and watch accessories for everyday confidence.",
         ],
         'faq' => [
             'title'       => "FAQ – Corvelshop",
-            'description' => "Find answers to common questions about orders, shipping, returns, and bracelet care at Corvelshop.",
+            'description' => "Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at Corvelshop.",
         ],
         'contact-us' => [
             'title'       => "Contact Us – Corvelshop",

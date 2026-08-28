@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Queen's Bracelet.
+ * Shop and product category archive template for Corvelshop.
  *
  * @package dawp
  */
@@ -23,24 +23,24 @@ if ($category_data) {
 } elseif ($is_category && $queried_term && !is_wp_error($queried_term)) {
     $page_title  = $queried_term->name;
     $headline    = $queried_term->name;
-    $description = $queried_term->description ?: 'Browse bracelet styles selected for everyday outfits, thoughtful gifts, and simple personal expression.';
-    $intro       = 'Review product material, bracelet length, clasp details, and care information on each product page before ordering.';
+    $description = $queried_term->description ?: 'Browse modern watch styles selected for confident form, refined materials, and everyday presence.';
+    $intro       = 'Review case, strap, movement, size, finish, and care details on each product page before ordering.';
     $hero_image  = '';
-    $highlights  = ['Everyday bracelet styles', 'Giftable jewelry pieces', 'Clear product details'];
+    $highlights  = ['Modern luxury watches', 'Refined materials', 'Clear product details'];
 } else {
-    $page_title  = 'All Bracelets';
-    $headline    = 'Bracelets for everyday confidence, charm, and personal expression.';
-    $description = 'Discover elegant and modern bracelets designed for daily styling, meaningful gifts, and personal expression.';
-    $intro       = 'Shop charm bracelets, owl bracelets, beaded bracelets, chain bracelets, and giftable styles from Queen\'s Bracelet.';
-    $hero_image  = qb_theme_asset_image_url('Modern_Bracelets_Giftable_Jewelry.png');
-    $highlights  = ['Charm and owl bracelets', 'Beaded and chain styles', 'Giftable jewelry for her'];
+    $page_title  = 'All Watches';
+    $headline    = 'Modern watches with confident form and refined presence.';
+    $description = 'Discover modern luxury watches with clean presentation, considered materials, and precise product detail.';
+    $intro       = 'Shop the Corvelshop watch edit built around proportion, texture, and daily presence.';
+    $hero_image  = qb_theme_asset_image_url('corvel-watch-editorial.png');
+    $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
 }
 
 if (!$hero_image && function_exists('wc_placeholder_img_src')) {
     $hero_image = wc_placeholder_img_src('large');
 }
 
-$defined_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
+$live_categories = function_exists('qb_get_live_product_categories') ? qb_get_live_product_categories() : [];
 
 get_header();
 ?>
@@ -61,7 +61,7 @@ get_header();
                     <?php endif; ?>
                 </nav>
 
-                <p class="shop-eyebrow"><?php esc_html_e('Queen\'s Bracelet Collection', 'dawp'); ?></p>
+                <p class="shop-eyebrow"><?php esc_html_e('Corvelshop Collection', 'dawp'); ?></p>
                 <h1 class="shop-hero__title"><?php echo esc_html($headline); ?></h1>
                 <p class="shop-hero__copy"><?php echo esc_html($description); ?></p>
                 <p class="shop-hero__intro"><?php echo esc_html($intro); ?></p>
@@ -133,22 +133,21 @@ get_header();
                 </div>
 
                 <div class="shop-sidebar__widget">
-                    <h3 class="shop-sidebar__title"><?php esc_html_e('Bracelet Styles', 'dawp'); ?></h3>
+                    <h3 class="shop-sidebar__title"><?php esc_html_e('Watch Categories', 'dawp'); ?></h3>
                     <ul class="shop-sidebar__categories">
                         <li>
                             <a href="<?php echo esc_url($shop_url); ?>" <?php echo !$is_category ? 'aria-current="page"' : ''; ?>>
-                                <span><?php esc_html_e('All Bracelets', 'dawp'); ?></span>
+                                <span><?php esc_html_e('All Watches', 'dawp'); ?></span>
                             </a>
                         </li>
-                        <?php foreach ($defined_categories as $slug => $category) : ?>
+                        <?php foreach ($live_categories as $category) : ?>
                             <?php
-                            $term = taxonomy_exists('product_cat') ? get_term_by('slug', $slug, 'product_cat') : null;
-                            $count = $term && !is_wp_error($term) ? (int) $term->count : 0;
-                            $current = $queried_term && !is_wp_error($queried_term) && $queried_term->slug === $slug;
+                            $count = (int) $category->count;
+                            $current = $queried_term && !is_wp_error($queried_term) && (int) $queried_term->term_id === (int) $category->term_id;
                             ?>
                             <li>
-                                <a href="<?php echo esc_url(qb_product_category_url($slug)); ?>" <?php echo $current ? 'aria-current="page"' : ''; ?>>
-                                    <span><?php echo esc_html($category['name']); ?></span>
+                                <a href="<?php echo esc_url(function_exists('qb_product_term_url') ? qb_product_term_url($category) : get_term_link($category)); ?>" <?php echo $current ? 'aria-current="page"' : ''; ?>>
+                                    <span><?php echo esc_html($category->name); ?></span>
                                     <span class="count"><?php echo esc_html($count); ?></span>
                                 </a>
                             </li>
@@ -158,7 +157,7 @@ get_header();
 
                 <div class="shop-sidebar__note">
                     <strong><?php esc_html_e('Before ordering', 'dawp'); ?></strong>
-                    <p><?php esc_html_e('Review bracelet length, material or finish, clasp details, and care instructions on each product page.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Review case size, material or finish, strap details, movement notes, and care instructions on each product page.', 'dawp'); ?></p>
                 </div>
 
                 <?php
@@ -184,9 +183,9 @@ get_header();
                     </div>
                 <?php else : ?>
                     <div class="shop-empty">
-                        <h2><?php esc_html_e('No bracelets found in this collection.', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('Browse all bracelet styles or check back as new pieces are added.', 'dawp'); ?></p>
-                        <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse All Bracelets', 'dawp'); ?></a>
+                        <h2><?php esc_html_e('No watches found in this collection.', 'dawp'); ?></h2>
+                        <p><?php esc_html_e('Browse all watches or check back as new pieces are added.', 'dawp'); ?></p>
+                        <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Browse All Watches', 'dawp'); ?></a>
                     </div>
                 <?php endif; ?>
             </main>
@@ -195,11 +194,11 @@ get_header();
         <section class="shop-care">
             <div>
                 <h2><?php esc_html_e('Material, Size & Care Details', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Queen\'s Bracelet product pages should include available material or finish notes, bracelet length or adjustable fit information, clasp details where available, and simple jewelry care guidance.', 'dawp'); ?></p>
+                <p><?php esc_html_e('Corvelshop product pages should include available material or finish notes, case size, strap information, movement details where available, and simple watch care guidance.', 'dawp'); ?></p>
             </div>
             <div>
-                <h2><?php esc_html_e('Giftable Bracelet Shopping', 'dawp'); ?></h2>
-                <p><?php esc_html_e('These collections are positioned for everyday fashion styling and thoughtful gifting without fake luxury, replica, designer-inspired, or medical benefit claims.', 'dawp'); ?></p>
+                <h2><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h2>
+                <p><?php esc_html_e('The collection is positioned around modern luxury watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
             </div>
         </section>
     </div>

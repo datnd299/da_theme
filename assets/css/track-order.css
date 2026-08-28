@@ -1,22 +1,22 @@
-/* Queen's Bracelet track order page */
+/* Corvelshop track order page */
 
 .track-order-page {
-  --track-blush: #ffb7c5;
-  --track-peach: #ffd6a5;
-  --track-cream: #fff8f4;
-  --track-soft: #f8f3f6;
-  --track-mint: #cff5e7;
-  --track-gold: #d8a94e;
-  --track-plum: #2f1f35;
-  --track-text: #4f4355;
-  --track-muted: #77687b;
-  --track-border: #eadfe8;
+  --track-brass-soft: #d7b987;
+  --track-cream: #f5f2eb;
+  --track-soft: #f7f8f5;
+  --track-green: #263c33;
+  --track-green-soft: #e3e7df;
+  --track-gold: #b38a52;
+  --track-plum: #0d0f0f;
+  --track-text: #171a19;
+  --track-muted: #5e625f;
+  --track-border: #d8d6cf;
   --track-white: #ffffff;
   --track-danger: #c0392b;
   --track-success: #5c8a6a;
-  --track-shadow: 0 18px 46px rgba(47, 31, 53, .09);
-  --track-font: "DM Sans", "Inter", system-ui, sans-serif;
-  --track-heading: Georgia, "Times New Roman", serif;
+  --track-shadow: 0 18px 46px rgba(13, 15, 15, .1);
+  --track-font: "Lato", "Inter", system-ui, sans-serif;
+  --track-heading: "Lato", Georgia, "Times New Roman", serif;
 
   background: var(--track-white);
   color: var(--track-text);
@@ -35,8 +35,8 @@
 
 .track-hero {
   background:
-    linear-gradient(135deg, rgba(255, 183, 197, .32), rgba(255, 214, 165, .36) 48%, rgba(207, 245, 231, .36)),
-    var(--track-white);
+    linear-gradient(90deg, rgba(13, 15, 15, .96), rgba(38, 60, 51, .78) 48%, rgba(13, 15, 15, .18) 86%),
+    var(--track-cream);
   padding: clamp(3.5rem, 7vw, 5.5rem) 1rem;
 }
 
@@ -63,7 +63,7 @@
 .track-hero__title {
   max-width: 720px;
   margin: .75rem 0 0;
-  color: var(--track-plum);
+  color: var(--track-white);
   font-family: var(--track-heading);
   font-size: clamp(2.6rem, 6vw, 5rem);
   font-weight: 700;
@@ -74,7 +74,7 @@
 .track-hero__desc {
   max-width: 620px;
   margin: 1.25rem 0 0;
-  color: var(--track-text);
+  color: rgba(255, 255, 255, .78);
   font-size: 1.0625rem;
   line-height: 1.75;
 }
@@ -92,7 +92,7 @@
   align-items: center;
   justify-content: center;
   border: 1px solid var(--track-plum);
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--track-plum);
   color: var(--track-white);
   padding: 0 1.5rem;
@@ -109,12 +109,13 @@
 }
 
 .track-button--secondary {
-  background: rgba(255, 255, 255, .7);
-  color: var(--track-plum);
+  border-color: rgba(255, 255, 255, .35);
+  background: transparent;
+  color: var(--track-white);
 }
 
 .track-button--secondary:hover {
-  border-color: var(--track-plum);
+  border-color: var(--track-white);
   background: var(--track-white);
   color: var(--track-plum);
 }
@@ -122,7 +123,7 @@
 .track-form-card {
   overflow: hidden;
   border: 1px solid var(--track-border);
-  border-radius: 22px;
+  border-radius: 4px;
   background: rgba(255, 255, 255, .9);
   box-shadow: var(--track-shadow);
 }
@@ -131,7 +132,7 @@
   display: grid;
   gap: .35rem;
   border-bottom: 1px solid var(--track-border);
-  background: linear-gradient(180deg, var(--track-white), var(--track-cream));
+  background: linear-gradient(180deg, var(--track-white), var(--track-soft));
   padding: 1.25rem 1.5rem;
 }
 
@@ -172,11 +173,11 @@
 .track-category-card {
   border: 1px solid var(--track-border);
   background: var(--track-white);
-  box-shadow: 0 1px 4px rgba(47, 31, 53, .04);
+  box-shadow: 0 1px 4px rgba(13, 15, 15, .04);
 }
 
 .track-step {
-  border-radius: 18px;
+  border-radius: 4px;
   padding: 1.35rem;
 }
 
@@ -186,9 +187,9 @@
   height: 42px;
   align-items: center;
   justify-content: center;
-  border-radius: 999px;
-  background: var(--track-cream);
-  color: var(--track-plum);
+  border-radius: 4px;
+  background: rgba(179, 138, 82, .12);
+  color: var(--track-green);
   font-size: .8rem;
   font-weight: 900;
 }
@@ -211,8 +212,8 @@
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-  border-radius: 18px;
-  background: linear-gradient(180deg, var(--track-plum), #3c2944);
+  border-radius: 4px;
+  background: linear-gradient(180deg, var(--track-plum), var(--track-green));
   color: var(--track-white);
   padding: 1.5rem;
 }
@@ -225,8 +226,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgba(255, 214, 165, .16);
-  color: var(--track-peach);
+  background: rgba(215, 185, 135, .16);
+  color: var(--track-brass-soft);
 }
 
 .track-help-box__title {
@@ -244,7 +245,7 @@
 }
 
 .track-help-box__text a {
-  color: var(--track-peach);
+  color: var(--track-brass-soft);
   font-weight: 900;
 }
 
@@ -287,7 +288,7 @@
   gap: .65rem;
   min-height: 178px;
   align-content: start;
-  border-radius: 18px;
+  border-radius: 4px;
   padding: 1.25rem;
   transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease, background .2s ease;
 }
@@ -305,8 +306,8 @@
 }
 
 .track-category-card:hover {
-  border-color: rgba(216, 169, 78, .55);
-  background: var(--track-cream);
+  border-color: rgba(179, 138, 82, .55);
+  background: rgba(227, 231, 223, .62);
   box-shadow: var(--track-shadow);
   transform: translateY(-2px);
 }
@@ -362,7 +363,7 @@
   width: 100% !important;
   min-height: 3.25rem !important;
   border: 1px solid var(--track-border) !important;
-  border-radius: 12px !important;
+  border-radius: 4px !important;
   outline: none !important;
   background: var(--track-soft) !important;
   color: var(--track-text) !important;
@@ -381,7 +382,7 @@
 .woocommerce-form-row input.input-text:focus {
   border-color: var(--track-gold) !important;
   background: var(--track-white) !important;
-  box-shadow: 0 0 0 3px rgba(216, 169, 78, .18) !important;
+  box-shadow: 0 0 0 3px rgba(179, 138, 82, .18) !important;
 }
 
 .form-row button.button,
@@ -390,7 +391,7 @@
   min-height: 3.45rem !important;
   margin-top: .35rem !important;
   border: 0 !important;
-  border-radius: 999px !important;
+  border-radius: 4px !important;
   background: var(--track-plum) !important;
   color: var(--track-white) !important;
   cursor: pointer !important;
@@ -400,7 +401,7 @@
   font-weight: 900 !important;
   letter-spacing: .04em !important;
   text-transform: uppercase !important;
-  box-shadow: 0 12px 24px rgba(47, 31, 53, .16) !important;
+  box-shadow: 0 12px 24px rgba(13, 15, 15, .16) !important;
   transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease !important;
 }
 
@@ -409,7 +410,7 @@
   background: var(--track-gold) !important;
   color: var(--track-plum) !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 16px 30px rgba(216, 169, 78, .24) !important;
+  box-shadow: 0 16px 30px rgba(179, 138, 82, .24) !important;
 }
 
 .form-row button.button:active,
@@ -420,7 +421,7 @@
 .woocommerce-error {
   margin: 0 0 1.5rem !important;
   border: 1px solid rgba(192, 57, 43, .24) !important;
-  border-radius: 12px !important;
+  border-radius: 4px !important;
   background: #fff5f4 !important;
   color: var(--track-danger) !important;
   padding: 1rem 1.25rem !important;
@@ -452,8 +453,8 @@
 .woocommerce-message {
   margin: 0 0 1.5rem !important;
   border: 1px solid rgba(92, 138, 106, .24) !important;
-  border-radius: 12px !important;
-  background: rgba(207, 245, 231, .4) !important;
+  border-radius: 4px !important;
+  background: var(--track-green-soft) !important;
   color: var(--track-success) !important;
   padding: 1rem 1.25rem !important;
   font-size: .875rem !important;
@@ -462,7 +463,7 @@
 .order-info {
   margin: 0 0 2rem;
   border: 1px solid var(--track-border);
-  border-radius: 14px;
+  border-radius: 4px;
   background: var(--track-cream);
   color: var(--track-muted);
   padding: 1rem 1.25rem;
@@ -481,7 +482,7 @@
 }
 
 .order-info mark.order-status {
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--track-gold);
   color: var(--track-plum);
   padding: .125rem .625rem;
@@ -613,9 +614,30 @@
   }
 
   .track-hero__actions,
-  .track-step-list,
   .track-category-grid {
     grid-template-columns: 1fr;
+  }
+
+  .track-step-list {
+    display: flex;
+    gap: .875rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+    padding: .125rem 1rem .875rem;
+    margin-inline: -1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .track-step-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track-step {
+    flex: 0 0 min(86%, 360px);
+    min-height: 160px;
+    scroll-snap-align: start;
   }
 
   .track-hero__actions {

@@ -58,7 +58,7 @@ function dawp_normalize_tracking_order_id($order_id) {
         return $tracking_id;
     }
 
-    if (preg_match('/^QB\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
+    if (preg_match('/^CV\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
         return $matches[1];
     }
 
@@ -67,6 +67,8 @@ function dawp_normalize_tracking_order_id($order_id) {
 
 add_action('woocommerce_before_account_navigation', 'dawp_my_account_page_title', 5);
 add_action('woocommerce_before_customer_login_form', 'dawp_my_account_page_title', 5);
+add_action('woocommerce_single_product_summary', 'dawp_single_product_collection_label', 4);
+add_action('woocommerce_single_product_summary', 'dawp_single_product_service_notes', 35);
 
 function dawp_my_account_page_title() {
     if (!is_account_page()) {
@@ -79,22 +81,89 @@ function dawp_my_account_page_title() {
     echo '<h1 class="qb-account-title">' . esc_html($title) . '</h1>';
 }
 
+function dawp_single_product_collection_label() {
+    global $product;
+
+    if (!$product instanceof WC_Product) {
+        return;
+    }
+
+    $cats = get_the_terms($product->get_id(), 'product_cat');
+    $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : __('Signature Watches', 'dawp');
+
+    echo '<div class="product_meta_top">';
+    echo '<span>' . esc_html($cat_name) . '</span>';
+    echo '<span class="product_meta_top__line" aria-hidden="true"></span>';
+    echo '<span>' . esc_html__('Curated Timepiece', 'dawp') . '</span>';
+    echo '</div>';
+}
+
+function dawp_single_product_service_notes() {
+    ?>
+    <div class="product-service-notes" aria-label="<?php esc_attr_e('Purchase benefits', 'dawp'); ?>">
+        <div class="product-service-note">
+            <span class="product-service-note__icon" aria-hidden="true"></span>
+            <span class="product-service-note__body">
+                <span class="product-service-note__title"><?php esc_html_e('Secure checkout', 'dawp'); ?></span>
+                <span class="product-service-note__text"><?php esc_html_e('Encrypted payment', 'dawp'); ?></span>
+            </span>
+        </div>
+        <div class="product-service-note">
+            <span class="product-service-note__icon" aria-hidden="true"></span>
+            <span class="product-service-note__body">
+                <span class="product-service-note__title"><?php esc_html_e('Carefully packed', 'dawp'); ?></span>
+                <span class="product-service-note__text"><?php esc_html_e('Ready to gift', 'dawp'); ?></span>
+            </span>
+        </div>
+        <div class="product-service-note">
+            <span class="product-service-note__icon" aria-hidden="true"></span>
+            <span class="product-service-note__body">
+                <span class="product-service-note__title"><?php esc_html_e('Easy support', 'dawp'); ?></span>
+                <span class="product-service-note__text"><?php esc_html_e('Human assistance', 'dawp'); ?></span>
+            </span>
+        </div>
+    </div>
+    <?php
+}
+
 function dawp_get_store_address_line() {
-    $address_1 = trim(wp_strip_all_tags((string) get_option('woocommerce_store_address', '')));
-    $address_2 = trim(wp_strip_all_tags((string) get_option('woocommerce_store_address_2', '')));
-    $city      = trim(wp_strip_all_tags((string) get_option('woocommerce_store_city', '')));
-    $postcode  = trim(wp_strip_all_tags((string) get_option('woocommerce_store_postcode', '')));
+    $countries = null;
 
-    $default_location = (string) get_option('woocommerce_default_country', '');
-    $country          = $default_location;
-    $state            = '';
+    if (function_exists('WC') && WC() && isset(WC()->countries)) {
+        $countries = WC()->countries;
+    }
 
-    if (strpos($default_location, ':') !== false) {
-        list($country, $state) = array_pad(explode(':', $default_location, 2), 2, '');
+    $address_1 = $countries ? $countries->get_base_address() : get_option('woocommerce_store_address', '');
+    $address_2 = $countries ? $countries->get_base_address_2() : get_option('woocommerce_store_address_2', '');
+    $city      = $countries ? $countries->get_base_city() : get_option('woocommerce_store_city', '');
+    $postcode  = $countries ? $countries->get_base_postcode() : get_option('woocommerce_store_postcode', '');
+    $state     = $countries ? $countries->get_base_state() : '';
+    $country   = $countries ? $countries->get_base_country() : '';
+
+    $address_1 = trim(wp_strip_all_tags((string) $address_1));
+    $address_2 = trim(wp_strip_all_tags((string) $address_2));
+    $city      = trim(wp_strip_all_tags((string) $city));
+    $postcode  = trim(wp_strip_all_tags((string) $postcode));
+
+    if (!$country && !$state) {
+        $default_location = (string) get_option('woocommerce_default_country', '');
+        $country          = $default_location;
+
+        if (strpos($default_location, ':') !== false) {
+            list($country, $state) = array_pad(explode(':', $default_location, 2), 2, '');
+        }
     }
 
     $country = trim(wp_strip_all_tags($country));
     $state   = trim(wp_strip_all_tags($state));
+
+    if ($country && $state && $countries) {
+        $states = $countries->get_states($country);
+
+        if (isset($states[$state])) {
+            $state = $states[$state];
+        }
+    }
 
     $city_region = trim(implode(', ', array_filter([$city, trim($state . ' ' . $postcode)])));
     $parts       = array_filter([$address_1, $address_2, $city_region]);
@@ -102,11 +171,11 @@ function dawp_get_store_address_line() {
     if ($country && 'US' !== strtoupper($country)) {
         $country_name = $country;
 
-        if (function_exists('WC') && WC() && isset(WC()->countries)) {
-            $countries = WC()->countries->get_countries();
+        if ($countries) {
+            $country_names = $countries->get_countries();
 
-            if (isset($countries[$country])) {
-                $country_name = $countries[$country];
+            if (isset($country_names[$country])) {
+                $country_name = $country_names[$country];
             }
         }
 

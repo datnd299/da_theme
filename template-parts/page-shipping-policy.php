@@ -5,14 +5,14 @@
  * @package dawp
  */
 
-$store_name     = "Queen's Bracelet";
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
-$store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '1777 Canal St, Merced, CA 95340';
+$store_name     = "Corvelshop";
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
+$store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
 ?>
 
 <style>
-  .qb-page { --qb-blush:#ffb7c5; --qb-peach:#ffd6a5; --qb-mint:#cff5e7; --qb-gold:#d8a94e; --qb-plum:#2f1f35; --qb-gray:#f7f7fa; --qb-text:#4f4355; --qb-border:#eadfe8; background:#fff; color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F5F2EB; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#B8B8B2; --qb-gray:#F5F2EB; --qb-text:#5E625F; --qb-border:#B8B8B2; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -24,46 +24,47 @@ $support_portal = home_url('/contact-us/');
   .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
-  .qb-button--secondary:hover { border-color:var(--qb-plum); background:#fff4f6; color:var(--qb-plum) !important; }
+  .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.36),rgba(255,214,165,.36) 46%,rgba(207,245,231,.42)),#fff; }
+  .qb-hero .qb-actions { justify-content:center; }
+  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(245,242,235,.98),rgba(255,255,255,.94) 50%,rgba(38,60,51,.13)),#F5F2EB; }
   .qb-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.42); filter:blur(8px); }
-  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(216,169,78,.22); border-radius:999px; background:rgba(255,255,255,.2); }
-  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr); gap:44px; align-items:center; padding:78px 0 84px; }
-  .qb-hero__content { max-width:720px; }
-  .qb-hero .qb-copy { max-width:690px; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(47,31,53,.08); }
+  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(179,138,82,.22); border-radius:999px; background:rgba(255,255,255,.2); }
+  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0 84px; }
+  .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
+  .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(13,15,15,.06); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
-  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#675a6c; font-size:14px; line-height:1.6; }
+  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#5E625F; font-size:14px; line-height:1.6; }
   .qb-glance-list strong { display:block; margin-bottom:5px; color:var(--qb-plum); font-size:14px; line-height:1.25; }
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
   .qb-policy-stack { display:grid; gap:20px; }
   .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
-  .qb-policy-card:nth-child(even) { background:#fffafc; }
+  .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
-  .qb-policy-card p, .qb-policy-card li { color:#675a6c; font-size:15px; line-height:1.72; }
+  .qb-policy-card p, .qb-policy-card li { color:#5E625F; font-size:15px; line-height:1.72; }
   .qb-policy-card p { margin:14px 0 0; }
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
   .qb-policy-card ol { list-style:decimal outside; }
-  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 16px 16px 0; background:#fff8e8; padding:15px 18px; }
+  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 16px 16px 0; background:rgba(179,138,82,.12); padding:15px 18px; }
   .qb-split-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px; }
   .qb-info-panel { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
-  .qb-info-panel--soft { background:#fffafc; }
+  .qb-info-panel--soft { background:var(--qb-ivory); }
   .qb-info-panel h3 { margin:0; }
   .qb-timeline-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:20px; }
   .qb-timeline-item { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
   .qb-timeline-item strong { display:block; color:var(--qb-plum); font-size:14px; line-height:1.35; }
-  .qb-timeline-item span { display:block; margin-top:8px; color:#675a6c; font-size:14px; line-height:1.55; }
+  .qb-timeline-item span { display:block; margin-top:8px; color:#5E625F; font-size:14px; line-height:1.55; }
   .qb-policy-card .qb-carrier-list { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0; padding:0; list-style:none; }
   .qb-policy-card .qb-carrier-list li { display:inline-flex; width:auto; min-width:72px; align-items:center; justify-content:center; border:1px solid var(--qb-border); border-radius:999px; background:#fff; padding:9px 16px; color:var(--qb-plum); font-size:13px; font-weight:800; line-height:1.2; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
   .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
-  .qb-contact-item span { display:block; margin-top:7px; color:#675a6c; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+  .qb-contact-item span { display:block; margin-top:7px; color:#5E625F; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
   @media (max-width:920px) { .qb-hero__grid, .qb-content-grid, .qb-split-grid, .qb-timeline-grid { grid-template-columns:1fr; } }
   @media (max-width:680px) {
     .qb-section { padding:44px 0; }
@@ -100,22 +101,13 @@ $support_portal = home_url('/contact-us/');
         <p class="qb-eyebrow"><?php esc_html_e('Shipping Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Shipping Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e("Queen's Bracelet currently ships exclusively within the United States, with free standard U.S. shipping for every order and clear delivery timelines shown before checkout is completed.", 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e("Free standard U.S. shipping with clear delivery timelines shown before checkout.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
         </div>
       </div>
 
-      <div class="qb-hero-panel">
-        <p class="qb-eyebrow"><?php esc_html_e('At a Glance', 'dawp'); ?></p>
-        <ul class="qb-glance-list">
-          <li><strong><?php esc_html_e('Shipping market', 'dawp'); ?></strong><?php esc_html_e('United States domestic orders only.', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Standard shipping', 'dawp'); ?></strong><?php esc_html_e('Free nationwide with no minimum purchase requirement.', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Order cutoff', 'dawp'); ?></strong><?php esc_html_e('5:00 PM Pacific Standard Time, Monday-Friday.', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Estimated delivery', 'dawp'); ?></strong><?php esc_html_e('6-10 business days total from the date of purchase.', 'dawp'); ?></li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -124,10 +116,10 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-policy-stack">
         <section id="shipping-locations" class="qb-policy-card">
           <h2><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-          <p><?php esc_html_e("We currently ship exclusively within the United States. Queen's Bracelet serves customers shopping from the United States domestic market.", 'dawp'); ?></p>
+          <p><?php esc_html_e("We currently ship exclusively within the United States. Corvelshop serves customers shopping from the United States domestic market.", 'dawp'); ?></p>
           <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
           <div class="qb-callout">
-            <p><?php esc_html_e('Some jewelry orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
+            <p><?php esc_html_e('Some watch orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
           </div>
         </section>
 
@@ -172,13 +164,13 @@ $support_portal = home_url('/contact-us/');
 
         <section id="multi-item-orders" class="qb-policy-card">
           <h2><?php esc_html_e('Multi-Item Orders & Specialized Handling', 'dawp'); ?></h2>
-          <p><?php esc_html_e('If your purchase includes multiple bracelets or diverse jewelry items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
-          <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand jewelry items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
+          <p><?php esc_html_e('If your purchase includes multiple watches or diverse watch items, they may be fulfilled from different locations. Consequently, your items may ship separately and arrive in multiple packages.', 'dawp'); ?></p>
+          <p><?php esc_html_e('You will receive unique tracking numbers for each package. Certain intricate or high-demand watch items may require extra preparation time due to rigorous address reviews, holiday volume spikes, or safe-handling protocols.', 'dawp'); ?></p>
         </section>
 
         <section id="tracking" class="qb-policy-card">
           <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php esc_html_e("To guarantee safe and efficient delivery, Queen's Bracelet partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.", 'dawp'); ?></p>
+          <p><?php esc_html_e("To guarantee safe and efficient delivery, Corvelshop partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.", 'dawp'); ?></p>
           <ul class="qb-carrier-list">
             <li><?php esc_html_e('USPS', 'dawp'); ?></li>
             <li><?php esc_html_e('UPS', 'dawp'); ?></li>
@@ -196,10 +188,10 @@ $support_portal = home_url('/contact-us/');
           <p><?php esc_html_e('Your satisfaction is our priority. If your order encounters delays, tracking stops updating, or the package is marked as delivered but has not arrived, please reach out to our dedicated support team immediately.', 'dawp'); ?></p>
           <p><?php esc_html_e('To help us investigate and resolve the issue with the carrier swiftly, please provide:', 'dawp'); ?></p>
           <ul>
-            <li><?php esc_html_e('Your exact Order Number, such as #QB1001.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Your exact Order Number, such as #CV1001.', 'dawp'); ?></li>
             <li><?php esc_html_e('The specific Email Address utilized during checkout.', 'dawp'); ?></li>
             <li><?php esc_html_e('The full and complete Delivery Address.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Clear, well-lit photos if the package container or jewelry item arrived damaged.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Clear, well-lit photos if the package container or watch item arrived damaged.', 'dawp'); ?></li>
           </ul>
           <div class="qb-actions">
             <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -209,7 +201,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="contact-info" class="qb-policy-card">
           <h2><?php esc_html_e('Customer Support Contact Information', 'dawp'); ?></h2>
-          <p><?php esc_html_e('For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We respond to all inquiries within 24 business hours.', 'dawp'); ?></p>
+          <p><?php esc_html_e('For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We aim to reply within 1 business day.', 'dawp'); ?></p>
           <div class="qb-contact-card">
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>
@@ -227,7 +219,7 @@ $support_portal = home_url('/contact-us/');
             <?php endif; ?>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Response Time', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Within 24 business hours.', 'dawp'); ?></span>
+              <span><?php esc_html_e('Within 1 business day.', 'dawp'); ?></span>
             </div>
           </div>
         </section>

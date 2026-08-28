@@ -1,9 +1,5 @@
 <?php
-$categories = get_terms([
-    'taxonomy'   => 'product_cat',
-    'hide_empty' => false,
-    'parent'     => 0,
-]);
+$categories = function_exists('qb_get_live_product_categories') ? qb_get_live_product_categories() : [];
 ?>
 <div class="shop-sidebar__header">
     <h2 class="shop-sidebar__mobile-title"><?php esc_html_e('Filters', 'dawp'); ?></h2>
@@ -15,11 +11,11 @@ $categories = get_terms([
     </button>
 </div>
 <div class="shop-sidebar__widget">
-    <h3 class="shop-sidebar__title"><?php esc_html_e('Curated Collections', 'dawp'); ?></h3>
+    <h3 class="shop-sidebar__title"><?php esc_html_e('Watch Categories', 'dawp'); ?></h3>
     <ul class="shop-sidebar__categories">
         <?php foreach ($categories as $cat) : ?>
             <li>
-                <a href="<?php echo esc_url(get_term_link($cat)); ?>">
+                <a href="<?php echo esc_url(function_exists('qb_product_term_url') ? qb_product_term_url($cat) : get_term_link($cat)); ?>">
                     <?php echo esc_html($cat->name); ?>
                     <span class="shop-sidebar__count">(<?php echo (int) $cat->count; ?>)</span>
                 </a>

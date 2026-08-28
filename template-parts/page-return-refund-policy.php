@@ -5,14 +5,14 @@
  * @package dawp
  */
 
-$store_name     = "Queen's Bracelet";
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@queens-bracelet.com';
+$store_name     = "Corvelshop";
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
 ?>
 
 <style>
-  .qb-page { --qb-blush:#ffb7c5; --qb-peach:#ffd6a5; --qb-mint:#cff5e7; --qb-gold:#d8a94e; --qb-plum:#2f1f35; --qb-gray:#f7f7fa; --qb-text:#4f4355; --qb-border:#eadfe8; background:#fff; color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F5F2EB; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#B8B8B2; --qb-gray:#F5F2EB; --qb-text:#5E625F; --qb-border:#B8B8B2; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -24,46 +24,47 @@ $support_portal = home_url('/contact-us/');
   .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
-  .qb-button--secondary:hover { border-color:var(--qb-plum); background:#fff4f6; color:var(--qb-plum) !important; }
+  .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(255,183,197,.36),rgba(255,214,165,.36) 46%,rgba(207,245,231,.42)),#fff; }
+  .qb-hero .qb-actions { justify-content:center; }
+  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(245,242,235,.98),rgba(255,255,255,.94) 50%,rgba(38,60,51,.13)),#F5F2EB; }
   .qb-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.42); filter:blur(8px); }
-  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(216,169,78,.22); border-radius:999px; background:rgba(255,255,255,.2); }
-  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr); gap:44px; align-items:center; padding:78px 0 84px; }
-  .qb-hero__content { max-width:720px; }
-  .qb-hero .qb-copy { max-width:690px; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(47,31,53,.08); }
+  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(179,138,82,.22); border-radius:999px; background:rgba(255,255,255,.2); }
+  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0 84px; }
+  .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
+  .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(13,15,15,.06); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
-  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#675a6c; font-size:14px; line-height:1.6; }
+  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#5E625F; font-size:14px; line-height:1.6; }
   .qb-glance-list strong { display:block; margin-bottom:5px; color:var(--qb-plum); font-size:14px; line-height:1.25; }
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
   .qb-policy-stack { display:grid; gap:20px; }
   .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
-  .qb-policy-card:nth-child(even) { background:#fffafc; }
+  .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
-  .qb-policy-card p, .qb-policy-card li { color:#675a6c; font-size:15px; line-height:1.72; }
+  .qb-policy-card p, .qb-policy-card li { color:#5E625F; font-size:15px; line-height:1.72; }
   .qb-policy-card p { margin:14px 0 0; }
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
   .qb-policy-card ol { list-style:decimal outside; }
-  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 16px 16px 0; background:#fff8e8; padding:15px 18px; }
+  .qb-callout { border-left:4px solid var(--qb-gold); border-radius:0 16px 16px 0; background:rgba(179,138,82,.12); padding:15px 18px; }
   .qb-split-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:18px; }
   .qb-info-panel { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
-  .qb-info-panel--soft { background:#fffafc; }
+  .qb-info-panel--soft { background:var(--qb-ivory); }
   .qb-info-panel h3 { margin:0; }
   .qb-step-list { counter-reset:return-step; display:grid; gap:14px; margin-top:18px; }
   .qb-step { position:relative; border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px 18px 18px 58px; }
   .qb-step::before { counter-increment:return-step; content:counter(return-step); position:absolute; left:18px; top:18px; width:28px; height:28px; border-radius:999px; display:grid; place-items:center; background:var(--qb-plum); color:#fff; font-size:13px; font-weight:800; }
   .qb-step h3 { margin:0; }
-  .qb-address-box { margin-top:18px; border:1px solid rgba(216,169,78,.38); border-radius:16px; background:#fff8e8; padding:18px; color:var(--qb-plum); }
+  .qb-address-box { margin-top:18px; border:1px solid rgba(179,138,82,.38); border-radius:16px; background:rgba(179,138,82,.12); padding:18px; color:var(--qb-plum); }
   .qb-address-box strong { display:block; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
   .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
-  .qb-contact-item span { display:block; margin-top:7px; color:#675a6c; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+  .qb-contact-item span { display:block; margin-top:7px; color:#5E625F; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
   @media (max-width:920px) { .qb-hero__grid, .qb-content-grid, .qb-split-grid { grid-template-columns:1fr; } }
   @media (max-width:680px) {
     .qb-section { padding:44px 0; }
@@ -101,22 +102,13 @@ $support_portal = home_url('/contact-us/');
         <p class="qb-eyebrow"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e('We want you to be completely satisfied with your purchase. Unless specified under the Non-Returnable Items section below, all products purchased from our store can be returned within 30 days of delivery, subject to the conditions below.', 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e('Eligible items can be returned within 30 days of delivery, subject to the conditions below.', 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
         </div>
       </div>
 
-      <div class="qb-hero-panel">
-        <p class="qb-eyebrow"><?php esc_html_e('At a Glance', 'dawp'); ?></p>
-        <ul class="qb-glance-list">
-          <li><strong><?php esc_html_e('Return window', 'dawp'); ?></strong><?php esc_html_e('30 days of delivery.', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Condition', 'dawp'); ?></strong><?php esc_html_e('Unworn, unused, undamaged, and in original, unaltered condition.', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Restocking fee', 'dawp'); ?></strong><?php esc_html_e('Free. We do not charge restocking fees for eligible returns.', 'dawp'); ?></li>
-          <li><strong><?php esc_html_e('Refund processing', 'dawp'); ?></strong><?php esc_html_e('Original payment method within 7 business days after approval.', 'dawp'); ?></li>
-        </ul>
-      </div>
     </div>
   </section>
 
@@ -129,7 +121,7 @@ $support_portal = home_url('/contact-us/');
           <ul>
             <li><?php esc_html_e('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'); ?></li>
             <li><?php esc_html_e('Condition: Items must be unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Packaging: Items must be returned with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and any included accessories.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Packaging: Items must be returned with all original packaging, tags, labels, manuals, warranty cards, watch boxes, and any included accessories.', 'dawp'); ?></li>
             <li><?php esc_html_e('Restocking Fee: Free. We do not charge any restocking fees for eligible returns.', 'dawp'); ?></li>
           </ul>
         </section>
@@ -142,7 +134,7 @@ $support_portal = home_url('/contact-us/');
               <p><?php esc_html_e('No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.', 'dawp'); ?></p>
             </div>
             <div class="qb-info-panel qb-info-panel--soft">
-              <h3><?php esc_html_e("Customer Remorse (Ordered wrong item/size/color, changed mind, or doesn't fit):", 'dawp'); ?></h3>
+              <h3><?php esc_html_e("Customer Remorse (Ordered wrong item/style/strap size, changed mind, or doesn't suit):", 'dawp'); ?></h3>
               <p><?php esc_html_e('The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.', 'dawp'); ?></p>
             </div>
           </div>
@@ -176,8 +168,8 @@ $support_portal = home_url('/contact-us/');
             </div>
           </div>
           <div class="qb-address-box">
-            <strong><?php esc_html_e("Queen's Bracelet - Returns Department", 'dawp'); ?></strong>
-            <span><?php esc_html_e('127 WOOD RD, Rochester, NY 14626', 'dawp'); ?></span>
+            <strong><?php esc_html_e("Corvelshop - Returns Department", 'dawp'); ?></strong>
+            <span><?php esc_html_e('The approved RMA email will include the correct return address and carrier instructions. Please do not send items to any address before approval.', 'dawp'); ?></span>
           </div>
           <div class="qb-actions">
             <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
@@ -187,7 +179,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="exchanges" class="qb-policy-card">
           <h2><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
-          <p><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different size, color, or model, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
+          <p><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different style, strap size, color, or model, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
         </section>
 
         <section id="refund-process" class="qb-policy-card">
@@ -210,8 +202,8 @@ $support_portal = home_url('/contact-us/');
           <ul>
             <li><?php esc_html_e('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'); ?></li>
             <li><?php esc_html_e('Gift cards or digital products/downloads.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Personalized, engraved, resized, or custom-made items.', 'dawp'); ?></li>
-            <li><?php esc_html_e('Intimate apparel, swimwear, or hygiene-sensitive items such as earrings where the product seal has been broken.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Personalized, engraved, adjusted, resized, or custom-made items.', 'dawp'); ?></li>
+            <li><?php esc_html_e('Final-sale accessories, opened consumable care items, or hygiene-sensitive items where the product seal has been broken.', 'dawp'); ?></li>
             <li><?php esc_html_e('Items that have been worn, washed, altered, or damaged after delivery.', 'dawp'); ?></li>
           </ul>
         </section>

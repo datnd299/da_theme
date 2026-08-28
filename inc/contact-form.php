@@ -55,7 +55,7 @@ function dawp_handle_contact_form() {
 
     $subject = sprintf(
         /* translators: %s: contact form topic. */
-        __('Queen\'s Bracelet contact: %s', 'dawp'),
+        __('Corvelshop contact: %s', 'dawp'),
         $topic
     );
 

@@ -19,24 +19,6 @@ if (!function_exists('qb_404_shop_url')) {
     }
 }
 
-if (!function_exists('qb_404_category_url')) {
-    function qb_404_category_url($slug) {
-        if (taxonomy_exists('product_cat')) {
-            $term = get_term_by('slug', $slug, 'product_cat');
-
-            if ($term && !is_wp_error($term)) {
-                $link = get_term_link($term);
-
-                if (!is_wp_error($link)) {
-                    return $link;
-                }
-            }
-        }
-
-        return home_url('/product-category/' . trailingslashit($slug));
-    }
-}
-
 if (!function_exists('qb_404_products')) {
     function qb_404_products($limit = 3) {
         if (!function_exists('wc_get_products')) {
@@ -53,40 +35,31 @@ if (!function_exists('qb_404_products')) {
 }
 
 $shop_url = qb_404_shop_url();
-
-$quick_links = [
-    ['title' => __('Charm Bracelets', 'dawp'),  'url' => qb_404_category_url('charm-bracelets')],
-    ['title' => __('Owl Bracelets', 'dawp'),    'url' => qb_404_category_url('owl-bracelets')],
-    ['title' => __('Beaded Bracelets', 'dawp'), 'url' => qb_404_category_url('beaded-bracelets')],
-    ['title' => __('Chain Bracelets', 'dawp'),  'url' => qb_404_category_url('chain-bracelets')],
-    ['title' => __('Gift Bracelets', 'dawp'),   'url' => qb_404_category_url('gift-bracelets')],
-];
-
-$products = qb_404_products(3);
+$quick_links = function_exists('qb_get_live_product_categories') ? qb_get_live_product_categories(['number' => 5]) : [];
+$products    = qb_404_products(3);
 
 get_header();
 ?>
 
 <style>
   .qb-404 {
-    --qb-blush: #ffb7c5;
-    --qb-peach: #ffd6a5;
-    --qb-lavender: #d8c7ff;
-    --qb-mint: #cff5e7;
-    --qb-gold: #d8a94e;
-    --qb-plum: #2f1f35;
-    --qb-gray: #f7f7fa;
-    --qb-text: #4f4355;
-    --qb-border: #eadfe8;
+    --qb-blush: #d7b987;
+    --qb-peach: #e7dac8;
+    --qb-lavender: #d8d6cf;
+    --qb-mint: #e3e7df;
+    --qb-gold: #b38a52;
+    --qb-plum: #0d0f0f;
+    --qb-gray: #f5f2eb;
+    --qb-text: #5e625f;
+    --qb-border: #d8d6cf;
     position: relative;
     overflow: hidden;
     min-height: 72vh;
     background:
-      radial-gradient(circle at 12% 12%, rgba(255, 183, 197, .34), transparent 28%),
-      radial-gradient(circle at 86% 8%, rgba(207, 245, 231, .45), transparent 30%),
-      linear-gradient(135deg, rgba(255, 214, 165, .36), rgba(255, 255, 255, 1) 44%, rgba(216, 199, 255, .24));
+      linear-gradient(90deg, rgba(13, 15, 15, .95), rgba(13, 15, 15, .68) 48%, rgba(13, 15, 15, .16) 86%),
+      linear-gradient(135deg, #f5f2eb, #ffffff);
     color: var(--qb-text);
-    font-family: "DM Sans", "Inter", system-ui, sans-serif;
+    font-family: "Lato", "Inter", system-ui, sans-serif;
     padding: clamp(64px, 9vw, 112px) 0;
   }
 
@@ -119,7 +92,7 @@ get_header();
   .qb-404__code {
     display: block;
     margin: 0 0 10px;
-    color: rgba(47, 31, 53, .08);
+    color: rgba(255, 255, 255, .1);
     font-size: clamp(96px, 16vw, 180px);
     font-weight: 900;
     line-height: .78;
@@ -128,7 +101,7 @@ get_header();
   .qb-404__title {
     max-width: 680px;
     margin: 0;
-    color: var(--qb-plum);
+    color: #ffffff;
     font-family: Georgia, "Times New Roman", serif;
     font-size: clamp(38px, 5.6vw, 68px);
     line-height: 1.03;
@@ -138,7 +111,7 @@ get_header();
   .qb-404__copy {
     max-width: 620px;
     margin: 20px 0 0;
-    color: var(--qb-text);
+    color: rgba(255, 255, 255, .78);
     font-size: 17px;
     line-height: 1.75;
   }
@@ -159,10 +132,10 @@ get_header();
     min-height: 48px;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--qb-plum);
-    border-radius: 999px;
-    background: var(--qb-plum);
-    color: #fff;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    background: #ffffff;
+    color: var(--qb-plum);
     padding: 0 24px;
     font-size: 14px;
     font-weight: 800;
@@ -176,21 +149,23 @@ get_header();
   }
 
   .qb-404__button--secondary {
-    background: rgba(255, 255, 255, .78);
-    color: var(--qb-plum);
+    border-color: rgba(255, 255, 255, .35);
+    background: transparent;
+    color: #ffffff;
   }
 
   .qb-404__button--secondary:hover {
-    border-color: var(--qb-plum);
-    background: #fff4f6;
+    border-color: #ffffff;
+    background: #ffffff;
+    color: var(--qb-plum);
   }
 
   .qb-404__panel {
-    border: 1px solid rgba(47, 31, 53, .08);
-    border-radius: 24px;
-    background: rgba(255, 255, 255, .82);
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, .94);
     padding: clamp(22px, 3vw, 30px);
-    box-shadow: 0 20px 54px rgba(47, 31, 53, .1);
+    box-shadow: 0 20px 54px rgba(13, 15, 15, .18);
   }
 
   .qb-404__panel + .qb-404__panel {
@@ -205,8 +180,8 @@ get_header();
   }
 
   .qb-404__links a {
-    border: 1px solid rgba(47, 31, 53, .1);
-    border-radius: 999px;
+    border: 1px solid rgba(13, 15, 15, .12);
+    border-radius: 4px;
     background: #fff;
     color: var(--qb-plum);
     padding: 10px 14px;
@@ -218,8 +193,8 @@ get_header();
   .qb-404__links a:hover,
   .qb-404__product:hover {
     transform: translateY(-2px);
-    border-color: rgba(216, 169, 78, .5);
-    box-shadow: 0 10px 24px rgba(47, 31, 53, .08);
+    border-color: rgba(179, 138, 82, .5);
+    box-shadow: 0 10px 24px rgba(13, 15, 15, .08);
   }
 
   .qb-404__products {
@@ -234,7 +209,7 @@ get_header();
     gap: 12px;
     align-items: center;
     border: 1px solid var(--qb-border);
-    border-radius: 16px;
+    border-radius: 4px;
     background: #fff;
     padding: 8px;
     color: var(--qb-plum);
@@ -244,7 +219,7 @@ get_header();
   .qb-404__product img {
     width: 58px;
     height: 58px;
-    border-radius: 12px;
+    border-radius: 4px;
     background: var(--qb-gray);
     object-fit: cover;
   }
@@ -260,7 +235,7 @@ get_header();
   .qb-404__product span {
     display: block;
     margin-top: 4px;
-    color: #77687b;
+    color: #5e625f;
     font-size: 13px;
     font-weight: 700;
   }
@@ -285,14 +260,14 @@ get_header();
     <section aria-labelledby="qb-404-title">
       <span class="qb-404__code" aria-hidden="true">404</span>
       <p class="qb-404__eyebrow"><?php esc_html_e('Page Not Found', 'dawp'); ?></p>
-      <h1 id="qb-404-title" class="qb-404__title"><?php esc_html_e('This bracelet page slipped away.', 'dawp'); ?></h1>
+      <h1 id="qb-404-title" class="qb-404__title"><?php esc_html_e('This watch page slipped away.', 'dawp'); ?></h1>
       <p class="qb-404__copy">
-        <?php esc_html_e("The page you requested is not available. You can return to Queen's Bracelet, browse bracelet categories, or continue shopping current products.", 'dawp'); ?>
+        <?php esc_html_e('The page you requested is not available. You can return to Corvelshop, browse current watches, or continue shopping recent products.', 'dawp'); ?>
       </p>
 
       <div class="qb-404__actions">
         <a class="qb-404__button" href="<?php echo esc_url($shop_url); ?>">
-          <?php esc_html_e('Shop Bracelets', 'dawp'); ?>
+          <?php esc_html_e('Shop Watches', 'dawp'); ?>
         </a>
         <a class="qb-404__button qb-404__button--secondary" href="<?php echo esc_url(home_url('/')); ?>">
           <?php esc_html_e('Back To Home', 'dawp'); ?>
@@ -301,14 +276,16 @@ get_header();
     </section>
 
     <aside aria-label="<?php esc_attr_e('Helpful 404 links', 'dawp'); ?>">
+      <?php if (!empty($quick_links)) : ?>
       <div class="qb-404__panel">
-        <h2 class="qb-404__panel-title"><?php esc_html_e('Browse Bracelet Categories', 'dawp'); ?></h2>
+        <h2 class="qb-404__panel-title"><?php esc_html_e('Browse Watch Categories', 'dawp'); ?></h2>
         <nav class="qb-404__links" aria-label="<?php esc_attr_e('Product categories', 'dawp'); ?>">
-          <?php foreach ($quick_links as $link) : ?>
-            <a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a>
+          <?php foreach ($quick_links as $category) : ?>
+            <a href="<?php echo esc_url(function_exists('qb_product_term_url') ? qb_product_term_url($category) : get_term_link($category)); ?>"><?php echo esc_html($category->name); ?></a>
           <?php endforeach; ?>
         </nav>
       </div>
+      <?php endif; ?>
 
       <?php if (!empty($products)) : ?>
         <div class="qb-404__panel">

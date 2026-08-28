@@ -2,11 +2,10 @@
 function dawp_main_menu_items() {
     return [
         ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-        ['title' => __('Charm Bracelets', 'dawp'),      'url' => home_url('/product-category/charm-bracelets/')],
-        ['title' => __('Owl Bracelets', 'dawp'),        'url' => home_url('/product-category/owl-bracelets/')],
-        ['title' => __('Beaded Bracelets', 'dawp'),     'url' => home_url('/product-category/beaded-bracelets/')],
-        ['title' => __('Chain Bracelets', 'dawp'),      'url' => home_url('/product-category/chain-bracelets/')],
-        ['title' => __('Gift Bracelets', 'dawp'),       'url' => home_url('/product-category/gift-bracelets/')],
+        ['title' => __('New Arrivals', 'dawp'),         'url' => home_url('/shop/?orderby=date')],
+        ['title' => __('Featured Watches', 'dawp'),     'url' => home_url('/shop/?featured=1')],
+        ['title' => __('Sale Watches', 'dawp'),         'url' => home_url('/shop/?product_visibility=onsale')],
+        ['title' => __('Track Order', 'dawp'),          'url' => home_url('/track-order/')],
     ];
 }
 function dawp_is_current_url($url) {
@@ -22,11 +21,10 @@ function dawp_footer_columns() {
             'title' => 'Shop',
             'links' => [
                 ['title' => __('Shop All', 'dawp'),            'url' => home_url('/shop/')],
-                ['title' => __('Charm Bracelets', 'dawp'),      'url' => home_url('/product-category/charm-bracelets/')],
-                ['title' => __('Owl Bracelets', 'dawp'),        'url' => home_url('/product-category/owl-bracelets/')],
-                ['title' => __('Beaded Bracelets', 'dawp'),     'url' => home_url('/product-category/beaded-bracelets/')],
-                ['title' => __('Chain Bracelets', 'dawp'),      'url' => home_url('/product-category/chain-bracelets/')],
-                ['title' => __('Gift Bracelets', 'dawp'),       'url' => home_url('/product-category/gift-bracelets/')],
+                ['title' => __('New Arrivals', 'dawp'),         'url' => home_url('/shop/?orderby=date')],
+                ['title' => __('Featured Watches', 'dawp'),     'url' => home_url('/shop/?featured=1')],
+                ['title' => __('Sale Watches', 'dawp'),         'url' => home_url('/shop/?product_visibility=onsale')],
+                ['title' => __('Track Order', 'dawp'),          'url' => home_url('/track-order/')],
             ],
         ],
         [

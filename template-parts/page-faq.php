@@ -170,8 +170,9 @@ $faq_sections = [
   .qb-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.42); filter:blur(8px); }
   .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(179,138,82,.22); border-radius:999px; background:rgba(255,255,255,.2); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0 84px; }
-  .qb-hero__content { max-width:720px; }
-  .qb-hero .qb-copy { max-width:690px; }
+  .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
+  .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
+  .qb-hero .qb-actions { justify-content:center; }
   .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(13,15,15,.06); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0 0; padding:0; list-style:none; }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Return and refund policy page for Brickgo.com.
+ * Return and refund policy page for BrickGo.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
 $support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
 $store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
@@ -116,11 +116,11 @@ $return_faqs = [
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('For defective, damaged, or incorrect products, Brickgo.com covers 100% of return shipping. For customer remorse, the prepaid label cost is deducted from your final refund amount.', 'dawp'),
+        'answer'   => __('For defective, damaged, or incorrect products, BrickGo covers 100% of return shipping. For customer remorse, the prepaid label cost is deducted from your final refund amount.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),
-        'answer'   => __('No. Brickgo.com does not charge restocking fees for eligible returns.', 'dawp'),
+        'answer'   => __('No. BrickGo does not charge restocking fees for eligible returns.', 'dawp'),
     ],
     [
         'question' => __('When will I receive my refund?', 'dawp'),

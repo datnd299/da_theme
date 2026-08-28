@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQs page for Brickgo.com.
+ * FAQs page for BrickGo.
  *
  * @package dawp
  */
@@ -9,8 +9,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
-$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'Brickgo.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
+$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgo.com';
 $support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
 $store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '57 Calvert St, Woodbridge, VA 22191-2840';
@@ -49,8 +49,8 @@ $faq_groups = [
         'label' => __('Orders & Shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('Where does Brickgo.com ship?', 'dawp'),
-                'answer'   => __('Brickgo.com currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+                'question' => __('Where does BrickGo ship?', 'dawp'),
+                'answer'   => __('BrickGo currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
             ],
             [
                 'question' => __('How much does shipping cost?', 'dawp'),
@@ -99,11 +99,11 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('Brickgo.com covers return shipping for defective, damaged, or incorrect products. For customer remorse, the actual prepaid label cost is deducted from your final refund amount.', 'dawp'),
+                'answer'   => __('BrickGo covers return shipping for defective, damaged, or incorrect products. For customer remorse, the actual prepaid label cost is deducted from your final refund amount.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
-                'answer'   => __('No. Brickgo.com does not charge restocking fees for eligible returns.', 'dawp'),
+                'answer'   => __('No. BrickGo does not charge restocking fees for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('Do you offer exchanges?', 'dawp'),
@@ -127,8 +127,8 @@ $faq_groups = [
         'label' => __('Products & Store', 'dawp'),
         'items' => [
             [
-                'question' => __('What does Brickgo.com sell?', 'dawp'),
-                'answer'   => __('Brickgo.com focuses on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
+                'question' => __('What does BrickGo sell?', 'dawp'),
+                'answer'   => __('BrickGo focuses on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
@@ -136,7 +136,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
-                'answer'   => __('No. Brickgo.com does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+                'answer'   => __('No. BrickGo does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),
@@ -156,8 +156,8 @@ $faq_groups = [
                 'answer'   => __('Yes. Checkout transactions are executed over an encrypted SSL connection and payment processing is handled by certified third-party payment gateways that follow PCI-DSS standards.', 'dawp'),
             ],
             [
-                'question' => __('Does Brickgo.com store my full credit card number?', 'dawp'),
-                'answer'   => __('No. Brickgo.com does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+                'question' => __('Does BrickGo store my full credit card number?', 'dawp'),
+                'answer'   => __('No. BrickGo does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             ],
             [
                 'question' => __('How is my information used?', 'dawp'),
@@ -168,7 +168,7 @@ $faq_groups = [
                 'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain. Submit privacy requests through support.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact Brickgo.com?', 'dawp'),
+                'question' => __('How do I contact BrickGo?', 'dawp'),
                 'answer'   => sprintf(
                     /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
                     __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
@@ -216,7 +216,7 @@ $quick_links = [
         <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
             <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
             <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                <?php esc_html_e('Quick answers for collecting with Brickgo.com.', 'dawp'); ?>
+                <?php esc_html_e('Quick answers for collecting with BrickGo.', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#4A4A4A]">
                 <?php

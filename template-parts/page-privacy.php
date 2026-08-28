@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy policy page for Brickgo.com.
+ * Privacy policy page for BrickGo.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
 $site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgo.com';
 $support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
@@ -28,7 +28,7 @@ $information_collected = [
     ],
     [
         'title' => __('Information Collected Automatically', 'dawp'),
-        'copy'  => __('Whenever you navigate through Brickgo.com, our servers automatically log technical session details, including:', 'dawp'),
+        'copy'  => __('Whenever you navigate through BrickGo, our servers automatically log technical session details, including:', 'dawp'),
         'items' => [
             __('Your IP address, web browser type and version, language preferences, operating system, and referring/exit pages.', 'dawp'),
             __('Approximate geographic location derived from network signals.', 'dawp'),
@@ -57,7 +57,7 @@ $sharing_partners = [
     ],
     [
         'title' => __('Legal & Regulatory Demands', 'dawp'),
-        'copy'  => __('We may disclose your data if required by law to comply with applicable federal/state laws, tax audits, court subpoenas, or to defend the safety, legal rights, and property of Brickgo.com, our staff, and our consumers.', 'dawp'),
+        'copy'  => __('We may disclose your data if required by law to comply with applicable federal/state laws, tax audits, court subpoenas, or to defend the safety, legal rights, and property of BrickGo, our staff, and our consumers.', 'dawp'),
     ],
 ];
 
@@ -65,7 +65,7 @@ $privacy_rights = [
     __('Right to Access / Know: Request disclosure of what personal data we have collected, used, or shared about you.', 'dawp'),
     __('Right to Delete: Request the permanent removal of your personal profile and data from our active directories, subject to statutory retention requirements.', 'dawp'),
     __('Right to Correct / Rectify: Request rectification of inaccurate or outdated account records.', 'dawp'),
-    __('Right to Opt-Out: Opt out of the sale or sharing of personal information (Note: Brickgo.com does not sell personal data).', 'dawp'),
+    __('Right to Opt-Out: Opt out of the sale or sharing of personal information (Note: BrickGo does not sell personal data).', 'dawp'),
 ];
 
 $contact_details = [
@@ -111,7 +111,7 @@ $sections = [
     [
         'title' => __('3. Cookies, Pixels, and Tracking Technologies', 'dawp'),
         'copy'  => [
-            __('Brickgo.com utilizes functional, analytical, and advertising cookies--small data files stored on your local device--to maintain essential online store capabilities and enhance your experience.', 'dawp'),
+            __('BrickGo utilizes functional, analytical, and advertising cookies--small data files stored on your local device--to maintain essential online store capabilities and enhance your experience.', 'dawp'),
             __('Essential Cookies: Maintain core shopping functionality, remember shopping cart contents across sessions, and preserve secure account logins.', 'dawp'),
             __('Analytics Cookies: Gather aggregated, anonymous traffic insights via tools such as Google Analytics to help us understand how visitors interact with the site.', 'dawp'),
             __('Advertising & Marketing Pixels: We may utilize tracking technologies (such as Google Ads Remarketing or Meta Pixels) to serve personalized, relevant advertisements to you on third-party websites based on your prior visits to our site.', 'dawp'),
@@ -128,7 +128,7 @@ $sections = [
     [
         'title' => __('5. Secure Payments & Data Encryption', 'dawp'),
         'copy'  => [
-            __('Your financial safety is our highest priority. Brickgo.com does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+            __('Your financial safety is our highest priority. BrickGo does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             __('All checkout transactions are executed over a fully secure, encrypted SSL (Secure Sockets Layer) connection using industry-standard 256-bit encryption.', 'dawp'),
             __('Financial data processing is handled entirely by certified third-party payment gateways (e.g., Stripe, PayPal) that strictly comply with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
         ],
@@ -151,7 +151,7 @@ $sections = [
     [
         'title' => __('8. Children\'s Privacy', 'dawp'),
         'copy'  => [
-            __('Brickgo.com is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority in their jurisdiction. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If you believe that a minor under 13 has provided us with personal data, please contact us immediately, and we will promptly purge such information from our records.', 'dawp'),
+            __('BrickGo is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority in their jurisdiction. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If you believe that a minor under 13 has provided us with personal data, please contact us immediately, and we will promptly purge such information from our records.', 'dawp'),
         ],
     ],
 ];
@@ -164,7 +164,7 @@ $sections = [
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
                 <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('How Brickgo.com protects customer information.', 'dawp'); ?>
+                    <?php esc_html_e('How BrickGo protects customer information.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php

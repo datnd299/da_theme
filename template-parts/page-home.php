@@ -147,7 +147,6 @@ $product_card = static function ($product, $index = 0, $loading = 'lazy', $sizes
     <article class="home-product-card">
         <a class="home-product-card__image" href="<?php echo esc_url($url); ?>">
             <?php if ($badge || $index % 3 === 0) : ?><span class="home-badge"><?php echo esc_html($badge ?: __('NEW', 'dawp')); ?></span><?php endif; ?>
-            <button class="home-wishlist" type="button" aria-label="<?php echo esc_attr(sprintf(__('Save %s to wishlist', 'dawp'), $name)); ?>">&hearts;</button>
             <?php
             if (!empty($product['product']) && is_a($product['product'], 'WC_Product')) {
                 echo function_exists('dawp_get_product_responsive_image')

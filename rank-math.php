@@ -20,7 +20,9 @@ if (!function_exists('dawp_rm_current_page')) {
 
 if (!function_exists('dawp_rm_page_title')) {
     function dawp_rm_page_title($page) {
-        return function_exists('dawp_rank_math_page_title') ? dawp_rank_math_page_title($page) : get_bloginfo('name');
+        $store_name = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
+
+        return function_exists('dawp_rank_math_page_title') ? dawp_rank_math_page_title($page) : $store_name;
     }
 }
 
@@ -113,7 +115,9 @@ add_filter('rank_math/opengraph/twitter/card_type', function($type) {
 });
 
 add_filter('rank_math/opengraph/facebook/site_name', function($site_name) {
-    return dawp_rm_current_page() ? get_bloginfo('name') : $site_name;
+    $store_name = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
+
+    return dawp_rm_current_page() ? $store_name : $site_name;
 });
 
 add_filter('rank_math/opengraph/facebook/locale', function($locale) {

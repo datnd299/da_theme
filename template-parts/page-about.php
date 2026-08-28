@@ -64,7 +64,7 @@ $principles = [
     ],
     [
         'title' => __('Quality without the noise', 'dawp'),
-        'copy'  => __('Brickgo.com avoids cluttered marketplace browsing and focuses on curated collectibles with clear, helpful product presentation.', 'dawp'),
+        'copy'  => __('BrickGo avoids cluttered marketplace browsing and focuses on curated collectibles with clear, helpful product presentation.', 'dawp'),
     ],
 ];
 
@@ -162,9 +162,9 @@ $trust_items = [
     <section class="mmd-about-hero" aria-labelledby="mmd-about-title">
         <div class="mmd-about-container mmd-about-hero__grid">
             <div class="mmd-about-hero__content">
-                <p class="mmd-about-eyebrow"><?php esc_html_e('About Brickgo.com', 'dawp'); ?></p>
+                <p class="mmd-about-eyebrow"><?php esc_html_e('About BrickGo', 'dawp'); ?></p>
                 <h1 id="mmd-about-title"><?php esc_html_e('A modern collectible store for pieces worth building and displaying.', 'dawp'); ?></h1>
-                <p class="mmd-about-hero__copy"><?php esc_html_e('Brickgo.com helps American families create warm, comfortable spaces through thoughtfully selected building sets, art figures, blind boxes, display pieces, and collector accessories.', 'dawp'); ?></p>
+                <p class="mmd-about-hero__copy"><?php esc_html_e('BrickGo helps American families create warm, comfortable spaces through thoughtfully selected building sets, art figures, blind boxes, display pieces, and collector accessories.', 'dawp'); ?></p>
                 <div class="mmd-about-hero__actions">
                     <a class="mmd-about-btn mmd-about-btn--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Collectibles', 'dawp'); ?></a>
                     <a class="mmd-about-btn mmd-about-btn--secondary" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
@@ -186,7 +186,7 @@ $trust_items = [
             <div class="mmd-about-story__content">
                 <p class="mmd-about-eyebrow"><?php esc_html_e('Our Story', 'dawp'); ?></p>
                 <h2 id="mmd-about-story-title"><?php esc_html_e('Curated for shelves that feel curated, playful, and personal.', 'dawp'); ?></h2>
-                <p><?php esc_html_e('We built Brickgo.com for shoppers who want a clearer, more inspiring way to find collectibles. Instead of overwhelming customers with unrelated items, we focus on the pieces that support everyday rituals: building, collecting, gifting, trading, and displaying.', 'dawp'); ?></p>
+                <p><?php esc_html_e('We built BrickGo for shoppers who want a clearer, more inspiring way to find collectibles. Instead of overwhelming customers with unrelated items, we focus on the pieces that support everyday rituals: building, collecting, gifting, trading, and displaying.', 'dawp'); ?></p>
                 <p><?php esc_html_e('Every collection is guided by usefulness, inviting materials and timeless styling, so it is easier to refresh a room without losing the warmth of home.', 'dawp'); ?></p>
                 <div class="mmd-about-values">
                     <?php foreach ($values as $value) : ?>

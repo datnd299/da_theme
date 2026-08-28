@@ -87,11 +87,11 @@ $footer_columns = [
         </section>
 
         <div class="tgm-footer__brand">
-            <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Brickgo.com home', 'dawp'); ?>">
+            <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('BrickGo home', 'dawp'); ?>">
                 <?php
                 echo function_exists('dawp_get_responsive_image')
-                    ? dawp_get_responsive_image($logo_url, __('Brickgo.com', 'dawp'), '', 190, 56, 'lazy', '190px')
-                    : '<img src="' . esc_url($logo_url) . '" width="190" height="56" alt="' . esc_attr__('Brickgo.com', 'dawp') . '" decoding="async" loading="lazy">';
+                    ? dawp_get_responsive_image($logo_url, __('BrickGo', 'dawp'), '', 190, 56, 'lazy', '190px')
+                    : '<img src="' . esc_url($logo_url) . '" width="190" height="56" alt="' . esc_attr__('BrickGo', 'dawp') . '" decoding="async" loading="lazy">';
                 ?>
             </a>
             <p><?php esc_html_e('Creative objects for building, collecting, gifting, and displaying.', 'dawp'); ?></p>
@@ -118,7 +118,7 @@ $footer_columns = [
 
     <div class="tgm-shell tgm-footer__bottom">
         <div class="tgm-footer__meta">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Brickgo.com. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> BrickGo. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
         </div>
         <div class="tgm-footer__payments" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
             <?php foreach ($payment_methods as $method) : ?>

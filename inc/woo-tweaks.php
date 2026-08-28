@@ -12,7 +12,6 @@ add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 add_action('woocommerce_single_product_summary', 'dawp_single_product_category_label', 4);
-add_action('woocommerce_after_add_to_cart_button', 'dawp_single_product_wishlist_button', 20);
 add_action('woocommerce_single_product_summary', 'dawp_single_product_benefits', 31);
 add_filter('woocommerce_product_tabs', 'dawp_single_product_policy_tabs', 30);
 
@@ -35,29 +34,6 @@ function dawp_single_product_category_label() {
         <?php echo esc_html($term->name); ?>
     </a>
     <?php
-}
-
-function dawp_single_product_wishlist_button() {
-    global $product;
-
-    if (!$product instanceof WC_Product) {
-        return;
-    }
-
-    echo '<div class="dawp-product-wishlist">';
-
-    if (shortcode_exists('yith_wcwl_add_to_wishlist')) {
-        echo do_shortcode('[yith_wcwl_add_to_wishlist product_id="' . absint($product->get_id()) . '"]');
-    } elseif (shortcode_exists('ti_wishlists_addtowishlist')) {
-        echo do_shortcode('[ti_wishlists_addtowishlist product_id="' . absint($product->get_id()) . '"]');
-    } else {
-        echo '<button type="button" class="dawp-wishlist-button" aria-label="' . esc_attr__('Save this product to wishlist', 'dawp') . '">';
-        echo '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>';
-        echo '<span>' . esc_html__('Save to Wishlist', 'dawp') . '</span>';
-        echo '</button>';
-    }
-
-    echo '</div>';
 }
 
 function dawp_single_product_policy_tabs($tabs) {
@@ -206,38 +182,34 @@ function dawp_get_store_address() {
 }
 
 /**
- * Get store contact values from WooCommerce/site settings with temporary fallbacks.
+ * Get store contact values for the public storefront.
  *
  * @param string $key Contact field key.
  * @return string
  */
 function dawp_get_store_contact($key) {
-    $fallbacks = [
-        'name'    => 'Brickgo.com',
+    $official = [
+        'name'    => 'BrickGo',
         'email'   => 'support@brickgo.com',
-        'phone'   => '757-804-6538',
-        'address' => '57 Calvert St, Woodbridge, VA 22191-2840',
         'domain'  => 'https://brickgo.com',
     ];
 
+    if (isset($official[$key])) {
+        return $official[$key];
+    }
+
+    $fallbacks = [
+        'phone'   => '757-804-6538',
+        'address' => '57 Calvert St, Woodbridge, VA 22191-2840',
+    ];
+
     switch ($key) {
-        case 'name':
-            $value = get_option('woocommerce_email_from_name');
-            $value = $value ?: get_bloginfo('name');
-            break;
-        case 'email':
-            $value = get_option('woocommerce_email_from_address');
-            $value = $value ?: get_option('admin_email');
-            break;
         case 'phone':
             $value = get_option('woocommerce_store_phone');
             $value = $value ?: get_theme_mod('dawp_store_phone');
             break;
         case 'address':
             $value = dawp_get_store_address();
-            break;
-        case 'domain':
-            $value = home_url('/');
             break;
         default:
             $value = '';

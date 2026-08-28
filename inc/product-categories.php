@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for Brickgo.com.
+ * Product category defaults for BrickGo.
  *
  * @package dawp
  */

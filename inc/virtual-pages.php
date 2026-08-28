@@ -55,29 +55,29 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     return [
-        'about-us'             => ['slug' => 'about',                'title' => 'About Brickgo.com', 'desc' => 'Learn more about Brickgo.com, a modern collectible store for building sets, art figures, blind boxes and display pieces.', 'keywords' => 'Brickgo.com, about Brickgo.com, collectible store, building sets, art figures, blind boxes', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => dawp_home_image_url('2.png')],
-        'faq'                  => ['slug' => 'faq',                  'title' => 'Brickgo.com FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at Brickgo.com.', 'keywords' => 'Brickgo.com FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
-        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Brickgo.com', 'desc' => 'Contact Brickgo.com support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Brickgo.com, Brickgo.com support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => dawp_home_image_url('17.png')],
-        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Brickgo.com shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Brickgo.com shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
-        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Brickgo.com shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Brickgo.com shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
-        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the Brickgo.com return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'Brickgo.com return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
-        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the Brickgo.com terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'Brickgo.com terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
-        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how Brickgo.com collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'Brickgo.com privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
-        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your Brickgo.com Order', 'desc' => 'Track your Brickgo.com order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track Brickgo.com order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
+        'about-us'             => ['slug' => 'about',                'title' => 'About BrickGo', 'desc' => 'Learn more about BrickGo, a modern collectible store for building sets, art figures, blind boxes and display pieces.', 'keywords' => 'BrickGo, about BrickGo, collectible store, building sets, art figures, blind boxes', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => dawp_home_image_url('2.png')],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'BrickGo FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at BrickGo.', 'keywords' => 'BrickGo FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage'],
+        'contact-us'           => ['slug' => 'contact',              'title' => 'Contact BrickGo', 'desc' => 'Contact BrickGo support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact BrickGo, BrickGo support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => dawp_home_image_url('17.png')],
+        'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review BrickGo shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'BrickGo shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review BrickGo shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'BrickGo shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage'],
+        'return-refund-policy' => ['slug' => 'return-refund-policy', 'title' => 'Return & Refund Policy', 'desc' => 'Read the BrickGo return and refund policy, including return eligibility, return shipping, exchanges and refund timing.', 'keywords' => 'BrickGo return policy, refund policy, returns, refund timing', 'css' => 'tw-ship.css', 'canonical_path' => 'return-refund-policy', 'schema_type' => 'WebPage'],
+        'terms-conditions'     => ['slug' => 'terms-conditions',     'title' => 'Terms & Conditions', 'desc' => 'Read the BrickGo terms and conditions for browsing the website, placing orders, payments, policies and customer support.', 'keywords' => 'BrickGo terms, terms and conditions, store policies, website terms', 'css' => 'tw-terms.css', 'canonical_path' => 'terms-conditions', 'schema_type' => 'WebPage'],
+        'privacy-policy'       => ['slug' => 'privacy',              'title' => 'Privacy Policy', 'desc' => 'Learn how BrickGo collects, uses, protects and manages customer information, cookies, privacy requests and account data.', 'keywords' => 'BrickGo privacy policy, customer data, cookies, privacy requests', 'css' => 'tw-privacy.css', 'canonical_path' => 'privacy-policy', 'schema_type' => 'PrivacyPolicy'],
+        'track-order'          => ['slug' => 'track-order',          'title' => 'Track Your BrickGo Order', 'desc' => 'Track your BrickGo order online using your order ID and billing email, or contact support for shipment help.', 'keywords' => 'track BrickGo order, order tracking, shipment status, order status', 'css' => 'track-order.css', 'canonical_path' => 'track-order', 'schema_type' => 'WebPage'],
         'collections'          => ['slug' => 'collections',          'title' => 'Collections', 'desc' => 'Browse all collectible product categories, from building sets and art figures to blind boxes, mini figures and display accessories.', 'keywords' => 'collectible categories, building sets, art figures, blind boxes, designer toys, mini figures', 'css' => 'tw-home.css', 'canonical_path' => 'collections', 'schema_type' => 'CollectionPage', 'image' => dawp_home_image_url('10.png')],
         'new-drops'            => ['slug' => 'new-drops',            'title' => 'New Drops', 'desc' => 'Shop the latest collectible products, newest first, with fresh building sets, art figures, blind boxes and display pieces.', 'keywords' => 'new drops, latest collectibles, new building sets, new art figures, new blind boxes', 'css' => 'tw-home.css', 'canonical_path' => 'new-drops', 'schema_type' => 'CollectionPage', 'image' => dawp_home_image_url('11.png')],
         'drops'                => ['slug' => 'drops',                'title' => 'Drops', 'desc' => 'Follow the latest collectible drops and release-inspired shopping edits.', 'keywords' => 'collectible drops, latest product drops, limited releases, new collectibles', 'css' => 'tw-home.css', 'canonical_path' => 'drops', 'schema_type' => 'CollectionPage', 'image' => dawp_home_image_url('19.png')],
-        'culture-notes'        => ['slug' => 'culture-notes',        'title' => 'Culture Notes', 'desc' => 'Read collector stories, display ideas, building notes and clean collecting guides from Brickgo.com Culture Notes.', 'keywords' => 'culture notes, collector stories, display ideas, building sets, blind boxes, designer toys', 'css' => 'tw-culture-notes.css', 'canonical_path' => 'culture-notes', 'schema_type' => 'CollectionPage', 'image' => dawp_home_image_url('16.png')],
-        'stories'              => ['slug' => 'culture-notes',        'title' => 'Culture Notes', 'desc' => 'Read collector stories, display ideas, building notes and clean collecting guides from Brickgo.com Culture Notes.', 'keywords' => 'culture notes, collector stories, display ideas, building sets, blind boxes, designer toys', 'css' => 'tw-culture-notes.css', 'canonical_path' => 'culture-notes', 'schema_type' => 'CollectionPage', 'image' => dawp_home_image_url('15.png')],
+        'culture-notes'        => ['slug' => 'culture-notes',        'title' => 'Culture Notes', 'desc' => 'Read collector stories, display ideas, building notes and clean collecting guides from BrickGo Culture Notes.', 'keywords' => 'culture notes, collector stories, display ideas, building sets, blind boxes, designer toys', 'css' => 'tw-culture-notes.css', 'canonical_path' => 'culture-notes', 'schema_type' => 'CollectionPage', 'image' => dawp_home_image_url('16.png')],
+        'stories'              => ['slug' => 'culture-notes',        'title' => 'Culture Notes', 'desc' => 'Read collector stories, display ideas, building notes and clean collecting guides from BrickGo Culture Notes.', 'keywords' => 'culture notes, collector stories, display ideas, building sets, blind boxes, designer toys', 'css' => 'tw-culture-notes.css', 'canonical_path' => 'culture-notes', 'schema_type' => 'CollectionPage', 'image' => dawp_home_image_url('15.png')],
     ];
 }
 
 function dawp_home_page_seo_data() {
     return [
         'slug'           => 'home',
-        'title'          => 'Brickgo.com - Build. Collect. Display.',
-        'desc'           => 'Shop Brickgo.com for collectible toys, building sets, designer figures, art toys, blind boxes, mini figures and display pieces.',
-        'keywords'       => 'Brickgo.com, collectible toys, building sets, designer figures, blind boxes, mini figures',
+        'title'          => 'BrickGo - Build. Collect. Display.',
+        'desc'           => 'Shop BrickGo for collectible toys, building sets, designer figures, art toys, blind boxes, mini figures and display pieces.',
+        'keywords'       => 'BrickGo, collectible toys, building sets, designer figures, blind boxes, mini figures',
         'canonical_path' => '',
         'schema_type'    => 'WebSite',
         'image'          => dawp_home_image_url('9.png'),
@@ -194,8 +194,10 @@ function dawp_rank_math_page_seo_data() {
 }
 
 function dawp_rank_math_page_title($page) {
+    $store_name = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
+
     if (empty($page['title'])) {
-        return get_bloginfo('name');
+        return $store_name;
     }
 
     if ('home' === ($page['slug'] ?? '')) {
@@ -203,7 +205,7 @@ function dawp_rank_math_page_title($page) {
     }
 
     $sep = apply_filters('document_title_separator', '-');
-    return $page['title'] . ' ' . $sep . ' ' . get_bloginfo('name');
+    return $page['title'] . ' ' . $sep . ' ' . $store_name;
 }
 
 function dawp_rank_math_page_url($page) {
@@ -220,12 +222,13 @@ function dawp_rank_math_page_image($page) {
 }
 
 function dawp_rank_math_organization_schema() {
+    $store_name    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
     $support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
 
     return [
         '@type' => 'Organization',
         '@id'   => home_url('/#organization'),
-        'name'  => get_bloginfo('name'),
+        'name'  => $store_name,
         'url'   => home_url('/'),
         'email' => $support_email,
         'logo'  => [
@@ -236,11 +239,13 @@ function dawp_rank_math_organization_schema() {
 }
 
 function dawp_rank_math_website_schema() {
+    $store_name = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
+
     return [
         '@type'       => 'WebSite',
         '@id'         => home_url('/#website'),
         'url'         => home_url('/'),
-        'name'        => get_bloginfo('name'),
+        'name'        => $store_name,
         'description' => get_bloginfo('description'),
         'publisher'   => ['@id' => home_url('/#organization')],
         'potentialAction' => [
@@ -256,12 +261,12 @@ function dawp_rank_math_faq_schema_entities($slug) {
         return [];
     }
 
-    $store_name    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
+    $store_name    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
     $support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
     $items = [
         [
-            'question' => 'Where does Brickgo.com ship?',
-            'answer'   => 'Brickgo.com currently ships exclusively within the United States domestic market.',
+            'question' => 'Where does BrickGo ship?',
+            'answer'   => 'BrickGo currently ships exclusively within the United States domestic market.',
         ],
         [
             'question' => 'How much does shipping cost?',
@@ -272,7 +277,7 @@ function dawp_rank_math_faq_schema_entities($slug) {
             'answer'   => 'Eligible products can be returned within 30 days after delivery.',
         ],
         [
-            'question' => 'How do I contact Brickgo.com?',
+            'question' => 'How do I contact BrickGo?',
             'answer'   => sprintf('Customers can contact %s support by email at %s or through the Contact Us page.', $store_name, $support_email),
         ],
     ];

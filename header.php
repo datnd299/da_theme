@@ -14,7 +14,6 @@ $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permali
 $account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $cart_url       = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $checkout_url   = function_exists('wc_get_checkout_url') ? wc_get_checkout_url() : home_url('/checkout/');
-$wishlist_url   = home_url('/wishlist/');
 $cart_count     = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
 $current_path   = function_exists('dawp_current_request_path') ? dawp_current_request_path() : trim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '', '/');
 $logo_path      = get_template_directory() . '/assets/img/about/Logosite (1).png';
@@ -46,22 +45,6 @@ $nav_items = [
     ['title' => __('Discover', 'dawp'), 'url' => home_url('/about-us/'), 'active' => 'about-us' === $current_path],
     ['title' => __('Culture', 'dawp'), 'url' => home_url('/culture-notes/'), 'active' => 0 === strpos($current_path, 'culture-notes') || 'stories' === $current_path],
 ];
-
-$product_categories = [];
-if (taxonomy_exists('product_cat')) {
-    $product_categories = get_terms([
-        'taxonomy'   => 'product_cat',
-        'hide_empty' => false,
-        'parent'     => 0,
-        'number'     => 8,
-        'orderby'    => 'name',
-        'order'      => 'ASC',
-    ]);
-
-    if (is_wp_error($product_categories)) {
-        $product_categories = [];
-    }
-}
 
 $featured_links = [
     ['title' => __('New Drops', 'dawp'), 'url' => home_url('/new-drops/')],
@@ -101,11 +84,11 @@ $collection_links = [
     </div>
 
     <div class="tgm-shell tgm-header__bar">
-        <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('Brickgo.com home', 'dawp'); ?>">
+        <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('BrickGo home', 'dawp'); ?>">
             <?php
             echo function_exists('dawp_get_responsive_image')
-                ? dawp_get_responsive_image($logo_url, __('Brickgo.com', 'dawp'), '', 210, 60, 'eager', '(max-width: 680px) 150px, 210px', 'high')
-                : '<img src="' . esc_url($logo_url) . '" width="210" height="60" alt="' . esc_attr__('Brickgo.com', 'dawp') . '" decoding="async" fetchpriority="high">';
+                ? dawp_get_responsive_image($logo_url, __('BrickGo', 'dawp'), '', 210, 60, 'eager', '(max-width: 680px) 150px, 210px', 'high')
+                : '<img src="' . esc_url($logo_url) . '" width="210" height="60" alt="' . esc_attr__('BrickGo', 'dawp') . '" decoding="async" fetchpriority="high">';
             ?>
         </a>
 
@@ -124,18 +107,6 @@ $collection_links = [
                                         <?php foreach ($featured_links as $link) : ?>
                                             <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
                                         <?php endforeach; ?>
-                                    </ul>
-                                </section>
-                                <section>
-                                    <h2><?php esc_html_e('Shop By Type', 'dawp'); ?></h2>
-                                    <ul>
-                                        <?php foreach ($product_categories as $category) : ?>
-                                            <?php $category_url = get_term_link($category); ?>
-                                            <?php if (!is_wp_error($category_url)) : ?>
-                                                <li><a href="<?php echo esc_url($category_url); ?>"><?php echo esc_html($category->name); ?></a></li>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                        <li><a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop All', 'dawp'); ?></a></li>
                                     </ul>
                                 </section>
                                 <section>
@@ -172,9 +143,6 @@ $collection_links = [
             <a class="tgm-icon-button tgm-hide-mobile" href="<?php echo esc_url($account_url); ?>" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </a>
-            <a class="tgm-icon-button tgm-hide-mobile" href="<?php echo esc_url($wishlist_url); ?>" aria-label="<?php esc_attr_e('Wishlist', 'dawp'); ?>">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6z"></path></svg>
-            </a>
             <a class="tgm-icon-button tgm-bag" href="<?php echo esc_url($cart_url); ?>" aria-label="<?php echo esc_attr(sprintf(__('Shopping bag, %d items', 'dawp'), $cart_count)); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7L6 8Z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
                 <span><?php echo esc_html($cart_count); ?></span>
@@ -203,20 +171,8 @@ $collection_links = [
                     <a class="<?php echo $item['active'] ? 'is-current' : ''; ?>" href="<?php echo esc_url($item['url']); ?>"><?php echo esc_html($item['title']); ?></a>
                 <?php endforeach; ?>
             </nav>
-            <?php if ($product_categories) : ?>
-                <div class="tgm-mobile-menu__categories">
-                    <p><?php esc_html_e('Shop By Type', 'dawp'); ?></p>
-                    <?php foreach ($product_categories as $category) : ?>
-                        <?php $category_url = get_term_link($category); ?>
-                        <?php if (!is_wp_error($category_url)) : ?>
-                            <a href="<?php echo esc_url($category_url); ?>"><?php echo esc_html($category->name); ?></a>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
             <div class="tgm-mobile-menu__utility">
                 <a href="<?php echo esc_url($account_url); ?>"><?php esc_html_e('Account', 'dawp'); ?></a>
-                <a href="<?php echo esc_url($wishlist_url); ?>"><?php esc_html_e('Wishlist', 'dawp'); ?></a>
                 <a href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
                 <a href="<?php echo esc_url($checkout_url); ?>"><?php esc_html_e('Checkout', 'dawp'); ?></a>
             </div>

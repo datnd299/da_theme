@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
 
 $theme_uri      = get_template_directory_uri();
 $theme_dir      = get_template_directory();
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgo.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'BrickGo';
 $support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgo.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '757-804-6538';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
@@ -153,7 +153,7 @@ $support_steps = [
     .mmd-contact-form button { cursor:pointer; }
     .mmd-contact-sidebar dl { display:grid; gap:16px; margin:22px 0 0; }
     .mmd-contact-sidebar div { border-top:1px solid var(--mmd-line); padding-top:16px; }
-    .mmd-contact-sidebar dt { color:var(--mmd-ink); font-size:.78rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; }
+    .mmd-contact-sidebar dt { color:var(--mmd-ink); font-size:.78rem; font-weight:800; letter-spacing:.05em; }
     .mmd-contact-sidebar dd { margin:7px 0 0; font-size:.94rem; line-height:1.55; }
     .mmd-contact-steps { counter-reset:contact-step; }
     .mmd-contact-step { position:relative; padding-left:70px; }
@@ -177,7 +177,7 @@ $support_steps = [
     <section class="mmd-contact-hero" aria-labelledby="mmd-contact-title">
         <div class="mmd-contact-container mmd-contact-hero__grid">
             <div class="mmd-contact-hero__content">
-                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact Brickgo.com', 'dawp'); ?></p>
+                <p class="mmd-contact-eyebrow"><?php esc_html_e('Contact BrickGo', 'dawp'); ?></p>
                 <h1 id="mmd-contact-title"><?php esc_html_e('Helpful support for collectors, orders, and drops.', 'dawp'); ?></h1>
                 <p class="mmd-contact-hero__copy"><?php esc_html_e('Questions about an order, delivery, product details or a return? Our customer care team is here to help you shop with confidence from inspiration to arrival.', 'dawp'); ?></p>
                 <div class="mmd-contact-hero__actions">

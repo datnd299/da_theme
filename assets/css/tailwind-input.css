@@ -403,8 +403,7 @@
   width: 100%;
 }
 
-.home-badge,
-.home-wishlist {
+.home-badge {
   position: absolute;
   z-index: 2;
 }
@@ -418,22 +417,6 @@
   left: 10px;
   padding: 5px 8px;
   top: 10px;
-}
-
-.home-wishlist {
-  align-items: center;
-  background: #FFFFFF;
-  border: 1px solid #DEDDD8;
-  border-radius: 999px;
-  color: #111111;
-  cursor: pointer;
-  display: inline-flex;
-  font-size: 1rem;
-  height: 34px;
-  justify-content: center;
-  right: 10px;
-  top: 10px;
-  width: 34px;
 }
 
 .home-product-card__body {

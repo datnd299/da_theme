@@ -88,7 +88,7 @@ $dawp_business_address = function_exists('dawp_get_woocommerce_store_address') ?
             <p><?php
                 printf(
                     /* translators: %s: link to the billing terms page */
-                    esc_html__('A returned watch is inspected by a watchmaker within two business days of arrival. If it meets the condition above, the refund is issued to your original PayPal account or the card used at checkout within seven business days. Your bank or PayPal may take a further few days to post the credit. See our %s for how payment is processed.', 'dawp'),
+                    esc_html__('A returned watch is inspected by a watchmaker within two business days of arrival. If it meets the condition above, the refund is issued to your original PayPal account or the card used at checkout within 7 business days. Your bank or PayPal may take a further few days to post the credit. See our %s for how payment is processed.', 'dawp'),
                     '<a href="' . esc_url(home_url('/billing-terms/')) . '">' . esc_html__('Billing Terms & Conditions', 'dawp') . '</a>'
                 );
             ?></p>

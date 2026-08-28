@@ -740,9 +740,18 @@ body textarea {
   color: var(--color-foreground-muted);
 }
 
-.c-policy-body ul {
+.c-policy-body ul,
+.c-policy-body ol {
   padding-left: var(--space-lg);
   margin: var(--space-md) 0 0;
+}
+
+.c-policy-body ul {
+  list-style: disc outside;
+}
+
+.c-policy-body ol {
+  list-style: decimal outside;
 }
 
 .c-policy-body li {

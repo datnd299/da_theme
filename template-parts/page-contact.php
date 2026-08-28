@@ -127,7 +127,7 @@ $support_steps = [
 $quick_help = [
     [
         'title' => __('Shipping Timeline', 'dawp'),
-        'copy'  => __('Orders are handled in 1-2 business days and usually arrive in 4-7 business days.', 'dawp'),
+        'copy'  => __('Orders are handled in 3-5 business days and usually arrive in 13-20 business days.', 'dawp'),
         'url'   => $shipping_url,
     ],
     [

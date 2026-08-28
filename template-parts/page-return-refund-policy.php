@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Return and refund policy page for chronelshop.com.
  *

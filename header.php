@@ -56,8 +56,6 @@ if (file_exists($mega_bg_path)) {
 
 $mobile_extra_items = [
     ['title' => __('Account', 'dawp'), 'url' => $account_url],
-    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
-    ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
 ];
 ?>
 <!DOCTYPE html>
@@ -266,7 +264,7 @@ $mobile_extra_items = [
             </a>
             <a href="<?php echo esc_url($cart_url); ?>" class="lux-icon-link" aria-label="<?php esc_attr_e('Shopping bag', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
-                <?php if ($cart_count > 0) : ?><span class="lux-cart-count"><?php echo esc_html($cart_count); ?></span><?php endif; ?>
+                <span class="lux-cart-count<?php echo $cart_count > 0 ? '' : ' hidden'; ?>"><?php echo esc_html($cart_count); ?></span>
             </a>
         </div>
     </div>

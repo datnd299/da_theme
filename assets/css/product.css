@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    Product Page - Topgoodmart
    Topgoodmart store: clean, modern, conversion-focused
    ============================================================ */
@@ -500,6 +500,69 @@ body.single-product .woo-page__container {
   color: var(--color-sale);
 }
 
+/* Third-party product option fields (extra fields plugins) */
+.thwepo-extra-options {
+  display: block;
+  width: 100%;
+  margin: 4px 0 0;
+}
+
+.thwepo-extra-options tbody,
+.thwepo-extra-options tr {
+  display: block;
+  width: 100%;
+}
+
+.thwepo-extra-options td {
+  display: block;
+  width: 100%;
+  padding: 0;
+}
+
+.thwepo-extra-options tr + tr,
+.thwepo-extra-options td.value {
+  margin-top: 8px;
+}
+
+.thwepo-extra-options .label-tag {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-primary);
+}
+
+.thwepo-extra-options input,
+.thwepo-extra-options select,
+.thwepo-extra-options textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.thwepo-extra-options textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.thwepo-extra-options input:focus,
+.thwepo-extra-options select:focus,
+.thwepo-extra-options textarea:focus {
+  outline: none;
+  border-color: var(--color-navy);
+  box-shadow: 0 0 0 3px var(--color-ring);
+}
+
 /* === 5. ADD TO CART === */
 .woocommerce-variation-add-to-cart,
 form.cart:not(.variations_form) {
@@ -703,6 +766,15 @@ form.cart:not(.variations_form) {
   font-size: 0.8125rem;
   font-weight: 500;
   line-height: 1.45;
+}
+
+.tgm-product-benefit__content p a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.tgm-product-benefit__content p a:hover {
+  color: var(--color-text-primary);
 }
 
 @media (min-width: 480px) {

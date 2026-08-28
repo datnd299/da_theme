@@ -62,7 +62,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('How long does order handling and delivery take?', 'dawp'),
-                'answer'   => __('Order handling takes 1-2 business days (Monday to Friday), excluding standard U.S. public holidays. Standard transit takes 3-5 business days (Monday to Friday), so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+                'answer'   => __('Order handling takes 3-5 business days (Monday to Friday), excluding standard U.S. public holidays. Standard transit takes 10-15 business days (Monday to Friday), so estimated delivery is 13-20 business days total from the date of purchase.', 'dawp'),
             ],
             [
                 'question' => __('Which carriers do you use?', 'dawp'),

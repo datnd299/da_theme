@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Terms and conditions page for chronelshop.com.
  *
@@ -45,8 +45,8 @@ $shipping_parameters = [
     __('Shipping Locations: chronelshop.com currently ships exclusively within the United States domestic market.', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
     __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
-    __('Handling Time: Current order handling and packaging time is 1-2 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
-    __('Transit Time: Standard U.S. transit takes 3-5 business days (Monday to Friday). Estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+    __('Handling Time: Current order handling and packaging time is 3-5 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
+    __('Transit Time: Standard U.S. transit takes 10-15 business days (Monday to Friday). Estimated delivery is 13-20 business days total from the date of purchase.', 'dawp'),
     __('Carriers & Tracking: Orders are shipped using trusted domestic U.S. carriers such as USPS, UPS, FedEx, or DHL. Tracking details are emailed once an order is dispatched.', 'dawp'),
 ];
 

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Privacy policy page for chronelshop.com.
  *

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * Shipping policy page for chronelshop.com.
  *
@@ -34,15 +34,15 @@ $delivery_times = [
     ],
     [
         'title' => __('Order Handling Time', 'dawp'),
-        'copy'  => __('1-2 business days (Monday to Friday). Orders placed after cutoff begin processing the following business day.', 'dawp'),
+        'copy'  => __('3-5 business days (Monday to Friday). Orders placed after cutoff begin processing the following business day.', 'dawp'),
     ],
     [
         'title' => __('Transit Time', 'dawp'),
-        'copy'  => __('3-5 business days (Monday to Friday).', 'dawp'),
+        'copy'  => __('10-15 business days (Monday to Friday).', 'dawp'),
     ],
     [
         'title' => __('Estimated Delivery Time', 'dawp'),
-        'copy'  => __('4-7 business days total from the date of purchase (Monday to Friday).', 'dawp'),
+        'copy'  => __('13-20 business days total from the date of purchase (Monday to Friday).', 'dawp'),
     ],
 ];
 
@@ -94,7 +94,7 @@ $shipping_faqs = [
     ],
     [
         'question' => __('How long will my order take to arrive?', 'dawp'),
-        'answer'   => __('Order handling takes 1-2 business days and standard transit takes 3-5 business days, so estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
+        'answer'   => __('Order handling takes 3-5 business days and standard transit takes 10-15 business days, so estimated delivery is 13-20 business days total from the date of purchase.', 'dawp'),
     ],
     [
         'question' => __('Will I receive tracking information?', 'dawp'),

@@ -109,7 +109,7 @@ $payment_methods = [
         .lux-footer__contact dd { display:inline; margin:0; }
         .lux-footer a { color:inherit; text-decoration:none; }
         .lux-footer a:hover { color:#D1BD8A; text-decoration:underline; text-underline-offset:5px; }
-        .lux-footer__columns { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:34px; }
+        .lux-footer__columns { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:26px; }
         .lux-footer__columns h2 { margin:0 0 18px; color:#B89B5E; font-size:12px; font-weight:800; letter-spacing:.1em; line-height:1.35; text-transform:uppercase; }
         .lux-footer__columns ul { display:grid; gap:12px; margin:0; padding:0; list-style:none; color:#D8D0C2; font-size:14px; line-height:1.45; }
         .lux-footer__divider { border-top:1px solid rgba(184,155,94,.55); }
@@ -208,6 +208,9 @@ $payment_methods = [
         </div>
     </div>
 </footer>
+
+<?php if (function_exists('dawp_cart_fab_markup')) : dawp_cart_fab_markup(); endif; ?>
+<?php if (function_exists('dawp_cart_drawer_markup')) : dawp_cart_drawer_markup(); endif; ?>
 
 <?php wp_footer(); ?>
 </body>

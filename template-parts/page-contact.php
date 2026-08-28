@@ -8,6 +8,7 @@
 $theme_uri      = get_template_directory_uri();
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
+$store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 $hero_image     = $theme_uri . '/assets/images/home/luxuryimagecollection/6.jpg';
 $detail_image   = $theme_uri . '/assets/images/home/luxuryimagecollection/7.jpg';
@@ -69,36 +70,40 @@ $topics = [
                 <p class="mt-5 max-w-[470px] text-[15px] leading-7 text-[#5E625F]"><?php esc_html_e('Use the form for the fastest routing. Include your order number when your message is about an existing purchase.', 'dawp'); ?></p>
             </div>
 
-            <div class="grid gap-4 md:col-span-6 md:col-start-7 sm:grid-cols-2">
-                <div class="border border-[#B8B8B2]/55 bg-white p-6">
-                    <span class="cv-detail-line"></span>
-                    <h3 class="cv-detail-title"><?php esc_html_e('Email', 'dawp'); ?></h3>
-                    <a class="break-words text-[15px] font-medium text-[#263C33] transition duration-300 hover:text-[#B38A52]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-                </div>
-                <div class="border border-[#B8B8B2]/55 bg-white p-6">
-                    <span class="cv-detail-line"></span>
-                    <h3 class="cv-detail-title"><?php esc_html_e('Support Hours', 'dawp'); ?></h3>
-                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST. We aim to reply within 1 business day.', 'dawp'); ?></p>
-                </div>
-                <?php
-                $contact_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
-                if ($contact_address) :
-                ?>
-                <div class="border border-[#B8B8B2]/55 bg-white p-6">
-                    <span class="cv-detail-line"></span>
-                    <h3 class="cv-detail-title"><?php esc_html_e('Mailing Address', 'dawp'); ?></h3>
-                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php echo esc_html($contact_address); ?></p>
-                </div>
-                <?php endif; ?>
-                <div class="border border-[#B8B8B2]/55 bg-white p-6">
-                    <span class="cv-detail-line"></span>
-                    <h3 class="cv-detail-title"><?php esc_html_e('Orders', 'dawp'); ?></h3>
-                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php esc_html_e('Tracking, delivery, returns, and order changes.', 'dawp'); ?></p>
-                </div>
-                <div class="border border-[#B8B8B2]/55 bg-white p-6">
-                    <span class="cv-detail-line"></span>
-                    <h3 class="cv-detail-title"><?php esc_html_e('Products', 'dawp'); ?></h3>
-                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php esc_html_e('Case size, materials, styling, and product details.', 'dawp'); ?></p>
+            <div class="md:col-span-6 md:col-start-7">
+                <div class="grid grid-cols-2 gap-3.5 sm:gap-5">
+                    <div class="border border-[#B8B8B2]/55 bg-white p-3.5 sm:p-6">
+                        <span class="cv-detail-line"></span>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Email', 'dawp'); ?></h3>
+                        <a class="break-all text-[12px] font-medium text-[#263C33] transition duration-300 hover:text-[#B38A52] sm:text-[15px]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                    </div>
+                    <div class="border border-[#B8B8B2]/55 bg-white p-3.5 sm:p-6">
+                        <span class="cv-detail-line"></span>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Support Hours', 'dawp'); ?></h3>
+                        <p class="text-[13px] leading-5 text-[#5E625F] sm:text-[15px] sm:leading-7"><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?></p>
+                    </div>
+                    <div class="border border-[#B8B8B2]/55 bg-white p-3.5 sm:p-6">
+                        <span class="cv-detail-line"></span>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Response', 'dawp'); ?></h3>
+                        <p class="text-[13px] leading-5 text-[#5E625F] sm:text-[15px] sm:leading-7"><?php esc_html_e('Within 1 business day.', 'dawp'); ?></p>
+                    </div>
+                    <?php if ($store_address) : ?>
+                    <div class="border border-[#B8B8B2]/55 bg-white p-3.5 sm:p-6">
+                        <span class="cv-detail-line"></span>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Address', 'dawp'); ?></h3>
+                        <p class="text-[13px] leading-5 text-[#5E625F] sm:text-[15px] sm:leading-7"><?php echo esc_html($store_address); ?></p>
+                    </div>
+                    <?php endif; ?>
+                    <div class="border border-[#B8B8B2]/55 bg-white p-3.5 sm:p-6">
+                        <span class="cv-detail-line"></span>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Orders', 'dawp'); ?></h3>
+                        <p class="text-[13px] leading-5 text-[#5E625F] sm:text-[15px] sm:leading-7"><?php esc_html_e('Tracking, delivery, returns, and order changes.', 'dawp'); ?></p>
+                    </div>
+                    <div class="border border-[#B8B8B2]/55 bg-white p-3.5 sm:p-6">
+                        <span class="cv-detail-line"></span>
+                        <h3 class="cv-detail-title"><?php esc_html_e('Products', 'dawp'); ?></h3>
+                        <p class="text-[13px] leading-5 text-[#5E625F] sm:text-[15px] sm:leading-7"><?php esc_html_e('Fit, materials, styling, and product details.', 'dawp'); ?></p>
+                    </div>
                 </div>
             </div>
         </div>

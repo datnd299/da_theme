@@ -73,7 +73,7 @@ function dawp_scripts() {
         if ( is_account_page() ) {
             wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', [], dawp_asset_ver('assets/css/account.css'));
         } elseif ( is_product() ) {
-            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.7');
+            wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], dawp_asset_ver('assets/css/product.css'));
             dawp_remove_styles();
         } elseif ( is_cart() ) {
             wp_enqueue_style('dawp-cart', get_template_directory_uri() . '/assets/css/cart.css', [], '1.0.7');

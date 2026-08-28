@@ -29,6 +29,19 @@
   box-sizing: border-box;
 }
 
+.shop-page {
+  background: var(--qb-shop-bg);
+  color: var(--qb-shop-text);
+  font-family: var(--qb-shop-font);
+  line-height: 1.5;
+}
+
+.shop-page *,
+.shop-page *::before,
+.shop-page *::after {
+  box-sizing: border-box;
+}
+
 .shop-page a {
   color: inherit;
   text-decoration: none;
@@ -37,6 +50,12 @@
 .shop-container {
   width: min(100% - 32px, 1280px);
   margin-inline: auto;
+}
+
+@media (max-width: 760px) {
+  .shop-container {
+    width: min(100% - 16px, 1280px);
+  }
 }
 
 .shop-hero {

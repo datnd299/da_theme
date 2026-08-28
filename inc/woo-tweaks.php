@@ -82,63 +82,11 @@ function dawp_my_account_page_title() {
 }
 
 function dawp_single_product_service_notes() {
-    ?>
-    <div class="product-service-notes" aria-label="<?php esc_attr_e('Purchase benefits', 'dawp'); ?>">
-        <div class="product-service-note">
-            <span class="product-service-note__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            </span>
-            <span class="product-service-note__body">
-                <span class="product-service-note__title"><?php esc_html_e('Carefully selected automatic movement', 'dawp'); ?></span>
-                <span class="product-service-note__text"><?php esc_html_e('24 jewels, 28,800 vph, regulated in five positions.', 'dawp'); ?></span>
-            </span>
-        </div>
-        <div class="product-service-note">
-            <span class="product-service-note__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-            </span>
-            <span class="product-service-note__body">
-                <span class="product-service-note__title"><?php esc_html_e('Five-year movement warranty', 'dawp'); ?></span>
-                <span class="product-service-note__text"><?php esc_html_e('Backed by our lifetime service programme.', 'dawp'); ?></span>
-            </span>
-        </div>
-        <div class="product-service-note">
-            <span class="product-service-note__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-            </span>
-            <span class="product-service-note__body">
-                <span class="product-service-note__title"><?php esc_html_e('Insured delivery, included', 'dawp'); ?></span>
-                <span class="product-service-note__text"><?php esc_html_e('Signature required, fully insured across the United States.', 'dawp'); ?></span>
-            </span>
-        </div>
-        <div class="product-service-note">
-            <span class="product-service-note__icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            </span>
-            <span class="product-service-note__body">
-                <span class="product-service-note__title"><?php esc_html_e('Individually numbered', 'dawp'); ?></span>
-                <span class="product-service-note__text"><?php esc_html_e('Serial engraved on the case back and recorded on the certificate.', 'dawp'); ?></span>
-            </span>
-        </div>
-    </div>
-    <?php
+
 }
 
 function dawp_single_product_atelier_banner() {
-    $banner_img = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection/1.jpg';
-    ?>
-    <div class="atelier-dark-banner">
-        <div class="atelier-dark-banner__img-wrap">
-            <img class="atelier-dark-banner__img" src="<?php echo esc_url($banner_img); ?>" alt="Watchmaker Atelier Movement">
-        </div>
-        <div class="atelier-dark-banner__content">
-            <span class="atelier-dark-banner__tag"><?php esc_html_e('CALIBRE CH-01', 'dawp'); ?></span>
-            <h2 class="atelier-dark-banner__title"><?php esc_html_e('Assembled by one watchmaker, start to finish.', 'dawp'); ?></h2>
-            <p class="atelier-dark-banner__desc"><?php esc_html_e('Every movement is cased, timed, and inspected by the same hands. Nothing leaves the atelier until it holds its rate across five positions.', 'dawp'); ?></p>
-            <a href="#tab-description" class="atelier-dark-banner__link"><?php esc_html_e('INSIDE THE ATELIER', 'dawp'); ?></a>
-        </div>
-    </div>
-    <?php
+    
 }
 
 function dawp_get_store_address_line() {

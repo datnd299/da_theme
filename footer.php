@@ -60,11 +60,11 @@ if (file_exists($logo_path)) {
 $footer_columns = [
     [
         'title' => __('Shop', 'dawp'),
-        'links' => [
-            ['title' => __('Desk Collectibles', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Shelf Icons', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Big Builds', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Gift Ideas', 'dawp'), 'url' => $shop_url],
+        'links' => function_exists('dawp_shop_category_items') ? dawp_shop_category_items() : [
+            ['title' => __('Building Sets', 'dawp'), 'url' => $shop_url],
+            ['title' => __('Art Figures', 'dawp'), 'url' => $shop_url],
+            ['title' => __('Designer Toys', 'dawp'), 'url' => $shop_url],
+            ['title' => __('Blind Boxes', 'dawp'), 'url' => $shop_url],
         ],
     ],
     [

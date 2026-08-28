@@ -82,12 +82,7 @@ function dawp_footer_columns() {
     return [
         [
             'title' => __('Shop', 'dawp'),
-            'links' => [
-                ['title' => __('Desk Collectibles', 'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Shelf Icons', 'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Big Builds', 'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Gift Ideas', 'dawp'), 'url' => home_url('/shop/')],
-            ],
+            'links' => dawp_shop_category_items(),
         ],
     [
         'title' => __('Discover', 'dawp'),

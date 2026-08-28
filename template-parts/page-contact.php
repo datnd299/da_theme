@@ -1,9 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Relux Watches — Contact</title>
+<?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+$shop_url     = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+if (!$shop_url) {
+    $shop_url = home_url('/shop/');
+}
+$track_url    = home_url('/track-order/');
+$shipping_url = home_url('/shipping-policy/');
+$returns_url  = home_url('/return-refund-policy/');
+?>
 <style>
 :root{
  --ink:#151515;--muted:#707070;--line:#e7e7e4;--paper:#fff;
@@ -104,14 +111,11 @@ input:focus,select:focus,textarea:focus{border-color:#999}
  .cta{padding:34px 24px}
 }
 </style>
-</head>
-<body>
-<main>
 
 <section class="hero">
  <div class="container hero-grid">
   <div>
-   <div class="eyebrow">Contact Relux</div>
+   <div class="eyebrow">Contact Reluxwatches</div>
    <h1>WE’RE HERE TO HELP.</h1>
    <p>Questions about a watch, your order or delivery? Send us a message and our team will help you with what you need.</p>
   </div>
@@ -123,7 +127,7 @@ input:focus,select:focus,textarea:focus{border-color:#999}
 </section>
 
 <section class="visual">
- <img src="<?php echo esc_url(dawp_imagewatch_url('9.png')); ?>" alt="Relux watch detail">
+ <img src="<?php echo esc_url(dawp_imagewatch_url('9.png')); ?>" alt="Reluxwatches watch detail">
 </section>
 
 <section class="contact">
@@ -153,7 +157,7 @@ input:focus,select:focus,textarea:focus{border-color:#999}
      <div class="field">
       <label for="contact_topic">Subject</label>
       <select id="contact_topic" name="contact_topic">
-       <option value="order">Order Support</option><option value="product">Product Question</option><option value="order">Shipping</option><option value="return">Returns</option><option value="other">General Enquiry</option>
+       <option value="order">Order Support</option><option value="product">Product Question</option><option value="shipping">Shipping</option><option value="return">Returns</option><option value="other">General Enquiry</option>
       </select>
      </div>
      <div class="field"><label for="order_number">Order Number (optional)</label><input id="order_number" name="order_number" type="text" autocomplete="off"></div>
@@ -190,9 +194,9 @@ input:focus,select:focus,textarea:focus{border-color:#999}
    <p>Find the information you need before sending a message.</p>
   </div>
   <div class="quick-grid">
-   <article class="quick-item"><span class="num">01</span><h3>Order Status</h3><p>Check the latest information about your order.</p><a href="#">TRACK ORDER →</a></article>
-   <article class="quick-item"><span class="num">02</span><h3>Shipping</h3><p>Learn about delivery options and estimated times.</p><a href="#">SHIPPING INFO →</a></article>
-   <article class="quick-item"><span class="num">03</span><h3>Returns</h3><p>Find return instructions and eligibility details.</p><a href="#">RETURN POLICY →</a></article>
+   <article class="quick-item"><span class="num">01</span><h3>Order Status</h3><p>Check the latest information about your order.</p><a href="<?php echo esc_url($track_url); ?>">TRACK ORDER →</a></article>
+   <article class="quick-item"><span class="num">02</span><h3>Shipping</h3><p>Learn about delivery options and estimated times.</p><a href="<?php echo esc_url($shipping_url); ?>">SHIPPING INFO →</a></article>
+   <article class="quick-item"><span class="num">03</span><h3>Returns</h3><p>Find return instructions and eligibility details.</p><a href="<?php echo esc_url($returns_url); ?>">RETURN POLICY →</a></article>
   </div>
  </div>
 </section>
@@ -201,15 +205,11 @@ input:focus,select:focus,textarea:focus{border-color:#999}
  <div class="container">
   <div class="cta">
    <div>
-    <div class="eyebrow">Explore Relux</div>
+    <div class="eyebrow">Explore Reluxwatches</div>
     <h2>STILL BROWSING?</h2>
     <p>Discover our latest watches and find a style made for your everyday.</p>
    </div>
-   <a class="button" href="#">SHOP WATCHES →</a>
+   <a class="button" href="<?php echo esc_url($shop_url); ?>">SHOP WATCHES →</a>
   </div>
  </div>
 </section>
-
-</main>
-</body>
-</html>

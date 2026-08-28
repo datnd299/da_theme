@@ -12,11 +12,10 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Reluxwatches';
 $site_domain    = 'Reluxwatches.com';
 $support_email  = 'support@reluxwatches.com';
-$support_phone  = '826-207-1399';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
-$last_updated   = __('May 29, 2026', 'dawp');
+$last_updated   = __('August 28, 2026', 'dawp');
 
 $policy_intro = [
     __('At Reluxwatches, accessible via Reluxwatches.com (the "Site"), we are deeply committed to protecting the privacy, security, and personal data of our visitors and customers. This Privacy Policy outlines how your personal information is collected, utilized, shared, and securely protected when you browse our catalog, create an account, interact with our customer support, or purchase watches and watch accessories from our online store.', 'dawp'),
@@ -75,11 +74,6 @@ $contact_details = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Customer Support Phone', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
-    ],
-    [
         'label' => __('Business Operating Hours', 'dawp'),
         'value' => $business_hours,
     ],
@@ -91,7 +85,7 @@ $contact_details = [
 ];
 
 if ($store_address) {
-    array_splice($contact_details, 3, 0, [[
+    array_splice($contact_details, 2, 0, [[
         'label' => __('Physical Business Address', 'dawp'),
         'value' => $store_address,
     ]]);
@@ -178,6 +172,10 @@ $privacy_faqs = [
         'answer'   => __('You can adjust cookie preferences through your browser settings, but disabling all cookies may affect core shopping features such as cart, checkout, and payment functionality.', 'dawp'),
     ],
 ];
+
+if (function_exists('dawp_register_faq_schema')) {
+    dawp_register_faq_schema($privacy_faqs);
+}
 ?>
 
 <div class="bg-white text-[#111111]">

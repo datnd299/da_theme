@@ -12,9 +12,8 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Reluxwatches';
 $site_domain    = 'Reluxwatches.com';
 $support_email  = 'support@reluxwatches.com';
-$support_phone  = '826-207-1399';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!$shop_url) {
@@ -27,7 +26,7 @@ $privacy_url  = home_url('/privacy-policy/');
 $terms_url    = home_url('/terms-conditions/');
 $track_url    = home_url('/track-order/');
 $contact_url  = home_url('/contact-us/');
-$last_updated = __('May 29, 2026', 'dawp');
+$last_updated = __('August 28, 2026', 'dawp');
 
 $policy_highlights = [
     [
@@ -58,7 +57,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('What is the daily order cutoff time?', 'dawp'),
-                'answer'   => __('The daily order cutoff time is 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after the cutoff begin processing on the following business day.', 'dawp'),
+                'answer'   => __('The daily order cutoff time is 5:00 PM Pacific Time (Monday to Friday). Orders placed after the cutoff begin processing on the following business day.', 'dawp'),
             ],
             [
                 'question' => __('How long does order handling and delivery take?', 'dawp'),
@@ -99,7 +98,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
+                'answer'   => __('If the item is defective, damaged, or incorrect, Reluxwatches covers return shipping and emails you a prepaid label. For change-of-mind returns, the customer pays return shipping and chooses their own carrier.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
@@ -111,7 +110,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('When will I receive my refund?', 'dawp'),
-                'answer'   => __('Once your return package is received, we inspect it within 1-2 business days. Approved refunds are processed automatically to the original payment method within 7 business days. If you have not received your refund after 15 business days of approval, contact support after checking with your bank or credit card company.', 'dawp'),
+                'answer'   => __('Once your return package is received, we inspect it within 1-2 business days. Approved refunds are processed automatically to the original payment method within 7 business days. If you have not received your refund within 10 business days of approval, contact support after checking with your bank or credit card company.', 'dawp'),
             ],
             [
                 'question' => __('Which items are non-returnable?', 'dawp'),
@@ -144,7 +143,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Where can I find product details?', 'dawp'),
-                'answer'   => __('Product pages include available details such as item use, materials, dimensions, capacity, care notes, price, and availability. Please review the product page before ordering and contact support if you need clarification.', 'dawp'),
+                'answer'   => __('Product pages include available details such as item use, materials, dimensions, movement type, water resistance, care notes, price, and availability. Please review the product page before ordering and contact support if you need clarification.', 'dawp'),
             ],
         ],
     ],
@@ -171,18 +170,16 @@ $faq_groups = [
                 'question' => __('How do I contact Reluxwatches?', 'dawp'),
                 'answer'   => $store_address
                     ? sprintf(
-                        /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
-                        __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
+                        /* translators: 1: email address, 2: business hours, 3: store address */
+                        __('Email %1$s or use the Contact Us page. Customer service hours are %2$s. Our business address is %3$s.', 'dawp'),
                         $support_email,
-                        $support_phone,
                         $business_hours,
                         $store_address
                     )
                     : sprintf(
-                        /* translators: 1: email address, 2: phone number, 3: business hours */
-                        __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s.', 'dawp'),
+                        /* translators: 1: email address, 2: business hours */
+                        __('Email %1$s or use the Contact Us page. Customer service hours are %2$s.', 'dawp'),
                         $support_email,
-                        $support_phone,
                         $business_hours
                     ),
             ],
@@ -217,6 +214,16 @@ $quick_links = [
         'url'   => $terms_url,
     ],
 ];
+
+if (function_exists('dawp_register_faq_schema')) {
+    $faq_schema_items = [];
+    foreach ($faq_groups as $faq_group) {
+        foreach ($faq_group['items'] as $faq_group_item) {
+            $faq_schema_items[] = $faq_group_item;
+        }
+    }
+    dawp_register_faq_schema($faq_schema_items);
+}
 ?>
 
 <div class="bg-white text-[#111111]">
@@ -296,17 +303,11 @@ $quick_links = [
                         );
                         ?>
                     </p>
-                    <dl class="mt-5 grid gap-4 md:grid-cols-3">
+                    <dl class="mt-5 grid gap-4 md:grid-cols-2">
                         <div class="rounded-md border border-[#E9E9E9] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#111111]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#777777]">
                                 <a class="font-bold text-[#405447] underline decoration-[#405447]/40 underline-offset-4 transition hover:text-[#2F3F35]" href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
-                            </dd>
-                        </div>
-                        <div class="rounded-md border border-[#E9E9E9] bg-white p-5">
-                            <dt class="text-sm font-extrabold text-[#111111]"><?php esc_html_e('Customer Support Phone', 'dawp'); ?></dt>
-                            <dd class="mt-3 text-sm leading-7 text-[#777777]">
-                                <a class="font-bold text-[#405447] underline decoration-[#405447]/40 underline-offset-4 transition hover:text-[#2F3F35]" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
                             </dd>
                         </div>
                         <?php if ($store_address) : ?>

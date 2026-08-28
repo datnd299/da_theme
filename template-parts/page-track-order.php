@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email  = 'support@reluxwatches.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $returns_url    = home_url('/return-refund-policy/');
 $terms_url      = home_url('/terms-conditions/');
 $privacy_url    = home_url('/privacy-policy/');
@@ -129,7 +129,7 @@ $policy_links = [
                 </div>
                 <div class="track-badge">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
-                    <?php esc_html_e('1-3 Day Handling', 'dawp'); ?>
+                    <?php esc_html_e('1-2 Day Handling', 'dawp'); ?>
                 </div>
             </div>
         </div>

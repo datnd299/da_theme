@@ -27,11 +27,11 @@ function dawp_handle_virtual_pages() {
 
 function dawp_virtual_page_map() {
     $default_image = dawp_imagewatch_url('1.png');
-    $policy_date = '2026-05-29';
+    $policy_date = '2026-08-28';
 
     return [
         'about-us'             => ['slug' => 'about',                'title' => 'About Reluxwatches', 'desc' => 'Learn more about Reluxwatches, a modern ecommerce store for watches and watch accessories.', 'keywords' => 'Reluxwatches, about Reluxwatches, modern watches, watch accessories', 'css' => 'tw-about.css', 'canonical_path' => 'about-us', 'schema_type' => 'AboutPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches modern watches and accessories'],
-        'faq'                  => ['slug' => 'faq',                  'title' => 'Reluxwatches FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at Reluxwatches.', 'keywords' => 'Reluxwatches FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'FAQPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer help and shopping FAQs'],
+        'faq'                  => ['slug' => 'faq',                  'title' => 'Reluxwatches FAQs', 'desc' => 'Find answers to frequently asked questions about shipping, returns, products, payments and support at Reluxwatches.', 'keywords' => 'Reluxwatches FAQ, shipping questions, return questions, order support', 'css' => 'tw-faq.css', 'canonical_path' => 'faq', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer help and shopping FAQs'],
         'contact-us'           => ['slug' => 'contact',              'title' => 'Contact Reluxwatches', 'desc' => 'Contact Reluxwatches support for help with orders, tracking, returns, refunds, product questions or privacy requests.', 'keywords' => 'contact Reluxwatches, Reluxwatches support, order help, return support', 'css' => 'tw-contact.css', 'canonical_path' => 'contact-us', 'schema_type' => 'ContactPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches customer support'],
         'shipping-returns'     => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Reluxwatches shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Reluxwatches shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches shipping policy', 'date_modified' => $policy_date],
         'shipping-policy'      => ['slug' => 'shipping-policy',      'title' => 'Shipping Policy', 'desc' => 'Review Reluxwatches shipping options, delivery times, order handling, carrier details and U.S. delivery support.', 'keywords' => 'Reluxwatches shipping policy, delivery times, shipping support, order handling', 'css' => 'tw-ship.css', 'canonical_path' => 'shipping-policy', 'schema_type' => 'WebPage', 'image' => $default_image, 'image_alt' => 'Reluxwatches shipping policy', 'date_modified' => $policy_date],
@@ -199,12 +199,11 @@ function dawp_rank_math_organization_schema() {
         '@id'   => home_url('/#organization'),
         'name'  => 'Reluxwatches',
         'url'   => home_url('/'),
+        'logo'  => get_theme_file_uri('assets/img/imagewatch/logowatch.png'),
         'email' => 'support@reluxwatches.com',
-        'telephone' => '826-207-1399',
         'contactPoint' => [
             [
                 '@type'       => 'ContactPoint',
-                'telephone'   => '826-207-1399',
                 'email'       => 'support@reluxwatches.com',
                 'contactType' => 'customer support',
                 'areaServed'  => 'US',
@@ -213,14 +212,28 @@ function dawp_rank_math_organization_schema() {
         ],
     ];
 
-    if (function_exists('dawp_get_store_address')) {
-        $address = dawp_get_store_address();
-        if ($address) {
-            $schema['address'] = [
-                '@type' => 'PostalAddress',
-                'streetAddress' => $address,
-            ];
+    $street = trim((string) get_option('woocommerce_store_address', ''));
+    $street_2 = trim((string) get_option('woocommerce_store_address_2', ''));
+
+    if ($street !== '') {
+        $country_state = trim((string) get_option('woocommerce_default_country', ''));
+        $country = $country_state;
+        $region  = '';
+
+        if (strpos($country_state, ':') !== false) {
+            [$country, $region] = array_pad(explode(':', $country_state, 2), 2, '');
         }
+
+        $address = array_filter([
+            'streetAddress'   => $street_2 !== '' ? $street . ', ' . $street_2 : $street,
+            'addressLocality' => trim((string) get_option('woocommerce_store_city', '')),
+            'addressRegion'   => $region,
+            'postalCode'      => trim((string) get_option('woocommerce_store_postcode', '')),
+            'addressCountry'  => $country,
+        ]);
+
+        $address['@type'] = 'PostalAddress';
+        $schema['address'] = $address;
     }
 
     return $schema;
@@ -242,108 +255,61 @@ function dawp_rank_math_website_schema() {
     ];
 }
 
-function dawp_rank_math_faq_schema_entities($slug) {
-    $faq_items = dawp_rank_math_faq_items($slug);
-    if (!$faq_items) {
-        return [];
+/**
+ * FAQ structured data.
+ *
+ * Policy templates register the exact FAQ array they render on screen via
+ * dawp_register_faq_schema(); the FAQPage JSON-LD is then printed in the footer
+ * from that same data, so the markup always matches the visible content.
+ */
+function dawp_register_faq_schema($items) {
+    if (empty($items) || !is_array($items)) {
+        return;
     }
 
-    return array_map(static function($item) {
-        return [
-            '@type' => 'Question',
-            'name'  => $item['question'],
+    if (!isset($GLOBALS['dawp_faq_schema_items']) || !is_array($GLOBALS['dawp_faq_schema_items'])) {
+        $GLOBALS['dawp_faq_schema_items'] = [];
+    }
+
+    foreach ($items as $item) {
+        if (empty($item['question']) || empty($item['answer'])) {
+            continue;
+        }
+
+        $GLOBALS['dawp_faq_schema_items'][] = [
+            'question' => wp_strip_all_tags((string) $item['question']),
+            'answer'   => wp_strip_all_tags((string) $item['answer']),
+        ];
+    }
+}
+
+add_action('wp_footer', 'dawp_print_faq_schema', 20);
+function dawp_print_faq_schema() {
+    $items = $GLOBALS['dawp_faq_schema_items'] ?? [];
+
+    if (!$items) {
+        return;
+    }
+
+    $entities = [];
+
+    foreach ($items as $item) {
+        $entities[] = [
+            '@type'          => 'Question',
+            'name'           => $item['question'],
             'acceptedAnswer' => [
                 '@type' => 'Answer',
                 'text'  => $item['answer'],
             ],
         ];
-    }, $faq_items);
-}
+    }
 
-function dawp_rank_math_faq_items($slug) {
-    $items = [
-        [
-            'question' => 'Where does Reluxwatches ship?',
-            'answer'   => 'Reluxwatches currently ships exclusively within the United States domestic market.',
-        ],
-        [
-            'question' => 'How much does shipping cost?',
-            'answer'   => 'Shipping cost is shown during checkout before payment is processed.',
-        ],
-        [
-            'question' => 'What is the return window?',
-            'answer'   => 'Eligible products can be returned within 30 days after delivery.',
-        ],
-        [
-            'question' => 'How do I contact Reluxwatches?',
-            'answer'   => 'Customers can contact Reluxwatches support by email at support@reluxwatches.com or through the Contact Us page.',
-        ],
+    $schema = [
+        '@context'   => 'https://schema.org',
+        '@type'      => 'FAQPage',
+        'mainEntity' => $entities,
     ];
 
-    if ('faq' === $slug) {
-        return array_merge($items, [
-            [
-                'question' => 'What is the daily order cutoff time?',
-                'answer'   => 'The daily order cutoff time is 5:00 PM Pacific Standard Time, Monday to Friday.',
-            ],
-            [
-                'question' => 'Which carriers do you use?',
-                'answer'   => 'Orders are shipped with trusted domestic U.S. carriers such as USPS, UPS, FedEx, or DHL.',
-            ],
-            [
-                'question' => 'Is checkout secure?',
-                'answer'   => 'Checkout transactions use an encrypted SSL connection and certified third-party payment gateways.',
-            ],
-        ]);
-    }
-
-    if ('shipping-policy' === $slug) {
-        return [
-            [
-                'question' => 'Where does Reluxwatches ship?',
-                'answer'   => 'Reluxwatches currently ships exclusively within the United States domestic market.',
-            ],
-            [
-                'question' => 'How long does shipping take?',
-                'answer'   => 'Order handling takes 1-2 business days and standard transit takes 3-5 business days.',
-            ],
-            [
-                'question' => 'How much does standard U.S. shipping cost?',
-                'answer'   => 'Standard U.S. shipping is free for eligible orders.',
-            ],
-        ];
-    }
-
-    if ('return-refund-policy' === $slug) {
-        return [
-            [
-                'question' => 'What is the return window?',
-                'answer'   => 'Eligible products can be returned within 30 days after delivery.',
-            ],
-            [
-                'question' => 'Who pays return shipping?',
-                'answer'   => 'Customers are responsible for return shipping costs unless otherwise stated by support.',
-            ],
-            [
-                'question' => 'When will I receive my refund?',
-                'answer'   => 'Approved refunds are processed to the original payment method after the returned item is received and inspected.',
-            ],
-        ];
-    }
-
-    if ('terms-conditions' === $slug) {
-        return [
-            [
-                'question' => 'What do these Terms cover?',
-                'answer'   => 'These Terms govern access to Reluxwatches, browsing the catalog, contacting support, and purchasing products through Reluxwatches.com.',
-            ],
-            [
-                'question' => 'Are shipping, returns, and privacy terms included?',
-                'answer'   => 'Shipping, returns, refunds, and privacy terms are integrated through the Shipping Policy, Return & Refund Policy, and Privacy Policy.',
-            ],
-        ];
-    }
-
-    return [];
+    echo "\n" . '<script type="application/ld+json">' . wp_json_encode($schema) . '</script>' . "\n";
 }
 

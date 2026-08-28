@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Relux Watches — About Us</title>
+<?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+if (!$shop_url) {
+    $shop_url = home_url('/shop/');
+}
+?>
 <style>
 :root{
  --ink:#151515;--muted:#707070;--line:#e7e7e4;--paper:#fff;
@@ -95,16 +99,13 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
  .cta{padding:34px 24px}
 }
 </style>
-</head>
-<body>
-<main>
 
 <section class="hero">
  <div class="container hero-grid">
   <div class="hero-copy">
-   <div class="eyebrow">About Relux</div>
+   <div class="eyebrow">About Reluxwatches</div>
    <h1>TIME, DESIGNED FOR MODERN LIFE.</h1>
-   <p>Relux is a contemporary watch brand built around simplicity, versatility and thoughtful design.</p>
+   <p>Reluxwatches is a contemporary watch brand built around simplicity, versatility and thoughtful design.</p>
   </div>
   <div class="hero-note">
    <strong>A quieter approach to watches.</strong>
@@ -124,7 +125,7 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
    <h2>LESS NOISE.<br>MORE INTENTION.</h2>
   </div>
   <div class="brand-copy">
-   <p>Relux was created for people who appreciate watches without the unnecessary complexity. Our collections bring together clean proportions, considered details and an understated point of view.</p>
+   <p>Reluxwatches was created for people who appreciate watches without the unnecessary complexity. Our collections bring together clean proportions, considered details and an understated point of view.</p>
    <p>We believe the best watch is one that feels personal, works with your everyday style and stays relevant beyond a single season.</p>
   </div>
  </div>
@@ -156,7 +157,7 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
     <div class="eyebrow">What We Value</div>
     <h2>DESIGNED WITH PURPOSE.</h2>
    </div>
-   <p>Three simple principles guide the way we think about our products and the Relux experience.</p>
+   <p>Three simple principles guide the way we think about our products and the Reluxwatches experience.</p>
   </div>
   <div class="values">
    <article class="value"><span class="num">01</span><h3>Clean Design</h3><p>Balanced forms, thoughtful details and nothing unnecessary.</p></article>
@@ -170,15 +171,11 @@ p{font-size:15px;line-height:1.72;color:var(--muted)}
  <div class="container">
   <div class="cta">
    <div>
-    <div class="eyebrow">Explore Relux</div>
+    <div class="eyebrow">Explore Reluxwatches</div>
     <h2>FIND THE WATCH THAT FITS YOUR TIME.</h2>
     <p>Explore our latest watches and discover a style made for your everyday.</p>
    </div>
-   <a class="button light" href="#">SHOP WATCHES →</a>
+   <a class="button light" href="<?php echo esc_url($shop_url); ?>">SHOP WATCHES →</a>
   </div>
  </div>
 </section>
-
-</main>
-</body>
-</html>

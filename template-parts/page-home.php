@@ -132,12 +132,6 @@ $popular_fallback_products = [
     ['image' => $imagewatch('14.png'), 'alt' => 'Reluxwatches bestseller', 'category' => 'Statement', 'name' => 'Reluxwatches Frame 05', 'price' => '$289'],
 ];
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reluxwatches — Homepage</title>
 <style>
 :root{
   --bg:#ffffff;
@@ -425,6 +419,27 @@ p{
   border-color:#2a2a2a;
   color:#fff;
 }
+.newsletter-signup{width:100%}
+.newsletter-alert{
+  margin:0 0 14px;
+  padding:12px 14px;
+  border-left:2px solid #fff;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:14px;
+  line-height:1.5;
+}
+.newsletter-alert.is-error{
+  border-left-color:#ff8f8f;
+  color:#ffd7d7;
+}
+.newsletter-hp{
+  position:absolute;
+  left:-9999px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
 
 /* subtle product hover */
 .product-image img,.collection-card img{
@@ -468,9 +483,6 @@ p{
   .newsletter-form{flex-direction:column}
 }
 </style>
-</head>
-<body>
-<main>
 
   <section class="hero">
     <div class="hero-media">
@@ -544,7 +556,7 @@ p{
           <div class="eyebrow">Everyday Objects</div>
           <h2>MADE FOR EVERYDAY.</h2>
           <p>Quiet proportions, versatile materials and a contemporary point of view. Designed to work with what you already wear.</p>
-          <div><a class="btn" href="<?php echo esc_url($home_category_urls['watches']); ?>">DISCOVER RELUX →</a></div>
+          <div><a class="btn" href="<?php echo esc_url($home_category_urls['watches']); ?>">DISCOVER RELUXWATCHES →</a></div>
         </div>
       </div>
     </div>
@@ -563,7 +575,6 @@ p{
         <a class="style-link" href="<?php echo esc_url($home_category_urls['minimal']); ?>">Minimal</a>
         <a class="style-link" href="<?php echo esc_url($home_category_urls['sport']); ?>">Sport</a>
         <a class="style-link" href="<?php echo esc_url($home_category_urls['statement']); ?>">Statement</a>
-        <a class="style-link" href="<?php echo esc_url($home_category_urls['accessories']); ?>">Accessories</a>
       </nav>
     </div>
   </section>
@@ -604,7 +615,7 @@ p{
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="newsletter">
     <div class="container">
       <div class="newsletter">
         <div>
@@ -612,14 +623,14 @@ p{
           <h2>KEEP IN TIME.</h2>
           <p>New arrivals, product stories and occasional updates.</p>
         </div>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Email address" aria-label="Email address">
-          <button type="submit">JOIN →</button>
-        </form>
+        <div class="newsletter-signup">
+          <?php
+          if (function_exists('dawp_newsletter_form')) {
+              dawp_newsletter_form();
+          }
+          ?>
+        </div>
       </div>
     </div>
   </section>
 
-</main>
-</body>
-</html>

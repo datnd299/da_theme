@@ -182,10 +182,5 @@ add_filter('rank_math/json_ld', function($data) {
         ];
     }
 
-    $faq_entities = function_exists('dawp_rank_math_faq_schema_entities') ? dawp_rank_math_faq_schema_entities($page['slug'] ?? '') : [];
-    if ($faq_entities) {
-        $data['dawp_webpage']['mainEntity'] = $faq_entities;
-    }
-
     return $data;
 }, 99);

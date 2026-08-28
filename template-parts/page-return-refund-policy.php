@@ -11,11 +11,10 @@ if (!defined('ABSPATH')) {
 
 $store_name     = 'Reluxwatches';
 $support_email  = 'support@reluxwatches.com';
-$support_phone  = '826-207-1399';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
-$last_updated   = __('May 29, 2026', 'dawp');
+$last_updated   = __('August 28, 2026', 'dawp');
 
 $return_eligibility = [
     __('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'),
@@ -28,18 +27,18 @@ $return_eligibility = [
 $return_shipping_fees = [
     [
         'title' => __('Defective, Damaged, or Incorrect Products:', 'dawp'),
-        'copy'  => __('The customer is responsible for shipping the item back to our store. We do not cover return shipping costs or provide prepaid labels. If you receive a defective or damaged product, please contact us for instructions.', 'dawp'),
+        'copy'  => __('Reluxwatches covers the cost of return shipping. Contact us with your order number and photos of the issue, and we will email you a prepaid return label. Once the item is received and the issue is confirmed, you receive a full refund, including any original shipping you paid, or a free replacement.', 'dawp'),
     ],
     [
         'title' => __('Customer Remorse / Change of Mind:', 'dawp'),
-        'copy'  => __('The customer is responsible for all return shipping costs. The customer must choose their own shipping carrier and prepay the return shipping fee.', 'dawp'),
+        'copy'  => __('The customer is responsible for return shipping costs. You choose your own carrier, prepay the return shipping, and any original shipping paid on the order is non-refundable.', 'dawp'),
     ],
 ];
 
 $delivery_issues = [
     [
         'title' => __('Damaged on Arrival', 'dawp'),
-        'copy'  => __('If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will assist you with the return process.', 'dawp'),
+        'copy'  => __('If your order arrives damaged, please contact us within 30 days of delivery with photos of the item and the shipping packaging, including the shipping label. We will send a prepaid return label and arrange a free replacement or a full refund.', 'dawp'),
     ],
     [
         'title' => __('Lost Packages / Never Arrived', 'dawp'),
@@ -55,22 +54,22 @@ $return_steps = [
     [
         'title' => __('Receive Approval & Pack Your Item', 'dawp'),
         'copy'  => [
-            __('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number and the Return Address details.', 'dawp'),
+            __('Our support team will review your request within 1-2 business days. Once approved, we will email you a Return Merchandise Authorization (RMA) number and the Return Address details. For defective, damaged, or incorrect items, we also send a prepaid return shipping label.', 'dawp'),
             __('Repack the item securely in its original packaging with all included accessories, tags, and boxes. Place it inside a sturdy outer shipping box. Write the RMA number clearly on the outside of the box.', 'dawp'),
         ],
     ],
     [
         'title' => __('Ship It Back to Our Returns Center', 'dawp'),
-        'copy'  => __('Purchase a shipping label from your preferred carrier (e.g., USPS, UPS, FedEx, or DHL), attach it to the outside of your shipping box, and drop it off at the designated carrier location. The customer is responsible for all shipping costs. We recommend using a trackable shipping service.', 'dawp'),
+        'copy'  => __('For defective, damaged, or incorrect items, attach the prepaid label we provide and drop the package at the carrier location. For change-of-mind returns, purchase a shipping label from your preferred carrier (e.g., USPS, UPS, FedEx, or DHL) at your own cost. We recommend using a trackable shipping service.', 'dawp'),
     ],
 ];
 
 $refund_process = [
     __('Inspection: Once your return package is received at our warehouse, we will inspect the item within 1-2 business days to ensure it meets our return criteria.', 'dawp'),
     __('Approval & Timing: If approved, your refund will be processed automatically back to your original payment method within 7 business days.', 'dawp'),
-    __('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns. Please note that original shipping costs (if any) are non-refundable.', 'dawp'),
+    __('Refund Method: All refunds will be issued solely to your original method of payment within 7 business days of inspection. We do not offer store credit or gift cards as a refund method for returns. For change-of-mind returns, original shipping costs (if any) are non-refundable; for defective, damaged, or incorrect items, the full order amount including original shipping is refunded.', 'dawp'),
     __('Issues with Returns: If a return is approved but is found to be missing accessories, tags, boxes, or shows signs of wear, we reserve the right to refuse the refund and will offer to ship the item back to you at your expense.', 'dawp'),
-    __('Delayed Refunds: If you have not received your refund after 15 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'),
+    __('Delayed Refunds: If you have not received your refund within 10 business days of approval, please check with your bank or credit card company first, then contact us.', 'dawp'),
 ];
 
 $non_returnable_items = [
@@ -92,11 +91,6 @@ $contact_cards = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Phone', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
-    ],
-    [
         'label' => __('Contact Support', 'dawp'),
         'value' => __('Contact Us page', 'dawp'),
         'url'   => $contact_url,
@@ -107,7 +101,7 @@ $contact_cards = [
     ],
     [
         'label' => __('Response Time', 'dawp'),
-        'value' => __('We aim to reply within 1 business day. Response times may vary on weekends, holidays, or high-volume periods.', 'dawp'),
+        'value' => __('We aim to reply within 1-2 business days. Response times may vary on weekends, holidays, or high-volume periods.', 'dawp'),
     ],
 ];
 
@@ -125,7 +119,7 @@ $return_faqs = [
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('The customer is responsible for paying all return shipping costs for both defective/damaged items and change of mind returns. We do not provide prepaid return labels.', 'dawp'),
+        'answer'   => __('If the item is defective, damaged, or incorrect, Reluxwatches pays return shipping and sends you a prepaid label. For change-of-mind returns, the customer pays return shipping and chooses their own carrier.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),
@@ -136,6 +130,10 @@ $return_faqs = [
         'answer'   => __('Once your return package is received, we inspect it within 1-2 business days. Approved refunds are processed automatically to the original payment method within 7 business days.', 'dawp'),
     ],
 ];
+
+if (function_exists('dawp_register_faq_schema')) {
+    dawp_register_faq_schema($return_faqs);
+}
 ?>
 
 <div class="bg-white text-[#111111]">

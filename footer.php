@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
 $support_email  = 'support@reluxwatches.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $footer_logo_path = get_template_directory() . '/assets/img/imagewatch/logowatch.png';
 $footer_logo_url  = get_template_directory_uri() . '/assets/img/imagewatch/logowatch.png';

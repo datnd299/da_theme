@@ -10,11 +10,10 @@ if (!defined('ABSPATH')) {
 }
 
 $support_email = 'support@reluxwatches.com';
-$support_phone = '826-207-1399';
 $store_address = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
-$last_updated  = __('May 29, 2026', 'dawp');
+$last_updated  = __('August 28, 2026', 'dawp');
 
 $shipping_costs = [
     [
@@ -30,7 +29,7 @@ $shipping_costs = [
 $delivery_times = [
     [
         'title' => __('Order Cutoff Time', 'dawp'),
-        'copy'  => __('5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday).', 'dawp'),
+        'copy'  => __('5:00 PM Pacific Time (Monday to Friday).', 'dawp'),
     ],
     [
         'title' => __('Order Handling Time', 'dawp'),
@@ -54,7 +53,7 @@ $carriers = [
 ];
 
 $issue_requirements = [
-    __('Your exact Order Number, such as #MMD1001.', 'dawp'),
+    __('Your exact Order Number, such as SHH-1001.', 'dawp'),
     __('The specific Email Address utilized during checkout.', 'dawp'),
     __('The full and complete Delivery Address.', 'dawp'),
     __('Clear, well-lit photos if the package container, watch, or watch accessory arrived damaged.', 'dawp'),
@@ -70,12 +69,8 @@ $contact_details = [
         'value' => $support_email,
     ],
     [
-        'label' => __('Customer Support Phone', 'dawp'),
-        'value' => $support_phone,
-    ],
-    [
         'label' => __('Response Time', 'dawp'),
-        'value' => __('Within 24 business hours.', 'dawp'),
+        'value' => __('Within 1-2 business days.', 'dawp'),
     ],
 ];
 
@@ -104,6 +99,10 @@ $shipping_faqs = [
         'answer'   => __('Yes. Once your order is dispatched, we send a shipping confirmation email with a direct tracking link and courier details to the email address used at checkout.', 'dawp'),
     ],
 ];
+
+if (function_exists('dawp_register_faq_schema')) {
+    dawp_register_faq_schema($shipping_faqs);
+}
 ?>
 
 <div class="bg-white text-[#111111]">
@@ -140,9 +139,9 @@ $shipping_faqs = [
     <section class="bg-[#FAFAFA] py-12 sm:py-16">
         <div class="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:px-8">
         <section class="rounded-md border border-[#E9E9E9] bg-white p-6 shadow-sm sm:p-8 lg:p-10" aria-labelledby="shipping-locations-title">
-            <h1 id="shipping-locations-title" class="font-heading text-4xl font-extrabold leading-tight text-[#111111] sm:text-5xl">
+            <h2 id="shipping-locations-title" class="font-heading text-4xl font-extrabold leading-tight text-[#111111] sm:text-5xl">
                 <?php esc_html_e('Shipping Locations & Market', 'dawp'); ?>
-            </h1>
+            </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#777777] sm:text-base">
                 <p><?php esc_html_e('We currently ship exclusively within the United States. Reluxwatches serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                 <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
@@ -241,9 +240,6 @@ $shipping_faqs = [
                 <a href="mailto:<?php echo esc_attr($support_email); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#111111] bg-white px-6 text-sm font-extrabold text-[#111111] transition hover:bg-[#FAFAFA]">
                     <?php echo esc_html($support_email); ?>
                 </a>
-                <a href="tel:<?php echo esc_attr($support_phone); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-[#111111] bg-white px-6 text-sm font-extrabold text-[#111111] transition hover:bg-[#FAFAFA]">
-                    <?php echo esc_html($support_phone); ?>
-                </a>
             </div>
         </section>
 
@@ -252,7 +248,7 @@ $shipping_faqs = [
                 <?php esc_html_e('Customer Support Contact Information', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#777777] sm:text-base">
-                <?php esc_html_e('For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We respond to all inquiries within 24 business hours.', 'dawp'); ?>
+                <?php esc_html_e('For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We respond to all inquiries within 1-2 business days.', 'dawp'); ?>
             </p>
             <div class="mt-7 rounded-md border border-[#E9E9E9] p-5">
                 <div class="grid gap-4 md:grid-cols-2">
@@ -261,8 +257,6 @@ $shipping_faqs = [
                             <h3 class="text-sm font-extrabold text-[#111111]"><?php echo esc_html($detail['label']); ?></h3>
                              <?php if ($support_email === $detail['value']) : ?>
                                  <a href="mailto:<?php echo esc_attr($support_email); ?>" class="mt-3 block text-sm leading-6 text-[#777777] transition hover:text-[#405447]"><?php echo esc_html($detail['value']); ?></a>
-                             <?php elseif ($support_phone === $detail['value']) : ?>
-                                 <a href="tel:<?php echo esc_attr($support_phone); ?>" class="mt-3 block text-sm leading-6 text-[#777777] transition hover:text-[#405447]"><?php echo esc_html($detail['value']); ?></a>
                              <?php else : ?>
                                  <p class="mt-3 text-sm leading-6 text-[#777777]"><?php echo esc_html($detail['value']); ?></p>
                              <?php endif; ?>

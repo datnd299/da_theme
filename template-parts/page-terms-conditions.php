@@ -12,10 +12,9 @@ if (!defined('ABSPATH')) {
 $store_name     = 'Reluxwatches';
 $site_domain    = 'Reluxwatches.com';
 $support_email  = 'support@reluxwatches.com';
-$support_phone  = '826-207-1399';
 $store_address  = function_exists('dawp_get_store_address') ? dawp_get_store_address() : '';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$last_updated   = __('May 29, 2026', 'dawp');
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM Pacific Time', 'dawp');
+$last_updated   = __('August 28, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
 $returns_url    = home_url('/return-refund-policy/');
 $privacy_url    = home_url('/privacy-policy/');
@@ -24,7 +23,7 @@ $contact_url    = home_url('/contact-us/');
 $shipping_parameters = [
     __('Shipping Locations: Reluxwatches currently ships exclusively within the United States domestic market.', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
-    __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
+    __('Daily Order Cutoff Time: 5:00 PM Pacific Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
     __('Handling Time: Current order handling and packaging time is 1-2 business days (Monday to Friday), excluding standard U.S. public holidays.', 'dawp'),
     __('Transit Time: Standard U.S. transit takes 3-5 business days (Monday to Friday). Estimated delivery is 4-7 business days total from the date of purchase.', 'dawp'),
     __('Carriers & Tracking: Orders are shipped using trusted domestic U.S. carriers such as USPS, UPS, FedEx, or DHL. Tracking details are emailed once an order is dispatched.', 'dawp'),
@@ -33,7 +32,7 @@ $shipping_parameters = [
 $return_terms = [
     __('Return Window: Customers may request returns within 30 days of documented delivery. Returns are accepted for eligible products in new condition.', 'dawp'),
     __('Product Condition: Eligible products must be entirely unused, in their original pristine condition (New only), and returned with original packaging, tags, labels, accessories, and included parts intact.', 'dawp'),
-    __('Fees & Shipping Costs: There is no restocking fee ($0.00). The customer is responsible for all return shipping costs for both defective/damaged items and change-of-mind returns. We do not cover return shipping fees or provide prepaid shipping labels.', 'dawp'),
+    __('Fees & Shipping Costs: There is no restocking fee ($0.00). For defective, damaged, or incorrect items, Reluxwatches covers return shipping and provides a prepaid label. For change-of-mind returns, the customer is responsible for return shipping costs.', 'dawp'),
     __('Refund Timelines: Approved refunds are processed back to the original payment method within up to 7 business days.', 'dawp'),
 ];
 
@@ -48,11 +47,6 @@ $contact_details = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Customer Support Phone', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
-    ],
-    [
         'label' => __('Customer Service Hours', 'dawp'),
         'value' => $business_hours,
     ],
@@ -64,7 +58,7 @@ $contact_details = [
 ];
 
 if ($store_address) {
-    array_splice($contact_details, 3, 0, [[
+    array_splice($contact_details, 2, 0, [[
         'label' => __('Physical Business Address', 'dawp'),
         'value' => $store_address,
     ]]);
@@ -90,7 +84,7 @@ $sections = [
         'title' => __('3. Orders and Order Acceptance', 'dawp'),
         'copy'  => [
             __('An order confirmation email signifies that we have successfully received your purchase request. We reserve the absolute right to review, decline, cancel, or limit any order when necessary, including instances of suspected transaction fraud, incorrect product pricing, unavailable warehouse inventory, payment processing errors, shipping restrictions, or policy violations.', 'dawp'),
-            __('If an order is canceled after successful billing, the full amount will be refunded immediately to your original payment method.', 'dawp'),
+            __('If an order is canceled after successful billing, the full amount will be refunded to your original payment method within 7 business days.', 'dawp'),
         ],
     ],
     [
@@ -174,6 +168,10 @@ $terms_faqs = [
         ),
     ],
 ];
+
+if (function_exists('dawp_register_faq_schema')) {
+    dawp_register_faq_schema($terms_faqs);
+}
 ?>
 
 <div class="bg-white text-[#111111]">

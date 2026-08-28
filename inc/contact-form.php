@@ -83,11 +83,12 @@ function dawp_handle_contact_form() {
     }
 
     $topics = [
-        'order'   => 'Order or tracking question',
-        'return'  => 'Return or refund request',
-        'product' => 'Product question',
-        'privacy' => 'Privacy request',
-        'other'   => 'General support',
+        'order'    => 'Order or tracking question',
+        'shipping' => 'Shipping question',
+        'return'   => 'Return or refund request',
+        'product'  => 'Product question',
+        'privacy'  => 'Privacy request',
+        'other'    => 'General support',
     ];
 
     $name         = isset($_POST['contact_name']) ? sanitize_text_field(wp_unslash($_POST['contact_name'])) : '';

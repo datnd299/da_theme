@@ -378,18 +378,3 @@ $product_card = static function ($product, $index = 0, $loading = 'lazy', $sizes
         </div>
     </div>
 </section>
-
-<section class="home-newsletter" aria-labelledby="home-newsletter-title">
-    <div class="home-shell home-newsletter__grid">
-        <div>
-            <p class="home-kicker"><?php esc_html_e('Inbox drop list', 'dawp'); ?></p>
-            <h2 id="home-newsletter-title"><?php esc_html_e('GET THE DROP.', 'dawp'); ?></h2>
-            <p><?php esc_html_e('New releases, collector stories, and pieces worth discovering.', 'dawp'); ?></p>
-        </div>
-        <form class="home-newsletter__form" action="<?php echo esc_url(home_url('/')); ?>" method="post">
-            <label class="screen-reader-text" for="home-newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-            <input id="home-newsletter-email" type="email" name="email" placeholder="<?php esc_attr_e('Email address', 'dawp'); ?>" required>
-            <button type="submit"><?php esc_html_e('Join', 'dawp'); ?><span aria-hidden="true">&rarr;</span></button>
-        </form>
-    </div>
-</section>

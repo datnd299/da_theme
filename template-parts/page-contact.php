@@ -77,9 +77,19 @@ $topics = [
                 </div>
                 <div class="border border-[#B8B8B2]/55 bg-white p-6">
                     <span class="cv-detail-line"></span>
-                    <h3 class="cv-detail-title"><?php esc_html_e('Response', 'dawp'); ?></h3>
-                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php esc_html_e('Within 1 business day.', 'dawp'); ?></p>
+                    <h3 class="cv-detail-title"><?php esc_html_e('Support Hours', 'dawp'); ?></h3>
+                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST. We aim to reply within 1 business day.', 'dawp'); ?></p>
                 </div>
+                <?php
+                $contact_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
+                if ($contact_address) :
+                ?>
+                <div class="border border-[#B8B8B2]/55 bg-white p-6">
+                    <span class="cv-detail-line"></span>
+                    <h3 class="cv-detail-title"><?php esc_html_e('Mailing Address', 'dawp'); ?></h3>
+                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php echo esc_html($contact_address); ?></p>
+                </div>
+                <?php endif; ?>
                 <div class="border border-[#B8B8B2]/55 bg-white p-6">
                     <span class="cv-detail-line"></span>
                     <h3 class="cv-detail-title"><?php esc_html_e('Orders', 'dawp'); ?></h3>
@@ -88,7 +98,7 @@ $topics = [
                 <div class="border border-[#B8B8B2]/55 bg-white p-6">
                     <span class="cv-detail-line"></span>
                     <h3 class="cv-detail-title"><?php esc_html_e('Products', 'dawp'); ?></h3>
-                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php esc_html_e('Fit, materials, styling, and product details.', 'dawp'); ?></p>
+                    <p class="text-[15px] leading-7 text-[#5E625F]"><?php esc_html_e('Case size, materials, styling, and product details.', 'dawp'); ?></p>
                 </div>
             </div>
         </div>

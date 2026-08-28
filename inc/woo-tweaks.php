@@ -138,7 +138,9 @@ function dawp_get_store_address_line() {
     $city      = $countries ? $countries->get_base_city() : get_option('woocommerce_store_city', '');
     $postcode  = $countries ? $countries->get_base_postcode() : get_option('woocommerce_store_postcode', '');
     $state     = $countries ? $countries->get_base_state() : '';
-    $country   = $countries ? $countries->get_base_country() : '';
+    // Corvelshop is U.S.-only per every policy page; key off the theme's market
+    // country rather than the WooCommerce base-country option.
+    $country   = function_exists('dawp_store_country') ? dawp_store_country() : ($countries ? $countries->get_base_country() : 'US');
 
     $address_1 = trim(wp_strip_all_tags((string) $address_1));
     $address_2 = trim(wp_strip_all_tags((string) $address_2));

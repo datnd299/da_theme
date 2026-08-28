@@ -1,94 +1,522 @@
 <?php
 /**
- * SEO data for Corvelshop virtual pages.
- * Fixes $wp_query state before Rank Math runs and injects title/description via Rank Math filters.
+ * SEO + structured data for Corvelshop.
+ *
+ * No SEO plugin (Rank Math / Yoast) is active on this site, so the theme is
+ * responsible for:
+ *   - per-context <title> parts (title-tag support does the rest)
+ *   - a real <meta name="description">
+ *   - canonical + Open Graph / Twitter tags
+ *   - Organization + WebSite JSON-LD (site-wide)
+ *   - extending WooCommerce's Product JSON-LD with the fields Google Merchant
+ *     Center / Google Shopping expect (brand, itemCondition, return + shipping
+ *     policy) so the structured data matches the visible policy pages.
  *
  * @package dawp
  */
 
+defined('ABSPATH') || exit;
+
+/**
+ * Storefront brand name. The whole theme is hard-branded "Corvelshop"
+ * (header, footer, policy copy), so this stays independent of the WordPress
+ * Site Title option, which on this install still holds a leftover value.
+ * Filterable for reuse on other stores.
+ */
+function dawp_brand_name() {
+    return apply_filters('dawp_brand_name', 'Corvelshop');
+}
+
+/**
+ * Primary market country (ISO 3166-1 alpha-2). Corvelshop ships U.S.-only per
+ * every policy page, so structured data / shipping data key off this rather
+ * than the WooCommerce base-country option. Filterable.
+ */
+function dawp_store_country() {
+    return apply_filters('dawp_store_country', 'US');
+}
+
+/**
+ * Default meta description used when a more specific one is not available.
+ */
+function dawp_default_description() {
+    return apply_filters(
+        'dawp_default_description',
+        'Corvelshop is a modern watch destination offering refined timepieces and watch accessories built for precision with presence.'
+    );
+}
+
+/**
+ * Title + description copy for the virtual (code-generated) pages.
+ */
 function dawp_get_virtual_seo() {
-    $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    $uri = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
 
     $map = [
         'about-us' => [
-            'title'       => "About Us – Corvelshop",
-            'description' => "Corvelshop is a modern watch destination offering refined timepieces and watch accessories for everyday confidence.",
+            'title'       => 'About Us',
+            'description' => 'Corvelshop is a modern watch destination offering refined timepieces and watch accessories for everyday confidence.',
         ],
         'faq' => [
-            'title'       => "FAQ – Corvelshop",
-            'description' => "Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at Corvelshop.",
+            'title'       => 'FAQ',
+            'description' => 'Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at Corvelshop.',
         ],
         'contact-us' => [
-            'title'       => "Contact Us – Corvelshop",
-            'description' => "Contact Corvelshop for help with orders, returns, or product inquiries. Customer Service Hours: Monday-Friday, 9:00 AM-6:00 PM PST.",
+            'title'       => 'Contact Us',
+            'description' => 'Contact Corvelshop for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.',
         ],
         'shipping-policy' => [
-            'title'       => "Shipping Policy – Corvelshop",
-            'description' => "Review Corvelshop shipping policy, including U.S. shipping locations, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, tracking, and delivery support.",
+            'title'       => 'Shipping Policy',
+            'description' => 'Corvelshop shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
         ],
         'return-refund-policy' => [
-            'title'       => "Return & Refund Policy – Corvelshop",
-            'description' => "Review Corvelshop return and refund policy, including the 30-day return window, return by mail, no restocking fee, and refund timing.",
+            'title'       => 'Return & Refund Policy',
+            'description' => 'Corvelshop return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
         ],
         'shipping-returns' => [
-            'title'       => "Shipping & Returns – Corvelshop",
-            'description' => "Choose the Corvelshop Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.",
+            'title'       => 'Shipping & Returns',
+            'description' => 'Choose the Corvelshop Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
         ],
         'terms-conditions' => [
-            'title'       => "Terms & Conditions – Corvelshop",
-            'description' => "Read the terms and conditions for shopping at Corvelshop, including purchase policies and site use guidelines.",
+            'title'       => 'Terms & Conditions',
+            'description' => 'Read the terms and conditions for shopping at Corvelshop, including purchase policies and site use guidelines.',
         ],
         'privacy-policy' => [
-            'title'       => "Privacy Policy – Corvelshop",
-            'description' => "Learn how Corvelshop collects, uses, and protects your personal information when you shop with us.",
+            'title'       => 'Privacy Policy',
+            'description' => 'Learn how Corvelshop collects, uses, and protects your personal information when you shop with us.',
         ],
         'track-order' => [
-            'title'       => "Track Your Order – Corvelshop",
-            'description' => "Track your Corvelshop order status. Enter your order number and email to check your delivery progress.",
+            'title'       => 'Track Your Order',
+            'description' => 'Track your Corvelshop order status. Enter your order number and email to check your delivery progress.',
         ],
     ];
 
     return $map[$uri] ?? null;
 }
 
-/**
- * Fix $wp_query state BEFORE Rank Math reads it.
- * Rank Math hooks into 'wp' at default priority; we run at 0 to go first.
- */
-add_action('wp', 'dawp_fix_virtual_query_for_rankmath', 0);
-function dawp_fix_virtual_query_for_rankmath() {
-    global $wp_query;
-    $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+/* -------------------------------------------------------------------------
+ * <title> parts
+ * ---------------------------------------------------------------------- */
 
-    if (!isset(dawp_virtual_page_map()[$uri])) {
+add_filter('document_title_parts', 'dawp_document_title_parts');
+function dawp_document_title_parts($parts) {
+    $virtual = dawp_get_virtual_seo();
+
+    if ($virtual) {
+        $parts['title'] = $virtual['title'];
+        unset($parts['tagline']);
+        return $parts;
+    }
+
+    if (is_front_page()) {
+        $parts['title']   = dawp_brand_name();
+        $parts['tagline'] = 'Modern Luxury Watches';
+        return $parts;
+    }
+
+    if (function_exists('is_shop') && (is_shop() || is_product_taxonomy())) {
+        if (is_product_category() || is_product_tag()) {
+            $term = get_queried_object();
+            if ($term && !is_wp_error($term)) {
+                $parts['title'] = $term->name;
+            }
+        } else {
+            $parts['title'] = 'Shop All Watches';
+        }
+        unset($parts['tagline']);
+    }
+
+    return $parts;
+}
+
+/* -------------------------------------------------------------------------
+ * <meta name="description">, canonical, Open Graph, Twitter
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Resolve the best meta description for the current request.
+ */
+function dawp_current_description() {
+    $virtual = dawp_get_virtual_seo();
+    if ($virtual) {
+        return $virtual['description'];
+    }
+
+    if (is_front_page()) {
+        return dawp_default_description();
+    }
+
+    if (function_exists('is_product') && is_product()) {
+        $product = wc_get_product(get_queried_object_id());
+        if ($product) {
+            $text = $product->get_short_description() ?: $product->get_description();
+            $text = wp_strip_all_tags(do_shortcode($text));
+            if ($text) {
+                return wp_trim_words($text, 32, '');
+            }
+            return sprintf('Shop the %s at Corvelshop — modern luxury watches built for precision with presence.', $product->get_name());
+        }
+    }
+
+    if (function_exists('is_shop') && is_shop()) {
+        return 'Shop modern luxury watches at Corvelshop — refined materials, clean presentation, and precise product detail.';
+    }
+
+    if (is_product_category() || is_product_tag()) {
+        $term = get_queried_object();
+        if ($term && !is_wp_error($term) && !empty($term->description)) {
+            return wp_trim_words(wp_strip_all_tags($term->description), 32, '');
+        }
+        if ($term && !is_wp_error($term)) {
+            return sprintf('Browse %s at Corvelshop — modern luxury watches with confident form and refined presence.', $term->name);
+        }
+    }
+
+    if (is_singular()) {
+        $excerpt = get_the_excerpt(get_queried_object_id());
+        if ($excerpt) {
+            return wp_trim_words(wp_strip_all_tags($excerpt), 32, '');
+        }
+    }
+
+    return dawp_default_description();
+}
+
+/**
+ * Canonical URL for the current request (theme handles the cases WP core does
+ * not: virtual pages, shop, front page).
+ */
+function dawp_current_canonical() {
+    if (dawp_get_virtual_seo()) {
+        $path = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
+        return home_url('/' . $path . '/');
+    }
+
+    if (is_front_page()) {
+        return home_url('/');
+    }
+
+    if (function_exists('is_shop') && is_shop()) {
+        $shop_id = wc_get_page_id('shop');
+        return $shop_id ? get_permalink($shop_id) : home_url('/shop/');
+    }
+
+    if (is_product_category() || is_product_tag()) {
+        $link = get_term_link(get_queried_object());
+        return is_wp_error($link) ? '' : $link;
+    }
+
+    if (is_singular()) {
+        return get_permalink(get_queried_object_id());
+    }
+
+    return '';
+}
+
+add_action('wp_head', 'dawp_head_meta', 1);
+function dawp_head_meta() {
+    if (is_admin()) {
         return;
     }
 
-    $wp_query->is_404      = false;
-    $wp_query->is_page     = true;
-    $wp_query->is_singular = true;
-    status_header(200);
-}
+    $description = trim((string) dawp_current_description());
+    $canonical   = dawp_current_canonical();
+    $brand       = dawp_brand_name();
 
-// Inject correct title into Rank Math for virtual pages.
-add_filter('rank_math/frontend/title', 'dawp_rankmath_virtual_title');
-function dawp_rankmath_virtual_title($title) {
-    $seo = dawp_get_virtual_seo();
-    return $seo ? $seo['title'] : $title;
-}
+    // OG type + image.
+    $og_type = is_singular('post') ? 'article' : 'website';
+    $image   = '';
 
-// Inject correct description into Rank Math for virtual pages.
-add_filter('rank_math/frontend/description', 'dawp_rankmath_virtual_description');
-function dawp_rankmath_virtual_description($desc) {
-    $seo = dawp_get_virtual_seo();
-    return $seo ? $seo['description'] : $desc;
-}
-
-// Force indexable robots for virtual pages (prevent noindex from 404 fallback).
-add_filter('rank_math/frontend/robots', 'dawp_rankmath_virtual_robots');
-function dawp_rankmath_virtual_robots($robots) {
-    if (dawp_get_virtual_seo()) {
-        return ['index' => 'index', 'follow' => 'follow'];
+    if (function_exists('is_product') && is_product()) {
+        $og_type = 'product';
+        $product = wc_get_product(get_queried_object_id());
+        if ($product && $product->get_image_id()) {
+            $image = wp_get_attachment_image_url($product->get_image_id(), 'large');
+        }
+    } elseif (is_singular() && has_post_thumbnail(get_queried_object_id())) {
+        $image = get_the_post_thumbnail_url(get_queried_object_id(), 'large');
     }
-    return $robots;
+
+    if (!$image) {
+        $image = get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png';
+    }
+
+    $title = wp_get_document_title();
+
+    echo "\n<!-- Corvelshop SEO -->\n";
+
+    if ($description) {
+        printf('<meta name="description" content="%s">' . "\n", esc_attr($description));
+    }
+
+    // WordPress core prints rel=canonical for singular views with a real object
+    // ID; only emit our own for the cases it skips (virtual pages, shop, front
+    // page, product taxonomies) to avoid a duplicate tag.
+    $core_handles_canonical = is_singular() && get_queried_object_id() && !dawp_get_virtual_seo();
+    if ($canonical && !$core_handles_canonical) {
+        printf('<link rel="canonical" href="%s">' . "\n", esc_url($canonical));
+    }
+
+    printf('<meta property="og:site_name" content="%s">' . "\n", esc_attr($brand));
+    printf('<meta property="og:type" content="%s">' . "\n", esc_attr($og_type));
+    printf('<meta property="og:title" content="%s">' . "\n", esc_attr($title));
+    if ($description) {
+        printf('<meta property="og:description" content="%s">' . "\n", esc_attr($description));
+    }
+    if ($canonical) {
+        printf('<meta property="og:url" content="%s">' . "\n", esc_url($canonical));
+    }
+    if ($image) {
+        printf('<meta property="og:image" content="%s">' . "\n", esc_url($image));
+    }
+
+    echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
+    printf('<meta name="twitter:title" content="%s">' . "\n", esc_attr($title));
+    if ($description) {
+        printf('<meta name="twitter:description" content="%s">' . "\n", esc_attr($description));
+    }
+    if ($image) {
+        printf('<meta name="twitter:image" content="%s">' . "\n", esc_url($image));
+    }
+
+    echo "<!-- /Corvelshop SEO -->\n\n";
+}
+
+// WordPress core only prints rel=canonical for singular views with a real
+// object ID, so it is safe to keep it enabled alongside ours (our early
+// wp_head hook covers the virtual pages / shop that core skips). Prevent a
+// duplicate tag on standard singular pages by removing core's copy there.
+add_action('wp', function () {
+    if (dawp_get_virtual_seo() || (function_exists('is_shop') && is_shop()) || is_front_page()) {
+        remove_action('wp_head', 'rel_canonical');
+    }
+});
+
+/* -------------------------------------------------------------------------
+ * Organization + WebSite JSON-LD (site-wide)
+ * ---------------------------------------------------------------------- */
+
+add_action('wp_head', 'dawp_org_website_schema', 20);
+function dawp_org_website_schema() {
+    if (is_admin()) {
+        return;
+    }
+
+    $brand = dawp_brand_name();
+    $home  = home_url('/');
+    $logo  = get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png';
+    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
+
+    $organization = [
+        '@type'  => 'Organization',
+        '@id'    => $home . '#organization',
+        'name'   => $brand,
+        'url'    => $home,
+        'logo'   => [
+            '@type' => 'ImageObject',
+            'url'   => $logo,
+        ],
+        'email'        => $email,
+        'contactPoint' => [
+            '@type'             => 'ContactPoint',
+            'contactType'       => 'customer support',
+            'email'             => $email,
+            'availableLanguage' => 'English',
+            'areaServed'        => dawp_store_country(),
+            'hoursAvailable'    => [
+                '@type'     => 'OpeningHoursSpecification',
+                'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                'opens'     => '09:00',
+                'closes'    => '18:00',
+            ],
+        ],
+    ];
+
+    $address = dawp_schema_postal_address();
+    if ($address) {
+        $organization['address'] = $address;
+    }
+
+    $website = [
+        '@type'           => 'WebSite',
+        '@id'             => $home . '#website',
+        'url'             => $home,
+        'name'            => $brand,
+        'publisher'       => ['@id' => $home . '#organization'],
+        'inLanguage'      => get_bloginfo('language'),
+        'potentialAction' => [
+            '@type'       => 'SearchAction',
+            'target'      => [
+                '@type'       => 'EntryPoint',
+                'urlTemplate' => home_url('/?s={search_term_string}&post_type=product'),
+            ],
+            'query-input' => 'required name=search_term_string',
+        ],
+    ];
+
+    $graph = [
+        '@context' => 'https://schema.org',
+        '@graph'   => [$organization, $website],
+    ];
+
+    echo '<script type="application/ld+json">'
+        . wp_json_encode($graph, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+        . '</script>' . "\n";
+}
+
+/**
+ * PostalAddress node built from the WooCommerce store address, when set.
+ */
+function dawp_schema_postal_address() {
+    if (!function_exists('WC') || !WC() || !isset(WC()->countries)) {
+        return null;
+    }
+
+    $countries = WC()->countries;
+    $street    = trim(wp_strip_all_tags((string) $countries->get_base_address()));
+    $street2   = trim(wp_strip_all_tags((string) $countries->get_base_address_2()));
+    $city      = trim(wp_strip_all_tags((string) $countries->get_base_city()));
+    $postcode  = trim(wp_strip_all_tags((string) $countries->get_base_postcode()));
+    $state     = trim(wp_strip_all_tags((string) $countries->get_base_state()));
+    $country   = dawp_store_country();
+
+    if (!$street && !$city) {
+        return null;
+    }
+
+    $address = ['@type' => 'PostalAddress'];
+    if ($street) {
+        $address['streetAddress'] = trim($street . ' ' . $street2);
+    }
+    if ($city) {
+        $address['addressLocality'] = $city;
+    }
+    if ($state) {
+        $address['addressRegion'] = $state;
+    }
+    if ($postcode) {
+        $address['postalCode'] = $postcode;
+    }
+    if ($country) {
+        $address['addressCountry'] = $country;
+    }
+
+    return $address;
+}
+
+/* -------------------------------------------------------------------------
+ * Extend WooCommerce Product JSON-LD for Merchant Center / Shopping
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Brand for a product: WooCommerce Brands taxonomy → a "brand" attribute →
+ * the storefront name (Corvelshop is sold as its own house brand).
+ */
+function dawp_get_product_brand($product) {
+    if (!$product instanceof WC_Product) {
+        return dawp_brand_name();
+    }
+
+    foreach (['product_brand', 'pwb-brand', 'yith_product_brand'] as $taxonomy) {
+        if (!taxonomy_exists($taxonomy)) {
+            continue;
+        }
+        $terms = get_the_terms($product->get_id(), $taxonomy);
+        if ($terms && !is_wp_error($terms)) {
+            return $terms[0]->name;
+        }
+    }
+
+    foreach (['brand', 'pa_brand'] as $attribute) {
+        $value = $product->get_attribute($attribute);
+        if ($value) {
+            return $value;
+        }
+    }
+
+    return dawp_brand_name();
+}
+
+/**
+ * Return policy node mirroring template-parts/page-return-refund-policy.php.
+ */
+function dawp_merchant_return_policy() {
+    return [
+        '@type'                => 'MerchantReturnPolicy',
+        'applicableCountry'    => dawp_store_country(),
+        'returnPolicyCategory' => 'https://schema.org/MerchantReturnFiniteReturnWindow',
+        'merchantReturnDays'   => 30,
+        'returnMethod'         => 'https://schema.org/ReturnByMail',
+    ];
+}
+
+/**
+ * Shipping node mirroring template-parts/page-shipping-policy.php
+ * (free U.S. standard shipping, 1-3 day handling, 5-7 day transit).
+ */
+function dawp_offer_shipping_details() {
+    $currency = function_exists('get_woocommerce_currency') ? get_woocommerce_currency() : 'USD';
+
+    return [
+        '@type'               => 'OfferShippingDetails',
+        'shippingRate'        => [
+            '@type'    => 'MonetaryAmount',
+            'value'    => 0,
+            'currency' => $currency,
+        ],
+        'shippingDestination' => [
+            '@type'          => 'DefinedRegion',
+            'addressCountry' => dawp_store_country(),
+        ],
+        'deliveryTime'        => [
+            '@type'        => 'ShippingDeliveryTime',
+            'handlingTime' => [
+                '@type'    => 'QuantitativeValue',
+                'minValue' => 1,
+                'maxValue' => 3,
+                'unitCode' => 'DAY',
+            ],
+            'transitTime'  => [
+                '@type'    => 'QuantitativeValue',
+                'minValue' => 5,
+                'maxValue' => 7,
+                'unitCode' => 'DAY',
+            ],
+        ],
+    ];
+}
+
+add_filter('woocommerce_structured_data_product', 'dawp_structured_data_product', 20, 2);
+function dawp_structured_data_product($markup, $product) {
+    if (empty($markup) || !is_array($markup)) {
+        return $markup;
+    }
+
+    $brand = dawp_get_product_brand($product);
+    if ($brand) {
+        $markup['brand'] = [
+            '@type' => 'Brand',
+            'name'  => $brand,
+        ];
+    }
+
+    // MPN falls back to the SKU so listings always carry an identifier pair.
+    if (empty($markup['mpn']) && !empty($markup['sku'])) {
+        $markup['mpn'] = (string) $markup['sku'];
+    }
+
+    return $markup;
+}
+
+add_filter('woocommerce_structured_data_product_offer', 'dawp_structured_data_product_offer', 20, 2);
+function dawp_structured_data_product_offer($offer, $product) {
+    if (empty($offer) || !is_array($offer)) {
+        return $offer;
+    }
+
+    $offer['itemCondition']           = 'https://schema.org/NewCondition';
+    $offer['hasMerchantReturnPolicy'] = dawp_merchant_return_policy();
+    $offer['shippingDetails']         = dawp_offer_shipping_details();
+
+    return $offer;
 }

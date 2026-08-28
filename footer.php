@@ -313,6 +313,8 @@ $footer_policy_links = [
     </div>
 </footer>
 
+<?php if (function_exists('dawp_cart_drawer_markup')) { dawp_cart_drawer_markup(); } ?>
+
 <?php wp_footer(); ?>
 </body>
 </html>

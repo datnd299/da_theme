@@ -7,6 +7,15 @@ defined('ABSPATH') || exit;
 global $product;
 if (empty($product) || !$product->is_visible()) return;
 
+/**
+ * Fire the standard shop-loop hook. This custom card replaces WooCommerce's
+ * default loop markup, but WooCommerce (and plugins) also hang non-visual
+ * behaviour off `woocommerce_shop_loop` — most importantly per-product
+ * structured data (WC_Structured_Data::generate_product_data), which Google
+ * Shopping / free listings read on category and search pages.
+ */
+do_action('woocommerce_shop_loop');
+
 $cats     = get_the_terms($product->get_id(), 'product_cat');
 $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
 $image_id = $product->get_image_id();

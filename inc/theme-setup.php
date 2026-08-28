@@ -1,7 +1,6 @@
 <?php
 add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
-add_filter('pre_get_document_title', 'dawp_document_title');
 remove_action('wp_head', 'wp_site_icon', 99);
 add_action('wp_head', 'dawp_logo_favicon', 100);
 
@@ -17,8 +16,14 @@ function dawp_setup() {
     add_theme_support('wc-product-gallery-slider');
 }
 
-function dawp_document_title() {
-    return 'For Everyday Confidence';
+/**
+ * Cache-friendly asset version: file mtime in production, falls back to a
+ * constant when the file is missing. Never use time() — it disables browser
+ * caching for real visitors and hurts Core Web Vitals / landing-page quality.
+ */
+function dawp_asset_ver($relative_path) {
+    $absolute = get_template_directory() . '/' . ltrim($relative_path, '/');
+    return file_exists($absolute) ? (string) filemtime($absolute) : '1.0.0';
 }
 
 function dawp_logo_favicon() {
@@ -35,8 +40,9 @@ add_action('template_redirect', 'redirect_search_to_product');
 function redirect_search_to_product() {
     // Chỉ xử lý khi là trang search và chưa có post_type
     if (is_search() && !isset($_GET['post_type'])) {
+        $request_uri = isset($_SERVER['REQUEST_URI']) ? wp_unslash($_SERVER['REQUEST_URI']) : home_url('/');
         wp_safe_redirect(
-            add_query_arg('post_type', 'product', $_SERVER['REQUEST_URI'])
+            esc_url_raw(add_query_arg('post_type', 'product', $request_uri))
         );
         exit;
     }
@@ -54,7 +60,7 @@ function theme_search_template($template) {
 
 add_action('wp_enqueue_scripts', 'dawp_scripts');
 function dawp_scripts() {
-    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], time());
+    wp_enqueue_style('dawp-main', get_template_directory_uri() . '/assets/css/main.css', [], dawp_asset_ver('assets/css/main.css'));
 
     wp_enqueue_style('dawp-tw-main', get_template_directory_uri() . '/assets/css/tw/tw-main.css', [], '1.0.2');
 
@@ -62,10 +68,10 @@ function dawp_scripts() {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
         dawp_remove_styles();
     }
-    
+
     if ( class_exists( 'WooCommerce' ) ) {
         if ( is_account_page() ) {
-            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', [], time());
+            wp_enqueue_style('dawp-account', get_template_directory_uri() . '/assets/css/account.css', [], dawp_asset_ver('assets/css/account.css'));
         } elseif ( is_product() ) {
             wp_enqueue_style('dawp-product', get_template_directory_uri() . '/assets/css/product.css', [], '1.0.7');
             dawp_remove_styles();
@@ -80,9 +86,7 @@ function dawp_scripts() {
         }
     }
 
-    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], '1.0.2', true);
-
-    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
+    wp_enqueue_script('dawp-main', get_template_directory_uri() . '/assets/js/main.js', [], dawp_asset_ver('assets/js/main.js'), true);
 }
 
 function dawp_remove_styles() {

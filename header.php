@@ -205,7 +205,7 @@ $nav_items = [
   }
 
   .qb-cart-link .qb-cart-text,
-  .qb-cart-link .qb-cart-count {
+  .qb-cart-link .dawp-cart-count {
     display: inline;
   }
 
@@ -318,7 +318,7 @@ $nav_items = [
     }
 
     .qb-cart-link .qb-cart-text,
-    .qb-cart-link .qb-cart-count {
+    .qb-cart-link .dawp-cart-count {
       display: none;
     }
 
@@ -392,10 +392,10 @@ $nav_items = [
                 <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </a>
 
-            <a class="qb-cart-link" href="<?php echo esc_url($cart_url); ?>" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>">
+            <a class="qb-cart-link" id="dawp-cart-toggle" href="<?php echo esc_url($cart_url); ?>" aria-label="<?php esc_attr_e('Shopping cart', 'dawp'); ?>" aria-haspopup="dialog" aria-controls="dawp-cart-drawer">
                 <svg class="qb-cart-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Z"></path><path d="M9 7a3 3 0 0 1 6 0"></path></svg>
                 <span class="qb-cart-text"><?php esc_html_e('Bag', 'dawp'); ?></span>
-                <span class="qb-cart-count">&nbsp;(<?php echo esc_html($cart_count); ?>)</span>
+                <?php echo function_exists('dawp_cart_count_badge_html') ? dawp_cart_count_badge_html($cart_count) : '<span class="dawp-cart-count">&nbsp;(' . esc_html($cart_count) . ')</span>'; ?>
             </a>
 
             <button class="qb-menu-toggle" type="button" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>" aria-controls="qb-mobile-menu" onclick="document.getElementById('qb-mobile-menu').classList.toggle('is-open')">

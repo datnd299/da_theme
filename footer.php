@@ -125,12 +125,14 @@ $payment_methods = [
         }
         @media (max-width: 620px) {
             .lux-footer__inner { width:min(100% - 32px,1280px); }
+            .lux-footer__top { padding:64px 0 28px; }
             .lux-footer__brand strong { font-size:34px; }
             .lux-footer__columns { grid-template-columns:1fr; }
-            .lux-footer__bottom { display:grid; grid-template-columns:1fr; justify-items:start; gap:14px; padding:18px 0 calc(34px + env(safe-area-inset-bottom)); }
+            .lux-footer__bottom { display:grid; grid-template-columns:1fr; justify-items:start; gap:12px; padding:18px 0 calc(30px + env(safe-area-inset-bottom)); }
+            .lux-footer__bottom p { order:2; }
             .lux-footer__payments { display:flex; width:100%; justify-content:flex-start; }
-            .lux-footer__bottom .lux-footer__payments { display:none; }
-            .lux-footer__payments--mobile { display:flex; padding:0 0 34px; }
+            .lux-footer__bottom .lux-footer__payments { order:1; display:flex; }
+            .lux-footer__payments--mobile { display:none; }
             .lux-footer__payment { display:inline-flex; }
         }
     </style>
@@ -176,28 +178,6 @@ $payment_methods = [
                     </nav>
                 <?php endforeach; ?>
             </div>
-        </div>
-
-        <div class="lux-footer__payments lux-footer__payments--mobile" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
-            <?php foreach ($payment_methods as $method) : ?>
-                <?php
-                $payment_path = get_template_directory() . '/assets/img/payment/' . $method['file'];
-                $payment_url  = get_template_directory_uri() . '/assets/img/payment/' . $method['file'];
-
-                if (!file_exists($payment_path)) {
-                    continue;
-                }
-
-                $payment_url = add_query_arg('ver', filemtime($payment_path), $payment_url);
-                ?>
-                <span class="lux-footer__payment">
-                    <?php
-                    echo function_exists('dawp_get_responsive_image')
-                        ? dawp_get_responsive_image($payment_url, $method['name'], '', 52, 32, 'lazy', '52px')
-                        : '<img src="' . esc_url($payment_url) . '" width="52" height="32" alt="' . esc_attr($method['name']) . '" decoding="async" loading="lazy">';
-                    ?>
-                </span>
-            <?php endforeach; ?>
         </div>
 
         <div class="lux-footer__divider" aria-hidden="true"></div>

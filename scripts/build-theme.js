@@ -25,7 +25,17 @@ const getMeta = (key) => {
 
 const themeName    = getMeta('Theme Name');
 const themeVersion = getMeta('Version');
-const themeSlug    = themeName.toLowerCase().replace(/\s+/g, '');
+
+// The `dawp` token is used as a PHP function/hook prefix and CSS class prefix
+// throughout the theme, so its replacement must be a valid PHP identifier:
+// letters, digits and underscores only. Prefer the Text Domain, fall back to a
+// sanitized Theme Name. Anything else (dots, dashes, spaces) would produce
+// broken identifiers like `brickygo.com_rm_current_page()` → E_PARSE.
+const rawSlug   = getMeta('Text Domain') || themeName;
+const themeSlug = rawSlug
+  .toLowerCase()
+  .replace(/[^a-z0-9_]+/g, '_')
+  .replace(/^_+|_+$/g, '');
 
 if (!themeName) {
   console.error('Cannot parse Theme Name from style.css');

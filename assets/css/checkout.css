@@ -911,9 +911,10 @@ h3#order_review_heading {
 
 .woocommerce-checkout-review-order {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
     position: sticky;
     top: 5.5rem;
+    margin-top: 3rem;
 }
 
 /* Stack col-1 and col-2 vertically */
@@ -1403,6 +1404,7 @@ button#place_order:active {
         grid-column: 1;
         grid-row: 3;
         position: static;
+        margin-top: 0;
     }
 
     .woocommerce-checkout .form-row-first,

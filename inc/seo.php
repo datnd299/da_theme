@@ -375,7 +375,7 @@ function dawp_schema_postal_address() {
     $city      = trim(wp_strip_all_tags((string) $countries->get_base_city()));
     $postcode  = trim(wp_strip_all_tags((string) $countries->get_base_postcode()));
     $state     = trim(wp_strip_all_tags((string) $countries->get_base_state()));
-    $country   = dawp_store_country();
+    $country   = trim(wp_strip_all_tags((string) $countries->get_base_country()));
 
     if (!$street && !$city) {
         return null;

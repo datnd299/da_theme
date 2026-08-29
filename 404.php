@@ -36,7 +36,6 @@ if (!function_exists('qb_404_products')) {
 
 $shop_url = qb_404_shop_url();
 $brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$quick_links = function_exists('qb_get_live_product_categories') ? qb_get_live_product_categories(['number' => 5]) : [];
 $products    = qb_404_products(3);
 
 get_header();
@@ -277,17 +276,6 @@ get_header();
     </section>
 
     <aside aria-label="<?php esc_attr_e('Helpful 404 links', 'dawp'); ?>">
-      <?php if (!empty($quick_links)) : ?>
-      <div class="qb-404__panel">
-        <h2 class="qb-404__panel-title"><?php esc_html_e('Browse Watch Categories', 'dawp'); ?></h2>
-        <nav class="qb-404__links" aria-label="<?php esc_attr_e('Product categories', 'dawp'); ?>">
-          <?php foreach ($quick_links as $category) : ?>
-            <a href="<?php echo esc_url(function_exists('qb_product_term_url') ? qb_product_term_url($category) : get_term_link($category)); ?>"><?php echo esc_html($category->name); ?></a>
-          <?php endforeach; ?>
-        </nav>
-      </div>
-      <?php endif; ?>
-
       <?php if (!empty($products)) : ?>
         <div class="qb-404__panel">
           <h2 class="qb-404__panel-title"><?php esc_html_e('Recent Products', 'dawp'); ?></h2>

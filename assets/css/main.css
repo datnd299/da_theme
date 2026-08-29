@@ -643,10 +643,20 @@ body.dawp-cart-open {
 
 .dawp-cart-drawer {
   position: fixed;
-  inset: 0;
+  inset: var(--dawp-cart-drawer-top, 0) 0 0;
   z-index: 200;
   visibility: hidden;
   pointer-events: none;
+}
+
+body.admin-bar .dawp-cart-drawer {
+  --dawp-cart-drawer-top: 32px;
+}
+
+@media (max-width: 782px) {
+  body.admin-bar .dawp-cart-drawer {
+    --dawp-cart-drawer-top: 46px;
+  }
 }
 
 .dawp-cart-drawer.is-open {
@@ -674,8 +684,8 @@ body.dawp-cart-open {
   flex-direction: column;
   width: 100%;
   max-width: 420px;
-  height: 100vh;
-  height: 100dvh;
+  height: calc(100vh - var(--dawp-cart-drawer-top, 0px));
+  height: calc(100dvh - var(--dawp-cart-drawer-top, 0px));
   background: var(--color-background);
   box-shadow: var(--shadow-card-hover);
   transform: translateX(100%);

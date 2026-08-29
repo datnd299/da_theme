@@ -6,8 +6,6 @@
  */
 
 $store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$store_domain      = wp_parse_url(home_url('/'), PHP_URL_HOST);
-$store_domain      = $store_domain ? preg_replace('/^www\./', '', $store_domain) : '';
 $support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
@@ -335,12 +333,6 @@ $faq_sections = [
               <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>
               <span><?php echo esc_html($store_name); ?></span>
             </div>
-            <?php if ($store_domain) : ?>
-              <div class="qb-contact-item">
-                <strong><?php esc_html_e('Website', 'dawp'); ?></strong>
-                <span><a href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html($store_domain); ?></a></span>
-              </div>
-            <?php endif; ?>
             <?php if ($store_address) : ?>
               <div class="qb-contact-item">
                 <strong><?php esc_html_e('Address', 'dawp'); ?></strong>

@@ -1,12 +1,12 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'beauty'     => 'beauty-accessories',
-        'organizers' => 'makeup-bags-organizers',
-        'makeup'     => 'makeup-bags-organizers',
-        'fashion'    => 'fashion-accessories',
-        'essentials' => 'everyday-style-essentials',
-        'gifts'      => 'giftable-finds',
+        'minimal'   => 'minimalist',
+        'sport'     => 'sport-outdoor',
+        'outdoor'   => 'sport-outdoor',
+        'vintage'   => 'vintage-leather',
+        'leather'   => 'vintage-leather',
+        'luxury'    => 'luxury-style',
     ];
 
     return $map[$slug] ?? $slug;
@@ -30,11 +30,10 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'beauty-accessories'          => ['name' => __('Beauty Accessories', 'dawp')],
-        'makeup-bags-organizers'      => ['name' => __('Makeup Bags & Organizers', 'dawp')],
-        'fashion-accessories'         => ['name' => __('Fashion Accessories', 'dawp')],
-        'everyday-style-essentials'   => ['name' => __('Everyday Style Essentials', 'dawp')],
-        'giftable-finds'              => ['name' => __('Giftable Finds', 'dawp')],
+        'minimalist'      => ['name' => __('Minimalist', 'dawp')],
+        'sport-outdoor'   => ['name' => __('Sport & Outdoor', 'dawp')],
+        'vintage-leather' => ['name' => __('Vintage & Leather', 'dawp')],
+        'luxury-style'    => ['name' => __('Luxury Style', 'dawp')],
     ];
 
     $items = [];

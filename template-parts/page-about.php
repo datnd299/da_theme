@@ -1,6 +1,6 @@
 <?php
 /**
- * About page for LBQ Shop.
+ * About page — TimePiece Haven.
  *
  * @package dawp
  */
@@ -15,10 +15,10 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
+$email   = function_exists('dawp_store_email') ? dawp_store_email() : 'support@timepiecehaven.com';
+$address = function_exists('dawp_store_address') ? dawp_store_address() : '';
 
-$lbq_category_url = static function ($slug) {
+$dawp_cat_url = static function ($slug) use ($shop_url) {
     if (function_exists('get_term_by')) {
         $term = get_term_by('slug', $slug, 'product_cat');
 
@@ -34,327 +34,102 @@ $lbq_category_url = static function ($slug) {
     return home_url('/product-category/' . trim($slug, '/') . '/');
 };
 
-$stock_images = [
-    'hero'     => get_theme_file_uri('assets/img/about/about-hero-beauty-essentials.jpg'),
-    'drawer'   => get_theme_file_uri('assets/img/about/about-drawer-organizer.jpg'),
-    'brushes'  => get_theme_file_uri('assets/img/about/about-brush-storage.jpg'),
-    'flat_lay' => get_theme_file_uri('assets/img/about/about-standards-flat-lay.jpg'),
-    'gift'     => get_theme_file_uri('assets/img/about/about-giftable-flat-lay.jpg'),
+$collections = [
+    ['title' => __('Minimalist', 'dawp'),        'copy' => __('Clean dials and slim cases on leather or mesh straps, for the office and everyday wear.', 'dawp'), 'slug' => 'minimalist'],
+    ['title' => __('Sport & Outdoor', 'dawp'),   'copy' => __('5 ATM water resistance, silicone straps, and chronograph or backlight functions for active days.', 'dawp'), 'slug' => 'sport-outdoor'],
+    ['title' => __('Vintage & Leather', 'dawp'), 'copy' => __('Retro 70s and 80s case shapes, open-heart dial options, and genuine leather straps.', 'dawp'), 'slug' => 'vintage-leather'],
+    ['title' => __('Luxury Style', 'dawp'),      'copy' => __('Polished dress watches with refined detailing for formal occasions and gifting.', 'dawp'), 'slug' => 'luxury-style'],
 ];
 
-$brand_pillars = [
+$values = [
     [
-        'title' => __('Clean Beauty Organization', 'dawp'),
-        'copy'  => __('Makeup bags, cosmetic organizers, brush storage, and small tools that help everyday routines feel easier to manage.', 'dawp'),
-        'icon'  => 'sparkle',
+        'title' => __('Genuine, and clearly described', 'dawp'),
+        'copy'  => __('Every watch we sell is new and authentic, in its original packaging. We never sell replica or counterfeit goods, and each product page lists the movement, case size, strap, and water resistance so you know exactly what you are buying.', 'dawp'),
     ],
     [
-        'title' => __('Practical Daily Style', 'dawp'),
-        'copy'  => __('Simple accessories selected for regular days, travel, commuting, gifting, and small outfit details.', 'dawp'),
-        'icon'  => 'bag',
+        'title' => __('Fair, simple pricing', 'dawp'),
+        'copy'  => __('One clear price per watch in US dollars, with free standard shipping on every order. No inflated "list prices" and no pressure countdowns.', 'dawp'),
     ],
     [
-        'title' => __('Approachable Support', 'dawp'),
-        'copy'  => __('Clear product focus, transparent order details, and customer care that keeps shopping straightforward.', 'dawp'),
-        'icon'  => 'mail',
-    ],
-];
-
-$category_links = [
-    [
-        'name' => __('Beauty Accessories', 'dawp'),
-        'copy' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
-        'url'  => $lbq_category_url('beauty-accessories'),
+        'title' => __('Support that answers', 'dawp'),
+        'copy'  => __('A real person replies to every message within one business day. If something is wrong with your order, we make it right.', 'dawp'),
     ],
     [
-        'name' => __('Makeup Bags & Organizers', 'dawp'),
-        'copy' => __('Travel-friendly cosmetic bags and organizers that help keep beauty items neat and easy to find.', 'dawp'),
-        'url'  => $lbq_category_url('makeup-bags-organizers'),
-    ],
-    [
-        'name' => __('Fashion Accessories', 'dawp'),
-        'copy' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
-        'url'  => $lbq_category_url('fashion-accessories'),
-    ],
-    [
-        'name' => __('Everyday Style Essentials', 'dawp'),
-        'copy' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
-        'url'  => $lbq_category_url('everyday-style-essentials'),
+        'title' => __('Easy returns', 'dawp'),
+        'copy'  => __('If a watch is not right for you, return it unworn within 30 days for a refund. The full policy is on our Return & Refund Policy page.', 'dawp'),
     ],
 ];
-
-$standards = [
-    __('Products should feel useful, feminine, organized, and easy to use.', 'dawp'),
-    __('Collections stay focused on beauty accessories, makeup organization, fashion accents, and giftable everyday finds.', 'dawp'),
-    __('We avoid counterfeit branding, medical beauty claims, and unrelated general-store products.', 'dawp'),
-    __('Product copy should be clear about how each item fits into daily routines, travel, storage, or personal style.', 'dawp'),
-];
-
-$care_cards = [
-    [
-        'title' => __('Customer Support', 'dawp'),
-        'copy'  => sprintf(
-            /* translators: %s: support email address */
-            __('Questions about an item or order can be sent to %s.', 'dawp'),
-            $support_email
-        ),
-        'icon'  => 'mail',
-    ],
-    [
-        'title' => __('Realistic Shipping', 'dawp'),
-        'copy'  => __('Orders are processed within 2-4 business days. Standard US shipping typically takes 5-10 business days after dispatch.', 'dawp'),
-        'icon'  => 'truck',
-    ],
-    [
-        'title' => __('30-Day Returns', 'dawp'),
-        'copy'  => __('Eligible unused items may be returned within 30 days of delivery, with hygiene and original-condition requirements where relevant.', 'dawp'),
-        'icon'  => 'refresh',
-    ],
-];
-
-$render_icon = static function ($icon) {
-    $icons = [
-        'bag'     => '<path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/>',
-        'mail'    => '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/>',
-        'truck'   => '<path d="M10 17h4V5H3v12h2"/><path d="M14 8h4l3 3v6h-3"/><circle cx="7" cy="17" r="2"/><circle cx="16" cy="17" r="2"/>',
-        'refresh' => '<path d="M20 12a8 8 0 0 1-13.66 5.66L4 15"/><path d="M4 20v-5h5"/><path d="M4 12A8 8 0 0 1 17.66 6.34L20 9"/><path d="M20 4v5h-5"/>',
-        'sparkle' => '<path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3Z"/>',
-    ];
-
-    return $icons[$icon] ?? $icons['sparkle'];
-};
 ?>
 
-<div class="bg-white text-[#2F2A28]">
-    <section class="relative isolate overflow-hidden border-b border-[#E8DAD4] bg-[#FFFDFC] py-12 sm:py-16 lg:py-20" aria-labelledby="about-hero-title">
-        <div class="absolute inset-x-0 top-0 -z-10 h-40 bg-[#F8F2EE]" aria-hidden="true"></div>
-
-        <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12 lg:px-8">
-            <div class="max-w-2xl">
-                <p class="inline-flex rounded-md border border-[#E8DAD4] bg-white px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-[#A96870] shadow-sm">
-                    <?php esc_html_e('About LBQ Shop', 'dawp'); ?>
-                </p>
-                <h1 id="about-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl lg:text-6xl">
-                    <?php esc_html_e('Pretty, practical beauty and style essentials for everyday confidence.', 'dawp'); ?>
-                </h1>
-                <p class="mt-5 max-w-xl text-base leading-8 text-[#6F625D] sm:text-lg">
-                    <?php esc_html_e('LBQ Shop brings together simple makeup organizers, beauty accessories, fashion accents, and giftable everyday finds that help your routine feel cleaner, easier, and more polished without overcomplicating your day.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
-                    <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
-                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Simple organizers for easier routines', 'dawp'); ?></span>
-                    </div>
-                    <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
-                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Pretty accents for daily beauty and style', 'dawp'); ?></span>
-                    </div>
-                    <div class="flex items-start gap-3 rounded-md border border-[#E8DAD4] bg-white p-4 shadow-sm">
-                        <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-[#2F2A28]"><?php esc_html_e('Useful finds that feel easy to trust', 'dawp'); ?></span>
-                    </div>
-                </div>
-
-                <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
-                        <?php esc_html_e('Shop Everyday Finds', 'dawp'); ?>
-                    </a>
-                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
-
-            <figure class="relative">
-                <img <?php echo dawp_i0_img_attrs($stock_images['hero'], [
-                    'width'   => 600,
-                    'height'  => 750,
-                    'srcset'  => [[400, 500], [600, 750], [900, 1125], [1200, 1500]],
-                    'sizes'   => '(max-width: 1023px) 100vw, 590px',
-                    'loading' => 'eager',
-                ]); ?> alt="<?php esc_attr_e('Makeup and beauty accessories arranged beside a cosmetic bag', 'dawp'); ?>" class="aspect-[5/4] w-full rounded-md object-cover shadow-xl shadow-[#8A4F56]/15 lg:aspect-[4/5]">
-                <figcaption class="mt-4 rounded-md border border-[#E8DAD4] bg-white p-4 text-sm font-bold leading-6 text-[#2F2A28] shadow-sm">
-                    <?php esc_html_e('Clean, feminine accessories made for simple routines, travel, gifting, and everyday confidence.', 'dawp'); ?>
-                </figcaption>
-            </figure>
+<div class="bg-background text-foreground">
+    <section class="bg-primary text-white">
+        <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+            <p class="font-heading text-xs font-semibold uppercase tracking-brand text-accent"><?php esc_html_e('About', 'dawp'); ?></p>
+            <h1 class="mt-4 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl"><?php esc_html_e('About TimePiece Haven', 'dawp'); ?></h1>
+            <p class="mt-5 text-base leading-8 text-white/80">
+                <?php esc_html_e('TimePiece Haven is an independent watch shop for the US market. We design and curate a small, focused range across four styles so you can find a watch that fits how you actually live — without wading through hundreds of near-identical listings.', 'dawp'); ?>
+            </p>
         </div>
     </section>
 
-    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="about-story-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
-            <div class="grid gap-4 sm:grid-cols-5">
-                <img <?php echo dawp_i0_img_attrs($stock_images['drawer'], [
-                    'width'  => 600,
-                    'height' => 750,
-                    'srcset' => [[320, 400], [480, 600], [600, 750], [900, 1125]],
-                    'sizes'  => '(max-width: 639px) 100vw, (max-width: 1023px) 45vw, 360px',
-                ]); ?> alt="<?php esc_attr_e('Cosmetics and beauty tools organized in a clean drawer', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm sm:col-span-3">
-                <div class="grid gap-4 sm:col-span-2">
-                    <img <?php echo dawp_i0_img_attrs($stock_images['brushes'], [
-                        'width'  => 400,
-                        'height' => 400,
-                        'srcset' => [[200, 200], [300, 300], [400, 400], [600, 600]],
-                        'sizes'  => '(max-width: 639px) 50vw, (max-width: 1023px) 30vw, 235px',
-                    ]); ?> alt="<?php esc_attr_e('Makeup brushes stored neatly in small holders', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm">
-                    <img <?php echo dawp_i0_img_attrs($stock_images['gift'], [
-                        'width'  => 400,
-                        'height' => 400,
-                        'srcset' => [[200, 200], [300, 300], [400, 400], [600, 600]],
-                        'sizes'  => '(max-width: 639px) 50vw, (max-width: 1023px) 30vw, 235px',
-                    ]); ?> alt="<?php esc_attr_e('Pink beauty accessories arranged as a giftable flat lay', 'dawp'); ?>" class="aspect-square w-full rounded-md object-cover shadow-sm">
-                </div>
+    <section class="py-14 sm:py-20">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div class="legal-doc">
+                <section>
+                    <h2><?php esc_html_e('Why we started', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Buying a watch online often means guessing. Photos are inconsistent, specifications are buried, and the same case shows up under a dozen names. We started TimePiece Haven to do the opposite: a tight selection, honest photography, complete specs, and plain-language answers to the questions people actually ask before they buy.', 'dawp'); ?></p>
+                </section>
+                <section>
+                    <h2><?php esc_html_e('How we choose watches', 'dawp'); ?></h2>
+                    <p><?php esc_html_e('Each watch has to earn its place in one of our four collections. We look at build quality, the movement, how the watch wears on the wrist, and whether the price is fair for what you get. If a piece does not meet that bar, we do not list it.', 'dawp'); ?></p>
+                </section>
             </div>
 
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Our Story', 'dawp'); ?></p>
-                <h2 id="about-story-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
-                    <?php esc_html_e('Small accessories can make daily routines feel more put together.', 'dawp'); ?>
-                </h2>
-                <div class="mt-5 space-y-4 text-base leading-8 text-[#6F625D]">
-                    <p>
-                        <?php esc_html_e('LBQ Shop was created for shoppers who like beauty and fashion pieces that are pretty, useful, and simple to use. The store focuses on the everyday details: a makeup bag that keeps cosmetics easy to find, a compact organizer that clears a vanity, or a small style accent that finishes a regular outfit.', 'dawp'); ?>
-                    </p>
-                    <p>
-                        <?php esc_html_e('Our approach is modern and practical. We keep the collection focused on beauty accessories, makeup storage, fashion accessories, everyday style essentials, and giftable finds instead of unrelated products or exaggerated claims.', 'dawp'); ?>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="about-pillars-title">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl">
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('What We Stand For', 'dawp'); ?></p>
-                <h2 id="about-pillars-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
-                    <?php esc_html_e('Pretty, practical finds for beauty, organization, and everyday style.', 'dawp'); ?>
-                </h2>
-                <p class="mt-4 text-base leading-7 text-[#6F625D]">
-                    <?php esc_html_e('Every section of LBQ Shop is shaped around products customers can understand quickly and use often.', 'dawp'); ?>
-                </p>
-            </div>
-
-            <div class="mt-10 grid gap-5 md:grid-cols-3">
-                <?php foreach ($brand_pillars as $pillar) : ?>
-                    <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-[#8A4F56]/10">
-                        <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <?php echo $render_icon($pillar['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                            </svg>
-                        </div>
-                        <h3 class="mt-5 font-heading text-xl font-extrabold text-[#2F2A28]"><?php echo esc_html($pillar['title']); ?></h3>
-                        <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($pillar['copy']); ?></p>
-                    </article>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white py-14 sm:py-20" aria-labelledby="about-categories-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:px-8">
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Our Product Focus', 'dawp'); ?></p>
-                <h2 id="about-categories-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
-                    <?php esc_html_e('A clear beauty and fashion accessories store, not a random marketplace.', 'dawp'); ?>
-                </h2>
-                <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('LBQ Shop keeps the shopping experience focused, feminine, and easy to browse. Our categories are built around daily routines, travel-friendly organization, simple outfit details, and thoughtful small gifts.', 'dawp'); ?>
-                </p>
-                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
-                    <?php esc_html_e('Browse All Products', 'dawp'); ?>
-                </a>
-            </div>
-
-            <div class="grid gap-4 sm:grid-cols-2">
-                <?php foreach ($category_links as $category) : ?>
-                    <a href="<?php echo esc_url($category['url']); ?>" class="group rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-5 transition hover:-translate-y-1 hover:bg-[#FBEDEA] hover:shadow-xl hover:shadow-[#8A4F56]/10">
-                        <span class="block font-heading text-lg font-extrabold text-[#2F2A28] transition group-hover:text-[#8A4F56]"><?php echo esc_html($category['name']); ?></span>
-                        <span class="mt-3 block text-sm leading-6 text-[#6F625D]"><?php echo esc_html($category['copy']); ?></span>
-                        <span class="mt-5 inline-flex text-sm font-bold text-[#A96870]">
-                            <?php esc_html_e('Shop category', 'dawp'); ?>
-                            <span class="ml-2" aria-hidden="true">-&gt;</span>
+            <h2 class="mt-14 font-heading text-2xl font-bold uppercase text-foreground"><?php esc_html_e('The four collections', 'dawp'); ?></h2>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                <?php foreach ($collections as $c) : ?>
+                    <a href="<?php echo esc_url($dawp_cat_url($c['slug'])); ?>" class="group rounded-xl border border-line bg-white p-5 transition hover:-translate-y-1 hover:border-primary/20 hover:shadow-card-hover">
+                        <h3 class="font-heading text-base font-bold uppercase text-foreground"><?php echo esc_html($c['title']); ?></h3>
+                        <p class="mt-2 text-sm leading-6 text-muted"><?php echo esc_html($c['copy']); ?></p>
+                        <span class="mt-4 inline-flex items-center text-sm font-bold text-primary">
+                            <?php esc_html_e('Browse', 'dawp'); ?>
+                            <svg class="ml-2 transition group-hover:translate-x-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                         </span>
                     </a>
                 <?php endforeach; ?>
             </div>
-        </div>
-    </section>
 
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="about-standards-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('How We Choose', 'dawp'); ?></p>
-                <h2 id="about-standards-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
-                    <?php esc_html_e('A practical standard for every beauty and style essential.', 'dawp'); ?>
-                </h2>
-                <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Our product direction is intentionally simple: useful items, clean presentation, and clear expectations. That helps customers understand what they are buying and how it fits into daily life.', 'dawp'); ?>
-                </p>
-
-                <div class="mt-7 grid gap-3">
-                    <?php foreach ($standards as $standard) : ?>
-                        <div class="flex gap-3 rounded-md border border-[#E8DAD4] bg-white px-4 py-4 text-sm font-bold leading-6 text-[#2F2A28]">
-                            <span class="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-[#C87F86]" aria-hidden="true"></span>
-                            <span><?php echo esc_html($standard); ?></span>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
+            <h2 class="mt-14 font-heading text-2xl font-bold uppercase text-foreground"><?php esc_html_e('What we stand for', 'dawp'); ?></h2>
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                <?php foreach ($values as $v) : ?>
+                    <article class="rounded-xl border border-line bg-white p-6">
+                        <h3 class="font-heading text-base font-bold uppercase text-foreground"><?php echo esc_html($v['title']); ?></h3>
+                        <p class="mt-2 text-sm leading-6 text-muted"><?php echo esc_html($v['copy']); ?></p>
+                    </article>
+                <?php endforeach; ?>
             </div>
 
-            <img <?php echo dawp_i0_img_attrs($stock_images['flat_lay'], [
-                'width'  => 500,
-                'height' => 625,
-                'srcset' => [[300, 375], [400, 500], [500, 625], [750, 938]],
-                'sizes'  => '(max-width: 1023px) 100vw, 460px',
-            ]); ?> alt="<?php esc_attr_e('Beauty and fashion accessories arranged neatly on a tabletop', 'dawp'); ?>" class="aspect-[4/5] w-full rounded-md object-cover shadow-sm">
-        </div>
-    </section>
+            <div class="mt-12 rounded-xl border border-line bg-white p-6">
+                <h2 class="font-heading text-base font-bold uppercase text-foreground"><?php esc_html_e('Company details', 'dawp'); ?></h2>
+                <ul class="mt-3 grid gap-2 text-sm text-foreground">
+                    <li><span class="font-semibold"><?php esc_html_e('Store:', 'dawp'); ?></span> <?php echo esc_html(function_exists('dawp_store_name') ? dawp_store_name() : 'TimePiece Haven'); ?></li>
+                    <li>
+                        <span class="font-semibold"><?php esc_html_e('Email:', 'dawp'); ?></span>
+                        <a class="text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a>
+                    </li>
+                    <?php if ($address) : ?>
+                        <li><span class="font-semibold"><?php esc_html_e('Business address:', 'dawp'); ?></span> <?php echo esc_html($address); ?></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
 
-    <section class="border-y border-[#E8DAD4] bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="about-care-title">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                    <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Customer Care', 'dawp'); ?></p>
-                    <h2 id="about-care-title" class="mt-4 font-heading text-3xl font-extrabold leading-tight text-[#2F2A28] sm:text-4xl">
-                        <?php esc_html_e('Clear support for a smoother shopping experience.', 'dawp'); ?>
-                    </h2>
-                    <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                        <?php esc_html_e('We want customers to know what to expect before and after they place an order. Product focus, shipping details, returns, and support information are kept visible and straightforward.', 'dawp'); ?>
-                    </p>
-                    <p class="mt-5 text-sm leading-7 text-[#6F625D]">
-                        <?php
-                        echo wp_kses(
-                            sprintf(
-                                /* translators: 1: support email link, 2: business hours */
-                                __('Need help? Email %1$s. Business hours: %2$s.', 'dawp'),
-                                '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
-                                esc_html($business_hours)
-                            ),
-                            [
-                                'a' => [
-                                    'class' => [],
-                                    'href'  => [],
-                                ],
-                            ]
-                        );
-                        ?>
-                    </p>
-                </div>
-
-                <div class="grid gap-4 md:grid-cols-3">
-                    <?php foreach ($care_cards as $card) : ?>
-                        <article class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                            <div class="flex h-12 w-12 items-center justify-center rounded-md bg-[#FBEDEA] text-[#A96870]">
-                                <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <?php echo $render_icon($card['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                                </svg>
-                            </div>
-                            <h3 class="mt-5 font-heading text-lg font-extrabold text-[#2F2A28]"><?php echo esc_html($card['title']); ?></h3>
-                            <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($card['copy']); ?></p>
-                        </article>
-                    <?php endforeach; ?>
-                </div>
+            <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold uppercase tracking-wide text-primary transition hover:bg-accent-hover">
+                    <?php esc_html_e('Shop all watches', 'dawp'); ?>
+                </a>
+                <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg border border-primary px-6 text-sm font-bold uppercase tracking-wide text-primary transition hover:bg-primary hover:text-white">
+                    <?php esc_html_e('Contact us', 'dawp'); ?>
+                </a>
             </div>
         </div>
     </section>

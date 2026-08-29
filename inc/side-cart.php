@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
  */
 function dawp_cart_count_badge_html($count) {
     $count   = (int) $count;
-    $classes = 'cart-count-badge absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#2F2A28] px-1 text-[11px] font-extrabold text-white';
+    $classes = 'cart-count-badge absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full border border-white bg-alert px-1 text-xs font-extrabold text-white';
 
     if ($count < 1) {
         $classes .= ' hidden';

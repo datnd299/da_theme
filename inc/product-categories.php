@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for LBQ Shop.
+ * Product category defaults for TimePiece Haven.
  *
  * @package dawp
  */
@@ -11,30 +11,25 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'beauty-accessories' => [
-            'name'        => __('Beauty Accessories', 'dawp'),
-            'description' => __('Useful beauty tools and small accessories designed to support simple everyday routines.', 'dawp'),
-            'short'       => __('Beauty tools and small helpers for everyday routines.', 'dawp'),
+        'minimalist' => [
+            'name'        => __('Minimalist', 'dawp'),
+            'description' => __('Clean-dial watches with slim cases and leather or mesh straps. A Scandinavian-inspired look made for the office and everyday wear.', 'dawp'),
+            'short'       => __('Slim, clean-dial watches for work and everyday wear.', 'dawp'),
         ],
-        'makeup-bags-organizers' => [
-            'name'        => __('Makeup Bags & Organizers', 'dawp'),
-            'description' => __('Travel-friendly cosmetic bags, storage pieces, and organizers that help keep beauty items neat and easy to find.', 'dawp'),
-            'short'       => __('Cosmetic bags, cases, and organizers for home or travel.', 'dawp'),
+        'sport-outdoor' => [
+            'name'        => __('Sport & Outdoor', 'dawp'),
+            'description' => __('Active-ready watches with 5 ATM water resistance, silicone straps, and chronograph or backlight functions in bold colors.', 'dawp'),
+            'short'       => __('5 ATM water resistance, silicone straps, chronograph and backlight.', 'dawp'),
         ],
-        'fashion-accessories' => [
-            'name'        => __('Fashion Accessories', 'dawp'),
-            'description' => __('Simple style accents for everyday outfits, from hair accessories to small carry pieces.', 'dawp'),
-            'short'       => __('Small accents for polished everyday styling.', 'dawp'),
+        'vintage-leather' => [
+            'name'        => __('Vintage & Leather', 'dawp'),
+            'description' => __('Retro-inspired watches with 70s and 80s case shapes, open-heart dial options, and genuine brown leather straps.', 'dawp'),
+            'short'       => __('Retro shapes, open-heart dials, and genuine leather straps.', 'dawp'),
         ],
-        'everyday-style-essentials' => [
-            'name'        => __('Everyday Style Essentials', 'dawp'),
-            'description' => __('Practical accessories for daily beauty, travel, organization, and personal style.', 'dawp'),
-            'short'       => __('Practical daily pieces for beauty, travel, and style.', 'dawp'),
-        ],
-        'giftable-finds' => [
-            'name'        => __('Giftable Finds', 'dawp'),
-            'description' => __('Pretty, practical accessories made for thoughtful everyday gifting.', 'dawp'),
-            'short'       => __('Small beauty and style finds that are easy to gift.', 'dawp'),
+        'luxury-style' => [
+            'name'        => __('Luxury Style', 'dawp'),
+            'description' => __('Dress watches with polished finishing and refined detailing for weddings, events, and formal occasions.', 'dawp'),
+            'short'       => __('Polished dress watches for formal occasions and gifting.', 'dawp'),
         ],
     ];
 }

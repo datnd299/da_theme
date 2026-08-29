@@ -1,6 +1,13 @@
 <?php
 /**
- * FAQ page for LBQ Shop.
+ * FAQ page — TimePiece Haven.
+ *
+ * Content is hardcoded (see theme skill) and written to comply with Google
+ * Merchant Center / Shopping policies: no unverifiable claims, clear
+ * shipping / returns language, genuine-product statement, and warranty
+ * described as model-dependent (never a blanket site-wide claim).
+ *
+ * Uses native <details>/<summary> for the accordion — no JavaScript required.
  *
  * @package dawp
  */
@@ -9,229 +16,160 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@lbqshop.com';
-$business_hours = __('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp');
-$shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$shipping_url = home_url('/shipping-returns/');
-$privacy_url  = home_url('/privacy-policy/');
-$terms_url    = home_url('/terms-conditions/');
-$track_url    = home_url('/track-order/');
-$contact_url  = home_url('/contact-us/');
+$support_email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@timepiecehaven.com';
 
 $faq_groups = [
     [
-        'label' => __('Orders & Shipping', 'dawp'),
+        'title' => __('Orders & shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('How long does order processing take?', 'dawp'),
-                'answer'   => __('Orders are processed within 2-4 business days before dispatch. Processing does not include weekends or holidays.', 'dawp'),
+                'q' => __('How much does shipping cost?', 'dawp'),
+                'a' => __('Standard shipping is free on every order to any address in the United States, with no minimum spend. The price you see at checkout is the price you pay for delivery.', 'dawp'),
             ],
             [
-                'question' => __('How long does standard US shipping take?', 'dawp'),
-                'answer'   => __('After dispatch, standard US shipping typically takes 5-10 business days depending on destination and carrier conditions.', 'dawp'),
+                'q' => __('How long will my order take to arrive?', 'dawp'),
+                'a' => __('Orders are processed within 1-3 business days. Standard shipping then takes about 3-7 business days after dispatch, so most US orders arrive within 4-10 business days of ordering. You will get a tracking link by email as soon as your order ships.', 'dawp'),
             ],
             [
-                'question' => __('Will I receive tracking information?', 'dawp'),
-                'answer'   => __('Yes. Tracking information is provided once your order ships. Tracking may take a short time to update after the carrier receives the package.', 'dawp'),
+                'q' => __('Do you ship outside the United States?', 'dawp'),
+                'a' => __('At this time we only ship within the United States, including APO/FPO addresses. We are not able to deliver to international addresses yet.', 'dawp'),
             ],
             [
-                'question' => __('Can I change my shipping address after ordering?', 'dawp'),
-                'answer'   => __('Contact support as soon as possible with your order number. We cannot guarantee address changes once an order has entered processing or shipped.', 'dawp'),
+                'q' => __('Can I change or cancel my order after placing it?', 'dawp'),
+                'a' => __('If your order has not shipped yet, email us as soon as possible and we will do our best to update or cancel it. Once an order is in transit it falls under our return policy.', 'dawp'),
+            ],
+            [
+                'q' => __('How do I track my order?', 'dawp'),
+                'a' => __('Use the Track Order page and enter your order number and the email address used at checkout. The same tracking details are included in your shipping confirmation email.', 'dawp'),
             ],
         ],
     ],
     [
-        'label' => __('Returns & Refunds', 'dawp'),
+        'title' => __('Returns & refunds', 'dawp'),
         'items' => [
             [
-                'question' => __('What is the return window?', 'dawp'),
-                'answer'   => __('You may request a return within 30 days of delivery for eligible items.', 'dawp'),
+                'q' => __('What is your return policy?', 'dawp'),
+                'a' => __('You can return an unworn watch in its original packaging within 30 days of delivery for a refund. Start a return from the Return & Refund Policy page or by emailing our support team.', 'dawp'),
             ],
             [
-                'question' => __('What condition must returned items be in?', 'dawp'),
-                'answer'   => __('Returned items must be unused, undamaged, in original condition, and include original packaging, tags, inserts, or accessories where applicable.', 'dawp'),
+                'q' => __('When will I get my refund?', 'dawp'),
+                'a' => __('Once we receive and inspect your returned watch, we issue the refund to your original payment method. It usually appears within 5-10 business days, depending on your bank or card issuer.', 'dawp'),
             ],
             [
-                'question' => __('Are beauty accessories and personal-use items returnable?', 'dawp'),
-                'answer'   => __('They may be eligible if they meet hygiene and condition requirements. Items that show use, damage, or hygiene concerns may not qualify for return.', 'dawp'),
-            ],
-            [
-                'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('Customers are responsible for return shipping costs unless the item arrived damaged, defective, or incorrect.', 'dawp'),
+                'q' => __('My watch arrived damaged or faulty — what should I do?', 'dawp'),
+                'a' => __('Email us within 48 hours of delivery with your order number and a few photos of the issue. We will arrange a replacement or a full refund, including return shipping.', 'dawp'),
             ],
         ],
     ],
     [
-        'label' => __('Products & Store', 'dawp'),
+        'title' => __('Watches & specifications', 'dawp'),
         'items' => [
             [
-                'question' => __('What does LBQ Shop sell?', 'dawp'),
-                'answer'   => __('LBQ Shop sells beauty accessories, makeup bags, cosmetic organizers, fashion accessories, everyday style essentials, and giftable accessories for simple daily routines.', 'dawp'),
+                'q' => __('Are your watches genuine?', 'dawp'),
+                'a' => __('Yes. Every watch we sell is new and authentic, supplied in its original manufacturer packaging with any included booklet. We never sell replica or counterfeit watches.', 'dawp'),
             ],
             [
-                'question' => __('Do you sell branded designer replicas or counterfeit items?', 'dawp'),
-                'answer'   => __('No. LBQ Shop does not sell counterfeit designer accessories, fake branded cosmetics, replica logos, or products presented as unauthorized luxury items.', 'dawp'),
+                'q' => __('Do the watches come with a warranty?', 'dawp'),
+                'a' => __('Any manufacturer warranty depends on the specific model. Where a warranty applies, the length and terms are listed on that product page. If you have a question about a particular watch, contact us before ordering.', 'dawp'),
             ],
             [
-                'question' => __('Do your products make skincare or medical claims?', 'dawp'),
-                'answer'   => __('No. Our products are beauty and fashion accessories. We avoid medical, treatment, skin whitening, acne cure, supplement, or similar prohibited claims.', 'dawp'),
+                'q' => __('What does the water resistance rating mean?', 'dawp'),
+                'a' => __('3 ATM handles rain and hand washing, 5 ATM is suitable for showering and short swims. Water resistance is not permanent and can decrease over time. Every product page lists the rating for that watch.', 'dawp'),
             ],
             [
-                'question' => __('Where can I find product details?', 'dawp'),
-                'answer'   => __('Product pages should include practical details such as what the item is, how it is used, size or capacity when relevant, material details when available, and care notes where needed.', 'dawp'),
+                'q' => __('How do I choose the right case size?', 'dawp'),
+                'a' => __('Our watches run roughly 36-44 mm across the case. Each listing shows the case diameter, strap width, and strap material so you can compare against a watch you already own.', 'dawp'),
+            ],
+            [
+                'q' => __('What is the difference between quartz and automatic movements?', 'dawp'),
+                'a' => __('Quartz movements are battery powered, very accurate, and low maintenance. Automatic movements wind themselves from the motion of your wrist and use no battery. The movement type is stated on every product page.', 'dawp'),
             ],
         ],
     ],
     [
-        'label' => __('Payment, Privacy & Support', 'dawp'),
+        'title' => __('Payments & security', 'dawp'),
         'items' => [
             [
-                'question' => __('Is checkout secure?', 'dawp'),
-                'answer'   => __('Payments are processed through third-party payment providers. LBQ Shop does not intentionally store full payment card numbers on its own systems.', 'dawp'),
+                'q' => __('Which payment methods do you accept?', 'dawp'),
+                'a' => __('We accept Visa, Mastercard, and American Express, as well as PayPal. All payments are processed over an encrypted connection.', 'dawp'),
             ],
             [
-                'question' => __('How is my information used?', 'dawp'),
-                'answer'   => __('Customer information is used to process orders, ship purchases, provide support, improve the site, prevent fraud, and meet legal obligations. More detail is available in our Privacy Policy.', 'dawp'),
+                'q' => __('What currency are prices in, and is tax included?', 'dawp'),
+                'a' => __('All prices are shown in US dollars. Any applicable state sales tax is calculated and shown at checkout before you pay.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact support?', 'dawp'),
-                'answer'   => sprintf(
-                    /* translators: 1: email address, 2: business hours */
-                    __('Email %1$s. Business hours are %2$s.', 'dawp'),
-                    $support_email,
-                    $business_hours
-                ),
+                'q' => __('Is it safe to use my card on your site?', 'dawp'),
+                'a' => __('Yes. Checkout runs over an encrypted (HTTPS) connection and card details are handled by the payment provider — we do not store your full card number.', 'dawp'),
             ],
         ],
-    ],
-];
-
-$quick_links = [
-    [
-        'title' => __('Track Order', 'dawp'),
-        'copy'  => __('Use your order details to check shipment status.', 'dawp'),
-        'url'   => $track_url,
-    ],
-    [
-        'title' => __('Shipping & Returns', 'dawp'),
-        'copy'  => __('Review processing, delivery estimates, return eligibility, and refunds.', 'dawp'),
-        'url'   => $shipping_url,
-    ],
-    [
-        'title' => __('Privacy Policy', 'dawp'),
-        'copy'  => __('Learn how customer information is collected, used, and protected.', 'dawp'),
-        'url'   => $privacy_url,
-    ],
-    [
-        'title' => __('Terms & Conditions', 'dawp'),
-        'copy'  => __('Read the store terms for website use and purchases.', 'dawp'),
-        'url'   => $terms_url,
     ],
 ];
 ?>
 
-<div class="bg-white text-[#2F2A28]">
-    <section class="bg-[#F8F2EE] py-14 sm:py-20" aria-labelledby="faq-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:px-8">
-            <div>
-                <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('FAQ', 'dawp'); ?></p>
-                <h1 id="faq-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2F2A28] sm:text-5xl">
-                    <?php esc_html_e('Quick answers for shopping with LBQ Shop.', 'dawp'); ?>
-                </h1>
-                <p class="mt-5 max-w-2xl text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Find clear answers about orders, shipping, returns, product expectations, privacy, and support for our beauty and fashion accessories store.', 'dawp'); ?>
-                </p>
-            </div>
+<div class="bg-background text-foreground">
+    <section class="bg-primary text-white">
+        <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+            <p class="font-heading text-xs font-semibold uppercase tracking-brand text-accent"><?php esc_html_e('Help center', 'dawp'); ?></p>
+            <h1 class="mt-4 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl"><?php esc_html_e('Frequently asked questions', 'dawp'); ?></h1>
+            <p class="mt-5 text-base leading-8 text-white/80">
+                <?php esc_html_e('Answers to the questions we hear most about shipping, returns, our watches, and payment. Still stuck? Contact us and we will respond within 24 hours.', 'dawp'); ?>
+            </p>
+        </div>
+    </section>
 
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                <h2 class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Need direct help?', 'dawp'); ?></h2>
-                <p class="mt-3 text-sm leading-7 text-[#6F625D]">
+    <section class="py-14 sm:py-20">
+        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+
+            <?php foreach ($faq_groups as $group) : ?>
+                <div class="mb-12 last:mb-0">
+                    <h2 class="font-heading text-xl font-bold uppercase text-foreground sm:text-2xl"><?php echo esc_html($group['title']); ?></h2>
+
+                    <div class="mt-5 grid gap-3">
+                        <?php foreach ($group['items'] as $item) : ?>
+                            <details class="group rounded-xl border border-line bg-white px-5 py-4 transition open:border-primary/20 open:shadow-card">
+                                <summary class="flex cursor-pointer items-center justify-between gap-4 list-none font-heading text-sm font-bold uppercase leading-6 text-foreground [&::-webkit-details-marker]:hidden">
+                                    <?php echo esc_html($item['q']); ?>
+                                    <span class="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line text-primary transition group-open:rotate-45 group-open:border-accent group-open:bg-accent group-open:text-primary" aria-hidden="true">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+                                    </span>
+                                </summary>
+                                <p class="mt-3 text-sm leading-7 text-muted"><?php echo esc_html($item['a']); ?></p>
+                            </details>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+
+            <div class="mt-12 rounded-xl border border-line bg-white p-6 sm:p-8">
+                <h2 class="font-heading text-lg font-bold uppercase text-foreground"><?php esc_html_e('Still have a question?', 'dawp'); ?></h2>
+                <p class="mt-3 text-sm leading-7 text-muted">
                     <?php
                     echo wp_kses(
                         sprintf(
-                            /* translators: 1: support email, 2: business hours */
-                            __('Email %1$s with your order number or product question. Business hours: %2$s.', 'dawp'),
-                            '<a class="font-bold text-[#8A4F56] underline decoration-[#C87F86]/40 underline-offset-4 transition hover:text-[#2F2A28]" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
-                            esc_html($business_hours)
+                            /* translators: %s: support email link */
+                            __('Email us at %s and a real person will reply within 24 hours.', 'dawp'),
+                            '<a class="font-semibold text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>'
                         ),
-                        [
-                            'a' => [
-                                'class' => [],
-                                'href'  => [],
-                            ],
-                        ]
+                        ['a' => ['class' => [], 'href' => []]]
                     );
                     ?>
                 </p>
                 <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#C87F86] px-6 text-sm font-bold text-white transition hover:bg-[#2F2A28]">
-                        <?php esc_html_e('Contact Support', 'dawp'); ?>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold uppercase tracking-wide text-primary transition hover:bg-accent-hover">
+                        <?php esc_html_e('Contact us', 'dawp'); ?>
                     </a>
-                    <a href="<?php echo esc_url($track_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md border border-[#C87F86] bg-white px-6 text-sm font-bold text-[#8A4F56] transition hover:bg-[#FBEDEA]">
-                        <?php esc_html_e('Track Order', 'dawp'); ?>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#FFFDFC] py-14 sm:py-20" aria-labelledby="faq-content-title">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-8">
-            <aside class="lg:sticky lg:top-24 lg:self-start">
-                <div class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm">
-                    <h2 id="faq-content-title" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Helpful links', 'dawp'); ?></h2>
-                    <p class="mt-4 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Review the full policy pages for complete details before placing an order or requesting a return.', 'dawp'); ?></p>
-                    <div class="mt-6 grid gap-3">
-                        <?php foreach ($quick_links as $link) : ?>
-                            <a href="<?php echo esc_url($link['url']); ?>" class="rounded-md border border-[#E8DAD4] bg-[#FFFDFC] p-4 transition hover:border-[#C87F86] hover:bg-[#FBEDEA]">
-                                <span class="block font-heading text-base font-extrabold text-[#2F2A28]"><?php echo esc_html($link['title']); ?></span>
-                                <span class="mt-2 block text-sm leading-6 text-[#6F625D]"><?php echo esc_html($link['copy']); ?></span>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </aside>
-
-            <div class="grid gap-8">
-                <?php foreach ($faq_groups as $group) : ?>
-                    <section class="rounded-md border border-[#E8DAD4] bg-white p-6 shadow-sm" aria-labelledby="<?php echo esc_attr(sanitize_title($group['label'])); ?>">
-                        <h2 id="<?php echo esc_attr(sanitize_title($group['label'])); ?>" class="font-heading text-2xl font-extrabold text-[#2F2A28]"><?php echo esc_html($group['label']); ?></h2>
-                        <div class="mt-6 divide-y divide-[#E8DAD4]">
-                            <?php foreach ($group['items'] as $item) : ?>
-                                <details class="group py-5 first:pt-0 last:pb-0">
-                                    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left font-heading text-lg font-extrabold text-[#2F2A28]">
-                                        <span><?php echo esc_html($item['question']); ?></span>
-                                        <span class="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#FBEDEA] text-[#8A4F56] transition group-open:rotate-45" aria-hidden="true">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm leading-7 text-[#6F625D]"><?php echo esc_html($item['answer']); ?></p>
-                                </details>
-                            <?php endforeach; ?>
-                        </div>
-                    </section>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-[#F8F2EE] py-14 sm:py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="rounded-md border border-[#E8DAD4] bg-white p-6 sm:p-8">
-                <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-                    <div>
-                        <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-[#A96870]"><?php esc_html_e('Shop With Clarity', 'dawp'); ?></p>
-                        <h2 class="mt-3 font-heading text-2xl font-extrabold text-[#2F2A28]"><?php esc_html_e('Beauty and style accessories for everyday confidence.', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-[#6F625D]"><?php esc_html_e('Browse practical makeup organizers, beauty accessories, fashion accents, and giftable finds with clear policy information available before checkout.', 'dawp'); ?></p>
-                    </div>
-                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#2F2A28] px-6 text-sm font-bold text-white transition hover:bg-[#8A4F56]">
-                        <?php esc_html_e('Shop Products', 'dawp'); ?>
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg border border-primary px-6 text-sm font-bold uppercase tracking-wide text-primary transition hover:bg-primary hover:text-white">
+                        <?php esc_html_e('Shop all watches', 'dawp'); ?>
                     </a>
                 </div>
             </div>
+
         </div>
     </section>
 </div>

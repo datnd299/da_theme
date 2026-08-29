@@ -5,7 +5,7 @@ add_filter( 'woocommerce_admin_report_data', 'fake_sales_report_data', 999 );
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'LBQ-' . $order_id;
+    return 'TPH-' . $order_id;
 }
 function fake_sales_report_data( $report_data ) {
     if ( ! is_admin() ) {
@@ -484,6 +484,9 @@ function dawp_scripts() {
 
     if ( is_front_page() ) {
         wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', [], '1.0.2');
+        // The homepage "New arrivals" section renders the WooCommerce product
+        // loop (content-product.php), which is styled by shop.css.
+        wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.2');
         dawp_remove_styles();
     }
     

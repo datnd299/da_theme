@@ -1,6 +1,6 @@
 /* ================================================
    Checkout and thank-you pages
-   Vivisshop brand palette: #1a1a2e, #f0a500, #fdf3dc, #10b981
+   TimePiece Haven brand palette: #1a1a2e, #f0a500, #fdf3dc, #10b981
    ================================================ */
 
 #content {
@@ -945,7 +945,7 @@ body.woocommerce-order-received {
     }
 }
 
-/* Vivisshop checkout brand overrides */
+/* TimePiece Haven checkout brand overrides */
 .wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button,
 .wp-block-woocommerce-checkout .wc-block-components-button:not(.is-link),
 .wp-block-woocommerce-checkout button[type="submit"]:not(.wc-block-components-panel__button) {

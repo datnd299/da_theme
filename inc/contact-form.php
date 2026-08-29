@@ -1,6 +1,10 @@
 <?php
 /**
- * Contact form handling for LBQ Shop.
+ * Contact form handling for TimePiece Haven.
+ *
+ * Note: the internal keys below (post type `lbq_contact`, admin-post action
+ * `lbq_contact_form`, nonce `lbq_contact_nonce`) are kept as-is so existing
+ * stored submissions and the front-end form contract stay intact.
  *
  * @package dawp
  */

@@ -103,7 +103,7 @@ $footer_columns = [
                 </a>
 
                 <p class="mt-5 max-w-md text-sm leading-6 text-white/70">
-                    <?php esc_html_e('An independent watch retailer offering our own designs across four styles: Minimalist, Sport & Outdoor, Vintage & Leather, and Luxury Style. Genuine watches, shipped free across the USA.', 'dawp'); ?>
+                    <?php esc_html_e('An independent watch retailer across four styles: Minimalist, Sport & Outdoor, Vintage & Leather, and Luxury Style — spanning our own designs and hand-picked watches. Genuine watches, shipped free across the USA.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-6 grid gap-3 text-sm leading-6 text-white/75">

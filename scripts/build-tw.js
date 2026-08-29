@@ -6,18 +6,27 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 
+// The site chrome (header + footer + side cart) renders on every page. Every
+// per-page bundle must scan it too: page bundles load *after* tw-main.css, and
+// an unconditional utility a page uses (e.g. the contact form's `hidden`
+// honeypot) would otherwise re-declare later in the cascade and clobber the
+// header's responsive variants (`lg:flex`, `lg:block`), collapsing the desktop
+// header to its mobile layout. Scanning the chrome here keeps each bundle's
+// utility set complete and correctly ordered.
+const CHROME = './header.php,./footer.php,./inc/side-cart.php';
+
 // Per-page Tailwind builds. `content` is a comma-separated list of PHP/HTML
 // files (paths relative to the theme root) whose classes should be scanned.
 const builds = [
-  { output: './assets/css/tw/tw-home.css',     content: './template-parts/page-home.php' },
-  { output: './assets/css/tw/tw-about.css',    content: './template-parts/page-about.php' },
-  { output: './assets/css/tw/tw-404.css',      content: './404.php' },
-  { output: './assets/css/tw/tw-main.css',     content: './header.php,./footer.php,./inc/side-cart.php' },
-  { output: './assets/css/tw/tw-faq.css',      content: './template-parts/page-faq.php' },
-  { output: './assets/css/tw/tw-contact.css',  content: './template-parts/page-contact.php' },
-  { output: './assets/css/tw/tw-track.css',    content: './template-parts/page-track-order.php' },
+  { output: './assets/css/tw/tw-home.css',     content: `./template-parts/page-home.php,${CHROME}` },
+  { output: './assets/css/tw/tw-about.css',    content: `./template-parts/page-about.php,${CHROME}` },
+  { output: './assets/css/tw/tw-404.css',      content: `./404.php,${CHROME}` },
+  { output: './assets/css/tw/tw-main.css',     content: CHROME },
+  { output: './assets/css/tw/tw-faq.css',      content: `./template-parts/page-faq.php,${CHROME}` },
+  { output: './assets/css/tw/tw-contact.css',  content: `./template-parts/page-contact.php,${CHROME}` },
+  { output: './assets/css/tw/tw-track.css',    content: `./template-parts/page-track-order.php,${CHROME}` },
   // Shared by all policy / legal pages — the markup lives in the renderer.
-  { output: './assets/css/tw/tw-legal.css',    content: './inc/store-info.php' },
+  { output: './assets/css/tw/tw-legal.css',    content: `./inc/store-info.php,${CHROME}` },
 ];
 
 // Tailwind v4's `--content` CLI flag does not reliably register arbitrary

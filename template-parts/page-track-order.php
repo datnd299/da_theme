@@ -44,7 +44,7 @@ $steps = [
 
             <div class="track-order-wc rounded-xl border border-line bg-white p-6 sm:p-8">
                 <h2 class="font-heading text-lg font-bold uppercase text-foreground"><?php esc_html_e('Find your order', 'dawp'); ?></h2>
-                <p class="mt-2 text-sm leading-6 text-muted"><?php esc_html_e('Order numbers look like "LBQ-1234" and are shown in your confirmation email.', 'dawp'); ?></p>
+                <p class="mt-2 text-sm leading-6 text-muted"><?php esc_html_e('Order numbers look like "TPH-1234" and are shown in your confirmation email.', 'dawp'); ?></p>
                 <div class="mt-5">
                     <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
                 </div>
@@ -67,7 +67,7 @@ $steps = [
                     echo wp_kses(
                         sprintf(
                             /* translators: %s: support email link */
-                            __('Email %s with your order number and we will look into it within one business day.', 'dawp'),
+                            __('Email %s with your order number and we will look into it within 1 business day.', 'dawp'),
                             '<a class="font-semibold text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a>'
                         ),
                         ['a' => ['class' => [], 'href' => []]]

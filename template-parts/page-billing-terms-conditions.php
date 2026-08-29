@@ -25,9 +25,8 @@ dawp_render_legal([
         [
             'heading' => __('Accepted payment methods', 'dawp'),
             'body'    => '<p>' . esc_html__('We accept the following payment methods:', 'dawp') . '</p><ul>'
-                . '<li>' . esc_html__('Visa, Mastercard, American Express, and Discover credit and debit cards;', 'dawp') . '</li>'
-                . '<li>' . esc_html__('PayPal;', 'dawp') . '</li>'
-                . '<li>' . esc_html__('Apple Pay and Google Pay, where available on your device.', 'dawp') . '</li>'
+                . '<li>' . esc_html__('Visa, Mastercard, and American Express credit and debit cards;', 'dawp') . '</li>'
+                . '<li>' . esc_html__('PayPal.', 'dawp') . '</li>'
                 . '</ul><p>' . esc_html__('The payment options available to you are displayed at checkout.', 'dawp') . '</p>',
         ],
         [
@@ -83,7 +82,7 @@ dawp_render_legal([
             'heading' => __('Chargebacks and disputes', 'dawp'),
             'body'    => '<p>' . sprintf(
                 /* translators: %s: support email link */
-                wp_kses_post(__('If you have a billing concern, please contact us first at %s. Most issues are resolved within one business day. Filing a chargeback without contacting us delays the resolution for everyone. We keep order, delivery, and communication records and will respond to disputes with that evidence.', 'dawp')),
+                wp_kses_post(__('If you have a billing concern, please contact us first at %s. Most issues are resolved within 1 business day. Filing a chargeback without contacting us delays the resolution for everyone. We keep order, delivery, and communication records and will respond to disputes with that evidence.', 'dawp')),
                 '<a href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a>'
             ) . '</p>',
         ],

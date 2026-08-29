@@ -1,8 +1,9 @@
 <?php
 /**
- * Elite Shop Express — Shop / Archive Product Template
- * Design System: Trusted Hardware, conversion-first
- * Section 10: Category / Shop Page rules
+ * TimePiece Haven — Shop / Archive Product Template.
+ *
+ * Structure reference: .plans/templates/shop.html. Styled by assets/css/shop.css
+ * (no Tailwind). See CLAUDE.md for the editable-file scope.
  */
 defined('ABSPATH') || exit;
 

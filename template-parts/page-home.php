@@ -398,7 +398,7 @@ if (class_exists('WooCommerce')) {
                         echo wp_kses(
                             sprintf(
                                 /* translators: %s: support email link */
-                                __('Questions before ordering? Email us at %s and we will get back to you within one business day.', 'dawp'),
+                                __('Questions before ordering? Email us at %s and we will get back to you within 1 business day.', 'dawp'),
                                 '<a class="font-semibold text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>'
                             ),
                             ['a' => ['class' => [], 'href' => []]]

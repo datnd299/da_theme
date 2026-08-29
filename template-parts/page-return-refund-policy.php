@@ -50,7 +50,7 @@ dawp_render_legal([
                     wp_kses_post(__('Email us at %s with your order number and the reason for the return.', 'dawp')),
                     '<a href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a>'
                 ) . '</li>'
-                . '<li>' . esc_html__('We will reply within one business day with a Return Merchandise Authorization (RMA) number and the return address.', 'dawp') . '</li>'
+                . '<li>' . esc_html__('We will reply within 1 business day with a Return Merchandise Authorization (RMA) number and the return address.', 'dawp') . '</li>'
                 . '<li>' . esc_html__('Pack the watch securely in its original box with all accessories, write the RMA number on the outside of the parcel, and ship it with a tracked and insured service.', 'dawp') . '</li>'
                 . '</ol><p class="legal-note">' . esc_html__('Please do not send a return without an RMA number. Unauthorized returns may be delayed or refused.', 'dawp') . '</p>',
         ],

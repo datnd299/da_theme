@@ -37,7 +37,7 @@ $info_cards = [
     ],
     [
         'label' => __('Response time', 'dawp'),
-        'value' => esc_html__('We reply to every message within 24 hours.', 'dawp'),
+        'value' => esc_html__('We reply to every message within 1 business day.', 'dawp'),
     ],
 ];
 
@@ -55,7 +55,7 @@ if ($address) {
             <p class="font-heading text-xs font-semibold uppercase tracking-brand text-accent"><?php esc_html_e('Contact', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl"><?php esc_html_e('Contact us', 'dawp'); ?></h1>
             <p class="mt-5 text-base leading-8 text-white/80">
-                <?php esc_html_e('Questions about an order, a return, a product, or a privacy request? Send us a message and we will respond within 24 hours.', 'dawp'); ?>
+                <?php esc_html_e('Questions about an order, a return, a product, or a privacy request? Send us a message and we will respond within 1 business day.', 'dawp'); ?>
             </p>
         </div>
     </section>
@@ -89,7 +89,7 @@ if ($address) {
 
                 <?php if ($status === 'success') : ?>
                     <div class="mt-5 rounded-xl border border-success bg-white p-4 text-sm font-medium text-foreground" role="status">
-                        <?php esc_html_e('Thanks — your message has been sent. We will respond within 24 hours.', 'dawp'); ?>
+                        <?php esc_html_e('Thanks — your message has been sent. We will respond within 1 business day.', 'dawp'); ?>
                     </div>
                 <?php elseif ($status === 'error') : ?>
                     <div class="mt-5 rounded-xl border border-alert bg-white p-4 text-sm font-medium text-foreground" role="alert">

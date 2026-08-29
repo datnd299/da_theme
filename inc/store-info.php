@@ -199,7 +199,7 @@ if (!function_exists('dawp_render_legal')) {
                         <p class="mt-3 text-sm leading-7 text-muted">
                             <?php
                             /* translators: %s: policy/store name */
-                            printf(esc_html__('If you have any questions about this policy, please reach out and we will respond within one business day.', 'dawp'));
+                            printf(esc_html__('If you have any questions about this policy, please reach out and we will respond within 1 business day.', 'dawp'));
                             ?>
                         </p>
                         <ul class="mt-4 grid gap-2 text-sm text-foreground">

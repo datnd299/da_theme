@@ -52,7 +52,7 @@ $values = [
     ],
     [
         'title' => __('Support that answers', 'dawp'),
-        'copy'  => __('A real person replies to every message within one business day. If something is wrong with your order, we make it right.', 'dawp'),
+        'copy'  => __('A real person replies to every message within 1 business day. If something is wrong with your order, we make it right.', 'dawp'),
     ],
     [
         'title' => __('Easy returns', 'dawp'),

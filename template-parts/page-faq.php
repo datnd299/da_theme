@@ -118,7 +118,7 @@ $faq_groups = [
             <p class="font-heading text-xs font-semibold uppercase tracking-brand text-accent"><?php esc_html_e('Help center', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-3xl font-bold uppercase leading-tight sm:text-4xl"><?php esc_html_e('Frequently asked questions', 'dawp'); ?></h1>
             <p class="mt-5 text-base leading-8 text-white/80">
-                <?php esc_html_e('Answers to the questions we hear most about shipping, returns, our watches, and payment. Still stuck? Contact us and we will respond within 24 hours.', 'dawp'); ?>
+                <?php esc_html_e('Answers to the questions we hear most about shipping, returns, our watches, and payment. Still stuck? Contact us and we will respond within 1 business day.', 'dawp'); ?>
             </p>
         </div>
     </section>
@@ -153,7 +153,7 @@ $faq_groups = [
                     echo wp_kses(
                         sprintf(
                             /* translators: %s: support email link */
-                            __('Email us at %s and a real person will reply within 24 hours.', 'dawp'),
+                            __('Email us at %s and a real person will reply within 1 business day.', 'dawp'),
                             '<a class="font-semibold text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>'
                         ),
                         ['a' => ['class' => [], 'href' => []]]

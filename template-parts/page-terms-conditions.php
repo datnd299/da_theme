@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms and conditions page for Brickgoshop.
+ * Terms and conditions page for Brickygo.
  *
  * @package dawp
  */
@@ -9,20 +9,20 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
-$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgoshop.com';
-$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickygo';
+$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickygo.com';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickygo.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
 $store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
-$last_updated   = __('May 29, 2026', 'dawp');
+$last_updated   = __('August 29, 2026', 'dawp');
 $shipping_url   = home_url('/shipping-policy/');
 $returns_url    = home_url('/return-refund-policy/');
 $privacy_url    = home_url('/privacy-policy/');
 $contact_url    = home_url('/contact-us/');
 
 $shipping_parameters = [
-    __('Shipping Locations: Brickgoshop currently ships exclusively within the United States domestic market (50 States).', 'dawp'),
+    __('Shipping Locations: Brickygo currently ships exclusively within the United States domestic market (50 States).', 'dawp'),
     __('Shipping Fees: Standard U.S. shipping is free ($0.00) for all orders nationwide with no minimum purchase requirement. Any optional upgraded shipping cost, if available, is shown clearly at checkout before payment.', 'dawp'),
     __('Daily Order Cutoff Time: 5:00 PM (GMT-08:00) Pacific Standard Time (Monday to Friday). Orders placed after this time begin processing on the following business day.', 'dawp'),
     __('Handling Time: Order handling, processing, and packaging time is 1-3 business days (Monday to Friday, excluding U.S. federal holidays).', 'dawp'),
@@ -32,9 +32,9 @@ $shipping_parameters = [
 
 $return_terms = [
     __('Return Window: Customers may request a return within 30 days of documented product delivery.', 'dawp'),
-    __('Product Condition: Eligible products must be unworn, unused, undamaged, in their original unaltered condition, and returned with original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories intact.', 'dawp'),
+    __('Product Condition: Eligible products must be unopened, unused, undamaged, in their original unaltered condition, and returned with original packaging, manuals, inserts, minifigures, accessories, and boxes intact.', 'dawp'),
     __('Restocking Fees: We charge $0.00 / No Restocking Fee.', 'dawp'),
-    __('Defective/Damaged/Incorrect Items: Brickgoshop covers 100% of return shipping costs by providing a prepaid shipping label.', 'dawp'),
+    __('Defective/Damaged/Incorrect Items: Brickygo covers 100% of return shipping costs by providing a prepaid shipping label.', 'dawp'),
     __('Customer Remorse (e.g., changed mind, wrong item selected): The cost of the prepaid return shipping label will be deducted from the final refund amount.', 'dawp'),
     __('Refund Processing Time: Approved refunds are processed back to the original payment method within up to 7 business days after receiving and inspecting the returned item.', 'dawp'),
 ];
@@ -50,27 +50,33 @@ $contact_details = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Phone Number', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
-    ],
-    [
-        'label' => __('Physical Business Address', 'dawp'),
-        'value' => $store_address,
-    ],
-    [
         'label' => __('Support Hours', 'dawp'),
         'value' => $business_hours,
     ],
 ];
 
+if ($support_phone) {
+    $contact_details[] = [
+        'label' => __('Phone Number', 'dawp'),
+        'value' => $support_phone,
+        'url'   => 'tel:' . $support_phone,
+    ];
+}
+
+if ($store_address) {
+    $contact_details[] = [
+        'label' => __('Physical Business Address', 'dawp'),
+        'value' => $store_address,
+    ];
+}
+
 $sections = [
     [
         'title' => __('1. Online Store Scope & Content Accuracy', 'dawp'),
         'copy'  => [
-            __('Brickgoshop is an e-commerce store focused on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
+            __('Brickygo is an e-commerce store focused on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
             __('We strive to present product descriptions, images, prices, materials, dimensions, and availability as accurately as reasonably possible. Small variations in color, texture, or physical appearance may occur due to individual screen monitor settings, digital photography lighting, or periodic supplier updates.', 'dawp'),
-            __('Ethical Commerce Commitment: Brickgoshop strictly adheres to ethical commerce standards. We do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+            __('Ethical Commerce Commitment: Brickygo strictly adheres to ethical commerce standards. We do not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
         ],
     ],
     [
@@ -136,8 +142,8 @@ $sections = [
     [
         'title' => __('8. Intellectual Property & Liability Limitations', 'dawp'),
         'copy'  => [
-            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to Brickgoshop and are protected by applicable intellectual property and copyright laws.', 'dawp'),
-            __('To the fullest extent permitted by applicable law, Brickgoshop shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product handling.', 'dawp'),
+            __('All website text, layout configurations, imagery, custom graphics, and brand logos are owned by or licensed to Brickygo and are protected by applicable intellectual property and copyright laws.', 'dawp'),
+            __('To the fullest extent permitted by applicable law, Brickygo shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of website usage, delivery delays, or product handling.', 'dawp'),
         ],
     ],
     [
@@ -155,7 +161,7 @@ $sections = [
             <div>
                 <p class="bgs-policy-kicker text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></p>
                 <h1 id="terms-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('Terms for using and shopping with Brickgoshop.', 'dawp'); ?>
+                    <?php esc_html_e('Terms for using and shopping with Brickygo.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php

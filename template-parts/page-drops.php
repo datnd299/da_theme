@@ -5,12 +5,19 @@ if (!defined('ABSPATH')) {
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $shop_url = $shop_url ?: home_url('/shop/');
-$drops_image = static function ($file, $alt, $loading = 'lazy', $sizes = '100vw') {
+$drops_image = static function ($file, $alt, $loading = 'lazy', $sizes = '100vw', $width = 1200, $height = 896) {
     if (function_exists('dawp_get_home_responsive_image')) {
-        return dawp_get_home_responsive_image($file, $alt, '', $loading, $sizes);
+        return dawp_get_home_responsive_image($file, $alt, '', $loading, $sizes, $width, $height);
     }
 
-    return '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/home/' . $file) . '" alt="' . esc_attr($alt) . '" loading="' . esc_attr($loading) . '" decoding="async">';
+    return sprintf(
+        '<img src="%s" alt="%s" width="%d" height="%d" loading="%s" decoding="async">',
+        esc_url(get_template_directory_uri() . '/assets/img/home/' . $file),
+        esc_attr($alt),
+        (int) $width,
+        (int) $height,
+        esc_attr($loading)
+    );
 };
 $latest_products = new WP_Query([
     'post_type'           => 'product',
@@ -33,7 +40,7 @@ $latest_products = new WP_Query([
             </div>
         </div>
         <div class="home-drop__media">
-            <?php echo $drops_image('30.png', __('Colorful limited collectible tower staged for an upcoming drop', 'dawp'), 'eager', '(min-width: 900px) 40vw, 100vw'); ?>
+            <?php echo $drops_image('30.png', __('Colorful limited collectible tower staged for an upcoming drop', 'dawp'), 'eager', '(min-width: 900px) 40vw, 100vw', 1200, 896); ?>
         </div>
     </div>
 </section>
@@ -54,7 +61,11 @@ $latest_products = new WP_Query([
                     <article class="home-product-card">
                         <a class="home-product-card__image" href="<?php the_permalink(); ?>">
                             <span class="home-badge"><?php esc_html_e('NEW', 'dawp'); ?></span>
-                            <?php echo $product->get_image('woocommerce_thumbnail', ['loading' => 'lazy']); ?>
+                            <?php
+                            echo function_exists('dawp_get_product_responsive_image')
+                                ? dawp_get_product_responsive_image($product, '', 600, 600, '(max-width: 699px) 46vw, (max-width: 1199px) 23vw, 280px')
+                                : $product->get_image('woocommerce_thumbnail', ['loading' => 'lazy']);
+                            ?>
                         </a>
                         <div class="home-product-card__body">
                             <p><?php esc_html_e('Latest release', 'dawp'); ?></p>

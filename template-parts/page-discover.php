@@ -5,12 +5,19 @@ if (!defined('ABSPATH')) {
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $shop_url = $shop_url ?: home_url('/shop/');
-$discover_image = static function ($file, $alt, $loading = 'lazy', $sizes = '100vw') {
+$discover_image = static function ($file, $alt, $loading = 'lazy', $sizes = '100vw', $width = 1200, $height = 896) {
     if (function_exists('dawp_get_home_responsive_image')) {
-        return dawp_get_home_responsive_image($file, $alt, '', $loading, $sizes);
+        return dawp_get_home_responsive_image($file, $alt, '', $loading, $sizes, $width, $height);
     }
 
-    return '<img src="' . esc_url(get_template_directory_uri() . '/assets/img/home/' . $file) . '" alt="' . esc_attr($alt) . '" loading="' . esc_attr($loading) . '" decoding="async">';
+    return sprintf(
+        '<img src="%s" alt="%s" width="%d" height="%d" loading="%s" decoding="async">',
+        esc_url(get_template_directory_uri() . '/assets/img/home/' . $file),
+        esc_attr($alt),
+        (int) $width,
+        (int) $height,
+        esc_attr($loading)
+    );
 };
 ?>
 <section class="home-hero" aria-labelledby="discover-title">
@@ -21,7 +28,7 @@ $discover_image = static function ($file, $alt, $loading = 'lazy', $sizes = '100
             <p><?php esc_html_e('A clean hub for new releases, category browsing, and display-worthy objects.', 'dawp'); ?></p>
         </div>
         <div class="home-hero__media">
-            <?php echo $discover_image('25.png', __('Curated collectible architecture and geometric builds on shelves', 'dawp'), 'eager', '(min-width: 900px) 54vw, 100vw'); ?>
+            <?php echo $discover_image('25.png', __('Curated collectible architecture and geometric builds on shelves', 'dawp'), 'eager', '(min-width: 900px) 54vw, 100vw', 1200, 896); ?>
         </div>
     </div>
 </section>
@@ -29,7 +36,7 @@ $discover_image = static function ($file, $alt, $loading = 'lazy', $sizes = '100
     <div class="home-shell home-collection-grid home-discover-grid">
         <?php foreach ([[add_query_arg('orderby', 'date', $shop_url), 'NEW ARRIVALS', 'Fresh finds', '26.png'], [$shop_url, 'CATEGORIES', 'Shop by category', '27.png'], [$shop_url, 'SHOP ALL', 'Full catalog', '28.png'], [home_url('/about-us/'), 'ABOUT', 'Why we curate', '29.png']] as $item) : ?>
             <a class="home-collection-card" href="<?php echo esc_url($item[0]); ?>">
-                <?php echo $discover_image($item[3], '', 'lazy', '(min-width: 900px) 33vw, 82vw'); ?>
+                <?php echo $discover_image($item[3], '', 'lazy', '(min-width: 900px) 33vw, 82vw', 720, 720); ?>
                 <span><em><?php echo esc_html($item[2]); ?></em><strong><?php echo esc_html($item[1]); ?></strong><small><?php esc_html_e('Explore', 'dawp'); ?> &rarr;</small></span>
             </a>
         <?php endforeach; ?>

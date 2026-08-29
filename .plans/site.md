@@ -58,15 +58,12 @@ WooCommerce product/category pages must use dynamic data.
 
 ## Product Categories
 
-Main categories may include:
+Main categories:
 
-* Building Sets
-* Art Figures
-* Designer Toys
-* Blind Boxes
-* Mini Figures
-* Display Collectibles
-* Accessories
+* City Buildings & Houses
+* Animals, Trees & Botanicals
+* City Vehicle Sets
+* World War II Sets
 
 Categories must not be hard-coded where WooCommerce data can be used dynamically.
 

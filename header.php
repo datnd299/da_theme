@@ -16,8 +16,8 @@ $cart_url       = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_
 $checkout_url   = function_exists('wc_get_checkout_url') ? wc_get_checkout_url() : home_url('/checkout/');
 $cart_count     = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
 $current_path   = function_exists('dawp_current_request_path') ? dawp_current_request_path() : trim(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?? '', '/');
-$logo_path      = get_template_directory() . '/assets/img/gallery/logologo.png';
-$logo_url       = get_template_directory_uri() . '/assets/img/gallery/logologo.png';
+$logo_path      = get_template_directory() . '/assets/img/gallery/logo.png';
+$logo_url       = get_template_directory_uri() . '/assets/img/gallery/logo.png';
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -62,11 +62,11 @@ $nav_items = [
     </div>
 
     <div class="tgm-shell tgm-header__bar">
-        <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('Brickgoshop home', 'dawp'); ?>">
+        <a href="<?php echo esc_url($home_url); ?>" class="tgm-logo" aria-label="<?php esc_attr_e('Brickygo home', 'dawp'); ?>">
             <?php
             echo function_exists('dawp_get_responsive_image')
-                ? dawp_get_responsive_image($logo_url, __('Brickgoshop', 'dawp'), '', 210, 60, 'eager', '(max-width: 680px) 150px, 210px', 'high')
-                : '<img src="' . esc_url($logo_url) . '" width="210" height="60" alt="' . esc_attr__('Brickgoshop', 'dawp') . '" decoding="async" fetchpriority="high">';
+                ? dawp_get_responsive_image($logo_url, __('Brickygo', 'dawp'), '', 220, 45, 'eager', '(max-width: 680px) 160px, 220px', 'high')
+                : '<img src="' . esc_url($logo_url) . '" width="220" height="45" alt="' . esc_attr__('Brickygo', 'dawp') . '" decoding="async" fetchpriority="high">';
             ?>
         </a>
 
@@ -87,9 +87,9 @@ $nav_items = [
             <a class="tgm-icon-button tgm-hide-mobile" href="<?php echo esc_url($account_url); ?>" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
             </a>
-            <a class="tgm-icon-button tgm-bag" href="<?php echo esc_url($cart_url); ?>" aria-label="<?php echo esc_attr(sprintf(__('Shopping bag, %d items', 'dawp'), $cart_count)); ?>">
+            <a class="tgm-icon-button tgm-bag" id="dawp-cart-toggle" href="<?php echo esc_url($cart_url); ?>" aria-label="<?php echo esc_attr(sprintf(__('Shopping bag, %d items', 'dawp'), $cart_count)); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 13H7L6 8Z"></path><path d="M9 8a3 3 0 0 1 6 0"></path></svg>
-                <span><?php echo esc_html($cart_count); ?></span>
+                <span class="sgs-cart-count<?php echo $cart_count > 0 ? '' : ' hidden'; ?>"><?php echo esc_html($cart_count); ?></span>
             </a>
             <button type="button" class="tgm-menu-button" data-menu-toggle aria-expanded="false" aria-controls="tgm-mobile-menu" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>

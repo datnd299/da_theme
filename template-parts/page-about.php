@@ -1,6 +1,6 @@
 <?php
 /**
- * Brickgoshop about page template part.
+ * Brickygo about page template part.
  *
  * @package dawp
  */
@@ -67,9 +67,9 @@ $reasons = [
     <section class="bgs-page__hero" aria-labelledby="bgs-about-title">
         <div class="bgs-page__shell bgs-page__hero-grid">
             <div>
-                <p class="bgs-page__kicker"><?php esc_html_e('About Brickgoshop', 'dawp'); ?></p>
+                <p class="bgs-page__kicker"><?php esc_html_e('About Brickygo', 'dawp'); ?></p>
                 <h1 id="bgs-about-title"><?php esc_html_e('Collectible culture, edited clean.', 'dawp'); ?></h1>
-                <p class="bgs-page__lead"><?php esc_html_e('Brickgoshop is a youthful collectible store for builders, display collectors and gift hunters who like creative objects with personality.', 'dawp'); ?></p>
+                <p class="bgs-page__lead"><?php esc_html_e('Brickygo is a youthful collectible store for builders, display collectors and gift hunters who like creative objects with personality.', 'dawp'); ?></p>
                 <div class="bgs-page__actions">
                     <a class="bgs-page__btn bgs-page__btn--lime" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Drops', 'dawp'); ?><span aria-hidden="true">-&gt;</span></a>
                     <a class="bgs-page__btn bgs-page__btn--ghost" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
@@ -94,9 +94,9 @@ $reasons = [
             <div>
                 <p class="bgs-page__kicker"><?php esc_html_e('Brand Story', 'dawp'); ?></p>
                 <h2 id="bgs-about-story-title"><?php esc_html_e('Made for the shelf, not the scroll.', 'dawp'); ?></h2>
-                <p class="bgs-page__copy"><?php esc_html_e('We started Brickgoshop around a simple idea: collecting should feel clear, current and fun. The store brings together building sets, art figures, blind boxes and display pieces without the crowded-marketplace noise.', 'dawp'); ?></p>
+                <p class="bgs-page__copy"><?php esc_html_e('We started Brickygo around a simple idea: collecting should feel clear, current and fun. The store brings together building sets, art figures, blind boxes and display pieces without the crowded-marketplace noise.', 'dawp'); ?></p>
                 <p class="bgs-page__copy"><?php esc_html_e('Every page is shaped around the same rhythm: find a piece, enjoy the build, and give it a place worth seeing.', 'dawp'); ?></p>
-                <div class="bgs-page__stats" aria-label="<?php esc_attr_e('Brickgoshop focus areas', 'dawp'); ?>">
+                <div class="bgs-page__stats" aria-label="<?php esc_attr_e('Brickygo focus areas', 'dawp'); ?>">
                     <div class="bgs-page__stat"><span><?php esc_html_e('01', 'dawp'); ?></span><strong><?php esc_html_e('Build', 'dawp'); ?></strong></div>
                     <div class="bgs-page__stat"><span><?php esc_html_e('02', 'dawp'); ?></span><strong><?php esc_html_e('Collect', 'dawp'); ?></strong></div>
                     <div class="bgs-page__stat"><span><?php esc_html_e('03', 'dawp'); ?></span><strong><?php esc_html_e('Display', 'dawp'); ?></strong></div>
@@ -126,7 +126,7 @@ $reasons = [
     <section class="bgs-page__band" aria-labelledby="bgs-about-why-title">
         <div class="bgs-page__shell bgs-page__band-grid">
             <div>
-                <p class="bgs-page__kicker"><?php esc_html_e('Why Brickgoshop', 'dawp'); ?></p>
+                <p class="bgs-page__kicker"><?php esc_html_e('Why Brickygo', 'dawp'); ?></p>
                 <h2 id="bgs-about-why-title"><?php esc_html_e('Focused, visual and collector-friendly.', 'dawp'); ?></h2>
                 <ul class="bgs-page__checklist">
                     <?php foreach ($reasons as $reason) : ?>

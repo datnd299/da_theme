@@ -13,9 +13,11 @@ $account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permali
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 $cart_url       = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $checkout_url   = function_exists('wc_get_checkout_url') ? wc_get_checkout_url() : home_url('/checkout/');
-$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
-$logo_path      = get_template_directory() . '/assets/img/gallery/logofooter.png';
-$logo_url       = get_template_directory_uri() . '/assets/img/gallery/logofooter.png';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickygo.com';
+$support_hours  = __('Mon-Fri, 9:00 AM - 5:00 PM PST', 'dawp');
+$store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
+$logo_path      = get_template_directory() . '/assets/img/gallery/logo.png';
+$logo_url       = get_template_directory_uri() . '/assets/img/gallery/logo.png';
 $payment_methods = [
     ['name' => __('Visa', 'dawp'), 'file' => 'visa.png'],
     ['name' => __('Mastercard', 'dawp'), 'file' => 'master card.png'],
@@ -61,10 +63,10 @@ $footer_columns = [
     [
         'title' => __('Shop', 'dawp'),
         'links' => function_exists('dawp_shop_category_items') ? dawp_shop_category_items() : [
-            ['title' => __('Building Sets', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Art Figures', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Designer Toys', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Blind Boxes', 'dawp'), 'url' => $shop_url],
+            ['title' => __('City Buildings & Houses', 'dawp'), 'url' => $shop_url],
+            ['title' => __('Animals, Trees & Botanicals', 'dawp'), 'url' => $shop_url],
+            ['title' => __('City Vehicle Sets', 'dawp'), 'url' => $shop_url],
+            ['title' => __('World War II Sets', 'dawp'), 'url' => $shop_url],
         ],
     ],
     [
@@ -111,16 +113,20 @@ $footer_columns = [
         </section>
 
         <div class="tgm-footer__brand">
-            <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Brickgoshop home', 'dawp'); ?>">
+            <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Brickygo home', 'dawp'); ?>">
                 <?php
                 echo function_exists('dawp_get_responsive_image')
-                    ? dawp_get_responsive_image($logo_url, __('Brickgoshop', 'dawp'), '', 190, 56, 'lazy', '190px')
-                    : '<img src="' . esc_url($logo_url) . '" width="190" height="56" alt="' . esc_attr__('Brickgoshop', 'dawp') . '" decoding="async" loading="lazy">';
+                    ? dawp_get_responsive_image($logo_url, __('Brickygo', 'dawp'), '', 200, 41, 'lazy', '200px')
+                    : '<img src="' . esc_url($logo_url) . '" width="200" height="41" alt="' . esc_attr__('Brickygo', 'dawp') . '" decoding="async" loading="lazy">';
                 ?>
             </a>
             <p><?php esc_html_e('Creative objects for building, collecting, gifting, and displaying.', 'dawp'); ?></p>
             <address>
                 <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                <span><?php echo esc_html($support_hours); ?></span>
+                <?php if ($store_address) : ?>
+                    <span><?php echo esc_html($store_address); ?></span>
+                <?php endif; ?>
             </address>
         </div>
     </div>
@@ -141,10 +147,13 @@ $footer_columns = [
     <div class="tgm-shell tgm-footer__bottom">
         <?php $render_payment_methods('tgm-footer__payments--bottom'); ?>
         <div class="tgm-footer__meta">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Brickgoshop. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> Brickygo. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
         </div>
     </div>
 </footer>
+
+<?php if (function_exists('dawp_cart_fab_markup')) : dawp_cart_fab_markup(); endif; ?>
+<?php if (function_exists('dawp_cart_drawer_markup')) : dawp_cart_drawer_markup(); endif; ?>
 
 <?php wp_footer(); ?>
 </body>

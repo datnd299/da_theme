@@ -1,6 +1,6 @@
 <?php
 /**
- * Brickgoshop contact page template part.
+ * Brickygo contact page template part.
  *
  * @package dawp
  */
@@ -16,8 +16,11 @@ $shipping_url      = home_url('/shipping-policy/');
 $returns_url       = home_url('/return-refund-policy/');
 $privacy_url       = home_url('/privacy-policy/');
 $contact_status    = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
-$support_email     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
-$support_email     = $support_email ?: 'support@brickgoshop.com';
+$support_email     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickygo.com';
+$support_email     = $support_email ?: 'support@brickygo.com';
+$support_phone     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
+$store_address     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
+$business_hours    = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
@@ -75,7 +78,7 @@ $topics = [
     <section class="bgs-contact__hero" aria-labelledby="bgs-contact-title">
         <div class="bgs-contact__shell bgs-contact__hero-grid">
             <div>
-                <p class="bgs-contact__kicker"><?php esc_html_e('Contact Brickgoshop', 'dawp'); ?></p>
+                <p class="bgs-contact__kicker"><?php esc_html_e('Contact Brickygo', 'dawp'); ?></p>
                 <h1 id="bgs-contact-title"><?php esc_html_e('Need help with your shelf story?', 'dawp'); ?></h1>
                 <p class="bgs-contact__lead"><?php esc_html_e('Send us your order question, product note, return request or privacy message. The support team keeps it clear, useful and collector-friendly.', 'dawp'); ?></p>
                 <div class="bgs-contact__actions">
@@ -182,6 +185,23 @@ $topics = [
                         <p><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></p>
                         <p><?php esc_html_e('Best for product questions, order notes and support follow-ups.', 'dawp'); ?></p>
                     </div>
+                    <div class="bgs-contact__method">
+                        <span><?php esc_html_e('Support hours', 'dawp'); ?></span>
+                        <p><?php echo esc_html($business_hours); ?></p>
+                        <p><?php esc_html_e('We aim to reply within 1 business day.', 'dawp'); ?></p>
+                    </div>
+                    <?php if ($support_phone) : ?>
+                    <div class="bgs-contact__method">
+                        <span><?php esc_html_e('Phone', 'dawp'); ?></span>
+                        <p><a href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a></p>
+                    </div>
+                    <?php endif; ?>
+                    <?php if ($store_address) : ?>
+                    <div class="bgs-contact__method">
+                        <span><?php esc_html_e('Business address', 'dawp'); ?></span>
+                        <p><?php echo esc_html($store_address); ?></p>
+                    </div>
+                    <?php endif; ?>
                     <div class="bgs-contact__method">
                         <span><?php esc_html_e('Before writing', 'dawp'); ?></span>
                         <p><?php esc_html_e('Have your order number, checkout email and a clear photo ready if the item arrived damaged.', 'dawp'); ?></p>

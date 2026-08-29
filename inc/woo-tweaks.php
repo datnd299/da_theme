@@ -10,6 +10,22 @@ add_filter('loop_shop_per_page', function() { return 12; });
 // Disable all default WooCommerce CSS
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
+// Order numbers display with the "BGO-" prefix (see custom_woocommerce_order_prefix).
+// Let the Track Order form accept that prefixed value, a "#"-prefixed value, or
+// the bare numeric id.
+add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_id', 9);
+function dawp_normalize_tracking_order_id($order_id) {
+    $value = trim((string) $order_id);
+    $value = ltrim($value, '#');
+    $value = trim($value);
+
+    if (preg_match('/^BGO\s*-\s*(\d+)$/i', $value, $matches)) {
+        return $matches[1];
+    }
+
+    return $order_id;
+}
+
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 add_action('woocommerce_single_product_summary', 'dawp_single_product_category_label', 4);
 add_action('woocommerce_single_product_summary', 'dawp_single_product_benefits', 31);
@@ -189,17 +205,20 @@ function dawp_get_store_address() {
  */
 function dawp_get_store_contact($key) {
     $fallbacks = [
-        'name'    => 'Brickgoshop',
-        'email'   => 'support@brickgoshop.com',
+        'name'    => 'Brickygo',
+        'email'   => 'support@brickygo.com',
         'phone'   => '',
         'address' => '',
-        'domain'  => 'https://brickgoshop.com',
+        'domain'  => 'https://brickygo.com',
     ];
 
     switch ($key) {
         case 'name':
+            // This WordPress install is shared across several brand branches, so
+            // the Site Title option is not a reliable source here. Use the
+            // WooCommerce "from name" only if it has been set to this brand,
+            // otherwise fall through to the theme fallback below.
             $value = get_option('woocommerce_email_from_name');
-            $value = $value ?: get_bloginfo('name');
             break;
         case 'email':
             $value = $fallbacks['email'];
@@ -221,10 +240,29 @@ function dawp_get_store_contact($key) {
 
     $value = trim((string) ($value ?: ($fallbacks[$key] ?? '')));
 
-    if ('name' === $key && (preg_match('/^brickgo(?:\.com)?$/i', $value) || preg_match('/^x+$/i', $value))) {
+    if ('name' === $key && !preg_match('/^brickygo$/i', $value)) {
         $value = $fallbacks['name'];
     }
 
     return $value;
+}
+
+/**
+ * The WordPress Site Title / tagline options are shared across brand branches
+ * and still hold another store's values. Override them on the front end (feeds,
+ * schema, template calls, order emails) so nothing renders the wrong name.
+ * wp-admin keeps showing the real stored option.
+ */
+add_filter('option_blogname', 'dawp_filter_blogname');
+function dawp_filter_blogname($value) {
+    return is_admin() ? $value : dawp_get_store_contact('name');
+}
+
+add_filter('option_blogdescription', 'dawp_filter_blogdescription');
+function dawp_filter_blogdescription($value) {
+    if (is_admin()) {
+        return $value;
+    }
+    return __('Build. Collect. Display. Modern collectible building sets, figures and display pieces.', 'dawp');
 }
 

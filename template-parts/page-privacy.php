@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy policy page for Brickgoshop.
+ * Privacy policy page for Brickygo.
  *
  * @package dawp
  */
@@ -9,14 +9,14 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
-$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgoshop.com';
-$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickygo';
+$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickygo.com';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickygo.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
 $store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
-$last_updated   = __('May 29, 2026', 'dawp');
+$last_updated   = __('August 29, 2026', 'dawp');
 
 $information_collected = [
     [
@@ -28,7 +28,7 @@ $information_collected = [
     ],
     [
         'title' => __('Information Collected Automatically', 'dawp'),
-        'copy'  => __('Whenever you navigate through Brickgoshop, our servers automatically log technical session details, including:', 'dawp'),
+        'copy'  => __('Whenever you navigate through Brickygo, our servers automatically log technical session details, including:', 'dawp'),
         'items' => [
             __('Your IP address, web browser type and version, language preferences, operating system, and referring/exit pages.', 'dawp'),
             __('Approximate geographic location derived from network signals.', 'dawp'),
@@ -57,7 +57,7 @@ $sharing_partners = [
     ],
     [
         'title' => __('Legal & Regulatory Demands', 'dawp'),
-        'copy'  => __('We may disclose your data if required by law to comply with applicable federal/state laws, tax audits, court subpoenas, or to defend the safety, legal rights, and property of Brickgoshop, our staff, and our consumers.', 'dawp'),
+        'copy'  => __('We may disclose your data if required by law to comply with applicable federal/state laws, tax audits, court subpoenas, or to defend the safety, legal rights, and property of Brickygo, our staff, and our consumers.', 'dawp'),
     ],
 ];
 
@@ -65,7 +65,7 @@ $privacy_rights = [
     __('Right to Access / Know: Request disclosure of what personal data we have collected, used, or shared about you.', 'dawp'),
     __('Right to Delete: Request the permanent removal of your personal profile and data from our active directories, subject to statutory retention requirements.', 'dawp'),
     __('Right to Correct / Rectify: Request rectification of inaccurate or outdated account records.', 'dawp'),
-    __('Right to Opt-Out: Opt out of the sale or sharing of personal information (Note: Brickgoshop does not sell personal data).', 'dawp'),
+    __('Right to Opt-Out: Opt out of the sale or sharing of personal information (Note: Brickygo does not sell personal data).', 'dawp'),
 ];
 
 $contact_details = [
@@ -79,19 +79,25 @@ $contact_details = [
         'url'   => 'mailto:' . $support_email,
     ],
     [
-        'label' => __('Phone Number', 'dawp'),
-        'value' => $support_phone,
-        'url'   => 'tel:' . $support_phone,
-    ],
-    [
-        'label' => __('Physical Business Address', 'dawp'),
-        'value' => $store_address,
-    ],
-    [
         'label' => __('Support Hours', 'dawp'),
         'value' => $business_hours,
     ],
 ];
+
+if ($support_phone) {
+    $contact_details[] = [
+        'label' => __('Phone Number', 'dawp'),
+        'value' => $support_phone,
+        'url'   => 'tel:' . $support_phone,
+    ];
+}
+
+if ($store_address) {
+    $contact_details[] = [
+        'label' => __('Physical Business Address', 'dawp'),
+        'value' => $store_address,
+    ];
+}
 
 $sections = [
     [
@@ -111,7 +117,7 @@ $sections = [
     [
         'title' => __('3. Cookies, Pixels, and Tracking Technologies', 'dawp'),
         'copy'  => [
-            __('Brickgoshop utilizes functional, analytical, and advertising cookies--small data files stored on your local device--to maintain essential online store capabilities and enhance your experience.', 'dawp'),
+            __('Brickygo utilizes functional, analytical, and advertising cookies--small data files stored on your local device--to maintain essential online store capabilities and enhance your experience.', 'dawp'),
             __('Essential Cookies: Maintain core shopping functionality, remember shopping cart contents across sessions, and preserve secure account logins.', 'dawp'),
             __('Analytics Cookies: Gather aggregated, anonymous traffic insights via tools such as Google Analytics to help us understand how visitors interact with the site.', 'dawp'),
             __('Advertising & Marketing Pixels: We may utilize tracking technologies (such as Google Ads Remarketing or Meta Pixels) to serve personalized, relevant advertisements to you on third-party websites based on your prior visits to our site.', 'dawp'),
@@ -128,7 +134,7 @@ $sections = [
     [
         'title' => __('5. Secure Payments & Data Encryption', 'dawp'),
         'copy'  => [
-            __('Your financial safety is our highest priority. Brickgoshop does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+            __('Your financial safety is our highest priority. Brickygo does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             __('All checkout transactions are executed over a fully secure, encrypted SSL (Secure Sockets Layer) connection using industry-standard 256-bit encryption.', 'dawp'),
             __('Financial data processing is handled entirely by certified third-party payment gateways (e.g., Stripe, PayPal) that strictly comply with the Payment Card Industry Data Security Standard (PCI-DSS).', 'dawp'),
         ],
@@ -151,7 +157,7 @@ $sections = [
     [
         'title' => __('8. Children\'s Privacy', 'dawp'),
         'copy'  => [
-            __('Brickgoshop is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority in their jurisdiction. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If you believe that a minor under 13 has provided us with personal data, please contact us immediately, and we will promptly purge such information from our records.', 'dawp'),
+            __('Brickygo is intended for a general audience and is strictly directed toward consumers who have reached the legal age of majority in their jurisdiction. We do not knowingly or intentionally collect, solicit, or maintain personal information from children under the age of 13. If you believe that a minor under 13 has provided us with personal data, please contact us immediately, and we will promptly purge such information from our records.', 'dawp'),
         ],
     ],
 ];
@@ -164,7 +170,7 @@ $sections = [
             <div>
                 <p class="bgs-policy-kicker text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
                 <h1 id="privacy-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                    <?php esc_html_e('How Brickgoshop protects customer information.', 'dawp'); ?>
+                    <?php esc_html_e('How Brickygo protects customer information.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-[#4A4A4A]">
                     <?php

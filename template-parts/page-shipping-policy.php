@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping policy page for Brickgoshop.
+ * Shipping policy page for Brickygo.
  *
  * @package dawp
  */
@@ -9,12 +9,12 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
+$support_email = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickygo.com';
 $support_phone = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
 $store_address = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $track_url     = home_url('/track-order/');
 $contact_url   = home_url('/contact-us/');
-$last_updated  = __('May 29, 2026', 'dawp');
+$last_updated  = __('August 29, 2026', 'dawp');
 
 $shipping_costs = [
     [
@@ -54,7 +54,7 @@ $carriers = [
 ];
 
 $issue_requirements = [
-    __('Your exact Order Number, such as #QB1001.', 'dawp'),
+    __('Your exact Order Number, such as #BGO-1024.', 'dawp'),
     __('The specific Email Address utilized during checkout.', 'dawp'),
     __('The full and complete Delivery Address.', 'dawp'),
     __('Clear, well-lit photos if the package container or collectible item arrived damaged.', 'dawp'),
@@ -63,7 +63,7 @@ $issue_requirements = [
 $contact_details = [
     [
         'label' => __('Store Name', 'dawp'),
-        'value' => __('Brickgoshop', 'dawp'),
+        'value' => __('Brickygo', 'dawp'),
     ],
     [
         'label' => __('Customer Support Email', 'dawp'),
@@ -74,8 +74,12 @@ $contact_details = [
         'value' => $store_address,
     ],
     [
+        'label' => __('Customer Service Hours', 'dawp'),
+        'value' => __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp'),
+    ],
+    [
         'label' => __('Response Time', 'dawp'),
-        'value' => __('Within 24 business hours.', 'dawp'),
+        'value' => __('Within 1 business day.', 'dawp'),
     ],
 ];
 
@@ -88,8 +92,8 @@ if ($support_phone) {
 
 $shipping_faqs = [
     [
-        'question' => __('Where does Brickgoshop ship?', 'dawp'),
-        'answer'   => __('Brickgoshop currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+        'question' => __('Where does Brickygo ship?', 'dawp'),
+        'answer'   => __('Brickygo currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
     ],
     [
         'question' => __('How much does standard shipping cost?', 'dawp'),
@@ -133,7 +137,7 @@ $shipping_faqs = [
                 <?php esc_html_e('Shipping Locations & Market', 'dawp'); ?>
             </h2>
             <div class="mt-5 space-y-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <p><?php esc_html_e('We currently ship exclusively within the United States. Brickgoshop serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
+                <p><?php esc_html_e('We currently ship exclusively within the United States. Brickygo serves customers shopping from the United States domestic market.', 'dawp'); ?></p>
                 <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
                 <div class="border-l-4 border-[#D8C7BE] bg-[#F8F5F0] p-5 text-[#4A4A4A]">
                     <p><?php esc_html_e('Some collectible orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
@@ -193,7 +197,7 @@ $shipping_faqs = [
                 <?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <?php esc_html_e('To guarantee safe and efficient delivery, Brickgoshop partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?>
+                <?php esc_html_e('To guarantee safe and efficient delivery, Brickygo partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', 'dawp'); ?>
             </p>
             <div class="mt-5 flex flex-wrap gap-3">
                 <?php foreach ($carriers as $carrier) : ?>
@@ -243,7 +247,7 @@ $shipping_faqs = [
                 <?php esc_html_e('Customer Support Contact Information', 'dawp'); ?>
             </h2>
             <p class="mt-5 text-sm leading-7 text-[#4A4A4A] sm:text-base">
-                <?php esc_html_e('For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We respond to all inquiries within 24 business hours.', 'dawp'); ?>
+                <?php esc_html_e('For any questions regarding your shipment, custom delivery requests, or transit inquiries, please contact us directly through our official channels. We aim to respond to all inquiries within 1 business day.', 'dawp'); ?>
             </p>
             <div class="mt-7 rounded-md border border-[#E8E5DF] p-5">
                 <div class="grid gap-4 md:grid-cols-2">

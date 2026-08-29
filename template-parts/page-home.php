@@ -1,6 +1,6 @@
 <?php
 /**
- * Brickgoshop homepage.
+ * Brickygo homepage.
  *
  * @package dawp
  */

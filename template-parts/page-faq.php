@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQs page for Brickgoshop.
+ * FAQs page for Brickygo.
  *
  * @package dawp
  */
@@ -9,9 +9,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
-$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickgoshop.com';
-$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickygo';
+$site_domain    = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('domain') : 'https://brickygo.com';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickygo.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
 $store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
@@ -22,15 +22,15 @@ if (!$shop_url) {
 }
 
 $contact_url  = home_url('/contact-us/');
-$last_updated = __('May 29, 2026', 'dawp');
+$last_updated = __('August 29, 2026', 'dawp');
 
 $faq_groups = [
     [
         'label' => __('Orders & Shipping', 'dawp'),
         'items' => [
             [
-                'question' => __('Where does Brickgoshop ship?', 'dawp'),
-                'answer'   => __('Brickgoshop currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
+                'question' => __('Where does Brickygo ship?', 'dawp'),
+                'answer'   => __('Brickygo currently ships exclusively within the United States domestic market. If a destination or carrier limitation prevents delivery to your address, checkout will notify you before payment is processed.', 'dawp'),
             ],
             [
                 'question' => __('How much does shipping cost?', 'dawp'),
@@ -71,7 +71,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Which products are eligible for return?', 'dawp'),
-                'answer'   => __('Eligible items must be unworn, unused, undamaged, and in their original, unaltered condition with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and included accessories.', 'dawp'),
+                'answer'   => __('Eligible items must be unopened, unused, undamaged, and in their original, unaltered condition with all original packaging, manuals, inserts, minifigures, accessories, and boxes intact.', 'dawp'),
             ],
             [
                 'question' => __('How do I start a return?', 'dawp'),
@@ -79,15 +79,15 @@ $faq_groups = [
             ],
             [
                 'question' => __('Who pays return shipping?', 'dawp'),
-                'answer'   => __('Brickgoshop covers return shipping for defective, damaged, or incorrect products. For customer remorse, the actual prepaid label cost is deducted from your final refund amount.', 'dawp'),
+                'answer'   => __('Brickygo covers return shipping for defective, damaged, or incorrect products. For customer remorse, the actual prepaid label cost is deducted from your final refund amount.', 'dawp'),
             ],
             [
                 'question' => __('Do you charge restocking fees?', 'dawp'),
-                'answer'   => __('No. Brickgoshop does not charge restocking fees for eligible returns.', 'dawp'),
+                'answer'   => __('No. Brickygo does not charge restocking fees for eligible returns.', 'dawp'),
             ],
             [
                 'question' => __('Do you offer exchanges?', 'dawp'),
-                'answer'   => __('We do not process direct one-for-one product exchanges. To get a different size, color, or model, return the original eligible item for a refund and place a new order on the website.', 'dawp'),
+                'answer'   => __('We do not process direct one-for-one product exchanges. To get a different item, version, or color, return the original eligible item for a refund and place a new order on the website.', 'dawp'),
             ],
             [
                 'question' => __('When will I receive my refund?', 'dawp'),
@@ -107,8 +107,8 @@ $faq_groups = [
         'label' => __('Products & Store', 'dawp'),
         'items' => [
             [
-                'question' => __('What does Brickgoshop sell?', 'dawp'),
-                'answer'   => __('Brickgoshop focuses on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
+                'question' => __('What does Brickygo sell?', 'dawp'),
+                'answer'   => __('Brickygo focuses on practical collectible toys, building sets, designer figures, art toys, blind boxes, mini figures, display pieces, and collector accessories.', 'dawp'),
             ],
             [
                 'question' => __('Do product photos and colors always look exactly the same in person?', 'dawp'),
@@ -116,7 +116,7 @@ $faq_groups = [
             ],
             [
                 'question' => __('Do you sell counterfeit or replica products?', 'dawp'),
-                'answer'   => __('No. Brickgoshop does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
+                'answer'   => __('No. Brickygo does not sell counterfeit goods, replica logos, unauthorized branded items, dietary supplements, medical devices, regulated products, or items with unverified health claims.', 'dawp'),
             ],
             [
                 'question' => __('Do your products make medical, safety, or treatment claims?', 'dawp'),
@@ -136,8 +136,8 @@ $faq_groups = [
                 'answer'   => __('Yes. Checkout transactions are executed over an encrypted SSL connection and payment processing is handled by certified third-party payment gateways that follow PCI-DSS standards.', 'dawp'),
             ],
             [
-                'question' => __('Does Brickgoshop store my full credit card number?', 'dawp'),
-                'answer'   => __('No. Brickgoshop does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
+                'question' => __('Does Brickygo store my full credit card number?', 'dawp'),
+                'answer'   => __('No. Brickygo does not store, view, or retain raw credit card numbers or sensitive payment credentials on our corporate servers.', 'dawp'),
             ],
             [
                 'question' => __('How is my information used?', 'dawp'),
@@ -148,15 +148,14 @@ $faq_groups = [
                 'answer'   => __('Depending on your location and applicable U.S. state privacy laws, you may request access to, correction of, or deletion of personal data we maintain. Submit privacy requests through support.', 'dawp'),
             ],
             [
-                'question' => __('How do I contact Brickgoshop?', 'dawp'),
-                'answer'   => sprintf(
-                    /* translators: 1: email address, 2: phone number, 3: business hours, 4: store address */
-                    __('Email %1$s, call %2$s, or use the Contact Us page. Customer service hours are %3$s. Our business address is %4$s.', 'dawp'),
+                'question' => __('How do I contact Brickygo?', 'dawp'),
+                'answer'   => trim(sprintf(
+                    /* translators: 1: email address, 2: business hours, 3: store address */
+                    __('Email %1$s or use the Contact Us page. Customer service hours are %2$s.%3$s', 'dawp'),
                     $support_email,
-                    $support_phone,
                     $business_hours,
-                    $store_address
-                ),
+                    $store_address ? ' ' . sprintf(__('Our business address is %s.', 'dawp'), $store_address) : ''
+                )),
             ],
         ],
     ],
@@ -169,7 +168,7 @@ $faq_groups = [
         <div class="mx-auto flex max-w-3xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
             <p class="text-center text-sm font-extrabold uppercase tracking-[0.14em] text-[#A45A3F]"><?php esc_html_e('FAQs', 'dawp'); ?></p>
             <h1 id="faq-title" class="mt-4 text-center font-heading text-4xl font-extrabold leading-tight text-[#2B2B2B] sm:text-5xl">
-                <?php esc_html_e('Quick answers for collecting with Brickgoshop.', 'dawp'); ?>
+                <?php esc_html_e('Quick answers for collecting with Brickygo.', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-5 max-w-2xl text-center text-base leading-8 text-[#4A4A4A]">
                 <?php
@@ -223,7 +222,7 @@ $faq_groups = [
                         );
                         ?>
                     </p>
-                    <dl class="mt-5 grid gap-4 md:grid-cols-3">
+                    <dl class="mt-5 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Email', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
@@ -231,15 +230,23 @@ $faq_groups = [
                             </dd>
                         </div>
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
+                            <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Service Hours', 'dawp'); ?></dt>
+                            <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($business_hours); ?></dd>
+                        </div>
+                        <?php if ($support_phone) : ?>
+                        <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Customer Support Phone', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]">
                                 <a class="font-bold text-[#A45A3F] underline decoration-[#A45A3F]/40 underline-offset-4 transition hover:text-[#7F422F]" href="tel:<?php echo esc_attr($support_phone); ?>"><?php echo esc_html($support_phone); ?></a>
                             </dd>
                         </div>
+                        <?php endif; ?>
+                        <?php if ($store_address) : ?>
                         <div class="rounded-md border border-[#E8E5DF] bg-white p-5">
                             <dt class="text-sm font-extrabold text-[#2B2B2B]"><?php esc_html_e('Business Address', 'dawp'); ?></dt>
                             <dd class="mt-3 text-sm leading-7 text-[#4A4A4A]"><?php echo esc_html($store_address); ?></dd>
                         </div>
+                        <?php endif; ?>
                     </dl>
                     <div class="mt-7 flex flex-col gap-3 sm:flex-row">
                         <a href="<?php echo esc_url($contact_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#A45A3F] px-6 text-sm font-bold text-white transition hover:bg-[#7F422F]">

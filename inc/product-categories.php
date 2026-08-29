@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for Brickgoshop.
+ * Product category defaults for Brickygo.
  *
  * @package dawp
  */
@@ -11,25 +11,25 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'building-sets' => [
-            'name'        => __('Building Sets', 'dawp'),
-            'description' => __('Creative construction sets, architecture-inspired builds and display models.', 'dawp'),
-            'short'       => __('Builds made for desks, shelves and weekend focus.', 'dawp'),
+        'city-buildings-houses' => [
+            'name'        => __('City Buildings & Houses', 'dawp'),
+            'description' => __('Modular houses, storefronts and street-side buildings for detailed brick-built city blocks.', 'dawp'),
+            'short'       => __('Brick-built homes and shops for your city layout.', 'dawp'),
         ],
-        'art-figures' => [
-            'name'        => __('Art Figures', 'dawp'),
-            'description' => __('Display-focused collectible figures with clean forms and shelf presence.', 'dawp'),
-            'short'       => __('Figures made to collect, gift and display.', 'dawp'),
+        'animals-trees-botanicals' => [
+            'name'        => __('Animals, Trees & Botanicals', 'dawp'),
+            'description' => __('Brick-built animals, trees, flowers and greenery that bring scenery and life to any build.', 'dawp'),
+            'short'       => __('Creatures and greenery to finish every scene.', 'dawp'),
         ],
-        'designer-toys' => [
-            'name'        => __('Designer Toys', 'dawp'),
-            'description' => __('Original collectible objects, sculptural toys and design-led editions.', 'dawp'),
-            'short'       => __('Creative forms with collector energy.', 'dawp'),
+        'city-vehicle-sets' => [
+            'name'        => __('City Vehicle Sets', 'dawp'),
+            'description' => __('Cars, trucks, service vehicles and transit sets built for busy brick-built streets.', 'dawp'),
+            'short'       => __('Cars, trucks and service rigs for the streets.', 'dawp'),
         ],
-        'blind-boxes' => [
-            'name'        => __('Blind Boxes', 'dawp'),
-            'description' => __('Mystery collectibles, small series and surprise mini releases.', 'dawp'),
-            'short'       => __('Small surprises for repeat discovery.', 'dawp'),
+        'world-war-ii-sets' => [
+            'name'        => __('World War II Sets', 'dawp'),
+            'description' => __('History-themed WWII-era vehicles, aircraft and battlefield sets made for display and collection.', 'dawp'),
+            'short'       => __('WWII-era vehicles and scenes for collectors.', 'dawp'),
         ],
     ];
 }
@@ -49,6 +49,10 @@ function dawp_lbq_retired_product_category_slugs() {
         'smart-home',
         'kitchen-dining',
         'outdoor-garden',
+        'building-sets',
+        'art-figures',
+        'designer-toys',
+        'blind-boxes',
     ];
 }
 
@@ -62,14 +66,18 @@ function dawp_is_lbq_product_category_slug($slug) {
 
 function dawp_lbq_legacy_product_category_slug_map() {
     return [
-        'home'                       => 'building-sets',
-        'garden-tools'               => 'art-figures',
-        'electronics'                => 'designer-toys',
-        'sports-outdoors'            => 'blind-boxes',
-        'toys-outdoor-play'          => 'building-sets',
-        'beauty-personal-care'       => 'art-figures',
-        'pets'                       => 'designer-toys',
-        'school-office-art-supplies' => 'blind-boxes',
+        'home'                       => 'city-buildings-houses',
+        'garden-tools'               => 'animals-trees-botanicals',
+        'electronics'                => 'city-vehicle-sets',
+        'sports-outdoors'            => 'world-war-ii-sets',
+        'toys-outdoor-play'          => 'city-buildings-houses',
+        'beauty-personal-care'       => 'animals-trees-botanicals',
+        'pets'                       => 'animals-trees-botanicals',
+        'school-office-art-supplies' => 'world-war-ii-sets',
+        'building-sets'              => 'city-buildings-houses',
+        'art-figures'                => 'animals-trees-botanicals',
+        'designer-toys'              => 'city-vehicle-sets',
+        'blind-boxes'                => 'world-war-ii-sets',
     ];
 }
 
@@ -133,9 +141,9 @@ function dawp_ensure_lbq_product_categories() {
         update_term_meta((int) $term->term_id, 'dawp_category_card_copy', $category['short']);
     }
 
-    $building_sets_term = get_term_by('slug', 'building-sets', 'product_cat');
-    if ($building_sets_term && !is_wp_error($building_sets_term)) {
-        update_option('default_product_cat', (int) $building_sets_term->term_id);
+    $default_term = get_term_by('slug', 'city-buildings-houses', 'product_cat');
+    if ($default_term && !is_wp_error($default_term)) {
+        update_option('default_product_cat', (int) $default_term->term_id);
     }
 
     dawp_remove_non_lbq_product_categories();

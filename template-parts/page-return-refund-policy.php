@@ -1,6 +1,6 @@
 <?php
 /**
- * Return and refund policy page for Brickgoshop.
+ * Return and refund policy page for Brickygo.
  *
  * @package dawp
  */
@@ -9,18 +9,18 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickgoshop';
-$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickgoshop.com';
+$store_name     = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('name') : 'Brickygo';
+$support_email  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('email') : 'support@brickygo.com';
 $support_phone  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('phone') : '';
 $store_address  = function_exists('dawp_get_store_contact') ? dawp_get_store_contact('address') : '';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM, GMT-08:00 Pacific Standard Time', 'dawp');
 $contact_url    = home_url('/contact-us/');
-$last_updated   = __('May 29, 2026', 'dawp');
+$last_updated   = __('August 29, 2026', 'dawp');
 
 $return_eligibility = [
     __('Return Window: You must initiate your return request within 30 days of delivery.', 'dawp'),
-    __('Condition: Items must be unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'),
-    __('Packaging: Items must be returned with all original packaging, tags, labels, certificates, care cards, pouches, boxes, and any included accessories.', 'dawp'),
+    __('Condition: Items must be unopened, unused, undamaged, and in their original, unaltered condition.', 'dawp'),
+    __('Packaging: Items must be returned with all original packaging, manuals, inserts, minifigures, accessories, and boxes intact.', 'dawp'),
     __('Restocking Fee: Free. We do not charge any restocking fees for eligible returns.', 'dawp'),
 ];
 
@@ -30,7 +30,7 @@ $return_shipping_fees = [
         'copy'  => __('No cost to customer. We cover 100% of the return shipping costs. We will provide a downloadable and printable prepaid shipping label via email.', 'dawp'),
     ],
     [
-        'title' => __("Customer Remorse (Ordered wrong item/size/color, changed mind, or doesn't fit):", 'dawp'),
+        'title' => __('Customer Remorse (Ordered the wrong item, changed your mind, or no longer want it):', 'dawp'),
         'copy'  => __('The customer is responsible for the return shipping cost. The actual return shipping cost of the provided prepaid label (sent via email) will be deducted from your final refund amount.', 'dawp'),
     ],
 ];
@@ -75,9 +75,9 @@ $refund_process = [
 $non_returnable_items = [
     __('Items explicitly marked as "Final Sale" or "Non-Returnable" on the product page.', 'dawp'),
     __('Gift cards or digital products/downloads.', 'dawp'),
-    __('Personalized, engraved, resized, or custom-made items.', 'dawp'),
-    __('Hygiene-sensitive items or sealed products where the product seal has been broken.', 'dawp'),
-    __('Items that have been worn, washed, altered, or damaged after delivery.', 'dawp'),
+    __('Personalized, engraved, or custom-made items.', 'dawp'),
+    __('Sealed or blind-box products where the manufacturer seal has been broken or opened.', 'dawp'),
+    __('Items that have been opened, built, assembled, used, altered, or damaged after delivery.', 'dawp'),
 ];
 
 $contact_cards = [
@@ -112,15 +112,15 @@ $contact_cards = [
 $return_faqs = [
     [
         'question' => __('What is the return window?', 'dawp'),
-        'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible items that are unworn, unused, undamaged, and in their original, unaltered condition.', 'dawp'),
+        'answer'   => __('You must initiate your return request within 30 days of delivery. Returns are accepted for eligible items that are unopened, unused, undamaged, and in their original, unaltered condition.', 'dawp'),
     ],
     [
         'question' => __('Who pays return shipping?', 'dawp'),
-        'answer'   => __('For defective, damaged, or incorrect products, Brickgoshop covers 100% of return shipping. For customer remorse, the prepaid label cost is deducted from your final refund amount.', 'dawp'),
+        'answer'   => __('For defective, damaged, or incorrect products, Brickygo covers 100% of return shipping. For customer remorse, the prepaid label cost is deducted from your final refund amount.', 'dawp'),
     ],
     [
         'question' => __('Do you charge restocking fees?', 'dawp'),
-        'answer'   => __('No. Brickgoshop does not charge restocking fees for eligible returns.', 'dawp'),
+        'answer'   => __('No. Brickygo does not charge restocking fees for eligible returns.', 'dawp'),
     ],
     [
         'question' => __('When will I receive my refund?', 'dawp'),
@@ -227,7 +227,7 @@ $return_faqs = [
 
             <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">
                 <h2 class="font-heading text-xl font-extrabold text-[#2B2B2B]"><?php esc_html_e('Exchanges', 'dawp'); ?></h2>
-                <p class="mt-5 text-sm leading-7 text-[#4A4A4A]"><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different size, color, or model, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
+                <p class="mt-5 text-sm leading-7 text-[#4A4A4A]"><?php esc_html_e('We do not process direct one-for-one product exchanges. To get a different item, version, or color, please follow the return process above to send back your original purchase for a refund, and place a new order on our website simultaneously. This ensures your desired item does not sell out.', 'dawp'); ?></p>
             </article>
 
             <article class="rounded-md border border-[#E8E5DF] bg-white p-5 shadow-sm sm:p-6">

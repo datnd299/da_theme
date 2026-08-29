@@ -17,12 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const prevBtn = document.createElement('button');
         prevBtn.className = 'gallery-thumbs-btn prev';
-        prevBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
+        prevBtn.type = 'button';
+        prevBtn.innerHTML = '<span aria-hidden="true"></span>';
         prevBtn.setAttribute('aria-label', 'Scroll Left');
         
         const nextBtn = document.createElement('button');
         nextBtn.className = 'gallery-thumbs-btn next';
-        nextBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
+        nextBtn.type = 'button';
+        nextBtn.innerHTML = '<span aria-hidden="true"></span>';
         nextBtn.setAttribute('aria-label', 'Scroll Right');
         
         wrapper.appendChild(prevBtn);

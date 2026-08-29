@@ -82,11 +82,57 @@ function dawp_my_account_page_title() {
 }
 
 function dawp_single_product_service_notes() {
+    $notes = [
+        [
+            'icon'  => 'map',
+            'title' => __('U.S. domestic shipping', 'dawp'),
+            'text'  => __('We currently ship exclusively within the United States domestic market.', 'dawp'),
+        ],
+        [
+            'icon'  => 'truck',
+            'title' => __('Free standard shipping', 'dawp'),
+            'text'  => __('Standard U.S. shipping is free nationwide with no minimum purchase requirement.', 'dawp'),
+        ],
+        [
+            'icon'  => 'clock',
+            'title' => __('Estimated delivery', 'dawp'),
+            'text'  => __('Handling takes 1-3 business days and transit takes 5-7 business days.', 'dawp'),
+        ],
+        [
+            'icon'  => 'refresh',
+            'title' => __('30-day return window', 'dawp'),
+            'text'  => __('Eligible returns may be initiated within 30 days of delivery after contacting support.', 'dawp'),
+        ],
+    ];
 
+    echo '<div class="product-service-notes" aria-label="' . esc_attr__('Order and policy highlights', 'dawp') . '">';
+
+    foreach ($notes as $note) {
+        echo '<div class="product-service-note">';
+        echo '<span class="product-service-note__icon" aria-hidden="true">' . dawp_product_service_note_icon($note['icon']) . '</span>';
+        echo '<span class="product-service-note__body">';
+        echo '<strong class="product-service-note__title">' . esc_html($note['title']) . '</strong>';
+        echo '<span class="product-service-note__text">' . esc_html($note['text']) . '</span>';
+        echo '</span>';
+        echo '</div>';
+    }
+
+    echo '</div>';
 }
 
 function dawp_single_product_atelier_banner() {
     
+}
+
+function dawp_product_service_note_icon($icon) {
+    $icons = [
+        'map' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"/><path d="M9 3v15"/><path d="M15 6v15"/></svg>',
+        'truck' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M10 17h4V5H2v12h3"/><path d="M14 8h4l4 4v5h-3"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>',
+        'clock' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+        'refresh' => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 11a8.1 8.1 0 0 0-15.5-2M4 5v4h4"/><path d="M4 13a8.1 8.1 0 0 0 15.5 2M20 19v-4h-4"/></svg>',
+    ];
+
+    return $icons[$icon] ?? $icons['clock'];
 }
 
 function dawp_get_store_address_line() {

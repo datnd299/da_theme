@@ -3,7 +3,7 @@
    Designed to replicate high-end watch manufacture aesthetic:
    - Off-white warm cream backdrop (#F8F6F0)
    - Serif typography for headings (Playfair Display / Cormorant Garamond)
-   - 2x2 Feature Trust Grid box (Automatic movement, 5-yr warranty, Insured delivery, Numbered)
+   - 2x2 Feature Trust Grid box (U.S. shipping, free standard shipping, delivery timing, returns)
    - Atelier Watchmaker Dark Section Banner (#161513)
    - Clean luxury tabs & 4-column related products grid
    ============================================================ */
@@ -146,15 +146,27 @@ body.single-product {
 }
 
 /* Gallery Thumbnails */
+.gallery-thumbs-wrapper {
+  position: relative;
+  margin: 14px 14px 16px;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
 .flex-control-thumbs {
   display: flex;
   gap: 10px;
-  margin: 14px 14px 16px;
+  margin: 0;
   padding: 0;
   list-style: none;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.woocommerce-product-gallery > .flex-control-thumbs {
+  margin: 14px 14px 16px;
 }
 
 .flex-control-thumbs::-webkit-scrollbar {
@@ -163,11 +175,12 @@ body.single-product {
 
 .flex-control-thumbs li {
   flex: 0 0 auto;
+  margin: 0;
 }
 
 .flex-control-thumbs img {
-  width: 68px;
-  height: 68px;
+  width: 66px;
+  height: 66px;
   object-fit: cover;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
@@ -179,6 +192,86 @@ body.single-product {
 .flex-control-thumbs img.flex-active,
 .flex-control-thumbs img:hover {
   border-color: var(--color-gold);
+}
+
+.gallery-thumbs-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 66px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-white);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transform: translateY(-50%);
+  box-shadow: 0 6px 16px rgba(24, 23, 21, 0.08);
+  transition: border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gallery-thumbs-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  box-shadow: 0 10px 22px rgba(24, 23, 21, 0.12);
+}
+
+.gallery-thumbs-btn:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.gallery-thumbs-btn.prev {
+  left: 0;
+}
+
+.gallery-thumbs-btn.next {
+  right: 0;
+}
+
+.gallery-thumbs-btn span {
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+}
+
+.gallery-thumbs-btn.prev span {
+  transform: rotate(-135deg);
+  margin-left: 3px;
+}
+
+.gallery-thumbs-btn.next span {
+  transform: rotate(45deg);
+  margin-right: 3px;
+}
+
+@media (max-width: 520px) {
+  .gallery-thumbs-wrapper {
+    margin: 12px 10px 14px;
+    padding: 0 28px;
+  }
+
+  .flex-control-thumbs {
+    gap: 8px;
+  }
+
+  .flex-control-thumbs img,
+  .gallery-thumbs-btn {
+    height: 58px;
+  }
+
+  .flex-control-thumbs img {
+    width: 58px;
+  }
+
+  .gallery-thumbs-btn {
+    width: 22px;
+  }
 }
 
 /* === 3. PRODUCT SUMMARY === */

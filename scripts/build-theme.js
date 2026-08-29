@@ -3,7 +3,7 @@ import {
   readFileSync, writeFileSync, existsSync,
   mkdirSync, statSync, readdirSync, copyFileSync, rmSync,
 } from 'fs';
-import { resolve, dirname, extname, join, basename } from 'path';
+import { resolve, dirname, extname, join, basename, relative } from 'path';
 import { fileURLToPath } from 'url';
 
 import postcss from 'postcss';
@@ -178,6 +178,110 @@ async function minifyJs(content) {
 
 // ── Process files ──────────────────────────────────────────────
 const TEXT_EXTS = new Set(['.php', '.css', '.js', '.json', '.txt', '.html', '.md']);
+const CRC_TABLE = Array.from({ length: 256 }, (_, n) => {
+  let c = n;
+  for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+  return c >>> 0;
+});
+
+function crc32(buffer) {
+  let crc = 0xffffffff;
+  for (const byte of buffer) crc = CRC_TABLE[(crc ^ byte) & 0xff] ^ (crc >>> 8);
+  return (crc ^ 0xffffffff) >>> 0;
+}
+
+function dosDateTime(date) {
+  const time =
+    (date.getHours() << 11) |
+    (date.getMinutes() << 5) |
+    Math.floor(date.getSeconds() / 2);
+  const dosDate =
+    ((date.getFullYear() - 1980) << 9) |
+    ((date.getMonth() + 1) << 5) |
+    date.getDate();
+
+  return { time, date: dosDate };
+}
+
+function collectZipFiles(dir, baseDir = dir) {
+  const files = [];
+
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) {
+      files.push(...collectZipFiles(full, baseDir));
+    } else {
+      files.push(full);
+    }
+  }
+
+  return files;
+}
+
+function createZipFromDirectory(sourceDir, outputPath, rootName) {
+  const localParts = [];
+  const centralParts = [];
+  let offset = 0;
+
+  for (const filePath of collectZipFiles(sourceDir)) {
+    const data = readFileSync(filePath);
+    const stats = statSync(filePath);
+    const name = `${rootName}/${relative(sourceDir, filePath).replaceAll('\\', '/')}`;
+    const nameBuffer = Buffer.from(name, 'utf8');
+    const { time, date } = dosDateTime(stats.mtime);
+    const checksum = crc32(data);
+
+    const localHeader = Buffer.alloc(30);
+    localHeader.writeUInt32LE(0x04034b50, 0);
+    localHeader.writeUInt16LE(20, 4);
+    localHeader.writeUInt16LE(0x0800, 6);
+    localHeader.writeUInt16LE(0, 8);
+    localHeader.writeUInt16LE(time, 10);
+    localHeader.writeUInt16LE(date, 12);
+    localHeader.writeUInt32LE(checksum, 14);
+    localHeader.writeUInt32LE(data.length, 18);
+    localHeader.writeUInt32LE(data.length, 22);
+    localHeader.writeUInt16LE(nameBuffer.length, 26);
+    localHeader.writeUInt16LE(0, 28);
+
+    localParts.push(localHeader, nameBuffer, data);
+
+    const centralHeader = Buffer.alloc(46);
+    centralHeader.writeUInt32LE(0x02014b50, 0);
+    centralHeader.writeUInt16LE(20, 4);
+    centralHeader.writeUInt16LE(20, 6);
+    centralHeader.writeUInt16LE(0x0800, 8);
+    centralHeader.writeUInt16LE(0, 10);
+    centralHeader.writeUInt16LE(time, 12);
+    centralHeader.writeUInt16LE(date, 14);
+    centralHeader.writeUInt32LE(checksum, 16);
+    centralHeader.writeUInt32LE(data.length, 20);
+    centralHeader.writeUInt32LE(data.length, 24);
+    centralHeader.writeUInt16LE(nameBuffer.length, 28);
+    centralHeader.writeUInt16LE(0, 30);
+    centralHeader.writeUInt16LE(0, 32);
+    centralHeader.writeUInt16LE(0, 34);
+    centralHeader.writeUInt16LE(0, 36);
+    centralHeader.writeUInt32LE(0, 38);
+    centralHeader.writeUInt32LE(offset, 42);
+    centralParts.push(centralHeader, nameBuffer);
+
+    offset += localHeader.length + nameBuffer.length + data.length;
+  }
+
+  const centralSize = centralParts.reduce((size, part) => size + part.length, 0);
+  const end = Buffer.alloc(22);
+  end.writeUInt32LE(0x06054b50, 0);
+  end.writeUInt16LE(0, 4);
+  end.writeUInt16LE(0, 6);
+  end.writeUInt16LE(centralParts.length / 2, 8);
+  end.writeUInt16LE(centralParts.length / 2, 10);
+  end.writeUInt32LE(centralSize, 12);
+  end.writeUInt32LE(offset, 16);
+  end.writeUInt16LE(0, 20);
+
+  writeFileSync(outputPath, Buffer.concat([...localParts, ...centralParts, end]));
+}
 
 async function processFile(filePath) {
   const ext = extname(filePath).toLowerCase();
@@ -231,6 +335,6 @@ const zipPath  = join(distRoot, zipFile);
 if (existsSync(zipPath)) rmSync(zipPath);
 
 console.log(`Packaging → dist/${zipFile}`);
-execSync(`zip -r ${zipFile} ${themeSlug}`, { cwd: distRoot, stdio: 'inherit' });
+createZipFromDirectory(distDir, zipPath, themeSlug);
 
 console.log(`\nDone → dist/${zipFile}`);

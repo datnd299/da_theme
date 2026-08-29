@@ -4,26 +4,26 @@
    =================================================== */
 
 .account-page {
-  --color-surface: #0B1F3A;
+  --color-surface: #111111;
   --color-surface-card: #FFFFFF;
-  --color-surface-alt: #F8FAFC;
+  --color-surface-alt: #F7F7F5;
   --color-background: #FFFFFF;
-  --color-foreground: #111827;
-  --color-foreground-muted: #4B5563;
-  --color-muted: #6B7280;
-  --color-accent: #B31942;
-  --color-accent-hover: #8a1433;
-  --color-accent-soft: #C6A15B;
-  --color-border: #E5E7EB;
-  --color-alert: #B31942;
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  --color-foreground: #111111;
+  --color-foreground-muted: #666666;
+  --color-muted: #666666;
+  --color-accent: #A88B5A;
+  --color-accent-hover: #8C7145;
+  --color-accent-soft: #F2ECE1;
+  --color-border: #E5E5E5;
+  --color-alert: #C0392B;
+  --radius-sm: 2px;
+  --radius-md: 4px;
   --duration-fast: 150ms;
   --ease-fluid: ease;
-  --shadow-card: 0 14px 42px rgba(11, 31, 58, 0.08);
-  --shadow-card-hover: 0 18px 56px rgba(11, 31, 58, 0.12);
+  --shadow-card: 0 14px 42px rgba(17, 17, 17, 0.08);
+  --shadow-card-hover: 0 18px 56px rgba(17, 17, 17, 0.12);
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Barlow Condensed', 'Impact', sans-serif;
+  --font-display: 'Manrope', sans-serif;
   min-height: 62vh;
   padding: 0 0 80px;
   background: var(--color-background);
@@ -51,7 +51,7 @@
   overflow: hidden;
   min-height: 330px;
   background:
-    linear-gradient(90deg, rgba(11, 31, 58, 0.96) 0%, rgba(11, 31, 58, 0.78) 48%, rgba(179, 25, 66, 0.36) 100%),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.96) 0%, rgba(17, 17, 17, 0.78) 48%, rgba(168, 139, 90, 0.36) 100%),
     var(--account-cover-bg),
     var(--color-surface);
   background-position: center;
@@ -89,7 +89,7 @@
 
 .account-cover__eyebrow {
   margin: 0 0 10px;
-  color: #C6A15B;
+  color: #A88B5A;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -388,8 +388,8 @@
 .account-page .woocommerce-MyAccount-navigation a:hover,
 .account-page .woocommerce-MyAccount-navigation .is-active a {
   color: #FFFFFF;
-  background: #0B1F3A;
-  border-color: #0B1F3A;
+  background: #111111;
+  border-color: #111111;
 }
 
 .account-page .woocommerce-MyAccount-content {
@@ -430,7 +430,7 @@
 .account-page .woocommerce-info,
 .account-page .woocommerce-message,
 .account-page .woocommerce-error {
-  color: #111827;
+  color: #111111;
 }
 
 .account-page .woocommerce-info .button,

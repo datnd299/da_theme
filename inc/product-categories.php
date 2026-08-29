@@ -3,45 +3,21 @@ defined('ABSPATH') || exit;
 
 function dawp_product_category_definitions() {
     return [
-        'best-sellers' => [
-            'name'        => __('Best Sellers', 'dawp'),
-            'description' => __('Customer-favorite patriotic apparel and gifts made for classic American pride.', 'dawp'),
+        'dive-watches' => [
+            'name'        => __('Dive Watches', 'dawp'),
+            'description' => __('Automatic dive watches with rotating bezels, luminous dials, and serious water resistance for everyday wear.', 'dawp'),
         ],
-        'american-flag-tees' => [
-            'name'        => __('American Flag Tees', 'dawp'),
-            'description' => __('Graphic tees with bold American flag designs, distressed prints, and eagle graphics.', 'dawp'),
+        'field-watches' => [
+            'name'        => __('Field Watches', 'dawp'),
+            'description' => __('Rugged, highly legible field watches — a utilitarian classic built for daily use.', 'dawp'),
         ],
-        'bomber-jackets' => [
-            'name'        => __('Bomber Jackets', 'dawp'),
-            'description' => __('MA-1 style bomber jackets with flag patches and custom name options.', 'dawp'),
+        'dress-watches' => [
+            'name'        => __('Dress Watches', 'dawp'),
+            'description' => __('Slim automatic dress watches with clean dials that slide easily under a cuff.', 'dawp'),
         ],
-        'hats-beanies' => [
-            'name'        => __('Hats & Beanies', 'dawp'),
-            'description' => __('Snapbacks, dad hats, and beanies with patriotic patchwork.', 'dawp'),
-        ],
-        'premium-t-shirts' => [
-            'name'        => __('Premium T-Shirts', 'dawp'),
-            'description' => __('Heavy-weight cotton tees with vintage-style American pride prints.', 'dawp'),
-        ],
-        'patches-pins' => [
-            'name'        => __('Patches & Pins', 'dawp'),
-            'description' => __('Patriotic patches, pins, mugs, and daily carry gifts for American heritage.', 'dawp'),
-        ],
-        'america-250' => [
-            'name'        => __('America 250 Collection', 'dawp'),
-            'description' => __('Celebrate America\'s 250th Anniversary with patriotic apparel, accessories, and meaningful gifts.', 'dawp'),
-        ],
-        'fathers-day-gifts' => [
-            'name'        => __('Father\'s Day Gifts', 'dawp'),
-            'description' => __('Meaningful Father\'s Day gifts for husbands, dads, grandfathers, and proud families.', 'dawp'),
-        ],
-        'memorial-day-gifts' => [
-            'name'        => __('Memorial Day Gifts', 'dawp'),
-            'description' => __('Respectful patriotic gifts and apparel for remembrance, family legacy, and American pride.', 'dawp'),
-        ],
-        'independence-day-gifts' => [
-            'name'        => __('Independence Day Gifts', 'dawp'),
-            'description' => __('Red, white, and blue apparel, accessories, and custom gifts for proud American celebrations.', 'dawp'),
+        'chronograph-watches' => [
+            'name'        => __('Chronograph Watches', 'dawp'),
+            'description' => __('Mechanical chronographs with stopwatch complications and sub-dials for timing what matters.', 'dawp'),
         ],
     ];
 }
@@ -66,15 +42,11 @@ function dawp_product_category_url($slug) {
 
 function dawp_product_category_redirects() {
     return [
-        'best-sellers' => 'best-sellers',
-        'flag' => 'american-flag-tees',
-        'hoodie' => 'premium-t-shirts',
-        'jacket' => 'bomber-jackets',
-        't-shirt' => 'premium-t-shirts',
-        'cap' => 'hats-beanies',
-        'fathers-day' => 'fathers-day-gifts',
-        'memorial-day' => 'memorial-day-gifts',
-        'independence-day' => 'independence-day-gifts',
+        'dive'        => 'dive-watches',
+        'field'       => 'field-watches',
+        'dress'       => 'dress-watches',
+        'chronograph' => 'chronograph-watches',
+        'chrono'      => 'chronograph-watches',
     ];
 }
 
@@ -110,7 +82,7 @@ function dawp_seed_product_categories() {
     }
 
     $seeded_version = get_option('dawp_seeded_product_categories_version');
-    $target_version = '2026-07-15-link-fixes';
+    $target_version = '2026-08-29-yourwatchstore';
 
     if ($seeded_version === $target_version) {
         return;

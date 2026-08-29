@@ -1,398 +1,236 @@
 <?php
 /**
- * Theme header — ShopGraphicShirt
- * Patriot Navy / Heritage Red / Antique White
+ * Theme header — YourWatchStore.
+ *
+ * Premium / minimal / modern. Static announcement bar + sticky nav bar,
+ * three-section layout (brand · nav · actions). Tailwind utilities only.
+ *
+ * @package dawp
  */
 
-$shop_url = function_exists('wc_get_page_id') && wc_get_page_id('shop') > 0
-    ? get_permalink(wc_get_page_id('shop'))
-    : home_url('/shop/');
+if (!defined('ABSPATH')) {
+    exit;
+}
 
-$cart_url = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
-$cart_count = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
-$account_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
-$account_url = $account_url ? $account_url : home_url('/my-account/');
-?><!doctype html>
+$support_email  = 'support@yourwatchstore.com';
+$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
+$home_url       = home_url('/');
+$shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$account_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/');
+$cart_url       = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
+$cart_count     = (function_exists('WC') && WC() && WC()->cart) ? WC()->cart->get_cart_contents_count() : 0;
+
+if (!$shop_url) {
+    $shop_url = home_url('/shop/');
+}
+
+if (!$account_url) {
+    $account_url = home_url('/my-account/');
+}
+
+$dawp_category_url = static function ($slug) {
+    if (function_exists('get_term_by')) {
+        $term = get_term_by('slug', $slug, 'product_cat');
+
+        if ($term && !is_wp_error($term)) {
+            $link = get_term_link($term);
+
+            if (!is_wp_error($link)) {
+                return $link;
+            }
+        }
+    }
+
+    return home_url('/product-category/' . trim($slug, '/') . '/');
+};
+
+$shop_categories = [
+    ['title' => __('Dive Watches', 'dawp'), 'url' => $dawp_category_url('dive-watches')],
+    ['title' => __('Field Watches', 'dawp'), 'url' => $dawp_category_url('field-watches')],
+    ['title' => __('Dress Watches', 'dawp'), 'url' => $dawp_category_url('dress-watches')],
+    ['title' => __('Chronograph Watches', 'dawp'), 'url' => $dawp_category_url('chronograph-watches')],
+];
+
+$nav_links = [
+    ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
+    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
+    ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
+    ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
+];
+
+$store_schema = [
+    '@context'    => 'https://schema.org',
+    '@type'       => 'OnlineStore',
+    'name'        => 'YourWatchStore',
+    'url'         => home_url('/'),
+    'description' => __('Mechanical and automatic watches for everyday wear — dive, field, dress, and chronograph timepieces with free US shipping and 30-day returns.', 'dawp'),
+    'email'       => $support_email,
+    'priceRange'  => '$$',
+];
+
+$wc_address_1 = get_option('woocommerce_store_address');
+if (!empty($wc_address_1)) {
+    $wc_city         = get_option('woocommerce_store_city');
+    $wc_postcode     = get_option('woocommerce_store_postcode');
+    $default_country = explode(':', (string) get_option('woocommerce_default_country'));
+
+    $store_schema['address'] = [
+        '@type'           => 'PostalAddress',
+        'streetAddress'   => $wc_address_1,
+        'addressLocality' => $wc_city,
+        'addressRegion'   => $default_country[1] ?? '',
+        'postalCode'      => $wc_postcode,
+        'addressCountry'  => $default_country[0] ?? '',
+    ];
+}
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php wp_head(); ?>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --navy: #0B1F3A;
-            --navy-dark: #07152a;
-            --red: #B31942;
-            --red-dark: #991B1B;
-            --gold: #C6A15B;
-            --antique: #F7F2E8;
-            --white: #FFFFFF;
-            --ink: #111827;
-            --muted: #6B7280;
-            --line: #E5E7EB;
-            --radius: 8px;
-            --font-heading: 'Barlow Condensed', 'Impact', sans-serif;
-            --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-        }
-
-        *, *::before, *::after { box-sizing: border-box; }
-
-        body {
-            margin: 0;
-            background: var(--white);
-            color: var(--ink);
-            font-family: var(--font-body);
-            font-size: clamp(16px, 0.96rem + 0.18vw, 17px);
-            line-height: 1.65;
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-size-adjust: 100%;
-            text-size-adjust: 100%;
-        }
-
-        a { color: inherit; text-decoration: none; }
-        img { max-width: 100%; height: auto; display: block; }
-        .hidden { display: none !important; }
-
-        .sr-only {
-            position: absolute; width: 1px; height: 1px;
-            padding: 0; margin: -1px; overflow: hidden;
-            clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-        }
-
-        .skip-link:focus {
-            position: fixed; left: 16px; top: 16px; z-index: 1000;
-            width: auto; height: auto; clip: auto;
-            padding: 12px 16px; border-radius: var(--radius);
-            background: var(--red); color: var(--white);
-            font-size: 15px; font-weight: 700; white-space: normal;
-        }
-
-        /* ── Header ── */
-        .sgs-header {
-            position: sticky; top: var(--sgs-admin-offset, 0); z-index: 50;
-            background: var(--navy); color: var(--white);
-        }
-
-        body.admin-bar {
-            --sgs-admin-offset: 32px;
-        }
-
-        @media (max-width: 782px) {
-            body.admin-bar {
-                --sgs-admin-offset: 46px;
-            }
-        }
-
-        .sgs-container {
-            max-width: 1280px; margin: 0 auto; padding: 0 24px;
-        }
-
-        .sgs-navrow {
-            display: flex; min-height: 76px; align-items: center; gap: 20px;
-        }
-
-        .sgs-brand {
-            display: flex; flex: 0 0 auto; align-items: center;
-            color: var(--white);
-        }
-
-        .sgs-brand-logo {
-            display: block;
-            width: clamp(170px, 14vw, 200px);
-            height: auto;
-        }
-
-        /* ── Nav ── */
-        .sgs-main-nav {
-            display: flex; align-items: center; gap: 4px;
-        }
-
-        .sgs-main-nav a {
-            border-radius: var(--radius);
-            padding: 10px 12px;
-            color: rgba(255,255,255,0.82);
-            font-family: var(--font-body);
-            font-size: 14px; font-weight: 600;
-            letter-spacing: 0.02em;
-            transition: background 150ms, color 150ms;
-        }
-
-        .sgs-main-nav a:hover,
-        .sgs-main-nav a.is-current {
-            background: var(--red); color: var(--white);
-        }
-
-        .sgs-header-actions {
-            display: flex; align-items: center; gap: 10px; margin-left: auto;
-        }
-
-        .sgs-search {
-            display: flex;
-            width: clamp(240px, 22vw, 320px);
-            align-items: stretch;
-        }
-
-        .sgs-search input {
-            min-width: 0; width: 100%; height: 44px;
-            border: 1px solid rgba(255,255,255,0.15); border-right: 0;
-            border-radius: var(--radius) 0 0 var(--radius);
-            background: var(--white); color: var(--ink);
-            padding: 0 14px; font-size: 16px; font-weight: 500; outline: none;
-            font-family: var(--font-body);
-        }
-
-        .sgs-search input:focus {
-            box-shadow: 0 0 0 3px rgba(179,25,66,0.2);
-        }
-
-        .sgs-search button,
-        .sgs-icon-btn,
-        .sgs-cart-btn {
-            display: inline-flex; width: 44px; height: 44px;
-            flex: 0 0 auto;
-            align-items: center; justify-content: center;
-            border: 0; border-radius: var(--radius);
-            cursor: pointer;
-            transition: background 150ms, color 150ms;
-        }
-
-        .sgs-search button {
-            border-radius: 0 var(--radius) var(--radius) 0;
-            background: var(--red); color: var(--white);
-        }
-
-        .sgs-icon-btn {
-            border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(255,255,255,0.06); color: var(--white);
-        }
-
-        .sgs-cart-btn {
-            position: relative;
-            background: var(--red); color: var(--white);
-        }
-
-        .sgs-search button:hover,
-        .sgs-cart-btn:hover {
-            background: var(--white); color: var(--navy);
-        }
-
-        .sgs-icon-btn:hover {
-            background: rgba(255,255,255,0.12);
-        }
-
-        .sgs-cart-count {
-            position: absolute; right: -6px; top: -6px;
-            display: flex; min-width: 18px; height: 18px;
-            align-items: center; justify-content: center;
-            border: 2px solid var(--navy);
-            border-radius: 999px; background: var(--white);
-            color: var(--red);
-            font-size: 11px; font-weight: 800;
-        }
-
-        .sgs-quicknav {
-            border-top: 1px solid rgba(255,255,255,0.08);
-            background: #0a1a30;
-        }
-
-        .sgs-quicknav-inner {
-            display: flex; min-height: 44px; align-items: center; gap: 14px;
-            overflow-x: auto; scrollbar-width: none;
-        }
-
-        .sgs-quicknav-inner::-webkit-scrollbar { display: none; }
-
-        .sgs-quicknav a {
-            flex: 0 0 auto; border-radius: var(--radius);
-            padding: 8px 12px;
-            color: rgba(255,255,255,0.78);
-            font-family: var(--font-body);
-            font-size: 13px; font-weight: 700;
-            white-space: nowrap;
-            transition: background 150ms, color 150ms;
-        }
-
-        .sgs-quicknav a:hover {
-            background: var(--red); color: var(--white);
-        }
-
-        /* ── Mobile ── */
-        .sgs-mobile-panel {
-            border-top: 1px solid rgba(255,255,255,0.08);
-            background: var(--navy);
-            padding: 14px 20px;
-        }
-
-        .sgs-mobile-grid {
-            display: grid; gap: 6px;
-        }
-
-        .sgs-mobile-grid a,
-        .sgs-mobile-grid button {
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
-            background: rgba(255,255,255,0.05);
-            padding: 12px 14px; color: var(--white);
-            font-size: 16px; font-weight: 600; font-family: var(--font-body);
-            cursor: pointer; text-align: left;
-        }
-
-        .sgs-mobile-search-form {
-            display: flex; width: 100%; max-width: 1280px; margin: 0 auto;
-        }
-
-        .sgs-mobile-search-form button {
-            width: auto; min-width: 80px; padding: 0 16px;
-            font-size: 15px; font-weight: 700;
-        }
-
-        .sgs-mobile-only { display: none; }
-
-        .sgs-cat-expand {
-            display: flex; align-items: center; justify-content: space-between;
-        }
-
-        .sgs-cat-expand::after {
-            content: "+"; font-size: 18px; font-weight: 700;
-            transition: transform 200ms;
-        }
-
-        .sgs-cat-expand[aria-expanded="true"]::after {
-            content: "−";
-        }
-
-        .sgs-subcats {
-            display: grid; gap: 2px;
-            padding-left: 14px; margin-top: 2px;
-        }
-
-        .sgs-subcats a {
-            font-size: 15px; padding: 9px 14px; border: 0;
-        }
-
-        .sgs-customize-btn {
-            display: block; width: 100%; margin: 6px 0;
-            padding: 12px;
-            background: var(--red); color: var(--white);
-            border-radius: var(--radius);
-            font-family: var(--font-heading);
-            font-size: 15px; font-weight: 800; text-align: center;
-            letter-spacing: 0.06em; text-transform: uppercase;
-        }
-
-        @media (max-width: 1023px) {
-            .sgs-container { padding: 0 18px; }
-            .sgs-main-nav, .sgs-desktop-search, .sgs-quicknav { display: none; }
-            .sgs-mobile-only { display: inline-flex; }
-            .sgs-navrow { min-height: 64px; gap: 12px; }
-            .sgs-brand { min-width: 0; flex: 1 1 auto; }
-            .sgs-header-actions { flex: 0 0 auto; gap: 8px; margin-left: 0; }
-            .sgs-icon-btn,
-            .sgs-cart-btn {
-                width: 40px;
-                height: 40px;
-            }
-            .sgs-mobile-panel {
-                padding: 12px 18px 16px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .sgs-container { padding: 0 12px; }
-            .sgs-navrow { gap: 8px; }
-            .sgs-brand-logo { width: min(148px, 38vw); }
-            .sgs-header-actions { gap: 6px; }
-            .sgs-icon-btn,
-            .sgs-cart-btn {
-                width: 38px;
-                height: 38px;
-            }
-            .sgs-mobile-panel {
-                padding-inline: 12px;
-            }
-            .sgs-mobile-search-form button {
-                min-width: 70px;
-                padding-inline: 12px;
-                font-size: 14px;
-            }
+        body { font-family: "Inter", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .font-heading { font-family: "Manrope", "Inter", system-ui, sans-serif; }
+        html { scroll-behavior: smooth; }
+        #site-header.is-scrolled .nav__bar { box-shadow: 0 1px 0 var(--color-border), 0 6px 20px rgba(17,17,17,0.06); }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            #site-header, #site-header * { transition-duration: 1ms !important; }
         }
     </style>
+
+    <script type="application/ld+json">
+    <?php echo wp_json_encode($store_schema, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT); ?>
+    </script>
+
+    <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('bg-background text-foreground antialiased'); ?>>
 <?php wp_body_open(); ?>
 
-<a class="sr-only skip-link" href="#primary">
-    <?php esc_html_e('Skip to content', 'shopgraphicshirt'); ?>
+<a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[600] focus:rounded-sm focus:bg-foreground focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white">
+    <?php esc_html_e('Skip to content', 'dawp'); ?>
 </a>
 
-<header id="masthead" class="sgs-header">
-    <div class="sgs-container sgs-navrow">
-        <button id="sgs-mobile-toggle" class="sgs-icon-btn sgs-mobile-only" type="button" aria-controls="sgs-mobile-menu" aria-expanded="false">
-            <span class="sr-only"><?php esc_html_e('Open menu', 'shopgraphicshirt'); ?></span>
-            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 7h16M4 12h16M4 17h16" /></svg>
-        </button>
-
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="sgs-brand" aria-label="<?php echo esc_attr(get_bloginfo('name')); ?>">
-            <img class="sgs-brand-logo"
-                 src="<?php echo esc_url(get_theme_file_uri('/assets/img/logo-shopgraphicshirt.svg')); ?>"
-                 alt="<?php echo esc_attr(get_bloginfo('name')); ?>"
-                 width="420"
-                 height="112"
-                 decoding="async">
-        </a>
-
-        <nav class="sgs-main-nav" aria-label="<?php esc_attr_e('Primary', 'shopgraphicshirt'); ?>">
-            <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
-            <a href="<?php echo esc_url($shop_url); ?>">Shop</a>
-            <a href="<?php echo esc_url(home_url('/about-us/')); ?>">About</a>
-            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact</a>
-        </nav>
-
-        <div class="sgs-header-actions">
-            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="sgs-search sgs-desktop-search">
-                <input type="hidden" name="post_type" value="product">
-                <label class="sr-only" for="sgs-prod-search"><?php esc_html_e('Search patriotic gifts...', 'shopgraphicshirt'); ?></label>
-                <input id="sgs-prod-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search patriotic gifts...', 'shopgraphicshirt'); ?>">
-                <button type="submit" aria-label="<?php esc_attr_e('Search', 'shopgraphicshirt'); ?>">
-                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
-                </button>
-            </form>
-
-            <button id="sgs-mobile-search-toggle" class="sgs-icon-btn sgs-mobile-only" type="button" aria-controls="sgs-mobile-search" aria-expanded="false">
-                <span class="sr-only"><?php esc_html_e('Search', 'shopgraphicshirt'); ?></span>
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="m21 21-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" /></svg>
-            </button>
-
-            <a href="<?php echo esc_url($account_url); ?>" class="sgs-icon-btn" aria-label="<?php esc_attr_e('My Account', 'shopgraphicshirt'); ?>">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg>
-            </a>
-
-            <a href="<?php echo esc_url($cart_url); ?>" class="sgs-cart-btn" id="dawp-cart-toggle" aria-label="<?php esc_attr_e('View cart', 'shopgraphicshirt'); ?>">
-                <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H7M10 21h.01M18 21h.01"/></svg>
-                <span class="sgs-cart-count<?php echo $cart_count > 0 ? '' : ' hidden'; ?>"><?php echo esc_html($cart_count); ?></span>
-            </a>
-        </div>
+<header id="site-header" class="sticky top-0 z-50">
+    <div id="site-banner" class="flex h-9 items-center justify-center gap-2 bg-foreground px-4 text-center text-xs font-medium tracking-wide text-white">
+        <p class="truncate">
+            <?php esc_html_e('Free US shipping on every order · 30-day returns', 'dawp'); ?>
+        </p>
     </div>
 
-    <div id="sgs-mobile-search" class="sgs-mobile-panel hidden">
-        <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="sgs-search sgs-mobile-search-form">
-            <input type="hidden" name="post_type" value="product">
-            <label class="sr-only" for="sgs-mobile-search-input"><?php esc_html_e('Search patriotic gifts...', 'shopgraphicshirt'); ?></label>
-            <input id="sgs-mobile-search-input" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search patriotic gifts...', 'shopgraphicshirt'); ?>">
-            <button type="submit"><?php esc_html_e('Search', 'shopgraphicshirt'); ?></button>
-        </form>
-    </div>
+    <div class="nav__bar border-b border-border bg-surface transition-shadow duration-300 ease-out">
+        <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
 
-    <nav id="sgs-mobile-menu" class="sgs-mobile-panel hidden" aria-label="<?php esc_attr_e('Mobile navigation', 'shopgraphicshirt'); ?>">
-        <div class="sgs-mobile-grid">
-            <a href="<?php echo esc_url(home_url('/')); ?>">Home</a>
-            <a href="<?php echo esc_url($shop_url); ?>">Shop</a>
-            <a href="<?php echo esc_url(home_url('/about-us/')); ?>">About</a>
-            <a href="<?php echo esc_url(home_url('/contact-us/')); ?>">Contact</a>
+                <a href="<?php echo esc_url($home_url); ?>" class="shrink-0" aria-label="<?php esc_attr_e('YourWatchStore home', 'dawp'); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" alt="<?php esc_attr_e('YourWatchStore', 'dawp'); ?>" class="h-9 w-auto sm:h-10" width="179" height="100">
+                </a>
+
+                <nav class="hidden items-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Main navigation', 'dawp'); ?>">
+                    <div class="group relative">
+                        <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex items-center gap-1 rounded-sm px-3 py-2 text-sm font-semibold text-foreground transition hover:text-accent-blush" aria-haspopup="true">
+                            <?php esc_html_e('Shop', 'dawp'); ?>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="transition group-hover:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                        </a>
+                        <div class="invisible absolute left-1/2 top-full z-10 w-60 -translate-x-1/2 translate-y-1 rounded-md border border-border bg-surface p-2 opacity-0 shadow-card-hover transition duration-150 ease-out group-hover:visible group-hover:translate-y-2 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-2 group-focus-within:opacity-100">
+                            <a href="<?php echo esc_url($shop_url); ?>" class="block rounded-sm px-3 py-2 text-sm font-semibold text-foreground transition hover:bg-surface-alt"><?php esc_html_e('Shop All Watches', 'dawp'); ?></a>
+                            <div class="my-1 h-px bg-border"></div>
+                            <?php foreach ($shop_categories as $cat) : ?>
+                                <a href="<?php echo esc_url($cat['url']); ?>" class="block rounded-sm px-3 py-2 text-sm text-foreground-muted transition hover:bg-surface-alt hover:text-foreground"><?php echo esc_html($cat['title']); ?></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    <?php foreach ($nav_links as $item) : ?>
+                        <a href="<?php echo esc_url($item['url']); ?>" class="whitespace-nowrap rounded-sm px-3 py-2 text-sm font-semibold text-foreground transition hover:text-accent-blush">
+                            <?php echo esc_html($item['title']); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </nav>
+
+                <div class="flex shrink-0 items-center gap-1.5">
+                    <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="hidden items-center rounded-sm border border-border bg-surface px-3 py-2 xl:flex">
+                        <label class="sr-only" for="header-product-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                        <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search watches', 'dawp'); ?>" class="w-40 bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
+                        <input type="hidden" name="post_type" value="product">
+                        <button type="submit" class="ml-2 inline-flex h-6 w-6 items-center justify-center text-foreground-muted transition hover:text-foreground" aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
+                            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+                        </button>
+                    </form>
+
+                    <button type="button" id="sgs-mobile-search-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-sm text-foreground transition hover:bg-surface-alt xl:hidden" aria-expanded="false" aria-controls="sgs-mobile-search" aria-label="<?php esc_attr_e('Toggle search', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+                    </button>
+
+                    <a href="<?php echo esc_url($account_url); ?>" class="hidden h-11 w-11 items-center justify-center rounded-sm text-foreground transition hover:bg-surface-alt md:inline-flex" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </a>
+
+                    <a href="<?php echo esc_url($cart_url); ?>" id="dawp-cart-toggle" class="site-cart-btn relative inline-flex h-11 w-11 items-center justify-center rounded-sm bg-foreground text-white transition hover:bg-accent-hover" aria-label="<?php esc_attr_e('Open cart', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L22 6H6"></path></svg>
+                        <?php echo function_exists('dawp_cart_count_badge_html') ? dawp_cart_count_badge_html($cart_count) : ''; ?>
+                    </a>
+
+                    <button type="button" id="sgs-mobile-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-sm text-foreground transition hover:bg-surface-alt lg:hidden" aria-expanded="false" aria-controls="sgs-mobile-menu" aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="sgs-mobile-search" class="hidden pb-4 xl:hidden">
+                <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="flex items-center rounded-sm border border-border bg-surface-alt px-4 py-3">
+                    <label class="sr-only" for="sgs-mobile-search-input"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                    <input id="sgs-mobile-search-input" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search dive, field, dress, chronograph', 'dawp'); ?>" class="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
+                    <input type="hidden" name="post_type" value="product">
+                    <button type="submit" class="ml-2 inline-flex h-8 w-8 items-center justify-center text-foreground" aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m16 16 4 4"></path></svg>
+                    </button>
+                </form>
+            </div>
         </div>
-    </nav>
+
+        <div id="sgs-mobile-menu" class="hidden border-t border-border bg-surface lg:hidden">
+            <div class="mx-auto max-w-[1280px] px-4 py-4 sm:px-6">
+                <p class="mb-2 text-xs font-bold uppercase tracking-[0.14em] text-muted"><?php esc_html_e('Shop by style', 'dawp'); ?></p>
+                <nav class="mb-4 grid gap-1" aria-label="<?php esc_attr_e('Shop categories', 'dawp'); ?>">
+                    <a href="<?php echo esc_url($shop_url); ?>" class="rounded-sm px-3 py-2.5 text-sm font-semibold text-foreground transition hover:bg-surface-alt"><?php esc_html_e('Shop All Watches', 'dawp'); ?></a>
+                    <?php foreach ($shop_categories as $cat) : ?>
+                        <a href="<?php echo esc_url($cat['url']); ?>" class="rounded-sm px-3 py-2.5 text-sm text-foreground-muted transition hover:bg-surface-alt hover:text-foreground"><?php echo esc_html($cat['title']); ?></a>
+                    <?php endforeach; ?>
+                </nav>
+
+                <nav class="grid gap-1 border-t border-border pt-3" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
+                    <?php foreach ($nav_links as $item) : ?>
+                        <a href="<?php echo esc_url($item['url']); ?>" class="rounded-sm px-3 py-3 text-base font-semibold text-foreground transition hover:bg-surface-alt">
+                            <?php echo esc_html($item['title']); ?>
+                        </a>
+                    <?php endforeach; ?>
+                    <a href="<?php echo esc_url($account_url); ?>" class="rounded-sm px-3 py-3 text-base font-semibold text-foreground transition hover:bg-surface-alt"><?php esc_html_e('My Account', 'dawp'); ?></a>
+                </nav>
+
+                <p class="mt-4 text-sm leading-6 text-foreground-muted">
+                    <?php
+                    echo wp_kses(
+                        sprintf(
+                            /* translators: 1: support email, 2: business hours */
+                            __('Questions? Email %1$s. Hours: %2$s.', 'dawp'),
+                            '<a class="font-semibold text-accent-blush" href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>',
+                            esc_html($business_hours)
+                        ),
+                        ['a' => ['class' => [], 'href' => []]]
+                    );
+                    ?>
+                </p>
+            </div>
+        </div>
+    </div>
 </header>
+
+<div id="content" class="site-content">

@@ -3,22 +3,22 @@
    GTS Theme: Navy / Red / Antique
    ============================================================ */
 
-/* === GTS Theme Variables === */
+/* === Theme Variables === */
 .sgs-product,
 body.single-product {
   --color-bg: #FFFFFF;
-  --color-bg-subtle: #F7F2E8;
-  --color-bg-alt: #f5f5f5;
-  --color-text-primary: #111827;
-  --color-text-secondary: #6B7280;
-  --color-accent: #B31942;
-  --color-accent-hover: #8a1433;
-  --color-accent-light: rgba(179,25,66,.08);
-  --color-border: #E5E7EB;
-  --color-surface: #0B1F3A;
-  --color-surface-light: rgba(11,31,58,.06);
+  --color-bg-subtle: #F7F7F5;
+  --color-bg-alt: #F7F7F5;
+  --color-text-primary: #111111;
+  --color-text-secondary: #666666;
+  --color-accent: #A88B5A;
+  --color-accent-hover: #8C7145;
+  --color-accent-light: rgba(168, 139, 90,.08);
+  --color-border: #E5E5E5;
+  --color-surface: #111111;
+  --color-surface-light: rgba(17, 17, 17,.06);
   --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Barlow Condensed', 'Impact', sans-serif;
+  --font-heading: 'Manrope', sans-serif;
   overflow-x: hidden;
   font-family: var(--font-primary);
   background-color: var(--color-bg);
@@ -60,14 +60,14 @@ body.single-product div.product > .onsale {
   padding: 8px 14px;
   border: 2px solid #ffffff;
   border-radius: 6px;
-  background: #b31942;
+  background: #A88B5A;
   color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 900;
   line-height: 1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  box-shadow: 0 10px 24px rgba(11, 31, 58, 0.28);
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.28);
 }
 
 /* Override WooCommerce default floats */
@@ -232,11 +232,11 @@ body.single-product div.product > .onsale {
   min-height: 34px;
   margin: 0;
   padding: 0;
-  border: 1px solid rgba(11, 31, 58, 0.12);
+  border: 1px solid rgba(17, 17, 17, 0.12);
   border-radius: 50%;
   background: #ffffff;
   color: var(--color-text-primary);
-  box-shadow: 0 10px 24px rgba(11, 31, 58, 0.14);
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.14);
   cursor: pointer;
   transform: translateY(-50%);
   transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, opacity 0.18s ease;
@@ -262,7 +262,7 @@ body.single-product div.product > .onsale {
   border-color: var(--color-accent);
   background: var(--color-accent);
   color: #ffffff;
-  box-shadow: 0 12px 28px rgba(179, 25, 66, 0.24);
+  box-shadow: 0 12px 28px rgba(168, 139, 90, 0.24);
   transform: translateY(-50%) scale(1.04);
   outline: none;
 }
@@ -489,7 +489,7 @@ form.cart:not(.variations_form) {
   cursor: not-allowed;
 }
 
-/* === 5.5. PATRIOTIC TRUST SECTIONS === */
+/* === 5.5. TRUST SECTIONS === */
 .dawp-product-icon {
   width: 22px;
   height: 22px;
@@ -515,7 +515,7 @@ form.cart:not(.variations_form) {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 10px 24px rgba(11, 31, 58, 0.06);
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.06);
 }
 
 .dawp-product-trust__icon {
@@ -525,7 +525,7 @@ form.cart:not(.variations_form) {
   align-items: center;
   justify-content: center;
   border-radius: 8px;
-  color: #b31942;
+  color: #A88B5A;
   background: #f7e8ec;
 }
 
@@ -561,10 +561,10 @@ form.cart:not(.variations_form) {
   padding: 22px 24px;
   border-radius: 8px;
   background:
-    linear-gradient(90deg, rgba(11, 31, 58, 0.98) 0%, rgba(11, 31, 58, 0.92) 58%, rgba(179, 25, 66, 0.9) 100%),
+    linear-gradient(90deg, rgba(17, 17, 17, 0.98) 0%, rgba(17, 17, 17, 0.92) 58%, rgba(168, 139, 90, 0.9) 100%),
     repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0 7px, rgba(255, 255, 255, 0) 7px 14px);
   color: #ffffff;
-  box-shadow: 0 22px 50px rgba(11, 31, 58, 0.18);
+  box-shadow: 0 22px 50px rgba(17, 17, 17, 0.18);
 }
 
 .dawp-pride-banner::after {
@@ -572,7 +572,7 @@ form.cart:not(.variations_form) {
   position: absolute;
   inset: auto 0 0;
   height: 4px;
-  background: linear-gradient(90deg, #b31942 0 34%, #ffffff 34% 66%, #c6a15b 66% 100%);
+  background: linear-gradient(90deg, #A88B5A 0 34%, #ffffff 34% 66%, #A88B5A 66% 100%);
 }
 
 .dawp-pride-banner__emblem {
@@ -585,8 +585,8 @@ form.cart:not(.variations_form) {
   border: 2px solid rgba(255, 255, 255, 0.36);
   border-radius: 50%;
   background:
-    linear-gradient(180deg, #153866 0 45%, #ffffff 45% 55%, #b31942 55% 100%);
-  box-shadow: inset 0 0 0 6px rgba(11, 31, 58, 0.34), 0 14px 28px rgba(0, 0, 0, 0.16);
+    linear-gradient(180deg, #333333 0 45%, #ffffff 45% 55%, #A88B5A 55% 100%);
+  box-shadow: inset 0 0 0 6px rgba(17, 17, 17, 0.34), 0 14px 28px rgba(0, 0, 0, 0.16);
 }
 
 .dawp-pride-banner__emblem span {
@@ -596,7 +596,7 @@ form.cart:not(.variations_form) {
   place-items: center;
   border-radius: 50%;
   background: #ffffff;
-  color: #b31942;
+  color: #A88B5A;
   font-size: 1.15rem;
   line-height: 1;
 }
@@ -610,7 +610,7 @@ form.cart:not(.variations_form) {
 .dawp-pride-banner__content p,
 .dawp-customer-stories__heading p {
   margin: 0 0 8px;
-  color: #c6a15b;
+  color: #A88B5A;
   font-family: var(--font-primary);
   font-size: 0.75rem;
   font-weight: 900;
@@ -682,9 +682,9 @@ form.cart:not(.variations_form) {
 }
 
 .dawp-customer-stories__button:hover:not(:disabled) {
-  border-color: #b31942;
+  border-color: #A88B5A;
   color: #ffffff;
-  background: #b31942;
+  background: #A88B5A;
 }
 
 .dawp-customer-stories__button:disabled {
@@ -736,7 +736,7 @@ form.cart:not(.variations_form) {
 }
 
 .dawp-customer-card__stars {
-  color: #c6a15b;
+  color: #A88B5A;
   font-size: 0.92rem;
   letter-spacing: 0.08em;
 }
@@ -788,7 +788,7 @@ form.cart:not(.variations_form) {
 
 .dawp-customer-stories__dots button[data-active="true"] {
   width: 26px;
-  background: #b31942;
+  background: #A88B5A;
 }
 
 @media (min-width: 768px) {

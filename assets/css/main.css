@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css - Shopgraphicshirt Design System
+   main.css - YourWatchStore Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -7,41 +7,46 @@
 :root {
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
-  /* Warm White — page background */
-  --color-surface: #F7F2E8;
-  /* Soft Cream — section / card background */
-  --color-surface-alt: #F3F4F6;
-  /* Soft Gray — hover states, alt sections */
+  /* Page background */
+  --color-surface: #FFFFFF;
+  /* Card / panel — edges carried by borders */
+  --color-surface-alt: #F7F7F5;
+  /* Light BG — image wells, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #111827;
-  /* Primary text — headings, product names */
-  --color-foreground-muted: #6B7280;
+  --color-foreground: #111111;
+  /* Primary text — headings, product names, primary button */
+  --color-foreground-muted: #666666;
   /* Secondary text — descriptions, meta */
-  --color-muted: #8A94A6;
+  --color-muted: #8C8C8C;
   /* Light text — captions, breadcrumbs */
 
-  /* === BRAND === */
-  --color-accent: #B31942;
-  /* Dusty Rose — primary CTA, highlights */
-  --color-accent-hover: #921233;
-  /* Dusty Rose darker — hover state */
-  --color-accent-soft: #C6A15B;
-  /* Soft Beige — subtle highlights, badges */
-  --color-accent-blush: #153866;
-  /* Warm Blush — secondary brand color */
+  /* === BRAND (used sparingly — eyebrows, badges, details) === */
+  --color-accent: #A88B5A;
+  /* Warm brass */
+  --color-accent-hover: #8C7145;
+  /* Brass darker — hover state */
+  --color-accent-soft: #F2ECE1;
+  /* Brass tint — icon chips, hover wells */
+  --color-accent-blush: #8C7145;
+  /* Readable accent text */
 
   /* === UI === */
-  --color-border: #E5E7EB;
+  --color-border: #E5E5E5;
   /* Border — cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */
-  --color-success: #2F855A;
-  /* Success — muted green, fits boutique palette */
+  --color-success: #2F7D4F;
+  /* Success */
+
+  /* Aliases — used to re-point stale shop.css `.shop-page` vars on the homepage */
+  --yws-accent: #A88B5A;
+  --yws-accent-hover: #8C7145;
+  --yws-border: #E5E5E5;
 
   /* === TYPOGRAPHY === */
-  --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Lato', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', 'Manrope', system-ui, sans-serif;
+  --font-heading: 'Manrope', 'Inter', system-ui, sans-serif;
   --text-body: clamp(1rem, 0.96rem + 0.18vw, 1.0625rem);
   --text-body-sm: clamp(0.9375rem, 0.9rem + 0.14vw, 1rem);
   --text-caption: clamp(0.8125rem, 0.78rem + 0.12vw, 0.875rem);
@@ -62,14 +67,14 @@
   --container-pad-desktop: 24px;
 
   /* === BORDER RADIUS === */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card: 0 1px 4px rgba(11, 31, 58, 0.08);
-  --shadow-card-hover: 0 6px 20px rgba(11, 31, 58, 0.14);
+  --shadow-card: 0 1px 2px rgba(17, 17, 17, 0.05);
+  --shadow-card-hover: 0 8px 24px rgba(17, 17, 17, 0.09);
 
   /* === TRANSITIONS === */
   --ease-fluid: cubic-bezier(0.4, 0, 0.2, 1);
@@ -240,12 +245,12 @@ main.sk-policy-page {
   background:
     linear-gradient(
       135deg,
-      rgba(11, 31, 58, 0.98),
-      rgba(21, 56, 102, 0.94) 48%,
-      rgba(179, 25, 66, 0.88)
+      rgba(17, 17, 17, 0.98),
+      rgba(17, 17, 17, 0.94) 48%,
+      rgba(168, 139, 90, 0.88)
     ),
-    #0B1F3A;
-  border-bottom: 1px solid rgba(198, 161, 91, 0.28);
+    #111111;
+  border-bottom: 1px solid rgba(168, 139, 90, 0.28);
 }
 
 .sk-policy-hero::before {
@@ -256,7 +261,7 @@ main.sk-policy-page {
   width: 220px;
   height: 220px;
   border-radius: var(--radius-pill);
-  background: rgba(198, 161, 91, 0.2);
+  background: rgba(168, 139, 90, 0.2);
   filter: blur(10px);
 }
 
@@ -267,7 +272,7 @@ main.sk-policy-page {
   bottom: -92px;
   width: 360px;
   height: 360px;
-  border: 1px solid rgba(198, 161, 91, 0.24);
+  border: 1px solid rgba(168, 139, 90, 0.24);
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.08);
 }
@@ -314,7 +319,7 @@ main.sk-policy-page {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 242, 232, 0.5)),
     var(--color-background);
-  box-shadow: 0 12px 34px rgba(11, 31, 58, 0.08);
+  box-shadow: 0 12px 34px rgba(17, 17, 17, 0.08);
 }
 
 .sk-policy-body > .container > .space-y-8 > section:nth-child(even) {
@@ -924,4 +929,181 @@ body.dawp-cart-open .dawp-cart-fab {
     width: 50px;
     height: 50px;
   }
+}
+
+/* =============================================================
+   CART COUNT BADGE (header button + floating fab share this)
+   ============================================================= */
+
+.sgs-cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border: 2px solid var(--color-background);
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.sgs-cart-count.hidden {
+  display: none;
+}
+
+.site-cart-btn {
+  position: relative;
+}
+
+.site-cart-btn .sgs-cart-count {
+  border-color: var(--color-foreground);
+}
+
+/* =============================================================
+   HOMEPAGE PRODUCT GRIDS
+   Reuses the shop `.product-card` component (shop.css) but keeps
+   the YourWatchStore palette instead of the shop wrapper's own.
+   ============================================================= */
+
+.home-product-loop.shop-page {
+  --color-bg: var(--color-background);
+  --color-bg-subtle: var(--color-surface-alt);
+  --color-bg-muted: var(--color-surface-alt);
+  --color-text-primary: var(--color-foreground);
+  --color-text-secondary: var(--color-foreground-muted);
+  --color-text-muted: var(--color-muted);
+  --color-border: var(--yws-border);
+  --color-accent: var(--yws-accent);
+  --color-accent-hover: var(--yws-accent-hover);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-gold: var(--yws-accent);
+  --color-sale: var(--yws-accent-hover);
+  --color-original-price: var(--color-muted);
+  background: transparent;
+  font-family: var(--font-sans);
+}
+
+.home-product-loop.shop-page ul.products {
+  margin: 0;
+}
+
+.home-product-loop.shop-page .product-card {
+  box-shadow: var(--shadow-card);
+  border-radius: var(--radius-md);
+}
+
+.home-product-loop.shop-page .product-card:hover {
+  border-color: var(--color-foreground);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* =============================================================
+   TRACK ORDER — WooCommerce [woocommerce_order_tracking] form
+   ============================================================= */
+
+.track-order-form .woocommerce-form-track-order {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.track-order-form .woocommerce-form-track-order p {
+  margin: 0;
+  float: none;
+  width: auto;
+}
+
+.track-order-form .woocommerce-form-track-order label {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-foreground);
+}
+
+.track-order-form .woocommerce-form-track-order input.input-text {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  outline: none;
+}
+
+.track-order-form .woocommerce-form-track-order input.input-text:focus {
+  border-color: var(--color-foreground);
+}
+
+.track-order-form .woocommerce-form-track-order button,
+.track-order-form .woocommerce-form-track-order .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: var(--color-foreground);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-fluid);
+}
+
+.track-order-form .woocommerce-form-track-order button:hover,
+.track-order-form .woocommerce-form-track-order .button:hover {
+  background: var(--color-accent-hover);
+}
+
+.track-order-form .woocommerce-form-track-order .clear {
+  display: none;
+}
+
+.track-order-form .woocommerce-message,
+.track-order-form .woocommerce-info,
+.track-order-form .woocommerce-error {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--color-surface-alt);
+  list-style: none;
+  font-size: 14px;
+  color: var(--color-foreground);
+}
+
+.track-order-form .woocommerce-error {
+  border-left-color: var(--color-alert);
+}
+
+.track-order-form .wc-item-meta,
+.track-order-form .shop_table {
+  width: 100%;
+  margin-top: 14px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.track-order-form .shop_table th,
+.track-order-form .shop_table td {
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  text-align: left;
 }

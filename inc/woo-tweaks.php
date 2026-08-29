@@ -87,19 +87,19 @@ function dawp_product_icon($path, $label = '') {
 function dawp_single_product_trust_badges() {
     $badges = array(
         array(
-            'icon' => '<path d="M12 3l7 3v5c0 4.5-2.9 8.5-7 10-4.1-1.5-7-5.5-7-10V6l7-3z"/><path d="M8.8 12.1l2.1 2.1 4.5-5"/>',
-            'title' => __('Proudly American Style', 'dawp'),
-            'copy' => __('Red, white, and blue designs made for everyday pride.', 'dawp'),
+            'icon' => '<circle cx="12" cy="12" r="8"/><path d="M12 8v4l2.5 1.5"/>',
+            'title' => __('Automatic Movement', 'dawp'),
+            'copy' => __('Self-winding mechanical caliber — no battery to replace.', 'dawp'),
         ),
         array(
-            'icon' => '<path d="M4 7h10v10H4z"/><path d="M14 10h3l3 3v4h-6z"/><path d="M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/><path d="M17 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/>',
-            'title' => __('Free Shipping $49+', 'dawp'),
-            'copy' => __('Free U.S. shipping on orders over $49, packed with care.', 'dawp'),
+            'icon' => '<path d="M10 17h4V5H3v12h2"/><path d="M14 8h4l3 3v6h-3"/><circle cx="7" cy="17" r="2"/><circle cx="16" cy="17" r="2"/>',
+            'title' => __('Free US Shipping', 'dawp'),
+            'copy' => __('Every US order ships free, with tracking and careful packaging.', 'dawp'),
         ),
         array(
-            'icon' => '<path d="M12 2l2.7 6.1 6.6.6-5 4.4 1.5 6.5L12 16.2 6.2 19.6l1.5-6.5-5-4.4 6.6-.6L12 2z"/>',
-            'title' => __('Gift-Ready Favorite', 'dawp'),
-            'copy' => __('A meaningful pick for families and proud Americans.', 'dawp'),
+            'icon' => '<path d="M20 12a8 8 0 0 1-13.66 5.66L4 15"/><path d="M4 20v-5h5"/><path d="M4 12A8 8 0 0 1 17.66 6.34L20 9"/><path d="M20 4v5h-5"/>',
+            'title' => __('30-Day Returns', 'dawp'),
+            'copy' => __('Return an unworn watch with box and papers within 30 days.', 'dawp'),
         ),
     );
     ?>
@@ -119,14 +119,14 @@ function dawp_single_product_trust_badges() {
 
 function dawp_single_product_pride_banner() {
     ?>
-    <section class="dawp-pride-banner" aria-label="<?php esc_attr_e('American pride product message', 'dawp'); ?>">
+    <section class="dawp-pride-banner" aria-label="<?php esc_attr_e('Watch collection message', 'dawp'); ?>">
         <div class="dawp-pride-banner__emblem" aria-hidden="true">
-            <span>★</span>
+            <span>&#9673;</span>
         </div>
         <div class="dawp-pride-banner__content">
-            <p><?php esc_html_e('American Pride Collection', 'dawp'); ?></p>
-            <h2><?php esc_html_e('Wear the colors. Carry the pride.', 'dawp'); ?></h2>
-            <small><?php esc_html_e('Patriotic shirts and gifts made for proud everyday moments.', 'dawp'); ?></small>
+            <p><?php esc_html_e('YourWatchStore Collection', 'dawp'); ?></p>
+            <h2><?php esc_html_e('Mechanical watches for every day.', 'dawp'); ?></h2>
+            <small><?php esc_html_e('Automatic dive, field, dress, and chronograph watches, inspected before they ship.', 'dawp'); ?></small>
         </div>
     </section>
     <?php

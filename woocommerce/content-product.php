@@ -1,6 +1,7 @@
 <?php
 /**
- * Content-product: single product card in the shop loop.
+ * Content-product: single product card in the shop / homepage loops.
+ * Styles in assets/css/shop.css.
  */
 defined('ABSPATH') || exit;
 
@@ -9,6 +10,8 @@ if (empty($product) || !$product->is_visible()) return;
 
 $cats     = get_the_terms($product->get_id(), 'product_cat');
 $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
+$rating   = $product->get_average_rating();
+$rating_count = $product->get_rating_count();
 ?>
 <li <?php wc_product_class('product-card', $product); ?>>
     <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">
@@ -26,11 +29,6 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
                 <?php if ($product->is_on_sale()) : ?>
                     <span class="product-card__badge">Sale</span>
                 <?php endif; ?>
-
-                <div class="product-card__cta" aria-hidden="true">
-                    <span>View</span>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                </div>
             </div>
         </div>
 
@@ -41,8 +39,27 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
                     <span class="product-card__cat"><?php echo esc_html($cat_name); ?></span>
                 <?php endif; ?>
             </div>
+
+            <?php if ($rating_count > 0) : ?>
+                <div class="product-card__rating">
+                    <?php echo wc_get_rating_html($rating, $rating_count); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+                    <span class="review-count">(<?php echo esc_html($rating_count); ?>)</span>
+                </div>
+            <?php endif; ?>
+
             <div class="product-card__price"><?php echo $product->get_price_html(); ?></div>
         </div>
-
     </a>
+
+    <?php
+    if ($product->is_purchasable() && $product->is_in_stock() && !$product->is_type('variable')) {
+        woocommerce_template_loop_add_to_cart(['class' => 'product-card__atc button ajax_add_to_cart']);
+    } else {
+        printf(
+            '<a href="%s" class="product-card__atc product-card__atc--link">%s</a>',
+            esc_url($product->get_permalink()),
+            esc_html__('View watch', 'dawp')
+        );
+    }
+    ?>
 </li>

@@ -23,8 +23,8 @@ function dawp_render_empty_cart_intro() {
     <section class="cart-empty-intro" aria-label="<?php esc_attr_e('Cart inspiration', 'dawp'); ?>">
         <div class="cart-empty-intro__copy">
             <span class="cart-empty-intro__eyebrow"><?php esc_html_e('Ready when you are', 'dawp'); ?></span>
-            <h1><?php esc_html_e('Build your next everyday rotation.', 'dawp'); ?></h1>
-            <p><?php esc_html_e('Browse fresh arrivals, save your favorites, and come back to checkout whenever the fit feels right.', 'dawp'); ?></p>
+            <h1><?php esc_html_e('Build your everyday rotation.', 'dawp'); ?></h1>
+            <p><?php esc_html_e('Browse new arrivals and best sellers, then come back to checkout whenever you are ready.', 'dawp'); ?></p>
             <a class="cart-empty-intro__button" href="<?php echo esc_url($shop_url); ?>">
                 <?php esc_html_e('Start shopping', 'dawp'); ?>
             </a>

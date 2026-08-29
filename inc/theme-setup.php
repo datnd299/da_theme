@@ -3,7 +3,7 @@ add_action('after_setup_theme', 'dawp_setup');
 add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SGS-' . $order_id;
+    return 'YWS-' . $order_id;
 }
 function dawp_setup() {
     add_theme_support('title-tag');
@@ -55,7 +55,8 @@ function dawp_scripts() {
     }
 
     if ( is_front_page() ) {
-        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/home.css', [], '1.0.1');
+        wp_enqueue_style('dawp-home', get_template_directory_uri() . '/assets/css/tw/tw-home.css', ['dawp-tw-main'], '1.0.8');
+        wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.8');
         dawp_remove_styles();
     }
     

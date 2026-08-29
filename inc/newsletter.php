@@ -61,8 +61,8 @@ function dawp_contact_submit() {
     wp_mail($admin_email, $admin_subject, $admin_body, ['Reply-To: ' . $name . ' <' . $email . '>']);
 
     $confirm_subject = 'We received your message – ' . $site_name;
-    $confirm_body    = "Hi {$name},\n\nThank you for reaching out! We've received your message and our boutique team will get back to you within 24 business hours.\n\nWith love,\nThe {$site_name} Team";
+    $confirm_body    = "Hi {$name},\n\nThanks for reaching out. We've received your message and our support team will get back to you within one business day (Mon-Fri, 9:00 AM - 5:00 PM EST).\n\n- The {$site_name} Team";
     wp_mail($email, $confirm_subject, $confirm_body, ['Content-Type: text/plain; charset=UTF-8']);
 
-    wp_send_json_success(['message' => 'Thank you, ' . $name . '! Your message has been sent. We\'ll get back to you within 24 hours.']);
+    wp_send_json_success(['message' => 'Thanks, ' . $name . '. Your message has been sent — we usually reply within one business day.']);
 }

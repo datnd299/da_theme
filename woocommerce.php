@@ -27,7 +27,7 @@ if ($is_cart_page) {
 ?>
 <main class="<?php echo esc_attr($main_class); ?>">
     <?php if ($is_cart_page) : ?>
-        <section class="cart-cover" style="--cart-cover-bg:url('<?php echo esc_url(trailingslashit(get_template_directory_uri()) . 'assets/img/hero/shop-theme-hero-background.png'); ?>')" aria-label="<?php esc_attr_e('Cart summary introduction', 'dawp'); ?>">
+        <section class="cart-cover" style="--cart-cover-bg:none" aria-label="<?php esc_attr_e('Cart summary introduction', 'dawp'); ?>">
             <div class="cart-cover__inner">
                 <nav class="cart-cover__breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
                     <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>
@@ -45,7 +45,7 @@ if ($is_cart_page) {
             </div>
         </section>
     <?php elseif ($is_account_page) : ?>
-        <section class="account-cover" style="--account-cover-bg:url('<?php echo esc_url(trailingslashit(get_template_directory_uri()) . 'assets/img/hero/support-hero-background.png'); ?>')" aria-label="<?php esc_attr_e('Account introduction', 'dawp'); ?>">
+        <section class="account-cover" style="--account-cover-bg:none" aria-label="<?php esc_attr_e('Account introduction', 'dawp'); ?>">
             <div class="account-cover__inner">
                 <nav class="account-cover__breadcrumb" aria-label="<?php esc_attr_e('Breadcrumb', 'dawp'); ?>">
                     <a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Home', 'dawp'); ?></a>

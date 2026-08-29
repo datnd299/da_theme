@@ -1,27 +1,27 @@
 /* ============================================================
-   Shop / Category Pages - Shopgraphicshirt
-   Design System: mature patriotic ecommerce, conversion-first
+   Shop / Category Pages - YourWatchStore
+   Design System: premium, minimal, modern
    ============================================================ */
 
 /* ── Page wrapper ──────────────────────────────────────────── */
 .shop-page {
-  --font-primary: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-primary: "Inter", "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --color-bg: #ffffff;
-  --color-bg-subtle: #f7f2e8;
-  --color-bg-muted: #f3f4f6;
-  --color-text-primary: #111827;
-  --color-text-secondary: #4b5563;
-  --color-text-muted: #6b7280;
-  --color-border: #e5e7eb;
-  --color-accent: #b31942;
-  --color-accent-hover: #921233;
-  --color-accent-soft: #f7e8ec;
-  --color-gold: #c6a15b;
-  --color-gold-soft: #fff8e8;
-  --color-navy: #0b1f3a;
-  --color-navy-light: #153866;
-  --color-sale: #b31942;
-  --color-original-price: #6b7280;
+  --color-bg-subtle: #f7f7f5;
+  --color-bg-muted: #f7f7f5;
+  --color-text-primary: #111111;
+  --color-text-secondary: #666666;
+  --color-text-muted: #8c8c8c;
+  --color-border: #e5e5e5;
+  --color-accent: #a88b5a;
+  --color-accent-hover: #8c7145;
+  --color-accent-soft: #f2ece1;
+  --color-gold: #a88b5a;
+  --color-gold-soft: #f2ece1;
+  --color-navy: #111111;
+  --color-navy-light: #333333;
+  --color-sale: #8c7145;
+  --color-original-price: #8c8c8c;
   font-family: var(--font-primary);
   background-color: var(--color-bg);
   color: var(--color-text-primary);
@@ -52,56 +52,115 @@
   }
 }
 
-/* ── Shop Header bar (breadcrumb + title + count) ──────────── */
-.shop-header {
-  position: relative;
-  overflow: hidden;
-  padding: 20px 22px;
-  border: 1px solid rgba(198, 161, 91, 0.22);
-  border-bottom: 4px solid var(--color-accent);
-  border-radius: 8px;
-  margin-bottom: 16px;
-  background:
-    linear-gradient(135deg, rgba(11, 31, 58, 0.96), rgba(21, 56, 102, 0.94) 58%, rgba(179, 25, 66, 0.9)),
-    var(--color-navy);
-  color: #ffffff;
-}
-
+/* ── Breadcrumb ────────────────────────────────────────────── */
 .shop-breadcrumb {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.74);
-  margin-bottom: 8px;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  padding: 14px 0 6px;
 }
 .shop-breadcrumb a {
-  color: rgba(255, 255, 255, 0.82);
+  color: var(--color-text-muted);
   text-decoration: none;
 }
 .shop-breadcrumb a:hover {
-  color: var(--color-gold);
+  color: var(--color-text-primary);
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
-.shop-breadcrumb span {
-  margin: 0 4px;
+.shop-breadcrumb span[aria-hidden] {
+  margin: 0 6px;
+  color: var(--color-border);
+}
+
+/* ── Shop Header (light, minimal) ──────────────────────────── */
+.shop-header {
+  padding: 8px 0 20px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 24px;
+  color: var(--color-text-primary);
+}
+
+.shop-header__eyebrow {
+  margin: 0 0 12px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-accent-hover);
 }
 
 .shop-header__title {
-  font-size: clamp(2rem, 4vw, 3.75rem);
-  font-weight: 900;
-  color: #ffffff;
-  margin: 0 0 10px;
-  line-height: 1.05;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  margin: 0 0 14px;
+  line-height: 1.08;
 }
 
 .shop-header__description {
-  max-width: 760px;
-  margin: -6px 0 20px;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.9375rem;
+  max-width: 640px;
+  margin: 0 0 16px;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
   line-height: 1.7;
 }
 
 .shop-header__description p {
   margin: 0;
+}
+
+.shop-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+.shop-header__meta a {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ── Category chip nav ─────────────────────────────────────── */
+.shop-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.shop-category-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm, 2px);
+  background: var(--color-bg);
+  color: var(--color-text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.shop-category-nav a:hover {
+  border-color: var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+.shop-category-nav a.is-current {
+  background: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  color: #ffffff;
+}
+.shop-category-nav a .count {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+}
+.shop-category-nav a.is-current .count {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* ── Toolbar (count + sort) ────────────────────────────────── */
@@ -142,7 +201,7 @@
   align-items: center;
   gap: 6px;
   background: #ffffff;
-  border: 1px solid rgba(11, 31, 58, 0.15);
+  border: 1px solid rgba(17, 17, 17, 0.15);
   padding: 8px 14px;
   border-radius: 8px;
   font-size: 0.875rem;
@@ -192,7 +251,7 @@
 .woocommerce-ordering select:focus,
 .shop-sort select:focus {
   border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.18);
+  box-shadow: 0 0 0 3px rgba(168, 139, 90, 0.18);
 }
 .woocommerce-ordering {
   margin-bottom: 0;
@@ -235,7 +294,7 @@
 .shop-sidebar-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(11, 31, 58, 0.55);
+  background: rgba(17, 17, 17, 0.55);
   z-index: 99;
   opacity: 0;
   visibility: hidden;
@@ -259,7 +318,7 @@
   transform: translateY(100%);
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 12px 12px 0 0;
-  box-shadow: 0 -4px 24px rgba(11, 31, 58, 0.16);
+  box-shadow: 0 -4px 24px rgba(17, 17, 17, 0.16);
 }
 .shop-sidebar.is-open {
   transform: translateY(0);
@@ -314,7 +373,7 @@
     transition: none;
     border-radius: 8px;
     border: 1px solid var(--color-border);
-    box-shadow: 0 12px 28px rgba(11, 31, 58, 0.08);
+    box-shadow: 0 12px 28px rgba(17, 17, 17, 0.08);
     padding: 18px;
     overflow-y: auto;
     overscroll-behavior: contain;
@@ -546,12 +605,12 @@
   border: 1px solid var(--color-border);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 8px 22px rgba(11, 31, 58, 0.07);
+  box-shadow: 0 8px 22px rgba(17, 17, 17, 0.07);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 .shop-page .product-card:hover {
-  border-color: rgba(198, 161, 91, 0.7);
-  box-shadow: 0 18px 36px rgba(11, 31, 58, 0.14);
+  border-color: rgba(168, 139, 90, 0.7);
+  box-shadow: 0 18px 36px rgba(17, 17, 17, 0.14);
   transform: translateY(-2px);
 }
 
@@ -637,7 +696,7 @@
   padding: 5px 10px;
   border-radius: 6px;
   line-height: 1;
-  box-shadow: 0 8px 18px rgba(11, 31, 58, 0.18);
+  box-shadow: 0 8px 18px rgba(17, 17, 17, 0.18);
 }
 /* WooCommerce native sale badge */
 .shop-page ul.products li.product .onsale,
@@ -660,7 +719,7 @@
   min-height: 0 !important;
   line-height: 1 !important;
   margin: 0 !important;
-  box-shadow: 0 8px 18px rgba(11, 31, 58, 0.18);
+  box-shadow: 0 8px 18px rgba(17, 17, 17, 0.18);
 }
 
 /* Card body */
@@ -680,11 +739,11 @@
 
 /* Category label */
 .product-card__cat {
-  font-size: 0.75rem;
-  color: var(--color-accent);
-  font-weight: 900;
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
   display: block;
   overflow-wrap: anywhere;
 }
@@ -726,9 +785,9 @@
 
 /* Price — MUST be visible without hover */
 .product-card__price {
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-text-primary);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -758,54 +817,44 @@
   background: var(--color-accent);
   color: #ffffff;
   font-family: var(--font-primary);
-  font-size: 0.9375rem;
+  font-size: 0.8125rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
+  border-radius: var(--radius-sm, 2px);
+  padding: 12px 16px;
   min-height: 44px;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  margin-top: auto;
+  margin: auto 12px 12px;
+  width: auto;
+  background: var(--color-text-primary);
   transition: background 0.15s, transform 0.1s;
+}
+@media (min-width: 768px) {
+  .product-card__atc {
+    margin: auto 16px 16px;
+  }
 }
 .product-card__atc:hover {
   background: var(--color-accent-hover);
+  color: #ffffff;
 }
 .product-card__atc:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
-
-/* WooCommerce native add-to-cart in loop */
-.woocommerce ul.products li.product .button,
-.add_to_cart_button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  background: var(--color-accent);
-  color: #ffffff;
-  font-family: var(--font-primary);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 16px;
-  min-height: 44px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.15s, transform 0.1s;
-  margin-top: auto;
+.product-card__atc.added {
+  background: var(--color-success);
 }
-.woocommerce ul.products li.product .button:hover,
-.add_to_cart_button:hover {
-  background: var(--color-accent-hover);
-  color: #ffffff;
+.product-card__atc.loading {
+  opacity: 0.7;
+  pointer-events: none;
 }
-.woocommerce ul.products li.product .button:active,
-.add_to_cart_button:active {
-  transform: scale(0.97);
+/* WC appends a "View cart" link after a successful ajax add — hide it in the grid */
+.product-card .added_to_cart {
+  display: none;
 }
 
 /* ── Empty state ────────────────────────────────────────────── */

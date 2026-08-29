@@ -191,11 +191,11 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
             '@id'         => home_url('/#organization'),
             'name'        => get_bloginfo('name'),
             'url'         => home_url('/'),
-            'email'       => 'support@shopgraphicshirt.com',
+            'email'       => 'support@yourwatchstore.com',
             'contactPoint' => [
                 '@type'             => 'ContactPoint',
                 'contactType'       => 'customer support',
-                'email'             => 'support@shopgraphicshirt.com',
+                'email'             => 'support@yourwatchstore.com',
                 'availableLanguage' => ['English'],
             ],
         ];
@@ -204,7 +204,7 @@ function dawp_rank_math_virtual_page_schema($data, $jsonld) {
     if (in_array($page['path'], ['home', 'shop-by-categories'], true)) {
         $schema['about'] = [
             '@type' => 'Thing',
-            'name'  => 'Patriotic apparel and custom gifts',
+            'name'  => 'Automatic and mechanical watches',
         ];
     }
 

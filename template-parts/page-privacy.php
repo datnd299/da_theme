@@ -1,91 +1,162 @@
 <?php
 /**
- * Privacy Policy - ShopGraphicShirt
+ * Privacy Policy — YourWatchStore. Tailwind utilities only.
+ *
+ * @package dawp
  */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+$support_email = 'support@yourwatchstore.com';
+$updated       = get_the_modified_date('F j, Y') ?: gmdate('F j, Y');
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
-$store_address = $store_address ?: __('United States', 'dawp');
 
-$sgs_pp_hero_bg = sprintf(
-  "--sgs-pp-hero-bg:url('%s');--sgs-pp-hero-bg-mobile:url('%s')",
-  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 1600, 760)),
-  esc_url(dawp_theme_cdn_image_url('assets/img/policy/policy-hero-background.png', 720, 520))
-);
-get_header(); ?>
-<section class="sgs-home sgs-page">
-<style>
-.sgs-pp-hero{background:linear-gradient(90deg,rgba(11,31,58,.96) 0%,rgba(11,31,58,.84) 42%,rgba(11,31,58,.58) 100%),var(--sgs-pp-hero-bg) center right/cover no-repeat,var(--navy);color:var(--white);padding:clamp(60px,8vw,100px) clamp(24px,4vw,64px);text-align:center}
-.sgs-pp-hero__inner{max-width:680px;margin:0 auto}
-.sgs-pp-hero h1{margin:0;font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;line-height:1.05;color:var(--white)}
-.sgs-pp-hero__meta{margin-top:14px;color:var(--gold);font-family:var(--font-heading);font-size:.85rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.sgs-pp-body{width:min(100% - 48px,860px);margin:0 auto;padding:var(--section-gap,56px) 0}
-.sgs-pp-body h2{margin:36px 0 12px;font-family:var(--font-heading);font-size:1.2rem;font-weight:700;color:var(--ink)}
-.sgs-pp-body h2:first-child{margin-top:0}
-.sgs-pp-body p,.sgs-pp-body li{margin:10px 0;color:var(--muted);font-size:.92rem;line-height:1.7}
-.sgs-pp-body ul{padding-left:20px}
-.sgs-pp-body li{margin:6px 0}
-.sgs-pp-body a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
-.sgs-pp-body a:hover{color:var(--red-dark)}
-@media(max-width:640px){.sgs-pp-hero{background-image:linear-gradient(180deg,rgba(11,31,58,.76) 0%,rgba(11,31,58,.96) 100%),var(--sgs-pp-hero-bg-mobile,var(--sgs-pp-hero-bg))}}
-</style>
-<div class="sgs-pp-hero" style="<?php echo esc_attr($sgs_pp_hero_bg); ?>">
-  <div class="sgs-pp-hero__inner">
-    <p class="sgs-eyebrow sgs-eyebrow--light">Privacy Policy</p>
-    <h1>Privacy Policy</h1>
-    <p class="sgs-pp-hero__meta">Last Updated: July 5 2026</p>
-  </div>
+$sections = [
+    [
+        'title' => __('Who we are', 'dawp'),
+        'body'  => [
+            __('YourWatchStore operates this website and is the data controller for personal information collected through it. This policy explains what we collect, why, how we protect it, and the choices you have.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Information we collect', 'dawp'),
+        'body'  => [
+            __('Order and account information: name, email address, shipping and billing address, phone number, and order history.', 'dawp'),
+            __('Payment information: processed by our payment providers. We receive confirmation of payment and limited details such as the card type and last four digits; we do not receive or store full card numbers.', 'dawp'),
+            __('Technical information: IP address, device and browser type, pages viewed, and referring links, collected through cookies and similar technologies.', 'dawp'),
+            __('Support information: messages you send us and the contents of those messages.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('How we use information', 'dawp'),
+        'body'  => [
+            __('To process and deliver orders, take payment, and send order and shipping updates.', 'dawp'),
+            __('To provide customer support and handle returns, refunds, and warranty questions.', 'dawp'),
+            __('To detect and prevent fraud and to keep the store secure.', 'dawp'),
+            __('To understand how the store is used and to improve it, and — only where you have opted in — to send marketing email you can unsubscribe from at any time.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Legal bases for processing', 'dawp'),
+        'body'  => [
+            __('Where data protection law requires a legal basis, we rely on: performance of a contract, to take and fulfill your order; our legitimate interests, to secure the store, prevent fraud, and improve our service; your consent, for optional marketing and non-essential cookies; and compliance with a legal obligation, for tax and accounting records.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Sharing', 'dawp'),
+        'body'  => [
+            __('We share information only with service providers that help us run the store — payment processors, shipping carriers, fulfillment partners, email and analytics providers, customer-support tools, and hosting — and only as needed to perform their service under contract.', 'dawp'),
+            __('We may disclose information where required by law, to respond to lawful requests, to enforce our terms, or to protect the rights, property, or safety of our customers or business. If the business is sold or merged, customer information may transfer as part of that transaction.', 'dawp'),
+            __('We do not sell your personal information, and we do not share it for cross-context behavioral advertising.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('International data transfers', 'dawp'),
+        'body'  => [
+            __('We are based in the United States and our service providers may process data in the United States and other countries. Where information is transferred from a region with data transfer restrictions, we rely on recognized safeguards such as standard contractual clauses.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Cookies and tracking technologies', 'dawp'),
+        'body'  => [
+            __('Essential cookies keep your cart and login working and are required for checkout. Analytics and preference cookies help us measure and improve the store. Where required, we ask for your consent before setting non-essential cookies.', 'dawp'),
+            __('You can manage cookies in your browser settings; disabling essential cookies will prevent checkout from working. We honor the Global Privacy Control (GPC) signal where your browser sends it.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Marketing communications', 'dawp'),
+        'body'  => [
+            __('We send marketing email only to people who have opted in or who bought from us and did not opt out. Every marketing email has an unsubscribe link, and you can also ask us to stop by email. Transactional messages about an order you placed are not marketing and cannot be turned off while the order is active.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Data retention', 'dawp'),
+        'body'  => [
+            __('We keep order and transaction records for as long as needed to fulfill the order and to meet tax, accounting, and legal requirements. Support messages and marketing preferences are kept until they are no longer needed or you ask us to delete them.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Your rights', 'dawp'),
+        'body'  => [
+            __('Depending on where you live, you may have the right to access, correct, delete, or export your personal information, to object to or restrict certain processing, and to withdraw consent at any time without affecting processing already carried out.', 'dawp'),
+            __('Residents of California and other US states with privacy laws have equivalent rights, including the right to know what categories of information we collect and disclose, the right to delete, the right to correct, and the right not to be discriminated against for exercising them. You may use an authorized agent to submit a request on your behalf.', 'dawp'),
+            __('To make a request, email our support team. We may need to verify your identity before acting on a request, and we will respond within the time required by the applicable law. If you are in the EU or UK and are not satisfied with our response, you may complain to your local data protection authority.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Categories of information and recipients', 'dawp'),
+        'body'  => [
+            __('In the past 12 months we have collected identifiers, contact and delivery details, purchase and transaction records, and internet activity such as pages viewed. We disclose these categories for business purposes to payment processors, carriers, fulfillment and email providers, analytics providers, and hosting.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Automated decisions', 'dawp'),
+        'body'  => [
+            __('We use automated fraud-screening tools when you place an order. A flagged order is reviewed by a person before it is cancelled or held. You can contact us to ask about a decision that affected your order.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Third-party links', 'dawp'),
+        'body'  => [
+            __('Our site may link to other websites, such as a carrier tracking page or a payment provider. We are not responsible for the privacy practices of those sites; review their policies before providing information.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Security', 'dawp'),
+        'body'  => [
+            __('We use encrypted connections for checkout and account pages and limit access to personal information to staff and providers who need it. No method of transmission or storage is completely secure, but we work to protect your information and to notify you and the authorities of a breach where required.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Children', 'dawp'),
+        'body'  => [
+            __('This store is intended for adults. We do not knowingly collect personal information from children under 13. If you believe a child has provided us information, contact us and we will delete it.', 'dawp'),
+        ],
+    ],
+    [
+        'title' => __('Changes to this policy', 'dawp'),
+        'body'  => [
+            __('We may update this policy from time to time. Material changes will be posted on this page with a new "last updated" date.', 'dawp'),
+        ],
+    ],
+];
+?>
+
+<div class="bg-background text-foreground">
+    <section class="border-b border-border">
+        <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+            <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-blush"><?php esc_html_e('Policies', 'dawp'); ?></p>
+            <h1 class="mt-4 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
+            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('How YourWatchStore collects, uses, and protects your personal information.', 'dawp'); ?></p>
+            <p class="mt-3 text-sm text-muted"><?php printf(esc_html__('Last updated: %s', 'dawp'), esc_html($updated)); ?></p>
+        </div>
+    </section>
+
+    <section class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+        <div class="space-y-10">
+            <?php foreach ($sections as $section) : ?>
+                <div>
+                    <h2 class="font-heading text-xl font-bold text-foreground sm:text-2xl"><?php echo esc_html($section['title']); ?></h2>
+                    <?php foreach ($section['body'] as $paragraph) : ?>
+                        <p class="mt-3 text-base leading-7 text-foreground-muted"><?php echo esc_html($paragraph); ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+
+            <div class="rounded-md border border-border bg-surface-alt p-6">
+                <h2 class="font-heading text-lg font-bold text-foreground"><?php esc_html_e('Privacy requests', 'dawp'); ?></h2>
+                <p class="mt-2 text-sm leading-6 text-foreground-muted">
+                    <?php
+                    printf(
+                        wp_kses(__('Email <a class="font-semibold text-accent-blush underline underline-offset-2" href="mailto:%1$s">%1$s</a>.', 'dawp'), ['a' => ['class' => [], 'href' => []]]),
+                        esc_attr($support_email)
+                    );
+                    ?>
+                    <?php if ($store_address) : ?><br><?php printf(esc_html__('Business address: %s', 'dawp'), esc_html($store_address)); ?><?php endif; ?>
+                </p>
+            </div>
+        </div>
+    </section>
 </div>
-<div class="sgs-pp-body">
-  <p>This Privacy Policy explains how shopgraphicshirt.com (the "Site", "we", "us", or "our") collects, uses, and discloses your Personal Information when you visit, browse, or execute an apparel purchase from the Site.</p>
-  <p>By utilizing our Site or purchasing products from our store, you acknowledge and agree to the data management and processing practices detailed in this policy.</p>
-
-  <h2>1. Information We Collect</h2>
-  <p>When you interact with the Site, we gather specific metrics regarding your device, store interactions, and details strictly necessary to process your transactions.</p>
-  <p><strong>Device Metrics:</strong> Collected automatically via functional cookies, server logs, web beacons, and tracking pixels when you access our Site. This includes browser type, local IP address, active time zone, unique cookie files, what specific products you view, and store search terms.</p>
-  <p><strong>Order Records:</strong> Collected directly from you to fulfill our sales contract. This includes your full name, billing address, physical shipping address, contact email address, phone number, and encrypted payment details (such as credit card numbers or PayPal email accounts).</p>
-  <p><strong>Customer Support Records:</strong> Gathered directly from you during support inquiries to provide efficient operational responses.</p>
-
-  <h2>2. How We Use Your Information</h2>
-  <p>We utilize your dynamic Order Information strictly to fulfill any purchases executed through the Site. This includes:</p>
-  <ul>
-    <li>Processing your payment credentials and secure billing information.</li>
-    <li>Arranging standard commercial shipping and generating invoices/order confirmations.</li>
-    <li>Screening active incoming orders for potential risk or transaction fraud.</li>
-    <li>Communicating directly with you regarding order delivery updates or customer service queries.</li>
-    <li>Providing tailored promotional advertisements or product offers based on your verified preferences.</li>
-  </ul>
-
-  <h2>3. Sharing Your Information &amp; Third-Party Service Providers</h2>
-  <p>We share your Personal Information with trusted corporate service providers to help us deliver our e-commerce services and execute our contractual agreements with you. For example:</p>
-  <ul>
-    <li>We use WooCommerce to power our digital storefront infrastructure.</li>
-    <li>We use verified payment processors to handle transactional settlements and reliable shipping carriers to physically deliver your apparel packages.</li>
-    <li>We use Google Analytics to understand traffic volume and consumer browsing behaviors. Learn more: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>. Opt out of tracking here: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a>.</li>
-    <li>We may share your records to comply with applicable laws, respond to a lawful search warrant, or protect our corporate property and legal rights.</li>
-  </ul>
-
-  <h2>4. Secure Payments &amp; Transaction Encryption (GMC MANDATORY)</h2>
-  <p>To ensure the safety of your financial credentials, shopgraphicshirt.com operates a highly protected checkout ecosystem. All monetary communications and payment data transfers are encrypted utilizing secure SSL (Secure Sockets Layer) technology.</p>
-  <p>Furthermore, we do not store, view, or retain raw credit card numbers or payment passwords on our local databases. All transactions are routed directly to accredited payment processors adhering to the strict global Payment Card Industry Data Security Standard (PCI-DSS).</p>
-
-  <h2>5. Consumer Data Rights (GDPR &amp; CCPA Compliant)</h2>
-  <p>Regardless of your geographic location, we respect your data privacy and grant you the following structural controls:</p>
-  <p><strong>GDPR (For EEA Residents):</strong> If you reside within the European Economic Area, you possess the right to access your data, port it to a new service, or request that your records be corrected, updated, or permanently deleted. To exercise these rights, please email us directly at <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a>.</p>
-  <p><strong>CCPA (For California Residents):</strong> If you are a resident of California, you possess the specific "Right to Know" what personal data we collect, the right to request deletion of that data, and the right to opt-out of the sale of personal information.</p>
-
-  <h2>6. Data Retention &amp; Cookies Policy</h2>
-  <p><strong>Retention Protocols:</strong> When you place an order through the Site, we will securely retain your transaction data for our official business registries unless and until you formally request the removal of this information.</p>
-  <p><strong>Cookies Notice:</strong> We employ essential background cookies to manage your shopping cart persistence, preserve user login states, and optimize storefront speeds. You can adjust or clear cookies via your local web browser preferences. However, disabling essential cookies may prevent the checkout system from functioning properly.</p>
-
-  <h2>7. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy periodically to reflect shifts in our retail operations, software modifications, or localized legal regulations. The "Last Updated" date at the top of the page will signify the latest revision.</p>
-
-  <h2>8. Corporate Identity &amp; Customer Support Channels</h2>
-  <p>For questions about our data practices, to file a privacy inquiry, or for help with an active order, please connect with our compliance officer via our verified communication block:</p>
-  <p><strong>Store / Brand Name:</strong> ShopGraphicShirt</p>
-  <p><strong>Customer Support Email:</strong> <a href="mailto:support@shopgraphicshirt.com">support@shopgraphicshirt.com</a></p>
-  <p><strong>Physical Business Address:</strong> <?php echo esc_html($store_address); ?></p>
-  <p><strong>Customer Support Availability:</strong> Monday - Friday, 10:00 AM - 6:00 PM PST.</p>
-  <p><strong>Contact Page:</strong> <a href="/contact-us/">Contact Us</a></p>
-</div>
-</section>
-<?php get_footer(); ?>

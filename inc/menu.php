@@ -11,14 +11,12 @@ function dawp_main_menu_items() {
 function dawp_megamenu_sections() {
     return [
         [
-            'title' => __('Shop by Collections', 'dawp'),
+            'title' => __('Shop by Style', 'dawp'),
             'links' => [
-                ['title' => __('American Flag Tees', 'dawp'), 'url' => dawp_product_category_url('american-flag-tees'), 'description' => __('American pride flag designs.', 'dawp')],
-                ['title' => __('Bomber Jackets', 'dawp'), 'url' => dawp_product_category_url('bomber-jackets'), 'description' => __('Outerwear with patriotic character.', 'dawp')],
-                ['title' => __('Hats & Beanies', 'dawp'), 'url' => dawp_product_category_url('hats-beanies'), 'description' => __('Patriotic caps and beanies for everyday wear.', 'dawp')],
-                ['title' => __('Premium T-Shirts', 'dawp'), 'url' => dawp_product_category_url('premium-t-shirts'), 'description' => __('Classic patriotic tees.', 'dawp')],
-                ['title' => __('Patches & Pins', 'dawp'), 'url' => dawp_product_category_url('patches-pins'), 'description' => __('Accessories with American pride.', 'dawp')],
-                ['title' => __('America 250 Collection', 'dawp'), 'url' => dawp_product_category_url('america-250'), 'description' => __('Anniversary apparel and gifts.', 'dawp')],
+                ['title' => __('Dive Watches', 'dawp'), 'url' => dawp_product_category_url('dive-watches'), 'description' => __('Rotating bezels and real water resistance.', 'dawp')],
+                ['title' => __('Field Watches', 'dawp'), 'url' => dawp_product_category_url('field-watches'), 'description' => __('Legible, rugged, everyday utility.', 'dawp')],
+                ['title' => __('Dress Watches', 'dawp'), 'url' => dawp_product_category_url('dress-watches'), 'description' => __('Slim cases and clean dials.', 'dawp')],
+                ['title' => __('Chronograph Watches', 'dawp'), 'url' => dawp_product_category_url('chronograph-watches'), 'description' => __('Stopwatch complications and sub-dials.', 'dawp')],
             ],
         ],
     ];
@@ -26,16 +24,10 @@ function dawp_megamenu_sections() {
 
 function dawp_product_category_slugs() {
     return [
-        'best-sellers',
-        'american-flag-tees',
-        'bomber-jackets',
-        'hats-beanies',
-        'premium-t-shirts',
-        'patches-pins',
-        'america-250',
-        'fathers-day-gifts',
-        'memorial-day-gifts',
-        'independence-day-gifts',
+        'dive-watches',
+        'field-watches',
+        'dress-watches',
+        'chronograph-watches',
     ];
 }
 
@@ -59,8 +51,10 @@ function dawp_footer_columns() {
             'title' => __('Shop', 'dawp'),
             'links' => [
                 ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-                ['title' => __('Shop By Categories', 'dawp'), 'url' => home_url('/shop-by-categories/')],
-                ['title' => __('Best Sellers', 'dawp'), 'url' => dawp_product_category_url('best-sellers')],
+                ['title' => __('Dive Watches', 'dawp'), 'url' => dawp_product_category_url('dive-watches')],
+                ['title' => __('Field Watches', 'dawp'), 'url' => dawp_product_category_url('field-watches')],
+                ['title' => __('Dress Watches', 'dawp'), 'url' => dawp_product_category_url('dress-watches')],
+                ['title' => __('Chronograph Watches', 'dawp'), 'url' => dawp_product_category_url('chronograph-watches')],
             ],
         ],
         [
@@ -80,6 +74,7 @@ function dawp_footer_columns() {
                 ['title' => __('Refund & Return Policy', 'dawp'), 'url' => home_url('/refund-return-policy/')],
                 ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
                 ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+                ['title' => __('Billing Terms & Conditions', 'dawp'), 'url' => home_url('/billing-terms-conditions/')],
             ],
         ],
     ];

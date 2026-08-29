@@ -1,15 +1,15 @@
 /* Track Order page */
 .track-order-page {
-    --track-navy: #0B1F3A;
+    --track-navy: #111111;
     --track-navy-dark: #07172B;
-    --track-red: #B31942;
-    --track-red-dark: #921233;
-    --track-gold: #C6A15B;
-    --track-ink: #111827;
-    --track-muted: #64748B;
-    --track-line: #D8DEE8;
+    --track-red: #A88B5A;
+    --track-red-dark: #8C7145;
+    --track-gold: #A88B5A;
+    --track-ink: #111111;
+    --track-muted: #8C8C8C;
+    --track-line: #E5E5E5;
     --track-soft: #F5F7FA;
-    --track-warm: #F7F2E8;
+    --track-warm: #F7F7F5;
     background: #F5F7FA;
     color: var(--track-ink);
 }
@@ -18,8 +18,8 @@
     position: relative;
     overflow: hidden;
     background:
-        linear-gradient(135deg, rgba(11, 31, 58, 0.98), rgba(7, 23, 43, 0.96)),
-        linear-gradient(45deg, rgba(198, 161, 91, 0.18), transparent 42%);
+        linear-gradient(135deg, rgba(17, 17, 17, 0.98), rgba(7, 23, 43, 0.96)),
+        linear-gradient(45deg, rgba(168, 139, 90, 0.18), transparent 42%);
     border-bottom: 4px solid var(--track-gold);
     padding: 4.5rem 1rem 5rem;
 }
@@ -55,9 +55,9 @@
     align-items: center;
     min-height: 32px;
     padding: 0 0.85rem;
-    border: 1px solid rgba(198, 161, 91, 0.5);
+    border: 1px solid rgba(168, 139, 90, 0.5);
     border-radius: 8px;
-    background: rgba(198, 161, 91, 0.12);
+    background: rgba(168, 139, 90, 0.12);
     color: var(--track-gold);
     font-size: 0.75rem;
     font-weight: 900;
@@ -152,7 +152,7 @@
     border: 1px solid var(--track-line);
     border-radius: 8px;
     background: #FFFFFF;
-    box-shadow: 0 18px 45px rgba(11, 31, 58, 0.1);
+    box-shadow: 0 18px 45px rgba(17, 17, 17, 0.1);
 }
 
 .track-form-card {
@@ -164,8 +164,8 @@
 }
 
 .track-form-card__header span {
-    border-color: rgba(179, 25, 66, 0.22);
-    background: rgba(179, 25, 66, 0.08);
+    border-color: rgba(168, 139, 90, 0.22);
+    background: rgba(168, 139, 90, 0.08);
     color: var(--track-red);
 }
 
@@ -358,7 +358,7 @@
 .form-row input.input-text:focus,
 .woocommerce-form-row input.input-text:focus {
     border-color: var(--track-red) !important;
-    box-shadow: 0 0 0 3px rgba(179, 25, 66, 0.14) !important;
+    box-shadow: 0 0 0 3px rgba(168, 139, 90, 0.14) !important;
 }
 
 .sgs-to-formwrap button.button,
@@ -382,7 +382,7 @@
     background: var(--track-red) !important;
     color: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
-    box-shadow: 0 14px 28px rgba(179, 25, 66, 0.22) !important;
+    box-shadow: 0 14px 28px rgba(168, 139, 90, 0.22) !important;
     appearance: none !important;
     cursor: pointer !important;
     font-family: var(--font-sans, Arial, sans-serif) !important;
@@ -406,7 +406,7 @@
 .woocommerce-form-row input[type="submit"]:hover {
     background: var(--track-navy) !important;
     border-color: var(--track-navy) !important;
-    box-shadow: 0 18px 34px rgba(11, 31, 58, 0.2) !important;
+    box-shadow: 0 18px 34px rgba(17, 17, 17, 0.2) !important;
     transform: translateY(-1px) !important;
 }
 
@@ -448,7 +448,7 @@
 .order-info {
     margin: 0 0 1.5rem;
     padding: 1rem 1.1rem;
-    border: 1px solid rgba(198, 161, 91, 0.45);
+    border: 1px solid rgba(168, 139, 90, 0.45);
     border-left: 4px solid var(--track-gold);
     border-radius: 8px;
     background: var(--track-warm);
@@ -550,7 +550,7 @@
 
 .woocommerce-table--order-details tfoot tr:nth-last-child(2) th,
 .woocommerce-table--order-details tfoot tr:nth-last-child(2) td {
-    background: #F8FAFC;
+    background: #F7F7F5;
     color: var(--track-navy);
     font-size: 1rem;
     font-weight: 950;
@@ -586,7 +586,7 @@
     min-height: 30px;
     padding: 0 0.75rem;
     border-radius: 8px;
-    background: rgba(11, 31, 58, 0.08);
+    background: rgba(17, 17, 17, 0.08);
     color: var(--track-navy);
     font-size: 0.72rem;
     font-weight: 900;
@@ -623,13 +623,13 @@
     background: #FFFFFF;
     color: inherit;
     text-decoration: none;
-    box-shadow: 0 10px 28px rgba(11, 31, 58, 0.07);
+    box-shadow: 0 10px 28px rgba(17, 17, 17, 0.07);
     transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .track-more-card:hover {
-    border-color: rgba(179, 25, 66, 0.45);
-    box-shadow: 0 18px 36px rgba(11, 31, 58, 0.12);
+    border-color: rgba(168, 139, 90, 0.45);
+    box-shadow: 0 18px 36px rgba(17, 17, 17, 0.12);
     transform: translateY(-2px);
 }
 

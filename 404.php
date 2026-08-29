@@ -35,6 +35,7 @@ if (!function_exists('qb_404_products')) {
 }
 
 $shop_url = qb_404_shop_url();
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
 $quick_links = function_exists('qb_get_live_product_categories') ? qb_get_live_product_categories(['number' => 5]) : [];
 $products    = qb_404_products(3);
 
@@ -262,7 +263,7 @@ get_header();
       <p class="qb-404__eyebrow"><?php esc_html_e('Page Not Found', 'dawp'); ?></p>
       <h1 id="qb-404-title" class="qb-404__title"><?php esc_html_e('This watch page slipped away.', 'dawp'); ?></h1>
       <p class="qb-404__copy">
-        <?php esc_html_e('The page you requested is not available. You can return to Corvelshop, browse current watches, or continue shopping recent products.', 'dawp'); ?>
+        <?php echo esc_html(sprintf(__('The page you requested is not available. You can return to %s, browse current watches, or continue shopping recent products.', 'dawp'), $brand_name)); ?>
       </p>
 
       <div class="qb-404__actions">

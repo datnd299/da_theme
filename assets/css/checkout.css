@@ -1546,3 +1546,132 @@ button#place_order:hover,
     border-color: #b38a52 !important;
     background-color: rgba(179, 138, 82, 0.12) !important;
 }
+
+/* Orvel Time final checkout and order-received alignment */
+:root {
+    --orvel-ink: #111312;
+    --orvel-pearl: #F4F0E8;
+    --orvel-paper: #FFFFFF;
+    --orvel-moss: #555B50;
+    --orvel-brass: #A68158;
+    --orvel-brass-soft: #C6A77F;
+    --orvel-line: #D7CDBE;
+}
+
+#content,
+body.woocommerce-checkout #content {
+    background-color: var(--orvel-pearl) !important;
+    color: var(--orvel-ink) !important;
+}
+
+.wc-block-components-checkout-step,
+.woocommerce-billing-fields,
+.woocommerce-shipping-fields,
+.woocommerce-additional-fields,
+.checkout_coupon.woocommerce-form-coupon,
+.woocommerce .woocommerce-info,
+.woocommerce-notice--success.woocommerce-thankyou-order-received {
+    border-color: var(--orvel-line) !important;
+    background-color: var(--orvel-paper) !important;
+    border-radius: 4px !important;
+}
+
+.wc-block-components-checkout-step__heading-container,
+.woocommerce-billing-fields > h3,
+.woocommerce-shipping-fields > h3,
+.woocommerce-additional-fields > h3,
+h3#order_review_heading,
+.checkout-order-summary-block-fill-wrapper .wc-block-components-checkout-step__heading {
+    border-bottom-color: var(--orvel-brass) !important;
+}
+
+.wc-block-components-checkout-step__title,
+h3#order_review_heading,
+.woocommerce-billing-fields > h3,
+.woocommerce-shipping-fields > h3,
+.woocommerce-additional-fields > h3,
+.woocommerce-order-details__title,
+.woocommerce-column__title,
+.woocommerce-checkout .input-text,
+.woocommerce-checkout select:not(.select2-hidden-accessible),
+.woocommerce-checkout .select2-container--default .select2-selection--single .select2-selection__rendered,
+.woocommerce-table--order-details tbody td,
+.woocommerce-table--order-details tfoot tr:last-child th,
+.woocommerce-table--order-details tfoot tr:last-child td {
+    color: var(--orvel-ink) !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-text-input label,
+.wp-block-woocommerce-checkout .wc-blocks-components-select__label,
+.woocommerce-checkout .form-row label:not(.screen-reader-text):not(.woocommerce-form__label-for-checkbox),
+.woocommerce-order > p:not(.woocommerce-notice),
+.wc-block-components-checkout-return-to-cart-button,
+.woocommerce .woocommerce-info,
+.woocommerce-table--order-details thead th,
+.woocommerce-table--order-details tfoot th {
+    color: var(--orvel-moss) !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-text-input input,
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select,
+.woocommerce-checkout .input-text,
+.woocommerce-checkout select:not(.select2-hidden-accessible),
+.woocommerce-checkout .select2-container--default .select2-selection--single {
+    border-color: var(--orvel-line) !important;
+    border-radius: 4px !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-text-input input:focus,
+.wp-block-woocommerce-checkout .wc-blocks-components-select__select:focus,
+.woocommerce-checkout .input-text:focus,
+.woocommerce-checkout select:not(.select2-hidden-accessible):focus,
+.woocommerce-checkout .select2-container--default.select2-container--focus .select2-selection--single,
+.woocommerce-checkout .select2-container--default.select2-container--open .select2-selection--single {
+    border-color: var(--orvel-brass) !important;
+    box-shadow: 0 0 0 3px rgba(166, 129, 88, 0.18) !important;
+}
+
+.wc-block-checkout__sidebar,
+#order_review.woocommerce-checkout-review-order,
+.woocommerce-order-overview,
+.woocommerce-customer-details,
+.checkout-order-summary-block-fill-wrapper {
+    background-color: var(--orvel-ink) !important;
+    border-radius: 4px !important;
+}
+
+.wc-block-components-checkout-order-summary__title-price,
+.wc-block-components-product-price__value,
+.wc-block-components-order-summary-item__individual-price,
+.woocommerce-table--order-details .product-total,
+table.woocommerce-checkout-review-order-table .product-total .woocommerce-Price-amount,
+table.woocommerce-checkout-review-order-table tfoot .order-total td .woocommerce-Price-amount,
+.woocommerce-shipping-methods li .woocommerce-Price-amount,
+.woocommerce-privacy-policy-text a,
+.woocommerce .woocommerce-info .showcoupon,
+.wc-block-checkout__terms a {
+    color: var(--orvel-brass) !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button,
+button#place_order,
+.checkout_coupon .button[name="apply_coupon"],
+.wc-block-components-totals-coupon__button {
+    background-color: var(--orvel-ink) !important;
+    color: #FFFFFF !important;
+    border-radius: 4px !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-components-checkout-place-order-button:hover,
+button#place_order:hover,
+.checkout_coupon .button[name="apply_coupon"]:hover,
+.wc-block-components-totals-coupon__button:hover {
+    background-color: var(--orvel-brass) !important;
+    color: var(--orvel-ink) !important;
+}
+
+.woocommerce-notice--success.woocommerce-thankyou-order-received {
+    border-color: rgba(166, 129, 88, .35) !important;
+    background: #FFFFFF !important;
+    color: var(--orvel-ink) !important;
+}

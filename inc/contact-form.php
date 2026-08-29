@@ -6,7 +6,7 @@
  */
 
 function dawp_contact_support_email() {
-    return 'support@corvelshop.com';
+    return 'support@orveltime.com';
 }
 
 function dawp_contact_form_redirect($status) {
@@ -55,7 +55,7 @@ function dawp_handle_contact_form() {
 
     $subject = sprintf(
         /* translators: %s: contact form topic. */
-        __('Corvelshop contact: %s', 'dawp'),
+        __('Orvel Time contact: %s', 'dawp'),
         $topic
     );
 

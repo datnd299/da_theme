@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 ?>
 
 <style>

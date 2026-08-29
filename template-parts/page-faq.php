@@ -5,8 +5,10 @@
  * @package dawp
  */
 
-$store_name        = "Corvelshop";
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
+$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$store_domain      = wp_parse_url(home_url('/'), PHP_URL_HOST);
+$store_domain      = $store_domain ? preg_replace('/^www\./', '', $store_domain) : '';
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');
@@ -125,7 +127,10 @@ $faq_sections = [
             ],
             [
                 'q' => __('Do your watches make unsupported brand or performance claims?', 'dawp'),
-                'a' => __('No. Corvelshop sells watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
+                'a' => sprintf(
+                    __('No. %s sells watches and watch accessories. We avoid unsupported third-party brand, premium-material, medical, wellness, investment, and guaranteed performance claims.', 'dawp'),
+                    $store_name
+                ),
             ],
         ],
     ],
@@ -152,66 +157,66 @@ $faq_sections = [
 ?>
 
 <style>
-  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F5F2EB; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#B8B8B2; --qb-gray:#F5F2EB; --qb-text:#5E625F; --qb-border:#B8B8B2; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-ink:#111312; --qb-moss:#555B50; --qb-olive:#6F7B64; --qb-paper:#FFFFFF; --qb-pearl:#F4F0E8; --qb-stone:#E5DDD2; --qb-line:#D7CDBE; --qb-brass:#A68158; --qb-brass-soft:#C6A77F; background:var(--qb-paper); color:var(--qb-moss); font-family:"Lato","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
   .qb-section { padding:68px 0; }
-  .qb-eyebrow { margin:0 0 12px; color:var(--qb-gold); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
-  .qb-title { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
-  .qb-updated { margin:16px 0 0; color:var(--qb-plum); font-size:14px; font-weight:800; line-height:1.4; }
-  .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-text); font-size:17px; line-height:1.75; }
-  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-plum); border-radius:999px; background:var(--qb-plum); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
-  .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
-  .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
-  .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
+  .qb-eyebrow { margin:0 0 12px; color:var(--qb-brass); font-size:12px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+  .qb-title { margin:0; color:var(--qb-ink); font-family:Georgia,"Times New Roman",serif; font-size:clamp(36px,5vw,64px); line-height:1.04; letter-spacing:0; }
+  .qb-updated { margin:16px 0 0; color:var(--qb-ink); font-size:14px; font-weight:800; line-height:1.4; }
+  .qb-copy { margin:18px 0 0; max-width:780px; color:var(--qb-moss); font-size:17px; line-height:1.75; }
+  .qb-button { display:inline-flex; min-height:48px; align-items:center; justify-content:center; border:1px solid var(--qb-ink); border-radius:2px; background:var(--qb-ink); color:#fff !important; padding:0 22px; font-size:14px; font-weight:800; transition:.2s ease; }
+  .qb-button:hover { border-color:var(--qb-brass); background:var(--qb-brass); color:#fff !important; }
+  .qb-button--secondary { background:#fff; color:var(--qb-ink) !important; }
+  .qb-button--secondary:hover { border-color:var(--qb-ink); background:var(--qb-pearl); color:var(--qb-ink) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
-  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(245,242,235,.98),rgba(255,255,255,.94) 50%,rgba(38,60,51,.13)),#F5F2EB; }
-  .qb-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.42); filter:blur(8px); }
-  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(179,138,82,.22); border-radius:999px; background:rgba(255,255,255,.2); }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-line); background:linear-gradient(135deg,#F4F0E8 0%,#FFFFFF 58%,#EFE7DB 100%); }
+  .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(166,129,88,.42),transparent); }
+  .qb-hero::after { content:""; position:absolute; right:7%; top:0; bottom:0; width:1px; background:rgba(166,129,88,.16); transform:skewX(-12deg); }
   .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0 84px; }
   .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
   .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(13,15,15,.06); }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-line); border-radius:2px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(17,19,18,.05); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:18px 0 0; padding:0; list-style:none; }
-  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:12px; background:#fff; padding:12px 13px; color:#5E625F; font-size:13px; line-height:1.45; }
-  .qb-glance-list strong { display:block; margin-bottom:3px; color:var(--qb-plum); font-size:13px; line-height:1.2; }
-  .qb-soft { background:var(--qb-gray); }
+  .qb-glance-list li { border:1px solid var(--qb-line); border-radius:2px; background:#fff; padding:12px 13px; color:var(--qb-moss); font-size:13px; line-height:1.45; }
+  .qb-glance-list strong { display:block; margin-bottom:3px; color:var(--qb-ink); font-size:13px; line-height:1.2; }
+  .qb-soft { background:var(--qb-pearl); }
   .qb-content-grid { display:grid; grid-template-columns:280px minmax(0,1fr); gap:32px; align-items:start; }
   .qb-sidebar { position:sticky; top:110px; }
-  .qb-dark-card { border-radius:20px; background:var(--qb-plum); padding:24px; color:#fff; }
-  .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
+  .qb-dark-card { border-radius:2px; background:var(--qb-ink); padding:24px; color:#fff; }
+  .qb-dark-card .qb-eyebrow { color:var(--qb-brass-soft); }
   .qb-dark-card h2 { margin:0; color:#fff; font-family:Georgia,"Times New Roman",serif; font-size:28px; line-height:1.12; }
   .qb-dark-card p { margin:14px 0 0; color:rgba(255,255,255,.78); font-size:14px; line-height:1.65; }
   .qb-dark-card a { color:#fff; }
   .qb-side-nav { display:grid; gap:9px; margin-top:20px; }
-  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:999px; padding:10px 13px; color:#fff; font-size:13px; font-weight:800; }
+  .qb-side-nav a { border:1px solid rgba(255,255,255,.15); border-radius:2px; padding:10px 13px; color:#fff; font-size:13px; font-weight:800; }
   .qb-policy-stack { display:grid; gap:20px; }
   .qb-policy-card { padding:clamp(24px,4vw,38px); background:#fff; }
-  .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
-  .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
-  .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
+  .qb-policy-card:nth-child(even) { background:var(--qb-pearl); }
+  .qb-policy-card h2 { margin:0; color:var(--qb-ink); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
+  .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-ink); font-size:18px; line-height:1.35; }
   .qb-policy-card h2 + .qb-policy-card__intro { margin-top:14px; }
-  .qb-policy-card p, .qb-policy-card li { color:#5E625F; font-size:15px; line-height:1.72; }
+  .qb-policy-card p, .qb-policy-card li { color:var(--qb-moss); font-size:15px; line-height:1.72; }
   .qb-policy-card p { margin:14px 0 0; }
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
   .qb-policy-card ol { list-style:decimal outside; }
-  .qb-accordion { overflow:hidden; margin-top:22px; border:1px solid var(--qb-border); border-radius:18px; background:#fff; }
-  .qb-faq-item + .qb-faq-item { border-top:1px solid var(--qb-border); }
-  .qb-faq-toggle { display:flex; width:100%; align-items:center; justify-content:space-between; gap:18px; border:0; background:#fff; padding:18px; color:var(--qb-plum); text-align:left; font:inherit; font-weight:800; cursor:pointer; }
-  .qb-faq-toggle:hover { background:var(--qb-ivory); }
+  .qb-accordion { overflow:hidden; margin-top:22px; border:1px solid var(--qb-line); border-radius:2px; background:#fff; }
+  .qb-faq-item + .qb-faq-item { border-top:1px solid var(--qb-stone); }
+  .qb-faq-toggle { display:flex; width:100%; align-items:center; justify-content:space-between; gap:18px; border:0; background:#fff; padding:18px; color:var(--qb-ink); text-align:left; font:inherit; font-weight:800; cursor:pointer; }
+  .qb-faq-toggle:hover { background:var(--qb-pearl); }
   .qb-faq-toggle span:first-child { line-height:1.35; }
-  .qb-faq-icon { display:inline-flex; width:34px; height:34px; flex:0 0 34px; align-items:center; justify-content:center; border-radius:999px; background:var(--qb-plum); color:#fff; font-size:18px; font-weight:800; line-height:1; }
+  .qb-faq-icon { display:inline-flex; width:34px; height:34px; flex:0 0 34px; align-items:center; justify-content:center; border-radius:2px; background:var(--qb-ink); color:#fff; font-size:18px; font-weight:800; line-height:1; }
   .qb-answer { display:none; padding:0 18px 20px; }
-  .qb-answer p { color:#5E625F; font-size:15px; line-height:1.72; }
-  .qb-faq-toggle[aria-expanded="true"] .qb-faq-icon { background:var(--qb-gold); color:var(--qb-plum); }
+  .qb-answer p { color:var(--qb-moss); font-size:15px; line-height:1.72; }
+  .qb-faq-toggle[aria-expanded="true"] .qb-faq-icon { background:var(--qb-brass); color:#fff; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
-  .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
-  .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
-  .qb-contact-item span { display:block; margin-top:7px; color:#5E625F; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+  .qb-contact-item { border:1px solid var(--qb-line); border-radius:2px; background:#fff; padding:16px; }
+  .qb-contact-item strong { display:block; color:var(--qb-ink); font-size:14px; }
+  .qb-contact-item span { display:block; margin-top:7px; color:var(--qb-moss); font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
   @media (max-width:920px) { .qb-hero__grid, .qb-content-grid { grid-template-columns:1fr; } .qb-sidebar { position:static; } }
   @media (max-width:680px) {
     .qb-section { padding:44px 0; }
@@ -249,7 +254,7 @@ $faq_sections = [
         <p class="qb-eyebrow"><?php esc_html_e('FAQ', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Frequently Asked Questions', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at Corvelshop.', 'dawp'); ?></p>
+        <p class="qb-copy"><?php echo esc_html(sprintf(__('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at %s.', 'dawp'), $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
@@ -330,6 +335,12 @@ $faq_sections = [
               <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>
               <span><?php echo esc_html($store_name); ?></span>
             </div>
+            <?php if ($store_domain) : ?>
+              <div class="qb-contact-item">
+                <strong><?php esc_html_e('Website', 'dawp'); ?></strong>
+                <span><a href="<?php echo esc_url(home_url('/')); ?>"><?php echo esc_html($store_domain); ?></a></span>
+              </div>
+            <?php endif; ?>
             <?php if ($store_address) : ?>
               <div class="qb-contact-item">
                 <strong><?php esc_html_e('Address', 'dawp'); ?></strong>

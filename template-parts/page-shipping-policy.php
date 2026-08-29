@@ -5,14 +5,14 @@
  * @package dawp
  */
 
-$store_name     = "Corvelshop";
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
+$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
 ?>
 
 <style>
-  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F5F2EB; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#B8B8B2; --qb-gray:#F5F2EB; --qb-text:#5E625F; --qb-border:#B8B8B2; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F7F4EE; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F7F4EE; --qb-text:#5E625F; --qb-border:#DDD5C7; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -27,13 +27,13 @@ $support_portal = home_url('/contact-us/');
   .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
   .qb-actions { display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
   .qb-hero .qb-actions { justify-content:center; }
-  .qb-hero { position:relative; overflow:hidden; background:linear-gradient(135deg,rgba(245,242,235,.98),rgba(255,255,255,.94) 50%,rgba(38,60,51,.13)),#F5F2EB; }
-  .qb-hero::before { content:""; position:absolute; inset:24px auto auto 8%; width:220px; height:220px; border-radius:999px; background:rgba(255,255,255,.42); filter:blur(8px); }
-  .qb-hero::after { content:""; position:absolute; right:7%; bottom:-92px; width:360px; height:360px; border:1px solid rgba(179,138,82,.22); border-radius:999px; background:rgba(255,255,255,.2); }
-  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0 84px; }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(135deg,#fff 0%,#F7F4EE 62%,rgba(179,138,82,.18) 100%); }
+  .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(179,138,82,.7),transparent); }
+  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(179,138,82,.24); transform:rotate(12deg); }
+  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:70px 0 76px; }
   .qb-hero__content { max-width:720px; margin-inline:auto; text-align:center; }
   .qb-hero .qb-copy { max-width:690px; margin-inline:auto; }
-  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:20px; background:rgba(255,255,255,.92); box-shadow:0 18px 46px rgba(13,15,15,.06); }
+  .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 12px 34px rgba(13,15,15,.05); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
   .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#5E625F; font-size:14px; line-height:1.6; }
@@ -116,7 +116,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-policy-stack">
         <section id="shipping-locations" class="qb-policy-card">
           <h2><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-          <p><?php esc_html_e("We currently ship exclusively within the United States. Corvelshop serves customers shopping from the United States domestic market.", 'dawp'); ?></p>
+          <p><?php echo esc_html(sprintf('We currently ship exclusively within the United States. %s serves customers shopping from the United States domestic market.', $store_name)); ?></p>
           <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
           <div class="qb-callout">
             <p><?php esc_html_e('Some watch orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
@@ -170,7 +170,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="tracking" class="qb-policy-card">
           <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php esc_html_e("To guarantee safe and efficient delivery, Corvelshop partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.", 'dawp'); ?></p>
+          <p><?php echo esc_html(sprintf('To guarantee safe and efficient delivery, %s partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.', $store_name)); ?></p>
           <ul class="qb-carrier-list">
             <li><?php esc_html_e('USPS', 'dawp'); ?></li>
             <li><?php esc_html_e('UPS', 'dawp'); ?></li>

@@ -58,7 +58,7 @@ function dawp_normalize_tracking_order_id($order_id) {
         return $tracking_id;
     }
 
-    if (preg_match('/^CV\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
+    if (preg_match('/^(?:OT|CV)\s*-\s*(\d+)$/i', $tracking_id, $matches)) {
         return $matches[1];
     }
 
@@ -147,7 +147,7 @@ function dawp_get_store_address_line() {
     $city      = $countries ? $countries->get_base_city() : get_option('woocommerce_store_city', '');
     $postcode  = $countries ? $countries->get_base_postcode() : get_option('woocommerce_store_postcode', '');
     $state     = $countries ? $countries->get_base_state() : '';
-    // Corvelshop is U.S.-only per every policy page; key off the theme's market
+    // Orvel Time is U.S.-only per every policy page; key off the theme's market
     // country rather than the WooCommerce base-country option.
     $country   = function_exists('dawp_store_country') ? dawp_store_country() : ($countries ? $countries->get_base_country() : 'US');
 

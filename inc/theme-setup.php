@@ -5,7 +5,7 @@ remove_action('wp_head', 'wp_site_icon', 99);
 add_action('wp_head', 'dawp_logo_favicon', 100);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'CV-' . $order_id;
+    return 'OT-' . $order_id;
 }
 function dawp_setup() {
     add_theme_support('title-tag');
@@ -27,7 +27,7 @@ function dawp_asset_ver($relative_path) {
 }
 
 function dawp_logo_favicon() {
-    $logo_url = get_template_directory_uri() . '/assets/images/home/image.png';
+    $logo_url = get_template_directory_uri() . '/assets/images/home/logobrand.png';
     $favicon_url = function_exists('qb_i0_image_url') ? qb_i0_image_url($logo_url, 32, 32) : $logo_url;
     $apple_touch_icon_url = function_exists('qb_i0_image_url') ? qb_i0_image_url($logo_url, 180, 180) : $logo_url;
     ?>
@@ -81,7 +81,7 @@ function dawp_scripts() {
         } elseif ( is_checkout() ) {
             wp_enqueue_style('dawp-checkout', get_template_directory_uri() . '/assets/css/checkout.css', [], '1.0.6');
         } elseif ( is_woocommerce()  ) {
-            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], '1.0.6');
+            wp_enqueue_style('dawp-shop', get_template_directory_uri() . '/assets/css/shop.css', [], dawp_asset_ver('assets/css/shop.css'));
             dawp_remove_styles();
         }
     }

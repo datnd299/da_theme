@@ -1,4 +1,4 @@
-/* Corvelshop track order page */
+/* Orvel Time track order page */
 
 .track-order-page {
   --track-brass-soft: #d7b987;
@@ -21,6 +21,20 @@
   background: var(--track-white);
   color: var(--track-text);
   font-family: var(--track-font);
+}
+
+/* Orvel Time final tracking alignment */
+.track-order-page {
+  --track-brass-soft: #C6A77F;
+  --track-cream: #F4F0E8;
+  --track-soft: #F5F2EB;
+  --track-green: #555B50;
+  --track-green-soft: #E5DDD2;
+  --track-gold: #A68158;
+  --track-plum: #111312;
+  --track-text: #111312;
+  --track-muted: #555B50;
+  --track-border: #D7CDBE;
 }
 
 .track-order-page *,

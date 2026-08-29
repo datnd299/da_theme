@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Corvelshop.
+ * Shop and product category archive template for Orvel Time.
  *
  * @package dawp
  */
@@ -12,6 +12,7 @@ $queried_term  = $is_category ? get_queried_object() : null;
 $category_data = $is_category && $queried_term && !is_wp_error($queried_term) ? qb_get_product_category_data($queried_term->slug) : null;
 $shop_url      = get_permalink(wc_get_page_id('shop'));
 $shop_url      = $shop_url ?: home_url('/shop/');
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
 
 if ($category_data) {
     $page_title  = $category_data['name'];
@@ -31,8 +32,8 @@ if ($category_data) {
     $page_title  = 'All Watches';
     $headline    = 'Modern watches with confident form and refined presence.';
     $description = 'Discover modern luxury watches with clean presentation, considered materials, and precise product detail.';
-    $intro       = 'Shop the Corvelshop watch edit built around proportion, texture, and daily presence.';
-    $hero_image  = qb_theme_asset_image_url('corvel-watch-editorial.png');
+    $intro       = sprintf('Shop the %s watch edit built around proportion, texture, and daily presence.', $brand_name);
+    $hero_image  = qb_theme_asset_image_url('luxuryimagecollection (1)/20.jpg');
     $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
 }
 
@@ -61,7 +62,7 @@ get_header();
                     <?php endif; ?>
                 </nav>
 
-                <p class="shop-eyebrow"><?php esc_html_e('Corvelshop Collection', 'dawp'); ?></p>
+                <p class="shop-eyebrow"><?php echo esc_html(sprintf(__('%s Collection', 'dawp'), $brand_name)); ?></p>
                 <h1 class="shop-hero__title"><?php echo esc_html($headline); ?></h1>
                 <p class="shop-hero__copy"><?php echo esc_html($description); ?></p>
                 <p class="shop-hero__intro"><?php echo esc_html($intro); ?></p>
@@ -194,7 +195,7 @@ get_header();
         <section class="shop-care">
             <div>
                 <h2><?php esc_html_e('Material, Size & Care Details', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Corvelshop product pages should include available material or finish notes, case size, strap information, movement details where available, and simple watch care guidance.', 'dawp'); ?></p>
+                <p><?php echo esc_html(sprintf(__('%s product pages should include available material or finish notes, case size, strap information, movement details where available, and simple watch care guidance.', 'dawp'), $brand_name)); ?></p>
             </div>
             <div>
                 <h2><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h2>

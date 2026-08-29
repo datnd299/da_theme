@@ -1,6 +1,6 @@
 /* ===================================================
    CART PAGE — WooCommerce Block Cart
-   Slicktee Brand · Mobile-first · Pure CSS · No @apply
+   Orvel Time Brand - Mobile-first - Pure CSS - No @apply
    =================================================== */
 
 :root {
@@ -818,4 +818,43 @@
 
 .wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
   background: var(--qb-cart-gold);
+}
+
+/* Orvel Time ecommerce alignment */
+:root {
+  --qb-cart-bg: #FFFFFF;
+  --qb-cart-cream: #F4F0E8;
+  --qb-cart-soft: #F5F2EB;
+  --qb-cart-plum: #111312;
+  --qb-cart-text: #111312;
+  --qb-cart-muted: #555B50;
+  --qb-cart-border: #D7CDBE;
+  --qb-cart-gold: #A68158;
+  --qb-cart-gold-hover: #A68158;
+  --qb-cart-ring: #555B50;
+}
+
+.wc-block-cart,
+.wp-block-woocommerce-empty-cart-block {
+  background: #FFFFFF;
+}
+
+.wc-block-cart-items__row,
+.wc-block-cart__sidebar,
+.wc-block-grid__product {
+  border-radius: 4px;
+}
+
+.wc-block-components-quantity-selector,
+.wc-block-components-text-input input,
+.wc-block-components-totals-coupon__button,
+.wc-block-cart__submit-button,
+.wc-block-grid__product-add-to-cart .wp-block-button__link {
+  border-radius: 4px;
+}
+
+.wc-block-cart__submit-button:hover,
+.wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
+  background: #A68158;
+  color: #111312;
 }

@@ -557,6 +557,66 @@
   }
 }
 
+/* Orvel Time ecommerce alignment */
+.woocommerce-account {
+  --color-background: #FFFFFF;
+  --color-surface: #F4F0E8;
+  --color-surface-alt: #F5F2EB;
+  --color-foreground: #111312;
+  --color-foreground-muted: #555B50;
+  --color-muted: #8B8E89;
+  --color-accent: #A68158;
+  --color-accent-hover: #111312;
+  --color-accent-soft: #E5DDD2;
+  --color-border: #D7CDBE;
+}
+
+.woocommerce-account .woo-page {
+  background: #F4F0E8;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation,
+.woocommerce-account .woocommerce-MyAccount-content,
+.woocommerce-account .woocommerce-form-login,
+.woocommerce-account .woocommerce-form-register,
+.woocommerce-account .lost_reset_password,
+.woocommerce-account .woocommerce-Address,
+.woocommerce-account .woocommerce-column,
+.woocommerce-account fieldset {
+  border-color: #D7CDBE;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 14px 38px rgba(17, 19, 18, .05);
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation a:hover,
+.woocommerce-account .woocommerce-MyAccount-navigation .is-active a {
+  background: #111312;
+  color: #FFFFFF;
+}
+
+.woocommerce-account .woocommerce-MyAccount-content a,
+.woocommerce-account form .required {
+  color: #A68158;
+}
+
+.woocommerce-account .woocommerce-Button,
+.woocommerce-account .button,
+.woocommerce-account button.button,
+.woocommerce-account input.button {
+  border-color: #111312;
+  background: #111312;
+  color: #FFFFFF;
+}
+
+.woocommerce-account .woocommerce-Button:hover,
+.woocommerce-account .button:hover,
+.woocommerce-account button.button:hover,
+.woocommerce-account input.button:hover {
+  border-color: #A68158;
+  background: #A68158;
+  color: #111312;
+}
+
 @media (max-width: 640px) {
   .woocommerce-account .woo-page > .container {
     width: min(100% - 24px, 1180px);
@@ -684,4 +744,18 @@
     width: 100%;
     margin: 4px 0;
   }
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation,
+.woocommerce-account .woocommerce-MyAccount-content,
+.woocommerce-account .woocommerce-form-login,
+.woocommerce-account .woocommerce-form-register,
+.woocommerce-account .lost_reset_password,
+.woocommerce-account .woocommerce-Address,
+.woocommerce-account .woocommerce-column,
+.woocommerce-account table.shop_table,
+.woocommerce-account .woocommerce-orders-table,
+.woocommerce-account table.shop_table tr,
+.woocommerce-account .woocommerce-orders-table tr {
+  border-radius: 4px;
 }

@@ -1,102 +1,151 @@
-# CORVEL — DESIGN SYSTEM
+ORVEL TIME — DESIGN SYSTEM
 
-## Direction
+Direction
 
-**Modern Prestige × Dark Editorial × Precision Luxury**
+Quiet Luxury × Contemporary Horology × Editorial Minimalism
 
-Corvel should feel like a contemporary luxury watch campaign translated into ecommerce: strong, refined, architectural and premium.
+Orvel Time should feel elegant, calm, modern and premium.
+The design must stay minimal, editorial and product-focused.
 
-Avoid generic WooCommerce styling, old-fashioned black-gold luxury, or heavy decoration.
+Colors
 
-## Colors
+Warm Pearl #F4F0E8 — main background
 
-* Obsidian `#0D0F0F` — dark backgrounds
-* Ivory `#F5F2EB` — primary light background
-* White `#FFFFFF` — product/shop surfaces
-* Carbon `#171A19` — text
-* Racing Green `#263C33` — brand accent
-* Burnished Gold `#B38A52` — subtle luxury detail only
-* Warm Silver `#B8B8B2` — borders and metadata
+Soft White #FFFFFF — shop/product surfaces
 
-Use roughly **55% light, 30% dark, 10% green, 5% gold/silver**.
+Ink Black #111312 — primary text
 
-## Typography
+Deep Espresso #29231F — dark campaign sections
 
-* Headlines: refined editorial serif
-* Body/UI: clean modern sans-serif
-* Hero: 56–64px
-* H1: 42–54px
-* H2: 30–40px
-* Body: 15–17px
-* Meta: 11–13px
+Olive Grey #555B50 — secondary brand tone
 
-Headlines must stay concise and never dominate the imagery.
+Muted Bronze #A68158 — luxury accent
 
-## Layout
+Stone #CBC4B8 — borders and subtle details
 
-* Max width: 1280–1360px
-* Desktop padding: 32–40px
-* Mobile: 18–22px
-* Generous whitespace
-* 12-column editorial grid
-* Product grid: 4 / 3 / 2 columns responsive
+Use mostly Pearl/White, with Espresso for selected campaign sections.
+Bronze is an accent only, never dominant.
 
-Alternate light shopping sections with dark editorial campaign sections.
+Typography
 
-## Components
+Headlines: elegant editorial serif
 
-**Header**
+Body/UI: clean modern sans-serif
 
-* Slim, minimal, 72–82px
-* Clean navigation
-* No bulky menus
+Recommended:
 
-**Buttons**
+Instrument Serif / Cormorant Garamond
 
-* Square or very small radius
-* Black primary
-* White on dark sections
-* Green only for selected brand CTAs
+Inter / Geist
 
-**Product Cards**
+Scale:
 
-* Flat layout
-* Large product image
-* No shadows
-* Minimal border
-* Image, name, price only
+Hero: 52–62px
 
-## Imagery
+H1: 42–50px
+
+H2: 30–38px
+
+H3: 22–26px
+
+Body: 15–17px
+
+Keep headlines short, refined and controlled.
+
+Layout
+
+Max width: 1280–1360px
+
+Desktop padding: 32–40px
+
+Mobile padding: 18–22px
+
+Generous whitespace
+
+Editorial 12-column grid
+
+Product grid: 4 / 3 / 2 columns responsive
+
+Use a calm rhythm of light sections with selective dark editorial moments.
+
+Components
+
+Header
+
+Slim and minimal
+
+72–80px
+
+Clean navigation
+
+No bulky menu styling
+
+Buttons
+
+Square or 0–3px radius
+
+Ink/Espresso primary
+
+White on dark backgrounds
+
+Bronze only for subtle details
+
+Product Cards
+
+Flat
+
+No heavy border
+
+No shadow
+
+Large product image
+
+Product name + price only
+
+Imagery
 
 Use premium watch photography with:
 
-* black leather
-* brushed steel
-* marble
-* smoked glass
-* walnut
-* ivory architecture
-* deep green accents
+travertine
 
-Lighting should be cinematic with controlled reflections and subtle warm highlights.
+cream linen
 
-## Motion
+brushed steel
+
+walnut
+
+espresso leather
+
+warm grey stone
+
+champagne light
+
+Photography should feel warm, tactile, precise and editorial.
+
+Motion
 
 Use only:
 
-* fade
-* subtle image zoom (1.02–1.04)
-* small arrow movement
-* 300–500ms transitions
+fade/reveal
+
+subtle image zoom 1.02–1.04
+
+small arrow movement
+
+300–500ms transitions
 
 No flashy animation.
 
-## Core Rules
+Core Rules
 
-* The watch is always the visual hero.
-* Campaign imagery creates desire.
-* Ecommerce UI stays clean and easy to use.
-* Black creates presence.
-* Ivory creates space.
-* Green creates identity.
-* Gold adds detail, never dominance.
+The watch is always the hero.
+
+Light space creates refinement.
+
+Espresso adds depth.
+
+Bronze adds detail, not decoration.
+
+Ecommerce UI stays clean and easy to use.
+
+Avoid oversized headlines, gradients, rounded cards, heavy shadows and visual clutter.

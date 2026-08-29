@@ -3,7 +3,8 @@
  * Template Part: Track Your Order
  */
 
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $track_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
 ?>
 
@@ -15,7 +16,7 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
                 <span class="track-hero__label"><?php esc_html_e('Order Tracking', 'dawp'); ?></span>
                 <h1 class="track-hero__title"><?php esc_html_e('Track Your Watch Order', 'dawp'); ?></h1>
                 <p class="track-hero__desc">
-                    <?php esc_html_e('Use your order number and checkout email to review the latest status for your Corvelshop purchase.', 'dawp'); ?>
+                    <?php echo esc_html(sprintf(__('Use your order number and checkout email to review the latest status for your %s purchase.', 'dawp'), $brand_name)); ?>
                 </p>
                 <div class="track-hero__actions">
                     <a class="track-button" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
@@ -74,7 +75,7 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
             <div class="track-category-section__inner">
                 <div class="track-section-heading">
                     <span><?php esc_html_e('Shop By Category', 'dawp'); ?></span>
-                    <h2><?php esc_html_e('Browse Corvelshop watch collections.', 'dawp'); ?></h2>
+                    <h2><?php echo esc_html(sprintf(__('Browse %s watch collections.', 'dawp'), $brand_name)); ?></h2>
                 </div>
                 <div class="track-category-grid">
                     <?php foreach ($track_categories as $slug => $category) : ?>

@@ -1,41 +1,44 @@
 <?php
 /**
- * Theme footer for Corvelshop.
+ * Theme footer for Orvel Time.
  *
  * @package dawp
  */
 
-$current_year = date_i18n('Y');
-$account_url  = get_permalink(get_option('woocommerce_myaccount_page_id'));
-$account_url  = $account_url ?: home_url('/my-account/');
+defined('ABSPATH') || exit;
+
+$current_year  = date_i18n('Y');
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$logo_url      = get_template_directory_uri() . '/assets/images/home/logobrand.png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
-
-$footer_shop_links = [
-    ['title' => __('Shop All Watches', 'dawp'), 'url' => home_url('/shop/')],
-    ['title' => __('New Arrivals', 'dawp'), 'url' => home_url('/shop/?orderby=date')],
-];
-
-if (function_exists('wc_get_products') && wc_get_products(['limit' => 1, 'status' => 'publish', 'featured' => true])) {
-    $footer_shop_links[] = ['title' => __('Featured Watches', 'dawp'), 'url' => home_url('/shop/?featured=1')];
-}
-
-if (function_exists('wc_get_products') && wc_get_products(['limit' => 1, 'status' => 'publish', 'on_sale' => true])) {
-    $footer_shop_links[] = ['title' => __('Sale Watches', 'dawp'), 'url' => home_url('/shop/?product_visibility=onsale')];
-}
-
-$footer_help_links = [
-    ['title' => __('FAQs', 'dawp'), 'url' => home_url('/faq/')],
-    ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
-    ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
-    ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-    ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-];
-
-$footer_policy_links = [
-    ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
-    ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
-    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
-    ['title' => __('My Account', 'dawp'), 'url' => $account_url],
+$footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
+    [
+        'title' => __('Shop', 'dawp'),
+        'links' => [
+            ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
+            ['title' => __('New Arrivals', 'dawp'), 'url' => home_url('/shop/?orderby=date')],
+            ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
+        ],
+    ],
+    [
+        'title' => __('Company', 'dawp'),
+        'links' => [
+            ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
+            ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
+            ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+            ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
+        ],
+    ],
+    [
+        'title' => __('Policies', 'dawp'),
+        'links' => [
+            ['title' => __('Shipping Policy', 'dawp'), 'url' => home_url('/shipping-policy/')],
+            ['title' => __('Return & Refund Policy', 'dawp'), 'url' => home_url('/return-refund-policy/')],
+            ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
+            ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
+        ],
+    ],
 ];
 ?>
 
@@ -43,15 +46,14 @@ $footer_policy_links = [
 
 <style>
   .qb-site-footer {
-    --qb-cream: #F5F2EB;
-    --qb-gold: #B38A52;
-    --qb-plum: #0D0F0F;
-    --qb-text: #D8D6CF;
-    --qb-link-hover: #FFFFFF;
-    --qb-border: rgba(184,184,178,.18);
-    background: #0D0F0F;
-    color: var(--qb-text);
-    font-family: "DM Sans", "Inter", system-ui, sans-serif;
+    --qb-cream: #f5f2eb;
+    --qb-gold: #b38a52;
+    --qb-ink: #0d0f0f;
+    --qb-muted: #d8d6cf;
+    --qb-border: rgba(245, 242, 235, .16);
+    background: var(--qb-ink);
+    color: var(--qb-muted);
+    font-family: "DM Sans", system-ui, sans-serif;
   }
 
   .qb-site-footer * {
@@ -71,18 +73,13 @@ $footer_policy_links = [
 
   .qb-footer-main {
     display: grid;
-    grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(160px, .7fr));
+    grid-template-columns: minmax(260px, 1.35fr) repeat(3, minmax(160px, .7fr));
     gap: 46px;
     padding: 62px 0;
   }
 
-  .qb-footer-brand strong {
-    display: block;
-    color: #FFFFFF;
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(32px, 4vw, 48px);
-    line-height: 1.05;
-    letter-spacing: 0;
+  .qb-footer-brand a {
+    display: inline-block;
   }
 
   .qb-footer-logo {
@@ -91,7 +88,7 @@ $footer_policy_links = [
     height: auto;
   }
 
-  .qb-footer-brand span {
+  .qb-footer-tagline {
     display: block;
     margin-top: 8px;
     color: var(--qb-gold);
@@ -101,11 +98,20 @@ $footer_policy_links = [
     text-transform: uppercase;
   }
 
+  .qb-footer-copy {
+    max-width: 430px;
+    margin: 22px 0 0;
+    color: var(--qb-muted);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.7;
+  }
+
   .qb-footer-contact {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 14px;
     margin-top: 24px;
     max-width: 430px;
   }
@@ -114,11 +120,11 @@ $footer_policy_links = [
   .qb-footer-contact span {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    color: var(--qb-text);
+    gap: 8px;
+    color: var(--qb-muted);
     font-size: 12px;
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.3;
   }
 
   .qb-footer-contact svg {
@@ -131,11 +137,7 @@ $footer_policy_links = [
 
   .qb-footer-contact a:hover,
   .qb-footer-contact a:focus-visible {
-    color: var(--qb-link-hover);
-  }
-
-  .qb-footer-contact a:last-child {
-    justify-content: flex-start;
+    color: #fff;
   }
 
   .qb-footer-col h3 {
@@ -156,7 +158,7 @@ $footer_policy_links = [
   }
 
   .qb-footer-col a {
-    color: var(--qb-text);
+    color: var(--qb-muted);
     font-size: 14px;
     font-weight: 700;
     line-height: 1.4;
@@ -165,7 +167,7 @@ $footer_policy_links = [
 
   .qb-footer-col a:hover,
   .qb-footer-col a:focus-visible {
-    color: var(--qb-link-hover);
+    color: #fff;
     text-decoration: underline;
     text-decoration-color: var(--qb-gold);
     text-underline-offset: 4px;
@@ -181,8 +183,12 @@ $footer_policy_links = [
     align-items: center;
     justify-content: space-between;
     padding: 22px 0;
-    color: var(--qb-text);
+    color: var(--qb-muted);
     font-size: 13px;
+  }
+
+  .qb-footer-bottom__inner p {
+    margin: 0;
   }
 
   .qb-payment {
@@ -196,8 +202,8 @@ $footer_policy_links = [
   .qb-payment span {
     border: 1px solid var(--qb-border);
     border-radius: 6px;
-    background: rgba(255,255,255,.06);
-    color: #F5F2EB;
+    background: rgba(255, 255, 255, .06);
+    color: var(--qb-cream);
     font-size: 11px;
     font-weight: 800;
     line-height: 1;
@@ -215,23 +221,23 @@ $footer_policy_links = [
   }
 
   @media (max-width: 680px) {
+    .qb-footer-wrap {
+      width: min(100% - 20px, 1280px);
+    }
+
     .qb-footer-main {
       grid-template-columns: 1fr;
-    }
-
-    .qb-footer-main {
       gap: 32px;
       padding: 48px 0;
-    }
-
-    .qb-footer-contact a,
-    .qb-footer-contact span {
-      width: auto;
     }
 
     .qb-footer-bottom__inner {
       flex-direction: column;
       align-items: flex-start;
+    }
+
+    .qb-payment {
+      justify-content: flex-start;
     }
   }
 </style>
@@ -240,10 +246,14 @@ $footer_policy_links = [
     <section>
         <div class="qb-footer-wrap qb-footer-main">
             <div class="qb-footer-brand">
-                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Corvelshop home", 'dawp'); ?>">
-                    <img class="qb-footer-logo" src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png'); ?>" alt="<?php esc_attr_e('Corvelshop', 'dawp'); ?>">
-                    <span><?php esc_html_e('Precision with Presence', 'dawp'); ?></span>
+                <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s home', 'dawp'), $brand_name)); ?>">
+                    <img class="qb-footer-logo" src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($brand_name); ?>">
+                    <span class="qb-footer-tagline"><?php esc_html_e('Precision with Presence', 'dawp'); ?></span>
                 </a>
+
+                <p class="qb-footer-copy">
+                    <?php esc_html_e('Modern watches selected for clean design, everyday reliability, and a refined wrist presence.', 'dawp'); ?>
+                </p>
 
                 <div class="qb-footer-contact">
                     <span>
@@ -252,12 +262,14 @@ $footer_policy_links = [
                         </svg>
                         <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
                     </span>
-                    <a href="mailto:support@corvelshop.com" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
+
+                    <a href="mailto:<?php echo esc_attr($support_email); ?>" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.38l7 4.38 7-4.38V6.5a.5.5 0 0 0-.5-.5h-13Zm13 12a.5.5 0 0 0 .5-.5V9.25l-6.47 4.04a1 1 0 0 1-1.06 0L5 9.25v8.25a.5.5 0 0 0 .5.5h13Z"/>
                         </svg>
-                        support@corvelshop.com
+                        <?php echo esc_html($support_email); ?>
                     </a>
+
                     <?php if ($store_address) : ?>
                         <span>
                             <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -269,38 +281,22 @@ $footer_policy_links = [
                 </div>
             </div>
 
-            <nav class="qb-footer-col" aria-label="<?php esc_attr_e('Footer shop navigation', 'dawp'); ?>">
-                <h3><?php esc_html_e('Shop', 'dawp'); ?></h3>
-                <ul>
-                    <?php foreach ($footer_shop_links as $link) : ?>
-                        <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
-
-            <nav class="qb-footer-col" aria-label="<?php esc_attr_e('Footer help navigation', 'dawp'); ?>">
-                <h3><?php esc_html_e('HELP', 'dawp'); ?></h3>
-                <ul>
-                    <?php foreach ($footer_help_links as $link) : ?>
-                        <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
-
-            <nav class="qb-footer-col" aria-label="<?php esc_attr_e('Footer policy navigation', 'dawp'); ?>">
-                <h3><?php esc_html_e('ABOUT', 'dawp'); ?></h3>
-                <ul>
-                    <?php foreach ($footer_policy_links as $link) : ?>
-                        <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
-                    <?php endforeach; ?>
-                </ul>
-            </nav>
+            <?php foreach ($footer_cols as $column) : ?>
+                <nav class="qb-footer-col" aria-label="<?php echo esc_attr(sprintf(__('Footer %s navigation', 'dawp'), $column['title'])); ?>">
+                    <h3><?php echo esc_html($column['title']); ?></h3>
+                    <ul>
+                        <?php foreach ($column['links'] as $link) : ?>
+                            <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </nav>
+            <?php endforeach; ?>
         </div>
     </section>
 
     <div class="qb-footer-bottom">
         <div class="qb-footer-wrap qb-footer-bottom__inner">
-            <p>&copy; <?php echo esc_html($current_year); ?> <?php esc_html_e("Corvelshop. All rights reserved.", 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html($current_year); ?> <?php echo esc_html(sprintf(__('%s. All rights reserved.', 'dawp'), $brand_name)); ?></p>
             <div class="qb-payment" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                 <span><?php esc_html_e('Visa', 'dawp'); ?></span>
                 <span><?php esc_html_e('Mastercard', 'dawp'); ?></span>

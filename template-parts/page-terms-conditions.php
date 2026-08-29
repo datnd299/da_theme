@@ -5,13 +5,13 @@
  * @package dawp
  */
 
-$brand_name    = "Corvelshop";
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
 <style>
-  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F5F2EB; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#B8B8B2; --qb-gray:#F5F2EB; --qb-text:#5E625F; --qb-border:#B8B8B2; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F7F4EE; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F7F4EE; --qb-text:#5E625F; --qb-border:#DDD5C7; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1280px); margin-inline:auto; }
@@ -26,11 +26,13 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-button:hover { border-color:var(--qb-gold); background:var(--qb-gold); color:var(--qb-plum) !important; }
   .qb-button--secondary { background:#fff; color:var(--qb-plum) !important; }
   .qb-button--secondary:hover { border-color:var(--qb-plum); background:var(--qb-ivory); color:var(--qb-plum) !important; }
-  .qb-hero { overflow:hidden; background:linear-gradient(135deg,rgba(245,242,235,.98),rgba(255,255,255,.94) 50%,rgba(38,60,51,.13)),#F5F2EB; }
-  .qb-hero__grid { display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:78px 0; }
+  .qb-hero { position:relative; overflow:hidden; border-bottom:1px solid var(--qb-border); background:linear-gradient(135deg,#fff 0%,#F7F4EE 62%,rgba(179,138,82,.18) 100%); }
+  .qb-hero::before { content:""; position:absolute; inset:auto 0 0; height:1px; background:linear-gradient(90deg,transparent,rgba(179,138,82,.7),transparent); }
+  .qb-hero::after { content:""; position:absolute; right:8%; top:34px; width:180px; height:180px; border:1px solid rgba(179,138,82,.24); transform:rotate(12deg); }
+  .qb-hero__grid { position:relative; z-index:1; display:grid; grid-template-columns:minmax(0,1fr); gap:28px; align-items:center; padding:70px 0 76px; }
   .qb-hero__grid > div { max-width:720px; margin-inline:auto; text-align:center; }
   .qb-hero .qb-copy { margin-inline:auto; }
-  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:24px; background:#fff; box-shadow:0 18px 46px rgba(13,15,15,.06); }
+  .qb-panel, .qb-card, .qb-policy-card { border:1px solid var(--qb-border); border-radius:8px; background:#fff; box-shadow:0 12px 34px rgba(13,15,15,.05); }
   .qb-panel { padding:clamp(24px,4vw,44px); background:rgba(255,255,255,.86); }
   .qb-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
   .qb-card { padding:22px; }
@@ -40,7 +42,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
   .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
-  .qb-dark-card { border-radius:24px; background:var(--qb-plum); padding:28px; color:#fff; }
+  .qb-dark-card { border-radius:8px; background:var(--qb-plum); padding:28px; color:#fff; }
   .qb-dark-card .qb-eyebrow { color:var(--qb-peach); }
   .qb-dark-card h2, .qb-dark-card p, .qb-dark-card a { color:#fff; }
   .qb-dark-card p { color:rgba(255,255,255,.78); font-size:15px; line-height:1.7; }
@@ -110,7 +112,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
       <div class="qb-policy-stack">
         <section id="overview" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Overview', 'dawp'); ?></p>
-          <h2><?php esc_html_e('This website is operated by Corvelshop.', 'dawp'); ?></h2>
+          <h2><?php echo esc_html(sprintf('This website is operated by %s.', $brand_name)); ?></h2>
           <p><?php echo esc_html(sprintf('Throughout the site, the terms "we," "us," and "our" refer to %s. We provide this website, including all information, tools, products, and services available from this site, to you conditioned upon your acceptance of all terms, conditions, policies, and notices stated here.', $brand_name)); ?></p>
           <p><?php esc_html_e('By visiting our site and/or purchasing something from us, you engage in our "Service" and agree to be bound by these Terms of Service ("Terms"), including any additional terms, conditions, and policies referenced here or available by hyperlink, including our Privacy Policy, Shipping Policy, and Return & Refund Policy.', 'dawp'); ?></p>
           <p><?php esc_html_e('These Terms apply to all users of the site, including without limitation browsers, customers, account holders, merchants/partners (if applicable), and contributors of content.', 'dawp'); ?></p>
@@ -286,7 +288,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="contact-info" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('20. Contact Information', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Corvelshop support details.', 'dawp'); ?></h2>
+          <h2><?php echo esc_html(sprintf('%s support details.', $brand_name)); ?></h2>
           <div class="qb-contact-card">
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>

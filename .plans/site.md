@@ -1,24 +1,19 @@
-CORVELSHOP.COM — SITE OVERVIEW
+ORVELTIME.COM — SITE OVERVIEW
 
 Brand
 
-Name: Corvelshop
-Domain: corvelshop.com
+Name: Orvel Time
+Domain: orveltime.com
 Category: Modern luxury watches
-Positioning: Contemporary watch ecommerce with a strong editorial identity.
-Brand idea: Precision with Presence.
+Brand Idea: Time, Refined.
 
-Corvelshop combines refined watch design, confident styling, and a premium shopping experience for customers who want modern luxury without unnecessary excess.
+Orvel Time is a contemporary watch store focused on elegant design, premium presentation and understated luxury.
 
-Design Direction
+Direction
 
-Modern Prestige × Dark Editorial × Precision Luxury
+Quiet Luxury × Contemporary Horology × Editorial Minimalism
 
-The website should feel strong, refined, premium, architectural, contemporary, and masculine without becoming aggressive. Inspiration may come from premium watch and fashion ecommerce, including Chronel's clean editorial rhythm, but Corvel must keep an original identity.
-
-Audience
-
-Style-conscious customers looking for premium modern watches with strong visual presentation, clean design, and a confident luxury feel.
+Sophisticated, calm, modern and expensive without being flashy. Keep Corvel's clean ecommerce DNA, but give Orvel Time a softer and warmer identity.
 
 Main Pages
 
@@ -48,106 +43,42 @@ Ecommerce
 
 Built for WordPress + WooCommerce.
 
-All commerce data must remain dynamic:
+Products, categories, prices, stock, images, URLs, cart, checkout and account data must remain dynamic. Never hard-code WooCommerce commerce data.
 
-Products
+Homepage
 
-Product categories
+Hero Campaign → Featured Watches → Editorial Campaign → Products → Brand Statement → Craftsmanship → Lifestyle Campaign → Newsletter
 
-Prices
-
-Sale prices
-
-Stock
-
-Product URLs
-
-Images
-
-Cart
-
-Checkout
-
-Account data
-
-Never hard-code WooCommerce product or category data.
-
-Homepage Goal
-
-The homepage should feel like a luxury campaign first and an ecommerce page second.
-
-Recommended rhythm:
-
-Hero → Featured Products → Editorial Campaign → Product Grid → Brand Statement → Craftsmanship → Newsletter
-
-Photography and products remain the visual focus.
+The watch and photography remain the visual focus.
 
 Content Style
 
-Copy should be short, confident, editorial, sophisticated, and easy to scan.
+Short, elegant, confident and editorial.
 
-Example tone:
+Examples:
 
-Precision with Presence.
+Time, Refined.
 
-Designed to Be Noticed.
+Designed with Intention.
 
-Modern Time. Refined Form.
+Modern Form. Timeless Presence.
 
-Built Around the Details.
+Made for Every Moment.
 
-Time, Made Distinct.
+Details Define the Difference.
 
-Avoid long paragraphs, exaggerated luxury language, generic marketing phrases, and unnecessary technical terminology.
+Avoid long copy, exaggerated luxury language and generic marketing phrases.
 
-Visual Rules
+Visual Principles
 
-Prioritize:
+Prioritize large premium watch photography, warm neutrals, negative space, editorial compositions, minimal product grids, refined serif typography, subtle bronze accents and restrained motion.
 
-Large premium watch photography
-
-Strong negative space
-
-Editorial layouts
-
-Clean product grids
-
-Dark campaign sections balanced with light shopping sections
-
-Controlled metallic, green, and warm-gold accents
-
-Subtle motion only
-
-Avoid:
-
-Generic ecommerce templates
-
-Excessive rounded cards
-
-Heavy shadows
-
-Large gradients
-
-Oversized headlines
-
-Too many colors
-
-Excessive gold
-
-Busy backgrounds
-
-Unnecessary icons
-
-Flashy animations
+Avoid generic ecommerce templates, excessive black/gold, oversized headlines, rounded card-heavy UI, heavy shadows, busy backgrounds and flashy animation.
 
 Brand Safety
 
-Corvel must appear as an independent watch brand/store.
-
-Do not copy third-party logos, packaging, product naming, layouts, wording, imagery, or protected brand identities. Use original Corvel naming, copy, assets, and art direction.
+Orvel Time must appear as an independent brand/store. Do not copy third-party logos, wording, imagery, product naming, packaging or protected brand identities.
 
 Core Principle
 
-Campaign visuals create desire.
-Clean ecommerce design creates trust.
-The watch remains the hero.
+Quiet design creates confidence. Editorial imagery creates desire. The watch remains the hero.

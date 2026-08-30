@@ -1,19 +1,19 @@
 /* Velmo Custom shop and product category pages */
 :root {
   --qb-shop-bg: #ffffff;
-  --qb-shop-cream: #f5f4f1;
+  --qb-shop-cream: #F7F7F5;
   --qb-shop-soft: #ffffff;
-  --qb-shop-blush: #d1ae68;
-  --qb-shop-peach: #f5f4f1;
-  --qb-shop-lavender: #a5a5a0;
-  --qb-shop-mint: #f5f4f1;
-  --qb-shop-gold: #d1ae68;
-  --qb-shop-plum: #10243a;
-  --qb-shop-text: #111111;
-  --qb-shop-muted: #5f6668;
-  --qb-shop-border: #d8d4cb;
+  --qb-shop-blush: #A8754F;
+  --qb-shop-peach: #F7F7F5;
+  --qb-shop-lavender: #707579;
+  --qb-shop-mint: #F7F7F5;
+  --qb-shop-gold: #A8754F;
+  --qb-shop-plum: #173B57;
+  --qb-shop-text: #181A1B;
+  --qb-shop-muted: #707579;
+  --qb-shop-border: #E2E4E4;
   --qb-shop-shadow: 0 12px 28px rgba(16, 36, 58, .08);
-  --qb-shop-font: "Inter", "DM Sans", system-ui, sans-serif;
+  --qb-shop-font: "Lato", "Inter", system-ui, sans-serif;
 }
 
 .shop-page {
@@ -132,7 +132,7 @@
   max-width: 760px;
   margin: 0;
   color: var(--qb-shop-plum);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(40px, 5.2vw, 68px);
   line-height: 1.03;
   letter-spacing: 0;
@@ -660,7 +660,7 @@ ul.products {
 .shop-empty h2 {
   margin: 0;
   color: var(--qb-shop-plum);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Playfair Display", Georgia, serif;
   font-size: 30px;
   line-height: 1.15;
 }
@@ -997,14 +997,14 @@ ul.products {
 /* Velmo Custom final archive alignment */
 .shop-page {
   --qb-shop-bg: #FFFFFF;
-  --qb-shop-cream: #F5F4F1;
+  --qb-shop-cream: #F7F7F5;
   --qb-shop-soft: #FFFFFF;
-  --qb-shop-peach: #E5DDD2;
-  --qb-shop-gold: #D1AE68;
-  --qb-shop-plum: #111111;
-  --qb-shop-text: #111111;
-  --qb-shop-muted: #A5A5A0;
-  --qb-shop-border: #D7CDBE;
+  --qb-shop-peach: #DDE8EE;
+  --qb-shop-gold: #A8754F;
+  --qb-shop-plum: #173B57;
+  --qb-shop-text: #181A1B;
+  --qb-shop-muted: #707579;
+  --qb-shop-border: #E2E4E4;
 }
 
 .shop-filter-btn,

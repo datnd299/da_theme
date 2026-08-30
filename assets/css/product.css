@@ -2,30 +2,28 @@
    Luxury Watch Product Page Stylesheet
    Designed to replicate high-end watch manufacture aesthetic:
    - Off-white warm cream backdrop (#F8F6F0)
-   - Serif typography for headings (Playfair Display / Cormorant Garamond)
+   - Serif typography for headings (Playfair Display)
    - 2x2 Feature Trust Grid box (U.S. shipping, free standard shipping, delivery timing, returns)
-   - Atelier Watchmaker Dark Section Banner (#161513)
+   - Atelier Watchmaker Dark Section Banner (#173B57)
    - Clean luxury tabs & 4-column related products grid
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
-
 /* ── CSS Variables ─────────────────────────────────────────── */
 :root {
-  --font-serif:           "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --font-primary:         "Plus Jakarta Sans", "DM Sans", system-ui, sans-serif;
-  --color-bg-page:        #F5F4F1;
+  --font-serif:           "Playfair Display", Georgia, serif;
+  --font-primary:         "Lato", "Inter", system-ui, sans-serif;
+  --color-bg-page:        #F7F7F5;
   --color-bg-white:       #FFFFFF;
   --color-bg-card:        #FFFFFF;
-  --color-dark-banner:    #10243A;
-  --color-text-primary:  #111111;
-  --color-text-secondary:#5F6668;
-  --color-text-muted:    #A5A5A0;
-  --color-gold:          #D1AE68;
-  --color-gold-light:    #D1AE68;
-  --color-gold-soft:     #F5F4F1;
+  --color-dark-banner:    #173B57;
+  --color-text-primary:  #181A1B;
+  --color-text-secondary:#707579;
+  --color-text-muted:    #707579;
+  --color-gold:          #A8754F;
+  --color-gold-light:    #A8754F;
+  --color-gold-soft:     #F7F7F5;
   --color-sale:          #9B4738;
-  --color-border:        #D8D4CB;
+  --color-border:        #E2E4E4;
   --color-border-light:  #E6E2D9;
   --radius-sm:           2px;
   --shadow-card-hover:   0 12px 28px rgba(16, 36, 58, 0.08);
@@ -731,7 +729,7 @@ form.cart:not(.variations_form) {
 .atelier-dark-banner__desc {
   font-family: var(--font-primary);
   font-size: 0.9rem;
-  color: #D8D4CB;
+  color: #E2E4E4;
   line-height: 1.6;
   max-width: 620px;
   margin: 0 0 20px 0;

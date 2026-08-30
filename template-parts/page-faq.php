@@ -156,7 +156,7 @@ $faq_sections = [
 ?>
 
 <style>
-  .qb-page { --qb-ink:#10243A; --qb-moss:#5F6668; --qb-olive:#A5A5A0; --qb-paper:#FFFFFF; --qb-pearl:#F5F4F1; --qb-stone:#D8D4CB; --qb-line:#D8D4CB; --qb-brass:#D1AE68; --qb-brass-soft:#D1AE68; background:var(--qb-paper); color:var(--qb-moss); font-family:"Inter","DM Sans",system-ui,sans-serif; }
+  .qb-page { --qb-ink:#173B57; --qb-moss:#707579; --qb-olive:#707579; --qb-paper:#FFFFFF; --qb-pearl:#F7F7F5; --qb-stone:#E2E4E4; --qb-line:#E2E4E4; --qb-brass:#A8754F; --qb-brass-soft:#A8754F; background:var(--qb-paper); color:var(--qb-moss); font-family:"Lato","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }

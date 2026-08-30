@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header for Velmo Custom.
+ * Theme header for Zorex Craft.
  *
  * @package dawp
  */
@@ -11,11 +11,11 @@ $cart_count  = (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_car
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
 $account_url = $account_url ?: home_url('/my-account/');
-$brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
 $logo_url    = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
 $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
     ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
-    ['title' => __('Watch', 'dawp'), 'url' => home_url('/shop/')],
+    ['title' => __('Watches', 'dawp'), 'url' => home_url('/shop/')],
     ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
     ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
 ];
@@ -36,18 +36,19 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 
 <style>
   .qb-site-header {
-    --qb-cream: #f5f4f1;
-    --qb-gold: #d1ae68;
-    --qb-ink: #10243a;
-    --qb-text: #111111;
-    --qb-border: rgba(16, 36, 58, .14);
+    --qb-cream: #f7f7f5;
+    --qb-gold: #a8754f;
+    --qb-ink: #173b57;
+    --qb-text: #181a1b;
+    --qb-muted: #707579;
+    --qb-border: #e2e4e4;
     position: sticky;
     top: 0;
     z-index: 50;
     border-bottom: 1px solid var(--qb-border);
-    background: rgba(255, 255, 255, .96);
+    background: rgba(255, 255, 255, .94);
     color: var(--qb-text);
-    font-family: "Inter", "DM Sans", system-ui, sans-serif;
+    font-family: "DM Sans", "Inter", system-ui, sans-serif;
     backdrop-filter: blur(14px);
   }
 
@@ -66,18 +67,19 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
   }
 
   .qb-announcement {
+    border-bottom: 1px solid rgba(226, 228, 228, .24);
     background: var(--qb-ink);
-    color: var(--qb-cream);
-    font-size: 12px;
+    color: #fff;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: .16em;
+    letter-spacing: .18em;
     line-height: 1.4;
     text-align: center;
     text-transform: uppercase;
   }
 
   .qb-announcement .qb-header-wrap {
-    padding: 9px 0;
+    padding: 10px 0;
   }
 
   .qb-header-main {
@@ -85,7 +87,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
     grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 24px;
     align-items: center;
-    min-height: 78px;
+    min-height: 82px;
   }
 
   .qb-logo {
@@ -97,7 +99,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
   .qb-logo img {
     display: block;
     width: auto;
-    height: 54px;
+    height: 56px;
     max-width: 190px;
     object-fit: contain;
   }
@@ -110,9 +112,10 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 
   .qb-header-nav a {
     color: var(--qb-text);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: .04em;
+    letter-spacing: .14em;
+    text-transform: uppercase;
     white-space: nowrap;
     transition: color .2s ease;
   }
@@ -154,8 +157,8 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 
   .qb-header-search input[type="search"]:focus,
   .qb-mobile-search input[type="search"]:focus {
-    border-color: var(--qb-gold);
-    box-shadow: 0 0 0 3px rgba(179, 138, 82, .16);
+    border-color: var(--qb-ink);
+    box-shadow: 0 0 0 3px rgba(23, 59, 87, .12);
   }
 
   .qb-icon-link,
@@ -200,7 +203,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
   .qb-site-header .qb-cart-link:hover {
     border-color: var(--qb-gold);
     background: var(--qb-gold);
-    color: var(--qb-ink);
+    color: #fff;
   }
 
   .qb-search-toggle,
@@ -362,7 +365,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Velmo Custom - Crafted with Precision', 'dawp'); ?>
+            <?php esc_html_e('Zorex Craft - Modern watches, timeless choices', 'dawp'); ?>
         </div>
     </div>
 

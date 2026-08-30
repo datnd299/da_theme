@@ -1,40 +1,42 @@
-VELMO CUSTOM — DESIGN SYSTEM
+ZOREX CRAFT — DESIGN SYSTEM
 
 Direction
 
-Heritage Maison × Quiet Luxury × Precision Minimalism
+Modern Watch Exchange × Collector Luxury × Clean Commerce
 
-Velmo Custom should feel refined, calm and timeless.
-The design should rely on typography, imagery, whitespace and proportion—not decoration.
+Zorex Craft should feel premium, sharp and trustworthy.
+Unlike a traditional watch maison, the interface is commerce-first: products, prices and discovery stay clear and easy to scan.
 
 Colors
 
-White #FFFFFF — main background
+Chalk #F7F7F5 — primary background
 
-Warm White #F5F4F1 — secondary background
+Pure White #FFFFFF — product surfaces
 
-Deep Navy #10243A — signature brand color
+Graphite #181A1B — primary text
 
-Ink #111111 — primary text
+Collector Blue #173B57 — signature brand color
 
-Heritage Gold #D1AE68 — subtle accent only
+Steel Grey #707579 — secondary text
 
-Muted Grey #A5A5A0 — metadata and borders
+Ice Blue #DDE8EE — soft section background
 
-Use mostly White/Warm White.
-Navy anchors the brand. Gold appears sparingly.
+Copper #A8754F — controlled accent only
+
+Line #E2E4E4 — borders/dividers
+
+Use mostly White/Chalk. Collector Blue creates identity. Copper appears only in small premium details.
 
 Typography
 
-Headlines: refined editorial serif
-
-Body/UI: clean modern sans-serif
+Primary: modern sans-serif
+Editorial accent: refined serif used selectively
 
 Recommended:
 
-Cormorant Garamond / Instrument Serif
+Inter / Geist — UI, products, navigation
 
-Inter / Geist
+Instrument Serif — campaign/editorial moments
 
 Scale:
 
@@ -42,119 +44,126 @@ Hero: 48–58px
 
 H1: 40–48px
 
-H2: 32–40px
+H2: 30–38px
 
-H3: 22–26px
+H3: 21–26px
 
 Body: 15–17px
 
-Keep headlines elegant, short and controlled.
+Product/meta: 13–15px
+
+Keep typography compact, confident and highly readable.
 
 Layout
 
-Max width: 1280–1360px
+Max width: 1320–1400px
 
 Desktop padding: 32–40px
 
 Mobile padding: 18–22px
 
-Large whitespace
-
-Simple editorial grid
-
-Alternate Text + Image / Image + Text
+Structured commerce grid
 
 Product grid: 4 / 3 / 2 columns responsive
 
-Do not over-design sections.
+Clear section hierarchy
+
+Less empty editorial space than Velmo
 
 Components
 
 Header
 
-White background
+Clean and commerce-focused
 
-Slim, centered brand presence
+Strong search access
 
-Minimal icons/navigation
+Clear Shop navigation
 
-Fine navy lines/details
+Account / Wishlist / Cart utilities
+
+Thin borders, no bulky styling
 
 Buttons
 
-Navy with white text
+Collector Blue primary
 
-Or white with navy border
+White secondary with dark border
 
-Radius: 3–5px
+Radius: 2–4px
 
-No pills, gradients or shadows
+Compact and functional
 
 Product Cards
 
-Flat
+Flat, clean and information-led
 
-Borderless
+Large product image
 
-No shadow
+Product name
 
-Clean image on white/light background
+Price
 
-Product name + price only
+Optional reference / condition / status only when real data exists
+
+No heavy shadow or decorative frame
+
+Filters
+
+Simple and highly usable
+
+Clear active states
+
+Desktop sidebar or toolbar
+
+Mobile filter drawer
+
+WooCommerce data remains dynamic
 
 Imagery
 
-Prioritize:
+Use crisp studio watch photography mixed with collector/editorial imagery:
 
-large lifestyle photography
+steel and brushed metal
 
-full-width craftsmanship imagery
+concrete / light grey surfaces
 
-macro dial / movement / finishing details
+dark blue accents
 
-heritage/editorial imagery
+macro watch details
 
-clean product photography
+collector desk / archive mood
 
-Images should feel elegant, precise and museum-like.
+restrained lifestyle photography
 
-Sections
+Avoid overly romantic maison-style imagery.
 
-Preferred rhythm:
-Hero → Featured Timepieces → Editorial Story → Craftsmanship → Products → Heritage / Maison → Product Focus → Newsletter
+Trust UI
 
-Use large image-led sections and simple two-column storytelling.
+Use thin horizontal strips, concise labels and clean informational blocks near commerce sections.
 
-Footer
-
-Deep Navy background
-
-Spacious multi-column layout
-
-White / muted text
-
-Serif section headings
-
-Minimal social and utility links
+Never invent authenticity, warranty, shipping, certification or service claims.
 
 Motion
 
-Only subtle fades, image reveals and hover zoom 1.02–1.03.
+Subtle hover zoom 1.02–1.03, quick fades and 200–350ms UI transitions.
 
-No flashy animation.
+Commerce interactions should feel fast.
 
 Core Rules
 
-White space creates luxury.
+Products appear early.
 
-Navy creates identity.
+Price and information stay easy to scan.
 
-Gold adds heritage, never dominance.
+Sans-serif drives the identity.
 
-Serif typography carries the character.
+Collector Blue creates recognition.
 
-Imagery does most of the storytelling.
+Steel Grey keeps the interface technical and modern.
 
-The timepiece remains the hero.
+Copper is an accent, never a luxury cliché.
 
-Avoid gradients, heavy shadows, rounded cards, oversized headlines and visual clutter.
+Trust comes from clarity, not decoration.
+
+Avoid gradients, huge headlines, heavy shadows, large rounded cards and excessive animation.

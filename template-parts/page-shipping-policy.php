@@ -13,7 +13,7 @@ $support_portal = home_url('/contact-us/');
 ?>
 
 <style>
-  .qb-page { --qb-obsidian:#10243A; --qb-ivory:#F5F4F1; --qb-white:#FFFFFF; --qb-carbon:#111111; --qb-green:#10243A; --qb-gold:#D1AE68; --qb-silver:#A5A5A0; --qb-gray:#F5F4F1; --qb-text:#5F6668; --qb-border:#D8D4CB; --qb-plum:#10243A; --qb-peach:#D1AE68; background:var(--qb-ivory); color:var(--qb-text); font-family:"Inter","DM Sans",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#173B57; --qb-ivory:#F7F7F5; --qb-white:#FFFFFF; --qb-carbon:#181A1B; --qb-green:#173B57; --qb-gold:#A8754F; --qb-silver:#707579; --qb-gray:#F7F7F5; --qb-text:#707579; --qb-border:#E2E4E4; --qb-plum:#173B57; --qb-peach:#A8754F; background:var(--qb-ivory); color:var(--qb-text); font-family:"Lato","Inter",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -37,7 +37,7 @@ $support_portal = home_url('/contact-us/');
   .qb-hero-panel, .qb-policy-card, .qb-contact-card { border:1px solid var(--qb-border); border-radius:8px; background:rgba(255,255,255,.94); box-shadow:0 12px 34px rgba(13,15,15,.05); }
   .qb-hero-panel { padding:clamp(22px,3vw,32px); }
   .qb-glance-list { display:grid; gap:14px; margin:20px 0 0; padding:0; list-style:none; }
-  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#A5A5A0; font-size:14px; line-height:1.6; }
+  .qb-glance-list li { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; color:#707579; font-size:14px; line-height:1.6; }
   .qb-glance-list strong { display:block; margin-bottom:5px; color:var(--qb-plum); font-size:14px; line-height:1.25; }
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:32px; align-items:start; }
@@ -46,7 +46,7 @@ $support_portal = home_url('/contact-us/');
   .qb-policy-card:nth-child(even) { background:var(--qb-ivory); }
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card h3 { margin:24px 0 0; color:var(--qb-plum); font-size:18px; line-height:1.35; }
-  .qb-policy-card p, .qb-policy-card li { color:#A5A5A0; font-size:15px; line-height:1.72; }
+  .qb-policy-card p, .qb-policy-card li { color:#707579; font-size:15px; line-height:1.72; }
   .qb-policy-card p { margin:14px 0 0; }
   .qb-policy-card ul, .qb-policy-card ol { display:grid; gap:9px; margin:16px 0 0; padding-left:1.15rem; }
   .qb-policy-card ul { list-style:disc outside; }
@@ -59,13 +59,13 @@ $support_portal = home_url('/contact-us/');
   .qb-timeline-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:20px; }
   .qb-timeline-item { border:1px solid var(--qb-border); border-radius:16px; background:#fff; padding:18px; }
   .qb-timeline-item strong { display:block; color:var(--qb-plum); font-size:14px; line-height:1.35; }
-  .qb-timeline-item span { display:block; margin-top:8px; color:#A5A5A0; font-size:14px; line-height:1.55; }
+  .qb-timeline-item span { display:block; margin-top:8px; color:#707579; font-size:14px; line-height:1.55; }
   .qb-policy-card .qb-carrier-list { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 0; padding:0; list-style:none; }
   .qb-policy-card .qb-carrier-list li { display:inline-flex; width:auto; min-width:72px; align-items:center; justify-content:center; border:1px solid var(--qb-border); border-radius:999px; background:#fff; padding:9px 16px; color:var(--qb-plum); font-size:13px; font-weight:800; line-height:1.2; }
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; padding:18px; background:#fff; box-shadow:none; }
   .qb-contact-item { border:1px solid var(--qb-border); border-radius:14px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
-  .qb-contact-item span { display:block; margin-top:7px; color:#A5A5A0; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+  .qb-contact-item span { display:block; margin-top:7px; color:#707579; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
   @media (max-width:920px) { .qb-hero__grid, .qb-content-grid, .qb-split-grid, .qb-timeline-grid { grid-template-columns:1fr; } }
   @media (max-width:680px) {
     .qb-section { padding:44px 0; }

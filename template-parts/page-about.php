@@ -1,112 +1,70 @@
 <?php
 /**
- * About page template part for Velmo Custom.
+ * Template Part: page-about
  *
  * @package dawp
  */
 
 defined('ABSPATH') || exit;
 
-$theme_uri   = get_template_directory_uri();
-$image_base  = $theme_uri . '/assets/images/luxuryimagecollection%20(2)/';
-$shop_url    = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-$contact_url = home_url('/contact-us/');
-
-$velmo_image = static function ($file, $alt, $class = '', $loading = 'lazy') use ($image_base) {
-    $src = $image_base . rawurlencode($file);
-
-    if (function_exists('qb_responsive_image')) {
-        return qb_responsive_image($src, $alt, [
-            'class'   => $class,
-            'width'   => 1440,
-            'height'  => 980,
-            'widths'  => [420, 640, 900, 1200, 1440],
-            'sizes'   => '(max-width: 760px) 100vw, 70vw',
-            'loading' => $loading,
-        ]);
-    }
-
-    return sprintf('<img class="%s" src="%s" alt="%s" loading="%s">', esc_attr($class), esc_url($src), esc_attr($alt), esc_attr($loading));
-};
+$asset_base = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (2)/';
+$shop_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 ?>
 
-<section class="vm-about-hero">
-    <div class="vm-about-wrap vm-about-hero__grid">
-        <div class="vm-about-hero__copy">
-            <span class="vm-kicker"><?php esc_html_e('About Velmo Custom', 'dawp'); ?></span>
-            <h1><?php esc_html_e('A modern maison for considered timepieces.', 'dawp'); ?></h1>
-            <p><?php esc_html_e('Velmo Custom is a refined luxury watch store focused on precision, craftsmanship and timeless contemporary design.', 'dawp'); ?></p>
-            <a class="vm-button vm-button--dark" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Discover The Collection', 'dawp'); ?></a>
+<section class="zc-about-hero">
+    <div class="zc-wrap zc-about-hero__grid">
+        <div class="zc-about-hero__copy">
+            <span class="zc-kicker"><?php esc_html_e('About Zorex Craft', 'dawp'); ?></span>
+            <h1><?php esc_html_e('Watches Worth Knowing.', 'dawp'); ?></h1>
+            <p><?php esc_html_e('Zorex Craft is a modern luxury watch store shaped around discovery, clear comparison and a collector-focused shopping experience.', 'dawp'); ?></p>
+            <div class="zc-actions">
+                <a class="zc-button zc-button--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
+                <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
+            </div>
         </div>
-        <div class="vm-about-hero__visual" aria-hidden="true">
-            <figure class="vm-about-frame vm-about-frame--large">
-                <?php echo $velmo_image('31.jpg', __('Velmo Custom editorial watch composition', 'dawp'), 'vm-cover', 'eager'); ?>
+        <div class="zc-about-hero__visual" aria-hidden="true">
+            <figure class="zc-about-frame zc-about-frame--main">
+                <img src="<?php echo esc_url($asset_base . '37.jpg'); ?>" alt="">
             </figure>
-            <figure class="vm-about-frame vm-about-frame--small">
-                <?php echo $velmo_image('32.jpg', __('Luxury watch dial finishing detail', 'dawp'), 'vm-cover'); ?>
+            <figure class="zc-about-frame zc-about-frame--detail">
+                <img src="<?php echo esc_url($asset_base . '31.jpg'); ?>" alt="">
             </figure>
         </div>
     </div>
 </section>
 
-<section class="vm-about-statement">
-    <div class="vm-about-wrap vm-about-statement__grid">
-        <span class="vm-kicker"><?php esc_html_e('Crafted with Precision', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Craftsmanship creates distinction. Precision creates trust. The timepiece remains the hero.', 'dawp'); ?></h2>
+<section class="zc-about-strip" aria-label="<?php esc_attr_e('Brand principles', 'dawp'); ?>">
+    <div class="zc-wrap zc-about-strip__grid">
+        <div><span>01</span><strong><?php esc_html_e('Collector Focus', 'dawp'); ?></strong></div>
+        <div><span>02</span><strong><?php esc_html_e('Clean Commerce', 'dawp'); ?></strong></div>
+        <div><span>03</span><strong><?php esc_html_e('Confident Discovery', 'dawp'); ?></strong></div>
     </div>
 </section>
 
-<section class="vm-about-values">
-    <div class="vm-about-wrap vm-about-values__grid">
-        <article>
-            <span><?php esc_html_e('01', 'dawp'); ?></span>
-            <h3><?php esc_html_e('Heritage Precision', 'dawp'); ?></h3>
-            <p><?php esc_html_e('We look for clear proportions, legible details and mechanical character that feels composed rather than loud.', 'dawp'); ?></p>
-        </article>
-        <article>
-            <span><?php esc_html_e('02', 'dawp'); ?></span>
-            <h3><?php esc_html_e('Contemporary Elegance', 'dawp'); ?></h3>
-            <p><?php esc_html_e('Every presentation is edited with restraint: calm space, exact typography and photography that lets the watch speak.', 'dawp'); ?></p>
-        </article>
-        <article>
-            <span><?php esc_html_e('03', 'dawp'); ?></span>
-            <h3><?php esc_html_e('Quiet Craftsmanship', 'dawp'); ?></h3>
-            <p><?php esc_html_e('Finishing, material, dial balance and wearing presence guide how each timepiece earns its place in the collection.', 'dawp'); ?></p>
-        </article>
+<section class="zc-about-section zc-about-section--white">
+    <div class="zc-wrap zc-about-statement">
+        <span class="zc-kicker"><?php esc_html_e('Our Point of View', 'dawp'); ?></span>
+        <h2><?php esc_html_e('Premium should still be practical.', 'dawp'); ?></h2>
+        <p><?php esc_html_e('We build the shopping journey around strong watch imagery, structured product information and calm page layouts. The result is a store that feels refined without hiding the details people need before they buy.', 'dawp'); ?></p>
     </div>
 </section>
 
-<section class="vm-about-split">
-    <figure class="vm-about-split__image">
-        <?php echo $velmo_image('33.jpg', __('Macro view of a luxury watch movement', 'dawp'), 'vm-cover'); ?>
+<section class="zc-about-section zc-about-section--ice">
+    <div class="zc-wrap zc-about-values">
+        <article><span></span><h3><?php esc_html_e('Discovery first', 'dawp'); ?></h3><p><?php esc_html_e('Products appear early, categories stay clear and the catalog is designed for quick scanning across desktop and mobile.', 'dawp'); ?></p></article>
+        <article><span></span><h3><?php esc_html_e('Information-led', 'dawp'); ?></h3><p><?php esc_html_e('Names, prices and available product details remain readable so every watch can be compared without visual clutter.', 'dawp'); ?></p></article>
+        <article><span></span><h3><?php esc_html_e('No inflated claims', 'dawp'); ?></h3><p><?php esc_html_e('We keep the language direct and avoid unsupported heritage, certification, warranty or investment promises.', 'dawp'); ?></p></article>
+    </div>
+</section>
+
+<section class="zc-about-editorial">
+    <figure class="zc-about-editorial__media">
+        <img src="<?php echo esc_url($asset_base . '35.jpg'); ?>" alt="<?php esc_attr_e('Watch detail on a collector desk', 'dawp'); ?>">
     </figure>
-    <div class="vm-about-split__copy">
-        <span class="vm-kicker"><?php esc_html_e('The Art of Time', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Defined by Detail.', 'dawp'); ?></h2>
-        <p><?php esc_html_e('A watch is measured in more than specifications. It is the weight of the case, the rhythm of the dial, the patience of finishing and the confidence of design that will still feel exact years from now.', 'dawp'); ?></p>
-    </div>
-</section>
-
-<section class="vm-about-feature">
-    <div class="vm-about-feature__media" aria-hidden="true">
-        <?php echo $velmo_image('34.jpg', __('Velmo Custom luxury watch maison story', 'dawp'), 'vm-cover'); ?>
-    </div>
-    <div class="vm-about-feature__shade" aria-hidden="true"></div>
-    <div class="vm-about-wrap vm-about-feature__content">
-        <span class="vm-kicker"><?php esc_html_e('Maison Direction', 'dawp'); ?></span>
-        <h2><?php esc_html_e('Heritage precision, contemporary elegance and quiet craftsmanship.', 'dawp'); ?></h2>
-    </div>
-</section>
-
-<section class="vm-about-concierge">
-    <div class="vm-about-wrap vm-about-concierge__grid">
-        <div>
-            <span class="vm-kicker"><?php esc_html_e('Concierge', 'dawp'); ?></span>
-            <h2><?php esc_html_e('Guidance for a precise choice.', 'dawp'); ?></h2>
-        </div>
-        <div>
-            <p><?php esc_html_e('Ask about sizing, movement character, finishing, delivery or the small details that shape a confident selection.', 'dawp'); ?></p>
-            <a class="vm-button vm-button--dark" href="<?php echo esc_url($contact_url); ?>"><?php esc_html_e('Contact Us', 'dawp'); ?></a>
-        </div>
+    <div class="zc-wrap zc-about-editorial__content">
+        <span class="zc-kicker"><?php esc_html_e('Built for Collectors', 'dawp'); ?></span>
+        <h2><?php esc_html_e('Discovery creates interest. Clarity creates confidence.', 'dawp'); ?></h2>
+        <p><?php esc_html_e('Zorex Craft presents modern icons and timeless choices with a commerce-first approach: refined enough to feel special, structured enough to shop with ease.', 'dawp'); ?></p>
+        <a class="zc-button zc-button--light" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Explore the Catalog', 'dawp'); ?></a>
     </div>
 </section>

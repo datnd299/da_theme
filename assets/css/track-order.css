@@ -1,22 +1,22 @@
 /* Velmo Custom track order page */
 
 .track-order-page {
-  --track-brass-soft: #d1ae68;
-  --track-cream: #f5f4f1;
+  --track-brass-soft: #A8754F;
+  --track-cream: #F7F7F5;
   --track-soft: #ffffff;
-  --track-green: #10243a;
-  --track-green-soft: #f5f4f1;
-  --track-gold: #d1ae68;
-  --track-plum: #10243a;
-  --track-text: #111111;
-  --track-muted: #5f6668;
-  --track-border: #d8d4cb;
+  --track-green: #173B57;
+  --track-green-soft: #F7F7F5;
+  --track-gold: #A8754F;
+  --track-plum: #173B57;
+  --track-text: #181A1B;
+  --track-muted: #707579;
+  --track-border: #E2E4E4;
   --track-white: #ffffff;
   --track-danger: #c0392b;
   --track-success: #5c8a6a;
   --track-shadow: 0 12px 28px rgba(16, 36, 58, .08);
-  --track-font: "Inter", "DM Sans", system-ui, sans-serif;
-  --track-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --track-font: "Lato", "Inter", system-ui, sans-serif;
+  --track-heading: "Playfair Display", Georgia, serif;
 
   background: var(--track-white);
   color: var(--track-text);
@@ -25,16 +25,16 @@
 
 /* Velmo Custom final tracking alignment */
 .track-order-page {
-  --track-brass-soft: #D1AE68;
-  --track-cream: #F5F4F1;
+  --track-brass-soft: #A8754F;
+  --track-cream: #F7F7F5;
   --track-soft: #FFFFFF;
-  --track-green: #10243A;
-  --track-green-soft: #F5F4F1;
-  --track-gold: #D1AE68;
-  --track-plum: #10243A;
-  --track-text: #111111;
-  --track-muted: #5F6668;
-  --track-border: #D8D4CB;
+  --track-green: #173B57;
+  --track-green-soft: #F7F7F5;
+  --track-gold: #A8754F;
+  --track-plum: #173B57;
+  --track-text: #181A1B;
+  --track-muted: #707579;
+  --track-border: #E2E4E4;
 }
 
 .track-order-page *,

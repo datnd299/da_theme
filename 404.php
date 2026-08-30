@@ -43,23 +43,23 @@ get_header();
 
 <style>
   .qb-404 {
-    --qb-blush: #d1ae68;
-    --qb-peach: #f5f4f1;
-    --qb-lavender: #a5a5a0;
-    --qb-mint: #f5f4f1;
-    --qb-gold: #d1ae68;
-    --qb-plum: #10243a;
-    --qb-gray: #f5f4f1;
-    --qb-text: #5f6668;
-    --qb-border: #d8d4cb;
+    --qb-blush: #A8754F;
+    --qb-peach: #F7F7F5;
+    --qb-lavender: #707579;
+    --qb-mint: #F7F7F5;
+    --qb-gold: #A8754F;
+    --qb-plum: #173B57;
+    --qb-gray: #F7F7F5;
+    --qb-text: #707579;
+    --qb-border: #E2E4E4;
     position: relative;
     overflow: hidden;
     min-height: 72vh;
     background:
       linear-gradient(90deg, rgba(16, 36, 58, .95), rgba(16, 36, 58, .68) 48%, rgba(16, 36, 58, .16) 86%),
-      linear-gradient(135deg, #f5f4f1, #ffffff);
+      linear-gradient(135deg, #F7F7F5, #ffffff);
     color: var(--qb-text);
-    font-family: "Inter", "DM Sans", system-ui, sans-serif;
+    font-family: "Lato", "Inter", system-ui, sans-serif;
     padding: clamp(64px, 9vw, 112px) 0;
   }
 
@@ -102,7 +102,7 @@ get_header();
     max-width: 680px;
     margin: 0;
     color: #ffffff;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: "Playfair Display", Georgia, serif;
     font-size: clamp(38px, 5.6vw, 68px);
     line-height: 1.03;
     letter-spacing: 0;

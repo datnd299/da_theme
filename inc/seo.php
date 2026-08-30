@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
  * Storefront brand name. Filterable for reuse on other stores.
  */
 function dawp_brand_name() {
-    return apply_filters('dawp_brand_name', 'Velmo Custom');
+    return apply_filters('dawp_brand_name', 'Zorex Craft');
 }
 
 /**

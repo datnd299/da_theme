@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer for Velmo Custom.
+ * Theme footer for Zorex Craft.
  *
  * @package dawp
  */
@@ -8,9 +8,9 @@
 defined('ABSPATH') || exit;
 
 $current_year  = date_i18n('Y');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
 $support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom support request', 'dawp')) : 'mailto:' . $support_email;
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft support request', 'dawp')) : 'mailto:' . $support_email;
 $logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
@@ -45,14 +45,15 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
 <style>
   .qb-site-footer {
-    --qb-cream: #f5f4f1;
-    --qb-gold: #d1ae68;
-    --qb-ink: #10243a;
-    --qb-muted: #d8d4cb;
-    --qb-border: rgba(245, 242, 235, .16);
-    background: var(--qb-ink);
+    --qb-cream: #f7f7f5;
+    --qb-gold: #a8754f;
+    --qb-ink: #173b57;
+    --qb-deep: #181a1b;
+    --qb-muted: rgba(255, 255, 255, .72);
+    --qb-border: rgba(255, 255, 255, .16);
+    background: linear-gradient(135deg, var(--qb-deep) 0%, var(--qb-ink) 100%);
     color: var(--qb-muted);
-    font-family: "Inter", "DM Sans", system-ui, sans-serif;
+    font-family: "DM Sans", "Inter", system-ui, sans-serif;
   }
 
   .qb-site-footer * {
@@ -72,9 +73,9 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
   .qb-footer-main {
     display: grid;
-    grid-template-columns: minmax(260px, 1.35fr) repeat(3, minmax(160px, .7fr));
-    gap: 46px;
-    padding: 62px 0;
+    grid-template-columns: minmax(280px, 1.25fr) repeat(3, minmax(160px, .7fr));
+    gap: clamp(32px, 5vw, 58px);
+    padding: clamp(58px, 7vw, 86px) 0 64px;
   }
 
   .qb-footer-brand a {
@@ -83,7 +84,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
   .qb-footer-logo {
     display: block;
-    width: min(108px, 100%);
+    width: min(118px, 100%);
     height: auto;
   }
 
@@ -91,7 +92,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     display: block;
     margin-top: 8px;
     color: var(--qb-gold);
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: .2em;
     text-transform: uppercase;
@@ -99,9 +100,9 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
   .qb-footer-copy {
     max-width: 430px;
-    margin: 22px 0 0;
+    margin: 24px 0 0;
     color: var(--qb-muted);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     line-height: 1.7;
   }
@@ -144,7 +145,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     color: var(--qb-gold);
     font-size: 12px;
     font-weight: 800;
-    letter-spacing: .2em;
+    letter-spacing: .18em;
     text-transform: uppercase;
   }
 
@@ -200,7 +201,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
   .qb-payment span {
     border: 1px solid var(--qb-border);
-    border-radius: 6px;
+    border-radius: 3px;
     background: rgba(255, 255, 255, .06);
     color: var(--qb-cream);
     font-size: 11px;
@@ -247,11 +248,11 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
             <div class="qb-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s home', 'dawp'), $brand_name)); ?>">
                     <img class="qb-footer-logo" src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($brand_name); ?>">
-                    <span class="qb-footer-tagline"><?php esc_html_e('Precision with Presence', 'dawp'); ?></span>
+                    <span class="qb-footer-tagline"><?php esc_html_e('Modern Icons', 'dawp'); ?></span>
                 </a>
 
                 <p class="qb-footer-copy">
-                    <?php esc_html_e('Refined watches selected for precision, craftsmanship, and timeless contemporary design.', 'dawp'); ?>
+                    <?php esc_html_e('A calm luxury watch destination for clear discovery, confident comparison, and collector-focused shopping.', 'dawp'); ?>
                 </p>
 
                 <div class="qb-footer-contact">

@@ -1,21 +1,19 @@
-VELMOCUSTOM.COM — SITE OVERVIEW
+ZOREXCRAFT.COM — SITE OVERVIEW
 
 Brand
 
-Name: Velmo Custom
-Domain: velmocustom.com
+Name: Zorex Craft
+Domain: zorexcraft.com
 Category: Luxury watches
-Brand Idea: Crafted with Precision.
+Brand Idea: Watches Worth Knowing.
 
-Velmo Custom is a refined luxury watch store focused on precision, craftsmanship and timeless contemporary design.
+Zorex Craft is a modern luxury watch store built around discovery, trust and a collector-focused shopping experience.
 
 Direction
 
-Heritage Precision × Contemporary Elegance × Quiet Craftsmanship
+Modern Watch Exchange × Collector Luxury × Clean Commerce
 
-The website should feel like a modern watch maison: sophisticated, precise, calm and highly refined.
-
-Take inspiration from high-watchmaking editorial design and Breguet's emphasis on timepieces, craftsmanship and heritage storytelling, while keeping Velmo Custom original and ecommerce-focused.
+Premium, modern and commercially effective. More product-focused than a traditional luxury maison. Inspired by high-end watch marketplaces and collector platforms while remaining original.
 
 Main Pages
 
@@ -45,42 +43,60 @@ Ecommerce
 
 Built for WordPress + WooCommerce.
 
-Products, categories, prices, stock, images, URLs, cart, checkout and account data must remain dynamic. Never hard-code WooCommerce commerce data.
+Products, categories, prices, stock, images, URLs, filters, cart, checkout and account data must remain dynamic. Never hard-code WooCommerce commerce data.
 
 Homepage
 
-Hero Statement → Featured Timepieces → Craftsmanship Story → Products → Signature Details → Brand Story → Product Focus → Newsletter
+Hero / Shop Watches → Featured Products → Shop by Style → Latest Watches → Trust Strip → Collector Feature → Products → Why Zorex → Editorial → Newsletter
 
-Keep the homepage selective, elegant and visually calm.
+Products should appear early and remain easy to browse.
 
 Content Style
 
-Short, refined, intelligent and craftsmanship-led.
+Clear, confident, knowledgeable and collector-focused.
 
 Examples:
 
-Crafted with Precision.
+Watches Worth Knowing.
 
-Defined by Detail.
+Find Your Next Timepiece.
 
-The Art of Time.
+Built for Collectors.
 
-Precision in Every Detail.
+Modern Icons. Timeless Choices.
 
-Designed to Endure.
+Discover Watches That Matter.
 
-Avoid exaggerated luxury language, long marketing copy and generic ecommerce messaging.
+Keep copy concise. Avoid exaggerated luxury language and fake heritage claims.
 
 Visual Principles
 
-Prioritize refined watch photography, macro craftsmanship details, porcelain/ivory space, elegant serif typography, restrained navy and champagne accents, precise editorial layouts, clean product presentation, generous whitespace and subtle motion.
+Prioritize clean watch photography, strong product grids, clear pricing, structured navigation, collector-style editorial imagery and confident whitespace.
 
-Avoid generic ecommerce templates, excessive black/gold, oversized headlines, rounded card-heavy UI, heavy shadows, gradients, visual clutter and flashy animation.
+Use modern sans-serif typography as the primary voice, with selective serif typography for editorial moments.
+
+The interface should feel premium but practical: fast to scan, easy to shop and trustworthy.
+
+Commerce Principles
+
+Products and prices are easy to compare
+
+Strong search, sorting and filtering
+
+Clear condition/status only when real data exists
+
+Trust information near buying decisions
+
+Clean product cards with useful information
+
+Simple, fast mobile shopping
+
+Never invent authenticity guarantees, certifications, warranties, shipping promises or store policies.
 
 Brand Safety
 
-Velmo Custom must remain an independent brand/store. Do not copy third-party logos, wording, imagery, product naming, packaging or protected brand identities.
+Zorex Craft must remain an independent store. Do not copy third-party logos, wording, imagery, product photography, proprietary layouts or protected brand identities.
 
 Core Principle
 
-Craftsmanship creates distinction. Precision creates trust. The timepiece remains the hero.
+Discovery creates interest. Clarity creates confidence. The watch closes the sale.

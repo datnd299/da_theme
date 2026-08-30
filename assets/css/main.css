@@ -8,31 +8,31 @@
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
   /* White — page background */
-  --color-surface: #F5F4F1;
+  --color-surface: #F7F7F5;
   /* Stone — section / card background */
   --color-surface-alt: #FFFFFF;
   /* Soft Gray — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #111111;
+  --color-foreground: #181A1B;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #5F6668;
+  --color-foreground-muted: #707579;
   /* Secondary text — descriptions, meta */
-  --color-muted: #A5A5A0;
+  --color-muted: #707579;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #10243A;
+  --color-accent: #173B57;
   /* Near black — primary CTA, strong text */
-  --color-accent-hover: #D1AE68;
+  --color-accent-hover: #A8754F;
   /* Warm brass — hover state */
-  --color-accent-soft: #D1AE68;
+  --color-accent-soft: #F7F7F5;
   /* Soft brass — highlights */
-  --color-accent-blush: #F5F4F1;
+  --color-accent-blush: #A8754F;
   /* Deep green — secondary accents */
 
   /* === UI === */
-  --color-border: #D8D4CB;
+  --color-border: #E2E4E4;
   /* Border — cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */
@@ -41,7 +41,7 @@
 
   /* === TYPOGRAPHY === */
   --font-sans: 'Lato', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Lato', 'Georgia', serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
 
   /* === SPACING === */
   --space-xs: 4px;

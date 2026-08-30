@@ -5,152 +5,106 @@
  * @package dawp
  */
 
-$store_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom support request', 'dawp'), __('Please include your order number if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
-$store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
-$track_url     = home_url('/track-order/');
-$faq_url       = home_url('/faq/');
-$hero_image    = get_template_directory_uri() . '/assets/images/luxuryimagecollection (2)/35.jpg';
-$detail_image  = get_template_directory_uri() . '/assets/images/luxuryimagecollection (2)/36.jpg';
-$status        = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
+defined('ABSPATH') || exit;
 
-$status_messages = [
-    'sent'    => __('Thank you. Your message has been sent and our support team will reply within 1 business day.', 'dawp'),
-    'invalid' => __('Please review the form and make sure all required fields are complete.', 'dawp'),
-    'failed'  => __('We could not send your message right now. Please email support directly.', 'dawp'),
-];
-
-$topics = [
-    'Order question',
-    'Tracking help',
-    'Return request',
-    'Product or size question',
-    'Damaged or incorrect item',
-    'Other',
-];
+$asset_base     = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (2)/';
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft support request', 'dawp')) : 'mailto:' . $support_email;
+$store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
+$contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
+$shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 ?>
 
-<section class="ot-contact-hero">
-  <div class="ot-wrap ot-contact-hero__grid">
-    <div class="ot-contact-hero__copy">
-      <span class="ot-kicker"><?php esc_html_e('Contact Us', 'dawp'); ?></span>
-      <h1><?php esc_html_e('We are here to help.', 'dawp'); ?></h1>
-      <p><?php echo esc_html(sprintf(__('Questions about an order, delivery, return, or watch detail? Send a note to %s support and we will route it to the right place.', 'dawp'), $store_name)); ?></p>
-      <div class="ot-actions">
-        <a class="ot-btn ot-btn--dark" href="#contact-form"><?php esc_html_e('Send Message', 'dawp'); ?></a>
-        <a class="ot-btn ot-btn--ghost" href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
-      </div>
+<section class="zc-contact-hero">
+    <div class="zc-wrap zc-contact-hero__grid">
+        <div class="zc-contact-hero__copy">
+            <span class="zc-kicker"><?php esc_html_e('Contact Zorex Craft', 'dawp'); ?></span>
+            <h1><?php esc_html_e('How can we help?', 'dawp'); ?></h1>
+            <p><?php esc_html_e('Questions about an order, a watch, tracking or returns? Send a clear note and include your order number when relevant.', 'dawp'); ?></p>
+        </div>
+        <figure class="zc-contact-hero__media">
+            <img src="<?php echo esc_url($asset_base . '34.jpg'); ?>" alt="<?php esc_attr_e('Luxury watch on a clean desk', 'dawp'); ?>">
+        </figure>
     </div>
-    <figure class="ot-contact-hero__image">
-      <img src="<?php echo esc_url($hero_image); ?>" alt="<?php esc_attr_e('Minimal watch detail on a clean surface', 'dawp'); ?>" loading="eager">
-    </figure>
-  </div>
 </section>
 
-<section class="ot-contact-assurance" aria-label="<?php esc_attr_e('Customer support highlights', 'dawp'); ?>">
-  <div class="ot-wrap ot-contact-assurance__grid">
-    <div>
-      <span><?php esc_html_e('Response', 'dawp'); ?></span>
-      <strong><?php esc_html_e('Within 1 business day', 'dawp'); ?></strong>
-      <p><?php esc_html_e('Most messages are answered Monday-Friday during customer service hours.', 'dawp'); ?></p>
+<section class="zc-contact-strip">
+    <div class="zc-wrap zc-contact-strip__grid">
+        <div><span><?php esc_html_e('Email', 'dawp'); ?></span><strong><a href="<?php echo esc_url($support_mailto); ?>"><?php echo esc_html($support_email); ?></a></strong></div>
+        <div><span><?php esc_html_e('Hours', 'dawp'); ?></span><strong><?php esc_html_e('Mon-Fri, 9:00 AM-6:00 PM PST', 'dawp'); ?></strong></div>
+        <div><span><?php esc_html_e('Response', 'dawp'); ?></span><strong><?php esc_html_e('Usually within 1 business day', 'dawp'); ?></strong></div>
     </div>
-    <div>
-      <span><?php esc_html_e('Orders', 'dawp'); ?></span>
-      <strong><?php esc_html_e('Include your order number', 'dawp'); ?></strong>
-      <p><?php esc_html_e('It helps us check shipping, delivery, returns, and account details faster.', 'dawp'); ?></p>
-    </div>
-    <div>
-      <span><?php esc_html_e('Support', 'dawp'); ?></span>
-      <strong><?php esc_html_e('Clear next steps', 'dawp'); ?></strong>
-      <p><?php esc_html_e('We will confirm what we need and explain the next action plainly.', 'dawp'); ?></p>
-    </div>
-  </div>
 </section>
 
-<section class="ot-contact-main" id="contact-form">
-  <div class="ot-wrap ot-contact-main__grid">
-    <aside class="ot-contact-panel">
-      <span class="ot-kicker"><?php esc_html_e('Support Details', 'dawp'); ?></span>
-      <h2><?php esc_html_e('Tell us what happened. We will take it from there.', 'dawp'); ?></h2>
-      <div class="ot-contact-methods">
+<section class="zc-contact-main" id="contact-form">
+    <div class="zc-wrap zc-contact-main__grid">
+        <aside class="zc-contact-panel">
+            <span class="zc-kicker"><?php esc_html_e('Support Details', 'dawp'); ?></span>
+            <h2><?php esc_html_e('Send the details once. We will take it from there.', 'dawp'); ?></h2>
+            <div class="zc-contact-methods">
+                <div><span><?php esc_html_e('Order Help', 'dawp'); ?></span><p><?php esc_html_e('Include your order number and checkout email for faster review.', 'dawp'); ?></p></div>
+                <div><span><?php esc_html_e('Product Questions', 'dawp'); ?></span><p><?php esc_html_e('Ask about sizing, product details, availability or comparison notes before checkout.', 'dawp'); ?></p></div>
+                <?php if ($store_address) : ?>
+                    <div><span><?php esc_html_e('Store Address', 'dawp'); ?></span><p><?php echo esc_html($store_address); ?></p></div>
+                <?php endif; ?>
+            </div>
+        </aside>
+
+        <div class="zc-contact-form-wrap">
+            <?php if ($contact_status) : ?>
+                <div class="zc-contact-alert zc-contact-alert--<?php echo esc_attr($contact_status); ?>">
+                    <?php
+                    if ('sent' === $contact_status) {
+                        esc_html_e('Thank you. Your message has been sent.', 'dawp');
+                    } elseif ('failed' === $contact_status) {
+                        esc_html_e('The message could not be sent. Please email support directly.', 'dawp');
+                    } else {
+                        esc_html_e('Please check the required fields and try again.', 'dawp');
+                    }
+                    ?>
+                </div>
+            <?php endif; ?>
+
+            <form class="zc-contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
+                <input type="hidden" name="action" value="dawp_contact_form">
+                <?php wp_nonce_field('dawp_contact_form', 'dawp_contact_nonce'); ?>
+                <div class="zc-contact-hidden">
+                    <label for="zc-contact-website"><?php esc_html_e('Website', 'dawp'); ?></label>
+                    <input id="zc-contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <div class="zc-form-row"><label for="zc-contact-name"><?php esc_html_e('Name', 'dawp'); ?></label><input id="zc-contact-name" type="text" name="contact_name" required autocomplete="name"></div>
+                <div class="zc-form-row"><label for="zc-contact-email"><?php esc_html_e('Email', 'dawp'); ?></label><input id="zc-contact-email" type="email" name="contact_email" required autocomplete="email"></div>
+                <div class="zc-form-row">
+                    <label for="zc-contact-topic"><?php esc_html_e('Topic', 'dawp'); ?></label>
+                    <select id="zc-contact-topic" name="contact_topic" required>
+                        <option value="Order question"><?php esc_html_e('Order question', 'dawp'); ?></option>
+                        <option value="Tracking help"><?php esc_html_e('Tracking help', 'dawp'); ?></option>
+                        <option value="Return request"><?php esc_html_e('Return request', 'dawp'); ?></option>
+                        <option value="Product or size question"><?php esc_html_e('Product or size question', 'dawp'); ?></option>
+                        <option value="Damaged or incorrect item"><?php esc_html_e('Damaged or incorrect item', 'dawp'); ?></option>
+                        <option value="Other"><?php esc_html_e('Other', 'dawp'); ?></option>
+                    </select>
+                </div>
+                <div class="zc-form-row"><label for="zc-contact-order"><?php esc_html_e('Order Number', 'dawp'); ?></label><input id="zc-contact-order" type="text" name="contact_order" autocomplete="off"></div>
+                <div class="zc-form-row zc-form-row--full"><label for="zc-contact-message"><?php esc_html_e('Message', 'dawp'); ?></label><textarea id="zc-contact-message" name="contact_message" rows="7" required></textarea></div>
+                <label class="zc-contact-consent"><input type="checkbox" name="contact_consent" required><span><?php esc_html_e('I agree to be contacted about this request.', 'dawp'); ?></span></label>
+                <button class="zc-button zc-button--primary" type="submit"><?php esc_html_e('Send Message', 'dawp'); ?></button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="zc-contact-editorial">
+    <div class="zc-wrap zc-contact-editorial__grid">
+        <figure><img src="<?php echo esc_url($asset_base . '29.jpg'); ?>" alt="<?php esc_attr_e('Collector watch detail', 'dawp'); ?>"></figure>
         <div>
-          <span><?php esc_html_e('Email', 'dawp'); ?></span>
-          <a href="<?php echo esc_url($support_mailto); ?>"><?php echo esc_html($support_email); ?></a>
+            <span class="zc-kicker"><?php esc_html_e('Before You Write', 'dawp'); ?></span>
+            <h2><?php esc_html_e('Need policy details?', 'dawp'); ?></h2>
+            <p><?php esc_html_e('For shipping, returns and common order questions, the policy pages may answer the essentials immediately.', 'dawp'); ?></p>
+            <div class="zc-actions">
+                <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
+                <a class="zc-button zc-button--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
+            </div>
         </div>
-        <div>
-          <span><?php esc_html_e('Hours', 'dawp'); ?></span>
-          <p><?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST', 'dawp'); ?></p>
-        </div>
-        <?php if ($store_address) : ?>
-          <div>
-            <span><?php esc_html_e('Address', 'dawp'); ?></span>
-            <p><?php echo esc_html($store_address); ?></p>
-          </div>
-        <?php endif; ?>
-      </div>
-      <a class="ot-text-link" href="<?php echo esc_url($faq_url); ?>"><?php esc_html_e('Read FAQ', 'dawp'); ?></a>
-    </aside>
-
-    <div class="ot-contact-form-wrap">
-      <?php if ($status && isset($status_messages[$status])) : ?>
-        <div class="ot-contact-alert ot-contact-alert--<?php echo esc_attr($status); ?>" role="status">
-          <?php echo esc_html($status_messages[$status]); ?>
-        </div>
-      <?php endif; ?>
-
-      <form class="ot-contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post">
-        <input type="hidden" name="action" value="dawp_contact_form">
-        <?php wp_nonce_field('dawp_contact_form', 'dawp_contact_nonce'); ?>
-        <div class="ot-contact-hidden" aria-hidden="true">
-          <label for="contact-website"><?php esc_html_e('Website', 'dawp'); ?></label>
-          <input id="contact-website" type="text" name="website" tabindex="-1" autocomplete="off">
-        </div>
-
-        <div class="ot-form-row">
-          <label for="contact-name"><?php esc_html_e('Name', 'dawp'); ?></label>
-          <input id="contact-name" type="text" name="contact_name" autocomplete="name" required>
-        </div>
-        <div class="ot-form-row">
-          <label for="contact-email"><?php esc_html_e('Email', 'dawp'); ?></label>
-          <input id="contact-email" type="email" name="contact_email" autocomplete="email" required>
-        </div>
-        <div class="ot-form-row">
-          <label for="contact-topic"><?php esc_html_e('Topic', 'dawp'); ?></label>
-          <select id="contact-topic" name="contact_topic" required>
-            <option value=""><?php esc_html_e('Select a topic', 'dawp'); ?></option>
-            <?php foreach ($topics as $topic) : ?>
-              <option value="<?php echo esc_attr($topic); ?>"><?php echo esc_html($topic); ?></option>
-            <?php endforeach; ?>
-          </select>
-        </div>
-        <div class="ot-form-row">
-          <label for="contact-order"><?php esc_html_e('Order Number', 'dawp'); ?></label>
-          <input id="contact-order" type="text" name="contact_order" autocomplete="off" placeholder="<?php esc_attr_e('Optional', 'dawp'); ?>">
-        </div>
-        <div class="ot-form-row ot-form-row--full">
-          <label for="contact-message"><?php esc_html_e('Message', 'dawp'); ?></label>
-          <textarea id="contact-message" name="contact_message" rows="6" required></textarea>
-        </div>
-        <label class="ot-contact-consent">
-          <input type="checkbox" name="contact_consent" value="1" required>
-          <span><?php esc_html_e('I agree to be contacted about this request using the information provided.', 'dawp'); ?></span>
-        </label>
-        <button class="ot-btn ot-btn--dark" type="submit"><?php esc_html_e('Submit Request', 'dawp'); ?></button>
-      </form>
     </div>
-  </div>
-</section>
-
-<section class="ot-contact-editorial">
-  <div class="ot-wrap ot-contact-editorial__grid">
-    <figure class="ot-contact-editorial__image">
-      <img src="<?php echo esc_url($detail_image); ?>" alt="<?php esc_attr_e('Watch packaging prepared for customer delivery', 'dawp'); ?>" loading="lazy">
-    </figure>
-    <div class="ot-contact-editorial__copy">
-      <span class="ot-kicker"><?php esc_html_e('Before You Send', 'dawp'); ?></span>
-      <h2><?php esc_html_e('A few details help us move faster.', 'dawp'); ?></h2>
-      <p><?php esc_html_e('For delivery, damage, or return requests, include your order number, checkout email, and any helpful photos or tracking details in your message.', 'dawp'); ?></p>
-    </div>
-  </div>
 </section>

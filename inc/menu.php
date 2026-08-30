@@ -2,7 +2,7 @@
 function dawp_main_menu_items() {
     return [
         ['title' => __('Home', 'dawp'),       'url' => home_url('/')],
-        ['title' => __('Watch', 'dawp'),      'url' => home_url('/shop/')],
+        ['title' => __('Watches', 'dawp'),    'url' => home_url('/shop/')],
         ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
         ['title' => __('About Us', 'dawp'),   'url' => home_url('/about-us/')],
     ];

@@ -6,14 +6,14 @@
  */
 
 function dawp_contact_support_email() {
-    return 'support@velmocustom.com';
+    return 'support@zorexcraft.com';
 }
 
 function dawp_contact_mailto_url($subject = '', $body = '') {
     $email = sanitize_email(dawp_contact_support_email());
 
     if (!$email) {
-        $email = 'support@velmocustom.com';
+        $email = 'support@zorexcraft.com';
     }
 
     $query = [];
@@ -75,7 +75,7 @@ function dawp_handle_contact_form() {
 
     $subject = sprintf(
         /* translators: %s: contact form topic. */
-        __('Velmo Custom contact: %s', 'dawp'),
+        __('Zorex Craft contact: %s', 'dawp'),
         $topic
     );
 

@@ -560,19 +560,19 @@
 /* Velmo Custom ecommerce alignment */
 .woocommerce-account {
   --color-background: #FFFFFF;
-  --color-surface: #F5F4F1;
+  --color-surface: #F7F7F5;
   --color-surface-alt: #FFFFFF;
-  --color-foreground: #111111;
-  --color-foreground-muted: #5F6668;
-  --color-muted: #A5A5A0;
-  --color-accent: #10243A;
-  --color-accent-hover: #D1AE68;
-  --color-accent-soft: #F5F4F1;
-  --color-border: #D8D4CB;
+  --color-foreground: #181A1B;
+  --color-foreground-muted: #707579;
+  --color-muted: #707579;
+  --color-accent: #173B57;
+  --color-accent-hover: #A8754F;
+  --color-accent-soft: #F7F7F5;
+  --color-border: #E2E4E4;
 }
 
 .woocommerce-account .woo-page {
-  background: #F5F4F1;
+  background: #F7F7F5;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation,
@@ -583,28 +583,28 @@
 .woocommerce-account .woocommerce-Address,
 .woocommerce-account .woocommerce-column,
 .woocommerce-account fieldset {
-  border-color: #D8D4CB;
+  border-color: #E2E4E4;
   background: rgba(255, 255, 255, .92);
   box-shadow: 0 12px 28px rgba(16, 36, 58, .06);
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation a:hover,
 .woocommerce-account .woocommerce-MyAccount-navigation .is-active a {
-  background: #10243A;
+  background: #173B57;
   color: #FFFFFF;
 }
 
 .woocommerce-account .woocommerce-MyAccount-content a,
 .woocommerce-account form .required {
-  color: #D1AE68;
+  color: #A8754F;
 }
 
 .woocommerce-account .woocommerce-Button,
 .woocommerce-account .button,
 .woocommerce-account button.button,
 .woocommerce-account input.button {
-  border-color: #10243A;
-  background: #10243A;
+  border-color: #173B57;
+  background: #173B57;
   color: #FFFFFF;
 }
 
@@ -612,9 +612,9 @@
 .woocommerce-account .button:hover,
 .woocommerce-account button.button:hover,
 .woocommerce-account input.button:hover {
-  border-color: #D1AE68;
-  background: #D1AE68;
-  color: #10243A;
+  border-color: #A8754F;
+  background: #A8754F;
+  color: #173B57;
 }
 
 @media (max-width: 640px) {

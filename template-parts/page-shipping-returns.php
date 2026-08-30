@@ -5,11 +5,11 @@
  * @package dawp
  */
 
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
 ?>
 
 <style>
-  .qb-page { --qb-ivory:#F5F2EB; --qb-white:#FFFFFF; --qb-gold:#B38A52; --qb-text:#5E625F; --qb-border:#B8B8B2; --qb-plum:#171A19; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-ivory:#F5F4F1; --qb-white:#FFFFFF; --qb-gold:#D1AE68; --qb-text:#5F6668; --qb-border:#D8D4CB; --qb-plum:#10243A; background:var(--qb-ivory); color:var(--qb-text); font-family:"Inter","DM Sans",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -33,7 +33,7 @@ $support_email = function_exists('dawp_contact_support_email') ? dawp_contact_su
   .qb-policy-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
   .qb-policy-card { border:1px solid var(--qb-border); border-radius:20px; background:#fff; padding:clamp(24px,4vw,38px); box-shadow:0 18px 46px rgba(13,15,15,.06); }
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
-  .qb-policy-card p { margin:14px 0 0; color:#5E625F; font-size:15px; line-height:1.72; }
+  .qb-policy-card p { margin:14px 0 0; color:#A5A5A0; font-size:15px; line-height:1.72; }
   @media (max-width:780px) { .qb-section { padding:44px 0; } .qb-hero__grid { padding:46px 0 50px; } .qb-policy-grid { grid-template-columns:1fr; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
 </style>
 

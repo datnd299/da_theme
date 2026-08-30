@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header for Orvel Time.
+ * Theme header for Velmo Custom.
  *
  * @package dawp
  */
@@ -11,8 +11,8 @@ $cart_count  = (class_exists('WooCommerce') && WC()->cart) ? WC()->cart->get_car
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_url = get_permalink(get_option('woocommerce_myaccount_page_id'));
 $account_url = $account_url ?: home_url('/my-account/');
-$brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$logo_url    = get_template_directory_uri() . '/assets/images/home/logobrand.png';
+$brand_name  = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$logo_url    = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
 $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() : [
     ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
     ['title' => __('Watch', 'dawp'), 'url' => home_url('/shop/')],
@@ -36,18 +36,18 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 
 <style>
   .qb-site-header {
-    --qb-cream: #f5f2eb;
-    --qb-gold: #b38a52;
-    --qb-ink: #0d0f0f;
-    --qb-text: #171a19;
-    --qb-border: rgba(13, 15, 15, .14);
+    --qb-cream: #f5f4f1;
+    --qb-gold: #d1ae68;
+    --qb-ink: #10243a;
+    --qb-text: #111111;
+    --qb-border: rgba(16, 36, 58, .14);
     position: sticky;
     top: 0;
     z-index: 50;
     border-bottom: 1px solid var(--qb-border);
     background: rgba(255, 255, 255, .96);
     color: var(--qb-text);
-    font-family: "DM Sans", system-ui, sans-serif;
+    font-family: "Inter", "DM Sans", system-ui, sans-serif;
     backdrop-filter: blur(14px);
   }
 
@@ -362,7 +362,7 @@ $nav_items   = function_exists('dawp_main_menu_items') ? dawp_main_menu_items() 
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Modern luxury watches built for precision with presence', 'dawp'); ?>
+            <?php esc_html_e('Velmo Custom - Crafted with Precision', 'dawp'); ?>
         </div>
     </div>
 

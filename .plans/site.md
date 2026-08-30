@@ -1,19 +1,21 @@
-ORVELTIME.COM — SITE OVERVIEW
+VELMOCUSTOM.COM — SITE OVERVIEW
 
 Brand
 
-Name: Orvel Time
-Domain: orveltime.com
-Category: Modern luxury watches
-Brand Idea: Time, Refined.
+Name: Velmo Custom
+Domain: velmocustom.com
+Category: Luxury watches
+Brand Idea: Crafted with Precision.
 
-Orvel Time is a contemporary watch store focused on elegant design, premium presentation and understated luxury.
+Velmo Custom is a refined luxury watch store focused on precision, craftsmanship and timeless contemporary design.
 
 Direction
 
-Quiet Luxury × Contemporary Horology × Editorial Minimalism
+Heritage Precision × Contemporary Elegance × Quiet Craftsmanship
 
-Sophisticated, calm, modern and expensive without being flashy. Keep Corvel's clean ecommerce DNA, but give Orvel Time a softer and warmer identity.
+The website should feel like a modern watch maison: sophisticated, precise, calm and highly refined.
+
+Take inspiration from high-watchmaking editorial design and Breguet's emphasis on timepieces, craftsmanship and heritage storytelling, while keeping Velmo Custom original and ecommerce-focused.
 
 Main Pages
 
@@ -47,38 +49,38 @@ Products, categories, prices, stock, images, URLs, cart, checkout and account da
 
 Homepage
 
-Hero Campaign → Featured Watches → Editorial Campaign → Products → Brand Statement → Craftsmanship → Lifestyle Campaign → Newsletter
+Hero Statement → Featured Timepieces → Craftsmanship Story → Products → Signature Details → Brand Story → Product Focus → Newsletter
 
-The watch and photography remain the visual focus.
+Keep the homepage selective, elegant and visually calm.
 
 Content Style
 
-Short, elegant, confident and editorial.
+Short, refined, intelligent and craftsmanship-led.
 
 Examples:
 
-Time, Refined.
+Crafted with Precision.
 
-Designed with Intention.
+Defined by Detail.
 
-Modern Form. Timeless Presence.
+The Art of Time.
 
-Made for Every Moment.
+Precision in Every Detail.
 
-Details Define the Difference.
+Designed to Endure.
 
-Avoid long copy, exaggerated luxury language and generic marketing phrases.
+Avoid exaggerated luxury language, long marketing copy and generic ecommerce messaging.
 
 Visual Principles
 
-Prioritize large premium watch photography, warm neutrals, negative space, editorial compositions, minimal product grids, refined serif typography, subtle bronze accents and restrained motion.
+Prioritize refined watch photography, macro craftsmanship details, porcelain/ivory space, elegant serif typography, restrained navy and champagne accents, precise editorial layouts, clean product presentation, generous whitespace and subtle motion.
 
-Avoid generic ecommerce templates, excessive black/gold, oversized headlines, rounded card-heavy UI, heavy shadows, busy backgrounds and flashy animation.
+Avoid generic ecommerce templates, excessive black/gold, oversized headlines, rounded card-heavy UI, heavy shadows, gradients, visual clutter and flashy animation.
 
 Brand Safety
 
-Orvel Time must appear as an independent brand/store. Do not copy third-party logos, wording, imagery, product naming, packaging or protected brand identities.
+Velmo Custom must remain an independent brand/store. Do not copy third-party logos, wording, imagery, product naming, packaging or protected brand identities.
 
 Core Principle
 
-Quiet design creates confidence. Editorial imagery creates desire. The watch remains the hero.
+Craftsmanship creates distinction. Precision creates trust. The timepiece remains the hero.

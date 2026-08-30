@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer for Orvel Time.
+ * Theme footer for Velmo Custom.
  *
  * @package dawp
  */
@@ -8,9 +8,10 @@
 defined('ABSPATH') || exit;
 
 $current_year  = date_i18n('Y');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
-$logo_url      = get_template_directory_uri() . '/assets/images/home/logobrand.png';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom support request', 'dawp')) : 'mailto:' . $support_email;
+$logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
     [
@@ -44,14 +45,14 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
 <style>
   .qb-site-footer {
-    --qb-cream: #f5f2eb;
-    --qb-gold: #b38a52;
-    --qb-ink: #0d0f0f;
-    --qb-muted: #d8d6cf;
+    --qb-cream: #f5f4f1;
+    --qb-gold: #d1ae68;
+    --qb-ink: #10243a;
+    --qb-muted: #d8d4cb;
     --qb-border: rgba(245, 242, 235, .16);
     background: var(--qb-ink);
     color: var(--qb-muted);
-    font-family: "DM Sans", system-ui, sans-serif;
+    font-family: "Inter", "DM Sans", system-ui, sans-serif;
   }
 
   .qb-site-footer * {
@@ -250,7 +251,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                 </a>
 
                 <p class="qb-footer-copy">
-                    <?php esc_html_e('Modern watches selected for clean design, everyday reliability, and a refined wrist presence.', 'dawp'); ?>
+                    <?php esc_html_e('Refined watches selected for precision, craftsmanship, and timeless contemporary design.', 'dawp'); ?>
                 </p>
 
                 <div class="qb-footer-contact">
@@ -261,7 +262,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                         <?php esc_html_e('Monday-Friday, 9:00 AM-6:00 PM PST.', 'dawp'); ?>
                     </span>
 
-                    <a href="mailto:<?php echo esc_attr($support_email); ?>" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
+                    <a href="<?php echo esc_url($support_mailto); ?>" aria-label="<?php esc_attr_e('Email support', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                             <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.38l7 4.38 7-4.38V6.5a.5.5 0 0 0-.5-.5h-13Zm13 12a.5.5 0 0 0 .5-.5V9.25l-6.47 4.04a1 1 0 0 1-1.06 0L5 9.25v8.25a.5.5 0 0 0 .5.5h13Z"/>
                         </svg>
@@ -302,7 +303,6 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                 <span><?php esc_html_e('Discover', 'dawp'); ?></span>
                 <span><?php esc_html_e('PayPal', 'dawp'); ?></span>
             </div>
-            <p><?php esc_html_e('Modern luxury watch ecommerce', 'dawp'); ?></p>
         </div>
     </div>
 </footer>

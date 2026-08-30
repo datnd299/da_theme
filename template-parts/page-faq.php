@@ -5,8 +5,9 @@
  * @package dawp
  */
 
-$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto    = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom support question', 'dawp'), __('Please include your order number and checkout email if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');
@@ -155,7 +156,7 @@ $faq_sections = [
 ?>
 
 <style>
-  .qb-page { --qb-ink:#111312; --qb-moss:#555B50; --qb-olive:#6F7B64; --qb-paper:#FFFFFF; --qb-pearl:#F4F0E8; --qb-stone:#E5DDD2; --qb-line:#D7CDBE; --qb-brass:#A68158; --qb-brass-soft:#C6A77F; background:var(--qb-paper); color:var(--qb-moss); font-family:"Lato","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-ink:#10243A; --qb-moss:#5F6668; --qb-olive:#A5A5A0; --qb-paper:#FFFFFF; --qb-pearl:#F5F4F1; --qb-stone:#D8D4CB; --qb-line:#D8D4CB; --qb-brass:#D1AE68; --qb-brass-soft:#D1AE68; background:var(--qb-paper); color:var(--qb-moss); font-family:"Inter","DM Sans",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { color:inherit; text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1160px); margin-inline:auto; }
@@ -255,7 +256,7 @@ $faq_sections = [
         <p class="qb-copy"><?php echo esc_html(sprintf(__('Find clear answers about orders, U.S. shipping, tracking, returns, refunds, watch details, checkout, privacy, and customer support at %s.', 'dawp'), $store_name)); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url($support_portal); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
-          <a class="qb-button qb-button--secondary" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
+          <a class="qb-button qb-button--secondary" href="<?php echo esc_url($support_mailto); ?>"><?php esc_html_e('Email Support', 'dawp'); ?></a>
         </div>
       </div>
     </div>
@@ -341,7 +342,7 @@ $faq_sections = [
             <?php endif; ?>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Email', 'dawp'); ?></strong>
-              <span><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></span>
+              <span><a href="<?php echo esc_url($support_mailto); ?>"><?php echo esc_html($support_email); ?></a></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Contact Support', 'dawp'); ?></strong>

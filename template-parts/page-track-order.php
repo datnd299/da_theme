@@ -3,8 +3,9 @@
  * Template Part: Track Your Order
  */
 
-$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom tracking support', 'dawp'), __('Please include your order number and checkout email.', 'dawp')) : 'mailto:' . $support_email;
 $track_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
 ?>
 
@@ -62,7 +63,7 @@ $track_categories = function_exists('qb_product_category_definitions') ? qb_prod
                     <h2 class="track-help-box__title"><?php esc_html_e('Need help tracking?', 'dawp'); ?></h2>
                     <p class="track-help-box__text">
                         <?php esc_html_e('Send your order number and checkout email to ', 'dawp'); ?>
-                        <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a>
+                        <a href="<?php echo esc_url($support_mailto); ?>"><?php echo esc_html($support_email); ?></a>
                         <?php esc_html_e(' and our support team will review it.', 'dawp'); ?>
                     </p>
                 </div>

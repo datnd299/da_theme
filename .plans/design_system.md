@@ -1,56 +1,54 @@
-ORVEL TIME — DESIGN SYSTEM
+VELMO CUSTOM — DESIGN SYSTEM
 
 Direction
 
-Quiet Luxury × Contemporary Horology × Editorial Minimalism
+Heritage Maison × Quiet Luxury × Precision Minimalism
 
-Orvel Time should feel elegant, calm, modern and premium.
-The design must stay minimal, editorial and product-focused.
+Velmo Custom should feel refined, calm and timeless.
+The design should rely on typography, imagery, whitespace and proportion—not decoration.
 
 Colors
 
-Warm Pearl #F4F0E8 — main background
+White #FFFFFF — main background
 
-Soft White #FFFFFF — shop/product surfaces
+Warm White #F5F4F1 — secondary background
 
-Ink Black #111312 — primary text
+Deep Navy #10243A — signature brand color
 
-Deep Espresso #29231F — dark campaign sections
+Ink #111111 — primary text
 
-Olive Grey #555B50 — secondary brand tone
+Heritage Gold #D1AE68 — subtle accent only
 
-Muted Bronze #A68158 — luxury accent
+Muted Grey #A5A5A0 — metadata and borders
 
-Stone #CBC4B8 — borders and subtle details
-
-Use mostly Pearl/White, with Espresso for selected campaign sections.
-Bronze is an accent only, never dominant.
+Use mostly White/Warm White.
+Navy anchors the brand. Gold appears sparingly.
 
 Typography
 
-Headlines: elegant editorial serif
+Headlines: refined editorial serif
 
 Body/UI: clean modern sans-serif
 
 Recommended:
 
-Instrument Serif / Cormorant Garamond
+Cormorant Garamond / Instrument Serif
 
 Inter / Geist
 
 Scale:
 
-Hero: 52–62px
+Hero: 48–58px
 
-H1: 42–50px
+H1: 40–48px
 
-H2: 30–38px
+H2: 32–40px
 
 H3: 22–26px
 
 Body: 15–17px
 
-Keep headlines short, refined and controlled.
+Keep headlines elegant, short and controlled.
 
 Layout
 
@@ -60,92 +58,103 @@ Desktop padding: 32–40px
 
 Mobile padding: 18–22px
 
-Generous whitespace
+Large whitespace
 
-Editorial 12-column grid
+Simple editorial grid
+
+Alternate Text + Image / Image + Text
 
 Product grid: 4 / 3 / 2 columns responsive
 
-Use a calm rhythm of light sections with selective dark editorial moments.
+Do not over-design sections.
 
 Components
 
 Header
 
-Slim and minimal
+White background
 
-72–80px
+Slim, centered brand presence
 
-Clean navigation
+Minimal icons/navigation
 
-No bulky menu styling
+Fine navy lines/details
 
 Buttons
 
-Square or 0–3px radius
+Navy with white text
 
-Ink/Espresso primary
+Or white with navy border
 
-White on dark backgrounds
+Radius: 3–5px
 
-Bronze only for subtle details
+No pills, gradients or shadows
 
 Product Cards
 
 Flat
 
-No heavy border
+Borderless
 
 No shadow
 
-Large product image
+Clean image on white/light background
 
 Product name + price only
 
 Imagery
 
-Use premium watch photography with:
+Prioritize:
 
-travertine
+large lifestyle photography
 
-cream linen
+full-width craftsmanship imagery
 
-brushed steel
+macro dial / movement / finishing details
 
-walnut
+heritage/editorial imagery
 
-espresso leather
+clean product photography
 
-warm grey stone
+Images should feel elegant, precise and museum-like.
 
-champagne light
+Sections
 
-Photography should feel warm, tactile, precise and editorial.
+Preferred rhythm:
+Hero → Featured Timepieces → Editorial Story → Craftsmanship → Products → Heritage / Maison → Product Focus → Newsletter
+
+Use large image-led sections and simple two-column storytelling.
+
+Footer
+
+Deep Navy background
+
+Spacious multi-column layout
+
+White / muted text
+
+Serif section headings
+
+Minimal social and utility links
 
 Motion
 
-Use only:
-
-fade/reveal
-
-subtle image zoom 1.02–1.04
-
-small arrow movement
-
-300–500ms transitions
+Only subtle fades, image reveals and hover zoom 1.02–1.03.
 
 No flashy animation.
 
 Core Rules
 
-The watch is always the hero.
+White space creates luxury.
 
-Light space creates refinement.
+Navy creates identity.
 
-Espresso adds depth.
+Gold adds heritage, never dominance.
 
-Bronze adds detail, not decoration.
+Serif typography carries the character.
 
-Ecommerce UI stays clean and easy to use.
+Imagery does most of the storytelling.
 
-Avoid oversized headlines, gradients, rounded cards, heavy shadows and visual clutter.
+The timepiece remains the hero.
+
+Avoid gradients, heavy shadows, rounded cards, oversized headlines and visual clutter.

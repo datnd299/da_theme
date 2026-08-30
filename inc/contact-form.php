@@ -6,7 +6,27 @@
  */
 
 function dawp_contact_support_email() {
-    return 'support@orveltime.com';
+    return 'support@velmocustom.com';
+}
+
+function dawp_contact_mailto_url($subject = '', $body = '') {
+    $email = sanitize_email(dawp_contact_support_email());
+
+    if (!$email) {
+        $email = 'support@velmocustom.com';
+    }
+
+    $query = [];
+
+    if ('' !== $subject) {
+        $query['subject'] = wp_strip_all_tags($subject);
+    }
+
+    if ('' !== $body) {
+        $query['body'] = wp_strip_all_tags($body);
+    }
+
+    return 'mailto:' . $email . ($query ? '?' . http_build_query($query, '', '&', PHP_QUERY_RFC3986) : '');
 }
 
 function dawp_contact_form_redirect($status) {
@@ -55,7 +75,7 @@ function dawp_handle_contact_form() {
 
     $subject = sprintf(
         /* translators: %s: contact form topic. */
-        __('Orvel Time contact: %s', 'dawp'),
+        __('Velmo Custom contact: %s', 'dawp'),
         $topic
     );
 

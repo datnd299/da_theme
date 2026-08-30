@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Orvel Time.
+ * Shop and product category archive template for Velmo Custom.
  *
  * @package dawp
  */
@@ -12,7 +12,7 @@ $queried_term  = $is_category ? get_queried_object() : null;
 $category_data = $is_category && $queried_term && !is_wp_error($queried_term) ? qb_get_product_category_data($queried_term->slug) : null;
 $shop_url      = get_permalink(wc_get_page_id('shop'));
 $shop_url      = $shop_url ?: home_url('/shop/');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
 
 if ($category_data) {
     $page_title  = $category_data['name'];
@@ -30,10 +30,10 @@ if ($category_data) {
     $highlights  = ['Modern luxury watches', 'Refined materials', 'Clear product details'];
 } else {
     $page_title  = 'All Watches';
-    $headline    = 'Modern watches with confident form and refined presence.';
-    $description = 'Discover modern luxury watches with clean presentation, considered materials, and precise product detail.';
-    $intro       = sprintf('Shop the %s watch edit built around proportion, texture, and daily presence.', $brand_name);
-    $hero_image  = qb_theme_asset_image_url('luxuryimagecollection (1)/20.jpg');
+    $headline    = 'Crafted with Precision.';
+    $description = 'Discover refined luxury watches with clean presentation, considered materials, and precise product detail.';
+    $intro       = sprintf('Shop the %s edit built around proportion, craftsmanship, and timeless contemporary design.', $brand_name);
+    $hero_image  = get_template_directory_uri() . '/assets/images/luxuryimagecollection%20(2)/37.jpg';
     $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
 }
 
@@ -42,6 +42,7 @@ if (!$hero_image && function_exists('wc_placeholder_img_src')) {
 }
 
 $live_categories = function_exists('qb_get_live_product_categories') ? qb_get_live_product_categories() : [];
+$hero_kicker     = $is_category ? __('Category Edit', 'dawp') : __('Shop The Collection', 'dawp');
 
 get_header();
 ?>
@@ -67,6 +68,13 @@ get_header();
                 <p class="shop-hero__copy"><?php echo esc_html($description); ?></p>
                 <p class="shop-hero__intro"><?php echo esc_html($intro); ?></p>
 
+                <div class="shop-hero__actions">
+                    <a class="shop-hero__button" href="#main-content"><?php esc_html_e('View Timepieces', 'dawp'); ?></a>
+                    <?php if ($is_category) : ?>
+                        <a class="shop-hero__link" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('All Watches', 'dawp'); ?></a>
+                    <?php endif; ?>
+                </div>
+
                 <div class="shop-hero__highlights" aria-label="<?php esc_attr_e('Collection highlights', 'dawp'); ?>">
                     <?php foreach ($highlights as $highlight) : ?>
                         <span><?php echo esc_html($highlight); ?></span>
@@ -76,6 +84,7 @@ get_header();
 
             <?php if ($hero_image) : ?>
                 <div class="shop-hero__media">
+                    <span class="shop-hero__kicker"><?php echo esc_html($hero_kicker); ?></span>
                     <?php
                     echo qb_responsive_image(
                         $hero_image,
@@ -90,6 +99,11 @@ get_header();
                         ]
                     );
                     ?>
+                    <div class="shop-hero__caption" aria-hidden="true">
+                        <span><?php esc_html_e('Precision', 'dawp'); ?></span>
+                        <span><?php esc_html_e('Craft', 'dawp'); ?></span>
+                        <span><?php esc_html_e('Detail', 'dawp'); ?></span>
+                    </div>
                 </div>
             <?php endif; ?>
         </div>

@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css - Orvel Time Design System
+   main.css - Velmo Custom Design System
    Pure CSS only. All values reference CSS variables.
    Mobile legacy overrides are isolated near the bottom.
    ============================================================= */
@@ -8,31 +8,31 @@
   /* === BACKGROUNDS === */
   --color-background: #FFFFFF;
   /* White — page background */
-  --color-surface: #F5F2EB;
+  --color-surface: #F5F4F1;
   /* Stone — section / card background */
-  --color-surface-alt: #F7F8F5;
+  --color-surface-alt: #FFFFFF;
   /* Soft Gray — hover states, alt sections */
 
   /* === TEXT === */
-  --color-foreground: #171A19;
+  --color-foreground: #111111;
   /* Primary text — headings, product names */
-  --color-foreground-muted: #5E625F;
+  --color-foreground-muted: #5F6668;
   /* Secondary text — descriptions, meta */
-  --color-muted: #8B8E89;
+  --color-muted: #A5A5A0;
   /* Light text — captions, breadcrumbs */
 
   /* === BRAND === */
-  --color-accent: #0D0F0F;
+  --color-accent: #10243A;
   /* Near black — primary CTA, strong text */
-  --color-accent-hover: #B38A52;
+  --color-accent-hover: #D1AE68;
   /* Warm brass — hover state */
-  --color-accent-soft: #D7B987;
+  --color-accent-soft: #D1AE68;
   /* Soft brass — highlights */
-  --color-accent-blush: #263C33;
+  --color-accent-blush: #F5F4F1;
   /* Deep green — secondary accents */
 
   /* === UI === */
-  --color-border: #D8D6CF;
+  --color-border: #D8D4CB;
   /* Border — cards, dividers */
   --color-alert: #C0392B;
   /* Error / alert */

@@ -1,22 +1,22 @@
 /* ===================================================
    CART PAGE — WooCommerce Block Cart
-   Orvel Time Brand - Mobile-first - Pure CSS - No @apply
+   Velmo Custom Brand - Mobile-first - Pure CSS - No @apply
    =================================================== */
 
 :root {
   --qb-cart-bg: #ffffff;
-  --qb-cart-cream: #f3eee4;
-  --qb-cart-soft: #fbfaf7;
-  --qb-cart-plum: #0d0f0f;
-  --qb-cart-text: #171a19;
-  --qb-cart-muted: #5e625f;
-  --qb-cart-border: #e2ded5;
-  --qb-cart-gold: #b38a52;
-  --qb-cart-gold-hover: #8f6b3d;
+  --qb-cart-cream: #f5f4f1;
+  --qb-cart-soft: #ffffff;
+  --qb-cart-plum: #10243a;
+  --qb-cart-text: #111111;
+  --qb-cart-muted: #5f6668;
+  --qb-cart-border: #d8d4cb;
+  --qb-cart-gold: #d1ae68;
+  --qb-cart-gold-hover: #10243a;
   --qb-cart-sale: #a94e3f;
   --qb-cart-alert: #c0392b;
   --qb-cart-shadow: 0 18px 44px rgba(34, 31, 27, 0.09);
-  --qb-cart-ring: #263c33;
+  --qb-cart-ring: #10243a;
 }
 
 /* === 1. PAGE WRAPPER === */
@@ -820,18 +820,18 @@
   background: var(--qb-cart-gold);
 }
 
-/* Orvel Time ecommerce alignment */
+/* Velmo Custom ecommerce alignment */
 :root {
   --qb-cart-bg: #FFFFFF;
-  --qb-cart-cream: #F4F0E8;
-  --qb-cart-soft: #F5F2EB;
-  --qb-cart-plum: #111312;
-  --qb-cart-text: #111312;
-  --qb-cart-muted: #555B50;
+  --qb-cart-cream: #F5F4F1;
+  --qb-cart-soft: #FFFFFF;
+  --qb-cart-plum: #111111;
+  --qb-cart-text: #111111;
+  --qb-cart-muted: #A5A5A0;
   --qb-cart-border: #D7CDBE;
-  --qb-cart-gold: #A68158;
-  --qb-cart-gold-hover: #A68158;
-  --qb-cart-ring: #555B50;
+  --qb-cart-gold: #D1AE68;
+  --qb-cart-gold-hover: #10243A;
+  --qb-cart-ring: #A5A5A0;
 }
 
 .wc-block-cart,
@@ -855,6 +855,6 @@
 
 .wc-block-cart__submit-button:hover,
 .wc-block-grid__product-add-to-cart .wp-block-button__link:hover {
-  background: #A68158;
-  color: #111312;
+  background: #D1AE68;
+  color: #111111;
 }

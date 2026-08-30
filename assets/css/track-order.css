@@ -1,40 +1,40 @@
-/* Orvel Time track order page */
+/* Velmo Custom track order page */
 
 .track-order-page {
-  --track-brass-soft: #d7b987;
-  --track-cream: #f5f2eb;
-  --track-soft: #f7f8f5;
-  --track-green: #263c33;
-  --track-green-soft: #e3e7df;
-  --track-gold: #b38a52;
-  --track-plum: #0d0f0f;
-  --track-text: #171a19;
-  --track-muted: #5e625f;
-  --track-border: #d8d6cf;
+  --track-brass-soft: #d1ae68;
+  --track-cream: #f5f4f1;
+  --track-soft: #ffffff;
+  --track-green: #10243a;
+  --track-green-soft: #f5f4f1;
+  --track-gold: #d1ae68;
+  --track-plum: #10243a;
+  --track-text: #111111;
+  --track-muted: #5f6668;
+  --track-border: #d8d4cb;
   --track-white: #ffffff;
   --track-danger: #c0392b;
   --track-success: #5c8a6a;
-  --track-shadow: 0 18px 46px rgba(13, 15, 15, .1);
-  --track-font: "Lato", "Inter", system-ui, sans-serif;
-  --track-heading: "Lato", Georgia, "Times New Roman", serif;
+  --track-shadow: 0 12px 28px rgba(16, 36, 58, .08);
+  --track-font: "Inter", "DM Sans", system-ui, sans-serif;
+  --track-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 
   background: var(--track-white);
   color: var(--track-text);
   font-family: var(--track-font);
 }
 
-/* Orvel Time final tracking alignment */
+/* Velmo Custom final tracking alignment */
 .track-order-page {
-  --track-brass-soft: #C6A77F;
-  --track-cream: #F4F0E8;
-  --track-soft: #F5F2EB;
-  --track-green: #555B50;
-  --track-green-soft: #E5DDD2;
-  --track-gold: #A68158;
-  --track-plum: #111312;
-  --track-text: #111312;
-  --track-muted: #555B50;
-  --track-border: #D7CDBE;
+  --track-brass-soft: #D1AE68;
+  --track-cream: #F5F4F1;
+  --track-soft: #FFFFFF;
+  --track-green: #10243A;
+  --track-green-soft: #F5F4F1;
+  --track-gold: #D1AE68;
+  --track-plum: #10243A;
+  --track-text: #111111;
+  --track-muted: #5F6668;
+  --track-border: #D8D4CB;
 }
 
 .track-order-page *,

@@ -5,7 +5,7 @@ remove_action('wp_head', 'wp_site_icon', 99);
 add_action('wp_head', 'dawp_logo_favicon', 100);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'OT-' . $order_id;
+    return 'VC-' . $order_id;
 }
 function dawp_setup() {
     add_theme_support('title-tag');
@@ -27,7 +27,7 @@ function dawp_asset_ver($relative_path) {
 }
 
 function dawp_logo_favicon() {
-    $logo_url = get_template_directory_uri() . '/assets/images/home/logobrand.png';
+    $logo_url = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
     $favicon_url = function_exists('qb_i0_image_url') ? qb_i0_image_url($logo_url, 32, 32) : $logo_url;
     $apple_touch_icon_url = function_exists('qb_i0_image_url') ? qb_i0_image_url($logo_url, 180, 180) : $logo_url;
     ?>

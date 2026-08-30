@@ -1,19 +1,19 @@
-/* Orvel Time shop and product category pages */
+/* Velmo Custom shop and product category pages */
 :root {
   --qb-shop-bg: #ffffff;
-  --qb-shop-cream: #f5f2eb;
-  --qb-shop-soft: #f7f8f5;
-  --qb-shop-blush: #d7b987;
-  --qb-shop-peach: #e7dac8;
-  --qb-shop-lavender: #d8d6cf;
-  --qb-shop-mint: #e3e7df;
-  --qb-shop-gold: #b38a52;
-  --qb-shop-plum: #0d0f0f;
-  --qb-shop-text: #171a19;
-  --qb-shop-muted: #5e625f;
-  --qb-shop-border: #d8d6cf;
-  --qb-shop-shadow: 0 18px 44px rgba(13, 15, 15, .1);
-  --qb-shop-font: "Lato", "Inter", system-ui, sans-serif;
+  --qb-shop-cream: #f5f4f1;
+  --qb-shop-soft: #ffffff;
+  --qb-shop-blush: #d1ae68;
+  --qb-shop-peach: #f5f4f1;
+  --qb-shop-lavender: #a5a5a0;
+  --qb-shop-mint: #f5f4f1;
+  --qb-shop-gold: #d1ae68;
+  --qb-shop-plum: #10243a;
+  --qb-shop-text: #111111;
+  --qb-shop-muted: #5f6668;
+  --qb-shop-border: #d8d4cb;
+  --qb-shop-shadow: 0 12px 28px rgba(16, 36, 58, .08);
+  --qb-shop-font: "Inter", "DM Sans", system-ui, sans-serif;
 }
 
 .shop-page {
@@ -59,98 +59,230 @@
 }
 
 .shop-hero {
+  position: relative;
   overflow: hidden;
+  border-bottom: 1px solid var(--qb-shop-border);
+  background: var(--qb-shop-cream);
+}
+
+.shop-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(90deg, rgba(13, 15, 15, .95), rgba(13, 15, 15, .68) 46%, rgba(13, 15, 15, .18) 86%),
-    var(--qb-shop-cream);
+    linear-gradient(90deg, var(--qb-shop-bg) 0, rgba(255, 255, 255, .78) 42%, rgba(245, 244, 241, .24) 100%),
+    linear-gradient(180deg, rgba(209, 174, 104, .16), transparent 58%);
+}
+
+.shop-hero::after {
+  content: "";
+  position: absolute;
+  right: clamp(18px, 5vw, 72px);
+  bottom: 0;
+  width: min(42vw, 520px);
+  height: 1px;
+  background: var(--qb-shop-gold);
 }
 
 .shop-hero__grid {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, .82fr);
-  gap: 48px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, .72fr);
+  gap: clamp(34px, 6vw, 82px);
   align-items: center;
-  padding-block: 58px;
+  min-height: 520px;
+  padding-block: clamp(54px, 7vw, 86px);
 }
 
 .shop-breadcrumb {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 24px;
-  color: rgba(255, 255, 255, .7);
+  margin-bottom: 30px;
+  color: var(--qb-shop-muted);
   font-size: 13px;
   font-weight: 700;
 }
 
 .shop-breadcrumb a:hover {
-  color: #d7b987;
+  color: var(--qb-shop-gold);
 }
 
 .shop-eyebrow {
-  margin: 0 0 12px;
-  color: #d7b987;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 16px;
+  color: var(--qb-shop-gold);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: .18em;
   text-transform: uppercase;
 }
 
+.shop-eyebrow::before {
+  content: "";
+  width: 42px;
+  height: 1px;
+  background: currentColor;
+}
+
 .shop-hero__title {
   max-width: 760px;
   margin: 0;
-  color: #ffffff;
+  color: var(--qb-shop-plum);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(36px, 5vw, 64px);
+  font-size: clamp(40px, 5.2vw, 68px);
   line-height: 1.03;
   letter-spacing: 0;
 }
 
 .shop-hero__copy,
 .shop-hero__intro {
-  max-width: 690px;
-  margin: 18px 0 0;
-  color: rgba(255, 255, 255, .86);
+  max-width: 650px;
+  margin: 20px 0 0;
+  color: var(--qb-shop-text);
   font-size: 17px;
   line-height: 1.75;
 }
 
 .shop-hero__intro {
   margin-top: 10px;
-  color: rgba(255, 255, 255, .68);
+  color: var(--qb-shop-muted);
   font-size: 15px;
+}
+
+.shop-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 28px;
+}
+
+.shop-hero__button,
+.shop-hero__link {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.shop-hero__button {
+  border: 1px solid var(--qb-shop-plum);
+  background: var(--qb-shop-plum);
+  color: var(--qb-shop-bg);
+  min-width: 162px;
+  padding: 0 20px;
+  line-height: 1;
+  opacity: 1;
+  visibility: visible;
+}
+
+.shop-hero__button:hover {
+  border-color: var(--qb-shop-gold);
+  background: var(--qb-shop-gold);
+  color: var(--qb-shop-plum);
+}
+
+.shop-hero__link {
+  border: 1px solid var(--qb-shop-border);
+  background: var(--qb-shop-bg);
+  color: var(--qb-shop-plum);
+  padding: 0 18px;
+}
+
+.shop-page .shop-hero__button,
+.shop-page .shop-hero__button:visited {
+  color: #fff !important;
+  font-size: 13px !important;
+  text-indent: 0;
+}
+
+.shop-page .shop-hero__button:hover {
+  color: var(--qb-shop-plum) !important;
+}
+
+.shop-hero__link:hover {
+  border-color: var(--qb-shop-plum);
 }
 
 .shop-hero__highlights {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 26px;
+  margin-top: 30px;
 }
 
 .shop-hero__highlights span {
-  border: 1px solid rgba(255, 255, 255, .22);
+  border: 1px solid var(--qb-shop-border);
   border-radius: 4px;
-  background: rgba(255, 255, 255, .08);
+  background: rgba(255, 255, 255, .72);
   padding: 10px 14px;
-  color: #ffffff;
+  color: var(--qb-shop-plum);
   font-size: 13px;
   font-weight: 800;
 }
 
 .shop-hero__media {
+  position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, .25);
+  justify-self: end;
+  width: min(100%, 470px);
+  border: 1px solid var(--qb-shop-border);
   border-radius: 4px;
-  background: #111;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, .24);
+  background: var(--qb-shop-bg);
+  padding: 12px;
 }
 
 .shop-hero__media img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 5 / 6;
   object-fit: cover;
+}
+
+.shop-hero__kicker {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  z-index: 1;
+  background: var(--qb-shop-bg);
+  color: var(--qb-shop-plum);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  padding: 9px 11px;
+  text-transform: uppercase;
+}
+
+.shop-hero__caption {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--qb-shop-border);
+  background: var(--qb-shop-bg);
+}
+
+.shop-hero__caption span {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--qb-shop-muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.shop-hero__caption span + span {
+  border-left: 1px solid var(--qb-shop-border);
 }
 
 .shop-toolbar {
@@ -683,6 +815,15 @@ ul.products {
     grid-template-columns: 1fr;
   }
 
+  .shop-hero__grid {
+    min-height: 0;
+  }
+
+  .shop-hero__media {
+    justify-self: stretch;
+    width: 100%;
+  }
+
   .shop-sidebar {
     position: fixed;
     right: 0;
@@ -741,9 +882,21 @@ ul.products {
     padding-block: 44px;
   }
 
+  .shop-breadcrumb {
+    margin-bottom: 22px;
+  }
+
+  .shop-hero__actions {
+    align-items: stretch;
+  }
+
+  .shop-hero__button,
+  .shop-hero__link {
+    flex: 1 1 180px;
+  }
+
   .shop-hero__media {
-    border-width: 7px;
-    border-radius: 18px;
+    padding: 8px;
   }
 
   .shop-toolbar {
@@ -841,16 +994,16 @@ ul.products {
   }
 }
 
-/* Orvel Time final archive alignment */
+/* Velmo Custom final archive alignment */
 .shop-page {
   --qb-shop-bg: #FFFFFF;
-  --qb-shop-cream: #F4F0E8;
-  --qb-shop-soft: #F5F2EB;
+  --qb-shop-cream: #F5F4F1;
+  --qb-shop-soft: #FFFFFF;
   --qb-shop-peach: #E5DDD2;
-  --qb-shop-gold: #A68158;
-  --qb-shop-plum: #111312;
-  --qb-shop-text: #111312;
-  --qb-shop-muted: #555B50;
+  --qb-shop-gold: #D1AE68;
+  --qb-shop-plum: #111111;
+  --qb-shop-text: #111111;
+  --qb-shop-muted: #A5A5A0;
   --qb-shop-border: #D7CDBE;
 }
 

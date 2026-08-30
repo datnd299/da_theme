@@ -35,7 +35,7 @@ if (!function_exists('qb_404_products')) {
 }
 
 $shop_url = qb_404_shop_url();
-$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
 $products    = qb_404_products(3);
 
 get_header();
@@ -43,23 +43,23 @@ get_header();
 
 <style>
   .qb-404 {
-    --qb-blush: #d7b987;
-    --qb-peach: #e7dac8;
-    --qb-lavender: #d8d6cf;
-    --qb-mint: #e3e7df;
-    --qb-gold: #b38a52;
-    --qb-plum: #0d0f0f;
-    --qb-gray: #f5f2eb;
-    --qb-text: #5e625f;
-    --qb-border: #d8d6cf;
+    --qb-blush: #d1ae68;
+    --qb-peach: #f5f4f1;
+    --qb-lavender: #a5a5a0;
+    --qb-mint: #f5f4f1;
+    --qb-gold: #d1ae68;
+    --qb-plum: #10243a;
+    --qb-gray: #f5f4f1;
+    --qb-text: #5f6668;
+    --qb-border: #d8d4cb;
     position: relative;
     overflow: hidden;
     min-height: 72vh;
     background:
-      linear-gradient(90deg, rgba(13, 15, 15, .95), rgba(13, 15, 15, .68) 48%, rgba(13, 15, 15, .16) 86%),
-      linear-gradient(135deg, #f5f2eb, #ffffff);
+      linear-gradient(90deg, rgba(16, 36, 58, .95), rgba(16, 36, 58, .68) 48%, rgba(16, 36, 58, .16) 86%),
+      linear-gradient(135deg, #f5f4f1, #ffffff);
     color: var(--qb-text);
-    font-family: "Lato", "Inter", system-ui, sans-serif;
+    font-family: "Inter", "DM Sans", system-ui, sans-serif;
     padding: clamp(64px, 9vw, 112px) 0;
   }
 
@@ -204,40 +204,92 @@ get_header();
 
   .qb-404__product {
     display: grid;
-    min-height: 70px;
-    grid-template-columns: 58px minmax(0, 1fr);
-    gap: 12px;
+    min-height: 86px;
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 14px;
     align-items: center;
     border: 1px solid var(--qb-border);
     border-radius: 4px;
-    background: #fff;
-    padding: 8px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, .98), rgba(245, 244, 241, .42)),
+      #fff;
+    padding: 10px;
     color: var(--qb-plum);
     transition: .2s ease;
   }
 
-  .qb-404__product img {
-    width: 58px;
-    height: 58px;
+  .qb-404__product-media {
+    display: block;
+    overflow: hidden;
+    width: 74px;
+    height: 74px;
     border-radius: 4px;
     background: var(--qb-gray);
+  }
+
+  .qb-404__product-media img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
+  .qb-404__product-body {
+    display: grid;
+    min-width: 0;
+    gap: 8px;
+  }
+
   .qb-404__product strong {
-    display: block;
+    display: -webkit-box;
     overflow: hidden;
     color: var(--qb-plum);
     font-size: 14px;
-    line-height: 1.35;
+    font-weight: 850;
+    line-height: 1.32;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 
-  .qb-404__product span {
-    display: block;
-    margin-top: 4px;
-    color: #5e625f;
-    font-size: 13px;
+  .qb-404__product-price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 8px;
+    color: var(--qb-plum);
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 1.2;
+  }
+
+  .qb-404__product-price .woocommerce-Price-amount {
+    white-space: nowrap;
+  }
+
+  .qb-404__product-price ins {
+    color: var(--qb-plum);
+    text-decoration: none;
+  }
+
+  .qb-404__product-price del {
+    color: #9a9a94;
+    font-size: 12px;
     font-weight: 700;
+    opacity: .78;
+  }
+
+  .qb-404__product-price del .woocommerce-Price-amount {
+    text-decoration: line-through;
+  }
+
+  .qb-404__product-price > .woocommerce-Price-amount,
+  .qb-404__product-price ins .woocommerce-Price-amount {
+    display: inline-flex;
+    align-items: baseline;
+    border-radius: 3px;
+    background: rgba(209, 174, 104, .14);
+    padding: 5px 8px;
+    color: var(--qb-plum);
   }
 
   @media (max-width: 820px) {
@@ -287,22 +339,24 @@ get_header();
               ?>
               <a class="qb-404__product" href="<?php echo esc_url(get_permalink($product->get_id())); ?>">
                 <?php if ($product_image) : ?>
-                  <?php
-                  echo qb_responsive_image(
-                      $product_image,
-                      $product->get_name(),
-                      [
-                          'width'  => 116,
-                          'height' => 116,
-                          'widths' => [58, 116, 174],
-                          'sizes'  => '58px',
-                      ]
-                  );
-                  ?>
+                  <span class="qb-404__product-media">
+                    <?php
+                    echo qb_responsive_image(
+                        $product_image,
+                        $product->get_name(),
+                        [
+                            'width'  => 148,
+                            'height' => 148,
+                            'widths' => [74, 148, 222],
+                            'sizes'  => '74px',
+                        ]
+                    );
+                    ?>
+                  </span>
                 <?php endif; ?>
-                <span>
+                <span class="qb-404__product-body">
                   <strong><?php echo esc_html($product->get_name()); ?></strong>
-                  <span><?php echo wp_kses_post($product->get_price_html()); ?></span>
+                  <span class="qb-404__product-price"><?php echo wp_kses_post($product->get_price_html()); ?></span>
                 </span>
               </a>
             <?php endforeach; ?>

@@ -5,13 +5,14 @@
  * @package dawp
  */
 
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Orvel Time';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@orveltime.com';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom privacy support', 'dawp')) : 'mailto:' . $support_email;
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
 <style>
-  .qb-page { --qb-obsidian:#0D0F0F; --qb-ivory:#F7F4EE; --qb-white:#FFFFFF; --qb-carbon:#171A19; --qb-green:#263C33; --qb-gold:#B38A52; --qb-silver:#D7D0C2; --qb-gray:#F7F4EE; --qb-text:#5E625F; --qb-border:#DDD5C7; --qb-plum:#171A19; --qb-peach:#D7B987; background:var(--qb-ivory); color:var(--qb-text); font-family:"DM Sans","Inter",system-ui,sans-serif; }
+  .qb-page { --qb-obsidian:#10243A; --qb-ivory:#F5F4F1; --qb-white:#FFFFFF; --qb-carbon:#111111; --qb-green:#10243A; --qb-gold:#D1AE68; --qb-silver:#A5A5A0; --qb-gray:#F5F4F1; --qb-text:#5F6668; --qb-border:#D8D4CB; --qb-plum:#10243A; --qb-peach:#D1AE68; background:var(--qb-ivory); color:var(--qb-text); font-family:"Inter","DM Sans",system-ui,sans-serif; }
   .qb-page * { box-sizing:border-box; }
   .qb-page a { text-decoration:none; }
   .qb-wrap { width:min(100% - 32px,1280px); margin-inline:auto; }
@@ -39,7 +40,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-card { padding:22px; }
   .qb-card b { display:inline-flex; width:42px; height:42px; align-items:center; justify-content:center; border-radius:999px; background:var(--qb-ivory); color:var(--qb-plum); font-size:13px; }
   .qb-card h3, .qb-policy-card h2, .qb-mini-card strong { margin:18px 0 0; color:var(--qb-plum); }
-  .qb-card p, .qb-policy-card p, .qb-policy-card li, .qb-mini-card p { color:#5E625F; font-size:14px; line-height:1.65; }
+  .qb-card p, .qb-policy-card p, .qb-policy-card li, .qb-mini-card p { color:#A5A5A0; font-size:14px; line-height:1.65; }
   .qb-soft { background:var(--qb-gray); }
   .qb-content-grid { display:grid; grid-template-columns:.82fr 1.18fr; gap:34px; align-items:start; }
   .qb-sidebar { position:sticky; top:120px; display:grid; gap:16px; }
@@ -67,7 +68,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-contact-card { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:24px; }
   .qb-contact-item { border:1px solid var(--qb-border); border-radius:18px; background:#fff; padding:16px; }
   .qb-contact-item strong { display:block; color:var(--qb-plum); font-size:14px; }
-  .qb-contact-item span { display:block; margin-top:7px; color:#5E625F; font-size:14px; line-height:1.6; }
+  .qb-contact-item span { display:block; margin-top:7px; color:#A5A5A0; font-size:14px; line-height:1.6; }
   .qb-plum { background:var(--qb-plum); color:#fff; }
   .qb-plum .qb-title, .qb-plum .qb-copy { color:#fff; }
   .qb-policy-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
@@ -215,7 +216,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <p><?php printf(
                 /* translators: %s: support email address. */
                 esc_html__('If you are experiencing issues with the messaging program, reply with HELP for more assistance, or get help directly at %s.', 'dawp'),
-                '<a href="mailto:' . esc_attr($support_email) . '">' . esc_html($support_email) . '</a>'
+                '<a href="' . esc_url($support_mailto) . '">' . esc_html($support_email) . '</a>'
             ); ?></p>
           </div>
           <div class="qb-policy-section">
@@ -248,7 +249,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
           <h3><?php esc_html_e('Changes to This Policy', 'dawp'); ?></h3>
           <p><?php esc_html_e('We may update this Privacy Policy from time to time. Any updates will be posted on this page with a revised date.', 'dawp'); ?></p>
           <div class="qb-actions">
-            <a class="qb-button" href="mailto:<?php echo esc_attr($support_email); ?>"><?php esc_html_e('Email Privacy Support', 'dawp'); ?></a>
+            <a class="qb-button" href="<?php echo esc_url($support_mailto); ?>"><?php esc_html_e('Email Privacy Support', 'dawp'); ?></a>
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping Policy', 'dawp'); ?></a>
             <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Return & Refund Policy', 'dawp'); ?></a>
           </div>
@@ -271,7 +272,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
             <?php endif; ?>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Email', 'dawp'); ?></strong>
-              <span><a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></span>
+              <span><a href="<?php echo esc_url($support_mailto); ?>"><?php echo esc_html($support_email); ?></a></span>
             </div>
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Customer Service Hours', 'dawp'); ?></strong>

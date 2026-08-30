@@ -32,12 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            if (prevBtn.disabled) return;
             const scrollAmount = thumbsList.clientWidth * 0.75;
             thumbsList.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
         
         nextBtn.addEventListener('click', (e) => {
             e.preventDefault();
+            if (nextBtn.disabled) return;
             const scrollAmount = thumbsList.clientWidth * 0.75;
             thumbsList.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
@@ -48,8 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextBtn.style.display = 'none';
                 return;
             }
-            prevBtn.style.display = thumbsList.scrollLeft > 5 ? 'flex' : 'none';
-            nextBtn.style.display = Math.ceil(thumbsList.scrollLeft + thumbsList.clientWidth) >= thumbsList.scrollWidth - 5 ? 'none' : 'flex';
+            const atStart = thumbsList.scrollLeft <= 5;
+            const atEnd = Math.ceil(thumbsList.scrollLeft + thumbsList.clientWidth) >= thumbsList.scrollWidth - 5;
+
+            prevBtn.disabled = atStart;
+            nextBtn.disabled = atEnd;
+            prevBtn.classList.toggle('is-disabled', atStart);
+            nextBtn.classList.toggle('is-disabled', atEnd);
         };
         
         thumbsList.addEventListener('scroll', updateButtons, { passive: true });

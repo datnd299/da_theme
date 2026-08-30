@@ -9,6 +9,7 @@ add_filter('loop_shop_per_page', function() { return 12; });
 
 add_filter('woocommerce_get_catalog_ordering_args', 'dawp_force_oldest_product_archive_ordering', 99);
 add_action('pre_get_posts', 'dawp_force_oldest_product_archive_query', 99);
+add_filter('woocommerce_sale_flash', 'dawp_sale_flash_label', 10, 3);
 
 function dawp_is_oldest_first_product_archive() {
     return !is_admin()
@@ -37,6 +38,10 @@ function dawp_force_oldest_product_archive_query($query) {
     $query->set('orderby', 'date');
     $query->set('order', 'ASC');
     $query->set('meta_key', '');
+}
+
+function dawp_sale_flash_label($html, $post, $product) {
+    return '<span class="onsale">' . esc_html__('Sale', 'dawp') . '</span>';
 }
 
 // Disable all default WooCommerce CSS
@@ -146,8 +151,8 @@ function dawp_get_store_address_line() {
     $address_2 = $countries ? $countries->get_base_address_2() : get_option('woocommerce_store_address_2', '');
     $city      = $countries ? $countries->get_base_city() : get_option('woocommerce_store_city', '');
     $postcode  = $countries ? $countries->get_base_postcode() : get_option('woocommerce_store_postcode', '');
-    $state     = $countries ? $countries->get_base_state() : '';
-    $country   = $countries ? $countries->get_base_country() : '';
+    $state     = $countries ? $countries->get_base_state() : get_option('woocommerce_store_state', '');
+    $country   = $countries ? $countries->get_base_country() : get_option('woocommerce_store_country', '');
 
     $address_1 = trim(wp_strip_all_tags((string) $address_1));
     $address_2 = trim(wp_strip_all_tags((string) $address_2));
@@ -177,7 +182,7 @@ function dawp_get_store_address_line() {
     $city_region = trim(implode(', ', array_filter([$city, trim($state . ' ' . $postcode)])));
     $parts       = array_filter([$address_1, $address_2, $city_region]);
 
-    if ($country && 'US' !== strtoupper($country)) {
+    if ($country) {
         $country_name = $country;
 
         if ($countries) {

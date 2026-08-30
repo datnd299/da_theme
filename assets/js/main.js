@@ -4,9 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const thumbsList = document.querySelector('.flex-control-thumbs');
         if (!thumbsList || thumbsList.classList.contains('has-scroll-arrows')) return !!thumbsList;
         
-        // Ensure there are enough thumbnails to warrant scrolling
-        if (thumbsList.scrollWidth <= thumbsList.clientWidth) return true;
-
         thumbsList.classList.add('has-scroll-arrows');
         
         const wrapper = document.createElement('div');
@@ -43,13 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         const updateButtons = () => {
-            if (thumbsList.scrollWidth <= thumbsList.clientWidth) {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-                return;
-            }
-            prevBtn.style.display = thumbsList.scrollLeft > 5 ? 'flex' : 'none';
-            nextBtn.style.display = Math.ceil(thumbsList.scrollLeft + thumbsList.clientWidth) >= thumbsList.scrollWidth - 5 ? 'none' : 'flex';
+            const canScroll = thumbsList.scrollWidth > thumbsList.clientWidth + 5;
+            const isAtStart = thumbsList.scrollLeft <= 5;
+            const isAtEnd = Math.ceil(thumbsList.scrollLeft + thumbsList.clientWidth) >= thumbsList.scrollWidth - 5;
+
+            prevBtn.disabled = !canScroll || isAtStart;
+            nextBtn.disabled = !canScroll || isAtEnd;
         };
         
         thumbsList.addEventListener('scroll', updateButtons, { passive: true });

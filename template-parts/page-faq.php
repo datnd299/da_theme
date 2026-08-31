@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto    = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom support question', 'dawp'), __('Please include your order number and checkout email if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
+$store_name        = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
+$support_email     = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
+$support_mailto    = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft support question', 'dawp'), __('Please include your order number and checkout email if this is about an existing order.', 'dawp')) : 'mailto:' . $support_email;
 $store_address     = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal    = home_url('/contact-us/');
 $shipping_policy   = home_url('/shipping-policy/');

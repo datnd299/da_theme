@@ -7,12 +7,13 @@
 
 defined('ABSPATH') || exit;
 
-$asset_base     = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (2)/';
+$asset_base     = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (3)/';
 $support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
 $support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft support request', 'dawp')) : 'mailto:' . $support_email;
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $contact_status = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+$track_url      = home_url('/track-order/');
 ?>
 
 <section class="zc-contact-hero">
@@ -23,7 +24,7 @@ $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permali
             <p><?php esc_html_e('Questions about an order, a watch, tracking or returns? Send a clear note and include your order number when relevant.', 'dawp'); ?></p>
         </div>
         <figure class="zc-contact-hero__media">
-            <img src="<?php echo esc_url($asset_base . '34.jpg'); ?>" alt="<?php esc_attr_e('Luxury watch on a clean desk', 'dawp'); ?>">
+            <img src="<?php echo esc_url($asset_base . '48.jpg'); ?>" alt="<?php esc_attr_e('Luxury watch on a clean desk', 'dawp'); ?>">
         </figure>
     </div>
 </section>
@@ -33,6 +34,7 @@ $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permali
         <div><span><?php esc_html_e('Email', 'dawp'); ?></span><strong><a href="<?php echo esc_url($support_mailto); ?>"><?php echo esc_html($support_email); ?></a></strong></div>
         <div><span><?php esc_html_e('Hours', 'dawp'); ?></span><strong><?php esc_html_e('Mon-Fri, 9:00 AM-6:00 PM PST', 'dawp'); ?></strong></div>
         <div><span><?php esc_html_e('Response', 'dawp'); ?></span><strong><?php esc_html_e('Usually within 1 business day', 'dawp'); ?></strong></div>
+        <div><span><?php esc_html_e('Tracking', 'dawp'); ?></span><strong><a href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a></strong></div>
     </div>
 </section>
 
@@ -96,13 +98,14 @@ $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permali
 
 <section class="zc-contact-editorial">
     <div class="zc-wrap zc-contact-editorial__grid">
-        <figure><img src="<?php echo esc_url($asset_base . '29.jpg'); ?>" alt="<?php esc_attr_e('Collector watch detail', 'dawp'); ?>"></figure>
+        <figure><img src="<?php echo esc_url($asset_base . '49.jpg'); ?>" alt="<?php esc_attr_e('Collector watch detail', 'dawp'); ?>"></figure>
         <div>
             <span class="zc-kicker"><?php esc_html_e('Before You Write', 'dawp'); ?></span>
             <h2><?php esc_html_e('Need policy details?', 'dawp'); ?></h2>
             <p><?php esc_html_e('For shipping, returns and common order questions, the policy pages may answer the essentials immediately.', 'dawp'); ?></p>
             <div class="zc-actions">
                 <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('FAQ', 'dawp'); ?></a>
+                <a class="zc-button zc-button--secondary" href="<?php echo esc_url($track_url); ?>"><?php esc_html_e('Track Order', 'dawp'); ?></a>
                 <a class="zc-button zc-button--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
             </div>
         </div>

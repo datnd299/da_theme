@@ -7,7 +7,7 @@
 
 defined('ABSPATH') || exit;
 
-$asset_base = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (2)/';
+$asset_base = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (3)/';
 $shop_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 ?>
 
@@ -24,10 +24,10 @@ $shop_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('
         </div>
         <div class="zc-about-hero__visual" aria-hidden="true">
             <figure class="zc-about-frame zc-about-frame--main">
-                <img src="<?php echo esc_url($asset_base . '37.jpg'); ?>" alt="">
+                <img src="<?php echo esc_url($asset_base . '45.jpg'); ?>" alt="">
             </figure>
             <figure class="zc-about-frame zc-about-frame--detail">
-                <img src="<?php echo esc_url($asset_base . '31.jpg'); ?>" alt="">
+                <img src="<?php echo esc_url($asset_base . '46.jpg'); ?>" alt="">
             </figure>
         </div>
     </div>
@@ -59,7 +59,7 @@ $shop_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('
 
 <section class="zc-about-editorial">
     <figure class="zc-about-editorial__media">
-        <img src="<?php echo esc_url($asset_base . '35.jpg'); ?>" alt="<?php esc_attr_e('Watch detail on a collector desk', 'dawp'); ?>">
+        <img src="<?php echo esc_url($asset_base . '47.jpg'); ?>" alt="<?php esc_attr_e('Watch detail on a collector desk', 'dawp'); ?>">
     </figure>
     <div class="zc-wrap zc-about-editorial__content">
         <span class="zc-kicker"><?php esc_html_e('Built for Collectors', 'dawp'); ?></span>

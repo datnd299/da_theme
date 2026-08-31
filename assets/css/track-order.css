@@ -1,4 +1,4 @@
-/* Velmo Custom track order page */
+/* Zorex Craft track order page */
 
 .track-order-page {
   --track-brass-soft: #A8754F;
@@ -23,7 +23,7 @@
   font-family: var(--track-font);
 }
 
-/* Velmo Custom final tracking alignment */
+/* Zorex Craft final tracking alignment */
 .track-order-page {
   --track-brass-soft: #A8754F;
   --track-cream: #F7F7F5;

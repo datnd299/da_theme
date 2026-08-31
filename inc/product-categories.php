@@ -12,7 +12,7 @@ function qb_product_category_definitions() {
             'description' => __('Refined watches for formal wardrobes and polished daily wear.', 'dawp'),
             'headline'    => __('Dress Watches', 'dawp'),
             'intro'       => __('Refined proportions, elegant dials and timeless details for formal wardrobes.', 'dawp'),
-            'image'       => '',
+            'image'       => '41.jpg',
             'highlights'  => [
                 __('Slim profiles and elegant cases', 'dawp'),
                 __('Classic dial layouts', 'dawp'),
@@ -24,7 +24,7 @@ function qb_product_category_definitions() {
             'description' => __('Robust watches built for active days, travel and everyday confidence.', 'dawp'),
             'headline'    => __('Sport Watches', 'dawp'),
             'intro'       => __('Durable cases, legible dials and confident wrist presence for active routines.', 'dawp'),
-            'image'       => '',
+            'image'       => '42.jpg',
             'highlights'  => [
                 __('Durable cases and bracelets', 'dawp'),
                 __('High-legibility displays', 'dawp'),
@@ -36,7 +36,7 @@ function qb_product_category_definitions() {
             'description' => __('Versatile signature pieces made for frequent wear and easy styling.', 'dawp'),
             'headline'    => __('Daily Icons', 'dawp'),
             'intro'       => __('Versatile watches with enduring style, balanced comfort and everyday appeal.', 'dawp'),
-            'image'       => '',
+            'image'       => '43.jpg',
             'highlights'  => [
                 __('Easy to dress up or down', 'dawp'),
                 __('Comfortable everyday proportions', 'dawp'),
@@ -48,7 +48,7 @@ function qb_product_category_definitions() {
             'description' => __('Selected pieces with character, distinction and collector-focused appeal.', 'dawp'),
             'headline'    => __('Collector Picks', 'dawp'),
             'intro'       => __('Distinctive references selected for character, condition and collection value.', 'dawp'),
-            'image'       => '',
+            'image'       => '44.jpg',
             'highlights'  => [
                 __('Standout references and details', 'dawp'),
                 __('Collector-minded selection', 'dawp'),
@@ -126,7 +126,7 @@ function qb_product_term_url($term) {
 }
 
 function qb_theme_asset_image_url($filename) {
-    $relative_path = 'assets/images/home/' . ltrim($filename, '/');
+    $relative_path = 'assets/images/luxuryimagecollection (3)/' . ltrim($filename, '/');
     $file_path = trailingslashit(get_template_directory()) . $relative_path;
 
     return file_exists($file_path) ? trailingslashit(get_template_directory_uri()) . $relative_path : '';

@@ -35,7 +35,7 @@ if (!function_exists('qb_404_products')) {
 }
 
 $shop_url = qb_404_shop_url();
-$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
 $products    = qb_404_products(3);
 
 get_header();
@@ -56,8 +56,9 @@ get_header();
     overflow: hidden;
     min-height: 72vh;
     background:
-      linear-gradient(90deg, rgba(16, 36, 58, .95), rgba(16, 36, 58, .68) 48%, rgba(16, 36, 58, .16) 86%),
-      linear-gradient(135deg, #F7F7F5, #ffffff);
+      linear-gradient(180deg, rgba(247, 247, 245, .98), rgba(255, 255, 255, .98)),
+      radial-gradient(circle at 12% 18%, rgba(168, 117, 79, .18), transparent 30%),
+      linear-gradient(135deg, #ffffff, #dde8ee);
     color: var(--qb-text);
     font-family: "Lato", "Inter", system-ui, sans-serif;
     padding: clamp(64px, 9vw, 112px) 0;
@@ -75,9 +76,24 @@ get_header();
     display: grid;
     width: min(100% - 32px, 1120px);
     margin-inline: auto;
-    grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+    grid-template-columns: minmax(0, .95fr) minmax(300px, 430px);
     gap: clamp(28px, 5vw, 58px);
     align-items: center;
+  }
+
+  .qb-404__content {
+    position: relative;
+    isolation: isolate;
+    padding-left: clamp(0px, 4vw, 42px);
+  }
+
+  .qb-404__content::before {
+    content: "";
+    position: absolute;
+    inset: -28px auto -28px 0;
+    z-index: -1;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(168, 117, 79, .72), transparent);
   }
 
   .qb-404__eyebrow {
@@ -92,18 +108,18 @@ get_header();
   .qb-404__code {
     display: block;
     margin: 0 0 10px;
-    color: rgba(255, 255, 255, .1);
-    font-size: clamp(96px, 16vw, 180px);
+    color: rgba(23, 59, 87, .08);
+    font-size: clamp(88px, 14vw, 152px);
     font-weight: 900;
-    line-height: .78;
+    line-height: .82;
   }
 
   .qb-404__title {
     max-width: 680px;
     margin: 0;
-    color: #ffffff;
+    color: var(--qb-plum);
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(38px, 5.6vw, 68px);
+    font-size: clamp(38px, 5.1vw, 64px);
     line-height: 1.03;
     letter-spacing: 0;
   }
@@ -111,7 +127,7 @@ get_header();
   .qb-404__copy {
     max-width: 620px;
     margin: 20px 0 0;
-    color: rgba(255, 255, 255, .78);
+    color: var(--qb-text);
     font-size: 17px;
     line-height: 1.75;
   }
@@ -132,10 +148,10 @@ get_header();
     min-height: 48px;
     align-items: center;
     justify-content: center;
-    border: 1px solid #ffffff;
+    border: 1px solid var(--qb-plum);
     border-radius: 4px;
-    background: #ffffff;
-    color: var(--qb-plum);
+    background: var(--qb-plum);
+    color: #ffffff;
     padding: 0 24px;
     font-size: 14px;
     font-weight: 800;
@@ -149,26 +165,143 @@ get_header();
   }
 
   .qb-404__button--secondary {
-    border-color: rgba(255, 255, 255, .35);
+    border-color: var(--qb-border);
     background: transparent;
-    color: #ffffff;
-  }
-
-  .qb-404__button--secondary:hover {
-    border-color: #ffffff;
-    background: #ffffff;
     color: var(--qb-plum);
   }
 
-  .qb-404__panel {
-    border: 1px solid rgba(255, 255, 255, .16);
+  .qb-404__button--secondary:hover {
+    border-color: var(--qb-plum);
+    background: var(--qb-plum);
+    color: #ffffff;
+  }
+
+  .qb-404__search {
+    display: grid;
+    max-width: 540px;
+    margin-top: 26px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+
+  .qb-404__search label {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+  }
+
+  .qb-404__search input {
+    min-width: 0;
+    min-height: 50px;
+    border: 1px solid var(--qb-border);
     border-radius: 4px;
-    background: rgba(255, 255, 255, .94);
+    background: #ffffff;
+    color: #181a1b;
+    padding: 0 16px;
+    outline: none;
+    transition: .2s ease;
+  }
+
+  .qb-404__search input:focus {
+    border-color: var(--qb-plum);
+    box-shadow: 0 0 0 3px rgba(23, 59, 87, .12);
+  }
+
+  .qb-404__search button {
+    min-height: 50px;
+    border: 1px solid var(--qb-gold);
+    border-radius: 4px;
+    background: var(--qb-gold);
+    color: var(--qb-plum);
+    padding: 0 18px;
+    font-size: 13px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: .2s ease;
+  }
+
+  .qb-404__search button:hover {
+    border-color: var(--qb-plum);
+    background: var(--qb-plum);
+    color: #ffffff;
+  }
+
+  .qb-404__route {
+    position: relative;
+    min-height: 290px;
+    border: 1px solid rgba(23, 59, 87, .14);
+    border-radius: 4px;
+    background:
+      linear-gradient(135deg, rgba(23, 59, 87, .94), rgba(23, 59, 87, .78)),
+      linear-gradient(135deg, #173B57, #A8754F);
+    padding: clamp(24px, 4vw, 36px);
+    color: #ffffff;
+    box-shadow: 0 26px 70px rgba(23, 59, 87, .16);
+  }
+
+  .qb-404__route::before,
+  .qb-404__route::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 999px;
+  }
+
+  .qb-404__route::before {
+    inset: 28px 30px auto auto;
+    width: 132px;
+    height: 132px;
+  }
+
+  .qb-404__route::after {
+    right: 74px;
+    bottom: 42px;
+    width: 64px;
+    height: 64px;
+    background: rgba(168, 117, 79, .72);
+  }
+
+  .qb-404__route span {
+    color: var(--qb-gold);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .qb-404__route strong {
+    display: block;
+    max-width: 300px;
+    margin-top: 72px;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1.06;
+  }
+
+  .qb-404__route p {
+    max-width: 300px;
+    margin-top: 16px;
+    color: rgba(255, 255, 255, .76);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .qb-404__panel {
+    border: 1px solid var(--qb-border);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, .96);
     padding: clamp(22px, 3vw, 30px);
-    box-shadow: 0 20px 54px rgba(13, 15, 15, .18);
+    box-shadow: 0 20px 54px rgba(13, 15, 15, .08);
   }
 
   .qb-404__panel + .qb-404__panel {
+    margin-top: 16px;
+  }
+
+  .qb-404__route + .qb-404__panel {
     margin-top: 16px;
   }
 
@@ -301,21 +434,32 @@ get_header();
       flex-direction: column;
     }
 
-    .qb-404__button {
+    .qb-404__button,
+    .qb-404__search button {
       width: 100%;
+    }
+
+    .qb-404__search {
+      grid-template-columns: 1fr;
     }
   }
 </style>
 
 <main id="primary" class="site-main qb-404">
   <div class="qb-404__wrap">
-    <section aria-labelledby="qb-404-title">
+    <section class="qb-404__content" aria-labelledby="qb-404-title">
       <span class="qb-404__code" aria-hidden="true">404</span>
       <p class="qb-404__eyebrow"><?php esc_html_e('Page Not Found', 'dawp'); ?></p>
-      <h1 id="qb-404-title" class="qb-404__title"><?php esc_html_e('This watch page slipped away.', 'dawp'); ?></h1>
+      <h1 id="qb-404-title" class="qb-404__title"><?php esc_html_e('Lost between time zones.', 'dawp'); ?></h1>
       <p class="qb-404__copy">
-        <?php echo esc_html(sprintf(__('The page you requested is not available. You can return to %s, browse current watches, or continue shopping recent products.', 'dawp'), $brand_name)); ?>
+        <?php echo esc_html(sprintf(__('The link you followed no longer points to a live page on %s. Search the collection or step back into the shop.', 'dawp'), $brand_name)); ?>
       </p>
+
+      <form class="qb-404__search" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+        <label for="qb-404-search"><?php esc_html_e('Search', 'dawp'); ?></label>
+        <input id="qb-404-search" type="search" name="s" placeholder="<?php esc_attr_e('Search watches, straps, collections...', 'dawp'); ?>" value="<?php echo esc_attr(get_search_query()); ?>">
+        <button type="submit"><?php esc_html_e('Search', 'dawp'); ?></button>
+      </form>
 
       <div class="qb-404__actions">
         <a class="qb-404__button" href="<?php echo esc_url($shop_url); ?>">
@@ -328,6 +472,11 @@ get_header();
     </section>
 
     <aside aria-label="<?php esc_attr_e('Helpful 404 links', 'dawp'); ?>">
+      <div class="qb-404__route" aria-hidden="true">
+        <span><?php esc_html_e('Route recalculated', 'dawp'); ?></span>
+        <strong><?php esc_html_e('The page is off the dial.', 'dawp'); ?></strong>
+        <p><?php esc_html_e('A cleaner path is ready below.', 'dawp'); ?></p>
+      </div>
       <?php if (!empty($products)) : ?>
         <div class="qb-404__panel">
           <h2 class="qb-404__panel-title"><?php esc_html_e('Recent Products', 'dawp'); ?></h2>

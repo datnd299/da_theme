@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom terms support', 'dawp')) : 'mailto:' . $support_email;
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft terms support', 'dawp')) : 'mailto:' . $support_email;
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 ?>
 
@@ -71,6 +71,46 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
   .qb-policy-links a { border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.1); padding:10px 14px; color:#fff; font-size:13px; font-weight:800; }
   @media (max-width:1080px) { .qb-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
   @media (max-width:780px) { .qb-section { padding:56px 0; } .qb-hero__grid, .qb-content-grid, .qb-summary-grid, .qb-contact-card { grid-template-columns:1fr; } .qb-hero__grid { padding:58px 0; } .qb-sidebar { display:none; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } .qb-panel { overflow:hidden; } .qb-panel .qb-mini-grid { display:flex; grid-template-columns:none; gap:14px; margin-inline:calc(clamp(24px,4vw,44px) * -1); padding:0 clamp(24px,4vw,44px) 8px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; } .qb-panel .qb-mini-grid::-webkit-scrollbar { display:none; } .qb-panel .qb-mini-card { flex:0 0 min(82vw,300px); scroll-snap-align:start; } }
+  .qb-page { background:#F3F1EC; }
+  .qb-wrap { width:min(100% - 40px,1120px); }
+  .qb-hero { border-bottom:0; background:linear-gradient(180deg,#F9F8F4 0%,#ECE8DF 100%); }
+  .qb-hero::before { inset:0 auto 0 8%; width:1px; height:auto; background:rgba(23,59,87,.14); }
+  .qb-hero::after { right:10%; top:50%; width:280px; height:280px; border-color:rgba(23,59,87,.13); border-radius:50%; transform:translateY(-50%); }
+  .qb-hero__grid { padding:82px 0 66px; }
+  .qb-hero__grid > div { max-width:760px; margin-inline:0 auto; text-align:left; }
+  .qb-hero .qb-copy { margin-inline:0; }
+  .qb-hero .qb-actions { justify-content:flex-start; }
+  .qb-title { max-width:760px; font-size:clamp(38px,5.2vw,68px); }
+  .qb-button, .qb-side-nav a { border-radius:4px; }
+  .qb-soft { background:#F3F1EC; }
+  .qb-content-grid { grid-template-columns:300px minmax(0,1fr); gap:26px; }
+  .qb-dark-card { border-radius:4px; background:#173B57; box-shadow:inset 0 0 0 1px rgba(255,255,255,.08); }
+  .qb-policy-stack { counter-reset:policy-section; gap:16px; }
+  .qb-policy-card { position:relative; border-radius:4px; border-color:#D7D2C8; box-shadow:none; padding:clamp(26px,4vw,42px) clamp(22px,4vw,48px) clamp(26px,4vw,42px) clamp(72px,7vw,112px); }
+  .qb-policy-card:nth-child(even) { background:#FCFBF8; }
+  .qb-policy-card::before { counter-increment:policy-section; content:counter(policy-section, decimal-leading-zero); position:absolute; left:clamp(22px,3vw,42px); top:clamp(28px,4vw,44px); color:rgba(168,117,79,.72); font-family:Georgia,"Times New Roman",serif; font-size:18px; font-weight:700; }
+  .qb-policy-card h2 { font-size:clamp(24px,2.4vw,34px); }
+  .qb-mini-card, .qb-contact-item, .qb-card, .qb-panel { border-radius:4px; }
+  @media (max-width:780px) {
+    .qb-wrap { width:min(100% - 28px,1120px); }
+    .qb-hero__grid > div { text-align:left; }
+    .qb-hero .qb-actions { justify-content:stretch; }
+    .qb-policy-card { padding:24px; }
+    .qb-policy-card::before { position:static; display:block; margin-bottom:12px; }
+  }
+  @media (max-width:900px) {
+    .qb-content-grid { display:block; }
+    .qb-sidebar { display:none; }
+    .qb-policy-stack { width:100%; }
+    .qb-policy-card { width:100%; min-width:0; }
+  }
+  @media (max-width:520px) {
+    .qb-wrap { width:min(100% - 24px,1120px); }
+    .qb-section { padding:40px 0; }
+    .qb-hero__grid { padding:48px 0 52px; }
+    .qb-policy-card { padding:22px 20px; }
+    .qb-policy-card h2 { font-size:clamp(24px,8vw,30px); overflow-wrap:anywhere; }
+  }
 </style>
 
 <div class="qb-page qb-terms">

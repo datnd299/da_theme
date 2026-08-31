@@ -7,7 +7,7 @@
 
 defined('ABSPATH') || exit;
 
-$asset_base = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (2)/';
+$asset_base = trailingslashit(get_template_directory_uri()) . 'assets/images/luxuryimagecollection (3)/';
 $shop_url   = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!function_exists('zc_home_products')) {
@@ -86,16 +86,16 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
             <p><?php esc_html_e('A modern luxury watch destination built for clear discovery, confident comparison and collector-focused shopping.', 'dawp'); ?></p>
             <div class="zc-actions">
                 <a class="zc-button zc-button--primary" href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('Shop Watches', 'dawp'); ?></a>
-                <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/about/')); ?>"><?php esc_html_e('About Zorex', 'dawp'); ?></a>
+                <a class="zc-button zc-button--secondary" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('About Zorex', 'dawp'); ?></a>
             </div>
         </div>
 
         <div class="zc-hero__visual" aria-hidden="true">
             <figure class="zc-hero__frame zc-hero__frame--main">
-                <img src="<?php echo esc_url($asset_base . '40.jpg'); ?>" alt="">
+                <img src="<?php echo esc_url($asset_base . '41.jpg'); ?>" alt="">
             </figure>
             <figure class="zc-hero__frame zc-hero__frame--detail">
-                <img src="<?php echo esc_url($asset_base . '32.jpg'); ?>" alt="">
+                <img src="<?php echo esc_url($asset_base . '42.jpg'); ?>" alt="">
             </figure>
             <div class="zc-hero__mark">
                 <span><?php esc_html_e('Modern Icons', 'dawp'); ?></span>
@@ -179,7 +179,7 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
 
 <section class="zc-collector">
     <figure class="zc-collector__media">
-        <img src="<?php echo esc_url($asset_base . '36.jpg'); ?>" alt="<?php esc_attr_e('Luxury watch detail', 'dawp'); ?>">
+        <img src="<?php echo esc_url($asset_base . '43.jpg'); ?>" alt="<?php esc_attr_e('Luxury watch detail', 'dawp'); ?>">
     </figure>
     <div class="zc-wrap zc-collector__content">
         <span class="zc-kicker"><?php esc_html_e('Collector Feature', 'dawp'); ?></span>
@@ -225,7 +225,7 @@ $style_categories = function_exists('qb_product_category_definitions') ? qb_prod
 <section class="zc-editorial">
     <div class="zc-wrap zc-editorial__grid">
         <figure>
-            <img src="<?php echo esc_url($asset_base . '28.jpg'); ?>" alt="<?php esc_attr_e('Watch collector desk', 'dawp'); ?>">
+            <img src="<?php echo esc_url($asset_base . '44.jpg'); ?>" alt="<?php esc_attr_e('Watch collector desk', 'dawp'); ?>">
         </figure>
         <div>
             <span class="zc-kicker"><?php esc_html_e('Editorial', 'dawp'); ?></span>

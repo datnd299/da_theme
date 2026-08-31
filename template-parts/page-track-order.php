@@ -3,9 +3,9 @@
  * Template Part: Track Your Order
  */
 
-$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom tracking support', 'dawp'), __('Please include your order number and checkout email.', 'dawp')) : 'mailto:' . $support_email;
+$brand_name = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft tracking support', 'dawp'), __('Please include your order number and checkout email.', 'dawp')) : 'mailto:' . $support_email;
 $track_categories = function_exists('qb_product_category_definitions') ? qb_product_category_definitions() : [];
 ?>
 

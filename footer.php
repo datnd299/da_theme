@@ -9,9 +9,9 @@ defined('ABSPATH') || exit;
 
 $current_year  = date_i18n('Y');
 $brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
 $support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft support request', 'dawp')) : 'mailto:' . $support_email;
-$logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
+$logo_url      = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (3).png';
 $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() : [
     [
@@ -49,11 +49,14 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     --qb-gold: #a8754f;
     --qb-ink: #173b57;
     --qb-deep: #181a1b;
-    --qb-muted: rgba(255, 255, 255, .72);
-    --qb-border: rgba(255, 255, 255, .16);
-    background: linear-gradient(135deg, var(--qb-deep) 0%, var(--qb-ink) 100%);
+    --qb-muted: rgba(247, 247, 245, .74);
+    --qb-border: rgba(247, 247, 245, .14);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, .05), transparent 34%),
+      #101415;
     color: var(--qb-muted);
     font-family: "DM Sans", "Inter", system-ui, sans-serif;
+    overflow: hidden;
   }
 
   .qb-site-footer * {
@@ -71,11 +74,57 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     margin-inline: auto;
   }
 
+  .qb-footer-kicker {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: end;
+    padding: 42px 0 28px;
+    border-bottom: 1px solid var(--qb-border);
+  }
+
+  .qb-footer-kicker__eyebrow {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--qb-gold);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+  }
+
+  .qb-footer-kicker h2 {
+    max-width: 680px;
+    margin: 0;
+    color: #fff;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(30px, 4.2vw, 56px);
+    font-weight: 700;
+    line-height: 1.04;
+  }
+
+  .qb-footer-note {
+    max-width: 290px;
+    margin: 0;
+    color: var(--qb-muted);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
   .qb-footer-main {
     display: grid;
-    grid-template-columns: minmax(280px, 1.25fr) repeat(3, minmax(160px, .7fr));
-    gap: clamp(32px, 5vw, 58px);
-    padding: clamp(58px, 7vw, 86px) 0 64px;
+    grid-template-columns: minmax(280px, .95fr) minmax(0, 1.7fr);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+    padding: clamp(38px, 6vw, 64px) 0 46px;
+  }
+
+  .qb-footer-brand {
+    padding: 28px;
+    border: 1px solid var(--qb-border);
+    background: rgba(247, 247, 245, .06);
+    border-radius: 8px;
   }
 
   .qb-footer-brand a {
@@ -84,7 +133,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
   .qb-footer-logo {
     display: block;
-    width: min(118px, 100%);
+    width: min(104px, 100%);
     height: auto;
   }
 
@@ -99,12 +148,12 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
   }
 
   .qb-footer-copy {
-    max-width: 430px;
-    margin: 24px 0 0;
+    max-width: 360px;
+    margin: 22px 0 0;
     color: var(--qb-muted);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
-    line-height: 1.7;
+    line-height: 1.65;
   }
 
   .qb-footer-contact {
@@ -112,8 +161,8 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     flex-direction: column;
     align-items: flex-start;
     gap: 14px;
-    margin-top: 24px;
-    max-width: 430px;
+    margin-top: 26px;
+    max-width: 360px;
   }
 
   .qb-footer-contact a,
@@ -140,8 +189,15 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     color: #fff;
   }
 
+  .qb-footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    gap: clamp(22px, 4vw, 46px);
+    padding-top: 4px;
+  }
+
   .qb-footer-col h3 {
-    margin: 0 0 18px;
+    margin: 0 0 16px;
     color: var(--qb-gold);
     font-size: 12px;
     font-weight: 800;
@@ -151,7 +207,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
   .qb-footer-col ul {
     display: grid;
-    gap: 12px;
+    gap: 10px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -160,7 +216,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
   .qb-footer-col a {
     color: var(--qb-muted);
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 650;
     line-height: 1.4;
     transition: color .2s ease;
   }
@@ -173,6 +229,40 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     text-underline-offset: 4px;
   }
 
+  .qb-footer-services {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-top: 32px;
+    background: var(--qb-border);
+    border: 1px solid var(--qb-border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .qb-footer-service {
+    min-height: 78px;
+    padding: 18px;
+    background: rgba(255, 255, 255, .045);
+  }
+
+  .qb-footer-service strong {
+    display: block;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 850;
+    line-height: 1.3;
+  }
+
+  .qb-footer-service span {
+    display: block;
+    margin-top: 5px;
+    color: rgba(247, 247, 245, .62);
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+
   .qb-footer-bottom {
     border-top: 1px solid var(--qb-border);
   }
@@ -182,7 +272,7 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
     gap: 20px;
     align-items: center;
     justify-content: space-between;
-    padding: 22px 0;
+    padding: 20px 0 24px;
     color: var(--qb-muted);
     font-size: 13px;
   }
@@ -201,8 +291,8 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
   .qb-payment span {
     border: 1px solid var(--qb-border);
-    border-radius: 3px;
-    background: rgba(255, 255, 255, .06);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .04);
     color: var(--qb-cream);
     font-size: 11px;
     font-weight: 800;
@@ -211,12 +301,27 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
   }
 
   @media (max-width: 980px) {
-    .qb-footer-main {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .qb-footer-kicker {
+      grid-template-columns: 1fr;
+      text-align: center;
+      justify-items: center;
     }
 
-    .qb-footer-brand {
-      grid-column: 1 / -1;
+    .qb-footer-kicker h2 {
+      max-width: 100%;
+    }
+
+    .qb-footer-note {
+      max-width: 520px;
+      text-align: center;
+    }
+
+    .qb-footer-main {
+      grid-template-columns: 1fr;
+    }
+
+    .qb-footer-links {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
@@ -225,10 +330,23 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
       width: min(100% - 20px, 1280px);
     }
 
+    .qb-footer-kicker {
+      padding: 36px 0 24px;
+    }
+
     .qb-footer-main {
       grid-template-columns: 1fr;
-      gap: 32px;
-      padding: 48px 0;
+      gap: 28px;
+      padding: 34px 0;
+    }
+
+    .qb-footer-brand {
+      padding: 22px;
+    }
+
+    .qb-footer-links,
+    .qb-footer-services {
+      grid-template-columns: 1fr;
     }
 
     .qb-footer-bottom__inner {
@@ -244,6 +362,16 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
 
 <footer id="colophon" class="qb-site-footer" role="contentinfo">
     <section>
+        <div class="qb-footer-wrap qb-footer-kicker">
+            <div>
+                <span class="qb-footer-kicker__eyebrow"><?php esc_html_e('Curated Timepieces', 'dawp'); ?></span>
+                <h2><?php esc_html_e('Built for easier collecting, gifting, and everyday choosing.', 'dawp'); ?></h2>
+            </div>
+            <p class="qb-footer-note">
+                <?php esc_html_e('Browse with clear policies, responsive support, and a calm checkout from first look to final wrist check.', 'dawp'); ?>
+            </p>
+        </div>
+
         <div class="qb-footer-wrap qb-footer-main">
             <div class="qb-footer-brand">
                 <a href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php echo esc_attr(sprintf(__('%s home', 'dawp'), $brand_name)); ?>">
@@ -281,16 +409,35 @@ $footer_cols   = function_exists('dawp_footer_columns') ? dawp_footer_columns() 
                 </div>
             </div>
 
-            <?php foreach ($footer_cols as $column) : ?>
-                <nav class="qb-footer-col" aria-label="<?php echo esc_attr(sprintf(__('Footer %s navigation', 'dawp'), $column['title'])); ?>">
-                    <h3><?php echo esc_html($column['title']); ?></h3>
-                    <ul>
-                        <?php foreach ($column['links'] as $link) : ?>
-                            <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </nav>
-            <?php endforeach; ?>
+            <div>
+                <div class="qb-footer-links">
+                    <?php foreach ($footer_cols as $column) : ?>
+                        <nav class="qb-footer-col" aria-label="<?php echo esc_attr(sprintf(__('Footer %s navigation', 'dawp'), $column['title'])); ?>">
+                            <h3><?php echo esc_html($column['title']); ?></h3>
+                            <ul>
+                                <?php foreach ($column['links'] as $link) : ?>
+                                    <li><a href="<?php echo esc_url($link['url']); ?>"><?php echo esc_html($link['title']); ?></a></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </nav>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="qb-footer-services" aria-label="<?php esc_attr_e('Store highlights', 'dawp'); ?>">
+                    <div class="qb-footer-service">
+                        <strong><?php esc_html_e('Secure checkout', 'dawp'); ?></strong>
+                        <span><?php esc_html_e('Protected payments and order updates.', 'dawp'); ?></span>
+                    </div>
+                    <div class="qb-footer-service">
+                        <strong><?php esc_html_e('Careful shipping', 'dawp'); ?></strong>
+                        <span><?php esc_html_e('Packed with attention before dispatch.', 'dawp'); ?></span>
+                    </div>
+                    <div class="qb-footer-service">
+                        <strong><?php esc_html_e('Helpful support', 'dawp'); ?></strong>
+                        <span><?php esc_html_e('Real answers during business hours.', 'dawp'); ?></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

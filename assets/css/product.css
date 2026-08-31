@@ -1,6 +1,6 @@
 /* ============================================================
    Luxury Watch Product Page Stylesheet
-   Designed to replicate high-end watch manufacture aesthetic:
+   Refined single product layout with a modern watch retail aesthetic:
    - Off-white warm cream backdrop (#F8F6F0)
    - Serif typography for headings (Playfair Display)
    - 2x2 Feature Trust Grid box (U.S. shipping, free standard shipping, delivery timing, returns)
@@ -46,8 +46,8 @@ body.single-product {
 
 .single-product .woo-page > .container {
   width: 100%;
-  max-width: 1240px;
-  padding-top: 24px !important;
+  max-width: 1280px;
+  padding-top: 34px !important;
   padding-bottom: 64px !important;
   padding-left: 20px !important;
   padding-right: 20px !important;
@@ -58,8 +58,8 @@ body.single-product {
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
-  max-width: 1160px;
+  gap: 26px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
@@ -67,8 +67,8 @@ body.single-product {
 
 @media (min-width: 768px) {
   .single-product div.product {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    column-gap: 54px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.72fr);
+    column-gap: 34px;
     row-gap: 48px;
     align-items: start;
   }
@@ -100,6 +100,7 @@ body.single-product {
   overflow: hidden;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
+  box-shadow: 16px 16px 0 rgba(23, 59, 87, .07);
   box-sizing: border-box;
 }
 
@@ -320,6 +321,11 @@ body.single-product {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  padding: clamp(22px, 3vw, 34px);
+  box-shadow: 0 10px 28px rgba(13, 15, 15, .04);
 }
 
 /* Category Label / Top Meta */
@@ -338,7 +344,7 @@ body.single-product {
   font-size: clamp(1.8rem, 2.5vw, 2.35rem);
   font-weight: 500;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   text-transform: none;
   color: var(--color-text-primary);
   margin: 0;
@@ -505,39 +511,33 @@ form.cart:not(.variations_form) {
 /* === 4. PRODUCT SERVICE NOTES === */
 .product-service-notes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  padding: 8px 0;
-  border-top: 1px solid rgba(166, 129, 88, 0.22);
-  border-bottom: 1px solid rgba(166, 129, 88, 0.22);
-  background: linear-gradient(180deg, rgba(252, 251, 248, 0.92), rgba(255, 255, 255, 0.64));
-  margin-top: 28px;
-  margin-bottom: 28px;
-  border-radius: 0;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  background: #F7F7F5;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  border-radius: var(--radius-sm);
   box-shadow: none;
 }
 
 .product-service-note {
   position: relative;
   display: flex;
-  gap: 12px;
-  padding: 15px 16px;
-  align-items: flex-start;
-  border: 0;
-  background: transparent;
-  border-radius: 0;
+  gap: 11px;
+  padding: 12px;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  border-radius: var(--radius-sm);
   box-sizing: border-box;
   box-shadow: none;
   overflow: hidden;
 }
 
 .product-service-note::after {
-  content: "";
-  position: absolute;
-  inset: 15px 0 auto auto;
-  width: 1px;
-  height: calc(100% - 30px);
-  background: rgba(166, 129, 88, 0.18);
+  display: none;
 }
 
 .product-service-note:nth-child(2n)::after {
@@ -545,7 +545,7 @@ form.cart:not(.variations_form) {
 }
 
 .product-service-note:nth-child(n+3) {
-  border-top: 1px solid rgba(166, 129, 88, 0.14);
+  border-top: 1px solid var(--color-border);
 }
 
 @media (max-width: 540px) {
@@ -818,7 +818,7 @@ form.cart:not(.variations_form) {
   font-family: var(--font-serif);
   font-size: 1.65rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
   margin: 0 0 16px 0;
   color: var(--color-text-primary);
   text-transform: none;

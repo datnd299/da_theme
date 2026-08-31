@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Velmo Custom.
+ * Shop and product category archive template for Zorex Craft.
  *
  * @package dawp
  */
@@ -12,7 +12,7 @@ $queried_term  = $is_category ? get_queried_object() : null;
 $category_data = $is_category && $queried_term && !is_wp_error($queried_term) ? qb_get_product_category_data($queried_term->slug) : null;
 $shop_url      = get_permalink(wc_get_page_id('shop'));
 $shop_url      = $shop_url ?: home_url('/shop/');
-$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
+$brand_name    = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
 
 if ($category_data) {
     $page_title  = $category_data['name'];
@@ -33,7 +33,7 @@ if ($category_data) {
     $headline    = 'Crafted with Precision.';
     $description = 'Discover refined luxury watches with clean presentation, considered materials, and precise product detail.';
     $intro       = sprintf('Shop the %s edit built around proportion, craftsmanship, and timeless contemporary design.', $brand_name);
-    $hero_image  = get_template_directory_uri() . '/assets/images/luxuryimagecollection%20(2)/37.jpg';
+    $hero_image  = get_template_directory_uri() . '/assets/images/luxuryimagecollection%20(3)/50.jpg';
     $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
 }
 
@@ -148,6 +148,7 @@ get_header();
                 </div>
 
                 <div class="shop-sidebar__widget">
+                    <span class="shop-sidebar__eyebrow"><?php esc_html_e('Browse', 'dawp'); ?></span>
                     <h3 class="shop-sidebar__title"><?php esc_html_e('Watch Categories', 'dawp'); ?></h3>
                     <ul class="shop-sidebar__categories">
                         <li>
@@ -171,6 +172,7 @@ get_header();
                 </div>
 
                 <div class="shop-sidebar__note">
+                    <span class="shop-sidebar__note-mark" aria-hidden="true">01</span>
                     <strong><?php esc_html_e('Before ordering', 'dawp'); ?></strong>
                     <p><?php esc_html_e('Review case size, material or finish, strap details, movement notes, and care instructions on each product page.', 'dawp'); ?></p>
                 </div>
@@ -207,13 +209,26 @@ get_header();
         </div>
 
         <section class="shop-care">
-            <div>
-                <h2><?php esc_html_e('Material, Size & Care Details', 'dawp'); ?></h2>
-                <p><?php echo esc_html(sprintf(__('%s product pages should include available material or finish notes, case size, strap information, movement details where available, and simple watch care guidance.', 'dawp'), $brand_name)); ?></p>
+            <div class="shop-care__header">
+                <span class="shop-care__eyebrow"><?php esc_html_e('Buyer Notes', 'dawp'); ?></span>
+                <h2 class="shop-care__heading"><?php esc_html_e('A cleaner way to compare watch details.', 'dawp'); ?></h2>
             </div>
-            <div>
-                <h2><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h2>
-                <p><?php esc_html_e('The collection is positioned around modern luxury watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
+            <div class="shop-care__grid">
+                <article class="shop-care__item">
+                    <span class="shop-care__item-num" aria-hidden="true">01</span>
+                    <h3><?php esc_html_e('Material, Size & Care', 'dawp'); ?></h3>
+                    <p><?php echo esc_html(sprintf(__('%s product pages include material or finish notes, case size, strap information, movement details, and simple watch care guidance.', 'dawp'), $brand_name)); ?></p>
+                </article>
+                <article class="shop-care__item">
+                    <span class="shop-care__item-num" aria-hidden="true">02</span>
+                    <h3><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('The collection is positioned around modern luxury watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
+                </article>
+                <article class="shop-care__item">
+                    <span class="shop-care__item-num" aria-hidden="true">03</span>
+                    <h3><?php esc_html_e('Secure & Transparent Checkout', 'dawp'); ?></h3>
+                    <p><?php esc_html_e('Every order is processed through secure payment with clear pricing, shipping estimates, and return policy details available before you complete your purchase.', 'dawp'); ?></p>
+                </article>
             </div>
         </section>
     </div>
@@ -244,9 +259,22 @@ get_header();
         document.body.style.overflow = '';
     }
 
-    if (filterBtn) filterBtn.addEventListener('click', openSidebar);
+    closeSidebar();
+
+    if (filterBtn) filterBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        openSidebar();
+    });
     if (overlay) overlay.addEventListener('click', closeSidebar);
-    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', function (event) {
+        event.preventDefault();
+        closeSidebar();
+    });
+    if (sidebar) {
+        sidebar.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeSidebar);
+        });
+    }
     document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && sidebar && sidebar.classList.contains('is-open')) {
             closeSidebar();

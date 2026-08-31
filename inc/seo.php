@@ -1,6 +1,6 @@
 <?php
 /**
- * SEO + structured data for Velmo Custom.
+ * SEO + structured data for Zorex Craft.
  *
  * No SEO plugin (Rank Math / Yoast) is active on this site, so the theme is
  * responsible for:
@@ -25,12 +25,13 @@ function dawp_brand_name() {
 }
 
 /**
- * Primary market country (ISO 3166-1 alpha-2). Velmo Custom ships U.S.-only per
- * every policy page, so structured data / shipping data key off this rather
- * than the WooCommerce base-country option. Filterable.
+ * Primary market country (ISO 3166-1 alpha-2). Defaults to the WooCommerce
+ * store country so visible policy copy and structured data stay aligned.
  */
 function dawp_store_country() {
-    return apply_filters('dawp_store_country', 'US');
+    $country = function_exists('dawp_get_store_country_code') ? dawp_get_store_country_code() : 'US';
+
+    return apply_filters('dawp_store_country', $country);
 }
 
 /**
@@ -39,7 +40,7 @@ function dawp_store_country() {
 function dawp_default_description() {
     return apply_filters(
         'dawp_default_description',
-        'Velmo Custom is a refined luxury watch store focused on precision, craftsmanship, and timeless contemporary design.'
+        sprintf('%s is a refined luxury watch store focused on precision, craftsmanship, and timeless contemporary design.', dawp_brand_name())
     );
 }
 
@@ -52,39 +53,39 @@ function dawp_get_virtual_seo() {
     $map = [
         'about-us' => [
             'title'       => 'About Us',
-            'description' => 'Velmo Custom is a refined luxury watch store shaped by precision, craftsmanship, and timeless contemporary design.',
+            'description' => sprintf('%s is a refined luxury watch store shaped by precision, craftsmanship, and timeless contemporary design.', dawp_brand_name()),
         ],
         'faq' => [
             'title'       => 'FAQ',
-            'description' => 'Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at Velmo Custom.',
+            'description' => sprintf('Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at %s.', dawp_brand_name()),
         ],
         'contact-us' => [
             'title'       => 'Contact Us',
-            'description' => 'Contact Velmo Custom for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.',
+            'description' => sprintf('Contact %s for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.', dawp_brand_name()),
         ],
         'shipping-policy' => [
             'title'       => 'Shipping Policy',
-            'description' => 'Velmo Custom shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
+            'description' => sprintf('%s shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.', dawp_brand_name()),
         ],
         'return-refund-policy' => [
             'title'       => 'Return & Refund Policy',
-            'description' => 'Velmo Custom return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
+            'description' => sprintf('%s return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.', dawp_brand_name()),
         ],
         'shipping-returns' => [
             'title'       => 'Shipping & Returns',
-            'description' => 'Choose the Velmo Custom Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
+            'description' => sprintf('Choose the %s Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.', dawp_brand_name()),
         ],
         'terms-conditions' => [
             'title'       => 'Terms & Conditions',
-            'description' => 'Read the terms and conditions for shopping at Velmo Custom, including purchase policies and site use guidelines.',
+            'description' => sprintf('Read the terms and conditions for shopping at %s, including purchase policies and site use guidelines.', dawp_brand_name()),
         ],
         'privacy-policy' => [
             'title'       => 'Privacy Policy',
-            'description' => 'Learn how Velmo Custom collects, uses, and protects your personal information when you shop with us.',
+            'description' => sprintf('Learn how %s collects, uses, and protects your personal information when you shop with us.', dawp_brand_name()),
         ],
         'track-order' => [
             'title'       => 'Track Your Order',
-            'description' => 'Track your Velmo Custom order status. Enter your order number and email to check your delivery progress.',
+            'description' => sprintf('Track your %s order status. Enter your order number and email to check your delivery progress.', dawp_brand_name()),
         ],
     ];
 
@@ -235,12 +236,12 @@ function dawp_head_meta() {
     }
 
     if (!$image) {
-        $image = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
+        $image = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (3).png';
     }
 
     $title = wp_get_document_title();
 
-    echo "\n<!-- Velmo Custom SEO -->\n";
+    echo "\n<!-- Zorex Craft SEO -->\n";
 
     if ($description) {
         printf('<meta name="description" content="%s">' . "\n", esc_attr($description));
@@ -276,7 +277,7 @@ function dawp_head_meta() {
         printf('<meta name="twitter:image" content="%s">' . "\n", esc_url($image));
     }
 
-    echo "<!-- /Velmo Custom SEO -->\n\n";
+    echo "<!-- /Zorex Craft SEO -->\n\n";
 }
 
 // WordPress core only prints rel=canonical for singular views with a real
@@ -301,8 +302,8 @@ function dawp_org_website_schema() {
 
     $brand = dawp_brand_name();
     $home  = home_url('/');
-    $logo  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (2).png';
-    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+    $logo  = get_template_directory_uri() . '/assets/images/home/luxuryimagecollection (1)/logobrand (3).png';
+    $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
 
     $organization = [
         '@type'  => 'Organization',
@@ -365,17 +366,17 @@ function dawp_org_website_schema() {
  * PostalAddress node built from the WooCommerce store address, when set.
  */
 function dawp_schema_postal_address() {
-    if (!function_exists('WC') || !WC() || !isset(WC()->countries)) {
+    if (!function_exists('dawp_get_store_address_parts')) {
         return null;
     }
 
-    $countries = WC()->countries;
-    $street    = trim(wp_strip_all_tags((string) $countries->get_base_address()));
-    $street2   = trim(wp_strip_all_tags((string) $countries->get_base_address_2()));
-    $city      = trim(wp_strip_all_tags((string) $countries->get_base_city()));
-    $postcode  = trim(wp_strip_all_tags((string) $countries->get_base_postcode()));
-    $state     = trim(wp_strip_all_tags((string) $countries->get_base_state()));
-    $country   = trim(wp_strip_all_tags((string) $countries->get_base_country()));
+    $store_address = dawp_get_store_address_parts();
+    $street        = $store_address['address_1'];
+    $street2       = $store_address['address_2'];
+    $city          = $store_address['city'];
+    $postcode      = $store_address['postcode'];
+    $state         = $store_address['state'];
+    $country       = $store_address['country'];
 
     if (!$street && !$city) {
         return null;

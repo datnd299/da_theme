@@ -105,7 +105,7 @@ ul { list-style: none; }
   inset: 0;
   background:
     linear-gradient(160deg, rgba(14,14,14,0.1) 0%, rgba(14,14,14,0.7) 100%),
-    url('https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=1600&q=85&auto=format') center/cover no-repeat;
+    url('../images/luxuryimagecollection (3)/51.jpg') center/cover no-repeat;
   transform: scale(1.04);
   animation: heroZoom 10s var(--ease-out) forwards;
 }

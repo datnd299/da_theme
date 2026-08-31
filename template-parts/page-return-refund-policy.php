@@ -5,9 +5,9 @@
  * @package dawp
  */
 
-$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Velmo Custom';
-$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
-$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Velmo Custom return support', 'dawp'), __('Please include your order number, checkout email, item name, and reason for return.', 'dawp')) : 'mailto:' . $support_email;
+$store_name     = function_exists('dawp_brand_name') ? dawp_brand_name() : 'Zorex Craft';
+$support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
+$support_mailto = function_exists('dawp_contact_mailto_url') ? dawp_contact_mailto_url(__('Zorex Craft return support', 'dawp'), __('Please include your order number, checkout email, item name, and reason for return.', 'dawp')) : 'mailto:' . $support_email;
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
 ?>
@@ -93,6 +93,32 @@ $support_portal = home_url('/contact-us/');
     .qb-actions { flex-direction:column; }
     .qb-button { width:100%; }
     .qb-step { padding-left:18px; padding-top:58px; }
+  }
+  .qb-page { background:#F3F1EC; }
+  .qb-wrap { width:min(100% - 40px,1080px); }
+  .qb-hero { border-bottom:0; background:linear-gradient(180deg,#F9F8F4 0%,#ECE8DF 100%); }
+  .qb-hero::before { inset:0 auto 0 8%; width:1px; height:auto; background:rgba(23,59,87,.14); }
+  .qb-hero::after { right:10%; top:50%; width:280px; height:280px; border-color:rgba(23,59,87,.13); border-radius:50%; transform:translateY(-50%); }
+  .qb-hero__grid { padding:82px 0 66px; }
+  .qb-hero__content { max-width:760px; margin-inline:0 auto; text-align:left; }
+  .qb-hero .qb-copy { margin-inline:0; }
+  .qb-hero .qb-actions { justify-content:flex-start; }
+  .qb-title { max-width:760px; font-size:clamp(38px,5.6vw,72px); }
+  .qb-button { border-radius:4px; min-height:46px; }
+  .qb-soft { background:#F3F1EC; }
+  .qb-policy-stack { counter-reset:policy-section; gap:16px; }
+  .qb-policy-card { position:relative; border-radius:4px; border-color:#D7D2C8; box-shadow:none; padding:clamp(26px,4vw,42px) clamp(22px,4vw,48px) clamp(26px,4vw,42px) clamp(72px,7vw,112px); }
+  .qb-policy-card:nth-child(even) { background:#FCFBF8; }
+  .qb-policy-card::before { counter-increment:policy-section; content:counter(policy-section, decimal-leading-zero); position:absolute; left:clamp(22px,3vw,42px); top:clamp(28px,4vw,44px); color:rgba(168,117,79,.72); font-family:Georgia,"Times New Roman",serif; font-size:18px; font-weight:700; }
+  .qb-policy-card h2 { font-size:clamp(24px,2.5vw,34px); }
+  .qb-policy-card p, .qb-policy-card li { line-height:1.78; }
+  .qb-callout, .qb-info-panel, .qb-step, .qb-address-box, .qb-contact-item, .qb-glance-list li { border-radius:4px; }
+  @media (max-width:680px) {
+    .qb-wrap { width:min(100% - 28px,1080px); }
+    .qb-hero__content { text-align:left; }
+    .qb-hero .qb-actions { justify-content:stretch; }
+    .qb-policy-card { padding:24px; }
+    .qb-policy-card::before { position:static; display:block; margin-bottom:12px; }
   }
 </style>
 

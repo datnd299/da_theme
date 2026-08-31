@@ -140,7 +140,7 @@ function dawp_product_service_note_icon($icon) {
     return $icons[$icon] ?? $icons['clock'];
 }
 
-function dawp_get_store_address_line() {
+function dawp_get_store_address_parts() {
     $countries = null;
 
     if (function_exists('WC') && WC() && isset(WC()->countries)) {
@@ -179,12 +179,9 @@ function dawp_get_store_address_line() {
         }
     }
 
-    $city_region = trim(implode(', ', array_filter([$city, trim($state . ' ' . $postcode)])));
-    $parts       = array_filter([$address_1, $address_2, $city_region]);
+    $country_name = $country;
 
     if ($country) {
-        $country_name = $country;
-
         if ($countries) {
             $country_names = $countries->get_countries();
 
@@ -192,9 +189,33 @@ function dawp_get_store_address_line() {
                 $country_name = $country_names[$country];
             }
         }
+    }
 
-        $parts[] = $country_name;
+    return [
+        'address_1'    => $address_1,
+        'address_2'    => $address_2,
+        'city'         => $city,
+        'state'        => $state,
+        'postcode'     => $postcode,
+        'country'      => $country,
+        'country_name' => $country_name,
+    ];
+}
+
+function dawp_get_store_address_line() {
+    $address     = dawp_get_store_address_parts();
+    $city_region = trim(implode(', ', array_filter([$address['city'], trim($address['state'] . ' ' . $address['postcode'])])));
+    $parts       = array_filter([$address['address_1'], $address['address_2'], $city_region]);
+
+    if ($address['country_name']) {
+        $parts[] = $address['country_name'];
     }
 
     return implode(', ', $parts);
+}
+
+function dawp_get_store_country_code() {
+    $address = dawp_get_store_address_parts();
+
+    return $address['country'] ?: 'US';
 }

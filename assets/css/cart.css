@@ -1,6 +1,6 @@
 /* ===================================================
    CART PAGE — WooCommerce Block Cart
-   Velmo Custom Brand - Mobile-first - Pure CSS - No @apply
+   Zorex Craft Brand - Mobile-first - Pure CSS - No @apply
    =================================================== */
 
 :root {
@@ -820,7 +820,7 @@
   background: var(--qb-cart-gold);
 }
 
-/* Velmo Custom ecommerce alignment */
+/* Zorex Craft ecommerce alignment */
 :root {
   --qb-cart-bg: #FFFFFF;
   --qb-cart-cream: #F7F7F5;

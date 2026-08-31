@@ -1,5 +1,5 @@
 /* ================================================
-   Velmo Custom - Checkout & Thank You Page
+   Zorex Craft - Checkout & Thank You Page
    Brand palette: #173B57 / #181A1B / #A8754F / #707579 / #F7F7F5
    ================================================ */
 
@@ -1549,7 +1549,7 @@ button#place_order:hover,
     background-color: rgba(179, 138, 82, 0.12) !important;
 }
 
-/* Velmo Custom final checkout and order-received alignment */
+/* Zorex Craft final checkout and order-received alignment */
 :root {
     --orvel-ink: #173B57;
     --orvel-pearl: #F7F7F5;
@@ -1678,7 +1678,7 @@ button#place_order:hover,
     color: var(--orvel-ink) !important;
 }
 
-/* Velmo Custom palette guard for classic and block checkout variants. */
+/* Zorex Craft palette guard for classic and block checkout variants. */
 body.woocommerce-checkout,
 body.woocommerce-order-received {
     background-color: #F7F7F5 !important;

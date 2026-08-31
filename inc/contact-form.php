@@ -9,6 +9,17 @@ function dawp_contact_support_email() {
     return 'support@zorexcraft.com';
 }
 
+function dawp_contact_mail_from() {
+    return dawp_contact_support_email();
+}
+
+function dawp_contact_mail_from_name() {
+    return 'Zorex Craft';
+}
+
+add_filter('wp_mail_from', 'dawp_contact_mail_from');
+add_filter('wp_mail_from_name', 'dawp_contact_mail_from_name');
+
 function dawp_contact_mailto_url($subject = '', $body = '') {
     $email = sanitize_email(dawp_contact_support_email());
 

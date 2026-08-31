@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@velmocustom.com';
+$support_email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@zorexcraft.com';
 ?>
 
 <style>
@@ -35,6 +35,29 @@ $support_email = function_exists('dawp_contact_support_email') ? dawp_contact_su
   .qb-policy-card h2 { margin:0; color:var(--qb-plum); font-family:Georgia,"Times New Roman",serif; font-size:clamp(25px,3vw,38px); line-height:1.12; letter-spacing:0; }
   .qb-policy-card p { margin:14px 0 0; color:#707579; font-size:15px; line-height:1.72; }
   @media (max-width:780px) { .qb-section { padding:44px 0; } .qb-hero__grid { padding:46px 0 50px; } .qb-policy-grid { grid-template-columns:1fr; } .qb-actions { flex-direction:column; } .qb-button { width:100%; } }
+  .qb-page { background:#F3F1EC; }
+  .qb-wrap { width:min(100% - 40px,1080px); }
+  .qb-hero { background:linear-gradient(180deg,#F9F8F4 0%,#ECE8DF 100%); }
+  .qb-hero::before { content:""; position:absolute; inset:0 auto 0 8%; width:1px; background:rgba(23,59,87,.14); }
+  .qb-hero::after { right:10%; top:50%; bottom:auto; width:280px; height:280px; border-color:rgba(23,59,87,.13); background:transparent; transform:translateY(-50%); }
+  .qb-hero__grid { padding:82px 0 66px; }
+  .qb-hero__content { max-width:760px; margin-inline:0 auto; text-align:left; }
+  .qb-hero .qb-copy { margin-inline:0; }
+  .qb-hero .qb-actions { justify-content:flex-start; }
+  .qb-title { max-width:760px; font-size:clamp(38px,5.6vw,72px); }
+  .qb-button { border-radius:4px; min-height:46px; }
+  .qb-soft { background:#F3F1EC; }
+  .qb-policy-grid { counter-reset:policy-section; gap:16px; }
+  .qb-policy-card { position:relative; border-radius:4px; border-color:#D7D2C8; box-shadow:none; padding:clamp(28px,4vw,44px); }
+  .qb-policy-card:nth-child(even) { background:#FCFBF8; }
+  .qb-policy-card::before { counter-increment:policy-section; content:counter(policy-section, decimal-leading-zero); display:block; margin-bottom:18px; color:rgba(168,117,79,.72); font-family:Georgia,"Times New Roman",serif; font-size:18px; font-weight:700; }
+  .qb-policy-card h2 { font-size:clamp(24px,2.6vw,34px); }
+  .qb-policy-card p { line-height:1.78; }
+  @media (max-width:780px) {
+    .qb-wrap { width:min(100% - 28px,1080px); }
+    .qb-hero__content { text-align:left; }
+    .qb-hero .qb-actions { justify-content:stretch; }
+  }
 </style>
 
 <div class="qb-page qb-shipping-returns">

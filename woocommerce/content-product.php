@@ -21,6 +21,7 @@ $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
 $image_id = $product->get_image_id();
 $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'woocommerce_single') : '';
 $image_url = $image_url ?: (function_exists('wc_placeholder_img_src') ? wc_placeholder_img_src('woocommerce_single') : '');
+$price_html = $product->get_price_html();
 ?>
 <li <?php wc_product_class('product-card', $product); ?>>
     <a href="<?php the_permalink(); ?>" class="product-card__link" aria-label="<?php the_title_attribute(); ?>">
@@ -61,7 +62,9 @@ $image_url = $image_url ?: (function_exists('wc_placeholder_img_src') ? wc_place
                     <span class="product-card__cat"><?php echo esc_html($cat_name); ?></span>
                 <?php endif; ?>
             </div>
-            <div class="product-card__price"><?php echo $product->get_price_html(); ?></div>
+            <?php if ($price_html) : ?>
+                <div class="product-card__price"><?php echo wp_kses_post($price_html); ?></div>
+            <?php endif; ?>
         </div>
 
     </a>

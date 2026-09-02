@@ -1,21 +1,21 @@
-# Scott Osterbind — Site.md
+# Carlton Edgeworth — Site.md
 
 ## Store Information
 
-* **Domain:** scottosterbind.com
-* **Brand Name:** Scott Osterbind
+* **Domain:** carltonedgeworth.net
+* **Brand Name:** Carlton Edgeworth
 * **Language:** English
 * **Store Type:** Handmade Jewelry & Vintage Accessories Boutique
 * **Primary Market:** United States
 * **Core Products:** Handmade bracelets, beaded jewelry, vintage accessories, curated apparel, artisan gifts
-* **Support Email:** [support@scottosterbind.com](mailto:support@scottosterbind.com)
+* **Support Email:** [support@carltonedgeworth.net](mailto:support@carltonedgeworth.net)
 * **Business Hours:** Monday – Friday, 9:00 AM – 6:00 PM EST
 
 ---
 
 ## Brand Positioning
 
-Scott Osterbind is an artisan jewelry and vintage accessories boutique focused on handmade bracelets, beaded jewelry, curated vintage-style finds, and small creative gifts.
+Carlton Edgeworth is an artisan jewelry and vintage accessories boutique focused on handmade bracelets, beaded jewelry, curated vintage-style finds, and small creative gifts.
 
 Core message:
 
@@ -60,7 +60,7 @@ The goal is not to completely change the niche. The goal is to make the old dire
 
 ## Core Store Concept
 
-Scott Osterbind offers handmade and curated pieces for people who appreciate personal style, creative details, and vintage-inspired accessories.
+Carlton Edgeworth offers handmade and curated pieces for people who appreciate personal style, creative details, and vintage-inspired accessories.
 
 The store should focus on:
 

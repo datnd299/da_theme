@@ -4,13 +4,13 @@ add_filter('woocommerce_order_number', 'custom_woocommerce_order_prefix', 10, 2)
 add_filter('woocommerce_shortcode_order_tracking_order_id', 'dawp_normalize_tracking_order_number', 9);
 
 function custom_woocommerce_order_prefix($order_id, $order) {
-    return 'SO-' . $order_id;
+    return 'CE-' . $order_id;
 }
 
 function dawp_normalize_tracking_order_number($order_id) {
     $order_id = trim((string) $order_id);
 
-    if (preg_match('/^(SO|SLK)[-\s#]*(\d+)$/i', $order_id, $matches)) {
+    if (preg_match('/^(CE|SO|SLK)[-\s#]*(\d+)$/i', $order_id, $matches)) {
         return $matches[2];
     }
 
@@ -28,7 +28,7 @@ function dawp_setup() {
 
 add_filter('document_title_parts', 'dawp_brand_document_title_parts', 20);
 function dawp_brand_document_title_parts($parts) {
-    $brand_name = 'Scott Osterbind';
+    $brand_name = 'Carlton Edgeworth';
     $brand_slogan = 'Handmade Jewelry & Vintage-Inspired Accessories';
 
     if (is_front_page() || is_home()) {
@@ -47,9 +47,9 @@ function dawp_brand_document_title_parts($parts) {
 add_action('wp_head', 'dawp_favicon_links', 100);
 add_action('login_head', 'dawp_favicon_links', 100);
 function dawp_favicon_links() {
-    $favicon_32 = get_theme_file_uri('/assets/img/favicon-scott-32.png');
-    $favicon_512 = get_theme_file_uri('/assets/img/favicon-scott.png');
-    $apple_touch_icon = get_theme_file_uri('/assets/img/apple-touch-icon-scott.png');
+    $favicon_32 = get_theme_file_uri('/assets/img/favicon-32.png');
+    $favicon_512 = get_theme_file_uri('/assets/img/favicon-512.png');
+    $apple_touch_icon = get_theme_file_uri('/assets/img/apple-touch-icon.png');
     ?>
     <link rel="icon" href="<?php echo esc_url($favicon_32); ?>" sizes="32x32" type="image/png">
     <link rel="icon" href="<?php echo esc_url($favicon_512); ?>" sizes="512x512" type="image/png">

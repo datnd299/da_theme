@@ -15,7 +15,7 @@
             --font-sans: 'Inter', system-ui, sans-serif;
         }
 
-        #masthead .scott-header-logo {
+        #masthead .ce-header-logo {
             display: block;
             width: auto;
             height: 48px;
@@ -24,28 +24,28 @@
         }
 
         @media (min-width: 640px) {
-            #masthead .scott-header-logo {
+            #masthead .ce-header-logo {
                 height: 52px;
                 max-width: 180px;
             }
         }
 
-        #masthead .scott-mega-shell {
+        #masthead .ce-mega-shell {
             width: min(980px, calc(100vw - 32px));
         }
 
-        #masthead .scott-mega-grid {
+        #masthead .ce-mega-grid {
             display: grid;
             grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.7fr);
             gap: 0;
         }
 
-        #masthead .scott-mega-heading-row {
+        #masthead .ce-mega-heading-row {
             padding-bottom: 1rem;
         }
 
-        #masthead .scott-mega-feature,
-        #masthead .scott-mega-feature-content {
+        #masthead .ce-mega-feature,
+        #masthead .ce-mega-feature-content {
             min-height: 360px;
         }
     </style>
@@ -55,8 +55,8 @@
 <?php wp_body_open(); ?>
 
 <?php
-$brand_name  = 'Scott Osterbind';
-$brand_logo  = get_theme_file_uri('/assets/img/gallery/Logo_all (8).png');
+$brand_name  = 'Carlton Edgeworth';
+$brand_logo  = get_theme_file_uri('/assets/img/logo.png');
 $cart_count  = function_exists('WC') && WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
 $cart_url    = function_exists('wc_get_cart_url') ? wc_get_cart_url() : home_url('/cart/');
 $account_id  = (int) get_option('woocommerce_myaccount_page_id');
@@ -81,7 +81,7 @@ $term_url = static function ($slug) {
     return home_url('/product-category/' . sanitize_title($slug) . '/');
 };
 
-$gallery_uri = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/');
+$gallery_uri = get_theme_file_uri('/assets/img/gallery/CarltonEdgeworth/');
 
 $shop_categories = [
     [
@@ -141,7 +141,7 @@ $nav_items = [
             <a href="<?php echo esc_url(home_url('/')); ?>"
                class="group inline-flex shrink-0 items-center"
                aria-label="<?php echo esc_attr($brand_name); ?>">
-                <img <?php echo dawp_responsive_image_attrs($brand_logo, 135, 68, [[135, 68], [270, 136]], '135px', 'scott-header-logo', 'eager', 'high'); ?>
+                <img <?php echo dawp_responsive_image_attrs($brand_logo, 120, 120, [[120, 120], [240, 240]], '120px', 'ce-header-logo', 'eager', 'high'); ?>
                      alt="<?php echo esc_attr($brand_name); ?>">
             </a>
 
@@ -157,11 +157,11 @@ $nav_items = [
                                 </svg>
                             </a>
 
-                            <div class="scott-mega-shell invisible absolute left-1/2 top-full -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:translate-y-0 group-focus-within/menu:opacity-100">
+                            <div class="ce-mega-shell invisible absolute left-1/2 top-full -translate-x-1/2 translate-y-3 opacity-0 transition duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:translate-y-0 group-focus-within/menu:opacity-100">
                                 <div class="overflow-hidden rounded-lg border border-[#E8D9A6] bg-white text-left shadow-xl">
-                                    <div class="scott-mega-grid">
+                                    <div class="ce-mega-grid">
                                         <div class="p-5">
-                                            <div class="scott-mega-heading-row flex items-end justify-between gap-4 border-b border-[#E8D9A6]">
+                                            <div class="ce-mega-heading-row flex items-end justify-between gap-4 border-b border-[#E8D9A6]">
                                                 <div>
                                                     <p class="text-xs font-black uppercase tracking-[0.18em] text-[#C89B3C]">
                                                         <?php esc_html_e('Shop Collections', 'dawp'); ?>
@@ -198,11 +198,11 @@ $nav_items = [
                                         </div>
 
                                         <a href="<?php echo esc_url($featured_collection['url']); ?>"
-                                           class="scott-mega-feature group/feature relative block overflow-hidden bg-[#1B4F49] text-white">
+                                           class="ce-mega-feature group/feature relative block overflow-hidden bg-[#1B4F49] text-white">
                                             <img <?php echo dawp_responsive_image_attrs($featured_collection['image'], 520, 390, [[320, 240], [520, 390], [768, 576]], '(max-width: 1023px) 100vw, 320px', 'absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/feature:scale-[1.03]', 'lazy'); ?>
                                                  alt="<?php echo esc_attr($featured_collection['title']); ?>">
                                             <span class="absolute inset-0 bg-[#1B4F49]/82"></span>
-                                            <span class="scott-mega-feature-content relative flex h-full flex-col justify-end p-5">
+                                            <span class="ce-mega-feature-content relative flex h-full flex-col justify-end p-5">
                                                 <span class="mb-3 inline-flex w-fit rounded-full bg-[#C89B3C] px-3 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-white">
                                                     <?php esc_html_e('Featured', 'dawp'); ?>
                                                 </span>
@@ -240,10 +240,10 @@ $nav_items = [
                       action="<?php echo esc_url(home_url('/')); ?>"
                       autocomplete="off"
                       class="hidden items-center xl:flex">
-                    <label for="scott-header-search" class="sr-only">
+                    <label for="ce-header-search" class="sr-only">
                         <?php esc_html_e('Search products', 'dawp'); ?>
                     </label>
-                    <input id="scott-header-search"
+                    <input id="ce-header-search"
                            type="search"
                            name="s"
                            autocomplete="off"
@@ -255,7 +255,7 @@ $nav_items = [
                 <button type="button"
                         class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#E8D9A6] text-[#1F6F68] transition hover:bg-[#F7F5EF] xl:hidden"
                         aria-label="<?php esc_attr_e('Search', 'dawp'); ?>"
-                        onclick="document.getElementById('scott-mobile-search').classList.toggle('hidden')">
+                        onclick="document.getElementById('ce-mobile-search').classList.toggle('hidden')">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <circle cx="11" cy="11" r="8"></circle>
                         <path d="M21 21l-4.35-4.35"></path>
@@ -281,7 +281,7 @@ $nav_items = [
                 <button type="button"
                         class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#E8D9A6] text-[#1F6F68] transition hover:bg-[#F7F5EF] lg:hidden"
                         aria-label="<?php esc_attr_e('Open menu', 'dawp'); ?>"
-                        onclick="document.getElementById('scott-mobile-menu').classList.toggle('hidden')">
+                        onclick="document.getElementById('ce-mobile-menu').classList.toggle('hidden')">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -292,7 +292,7 @@ $nav_items = [
         </div>
     </div>
 
-    <div id="scott-mobile-search" class="hidden border-t border-[#E8D9A6] bg-white xl:hidden">
+    <div id="ce-mobile-search" class="hidden border-t border-[#E8D9A6] bg-white xl:hidden">
         <form role="search"
               method="get"
               action="<?php echo esc_url(home_url('/')); ?>"
@@ -315,7 +315,7 @@ $nav_items = [
         </form>
     </div>
 
-    <div id="scott-mobile-menu" class="hidden border-t border-[#E8D9A6] bg-white lg:hidden">
+    <div id="ce-mobile-menu" class="hidden border-t border-[#E8D9A6] bg-white lg:hidden">
         <nav class="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6" aria-label="<?php esc_attr_e('Mobile navigation', 'dawp'); ?>">
             <?php foreach ($nav_items as $item) : ?>
                 <a href="<?php echo esc_url($item['url']); ?>"

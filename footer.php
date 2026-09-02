@@ -6,7 +6,7 @@
  */
 
 $current_year = date_i18n('Y');
-$brand_name   = 'Scott Osterbind';
+$brand_name   = 'Carlton Edgeworth';
 $store_address = dawp_get_woocommerce_store_address();
 
 $term_url = static function ($slug) {
@@ -94,35 +94,35 @@ $footer_payment_methods = [
 </div><!-- #content -->
 
 <style>
-    .scott-social-link {
-        background-color: var(--scott-social-color);
-        border-color: var(--scott-social-color);
+    .ce-social-link {
+        background-color: var(--ce-social-color);
+        border-color: var(--ce-social-color);
         color: #fff;
     }
 
-    .scott-social-link:hover,
-    .scott-social-link:focus-visible {
+    .ce-social-link:hover,
+    .ce-social-link:focus-visible {
         background-color: #fff;
-        border-color: var(--scott-social-color);
-        color: var(--scott-social-color);
+        border-color: var(--ce-social-color);
+        color: var(--ce-social-color);
         transform: translateY(-2px);
     }
 
-    .scott-social-link svg {
+    .ce-social-link svg {
         fill: currentColor;
     }
 
-    .scott-trust-slider {
+    .ce-trust-slider {
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
 
-    .scott-trust-slider::-webkit-scrollbar {
+    .ce-trust-slider::-webkit-scrollbar {
         display: none;
     }
 
     @media (max-width: 639px) {
-        .scott-trust-slide {
+        .ce-trust-slide {
             flex: 0 0 min(82vw, 20rem);
         }
     }
@@ -130,9 +130,9 @@ $footer_payment_methods = [
 
 <footer id="colophon" class="bg-[#1B4F49] text-white" role="contentinfo">
     <section class="border-b border-[#E8D9A6] bg-[#F7F5EF] text-[#1F2937]">
-        <div class="scott-trust-slider mx-auto flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 py-8 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-6 lg:grid-cols-4 lg:px-8">
+        <div class="ce-trust-slider mx-auto flex max-w-7xl snap-x snap-mandatory gap-4 overflow-x-auto px-4 py-8 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-6 lg:grid-cols-4 lg:px-8">
             <?php foreach ($trust_items as $item) : ?>
-                <div class="scott-trust-slide snap-center rounded-lg border border-[#E8D9A6] bg-white p-5 shadow-sm sm:w-auto">
+                <div class="ce-trust-slide snap-center rounded-lg border border-[#E8D9A6] bg-white p-5 shadow-sm sm:w-auto">
                     <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#6E9B8E] text-white">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -156,7 +156,7 @@ $footer_payment_methods = [
                    class="inline-flex items-center gap-3"
                    aria-label="<?php echo esc_attr($brand_name); ?>">
                     <img
-                        <?php echo dawp_responsive_image_attrs(get_template_directory_uri() . '/assets/img/gallery/Logo_Scott.png', 160, 160, [[80, 80], [160, 160], [320, 320]], '80px', 'h-20 w-auto', 'lazy'); ?>
+                        <?php echo dawp_responsive_image_attrs(get_template_directory_uri() . '/assets/img/logo.png', 160, 160, [[80, 80], [160, 160], [320, 320]], '80px', 'h-20 w-auto', 'lazy'); ?>
                         alt="<?php echo esc_attr($brand_name); ?>"
                     >
                 </a>
@@ -164,7 +164,7 @@ $footer_payment_methods = [
                 <div class="mt-5 space-y-1.5 text-sm leading-6 text-white/75">
                     <p>
                         <strong class="text-white"><?php esc_html_e('Support:', 'dawp'); ?></strong>
-                        <a href="mailto:support@scottosterbind.com" class="transition hover:text-[#C89B3C]">support@scottosterbind.com</a>
+                        <a href="mailto:support@carltonedgeworth.net" class="transition hover:text-[#C89B3C]">support@carltonedgeworth.net</a>
                     </p>
                     <?php if ($store_address !== '') : ?>
                         <p>
@@ -178,33 +178,7 @@ $footer_payment_methods = [
                     </p>
                 </div>
 
-                <div class="mt-5 flex flex-wrap gap-3" aria-label="<?php esc_attr_e('Social links', 'dawp'); ?>">
-                    <a
-                        href="https://www.facebook.com/beadbracelets"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="scott-social-link inline-flex h-12 w-12 items-center justify-center rounded-full border shadow-lg shadow-black/20 transition"
-                        style="--scott-social-color: #1877F2;"
-                        aria-label="<?php esc_attr_e('Facebook', 'dawp'); ?>"
-                    >
-                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.25 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2V8.6h-1.25c-1.24 0-1.63.77-1.63 1.56v1.9h2.77l-.44 2.91h-2.33V22C18.34 21.25 22 17.08 22 12.06z" />
-                        </svg>
-                    </a>
-                    <a
-                        href="https://www.etsy.com/shop/scottosterbind"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="scott-social-link inline-flex h-12 w-12 items-center justify-center rounded-full border shadow-lg shadow-black/20 transition"
-                        style="--scott-social-color: #F1641E;"
-                        aria-label="<?php esc_attr_e('Etsy', 'dawp'); ?>"
-                    >
-                        <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M7.1 3h9.99c.41 0 .64.1.74.52.17.73.3 1.47.47 2.2l-.38.12c-.62-1.17-1.58-1.71-2.88-1.71H10.2v6.41h3.92c1 0 1.55-.37 1.79-1.36h.39v4.12h-.39c-.26-1.02-.78-1.38-1.79-1.38H10.2v6.78h5.08c1.38 0 2.33-.62 3.08-1.86l.37.14c-.2.79-.39 1.59-.6 2.38-.11.4-.31.52-.72.52H7.1v-.37c.9-.16 1.14-.42 1.14-1.33V4.69c0-.88-.24-1.14-1.14-1.32V3z" />
-                        </svg>
-                    </a>
-                </div>
-
+                
             </div>
 
             <nav aria-label="<?php esc_attr_e('Footer shop navigation', 'dawp'); ?>">

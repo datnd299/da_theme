@@ -1,4 +1,4 @@
-# Scott Osterbind — Home Plan
+# Carlton Edgeworth — Home Plan
 
 ## Homepage Goal
 
@@ -12,7 +12,7 @@ Handmade Jewelry & Vintage Accessories With A Personal Feel
 
 The homepage should make visitors understand:
 
-* Scott Osterbind focuses on handmade and curated pieces
+* Carlton Edgeworth focuses on handmade and curated pieces
 * The main products are bracelets, beaded jewelry, vintage accessories, apparel, and gifts
 * The brand feels personal, warm, creative, and boutique-like
 * The site is professional enough for GMC with clear categories, policies, and customer care
@@ -39,7 +39,7 @@ Use 5 sections:
 
 ## Purpose
 
-Introduce Scott Osterbind as a handmade jewelry and vintage accessories boutique with a warm, personal, creative feel.
+Introduce Carlton Edgeworth as a handmade jewelry and vintage accessories boutique with a warm, personal, creative feel.
 
 ## Content
 
@@ -191,7 +191,7 @@ Small handmade pieces made for everyday expression.
 Paragraph:
 
 ```txt
-From beaded bracelets to simple layering pieces, Scott Osterbind focuses on handmade details, natural textures, and personal accessories that feel easy to wear and thoughtful to gift.
+From beaded bracelets to simple layering pieces, Carlton Edgeworth focuses on handmade details, natural textures, and personal accessories that feel easy to wear and thoughtful to gift.
 ```
 
 Highlights:
@@ -326,7 +326,7 @@ Curated with warmth, detail, and everyday style in mind.
 Story paragraph:
 
 ```txt
-Scott Osterbind brings together handmade jewelry, beaded pieces, vintage-inspired accessories, and curated finds with a personal creative point of view. Each item is selected or made to feel thoughtful, wearable, and expressive.
+Carlton Edgeworth brings together handmade jewelry, beaded pieces, vintage-inspired accessories, and curated finds with a personal creative point of view. Each item is selected or made to feel thoughtful, wearable, and expressive.
 ```
 
 Trust heading:

@@ -68,7 +68,7 @@ function dawp_product_category_cover_url($slug) {
     $category = dawp_product_category_data($slug);
     $file = $category['cover'] ?? 'hero-artisan-jewelry.png';
 
-    return get_theme_file_uri('/assets/img/gallery/ScottOsterbind/' . $file);
+    return get_theme_file_uri('/assets/img/gallery/CarltonEdgeworth/' . $file);
 }
 
 function dawp_tire_category_cover_url($slug) {

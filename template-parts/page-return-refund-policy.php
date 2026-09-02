@@ -3,7 +3,7 @@
  * Template Part: page-return-refund-policy
  */
 
-$support_email = 'support@scottosterbind.com';
+$support_email = 'support@carltonedgeworth.net';
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 
 $return_steps = [
@@ -28,7 +28,7 @@ $return_steps = [
 $contact_details = [
     [
         'label' => __('Store Name', 'dawp'),
-        'value' => __('Scott Osterbind', 'dawp'),
+        'value' => __('Carlton Edgeworth', 'dawp'),
     ],
     [
         'label' => __('Address', 'dawp'),
@@ -56,12 +56,12 @@ $contact_details = [
 <div id="primary" class="bg-[#F8F1E7] font-body text-[#24211E]">
     <section class="bg-[#5A3825] py-14 text-white lg:py-20">
         <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Scott Osterbind Customer Care', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C8A45D]"><?php esc_html_e('Carlton Edgeworth Customer Care', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Return & Refund Policy', 'dawp'); ?>
             </h1>
             <p class="mx-auto mt-4 max-w-3xl text-lg leading-8 text-[#F8F1E7]">
-                <?php esc_html_e('Return eligibility, return shipping fees, delivery issue support, exchanges, refund timing, non-returnable items, and contact information for Scott Osterbind orders.', 'dawp'); ?>
+                <?php esc_html_e('Return eligibility, return shipping fees, delivery issue support, exchanges, refund timing, non-returnable items, and contact information for Carlton Edgeworth orders.', 'dawp'); ?>
             </p>
             <p class="mt-3 text-sm font-semibold uppercase tracking-wide text-[#D8C3A5]">
                 <?php esc_html_e('Last Updated: May 20, 2026', 'dawp'); ?>
@@ -132,7 +132,7 @@ $contact_details = [
                     <?php endforeach; ?>
                 </div>
                 <div class="mt-5 rounded-lg border border-[#C8A45D] bg-[#F8F1E7] p-5">
-                    <p class="font-black text-[#34243A]"><?php esc_html_e('Scott Osterbind - Returns Department', 'dawp'); ?></p>
+                    <p class="font-black text-[#34243A]"><?php esc_html_e('Carlton Edgeworth - Returns Department', 'dawp'); ?></p>
                     <p class="mt-2 text-[#34243A]"><?php echo esc_html($store_address !== '' ? $store_address : __('Return address will be provided after approval.', 'dawp')); ?></p>
                 </div>
                 <div class="mt-7 flex flex-wrap gap-3">

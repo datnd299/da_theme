@@ -3,14 +3,14 @@
  * Template Part: page-privacy
  */
 
-$support_email = 'support@scottosterbind.com';
+$support_email = 'support@carltonedgeworth.net';
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 ?>
 
 <div id="primary" class="legal-page bg-[#F7F5EF] font-body text-[#1F2937]">
     <section class="bg-[#1B4F49] py-14 text-white lg:py-20">
         <div class="legal-page__container mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C89B3C]"><?php esc_html_e('Scott Osterbind Privacy', 'dawp'); ?></p>
+            <p class="text-sm font-black uppercase tracking-[0.18em] text-[#C89B3C]"><?php esc_html_e('Carlton Edgeworth Privacy', 'dawp'); ?></p>
             <h1 class="mt-3 font-heading text-4xl font-black leading-tight lg:text-6xl">
                 <?php esc_html_e('Privacy Policy', 'dawp'); ?>
             </h1>
@@ -42,7 +42,7 @@ $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_ge
                         [&_a]:font-semibold [&_a]:text-[#C89B3C] [&_a]:underline [&_a]:decoration-[#C89B3C] [&_a]:decoration-2 [&_a]:underline-offset-4 hover:[&_a]:text-[#1F6F68]
                         [&_h2]:scroll-mt-24 [&_h2]:mt-10 [&_h2]:border-t [&_h2]:border-[#E8D9A6] [&_h2]:pt-8 [&_h2]:font-heading [&_h2]:text-2xl [&_h2]:font-black [&_h2]:leading-tight [&_h2]:text-[#1F6F68] md:[&_h2]:text-3xl
                         [&_li]:leading-7 [&_li]:pl-1 [&_p]:mb-5 [&_strong]:font-bold [&_strong]:text-[#1F2937] [&_ul]:mb-8 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-3 [&_ul]:pl-6">
-                        <p id="privacy-overview" class="scroll-mt-24 rounded-lg border border-[#C89B3C]/60 bg-[#F7F5EF] p-4 font-medium text-[#1F6F68]"><?php esc_html_e('This Privacy Policy explains how Scott Osterbind ("we", "us", or "our") collects, uses, shares, protects, and retains personal information when you visit scottosterbind.com, create an account, contact us, use tracking or support features, or purchase handmade jewelry, vintage-inspired accessories, curated apparel, or artisan gifts from our online store.', 'dawp'); ?></p>
+                        <p id="privacy-overview" class="scroll-mt-24 rounded-lg border border-[#C89B3C]/60 bg-[#F7F5EF] p-4 font-medium text-[#1F6F68]"><?php esc_html_e('This Privacy Policy explains how Carlton Edgeworth ("we", "us", or "our") collects, uses, shares, protects, and retains personal information when you visit carltonedgeworth.net, create an account, contact us, use tracking or support features, or purchase handmade jewelry, vintage-inspired accessories, curated apparel, or artisan gifts from our online store.', 'dawp'); ?></p>
 
                         <h2><?php esc_html_e('1. Scope of This Privacy Policy', 'dawp'); ?></h2>
                         <p><?php esc_html_e('This policy applies to personal information collected through our website, checkout, customer account features, contact forms, order support, email communications, advertising activity, analytics tools, and related ecommerce services. It does not apply to websites, applications, payment providers, shipping carriers, social platforms, or other third parties that we do not own or control.', 'dawp'); ?></p>
@@ -84,7 +84,7 @@ $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_ge
                         <p><?php esc_html_e('You can set your browser to block or delete cookies. If you disable cookies, some parts of the website may not work correctly, including cart, checkout, account login, saved preferences, and security features. Third-party advertising and analytics partners may also offer their own privacy controls or opt-out tools.', 'dawp'); ?></p>
 
                         <h2><?php esc_html_e('6. Payment Processing and Secure Checkout', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('Checkout pages and pages that collect personal information should be protected by HTTPS/SSL. Payment information is processed by trusted third-party payment processors. Scott Osterbind does not store full credit card numbers, card security codes, or complete payment credentials on our website servers. Payment processors may collect and process payment details according to their own privacy notices and security standards.', 'dawp'); ?></p>
+                        <p><?php esc_html_e('Checkout pages and pages that collect personal information should be protected by HTTPS/SSL. Payment information is processed by trusted third-party payment processors. Carlton Edgeworth does not store full credit card numbers, card security codes, or complete payment credentials on our website servers. Payment processors may collect and process payment details according to their own privacy notices and security standards.', 'dawp'); ?></p>
 
                         <h2><?php esc_html_e('7. When We Share Information', 'dawp'); ?></h2>
                         <p><?php esc_html_e('We do not sell, rent, or trade customer contact information to third parties for their independent marketing. We share personal information only when needed to operate the store, fulfill purchases, protect customers, comply with law, or complete a transaction you requested. We may share information with:', 'dawp'); ?></p>
@@ -127,12 +127,12 @@ $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_ge
                         <p><?php esc_html_e('This Privacy Policy and your use of our Site shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law principles.', 'dawp'); ?></p>
 
                         <h2 id="privacy-contact"><?php esc_html_e('16. Contact Us', 'dawp'); ?></h2>
-                        <p><?php esc_html_e('For privacy questions, account requests, data requests, order-related privacy concerns, or questions about this policy, please contact Scott Osterbind through our official channels:', 'dawp'); ?></p>
+                        <p><?php esc_html_e('For privacy questions, account requests, data requests, order-related privacy concerns, or questions about this policy, please contact Carlton Edgeworth through our official channels:', 'dawp'); ?></p>
                         <ul>
                             <li><strong><?php esc_html_e('Email:', 'dawp'); ?></strong> <a href="mailto:<?php echo esc_attr($support_email); ?>"><?php echo esc_html($support_email); ?></a></li>
                             <li><strong><?php esc_html_e('Physical Business Address:', 'dawp'); ?></strong> <?php echo esc_html($store_address !== '' ? $store_address : __('Available through checkout and official support channels.', 'dawp')); ?></li>
                             <li><strong><?php esc_html_e('Business Hours:', 'dawp'); ?></strong> <?php esc_html_e('Monday - Friday, 9:00 AM - 6:00 PM EST', 'dawp'); ?></li>
-                            <li><strong><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('scottosterbind.com', 'dawp'); ?></li>
+                            <li><strong><?php esc_html_e('Website:', 'dawp'); ?></strong> <?php esc_html_e('carltonedgeworth.net', 'dawp'); ?></li>
                         </ul>
                     </div>
                 </article>

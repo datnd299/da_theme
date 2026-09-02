@@ -1,6 +1,6 @@
 <?php
 /**
- * Scott Osterbind - Shop / Archive Product Template
+ * Carlton Edgeworth - Shop / Archive Product Template
  * Design System: artisan jewelry boutique
  */
 defined('ABSPATH') || exit;
@@ -9,8 +9,8 @@ get_header();
 
 $archive_title = is_shop() ? __('All Products', 'dawp') : woocommerce_page_title(false);
 $archive_summary = __('Browse handmade jewelry, beaded pieces, vintage-inspired accessories, curated apparel, and thoughtful small gifts.', 'dawp');
-$archive_eyebrow = __('Scott Osterbind Shop', 'dawp');
-$archive_cover = get_theme_file_uri('/assets/img/gallery/ScottOsterbind/hero-artisan-jewelry.png');
+$archive_eyebrow = __('Carlton Edgeworth Shop', 'dawp');
+$archive_cover = get_theme_file_uri('/assets/img/gallery/CarltonEdgeworth/hero-artisan-jewelry.png');
 $archive_tags = [
     __('Handmade details', 'dawp'),
     __('Curated finds', 'dawp'),

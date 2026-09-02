@@ -72,7 +72,7 @@ if (function_exists('dawp_product_category_definitions')) {
         </h1>
 
         <p class="mt-6 max-w-2xl text-lg leading-8 text-[#475569]">
-          <?php esc_html_e('The page may have moved, the link may be outdated, or a product category address may have changed. Use the shortcuts below to get back to the current Scott Osterbind catalog.', 'dawp'); ?>
+          <?php esc_html_e('The page may have moved, the link may be outdated, or a product category address may have changed. Use the shortcuts below to get back to the current Carlton Edgeworth catalog.', 'dawp'); ?>
         </p>
 
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -120,8 +120,8 @@ if (function_exists('dawp_product_category_definitions')) {
         <?php endif; ?>
 
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mt-6 flex flex-col gap-2 rounded-lg border border-[#E8D9A6] bg-white p-2 sm:flex-row">
-          <label for="scott-404-search" class="sr-only"><?php esc_html_e('Search products', 'dawp'); ?></label>
-          <input id="scott-404-search" type="search" name="s" placeholder="<?php esc_attr_e('Search bracelets, jewelry, or gifts...', 'dawp'); ?>" class="min-h-11 flex-1 rounded-md bg-[#F7F5EF] px-4 text-sm text-[#1F2937] placeholder:text-[#6E9B8E] outline-none focus:bg-white">
+          <label for="ce-404-search" class="sr-only"><?php esc_html_e('Search products', 'dawp'); ?></label>
+          <input id="ce-404-search" type="search" name="s" placeholder="<?php esc_attr_e('Search bracelets, jewelry, or gifts...', 'dawp'); ?>" class="min-h-11 flex-1 rounded-md bg-[#F7F5EF] px-4 text-sm text-[#1F2937] placeholder:text-[#6E9B8E] outline-none focus:bg-white">
           <input type="hidden" name="post_type" value="product">
           <button type="submit" class="inline-flex min-h-11 shrink-0 items-center justify-center rounded-full bg-[#C89B3C] px-5 text-sm font-black uppercase tracking-wide text-white transition hover:bg-[#1F6F68] hover:text-white">
             <?php esc_html_e('Search', 'dawp'); ?>

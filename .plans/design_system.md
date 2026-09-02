@@ -1,4 +1,4 @@
-# Scott Osterbind — Design System
+# Carlton Edgeworth — Design System
 
 ## Design Goal
 
@@ -355,7 +355,7 @@ thoughtful gift
 
 ## Final Design Feeling
 
-Scott Osterbind should look like:
+Carlton Edgeworth should look like:
 
 > A warm artisan boutique offering handmade bracelets, beaded jewelry, vintage accessories, curated apparel, and thoughtful small gifts.
 

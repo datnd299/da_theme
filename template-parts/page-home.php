@@ -10,7 +10,7 @@ if (!function_exists('dawp_home_product_grid')) {
         if (empty($products)) {
             ?>
             <div class="col-span-full rounded-3xl border border-[#D8CEC6] bg-white p-8 text-center">
-                <p class="text-[#6F625D]"><?php esc_html_e('New Smartbasketco style pieces will be available soon.', 'dawp'); ?></p>
+                <p class="text-[#6F625D]"><?php esc_html_e('New Smartbasketco patch designs will be available soon.', 'dawp'); ?></p>
             </div>
             <?php
             return;
@@ -55,181 +55,159 @@ if (!function_exists('dawp_home_product_grid')) {
     }
 }
 
-$all_image_base = get_template_directory_uri() . '/assets/img/All_image/';
-$stock_images = [
-    'hero'        => $all_image_base . 'banner.png',
-    'hero_small'  => $all_image_base . 'image copy 3.png',
-    'shoes'       => $all_image_base . 'image.png',
-    'sandals'     => $all_image_base . 'image copy 5.png',
-    'handbags'    => $all_image_base . 'image copy 8.png',
-    'accessories' => $all_image_base . 'image copy 10.png',
-    'feature'     => $all_image_base . 'image copy 9.png',
-    'about'       => $all_image_base . 'image copy 7.png',
-];
+if (!function_exists('dawp_home_products')) {
+    function dawp_home_products($args = []) {
+        if (!class_exists('WooCommerce')) {
+            return [];
+        }
 
-$collections = [
-    [
-        'title' => __('Women\'s Leather Shoes', 'dawp'),
-        'copy'  => __('Polished women\'s shoes designed for daily outfits, office-ready looks, and confident everyday wear.', 'dawp'),
-        'url'   => home_url('/product-category/womens-leather-shoes/'),
-        'image' => $stock_images['shoes'],
-    ],
-    [
-        'title' => __('Women\'s Sandals', 'dawp'),
-        'copy'  => __('Relaxed sandals made for warm days, travel, weekends, and easy everyday styling.', 'dawp'),
-        'url'   => home_url('/product-category/womens-sandals/'),
-        'image' => $stock_images['sandals'],
-    ],
-    [
-        'title' => __('Women\'s Handbags', 'dawp'),
-        'copy'  => __('Handbags designed for daily essentials, polished outfits, and practical everyday use.', 'dawp'),
-        'url'   => home_url('/product-category/womens-handbags/'),
-        'image' => $stock_images['handbags'],
-    ],
-    [
-        'title' => __('Fashion Accessories', 'dawp'),
-        'copy'  => __('Outfit-finishing accessories that add a polished touch to everyday looks.', 'dawp'),
-        'url'   => home_url('/product-category/fashion-accessories/'),
-        'image' => $stock_images['accessories'],
-    ],
-];
+        $products = wc_get_products(array_merge([
+            'status'  => 'publish',
+            'limit'   => 8,
+            'orderby' => 'date',
+            'order'   => 'DESC',
+        ], $args));
 
-$new_arrivals = class_exists('WooCommerce') ? wc_get_products([
-    'status'  => 'publish',
-    'limit'   => 4,
-    'orderby' => 'date',
-    'order'   => 'DESC',
-]) : [];
+        return array_values(array_filter($products, static function ($product) {
+            return $product instanceof WC_Product && $product->get_image_id();
+        }));
+    }
+}
 
-$favorites = class_exists('WooCommerce') ? wc_get_products([
-    'status'  => 'publish',
-    'limit'   => 4,
-    'orderby' => 'date',
-    'order'   => 'ASC',
-]) : [];
+if (!function_exists('dawp_home_image_tile')) {
+    function dawp_home_image_tile($product, $wrapper_class = '', $img_class = '') {
+        if (!$product instanceof WC_Product) {
+            return;
+        }
+        $image = wp_get_attachment_image($product->get_image_id(), 'woocommerce_thumbnail', false, [
+            'class'   => $img_class ?: 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105',
+            'loading' => 'lazy',
+        ]);
+        ?>
+        <a href="<?php echo esc_url(get_permalink($product->get_id())); ?>"
+           class="group relative block overflow-hidden bg-[#F4ECE5] <?php echo esc_attr($wrapper_class); ?>"
+           aria-label="<?php echo esc_attr($product->get_name()); ?>">
+            <?php echo $image; ?>
+        </a>
+        <?php
+    }
+}
 
+$new_arrivals = dawp_home_products(['limit' => 8, 'orderby' => 'date', 'order' => 'DESC']);
+$favorites    = dawp_home_products(['limit' => 8, 'orderby' => 'popularity']);
 if (empty($favorites)) {
     $favorites = $new_arrivals;
 }
+
+$showcase = dawp_home_products(['limit' => 14, 'orderby' => 'rand']);
+if (empty($showcase)) {
+    $showcase = $new_arrivals;
+}
+
+$hero_tiles    = array_slice($showcase, 0, 3);
+$catalog_tiles = array_slice($showcase, 0, 6);
+$gallery_tiles = array_slice($showcase, 0, 8);
+$feature_tile  = $showcase[0] ?? null;
+
+$shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+
+$steps = [
+    ['no' => '01', 'title' => __('Send your design', 'dawp'), 'copy' => __('Share a logo, sketch, or idea with the size and backing you need.', 'dawp')],
+    ['no' => '02', 'title' => __('We digitize and stitch', 'dawp'), 'copy' => __('Your artwork is mapped to thread and embroidered onto durable twill.', 'dawp')],
+    ['no' => '03', 'title' => __('Iron or sew it on', 'dawp'), 'copy' => __('Patches arrive ready to apply to jackets, bags, hats, and uniforms.', 'dawp')],
+];
+
+$feature_points = [
+    ['title' => __('Stitched Twill', 'dawp'), 'copy' => __('Tight embroidery on a sturdy fabric base.', 'dawp')],
+    ['title' => __('Iron-On Backing', 'dawp'), 'copy' => __('Heat-seal or sew-on options available.', 'dawp')],
+    ['title' => __('Any Shape', 'dawp'), 'copy' => __('Circles, shields, banners, and custom cuts.', 'dawp')],
+];
 
 $trust_cards = [
     ['title' => __('Secure Checkout', 'dawp'), 'copy' => __('A clean and protected checkout experience for every order.', 'dawp')],
     ['title' => __('Tracking Included', 'dawp'), 'copy' => __('Tracking details are provided once your order ships.', 'dawp')],
     ['title' => __('30-Day Returns', 'dawp'), 'copy' => __('Returns are available on eligible unused items within 30 days of delivery.', 'dawp')],
-    ['title' => __('Clear Product Notes', 'dawp'), 'copy' => __('Review sizing, materials, care details, and return conditions before ordering.', 'dawp')],
+    ['title' => __('Custom Design Help', 'dawp'), 'copy' => __('Our team reviews your artwork and confirms sizing before production.', 'dawp')],
 ];
 ?>
 
 <main class="bg-[#F8F3EC] text-[#2F2A28]">
     <!-- Hero -->
     <section class="relative overflow-hidden bg-[#241F1D] text-white">
-        <div class="absolute inset-0">
-            <?php echo dawp_responsive_image($stock_images['hero'], [
-                'alt'           => __('Women\'s shoes and accessories styled for everyday outfits', 'dawp'),
-                'width'         => 1600,
-                'height'        => 900,
-                'class'         => 'h-full w-full object-cover opacity-60',
-                'loading'       => 'eager',
-                'fetchpriority' => 'high',
-                'sizes'         => '100vw',
-                'srcset'        => [[640, 360], [960, 540], [1280, 720], [1600, 900], [2000, 1125]],
-            ]); ?>
-            <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(36,31,29,0.96)_0%,rgba(36,31,29,0.78)_42%,rgba(36,31,29,0.16)_100%)]"></div>
-        </div>
-        <div class="relative mx-auto grid min-h-[660px] w-[min(100%,1180px)] content-end px-4 pb-8 pt-20 sm:px-6 lg:px-8 lg:pb-12">
-            <div class="max-w-4xl">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(201,138,138,0.22),transparent_45%),radial-gradient(circle_at_85%_80%,rgba(232,216,200,0.12),transparent_40%)]"></div>
+        <div class="relative mx-auto grid w-[min(100%,1180px)] gap-12 px-4 pb-14 pt-20 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-10 lg:px-8 lg:pb-20 lg:pt-24">
+            <div class="max-w-2xl">
                 <span class="inline-flex border-b border-[#E8D8C8] pb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]">
                     <?php esc_html_e('Smartbasketco', 'dawp'); ?>
                 </span>
-                <h1 class="mt-7 max-w-4xl font-serif text-4xl leading-[1.02] text-white sm:text-6xl lg:text-7xl">
-                    <?php esc_html_e('Women\'s Shoes & Accessories For Everyday Style', 'dawp'); ?>
+                <h1 class="mt-7 font-serif text-4xl leading-[1.04] text-white sm:text-5xl lg:text-6xl">
+                    <?php esc_html_e('Custom Embroidered Patches, Made Your Way', 'dawp'); ?>
                 </h1>
-                <p class="mt-6 max-w-3xl text-base leading-8 text-white/78 sm:text-lg">
-                    <?php esc_html_e('Discover women\'s leather shoes, sandals, handbags, and fashion accessories designed for polished daily outfits, relaxed weekends, and confident everyday looks.', 'dawp'); ?>
+                <p class="mt-6 max-w-xl text-base leading-8 text-white/78 sm:text-lg">
+                    <?php esc_html_e('Shop hundreds of ready-made embroidered patch designs, or send your own artwork for a fully custom patch with iron-on or sew-on backing.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <a href="<?php echo esc_url(home_url('/product-category/womens-leather-shoes/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-bold text-[#2F2A28] transition-colors duration-300 hover:bg-[#E8D8C8]">
-                        <?php esc_html_e('Shop Women\'s Shoes', 'dawp'); ?>
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-bold text-[#2F2A28] transition-colors duration-300 hover:bg-[#E8D8C8]">
+                        <?php esc_html_e('Shop All Patches', 'dawp'); ?>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/product-category/womens-handbags/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-7 py-3 text-sm font-bold text-white transition-colors duration-300 hover:border-white hover:bg-white/10">
-                        <?php esc_html_e('Explore Handbags', 'dawp'); ?>
+                    <a href="<?php echo esc_url(home_url('/contact-us/')); ?>" class="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-7 py-3 text-sm font-bold text-white transition-colors duration-300 hover:border-white hover:bg-white/10">
+                        <?php esc_html_e('Start a Custom Order', 'dawp'); ?>
                     </a>
+                </div>
+
+                <div class="mt-12 grid gap-3 border-t border-white/18 pt-5 sm:grid-cols-3">
+                    <div>
+                        <span class="block font-serif text-2xl text-white"><?php esc_html_e('01', 'dawp'); ?></span>
+                        <p class="mt-1 text-sm leading-6 text-white/72"><?php esc_html_e('Your artwork stitched onto durable embroidered twill.', 'dawp'); ?></p>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-2xl text-white"><?php esc_html_e('02', 'dawp'); ?></span>
+                        <p class="mt-1 text-sm leading-6 text-white/72"><?php esc_html_e('Iron-on and sew-on backing options for every patch.', 'dawp'); ?></p>
+                    </div>
+                    <div>
+                        <span class="block font-serif text-2xl text-white"><?php esc_html_e('03', 'dawp'); ?></span>
+                        <p class="mt-1 text-sm leading-6 text-white/72"><?php esc_html_e('Custom sizes and shapes, from small badges to back patches.', 'dawp'); ?></p>
+                    </div>
                 </div>
             </div>
 
-            <div class="mt-12 grid gap-3 border-t border-white/18 pt-5 sm:grid-cols-3">
-                <div>
-                    <span class="block font-serif text-2xl text-white"><?php esc_html_e('01', 'dawp'); ?></span>
-                    <p class="mt-1 text-sm leading-6 text-white/72"><?php esc_html_e('Polished shoes for workdays, dinners, and daily outfits.', 'dawp'); ?></p>
+            <?php if (count($hero_tiles) >= 3) : ?>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="group aspect-square overflow-hidden rounded-[24px] border-4 border-white/90 shadow-[0_18px_44px_rgba(0,0,0,0.35)]">
+                        <?php dawp_home_image_tile($hero_tiles[0], 'h-full w-full', 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105'); ?>
+                    </div>
+                    <div class="group aspect-square translate-y-8 overflow-hidden rounded-[24px] border-4 border-white/90 shadow-[0_18px_44px_rgba(0,0,0,0.35)]">
+                        <?php dawp_home_image_tile($hero_tiles[1], 'h-full w-full', 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105'); ?>
+                    </div>
+                    <div class="group col-span-2 aspect-[16/10] overflow-hidden rounded-[24px] border-4 border-white/90 shadow-[0_18px_44px_rgba(0,0,0,0.35)]">
+                        <?php dawp_home_image_tile($hero_tiles[2], 'h-full w-full', 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105'); ?>
+                    </div>
                 </div>
-                <div>
-                    <span class="block font-serif text-2xl text-white"><?php esc_html_e('02', 'dawp'); ?></span>
-                    <p class="mt-1 text-sm leading-6 text-white/72"><?php esc_html_e('Easy sandals for warm days, travel, and weekends.', 'dawp'); ?></p>
-                </div>
-                <div>
-                    <span class="block font-serif text-2xl text-white"><?php esc_html_e('03', 'dawp'); ?></span>
-                    <p class="mt-1 text-sm leading-6 text-white/72"><?php esc_html_e('Handbags and accessories for simple outfit finishing.', 'dawp'); ?></p>
-                </div>
-            </div>
+            <?php endif; ?>
         </div>
     </section>
 
-    <!-- Shop by collection -->
+    <!-- Shop all patches -->
     <section class="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <div class="mx-auto grid w-[min(100%,1180px)] gap-8 lg:grid-cols-[0.88fr_1.12fr]">
-            <div class="flex flex-col justify-center gap-8 border-y border-[#D8CEC6] py-8 lg:py-10">
-                <div class="max-w-md space-y-4">
-                    <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Shop By Collection', 'dawp'); ?></span>
-                    <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-5xl"><?php esc_html_e('Shop polished pieces for everyday outfits.', 'dawp'); ?></h2>
-                </div>
+        <div class="mx-auto grid w-[min(100%,1180px)] gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div class="flex flex-col justify-center gap-6 border-y border-[#D8CEC6] py-8 lg:py-10">
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('The Full Catalog', 'dawp'); ?></span>
+                <h2 class="max-w-md font-serif text-3xl leading-tight text-[#2F2A28] sm:text-5xl"><?php esc_html_e('Browse every embroidered patch in one place.', 'dawp'); ?></h2>
                 <p class="max-w-md text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Choose from women\'s leather shoes, sandals, handbags, and accessories made to pair easily with daily looks.', 'dawp'); ?>
+                    <?php esc_html_e('Hundreds of embroidered patch designs for jackets, bags, hats, and uniforms, plus fully custom patches made from your own artwork.', 'dawp'); ?>
                 </p>
-                <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="inline-flex min-h-11 w-fit items-center justify-center rounded-full bg-[#2F2A28] px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-[#C98A8A]">
-                    <?php esc_html_e('Shop All', 'dawp'); ?>
+                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 w-fit items-center justify-center rounded-full bg-[#2F2A28] px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-[#C98A8A]">
+                    <?php esc_html_e('Shop All Patches', 'dawp'); ?>
                 </a>
             </div>
 
-            <div class="grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-                <a href="<?php echo esc_url($collections[0]['url']); ?>" class="group relative min-h-[460px] overflow-hidden rounded-[8px] bg-[#2F2A28]">
-                    <?php echo dawp_responsive_image($collections[0]['image'], [
-                        'alt'     => $collections[0]['title'],
-                        'width'   => 680,
-                        'height'  => 680,
-                        'class'   => 'absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105',
-                        'sizes'   => '(min-width: 1024px) 400px, 100vw',
-                        'srcset'  => [[360, 360], [573, 573], [680, 680]],
-                    ]); ?>
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#2F2A28]/90 via-[#2F2A28]/20 to-transparent"></div>
-                    <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8">
-                        <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Start Here', 'dawp'); ?></span>
-                        <h3 class="mt-3 font-serif text-3xl leading-tight text-white sm:text-4xl"><?php echo esc_html($collections[0]['title']); ?></h3>
-                        <p class="mt-3 max-w-md text-sm leading-6 text-white/82"><?php echo esc_html($collections[0]['copy']); ?></p>
-                    </div>
-                </a>
-
-                <div class="grid gap-4">
-                    <?php foreach (array_slice($collections, 1) as $index => $collection) : ?>
-                        <a href="<?php echo esc_url($collection['url']); ?>" class="group grid min-h-[160px] grid-cols-[104px_1fr] overflow-hidden rounded-[8px] border border-[#D8CEC6] bg-[#F8F3EC] transition-colors hover:bg-[#F4ECE5] sm:grid-cols-[120px_1fr]">
-                            <?php echo dawp_responsive_image($collection['image'], [
-                                'alt'     => $collection['title'],
-                                'width'   => 240,
-                                'height'  => 240,
-                                'class'   => 'h-full min-h-[160px] w-full object-cover transition-transform duration-500 group-hover:scale-105',
-                                'sizes'   => '(min-width: 640px) 120px, 104px',
-                                'srcset'  => [[104, 160], [120, 184], [240, 368]],
-                            ]); ?>
-                            <div class="flex flex-col justify-between gap-4 p-4">
-                                <span class="text-xs font-bold text-[#C98A8A]"><?php echo esc_html(str_pad((string) ($index + 2), 2, '0', STR_PAD_LEFT)); ?></span>
-                                <div>
-                                    <h3 class="break-words font-serif text-xl leading-tight text-[#2F2A28]"><?php echo esc_html($collection['title']); ?></h3>
-                                    <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($collection['copy']); ?></p>
-                                </div>
-                            </div>
-                        </a>
+            <?php if (count($catalog_tiles) >= 6) : ?>
+                <div class="grid grid-cols-3 gap-3 sm:gap-4">
+                    <?php foreach ($catalog_tiles as $tile) : ?>
+                        <?php dawp_home_image_tile($tile, 'aspect-square rounded-[12px] border border-[#D8CEC6]'); ?>
                     <?php endforeach; ?>
                 </div>
-            </div>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -239,15 +217,15 @@ $trust_cards = [
             <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div class="max-w-2xl space-y-3">
                     <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('New Arrivals', 'dawp'); ?></span>
-                    <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Fresh picks for polished everyday style', 'dawp'); ?></h2>
+                    <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Fresh patch designs added regularly', 'dawp'); ?></h2>
                 </div>
-                <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="text-sm font-bold text-[#2F2A28] underline decoration-[#C98A8A] decoration-2 underline-offset-8 transition-colors hover:text-[#C98A8A]">
+                <a href="<?php echo esc_url($shop_url); ?>" class="text-sm font-bold text-[#2F2A28] underline decoration-[#C98A8A] decoration-2 underline-offset-8 transition-colors hover:text-[#C98A8A]">
                     <?php esc_html_e('View All', 'dawp'); ?>
                 </a>
             </div>
 
             <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-                <?php dawp_home_product_grid($new_arrivals); ?>
+                <?php dawp_home_product_grid(array_slice($new_arrivals, 0, 4)); ?>
             </div>
         </div>
     </section>
@@ -255,57 +233,70 @@ $trust_cards = [
     <!-- Feature -->
     <section class="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div class="mx-auto grid w-[min(100%,1180px)] items-center gap-8 lg:grid-cols-2">
-            <div class="overflow-hidden rounded-[28px] border-8 border-white shadow-[0_18px_44px_rgba(47,42,40,0.12)]">
-                <?php echo dawp_responsive_image($stock_images['feature'], [
-                    'alt'     => __('Women\'s fashion boutique with shoes and accessories', 'dawp'),
-                    'width'   => 760,
-                    'height'  => 608,
-                    'class'   => 'aspect-[5/4] w-full object-cover',
-                    'sizes'   => '(min-width: 1024px) 560px, 100vw',
-                    'srcset'  => [[400, 320], [573, 458], [760, 608]],
-                ]); ?>
-            </div>
+            <?php if ($feature_tile) : ?>
+                <div class="group overflow-hidden rounded-[28px] border-8 border-white shadow-[0_18px_44px_rgba(47,42,40,0.12)]">
+                    <a href="<?php echo esc_url(get_permalink($feature_tile->get_id())); ?>" class="block aspect-[5/4] w-full overflow-hidden bg-[#F4ECE5]" aria-label="<?php echo esc_attr($feature_tile->get_name()); ?>">
+                        <?php echo wp_get_attachment_image($feature_tile->get_image_id(), 'woocommerce_single', false, [
+                            'class'   => 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105',
+                            'loading' => 'lazy',
+                        ]); ?>
+                    </a>
+                </div>
+            <?php endif; ?>
             <div class="rounded-[28px] border border-[#D8CEC6] bg-white p-8 shadow-[0_12px_30px_rgba(47,42,40,0.08)] lg:p-10">
-                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Polished Shoes For Daily Looks', 'dawp'); ?></span>
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Made To Order', 'dawp'); ?></span>
                 <h2 class="mt-4 font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl">
-                    <?php esc_html_e('Shoes, sandals, bags, and accessories that work with real wardrobes.', 'dawp'); ?>
+                    <?php esc_html_e('Embroidered patches built to last on jackets, bags, and uniforms.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-[#6F625D]">
-                    <?php esc_html_e('Smartbasketco focuses on feminine footwear, practical handbags, and simple accessories that fit workdays, weekends, travel moments, and everyday routines.', 'dawp'); ?>
+                    <?php esc_html_e('Smartbasketco makes embroidered patches for makers, teams, events, clubs, and brands, with clear sizing, backing options, and care details on every product page.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 grid gap-3 sm:grid-cols-3">
-                    <div class="rounded-2xl bg-[#F8F3EC] p-4">
-                        <h3 class="font-bold text-[#2F2A28]"><?php esc_html_e('Daily Shoes', 'dawp'); ?></h3>
-                        <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Polished pairs for busy days.', 'dawp'); ?></p>
-                    </div>
-                    <div class="rounded-2xl bg-[#F8F3EC] p-4">
-                        <h3 class="font-bold text-[#2F2A28]"><?php esc_html_e('Handbags', 'dawp'); ?></h3>
-                        <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Room for daily essentials.', 'dawp'); ?></p>
-                    </div>
-                    <div class="rounded-2xl bg-[#F8F3EC] p-4">
-                        <h3 class="font-bold text-[#2F2A28]"><?php esc_html_e('Accessories', 'dawp'); ?></h3>
-                        <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php esc_html_e('Finishing touches for outfits.', 'dawp'); ?></p>
-                    </div>
+                    <?php foreach ($feature_points as $point) : ?>
+                        <div class="rounded-2xl bg-[#F8F3EC] p-4">
+                            <h3 class="font-bold text-[#2F2A28]"><?php echo esc_html($point['title']); ?></h3>
+                            <p class="mt-2 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($point['copy']); ?></p>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <a href="<?php echo esc_url(home_url('/shop/')); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#C98A8A] px-7 py-3 text-sm font-bold text-white transition-colors duration-300 hover:bg-[#2F2A28]">
+                <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center rounded-full bg-[#C98A8A] px-7 py-3 text-sm font-bold text-white transition-colors duration-300 hover:bg-[#2F2A28]">
                     <?php esc_html_e('Shop The Collection', 'dawp'); ?>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Favorites -->
+    <!-- How it works -->
     <section class="bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        <div class="mx-auto w-[min(100%,1180px)]">
+            <div class="mb-10 max-w-2xl space-y-3">
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Custom Patches', 'dawp'); ?></span>
+                <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('From your idea to a finished patch in three steps.', 'dawp'); ?></h2>
+            </div>
+            <div class="grid gap-4 md:grid-cols-3 md:gap-6">
+                <?php foreach ($steps as $step) : ?>
+                    <div class="rounded-3xl border border-[#D8CEC6] bg-[#F8F3EC] p-6 sm:p-8">
+                        <span class="font-serif text-3xl text-[#C98A8A]"><?php echo esc_html($step['no']); ?></span>
+                        <h3 class="mt-4 font-serif text-xl text-[#2F2A28]"><?php echo esc_html($step['title']); ?></h3>
+                        <p class="mt-3 text-sm leading-6 text-[#6F625D]"><?php echo esc_html($step['copy']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Favorites -->
+    <section class="bg-[#F4ECE5] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div class="mx-auto w-[min(100%,1180px)]">
             <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div class="max-w-2xl space-y-3">
                     <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('Customer Favorites', 'dawp'); ?></span>
-                    <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Loved for everyday style', 'dawp'); ?></h2>
+                    <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('Popular embroidered patches', 'dawp'); ?></h2>
                 </div>
-                <p class="max-w-md text-sm leading-6 text-[#6F625D]"><?php esc_html_e('A practical edit of shoes, handbags, and accessories made for simple daily styling.', 'dawp'); ?></p>
+                <p class="max-w-md text-sm leading-6 text-[#6F625D]"><?php esc_html_e('A selection of patch designs our customers order most for gear, gifts, and group projects.', 'dawp'); ?></p>
             </div>
             <div class="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-                <?php dawp_home_product_grid($favorites); ?>
+                <?php dawp_home_product_grid(array_slice($favorites, 0, 4)); ?>
             </div>
         </div>
     </section>
@@ -313,23 +304,23 @@ $trust_cards = [
     <!-- About and newsletter -->
     <section class="px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         <div class="mx-auto grid min-h-[520px] w-[min(100%,1180px)] overflow-hidden rounded-[28px] bg-[#2F2A28] lg:min-h-[560px] lg:grid-cols-[0.9fr_1.1fr]">
-            <div class="min-h-[360px] lg:min-h-[560px]">
-                <?php echo dawp_responsive_image($stock_images['about'], [
-                    'alt'     => __('Women\'s handbag styled with everyday accessories', 'dawp'),
-                    'width'   => 700,
-                    'height'  => 560,
-                    'class'   => 'h-full w-full object-cover',
-                    'sizes'   => '(min-width: 1024px) 500px, 100vw',
-                    'srcset'  => [[400, 320], [573, 458], [700, 560]],
-                ]); ?>
+            <div class="grid min-h-[240px] grid-cols-2 gap-2 bg-[#241F1D] p-2 lg:min-h-[560px]">
+                <?php
+                $about_tiles = array_slice($showcase, 0, 4);
+                if (count($about_tiles) >= 4) :
+                    foreach ($about_tiles as $tile) :
+                        dawp_home_image_tile($tile, 'h-full min-h-[120px] w-full overflow-hidden rounded-[12px]');
+                    endforeach;
+                endif;
+                ?>
             </div>
             <div class="flex min-h-[520px] flex-col justify-center p-8 pb-10 text-white sm:p-10 sm:pb-12 lg:min-h-[560px] lg:p-12">
-                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Our Boutique Direction', 'dawp'); ?></span>
+                <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#E8D8C8]"><?php esc_html_e('Our Workshop Direction', 'dawp'); ?></span>
                 <h2 class="mt-4 font-serif text-3xl leading-tight sm:text-4xl">
-                    <?php esc_html_e('A clear place for polished women\'s shoes, handbags, and accessories.', 'dawp'); ?>
+                    <?php esc_html_e('A dedicated shop for custom and ready-made embroidered patches.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-white/78">
-                    <?php esc_html_e('Smartbasketco brings together women\'s footwear, handbags, and fashion accessories for shoppers who want practical style pieces that are easy to wear and easy to pair.', 'dawp'); ?>
+                    <?php esc_html_e('Smartbasketco brings together a large catalog of embroidered patch designs and a simple custom process, so you can add a finished patch to almost anything you wear or carry.', 'dawp'); ?>
                 </p>
                 <form id="newsletter-form" class="mt-8 grid gap-3 sm:grid-cols-[1fr_auto]" method="post" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" novalidate>
                     <input type="hidden" name="action" value="dawp_newsletter">
@@ -367,4 +358,26 @@ $trust_cards = [
             <?php endforeach; ?>
         </div>
     </section>
+
+    <!-- Gallery -->
+    <?php if (count($gallery_tiles) >= 4) : ?>
+        <section class="bg-[#F8F3EC] px-4 pb-20 pt-4 sm:px-6 lg:px-8">
+            <div class="mx-auto w-[min(100%,1180px)]">
+                <div class="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                    <div class="max-w-2xl space-y-3">
+                        <span class="text-xs font-bold uppercase tracking-[0.18em] text-[#C98A8A]"><?php esc_html_e('From The Catalog', 'dawp'); ?></span>
+                        <h2 class="font-serif text-3xl leading-tight text-[#2F2A28] sm:text-4xl"><?php esc_html_e('A look at recent patches', 'dawp'); ?></h2>
+                    </div>
+                    <a href="<?php echo esc_url($shop_url); ?>" class="text-sm font-bold text-[#2F2A28] underline decoration-[#C98A8A] decoration-2 underline-offset-8 transition-colors hover:text-[#C98A8A]">
+                        <?php esc_html_e('Shop All Patches', 'dawp'); ?>
+                    </a>
+                </div>
+                <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+                    <?php foreach ($gallery_tiles as $tile) : ?>
+                        <?php dawp_home_image_tile($tile, 'aspect-square rounded-[12px] border border-[#D8CEC6]'); ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
 </main>

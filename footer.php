@@ -1,11 +1,13 @@
 </div><!-- #content -->
 
 <?php
+$shop_page_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
+
 $footer_shop_links = [
-    ['title' => __('Women\'s Leather Shoes', 'dawp'), 'url' => home_url('/product-category/womens-leather-shoes/')],
-    ['title' => __('Women\'s Sandals', 'dawp'),       'url' => home_url('/product-category/womens-sandals/')],
-    ['title' => __('Women\'s Handbags', 'dawp'),      'url' => home_url('/product-category/womens-handbags/')],
-    ['title' => __('Fashion Accessories', 'dawp'),    'url' => home_url('/product-category/fashion-accessories/')],
+    ['title' => __('Shop All Patches', 'dawp'), 'url' => $shop_page_url],
+    ['title' => __('New Arrivals', 'dawp'),     'url' => add_query_arg('orderby', 'date', $shop_page_url)],
+    ['title' => __('Best Sellers', 'dawp'),     'url' => add_query_arg('orderby', 'popularity', $shop_page_url)],
+    ['title' => __('Custom Orders', 'dawp'),    'url' => home_url('/contact-us/')],
 ];
 
 $footer_help_links = [
@@ -147,6 +149,12 @@ $logo_url      = get_template_directory_uri() . '/assets/img/gallery/logo.png';
         </div>
     </div>
 </footer>
+
+<?php
+if (function_exists('dawp_cart_drawer_markup')) {
+    dawp_cart_drawer_markup();
+}
+?>
 
 <?php wp_footer(); ?>
 </body>

@@ -91,13 +91,13 @@ $nav_items = [
 
         <div class="flex shrink-0 items-center justify-end gap-1">
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="hidden lg:block">
-                <label class="sr-only" for="header-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+                <label class="sr-only" for="header-search"><?php esc_html_e('Search patches', 'dawp'); ?></label>
                 <div class="relative">
                     <input id="header-search"
                            type="search"
                            name="s"
                            value="<?php echo esc_attr(get_search_query()); ?>"
-                           placeholder="<?php esc_attr_e('Search products', 'dawp'); ?>"
+                           placeholder="<?php esc_attr_e('Search patches', 'dawp'); ?>"
                            class="h-10 w-56 rounded-full border border-[#D8CEC6] bg-[#F8F3EC] pl-4 pr-10 text-sm text-[#2F2A28] outline-none transition-colors placeholder:text-[#948984] focus:border-[#C98A8A]">
                     <input type="hidden" name="post_type" value="product">
                     <button type="submit" class="absolute right-0 top-0 flex h-10 w-10 items-center justify-center text-[#6F625D] transition-colors hover:text-[#C98A8A]" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">
@@ -123,29 +123,29 @@ $nav_items = [
                 </svg>
             </a>
 
-            <a href="<?php echo esc_url($cart_url); ?>" class="relative flex h-10 w-10 items-center justify-center rounded-md text-[#2F2A28] transition-colors hover:bg-[#F4ECE5]" aria-label="<?php printf(esc_attr__('Cart (%d items)', 'dawp'), $cart_count); ?>">
+            <a href="<?php echo esc_url($cart_url); ?>" id="dawp-cart-toggle" class="relative flex h-10 w-10 items-center justify-center rounded-md text-[#2F2A28] transition-colors hover:bg-[#F4ECE5]" aria-label="<?php printf(esc_attr__('Cart (%d items)', 'dawp'), $cart_count); ?>" aria-haspopup="dialog" aria-controls="dawp-cart-drawer">
                 <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                     <path d="M3 6h18"></path>
                     <path d="M16 10a4 4 0 0 1-8 0"></path>
                 </svg>
-                <?php if ($cart_count > 0) : ?>
-                    <span class="absolute -right-0.5 -top-0.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-[#C98A8A] px-1 text-[10px] font-bold leading-none text-white" aria-hidden="true">
-                        <?php echo esc_html($cart_count); ?>
-                    </span>
-                <?php endif; ?>
+                <?php
+                echo function_exists('dawp_cart_count_badge_html')
+                    ? dawp_cart_count_badge_html($cart_count)
+                    : '';
+                ?>
             </a>
         </div>
     </div>
 
     <div id="mobile-search-bar" class="hidden border-t border-[#E6DDD6] bg-white px-4 py-3 lg:hidden">
         <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="relative">
-            <label class="sr-only" for="mobile-header-search"><?php esc_html_e('Search products', 'dawp'); ?></label>
+            <label class="sr-only" for="mobile-header-search"><?php esc_html_e('Search patches', 'dawp'); ?></label>
             <input id="mobile-header-search"
                    type="search"
                    name="s"
                    value="<?php echo esc_attr(get_search_query()); ?>"
-                   placeholder="<?php esc_attr_e('Search products', 'dawp'); ?>"
+                   placeholder="<?php esc_attr_e('Search patches', 'dawp'); ?>"
                    class="h-11 w-full rounded-full border border-[#D8CEC6] bg-[#F8F3EC] pl-4 pr-11 text-sm text-[#2F2A28] outline-none focus:border-[#C98A8A]">
             <input type="hidden" name="post_type" value="product">
             <button type="submit" class="absolute right-0 top-0 flex h-11 w-11 items-center justify-center text-[#6F625D]" aria-label="<?php esc_attr_e('Search', 'dawp'); ?>">

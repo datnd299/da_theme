@@ -87,8 +87,15 @@ $footer_columns = [
     <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
         <div class="grid gap-9 lg:grid-cols-2">
             <div>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center font-heading text-xl font-semibold uppercase tracking-label text-white" aria-label="<?php esc_attr_e('North Time Co. — home', 'dawp'); ?>">
-                    North Time <span class="text-accent">Co.</span>
+                <?php
+                $footer_logo_webp = get_theme_file_path('assets/img/logo-light.webp');
+                $footer_logo_ver  = file_exists($footer_logo_webp) ? filemtime($footer_logo_webp) : '1';
+                ?>
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('North Time Co. — home', 'dawp'); ?>">
+                    <picture>
+                        <source srcset="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.webp') . '?v=' . $footer_logo_ver); ?>" type="image/webp">
+                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.png') . '?v=' . $footer_logo_ver); ?>" alt="<?php esc_attr_e('North Time Co.', 'dawp'); ?>" width="245" height="160" class="h-14 w-auto sm:h-16" loading="lazy" decoding="async">
+                    </picture>
                 </a>
 
                 <p class="mt-5 max-w-md text-sm leading-6 text-white/70">

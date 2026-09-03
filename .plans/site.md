@@ -280,9 +280,13 @@ Keep the homepage relatively short and conversion-focused.
 - The bundled `assets/img/{minimal,sport,vintage,luxury}.webp` stock photos
   are reused for the hero / category / featured-collection imagery for the
   same reason (no usable real watch product photos exist yet).
-  `assets/img/logo.png`/`.webp` were NOT reused anywhere — they are the old
-  "TimePiece Haven" wordmark baked into the image — so the header/footer use
-  a text wordmark instead until a real North Time Co. logo file is supplied.
+  `assets/img/logo.png`/`.webp` are the real North Time Co. logo (navy watch
+  + "NorthTimeCo" wordmark, trimmed and alpha-keyed to a transparent
+  background, ~9 KB webp / ~39 KB png fallback). `logo-light.png`/`.webp` are
+  the same artwork recoloured white for the dark footer. Both the header and
+  the footer render the logo via a `<picture>` element at `h-14 sm:h-16`.
+  The dark `logo.png` URL also feeds the Organization JSON-LD `logo` and the
+  fallback `og:image` in `inc/seo.php`.
   `sport.webp` was also excluded from homepage use because it's a stock photo
   of a watch with a visible unrelated third-party brand name ("Gemius Army")
   printed on the dial.

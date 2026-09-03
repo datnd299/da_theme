@@ -143,6 +143,10 @@ function dawp_seo_head_tags() {
         $og_image = get_the_post_thumbnail_url(get_queried_object_id(), 'large');
     }
 
+    if (!$og_image) {
+        $og_image = get_theme_file_uri('assets/img/logo.png');
+    }
+
     echo "\n<!-- North Time Co. SEO -->\n";
 
     if ($description) {
@@ -291,6 +295,7 @@ function dawp_seo_organization_data() {
         '@id'          => $home . '#organization',
         'name'         => (function_exists('dawp_store_name') ? dawp_store_name() : get_bloginfo('name')),
         'url'          => $home,
+        'logo'         => get_theme_file_uri('assets/img/logo.png'),
         'email'        => $email,
         'contactPoint' => [
             '@type'             => 'ContactPoint',

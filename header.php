@@ -67,8 +67,16 @@ $nav_items = [
     <div class="border-b border-line">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex min-h-20 items-center justify-between gap-4">
-                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2 font-heading text-xl font-semibold uppercase tracking-label text-foreground sm:text-2xl" aria-label="<?php esc_attr_e('North Time Co. — home', 'dawp'); ?>">
-                    North Time <span class="text-accent">Co.</span>
+                <?php
+                $logo_webp = get_theme_file_path('assets/img/logo.webp');
+                $logo_png  = get_theme_file_path('assets/img/logo.png');
+                $logo_ver  = file_exists($logo_webp) ? filemtime($logo_webp) : '1';
+                ?>
+                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('North Time Co. — home', 'dawp'); ?>">
+                    <picture>
+                        <source srcset="<?php echo esc_url(get_theme_file_uri('assets/img/logo.webp') . '?v=' . $logo_ver); ?>" type="image/webp">
+                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo.png') . '?v=' . $logo_ver); ?>" alt="<?php esc_attr_e('North Time Co.', 'dawp'); ?>" width="245" height="160" class="h-14 w-auto sm:h-16" decoding="async" fetchpriority="high">
+                    </picture>
                 </a>
 
                 <nav class="hidden items-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Main store navigation', 'dawp'); ?>">

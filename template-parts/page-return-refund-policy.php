@@ -61,7 +61,7 @@ $return_steps = [
     ],
     [
         'title' => __('Ship It Back to Our Returns Center', 'dawp'),
-        'copy'  => __('Purchase a shipping label from your preferred carrier (e.g., USPS, UPS, FedEx, or DHL), attach it to the outside of your shipping box, and drop it off at the designated carrier location. The customer is responsible for all shipping costs. We recommend using a trackable shipping service.', 'dawp'),
+        'copy'  => __('Print the prepaid shipping label we emailed you (via USPS, UPS, FedEx, or DHL), attach it to the outside of your shipping box, and drop it off at the designated carrier location. The label is free of charge, so you do not pay anything for return shipping.', 'dawp'),
     ],
 ];
 

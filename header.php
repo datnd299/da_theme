@@ -47,35 +47,37 @@ $nav_items = [
  * static pages (About, FAQ, Contact, Shipping, Returns, Terms, Privacy,
  * Track Order) and the homepage keep one single source of truth. Shop,
  * product-category and single-product pages get their own description here.
- * Only prints when Rank Math isn't active, so we never output a duplicate
- * <meta name="description"> once the SEO plugin takes over.
+ *
+ * Always prints, regardless of whether an SEO plugin is active: on the live
+ * site this tag was missing site-wide even with the theme's Rank Math
+ * integration (inc/rank-math.php) wired up to the same page data, so an SEO
+ * plugin was either not active or not actually rendering a description. A
+ * guaranteed <meta name="description"> beats a risk of a duplicate tag.
  */
 $dawp_meta_description = '';
 
-if (!defined('RANK_MATH_VERSION')) {
-    if (function_exists('dawp_virtual_page_is_active') && ($dawp_vp_page = dawp_virtual_page_is_active())) {
-        $dawp_meta_description = $dawp_vp_page['desc'] ?? '';
-    } elseif ((is_front_page() || is_home()) && function_exists('dawp_home_page_seo_data')) {
-        $dawp_home_seo = dawp_home_page_seo_data();
-        $dawp_meta_description = $dawp_home_seo['desc'] ?? '';
-    } elseif (function_exists('is_shop') && is_shop()) {
-        $dawp_meta_description = __('Shop MegaMallDepot for everyday essentials across home, electronics, outdoors, toys, beauty, pets and school supplies, with fast US shipping and easy 30-day returns.', 'dawp');
-    } elseif (function_exists('is_product_category') && is_product_category()) {
-        $dawp_term = get_queried_object();
-        if ($dawp_term && !is_wp_error($dawp_term)) {
-            $dawp_cat_desc = trim(wp_strip_all_tags($dawp_term->description ?? ''));
-            $dawp_meta_description = $dawp_cat_desc !== ''
-                ? $dawp_cat_desc
-                : sprintf(__('Shop %s at MegaMallDepot: everyday essentials selected for real households, with fast US shipping and easy returns.', 'dawp'), $dawp_term->name);
-        }
-    } elseif (function_exists('is_product') && is_product()) {
-        $dawp_product = function_exists('wc_get_product') ? wc_get_product(get_the_ID()) : null;
-        if ($dawp_product) {
-            $dawp_excerpt = trim(wp_strip_all_tags($dawp_product->get_short_description() ?: $dawp_product->get_description()));
-            $dawp_meta_description = $dawp_excerpt !== ''
-                ? wp_html_excerpt($dawp_excerpt, 160, '…')
-                : sprintf(__('Buy %s at MegaMallDepot. Fast US shipping, secure checkout and easy 30-day returns.', 'dawp'), $dawp_product->get_name());
-        }
+if (function_exists('dawp_virtual_page_is_active') && ($dawp_vp_page = dawp_virtual_page_is_active())) {
+    $dawp_meta_description = $dawp_vp_page['desc'] ?? '';
+} elseif ((is_front_page() || is_home()) && function_exists('dawp_home_page_seo_data')) {
+    $dawp_home_seo = dawp_home_page_seo_data();
+    $dawp_meta_description = $dawp_home_seo['desc'] ?? '';
+} elseif (function_exists('is_shop') && is_shop()) {
+    $dawp_meta_description = __('Shop MegaMallDepot for everyday essentials across home, electronics, outdoors, toys, beauty, pets and school supplies, with fast US shipping and easy 30-day returns.', 'dawp');
+} elseif (function_exists('is_product_category') && is_product_category()) {
+    $dawp_term = get_queried_object();
+    if ($dawp_term && !is_wp_error($dawp_term)) {
+        $dawp_cat_desc = trim(wp_strip_all_tags($dawp_term->description ?? ''));
+        $dawp_meta_description = $dawp_cat_desc !== ''
+            ? $dawp_cat_desc
+            : sprintf(__('Shop %s at MegaMallDepot: everyday essentials selected for real households, with fast US shipping and easy returns.', 'dawp'), $dawp_term->name);
+    }
+} elseif (function_exists('is_product') && is_product()) {
+    $dawp_product = function_exists('wc_get_product') ? wc_get_product(get_the_ID()) : null;
+    if ($dawp_product) {
+        $dawp_excerpt = trim(wp_strip_all_tags($dawp_product->get_short_description() ?: $dawp_product->get_description()));
+        $dawp_meta_description = $dawp_excerpt !== ''
+            ? wp_html_excerpt($dawp_excerpt, 160, '…')
+            : sprintf(__('Buy %s at MegaMallDepot. Fast US shipping, secure checkout and easy 30-day returns.', 'dawp'), $dawp_product->get_name());
     }
 }
 ?>

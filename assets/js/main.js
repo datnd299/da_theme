@@ -94,6 +94,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
+    // Homepage newsletter form: no email service is wired up yet, so this
+    // just acknowledges the signup client-side (see template-parts/page-home.php).
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = document.getElementById('newsletter-message');
+            const input = document.getElementById('newsletter-email');
+            if (message) {
+                message.textContent = 'Thanks for subscribing! Keep an eye on your inbox.';
+                message.classList.remove('hidden');
+            }
+            newsletterForm.reset();
+            if (input) input.blur();
+        });
+    }
+
     // Related Products: fetched over AJAX (see dawp_ajax_load_related_products
     // in inc/theme-setup.php) once the placeholder scrolls near the viewport,
     // instead of running the query + render on every single-product load.

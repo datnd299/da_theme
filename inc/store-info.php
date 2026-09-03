@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 
 if (!function_exists('dawp_store_name')) {
     function dawp_store_name() {
-        return 'TimePiece Haven';
+        return 'North Time Co.';
     }
 }
 
@@ -25,7 +25,7 @@ if (!function_exists('dawp_store_email')) {
      * "from" address only if it is not an obvious placeholder.
      */
     function dawp_store_email() {
-        $default = 'support@timepiecehaven.com';
+        $default = 'support@northtimeco.com';
         $wc      = get_option('woocommerce_email_from_address');
 
         if (is_string($wc) && is_email($wc) && !preg_match('/@(example|admin|test|localhost)\./i', $wc)) {

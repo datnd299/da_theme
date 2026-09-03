@@ -1,6 +1,6 @@
 <?php
 /**
- * Lightweight SEO + structured-data layer for TimePiece Haven.
+ * Lightweight SEO + structured-data layer for North Time Co.
  *
  * The theme ships without an SEO plugin. This file adds:
  *   - a meta description per page context;
@@ -27,15 +27,15 @@ if (!defined('ABSPATH')) {
  */
 function dawp_seo_virtual_descriptions() {
     return [
-        'about-us'                 => __('TimePiece Haven is an independent US watch retailer with four focused styles — Minimalist, Sport & Outdoor, Vintage & Leather, and Luxury Style.', 'dawp'),
-        'faq'                      => __('Answers about shipping, returns, our watches, movements, water resistance, and payment at TimePiece Haven.', 'dawp'),
-        'contact-us'               => __('Contact TimePiece Haven about an order, a return, a product question, or a privacy request. We reply within 1 business day.', 'dawp'),
-        'track-order'              => __('Track a TimePiece Haven order with your order number and the email address used at checkout.', 'dawp'),
-        'shipping-policy'          => __('How TimePiece Haven ships: free standard shipping on every US order, 1-3 business day processing, and 3-7 business day delivery with tracking.', 'dawp'),
-        'return-refund-policy'     => __('TimePiece Haven accepts returns of unworn watches within 30 days of delivery. Read the full return, refund, and exchange policy.', 'dawp'),
-        'billing-terms-conditions' => __('How payments are processed at TimePiece Haven: accepted methods, currency, when you are charged, the billing descriptor, and fraud screening.', 'dawp'),
-        'terms-of-service'         => __('The terms that govern use of the TimePiece Haven website and any purchase you make from us.', 'dawp'),
-        'privacy-policy'           => __('How TimePiece Haven collects, uses, shares, and protects your personal information, and how to exercise your privacy rights.', 'dawp'),
+        'about-us'                 => __('North Time Co. is an independent US watch retailer curating a focused range of men\'s, women\'s, and automatic watches, with free US shipping and 30-day returns.', 'dawp'),
+        'faq'                      => __('Answers about shipping, returns, our watches, movements, water resistance, and payment at North Time Co.', 'dawp'),
+        'contact-us'               => __('Contact North Time Co. about an order, a return, a product question, or a privacy request. We reply within 1 business day.', 'dawp'),
+        'track-order'              => __('Track a North Time Co. order with your order number and the email address used at checkout.', 'dawp'),
+        'shipping-policy'          => __('How North Time Co. ships: free standard shipping on every US order, 1-3 business day processing, and 3-7 business day delivery with tracking.', 'dawp'),
+        'return-refund-policy'     => __('North Time Co. accepts returns of unworn watches within 30 days of delivery. Read the full return and refund policy, including who pays return shipping.', 'dawp'),
+        'billing-terms-conditions' => __('How payments are processed at North Time Co.: accepted methods, currency, when you are charged, the billing descriptor, and fraud screening.', 'dawp'),
+        'terms-of-service'         => __('The terms that govern use of the North Time Co. website and any purchase you make from us.', 'dawp'),
+        'privacy-policy'           => __('How North Time Co. collects, uses, shares, and protects your personal information, and how to exercise your privacy rights.', 'dawp'),
     ];
 }
 
@@ -52,7 +52,7 @@ function dawp_seo_meta_description() {
         $desc = $virtual[$request_uri];
     } elseif (is_front_page()) {
         $desc = get_bloginfo('description', 'display')
-            ?: __('An independent US watch retailer with four focused collections. Straightforward pricing, clear specs, and free insured shipping on every US order.', 'dawp');
+            ?: __('North Time Co. — timepieces that define your style. Shop men\'s, women\'s, and automatic watches with free shipping on every US order.', 'dawp');
     } elseif (function_exists('is_product') && is_product()) {
         $product = wc_get_product(get_queried_object_id());
 
@@ -67,7 +67,7 @@ function dawp_seo_meta_description() {
             $desc = $term->description ? wp_strip_all_tags($term->description) : $term->name;
         }
     } elseif (function_exists('is_shop') && is_shop()) {
-        $desc = __('Browse every TimePiece Haven watch across Minimalist, Sport & Outdoor, Vintage & Leather, and Luxury Style. Genuine pieces only, free insured US shipping.', 'dawp');
+        $desc = __('Browse every North Time Co. watch — men\'s, women\'s, and automatic timepieces. Genuine pieces only, with free shipping on every US order.', 'dawp');
     } elseif (is_singular()) {
         $desc = wp_strip_all_tags(get_the_excerpt(get_queried_object_id()));
     }
@@ -143,11 +143,7 @@ function dawp_seo_head_tags() {
         $og_image = get_the_post_thumbnail_url(get_queried_object_id(), 'large');
     }
 
-    if (!$og_image) {
-        $og_image = get_theme_file_uri('assets/img/logo.png');
-    }
-
-    echo "\n<!-- TimePiece Haven SEO -->\n";
+    echo "\n<!-- North Time Co. SEO -->\n";
 
     if ($description) {
         printf('<meta name="description" content="%s">' . "\n", esc_attr($description));
@@ -295,12 +291,7 @@ function dawp_seo_organization_data() {
         '@id'          => $home . '#organization',
         'name'         => (function_exists('dawp_store_name') ? dawp_store_name() : get_bloginfo('name')),
         'url'          => $home,
-        'logo'         => get_theme_file_uri('assets/img/logo.png'),
         'email'        => $email,
-        'sameAs'       => [
-            'https://www.instagram.com/timepiecehaven/',
-            'https://www.facebook.com/timepiecehaven/',
-        ],
         'contactPoint' => [
             '@type'             => 'ContactPoint',
             'contactType'       => 'customer support',

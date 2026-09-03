@@ -1,6 +1,6 @@
 <?php
 /**
- * Product category defaults for TimePiece Haven.
+ * Product category defaults for North Time Co.
  *
  * @package dawp
  */

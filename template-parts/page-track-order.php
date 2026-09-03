@@ -1,6 +1,6 @@
 <?php
 /**
- * Track Order page — TimePiece Haven.
+ * Track Order page — North Time Co.
  *
  * Wraps WooCommerce's [woocommerce_order_tracking] shortcode. The form and its
  * results (.track_order, .woocommerce-info, order tables) are styled by the
@@ -13,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email    = function_exists('dawp_store_email') ? dawp_store_email() : 'support@timepiecehaven.com';
+$email    = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
 if (!$shop_url) {
@@ -21,10 +21,10 @@ if (!$shop_url) {
 }
 
 $steps = [
-    ['title' => __('Order placed', 'dawp'),  'copy' => __('Your checkout details are received securely.', 'dawp')],
-    ['title' => __('Processing', 'dawp'),     'copy' => __('Orders are prepared and dispatched within 1-3 business days.', 'dawp')],
-    ['title' => __('On the way', 'dawp'),     'copy' => __('Standard US delivery takes 3-7 business days after dispatch.', 'dawp')],
-    ['title' => __('Delivered', 'dawp'),      'copy' => __('Tracking is emailed to you and updates until the parcel arrives.', 'dawp')],
+    ['title' => __('Order placed', 'dawp'), 'copy' => __('Your checkout details are received securely and you get a confirmation email.', 'dawp')],
+    ['title' => __('Processing', 'dawp'),    'copy' => __('Orders are prepared and dispatched within 1-3 business days.', 'dawp')],
+    ['title' => __('On the way', 'dawp'),    'copy' => __('Standard US delivery takes 3-7 business days after dispatch.', 'dawp')],
+    ['title' => __('Delivered', 'dawp'),     'copy' => __('Tracking is emailed to you and updates until the parcel arrives.', 'dawp')],
 ];
 ?>
 
@@ -44,7 +44,7 @@ $steps = [
 
             <div class="track-order-wc rounded-xl border border-line bg-white p-6 sm:p-8">
                 <h2 class="font-heading text-lg font-bold uppercase text-foreground"><?php esc_html_e('Find your order', 'dawp'); ?></h2>
-                <p class="mt-2 text-sm leading-6 text-muted"><?php esc_html_e('Order numbers look like "TPH-1234" and are shown in your confirmation email.', 'dawp'); ?></p>
+                <p class="mt-2 text-sm leading-6 text-muted"><?php esc_html_e('Order numbers look like "NTC-1234" and are shown in your confirmation email.', 'dawp'); ?></p>
                 <div class="mt-5">
                     <?php echo do_shortcode('[woocommerce_order_tracking]'); ?>
                 </div>

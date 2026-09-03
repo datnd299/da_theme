@@ -1,11 +1,13 @@
 <?php
 /**
- * FAQ page — TimePiece Haven.
+ * FAQ page — North Time Co.
  *
  * Content is hardcoded (see theme skill) and written to comply with Google
  * Merchant Center / Shopping policies: no unverifiable claims, clear
- * shipping / returns language, genuine-product statement, and warranty
- * described as model-dependent (never a blanket site-wide claim).
+ * shipping / returns language, a genuine-product statement, and warranty
+ * described as model-dependent (never a blanket site-wide claim). Answers are
+ * kept consistent with the Shipping Policy, Return & Refund Policy, and
+ * Billing Terms & Conditions.
  *
  * Uses native <details>/<summary> for the accordion — no JavaScript required.
  *
@@ -22,7 +24,7 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$support_email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@timepiecehaven.com';
+$support_email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
 
 $faq_groups = [
     [
@@ -30,23 +32,23 @@ $faq_groups = [
         'items' => [
             [
                 'q' => __('How much does shipping cost?', 'dawp'),
-                'a' => __('Standard shipping is free on every order to any address in the United States, with no minimum spend. The price you see at checkout is the price you pay for delivery.', 'dawp'),
+                'a' => __('Standard shipping is free on every order to any address in the United States, with no minimum spend. An optional paid 2-day expedited service is offered at checkout where available for your address.', 'dawp'),
             ],
             [
                 'q' => __('How long will my order take to arrive?', 'dawp'),
-                'a' => __('Orders are processed within 1-3 business days. Standard shipping then takes about 3-7 business days after dispatch, so most US orders arrive within 4-10 business days of ordering. You will get a tracking link by email as soon as your order ships.', 'dawp'),
+                'a' => __('Orders are processed within 1-3 business days. Standard shipping then takes about 3-7 business days after dispatch, so most US orders arrive within 4-10 business days of being placed. You will get a tracking link by email as soon as your order ships.', 'dawp'),
             ],
             [
                 'q' => __('Do you ship outside the United States?', 'dawp'),
-                'a' => __('At this time we only ship within the United States, including APO/FPO addresses. We are not able to deliver to international addresses yet.', 'dawp'),
+                'a' => __('At this time we only ship within the United States, including US territories and APO, FPO, and DPO military addresses. We are not able to deliver to international addresses yet.', 'dawp'),
             ],
             [
                 'q' => __('Can I change or cancel my order after placing it?', 'dawp'),
-                'a' => __('If your order has not shipped yet, email us as soon as possible and we will do our best to update or cancel it. Once an order is in transit it falls under our return policy.', 'dawp'),
+                'a' => __('If your order has not shipped yet, email us as soon as possible with your order number and we will do our best to update or cancel it for a full refund. Once an order is in transit it falls under our Return & Refund Policy.', 'dawp'),
             ],
             [
                 'q' => __('How do I track my order?', 'dawp'),
-                'a' => __('Use the Track Order page and enter your order number and the email address used at checkout. The same tracking details are included in your shipping confirmation email.', 'dawp'),
+                'a' => __('Use the Track Order page and enter your order number (it looks like "NTC-1234") and the email address used at checkout. The same tracking details are included in your shipping confirmation email.', 'dawp'),
             ],
         ],
     ],
@@ -55,15 +57,23 @@ $faq_groups = [
         'items' => [
             [
                 'q' => __('What is your return policy?', 'dawp'),
-                'a' => __('You can return an unworn watch in its original packaging within 30 days of delivery for a refund. Start a return from the Return & Refund Policy page or by emailing our support team.', 'dawp'),
+                'a' => __('You can return an unworn watch in its original packaging within 30 days of delivery for a refund. Email our support team with your order number to get a Return Merchandise Authorization (RMA) number and the return address. Full details are on the Return & Refund Policy page.', 'dawp'),
+            ],
+            [
+                'q' => __('Who pays for return shipping?', 'dawp'),
+                'a' => __('For a change-of-mind return you cover the return shipping cost. If the item is faulty, damaged, or not what you ordered, we send a prepaid label and refund you in full, including shipping.', 'dawp'),
             ],
             [
                 'q' => __('When will I get my refund?', 'dawp'),
-                'a' => __('Once we receive and inspect your returned watch, we issue the refund to your original payment method. It usually appears within 5-10 business days, depending on your bank or card issuer.', 'dawp'),
+                'a' => __('Once we receive and inspect your returned watch (within 3 business days of arrival), we issue the refund to your original payment method within 5-10 business days of approval. How quickly it appears then depends on your bank or card issuer.', 'dawp'),
             ],
             [
                 'q' => __('My watch arrived damaged or faulty — what should I do?', 'dawp'),
-                'a' => __('Email us within 48 hours of delivery with your order number and a few photos of the issue. We will arrange a replacement or a full refund, including return shipping.', 'dawp'),
+                'a' => __('Email us within 7 days of delivery with your order number and a few photos of the item and the packaging. We will arrange a free replacement or a full refund, including all shipping costs.', 'dawp'),
+            ],
+            [
+                'q' => __('Do you offer exchanges?', 'dawp'),
+                'a' => __('We do not process direct exchanges. Return the original item for a refund and place a new order for the model or strap you want — this keeps stock and pricing accurate and gets your new watch to you faster.', 'dawp'),
             ],
         ],
     ],
@@ -76,11 +86,11 @@ $faq_groups = [
             ],
             [
                 'q' => __('Do the watches come with a warranty?', 'dawp'),
-                'a' => __('Any manufacturer warranty depends on the specific model. Where a warranty applies, the length and terms are listed on that product page. If you have a question about a particular watch, contact us before ordering.', 'dawp'),
+                'a' => __('Any manufacturer warranty depends on the specific model. Where a warranty applies, its length and terms are listed on that product page and in the paperwork supplied with the watch. If you have a question about a particular watch, contact us before ordering.', 'dawp'),
             ],
             [
                 'q' => __('What does the water resistance rating mean?', 'dawp'),
-                'a' => __('3 ATM handles rain and hand washing, 5 ATM is suitable for showering and short swims. Water resistance is not permanent and can decrease over time. Every product page lists the rating for that watch.', 'dawp'),
+                'a' => __('3 ATM handles rain and hand washing; 5 ATM is suitable for showering and short swims. Water resistance is not permanent and can decrease over time. Every product page lists the rating for that watch.', 'dawp'),
             ],
             [
                 'q' => __('How do I choose the right case size?', 'dawp'),
@@ -97,15 +107,19 @@ $faq_groups = [
         'items' => [
             [
                 'q' => __('Which payment methods do you accept?', 'dawp'),
-                'a' => __('We accept Visa, Mastercard, and American Express, as well as PayPal. All payments are processed over an encrypted connection.', 'dawp'),
+                'a' => __('We accept Visa, Mastercard, and American Express credit and debit cards, as well as PayPal. All payments are processed over an encrypted connection by PCI-DSS compliant providers.', 'dawp'),
             ],
             [
                 'q' => __('What currency are prices in, and is tax included?', 'dawp'),
-                'a' => __('All prices are shown in US dollars. Any applicable state sales tax is calculated and shown at checkout before you pay.', 'dawp'),
+                'a' => __('All prices are shown and charged in US dollars. Any applicable state and local sales tax is calculated on your shipping address and shown at checkout before you pay.', 'dawp'),
+            ],
+            [
+                'q' => __('What will the charge look like on my statement?', 'dawp'),
+                'a' => __('Charges appear as "North Time Co." or "NORTHTIMECO.COM". If you see a charge you do not recognize, contact us before disputing it with your bank so we can identify the order quickly.', 'dawp'),
             ],
             [
                 'q' => __('Is it safe to use my card on your site?', 'dawp'),
-                'a' => __('Yes. Checkout runs over an encrypted (HTTPS) connection and card details are handled by the payment provider — we do not store your full card number.', 'dawp'),
+                'a' => __('Yes. Checkout runs over an encrypted (HTTPS) connection and card details are handled by the payment provider — we never receive or store your full card number.', 'dawp'),
             ],
         ],
     ],

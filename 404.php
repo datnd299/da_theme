@@ -1,6 +1,6 @@
 <?php
 /**
- * 404 Not Found — TimePiece Haven.
+ * 404 Not Found — North Time Co.
  *
  * @package dawp
  */
@@ -59,7 +59,7 @@ $help_links = [
                 <?php esc_html_e('This page could not be found', 'dawp'); ?>
             </h1>
             <p class="mt-5 max-w-xl text-base leading-8 text-white/80">
-                <?php esc_html_e('The link may be broken or the page may have moved. You can head back to the homepage or browse the TimePiece Haven watch collections below.', 'dawp'); ?>
+                <?php esc_html_e('The link may be broken or the page may have moved. You can head back to the homepage or browse the North Time Co. watch collections below.', 'dawp'); ?>
             </p>
             <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-7 text-sm font-bold uppercase tracking-wide text-primary transition hover:bg-accent-hover">

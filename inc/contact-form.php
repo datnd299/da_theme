@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form handling for TimePiece Haven.
+ * Contact form handling for North Time Co.
  *
  * Note: the internal keys below (post type `lbq_contact`, admin-post action
  * `lbq_contact_form`, nonce `lbq_contact_nonce`) are kept as-is so existing

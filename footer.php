@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer — TimePiece Haven.
+ * Theme footer — North Time Co.
  *
  * @package dawp
  *
@@ -13,11 +13,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = function_exists('dawp_store_email') ? dawp_store_email() : 'support@timepiecehaven.com';
+$support_email  = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
 $store_address  = function_exists('dawp_store_address') ? dawp_store_address() : '';
 $business_hours = __('Mon - Fri, 9:00 AM - 5:00 PM EST', 'dawp');
-$instagram_url  = 'https://www.instagram.com/timepiecehaven/';
-$facebook_url   = 'https://www.facebook.com/timepiecehaven/';
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
 
@@ -31,51 +29,42 @@ if (!$account_url) {
     $account_url = home_url('/my-account/');
 }
 
-$dawp_cat_url = static function ($slug) {
-    if (function_exists('get_term_by')) {
-        $term = get_term_by('slug', $slug, 'product_cat');
-
-        if ($term && !is_wp_error($term)) {
-            $link = get_term_link($term);
-
-            if (!is_wp_error($link)) {
-                return $link;
-            }
-        }
-    }
-
-    return home_url('/product-category/' . trim($slug, '/') . '/');
-};
-
+// See header.php: the catalog has no Men's / Women's / Automatic Watches
+// categories yet, so these link to the shop generally rather than to
+// non-existent taxonomy terms. New Arrivals sorts the shop by newest.
 $footer_columns = [
     [
-        'title' => __('Shop Watches', 'dawp'),
+        'title' => __('Shop', 'dawp'),
         'links' => [
-            ['title' => __('Shop All', 'dawp'),          'url' => $shop_url],
-            ['title' => __('Minimalist', 'dawp'),        'url' => $dawp_cat_url('minimalist')],
-            ['title' => __('Sport & Outdoor', 'dawp'),   'url' => $dawp_cat_url('sport-outdoor')],
-            ['title' => __('Vintage & Leather', 'dawp'), 'url' => $dawp_cat_url('vintage-leather')],
-            ['title' => __('Luxury Style', 'dawp'),      'url' => $dawp_cat_url('luxury-style')],
+            ['title' => __('All Watches', 'dawp'),       'url' => $shop_url],
+            ['title' => __("Men's Watches", 'dawp'),     'url' => $shop_url],
+            ['title' => __("Women's Watches", 'dawp'),   'url' => $shop_url],
+            ['title' => __('Automatic Watches', 'dawp'), 'url' => $shop_url],
+            ['title' => __('New Arrivals', 'dawp'),      'url' => add_query_arg('orderby', 'date', $shop_url)],
         ],
     ],
     [
-        'title' => __('Customer Care', 'dawp'),
+        'title' => __('Customer Service', 'dawp'),
         'links' => [
-            ['title' => __('About Us', 'dawp'),         'url' => home_url('/about-us/')],
-            ['title' => __('Contact Us', 'dawp'),       'url' => home_url('/contact-us/')],
-            ['title' => __('Track Your Order', 'dawp'), 'url' => home_url('/track-order/')],
-            ['title' => __('My Account', 'dawp'),       'url' => $account_url],
-            ['title' => __('FAQ', 'dawp'),             'url' => home_url('/faq/')],
+            ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
+            ['title' => __('Shipping', 'dawp'),   'url' => home_url('/shipping-policy/')],
+            ['title' => __('Returns', 'dawp'),    'url' => home_url('/return-refund-policy/')],
+            ['title' => __('Warranty', 'dawp'),   'url' => home_url('/faq/')],
+            ['title' => __('FAQ', 'dawp'),        'url' => home_url('/faq/')],
+        ],
+    ],
+    [
+        'title' => __('About', 'dawp'),
+        'links' => [
+            ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
         ],
     ],
     [
         'title' => __('Policies', 'dawp'),
         'links' => [
-            ['title' => __('Shipping Policy', 'dawp'),            'url' => home_url('/shipping-policy/')],
-            ['title' => __('Return & Refund Policy', 'dawp'),     'url' => home_url('/return-refund-policy/')],
-            ['title' => __('Billing Terms & Conditions', 'dawp'), 'url' => home_url('/billing-terms-conditions/')],
-            ['title' => __('Terms of Service', 'dawp'),           'url' => home_url('/terms-of-service/')],
-            ['title' => __('Privacy Policy', 'dawp'),             'url' => home_url('/privacy-policy/')],
+            ['title' => __('Privacy Policy', 'dawp'),       'url' => home_url('/privacy-policy/')],
+            ['title' => __('Terms & Conditions', 'dawp'),   'url' => home_url('/terms-of-service/')],
+            ['title' => __('Return Policy', 'dawp'),        'url' => home_url('/return-refund-policy/')],
         ],
     ],
 ];
@@ -86,11 +75,11 @@ $footer_columns = [
 <footer class="bg-primary text-white" role="contentinfo">
     <div class="border-b border-white/10 bg-primary-dark">
         <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-4 text-sm text-white/70 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-            <p class="font-semibold text-accent"><?php esc_html_e('Quartz and automatic watches for everyday wear, sport, and dress occasions.', 'dawp'); ?></p>
+            <p class="font-semibold text-accent"><?php esc_html_e('Free shipping on every order across the US.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
-                <span><?php esc_html_e('Order processing: 1-3 business days', 'dawp'); ?></span>
-                <span><?php esc_html_e('US delivery: 3-7 business days after dispatch', 'dawp'); ?></span>
                 <span><?php esc_html_e('30-day returns', 'dawp'); ?></span>
+                <span><?php esc_html_e('Secure checkout', 'dawp'); ?></span>
+                <span><?php esc_html_e('Support hours: ', 'dawp'); ?><?php echo esc_html($business_hours); ?></span>
             </div>
         </div>
     </div>
@@ -98,18 +87,18 @@ $footer_columns = [
     <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
         <div class="grid gap-9 lg:grid-cols-2">
             <div>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('TimePiece Haven — home', 'dawp'); ?>">
-                    <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo.png')); ?>" alt="<?php esc_attr_e('TimePiece Haven', 'dawp'); ?>" width="720" height="347" class="h-10 w-auto" loading="lazy" decoding="async">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center font-heading text-xl font-semibold uppercase tracking-label text-white" aria-label="<?php esc_attr_e('North Time Co. — home', 'dawp'); ?>">
+                    North Time <span class="text-accent">Co.</span>
                 </a>
 
                 <p class="mt-5 max-w-md text-sm leading-6 text-white/70">
-                    <?php esc_html_e('An independent watch retailer across four styles: Minimalist, Sport & Outdoor, Vintage & Leather, and Luxury Style — spanning our own designs and hand-picked watches. Genuine watches, shipped free across the USA.', 'dawp'); ?>
+                    <?php esc_html_e('Timepieces that define your style. Carefully selected watches for everyday wear, designed to last.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-6 grid gap-3 text-sm leading-6 text-white/75">
                     <div class="flex items-start gap-3">
                         <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-accent" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                 <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                 <path d="m22 7-10 6L2 7"></path>
                             </svg>
@@ -123,7 +112,7 @@ $footer_columns = [
                     <?php if ($store_address) : ?>
                     <div class="flex items-start gap-3">
                         <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-accent" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
                                 <circle cx="12" cy="10" r="3"></circle>
                             </svg>
@@ -134,44 +123,13 @@ $footer_columns = [
                         </p>
                     </div>
                     <?php endif; ?>
-
-                    <div class="flex items-start gap-3">
-                        <span class="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center text-accent" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <path d="M12 6v6l4 2"></path>
-                            </svg>
-                        </span>
-                        <p>
-                            <span class="font-semibold text-white"><?php esc_html_e('Support hours:', 'dawp'); ?></span>
-                            <?php echo esc_html($business_hours); ?>
-                        </p>
-                    </div>
                 </div>
 
                 <div class="mt-6">
-                    <p class="text-sm font-semibold text-white"><?php esc_html_e('Follow TimePiece Haven', 'dawp'); ?></p>
-                    <div class="mt-3 flex items-center gap-3">
-                        <a class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-white/10 text-white transition hover:bg-accent hover:text-primary" href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('TimePiece Haven on Instagram', 'dawp'); ?>">
-                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <rect width="18" height="18" x="3" y="3" rx="5"></rect>
-                                <circle cx="12" cy="12" r="4"></circle>
-                                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
-                            </svg>
-                        </a>
-                        <a class="inline-flex h-11 w-11 items-center justify-center rounded-md bg-white/10 text-white transition hover:bg-accent hover:text-primary" href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php esc_attr_e('TimePiece Haven on Facebook', 'dawp'); ?>">
-                            <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor" aria-hidden="true">
-                                <path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.2-1.5 1.5-1.5h1.7V3.9c-.3 0-1.3-.1-2.4-.1-2.4 0-4.1 1.5-4.1 4.1V10H7.5v3h2.7v8h3.3Z"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                    <p class="text-sm font-semibold text-white"><?php esc_html_e('Accepted Payments', 'dawp'); ?></p>
+                    <p class="text-xs font-semibold uppercase tracking-label text-white/50"><?php esc_html_e('Accepted Payments', 'dawp'); ?></p>
                     <ul class="mt-3 flex flex-wrap items-center gap-2" aria-label="<?php esc_attr_e('Accepted payment methods', 'dawp'); ?>">
                         <li>
-                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
+                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-white" title="<?php esc_attr_e('Visa', 'dawp'); ?>">
                                 <span class="sr-only"><?php esc_html_e('Visa', 'dawp'); ?></span>
                                 <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
                                     <rect width="64" height="40" rx="5" fill="#fff"></rect>
@@ -180,7 +138,7 @@ $footer_columns = [
                             </span>
                         </li>
                         <li>
-                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
+                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-white" title="<?php esc_attr_e('Mastercard', 'dawp'); ?>">
                                 <span class="sr-only"><?php esc_html_e('Mastercard', 'dawp'); ?></span>
                                 <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
                                     <rect width="64" height="40" rx="5" fill="#fff"></rect>
@@ -191,7 +149,7 @@ $footer_columns = [
                             </span>
                         </li>
                         <li>
-                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
+                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-white" title="<?php esc_attr_e('American Express', 'dawp'); ?>">
                                 <span class="sr-only"><?php esc_html_e('American Express', 'dawp'); ?></span>
                                 <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
                                     <rect width="64" height="40" rx="5" fill="#2E77BC"></rect>
@@ -200,7 +158,7 @@ $footer_columns = [
                             </span>
                         </li>
                         <li>
-                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-md bg-white" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
+                            <span class="inline-flex h-8 w-12 items-center justify-center rounded-sm bg-white" title="<?php esc_attr_e('PayPal', 'dawp'); ?>">
                                 <span class="sr-only"><?php esc_html_e('PayPal', 'dawp'); ?></span>
                                 <svg viewBox="0 0 64 40" width="44" height="28" aria-hidden="true" focusable="false">
                                     <rect width="64" height="40" rx="5" fill="#fff"></rect>
@@ -214,10 +172,10 @@ $footer_columns = [
                 </div>
             </div>
 
-            <div class="grid gap-7 sm:grid-cols-3 lg:pt-1">
+            <div class="grid gap-7 sm:grid-cols-4 lg:pt-1">
                 <?php foreach ($footer_columns as $column) : ?>
                     <nav aria-label="<?php echo esc_attr($column['title']); ?>">
-                        <h2 class="font-heading text-xs font-bold uppercase tracking-label text-accent"><?php echo esc_html($column['title']); ?></h2>
+                        <h2 class="text-xs font-bold uppercase tracking-label text-accent"><?php echo esc_html($column['title']); ?></h2>
                         <ul class="mt-4 grid gap-2 text-sm leading-6 text-white/75">
                             <?php foreach ($column['links'] as $link) : ?>
                                 <li>
@@ -230,7 +188,7 @@ $footer_columns = [
                     </nav>
                 <?php endforeach; ?>
 
-                <div class="sm:col-span-3">
+                <div class="sm:col-span-4">
                     <p class="text-xs leading-5 text-white/45">
                         <span class="font-semibold text-white/60"><?php esc_html_e('Business:', 'dawp'); ?></span>
                         <?php echo esc_html($store_address); ?>.
@@ -241,11 +199,11 @@ $footer_columns = [
         </div>
 
         <div class="mt-8 flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> TimePiece Haven. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> North Time Co. <?php esc_html_e('All rights reserved.', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
                 <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Returns', 'dawp'); ?></a>
                 <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping', 'dawp'); ?></a>
-                <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/terms-of-service/')); ?>"><?php esc_html_e('Terms of Service', 'dawp'); ?></a>
+                <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/terms-of-service/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
                 <a class="transition hover:text-accent" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>"><?php esc_html_e('Privacy Policy', 'dawp'); ?></a>
             </div>
         </div>

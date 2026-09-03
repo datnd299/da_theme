@@ -1,10 +1,10 @@
 <?php
 /**
- * Contact page — TimePiece Haven.
+ * Contact page — North Time Co.
  *
  * The form posts to admin-post.php and is handled by dawp_handle_contact_form()
- * in inc/contact-form.php. Field names and the topic keys must match that
- * handler.
+ * in inc/contact-form.php. The field names, the action (`lbq_contact_form`),
+ * the nonce (`lbq_contact_nonce`), and the topic keys must match that handler.
  *
  * @package dawp
  */
@@ -13,9 +13,9 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email          = function_exists('dawp_store_email') ? dawp_store_email() : 'support@timepiecehaven.com';
+$email          = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
 $address        = function_exists('dawp_store_address') ? dawp_store_address() : '';
-$business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
+$business_hours = __('Monday to Friday, 9:00 AM to 5:00 PM EST', 'dawp');
 $status         = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET['contact_status'])) : '';
 
 $topics = [
@@ -80,6 +80,7 @@ if ($address) {
                         <li><a class="text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track an existing order', 'dawp'); ?></a></li>
                         <li><a class="text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping times and costs', 'dawp'); ?></a></li>
                         <li><a class="text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Start a return or refund', 'dawp'); ?></a></li>
+                        <li><a class="text-primary underline decoration-accent decoration-2 underline-offset-4 transition hover:text-accent" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('Read the FAQ', 'dawp'); ?></a></li>
                     </ul>
                 </div>
             </div>
@@ -127,7 +128,7 @@ if ($address) {
 
                     <div class="grid gap-1.5">
                         <label class="text-sm font-semibold text-foreground" for="order_number"><?php esc_html_e('Order number', 'dawp'); ?> <span class="font-normal text-muted"><?php esc_html_e('(optional)', 'dawp'); ?></span></label>
-                        <input class="min-h-11 rounded-lg border border-line bg-white px-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-accent/40" type="text" id="order_number" name="order_number" autocomplete="off">
+                        <input class="min-h-11 rounded-lg border border-line bg-white px-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-accent/40" type="text" id="order_number" name="order_number" placeholder="<?php esc_attr_e('e.g. NTC-1234', 'dawp'); ?>" autocomplete="off">
                     </div>
 
                     <div class="grid gap-1.5">

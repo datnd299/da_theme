@@ -150,6 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
             form.setAttribute('aria-busy', 'true');
             msg.style.display = 'none';
 
+            const hasTurnstile = !!form.querySelector('.cf-turnstile');
+            if (hasTurnstile && !form.querySelector('[name="cf-turnstile-response"]')?.value) {
+                msg.textContent = 'Please complete the verification challenge.';
+                msg.style.color = '#c0392b';
+                msg.style.display = 'block';
+                return;
+            }
+
             const body = new FormData(form);
             body.set('action', 'dawp_contact');
             body.set('nonce', window.dawpAjax.contactNonce);
@@ -169,6 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = origText;
                 form.removeAttribute('aria-busy');
+                if (window.turnstile) window.turnstile.reset();
             }
         });
     }

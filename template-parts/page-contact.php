@@ -135,6 +135,10 @@
                         <textarea id="contact_message" name="message" rows="7" required class="w-full resize-y rounded-lg border border-border bg-surface px-4 py-3 text-foreground outline-none transition-colors placeholder:text-muted focus:border-accent focus:bg-background focus:ring-1 focus:ring-accent" placeholder="<?php esc_attr_e('How can we help?', 'dawp'); ?>"></textarea>
                     </div>
 
+                    <?php if (function_exists('dawp_turnstile_enabled') && dawp_turnstile_enabled()) : ?>
+                        <div class="pt-1"><?php dawp_turnstile_field(); ?></div>
+                    <?php endif; ?>
+
                     <div class="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-center">
                         <p id="contact-msg" class="text-sm font-bold" aria-live="polite" style="display:none"></p>
                         <button type="submit" class="inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-7 py-3 text-sm font-bold text-white shadow-lg shadow-accent/20 transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-70">

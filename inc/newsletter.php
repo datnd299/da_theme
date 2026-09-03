@@ -39,7 +39,14 @@ function dawp_contact_submit() {
         wp_send_json_success(['message' => 'Thank you! Your message has been sent.']);
     }
 
-    $name         = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));
+    if (function_exists('dawp_turnstile_verify')) {
+        $turnstile_token = sanitize_text_field(wp_unslash($_POST['cf-turnstile-response'] ?? ''));
+        if (!dawp_turnstile_verify($turnstile_token)) {
+            wp_send_json_error(['message' => 'Please complete the verification challenge and try again.']);
+        }
+    }
+
+    $name       = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));
     $email        = sanitize_email(wp_unslash($_POST['email'] ?? ''));
     $subject      = sanitize_text_field(wp_unslash($_POST['subject'] ?? 'general'));
     $order_number = sanitize_text_field(wp_unslash($_POST['order_number'] ?? ''));

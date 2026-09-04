@@ -36,7 +36,7 @@ $faq_groups = [
             ],
             [
                 'q' => __('How long will my order take to arrive?', 'dawp'),
-                'a' => __('Orders are processed within 1-3 business days. Standard shipping then takes about 3-7 business days after dispatch, so most US orders arrive within 4-10 business days of being placed. You will get a tracking link by email as soon as your order ships.', 'dawp'),
+                'a' => __('Orders are processed within 1-2 business days. Standard shipping then takes about 3-7 business days after dispatch, so most US orders arrive within 4-9 business days of being placed. You will get a tracking link by email as soon as your order ships.', 'dawp'),
             ],
             [
                 'q' => __('Do you ship outside the United States?', 'dawp'),
@@ -107,7 +107,7 @@ $faq_groups = [
         'items' => [
             [
                 'q' => __('Which payment methods do you accept?', 'dawp'),
-                'a' => __('We accept Visa, Mastercard, and American Express credit and debit cards, as well as PayPal. All payments are processed over an encrypted connection by PCI-DSS compliant providers.', 'dawp'),
+                'a' => __('All payments are processed securely through PayPal. You can pay with your PayPal balance or use a Visa, Mastercard, or American Express card through PayPal without creating a PayPal account. Payments are handled over an encrypted, PCI-DSS compliant connection.', 'dawp'),
             ],
             [
                 'q' => __('What currency are prices in, and is tax included?', 'dawp'),
@@ -115,11 +115,11 @@ $faq_groups = [
             ],
             [
                 'q' => __('What will the charge look like on my statement?', 'dawp'),
-                'a' => __('Charges appear as "North Time Co." or "NORTHTIMECO.COM". If you see a charge you do not recognize, contact us before disputing it with your bank so we can identify the order quickly.', 'dawp'),
+                'a' => __('Because payments are processed by PayPal, the charge usually appears on your statement as "PAYPAL *NORTHTIMECO.COM" or "North Time Co.". If you see a charge you do not recognize, contact us before disputing it with your bank so we can identify the order quickly.', 'dawp'),
             ],
             [
                 'q' => __('Is it safe to use my card on your site?', 'dawp'),
-                'a' => __('Yes. Checkout runs over an encrypted (HTTPS) connection and card details are handled by the payment provider — we never receive or store your full card number.', 'dawp'),
+                'a' => __('Yes. Checkout runs over an encrypted (HTTPS) connection and your card details are entered on PayPal — we never receive or store your card number.', 'dawp'),
             ],
         ],
     ],

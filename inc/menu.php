@@ -1,12 +1,26 @@
 <?php
+/**
+ * Product-category URL helpers for North Time Co.
+ *
+ * The store's catalogue is organised into three top-level categories —
+ * Men's Watches, Women's Watches, and Automatic Watches (see
+ * inc/product-categories.php). These helpers resolve a category slug to its
+ * archive URL and are used by 404.php and the homepage / About category cards.
+ *
+ * @package dawp
+ */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 function dawp_product_category_slug($slug) {
     $map = [
-        'minimal'   => 'minimalist',
-        'sport'     => 'sport-outdoor',
-        'outdoor'   => 'sport-outdoor',
-        'vintage'   => 'vintage-leather',
-        'leather'   => 'vintage-leather',
-        'luxury'    => 'luxury-style',
+        'men'       => 'mens-watches',
+        'mens'      => 'mens-watches',
+        'women'     => 'womens-watches',
+        'womens'    => 'womens-watches',
+        'automatic' => 'automatic-watches',
     ];
 
     return $map[$slug] ?? $slug;
@@ -26,68 +40,4 @@ function dawp_product_category_url($slug) {
     }
 
     return home_url('/product-category/' . trim($slug, '/') . '/');
-}
-
-function dawp_shop_category_items() {
-    $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'minimalist'      => ['name' => __('Minimalist', 'dawp')],
-        'sport-outdoor'   => ['name' => __('Sport & Outdoor', 'dawp')],
-        'vintage-leather' => ['name' => __('Vintage & Leather', 'dawp')],
-        'luxury-style'    => ['name' => __('Luxury Style', 'dawp')],
-    ];
-
-    $items = [];
-
-    foreach ($categories as $slug => $category) {
-        $items[] = [
-            'title' => $category['name'],
-            'url'   => dawp_product_category_url($slug),
-        ];
-    }
-
-    return $items;
-}
-
-function dawp_main_menu_items() {
-    return [
-        ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
-        ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')],
-        ['title' => __('About', 'dawp'), 'url' => home_url('/about-us/')],
-        ['title' => __('Contact', 'dawp'), 'url' => home_url('/contact-us/')],
-    ];
-}
-function dawp_is_current_url($url) {
-    $current = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
-    $target  = trim(parse_url($url, PHP_URL_PATH) ?? '', '/');
-    if ($current === '' && $target === '') return true;
-    return $current !== '' && $current === $target;
-}
-
-function dawp_footer_columns() {
-    return [
-        [
-            'title' => __('Shop', 'dawp'),
-            'links' => array_merge([
-                ['title' => __('Shop All', 'dawp'), 'url' => home_url('/shop/')],
-            ], dawp_shop_category_items()),
-        ],
-        [
-            'title' => __('Store Policy', 'dawp'),
-            'links' => [
-                ['title' => __('Shipping & Returns', 'dawp'), 'url' => home_url('/shipping-returns/')],
-                ['title' => __('Privacy Policy', 'dawp'), 'url' => home_url('/privacy-policy/')],
-                ['title' => __('Terms & Conditions', 'dawp'), 'url' => home_url('/terms-conditions/')],
-                ['title' => __('FAQ', 'dawp'), 'url' => home_url('/faq/')],
-            ],
-        ],
-        [
-            'title' => __('Help', 'dawp'),
-            'links' => [
-                ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
-                ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
-                ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
-                ['title' => __('My Account', 'dawp'), 'url' => function_exists('wc_get_page_permalink') ? wc_get_page_permalink('myaccount') : home_url('/my-account/')],
-            ],
-        ],
-    ];
 }

@@ -18,24 +18,15 @@ if (!$shop_url) {
 $new_arrivals_url = add_query_arg('orderby', 'date', $shop_url);
 $best_sellers_url = add_query_arg('orderby', 'popularity', $shop_url);
 
-// This WooCommerce install's product catalog is shared with unrelated prior
-// theme branches (apparel, tools — see .plans/site.md), so Best Sellers and
-// New Arrivals are scoped to the store's watch categories rather than
-// querying "all products," which would otherwise surface that leftover
-// inventory here.
-$dawp_watch_cat_slugs = ['dive-watches', 'field-watches', 'dress-watches', 'chronograph-watches', 'minimalist', 'sport-outdoor', 'vintage-leather', 'luxury-style'];
-
-function dawp_home_watch_query(array $args, array $cat_slugs) {
+/**
+ * Query published products for the homepage grids, excluding anything hidden
+ * from the catalog.
+ */
+function dawp_home_product_query(array $args) {
     return get_posts(wp_parse_args($args, [
         'post_type'   => 'product',
         'post_status' => 'publish',
         'tax_query'   => [
-            'relation' => 'AND',
-            [
-                'taxonomy' => 'product_cat',
-                'field'    => 'slug',
-                'terms'    => $cat_slugs,
-            ],
             [
                 'taxonomy' => 'product_visibility',
                 'field'    => 'name',
@@ -46,18 +37,18 @@ function dawp_home_watch_query(array $args, array $cat_slugs) {
     ]));
 }
 
-$best_seller_posts = dawp_home_watch_query([
+$best_seller_posts = dawp_home_product_query([
     'posts_per_page' => 4,
     'meta_key'       => 'total_sales',
     'orderby'        => 'meta_value_num',
     'order'          => 'DESC',
-], $dawp_watch_cat_slugs);
+]);
 
-$new_arrival_posts = dawp_home_watch_query([
-    'posts_per_page' => 8,
+$new_arrival_posts = dawp_home_product_query([
+    'posts_per_page' => 4,
     'orderby'        => 'date',
     'order'          => 'DESC',
-], $dawp_watch_cat_slugs);
+]);
 
 /**
  * One product card for the Best Sellers / New Arrivals grids.
@@ -134,8 +125,8 @@ function dawp_home_product_card($post_id, $is_first = false) {
 }
 
 /**
- * Placeholder shown in place of a product grid until the catalog has watches
- * assigned to the watch categories (see $dawp_watch_cat_slugs above).
+ * Placeholder shown in place of a product grid while the catalog has no
+ * published, catalog-visible products yet.
  */
 function dawp_home_empty_state($shop_url) {
     ?>
@@ -172,7 +163,7 @@ function dawp_home_empty_state($shop_url) {
         </div>
 
         <div class="aspect-[5/4] overflow-hidden bg-surface-alt sm:aspect-[4/3] lg:aspect-[4/5]">
-            <img src="<?php echo esc_url(get_theme_file_uri('assets/img/luxury.webp')); ?>" alt="<?php esc_attr_e('Featured North Time Co. watch', 'dawp'); ?>" width="900" height="1125" class="h-full w-full object-cover" loading="eager" fetchpriority="high" decoding="async">
+            <img src="<?php echo esc_url(get_theme_file_uri('assets/img/hero.avif')); ?>" alt="<?php esc_attr_e('Featured North Time Co. watch', 'dawp'); ?>" width="800" height="800" class="h-full w-full object-cover" loading="eager" fetchpriority="high" decoding="async">
         </div>
     </div>
 </section>
@@ -182,28 +173,35 @@ function dawp_home_empty_state($shop_url) {
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 class="font-heading text-3xl text-foreground sm:text-4xl"><?php esc_html_e('Shop by Category', 'dawp'); ?></h2>
 
-        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 sm:gap-6 lg:grid-cols-4 lg:gap-x-8">
             <?php
+            $dawp_cat_link = static function ($slug) use ($shop_url) {
+                return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
+            };
+
             $dawp_home_categories = [
                 [
                     'title' => __("Men's Watches", 'dawp'),
                     'desc'  => __('Classic and contemporary timepieces for every occasion.', 'dawp'),
-                    'image' => 'assets/img/minimal.webp',
+                    'image' => 'assets/img/men.avif',
+                    'url'   => $dawp_cat_link('mens-watches'),
                 ],
                 [
                     'title' => __("Women's Watches", 'dawp'),
                     'desc'  => __('Elegant designs made to complement your style.', 'dawp'),
-                    'image' => 'assets/img/vintage.webp',
+                    'image' => 'assets/img/women.avif',
+                    'url'   => $dawp_cat_link('womens-watches'),
                 ],
                 [
                     'title' => __('Automatic Watches', 'dawp'),
                     'desc'  => __('Discover the craftsmanship of mechanical movements.', 'dawp'),
-                    'image' => 'assets/img/luxury.webp',
+                    'image' => 'assets/img/automatic.avif',
+                    'url'   => $dawp_cat_link('automatic-watches'),
                 ],
                 [
                     'title' => __('New Arrivals', 'dawp'),
                     'desc'  => __('Explore our latest watches and newest collections.', 'dawp'),
-                    'image' => 'assets/img/minimal.webp',
+                    'image' => 'assets/img/new.avif',
                     'url'   => $new_arrivals_url,
                 ],
             ];
@@ -315,7 +313,7 @@ function dawp_home_empty_state($shop_url) {
 <!-- Featured Collection -->
 <section class="relative bg-background">
     <div class="relative aspect-[4/5] overflow-hidden sm:aspect-[16/9] lg:aspect-[21/9]">
-        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/vintage.webp')); ?>" alt="<?php esc_attr_e('North Time Co. featured collection', 'dawp'); ?>" width="1600" height="900" class="h-full w-full object-cover" loading="lazy" decoding="async">
+        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/automatic.avif')); ?>" alt="<?php esc_attr_e('North Time Co. featured collection', 'dawp'); ?>" width="1600" height="1600" class="h-full w-full object-cover" loading="lazy" decoding="async">
         <div class="absolute inset-0 bg-primary/45"></div>
         <div class="absolute inset-0 flex items-center justify-center px-4 text-center">
             <div>

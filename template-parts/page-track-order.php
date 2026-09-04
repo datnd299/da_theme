@@ -22,7 +22,7 @@ if (!$shop_url) {
 
 $steps = [
     ['title' => __('Order placed', 'dawp'), 'copy' => __('Your checkout details are received securely and you get a confirmation email.', 'dawp')],
-    ['title' => __('Processing', 'dawp'),    'copy' => __('Orders are prepared and dispatched within 1-3 business days.', 'dawp')],
+    ['title' => __('Processing', 'dawp'),    'copy' => __('Orders are prepared and dispatched within 1-2 business days.', 'dawp')],
     ['title' => __('On the way', 'dawp'),    'copy' => __('Standard US delivery takes 3-7 business days after dispatch.', 'dawp')],
     ['title' => __('Delivered', 'dawp'),     'copy' => __('Tracking is emailed to you and updates until the parcel arrives.', 'dawp')],
 ];

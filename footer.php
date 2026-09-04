@@ -49,7 +49,6 @@ $footer_columns = [
             ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
             ['title' => __('Shipping', 'dawp'),   'url' => home_url('/shipping-policy/')],
             ['title' => __('Returns', 'dawp'),    'url' => home_url('/return-refund-policy/')],
-            ['title' => __('Warranty', 'dawp'),   'url' => home_url('/faq/')],
             ['title' => __('FAQ', 'dawp'),        'url' => home_url('/faq/')],
         ],
     ],
@@ -62,9 +61,11 @@ $footer_columns = [
     [
         'title' => __('Policies', 'dawp'),
         'links' => [
-            ['title' => __('Privacy Policy', 'dawp'),       'url' => home_url('/privacy-policy/')],
-            ['title' => __('Terms & Conditions', 'dawp'),   'url' => home_url('/terms-of-service/')],
-            ['title' => __('Return Policy', 'dawp'),        'url' => home_url('/return-refund-policy/')],
+            ['title' => __('Shipping Policy', 'dawp'),              'url' => home_url('/shipping-policy/')],
+            ['title' => __('Refund & Return Policy', 'dawp'),       'url' => home_url('/return-refund-policy/')],
+            ['title' => __('Privacy Policy', 'dawp'),               'url' => home_url('/privacy-policy/')],
+            ['title' => __('Terms & Conditions', 'dawp'),           'url' => home_url('/terms-of-service/')],
+            ['title' => __('Billing Terms & Conditions', 'dawp'),   'url' => home_url('/billing-terms-conditions/')],
         ],
     ],
 ];

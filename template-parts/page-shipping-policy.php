@@ -18,7 +18,7 @@ $email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@nor
 
 dawp_render_legal([
     'title'   => __('Shipping Policy', 'dawp'),
-    'updated' => __('September 3, 2026', 'dawp'),
+    'updated' => __('September 4, 2026', 'dawp'),
     'intro'   => __('This policy explains where we ship, how long orders take to process and arrive, what shipping costs, and how tracking works. All estimates are in business days (Monday to Friday) and exclude weekends and US public holidays.', 'dawp'),
     'sections' => [
         [
@@ -27,7 +27,7 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Order processing time', 'dawp'),
-            'body'    => '<p>' . esc_html__('Orders are processed and dispatched within 1 to 3 business days of payment confirmation. Orders placed on a weekend or public holiday begin processing on the next business day. During sale events or peak periods, processing may take an extra 1 to 2 business days.', 'dawp') . '</p>'
+            'body'    => '<p>' . esc_html__('Orders are processed and dispatched within 1 to 2 business days of payment confirmation. Orders placed on a weekend or public holiday begin processing on the next business day. During sale events or peak periods, processing may take an extra 1 to 2 business days.', 'dawp') . '</p>'
                 . '<p>' . esc_html__('If we expect a significant delay with your order, we will email you before it ships.', 'dawp') . '</p>',
         ],
         [
@@ -41,7 +41,7 @@ dawp_render_legal([
                 . '<tr><td>' . esc_html__('Standard (USPS / UPS)', 'dawp') . '</td><td>' . esc_html__('3-7 business days after dispatch', 'dawp') . '</td><td>' . esc_html__('Free on every order', 'dawp') . '</td></tr>'
                 . '<tr><td>' . esc_html__('Expedited (UPS 2-Day)', 'dawp') . '</td><td>' . esc_html__('2 business days after dispatch', 'dawp') . '</td><td>' . esc_html__('$19.95 flat rate', 'dawp') . '</td></tr>'
                 . '</tbody></table>'
-                . '<p>' . esc_html__('Delivery estimates begin when the carrier collects the parcel, not when the order is placed. The total time to receive an order is the processing time plus the delivery time — so most standard US orders arrive within 4 to 10 business days of being placed. The exact options and any cost for your address are shown at checkout before you pay.', 'dawp') . '</p>',
+                . '<p>' . esc_html__('Delivery estimates begin when the carrier collects the parcel, not when the order is placed. The total time to receive an order is the processing time plus the delivery time — so most standard US orders arrive within 4 to 9 business days of being placed. The exact options and any cost for your address are shown at checkout before you pay.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Carriers', 'dawp'),

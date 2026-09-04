@@ -21,7 +21,7 @@ $site_host = wp_parse_url(home_url(), PHP_URL_HOST);
 
 dawp_render_legal([
     'title'   => __('Terms of Service', 'dawp'),
-    'updated' => __('September 3, 2026', 'dawp'),
+    'updated' => __('September 4, 2026', 'dawp'),
     'intro'   => sprintf(
         /* translators: 1: store name, 2: website host */
         __('These Terms of Service govern your use of %1$s (%2$s) and any purchase you make from us. By browsing this website or placing an order, you agree to these terms. Please also read our Privacy Policy, Shipping Policy, Return & Refund Policy, and Billing Terms & Conditions, which form part of these terms.', 'dawp'),
@@ -111,7 +111,7 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Third-party links', 'dawp'),
-            'body'    => '<p>' . esc_html__('The website may link to third-party sites, such as payment providers or carriers. We are not responsible for the content or practices of those sites; their terms and privacy policies apply when you use them.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('The website may link to third-party sites, such as PayPal or our carriers. We are not responsible for the content or practices of those sites; their terms and privacy policies apply when you use them.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Dispute resolution', 'dawp'),

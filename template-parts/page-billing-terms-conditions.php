@@ -23,15 +23,15 @@ $descriptor = strtoupper(preg_replace('/^www\./', '', (string) $host)) ?: 'NORTH
 
 dawp_render_legal([
     'title'   => __('Billing Terms & Conditions', 'dawp'),
-    'updated' => __('September 3, 2026', 'dawp'),
+    'updated' => __('September 4, 2026', 'dawp'),
     'intro'   => __('These Billing Terms & Conditions describe how payments are processed on this website. They apply to every order and should be read together with our Terms of Service, Shipping Policy, and Return & Refund Policy.', 'dawp'),
     'sections' => [
         [
             'heading' => __('Accepted payment methods', 'dawp'),
-            'body'    => '<p>' . esc_html__('We accept the following payment methods:', 'dawp') . '</p><ul>'
-                . '<li>' . esc_html__('Visa, Mastercard, and American Express credit and debit cards;', 'dawp') . '</li>'
-                . '<li>' . esc_html__('PayPal.', 'dawp') . '</li>'
-                . '</ul><p>' . esc_html__('The payment options available to you are displayed at checkout. We do not accept checks, money orders, wire transfers, cash on delivery, or cryptocurrency.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('All payments on this website are processed securely through PayPal. At checkout you can:', 'dawp') . '</p><ul>'
+                . '<li>' . esc_html__('pay with your PayPal balance or linked bank account; or', 'dawp') . '</li>'
+                . '<li>' . esc_html__('pay by Visa, Mastercard, or American Express credit or debit card through PayPal, without creating a PayPal account.', 'dawp') . '</li>'
+                . '</ul><p>' . esc_html__('You do not need a PayPal account to complete an order. We do not accept checks, money orders, wire transfers, cash on delivery, or cryptocurrency.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Currency', 'dawp'),
@@ -46,7 +46,7 @@ dawp_render_legal([
             'heading' => __('Billing descriptor', 'dawp'),
             'body'    => '<p>' . sprintf(
                 /* translators: 1: store name, 2: statement descriptor */
-                esc_html__('Charges from this website appear on your card or account statement as "%1$s" or "%2$s". If you see a charge you do not recognize, please contact us before disputing it with your bank so we can identify the order quickly.', 'dawp'),
+                esc_html__('Because payments are processed by PayPal, charges from this website usually appear on your card or account statement as "PAYPAL *%2$s" or "%1$s". If you see a charge you do not recognize, please contact us before disputing it with your bank so we can identify the order quickly.', 'dawp'),
                 esc_html($store),
                 esc_html($descriptor)
             ) . '</p>',
@@ -65,7 +65,7 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Payment security and fraud screening', 'dawp'),
-            'body'    => '<p>' . esc_html__('Payments are processed by PCI-DSS compliant third-party providers over an encrypted connection. We do not receive or store your full card number. Orders may be screened for fraud, and we may ask you to verify your identity or billing details before an order is dispatched. Orders that cannot be verified are cancelled and refunded in full.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('Payments are processed by PayPal, a PCI-DSS compliant provider, over an encrypted connection. Your card details are entered on PayPal and are never received or stored by us. Orders may be screened for fraud, and we may ask you to verify your identity or billing details before an order is dispatched. Orders that cannot be verified are cancelled and refunded in full.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Declined or failed payments', 'dawp'),

@@ -21,7 +21,7 @@ $site_host = wp_parse_url(home_url(), PHP_URL_HOST);
 
 dawp_render_legal([
     'title'   => __('Privacy Policy', 'dawp'),
-    'updated' => __('September 3, 2026', 'dawp'),
+    'updated' => __('September 4, 2026', 'dawp'),
     'intro'   => sprintf(
         /* translators: 1: store name, 2: website host */
         __('This Privacy Policy explains how %1$s ("we", "us", "our") collects, uses, shares, and protects personal information when you visit %2$s, place an order, or contact us. It also describes your privacy rights and how to exercise them.', 'dawp'),
@@ -35,14 +35,14 @@ dawp_render_legal([
                 . '<p><strong>' . esc_html__('Information you give us:', 'dawp') . '</strong></p><ul>'
                 . '<li>' . esc_html__('Contact details: name, email address, phone number (if you provide it), shipping address, and billing address;', 'dawp') . '</li>'
                 . '<li>' . esc_html__('Order details: the items you buy, order value, and order history;', 'dawp') . '</li>'
-                . '<li>' . esc_html__('Payment information: this is entered directly with our payment providers. We receive a confirmation and limited details such as the card type and last four digits, but not your full card number;', 'dawp') . '</li>'
+                . '<li>' . esc_html__('Payment information: this is entered directly with PayPal, our payment processor. We receive a confirmation and limited details such as the payment method and, for card payments, the card type and last four digits, but not your full card number;', 'dawp') . '</li>'
                 . '<li>' . esc_html__('Communications: messages you send us by email or through our contact form, and your marketing preferences.', 'dawp') . '</li>'
                 . '</ul>'
                 . '<p><strong>' . esc_html__('Information collected automatically:', 'dawp') . '</strong></p><ul>'
                 . '<li>' . esc_html__('Device and usage data: IP address, browser type, operating system, referring pages, pages viewed, and the dates and times of visits;', 'dawp') . '</li>'
                 . '<li>' . esc_html__('Cookies and similar technologies (see the Cookies section below).', 'dawp') . '</li>'
                 . '</ul>'
-                . '<p><strong>' . esc_html__('Information from third parties:', 'dawp') . '</strong> ' . esc_html__('We may receive fraud-screening results and delivery status updates from our payment processors and shipping carriers, and aggregated analytics from our analytics providers.', 'dawp') . '</p>'
+                . '<p><strong>' . esc_html__('Information from third parties:', 'dawp') . '</strong> ' . esc_html__('We may receive fraud-screening results and delivery status updates from PayPal and our shipping carriers, and aggregated analytics from our analytics providers.', 'dawp') . '</p>'
                 . '<p>' . esc_html__('We do not knowingly collect sensitive categories of data (such as health information, precise geolocation, or government identifiers) and we ask that you do not send them to us.', 'dawp') . '</p>',
         ],
         [
@@ -61,7 +61,7 @@ dawp_render_legal([
         [
             'heading' => __('How we share your information', 'dawp'),
             'body'    => '<p>' . esc_html__('We do not sell your personal information. We share it only with:', 'dawp') . '</p><ul>'
-                . '<li><strong>' . esc_html__('Payment processors', 'dawp') . '</strong> ' . esc_html__('(such as our card processor and PayPal) to take payment and screen for fraud;', 'dawp') . '</li>'
+                . '<li><strong>' . esc_html__('Payment processors', 'dawp') . '</strong> ' . esc_html__('(PayPal) to take payment and screen for fraud;', 'dawp') . '</li>'
                 . '<li><strong>' . esc_html__('Shipping carriers', 'dawp') . '</strong> ' . esc_html__('(such as USPS and UPS) to deliver your order and provide tracking;', 'dawp') . '</li>'
                 . '<li><strong>' . esc_html__('Technology providers', 'dawp') . '</strong> ' . esc_html__('that host the website, send our email, and provide analytics and security services, acting on our instructions;', 'dawp') . '</li>'
                 . '<li><strong>' . esc_html__('Professional advisors and authorities', 'dawp') . '</strong> ' . esc_html__('where necessary to comply with the law, respond to a lawful request, or protect our rights, property, or safety;', 'dawp') . '</li>'
@@ -87,7 +87,7 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Security', 'dawp'),
-            'body'    => '<p>' . esc_html__('The website uses TLS encryption. Payments are handled by PCI-DSS compliant processors, and we do not store full card numbers. We limit access to personal data to staff and providers who need it. No method of transmission or storage is completely secure, so we cannot guarantee absolute security, but we work to protect your information and to notify you and the authorities of a data breach where the law requires it.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('The website uses TLS encryption. Payments are handled by PayPal, a PCI-DSS compliant processor, and we do not store card numbers. We limit access to personal data to staff and providers who need it. No method of transmission or storage is completely secure, so we cannot guarantee absolute security, but we work to protect your information and to notify you and the authorities of a data breach where the law requires it.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('International data transfers', 'dawp'),
@@ -124,7 +124,7 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Third-party links', 'dawp'),
-            'body'    => '<p>' . esc_html__('Our website may contain links to other sites, such as our payment providers and carriers. This policy does not apply to those sites, and we are not responsible for their content or privacy practices. Please review their policies before providing any information.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('Our website may contain links to other sites, such as PayPal and our carriers. This policy does not apply to those sites, and we are not responsible for their content or privacy practices. Please review their policies before providing any information.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Changes to this policy', 'dawp'),

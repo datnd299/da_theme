@@ -38,10 +38,10 @@ $dawp_cat_url = static function ($slug) {
 };
 
 $collections = [
-    ['slug' => 'minimalist',      'name' => __('Minimalist', 'dawp'),        'desc' => __('Clean dials, slim cases', 'dawp')],
-    ['slug' => 'sport-outdoor',   'name' => __('Sport & Outdoor', 'dawp'),   'desc' => __('5 ATM, chronograph, silicone', 'dawp')],
-    ['slug' => 'vintage-leather', 'name' => __('Vintage & Leather', 'dawp'), 'desc' => __('Retro shapes, leather straps', 'dawp')],
-    ['slug' => 'luxury-style',    'name' => __('Luxury Style', 'dawp'),      'desc' => __('Polished dress watches', 'dawp')],
+    ['slug' => 'mens-watches',      'name' => __("Men's Watches", 'dawp'),     'desc' => __('Classic and contemporary styles', 'dawp')],
+    ['slug' => 'womens-watches',    'name' => __("Women's Watches", 'dawp'),   'desc' => __('Elegant designs for every day', 'dawp')],
+    ['slug' => 'automatic-watches', 'name' => __('Automatic Watches', 'dawp'), 'desc' => __('Self-winding mechanical movements', 'dawp')],
+    ['slug' => 'new-arrivals',      'name' => __('New Arrivals', 'dawp'),      'desc' => __('Our latest watches', 'dawp'), 'url' => add_query_arg('orderby', 'date', $shop_url)],
 ];
 
 $help_links = [
@@ -74,10 +74,10 @@ $help_links = [
 
     <section class="py-14 sm:py-20">
         <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <h2 class="font-heading text-2xl font-bold uppercase text-foreground"><?php esc_html_e('Shop by collection', 'dawp'); ?></h2>
+            <h2 class="font-heading text-2xl font-bold uppercase text-foreground"><?php esc_html_e('Shop by category', 'dawp'); ?></h2>
             <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 <?php foreach ($collections as $c) : ?>
-                    <a href="<?php echo esc_url($dawp_cat_url($c['slug'])); ?>" class="group flex flex-col rounded-xl border border-line bg-white p-5 transition hover:-translate-y-1 hover:border-primary/20 hover:shadow-card-hover">
+                    <a href="<?php echo esc_url($c['url'] ?? $dawp_cat_url($c['slug'])); ?>" class="group flex flex-col rounded-xl border border-line bg-white p-5 transition hover:-translate-y-1 hover:border-primary/20 hover:shadow-card-hover">
                         <h3 class="font-heading text-base font-bold uppercase text-foreground"><?php echo esc_html($c['name']); ?></h3>
                         <p class="mt-2 flex-1 text-sm leading-6 text-muted"><?php echo esc_html($c['desc']); ?></p>
                         <span class="mt-4 inline-flex items-center text-sm font-bold text-primary">

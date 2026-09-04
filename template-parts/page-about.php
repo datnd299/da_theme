@@ -26,14 +26,16 @@ $email   = function_exists('dawp_store_email') ? dawp_store_email() : 'support@n
 $store   = function_exists('dawp_store_name') ? dawp_store_name() : 'North Time Co.';
 $address = function_exists('dawp_store_address') ? dawp_store_address() : '';
 
-// Mirrors the homepage "Shop by Category" section. The catalog has no
-// dedicated Men's / Women's / Automatic taxonomy terms yet (see
-// .plans/site.md), so the cards link to the shop, and "New Arrivals" links to
-// the shop sorted by newest.
+// Mirrors the homepage "Shop by Category" section. Cards link to the matching
+// product-category archive; "New Arrivals" links to the shop sorted by newest.
+$dawp_cat_link = static function ($slug) use ($shop_url) {
+    return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
+};
+
 $collections = [
-    ['title' => __("Men's Watches", 'dawp'),     'copy' => __('Classic and contemporary timepieces for every occasion.', 'dawp'),    'url' => $shop_url],
-    ['title' => __("Women's Watches", 'dawp'),   'copy' => __('Elegant designs made to complement your style.', 'dawp'),             'url' => $shop_url],
-    ['title' => __('Automatic Watches', 'dawp'), 'copy' => __('Self-winding mechanical movements, powered by the motion of your wrist.', 'dawp'), 'url' => $shop_url],
+    ['title' => __("Men's Watches", 'dawp'),     'copy' => __('Classic and contemporary timepieces for every occasion.', 'dawp'),    'url' => $dawp_cat_link('mens-watches')],
+    ['title' => __("Women's Watches", 'dawp'),   'copy' => __('Elegant designs made to complement your style.', 'dawp'),             'url' => $dawp_cat_link('womens-watches')],
+    ['title' => __('Automatic Watches', 'dawp'), 'copy' => __('Self-winding mechanical movements, powered by the motion of your wrist.', 'dawp'), 'url' => $dawp_cat_link('automatic-watches')],
     ['title' => __('New Arrivals', 'dawp'),      'copy' => __('Our latest watches and newest collections.', 'dawp'),                'url' => $new_arrivals_url],
 ];
 
@@ -86,7 +88,7 @@ $values = [
                 </section>
                 <section>
                     <h2><?php esc_html_e('What you can count on', 'dawp'); ?></h2>
-                    <p><?php esc_html_e('Free standard shipping on every US order, a 30-day return window, secure checkout through PCI-DSS compliant payment providers, and genuine watches only. If anything goes wrong, one email gets a real reply within 1 business day.', 'dawp'); ?></p>
+                    <p><?php esc_html_e('Free standard shipping on every US order, a 30-day return window, secure checkout through PayPal, and genuine watches only. If anything goes wrong, one email gets a real reply within 1 business day.', 'dawp'); ?></p>
                 </section>
             </div>
 

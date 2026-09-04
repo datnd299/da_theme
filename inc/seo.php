@@ -31,7 +31,7 @@ function dawp_seo_virtual_descriptions() {
         'faq'                      => __('Answers about shipping, returns, our watches, movements, water resistance, and payment at North Time Co.', 'dawp'),
         'contact-us'               => __('Contact North Time Co. about an order, a return, a product question, or a privacy request. We reply within 1 business day.', 'dawp'),
         'track-order'              => __('Track a North Time Co. order with your order number and the email address used at checkout.', 'dawp'),
-        'shipping-policy'          => __('How North Time Co. ships: free standard shipping on every US order, 1-3 business day processing, and 3-7 business day delivery with tracking.', 'dawp'),
+        'shipping-policy'          => __('How North Time Co. ships: free standard shipping on every US order, 1-2 business day processing, and 3-7 business day delivery with tracking.', 'dawp'),
         'return-refund-policy'     => __('North Time Co. accepts returns of unworn watches within 30 days of delivery. Read the full return and refund policy, including who pays return shipping.', 'dawp'),
         'billing-terms-conditions' => __('How payments are processed at North Time Co.: accepted methods, currency, when you are charged, the billing descriptor, and fraud screening.', 'dawp'),
         'terms-of-service'         => __('The terms that govern use of the North Time Co. website and any purchase you make from us.', 'dawp'),

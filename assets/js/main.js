@@ -327,8 +327,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 const res = await fetch(window.dawpCart.ajaxUrl, { method: 'POST', body, credentials: 'same-origin' });
                 const json = await res.json();
                 if (json.success) {
-                    applyFragments(json.data);
-                    openDrawer();
+                    // Fire WooCommerce's standard body event so plugins that
+                    // hook it — PixelYourSite (Meta/GA4 AddToCart), analytics,
+                    // WC's own cart-fragments cache — still see the add even
+                    // though we bypassed WooCommerce's native AJAX endpoint.
+                    // The existing `added_to_cart` handler below then applies
+                    // the fragments and opens the drawer, so we don't here.
+                    if (window.jQuery) {
+                        const $button = window.jQuery(submitBtn || form);
+                        if (productId) $button.data('product_id', productId);
+                        $button.data('quantity', body.get('quantity') || 1);
+                        window.jQuery(document.body).trigger('added_to_cart', [json.data, '', $button]);
+                    } else {
+                        applyFragments(json.data);
+                        openDrawer();
+                    }
                 } else if (json.data?.product_url) {
                     window.location.href = json.data.product_url;
                 }

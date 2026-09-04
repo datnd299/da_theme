@@ -155,7 +155,18 @@ body.single-product {
   display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  /* Guard against very tall images: cap the height and letterbox instead of
+     blowing out the layout */
+  max-height: 80vh;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 767px) {
+  .woocommerce-product-gallery__image img,
+  .woocommerce-product-gallery .wp-post-image {
+    max-height: 70vh;
+  }
 }
 
 /* Fullscreen trigger */

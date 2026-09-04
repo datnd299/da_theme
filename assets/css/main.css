@@ -81,7 +81,6 @@
 }
 
 .woocommerce-product-gallery {
-  aspect-ratio: 1 / 1.2;
   display: block;
   width: 100%;
   height: auto;
@@ -1121,7 +1120,7 @@ body.side-cart-open {
   line-height: 1.75;
 }
 
-.legal-doc > section + section {
+.legal-doc>section+section {
   margin-top: var(--space-2xl);
 }
 
@@ -1228,7 +1227,7 @@ body.side-cart-open {
   gap: var(--space-md);
 }
 
-.track-order-wc .track_order > p:not(.form-row) {
+.track-order-wc .track_order>p:not(.form-row) {
   margin: 0;
   font-size: 0.875rem;
   color: var(--color-foreground-muted);

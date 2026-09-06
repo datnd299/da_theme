@@ -1,5 +1,5 @@
 /* ============================================================
-   North Time Co. — Single Product Page
+   WristUnion — Single Product Page
    Pure CSS. Tokens come from main.css :root / tailwind-input.css
    (--color-*, --font-*, --radius-*, --tracking-*, --ease-*).
    Design language: premium, minimal, editorial. Warm off-white
@@ -292,9 +292,9 @@ body.single-product {
   color: var(--color-foreground);
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
 }
 
 /* Star rating */
@@ -418,7 +418,7 @@ body.single-product {
   border: 1px solid var(--color-border);
   border-radius: 0;
   background-color: var(--color-surface);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23171717' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232B333A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   color: var(--color-foreground);

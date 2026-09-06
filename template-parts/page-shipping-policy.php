@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping Policy — North Time Co.
+ * Shipping Policy — WristUnion
  *
  * Hardcoded policy content. Written to align with Google Merchant Center
  * "Shipping and returns" requirements: processing time, delivery estimates,
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
+$email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
 
 dawp_render_legal([
     'title'   => __('Shipping Policy', 'dawp'),
@@ -27,8 +27,9 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Order processing time', 'dawp'),
-            'body'    => '<p>' . esc_html__('Orders are processed and dispatched within 1 to 2 business days of payment confirmation. Orders placed on a weekend or public holiday begin processing on the next business day. During sale events or peak periods, processing may take an extra 1 to 2 business days.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('If we expect a significant delay with your order, we will email you before it ships.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('In-stock watches are processed and dispatched within 1 to 2 business days of payment confirmation. Orders placed on a weekend or public holiday begin processing on the next business day.', 'dawp') . '</p>'
+                . '<p>' . esc_html__('Made-to-order watches are assembled and shipped in about 3 weeks. Custom builds take 4 to 6 weeks from the date you approve the quote. The lead time for a given product is shown on its page, and for a custom build it is confirmed in writing before you pay.', 'dawp') . '</p>'
+                . '<p>' . esc_html__('If we expect a delay beyond the stated lead time, we will email you before your order ships.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Delivery estimates and shipping cost', 'dawp'),

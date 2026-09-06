@@ -1,6 +1,6 @@
 <?php
 /**
- * Billing Terms & Conditions — North Time Co.
+ * Billing Terms & Conditions — WristUnion
  *
  * Hardcoded policy content covering payment methods, currency, when and how
  * customers are charged, the billing descriptor, taxes, pricing accuracy,
@@ -16,10 +16,10 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
-$store = function_exists('dawp_store_name') ? dawp_store_name() : 'North Time Co.';
+$email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
+$store = function_exists('dawp_store_name') ? dawp_store_name() : 'WristUnion';
 $host  = wp_parse_url(home_url(), PHP_URL_HOST);
-$descriptor = strtoupper(preg_replace('/^www\./', '', (string) $host)) ?: 'NORTHTIMECO.COM';
+$descriptor = strtoupper(preg_replace('/^www\./', '', (string) $host)) ?: 'WRISTUNION.COM';
 
 dawp_render_legal([
     'title'   => __('Billing Terms & Conditions', 'dawp'),

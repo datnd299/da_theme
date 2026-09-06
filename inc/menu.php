@@ -1,11 +1,11 @@
 <?php
 /**
- * Product-category URL helpers for North Time Co.
+ * Product-category URL helpers for WristUnion.
  *
- * The store's catalogue is organised into three top-level categories —
- * Men's Watches, Women's Watches, and Automatic Watches (see
- * inc/product-categories.php). These helpers resolve a category slug to its
- * archive URL and are used by 404.php and the homepage / About category cards.
+ * The catalog is organised into three shopping categories — Field & Everyday,
+ * Dive, and Dress & Heritage (see inc/product-categories.php). These helpers
+ * resolve a category slug to its archive URL and are used by 404.php, the
+ * homepage category grid, and the About page.
  *
  * @package dawp
  */
@@ -16,11 +16,11 @@ if (!defined('ABSPATH')) {
 
 function dawp_product_category_slug($slug) {
     $map = [
-        'men'       => 'mens-watches',
-        'mens'      => 'mens-watches',
-        'women'     => 'womens-watches',
-        'womens'    => 'womens-watches',
-        'automatic' => 'automatic-watches',
+        'field'    => 'field-everyday',
+        'everyday' => 'field-everyday',
+        'diver'    => 'dive',
+        'dress'    => 'dress-heritage',
+        'heritage' => 'dress-heritage',
     ];
 
     return $map[$slug] ?? $slug;

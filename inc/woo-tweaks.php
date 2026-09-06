@@ -1,4 +1,24 @@
 <?php
+/**
+ * Case diameter in mm from a product attribute, or 0.0 if not set.
+ * WristUnion product pages and grids show relative case size — see the
+ * "spec sheet" design brief. Recognises a few common attribute slugs.
+ */
+if (!function_exists('dawp_product_diameter_mm')) {
+    function dawp_product_diameter_mm($product) {
+        if (!($product instanceof WC_Product)) {
+            return 0.0;
+        }
+        foreach (['diameter', 'case-diameter', 'case_diameter', 'case-size', 'pa_diameter', 'pa_case-diameter', 'pa_case-size'] as $key) {
+            $val = $product->get_attribute($key);
+            if ($val !== '' && preg_match('/([0-9]+(?:\.[0-9]+)?)/', $val, $m)) {
+                return (float) $m[1];
+            }
+        }
+        return 0.0;
+    }
+}
+
 remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 add_filter('woocommerce_show_page_title', '__return_false');
 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);

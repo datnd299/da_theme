@@ -1,10 +1,10 @@
 /* ============================================================
-   North Time Co. — Shop / Product Archive
+   WristUnion — Shop / Product Archive
    Pure CSS. Tokens come from main.css :root / tailwind-input.css
    (--color-*, --font-*, --radius-*, --tracking-*, --ease-*).
-   Design language: premium, minimal, editorial. Warm off-white
-   ground, near-black type, muted-gold accent used sparingly,
-   square corners, hairline borders, almost no shadow.
+   Design language: "spec sheet" — cool steel-paper ground, graphite
+   type, brass accent used sparingly, 2px corners, hairline borders,
+   no shadow, left aligned.
    Also styles the single-product "Related products" grid and any
    homepage grid that reuses .product-card.
    ============================================================ */
@@ -84,9 +84,9 @@
   color: var(--color-foreground);
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5.5vw, 3.25rem);
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
 }
 
 .shop-header__description {
@@ -247,7 +247,7 @@
   border: 1px solid var(--color-border);
   border-radius: 0;
   background-color: transparent;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23171717' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232B333A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
   color: var(--color-foreground);
@@ -593,11 +593,6 @@ ul.products li.product,
   height: 100%;
   margin: 0;
   object-fit: cover;
-  transition: transform var(--duration-slow) var(--ease-fluid);
-}
-
-.product-card:hover .product-card__img {
-  transform: scale(1.04);
 }
 
 .product-card__badge,
@@ -621,33 +616,7 @@ ul.products li.product,
 }
 
 .product-card__cta {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  left: 12px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 11px 12px;
-  background: var(--color-primary);
-  color: #fff;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity var(--duration-normal) var(--ease-fluid),
-    transform var(--duration-normal) var(--ease-fluid);
-}
-
-@media (hover: hover) {
-  .product-card:hover .product-card__cta {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  display: none;
 }
 
 .product-card__meta {
@@ -672,11 +641,31 @@ ul.products li.product,
   color: var(--color-foreground);
   font-family: var(--font-heading);
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.35;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
+}
+
+.product-card__cat {
+  font-variant-numeric: tabular-nums;
+}
+
+.product-card__stock {
+  margin: 6px 0 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.product-card__stock--in {
+  color: var(--color-success);
+}
+
+.product-card__stock--made {
+  color: var(--color-muted);
 }
 
 .product-card__cat {

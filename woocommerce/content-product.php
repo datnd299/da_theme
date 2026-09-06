@@ -10,6 +10,9 @@ if (empty($product) || !$product->is_visible()) return;
 $cats     = get_the_terms($product->get_id(), 'product_cat');
 $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
 
+$diameter_mm = function_exists('dawp_product_diameter_mm') ? dawp_product_diameter_mm($product) : 0.0;
+$stock_label = $product->is_in_stock() ? __('In stock', 'dawp') : __('Made to order', 'dawp');
+
 // Detect the "related products" loop via WooCommerce's own loop prop
 // (set by woocommerce_related_products()) rather than is_product(). The
 // related-products section is fetched over AJAX (see dawp_ajax_load_related_products()
@@ -104,12 +107,15 @@ $card_srcset_steps = array_map(
         <div class="product-card__meta">
             <div class="product-card__info">
                 <h3 class="product-card__title"><?php the_title(); ?></h3>
-                <?php if ($cat_name) : ?>
+                <?php if ($diameter_mm) : ?>
+                    <span class="product-card__cat"><?php echo esc_html(number_format($diameter_mm, 1) . ' mm'); ?><?php if ($cat_name) : ?> · <?php echo esc_html($cat_name); endif; ?></span>
+                <?php elseif ($cat_name) : ?>
                     <span class="product-card__cat"><?php echo esc_html($cat_name); ?></span>
                 <?php endif; ?>
             </div>
             <div class="product-card__price"><?php echo $product->get_price_html(); ?></div>
         </div>
+        <p class="product-card__stock product-card__stock--<?php echo $product->is_in_stock() ? 'in' : 'made'; ?>"><?php echo esc_html($stock_label); ?></p>
 
     </a>
 </li>

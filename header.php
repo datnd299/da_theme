@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header — North Time Co.
+ * Theme header — WristUnion
  *
  * @package dawp
  */
@@ -24,11 +24,11 @@ if (!$account_url) {
 }
 
 $nav_items = [
-    ['title' => __('Home', 'dawp'),        'url' => $home_url],
-    ['title' => __('Shop', 'dawp'),        'url' => $shop_url],
-    ['title' => __('About', 'dawp'),       'url' => home_url('/about-us/')],
-    ['title' => __('Contact', 'dawp'),     'url' => home_url('/contact-us/')],
-    ['title' => __('Track Order', 'dawp'), 'url' => home_url('/track-order/')],
+    ['title' => __('Watches', 'dawp'),      'url' => $shop_url],
+    ['title' => __('Custom Shop', 'dawp'),  'url' => home_url('/#build-yours')],
+    ['title' => __('About', 'dawp'),        'url' => home_url('/about-us/')],
+    ['title' => __('Contact', 'dawp'),      'url' => home_url('/contact-us/')],
+    ['title' => __('Track Order', 'dawp'),  'url' => home_url('/track-order/')],
 ];
 ?>
 <!DOCTYPE html>
@@ -39,12 +39,15 @@ $nav_items = [
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-        .font-heading { font-family: "Playfair Display", Georgia, serif; }
+        body { font-family: "Archivo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .font-heading { font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif; letter-spacing: -0.01em; }
+        .font-serif { font-family: "Newsreader", Georgia, "Times New Roman", serif; }
+        .wu-tnum { font-variant-numeric: tabular-nums; }
         html { scroll-behavior: smooth; }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
     </style>
 
     <?php wp_head(); ?>
@@ -59,27 +62,27 @@ $nav_items = [
 
 <header id="site-header" class="sticky top-0 z-50 bg-surface" role="banner">
     <div class="bg-primary text-white">
-        <p class="mx-auto max-w-7xl px-4 py-2.5 text-center text-[11px] font-semibold uppercase tracking-brand sm:px-6 lg:px-8">
-            <?php esc_html_e('Free shipping on all orders', 'dawp'); ?>
+        <p class="mx-auto max-w-7xl px-4 py-2.5 text-center text-[11px] font-medium uppercase tracking-brand sm:px-6 lg:px-8">
+            <?php esc_html_e('Hand-assembled, one at a time  ·  Free US shipping  ·  2-year warranty  ·  30-day returns', 'dawp'); ?>
         </p>
     </div>
 
     <div class="border-b border-line">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex min-h-20 items-center justify-between gap-4">
+            <div class="grid min-h-16 grid-cols-[1fr_auto_1fr] items-center gap-4">
                 <?php
                 $logo_webp = get_theme_file_path('assets/img/logo.webp');
                 $logo_png  = get_theme_file_path('assets/img/logo.png');
                 $logo_ver  = file_exists($logo_webp) ? filemtime($logo_webp) : '1';
                 ?>
-                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center py-2" aria-label="<?php esc_attr_e('North Time Co. — home', 'dawp'); ?>">
+                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center justify-self-start py-2" aria-label="<?php esc_attr_e('WristUnion — home', 'dawp'); ?>">
                     <picture>
                         <source srcset="<?php echo esc_url(get_theme_file_uri('assets/img/logo.webp') . '?v=' . $logo_ver); ?>" type="image/webp">
-                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo.png') . '?v=' . $logo_ver); ?>" alt="<?php esc_attr_e('North Time Co.', 'dawp'); ?>" width="245" height="160" class="h-14 w-auto sm:h-16" decoding="async" fetchpriority="high">
+                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo.png') . '?v=' . $logo_ver); ?>" alt="<?php esc_attr_e('WristUnion', 'dawp'); ?>" width="245" height="160" class="h-11 w-auto sm:h-12" decoding="async" fetchpriority="high">
                     </picture>
                 </a>
 
-                <nav class="hidden items-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Main store navigation', 'dawp'); ?>">
+                <nav class="hidden items-center justify-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Main store navigation', 'dawp'); ?>">
                     <?php foreach ($nav_items as $item) : ?>
                         <a href="<?php echo esc_url($item['url']); ?>" class="rounded-sm px-3 py-2 text-xs font-semibold uppercase tracking-label text-foreground transition hover:text-accent">
                             <?php echo esc_html($item['title']); ?>
@@ -87,18 +90,13 @@ $nav_items = [
                     <?php endforeach; ?>
                 </nav>
 
-                <div class="flex shrink-0 items-center gap-1">
-                    <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="hidden items-center rounded-sm border border-line px-3 py-2 lg:flex">
-                        <label class="sr-only" for="header-product-search"><?php esc_html_e('Search watches', 'dawp'); ?></label>
-                        <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search', 'dawp'); ?>" class="w-32 bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
-                        <input type="hidden" name="post_type" value="product">
-                        <button type="submit" class="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-sm text-foreground transition hover:text-accent" aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
-                            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <circle cx="11" cy="11" r="7"></circle>
-                                <path d="m16 16 4 4"></path>
-                            </svg>
-                        </button>
-                    </form>
+                <div class="flex shrink-0 items-center justify-self-end gap-1">
+                    <button type="button" class="hidden h-11 w-11 items-center justify-center rounded-sm text-foreground transition hover:bg-surface-alt hover:text-accent lg:inline-flex" aria-expanded="false" aria-label="<?php esc_attr_e('Search watches', 'dawp'); ?>" aria-controls="header-search" onclick="const s=document.getElementById('header-search'); const x=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', String(!x)); s.classList.toggle('hidden'); if(!x){const f=s.querySelector('input[type=search]'); if(f){f.focus();}}">
+                        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m16 16 4 4"></path>
+                        </svg>
+                    </button>
 
                     <a href="<?php echo esc_url($account_url); ?>" class="hidden h-11 w-11 items-center justify-center rounded-sm text-foreground transition hover:bg-surface-alt hover:text-accent md:inline-flex" aria-label="<?php esc_attr_e('My account', 'dawp'); ?>">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -124,6 +122,22 @@ $nav_items = [
                         </svg>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <div id="header-search" class="hidden border-t border-line">
+            <div class="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
+                <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="flex items-center rounded-sm border border-line px-4 py-2.5">
+                    <label class="sr-only" for="header-product-search"><?php esc_html_e('Search watches', 'dawp'); ?></label>
+                    <input id="header-product-search" type="search" name="s" value="<?php echo esc_attr(get_search_query()); ?>" placeholder="<?php esc_attr_e('Search watches', 'dawp'); ?>" class="w-full bg-transparent text-sm text-foreground outline-none placeholder:text-muted">
+                    <input type="hidden" name="post_type" value="product">
+                    <button type="submit" class="ml-2 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-sm text-foreground transition hover:text-accent" aria-label="<?php esc_attr_e('Submit search', 'dawp'); ?>">
+                        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m16 16 4 4"></path>
+                        </svg>
+                    </button>
+                </form>
             </div>
         </div>
     </div>

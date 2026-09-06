@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms of Service — North Time Co.
+ * Terms of Service — WristUnion
  *
  * Hardcoded policy content: general terms of sale and website use, including
  * disclaimers and limitation of liability. Watch warranties vary by model and
@@ -14,8 +14,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email     = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
-$store     = function_exists('dawp_store_name') ? dawp_store_name() : 'North Time Co.';
+$email     = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
+$store     = function_exists('dawp_store_name') ? dawp_store_name() : 'WristUnion';
 $governing = function_exists('dawp_store_governing_law') ? dawp_store_governing_law() : 'the United States';
 $site_host = wp_parse_url(home_url(), PHP_URL_HOST);
 
@@ -33,7 +33,7 @@ dawp_render_legal([
             'heading' => __('Who we are', 'dawp'),
             'body'    => '<p>' . sprintf(
                 /* translators: %1$s: store name */
-                esc_html__('%1$s is an independent retailer of wristwatches and watch accessories serving customers in the United States. In these terms, "we", "us", and "our" refer to %1$s, and "you" refers to the person using the website or placing an order.', 'dawp'),
+                esc_html__('%1$s is an independent watch brand that hand-assembles its own wristwatches, and builds custom watches to order, for customers in the United States. In these terms, "we", "us", and "our" refer to %1$s, and "you" refers to the person using the website or placing an order.', 'dawp'),
                 esc_html($store)
             ) . '</p>',
         ],
@@ -43,8 +43,8 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Products, descriptions, and availability', 'dawp'),
-            'body'    => '<p>' . esc_html__('We describe each watch as accurately as we can, including its movement, case size, strap material, and water resistance rating. Product photos are representative; slight variation in color or finish can occur between screens and production batches. All items are new and genuine, supplied in their original manufacturer packaging. We do not sell replica or counterfeit goods.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('Stock and pricing can change without notice. If an item becomes unavailable after you order, we will notify you and issue a full refund.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('We describe each watch as accurately as we can, including its movement, case diameter, thickness, lug-to-lug, lug width, strap, crystal, and water resistance rating. Product photos are representative; slight variation in colour or finish can occur between screens and between hand-assembled units. Every watch is assembled, regulated, and pressure-tested by hand in our own workshop. We are an independent brand, not an authorized dealer for any other maker, and we do not sell pre-owned, replica, or counterfeit watches.', 'dawp') . '</p>'
+                . '<p>' . esc_html__('Because watches are built in small batches and to order, stock and lead times can change without notice. If an item or component becomes unavailable after you order, we will contact you to adjust the build or issue a full refund.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Orders and acceptance', 'dawp'),
@@ -73,11 +73,11 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Product warranty', 'dawp'),
-            'body'    => '<p>' . esc_html__('A manufacturer warranty is included with some, but not all, watches. Where a warranty applies, its length and terms are stated on that product\'s page and in the paperwork supplied with the watch. Watches sold without a stated warranty are covered only by the return rights in our Return & Refund Policy and by any rights you have under applicable consumer law.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('A manufacturer warranty does not cover normal wear, battery depletion, water exposure beyond the watch\'s stated resistance rating, accidental damage, scratches, or damage from unauthorized repair or modification. Straps, batteries, and crystals are consumable parts.', 'dawp') . '</p>'
+            'body'    => '<p>' . esc_html__('Every WristUnion watch carries a 2-year workshop warranty from the date of delivery. It covers assembly faults and the movement under normal use, and entitles you to a free repair or, where a repair is not practical, a replacement or refund at our discretion.', 'dawp') . '</p>'
+                . '<p>' . esc_html__('The warranty does not cover normal wear, water exposure beyond the watch\'s stated resistance rating, accidental damage, scratches, loss, theft, or damage from unauthorized repair or modification. Straps and crystals are consumable parts. Routine movement servicing after the warranty period is at the owner\'s cost.', 'dawp') . '</p>'
                 . '<p>' . sprintf(
                     /* translators: %s: support email link */
-                    wp_kses_post(__('If your watch develops a fault, email %s with your order number and photos of the issue and we will advise the next step, including any manufacturer warranty service that applies.', 'dawp')),
+                    wp_kses_post(__('If your watch develops a fault, email %s with your order number and photos of the issue and we will advise the next step and, where the warranty applies, send a prepaid return label.', 'dawp')),
                     '<a href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a>'
                 ) . '</p>',
         ],

@@ -1,6 +1,6 @@
 <?php
 /**
- * Return & Refund Policy — North Time Co.
+ * Return & Refund Policy — WristUnion
  *
  * Hardcoded policy content. Written to align with Google Merchant Center
  * "Returns and refunds" requirements: a clearly stated return window,
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
+$email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
 
 dawp_render_legal([
     'title'   => __('Return & Refund Policy', 'dawp'),
@@ -24,7 +24,7 @@ dawp_render_legal([
     'sections' => [
         [
             'heading' => __('Return window', 'dawp'),
-            'body'    => '<p>' . esc_html__('You have 30 calendar days from the date your order is marked delivered by the carrier to request a return. Requests made after 30 days can only be considered where a manufacturer warranty is included with the watch; warranty coverage, if any, is stated on the product page.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('You have 30 calendar days from the date your order is marked delivered by the carrier to request a change-of-mind return. After 30 days, a faulty watch is handled under the 2-year WristUnion workshop warranty (repair, replacement, or refund), described in our Terms of Service.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Condition of returned items', 'dawp'),

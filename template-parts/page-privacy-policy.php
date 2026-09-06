@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy Policy — North Time Co.
+ * Privacy Policy — WristUnion
  *
  * Hardcoded policy content. Covers what personal data is collected, how it is
  * used and shared, cookies, retention, security, and user rights (including
@@ -15,8 +15,8 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$email     = function_exists('dawp_store_email') ? dawp_store_email() : 'support@northtimeco.com';
-$store     = function_exists('dawp_store_name') ? dawp_store_name() : 'North Time Co.';
+$email     = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wristunion.com';
+$store     = function_exists('dawp_store_name') ? dawp_store_name() : 'WristUnion';
 $site_host = wp_parse_url(home_url(), PHP_URL_HOST);
 
 dawp_render_legal([

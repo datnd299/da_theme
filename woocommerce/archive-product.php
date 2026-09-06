@@ -1,6 +1,6 @@
 <?php
 /**
- * North Time Co. — Shop / Archive Product Template.
+ *  — Shop / Archive Product Template.
  *
  * Structure reference: .plans/templates/shop.html. Styled by assets/css/shop.css
  * (no Tailwind). See CLAUDE.md for the editable-file scope.
@@ -12,15 +12,15 @@ get_header();
 $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
-$archive_title = __('All Watches', 'dawp');
-$archive_description = __('Browse every North Time Co. watch — men\'s, women\'s, and automatic timepieces. Clear specs on every listing, genuine pieces only, and free shipping on every US order.', 'dawp');
-$archive_eyebrow = __('The North Time Co. Catalog', 'dawp');
+$archive_title = __('All watches', 'dawp');
+$archive_description = __('Every WristUnion watch — field, dive, and dress models, hand-assembled and tested one at a time. Full spec sheet on every listing, including thickness and lug-to-lug. Free US shipping.', 'dawp');
+$archive_eyebrow = __('The WristUnion catalog', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;
     $term_description = term_description($archive_term->term_id, $archive_term->taxonomy);
     $archive_description = $term_description ? wp_strip_all_tags($term_description) : $archive_description;
-    $archive_eyebrow = is_product_tag() ? __('Shop By Tag', 'dawp') : __('Shop By Category', 'dawp');
+    $archive_eyebrow = is_product_tag() ? __('Shop by tag', 'dawp') : __('Shop by category', 'dawp');
 }
 
 global $wp_query;

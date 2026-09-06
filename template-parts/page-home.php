@@ -1,6 +1,16 @@
 <?php
 /**
- * Homepage — North Time Co.
+ * Homepage — WristUnion.
+ *
+ * "Spec sheet" layout (see design brief): left-aligned, hairline dividers,
+ * real measurements everywhere, no shadows, one dark block for the hero and
+ * one mid-page. Reading copy is set in Newsreader (.font-serif); labels,
+ * specs and buttons stay in Archivo.
+ *
+ * Product grids read the live WooCommerce catalog. Photography in
+ * assets/img/ is placeholder — the store owner should replace hero.avif and
+ * the workshop images with real bench photography (the whole design leans on
+ * them).
  *
  * @package dawp
  */
@@ -10,336 +20,432 @@ if (!defined('ABSPATH')) {
 }
 
 $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
-
 if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$new_arrivals_url = add_query_arg('orderby', 'date', $shop_url);
-$best_sellers_url = add_query_arg('orderby', 'popularity', $shop_url);
+$dawp_cat_link = static function ($slug) use ($shop_url) {
+    return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
+};
 
 /**
- * Query published products for the homepage grids, excluding anything hidden
- * from the catalog.
+ * Published, catalog-visible products for the homepage grid.
  */
 function dawp_home_product_query(array $args) {
     return get_posts(wp_parse_args($args, [
         'post_type'   => 'product',
         'post_status' => 'publish',
-        'tax_query'   => [
-            [
-                'taxonomy' => 'product_visibility',
-                'field'    => 'name',
-                'terms'    => 'exclude-from-catalog',
-                'operator' => 'NOT IN',
-            ],
-        ],
+        'tax_query'   => [[
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+            'terms'    => 'exclude-from-catalog',
+            'operator' => 'NOT IN',
+        ]],
     ]));
 }
 
-$best_seller_posts = dawp_home_product_query([
-    'posts_per_page' => 4,
+$ready_posts = dawp_home_product_query([
+    'posts_per_page' => 8,
     'meta_key'       => 'total_sales',
     'orderby'        => 'meta_value_num',
     'order'          => 'DESC',
 ]);
 
-$new_arrival_posts = dawp_home_product_query([
-    'posts_per_page' => 4,
-    'orderby'        => 'date',
-    'order'          => 'DESC',
-]);
-
 /**
- * One product card for the Best Sellers / New Arrivals grids.
+ * One product card — image rendered to relative scale by case diameter where
+ * the product has a `diameter` / `pa_diameter` attribute (spec: a 38mm dress
+ * watch renders smaller than a 42mm diver beside it). Falls back to full width.
  */
 function dawp_home_product_card($post_id, $is_first = false) {
     $product = wc_get_product($post_id);
-
     if (!$product || !$product->is_visible()) {
         return;
     }
 
-    $cats     = get_the_terms($post_id, 'product_cat');
-    $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
-    $image_id = $product->get_image_id();
-    $image_html = '';
+    $diameter = dawp_product_diameter_mm($product);
+    $scale    = $diameter ? max(0.78, min(1, $diameter / 42)) : 1;
 
+    $badge_stock = $product->is_in_stock()
+        ? __('In stock', 'dawp')
+        : __('Made to order', 'dawp');
+
+    $image_id   = $product->get_image_id();
+    $image_html = '';
     if ($image_id) {
         $image_url = wp_get_attachment_image_url($image_id, 'full');
         $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true) ?: $product->get_name();
         $attrs = function_exists('dawp_i0_img_attrs') ? dawp_i0_img_attrs($image_url, [
             'width'   => 480,
             'height'  => 600,
-            'srcset'  => [[240, 300], [320, 400], [480, 600], [640, 800]],
+            'srcset'  => [[240, 300], [360, 450], [480, 600], [720, 900]],
             'sizes'   => '(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 46vw',
             'loading' => $is_first ? 'eager' : 'lazy',
         ]) : 'loading="lazy"';
-        $image_html = sprintf('<img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" alt="%s" %s>', esc_attr($image_alt), $attrs);
+        $image_html = sprintf('<img alt="%s" class="h-full w-full object-cover" %s>', esc_attr($image_alt), $attrs);
     }
     ?>
-    <li class="group">
+    <li class="border-t border-line pt-4">
         <a href="<?php echo esc_url(get_permalink($post_id)); ?>" class="block">
-            <div class="relative aspect-[4/5] overflow-hidden bg-surface-alt">
-                <?php echo $image_html; ?>
-
-                <?php if ($product->is_on_sale()) : ?>
-                    <span class="absolute left-3 top-3 bg-primary px-2.5 py-1 text-[10px] font-bold uppercase tracking-label text-white">
-                        <?php esc_html_e('Sale', 'dawp'); ?>
-                    </span>
-                <?php endif; ?>
-
-                <button type="button" class="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center bg-surface/90 text-foreground opacity-0 transition duration-300 group-hover:opacity-100" aria-label="<?php esc_attr_e('Add to wishlist', 'dawp'); ?>" onclick="event.preventDefault();">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"></path></svg>
-                </button>
-
-                <span class="absolute inset-x-3 bottom-3 translate-y-2 bg-primary py-2.5 text-center text-[11px] font-bold uppercase tracking-label text-white opacity-0 transition duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <?php esc_html_e('Quick View', 'dawp'); ?>
-                </span>
+            <div class="flex aspect-[4/5] items-end justify-center bg-surface">
+                <div style="width: <?php echo esc_attr(round($scale * 100, 1)); ?>%" class="aspect-[4/5] overflow-hidden">
+                    <?php echo $image_html; ?>
+                </div>
             </div>
-
-            <div class="mt-4">
-                <?php if ($cat_name) : ?>
-                    <p class="text-[11px] font-semibold uppercase tracking-label text-muted"><?php echo esc_html($cat_name); ?></p>
+            <div class="mt-3 flex items-baseline justify-between gap-3">
+                <h3 class="font-heading text-[15px] font-semibold text-foreground"><?php echo esc_html($product->get_name()); ?></h3>
+                <?php if ($diameter) : ?>
+                    <span class="wu-tnum shrink-0 text-xs text-muted"><?php echo esc_html(number_format((float) $diameter, 1)); ?> mm</span>
                 <?php endif; ?>
-                <h3 class="mt-1 font-heading text-base text-foreground"><?php echo esc_html($product->get_name()); ?></h3>
-
-                <?php if ($product->get_rating_count() > 0) : ?>
-                    <div class="mt-1.5 flex items-center gap-0.5" aria-label="<?php echo esc_attr(sprintf(__('Rated %s out of 5', 'dawp'), $product->get_average_rating())); ?>">
-                        <?php
-                        $rating = round((float) $product->get_average_rating());
-                        for ($i = 1; $i <= 5; $i++) :
-                        ?>
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="<?php echo $i <= $rating ? 'currentColor' : 'none'; ?>" stroke="currentColor" stroke-width="1.5" class="<?php echo $i <= $rating ? 'text-accent' : 'text-line'; ?>" aria-hidden="true">
-                                <path d="M12 2.5l2.9 6.1 6.6.7-4.9 4.5 1.3 6.6L12 17l-5.9 3.4 1.3-6.6-4.9-4.5 6.6-.7L12 2.5Z"/>
-                            </svg>
-                        <?php endfor; ?>
-                    </div>
-                <?php endif; ?>
-
-                <p class="mt-1.5 text-sm font-semibold text-foreground"><?php echo wp_kses_post($product->get_price_html()); ?></p>
             </div>
+            <p class="wu-tnum mt-1 text-sm font-semibold text-accent"><?php echo wp_kses_post($product->get_price_html()); ?></p>
+            <p class="mt-1 text-[11px] font-medium uppercase tracking-label <?php echo $product->is_in_stock() ? 'text-success' : 'text-muted'; ?>">
+                <?php echo esc_html($badge_stock); ?>
+            </p>
         </a>
     </li>
     <?php
 }
 
-/**
- * Placeholder shown in place of a product grid while the catalog has no
- * published, catalog-visible products yet.
- */
-function dawp_home_empty_state($shop_url) {
-    ?>
-    <div class="mt-10 border border-dashed border-line px-6 py-14 text-center">
-        <p class="font-heading text-lg text-foreground"><?php esc_html_e('New watches are on the way', 'dawp'); ?></p>
-        <p class="mx-auto mt-2 max-w-sm text-sm leading-6 text-foreground-muted"><?php esc_html_e("We're adding fresh timepieces to the collection soon — check back shortly.", 'dawp'); ?></p>
-        <a href="<?php echo esc_url($shop_url); ?>" class="mt-6 inline-flex h-11 items-center justify-center border border-foreground px-7 text-xs font-bold uppercase tracking-button text-foreground transition hover:border-accent hover:text-accent">
-            <?php esc_html_e('Visit the Shop', 'dawp'); ?>
-        </a>
-    </div>
-    <?php
-}
+// dawp_product_diameter_mm() lives in inc/woo-tweaks.php (loaded everywhere).
+
+$categories = [
+    [
+        'title' => __('Field & Everyday', 'dawp'),
+        'desc'  => __('Worn every day. Tough, legible, easy to pair.', 'dawp'),
+        'mm'    => '38 mm',
+        'image' => 'assets/img/men.avif',
+        'url'   => $dawp_cat_link('field-everyday'),
+        'dark'  => false,
+    ],
+    [
+        'title' => __('Dive', 'dawp'),
+        'desc'  => __('Water resistant. 120-click rotating bezel.', 'dawp'),
+        'mm'    => '42 mm',
+        'image' => 'assets/img/automatic.avif',
+        'url'   => $dawp_cat_link('dive'),
+        'dark'  => false,
+    ],
+    [
+        'title' => __('Dress & Heritage', 'dawp'),
+        'desc'  => __('Slim, restrained, made to sit under a cuff.', 'dawp'),
+        'mm'    => '36 mm',
+        'image' => 'assets/img/women.avif',
+        'url'   => $dawp_cat_link('dress-heritage'),
+        'dark'  => false,
+    ],
+    [
+        'title' => __('Custom Shop', 'dawp'),
+        'desc'  => __('Start the one that is yours. Dial, hands, case, strap.', 'dawp'),
+        'mm'    => '',
+        'image' => '',
+        'url'   => home_url('/#build-yours'),
+        'dark'  => true,
+    ],
+];
+
+$build_steps = [
+    ['n' => '1', 'title' => __('Source & inspect', 'dawp'), 'copy' => __('Every component — movement, case, crystal, hands — is checked by hand before it goes near a build.', 'dawp'), 'image' => 'assets/img/automatic.avif'],
+    ['n' => '2', 'title' => __('Assemble & case up', 'dawp'), 'copy' => __('Dial and hands fitted under a loupe, movement cased, gaskets seated, back torqued to spec.', 'dawp'), 'image' => 'assets/img/men.avif'],
+    ['n' => '3', 'title' => __('Regulate, test, pack', 'dawp'), 'copy' => __('Timed over several positions, pressure-tested for water resistance, then packed and shipped.', 'dawp'), 'image' => 'assets/img/women.avif'],
+];
+
+$config_options = [
+    ['label' => __('Dial', 'dawp'),      'choices' => __('Sunburst blue · Matte black · Fumé grey · Cream', 'dawp')],
+    ['label' => __('Hands', 'dawp'),     'choices' => __('Dauphine · Sword · Snowflake', 'dawp')],
+    ['label' => __('Case finish', 'dawp'), 'choices' => __('Brushed · Polished · PVD', 'dawp')],
+    ['label' => __('Bezel insert', 'dawp'), 'choices' => __('Steel · Black · Navy', 'dawp')],
+    ['label' => __('Strap', 'dawp'),     'choices' => __('Leather · Rubber · Oyster · Jubilee', 'dawp')],
+    ['label' => __('Caseback', 'dawp'),  'choices' => __('Engrave up to 40 characters', 'dawp')],
+];
+
+$spec_rows = [
+    [__('Movement', 'dawp'),         __('Seiko NH35A automatic, 24 jewels, 41h reserve, hacking + hand-wind', 'dawp')],
+    [__('Case', 'dawp'),             __('316L stainless steel, brushed', 'dawp')],
+    [__('Diameter', 'dawp'),         __('36.0 – 42.0 mm by model', 'dawp')],
+    [__('Thickness', 'dawp'),        __('11.4 – 13.2 mm by model', 'dawp')],
+    [__('Lug-to-lug', 'dawp'),       __('44.5 – 48.0 mm by model', 'dawp')],
+    [__('Lug width', 'dawp'),        __('18 mm / 20 mm / 22 mm', 'dawp')],
+    [__('Crystal', 'dawp'),          __('Sapphire, flat, inner anti-reflective coating', 'dawp')],
+    [__('Water resistance', 'dawp'), __('100 m (Field / Dress) · 200 m (Dive)', 'dawp')],
+    [__('Warranty', 'dawp'),         __('2-year WristUnion workshop warranty', 'dawp')],
+];
+
+// Real approved product reviews only — never fabricated. Section hides if none.
+$home_reviews = get_comments([
+    'post_type'   => 'product',
+    'status'      => 'approve',
+    'number'      => 4,
+    'meta_key'    => 'rating',
+    'meta_value'  => '4',
+    'meta_compare' => '>=',
+    'type'        => 'review',
+]);
 ?>
 
-<!-- Hero -->
-<section class="bg-background">
-    <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
-        <div>
-            <p class="text-xs font-semibold uppercase tracking-brand text-accent"><?php esc_html_e('North Time Co.', 'dawp'); ?></p>
-            <h1 class="mt-4 font-heading text-4xl leading-[1.1] text-foreground sm:text-5xl lg:text-6xl">
-                <?php esc_html_e('Timepieces that define your style', 'dawp'); ?>
-            </h1>
-            <p class="mt-5 max-w-md text-base leading-7 text-foreground-muted">
-                <?php esc_html_e('Discover carefully selected timepieces designed for everyday wear and timeless style.', 'dawp'); ?>
+<!-- S1 · Hero ------------------------------------------------------------- -->
+<section class="bg-primary text-white">
+    <div class="mx-auto max-w-[1320px] px-8 py-14 sm:px-14 lg:py-20">
+        <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div class="max-w-xl">
+                <p class="text-[11px] font-medium uppercase tracking-brand text-accent"><?php esc_html_e('WristUnion — assembled by hand', 'dawp'); ?></p>
+                <h1 class="mt-4 font-heading text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-[1.05]">
+                    <?php esc_html_e('Hand-assembled watches. Built one at a time.', 'dawp'); ?>
+                </h1>
+                <p class="mt-5 font-serif text-[17px] leading-8 text-white/80">
+                    <?php esc_html_e('Your specs, assembled and regulated by hand — Seiko NH35 automatic, 316L steel, sapphire crystal. Field, dive, and dress models, plus custom builds to order.', 'dawp'); ?>
+                </p>
+                <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+                    <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex h-12 items-center justify-center border border-white bg-white px-8 text-xs font-semibold uppercase tracking-button text-primary transition hover:bg-transparent hover:text-white">
+                        <?php esc_html_e('Shop watches', 'dawp'); ?>
+                    </a>
+                    <a href="#build-yours" class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-button text-white transition hover:text-accent">
+                        <?php esc_html_e('Start a custom build', 'dawp'); ?>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <figure class="lg:order-last">
+                <div class="aspect-[4/3] overflow-hidden bg-primary-soft">
+                    <img src="<?php echo esc_url(get_theme_file_uri('assets/img/hero.avif')); ?>" alt="<?php esc_attr_e('A WristUnion watch on the bench during assembly', 'dawp'); ?>" width="800" height="600" class="h-full w-full object-cover" loading="eager" fetchpriority="high" decoding="async">
+                </div>
+                <figcaption class="wu-tnum mt-2 flex items-center gap-2 text-[11px] uppercase tracking-label text-white/55">
+                    <span aria-hidden="true">├</span>
+                    <span><?php esc_html_e('38.0 mm case', 'dawp'); ?></span>
+                    <span class="h-px flex-1 bg-white/25"></span>
+                    <span aria-hidden="true">┤</span>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<!-- S2 · Trust bar ------------------------------------------------------- -->
+<section class="border-b border-line bg-surface">
+    <div class="mx-auto grid max-w-[1320px] grid-cols-2 divide-x divide-line px-8 sm:grid-cols-3 sm:px-14 lg:grid-cols-5">
+        <?php
+        $trust = [
+            __('Free US shipping, every order', 'dawp'),
+            __('2-year workshop warranty', 'dawp'),
+            __('30-day returns', 'dawp'),
+            __('Sapphire crystal', 'dawp'),
+            __('Seiko NH35 automatic', 'dawp'),
+        ];
+        foreach ($trust as $i => $t) : ?>
+            <p class="flex min-h-[56px] items-center justify-center px-3 text-center text-[11px] font-medium uppercase tracking-label text-foreground-muted <?php echo $i >= 3 ? 'border-t border-line sm:border-t-0' : ''; ?> <?php echo $i === 4 ? 'col-span-2 sm:col-span-1' : ''; ?>">
+                <?php echo esc_html($t); ?>
             </p>
-            <div class="mt-8 flex flex-wrap gap-3">
-                <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex h-12 items-center justify-center bg-primary px-8 text-xs font-bold uppercase tracking-button text-white transition hover:bg-primary-soft">
-                    <?php esc_html_e('Shop All Watches', 'dawp'); ?>
-                </a>
-                <a href="<?php echo esc_url($new_arrivals_url); ?>" class="inline-flex h-12 items-center justify-center border border-foreground px-8 text-xs font-bold uppercase tracking-button text-foreground transition hover:border-accent hover:text-accent">
-                    <?php esc_html_e('Explore New Arrivals', 'dawp'); ?>
-                </a>
-            </div>
-        </div>
-
-        <div class="aspect-[5/4] overflow-hidden bg-surface-alt sm:aspect-[4/3] lg:aspect-[4/5]">
-            <img src="<?php echo esc_url(get_theme_file_uri('assets/img/hero.avif')); ?>" alt="<?php esc_attr_e('Featured North Time Co. watch', 'dawp'); ?>" width="800" height="800" class="h-full w-full object-cover" loading="eager" fetchpriority="high" decoding="async">
-        </div>
+        <?php endforeach; ?>
     </div>
 </section>
 
-<!-- Shop by Category -->
-<section class="bg-surface py-16 sm:py-20 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="font-heading text-3xl text-foreground sm:text-4xl"><?php esc_html_e('Shop by Category', 'dawp'); ?></h2>
+<!-- S3 · Four categories ---------------------------------------------------- -->
+<section class="mx-auto max-w-[1320px] px-8 py-20 sm:px-14 lg:py-24">
+    <div class="flex items-end justify-between gap-6 border-b border-line pb-4">
+        <h2 class="font-heading text-[clamp(1.75rem,3.5vw,2.125rem)] font-semibold leading-tight"><?php esc_html_e('Four ways in', 'dawp'); ?></h2>
+        <a href="<?php echo esc_url($shop_url); ?>" class="hidden shrink-0 text-xs font-semibold uppercase tracking-button text-blued transition hover:text-blued-hover sm:inline"><?php esc_html_e('All watches', 'dawp'); ?></a>
+    </div>
 
-        <div class="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 sm:gap-6 lg:grid-cols-4 lg:gap-x-8">
-            <?php
-            $dawp_cat_link = static function ($slug) use ($shop_url) {
-                return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
-            };
-
-            $dawp_home_categories = [
-                [
-                    'title' => __("Men's Watches", 'dawp'),
-                    'desc'  => __('Classic and contemporary timepieces for every occasion.', 'dawp'),
-                    'image' => 'assets/img/men.avif',
-                    'url'   => $dawp_cat_link('mens-watches'),
-                ],
-                [
-                    'title' => __("Women's Watches", 'dawp'),
-                    'desc'  => __('Elegant designs made to complement your style.', 'dawp'),
-                    'image' => 'assets/img/women.avif',
-                    'url'   => $dawp_cat_link('womens-watches'),
-                ],
-                [
-                    'title' => __('Automatic Watches', 'dawp'),
-                    'desc'  => __('Discover the craftsmanship of mechanical movements.', 'dawp'),
-                    'image' => 'assets/img/automatic.avif',
-                    'url'   => $dawp_cat_link('automatic-watches'),
-                ],
-                [
-                    'title' => __('New Arrivals', 'dawp'),
-                    'desc'  => __('Explore our latest watches and newest collections.', 'dawp'),
-                    'image' => 'assets/img/new.avif',
-                    'url'   => $new_arrivals_url,
-                ],
-            ];
-
-            foreach ($dawp_home_categories as $category) :
-            ?>
-                <a href="<?php echo esc_url($category['url'] ?? $shop_url); ?>" class="group block">
+    <div class="mt-8 grid grid-cols-2 gap-px bg-line lg:grid-cols-4">
+        <?php foreach ($categories as $cat) : ?>
+            <a href="<?php echo esc_url($cat['url']); ?>" class="group flex flex-col <?php echo $cat['dark'] ? 'bg-primary text-white' : 'bg-surface text-foreground'; ?> p-3 sm:p-5">
+                <?php if ($cat['image']) : ?>
                     <div class="aspect-[4/5] overflow-hidden bg-surface-alt">
-                        <img src="<?php echo esc_url(get_theme_file_uri($category['image'])); ?>" alt="<?php echo esc_attr($category['title']); ?>" width="480" height="600" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" decoding="async">
+                        <img src="<?php echo esc_url(get_theme_file_uri($cat['image'])); ?>" alt="<?php echo esc_attr($cat['title']); ?>" width="420" height="525" class="h-full w-full object-cover" loading="lazy" decoding="async">
                     </div>
-                    <h3 class="mt-4 font-heading text-lg text-foreground"><?php echo esc_html($category['title']); ?></h3>
-                    <p class="mt-1 text-sm leading-6 text-foreground-muted"><?php echo esc_html($category['desc']); ?></p>
-                    <span class="mt-3 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-label text-accent">
-                        <?php esc_html_e('Shop Now', 'dawp'); ?>
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                    </span>
-                </a>
-            <?php endforeach; ?>
-        </div>
+                <?php else : ?>
+                    <div class="flex aspect-[4/5] items-center justify-center bg-primary-soft">
+                        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" class="text-white/70" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M9 2h6M12 6v7l4 2"/></svg>
+                    </div>
+                <?php endif; ?>
+                <div class="mt-3 flex items-baseline justify-between gap-2 sm:mt-4">
+                    <h3 class="font-heading text-base font-semibold sm:text-lg"><?php echo esc_html($cat['title']); ?></h3>
+                    <?php if ($cat['mm']) : ?><span class="wu-tnum shrink-0 text-xs <?php echo $cat['dark'] ? 'text-white/55' : 'text-muted'; ?>"><?php echo esc_html($cat['mm']); ?></span><?php endif; ?>
+                </div>
+                <p class="mt-1 font-serif text-[13px] leading-6 sm:text-sm <?php echo $cat['dark'] ? 'text-white/70' : 'text-foreground-muted'; ?>"><?php echo esc_html($cat['desc']); ?></p>
+                <span class="mt-3 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-label <?php echo $cat['dark'] ? 'text-accent' : 'text-blued'; ?>">
+                    <?php echo $cat['dark'] ? esc_html__('Build yours', 'dawp') : esc_html__('Shop', 'dawp'); ?>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </span>
+            </a>
+        <?php endforeach; ?>
     </div>
 </section>
 
-<!-- Best Sellers -->
-<section class="bg-background py-16 sm:py-20 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="font-heading text-3xl text-foreground sm:text-4xl"><?php esc_html_e('Best Sellers', 'dawp'); ?></h2>
-        <p class="mt-2 text-sm text-foreground-muted"><?php esc_html_e('Discover the watches our customers love most.', 'dawp'); ?></p>
+<!-- S4 · How it's made ---------------------------------------------------- -->
+<section id="how-its-made" class="scroll-mt-24 border-y border-line bg-surface">
+    <div class="mx-auto max-w-[1320px] px-8 py-20 sm:px-14 lg:py-24">
+        <h2 class="font-heading text-[clamp(1.75rem,3.5vw,2.125rem)] font-semibold leading-tight"><?php esc_html_e('How it\'s made', 'dawp'); ?></h2>
+        <p class="mt-2 max-w-xl font-serif text-[15px] leading-7 text-foreground-muted"><?php esc_html_e('Every watch passes through the same three stages, by hand, on the same bench.', 'dawp'); ?></p>
 
-        <?php if ($best_seller_posts) : ?>
-            <ul class="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 lg:gap-x-8">
-                <?php foreach ($best_seller_posts as $i => $post) : dawp_home_product_card($post->ID, 0 === $i); endforeach; ?>
-            </ul>
-
-            <div class="mt-12 text-center">
-                <a href="<?php echo esc_url($best_sellers_url); ?>" class="inline-flex h-12 items-center justify-center bg-primary px-8 text-xs font-bold uppercase tracking-button text-white transition hover:bg-primary-soft">
-                    <?php esc_html_e('Shop Best Sellers', 'dawp'); ?>
-                </a>
-            </div>
-        <?php else : ?>
-            <?php dawp_home_empty_state($shop_url); ?>
-        <?php endif; ?>
-    </div>
-</section>
-
-<!-- New Arrivals -->
-<section class="bg-surface py-16 sm:py-20 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="font-heading text-3xl text-foreground sm:text-4xl"><?php esc_html_e('New Arrivals', 'dawp'); ?></h2>
-        <p class="mt-2 text-sm text-foreground-muted"><?php esc_html_e('Fresh styles and new timepieces, carefully selected for you.', 'dawp'); ?></p>
-
-        <?php if ($new_arrival_posts) : ?>
-            <ul class="mt-10 grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4 lg:gap-x-8">
-                <?php foreach ($new_arrival_posts as $post) : dawp_home_product_card($post->ID); endforeach; ?>
-            </ul>
-
-            <div class="mt-12 text-center">
-                <a href="<?php echo esc_url($new_arrivals_url); ?>" class="inline-flex h-12 items-center justify-center border border-foreground px-8 text-xs font-bold uppercase tracking-button text-foreground transition hover:border-accent hover:text-accent">
-                    <?php esc_html_e('View All', 'dawp'); ?>
-                </a>
-            </div>
-        <?php else : ?>
-            <?php dawp_home_empty_state($shop_url); ?>
-        <?php endif; ?>
-    </div>
-</section>
-
-<!-- Why North Time Co. -->
-<section class="bg-primary py-16 text-white sm:py-20 lg:py-24">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 class="text-center font-heading text-3xl sm:text-4xl"><?php esc_html_e('Shop With Confidence', 'dawp'); ?></h2>
-
-        <div class="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            <?php
-            $dawp_home_features = [
-                [
-                    'title' => __('Free Shipping', 'dawp'),
-                    'desc'  => __('Free shipping on every order across the US.', 'dawp'),
-                    'icon'  => '<path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/>',
-                ],
-                [
-                    'title' => __('30-Day Returns', 'dawp'),
-                    'desc'  => __('Shop with confidence with our easy return policy.', 'dawp'),
-                    'icon'  => '<path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M5 14a8 8 0 0 0 14.5 3.5"/><path d="M19 10A8 8 0 0 0 4.5 6.5"/>',
-                ],
-                [
-                    'title' => __('Secure Checkout', 'dawp'),
-                    'desc'  => __('Safe and secure payment for every purchase.', 'dawp'),
-                    'icon'  => '<rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
-                ],
-                [
-                    'title' => __('Quality Timepieces', 'dawp'),
-                    'desc'  => __('Carefully selected watches built for style and everyday wear.', 'dawp'),
-                    'icon'  => '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>',
-                ],
-            ];
-
-            foreach ($dawp_home_features as $feature) :
-            ?>
-                <div class="text-center">
-                    <svg class="mx-auto h-9 w-9 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><?php echo $feature['icon']; ?></svg>
-                    <h3 class="mt-4 font-heading text-lg"><?php echo esc_html($feature['title']); ?></h3>
-                    <p class="mt-2 text-sm leading-6 text-white/70"><?php echo esc_html($feature['desc']); ?></p>
+        <div class="mt-10 grid gap-px bg-line md:grid-cols-3">
+            <?php foreach ($build_steps as $step) : ?>
+                <div class="bg-surface p-5">
+                    <div class="aspect-[3/2] overflow-hidden bg-surface-alt">
+                        <img src="<?php echo esc_url(get_theme_file_uri($step['image'])); ?>" alt="<?php echo esc_attr($step['title']); ?>" width="480" height="320" class="h-full w-full object-cover" loading="lazy" decoding="async">
+                    </div>
+                    <p class="wu-tnum mt-4 text-xs font-semibold uppercase tracking-label text-accent"><?php echo esc_html($step['n']); ?> · <?php echo esc_html($step['title']); ?></p>
+                    <p class="mt-2 font-serif text-sm leading-6 text-foreground-muted"><?php echo esc_html($step['copy']); ?></p>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
 </section>
 
-<!-- Featured Collection -->
-<section class="relative bg-background">
-    <div class="relative aspect-[4/5] overflow-hidden sm:aspect-[16/9] lg:aspect-[21/9]">
-        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/automatic.avif')); ?>" alt="<?php esc_attr_e('North Time Co. featured collection', 'dawp'); ?>" width="1600" height="1600" class="h-full w-full object-cover" loading="lazy" decoding="async">
-        <div class="absolute inset-0 bg-primary/45"></div>
-        <div class="absolute inset-0 flex items-center justify-center px-4 text-center">
-            <div>
-                <h2 class="font-heading text-3xl text-white sm:text-4xl lg:text-5xl"><?php esc_html_e('Timeless by Design', 'dawp'); ?></h2>
-                <p class="mx-auto mt-4 max-w-md text-sm leading-6 text-white/85 sm:text-base"><?php esc_html_e('A carefully curated collection of watches made to complement every moment.', 'dawp'); ?></p>
-                <a href="<?php echo esc_url($shop_url); ?>" class="mt-7 inline-flex h-12 items-center justify-center bg-white px-8 text-xs font-bold uppercase tracking-button text-primary transition hover:bg-accent hover:text-white">
-                    <?php esc_html_e('Explore the Collection', 'dawp'); ?>
-                </a>
+<!-- S5 · Customization -------------------------------------------------- -->
+<section id="build-yours" class="scroll-mt-24 bg-primary text-white">
+    <div class="mx-auto grid max-w-[1320px] gap-12 px-8 py-20 sm:px-14 lg:grid-cols-12 lg:gap-16 lg:py-32">
+        <div class="lg:col-span-7">
+            <div class="aspect-[4/5] overflow-hidden bg-primary-soft lg:sticky lg:top-24">
+                <img src="<?php echo esc_url(get_theme_file_uri('assets/img/hero.avif')); ?>" alt="<?php esc_attr_e('A custom WristUnion build configuration', 'dawp'); ?>" width="760" height="950" class="h-full w-full object-cover" loading="lazy" decoding="async">
             </div>
+        </div>
+
+        <div class="lg:col-span-5">
+            <p class="text-[11px] font-medium uppercase tracking-brand text-accent"><?php esc_html_e('Custom Shop', 'dawp'); ?></p>
+            <h2 class="mt-3 font-heading text-[clamp(1.75rem,3.5vw,2.125rem)] font-semibold leading-tight"><?php esc_html_e('Build yours', 'dawp'); ?></h2>
+            <p class="mt-3 font-serif text-[15px] leading-7 text-white/75"><?php esc_html_e('Pick a base model, then change what actually changes. We quote by hand and confirm every detail before anything is built.', 'dawp'); ?></p>
+
+            <dl class="mt-8 divide-y divide-white/15 border-y border-white/15">
+                <?php foreach ($config_options as $opt) : ?>
+                    <div class="flex flex-col gap-1 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                        <dt class="shrink-0 text-xs font-semibold uppercase tracking-label text-white/60"><?php echo esc_html($opt['label']); ?></dt>
+                        <dd class="text-sm text-white/85 sm:text-right"><?php echo esc_html($opt['choices']); ?></dd>
+                    </div>
+                <?php endforeach; ?>
+            </dl>
+
+            <p class="wu-tnum mt-6 text-sm text-white/70"><?php esc_html_e('Custom builds take 4–6 weeks. 3 build slots open this month.', 'dawp'); ?></p>
+            <a href="<?php echo esc_url(add_query_arg('topic', 'custom', home_url('/contact-us/'))); ?>" class="mt-4 inline-flex h-12 items-center justify-center border border-white bg-white px-8 text-xs font-semibold uppercase tracking-button text-primary transition hover:bg-transparent hover:text-white">
+                <?php esc_html_e('Request a custom quote', 'dawp'); ?>
+            </a>
         </div>
     </div>
 </section>
 
-<!-- Newsletter -->
-<section class="bg-surface py-16 sm:py-20 lg:py-24">
-    <div class="mx-auto max-w-xl px-4 text-center sm:px-6 lg:px-8">
-        <h2 class="font-heading text-3xl text-foreground sm:text-4xl"><?php esc_html_e('Stay in the Loop', 'dawp'); ?></h2>
-        <p class="mt-3 text-sm leading-6 text-foreground-muted"><?php esc_html_e('Get updates on new arrivals, exclusive offers, and the latest from North Time Co.', 'dawp'); ?></p>
+<!-- S6 · Ready to ship ------------------------------------------------- -->
+<section class="mx-auto max-w-[1320px] px-8 py-20 sm:px-14 lg:py-24">
+    <div class="flex items-end justify-between gap-6 border-b border-line pb-4">
+        <div>
+            <h2 class="font-heading text-[clamp(1.75rem,3.5vw,2.125rem)] font-semibold leading-tight"><?php esc_html_e('Ready to ship', 'dawp'); ?></h2>
+            <p class="mt-1 font-serif text-sm text-foreground-muted"><?php esc_html_e('In stock now, or made to order in about three weeks.', 'dawp'); ?></p>
+        </div>
+        <a href="<?php echo esc_url($shop_url); ?>" class="hidden shrink-0 text-xs font-semibold uppercase tracking-button text-blued transition hover:text-blued-hover sm:inline"><?php esc_html_e('All watches', 'dawp'); ?></a>
+    </div>
 
-        <form id="newsletter-form" class="mt-7 flex flex-col gap-3 sm:flex-row" novalidate>
-            <label class="sr-only" for="newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
-            <input id="newsletter-email" type="email" name="email" required placeholder="<?php esc_attr_e('Enter your email', 'dawp'); ?>" class="h-12 w-full border border-line bg-surface px-4 text-sm text-foreground outline-none placeholder:text-muted focus:border-accent">
-            <button type="submit" class="h-12 shrink-0 bg-primary px-8 text-xs font-bold uppercase tracking-button text-white transition hover:bg-primary-soft">
-                <?php esc_html_e('Subscribe', 'dawp'); ?>
-            </button>
-        </form>
-        <p id="newsletter-message" class="mt-3 hidden text-sm font-medium text-accent" role="status"></p>
+    <?php if ($ready_posts) : ?>
+        <ul class="mt-8 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+            <?php foreach ($ready_posts as $i => $post) : dawp_home_product_card($post->ID, $i < 2); endforeach; ?>
+        </ul>
+    <?php else : ?>
+        <div class="mt-8 border border-dashed border-line px-6 py-14 text-center">
+            <p class="font-heading text-lg font-semibold"><?php esc_html_e('The first builds are on the bench', 'dawp'); ?></p>
+            <p class="mx-auto mt-2 max-w-sm font-serif text-sm leading-6 text-foreground-muted"><?php esc_html_e('New watches are added as they are finished and tested. Check back soon, or start a custom build.', 'dawp'); ?></p>
+            <a href="#build-yours" class="mt-6 inline-flex h-11 items-center justify-center border border-foreground px-7 text-xs font-semibold uppercase tracking-button text-foreground transition hover:border-blued hover:text-blued"><?php esc_html_e('Start a custom build', 'dawp'); ?></a>
+        </div>
+    <?php endif; ?>
+</section>
+
+<!-- S7 · Specs & quality --------------------------------------------- -->
+<section class="border-y border-line bg-surface">
+    <div class="mx-auto max-w-[1320px] px-8 py-20 sm:px-14 lg:py-24">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-4">
+                <h2 class="font-heading text-[clamp(1.75rem,3.5vw,2.125rem)] font-semibold leading-tight"><?php esc_html_e('Specs & quality', 'dawp'); ?></h2>
+                <p class="mt-3 font-serif text-[15px] leading-7 text-foreground-muted"><?php esc_html_e('The numbers that decide whether a watch fits your wrist. Every product page carries its own exact figures, including thickness and lug-to-lug.', 'dawp'); ?></p>
+            </div>
+            <dl class="lg:col-span-8">
+                <?php foreach ($spec_rows as $row) : ?>
+                    <div class="grid grid-cols-1 gap-1 border-t border-line py-3 sm:grid-cols-[minmax(0,180px)_1fr] sm:gap-6 last:border-b">
+                        <dt class="text-xs font-semibold uppercase tracking-label text-muted" style="font-stretch: 88%;"><?php echo esc_html($row[0]); ?></dt>
+                        <dd class="wu-tnum text-sm text-foreground"><?php echo esc_html($row[1]); ?></dd>
+                    </div>
+                <?php endforeach; ?>
+            </dl>
+        </div>
+    </div>
+</section>
+
+<?php if (!empty($home_reviews)) : ?>
+<!-- S8 · Reviews ---------------------------------------------------- -->
+<section class="mx-auto max-w-[1320px] px-8 py-20 sm:px-14 lg:py-24">
+    <h2 class="font-heading text-[clamp(1.75rem,3.5vw,2.125rem)] font-semibold leading-tight border-b border-line pb-4"><?php esc_html_e('From the wrist', 'dawp'); ?></h2>
+    <ul class="mt-8 grid gap-px bg-line sm:grid-cols-2">
+        <?php foreach ($home_reviews as $review) :
+            $rating  = (int) get_comment_meta($review->comment_ID, 'rating', true);
+            $product = wc_get_product($review->comment_post_ID);
+        ?>
+            <li class="bg-surface p-6">
+                <?php if ($rating) : ?>
+                    <p class="wu-tnum text-xs font-semibold uppercase tracking-label text-accent" aria-label="<?php echo esc_attr(sprintf(__('Rated %d out of 5', 'dawp'), $rating)); ?>">
+                        <?php echo esc_html(str_repeat('★', $rating) . str_repeat('☆', 5 - $rating)); ?>
+                    </p>
+                <?php endif; ?>
+                <blockquote class="mt-3 font-serif text-[15px] leading-7 text-foreground"><?php echo esc_html(wp_trim_words($review->comment_content, 40)); ?></blockquote>
+                <p class="mt-3 text-xs text-muted">
+                    <?php echo esc_html($review->comment_author); ?><?php if ($product) : ?> · <a class="text-blued hover:text-blued-hover" href="<?php echo esc_url(get_permalink($product->get_id())); ?>"><?php echo esc_html($product->get_name()); ?></a><?php endif; ?>
+                </p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</section>
+<?php endif; ?>
+
+<!-- S9 · Founder ------------------------------------------------------ -->
+<section class="mx-auto max-w-[1320px] px-8 py-20 sm:px-14 lg:py-24">
+    <div class="grid gap-10 border-t border-line pt-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-5">
+            <div class="aspect-[4/5] overflow-hidden bg-surface-alt">
+                <img src="<?php echo esc_url(get_theme_file_uri('assets/img/new.avif')); ?>" alt="<?php esc_attr_e('The WristUnion workbench', 'dawp'); ?>" width="560" height="700" class="h-full w-full object-cover" loading="lazy" decoding="async">
+            </div>
+        </div>
+        <div class="lg:col-span-7">
+            <p class="text-[11px] font-medium uppercase tracking-brand text-accent"><?php esc_html_e('Who builds these', 'dawp'); ?></p>
+            <div class="wu-prose mt-4 space-y-4 font-serif text-[17px] leading-8 text-foreground">
+                <p><?php esc_html_e('WristUnion started on one bench, with one question: why is it so hard to buy a watch that says exactly what it is? Photos never match, the specs are buried, and the same case shows up under a dozen names.', 'dawp'); ?></p>
+                <p><?php esc_html_e('So we build the opposite. A short line of field, dive, and dress watches on a Seiko NH35 automatic. Assembled, regulated, and pressure-tested by hand, one at a time. Every number on the page is a real measurement, and if you want something changed, we will build that too.', 'dawp'); ?></p>
+            </div>
+            <p class="mt-5 text-sm font-semibold text-foreground">— <?php esc_html_e('The WristUnion workshop', 'dawp'); ?></p>
+        </div>
+    </div>
+</section>
+
+<!-- S10 · Policies & FAQ ------------------------------------------- -->
+<section class="border-t border-line bg-surface">
+    <div class="mx-auto max-w-[1320px] px-8 py-16 sm:px-14">
+        <div class="grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
+            <?php
+            $policy_links = [
+                ['t' => __('Shipping', 'dawp'),           'd' => __('Free on every US order. 1–2 day dispatch, 3–7 day delivery.', 'dawp'), 'u' => home_url('/shipping-policy/')],
+                ['t' => __('Returns', 'dawp'),            'd' => __('30 days, unworn, in the original packaging.', 'dawp'),          'u' => home_url('/return-refund-policy/')],
+                ['t' => __('Warranty', 'dawp'),           'd' => __('2-year workshop warranty on assembly and movement.', 'dawp'),   'u' => home_url('/faq/')],
+                ['t' => __('Custom build time', 'dawp'),  'd' => __('4–6 weeks from confirmed quote to shipped.', 'dawp'),          'u' => home_url('/faq/')],
+            ];
+            foreach ($policy_links as $p) : ?>
+                <a href="<?php echo esc_url($p['u']); ?>" class="bg-surface p-6 transition hover:bg-surface-alt">
+                    <h3 class="font-heading text-sm font-semibold uppercase tracking-label text-foreground"><?php echo esc_html($p['t']); ?></h3>
+                    <p class="mt-2 font-serif text-sm leading-6 text-foreground-muted"><?php echo esc_html($p['d']); ?></p>
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<!-- S11 · Email capture ---------------------------------------------- -->
+<section class="bg-primary text-white">
+    <div class="mx-auto max-w-[1320px] px-8 py-16 sm:px-14">
+        <div class="max-w-xl">
+            <h2 class="font-heading text-[clamp(1.5rem,3vw,1.875rem)] font-semibold leading-tight"><?php esc_html_e('Limited runs, first pick', 'dawp'); ?></h2>
+            <p class="mt-3 font-serif text-[15px] leading-7 text-white/75"><?php esc_html_e('One email when a limited run opens. Subscribers get 48 hours to order before it goes public. No discounts, no filler.', 'dawp'); ?></p>
+
+            <form id="newsletter-form" class="mt-6 flex flex-col gap-3 sm:flex-row" novalidate>
+                <label class="sr-only" for="newsletter-email"><?php esc_html_e('Email address', 'dawp'); ?></label>
+                <input id="newsletter-email" type="email" name="email" required placeholder="<?php esc_attr_e('you@email.com', 'dawp'); ?>" class="h-12 w-full border border-white/30 bg-transparent px-4 text-sm text-white outline-none placeholder:text-white/40 focus:border-white">
+                <button type="submit" class="h-12 shrink-0 border border-white bg-white px-8 text-xs font-semibold uppercase tracking-button text-primary transition hover:bg-transparent hover:text-white">
+                    <?php esc_html_e('Notify me', 'dawp'); ?>
+                </button>
+            </form>
+            <p id="newsletter-message" class="mt-3 hidden text-sm font-medium text-accent" role="status"></p>
+        </div>
     </div>
 </section>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form handling for North Time Co.
+ * Contact form handling for WristUnion
  *
  * Note: the internal keys below (post type `lbq_contact`, admin-post action
  * `lbq_contact_form`, nonce `lbq_contact_nonce`) are kept as-is so existing
@@ -87,6 +87,7 @@ function dawp_handle_contact_form() {
     }
 
     $topics = [
+        'custom'  => 'Custom build quote',
         'order'   => 'Order or tracking question',
         'return'  => 'Return or refund request',
         'product' => 'Product question',

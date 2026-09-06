@@ -1,6 +1,6 @@
 <?php
 /**
- * Lightweight SEO + structured-data layer for North Time Co.
+ * Lightweight SEO + structured-data layer for WristUnion
  *
  * The theme ships without an SEO plugin. This file adds:
  *   - a meta description per page context;
@@ -27,15 +27,15 @@ if (!defined('ABSPATH')) {
  */
 function dawp_seo_virtual_descriptions() {
     return [
-        'about-us'                 => __('North Time Co. is an independent US watch retailer curating a focused range of men\'s, women\'s, and automatic watches, with free US shipping and 30-day returns.', 'dawp'),
-        'faq'                      => __('Answers about shipping, returns, our watches, movements, water resistance, and payment at North Time Co.', 'dawp'),
-        'contact-us'               => __('Contact North Time Co. about an order, a return, a product question, or a privacy request. We reply within 1 business day.', 'dawp'),
-        'track-order'              => __('Track a North Time Co. order with your order number and the email address used at checkout.', 'dawp'),
-        'shipping-policy'          => __('How North Time Co. ships: free standard shipping on every US order, 1-2 business day processing, and 3-7 business day delivery with tracking.', 'dawp'),
-        'return-refund-policy'     => __('North Time Co. accepts returns of unworn watches within 30 days of delivery. Read the full return and refund policy, including who pays return shipping.', 'dawp'),
-        'billing-terms-conditions' => __('How payments are processed at North Time Co.: accepted methods, currency, when you are charged, the billing descriptor, and fraud screening.', 'dawp'),
-        'terms-of-service'         => __('The terms that govern use of the North Time Co. website and any purchase you make from us.', 'dawp'),
-        'privacy-policy'           => __('How North Time Co. collects, uses, shares, and protects your personal information, and how to exercise your privacy rights.', 'dawp'),
+        'about-us'                 => __('WristUnion builds hand-assembled watches one at a time, and takes custom orders. Field, dive, and dress models with full specs, free US shipping, and 30-day returns.', 'dawp'),
+        'faq'                      => __('Answers about shipping, returns, custom build lead times, movements, water resistance, sizing, and payment at WristUnion.', 'dawp'),
+        'contact-us'               => __('Contact WristUnion about an order, a return, a product question, or a privacy request. We reply within 1 business day.', 'dawp'),
+        'track-order'              => __('Track a WristUnion order with your order number and the email address used at checkout.', 'dawp'),
+        'shipping-policy'          => __('How WristUnion ships: free standard shipping on every US order, 1-2 business day processing, and 3-7 business day delivery with tracking.', 'dawp'),
+        'return-refund-policy'     => __('WristUnion accepts returns of unworn watches within 30 days of delivery. Read the full return and refund policy, including who pays return shipping.', 'dawp'),
+        'billing-terms-conditions' => __('How payments are processed at WristUnion: accepted methods, currency, when you are charged, the billing descriptor, and fraud screening.', 'dawp'),
+        'terms-of-service'         => __('The terms that govern use of the WristUnion website and any purchase you make from us.', 'dawp'),
+        'privacy-policy'           => __('How WristUnion collects, uses, shares, and protects your personal information, and how to exercise your privacy rights.', 'dawp'),
     ];
 }
 
@@ -52,7 +52,7 @@ function dawp_seo_meta_description() {
         $desc = $virtual[$request_uri];
     } elseif (is_front_page()) {
         $desc = get_bloginfo('description', 'display')
-            ?: __('North Time Co. — timepieces that define your style. Shop men\'s, women\'s, and automatic watches with free shipping on every US order.', 'dawp');
+            ?: __('WristUnion — hand-assembled watches, built one at a time. Field, dive, and dress models, plus custom builds to order. Free US shipping.', 'dawp');
     } elseif (function_exists('is_product') && is_product()) {
         $product = wc_get_product(get_queried_object_id());
 
@@ -67,7 +67,7 @@ function dawp_seo_meta_description() {
             $desc = $term->description ? wp_strip_all_tags($term->description) : $term->name;
         }
     } elseif (function_exists('is_shop') && is_shop()) {
-        $desc = __('Browse every North Time Co. watch — men\'s, women\'s, and automatic timepieces. Genuine pieces only, with free shipping on every US order.', 'dawp');
+        $desc = __('Browse every WristUnion watch — field, dive, and dress models, hand-assembled and tested one at a time. Full specs on every listing, free US shipping.', 'dawp');
     } elseif (is_singular()) {
         $desc = wp_strip_all_tags(get_the_excerpt(get_queried_object_id()));
     }
@@ -147,7 +147,7 @@ function dawp_seo_head_tags() {
         $og_image = get_theme_file_uri('assets/img/logo.png');
     }
 
-    echo "\n<!-- North Time Co. SEO -->\n";
+    echo "\n<!-- WristUnion SEO -->\n";
 
     if ($description) {
         printf('<meta name="description" content="%s">' . "\n", esc_attr($description));

@@ -13,6 +13,48 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/**
+ * Cloudflare Turnstile keys. Define these in wp-config.php to override.
+ */
+if (!defined('DAWP_TURNSTILE_SITE_KEY')) {
+    define('DAWP_TURNSTILE_SITE_KEY', '0x4AAAAAAErXDKsmm4x-QEd_');
+}
+if (!defined('DAWP_TURNSTILE_SECRET_KEY')) {
+    define('DAWP_TURNSTILE_SECRET_KEY', '0x4AAAAAAErXDOMpxLICNPAwjOHcalWSXfY');
+}
+
+/**
+ * Verify a Cloudflare Turnstile token against the siteverify endpoint.
+ *
+ * @param string $token The cf-turnstile-response value from the form.
+ * @return bool True when the challenge passed.
+ */
+function dawp_verify_turnstile($token) {
+    if (!DAWP_TURNSTILE_SECRET_KEY) {
+        return true;
+    }
+    if ($token === '') {
+        return false;
+    }
+
+    $response = wp_remote_post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+        'timeout' => 10,
+        'body'    => [
+            'secret'   => DAWP_TURNSTILE_SECRET_KEY,
+            'response' => $token,
+            'remoteip' => sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')),
+        ],
+    ]);
+
+    if (is_wp_error($response)) {
+        return false;
+    }
+
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+
+    return is_array($data) && !empty($data['success']);
+}
+
 add_action('init', 'dawp_register_contact_submission_cpt');
 function dawp_register_contact_submission_cpt() {
     register_post_type('lbq_contact', [
@@ -83,6 +125,12 @@ function dawp_handle_contact_form() {
     $honeypot = isset($_POST['company_website']) ? trim((string) wp_unslash($_POST['company_website'])) : '';
     if ($honeypot !== '') {
         wp_safe_redirect(add_query_arg('contact_status', 'success', $redirect_base));
+        exit;
+    }
+
+    $turnstile_token = isset($_POST['cf-turnstile-response']) ? sanitize_text_field(wp_unslash($_POST['cf-turnstile-response'])) : '';
+    if (!dawp_verify_turnstile($turnstile_token)) {
+        wp_safe_redirect(add_query_arg('contact_status', 'captcha', $redirect_base));
         exit;
     }
 

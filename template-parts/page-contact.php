@@ -90,6 +90,10 @@ if ($address) {
                     <div class="mt-5 border border-alert bg-surface p-4 text-sm font-medium text-foreground" role="alert">
                         <?php esc_html_e('Something went wrong. Please check the required fields and try again.', 'dawp'); ?>
                     </div>
+                <?php elseif ($status === 'captcha') : ?>
+                    <div class="mt-5 border border-alert bg-surface p-4 text-sm font-medium text-foreground" role="alert">
+                        <?php esc_html_e('We could not verify that you are human. Please complete the verification and try again.', 'dawp'); ?>
+                    </div>
                 <?php endif; ?>
 
                 <form class="mt-5 grid gap-4 border border-line bg-surface p-6" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
@@ -129,6 +133,11 @@ if ($address) {
                         <label class="text-sm font-semibold text-foreground" for="contact_message"><?php esc_html_e('Message', 'dawp'); ?> <span class="text-alert">*</span></label>
                         <textarea class="min-h-32 border border-line bg-background px-3 py-2 text-sm text-foreground outline-none transition focus:border-blued" id="contact_message" name="contact_message" rows="6" required placeholder="<?php esc_attr_e('Your order number, if you have one, and how we can help.', 'dawp'); ?>"></textarea>
                     </div>
+
+                    <?php if (defined('DAWP_TURNSTILE_SITE_KEY') && DAWP_TURNSTILE_SITE_KEY) : ?>
+                        <div class="cf-turnstile mt-1" data-sitekey="<?php echo esc_attr(DAWP_TURNSTILE_SITE_KEY); ?>" data-theme="auto"></div>
+                        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+                    <?php endif; ?>
 
                     <button type="submit" class="mt-1 inline-flex min-h-12 items-center justify-center border border-primary bg-primary px-7 text-xs font-semibold uppercase tracking-button text-white transition hover:bg-transparent hover:text-primary">
                         <?php esc_html_e('Send message', 'dawp'); ?>

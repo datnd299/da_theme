@@ -41,50 +41,40 @@ $lbq_category_url = static function ($slug) {
 
 $brand_pillars = [
     [
-        'title' => __('Quality Assured', 'dawp'),
-        'copy'  => __('Every watch is inspected for quality and proper function before it ships - not just listed and shipped.', 'dawp'),
-        'icon'  => 'shield',
+        'title' => __('We Build It, We Back It', 'dawp'),
+        'copy'  => __('USWS is our own watch line. We are responsible for how every watch is designed, assembled, regulated, and warrantied.', 'dawp'),
+        'icon'  => 'gear',
     ],
     [
-        'title' => __('All Four Watch Types', 'dawp'),
-        'copy'  => __('Quartz, mechanical, smart, and digital - one curated store instead of a narrow niche, so you can compare and choose with confidence.', 'dawp'),
+        'title' => __('One Movement, Two Styles', 'dawp'),
+        'copy'  => __('Every USWS watch runs the same self-winding automatic movement. Classic and Elegant are two design directions, not two tiers of quality.', 'dawp'),
         'icon'  => 'watch',
     ],
     [
         'title' => __('Real US-Based Support', 'dawp'),
-        'copy'  => __('Questions about sizing, movement care, or an order get answered by a real support team, Monday through Friday.', 'dawp'),
+        'copy'  => __('Questions about sizing, winding, servicing, or an order get answered by a real support team, Monday through Friday.', 'dawp'),
         'icon'  => 'mail',
     ],
 ];
 
 $category_links = [
     [
-        'name' => __('Quartz Watches', 'dawp'),
-        'copy' => __('Battery-powered precision with reliable, low-maintenance timekeeping.', 'dawp'),
-        'url'  => $lbq_category_url('quartz-watches'),
+        'name' => __('Classic Style', 'dawp'),
+        'copy' => __('Everyday automatics with legible dials and understated steel cases.', 'dawp'),
+        'url'  => $lbq_category_url('classic-style'),
     ],
     [
-        'name' => __('Mechanical Watches', 'dawp'),
-        'copy' => __('Traditional automatic and hand-wound movements built for collectors.', 'dawp'),
-        'url'  => $lbq_category_url('mechanical-watches'),
-    ],
-    [
-        'name' => __('Smartwatches', 'dawp'),
-        'copy' => __('Connected watches with fitness tracking, notifications, and apps.', 'dawp'),
-        'url'  => $lbq_category_url('smartwatches'),
-    ],
-    [
-        'name' => __('Digital Watches', 'dawp'),
-        'copy' => __('Rugged, readable digital displays built for everyday durability.', 'dawp'),
-        'url'  => $lbq_category_url('digital-watches'),
+        'name' => __('Elegant Style', 'dawp'),
+        'copy' => __('Dress automatics with slim profiles, polished finishing, and refined detailing.', 'dawp'),
+        'url'  => $lbq_category_url('elegant-style'),
     ],
 ];
 
 $standards = [
-    __('Every watch is inspected for quality and proper function before it ships.', 'dawp'),
-    __('Our collection stays focused on quartz, mechanical, smart, and digital watches - no unrelated categories.', 'dawp'),
-    __('We stand behind every watch with a 2-year warranty against manufacturing and movement defects.', 'dawp'),
-    __('Listings state movement type, water resistance, and materials clearly, so you know exactly what you are buying.', 'dawp'),
+    __('Every USWS watch is assembled by our own team and regulated on a timing machine before it ships.', 'dawp'),
+    __('We make one type of watch: a self-winding automatic, in two styles - Classic and Elegant.', 'dawp'),
+    __('Each watch is covered by a 2-year warranty against movement and assembly defects.', 'dawp'),
+    __('Product pages state case size, water resistance, power reserve, and materials clearly, so you know exactly what you are buying.', 'dawp'),
 ];
 
 $care_cards = [
@@ -130,7 +120,7 @@ $render_icon = static function ($icon) {
  */
 $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_uri) {
     printf(
-        '<div class="%1$s overflow-hidden rounded-md bg-surface shadow-card"><img src="%2$s" alt="%3$s" class="h-full w-full object-contain" loading="lazy"></div>',
+        '<div class="%1$s overflow-hidden rounded-md border border-border bg-surface-alt shadow-card"><img src="%2$s" alt="%3$s" class="h-full w-full object-contain p-6 sm:p-8" loading="lazy"></div>',
         esc_attr($classes),
         esc_url($theme_img_uri . '/' . $image_file),
         esc_attr($alt)
@@ -145,23 +135,23 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
         <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12 lg:px-8">
             <div class="max-w-2xl">
                 <p class="inline-flex rounded-sm border border-border bg-surface px-4 py-2 text-xs font-extrabold uppercase tracking-[0.14em] text-accent-blush">
-                    <?php esc_html_e('About US Watch Store', 'dawp'); ?>
+                    <?php esc_html_e('About USWS by US Watch Store', 'dawp'); ?>
                 </p>
                 <h1 id="about-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight text-foreground sm:text-5xl lg:text-6xl">
-                    <?php esc_html_e('Precision timepieces, chosen with the same care you’d want if it were on your own wrist.', 'dawp'); ?>
+                    <?php esc_html_e('One automatic watch, built by us, in two styles.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-xl text-base leading-8 text-muted sm:text-lg">
-                    <?php esc_html_e('US Watch Store curates quartz, mechanical, smart, and digital watches for everyday wear, gifting, and collecting. Every watch is inspected for quality and backed by a real warranty - no guesswork, no inflated markups.', 'dawp'); ?>
+                    <?php esc_html_e('USWS is the in-house watch line from US Watch Store: one self-winding automatic movement, two styles - Classic and Elegant. Every watch is designed, assembled, regulated, and inspected by us, then backed by a 2-year warranty.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid max-w-2xl gap-3 sm:grid-cols-3">
                     <div class="flex items-start gap-3 rounded-sm border border-border bg-surface p-4">
                         <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('Every watch inspected before it ships', 'dawp'); ?></span>
+                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('Designed and assembled by USWS', 'dawp'); ?></span>
                     </div>
                     <div class="flex items-start gap-3 rounded-sm border border-border bg-surface p-4">
                         <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
-                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('All four watch types, one trusted store', 'dawp'); ?></span>
+                        <span class="text-sm font-bold leading-6 text-foreground"><?php esc_html_e('Self-winding automatic - no batteries', 'dawp'); ?></span>
                     </div>
                     <div class="flex items-start gap-3 rounded-sm border border-border bg-surface p-4">
                         <span class="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true"></span>
@@ -180,9 +170,9 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
             </div>
 
             <figure class="relative">
-                <?php $render_visual('about_1.webp', 'aspect-[5/4] w-full rounded-md lg:aspect-[4/5]', __('A US Watch Store timepiece', 'dawp')); ?>
+                <?php $render_visual('cat/elegant.webp', 'aspect-[5/4] w-full rounded-md lg:aspect-[4/5]', __('A USWS automatic watch, Elegant style', 'dawp')); ?>
                 <figcaption class="mt-4 rounded-sm border border-border bg-surface p-4 text-sm font-bold leading-6 text-foreground">
-                    <?php esc_html_e('Built for people who want a timepiece they can trust - not just a listing that looks good in a photo.', 'dawp'); ?>
+                    <?php esc_html_e('One movement, finished two ways - a watch you can wear every day and dress up when it counts.', 'dawp'); ?>
                 </figcaption>
             </figure>
         </div>
@@ -192,14 +182,14 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
     <section class="bg-background py-16 sm:py-24" aria-labelledby="about-story-title">
         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <h2 id="about-story-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-                <?php esc_html_e('We built the store we wished existed when shopping for a watch online.', 'dawp'); ?>
+                <?php esc_html_e('A straightforward automatic watch, sold direct.', 'dawp'); ?>
             </h2>
             <div class="mt-6 space-y-5 text-lg leading-8 text-foreground-muted">
                 <p>
-                    <?php esc_html_e('US Watch Store started with a simple frustration: department-store watch counters mark up prices with no explanation, and most online sellers won’t tell you where a watch actually comes from or whether it has been checked for quality. We wanted a place where you could buy a quartz, mechanical, smart, or digital watch and know exactly what you were getting.', 'dawp'); ?>
+                    <?php esc_html_e('USWS started from one idea: a well-made self-winding automatic watch should not cost what most brands charge for the name on the dial. So we built our own.', 'dawp'); ?>
                 </p>
                 <p>
-                    <?php esc_html_e('So we built exactly that - a curated selection across all four watch types, every piece inspected for quality and function before it ships, backed by a 2-year warranty and real US-based support. No inflated markups, no guesswork.', 'dawp'); ?>
+                    <?php esc_html_e('We design the watch, choose the movement, assemble it, regulate it on a timing machine, and inspect it - then sell it directly, with a 2-year warranty and real support behind it. Two styles, Classic and Elegant, both running the same self-winding automatic movement. No inflated markups, no story you can\'t verify.', 'dawp'); ?>
                 </p>
             </div>
         </div>
@@ -210,7 +200,7 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-start lg:gap-14">
                 <h2 id="about-pillars-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-                    <?php esc_html_e('A curated watch store, not a warehouse of random listings.', 'dawp'); ?>
+                    <?php esc_html_e('One watch line, made and stood behind by us.', 'dawp'); ?>
                 </h2>
                 <div class="grid divide-y divide-border border-t border-border sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:border-b">
                     <?php foreach ($brand_pillars as $pillar) : ?>
@@ -233,10 +223,10 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:px-8">
             <div>
                 <h2 id="about-categories-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-                    <?php esc_html_e('A focused watch store, not a random marketplace.', 'dawp'); ?>
+                    <?php esc_html_e('Two styles, one movement.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-foreground-muted">
-                    <?php esc_html_e('US Watch Store keeps the shopping experience focused on one thing: watches worth wearing. Our four categories cover everyday quartz reliability, mechanical craftsmanship, connected smartwatches, and rugged digital durability.', 'dawp'); ?>
+                    <?php esc_html_e('USWS is deliberately narrow. Classic is built for daily wear - legible, understated, tough enough to ignore. Elegant is the dressed-up version - slimmer, polished, made for the occasions that ask for it. Same self-winding automatic movement inside both.', 'dawp'); ?>
                 </p>
                 <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-foreground px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                     <?php esc_html_e('Browse All Watches', 'dawp'); ?>
@@ -262,10 +252,10 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
         <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
             <div>
                 <h2 id="about-standards-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-                    <?php esc_html_e('A practical standard for every watch we sell.', 'dawp'); ?>
+                    <?php esc_html_e('What we hold every USWS watch to.', 'dawp'); ?>
                 </h2>
                 <p class="mt-5 text-base leading-8 text-foreground-muted">
-                    <?php esc_html_e('Our selection process is intentionally strict: real inspection, clear specs, and no exaggerated claims. That is what lets you buy with confidence.', 'dawp'); ?>
+                    <?php esc_html_e('Because we assemble the watch, the standard is ours to keep: real regulation, honest specs, and no claims we can\'t stand behind.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-7 grid gap-3">
@@ -278,7 +268,7 @@ $render_visual = static function ($image_file, $classes, $alt) use ($theme_img_u
                 </div>
             </div>
 
-            <?php $render_visual('about_2.webp', 'aspect-[4/5] w-full rounded-md', __('A closely inspected watch, ready to ship', 'dawp')); ?>
+            <?php $render_visual('cat/classic.webp', 'aspect-[4/5] w-full rounded-md', __('A USWS automatic watch, Classic style', 'dawp')); ?>
         </div>
     </section>
 

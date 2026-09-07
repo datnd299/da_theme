@@ -11,9 +11,9 @@ get_header();
 $shop_page_id = wc_get_page_id('shop');
 $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/shop/');
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
-$archive_title = __('All Products', 'dawp');
-$archive_description = __('Browse quartz, mechanical, smart, and digital watches - curated for quality, backed by warranty, shipped fast from the US.', 'dawp');
-$archive_eyebrow = __('US Watch Store Collection', 'dawp');
+$archive_title = __('All Watches', 'dawp');
+$archive_description = __('The full USWS lineup - self-winding automatic watches in Classic and Elegant styles, assembled and regulated in-house, backed by a 2-year warranty and free US shipping.', 'dawp');
+$archive_eyebrow = __('The USWS Lineup', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;

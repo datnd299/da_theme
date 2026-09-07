@@ -25,7 +25,7 @@ $contact_url   = home_url('/contact-us/');
 $terms_highlights = [
     [
         'title' => __('Focused Store Use', 'dawp'),
-        'copy'  => __('US Watch Store sells quartz, mechanical, smart, and digital watches for everyday wear, gifting, and collecting, shipped within the United States.', 'dawp'),
+        'copy'  => __('US Watch Store designs and sells USWS, its own line of self-winding automatic watches in Classic and Elegant styles, shipped within the United States.', 'dawp'),
     ],
     [
         'title' => __('Transparent Policies', 'dawp'),
@@ -42,7 +42,7 @@ $sections = [
         'title' => __('1. Overview and Acceptance', 'dawp'),
         'copy'  => [
             __('These Terms of Service ("Terms") govern your access to and use of uswatchstore.com (the "Site") and any purchase made from US Watch Store ("we," "us," or "our"). By browsing the Site, creating an account, or placing an order, you agree to be bound by these Terms.', 'dawp'),
-            __('US Watch Store is a watch retailer based in San Diego, California, focused on quartz, mechanical, smart, and digital watches for everyday wear, gifting, and collecting.', 'dawp'),
+            __('US Watch Store is a watch company based in San Diego, California. It designs and assembles USWS, its own line of self-winding automatic watches, offered in Classic and Elegant styles.', 'dawp'),
             __('If you do not agree to these Terms, do not use the Site or place an order.', 'dawp'),
         ],
     ],
@@ -92,7 +92,7 @@ $sections = [
         'title' => __('8. Returns, Refunds, and Warranty', 'dawp'),
         'copy'  => [
             __('Customers may request returns within 30 days of delivery, no questions asked. Eligible watches must be unworn and undamaged, with all original tags, papers, and box included. Customers are responsible for return shipping on standard returns; US Watch Store covers return shipping for damaged, defective, or incorrect items. See our Return & Refund Policy for full details.', 'dawp'),
-            __('Every watch carries a 2-year limited warranty covering movement, battery, and factory-assembly defects from normal use; accidental damage, water damage beyond the rated resistance, unauthorized repair, and normal wear are not covered. Refunds are issued to the original payment method after returned items are received and inspected.', 'dawp'),
+            __('Every USWS watch carries a 2-year limited warranty covering defects in the automatic movement and factory assembly under normal use; accidental damage, water damage beyond the rated resistance, unauthorized repair or case-opening, normal wear, and the normal timekeeping variance of a mechanical movement are not covered. Refunds are issued to the original payment method after returned items are received and inspected.', 'dawp'),
         ],
     ],
     [

@@ -328,9 +328,9 @@ $render_icon = static function ($icon) {
             <div class="rounded-md border border-border bg-surface p-6 sm:p-8">
                 <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div>
-                        <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('Transparent customer care for US Watch Store orders.', 'dawp'); ?></h2>
+                        <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('Transparent customer care for USWS orders.', 'dawp'); ?></h2>
                         <p class="mt-3 text-sm leading-7 text-foreground-muted">
-                            <?php esc_html_e('US Watch Store keeps support, shipping, return, privacy, and terms information visible so customers can shop quartz, mechanical, smart, and digital watches with clear expectations.', 'dawp'); ?>
+                            <?php esc_html_e('US Watch Store keeps support, shipping, return, privacy, and terms information visible so you can buy a USWS automatic with clear expectations.', 'dawp'); ?>
                         </p>
                     </div>
                     <div class="flex flex-col gap-3 sm:flex-row">

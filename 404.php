@@ -32,21 +32,13 @@ if (!$shop_url) {
 }
 
 $quick_links = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-    'quartz-watches' => [
-        'name'  => __('Quartz Watches', 'dawp'),
-        'short' => __('Reliable, low-maintenance precision timekeeping.', 'dawp'),
+    'classic-style' => [
+        'name'  => __('Classic Style', 'dawp'),
+        'short' => __('Everyday automatics with legible dials and understated cases.', 'dawp'),
     ],
-    'mechanical-watches' => [
-        'name'  => __('Mechanical Watches', 'dawp'),
-        'short' => __('Automatic and hand-wound movements for collectors.', 'dawp'),
-    ],
-    'smartwatches' => [
-        'name'  => __('Smartwatches', 'dawp'),
-        'short' => __('Fitness tracking, notifications, and apps on your wrist.', 'dawp'),
-    ],
-    'digital-watches' => [
-        'name'  => __('Digital Watches', 'dawp'),
-        'short' => __('Rugged, easy-to-read displays built to last.', 'dawp'),
+    'elegant-style' => [
+        'name'  => __('Elegant Style', 'dawp'),
+        'short' => __('Dress automatics with slim profiles and polished finishing.', 'dawp'),
     ],
 ];
 
@@ -83,7 +75,7 @@ $support_links = [
                     <?php esc_html_e('This page is not available.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted sm:text-lg">
-                    <?php esc_html_e('The link may have changed, but you can continue shopping US Watch Store for quartz, mechanical, smart, and digital watches.', 'dawp'); ?>
+                    <?php esc_html_e('The link may have changed, but the full USWS lineup - Classic and Elegant - is still a click away.', 'dawp'); ?>
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover">

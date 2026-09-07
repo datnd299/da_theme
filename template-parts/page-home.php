@@ -83,41 +83,29 @@ $dawp_category_link = static function ($term) use ($shop_url) {
 };
 
 /**
- * Category photography -- one product shot per watch category.
+ * Category photography -- one watch shot per USWS style family.
  */
 $category_image_files = [
-    'quartz-watches'     => 'cat/Quazt.webp',
-    'mechanical-watches' => 'cat/mechanic.webp',
-    'smartwatches'       => 'cat/smart.webp',
-    'digital-watches'    => 'cat/digital.webp',
+    'classic-style' => 'cat/classic.webp',
+    'elegant-style' => 'cat/elegant.webp',
 ];
 
 $get_category_image = static function ($slug) use ($theme_img_uri, $category_image_files) {
-    $file = $category_image_files[$slug] ?? $category_image_files['quartz-watches'];
+    $file = $category_image_files[$slug] ?? $category_image_files['classic-style'];
 
     return $theme_img_uri . '/' . $file;
 };
 
 $preferred_categories = [
     [
-        'name'        => __('Quartz Watches', 'dawp'),
-        'slug'        => 'quartz-watches',
-        'description' => __('Battery-powered precision with reliable, low-maintenance timekeeping.', 'dawp'),
+        'name'        => __('Classic Style', 'dawp'),
+        'slug'        => 'classic-style',
+        'description' => __('Everyday automatics with legible dials and understated steel cases.', 'dawp'),
     ],
     [
-        'name'        => __('Mechanical Watches', 'dawp'),
-        'slug'        => 'mechanical-watches',
-        'description' => __('Traditional automatic and hand-wound movements built for collectors.', 'dawp'),
-    ],
-    [
-        'name'        => __('Smartwatches', 'dawp'),
-        'slug'        => 'smartwatches',
-        'description' => __('Connected watches with fitness tracking, notifications, and apps.', 'dawp'),
-    ],
-    [
-        'name'        => __('Digital Watches', 'dawp'),
-        'slug'        => 'digital-watches',
-        'description' => __('Rugged, easy-to-read displays built for everyday durability.', 'dawp'),
+        'name'        => __('Elegant Style', 'dawp'),
+        'slug'        => 'elegant-style',
+        'description' => __('Dress automatics with slim profiles, polished finishing, and refined detailing.', 'dawp'),
     ],
 ];
 
@@ -142,7 +130,7 @@ foreach ($preferred_categories as $category) {
     $used_term_ids[] = (int) $term->term_id;
 }
 
-if (function_exists('get_terms') && count($categories) < 4) {
+if (function_exists('get_terms') && count($categories) < 2) {
     $uncategorized = $dawp_category_term('uncategorized');
     $exclude_ids   = $used_term_ids;
 
@@ -155,7 +143,7 @@ if (function_exists('get_terms') && count($categories) < 4) {
         'hide_empty' => false,
         'parent'     => 0,
         'exclude'    => $exclude_ids,
-        'number'     => 4 - count($categories),
+        'number'     => 2 - count($categories),
     ]);
 
     if (!is_wp_error($store_categories)) {
@@ -174,36 +162,36 @@ if (function_exists('get_terms') && count($categories) < 4) {
 
 $value_points = [
     __('Free US shipping on all orders', 'dawp'),
-    __('2-year warranty on every watch', 'dawp'),
+    __('2-year warranty on every USWS watch', 'dawp'),
     __('30-day returns, no questions asked', 'dawp'),
 ];
 
 $quality_points = [
     [
-        'title' => __('Quality Assured', 'dawp'),
-        'copy'  => __('Every watch is checked against the manufacturer before it ships - no gray-market guesswork.', 'dawp'),
+        'title' => __('Assembled by USWS', 'dawp'),
+        'copy'  => __('Every USWS watch is put together by our own team - one line, one standard, no outsourced quality.', 'dawp'),
         'icon'  => 'shield',
     ],
     [
-        'title' => __('2-Year Warranty', 'dawp'),
-        'copy'  => __('Movement and battery defects are covered for two years from the date of delivery.', 'dawp'),
+        'title' => __('Regulated & Timed', 'dawp'),
+        'copy'  => __('Each automatic movement is regulated and run-tested so it keeps time within spec before it leaves us.', 'dawp'),
         'icon'  => 'refresh',
     ],
     [
         'title' => __('Inspected Before It Ships', 'dawp'),
-        'copy'  => __('Timekeeping, water resistance seals, and strap hardware are checked on every unit we send out.', 'dawp'),
+        'copy'  => __('Rotor wind, crown action, water-resistance seals, and bracelet hardware are checked on every watch.', 'dawp'),
         'icon'  => 'magnifier',
     ],
 ];
 
 $gift_points = [
     [
-        'title' => __('A Gift That Keeps Time', 'dawp'),
-        'copy'  => __('Graduations, anniversaries, promotions - a watch is a gift the recipient reaches for every day.', 'dawp'),
+        'title' => __('One Movement, Two Characters', 'dawp'),
+        'copy'  => __('The same self-winding automatic movement sits behind both lines - Classic for daily wear, Elegant for dressing up.', 'dawp'),
     ],
     [
-        'title' => __('Something For Everyone', 'dawp'),
-        'copy'  => __('Quartz, mechanical, smart, or digital - pick the movement that fits how the person you’re shopping for actually lives.', 'dawp'),
+        'title' => __('Made To Be Worn Daily', 'dawp'),
+        'copy'  => __('Wear it and it winds itself. No batteries, no charging - just a watch that runs on the motion of your wrist.', 'dawp'),
     ],
     [
         'title' => __('Fast, Trackable Shipping', 'dawp'),
@@ -216,7 +204,7 @@ $trust_cards = [
         'title' => __('Clear Support', 'dawp'),
         'copy'  => sprintf(
             /* translators: %s: support email address */
-            __('Questions about an order or a watch? Contact %s during business hours.', 'dawp'),
+            __('Questions about an order or your watch? Contact %s during business hours.', 'dawp'),
             $support_email
         ),
         'icon'  => 'mail',
@@ -261,13 +249,13 @@ $render_icon = static function ($icon) {
         <div class="mx-auto grid w-full max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-14 lg:px-8 lg:pb-16 lg:pt-24">
             <div class="max-w-2xl text-white">
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-accent-blush">
-                    <?php esc_html_e('Quartz · Mechanical · Smart · Digital', 'dawp'); ?>
+                    <?php esc_html_e('USWS · Self-Winding Automatic', 'dawp'); ?>
                 </p>
                 <h1 id="dawp-hero-title" class="mt-5 font-heading text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-                    <?php esc_html_e('Precision Timepieces, Delivered Across America', 'dawp'); ?>
+                    <?php esc_html_e('Automatic watches, designed and assembled in-house.', 'dawp'); ?>
                 </h1>
                 <p class="mt-6 max-w-xl text-base leading-8 text-white/85 sm:text-lg">
-                    <?php esc_html_e('US Watch Store curates quartz, mechanical, smart, and digital watches for everyday wear, gifting, and collecting - every watch inspected, every order backed by a 2-year warranty.', 'dawp'); ?>
+                    <?php esc_html_e('USWS is our own line of self-winding automatic watches, offered in two styles - Classic and Elegant. Every watch is assembled, regulated, and inspected by US Watch Store, and backed by a 2-year warranty.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -285,9 +273,9 @@ $render_icon = static function ($icon) {
                 <span class="absolute right-3 top-3 h-3 w-3 border-r border-t border-white/30"></span>
                 <span class="absolute bottom-3 left-3 h-3 w-3 border-b border-l border-white/30"></span>
                 <span class="absolute bottom-3 right-3 h-3 w-3 border-b border-r border-white/30"></span>
-                <img src="<?php echo esc_url($theme_img_uri . '/hero.png'); ?>" alt="" class="absolute inset-0 h-full w-full object-contain p-8" width="500" height="500">
+                <img src="<?php echo esc_url($theme_img_uri . '/hero.webp'); ?>" alt="<?php esc_attr_e('USWS automatic watch, blue dial, steel bracelet', 'dawp'); ?>" class="absolute inset-0 h-full w-full object-contain p-5 sm:p-6" width="652" height="1055" fetchpriority="high">
                 <span class="absolute bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-bold uppercase tracking-[0.14em] text-white/50">
-                    <?php esc_html_e('Inspected Before It Ships', 'dawp'); ?>
+                    <?php esc_html_e('Timed & Inspected In-House', 'dawp'); ?>
                 </span>
             </div>
         </div>
@@ -304,44 +292,33 @@ $render_icon = static function ($icon) {
         </div>
     </section>
 
-    <!-- Bento: featured category (2x1) + 3 regular tiles -->
+    <!-- Two style families: Classic / Elegant, equal-weight split -->
     <section id="shop-by-category" class="bg-surface py-16 sm:py-24" aria-labelledby="category-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
                 <h2 id="category-title" class="max-w-2xl font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-                    <?php esc_html_e('Four movements. One standard of quality.', 'dawp'); ?>
+                    <?php esc_html_e('Two styles. One automatic movement.', 'dawp'); ?>
                 </h2>
                 <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 shrink-0 items-center justify-center whitespace-nowrap rounded-sm border border-accent px-6 text-sm font-bold text-accent-hover transition hover:bg-surface-alt">
-                    <?php esc_html_e('Shop All Products', 'dawp'); ?>
+                    <?php esc_html_e('Shop All Watches', 'dawp'); ?>
                 </a>
             </div>
 
             <?php if (!empty($categories)) : ?>
-                <div class="mt-10 grid gap-5 lg:grid-cols-3 lg:grid-rows-2">
-                    <?php $featured_category = array_shift($categories); ?>
-                    <a href="<?php echo esc_url($featured_category['url']); ?>" class="group flex flex-col overflow-hidden rounded-md border border-border bg-background transition hover:border-accent hover:shadow-card-hover sm:flex-row lg:col-span-2 lg:row-span-2">
-                        <div class="flex shrink-0 items-center justify-center bg-surface-alt p-6 transition duration-300 group-hover:bg-accent-soft sm:w-64 lg:w-auto lg:flex-1">
-                            <img src="<?php echo esc_url($get_category_image($featured_category['slug'])); ?>" alt="<?php echo esc_attr($featured_category['name']); ?>" class="h-40 w-40 object-contain sm:h-48 sm:w-48" width="300" height="300" loading="lazy">
-                        </div>
-                        <div class="flex flex-1 flex-col justify-center p-6 sm:p-8">
-                            <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-accent-blush"><?php esc_html_e('Featured Category', 'dawp'); ?></span>
-                            <h3 class="mt-2 font-heading text-2xl font-extrabold text-foreground"><?php echo esc_html($featured_category['name']); ?></h3>
-                            <p class="mt-3 max-w-xl text-sm leading-6 text-foreground-muted"><?php echo esc_html($featured_category['description']); ?></p>
-                            <span class="mt-5 inline-flex items-center text-sm font-bold text-accent-blush">
-                                <?php esc_html_e('Shop category', 'dawp'); ?>
-                                <span class="ml-2" aria-hidden="true">→</span>
-                            </span>
-                        </div>
-                    </a>
-
+                <div class="mt-10 grid gap-5 sm:grid-cols-2">
                     <?php foreach ($categories as $category) : ?>
-                        <a href="<?php echo esc_url($category['url']); ?>" class="group flex items-center gap-4 overflow-hidden rounded-md border border-border bg-background p-5 transition hover:border-accent hover:shadow-card-hover">
-                            <div class="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-sm bg-surface-alt transition duration-300 group-hover:bg-accent-soft">
-                                <img src="<?php echo esc_url($get_category_image($category['slug'])); ?>" alt="<?php echo esc_attr($category['name']); ?>" class="h-full w-full object-contain p-1.5" width="300" height="300" loading="lazy">
+                        <a href="<?php echo esc_url($category['url']); ?>" class="group flex flex-col overflow-hidden rounded-md border border-border bg-background transition hover:border-accent hover:shadow-card-hover">
+                            <div class="flex items-center justify-center bg-surface-alt p-8 transition duration-300 group-hover:bg-accent-soft">
+                                <img src="<?php echo esc_url($get_category_image($category['slug'])); ?>" alt="<?php echo esc_attr($category['name']); ?>" class="h-44 w-44 object-contain sm:h-52 sm:w-52" width="300" height="300" loading="lazy">
                             </div>
-                            <div class="min-w-0">
-                                <h3 class="truncate font-heading text-base font-extrabold text-foreground"><?php echo esc_html($category['name']); ?></h3>
-                                <p class="mt-1 line-clamp-2 text-sm leading-6 text-foreground-muted"><?php echo esc_html($category['description']); ?></p>
+                            <div class="flex flex-1 flex-col p-6 sm:p-8">
+                                <span class="text-xs font-extrabold uppercase tracking-[0.14em] text-accent-blush"><?php esc_html_e('USWS Automatic', 'dawp'); ?></span>
+                                <h3 class="mt-2 font-heading text-2xl font-extrabold text-foreground"><?php echo esc_html($category['name']); ?></h3>
+                                <p class="mt-3 text-sm leading-6 text-foreground-muted"><?php echo esc_html($category['description']); ?></p>
+                                <span class="mt-5 inline-flex items-center text-sm font-bold text-accent-blush">
+                                    <?php esc_html_e('Shop this style', 'dawp'); ?>
+                                    <span class="ml-2" aria-hidden="true">→</span>
+                                </span>
                             </div>
                         </a>
                     <?php endforeach; ?>
@@ -358,7 +335,7 @@ $render_icon = static function ($icon) {
                     <h2 id="new-arrivals-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground">
                         <?php esc_html_e('New arrivals', 'dawp'); ?>
                     </h2>
-                    <p class="mt-3 text-sm leading-6 text-foreground-muted"><?php esc_html_e('The latest watches added to the store.', 'dawp'); ?></p>
+                    <p class="mt-3 text-sm leading-6 text-foreground-muted"><?php esc_html_e('The latest USWS automatics to join the lineup.', 'dawp'); ?></p>
                     <a href="<?php echo esc_url($new_arrivals_url); ?>" class="mt-6 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover lg:flex lg:w-full">
                         <?php esc_html_e('Shop New Arrivals', 'dawp'); ?>
                     </a>
@@ -393,10 +370,10 @@ $render_icon = static function ($icon) {
                     </div>
                 <?php else : ?>
                     <div class="rounded-md border border-border bg-surface p-6">
-                        <h3 class="font-heading text-xl font-extrabold text-foreground"><?php esc_html_e('Browse US Watch Store', 'dawp'); ?></h3>
-                        <p class="mt-3 max-w-2xl text-sm leading-6 text-foreground-muted"><?php esc_html_e('Products are being added. Browse the shop to see every available item.', 'dawp'); ?></p>
+                        <h3 class="font-heading text-xl font-extrabold text-foreground"><?php esc_html_e('Browse the USWS lineup', 'dawp'); ?></h3>
+                        <p class="mt-3 max-w-2xl text-sm leading-6 text-foreground-muted"><?php esc_html_e('Watches are being added. Browse the shop to see every available USWS automatic.', 'dawp'); ?></p>
                         <a href="<?php echo esc_url($shop_url); ?>" class="mt-5 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
-                            <?php esc_html_e('Browse All Products', 'dawp'); ?>
+                            <?php esc_html_e('Browse All Watches', 'dawp'); ?>
                         </a>
                     </div>
                 <?php endif; ?>
@@ -409,7 +386,7 @@ $render_icon = static function ($icon) {
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-start lg:gap-14">
                 <h2 id="quality-title" class="font-heading text-3xl font-extrabold leading-tight text-foreground sm:text-4xl">
-                    <?php esc_html_e('Quality you can verify, not just trust.', 'dawp'); ?>
+                    <?php esc_html_e('Every USWS watch passes through our own hands.', 'dawp'); ?>
                 </h2>
                 <div class="grid gap-8 sm:grid-cols-3">
                     <?php foreach ($quality_points as $point) : ?>
@@ -428,19 +405,19 @@ $render_icon = static function ($icon) {
         </div>
     </section>
 
-    <!-- Gift - dark band, text left / list right -->
+    <!-- Craft - dark band, text left / list right -->
     <section class="bg-foreground py-16 text-white sm:py-24" aria-labelledby="gift-title">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div>
                     <h2 id="gift-title" class="font-heading text-3xl font-extrabold leading-tight sm:text-4xl">
-                        <?php esc_html_e('A watch says more than a gift card ever will.', 'dawp'); ?>
+                        <?php esc_html_e('A mechanical watch that runs on movement, not batteries.', 'dawp'); ?>
                     </h2>
                     <p class="mt-5 text-base leading-8 text-white/80">
-                        <?php esc_html_e('Whatever the occasion, a well-chosen watch gets worn - and it keeps saying thank you every time they check the time.', 'dawp'); ?>
+                        <?php esc_html_e('USWS builds one thing: a self-winding automatic watch, wound by the motion of your wrist and finished in two distinct styles.', 'dawp'); ?>
                     </p>
                     <a href="<?php echo esc_url($shop_url); ?>" class="mt-8 inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-white hover:text-foreground">
-                        <?php esc_html_e('Shop Gift Ideas', 'dawp'); ?>
+                        <?php esc_html_e('Shop USWS', 'dawp'); ?>
                     </a>
                 </div>
 

@@ -1,6 +1,8 @@
 <?php
 /**
- * Product category defaults for US Watch Store.
+ * Product category defaults for US Watch Store / USWS.
+ *
+ * Two style families - both are self-winding automatic watches.
  *
  * @package dawp
  */
@@ -11,25 +13,15 @@ if (!defined('ABSPATH')) {
 
 function dawp_lbq_product_categories() {
     return [
-        'quartz-watches' => [
-            'name'        => __('Quartz Watches', 'dawp'),
-            'description' => __('Battery-powered precision timekeeping with reliable, low-maintenance movements for everyday wear.', 'dawp'),
-            'short'       => __('Reliable, low-maintenance precision timekeeping.', 'dawp'),
+        'classic-style' => [
+            'name'        => __('Classic Style', 'dawp'),
+            'description' => __('Everyday USWS automatics with legible dials and understated steel cases - the watch you reach for every morning.', 'dawp'),
+            'short'       => __('Everyday automatics with legible dials and understated cases.', 'dawp'),
         ],
-        'mechanical-watches' => [
-            'name'        => __('Mechanical Watches', 'dawp'),
-            'description' => __('Traditional automatic and hand-wound movements built for collectors who appreciate the craft.', 'dawp'),
-            'short'       => __('Automatic and hand-wound movements for collectors.', 'dawp'),
-        ],
-        'smartwatches' => [
-            'name'        => __('Smartwatches', 'dawp'),
-            'description' => __('Connected watches with fitness tracking, notifications, and apps for life on the go.', 'dawp'),
-            'short'       => __('Fitness tracking, notifications, and apps on your wrist.', 'dawp'),
-        ],
-        'digital-watches' => [
-            'name'        => __('Digital Watches', 'dawp'),
-            'description' => __('Rugged, easy-to-read digital displays built for everyday durability and everyday use.', 'dawp'),
-            'short'       => __('Rugged, easy-to-read displays built to last.', 'dawp'),
+        'elegant-style' => [
+            'name'        => __('Elegant Style', 'dawp'),
+            'description' => __('Dress USWS automatics with slim profiles, polished finishing, and refined detailing for the occasions that call for it.', 'dawp'),
+            'short'       => __('Dress automatics with slim profiles and polished finishing.', 'dawp'),
         ],
     ];
 }

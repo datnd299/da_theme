@@ -587,7 +587,7 @@ function dawp_product_json_ld_schema() {
         'sku'         => $product->get_sku() ?: 'USWS-' . $product->get_id(),
         'brand'       => [
             '@type' => 'Brand',
-            'name'  => 'US Watch Store',
+            'name'  => 'USWS',
         ],
         'offers'      => [
             '@type'           => 'Offer',

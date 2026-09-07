@@ -1,10 +1,8 @@
 <?php
 function dawp_product_category_slug($slug) {
     $map = [
-        'quartz'     => 'quartz-watches',
-        'mechanical' => 'mechanical-watches',
-        'smart'      => 'smartwatches',
-        'digital'    => 'digital-watches',
+        'classic' => 'classic-style',
+        'elegant' => 'elegant-style',
     ];
 
     return $map[$slug] ?? $slug;
@@ -28,10 +26,8 @@ function dawp_product_category_url($slug) {
 
 function dawp_shop_category_items() {
     $categories = function_exists('dawp_lbq_product_categories') ? dawp_lbq_product_categories() : [
-        'quartz-watches'     => ['name' => __('Quartz Watches', 'dawp')],
-        'mechanical-watches' => ['name' => __('Mechanical Watches', 'dawp')],
-        'smartwatches'       => ['name' => __('Smartwatches', 'dawp')],
-        'digital-watches'    => ['name' => __('Digital Watches', 'dawp')],
+        'classic-style' => ['name' => __('Classic Style', 'dawp')],
+        'elegant-style' => ['name' => __('Elegant Style', 'dawp')],
     ];
 
     $items = [];

@@ -28,27 +28,48 @@ $contact_url  = home_url('/contact-us/');
 
 $faq_groups = [
     [
-        'label' => __('Watch Care & Specs', 'dawp'),
+        'label' => __('About USWS', 'dawp'),
         'items' => [
             [
-                'question' => __('How do I size or adjust my watch strap?', 'dawp'),
-                'answer'   => __('Most straps arrive close to a standard fit. Metal bracelets can be adjusted by removing or adding links; leather and silicone straps have multiple buckle holes for a quick adjustment at home. For a bracelet resize beyond the included links, a local jeweler or watch shop can help in a few minutes.', 'dawp'),
+                'question' => __('What is USWS?', 'dawp'),
+                'answer'   => __('USWS is the in-house watch line from US Watch Store. We design the watch, choose the movement, assemble it, regulate it, and inspect it before it ships. It is the only brand of watch sold on this site.', 'dawp'),
+            ],
+            [
+                'question' => __('Where are USWS watches made?', 'dawp'),
+                'answer'   => __('USWS watches are designed and assembled by our own team. Each watch is regulated on a timing machine and inspected before dispatch.', 'dawp'),
+            ],
+            [
+                'question' => __('What is the difference between Classic Style and Elegant Style?', 'dawp'),
+                'answer'   => __('Both run the same self-winding automatic movement. Classic Style is built for daily wear - legible dials, understated steel cases. Elegant Style is the dress version - slimmer profiles, polished finishing, and more refined detailing. It is a design choice, not a quality tier.', 'dawp'),
+            ],
+        ],
+    ],
+    [
+        'label' => __('Automatic Movement & Care', 'dawp'),
+        'items' => [
+            [
+                'question' => __('How does a self-winding automatic watch work?', 'dawp'),
+                'answer'   => __('A rotor inside the watch spins as your wrist moves and winds the mainspring automatically. There is no battery. Wear the watch regularly and it stays running on its own.', 'dawp'),
+            ],
+            [
+                'question' => __('What is the power reserve, and what happens if my watch stops?', 'dawp'),
+                'answer'   => __('A fully wound USWS movement holds roughly 38-42 hours of power reserve when off the wrist - check your watch\'s product page for the exact figure. If it stops, wind the crown about 20-30 turns to restart it, reset the time, and put it back on your wrist.', 'dawp'),
+            ],
+            [
+                'question' => __('How accurate is an automatic watch?', 'dawp'),
+                'answer'   => __('A mechanical movement is not quartz-accurate. A daily variance of about -10 to +20 seconds per day is normal and within specification for a USWS automatic - it is not a defect. Accuracy also shifts slightly with how much you wear it and the positions it rests in overnight.', 'dawp'),
+            ],
+            [
+                'question' => __('How do I size or adjust the strap or bracelet?', 'dawp'),
+                'answer'   => __('Leather and rubber straps have multiple buckle holes for a quick adjustment at home. Steel bracelets are sized by removing or adding links; a local jeweler or watch shop can do this in a few minutes, or you can use a link-removal tool.', 'dawp'),
             ],
             [
                 'question' => __('What do the water resistance ratings mean?', 'dawp'),
-                'answer'   => __('Water resistance ratings tell you what a watch can handle, not how deep you can dive. 30M/3ATM: splash and rain resistant only - not for swimming or showering. 50M/5ATM: safe for swimming and light water activity. 100M/10ATM and above: safe for swimming, snorkeling, and most water sports. Check the specific rating on your watch’s product page.', 'dawp'),
+                'answer'   => __('Water resistance ratings describe conditions, not diving depth. 30M/3ATM: splash and rain only - not for swimming. 50M/5ATM: fine for hand-washing and light splashing. 100M/10ATM and above: suitable for swimming and snorkeling. Never operate the crown while the watch is wet, and check the rating on your watch\'s product page.', 'dawp'),
             ],
             [
-                'question' => __('How do I replace the battery in a quartz or digital watch?', 'dawp'),
-                'answer'   => __('Quartz and digital watches run on a replaceable battery that typically lasts 1-3 years depending on the movement and features. When it runs low, any local watch or jewelry shop can swap it in minutes. We recommend a professional replacement so the case is resealed properly and water resistance is preserved.', 'dawp'),
-            ],
-            [
-                'question' => __('How do I care for and wind a mechanical or automatic watch?', 'dawp'),
-                'answer'   => __('Automatic watches wind themselves through wrist movement and typically hold a power reserve of 38-70 hours depending on the model - check your watch’s product page for the exact figure. If it stops, wind the crown 20-30 turns to restart it, or wear it daily to keep it running. A variance of about -10/+20 seconds per day is normal for a mechanical movement and is not a defect.', 'dawp'),
-            ],
-            [
-                'question' => __('Does my smartwatch work with my phone?', 'dawp'),
-                'answer'   => __('Our smartwatches pair with both iOS and Android phones over Bluetooth. Download the companion app listed on the product page, enable Bluetooth, and follow the in-app pairing steps. Some advanced features, such as cellular calling, may vary by phone platform - check the product page for specifics.', 'dawp'),
+                'question' => __('Does an automatic watch need servicing?', 'dawp'),
+                'answer'   => __('Like any mechanical watch, a USWS automatic benefits from a movement service every few years to keep timekeeping and water resistance within spec. Have servicing done by a qualified watchmaker; unauthorized case-opening voids the warranty.', 'dawp'),
             ],
         ],
     ],
@@ -78,11 +99,11 @@ $faq_groups = [
         'items' => [
             [
                 'question' => __('What does the 2-year warranty cover?', 'dawp'),
-                'answer'   => __('Every watch includes a 2-year warranty covering manufacturing defects and movement issues - such as a malfunctioning movement, faulty crown, or defective components under normal use.', 'dawp'),
+                'answer'   => __('Every USWS watch includes a 2-year warranty covering defects in the automatic movement and factory assembly under normal use - such as a movement that will not wind or hold time within spec, a faulty crown, or a defective component.', 'dawp'),
             ],
             [
                 'question' => __('What is not covered by the warranty?', 'dawp'),
-                'answer'   => __('The warranty does not cover accidental damage, cracked crystals from impact, or water damage from exceeding the watch’s water resistance rating. Normal battery replacement and strap wear are also not covered.', 'dawp'),
+                'answer'   => __('The warranty does not cover accidental damage, cracked crystals from impact, water damage from exceeding the rated resistance, damage from unauthorized case-opening or service, normal wear such as strap wear and case scuffing, or the normal timekeeping variance of a mechanical movement.', 'dawp'),
             ],
             [
                 'question' => __('What is the return window?', 'dawp'),
@@ -98,8 +119,8 @@ $faq_groups = [
         'label' => __('Quality & Support', 'dawp'),
         'items' => [
             [
-                'question' => __('How is watch quality assured?', 'dawp'),
-                'answer'   => __('Every watch we sell is inspected for quality and proper function before it ships. Each listing states the movement type, materials, and specs clearly, and relevant model information is included with your order.', 'dawp'),
+                'question' => __('How is each watch checked before it ships?', 'dawp'),
+                'answer'   => __('Every USWS watch is assembled by our team, regulated on a timing machine, and then inspected - rotor wind, crown action, water-resistance seals, and bracelet hardware - before it is packed. Case size, power reserve, water resistance, and materials are stated on each product page.', 'dawp'),
             ],
             [
                 'question' => __('Is checkout secure?', 'dawp'),
@@ -148,10 +169,10 @@ $quick_links = [
             <div>
                 <p class="text-sm font-extrabold uppercase tracking-[0.14em] text-accent-blush"><?php esc_html_e('FAQ', 'dawp'); ?></p>
                 <h1 id="faq-title" class="mt-4 font-heading text-4xl font-extrabold leading-tight text-foreground sm:text-5xl">
-                    <?php esc_html_e('Quick answers for shopping with US Watch Store.', 'dawp'); ?>
+                    <?php esc_html_e('Quick answers about USWS automatic watches.', 'dawp'); ?>
                 </h1>
                 <p class="mt-5 max-w-2xl text-base leading-8 text-foreground-muted">
-                    <?php esc_html_e('Find clear answers about sizing, water resistance, battery and movement care, warranty coverage, shipping, returns, and quality for our watch store.', 'dawp'); ?>
+                    <?php esc_html_e('What USWS is, how a self-winding automatic works, strap sizing, water resistance, servicing, warranty, shipping, and returns.', 'dawp'); ?>
                 </p>
             </div>
 
@@ -230,8 +251,8 @@ $quick_links = [
             <div class="rounded-md border border-border bg-background p-6 sm:p-8">
                 <div class="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
                     <div>
-                        <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('Precision watches for everyday wear, gifting, and collecting.', 'dawp'); ?></h2>
-                        <p class="mt-3 text-sm leading-7 text-foreground-muted"><?php esc_html_e('Browse quartz, mechanical, smart, and digital watches with clear policy information available before checkout.', 'dawp'); ?></p>
+                        <h2 class="font-heading text-2xl font-extrabold text-foreground"><?php esc_html_e('One automatic movement, finished two ways.', 'dawp'); ?></h2>
+                        <p class="mt-3 text-sm leading-7 text-foreground-muted"><?php esc_html_e('Browse USWS in Classic and Elegant styles, with clear policy information available before checkout.', 'dawp'); ?></p>
                     </div>
                     <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex min-h-12 items-center justify-center whitespace-nowrap rounded-sm bg-foreground px-6 text-sm font-bold text-white transition hover:bg-accent-hover">
                         <?php esc_html_e('Shop Watches', 'dawp'); ?>

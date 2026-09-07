@@ -1,4 +1,4 @@
-# Design System - US Watch Store ("Modern Steel & Blue")
+# Design System - US Watch Store / USWS ("Modern Steel & Blue")
 
 Source of truth for all visual tokens. Matches `assets/css/tailwind-input.css`
 (`@theme` block) exactly - if you change one, change both.
@@ -65,19 +65,17 @@ edge definition instead of soft elevation.
 
 ## 5. Iconography & Imagery
 
-No photography available (see `.plans/site.md` §6 Imagery Policy). Visual language is
-built from:
+Watch photography and logo artwork are available (see `.plans/site.md` §6 Imagery
+Policy) and carry the hero, About, and category cards. Everything else is built from:
 
 - **Line-art SVG icons**, `stroke="currentColor"`, `stroke-width` 1.6–2.2, rounded
   line caps/joins - consistent with the existing header/cart SVG icons already in
   `header.php` / `footer.php`.
-- **Category glyphs** (one distinct simple watch-face icon per category - quartz:
-  clean round dial with sweeping second hand; mechanical: dial with visible
-  gear/cog motif; smartwatch: rounded-square dial with a small notification dot;
-  digital: rectangular LCD-style dial with segment-style digits).
+- **Craft glyphs** for small iconography - gear/cog (movement), shield (warranty),
+  magnifier (inspection), crown/strap (adjustment). Both style families are automatic
+  watches, so avoid movement-type glyph pairs that imply quartz/digital.
 - **Gradient panels** using `--color-accent` → `--color-accent-hover`, or
-  `--color-surface-alt` → `--color-background`, for hero/section backgrounds instead
-  of photos.
+  `--color-surface-alt` → `--color-background`, for hero/section backgrounds.
 
 ## 6. Component Conventions (carried over from base theme, unchanged)
 

@@ -39,8 +39,8 @@ $return_process = [
 ];
 
 $warranty_claim = [
-    __('Every watch is covered by a 2-year limited warranty, starting from the delivery date, against movement, battery, and factory-assembly defects from normal use.', 'dawp'),
-    __('Accidental damage, water damage beyond the watch\'s rated resistance, damage from unauthorized repair or battery replacement, and normal wear (strap wear, crystal scratches, case scuffing, battery depletion after normal battery life) are not covered.', 'dawp'),
+    __('Every USWS watch is covered by a 2-year limited warranty, starting from the delivery date, against defects in the automatic movement and factory assembly under normal use.', 'dawp'),
+    __('Accidental damage, water damage beyond the watch\'s rated resistance, damage from unauthorized repair or case-opening, normal wear (strap wear, crystal scratches, case scuffing), and the normal timekeeping variance of a mechanical movement are not covered.', 'dawp'),
     __('To file a warranty claim, email support@uswatchstore.com with your order number, a description of the issue, and photos or video if applicable. We will confirm coverage and arrange a repair, replacement, or refund.', 'dawp'),
 ];
 
@@ -102,8 +102,8 @@ $sections = [
     [
         'title' => __('8. 2-Year Warranty in Full', 'dawp'),
         'copy'  => [
-            __('Every watch purchased from US Watch Store includes a 2-year limited warranty, starting from the delivery date, covering defects in materials and workmanship affecting the movement, battery, and factory assembly under normal use.', 'dawp'),
-            __('The warranty does not cover: accidental damage such as drops, impacts, or crushing; water damage exceeding the watch\'s rated water resistance; damage from unauthorized repair, battery replacement, or case-opening by a third party; normal wear such as strap wear, crystal scratches, or case scuffing; and battery depletion occurring after the applicable normal battery life.', 'dawp'),
+            __('Every USWS watch includes a 2-year limited warranty, starting from the delivery date, covering defects in materials and workmanship affecting the automatic movement and factory assembly under normal use.', 'dawp'),
+            __('The warranty does not cover: accidental damage such as drops, impacts, or crushing; water damage exceeding the watch\'s rated water resistance; damage from unauthorized repair or case-opening by a third party; normal wear such as strap wear, crystal scratches, or case scuffing; and the normal timekeeping variance of a mechanical movement (roughly -10 to +20 seconds per day).', 'dawp'),
             __('To file a warranty claim, email support@uswatchstore.com with your order number, a description of the issue, and photos or video if applicable. We will review the claim, confirm coverage, and arrange a repair, replacement, or refund at our discretion. Turnaround time is typically 10-15 business days after we receive the watch, where a physical inspection is required.', 'dawp'),
         ],
     ],

@@ -51,9 +51,9 @@ if (!$account_url) {
 
 $trust_badges = [
     ['label' => __('Free US Shipping', 'dawp'), 'detail' => __('on all orders', 'dawp')],
-    ['label' => __('2-Year Warranty', 'dawp'), 'detail' => __('on every watch', 'dawp')],
+    ['label' => __('2-Year Warranty', 'dawp'), 'detail' => __('on every USWS watch', 'dawp')],
     ['label' => __('30-Day Returns', 'dawp'), 'detail' => __('no questions asked', 'dawp')],
-    ['label' => __('Quality Assured', 'dawp'), 'detail' => __('inspected before shipping', 'dawp')],
+    ['label' => __('Timed In-House', 'dawp'), 'detail' => __('regulated before shipping', 'dawp')],
 ];
 
 $link_groups = [
@@ -61,10 +61,8 @@ $link_groups = [
         'title' => __('Shop', 'dawp'),
         'links' => [
             ['title' => __('Shop All', 'dawp'), 'url' => $shop_url],
-            ['title' => __('Quartz', 'dawp'), 'url' => $footer_category_url('quartz-watches')],
-            ['title' => __('Mechanical', 'dawp'), 'url' => $footer_category_url('mechanical-watches')],
-            ['title' => __('Smartwatches', 'dawp'), 'url' => $footer_category_url('smartwatches')],
-            ['title' => __('Digital', 'dawp'), 'url' => $footer_category_url('digital-watches')],
+            ['title' => __('Classic Style', 'dawp'), 'url' => $footer_category_url('classic-style')],
+            ['title' => __('Elegant Style', 'dawp'), 'url' => $footer_category_url('elegant-style')],
         ],
     ],
     [
@@ -106,7 +104,7 @@ $link_groups = [
                     <img src="<?php echo esc_url($theme_img_uri . '/logo.png'); ?>" alt="<?php esc_attr_e('US Watch Store', 'dawp'); ?>" class="h-8 w-auto shrink-0" width="143" height="80">
                 </a>
                 <p class="mt-3 max-w-sm text-sm leading-6 text-white/60">
-                    <?php esc_html_e('Precision timepieces, delivered across America. Quartz, mechanical, smart, and digital watches, curated for quality.', 'dawp'); ?>
+                    <?php esc_html_e('USWS by US Watch Store. Self-winding automatic watches in Classic and Elegant styles - designed, assembled, and timed in-house.', 'dawp'); ?>
                 </p>
             </div>
 

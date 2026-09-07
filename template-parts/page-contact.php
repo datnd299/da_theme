@@ -120,6 +120,10 @@ $dawp_store_address = function_exists('dawp_get_woocommerce_store_address') ? da
                 <textarea class="c-field min-h-[180px] py-4" id="contact-message" name="message" rows="7" required placeholder="<?php esc_attr_e('Include your order number if this is about an existing order.', 'dawp'); ?>"></textarea>
             </div>
 
+            <?php if (function_exists('dawp_turnstile_site_key')) : ?>
+                <div class="cf-turnstile mt-8" data-sitekey="<?php echo esc_attr(dawp_turnstile_site_key()); ?>"></div>
+            <?php endif; ?>
+
             <button class="c-btn mt-8 w-full sm:w-auto" type="submit"><?php esc_html_e('Send message', 'dawp'); ?></button>
             <p id="contact-msg" class="c-form-msg mt-4 text-caption" role="status" aria-live="polite"></p>
             <p class="mt-4 text-caption text-muted"><?php esc_html_e('We use your details to answer this message only. See our Privacy Policy.', 'dawp'); ?></p>

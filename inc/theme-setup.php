@@ -115,6 +115,12 @@ function dawp_scripts() {
     }
 
     wp_enqueue_script('dawp-main', dawp_asset_uri('assets/js/main.js'), [], dawp_asset_version('assets/js/main.js'), true);
+
+    // Cloudflare Turnstile — loaded only on the contact page, where the form lives.
+    if (function_exists('dawp_current_virtual_page_key') && dawp_current_virtual_page_key(false) === 'contact-us') {
+        wp_enqueue_script('dawp-turnstile', 'https://challenges.cloudflare.com/turnstile/v0/api.js', [], null, true);
+    }
+
     wp_localize_script('dawp-main', 'dawpAjax', [
         'url'          => admin_url('admin-ajax.php'),
         'nonce'        => wp_create_nonce('dawp_newsletter_nonce'),

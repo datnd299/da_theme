@@ -313,6 +313,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            const turnstileField = contactForm.querySelector('[name="cf-turnstile-response"]');
+            if (contactForm.querySelector('.cf-turnstile') && (!turnstileField || !turnstileField.value)) {
+                showMessage(contactMsg, 'Please complete the captcha.', false);
+                return;
+            }
+
             submitForm({
                 form: contactForm,
                 message: contactMsg,
@@ -321,6 +327,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: new FormData(contactForm),
                 button: contactForm.querySelector('button[type="submit"]'),
                 pendingLabel: 'Sending',
+            }).then(() => {
+                if (window.turnstile) window.turnstile.reset();
             });
         });
     }

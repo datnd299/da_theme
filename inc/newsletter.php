@@ -5,6 +5,47 @@
 
 defined('ABSPATH') || exit;
 
+/**
+ * Cloudflare Turnstile — spam protection for the contact form.
+ * Override the keys in wp-config.php with DAWP_TURNSTILE_SITE_KEY / DAWP_TURNSTILE_SECRET_KEY.
+ */
+function dawp_turnstile_site_key() {
+    if (defined('DAWP_TURNSTILE_SITE_KEY') && DAWP_TURNSTILE_SITE_KEY) {
+        return DAWP_TURNSTILE_SITE_KEY;
+    }
+    return '0x4AAAAAAErXDKsmm4x-QEd_';
+}
+
+function dawp_turnstile_secret_key() {
+    if (defined('DAWP_TURNSTILE_SECRET_KEY') && DAWP_TURNSTILE_SECRET_KEY) {
+        return DAWP_TURNSTILE_SECRET_KEY;
+    }
+    return '0x4AAAAAAErXDOMpxLICNPAwjOHcalWSXfY';
+}
+
+function dawp_turnstile_verify($token) {
+    if (empty($token)) {
+        return false;
+    }
+
+    $response = wp_remote_post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+        'timeout' => 10,
+        'body'    => [
+            'secret'   => dawp_turnstile_secret_key(),
+            'response' => $token,
+            'remoteip' => sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')),
+        ],
+    ]);
+
+    if (is_wp_error($response)) {
+        return false;
+    }
+
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+
+    return !empty($data['success']);
+}
+
 add_action('wp_ajax_nopriv_dawp_newsletter', 'dawp_newsletter_subscribe');
 add_action('wp_ajax_dawp_newsletter', 'dawp_newsletter_subscribe');
 
@@ -40,6 +81,11 @@ add_action('wp_ajax_dawp_contact', 'dawp_contact_submit');
 function dawp_contact_submit() {
     if (!check_ajax_referer('dawp_contact_nonce', 'nonce', false)) {
         wp_send_json_error(['message' => 'Invalid request.']);
+    }
+
+    $turnstile_token = sanitize_text_field(wp_unslash($_POST['cf-turnstile-response'] ?? ''));
+    if (!dawp_turnstile_verify($turnstile_token)) {
+        wp_send_json_error(['message' => 'Captcha verification failed. Please try again.']);
     }
 
     $name    = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));

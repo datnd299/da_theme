@@ -9,6 +9,65 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/**
+ * Cloudflare Turnstile keys for the contact form.
+ */
+if (!defined('DAWP_TURNSTILE_SITE_KEY')) {
+    define('DAWP_TURNSTILE_SITE_KEY', '0x4AAAAAAErXDKsmm4x-QEd_');
+}
+if (!defined('DAWP_TURNSTILE_SECRET_KEY')) {
+    define('DAWP_TURNSTILE_SECRET_KEY', '0x4AAAAAAErXDOMpxLICNPAwjOHcalWSXfY');
+}
+
+/**
+ * Load the Turnstile widget script on the contact page.
+ */
+add_action('wp_enqueue_scripts', 'dawp_contact_turnstile_assets');
+function dawp_contact_turnstile_assets() {
+    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
+
+    if ($request_uri !== 'contact-us') {
+        return;
+    }
+
+    wp_enqueue_script(
+        'cloudflare-turnstile',
+        'https://challenges.cloudflare.com/turnstile/v0/api.js',
+        [],
+        null,
+        true
+    );
+}
+
+/**
+ * Verify a Turnstile token against the Cloudflare siteverify endpoint.
+ *
+ * @param string $token Response token from the widget.
+ * @return bool
+ */
+function dawp_verify_turnstile($token) {
+    if ($token === '') {
+        return false;
+    }
+
+    $response = wp_remote_post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+        'timeout' => 10,
+        'body'    => [
+            'secret'   => DAWP_TURNSTILE_SECRET_KEY,
+            'response' => $token,
+            'remoteip' => sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')),
+        ],
+    ]);
+
+    if (is_wp_error($response)) {
+        return false;
+    }
+
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+
+    return !empty($data['success']);
+}
+
 add_action('init', 'dawp_register_contact_submission_cpt');
 function dawp_register_contact_submission_cpt() {
     register_post_type('lbq_contact', [
@@ -79,6 +138,12 @@ function dawp_handle_contact_form() {
     $honeypot = isset($_POST['company_website']) ? trim((string) wp_unslash($_POST['company_website'])) : '';
     if ($honeypot !== '') {
         wp_safe_redirect(add_query_arg('contact_status', 'success', $redirect_base));
+        exit;
+    }
+
+    $turnstile_token = isset($_POST['cf-turnstile-response']) ? sanitize_text_field(wp_unslash($_POST['cf-turnstile-response'])) : '';
+    if (!dawp_verify_turnstile($turnstile_token)) {
+        wp_safe_redirect(add_query_arg('contact_status', 'error', $redirect_base));
         exit;
     }
 

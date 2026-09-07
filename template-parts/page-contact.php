@@ -284,6 +284,8 @@ $render_icon = static function ($icon) {
                         ?>
                     </div>
 
+                    <div class="cf-turnstile" data-sitekey="<?php echo esc_attr(defined('DAWP_TURNSTILE_SITE_KEY') ? DAWP_TURNSTILE_SITE_KEY : ''); ?>" data-theme="light"></div>
+
                     <button type="submit" class="inline-flex min-h-12 w-full items-center justify-center whitespace-nowrap rounded-sm bg-accent px-6 text-sm font-bold text-white transition hover:bg-accent-hover sm:w-auto">
                         <?php esc_html_e('Send Message', 'dawp'); ?>
                     </button>

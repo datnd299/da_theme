@@ -135,6 +135,10 @@ if ($address) {
                         <textarea class="min-h-32 rounded-lg border border-line bg-white px-3 py-2 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-accent/40" id="contact_message" name="contact_message" rows="6" required></textarea>
                     </div>
 
+                    <?php if (function_exists('dawp_turnstile_enabled') && dawp_turnstile_enabled()) : ?>
+                        <div class="cf-turnstile" data-sitekey="<?php echo esc_attr(DAWP_TURNSTILE_SITE_KEY); ?>" data-theme="light"></div>
+                    <?php endif; ?>
+
                     <button type="submit" class="mt-1 inline-flex min-h-12 items-center justify-center rounded-lg bg-accent px-6 text-sm font-bold uppercase tracking-wide text-primary transition hover:bg-accent-hover">
                         <?php esc_html_e('Send message', 'dawp'); ?>
                     </button>

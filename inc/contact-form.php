@@ -13,6 +13,79 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+/**
+ * Cloudflare Turnstile keys.
+ *
+ * Override either value in wp-config.php if you rotate the keys later; the
+ * defaults below are the keys configured for this site.
+ */
+if (!defined('DAWP_TURNSTILE_SITE_KEY')) {
+    define('DAWP_TURNSTILE_SITE_KEY', '0x4AAAAAAErXDKsmm4x-QEd_');
+}
+if (!defined('DAWP_TURNSTILE_SECRET_KEY')) {
+    define('DAWP_TURNSTILE_SECRET_KEY', '0x4AAAAAAErXDOMpxLICNPAwjOHcalWSXfY');
+}
+
+/**
+ * Whether Turnstile is configured and should be enforced.
+ */
+function dawp_turnstile_enabled() {
+    return DAWP_TURNSTILE_SITE_KEY !== '' && DAWP_TURNSTILE_SECRET_KEY !== '';
+}
+
+/**
+ * Load the Turnstile script on the contact page only.
+ */
+add_action('wp_enqueue_scripts', 'dawp_turnstile_enqueue');
+function dawp_turnstile_enqueue() {
+    if (!dawp_turnstile_enabled()) {
+        return;
+    }
+
+    $request_uri = trim(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?? '', '/');
+    if ($request_uri !== 'contact-us') {
+        return;
+    }
+
+    wp_enqueue_script(
+        'cloudflare-turnstile',
+        'https://challenges.cloudflare.com/turnstile/v0/api.js',
+        [],
+        null,
+        true
+    );
+}
+
+/**
+ * Verify a Turnstile token against the Cloudflare siteverify endpoint.
+ */
+function dawp_turnstile_verify($token) {
+    if (!dawp_turnstile_enabled()) {
+        return true;
+    }
+
+    if ($token === '') {
+        return false;
+    }
+
+    $response = wp_remote_post('https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+        'timeout' => 10,
+        'body'    => [
+            'secret'   => DAWP_TURNSTILE_SECRET_KEY,
+            'response' => $token,
+            'remoteip' => sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'] ?? '')),
+        ],
+    ]);
+
+    if (is_wp_error($response)) {
+        return false;
+    }
+
+    $data = json_decode(wp_remote_retrieve_body($response), true);
+
+    return !empty($data['success']);
+}
+
 add_action('init', 'dawp_register_contact_submission_cpt');
 function dawp_register_contact_submission_cpt() {
     register_post_type('lbq_contact', [
@@ -83,6 +156,14 @@ function dawp_handle_contact_form() {
     $honeypot = isset($_POST['company_website']) ? trim((string) wp_unslash($_POST['company_website'])) : '';
     if ($honeypot !== '') {
         wp_safe_redirect(add_query_arg('contact_status', 'success', $redirect_base));
+        exit;
+    }
+
+    $turnstile_token = isset($_POST['cf-turnstile-response'])
+        ? sanitize_text_field(wp_unslash($_POST['cf-turnstile-response']))
+        : '';
+    if (!dawp_turnstile_verify($turnstile_token)) {
+        wp_safe_redirect(add_query_arg('contact_status', 'error', $redirect_base));
         exit;
     }
 

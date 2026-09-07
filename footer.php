@@ -98,7 +98,7 @@ $footer_columns = [
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('WristUnion- home', 'dawp'); ?>">
                     <picture>
                         <source srcset="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.webp') . '?v=' . $footer_logo_ver); ?>" type="image/webp">
-                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.png') . '?v=' . $footer_logo_ver); ?>" alt="<?php esc_attr_e('WristUnion', 'dawp'); ?>" width="245" height="160" class="h-14 w-auto sm:h-16" loading="lazy" decoding="async">
+                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.png') . '?v=' . $footer_logo_ver); ?>" alt="<?php esc_attr_e('WristUnion', 'dawp'); ?>" width="283" height="200" class="h-14 w-auto sm:h-16" loading="lazy" decoding="async">
                     </picture>
                 </a>
 

@@ -7,10 +7,9 @@
  * one mid-page. Reading copy is set in Newsreader (.font-serif); labels,
  * specs and buttons stay in Archivo.
  *
- * Product grids read the live WooCommerce catalog. Photography in
- * assets/img/ is placeholder- the store owner should replace hero.avif and
- * the workshop images with real bench photography (the whole design leans on
- * them).
+ * Product grids read the live WooCommerce catalog. Studio photography lives in
+ * assets/img/ (watch-*.avif); the store owner can swap these for real bench
+ * photography as it is shot.
  *
  * @package dawp
  */
@@ -102,21 +101,21 @@ $categories = [
     [
         'title' => __('Field & Everyday', 'dawp'),
         'desc'  => __('Worn every day. Tough, legible, easy to pair.', 'dawp'),
-        'image' => 'assets/img/men.avif',
+        'image' => 'assets/img/watch-field.avif',
         'url'   => $dawp_cat_link('field-everyday'),
     ],
     [
         'title' => __('Heritage', 'dawp'),
         'desc'  => __('Classic proportions and restrained dials, made to sit under a cuff.', 'dawp'),
-        'image' => 'assets/img/women.avif',
+        'image' => 'assets/img/watch-heritage.avif',
         'url'   => $dawp_cat_link('heritage'),
     ],
 ];
 
 $build_steps = [
-    ['n' => '1', 'title' => __('Design & inspect', 'dawp'), 'copy' => __('Each model is drawn in-house. Every component- movement, case, crystal, hands- is checked by hand before it goes into a watch.', 'dawp'), 'image' => 'assets/img/automatic.avif'],
-    ['n' => '2', 'title' => __('Assemble & case up', 'dawp'), 'copy' => __('Dial and hands fitted under a loupe, movement cased, gaskets seated, back torqued to spec.', 'dawp'), 'image' => 'assets/img/men.avif'],
-    ['n' => '3', 'title' => __('Regulate, test, pack', 'dawp'), 'copy' => __('Timed over several positions, pressure-tested for water resistance, then packed and shipped.', 'dawp'), 'image' => 'assets/img/women.avif'],
+    ['n' => '1', 'title' => __('Design & inspect', 'dawp'), 'copy' => __('Each model is drawn in-house. Every component- movement, case, crystal, hands- is checked by hand before it goes into a watch.', 'dawp'), 'image' => 'assets/img/watch-classic.avif'],
+    ['n' => '2', 'title' => __('Assemble & case up', 'dawp'), 'copy' => __('Dial and hands fitted under a loupe, movement cased, gaskets seated, back torqued to spec.', 'dawp'), 'image' => 'assets/img/watch-chrono.avif'],
+    ['n' => '3', 'title' => __('Regulate, test, pack', 'dawp'), 'copy' => __('Timed over several positions, pressure-tested for water resistance, then packed and shipped.', 'dawp'), 'image' => 'assets/img/watch-field.avif'],
 ];
 
 $spec_rows = [
@@ -164,7 +163,7 @@ $home_reviews = get_comments([
 
             <figure class="lg:order-last">
                 <div class="aspect-[4/3] overflow-hidden bg-primary-soft">
-                    <img src="<?php echo esc_url(get_theme_file_uri('assets/img/hero.avif')); ?>" alt="<?php esc_attr_e('A WristUnion watch on the bench during assembly', 'dawp'); ?>" width="800" height="600" class="h-full w-full object-cover" loading="eager" fetchpriority="high" decoding="async">
+                    <img src="<?php echo esc_url(get_theme_file_uri('assets/img/watch-chrono.avif')); ?>" alt="<?php esc_attr_e('A WristUnion automatic chronograph on a steel bracelet', 'dawp'); ?>" width="900" height="900" class="h-full w-full object-cover" loading="eager" fetchpriority="high" decoding="async">
                 </div>
                 <figcaption class="mt-2 flex items-center gap-2 text-[11px] uppercase tracking-label text-white/55">
                     <span aria-hidden="true">├</span>
@@ -313,7 +312,7 @@ $home_reviews = get_comments([
     <div class="grid gap-10 border-t border-line pt-12 lg:grid-cols-12 lg:gap-16">
         <div class="lg:col-span-5">
             <div class="aspect-[4/5] overflow-hidden bg-surface-alt">
-                <img src="<?php echo esc_url(get_theme_file_uri('assets/img/new.avif')); ?>" alt="<?php esc_attr_e('The WristUnion workbench', 'dawp'); ?>" width="560" height="700" class="h-full w-full object-cover" loading="lazy" decoding="async">
+                <img src="<?php echo esc_url(get_theme_file_uri('assets/img/watch-heritage.avif')); ?>" alt="<?php esc_attr_e('A WristUnion Heritage watch with a sunburst dial', 'dawp'); ?>" width="900" height="900" class="h-full w-full object-cover" loading="lazy" decoding="async">
             </div>
         </div>
         <div class="lg:col-span-7">

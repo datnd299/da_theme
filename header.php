@@ -77,7 +77,7 @@ $nav_items = [
                 <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center justify-self-start py-2" aria-label="<?php esc_attr_e('WristUnion- home', 'dawp'); ?>">
                     <picture>
                         <source srcset="<?php echo esc_url(get_theme_file_uri('assets/img/logo.webp') . '?v=' . $logo_ver); ?>" type="image/webp">
-                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo.png') . '?v=' . $logo_ver); ?>" alt="<?php esc_attr_e('WristUnion', 'dawp'); ?>" width="245" height="160" class="h-11 w-auto sm:h-12" decoding="async" fetchpriority="high">
+                        <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo.png') . '?v=' . $logo_ver); ?>" alt="<?php esc_attr_e('WristUnion', 'dawp'); ?>" width="283" height="200" class="h-11 w-auto sm:h-12" decoding="async" fetchpriority="high">
                     </picture>
                 </a>
 

@@ -10,4 +10,5 @@ require_once get_template_directory() . '/inc/woo-tweaks.php';
 require_once get_template_directory() . '/inc/cart-enhancements.php';
 require_once get_template_directory() . '/inc/side-cart.php';
 require_once get_template_directory() . '/inc/newsletter.php';
+require_once get_template_directory() . '/inc/contact-form.php';
 require_once get_template_directory() . '/inc/responsive-images.php';

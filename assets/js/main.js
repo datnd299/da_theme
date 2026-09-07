@@ -415,6 +415,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 form.reportValidity();
                 return;
             }
+            const turnstileField = form.querySelector('[name="cf-turnstile-response"]');
+            if (window.dawpTurnstile && (!turnstileField || !turnstileField.value)) {
+                msg.textContent   = 'Please complete the captcha.';
+                msg.style.color   = '#c0392b';
+                msg.style.display = 'block';
+                return;
+            }
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const origText  = submitBtn.innerHTML;
 
@@ -440,6 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } finally {
                 submitBtn.disabled    = false;
                 submitBtn.innerHTML   = origText;
+                if (window.turnstile) window.turnstile.reset();
             }
         });
     }

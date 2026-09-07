@@ -26,43 +26,4 @@ function dawp_newsletter_subscribe() {
     }
 }
 
-add_action('wp_ajax_nopriv_dawp_contact', 'dawp_contact_submit');
-add_action('wp_ajax_dawp_contact', 'dawp_contact_submit');
-
-function dawp_contact_submit() {
-    if (!check_ajax_referer('dawp_contact_nonce', 'nonce', false)) {
-        wp_send_json_error(['message' => 'Invalid request.']);
-    }
-
-    $name    = sanitize_text_field(wp_unslash($_POST['name'] ?? ''));
-    $email   = sanitize_email(wp_unslash($_POST['email'] ?? ''));
-    $subject = sanitize_text_field(wp_unslash($_POST['subject'] ?? 'general'));
-    $message = sanitize_textarea_field(wp_unslash($_POST['message'] ?? ''));
-
-    if (empty($name) || !is_email($email) || empty($message)) {
-        wp_send_json_error(['message' => 'Please fill in all required fields.']);
-    }
-
-    $site_name   = get_bloginfo('name');
-    $admin_email = get_option('admin_email');
-
-    $subject_labels = [
-        'general'  => 'General Inquiry',
-        'order'    => 'Order Support',
-        'product'  => 'Product Question',
-        'shipping' => 'Shipping Question',
-        'return'   => 'Returns & Refunds',
-        'other'    => 'Other',
-    ];
-    $subject_label = $subject_labels[$subject] ?? 'General Inquiry';
-
-    $admin_subject = '[' . $site_name . '] Contact: ' . $subject_label . ' from ' . $name;
-    $admin_body    = "Name: {$name}\nEmail: {$email}\nSubject: {$subject_label}\n\n{$message}";
-    wp_mail($admin_email, $admin_subject, $admin_body, ['Reply-To: ' . $name . ' <' . $email . '>']);
-
-    $confirm_subject = 'We received your message – ' . $site_name;
-    $confirm_body    = "Hi {$name},\n\nThanks for reaching out. We've received your message and our support team will get back to you within one business day (Mon-Fri, 9:00 AM - 5:00 PM EST).\n\n- The {$site_name} Team";
-    wp_mail($email, $confirm_subject, $confirm_body, ['Content-Type: text/plain; charset=UTF-8']);
-
-    wp_send_json_success(['message' => 'Thanks, ' . $name . '. Your message has been sent — we usually reply within one business day.']);
-}
+// Contact form handler lives in inc/contact-form.php (adds Turnstile CAPTCHA).

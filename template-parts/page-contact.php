@@ -68,6 +68,9 @@ $field_class = 'w-full rounded-sm border border-border bg-surface px-4 py-3 text
                         <label class="mb-1.5 block text-sm font-semibold text-foreground" for="contact-message"><?php esc_html_e('Message', 'dawp'); ?></label>
                         <textarea class="<?php echo esc_attr($field_class); ?>" id="contact-message" name="message" rows="6" required placeholder="<?php esc_attr_e('Include your order number if your question is about an existing order.', 'dawp'); ?>"></textarea>
                     </div>
+                    <?php if (function_exists('dawp_turnstile_widget')) : ?>
+                        <div class="mt-1"><?php dawp_turnstile_widget(); ?></div>
+                    <?php endif; ?>
                     <button type="submit" class="inline-flex min-h-[3rem] items-center justify-center rounded-sm bg-foreground px-7 text-sm font-semibold uppercase tracking-[0.06em] text-white transition hover:bg-accent-hover">
                         <?php esc_html_e('Send Message', 'dawp'); ?>
                     </button>

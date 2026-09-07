@@ -328,16 +328,18 @@ form.cart:not(.variations_form) {
   font-weight: 700;
   letter-spacing: 0.03em;
   color: #ffffff;
-  background: var(--color-accent);
-  border: 2px solid var(--color-accent);
+  background: var(--color-accent-hover);
+  border: 2px solid var(--color-accent-hover);
   border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--color-accent) 38%, transparent);
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s, transform 0.1s;
 }
 
 .single_add_to_cart_button.button:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
+  background: var(--color-foreground);
+  border-color: var(--color-foreground);
+  box-shadow: 0 10px 26px color-mix(in srgb, var(--color-foreground) 30%, transparent);
 }
 
 .single_add_to_cart_button.button:active {
@@ -349,9 +351,16 @@ form.cart:not(.variations_form) {
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 30%, transparent);
 }
 
+/* Inactive — shown before a variation / option is chosen */
 .single_add_to_cart_button.button.disabled,
-.single_add_to_cart_button.button:disabled {
-  opacity: 0.4;
+.single_add_to_cart_button.button:disabled,
+.single_add_to_cart_button.button.wc-variation-selection-needed,
+.single_add_to_cart_button.button.wc-variation-is-unavailable {
+  color: var(--color-muted);
+  background: var(--color-border);
+  border-color: var(--color-border);
+  box-shadow: none;
+  opacity: 1;
   cursor: not-allowed;
 }
 

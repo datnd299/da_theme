@@ -87,7 +87,6 @@ function dawp_handle_contact_form() {
     }
 
     $topics = [
-        'custom'  => 'Custom build quote',
         'order'   => 'Order or tracking question',
         'return'  => 'Return or refund request',
         'product' => 'Product question',

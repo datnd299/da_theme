@@ -1,10 +1,10 @@
 <?php
 /**
- * Privacy Policy — WristUnion
+ * Privacy Policy- WristUnion
  *
  * Hardcoded policy content. Covers what personal data is collected, how it is
  * used and shared, cookies, retention, security, and user rights (including
- * CCPA/CPRA and GDPR/UK GDPR) — as required by Google Merchant Center and
+ * CCPA/CPRA and GDPR/UK GDPR)- as required by Google Merchant Center and
  * common privacy law. Kept consistent with the Terms of Service, Contact page,
  * and Billing Terms & Conditions.
  *

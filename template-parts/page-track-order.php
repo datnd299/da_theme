@@ -1,6 +1,6 @@
 <?php
 /**
- * Track Order page — WristUnion.
+ * Track Order page- WristUnion.
  *
  * Wraps WooCommerce's [woocommerce_order_tracking] shortcode. The form and its
  * results are styled by the ".track-order-wc" rules in assets/css/main.css.
@@ -20,7 +20,7 @@ if (!$shop_url) {
 
 $steps = [
     ['title' => __('Order placed', 'dawp'), 'copy' => __('Checkout confirmed securely; you get a confirmation email.', 'dawp')],
-    ['title' => __('On the bench', 'dawp'), 'copy' => __('In-stock watches dispatch in 1–2 business days. Made-to-order in ~3 weeks, custom builds in 4–6 weeks.', 'dawp')],
+    ['title' => __('Dispatched', 'dawp'),   'copy' => __('Orders placed before 3:00 PM EST on a business day ship the same day, otherwise the next business day.', 'dawp')],
     ['title' => __('On the way', 'dawp'),   'copy' => __('Standard US delivery is 3–7 business days after dispatch, with tracking.', 'dawp')],
     ['title' => __('Delivered', 'dawp'),    'copy' => __('Tracking updates until the parcel arrives at your address.', 'dawp')],
 ];

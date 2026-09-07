@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping Policy — WristUnion
+ * Shipping Policy- WristUnion
  *
  * Hardcoded policy content. Written to align with Google Merchant Center
  * "Shipping and returns" requirements: processing time, delivery estimates,
@@ -18,7 +18,7 @@ $email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wri
 
 dawp_render_legal([
     'title'   => __('Shipping Policy', 'dawp'),
-    'updated' => __('September 4, 2026', 'dawp'),
+    'updated' => __('September 7, 2026', 'dawp'),
     'intro'   => __('This policy explains where we ship, how long orders take to process and arrive, what shipping costs, and how tracking works. All estimates are in business days (Monday to Friday) and exclude weekends and US public holidays.', 'dawp'),
     'sections' => [
         [
@@ -27,22 +27,20 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Order processing time', 'dawp'),
-            'body'    => '<p>' . esc_html__('In-stock watches are processed and dispatched within 1 to 2 business days of payment confirmation. Orders placed on a weekend or public holiday begin processing on the next business day.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('Made-to-order watches are assembled and shipped in about 3 weeks. Custom builds take 4 to 6 weeks from the date you approve the quote. The lead time for a given product is shown on its page, and for a custom build it is confirmed in writing before you pay.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('If we expect a delay beyond the stated lead time, we will email you before your order ships.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('Orders placed before 3:00 PM EST on a business day are packed and dispatched the same day. Orders placed after 3:00 PM EST, or on a weekend or US public holiday, are dispatched on the next business day.', 'dawp') . '</p>'
+                . '<p>' . esc_html__('Each watch is inspected and, where needed, regulated and pressure-tested before it is packed, so occasionally an order takes an extra business day to leave. If we expect a longer delay, we will email you before your order ships.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Delivery estimates and shipping cost', 'dawp'),
-            'body'    => '<p>' . esc_html__('Standard shipping is free on every order to any US address, with no minimum spend. An optional paid expedited service is offered at checkout where available for your address.', 'dawp') . '</p>'
+            'body'    => '<p>' . esc_html__('Shipping is free on every order to any US address, with no minimum spend. There is one shipping method and no paid upgrades.', 'dawp') . '</p>'
                 . '<table><thead><tr>'
                 . '<th>' . esc_html__('Method', 'dawp') . '</th>'
                 . '<th>' . esc_html__('Estimated delivery', 'dawp') . '</th>'
                 . '<th>' . esc_html__('Cost', 'dawp') . '</th>'
                 . '</tr></thead><tbody>'
                 . '<tr><td>' . esc_html__('Standard (USPS / UPS)', 'dawp') . '</td><td>' . esc_html__('3-7 business days after dispatch', 'dawp') . '</td><td>' . esc_html__('Free on every order', 'dawp') . '</td></tr>'
-                . '<tr><td>' . esc_html__('Expedited (UPS 2-Day)', 'dawp') . '</td><td>' . esc_html__('2 business days after dispatch', 'dawp') . '</td><td>' . esc_html__('$19.95 flat rate', 'dawp') . '</td></tr>'
                 . '</tbody></table>'
-                . '<p>' . esc_html__('Delivery estimates begin when the carrier collects the parcel, not when the order is placed. The total time to receive an order is the processing time plus the delivery time — so most standard US orders arrive within 4 to 9 business days of being placed. The exact options and any cost for your address are shown at checkout before you pay.', 'dawp') . '</p>',
+                . '<p>' . esc_html__('Delivery estimates begin when the carrier collects the parcel, not when the order is placed. The total time to receive an order is the processing time plus the delivery time- so most US orders arrive within 3 to 8 business days of being placed.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Carriers', 'dawp'),

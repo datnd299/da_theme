@@ -1,5 +1,5 @@
 /* ============================================================
-   WristUnion — Single Product Page
+   WristUnion- Single Product Page
    Pure CSS. Tokens come from main.css :root / tailwind-input.css
    (--color-*, --font-*, --radius-*, --tracking-*, --ease-*).
    Design language: premium, minimal, editorial. Warm off-white
@@ -36,7 +36,7 @@ body.single-product {
   box-sizing: border-box;
 }
 
-.single-product div.product > * {
+.single-product div.product>* {
   min-width: 0;
 }
 
@@ -163,6 +163,7 @@ body.single-product {
 }
 
 @media (max-width: 767px) {
+
   .woocommerce-product-gallery__image img,
   .woocommerce-product-gallery .wp-post-image {
     max-height: 70vh;
@@ -521,7 +522,7 @@ form.cart:not(.variations_form) {
     border-color var(--duration-fast) var(--ease-fluid);
 }
 
-/* Primary CTA — solid near-black, per design system */
+/* Primary CTA- solid near-black, per design system */
 .single-product div.product form.cart .single_add_to_cart_button.button {
   background: var(--color-primary);
   color: #fff;
@@ -533,7 +534,7 @@ form.cart:not(.variations_form) {
   color: #fff;
 }
 
-/* Secondary CTA — outline */
+/* Secondary CTA- outline */
 .single-product div.product form.cart .buy_now_button,
 .single-product div.product form.cart .buy-now-button,
 .single-product div.product form.cart .single_buy_now_button,
@@ -758,7 +759,7 @@ form.cart:not(.variations_form) {
   margin: 0;
 }
 
-/* Description tables — responsive */
+/* Description tables- responsive */
 .woocommerce-Tabs-panel--description table {
   width: 100% !important;
   max-width: 100%;
@@ -1051,8 +1052,8 @@ form.cart:not(.variations_form) {
   color: var(--color-accent);
 }
 
-.comment-form-rating p.stars:hover a:hover ~ a::before,
-.comment-form-rating p.stars.selected a.active ~ a::before {
+.comment-form-rating p.stars:hover a:hover~a::before,
+.comment-form-rating p.stars.selected a.active~a::before {
   color: var(--color-border);
 }
 
@@ -1095,7 +1096,7 @@ form.cart:not(.variations_form) {
   border-top: 1px solid var(--color-border);
 }
 
-.related.products > h2 {
+.related.products>h2 {
   margin: 0 0 28px;
   color: var(--color-foreground);
   font-family: var(--font-heading);
@@ -1284,8 +1285,15 @@ form.cart:not(.variations_form) {
 }
 
 @keyframes dawp-related-skeleton-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.55; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.55;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1325,7 +1333,7 @@ form.cart:not(.variations_form) {
 }
 
 /* ==========================================================================
-   Size Chart — mobile-first, responsive (styles injected description HTML)
+   Size Chart- mobile-first, responsive (styles injected description HTML)
    ========================================================================== */
 
 .size-chart-wrap {
@@ -1475,7 +1483,7 @@ form.cart:not(.variations_form) {
 }
 
 /* ==========================================================================
-   DESC2 — CSS override for injected description HTML (wins over inline styles)
+   DESC2- CSS override for injected description HTML (wins over inline styles)
    ========================================================================== */
 
 .desc2,

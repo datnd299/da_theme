@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms of Service — WristUnion
+ * Terms of Service- WristUnion
  *
  * Hardcoded policy content: general terms of sale and website use, including
  * disclaimers and limitation of liability. Watch warranties vary by model and
@@ -21,7 +21,7 @@ $site_host = wp_parse_url(home_url(), PHP_URL_HOST);
 
 dawp_render_legal([
     'title'   => __('Terms of Service', 'dawp'),
-    'updated' => __('September 4, 2026', 'dawp'),
+    'updated' => __('September 7, 2026', 'dawp'),
     'intro'   => sprintf(
         /* translators: 1: store name, 2: website host */
         __('These Terms of Service govern your use of %1$s (%2$s) and any purchase you make from us. By browsing this website or placing an order, you agree to these terms. Please also read our Privacy Policy, Shipping Policy, Return & Refund Policy, and Billing Terms & Conditions, which form part of these terms.', 'dawp'),
@@ -33,7 +33,7 @@ dawp_render_legal([
             'heading' => __('Who we are', 'dawp'),
             'body'    => '<p>' . sprintf(
                 /* translators: %1$s: store name */
-                esc_html__('%1$s is an independent watch brand that hand-assembles its own wristwatches, and builds custom watches to order, for customers in the United States. In these terms, "we", "us", and "our" refer to %1$s, and "you" refers to the person using the website or placing an order.', 'dawp'),
+                esc_html__('%1$s is an independent watch brand that designs and hand-assembles its own wristwatches for customers in the United States. In these terms, "we", "us", and "our" refer to %1$s, and "you" refers to the person using the website or placing an order.', 'dawp'),
                 esc_html($store)
             ) . '</p>',
         ],
@@ -43,8 +43,8 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Products, descriptions, and availability', 'dawp'),
-            'body'    => '<p>' . esc_html__('We describe each watch as accurately as we can, including its movement, case diameter, thickness, lug-to-lug, lug width, strap, crystal, and water resistance rating. Product photos are representative; slight variation in colour or finish can occur between screens and between hand-assembled units. Every watch is assembled, regulated, and pressure-tested by hand in our own workshop. We are an independent brand, not an authorized dealer for any other maker, and we do not sell pre-owned, replica, or counterfeit watches.', 'dawp') . '</p>'
-                . '<p>' . esc_html__('Because watches are built in small batches and to order, stock and lead times can change without notice. If an item or component becomes unavailable after you order, we will contact you to adjust the build or issue a full refund.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('We describe each watch as accurately as we can, including its movement, case diameter, thickness, lug-to-lug, lug width, strap, crystal, and water resistance rating. Product photos are representative; slight variation in colour or finish can occur between screens and between hand-assembled units. Every watch is designed in-house and assembled, regulated, and pressure-tested by hand in our own workshop. We are an independent brand and we do not sell pre-owned, replica, or counterfeit watches.', 'dawp') . '</p>'
+                . '<p>' . esc_html__('Because our watches are produced in limited runs, stock can change without notice. If an item becomes unavailable after you order, we will contact you to arrange an alternative or issue a full refund.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Orders and acceptance', 'dawp'),
@@ -83,7 +83,7 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Acceptable use of the website', 'dawp'),
-            'body'    => '<p>' . esc_html__('You agree not to use this website to break the law, infringe our or others\' rights, place fraudulent orders, interfere with the site\'s operation or security, scrape or copy content at scale, or resell our products in a way that misrepresents them as authorized dealer stock.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('You agree not to use this website to break the law, infringe our or others\' rights, place fraudulent orders, interfere with the site\'s operation or security, scrape or copy content at scale, or resell our products in a way that misrepresents them or their origin.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Intellectual property', 'dawp'),

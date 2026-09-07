@@ -11,7 +11,7 @@ $cats     = get_the_terms($product->get_id(), 'product_cat');
 $cat_name = (!is_wp_error($cats) && !empty($cats)) ? $cats[0]->name : '';
 
 $diameter_mm = function_exists('dawp_product_diameter_mm') ? dawp_product_diameter_mm($product) : 0.0;
-$stock_label = $product->is_in_stock() ? __('In stock', 'dawp') : __('Made to order', 'dawp');
+$stock_label = $product->is_in_stock() ? __('In stock', 'dawp') : __('Sold out', 'dawp');
 
 // Detect the "related products" loop via WooCommerce's own loop prop
 // (set by woocommerce_related_products()) rather than is_product(). The

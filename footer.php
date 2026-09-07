@@ -1,12 +1,12 @@
 <?php
 /**
- * Theme footer — WristUnion
+ * Theme footer- WristUnion
  *
  * @package dawp
  *
  * NOTE FOR STORE OWNER: Google Merchant Center requires a verifiable business
  * identity. The business address below is read from WooCommerce > Settings >
- * General > Store Address — keep that setting accurate and complete.
+ * General > Store Address- keep that setting accurate and complete.
  */
 
 if (!defined('ABSPATH')) {
@@ -31,8 +31,7 @@ if (!$account_url) {
 
 // Category links resolve to the product-category archive when the store owner
 // has created the matching term (see inc/menu.php / inc/product-categories.php),
-// otherwise they fall back to /product-category/<slug>/. Custom Shop is the
-// homepage build section, not a taxonomy term.
+// otherwise they fall back to /product-category/<slug>/.
 $dawp_cat_link = static function ($slug) use ($shop_url) {
     return function_exists('dawp_product_category_url') ? dawp_product_category_url($slug) : $shop_url;
 };
@@ -43,9 +42,7 @@ $footer_columns = [
         'links' => [
             ['title' => __('All watches', 'dawp'),      'url' => $shop_url],
             ['title' => __('Field & Everyday', 'dawp'), 'url' => $dawp_cat_link('field-everyday')],
-            ['title' => __('Dive', 'dawp'),             'url' => $dawp_cat_link('dive')],
-            ['title' => __('Dress & Heritage', 'dawp'), 'url' => $dawp_cat_link('dress-heritage')],
-            ['title' => __('Custom Shop', 'dawp'),      'url' => home_url('/#build-yours')],
+            ['title' => __('Heritage', 'dawp'),         'url' => $dawp_cat_link('heritage')],
         ],
     ],
     [
@@ -84,7 +81,7 @@ $footer_columns = [
             <p class="font-semibold text-accent"><?php esc_html_e('Free US shipping on every order  ·  2-year workshop warranty  ·  30-day returns', 'dawp'); ?></p>
             <div class="flex flex-wrap gap-x-5 gap-y-2">
                 <span><?php esc_html_e('Sapphire crystal', 'dawp'); ?></span>
-                <span><?php esc_html_e('Seiko NH35 automatic', 'dawp'); ?></span>
+                <span><?php esc_html_e('Automatic movement', 'dawp'); ?></span>
                 <span><?php esc_html_e('Support: ', 'dawp'); ?><?php echo esc_html($business_hours); ?></span>
             </div>
         </div>
@@ -98,7 +95,7 @@ $footer_columns = [
                 $footer_logo_webp = get_theme_file_path('assets/img/logo-light.webp');
                 $footer_logo_ver  = file_exists($footer_logo_webp) ? filemtime($footer_logo_webp) : '1';
                 ?>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('WristUnion — home', 'dawp'); ?>">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-flex items-center" aria-label="<?php esc_attr_e('WristUnion- home', 'dawp'); ?>">
                     <picture>
                         <source srcset="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.webp') . '?v=' . $footer_logo_ver); ?>" type="image/webp">
                         <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo-light.png') . '?v=' . $footer_logo_ver); ?>" alt="<?php esc_attr_e('WristUnion', 'dawp'); ?>" width="245" height="160" class="h-14 w-auto sm:h-16" loading="lazy" decoding="async">
@@ -106,7 +103,7 @@ $footer_columns = [
                 </a>
 
                 <p class="mt-5 max-w-md font-serif text-[15px] leading-7 text-white/75">
-                    <?php esc_html_e('Hand-assembled watches, built one at a time. Field, dive, and dress models on a Seiko NH35 automatic, plus custom builds to your spec.', 'dawp'); ?>
+                    <?php esc_html_e('Mechanical watches designed and built by WristUnion. Field & Everyday and Heritage models, each running an automatic movement and assembled by hand.', 'dawp'); ?>
                 </p>
 
                 <div class="mt-6 grid gap-3 text-sm leading-6 text-white/75 sm:grid-cols-2 lg:grid-cols-1">
@@ -208,7 +205,7 @@ $footer_columns = [
         <p class="border-t border-white/10 pt-8 text-xs leading-5 text-white/45">
             <span class="font-semibold text-white/60"><?php esc_html_e('Business:', 'dawp'); ?></span>
             <?php echo esc_html($store_address); ?>.
-            <?php esc_html_e('Every WristUnion watch is assembled and regulated by hand in our own workshop using a Japanese Seiko NH35 automatic movement and a sapphire crystal. WristUnion is an independent brand; we are not an authorized dealer for any other maker, and we do not sell pre-owned, replica, or counterfeit watches. Each WristUnion watch carries a 2-year workshop warranty covering assembly and the movement.', 'dawp'); ?>
+            <?php esc_html_e('Every WristUnion watch is designed in-house and assembled and regulated by hand in our own workshop, with an automatic movement and a sapphire crystal. WristUnion is an independent brand; we do not sell pre-owned, replica, or counterfeit watches. Each WristUnion watch carries a 2-year workshop warranty covering assembly and the movement.', 'dawp'); ?>
         </p>
 
         <div class="mt-8 flex flex-col gap-3 border-t border-white/15 pt-5 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between">

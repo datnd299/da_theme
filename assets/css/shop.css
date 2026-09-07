@@ -1,8 +1,8 @@
 /* ============================================================
-   WristUnion — Shop / Product Archive
+   WristUnion- Shop / Product Archive
    Pure CSS. Tokens come from main.css :root / tailwind-input.css
    (--color-*, --font-*, --radius-*, --tracking-*, --ease-*).
-   Design language: "spec sheet" — cool steel-paper ground, graphite
+   Design language: "spec sheet"- cool steel-paper ground, graphite
    type, brass accent used sparingly, 2px corners, hairline borders,
    no shadow, left aligned.
    Also styles the single-product "Related products" grid and any
@@ -59,7 +59,7 @@
   color: var(--color-border);
 }
 
-/* ── Page header — editorial, left aligned ───────────────── */
+/* ── Page header- editorial, left aligned ───────────────── */
 .shop-header {
   margin: 0 0 clamp(28px, 5vw, 48px);
   padding-bottom: clamp(24px, 4vw, 40px);
@@ -526,6 +526,7 @@
 }
 
 @media (min-width: 700px) {
+
   .shop-main ul.products,
   .woocommerce ul.products {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -533,6 +534,7 @@
 }
 
 @media (min-width: 1180px) {
+
   .shop-main ul.products,
   .woocommerce ul.products {
     grid-template-columns: repeat(4, minmax(0, 1fr));

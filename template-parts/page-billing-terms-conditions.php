@@ -1,10 +1,10 @@
 <?php
 /**
- * Billing Terms & Conditions — WristUnion
+ * Billing Terms & Conditions- WristUnion
  *
  * Hardcoded policy content covering payment methods, currency, when and how
  * customers are charged, the billing descriptor, taxes, pricing accuracy,
- * order acceptance, and chargebacks — the billing disclosures payment
+ * order acceptance, and chargebacks- the billing disclosures payment
  * providers and Google Merchant Center expect a store to publish. Kept
  * consistent with the Terms of Service, Shipping Policy, and Return & Refund
  * Policy.
@@ -39,7 +39,7 @@ dawp_render_legal([
         ],
         [
             'heading' => __('When you are charged', 'dawp'),
-            'body'    => '<p>' . esc_html__('By placing an order you authorize us to charge your chosen payment method for the full order total — the item price plus any applicable shipping and sales tax — at the time the order is submitted. If a payment authorization later fails or is reversed, the order will not be dispatched.', 'dawp') . '</p>'
+            'body'    => '<p>' . esc_html__('By placing an order you authorize us to charge your chosen payment method for the full order total- the item price plus any applicable shipping and sales tax- at the time the order is submitted. If a payment authorization later fails or is reversed, the order will not be dispatched.', 'dawp') . '</p>'
                 . '<p>' . esc_html__('All purchases are one-time transactions. We do not operate subscriptions and will never charge your payment method on a recurring basis.', 'dawp') . '</p>',
         ],
         [

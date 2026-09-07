@@ -16,7 +16,7 @@ function fake_sales_report_data( $report_data ) {
     $total_sales       = 583749.25; // Tổng doanh thu trong khoảng thời gian (có thể đổi)
     $average_sales     = 67.7;
     $total_orders      = (int) round( $total_sales / $average_sales ); // 7353
-    $items_per_order   = 1.47;  // tỉ lệ items / order — có thể đổi
+    $items_per_order   = 1.47;  // tỉ lệ items / order- có thể đổi
     $total_items       = (int) round( $total_orders * $items_per_order );
 
     // Refund config

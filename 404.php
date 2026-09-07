@@ -1,6 +1,6 @@
 <?php
 /**
- * 404 Not Found — WristUnion
+ * 404 Not Found- WristUnion
  *
  * @package dawp
  */
@@ -39,9 +39,7 @@ $dawp_cat_url = static function ($slug) {
 
 $collections = [
     ['slug' => 'field-everyday', 'name' => __('Field & Everyday', 'dawp'), 'desc' => __('Durable, legible, worn every day', 'dawp')],
-    ['slug' => 'dive',           'name' => __('Dive', 'dawp'),            'desc' => __('Water resistant, rotating bezel', 'dawp')],
-    ['slug' => 'dress-heritage', 'name' => __('Dress & Heritage', 'dawp'), 'desc' => __('Slim cases, restrained dials', 'dawp')],
-    ['slug' => 'custom',         'name' => __('Custom Shop', 'dawp'),      'desc' => __('Build the one that is yours', 'dawp'), 'url' => home_url('/#build-yours')],
+    ['slug' => 'heritage',       'name' => __('Heritage', 'dawp'),        'desc' => __('Classic proportions, restrained dials', 'dawp')],
 ];
 
 $help_links = [
@@ -75,7 +73,7 @@ $help_links = [
     <section class="py-14 sm:py-20">
         <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <h2 class="font-heading text-2xl font-semibold uppercase text-foreground"><?php esc_html_e('Shop by category', 'dawp'); ?></h2>
-            <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
                 <?php foreach ($collections as $c) : ?>
                     <a href="<?php echo esc_url($c['url'] ?? $dawp_cat_url($c['slug'])); ?>" class="group flex flex-col border border-line bg-surface p-5 transition">
                         <h3 class="font-heading text-base font-semibold uppercase text-foreground"><?php echo esc_html($c['name']); ?></h3>

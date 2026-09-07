@@ -1,12 +1,11 @@
 <?php
 /**
- * Contact page — WristUnion.
+ * Contact page- WristUnion.
  *
  * The form posts to admin-post.php and is handled by dawp_handle_contact_form()
  * in inc/contact-form.php. Field names, the action (`lbq_contact_form`), the
  * nonce (`lbq_contact_nonce`), and the topic keys must match that handler.
- * A `?topic=custom` query param (from the homepage Custom Shop CTA) preselects
- * the "Custom build quote" topic.
+ * A `?topic=` query param preselects the matching topic.
  *
  * @package dawp
  */
@@ -22,7 +21,6 @@ $status         = isset($_GET['contact_status']) ? sanitize_key(wp_unslash($_GET
 $topic_pre      = isset($_GET['topic']) ? sanitize_key(wp_unslash($_GET['topic'])) : '';
 
 $topics = [
-    'custom'  => __('Custom build quote', 'dawp'),
     'order'   => __('Order or tracking question', 'dawp'),
     'return'  => __('Return or refund request', 'dawp'),
     'product' => __('Product question', 'dawp'),
@@ -38,7 +36,6 @@ $info_cards = [
     ['label' => __('Email', 'dawp'),         'value' => '<a class="font-semibold text-blued underline decoration-line underline-offset-4 transition hover:text-blued-hover" href="mailto:' . esc_attr($email) . '">' . esc_html($email) . '</a>'],
     ['label' => __('Support hours', 'dawp'), 'value' => esc_html($business_hours)],
     ['label' => __('Response time', 'dawp'), 'value' => esc_html__('A real person replies within 1 business day.', 'dawp')],
-    ['label' => __('Custom build lead time', 'dawp'), 'value' => esc_html__('4–6 weeks from an approved quote. 3 build slots open this month.', 'dawp')],
 ];
 
 if ($address) {
@@ -52,7 +49,7 @@ if ($address) {
             <p class="text-[11px] font-medium uppercase tracking-brand text-accent"><?php esc_html_e('Contact', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-[clamp(2rem,5vw,3rem)] font-bold leading-[1.05]"><?php esc_html_e('Talk to the workshop', 'dawp'); ?></h1>
             <p class="mt-5 font-serif text-lg leading-8 text-white/80">
-                <?php esc_html_e('A custom build quote, a question about an order or a return, a product detail, or a privacy request — send a message and we reply within 1 business day.', 'dawp'); ?>
+                <?php esc_html_e('A question about an order or a return, a product detail, or a privacy request- send a message and we reply within 1 business day.', 'dawp'); ?>
             </p>
         </div>
     </section>
@@ -75,7 +72,7 @@ if ($address) {
                     <h3 class="font-heading text-sm font-semibold uppercase tracking-label text-foreground"><?php esc_html_e('Before you write', 'dawp'); ?></h3>
                     <ul class="mt-3 grid gap-2 font-serif text-sm leading-6 text-foreground-muted">
                         <li><a class="text-blued underline decoration-line underline-offset-4 transition hover:text-blued-hover" href="<?php echo esc_url(home_url('/track-order/')); ?>"><?php esc_html_e('Track an existing order', 'dawp'); ?></a></li>
-                        <li><a class="text-blued underline decoration-line underline-offset-4 transition hover:text-blued-hover" href="<?php echo esc_url(home_url('/faq/')); ?>"><?php esc_html_e('Custom build process and lead times', 'dawp'); ?></a></li>
+                        <li><a class="text-blued underline decoration-line underline-offset-4 transition hover:text-blued-hover" href="<?php echo esc_url(home_url('/about-us/')); ?>"><?php esc_html_e('How our watches are designed and made', 'dawp'); ?></a></li>
                         <li><a class="text-blued underline decoration-line underline-offset-4 transition hover:text-blued-hover" href="<?php echo esc_url(home_url('/shipping-policy/')); ?>"><?php esc_html_e('Shipping times and costs', 'dawp'); ?></a></li>
                         <li><a class="text-blued underline decoration-line underline-offset-4 transition hover:text-blued-hover" href="<?php echo esc_url(home_url('/return-refund-policy/')); ?>"><?php esc_html_e('Start a return or refund', 'dawp'); ?></a></li>
                     </ul>
@@ -87,7 +84,7 @@ if ($address) {
 
                 <?php if ($status === 'success') : ?>
                     <div class="mt-5 border border-success bg-surface p-4 text-sm font-medium text-foreground" role="status">
-                        <?php esc_html_e('Thanks — your message has been sent. We reply within 1 business day.', 'dawp'); ?>
+                        <?php esc_html_e('Thanks- your message has been sent. We reply within 1 business day.', 'dawp'); ?>
                     </div>
                 <?php elseif ($status === 'error') : ?>
                     <div class="mt-5 border border-alert bg-surface p-4 text-sm font-medium text-foreground" role="alert">
@@ -130,7 +127,7 @@ if ($address) {
 
                     <div class="grid gap-1.5">
                         <label class="text-sm font-semibold text-foreground" for="contact_message"><?php esc_html_e('Message', 'dawp'); ?> <span class="text-alert">*</span></label>
-                        <textarea class="min-h-32 border border-line bg-background px-3 py-2 text-sm text-foreground outline-none transition focus:border-blued" id="contact_message" name="contact_message" rows="6" required placeholder="<?php esc_attr_e('For a custom build: base model, dial, hands, case finish, bezel, strap, and any engraving text.', 'dawp'); ?>"></textarea>
+                        <textarea class="min-h-32 border border-line bg-background px-3 py-2 text-sm text-foreground outline-none transition focus:border-blued" id="contact_message" name="contact_message" rows="6" required placeholder="<?php esc_attr_e('Your order number, if you have one, and how we can help.', 'dawp'); ?>"></textarea>
                     </div>
 
                     <button type="submit" class="mt-1 inline-flex min-h-12 items-center justify-center border border-primary bg-primary px-7 text-xs font-semibold uppercase tracking-button text-white transition hover:bg-transparent hover:text-primary">

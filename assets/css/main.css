@@ -8,23 +8,23 @@
 :root {
   /* === BACKGROUNDS === */
   --color-background: #E5E6E2;
-  /* wu-steel-paper — cool blue-grey page ground */
+  /* wu-steel-paper- cool blue-grey page ground */
   --color-surface: #F4F5F2;
-  /* wu-bench-white — card / panel / product tile */
+  /* wu-bench-white- card / panel / product tile */
   --color-surface-alt: #DBDCD6;
   /* Secondary sections and hover states */
 
   /* === TEXT === */
   --color-foreground: #22262B;
-  /* wu-graphite — primary text, product names */
+  /* wu-graphite- primary text, product names */
   --color-foreground-muted: #6B7178;
-  /* wu-muted — secondary text, meta, struck-through price */
+  /* wu-muted- secondary text, meta, struck-through price */
   --color-muted: #6B7178;
   /* Captions, breadcrumbs */
 
   /* === BRAND === */
   --color-accent: #9C7A3F;
-  /* wu-brass — price, limited badge, engraving, eyebrow */
+  /* wu-brass- price, limited badge, engraving, eyebrow */
   --color-accent-hover: #7D6132;
   /* Darker brass hover state */
   --color-accent-soft: #E7E0D0;
@@ -32,21 +32,21 @@
   --color-accent-blush: #2B333A;
   /* wu-gunmetal secondary accent */
   --color-primary: #2B333A;
-  /* wu-gunmetal — dark surfaces, hero, footer */
+  /* wu-gunmetal- dark surfaces, hero, footer */
   --color-primary-soft: #39434B;
   --color-primary-dark: #22282E;
 
-  /* wu-blued-steel — links / interactive state only */
+  /* wu-blued-steel- links / interactive state only */
   --color-blued: #2E5288;
   --color-blued-hover: #24406B;
 
   /* === UI === */
   --color-border: #C6C8C3;
-  /* hairline — cards, dividers */
+  /* hairline- cards, dividers */
   --color-alert: #8C3A2E;
   /* Error / alert / out of stock */
   --color-success: #3F6B4A;
-  /* Success — in stock, free shipping */
+  /* Success- in stock, free shipping */
 
   /* === TYPOGRAPHY === */
   --font-sans: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -122,7 +122,9 @@
   font-family: var(--font-serif);
 }
 
-.wu-prose p { max-width: 68ch; }
+.wu-prose p {
+  max-width: 68ch;
+}
 
 /* =============================================================
    WOOCOMMERCE NOTICES
@@ -242,7 +244,7 @@
 }
 
 /* =============================================================
-   CONTACT FORM 7 — #contact-form-1
+   CONTACT FORM 7- #contact-form-1
    ============================================================= */
 
 #contact-form-1 {
@@ -1237,7 +1239,7 @@ body.side-cart-open {
 }
 
 /* =============================================================
-   TRACK ORDER — WooCommerce shortcode ([woocommerce_order_tracking])
+   TRACK ORDER- WooCommerce shortcode ([woocommerce_order_tracking])
    Scoped to .track-order-wc wrapper in template-parts/page-track-order.php.
    ============================================================= */
 

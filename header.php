@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header — WristUnion
+ * Theme header- WristUnion
  *
  * @package dawp
  */
@@ -25,7 +25,6 @@ if (!$account_url) {
 
 $nav_items = [
     ['title' => __('Watches', 'dawp'),      'url' => $shop_url],
-    ['title' => __('Custom Shop', 'dawp'),  'url' => home_url('/#build-yours')],
     ['title' => __('About', 'dawp'),        'url' => home_url('/about-us/')],
     ['title' => __('Contact', 'dawp'),      'url' => home_url('/contact-us/')],
     ['title' => __('Track Order', 'dawp'),  'url' => home_url('/track-order/')],
@@ -63,7 +62,7 @@ $nav_items = [
 <header id="site-header" class="sticky top-0 z-50 bg-surface" role="banner">
     <div class="bg-primary text-white">
         <p class="mx-auto max-w-7xl px-4 py-2.5 text-center text-[11px] font-medium uppercase tracking-brand sm:px-6 lg:px-8">
-            <?php esc_html_e('Hand-assembled, one at a time  ·  Free US shipping  ·  2-year warranty  ·  30-day returns', 'dawp'); ?>
+            <?php esc_html_e('Designed & built in-house  ·  Free US shipping  ·  2-year warranty  ·  30-day returns', 'dawp'); ?>
         </p>
     </div>
 
@@ -75,7 +74,7 @@ $nav_items = [
                 $logo_png  = get_theme_file_path('assets/img/logo.png');
                 $logo_ver  = file_exists($logo_webp) ? filemtime($logo_webp) : '1';
                 ?>
-                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center justify-self-start py-2" aria-label="<?php esc_attr_e('WristUnion — home', 'dawp'); ?>">
+                <a href="<?php echo esc_url($home_url); ?>" class="inline-flex shrink-0 items-center justify-self-start py-2" aria-label="<?php esc_attr_e('WristUnion- home', 'dawp'); ?>">
                     <picture>
                         <source srcset="<?php echo esc_url(get_theme_file_uri('assets/img/logo.webp') . '?v=' . $logo_ver); ?>" type="image/webp">
                         <img src="<?php echo esc_url(get_theme_file_uri('assets/img/logo.png') . '?v=' . $logo_ver); ?>" alt="<?php esc_attr_e('WristUnion', 'dawp'); ?>" width="245" height="160" class="h-11 w-auto sm:h-12" decoding="async" fetchpriority="high">

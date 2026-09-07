@@ -1,6 +1,6 @@
 <?php
 /**
- * Return & Refund Policy — WristUnion
+ * Return & Refund Policy- WristUnion
  *
  * Hardcoded policy content. Written to align with Google Merchant Center
  * "Returns and refunds" requirements: a clearly stated return window,
@@ -19,7 +19,7 @@ $email = function_exists('dawp_store_email') ? dawp_store_email() : 'support@wri
 
 dawp_render_legal([
     'title'   => __('Return & Refund Policy', 'dawp'),
-    'updated' => __('September 3, 2026', 'dawp'),
+    'updated' => __('September 7, 2026', 'dawp'),
     'intro'   => __('We want you to be happy with your watch. If something is not right, you may return most items within 30 days of delivery. This policy explains what can be returned, how to start a return, and how and when refunds are issued. All timeframes are in business days.', 'dawp'),
     'sections' => [
         [
@@ -31,14 +31,13 @@ dawp_render_legal([
             'body'    => '<p>' . esc_html__('To be eligible for a full refund, the watch must be:', 'dawp') . '</p><ul>'
                 . '<li>' . esc_html__('Unworn and undamaged, with no scratches, sizing marks, or other signs of wear;', 'dawp') . '</li>'
                 . '<li>' . esc_html__('Returned with all original packaging and inserts, protective films, tags, the instruction booklet, any warranty paperwork, and any links removed during sizing;', 'dawp') . '</li>'
-                . '<li>' . esc_html__('Free of any engraving, personalization, or third-party modification or repair.', 'dawp') . '</li>'
+                . '<li>' . esc_html__('Free of any third-party modification or repair.', 'dawp') . '</li>'
                 . '</ul><p>' . esc_html__('Returns that arrive worn, incomplete, or damaged because of inadequate packaging may be refused or subject to a reduced refund that reflects the loss in value. We photograph every return on arrival.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Non-returnable items', 'dawp'),
             'body'    => '<ul>'
                 . '<li>' . esc_html__('Items marked "Final Sale" or "Clearance" at the time of purchase;', 'dawp') . '</li>'
-                . '<li>' . esc_html__('Engraved or personalized watches;', 'dawp') . '</li>'
                 . '<li>' . esc_html__('Gift cards;', 'dawp') . '</li>'
                 . '<li>' . esc_html__('Items returned more than 30 days after delivery (except valid manufacturer warranty claims).', 'dawp') . '</li>'
                 . '</ul>',
@@ -76,7 +75,7 @@ dawp_render_legal([
         ],
         [
             'heading' => __('Order cancellations', 'dawp'),
-            'body'    => '<p>' . esc_html__('You may cancel an order for a full refund at any time before it is dispatched — email us as soon as possible with your order number. Once an order has shipped it cannot be cancelled, but you can return it under this policy after it arrives.', 'dawp') . '</p>',
+            'body'    => '<p>' . esc_html__('You may cancel an order for a full refund at any time before it is dispatched- email us as soon as possible with your order number. Once an order has shipped it cannot be cancelled, but you can return it under this policy after it arrives.', 'dawp') . '</p>',
         ],
         [
             'heading' => __('Refunds', 'dawp'),

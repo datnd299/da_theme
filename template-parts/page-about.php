@@ -1,11 +1,10 @@
 <?php
 /**
- * About page — WristUnion.
+ * About page- WristUnion.
  *
  * Hardcoded content, kept consistent with the homepage, footer, FAQ, and
- * policy pages: an independent brand that hand-assembles its own watches on a
- * Seiko NH35 automatic, takes custom builds, ships free in the US,
- * and accepts 30-day returns.
+ * policy pages: an independent brand that designs and hand-assembles its own
+ * mechanical watches, ships free in the US, and accepts 30-day returns.
  *
  * @package dawp
  */
@@ -29,19 +28,17 @@ $dawp_cat_link = static function ($slug) use ($shop_url) {
 
 $collections = [
     ['title' => __('Field & Everyday', 'dawp'), 'copy' => __('Durable, legible watches for daily wear.', 'dawp'),        'url' => $dawp_cat_link('field-everyday')],
-    ['title' => __('Dive', 'dawp'),             'copy' => __('Water resistant, with a 120-click rotating bezel.', 'dawp'), 'url' => $dawp_cat_link('dive')],
-    ['title' => __('Dress & Heritage', 'dawp'), 'copy' => __('Slim cases and restrained dials.', 'dawp'),                 'url' => $dawp_cat_link('dress-heritage')],
-    ['title' => __('Custom Shop', 'dawp'),      'copy' => __('Start the one that is yours — dial, hands, case, strap.', 'dawp'), 'url' => home_url('/#build-yours')],
+    ['title' => __('Heritage', 'dawp'),         'copy' => __('Classic proportions and restrained dials.', 'dawp'),      'url' => $dawp_cat_link('heritage')],
 ];
 
 $values = [
     [
-        'title' => __('Assembled by hand, one at a time', 'dawp'),
-        'copy'  => __('Every WristUnion watch is built, regulated, and pressure-tested on our own bench. No batch lines. The person who cased your watch is the person who timed it.', 'dawp'),
+        'title' => __('Designed and built in-house', 'dawp'),
+        'copy'  => __('We draw every model ourselves, then build, regulate, and pressure-test it on our own bench. No rebadged stock watches. The person who cased your watch is the person who timed it.', 'dawp'),
     ],
     [
         'title' => __('Real numbers, not adjectives', 'dawp'),
-        'copy'  => __('Each product page lists the movement, case diameter, thickness, lug-to-lug, lug width, crystal, and water resistance. No "premium quality" — 316L steel, sapphire crystal, 120-click bezel.', 'dawp'),
+        'copy'  => __('Each product page lists the movement, case diameter, thickness, lug-to-lug, lug width, crystal, and water resistance. No "premium quality"- 316L steel, sapphire crystal, 100 m water resistance.', 'dawp'),
     ],
     [
         'title' => __('Fair, simple pricing', 'dawp'),
@@ -59,10 +56,10 @@ $values = [
         <div class="mx-auto max-w-3xl px-8 py-16 sm:px-14 lg:py-20">
             <p class="text-[11px] font-medium uppercase tracking-brand text-accent"><?php esc_html_e('About', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-[clamp(2rem,5vw,3rem)] font-bold leading-[1.05]">
-                <?php esc_html_e('Hand-assembled watches, built one at a time.', 'dawp'); ?>
+                <?php esc_html_e('Mechanical watches, designed and built by WristUnion.', 'dawp'); ?>
             </h1>
             <p class="mt-5 font-serif text-lg leading-8 text-white/80">
-                <?php esc_html_e('WristUnion is an independent watch brand. We assemble a short line of field, dive, and dress watches by hand, on a Japanese Seiko NH35 automatic movement, and we take custom builds to order.', 'dawp'); ?>
+                <?php esc_html_e('WristUnion is an independent watch brand. We design a short line of Field & Everyday and Heritage watches and assemble them by hand, each running an automatic mechanical movement.', 'dawp'); ?>
             </p>
         </div>
     </section>

@@ -9,7 +9,7 @@
  *     WooCommerce product pages.
  *
  * All output is escaped and only uses data already public on the page. Nothing
- * here fabricates ratings, reviews, or prices — Product JSON-LD is emitted only
+ * here fabricates ratings, reviews, or prices- Product JSON-LD is emitted only
  * from real WooCommerce product data.
  *
  * @package dawp
@@ -27,11 +27,11 @@ if (!defined('ABSPATH')) {
  */
 function dawp_seo_virtual_descriptions() {
     return [
-        'about-us'                 => __('WristUnion builds hand-assembled watches one at a time, and takes custom orders. Field, dive, and dress models with full specs, free US shipping, and 30-day returns.', 'dawp'),
-        'faq'                      => __('Answers about shipping, returns, custom build lead times, movements, water resistance, sizing, and payment at WristUnion.', 'dawp'),
+        'about-us'                 => __('WristUnion designs and hand-builds a small line of mechanical watches- Field & Everyday and Heritage models with full specs, free US shipping, and 30-day returns.', 'dawp'),
+        'faq'                      => __('Answers about shipping, returns, the movement, water resistance, sizing, and payment at WristUnion.', 'dawp'),
         'contact-us'               => __('Contact WristUnion about an order, a return, a product question, or a privacy request. We reply within 1 business day.', 'dawp'),
         'track-order'              => __('Track a WristUnion order with your order number and the email address used at checkout.', 'dawp'),
-        'shipping-policy'          => __('How WristUnion ships: free standard shipping on every US order, 1-2 business day processing, and 3-7 business day delivery with tracking.', 'dawp'),
+        'shipping-policy'          => __('How WristUnion ships: free standard shipping on every US order, same-day dispatch on orders placed before 3 PM EST, and 3-7 business day delivery with tracking.', 'dawp'),
         'return-refund-policy'     => __('WristUnion accepts returns of unworn watches within 30 days of delivery. Read the full return and refund policy, including who pays return shipping.', 'dawp'),
         'billing-terms-conditions' => __('How payments are processed at WristUnion: accepted methods, currency, when you are charged, the billing descriptor, and fraud screening.', 'dawp'),
         'terms-of-service'         => __('The terms that govern use of the WristUnion website and any purchase you make from us.', 'dawp'),
@@ -52,7 +52,7 @@ function dawp_seo_meta_description() {
         $desc = $virtual[$request_uri];
     } elseif (is_front_page()) {
         $desc = get_bloginfo('description', 'display')
-            ?: __('WristUnion — hand-assembled watches, built one at a time. Field, dive, and dress models, plus custom builds to order. Free US shipping.', 'dawp');
+            ?: __('WristUnion- mechanical watches designed and built in-house. A short line of Field & Everyday and Heritage models. Free US shipping.', 'dawp');
     } elseif (function_exists('is_product') && is_product()) {
         $product = wc_get_product(get_queried_object_id());
 
@@ -67,7 +67,7 @@ function dawp_seo_meta_description() {
             $desc = $term->description ? wp_strip_all_tags($term->description) : $term->name;
         }
     } elseif (function_exists('is_shop') && is_shop()) {
-        $desc = __('Browse every WristUnion watch — field, dive, and dress models, hand-assembled and tested one at a time. Full specs on every listing, free US shipping.', 'dawp');
+        $desc = __('Browse every WristUnion watch- Field & Everyday and Heritage models, designed in-house and assembled and tested by hand. Full specs on every listing, free US shipping.', 'dawp');
     } elseif (is_singular()) {
         $desc = wp_strip_all_tags(get_the_excerpt(get_queried_object_id()));
     }
@@ -192,7 +192,7 @@ function dawp_seo_head_tags() {
  * WooCommerce (WC_Structured_Data) emits its own Product + Offer schema on
  * single product pages, so this layer never adds a second Product node. This
  * theme replaces WooCommerce's content hooks, so WC does not emit a
- * BreadcrumbList or a full Organization on product pages — those are added here.
+ * BreadcrumbList or a full Organization on product pages- those are added here.
  */
 add_action('wp_head', 'dawp_seo_json_ld', 20);
 function dawp_seo_json_ld() {

@@ -2,10 +2,10 @@
 /**
  * Product-category URL helpers for WristUnion.
  *
- * The catalog is organised into three shopping categories — Field & Everyday,
- * Dive, and Dress & Heritage (see inc/product-categories.php). These helpers
- * resolve a category slug to its archive URL and are used by 404.php, the
- * homepage category grid, and the About page.
+ * The catalog is organised into two shopping categories- Field & Everyday
+ * and Heritage (see inc/product-categories.php). These helpers resolve a
+ * category slug to its archive URL and are used by 404.php, the homepage
+ * category grid, and the About page.
  *
  * @package dawp
  */
@@ -16,11 +16,10 @@ if (!defined('ABSPATH')) {
 
 function dawp_product_category_slug($slug) {
     $map = [
-        'field'    => 'field-everyday',
-        'everyday' => 'field-everyday',
-        'diver'    => 'dive',
-        'dress'    => 'dress-heritage',
-        'heritage' => 'dress-heritage',
+        'field'          => 'field-everyday',
+        'everyday'       => 'field-everyday',
+        'dress'          => 'heritage',
+        'dress-heritage' => 'heritage',
     ];
 
     return $map[$slug] ?? $slug;

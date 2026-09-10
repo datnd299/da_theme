@@ -1,6 +1,6 @@
 <?php
 /**
- * Billing Terms & Conditions — YourWatchStore. Tailwind utilities only.
+ * Billing Terms & Conditions — RoyalStyled. Tailwind utilities only.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@yourwatchstore.com';
+$support_email = 'support@royalstyled.com';
 $updated       = get_the_modified_date('F j, Y') ?: gmdate('F j, Y');
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 
@@ -17,29 +17,29 @@ $sections = [
     [
         'title' => __('1. About these billing terms', 'dawp'),
         'body'  => [
-            __('These Billing Terms & Conditions explain how YourWatchStore accepts payment, when your payment method is charged, and what happens if a payment fails or is disputed. They apply to every order placed on this website and form part of our Terms & Conditions. By completing checkout you accept the terms on this page.', 'dawp'),
+            __('These Billing Terms & Conditions explain how RoyalStyled accepts payment, when your payment method is charged, and what happens if a payment fails or is disputed. They apply to every order placed on this website and form part of our Terms & Conditions. By completing checkout you accept the terms on this page.', 'dawp'),
             __('If anything here conflicts with our general Terms & Conditions on the subject of payment and billing, the terms on this page apply to that order.', 'dawp'),
         ],
     ],
     [
         'title' => __('2. Merchant of record', 'dawp'),
         'body'  => [
-            __('YourWatchStore is the merchant of record for all purchases made on this website. Your order is sold to you directly by YourWatchStore, and YourWatchStore is responsible for the transaction, customer support, and any refund.', 'dawp'),
-            __('The descriptor that appears on your card or bank statement will read "YourWatchStore" or a close abbreviation of it. If you see a charge you do not recognize, please check for this descriptor before contacting your bank, and email us so we can identify the order for you.', 'dawp'),
+            __('RoyalStyled is the merchant of record for all purchases made on this website. Your order is sold to you directly by RoyalStyled, and RoyalStyled is responsible for the transaction, customer support, and any refund.', 'dawp'),
+            __('The descriptor that appears on your card or bank statement will read "RoyalStyled" or a close abbreviation of it. If you see a charge you do not recognize, please check for this descriptor before contacting your bank, and email us so we can identify the order for you.', 'dawp'),
         ],
     ],
     [
         'title' => __('3. Currency', 'dawp'),
         'body'  => [
             __('All prices on this website are shown and charged in United States Dollars (USD). We do not bill in any other currency.', 'dawp'),
-            __('If you pay with a card issued outside the United States or in another currency, your bank or card network sets the exchange rate and may add a foreign transaction fee. Those charges are set by your bank, not by YourWatchStore, and we cannot refund them.', 'dawp'),
+            __('If you pay with a card issued outside the United States or in another currency, your bank or card network sets the exchange rate and may add a foreign transaction fee. Those charges are set by your bank, not by RoyalStyled, and we cannot refund them.', 'dawp'),
         ],
     ],
     [
         'title' => __('4. Accepted payment methods', 'dawp'),
         'body'  => [
             __('We accept Visa, Mastercard, American Express, and Discover credit and debit cards, and PayPal. Additional wallet options such as Apple Pay or Google Pay may be offered at checkout depending on your device and browser.', 'dawp'),
-            __('We do not accept checks, money orders, bank wire transfers, cash on delivery, cryptocurrency, or store credit from other retailers. Gift cards issued by YourWatchStore, where offered, can be applied at checkout.', 'dawp'),
+            __('We do not accept checks, money orders, bank wire transfers, cash on delivery, cryptocurrency, or store credit from other retailers. Gift cards issued by RoyalStyled, where offered, can be applied at checkout.', 'dawp'),
             __('Only one payment method can be used per order unless a gift card or discount code is combined with a single card or PayPal balance.', 'dawp'),
         ],
     ],
@@ -63,7 +63,7 @@ $sections = [
         'title' => __('7. Billing information and authorization', 'dawp'),
         'body'  => [
             __('You agree to provide a current, complete, and accurate billing name, billing address, and payment details, and to keep them up to date. The billing address you enter must match the address your card issuer has on file.', 'dawp'),
-            __('By submitting payment details you confirm that you are the authorized holder of the payment method or have the account holder\'s permission to use it, and you authorize YourWatchStore and its payment processors to charge the full order total to that method.', 'dawp'),
+            __('By submitting payment details you confirm that you are the authorized holder of the payment method or have the account holder\'s permission to use it, and you authorize RoyalStyled and its payment processors to charge the full order total to that method.', 'dawp'),
             __('Orders where the billing name, billing address, card verification, or IP location cannot be reconciled may be held for review or cancelled.', 'dawp'),
         ],
     ],
@@ -71,7 +71,7 @@ $sections = [
         'title' => __('8. Payment processing and security', 'dawp'),
         'body'  => [
             __('Payments are processed through WooCommerce and PCI-DSS compliant third-party gateways, including our card processor and PayPal, over an encrypted (TLS) connection. Card details are transmitted directly to the payment gateway.', 'dawp'),
-            __('YourWatchStore does not receive or store full card numbers, card expiry dates, or security codes on its own servers. We retain only limited information such as the card brand, the last four digits, and the authorization result, which we use for order support, refunds, and fraud prevention.', 'dawp'),
+            __('RoyalStyled does not receive or store full card numbers, card expiry dates, or security codes on its own servers. We retain only limited information such as the card brand, the last four digits, and the authorization result, which we use for order support, refunds, and fraud prevention.', 'dawp'),
         ],
     ],
     [
@@ -130,7 +130,7 @@ $sections = [
         <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
             <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-blush"><?php esc_html_e('Policies', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl"><?php esc_html_e('Billing Terms & Conditions', 'dawp'); ?></h1>
-            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('How YourWatchStore accepts payment, when your card is charged, and what happens if a payment fails or is disputed.', 'dawp'); ?></p>
+            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('How RoyalStyled accepts payment, when your card is charged, and what happens if a payment fails or is disputed.', 'dawp'); ?></p>
             <p class="mt-3 text-sm text-muted"><?php printf(esc_html__('Last updated: %s', 'dawp'), esc_html($updated)); ?></p>
         </div>
     </section>

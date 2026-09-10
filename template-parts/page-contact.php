@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact page — YourWatchStore. Tailwind utilities only.
+ * Contact page — RoyalStyled. Tailwind utilities only.
  * Form posts to the `dawp_contact` AJAX action (see inc/newsletter.php, assets/js/main.js).
  *
  * @package dawp
@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@yourwatchstore.com';
+$support_email  = 'support@royalstyled.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 $store_address  = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 

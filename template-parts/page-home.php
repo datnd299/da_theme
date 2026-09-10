@@ -1,6 +1,6 @@
 <?php
 /**
- * Homepage — YourWatchStore.
+ * Homepage — RoyalStyled.
  *
  * Premium / minimal / modern. Sections: Hero · Shop by Style · Best Sellers ·
  * New Arrivals · Why Choose Us. Tailwind utilities only; product grids reuse

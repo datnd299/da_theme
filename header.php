@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header — YourWatchStore.
+ * Theme header — RoyalStyled.
  *
  * Premium / minimal / modern. Static announcement bar + sticky nav bar,
  * three-section layout (brand · nav · actions). Tailwind utilities only.
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@yourwatchstore.com';
+$support_email  = 'support@royalstyled.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 $home_url       = home_url('/');
 $shop_url       = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/');
@@ -61,7 +61,7 @@ $nav_links = [
 $store_schema = [
     '@context'    => 'https://schema.org',
     '@type'       => 'OnlineStore',
-    'name'        => 'YourWatchStore',
+    'name'        => 'RoyalStyled',
     'url'         => home_url('/'),
     'description' => __('Mechanical and automatic watches for everyday wear — dive, field, dress, and chronograph timepieces with free US shipping and 30-day returns.', 'dawp'),
     'email'       => $support_email,
@@ -130,8 +130,8 @@ if (!empty($wc_address_1)) {
         <div class="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
 
-                <a href="<?php echo esc_url($home_url); ?>" class="shrink-0" aria-label="<?php esc_attr_e('YourWatchStore home', 'dawp'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" alt="<?php esc_attr_e('YourWatchStore', 'dawp'); ?>" class="h-9 w-auto sm:h-10" width="179" height="100">
+                <a href="<?php echo esc_url($home_url); ?>" class="shrink-0" aria-label="<?php esc_attr_e('RoyalStyled home', 'dawp'); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" alt="<?php esc_attr_e('RoyalStyled', 'dawp'); ?>" class="h-9 w-auto sm:h-10" width="179" height="100">
                 </a>
 
                 <nav class="hidden items-center gap-1 lg:flex" aria-label="<?php esc_attr_e('Main navigation', 'dawp'); ?>">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop By Style — YourWatchStore. Tailwind utilities only.
+ * Shop By Style — RoyalStyled. Tailwind utilities only.
  *
  * @package dawp
  */

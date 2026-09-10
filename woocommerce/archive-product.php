@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop / Archive Product — YourWatchStore.
+ * Shop / Archive Product — RoyalStyled.
  * Structure only (HTML + PHP, no Tailwind). Styles live in assets/css/shop.css.
  */
 defined('ABSPATH') || exit;
@@ -12,7 +12,7 @@ $shop_url     = $shop_page_id > 0 ? get_permalink($shop_page_id) : home_url('/sh
 $archive_term = (is_product_category() || is_product_tag()) ? get_queried_object() : null;
 $archive_title = __('All Watches', 'dawp');
 $archive_description = __('Automatic dive, field, dress, and chronograph watches for everyday wear. Free US shipping and 30-day returns on every order.', 'dawp');
-$archive_eyebrow = __('YourWatchStore Collection', 'dawp');
+$archive_eyebrow = __('RoyalStyled Collection', 'dawp');
 
 if ($archive_term && !is_wp_error($archive_term)) {
     $archive_title = $archive_term->name;

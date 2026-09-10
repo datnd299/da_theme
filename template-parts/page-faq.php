@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQ page — YourWatchStore. Tailwind utilities only.
+ * FAQ page — RoyalStyled. Tailwind utilities only.
  * Questions/answers come from dawp_get_faq_items() (shared with JSON-LD).
  *
  * @package dawp
@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@yourwatchstore.com';
+$support_email  = 'support@royalstyled.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 $faq_items      = function_exists('dawp_get_faq_items') ? dawp_get_faq_items() : [];
 

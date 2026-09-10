@@ -1,6 +1,6 @@
 <?php
 /**
- * About page — YourWatchStore. Tailwind utilities only.
+ * About page — RoyalStyled. Tailwind utilities only.
  *
  * @package dawp
  */
@@ -14,7 +14,7 @@ if (!$shop_url) {
     $shop_url = home_url('/shop/');
 }
 
-$support_email  = 'support@yourwatchstore.com';
+$support_email  = 'support@royalstyled.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 
 $dawp_cat_url = static function ($slug) use ($shop_url) {
@@ -58,7 +58,7 @@ $categories = [
         <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
             <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-blush"><?php esc_html_e('About', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl"><?php esc_html_e('Mechanical watches, chosen for everyday wear.', 'dawp'); ?></h1>
-            <p class="mt-5 text-lg leading-8 text-foreground-muted"><?php esc_html_e('YourWatchStore is an online watch shop built around a simple idea: an automatic watch should be something you actually wear, not something you keep in a drawer.', 'dawp'); ?></p>
+            <p class="mt-5 text-lg leading-8 text-foreground-muted"><?php esc_html_e('RoyalStyled is an online watch shop built around a simple idea: an automatic watch should be something you actually wear, not something you keep in a drawer.', 'dawp'); ?></p>
         </div>
     </section>
 

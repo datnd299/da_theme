@@ -1,6 +1,6 @@
 <?php
 /**
- * Terms & Conditions — YourWatchStore. Tailwind utilities only.
+ * Terms & Conditions — RoyalStyled. Tailwind utilities only.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@yourwatchstore.com';
+$support_email = 'support@royalstyled.com';
 $updated       = get_the_modified_date('F j, Y') ?: gmdate('F j, Y');
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 
@@ -17,7 +17,7 @@ $sections = [
     [
         'title' => __('1. Overview', 'dawp'),
         'body'  => [
-            __('This website is operated by YourWatchStore. By visiting the site or placing an order, you agree to these Terms & Conditions and to our Privacy Policy, Shipping Policy, and Refund & Return Policy, which are incorporated here by reference.', 'dawp'),
+            __('This website is operated by RoyalStyled. By visiting the site or placing an order, you agree to these Terms & Conditions and to our Privacy Policy, Shipping Policy, and Refund & Return Policy, which are incorporated here by reference.', 'dawp'),
             __('We may update these terms at any time. The version published on this page at the time of your order applies to that order.', 'dawp'),
         ],
     ],
@@ -84,14 +84,14 @@ $sections = [
     [
         'title' => __('11. Intellectual property', 'dawp'),
         'body'  => [
-            __('Site content, including text, layout, graphics, and product photography prepared by us, is owned by YourWatchStore or its licensors and is protected by copyright and other laws. You may view and print content for your own personal, non-commercial use only, and may not reproduce, distribute, or create derivative works without written permission.', 'dawp'),
+            __('Site content, including text, layout, graphics, and product photography prepared by us, is owned by RoyalStyled or its licensors and is protected by copyright and other laws. You may view and print content for your own personal, non-commercial use only, and may not reproduce, distribute, or create derivative works without written permission.', 'dawp'),
             __('Brand names, model names, and trademarks of watch manufacturers belong to their respective owners and are used only to describe the products we sell.', 'dawp'),
         ],
     ],
     [
         'title' => __('12. Reviews and submissions', 'dawp'),
         'body'  => [
-            __('If you submit a review, comment, photo, or other content, you confirm it is your own, is accurate, and does not break the law or infringe anyone\'s rights. You grant YourWatchStore a non-exclusive, royalty-free, worldwide license to use, display, and reproduce that content in connection with the store. We may edit or remove submissions that are abusive, misleading, or off-topic.', 'dawp'),
+            __('If you submit a review, comment, photo, or other content, you confirm it is your own, is accurate, and does not break the law or infringe anyone\'s rights. You grant RoyalStyled a non-exclusive, royalty-free, worldwide license to use, display, and reproduce that content in connection with the store. We may edit or remove submissions that are abusive, misleading, or off-topic.', 'dawp'),
         ],
     ],
     [
@@ -109,14 +109,14 @@ $sections = [
     [
         'title' => __('15. Limitation of liability', 'dawp'),
         'body'  => [
-            __('To the extent permitted by law, YourWatchStore is not liable for indirect, incidental, special, or consequential losses, or for lost profits or data, arising from use of the site or a product. Our total liability for any claim connected to an order is limited to the amount you paid for that order.', 'dawp'),
+            __('To the extent permitted by law, RoyalStyled is not liable for indirect, incidental, special, or consequential losses, or for lost profits or data, arising from use of the site or a product. Our total liability for any claim connected to an order is limited to the amount you paid for that order.', 'dawp'),
             __('Nothing in these terms limits liability for fraud, for death or personal injury caused by negligence, or for anything that cannot be limited under applicable law.', 'dawp'),
         ],
     ],
     [
         'title' => __('16. Indemnification', 'dawp'),
         'body'  => [
-            __('You agree to indemnify and hold harmless YourWatchStore and its staff and suppliers from claims, losses, and reasonable legal costs arising from your misuse of the site, your breach of these terms, or your violation of any law or third-party right.', 'dawp'),
+            __('You agree to indemnify and hold harmless RoyalStyled and its staff and suppliers from claims, losses, and reasonable legal costs arising from your misuse of the site, your breach of these terms, or your violation of any law or third-party right.', 'dawp'),
         ],
     ],
     [
@@ -142,7 +142,7 @@ $sections = [
         'title' => __('20. Changes and general terms', 'dawp'),
         'body'  => [
             __('We may update these terms at any time; the version published when you place an order applies to that order. If a provision is found unenforceable, the rest of the terms stay in force. Our failure to enforce a provision is not a waiver of it. You may not assign your rights under these terms without our consent; we may assign ours to a successor of the business.', 'dawp'),
-            __('These terms, together with the Privacy Policy, Shipping Policy, Refund & Return Policy, and Billing Terms & Conditions, are the entire agreement between you and YourWatchStore about your use of the site and your orders.', 'dawp'),
+            __('These terms, together with the Privacy Policy, Shipping Policy, Refund & Return Policy, and Billing Terms & Conditions, are the entire agreement between you and RoyalStyled about your use of the site and your orders.', 'dawp'),
         ],
     ],
     [
@@ -159,7 +159,7 @@ $sections = [
         <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
             <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-blush"><?php esc_html_e('Policies', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></h1>
-            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('The terms that apply when you use this website and place an order with YourWatchStore.', 'dawp'); ?></p>
+            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('The terms that apply when you use this website and place an order with RoyalStyled.', 'dawp'); ?></p>
             <p class="mt-3 text-sm text-muted"><?php printf(esc_html__('Last updated: %s', 'dawp'), esc_html($updated)); ?></p>
         </div>
     </section>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Track Order — YourWatchStore. Tailwind utilities only (form chrome in main.css).
+ * Track Order — RoyalStyled. Tailwind utilities only (form chrome in main.css).
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@yourwatchstore.com';
+$support_email  = 'support@royalstyled.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 
 $steps = [

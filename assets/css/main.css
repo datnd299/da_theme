@@ -1,5 +1,5 @@
 /* =============================================================
-   main.css - YourWatchStore Design System
+   main.css - RoyalStyled Design System
    Pure CSS only. All values reference CSS variables.
    No @apply, no hardcoded colors, no !important.
    ============================================================= */
@@ -970,7 +970,7 @@ body.dawp-cart-open .dawp-cart-fab {
 /* =============================================================
    HOMEPAGE PRODUCT GRIDS
    Reuses the shop `.product-card` component (shop.css) but keeps
-   the YourWatchStore palette instead of the shop wrapper's own.
+   the RoyalStyled palette instead of the shop wrapper's own.
    ============================================================= */
 
 .home-product-loop.shop-page {

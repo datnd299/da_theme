@@ -1,6 +1,6 @@
 <?php
 /**
- * Shipping Policy — YourWatchStore. Tailwind utilities only.
+ * Shipping Policy — RoyalStyled. Tailwind utilities only.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@yourwatchstore.com';
+$support_email  = 'support@royalstyled.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 $updated        = get_the_modified_date('F j, Y') ?: gmdate('F j, Y');
 $store_address  = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
@@ -18,7 +18,7 @@ $sections = [
     [
         'title' => __('Where we ship', 'dawp'),
         'body'  => [
-            __('YourWatchStore ships to addresses within the United States only, including APO/FPO addresses where the carrier allows it. We do not currently ship internationally.', 'dawp'),
+            __('RoyalStyled ships to addresses within the United States only, including APO/FPO addresses where the carrier allows it. We do not currently ship internationally.', 'dawp'),
             __('If an address cannot be served by our carriers, you will be notified before payment is taken or, if discovered afterward, contacted for an updated address or a full refund.', 'dawp'),
         ],
     ],

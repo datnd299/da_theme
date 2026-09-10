@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* === COLORS — Backgrounds (YourWatchStore — premium / minimal / modern) === */
+  /* === COLORS — Backgrounds (RoyalStyled — premium / minimal / modern) === */
   --color-background:  #FFFFFF;   /* Page background */
   --color-surface:     #FFFFFF;   /* Cards / panels — edges carried by borders */
   --color-surface-alt: #F7F7F5;   /* Light BG — image wells, alt sections */

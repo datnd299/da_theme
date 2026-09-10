@@ -82,7 +82,7 @@ function dawp_seed_product_categories() {
     }
 
     $seeded_version = get_option('dawp_seeded_product_categories_version');
-    $target_version = '2026-08-29-yourwatchstore';
+    $target_version = '2026-08-29-royalstyled';
 
     if ($seeded_version === $target_version) {
         return;

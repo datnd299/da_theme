@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme footer — YourWatchStore.
+ * Theme footer — RoyalStyled.
  *
  * Mast-headed footer with a commerce sitemap link block. Tailwind utilities only.
  * Business address is pulled from WooCommerce > Settings > General > Store Address.
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@yourwatchstore.com';
+$support_email  = 'support@royalstyled.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 $theme_img_uri  = get_template_directory_uri() . '/assets/img';
 
@@ -107,8 +107,8 @@ $payment_methods = [
 
         <div class="flex flex-col gap-8 border-b border-border pb-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block" aria-label="<?php esc_attr_e('YourWatchStore home', 'dawp'); ?>">
-                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" alt="<?php esc_attr_e('YourWatchStore', 'dawp'); ?>" class="h-10 w-auto" width="179" height="100">
+                <a href="<?php echo esc_url(home_url('/')); ?>" class="inline-block" aria-label="<?php esc_attr_e('RoyalStyled home', 'dawp'); ?>">
+                    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/logo.png'); ?>" alt="<?php esc_attr_e('RoyalStyled', 'dawp'); ?>" class="h-10 w-auto" width="179" height="100">
                 </a>
                 <p class="mt-3 max-w-sm text-sm leading-6 text-foreground-muted">
                     <?php esc_html_e('Mechanical watches for every day. Automatic dive, field, dress, and chronograph timepieces designed for everyday wear.', 'dawp'); ?>
@@ -156,8 +156,8 @@ $payment_methods = [
         </div>
 
         <div class="flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted lg:flex-row lg:items-center lg:justify-between">
-            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> <?php esc_html_e('YourWatchStore. All rights reserved.', 'dawp'); ?></p>
-            <p><?php esc_html_e('yourwatchstore.com', 'dawp'); ?></p>
+            <p>&copy; <?php echo esc_html(gmdate('Y')); ?> <?php esc_html_e('RoyalStyled. All rights reserved.', 'dawp'); ?></p>
+            <p><?php esc_html_e('royalstyled.com', 'dawp'); ?></p>
         </div>
     </div>
 </footer>

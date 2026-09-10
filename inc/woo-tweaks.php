@@ -124,7 +124,7 @@ function dawp_single_product_pride_banner() {
             <span>&#9673;</span>
         </div>
         <div class="dawp-pride-banner__content">
-            <p><?php esc_html_e('YourWatchStore Collection', 'dawp'); ?></p>
+            <p><?php esc_html_e('RoyalStyled Collection', 'dawp'); ?></p>
             <h2><?php esc_html_e('Mechanical watches for every day.', 'dawp'); ?></h2>
             <small><?php esc_html_e('Automatic dive, field, dress, and chronograph watches, inspected before they ship.', 'dawp'); ?></small>
         </div>

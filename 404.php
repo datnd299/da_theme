@@ -1,6 +1,6 @@
 <?php
 /**
- * 404 Not Found — YourWatchStore. Tailwind utilities only.
+ * 404 Not Found — RoyalStyled. Tailwind utilities only.
  */
 get_header();
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Refund & Return Policy — YourWatchStore. Tailwind utilities only.
+ * Refund & Return Policy — RoyalStyled. Tailwind utilities only.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email  = 'support@yourwatchstore.com';
+$support_email  = 'support@royalstyled.com';
 $business_hours = __('Monday - Friday, 9:00 AM - 5:00 PM EST', 'dawp');
 $updated        = get_the_modified_date('F j, Y') ?: gmdate('F j, Y');
 
@@ -38,7 +38,7 @@ $sections = [
     [
         'title' => __('Return shipping costs', 'dawp'),
         'body'  => [
-            __('For a watch that is defective, damaged, incorrect, or damaged by the carrier, YourWatchStore covers return shipping and provides a prepaid label by email.', 'dawp'),
+            __('For a watch that is defective, damaged, incorrect, or damaged by the carrier, RoyalStyled covers return shipping and provides a prepaid label by email.', 'dawp'),
             __('For change-of-mind returns, the customer is responsible for return shipping. If we provide a label, its cost may be deducted from the refund. We recommend a tracked, insured service; we cannot refund an item that does not reach us or that is lost on the way back.', 'dawp'),
             __('There is no restocking fee for returns that arrive complete and in eligible condition.', 'dawp'),
         ],

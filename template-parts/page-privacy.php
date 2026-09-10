@@ -1,6 +1,6 @@
 <?php
 /**
- * Privacy Policy — YourWatchStore. Tailwind utilities only.
+ * Privacy Policy — RoyalStyled. Tailwind utilities only.
  *
  * @package dawp
  */
@@ -9,7 +9,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-$support_email = 'support@yourwatchstore.com';
+$support_email = 'support@royalstyled.com';
 $updated       = get_the_modified_date('F j, Y') ?: gmdate('F j, Y');
 $store_address = function_exists('dawp_get_woocommerce_store_address') ? dawp_get_woocommerce_store_address() : '';
 
@@ -17,7 +17,7 @@ $sections = [
     [
         'title' => __('Who we are', 'dawp'),
         'body'  => [
-            __('YourWatchStore operates this website and is the data controller for personal information collected through it. This policy explains what we collect, why, how we protect it, and the choices you have.', 'dawp'),
+            __('RoyalStyled operates this website and is the data controller for personal information collected through it. This policy explains what we collect, why, how we protect it, and the choices you have.', 'dawp'),
         ],
     ],
     [
@@ -129,7 +129,7 @@ $sections = [
         <div class="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
             <p class="text-xs font-bold uppercase tracking-[0.16em] text-accent-blush"><?php esc_html_e('Policies', 'dawp'); ?></p>
             <h1 class="mt-4 font-heading text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-5xl"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
-            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('How YourWatchStore collects, uses, and protects your personal information.', 'dawp'); ?></p>
+            <p class="mt-5 text-base leading-7 text-foreground-muted"><?php esc_html_e('How RoyalStyled collects, uses, and protects your personal information.', 'dawp'); ?></p>
             <p class="mt-3 text-sm text-muted"><?php printf(esc_html__('Last updated: %s', 'dawp'), esc_html($updated)); ?></p>
         </div>
     </section>

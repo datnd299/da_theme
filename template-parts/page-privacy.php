@@ -79,7 +79,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         <p class="qb-eyebrow"><?php esc_html_e('Privacy Policy', 'dawp'); ?></p>
         <h1 class="qb-title"><?php esc_html_e('Privacy Policy', 'dawp'); ?></h1>
         <p class="qb-updated"><?php esc_html_e('Last Updated: May 28, 2026', 'dawp'); ?></p>
-        <p class="qb-copy"><?php esc_html_e("How Corvelshop collects, uses, and protects your information.", 'dawp'); ?></p>
+        <p class="qb-copy"><?php esc_html_e("How Corvel collects, uses, and protects your information.", 'dawp'); ?></p>
         <div class="qb-actions">
           <a class="qb-button" href="<?php echo esc_url(home_url('/contact-us/')); ?>"><?php esc_html_e('Contact Support', 'dawp'); ?></a>
           <a class="qb-button qb-button--secondary" href="<?php echo esc_url(home_url('/terms-conditions/')); ?>"><?php esc_html_e('Terms & Conditions', 'dawp'); ?></a>
@@ -196,7 +196,7 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
         </section>
 
         <section id="messaging" class="qb-policy-card">
-          <p class="qb-eyebrow"><?php esc_html_e('Corvelshop Messaging Terms and Conditions', 'dawp'); ?></p>
+          <p class="qb-eyebrow"><?php esc_html_e('Corvel Messaging Terms and Conditions', 'dawp'); ?></p>
           <h2><?php esc_html_e('These terms apply if you opt in to SMS messaging.', 'dawp'); ?></h2>
           <p><?php esc_html_e('Review the program details, opt-out instructions, support options, carrier limits, and message rate information before subscribing.', 'dawp'); ?></p>
           <div class="qb-policy-section">
@@ -253,12 +253,12 @@ $store_address = function_exists('dawp_get_store_address_line') ? dawp_get_store
 
         <section id="contact-info" class="qb-policy-card">
           <p class="qb-eyebrow"><?php esc_html_e('Contact Us', 'dawp'); ?></p>
-          <h2><?php esc_html_e('Contact Corvelshop about this Privacy Policy.', 'dawp'); ?></h2>
+          <h2><?php esc_html_e('Contact Corvel about this Privacy Policy.', 'dawp'); ?></h2>
           <p><?php esc_html_e('If you have any questions about this Privacy Policy or your personal data, please contact us:', 'dawp'); ?></p>
           <div class="qb-contact-card">
             <div class="qb-contact-item">
               <strong><?php esc_html_e('Store Name', 'dawp'); ?></strong>
-              <span><?php esc_html_e('Corvelshop', 'dawp'); ?></span>
+              <span><?php esc_html_e('Corvel', 'dawp'); ?></span>
             </div>
             <?php if ($store_address) : ?>
               <div class="qb-contact-item">

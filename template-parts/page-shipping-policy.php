@@ -5,7 +5,7 @@
  * @package dawp
  */
 
-$store_name     = "Corvelshop";
+$store_name     = "Corvel";
 $support_email  = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
 $store_address  = function_exists('dawp_get_store_address_line') ? dawp_get_store_address_line() : '';
 $support_portal = home_url('/contact-us/');
@@ -116,7 +116,7 @@ $support_portal = home_url('/contact-us/');
       <div class="qb-policy-stack">
         <section id="shipping-locations" class="qb-policy-card">
           <h2><?php esc_html_e('Shipping Locations & Market', 'dawp'); ?></h2>
-          <p><?php esc_html_e("We currently ship exclusively within the United States. Corvelshop serves customers shopping from the United States domestic market.", 'dawp'); ?></p>
+          <p><?php esc_html_e("We currently ship exclusively within the United States. Corvel serves customers shopping from the United States domestic market.", 'dawp'); ?></p>
           <p><?php esc_html_e('If a product, destination, or carrier limitation prevents delivery to your specific address, the order will not be available for that location, and you will be notified immediately at checkout before any payment is processed.', 'dawp'); ?></p>
           <div class="qb-callout">
             <p><?php esc_html_e('Some watch orders may ship separately if items are prepared from different fulfillment batches or require distinct specialized packing methods to ensure safe transit.', 'dawp'); ?></p>
@@ -170,7 +170,7 @@ $support_portal = home_url('/contact-us/');
 
         <section id="tracking" class="qb-policy-card">
           <h2><?php esc_html_e('Carrier Services & Delivery Tracking', 'dawp'); ?></h2>
-          <p><?php esc_html_e("To guarantee safe and efficient delivery, Corvelshop partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.", 'dawp'); ?></p>
+          <p><?php esc_html_e("To guarantee safe and efficient delivery, Corvel partners with trusted domestic U.S. carriers. Orders are shipped using USPS, UPS, FedEx, or DHL.", 'dawp'); ?></p>
           <ul class="qb-carrier-list">
             <li><?php esc_html_e('USPS', 'dawp'); ?></li>
             <li><?php esc_html_e('UPS', 'dawp'); ?></li>

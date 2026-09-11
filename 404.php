@@ -36,6 +36,7 @@ if (!function_exists('qb_404_products')) {
 
 $shop_url = qb_404_shop_url();
 $quick_links = function_exists('qb_get_live_product_categories') ? qb_get_live_product_categories(['number' => 5]) : [];
+$collections = function_exists('qb_theme_collections') ? qb_theme_collections() : [];
 $products    = qb_404_products(3);
 
 get_header();
@@ -262,7 +263,7 @@ get_header();
       <p class="qb-404__eyebrow"><?php esc_html_e('Page Not Found', 'dawp'); ?></p>
       <h1 id="qb-404-title" class="qb-404__title"><?php esc_html_e('This watch page slipped away.', 'dawp'); ?></h1>
       <p class="qb-404__copy">
-        <?php esc_html_e('The page you requested is not available. You can return to Corvelshop, browse current watches, or continue shopping recent products.', 'dawp'); ?>
+        <?php esc_html_e('The page you requested is not available. You can return to Corvel, browse current automatic watches, or continue shopping recent products.', 'dawp'); ?>
       </p>
 
       <div class="qb-404__actions">
@@ -282,6 +283,16 @@ get_header();
         <nav class="qb-404__links" aria-label="<?php esc_attr_e('Product categories', 'dawp'); ?>">
           <?php foreach ($quick_links as $category) : ?>
             <a href="<?php echo esc_url(function_exists('qb_product_term_url') ? qb_product_term_url($category) : get_term_link($category)); ?>"><?php echo esc_html($category->name); ?></a>
+          <?php endforeach; ?>
+        </nav>
+      </div>
+      <?php elseif (!empty($collections)) : ?>
+      <div class="qb-404__panel">
+        <h2 class="qb-404__panel-title"><?php esc_html_e('Browse Collections', 'dawp'); ?></h2>
+        <nav class="qb-404__links" aria-label="<?php esc_attr_e('Collections', 'dawp'); ?>">
+          <a href="<?php echo esc_url($shop_url); ?>"><?php esc_html_e('All Watches', 'dawp'); ?></a>
+          <?php foreach ($collections as $collection) : ?>
+            <a href="<?php echo esc_url(home_url('/collections/')); ?>"><?php echo esc_html($collection['name']); ?></a>
           <?php endforeach; ?>
         </nav>
       </div>

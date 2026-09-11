@@ -1,6 +1,6 @@
 <?php
 /**
- * SEO + structured data for Corvelshop.
+ * SEO + structured data for Corvel.
  *
  * No SEO plugin (Rank Math / Yoast) is active on this site, so the theme is
  * responsible for:
@@ -18,17 +18,17 @@
 defined('ABSPATH') || exit;
 
 /**
- * Storefront brand name. The whole theme is hard-branded "Corvelshop"
+ * Storefront brand name. The whole theme is hard-branded "Corvel"
  * (header, footer, policy copy), so this stays independent of the WordPress
  * Site Title option, which on this install still holds a leftover value.
  * Filterable for reuse on other stores.
  */
 function dawp_brand_name() {
-    return apply_filters('dawp_brand_name', 'Corvelshop');
+    return apply_filters('dawp_brand_name', 'Corvel');
 }
 
 /**
- * Primary market country (ISO 3166-1 alpha-2). Corvelshop ships U.S.-only per
+ * Primary market country (ISO 3166-1 alpha-2). Corvel ships U.S.-only per
  * every policy page, so structured data / shipping data key off this rather
  * than the WooCommerce base-country option. Filterable.
  */
@@ -42,7 +42,7 @@ function dawp_store_country() {
 function dawp_default_description() {
     return apply_filters(
         'dawp_default_description',
-        'Corvelshop is a modern watch destination offering refined timepieces and watch accessories built for precision with presence.'
+        'Corvel designs modern automatic mechanical watches - self-winding movements, refined finishing, and clean presentation. Precision with presence.'
     );
 }
 
@@ -55,39 +55,47 @@ function dawp_get_virtual_seo() {
     $map = [
         'about-us' => [
             'title'       => 'About Us',
-            'description' => 'Corvelshop is a modern watch destination offering refined timepieces and watch accessories for everyday confidence.',
+            'description' => 'Corvel is an independent watch brand designing its own modern automatic mechanical watches across three house collections: Foundry, Frontier, and Prestige.',
+        ],
+        'collections' => [
+            'title'       => 'Collections',
+            'description' => 'Explore the three Corvel house collections - Foundry, Frontier, and Prestige - each built around a mechanical automatic movement and a distinct case character.',
+        ],
+        'warranty' => [
+            'title'       => '2-Year Warranty',
+            'description' => 'Every Corvel mechanical watch is covered by a 2-Year Limited Warranty against defects in the movement and in materials and workmanship, for the original purchaser in the United States.',
         ],
         'faq' => [
             'title'       => 'FAQ',
-            'description' => 'Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at Corvelshop.',
+            'description' => 'Find answers to common questions about orders, shipping, returns, refunds, watch details, and support at Corvel.',
         ],
         'contact-us' => [
             'title'       => 'Contact Us',
-            'description' => 'Contact Corvelshop for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.',
+            'description' => 'Contact Corvel for help with orders, returns, or product inquiries. Customer service hours: Monday-Friday, 9:00 AM-6:00 PM PST.',
         ],
         'shipping-policy' => [
             'title'       => 'Shipping Policy',
-            'description' => 'Corvelshop shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
+            'description' => 'Corvel shipping policy: U.S. delivery, 5:00 PM PST cutoff, 1-3 business day handling, 5-7 business day transit, free standard shipping, and tracking support.',
         ],
         'return-refund-policy' => [
             'title'       => 'Return & Refund Policy',
-            'description' => 'Corvelshop return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
+            'description' => 'Corvel return and refund policy: 30-day return window, return by mail, no restocking fee, and refunds to the original payment method within 7 business days.',
         ],
         'shipping-returns' => [
             'title'       => 'Shipping & Returns',
-            'description' => 'Choose the Corvelshop Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
+            'description' => 'Choose the Corvel Shipping Policy or Return & Refund Policy for clear delivery, return, and refund details.',
         ],
         'terms-conditions' => [
             'title'       => 'Terms & Conditions',
-            'description' => 'Read the terms and conditions for shopping at Corvelshop, including purchase policies and site use guidelines.',
+            'description' => 'Read the terms and conditions for shopping at Corvel, including purchase policies and site use guidelines.',
         ],
         'privacy-policy' => [
             'title'       => 'Privacy Policy',
-            'description' => 'Learn how Corvelshop collects, uses, and protects your personal information when you shop with us.',
+            'description' => 'Learn how Corvel collects, uses, and protects your personal information when you shop with us.',
         ],
         'track-order' => [
             'title'       => 'Track Your Order',
-            'description' => 'Track your Corvelshop order status. Enter your order number and email to check your delivery progress.',
+            'description' => 'Track your Corvel order status. Enter your order number and email to check your delivery progress.',
         ],
     ];
 
@@ -100,6 +108,13 @@ function dawp_get_virtual_seo() {
 
 add_filter('document_title_parts', 'dawp_document_title_parts');
 function dawp_document_title_parts($parts) {
+    // Force the brand name in the title suffix. The WordPress Site Title option
+    // on this install still holds a leftover value, and per project scope we do
+    // not change site settings - so override it here (title tag only).
+    if (!empty($parts['site'])) {
+        $parts['site'] = dawp_brand_name();
+    }
+
     $virtual = dawp_get_virtual_seo();
 
     if ($virtual) {
@@ -110,7 +125,7 @@ function dawp_document_title_parts($parts) {
 
     if (is_front_page()) {
         $parts['title']   = dawp_brand_name();
-        $parts['tagline'] = 'Modern Luxury Watches';
+        $parts['tagline'] = 'Automatic Mechanical Watches';
         return $parts;
     }
 
@@ -154,12 +169,12 @@ function dawp_current_description() {
             if ($text) {
                 return wp_trim_words($text, 32, '');
             }
-            return sprintf('Shop the %s at Corvelshop — modern luxury watches built for precision with presence.', $product->get_name());
+            return sprintf('Shop the %s at Corvel - a modern automatic mechanical watch built for precision with presence.', $product->get_name());
         }
     }
 
     if (function_exists('is_shop') && is_shop()) {
-        return 'Shop modern luxury watches at Corvelshop — refined materials, clean presentation, and precise product detail.';
+        return 'Shop modern automatic mechanical watches at Corvel - self-winding movements, refined materials, and precise product detail.';
     }
 
     if (is_product_category() || is_product_tag()) {
@@ -168,7 +183,7 @@ function dawp_current_description() {
             return wp_trim_words(wp_strip_all_tags($term->description), 32, '');
         }
         if ($term && !is_wp_error($term)) {
-            return sprintf('Browse %s at Corvelshop — modern luxury watches with confident form and refined presence.', $term->name);
+            return sprintf('Browse %s at Corvel - modern automatic mechanical watches with confident form and refined presence.', $term->name);
         }
     }
 
@@ -238,12 +253,12 @@ function dawp_head_meta() {
     }
 
     if (!$image) {
-        $image = get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png';
+        $image = get_template_directory_uri() . '/assets/images/home/logo_corvel.png';
     }
 
     $title = wp_get_document_title();
 
-    echo "\n<!-- Corvelshop SEO -->\n";
+    echo "\n<!-- Corvel SEO -->\n";
 
     if ($description) {
         printf('<meta name="description" content="%s">' . "\n", esc_attr($description));
@@ -279,7 +294,7 @@ function dawp_head_meta() {
         printf('<meta name="twitter:image" content="%s">' . "\n", esc_url($image));
     }
 
-    echo "<!-- /Corvelshop SEO -->\n\n";
+    echo "<!-- /Corvel SEO -->\n\n";
 }
 
 // WordPress core only prints rel=canonical for singular views with a real
@@ -304,7 +319,7 @@ function dawp_org_website_schema() {
 
     $brand = dawp_brand_name();
     $home  = home_url('/');
-    $logo  = get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png';
+    $logo  = get_template_directory_uri() . '/assets/images/home/logo_corvel.png';
     $email = function_exists('dawp_contact_support_email') ? dawp_contact_support_email() : 'support@corvelshop.com';
 
     $organization = [
@@ -410,7 +425,7 @@ function dawp_schema_postal_address() {
 
 /**
  * Brand for a product: WooCommerce Brands taxonomy → a "brand" attribute →
- * the storefront name (Corvelshop is sold as its own house brand).
+ * the storefront name (Corvel is sold as its own house brand).
  */
 function dawp_get_product_brand($product) {
     if (!$product instanceof WC_Product) {
@@ -508,6 +523,22 @@ function dawp_structured_data_product($markup, $product) {
     return $markup;
 }
 
+/**
+ * Warranty node mirroring template-parts/page-warranty.php
+ * (2-year limited warranty, parts and labor, on every Corvel mechanical watch).
+ */
+function dawp_offer_warranty_promise() {
+    return [
+        '@type'              => 'WarrantyPromise',
+        'durationOfWarranty' => [
+            '@type'    => 'QuantitativeValue',
+            'value'    => 2,
+            'unitCode' => 'ANN',
+        ],
+        'warrantyScope'      => 'https://schema.org/PartsAndLabor',
+    ];
+}
+
 add_filter('woocommerce_structured_data_product_offer', 'dawp_structured_data_product_offer', 20, 2);
 function dawp_structured_data_product_offer($offer, $product) {
     if (empty($offer) || !is_array($offer)) {
@@ -517,6 +548,7 @@ function dawp_structured_data_product_offer($offer, $product) {
     $offer['itemCondition']           = 'https://schema.org/NewCondition';
     $offer['hasMerchantReturnPolicy'] = dawp_merchant_return_policy();
     $offer['shippingDetails']         = dawp_offer_shipping_details();
+    $offer['warranty']                = dawp_offer_warranty_promise();
 
     return $offer;
 }

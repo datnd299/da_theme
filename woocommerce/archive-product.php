@@ -1,6 +1,6 @@
 <?php
 /**
- * Shop and product category archive template for Corvelshop.
+ * Shop and product category archive template for Corvel.
  *
  * @package dawp
  */
@@ -23,17 +23,17 @@ if ($category_data) {
 } elseif ($is_category && $queried_term && !is_wp_error($queried_term)) {
     $page_title  = $queried_term->name;
     $headline    = $queried_term->name;
-    $description = $queried_term->description ?: 'Browse modern watch styles selected for confident form, refined materials, and everyday presence.';
-    $intro       = 'Review case, strap, movement, size, finish, and care details on each product page before ordering.';
+    $description = $queried_term->description ?: 'Browse Corvel automatic mechanical watches designed around confident form, refined materials, and everyday presence.';
+    $intro       = 'Review movement, case, crystal, size, water resistance, and care details on each product page before ordering.';
     $hero_image  = '';
-    $highlights  = ['Modern luxury watches', 'Refined materials', 'Clear product details'];
+    $highlights  = ['Automatic movement', 'Refined materials', '2-year warranty'];
 } else {
     $page_title  = 'All Watches';
-    $headline    = 'Modern watches with confident form and refined presence.';
-    $description = 'Discover modern luxury watches with clean presentation, considered materials, and precise product detail.';
-    $intro       = 'Shop the Corvelshop watch edit built around proportion, texture, and daily presence.';
+    $headline    = 'Automatic mechanical watches with confident form and refined presence.';
+    $description = 'Every Corvel runs on a self-winding automatic movement. Foundry for every day, Frontier for the field, Prestige for the dress tier.';
+    $intro       = 'Shop Corvel house designs, built around the movement, the proportion, and daily presence.';
     $hero_image  = qb_theme_asset_image_url('corvel-watch-editorial.png');
-    $highlights  = ['Modern luxury watches', 'Precise presentation', 'Secure checkout'];
+    $highlights  = ['Automatic movement', 'Self-winding, no battery', '2-year warranty'];
 }
 
 if (!$hero_image && function_exists('wc_placeholder_img_src')) {
@@ -61,7 +61,7 @@ get_header();
                     <?php endif; ?>
                 </nav>
 
-                <p class="shop-eyebrow"><?php esc_html_e('Corvelshop Collection', 'dawp'); ?></p>
+                <p class="shop-eyebrow"><?php esc_html_e('Corvel Watches', 'dawp'); ?></p>
                 <h1 class="shop-hero__title"><?php echo esc_html($headline); ?></h1>
                 <p class="shop-hero__copy"><?php echo esc_html($description); ?></p>
                 <p class="shop-hero__intro"><?php echo esc_html($intro); ?></p>
@@ -133,13 +133,22 @@ get_header();
                 </div>
 
                 <div class="shop-sidebar__widget">
-                    <h3 class="shop-sidebar__title"><?php esc_html_e('Watch Categories', 'dawp'); ?></h3>
+                    <h3 class="shop-sidebar__title"><?php esc_html_e('Collections', 'dawp'); ?></h3>
                     <ul class="shop-sidebar__categories">
                         <li>
                             <a href="<?php echo esc_url($shop_url); ?>" <?php echo !$is_category ? 'aria-current="page"' : ''; ?>>
                                 <span><?php esc_html_e('All Watches', 'dawp'); ?></span>
                             </a>
                         </li>
+                        <?php if (function_exists('qb_theme_collections')) : ?>
+                            <?php foreach (qb_theme_collections() as $collection) : ?>
+                                <li>
+                                    <a href="<?php echo esc_url(home_url('/collections/')); ?>">
+                                        <span><?php echo esc_html($collection['name']); ?></span>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                         <?php foreach ($live_categories as $category) : ?>
                             <?php
                             $count = (int) $category->count;
@@ -193,12 +202,12 @@ get_header();
 
         <section class="shop-care">
             <div>
-                <h2><?php esc_html_e('Material, Size & Care Details', 'dawp'); ?></h2>
-                <p><?php esc_html_e('Corvelshop product pages should include available material or finish notes, case size, strap information, movement details where available, and simple watch care guidance.', 'dawp'); ?></p>
+                <h2><?php esc_html_e('Movement, Size & Care Details', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Corvel product pages should include the movement type (automatic / self-winding), case size, crystal, water resistance, strap information, and simple mechanical-watch care guidance.', 'dawp'); ?></p>
             </div>
             <div>
-                <h2><?php esc_html_e('Modern Watch Shopping', 'dawp'); ?></h2>
-                <p><?php esc_html_e('The collection is positioned around modern luxury watch ecommerce without fake luxury, replica, designer-inspired, or unsupported performance claims.', 'dawp'); ?></p>
+                <h2><?php esc_html_e('Warranty & Honest Claims', 'dawp'); ?></h2>
+                <p><?php esc_html_e('Every Corvel mechanical watch carries a 2-year limited warranty. We do not use replica, designer-inspired, chronometer-certified, or unsupported accuracy claims.', 'dawp'); ?></p>
             </div>
         </section>
     </div>

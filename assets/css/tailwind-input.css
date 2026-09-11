@@ -2,34 +2,25 @@
 
 @theme {
   /* === COLORS — Backgrounds === */
-  --color-background:  #FFFFFF;   /* Warm White */
-  --color-surface:     #FAF7F2;   /* Soft Cream */
-  --color-surface-alt: #F5F3F1;   /* Soft Gray */
+  --color-background:  #FFFFFF;   /* White */
+  --color-surface:     #F5F2EB;   /* Ivory — section / card background */
+  --color-surface-alt: #F7F8F5;   /* Soft Gray — hover states, alt sections */
 
   /* === COLORS — Text === */
-  --color-foreground:        #2F2A28;
-  --color-foreground-muted:  #6F625D;
-  --color-muted:             #9A8C86;
+  --color-foreground:        #171A19;  /* Carbon */
+  --color-foreground-muted:  #5E625F;
+  --color-muted:              #8B8E89;
 
   /* === COLORS — Brand === */
-  --color-accent:       #C98A8A;  /* Dusty Rose */
-  --color-accent-hover: #B87575;
-  --color-accent-soft:  #E8D8C8;  /* Soft Beige */
-  --color-accent-blush: #DFA39A;  /* Warm Blush */
+  --color-accent:       #0D0F0F;  /* Obsidian — primary CTA, strong text */
+  --color-accent-hover: #B38A52;  /* Burnished Gold — hover state */
+  --color-accent-soft:  #D7B987;  /* Soft brass — highlights */
+  --color-accent-blush: #263C33;  /* Racing Green — secondary accents */
 
   /* === COLORS — UI === */
-  --color-border:   #E6DDD6;
+  --color-border:   #D8D6CF;
   --color-alert:    #C0392B;
   --color-success:  #5C8A6A;
-
-  /* === SLICKTEE BRAND TOKENS === */
-  --color-slickBlack:  #0B0F0D;
-  --color-slickGreen:  #123D2A;
-  --color-slickActive: #22C55E;
-  --color-slickLime:   #A3E635;
-  --color-slickSoft:   #F7F8F5;
-  --color-slickText:   #111827;
-  --color-slickMuted:  #6B7280;
 
   /* === BORDER RADIUS === */
   --radius-sm:   4px;
@@ -38,11 +29,12 @@
   --radius-pill: 999px;
 
   /* === SHADOWS === */
-  --shadow-card:       0 1px 4px rgba(47, 42, 40, 0.06);
-  --shadow-card-hover: 0 6px 20px rgba(47, 42, 40, 0.12);
+  --shadow-card:       0 1px 4px rgba(23, 26, 25, 0.06);
+  --shadow-card-hover: 0 6px 20px rgba(23, 26, 25, 0.12);
 
   /* === TYPOGRAPHY === */
   --font-sans:    'Lato', 'Inter', system-ui, sans-serif;
+  --font-serif:   'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-heading: 'Lato', 'Georgia', serif;
 
   /* === TRANSITIONS === */

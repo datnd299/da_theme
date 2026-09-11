@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme header for Corvelshop.
+ * Theme header for Corvel.
  *
  * @package dawp
  */
@@ -13,6 +13,8 @@ $account_url = $account_url ?: home_url('/my-account/');
 $nav_items = [
     ['title' => __('Home', 'dawp'), 'url' => home_url('/')],
     ['title' => __('Shop', 'dawp'), 'url' => home_url('/shop/')],
+    ['title' => __('Collections', 'dawp'), 'url' => home_url('/collections/')],
+    ['title' => __('Warranty', 'dawp'), 'url' => home_url('/warranty/')],
     ['title' => __('About Us', 'dawp'), 'url' => home_url('/about-us/')],
     ['title' => __('Contact Us', 'dawp'), 'url' => home_url('/contact-us/')],
 ];
@@ -100,6 +102,9 @@ $nav_items = [
     height: 54px;
     max-width: 190px;
     object-fit: contain;
+    /* Logo artwork is white ink for dark surfaces; recolor to solid black so
+       it stays legible on the header's light background. */
+    filter: brightness(0) saturate(100%);
   }
 
   .qb-header-nav {
@@ -112,191 +117,6 @@ $nav_items = [
     color: var(--qb-text);
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: .04em;
-    white-space: nowrap;
-    transition: color .2s ease;
-  }
-
-  .qb-header-nav a:hover {
-    color: var(--qb-gold);
-  }
-
-  .qb-header-actions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-
-  .qb-header-search {
-    display: flex;
-    align-items: center;
-  }
-
-  .qb-header-search input[type="search"] {
-    width: 180px;
-    min-height: 42px;
-    border: 1px solid var(--qb-border);
-    border-radius: 2px;
-    background: var(--qb-cream);
-    color: var(--qb-plum);
-    font: inherit;
-    font-size: 14px;
-    outline: none;
-    padding: 0 15px;
-    transition: border-color .2s ease, box-shadow .2s ease;
-  }
-
-  .qb-header-search input[type="search"]:focus {
-    border-color: var(--qb-gold);
-    box-shadow: 0 0 0 3px rgba(216,169,78,.16);
-  }
-
-  .qb-icon-link,
-  .qb-menu-toggle,
-  .qb-search-toggle {
-    display: inline-flex;
-    width: 42px;
-    height: 42px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--qb-border);
-    border-radius: 2px;
-    background: #fff;
-    color: var(--qb-plum);
-    cursor: pointer;
-    transition: border-color .2s ease, background .2s ease, color .2s ease;
-  }
-
-  .qb-icon-link:hover,
-  .qb-menu-toggle:hover,
-  .qb-search-toggle:hover {
-    border-color: var(--qb-gold);
-    background: var(--qb-cream);
-    color: var(--qb-gold);
-  }
-
-  .qb-site-header .qb-cart-link {
-    display: inline-flex;
-    min-height: 42px;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--qb-plum);
-    border-radius: 2px;
-    background: var(--qb-plum);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 0 17px;
-    box-shadow: none;
-    transition: border-color .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
-  }
-
-  .qb-site-header .qb-cart-link:hover {
-    border-color: var(--qb-gold);
-    background: var(--qb-gold);
-    color: var(--qb-plum);
-    box-shadow: none;
-  }
-
-  .qb-search-toggle,
-  .qb-menu-toggle {
-    display: none;
-  }
-
-  .qb-cart-link .qb-cart-text,
-  .qb-cart-link .dawp-cart-count {
-    display: inline;
-  }
-
-  .qb-cart-link .qb-cart-icon {
-    display: none;
-  }
-
-  .qb-mobile-panel {
-    display: none;
-    border-top: 1px solid var(--qb-border);
-    background: #fff;
-  }
-
-  .qb-mobile-panel.is-open {
-    display: block;
-  }
-
-  .qb-mobile-search form {
-    display: flex;
-    gap: 10px;
-    padding: 14px 0;
-  }
-
-  .qb-mobile-search input[type="search"] {
-    min-width: 0;
-    flex: 1;
-    min-height: 44px;
-    border: 1px solid var(--qb-border);
-    border-radius: 2px;
-    padding: 0 15px;
-    font: inherit;
-    outline: none;
-  }
-
-  .qb-mobile-search button {
-    border: 0;
-    border-radius: 2px;
-    background: var(--qb-plum);
-    color: #fff;
-    font: inherit;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 0 18px;
-  }
-
-  .qb-mobile-nav {
-    display: grid;
-    gap: 4px;
-    padding: 12px 0 16px;
-  }
-
-  .qb-mobile-nav a {
-    border-radius: 12px;
-    color: var(--qb-plum);
-    font-size: 15px;
-    font-weight: 800;
-    padding: 12px 14px;
-  }
-
-  .qb-mobile-nav a:hover {
-    background: var(--qb-cream);
-  }
-
-  .qb-sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    white-space: nowrap;
-  }
-
-  @media (max-width: 1120px) {
-    .qb-header-nav,
-    .qb-header-search,
-    .qb-account-link {
-      display: none;
-    }
-
-    .qb-header-main {
-      grid-template-columns: auto auto;
-      justify-content: space-between;
-    }
-
-    .qb-search-toggle,
-    .qb-menu-toggle {
-      display: inline-flex;
-    }
-  }
-
-  @media (max-width: 520px) {
     letter-spacing: .04em;
     white-space: nowrap;
     transition: color .2s ease;
@@ -553,13 +373,13 @@ $nav_items = [
 <header id="masthead" class="qb-site-header" role="banner">
     <div class="qb-announcement">
         <div class="qb-header-wrap">
-            <?php esc_html_e('Modern luxury watches built for precision with presence', 'dawp'); ?>
+            <?php esc_html_e('Automatic mechanical watches - 2-year warranty on every Corvel', 'dawp'); ?>
         </div>
     </div>
 
     <div class="qb-header-wrap qb-header-main">
-        <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Corvelshop home", 'dawp'); ?>">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/corvelshoplogo.png'); ?>" alt="<?php esc_attr_e('Corvelshop', 'dawp'); ?>">
+        <a class="qb-logo" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e("Corvel home", 'dawp'); ?>">
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/home/logo_corvel.png'); ?>" alt="<?php esc_attr_e('Corvel', 'dawp'); ?>">
         </a>
 
         <nav class="qb-header-nav" aria-label="<?php esc_attr_e('Primary navigation', 'dawp'); ?>">
